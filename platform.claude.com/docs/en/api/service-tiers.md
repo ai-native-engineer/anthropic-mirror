@@ -1,43 +1,65 @@
 <!-- source: https://platform.claude.com/docs/en/api/service-tiers -->
 
 # Service tiers
-Different tiers of service allow you to balance availability, performance, and predictable costs based on your application's needs.
-
-Priority Tier capacity commitments are no longer available for purchase. Organizations with an existing commitment can continue to use Priority Tier through their contract end date, and this page remains available as a reference for them. If you need guaranteed capacity, contact your account team.
-Anthropic offers three service tiers:
-  * **Priority Tier:** Available only to organizations with an existing capacity commitment
-  * **Standard:** Default tier for both piloting and scaling everyday use cases
-  * **Batch:** Best for asynchronous workflows that can wait or benefit from being outside your normal capacity
 
-Standard Tier
+Different tiers of service allow you to balance availability, performance, and predictable costs based on your application's needs.
+
+---
+
+<Warning>
+Priority Tier capacity commitments are no longer available for purchase. Organizations with an existing commitment can continue to use Priority Tier through their contract end date, and this page remains available as a reference for them. If you need guaranteed capacity, contact your account team.
+</Warning>
+
+Anthropic offers three service tiers:
+- **Priority Tier:** Available only to organizations with an existing capacity commitment
+- **Standard:** Default tier for both piloting and scaling everyday use cases
+- **Batch:** Best for asynchronous workflows that can wait or benefit from being outside your normal capacity
+
+## Standard Tier
+
 The standard tier is the default service tier for all API requests. The API prioritizes these requests alongside all other requests with best-effort availability.
-Priority Tier
-The API prioritizes requests in this tier over all other requests. This prioritization helps minimize ["server overloaded" errors](https://platform.claude.com/docs/en/api/errors#http-errors), even during peak times.
-For more information, see [Existing Priority Tier commitments](https://platform.claude.com/docs/en/api/service-tiers#existing-priority-tier-commitments).
-How requests get assigned tiers
+
+## Priority Tier
+
+The API prioritizes requests in this tier over all other requests. This prioritization helps minimize ["server overloaded" errors](/docs/en/api/errors#http-errors), even during peak times.
+
+For more information, see [Existing Priority Tier commitments](#existing-priority-tier-commitments).
+
+## How requests get assigned tiers
+
 When handling a request, Anthropic decides to assign a request to Priority Tier in the following scenarios:
-  * Your organization has sufficient priority tier capacity **input** tokens per minute
-  * Your organization has sufficient priority tier capacity **output** tokens per minute
+- Your organization has sufficient priority tier capacity **input** tokens per minute
+- Your organization has sufficient priority tier capacity **output** tokens per minute
 
 Anthropic counts usage against Priority Tier capacity as follows:
+
 **Input Tokens**
-  * Cache reads as 0.1 tokens per token read from the cache
-  * Cache writes as 1.25 tokens per token written to the cache with a 5 minute TTL
-  * Cache writes as 2.00 tokens per token written to the cache with a 1 hour TTL
-  * For [US-only inference](https://platform.claude.com/docs/en/manage-claude/data-residency) (`inference_geo: "us"`) requests on Claude Opus 4.6, Claude Sonnet 4.6, and later models, input tokens are 1.1 tokens per token
-  * All other input tokens are 1 token per token
+- Cache reads as 0.1 tokens per token read from the cache
+- Cache writes as 1.25 tokens per token written to the cache with a 5 minute TTL
+- Cache writes as 2.00 tokens per token written to the cache with a 1 hour TTL
+- For [US-only inference](/docs/en/manage-claude/data-residency) (`inference_geo: "us"`) requests on Claude Opus 4.6, Claude Sonnet 4.6, and later models, input tokens are 1.1 tokens per token
+- All other input tokens are 1 token per token
 
 **Output Tokens**
-  * For [US-only inference](https://platform.claude.com/docs/en/manage-claude/data-residency) (`inference_geo: "us"`) requests on Claude Opus 4.6, Claude Sonnet 4.6, and later models, output tokens are 1.1 tokens per token
-  * All other output tokens are 1 token per token
+- For [US-only inference](/docs/en/manage-claude/data-residency) (`inference_geo: "us"`) requests on Claude Opus 4.6, Claude Sonnet 4.6, and later models, output tokens are 1.1 tokens per token
+- All other output tokens are 1 token per token
 
 Otherwise, requests proceed at standard tier.
-These burndown rates reflect the relative pricing of each token type. For example, US-only inference is priced at 1.1x on Opus 4.6, Sonnet 4.6, and later models, so each token consumed with `inference_geo: "us"` draws down 1.1 tokens from your Priority Tier capacity.
-Requests assigned Priority Tier pull from both the Priority Tier capacity and the regular rate limits. If servicing the request would exceed the rate limits, the request is declined.
-Using service tiers
-You can control which service tiers can be used for a request by setting the `service_tier` parameter:
-Python
 
+<Note>
+These burndown rates reflect the relative pricing of each token type. For example, US-only inference is priced at 1.1x on Opus 4.6, Sonnet 4.6, and later models, so each token consumed with `inference_geo: "us"` draws down 1.1 tokens from your Priority Tier capacity.
+</Note>
+
+<Note>
+Requests assigned Priority Tier pull from both the Priority Tier capacity and the regular rate limits.
+If servicing the request would exceed the rate limits, the request is declined.
+</Note>
+
+## Using service tiers
+
+You can control which service tiers can be used for a request by setting the `service_tier` parameter:
+
+```python Python
 message = client.messages.create(
     model="claude-opus-4-8",
     max_tokens=1024,
@@ -45,130 +67,51 @@ message = client.messages.create(
     service_tier="auto",  # Automatically use Priority Tier when available, fallback to standard
 )
 print(message.usage.service_tier)
+```
 
 The `service_tier` parameter accepts the following values:
-  * `"auto"` (default) - Uses the Priority Tier capacity if available, falling back to your other capacity if not
-  * `"standard_only"` - Only use standard tier capacity, useful if you don't want to use your Priority Tier capacity
+
+- `"auto"` (default) - Uses the Priority Tier capacity if available, falling back to your other capacity if not
+- `"standard_only"` - Only use standard tier capacity, useful if you don't want to use your Priority Tier capacity
 
 The response `usage` object also includes the service tier assigned to the request:
 
+```json
+{
   "usage": {
     "input_tokens": 410,
     "cache_creation_input_tokens": 0,
     "cache_read_input_tokens": 0,
     "output_tokens": 585,
     "service_tier": "priority"
-
+  }
+}
+```
 This allows you to determine which service tier was assigned to the request.
-When requesting `service_tier="auto"` with a model with a Priority Tier commitment, these response headers provide insights:
 
+When requesting `service_tier="auto"` with a model with a Priority Tier commitment, these response headers provide insights:
+```text
 anthropic-priority-input-tokens-limit: 10000
 anthropic-priority-input-tokens-remaining: 9618
 anthropic-priority-input-tokens-reset: 2025-01-12T23:11:59Z
 anthropic-priority-output-tokens-limit: 10000
 anthropic-priority-output-tokens-remaining: 6000
 anthropic-priority-output-tokens-reset: 2025-01-12T23:12:21Z
-
+```
 You can use the presence of these headers to detect if your request was eligible for Priority Tier, even if it was over the limit.
-Existing Priority Tier commitments
+
+## Existing Priority Tier commitments
+
 A Priority Tier commitment consists of:
-  * A number of input tokens per minute
-  * A number of output tokens per minute
-  * A commitment duration (1, 3, 6, or 12 months)
-  * A specific model version
+- A number of input tokens per minute
+- A number of output tokens per minute
+- A commitment duration (1, 3, 6, or 12 months)
+- A specific model version
 
 Priority Tier targets 99.5% uptime with prioritized computational resources. Requests beyond your committed capacity automatically fall back to standard tier.
-### 
-Supported models
+
+### Supported models
+
 Priority Tier is supported on all available Claude models (including Claude Fable 5 and Claude Opus 4.8) except [Claude Mythos Preview](https://anthropic.com/glasswing) and Claude Mythos 5.
-Check the [Models overview](https://platform.claude.com/docs/en/about-claude/models/overview) for more details on available models.
-  * [Standard Tier](https://platform.claude.com/docs/en/api/service-tiers#standard-tier)
-  * [Priority Tier](https://platform.claude.com/docs/en/api/service-tiers#priority-tier)
-  * [How requests get assigned tiers](https://platform.claude.com/docs/en/api/service-tiers#how-requests-get-assigned-tiers)
-  * [Using service tiers](https://platform.claude.com/docs/en/api/service-tiers#using-service-tiers)
-  * [Existing Priority Tier commitments](https://platform.claude.com/docs/en/api/service-tiers#existing-priority-tier-commitments)
-  * [Supported models](https://platform.claude.com/docs/en/api/service-tiers#supported-models)
 
-API reference/Support & configuration
-# Service tiers
-Different tiers of service allow you to balance availability, performance, and predictable costs based on your application's needs.
-
-Priority Tier capacity commitments are no longer available for purchase. Organizations with an existing commitment can continue to use Priority Tier through their contract end date, and this page remains available as a reference for them. If you need guaranteed capacity, contact your account team.
-Anthropic offers three service tiers:
-  * **Priority Tier:** Available only to organizations with an existing capacity commitment
-  * **Standard:** Default tier for both piloting and scaling everyday use cases
-  * **Batch:** Best for asynchronous workflows that can wait or benefit from being outside your normal capacity
-
-Standard Tier
-The standard tier is the default service tier for all API requests. The API prioritizes these requests alongside all other requests with best-effort availability.
-Priority Tier
-The API prioritizes requests in this tier over all other requests. This prioritization helps minimize ["server overloaded" errors](https://platform.claude.com/docs/en/api/errors#http-errors), even during peak times.
-For more information, see [Existing Priority Tier commitments](https://platform.claude.com/docs/en/api/service-tiers#existing-priority-tier-commitments).
-How requests get assigned tiers
-When handling a request, Anthropic decides to assign a request to Priority Tier in the following scenarios:
-  * Your organization has sufficient priority tier capacity **input** tokens per minute
-  * Your organization has sufficient priority tier capacity **output** tokens per minute
-
-Anthropic counts usage against Priority Tier capacity as follows:
-**Input Tokens**
-  * Cache reads as 0.1 tokens per token read from the cache
-  * Cache writes as 1.25 tokens per token written to the cache with a 5 minute TTL
-  * Cache writes as 2.00 tokens per token written to the cache with a 1 hour TTL
-  * For [US-only inference](https://platform.claude.com/docs/en/manage-claude/data-residency) (`inference_geo: "us"`) requests on Claude Opus 4.6, Claude Sonnet 4.6, and later models, input tokens are 1.1 tokens per token
-  * All other input tokens are 1 token per token
-
-**Output Tokens**
-  * For [US-only inference](https://platform.claude.com/docs/en/manage-claude/data-residency) (`inference_geo: "us"`) requests on Claude Opus 4.6, Claude Sonnet 4.6, and later models, output tokens are 1.1 tokens per token
-  * All other output tokens are 1 token per token
-
-Otherwise, requests proceed at standard tier.
-These burndown rates reflect the relative pricing of each token type. For example, US-only inference is priced at 1.1x on Opus 4.6, Sonnet 4.6, and later models, so each token consumed with `inference_geo: "us"` draws down 1.1 tokens from your Priority Tier capacity.
-Requests assigned Priority Tier pull from both the Priority Tier capacity and the regular rate limits. If servicing the request would exceed the rate limits, the request is declined.
-Using service tiers
-You can control which service tiers can be used for a request by setting the `service_tier` parameter:
-Python
-
-message = client.messages.create(
-    model="claude-opus-4-8",
-    max_tokens=1024,
-    messages=[{"role": "user", "content": "Hello, Claude!"}],
-    service_tier="auto",  # Automatically use Priority Tier when available, fallback to standard
-)
-print(message.usage.service_tier)
-
-The `service_tier` parameter accepts the following values:
-  * `"auto"` (default) - Uses the Priority Tier capacity if available, falling back to your other capacity if not
-  * `"standard_only"` - Only use standard tier capacity, useful if you don't want to use your Priority Tier capacity
-
-The response `usage` object also includes the service tier assigned to the request:
-
-  "usage": {
-    "input_tokens": 410,
-    "cache_creation_input_tokens": 0,
-    "cache_read_input_tokens": 0,
-    "output_tokens": 585,
-    "service_tier": "priority"
-
-This allows you to determine which service tier was assigned to the request.
-When requesting `service_tier="auto"` with a model with a Priority Tier commitment, these response headers provide insights:
-
-anthropic-priority-input-tokens-limit: 10000
-anthropic-priority-input-tokens-remaining: 9618
-anthropic-priority-input-tokens-reset: 2025-01-12T23:11:59Z
-anthropic-priority-output-tokens-limit: 10000
-anthropic-priority-output-tokens-remaining: 6000
-anthropic-priority-output-tokens-reset: 2025-01-12T23:12:21Z
-
-You can use the presence of these headers to detect if your request was eligible for Priority Tier, even if it was over the limit.
-Existing Priority Tier commitments
-A Priority Tier commitment consists of:
-  * A number of input tokens per minute
-  * A number of output tokens per minute
-  * A commitment duration (1, 3, 6, or 12 months)
-  * A specific model version
-
-Priority Tier targets 99.5% uptime with prioritized computational resources. Requests beyond your committed capacity automatically fall back to standard tier.
-### 
-Supported models
-Priority Tier is supported on all available Claude models (including Claude Fable 5 and Claude Opus 4.8) except [Claude Mythos Preview](https://anthropic.com/glasswing) and Claude Mythos 5.
-Check the [Models overview](https://platform.claude.com/docs/en/about-claude/models/overview) for more details on available models.
+Check the [Models overview](/docs/en/about-claude/models/overview) for more details on available models.

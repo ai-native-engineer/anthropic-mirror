@@ -1,139 +1,172 @@
 <!-- source: https://platform.claude.com/docs/en/cli-sdks-libraries/cli/quickstart -->
 
 # CLI quickstart
-Install the ant command-line tool, authenticate, and send your first request to the Claude API.
-The `ant` CLI provides access to the Claude API from your terminal. Every API resource is exposed as a subcommand, with output formatting, response filtering, and YAML or JSON file input.
-The ant CLI in action.
-Compared to `curl`, `ant` builds request bodies from typed flags or piped YAML instead of hand-written JSON, and inlines file contents into string fields with an `@path` reference. It extracts response fields with a built-in `--transform` query, so you don't need a separate tool like `jq`, and it paginates list endpoints automatically.
-For endpoint-specific parameters and response schemas, see the [API reference](https://platform.claude.com/docs/en/api/cli/messages/create). This page gets you to a working command. For everything else the CLI does, see [Using the CLI](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/using) and [CLI scripting and automation](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/scripting).
-Installation
-Homebrew (macOS)
-Homebrew (macOS)
-curl (Linux/WSL)
-curl (Linux/WSL)
-Go
-Go
 
+Install the ant command-line tool, authenticate, and send your first request to the Claude API.
+
+---
+
+The `ant` CLI provides access to the Claude API from your terminal. Every API resource is exposed as a subcommand, with output formatting, response filtering, and YAML or JSON file input.
+
+<Frame caption="The ant CLI in action.">
+  <video
+   
+    autoPlay
+    loop
+    muted
+    playsInline
+    controls
+    aria-label="Screen recording of the ant CLI running in a terminal."
+  >
+    <source src="/docs/videos/ant-cli-demo.webm" type="video/webm" />
+    <source src="/docs/videos/ant-cli-demo.mp4" type="video/mp4" />
+  </video>
+</Frame>
+
+Compared to `curl`, `ant` builds request bodies from typed flags or piped YAML instead of hand-written JSON, and inlines file contents into string fields with an `@path` reference. It extracts response fields with a built-in `--transform` query, so you don't need a separate tool like `jq`, and it paginates list endpoints automatically.
+
+<Info>
+For endpoint-specific parameters and response schemas, see the [API reference](/docs/en/api/cli/messages/create). This page gets you to a working command. For everything else the CLI does, see [Using the CLI](/docs/en/cli-sdks-libraries/cli/using) and [CLI scripting and automation](/docs/en/cli-sdks-libraries/cli/scripting).
+</Info>
+
+## Installation
+
+<Tabs>
+<Tab title="Homebrew (macOS)">
+
+```bash
 brew install anthropics/tap/ant
+```
+
+</Tab>
+<Tab title="curl (Linux/WSL)">
+
+For Linux environments, download the release binary directly.
+
+```bash nocheck
+VERSION=1.12.0
+OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+ARCH=$(uname -m | sed -e 's/x86_64/amd64/' -e 's/aarch64/arm64/')
+curl -fsSL "https://github.com/anthropics/anthropic-cli/releases/download/v${VERSION}/ant_${VERSION}_${OS}_${ARCH}.tar.gz" \
+  | sudo tar -xz -C /usr/local/bin ant
+```
+
+You can find all releases on the [GitHub releases page](https://github.com/anthropics/anthropic-cli/releases).
+
+</Tab>
+<Tab title="Go">
+
+You may also install the CLI from source using `go install`. Requires Go 1.22 or later.
+
+```bash
+go install github.com/anthropics/anthropic-cli/cmd/ant@latest
+```
+
+The binary is placed in `$(go env GOPATH)/bin`. Add it to your `PATH` if it isn't already:
+
+```bash
+export PATH="$PATH:$(go env GOPATH)/bin"
+```
+
+</Tab>
+</Tabs>
 
 Check the installation:
 
+```bash
 ant --version
+```
 
-Authentication
+## Authentication
+
 `ant auth login` opens a browser-based OAuth flow against the Claude Console and stores the resulting credentials locally, so you can call the API without creating or managing an API key.
-CLI
 
+```bash CLI nocheck
 ant auth login
+```
 
-For other ways to authenticate (API key environment variable, headless hosts, multiple workspaces, named profiles, and Workload Identity Federation), see [CLI authentication options](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/authentication).
-Send your first request
-With the binary installed and authenticated, call the [Messages API](https://platform.claude.com/docs/en/api/cli/messages/create):
+<Note>
+For other ways to authenticate (API key environment variable, headless hosts, multiple workspaces, named profiles, and Workload Identity Federation), see [CLI authentication options](/docs/en/cli-sdks-libraries/cli/authentication).
+</Note>
 
+## Send your first request
+
+With the binary installed and authenticated, call the [Messages API](/docs/en/api/cli/messages/create):
+
+```bash
 ant messages create \
   --model claude-opus-4-8 \
   --max-tokens 1024 \
   --message '{role: user, content: "Hello, Claude"}'
+```
 
-Output
-
+```json Output
+{
   "model": "claude-opus-4-8",
   "id": "msg_01YMmR5XodC5nTqMxLZMKaq6",
   "type": "message",
   "role": "assistant",
   "content": [
+    {
       "type": "text",
       "text": "Hello! How are you doing today? Is there something I can help you with?"
+    }
   ],
   "stop_reason": "end_turn",
   "usage": { "input_tokens": 27, "output_tokens": 20 /*, ... */ }
+}
+```
 
 The response is the full API object, pretty-printed because stdout is a terminal.
-Shell completion
-The CLI ships completion scripts for bash, zsh, fish, and PowerShell. Generate and install one for your shell:
-zsh
-zsh
-bash
-bash
-fish
-fish
-PowerShell
-PowerShell
 
+## Shell completion
+
+The CLI ships completion scripts for bash, zsh, fish, and PowerShell. Generate and install one for your shell:
+
+<Tabs>
+<Tab title="zsh">
+
+```bash
 ant @completion zsh > "${fpath[1]}/_ant"
 # Restart your shell or run: autoload -U compinit && compinit
+```
 
-Next steps
-[  CLI authentication options API keys, headless hosts, multiple workspaces, and named profiles ](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/authentication)[ Using the CLI Command structure, output formats, GJSON transforms, and request bodies ](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/using)[  CLI scripting and automation Version-control API resources, scripting patterns, and use from Claude Code ](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/scripting)
-  * [Installation](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/quickstart#installation)
-  * [Authentication](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/quickstart#authentication)
-  * [Send your first request](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/quickstart#send-your-first-request)
-  * [Shell completion](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/quickstart#shell-completion)
-  * [Next steps](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/quickstart#next-steps)
+</Tab>
+<Tab title="bash">
 
-CLI, SDKs, and libraries/ant CLI
-# CLI quickstart
-Install the ant command-line tool, authenticate, and send your first request to the Claude API.
-The `ant` CLI provides access to the Claude API from your terminal. Every API resource is exposed as a subcommand, with output formatting, response filtering, and YAML or JSON file input.
-The ant CLI in action.
-Compared to `curl`, `ant` builds request bodies from typed flags or piped YAML instead of hand-written JSON, and inlines file contents into string fields with an `@path` reference. It extracts response fields with a built-in `--transform` query, so you don't need a separate tool like `jq`, and it paginates list endpoints automatically.
-For endpoint-specific parameters and response schemas, see the [API reference](https://platform.claude.com/docs/en/api/cli/messages/create). This page gets you to a working command. For everything else the CLI does, see [Using the CLI](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/using) and [CLI scripting and automation](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/scripting).
-Installation
-Homebrew (macOS)
-Homebrew (macOS)
-curl (Linux/WSL)
-curl (Linux/WSL)
-Go
-Go
+```bash
+ant @completion bash > /etc/bash_completion.d/ant
+```
 
-brew install anthropics/tap/ant
+</Tab>
+<Tab title="fish">
 
-Check the installation:
+```bash
+ant @completion fish > ~/.config/fish/completions/ant.fish
+```
 
-ant --version
+</Tab>
+<Tab title="PowerShell">
 
-Authentication
-`ant auth login` opens a browser-based OAuth flow against the Claude Console and stores the resulting credentials locally, so you can call the API without creating or managing an API key.
-CLI
+```powershell
+ant @completion powershell | Out-String | Invoke-Expression
+# To persist across sessions:
+# ant @completion powershell >> $PROFILE
+```
 
-ant auth login
+</Tab>
+</Tabs>
 
-For other ways to authenticate (API key environment variable, headless hosts, multiple workspaces, named profiles, and Workload Identity Federation), see [CLI authentication options](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/authentication).
-Send your first request
-With the binary installed and authenticated, call the [Messages API](https://platform.claude.com/docs/en/api/cli/messages/create):
+## Next steps
 
-ant messages create \
-  --model claude-opus-4-8 \
-  --max-tokens 1024 \
-  --message '{role: user, content: "Hello, Claude"}'
-
-Output
-
-  "model": "claude-opus-4-8",
-  "id": "msg_01YMmR5XodC5nTqMxLZMKaq6",
-  "type": "message",
-  "role": "assistant",
-  "content": [
-      "type": "text",
-      "text": "Hello! How are you doing today? Is there something I can help you with?"
-  ],
-  "stop_reason": "end_turn",
-  "usage": { "input_tokens": 27, "output_tokens": 20 /*, ... */ }
-
-The response is the full API object, pretty-printed because stdout is a terminal.
-Shell completion
-The CLI ships completion scripts for bash, zsh, fish, and PowerShell. Generate and install one for your shell:
-zsh
-zsh
-bash
-bash
-fish
-fish
-PowerShell
-PowerShell
-
-ant @completion zsh > "${fpath[1]}/_ant"
-# Restart your shell or run: autoload -U compinit && compinit
-
-Next steps
-[  CLI authentication options API keys, headless hosts, multiple workspaces, and named profiles ](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/authentication)[ Using the CLI Command structure, output formats, GJSON transforms, and request bodies ](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/using)[  CLI scripting and automation Version-control API resources, scripting patterns, and use from Claude Code ](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/scripting)
+<CardGroup cols={3}>
+  <Card title="CLI authentication options" icon="lock" href="/docs/en/cli-sdks-libraries/cli/authentication">
+    API keys, headless hosts, multiple workspaces, and named profiles
+  </Card>
+  <Card title="Using the CLI" icon="terminal" href="/docs/en/cli-sdks-libraries/cli/using">
+    Command structure, output formats, GJSON transforms, and request bodies
+  </Card>
+  <Card title="CLI scripting and automation" icon="code" href="/docs/en/cli-sdks-libraries/cli/scripting">
+    Version-control API resources, scripting patterns, and use from Claude Code
+  </Card>
+</CardGroup>
