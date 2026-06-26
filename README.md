@@ -7,7 +7,7 @@
 ![repo size](https://img.shields.io/github/repo-size/ai-native-engineer/anthropic-mirror)
 ![docs ~4.5k](https://img.shields.io/badge/docs-~4.5k-blue)
 
-> Unofficial markdown archive of **Anthropic & Claude public materials** - news, research, engineering, policy & legal, products, platform docs & API reference, Help Center, the Alignment Science and Interpretability blogs, and Anthropic Academy courses.
+> Unofficial markdown archive of **Anthropic & Claude public materials** - news, research, engineering, policy & legal, products, platform docs & API reference, Help Center, Trust Center, the Alignment Science and Interpretability blogs, and Anthropic Academy courses.
 
 Collected as a reference source for talks and study, kept public so anyone can read.
 
@@ -26,6 +26,7 @@ About 4,500 markdown files, as of the latest crawl snapshot. The tree mirrors th
 | `support.claude.com/` | Help Center articles | ~370 |
 | `alignment.anthropic.com/` | Alignment Science blog | ~51 |
 | `transformer-circuits.pub/` | Interpretability research (Transformer Circuits Thread), with figures saved as PNG | ~49 |
+| `trust.anthropic.com` | Trust Center (security, compliance, certifications) | 1 |
 | `anthropic.skilljar.com/` | Anthropic Academy course lessons | ~158 |
 
 Mostly text. Exceptions: interpretability papers keep their inline figures as extracted PNG files, and YouTube videos embedded in a page are transcribed and inlined below the embed inside a collapsible `<details>` block. Anthropic Academy video courses are transcribed from YouTube / JWPlayer captions.
@@ -42,6 +43,7 @@ Crawled by an automated, sitemap-driven pipeline (no API keys, no login for publ
 - https://support.claude.com (Help Center)
 - https://alignment.anthropic.com (Alignment Science)
 - https://transformer-circuits.pub (Interpretability)
+- https://trust.anthropic.com (Trust Center)
 - https://anthropic.skilljar.com (Anthropic Academy)
 
 ## Usage

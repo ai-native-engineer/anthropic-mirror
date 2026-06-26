@@ -24,6 +24,7 @@ A **generated** archive, not a hand-maintained one. Every Markdown file under a 
 | `support.claude.com/` | Help Center |
 | `alignment.anthropic.com/` | Alignment Science blog |
 | `transformer-circuits.pub/` | Interpretability research (figures extracted as PNG under `images/`) |
+| `trust.anthropic.com.md` | Trust Center (security, compliance, certifications) - single page |
 | `anthropic.skilljar.com/` | Anthropic Academy course lessons |
 
 ## Conventions
