@@ -1,0 +1,590 @@
+<!-- source: https://claude.com/solutions/healthcare -->
+
+# Transform healthcare from insight to action
+
+Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
+
+Get started
+
+[Get started](#pricing-section)Get started
+
+Contact sales
+
+[Contact sales](http://claude.com/contact-sales/healthcare)Contact sales
+
+## Your thinking partner
+
+From health startups to enterprise organizations, teams innovate faster with Claude.
+
+Authorization
+
+Insurance
+
+Triaging
+
+Documentation
+
+Active
+
+Prompt
+
+Help me review this prior authorization for a Medicare patient needing a robotic-assisted lung biopsy. Validate credentials and codes, check coverage requirements, flag missing documentation, and draft a prior authorization recommendation.
+
+Attachments
+
+Fax - Medicare prior auth request
+
+4kb
+
+PDF
+
+Patient history physical
+
+5kb
+
+‍DOC
+
+### Prior Authorization Review
+
+#### Request Summary
+
+**Patient:** X23F2
+
+**Procedure:** Robotic-Assisted Peripheral Lung Biopsy (CPT 32405)
+
+**Provider:** Dr. Sarah Chen, Pulmonology Associates
+
+**Submitted:** December 18, 2025
+
+#### Validation Checks
+
+##### Provider NPI
+
+**Status:** ✓ Verified
+
+##### CPT Code (32405)
+
+**Status:** ✓ Verified billable
+
+##### ICD-10 (R91.1)
+
+**Status:** ✓ Verified
+
+##### Coverage Policy
+
+**Status:** ✓ LCD L38319 applies
+
+#### Medical Necessity (LCD L38319)
+
+##### Pulmonary nodule on imaging
+
+**Documentation:** 2.3cm spiculated nodule, RUL
+
+**Status:** ✓ Met
+
+##### Tissue diagnosis warranted
+
+**Documentation:** PET SUV 4.2, concerning for malignancy
+
+**Status:** ✓ Met
+
+##### Surgical candidate
+
+**Documentation:** FEV1 78% predicted
+
+**Status:** ✓ Met
+
+##### Less invasive approach tried
+
+**Documentation:** Prior bronchoscopy non-diagnostic
+
+**Status:** ✓ Met
+
+#### Recommendation
+
+✓ **APPROVE**
+
+All LCD L38319 criteria met. Provider verified.
+
+#### Audit Trail
+
+**NPI lookup**
+
+* Source: NPI Registry MCP
+
+**ICD-10 validation**
+
+* Source: ICD-10 Database MCP
+
+**Coverage search**
+
+* Source: CMS Coverage Database MCP
+
+**Documentation review**
+
+* Source: Uploaded files
+
+### Prior authorization
+
+Prior authorization reviews take hours of cross-referencing while patients wait. Claude flags documentation gaps, catches who's been overlooked, and drafts requests ready for review.
+
+Prompt
+
+Analyze this insurance claim appeal and help me understand why the claim was originally rejected.  Cross-reference the patient's medical records and coverage policy to identify whether any supporting justification has been provided. Draft a comprehensive review summary that addresses each denial reason with specific clinical evidence, cites relevant medical necessity criteria, and references any additional applicable information.
+
+Attachments
+
+Appeal submission
+
+8kb
+
+PDF
+
+Member medical records
+
+14kb
+
+pdf
+
+### Appeal Review Summary
+
+Lumbar Spinal Fusion L4-L5
+
+**Appeal ID:** APL-2024-0284719 | **Member:** UHC-8847291 (62F)
+
+**Procedure:** Lumbar spinal fusion L4-L5 (CPT 22612, 22630)
+
+**Provider:** James Morrison, MD | **Review Due:** January 17, 2025
+
+#### Original Denial
+
+##### Code: MN-401
+
+**Reason:** Insufficient documentation of failed conservative treatment
+
+**Policy Reference:** Section 4.2.1
+
+##### Code: MN-403
+
+**Reason:** Required interventional treatments not documented
+
+**Policy Reference:** Section 4.2.3
+
+**Gap identified:** ESI #3 procedure note was missing from original submission.
+
+#### Policy Criteria Review
+
+##### Failed conservative treatment ≥6 months
+
+**Evidence:** 9 months documented
+
+**Status:** ✅ Met
+
+##### Trial of ≥2 NSAIDs
+
+**Evidence:** Naproxen, Meloxicam
+
+**Status:** ✅ Met
+
+##### Physical therapy ≥12 sessions
+
+**Evidence:** 18 sessions, documented plateau
+
+**Status:** ✅ Met
+
+##### ≥3 epidural steroid injections
+
+**Evidence:** 3 ESIs with diminishing relief
+
+**Status:** ✅ Met
+
+##### MRI within 90 days
+
+**Evidence:** 10/28/24 (51 days prior)
+
+**Status:** ✅ Met
+
+##### Functional impairment
+
+**Evidence:** ODI score 44 (threshold: >40)
+
+**Status:** ✅ Met
+
+#### Recommendation
+
+✅ **APPROVE APPEAL**
+
+1. ESI #3 procedure note now included — addresses primary gap from original denial
+2. All policy criteria met with supporting clinical documentation
+3. Progressive functional decline despite completed conservative pathway
+
+#### Alternative Recommendations
+
+##### Peer-to-peer review
+
+**Recommendation:** Not required — documentation complete
+
+##### Request additional records
+
+**Recommendation:** Not required — all criteria addressed
+
+##### Uphold denial
+
+**Recommendation:** Not supported — gap resolved
+
+#### Audit Trail
+
+**Original claim denied (MN-401, MN-403)**
+
+* Date: 12/02/2024
+
+**Appeal received**
+
+* Date: 12/18/2024
+
+**Recommendation: Approve**
+
+* Date: 12/18/2024
+
+Generated by Claude | Requires reviewer sign-off before member notification
+
+### Insurance claims appeals processing
+
+Denied claims cost time and money for everyone. Claude helps providers build stronger appeals, and payers process them faster.
+
+Prompt
+
+Here are today's patient portal messages. Sort them into clinical questions, refill requests, scheduling, and billing. Draft replies to the scheduling and billing messages for my review. For the clinical questions, surface the ones I may want to look at sooner and show me why, then summarize the rest.
+
+Attachments
+
+Patient Portal Batch 1
+
+10kb
+
+csv
+
+Patient Portal Batch 2
+
+9kb
+
+csv
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/696ac402b02810bf5f076247_artifact_triaging-patient-mobile.webp)
+
+### Care coordination and patient messaging triage
+
+Sort hundreds of patient messages a day in seconds. Claude identifies urgent issues, drafts responses for routine questions, and routes the rest to the experts.
+
+Prompt
+
+Here's the recording from my visit with the patient. Generate clinical documentation including the visit summary, assessment, and plan. Flag anything that needs my review before signing.
+
+Attachments
+
+Patient visit recording dec18
+
+13min
+
+MP3
+
+Patient chart MRN 4892
+
+14kb
+
+pdf
+
+### Clinical Documentation
+
+Generated from visit recording | Dec 18, 2025 | 12:34 PM
+
+#### Patient
+
+**[Name]** | **DOB:** XX/XX/XXXX | **MRN:** 4892
+
+#### Visit Summary
+
+##### Chief complaint
+
+Persistent cough and fatigue for 2 weeks
+
+##### History of present illness
+
+Patient reports dry cough beginning approximately 14 days ago, worsening over the past week. Associated fatigue and mild shortness of breath with exertion. Denies fever, chills, or night sweats. No recent travel or known sick contacts.
+
+#### Physical Exam
+
+**Vitals:** BP 128/82, HR 78, Temp 98.4°F, SpO2 97%
+
+**General:** Alert, no acute distress
+
+**Lungs:** Clear to auscultation bilaterally, no wheezes or crackles
+
+**Cardiac:** Regular rate and rhythm
+
+#### Assessment
+
+1. Acute bronchitis (ICD-10: J20.9) ✓
+2. Fatigue (ICD-10: R53.83) ✓
+
+#### Plan
+
+⚠️ **REVIEW:** Confirm benzonatate dosage - patient mentioned sensitivity to similar medications
+
+☐ Benzonatate 100mg TID PRN cough x 7 days
+
+☐ Rest and increased fluids
+
+☐ Return if symptoms worsen or fever develops
+
+☐ Follow-up in 2 weeks if not improving
+
+#### Review Flags
+
+⚠️ **Medication:** Confirm benzonatate dosage given patient history
+
+⚠️ **Billing:** Verify E/M level matches documentation
+
+Ready for signature: [Sign] [Edit] [Add addendum]
+
+Connectors used: ICD-10 | NPI Registry
+
+Generated in 47 seconds from 12-minute recording
+
+Ambient scribing for clinical documentation
+
+With Claude's Developer Platform, health startups can build breakthrough products for medical scribing, chart reviews, and clinical decision support. Less time documenting, more time with patients.
+
+## Powering leading healthcare organizations
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcafa93907f736cf33c15_banner-health-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcaf6e759325a5107816e_banner-health-dark.svg)
+
+"We were drawn to Anthropic's focus on AI safety and Claude's Constitutional AI approach to creating more helpful, harmless, and honest AI systems."
+
+Read story
+
+[Read story](https://claude.com/customers/banner-health)Read story
+
+Mike Reagin, Chief Technology Officer, Banner Health
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696407cffabbb8e1efe7e4c2_flaticon-logo-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcbab9b23796b55cb90f1_flatiron-dark.svg)
+
+"For the first time, our researchers can truly converse with our datasets - scrutinizing treatment patterns, understanding real-world disease trajectories, and generating novel insights that simply weren't accessible before."
+
+Allison Candido, Chief Technology Officer, Flatiron Health
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcc0d459a63fcb2b0fa89_qualified-health-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcc09fb6f0d9d9969b56d_qualified-health-dark.svg)
+
+"Safety is non-negotiable in healthcare. Anthropic has been a clear leader in building models with strong safety foundations."
+
+Read story
+
+[Read story](https://claude.com/customers/qualified-health)Read story
+
+Justin Norden, MD and co-founder, Qualified Health
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcb4747ce8f29820b8fe4_commure-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcb4420eede252dbf0814_commure-dark.svg)
+
+"With Claude's suite of LLMs, we deliver the quality to automate clinical documentation at scale, saving clinicians millions of hours annually and returning their focus to patient care."
+
+Dhruv Parthasarathy, Chief Technology Officer, Commure
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696402fdcc5460d685f79a56_carta-healthcare-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcb24e759325a510791bd_carta-healthcare-dark.svg)
+
+"Carta Healthcare's implementation of Anthropic models via Amazon Bedrock has allowed for rapid and secure deployment of the newest models. Unlocking our hybrid intelligence AI system that is turning into a complete re-invention of understanding a patient's medical record for clinical data abstraction."
+
+Read story
+
+[Read story](https://claude.com/customers/carta-healthcare)Read story
+
+Andrew Crowder, VP of Engineering, Carta Healthcare
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcc43b79daf97847b4c73_viz.ai-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcc40633363315ae07372_viz.ai-dark.svg)
+
+"Commercial pharma teams are entering an era where real-time clinical intelligence and AI agents fundamentally change how therapies reach the right patients at the right time. Anthropic's models are unmatched in their reasoning capabilities and safety design. This collaboration accelerates our shared mission to ensure that clinical-grade agentic AI becomes a trusted, transformative force across global pharma."
+
+Chris Mansi, MD, CEO and co-founder of Viz.ai
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcb8c8818f8efbb7a4025_elation-dark.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcb8c8818f8efbb7a4025_elation-dark.svg)
+
+"We chose Claude, powered by Anthropic, for the strength of its model and its reputation for responsible AI. That balance of performance plus trust was a decisive factor."
+
+Read story
+
+[Read story](https://claude.com/customers/elation-health)Read story
+
+Kyna Fong CEO & Co-Founder, Elation Health
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcbe080234e27b6e177f2_pairteam-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcbdbc42118a606bdc79c_pairteam-dark.svg)
+
+"At Pair Team, we're building the safety net of the future. Claude is accelerating how we design and ship software across healthcare and public assistance and shaping our architecture toward fully autonomous agents. That's what allows us to scale high-quality care management to millions who've historically been left out."
+
+Neil Batlivala, CEO, Pair
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcbf7b2b3628cac434493_premiere-health-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcbf2fdcce572c9522535_premiere-health-dark.svg)
+
+"Claude handles the complex healthcare workflows our teams deal with daily accurately and securely. Our engineers are shipping faster, our consultants are delivering insights with unprecedented speed. When you're serving 4,400+ healthcare organizations, that combination of capability and velocity is critical."
+
+David Zito, President Performance Services, Premier
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcbc91cdf79f8e0d6369f_heidi-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcbc4128931b1708b6d6d_heidi-dark.svg)
+
+"Claude's Agent SDK has unlocked a step-change in how we operate—converting rigid research processes into adaptive, compliant agents that scale across our organization. Coupled with the exceptional performance of Claude's models, it's accelerated our ability to discover, build, and deliver value. And with Claude Code streamlining our end-to-end development workflow, we're seeing faster execution, better alignment, and a significant uplift in overall team productivity."
+
+Dr. Thomas Kelly, Co-Founder and CEO, Heidi Health
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcb11421e94317ef1e4fa_brellium-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcb0f485757a7e0fe5991_brellium-dark.svg)
+
+"Claude lets us punch way above our weight in healthcare AI. It powers our clinical extraction engine, cuts implementation timelines, and gives our GTM team dev-level capabilities. The faster we build, the faster clinics get out of manual chart review and back to patients."
+
+Zach Rosen, CEO & Co-Founder, Brellium
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcc207809b6b3a28a9b69_tomorrow-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcc1c9343abdbf4af1e2d_tomorrow-dark.svg)
+
+"Home-based care is becoming the center of gravity in healthcare but the infrastructure was never built for it. Powered by Claude, our frontier AI reimagines how care is coordinated, governed, and delivered outside the hospital, turning fragmented processes into intelligent systems that can scale with patients' needs."
+
+Vijay Kedar, Founder & CEO, Tomorrow Health
+
+[Prev](#)Prev
+
+0/5
+
+[Next](#)Next
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac0d0062f6400d634c165_PubMed.jpg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3ee529dd08076a83278e_healthkit.jpg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3e7cb91804401037ccb4_healthEx.jpg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696146c4cf658e461268e4c0_android-health-connect.jpg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696146b3ef7f8280dc6a91ff_function-health.jpg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3ed486c00439706bad8d_npi.jpg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3eb9f2f34ada6ce08e57_ICD-10.jpg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a39b31598b765419e5cee20_Asana.jpg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a204b043a1098addb5797cd_6921e7cdccfb4d1db46251e1_google.jpeg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690c442881b2f70098a4491a_logo_microsoft.svg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abda0aebae637a39b8031_Airtable.jpg)
+
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6921e782b78ebbcbede151d0_monday.jpg)
+
+## Claude connects to your healthcare ecosystem
+
+Coverage policies, coding systems, and clinical guidelines, all in one place.
+
+Explore connectors
+
+[Explore connectors](/connectors)Explore connectors
+
+## Built for healthcare
+
+### AI you can trust
+
+Claude is built on HIPAA-ready infrastructure with safety guardrails designed for healthcare. Answers can be traced back to the source, so you can verify before you act.
+
+### Powerful and contextual
+
+Claude understands the complexity of medical coding, payer rules, and clinical decisions. It reviews your records and policies, then shows you where the answers came from. Work that took days now takes minutes.
+
+### Made for healthcare
+
+Claude can connect to the data you need: CMS Coverage Database, ICD-10, NPI Registry, or PubMed. Sample skills give you a starting point to customize workflows with your organization's policies, data, and use cases.
+
+### Your partner in better care
+
+We're investing in healthcare for the long term with a dedicated healthcare team, an expanding network of data partners like Function, HealthEx, Apple Health, Android Health Connect, and capabilities that grow with you.
+
+Case study
+
+![Banner Health](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcafa93907f736cf33c15_banner-health-light.svg)![Banner Health](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcaf6e759325a5107816e_banner-health-dark.svg)
+
+Banner Health is tackling physician burnout with Claude. See how they built an AI platform that's helping physicians focus on patient care.
+
+Read story
+
+[Read story](https://claude.com/customers/banner-health)Read story
+
+Case study
+
+![Qualified Health](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcc0d459a63fcb2b0fa89_qualified-health-light.svg)![Qualified Health](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcc09fb6f0d9d9969b56d_qualified-health-dark.svg)
+
+Qualified Health uses Claude to identify patients who qualify for life-saving treatments but would otherwise go undetected.
+
+Read story
+
+[Read story](https://claude.com/customers/qualified-health)Read story
+
+Case study
+
+![Elation](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcb8c8818f8efbb7a4025_elation-dark.svg)![Elation](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcb8c8818f8efbb7a4025_elation-dark.svg)
+
+Elation Health reduced chart review time by 61% with Claude, helping primary care clinicians spend less time on documentation and more on patients.
+
+Read story
+
+[Read story](https://claude.com/customers/elation-health)Read story
+
+Case study
+
+![Carta Healthcare](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696402fdcc5460d685f79a56_carta-healthcare-light.svg)![Carta Healthcare](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695fcb24e759325a510791bd_carta-healthcare-dark.svg)
+
+Carta Healthcare uses Claude to reduce clinical data processing time by 66% while achieving 99% accuracy.
+
+Read story
+
+[Read story](https://claude.com/customers/carta-healthcare)Read story
+
+[Prev](#)Prev
+
+[Next](#)Next
+
+Video
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/695ede1b104b9c8342c9824f_heart-marginalia.avif)
+
+Tune in to watch Anthropic CEO and Co-founder Dario Amodei share his vision for AI in healthcare and life sciences, along with an executive customer panel.
+
+Watch
+
+[Watch](https://www.anthropic.com/events/the-briefing-healthcare-and-life-sciences-virtual-event)Watch
+
+## Get started with Claude
+
+Healthcare customers can access Claude via Claude for Enterprise and the Claude Platform.
+
+See pricing
+
+[See pricing](/pricing)See pricing
+
+## Healthcare resources
+
+[Advancing Claude in healthcare and the life sciences](https://www.anthropic.com/news/healthcare-life-sciences)Advancing Claude in healthcare and the life sciences
+
+Advancing Claude in healthcare and the life sciences
+
+Blog
+
+[Blog](https://www.anthropic.com/news/healthcare-life-sciences)Blog
+
+[The Enterprise AI Transformation Guide for Healthcare & Life Sciences](https://resources.anthropic.com/hcls-transformation-guide)The Enterprise AI Transformation Guide for Healthcare & Life Sciences
+
+The Enterprise AI Transformation Guide for Healthcare & Life Sciences
+
+eBook
+
+[eBook](https://resources.anthropic.com/hcls-transformation-guide)eBook
+
+[Allow Claude to connect directly to FHIR-compliant systems to read and work with your data](https://claude.com/resources/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)Allow Claude to connect directly to FHIR-compliant systems to read and work with your data
+
+Allow Claude to connect directly to FHIR-compliant systems to read and work with your data
+
+Skill
+
+[Skill](https://claude.com/resources/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)Skill

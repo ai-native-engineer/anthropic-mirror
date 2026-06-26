@@ -1,26 +1,45 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/users/delete -->
 
-# Remove User
-DELETE/v1/organizations/users/{user_id}
-Remove User
-##### Path ParametersExpand Collapse 
-user_id: string
-ID of the User.
-[](https://platform.claude.com/docs/en/api/admin/users/delete#delete.user_id)
-ID of the User.
-[](https://platform.claude.com/docs/en/api/admin/users/delete#user_delete_response.id)
-type: "user_deleted"
-Deleted object type.
-For Users, this is always `"user_deleted"`.
-[](https://platform.claude.com/docs/en/api/admin/users/delete#user_delete_response.type)
+## Remove User
+
+**delete** `/v1/organizations/users/{user_id}`
+
 Remove User
 
+### Path Parameters
+
+- `user_id: string`
+
+  ID of the User.
+
+### Returns
+
+- `id: string`
+
+  ID of the User.
+
+- `type: "user_deleted"`
+
+  Deleted object type.
+
+  For Users, this is always `"user_deleted"`.
+
+  - `"user_deleted"`
+
+### Example
+
+```http
 curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
     -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+```
 
+#### Response
+
+```json
+{
   "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
   "type": "user_deleted"
-
-  "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
-  "type": "user_deleted"
+}
+```

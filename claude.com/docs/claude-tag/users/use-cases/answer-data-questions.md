@@ -1,0 +1,48 @@
+<!-- source: https://claude.com/docs/claude-tag/users/use-cases/answer-data-questions -->
+
+##  How data-question prompts work
+
+This page is for teams who answer questions from a data warehouse (the database where your analytics tables live, like BigQuery or Snowflake). These prompts turn a question asked in Slack into a query and a chart.
+Each prompt below is a Slack message. You paste it in the channel where the metrics get discussed, Claude queries the warehouse or reads the channel history and posts progress in that thread, and the result lands there too. The result is a chart with a short answer, returned once or on a schedule depending on the prompt.
+
+##  Check the channel’s connections
+
+Check that the channel has the connections below. Ask `@Claude what can you access from this channel?` to check; an admin can [add a connection](/docs/claude-tag/admins/add-connections) the channel is missing.
+
+| Connection | Examples | Why it matters here |
+| --- | --- | --- |
+| Data warehouse | BigQuery, Snowflake | Required. Runs the queries behind each chart |
+
+##  Prompts to paste
+
+###  Chart a metric on demand
+
+The thread is debating something a number would settle. Ask in the channel where the metrics get discussed.
+
+@Claude show signup growth by week for the last quarter, and explain the two dips people were debating above.
+
+###  Schedule a recurring metrics report
+
+When the team checks the same numbers every morning, schedule the post. One message sets up the recurring report.
+
+@Claude every morning at 8, post yesterday's key metrics as a chart with a two-line summary of anything unusual.
+
+Naming the format, here a chart plus two lines, keeps a recurring post scannable instead of letting it grow each day. To list or cancel scheduled work later, see [Manage standing work](/docs/claude-tag/users/proactivity#manage-standing-work).
+
+###  Chart from Slack alone
+
+Charts don’t require a connection, because channel history is data. It can chart request volume in a triage channel, or how long requests waited for a first reply.
+
+@Claude chart the volume of requests in this channel by week, and how long each waited for a first reply.
+
+Anyone in the thread can ask for a different cut of the same data.
+
+## Watch monitors and alerts
+
+When the question is about systems, not metrics
+
+## Set up routines
+
+Recurring reports
+
+[Track projects and chase approvals](/docs/claude-tag/users/use-cases/track-projects)[Find answers in your docs](/docs/claude-tag/users/use-cases/find-answers)

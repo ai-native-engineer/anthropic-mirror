@@ -1,455 +1,2082 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/spend_limits -->
 
 # Spend Limits
-##### [Set Spend Limit](https://platform.claude.com/docs/en/api/admin/spend_limits/create)
-POST/v1/organizations/spend_limits
-##### [Get Spend Limit](https://platform.claude.com/docs/en/api/admin/spend_limits/retrieve)
-GET/v1/organizations/spend_limits/{spend_limit_id}
-##### [Delete Spend Limit](https://platform.claude.com/docs/en/api/admin/spend_limits/delete)
-DELETE/v1/organizations/spend_limits/{spend_limit_id}
-##### [List Effective Spend Limits](https://platform.claude.com/docs/en/api/admin/spend_limits/list_effective)
-GET/v1/organizations/spend_limits/effective
-##### ModelsExpand Collapse 
-SpendLimit object { id, amount, created_at, 5 more } 
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.id)
-amount: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.amount)
-created_at: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.created_at)
-currency: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.currency)
-period: "monthly" or "daily" or "weekly"
-"monthly"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.period%5B0%5D)
-"daily"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.period%5B1%5D)
-"weekly"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.period%5B2%5D)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.period)
-scope: object { type, user_id }  or object { seat_tier, type }  or object { rbac_group_id, type }  or 2 more
-User object { type, user_id } 
-type: "user"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.scope%5B0%5D.type)
-user_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.scope%5B0%5D.user_id)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.scope%5B0%5D)
-SeatTier object { seat_tier, type } 
-seat_tier: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.scope%5B1%5D.seat_tier)
-type: "seat_tier"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.scope%5B1%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.scope%5B1%5D)
-RbacGroup object { rbac_group_id, type } 
-rbac_group_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.scope%5B2%5D.rbac_group_id)
-type: "rbac_group"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.scope%5B2%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.scope%5B2%5D)
-OrganizationService object { service, type } 
-service: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.scope%5B3%5D.service)
-type: "organization_service"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.scope%5B3%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.scope%5B3%5D)
-Organization object { type } 
-type: "organization"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.scope%5B4%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.scope%5B4%5D)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.scope)
-type: "spend_limit"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.type)
-updated_at: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit.updated_at)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit)
-SpendSummary object { actor, amount, currency, 5 more } 
-Per-member effective-limit report row (GET /spend_limits/effective).
-actor: object { deleted, email_address, name, 2 more } 
-A user within the organization. `name` and `email_address` are null when the underlying account is unavailable or has been deleted; `deleted` is true only for deleted accounts.
-deleted: boolean
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.actor.deleted)
-email_address: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.actor.email_address)
-name: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.actor.name)
-type: "user_actor"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.actor.type)
-user_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.actor.user_id)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.actor)
-amount: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.amount)
-currency: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.currency)
-period: "monthly" or "daily" or "weekly"
-"monthly"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.period%5B0%5D)
-"daily"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.period%5B1%5D)
-"weekly"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.period%5B2%5D)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.period)
-period_to_date_spend: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.period_to_date_spend)
-scope: object { type, user_id } 
-type: "user"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.scope.type)
-user_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.scope.user_id)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.scope)
-source: object { type, user_id }  or object { seat_tier, type }  or object { rbac_group_id, type }  or 2 more
-User object { type, user_id } 
-type: "user"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.source%5B0%5D.type)
-user_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.source%5B0%5D.user_id)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.source%5B0%5D)
-SeatTier object { seat_tier, type } 
-seat_tier: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.source%5B1%5D.seat_tier)
-type: "seat_tier"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.source%5B1%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.source%5B1%5D)
-RbacGroup object { rbac_group_id, type } 
-rbac_group_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.source%5B2%5D.rbac_group_id)
-type: "rbac_group"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.source%5B2%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.source%5B2%5D)
-OrganizationService object { service, type } 
-service: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.source%5B3%5D.service)
-type: "organization_service"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.source%5B3%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.source%5B3%5D)
-Organization object { type } 
-type: "organization"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.source%5B4%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.source%5B4%5D)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.source)
-spend_limit_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary.spend_limit_id)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_summary)
-SpendLimitDeleteResponse object { id, type } 
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_delete_response.id)
-type: "spend_limit_deleted"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_delete_response.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_delete_response)
-####  Spend LimitsIncrease Requests
-##### [List Spend Limit Increase Requests](https://platform.claude.com/docs/en/api/admin/spend_limits/increase_requests/list)
-GET/v1/organizations/spend_limit_increase_requests
-##### [Get Spend Limit Increase Request](https://platform.claude.com/docs/en/api/admin/spend_limits/increase_requests/retrieve)
-GET/v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}
-##### [Approve Spend Limit Increase Request](https://platform.claude.com/docs/en/api/admin/spend_limits/increase_requests/approve)
-POST/v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}/approve
-##### [Deny Spend Limit Increase Request](https://platform.claude.com/docs/en/api/admin/spend_limits/increase_requests/deny)
-POST/v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}/deny
-##### ModelsExpand Collapse 
-SpendLimitIncreaseRequest object { id, actor, created_at, 6 more } 
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.id)
-actor: object { deleted, email_address, name, 2 more } 
-A user within the organization. `name` and `email_address` are null when the underlying account is unavailable or has been deleted; `deleted` is true only for deleted accounts.
-deleted: boolean
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.actor.deleted)
-email_address: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.actor.email_address)
-name: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.actor.name)
-type: "user_actor"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.actor.type)
-user_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.actor.user_id)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.actor)
-created_at: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.created_at)
-period: "monthly" or "daily" or "weekly"
-"monthly"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.period%5B0%5D)
-"daily"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.period%5B1%5D)
-"weekly"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.period%5B2%5D)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.period)
-resolved_at: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.resolved_at)
-resolved_by: object { deleted, email_address, name, 2 more }  or object { scoped_api_key_id, type } 
-A user within the organization. `name` and `email_address` are null when the underlying account is unavailable or has been deleted; `deleted` is true only for deleted accounts.
-UserActor object { deleted, email_address, name, 2 more } 
-A user within the organization. `name` and `email_address` are null when the underlying account is unavailable or has been deleted; `deleted` is true only for deleted accounts.
-deleted: boolean
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.resolved_by%5B0%5D.deleted)
-email_address: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.resolved_by%5B0%5D.email_address)
-name: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.resolved_by%5B0%5D.name)
-type: "user_actor"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.resolved_by%5B0%5D.type)
-user_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.resolved_by%5B0%5D.user_id)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.resolved_by%5B0%5D)
-ScopedAPIKeyActor object { scoped_api_key_id, type } 
-A scoped Admin API key acting on behalf of the organization.
-scoped_api_key_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.resolved_by%5B1%5D.scoped_api_key_id)
-type: "scoped_api_key_actor"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.resolved_by%5B1%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.resolved_by%5B1%5D)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.resolved_by)
-spend_summary: [SpendSummary](https://platform.claude.com/docs/en/api/admin#spend_summary) { actor, amount, currency, 5 more } 
-Per-member effective-limit report row (GET /spend_limits/effective).
-actor: object { deleted, email_address, name, 2 more } 
-A user within the organization. `name` and `email_address` are null when the underlying account is unavailable or has been deleted; `deleted` is true only for deleted accounts.
-deleted: boolean
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.actor.deleted)
-email_address: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.actor.email_address)
-name: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.actor.name)
-type: "user_actor"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.actor.type)
-user_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.actor.user_id)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.actor)
-amount: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.amount)
-currency: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.currency)
-period: "monthly" or "daily" or "weekly"
-"monthly"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.period%5B0%5D)
-"daily"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.period%5B1%5D)
-"weekly"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.period%5B2%5D)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.period)
-period_to_date_spend: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.period_to_date_spend)
-scope: object { type, user_id } 
-type: "user"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.scope.type)
-user_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.scope.user_id)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.scope)
-source: object { type, user_id }  or object { seat_tier, type }  or object { rbac_group_id, type }  or 2 more
-User object { type, user_id } 
-type: "user"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B0%5D.type)
-user_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B0%5D.user_id)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B0%5D)
-SeatTier object { seat_tier, type } 
-seat_tier: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B1%5D.seat_tier)
-type: "seat_tier"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B1%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B1%5D)
-RbacGroup object { rbac_group_id, type } 
-rbac_group_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B2%5D.rbac_group_id)
-type: "rbac_group"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B2%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B2%5D)
-OrganizationService object { service, type } 
-service: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B3%5D.service)
-type: "organization_service"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B3%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B3%5D)
-Organization object { type } 
-type: "organization"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B4%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B4%5D)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source)
-spend_limit_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.spend_limit_id)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.spend_summary)
-status: "pending" or "approved" or "denied"
-"pending"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.status%5B0%5D)
-"approved"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.status%5B1%5D)
-"denied"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.status%5B2%5D)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.status)
-type: "spend_limit_increase_request"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#spend_limit_increase_request)
-IncreaseRequestApproveResponse object { id, actor, created_at, 7 more } 
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.id)
-actor: object { deleted, email_address, name, 2 more } 
-A user within the organization. `name` and `email_address` are null when the underlying account is unavailable or has been deleted; `deleted` is true only for deleted accounts.
-deleted: boolean
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.actor.deleted)
-email_address: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.actor.email_address)
-name: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.actor.name)
-type: "user_actor"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.actor.type)
-user_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.actor.user_id)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.actor)
-created_at: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.created_at)
-period: "monthly" or "daily" or "weekly"
-"monthly"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.period%5B0%5D)
-"daily"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.period%5B1%5D)
-"weekly"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.period%5B2%5D)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.period)
-resolved_at: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.resolved_at)
-resolved_by: object { deleted, email_address, name, 2 more }  or object { scoped_api_key_id, type } 
-A user within the organization. `name` and `email_address` are null when the underlying account is unavailable or has been deleted; `deleted` is true only for deleted accounts.
-UserActor object { deleted, email_address, name, 2 more } 
-A user within the organization. `name` and `email_address` are null when the underlying account is unavailable or has been deleted; `deleted` is true only for deleted accounts.
-deleted: boolean
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.resolved_by%5B0%5D.deleted)
-email_address: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.resolved_by%5B0%5D.email_address)
-name: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.resolved_by%5B0%5D.name)
-type: "user_actor"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.resolved_by%5B0%5D.type)
-user_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.resolved_by%5B0%5D.user_id)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.resolved_by%5B0%5D)
-ScopedAPIKeyActor object { scoped_api_key_id, type } 
-A scoped Admin API key acting on behalf of the organization.
-scoped_api_key_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.resolved_by%5B1%5D.scoped_api_key_id)
-type: "scoped_api_key_actor"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.resolved_by%5B1%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.resolved_by%5B1%5D)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.resolved_by)
-spend_limit: [SpendLimit](https://platform.claude.com/docs/en/api/admin#spend_limit) { id, amount, created_at, 5 more } 
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.id)
-amount: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.amount)
-created_at: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.created_at)
-currency: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.currency)
-period: "monthly" or "daily" or "weekly"
-"monthly"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.period%5B0%5D)
-"daily"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.period%5B1%5D)
-"weekly"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.period%5B2%5D)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.period)
-scope: object { type, user_id }  or object { seat_tier, type }  or object { rbac_group_id, type }  or 2 more
-User object { type, user_id } 
-type: "user"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.scope%5B0%5D.type)
-user_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.scope%5B0%5D.user_id)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.scope%5B0%5D)
-SeatTier object { seat_tier, type } 
-seat_tier: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.scope%5B1%5D.seat_tier)
-type: "seat_tier"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.scope%5B1%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.scope%5B1%5D)
-RbacGroup object { rbac_group_id, type } 
-rbac_group_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.scope%5B2%5D.rbac_group_id)
-type: "rbac_group"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.scope%5B2%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.scope%5B2%5D)
-OrganizationService object { service, type } 
-service: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.scope%5B3%5D.service)
-type: "organization_service"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.scope%5B3%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.scope%5B3%5D)
-Organization object { type } 
-type: "organization"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.scope%5B4%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.scope%5B4%5D)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.scope)
-type: "spend_limit"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.type)
-updated_at: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit%20%2B%20\(resource\)%20admin.spend_limits.updated_at)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_limit)
-spend_summary: [SpendSummary](https://platform.claude.com/docs/en/api/admin#spend_summary) { actor, amount, currency, 5 more } 
-Per-member effective-limit report row (GET /spend_limits/effective).
-actor: object { deleted, email_address, name, 2 more } 
-A user within the organization. `name` and `email_address` are null when the underlying account is unavailable or has been deleted; `deleted` is true only for deleted accounts.
-deleted: boolean
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.actor.deleted)
-email_address: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.actor.email_address)
-name: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.actor.name)
-type: "user_actor"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.actor.type)
-user_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.actor.user_id)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.actor)
-amount: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.amount)
-currency: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.currency)
-period: "monthly" or "daily" or "weekly"
-"monthly"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.period%5B0%5D)
-"daily"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.period%5B1%5D)
-"weekly"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.period%5B2%5D)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.period)
-period_to_date_spend: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.period_to_date_spend)
-scope: object { type, user_id } 
-type: "user"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.scope.type)
-user_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.scope.user_id)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.scope)
-source: object { type, user_id }  or object { seat_tier, type }  or object { rbac_group_id, type }  or 2 more
-User object { type, user_id } 
-type: "user"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B0%5D.type)
-user_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B0%5D.user_id)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B0%5D)
-SeatTier object { seat_tier, type } 
-seat_tier: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B1%5D.seat_tier)
-type: "seat_tier"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B1%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B1%5D)
-RbacGroup object { rbac_group_id, type } 
-rbac_group_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B2%5D.rbac_group_id)
-type: "rbac_group"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B2%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B2%5D)
-OrganizationService object { service, type } 
-service: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B3%5D.service)
-type: "organization_service"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B3%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B3%5D)
-Organization object { type } 
-type: "organization"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B4%5D.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source%5B4%5D)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.source)
-spend_limit_id: string
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary%20%2B%20\(resource\)%20admin.spend_limits.spend_limit_id)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.spend_summary)
-status: "pending" or "approved" or "denied"
-"pending"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.status%5B0%5D)
-"approved"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.status%5B1%5D)
-"denied"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.status%5B2%5D)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.status)
-type: "spend_limit_increase_request"
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response.type)
-[](https://platform.claude.com/docs/en/api/admin/spend_limits#increase_request_approve_response)
+
+## Set Spend Limit
+
+**post** `/v1/organizations/spend_limits`
+
+Set a per-user spend limit override.
+
+Upsert keyed on (scope, period): setting a limit that already exists
+overwrites it in place. Only `scope.type: "user"` is accepted; seat-tier,
+group, and organization-level defaults are configured in claude.ai.
+
+### Body Parameters
+
+- `amount: string`
+
+- `scope: object { type, user_id }`
+
+  - `type: "user"`
+
+    - `"user"`
+
+  - `user_id: string`
+
+- `period: optional "monthly" or "daily" or "weekly"`
+
+  - `"monthly"`
+
+  - `"daily"`
+
+  - `"weekly"`
+
+### Returns
+
+- `SpendLimit object { id, amount, created_at, 5 more }`
+
+  - `id: string`
+
+  - `amount: string`
+
+  - `created_at: string`
+
+  - `currency: string`
+
+  - `period: "monthly" or "daily" or "weekly"`
+
+    - `"monthly"`
+
+    - `"daily"`
+
+    - `"weekly"`
+
+  - `scope: object { type, user_id }  or object { seat_tier, type }  or object { rbac_group_id, type }  or 2 more`
+
+    - `User object { type, user_id }`
+
+      - `type: "user"`
+
+        - `"user"`
+
+      - `user_id: string`
+
+    - `SeatTier object { seat_tier, type }`
+
+      - `seat_tier: string`
+
+      - `type: "seat_tier"`
+
+        - `"seat_tier"`
+
+    - `RbacGroup object { rbac_group_id, type }`
+
+      - `rbac_group_id: string`
+
+      - `type: "rbac_group"`
+
+        - `"rbac_group"`
+
+    - `OrganizationService object { service, type }`
+
+      - `service: string`
+
+      - `type: "organization_service"`
+
+        - `"organization_service"`
+
+    - `Organization object { type }`
+
+      - `type: "organization"`
+
+        - `"organization"`
+
+  - `type: "spend_limit"`
+
+    - `"spend_limit"`
+
+  - `updated_at: string`
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/organizations/spend_limits \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
+    -d '{
+          "amount": "amount",
+          "scope": {
+            "type": "user",
+            "user_id": "user_id"
+          }
+        }'
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "amount": "amount",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "currency": "currency",
+  "period": "monthly",
+  "scope": {
+    "type": "user",
+    "user_id": "user_id"
+  },
+  "type": "spend_limit",
+  "updated_at": "2019-12-27T18:11:19.117Z"
+}
+```
+
+## Get Spend Limit
+
+**get** `/v1/organizations/spend_limits/{spend_limit_id}`
+
+Retrieve a spend limit by ID.
+
+### Path Parameters
+
+- `spend_limit_id: string`
+
+  ID of the Spend Limit.
+
+### Returns
+
+- `SpendLimit object { id, amount, created_at, 5 more }`
+
+  - `id: string`
+
+  - `amount: string`
+
+  - `created_at: string`
+
+  - `currency: string`
+
+  - `period: "monthly" or "daily" or "weekly"`
+
+    - `"monthly"`
+
+    - `"daily"`
+
+    - `"weekly"`
+
+  - `scope: object { type, user_id }  or object { seat_tier, type }  or object { rbac_group_id, type }  or 2 more`
+
+    - `User object { type, user_id }`
+
+      - `type: "user"`
+
+        - `"user"`
+
+      - `user_id: string`
+
+    - `SeatTier object { seat_tier, type }`
+
+      - `seat_tier: string`
+
+      - `type: "seat_tier"`
+
+        - `"seat_tier"`
+
+    - `RbacGroup object { rbac_group_id, type }`
+
+      - `rbac_group_id: string`
+
+      - `type: "rbac_group"`
+
+        - `"rbac_group"`
+
+    - `OrganizationService object { service, type }`
+
+      - `service: string`
+
+      - `type: "organization_service"`
+
+        - `"organization_service"`
+
+    - `Organization object { type }`
+
+      - `type: "organization"`
+
+        - `"organization"`
+
+  - `type: "spend_limit"`
+
+    - `"spend_limit"`
+
+  - `updated_at: string`
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/organizations/spend_limits/$SPEND_LIMIT_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "amount": "amount",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "currency": "currency",
+  "period": "monthly",
+  "scope": {
+    "type": "user",
+    "user_id": "user_id"
+  },
+  "type": "spend_limit",
+  "updated_at": "2019-12-27T18:11:19.117Z"
+}
+```
+
+## Delete Spend Limit
+
+**delete** `/v1/organizations/spend_limits/{spend_limit_id}`
+
+Delete a per-user spend limit override.
+
+The member falls back to any inherited cap at that period. Seat-tier,
+group, and organization-level rows cannot be deleted via this endpoint.
+
+### Path Parameters
+
+- `spend_limit_id: string`
+
+  ID of the Spend Limit.
+
+### Returns
+
+- `id: string`
+
+- `type: "spend_limit_deleted"`
+
+  - `"spend_limit_deleted"`
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/organizations/spend_limits/$SPEND_LIMIT_ID \
+    -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "type": "spend_limit_deleted"
+}
+```
+
+## List Effective Spend Limits
+
+**get** `/v1/organizations/spend_limits/effective`
+
+List each member's effective spend limit and period-to-date spend.
+
+Returns one row per (member, period) the member resolves a cap for, with
+the `source` scope the cap was inherited from. Paginates by member, so a
+member's periods never split across pages.
+
+### Query Parameters
+
+- `limit: optional number`
+
+- `page: optional string`
+
+- `period: optional array of string`
+
+- `user_ids: optional array of string`
+
+### Returns
+
+- `data: array of SpendSummary`
+
+  - `actor: object { deleted, email_address, name, 2 more }`
+
+    A user within the organization. `name` and `email_address` are
+    null when the underlying account is unavailable or has been deleted;
+    `deleted` is true only for deleted accounts.
+
+    - `deleted: boolean`
+
+    - `email_address: string`
+
+    - `name: string`
+
+    - `type: "user_actor"`
+
+      - `"user_actor"`
+
+    - `user_id: string`
+
+  - `amount: string`
+
+  - `currency: string`
+
+  - `period: "monthly" or "daily" or "weekly"`
+
+    - `"monthly"`
+
+    - `"daily"`
+
+    - `"weekly"`
+
+  - `period_to_date_spend: string`
+
+  - `scope: object { type, user_id }`
+
+    - `type: "user"`
+
+      - `"user"`
+
+    - `user_id: string`
+
+  - `source: object { type, user_id }  or object { seat_tier, type }  or object { rbac_group_id, type }  or 2 more`
+
+    - `User object { type, user_id }`
+
+      - `type: "user"`
+
+        - `"user"`
+
+      - `user_id: string`
+
+    - `SeatTier object { seat_tier, type }`
+
+      - `seat_tier: string`
+
+      - `type: "seat_tier"`
+
+        - `"seat_tier"`
+
+    - `RbacGroup object { rbac_group_id, type }`
+
+      - `rbac_group_id: string`
+
+      - `type: "rbac_group"`
+
+        - `"rbac_group"`
+
+    - `OrganizationService object { service, type }`
+
+      - `service: string`
+
+      - `type: "organization_service"`
+
+        - `"organization_service"`
+
+    - `Organization object { type }`
+
+      - `type: "organization"`
+
+        - `"organization"`
+
+  - `spend_limit_id: string`
+
+- `next_page: string`
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/organizations/spend_limits/effective \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "actor": {
+        "deleted": true,
+        "email_address": "email_address",
+        "name": "name",
+        "type": "user_actor",
+        "user_id": "user_id"
+      },
+      "amount": "amount",
+      "currency": "currency",
+      "period": "monthly",
+      "period_to_date_spend": "period_to_date_spend",
+      "scope": {
+        "type": "user",
+        "user_id": "user_id"
+      },
+      "source": {
+        "type": "user",
+        "user_id": "user_id"
+      },
+      "spend_limit_id": "spend_limit_id"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Domain Types
+
+### Spend Limit
+
+- `SpendLimit object { id, amount, created_at, 5 more }`
+
+  - `id: string`
+
+  - `amount: string`
+
+  - `created_at: string`
+
+  - `currency: string`
+
+  - `period: "monthly" or "daily" or "weekly"`
+
+    - `"monthly"`
+
+    - `"daily"`
+
+    - `"weekly"`
+
+  - `scope: object { type, user_id }  or object { seat_tier, type }  or object { rbac_group_id, type }  or 2 more`
+
+    - `User object { type, user_id }`
+
+      - `type: "user"`
+
+        - `"user"`
+
+      - `user_id: string`
+
+    - `SeatTier object { seat_tier, type }`
+
+      - `seat_tier: string`
+
+      - `type: "seat_tier"`
+
+        - `"seat_tier"`
+
+    - `RbacGroup object { rbac_group_id, type }`
+
+      - `rbac_group_id: string`
+
+      - `type: "rbac_group"`
+
+        - `"rbac_group"`
+
+    - `OrganizationService object { service, type }`
+
+      - `service: string`
+
+      - `type: "organization_service"`
+
+        - `"organization_service"`
+
+    - `Organization object { type }`
+
+      - `type: "organization"`
+
+        - `"organization"`
+
+  - `type: "spend_limit"`
+
+    - `"spend_limit"`
+
+  - `updated_at: string`
+
+### Spend Summary
+
+- `SpendSummary object { actor, amount, currency, 5 more }`
+
+  Per-member effective-limit report row (GET /spend_limits/effective).
+
+  - `actor: object { deleted, email_address, name, 2 more }`
+
+    A user within the organization. `name` and `email_address` are
+    null when the underlying account is unavailable or has been deleted;
+    `deleted` is true only for deleted accounts.
+
+    - `deleted: boolean`
+
+    - `email_address: string`
+
+    - `name: string`
+
+    - `type: "user_actor"`
+
+      - `"user_actor"`
+
+    - `user_id: string`
+
+  - `amount: string`
+
+  - `currency: string`
+
+  - `period: "monthly" or "daily" or "weekly"`
+
+    - `"monthly"`
+
+    - `"daily"`
+
+    - `"weekly"`
+
+  - `period_to_date_spend: string`
+
+  - `scope: object { type, user_id }`
+
+    - `type: "user"`
+
+      - `"user"`
+
+    - `user_id: string`
+
+  - `source: object { type, user_id }  or object { seat_tier, type }  or object { rbac_group_id, type }  or 2 more`
+
+    - `User object { type, user_id }`
+
+      - `type: "user"`
+
+        - `"user"`
+
+      - `user_id: string`
+
+    - `SeatTier object { seat_tier, type }`
+
+      - `seat_tier: string`
+
+      - `type: "seat_tier"`
+
+        - `"seat_tier"`
+
+    - `RbacGroup object { rbac_group_id, type }`
+
+      - `rbac_group_id: string`
+
+      - `type: "rbac_group"`
+
+        - `"rbac_group"`
+
+    - `OrganizationService object { service, type }`
+
+      - `service: string`
+
+      - `type: "organization_service"`
+
+        - `"organization_service"`
+
+    - `Organization object { type }`
+
+      - `type: "organization"`
+
+        - `"organization"`
+
+  - `spend_limit_id: string`
+
+### Spend Limit Delete Response
+
+- `SpendLimitDeleteResponse object { id, type }`
+
+  - `id: string`
+
+  - `type: "spend_limit_deleted"`
+
+    - `"spend_limit_deleted"`
+
+# Increase Requests
+
+## List Spend Limit Increase Requests
+
+**get** `/v1/organizations/spend_limit_increase_requests`
+
+List spend limit increase requests, most recent first.
+
+Pending requests include a live `spend_summary` for the requester.
+Requests whose requester is no longer a member are excluded.
+
+### Query Parameters
+
+- `actor_ids: optional array of string`
+
+  Filter by requester, as `user_...` tagged IDs.
+
+- `limit: optional number`
+
+- `page: optional string`
+
+  Opaque cursor from a previous response's `next_page`.
+
+- `status: optional array of "pending" or "approved" or "denied"`
+
+  Filter by status. Omit to return all.
+
+  - `"pending"`
+
+  - `"approved"`
+
+  - `"denied"`
+
+### Returns
+
+- `data: array of SpendLimitIncreaseRequest`
+
+  - `id: string`
+
+  - `actor: object { deleted, email_address, name, 2 more }`
+
+    A user within the organization. `name` and `email_address` are
+    null when the underlying account is unavailable or has been deleted;
+    `deleted` is true only for deleted accounts.
+
+    - `deleted: boolean`
+
+    - `email_address: string`
+
+    - `name: string`
+
+    - `type: "user_actor"`
+
+      - `"user_actor"`
+
+    - `user_id: string`
+
+  - `created_at: string`
+
+  - `period: "monthly" or "daily" or "weekly"`
+
+    - `"monthly"`
+
+    - `"daily"`
+
+    - `"weekly"`
+
+  - `resolved_at: string`
+
+  - `resolved_by: object { deleted, email_address, name, 2 more }  or object { scoped_api_key_id, type }`
+
+    A user within the organization. `name` and `email_address` are
+    null when the underlying account is unavailable or has been deleted;
+    `deleted` is true only for deleted accounts.
+
+    - `UserActor object { deleted, email_address, name, 2 more }`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+      - `deleted: boolean`
+
+      - `email_address: string`
+
+      - `name: string`
+
+      - `type: "user_actor"`
+
+        - `"user_actor"`
+
+      - `user_id: string`
+
+    - `ScopedAPIKeyActor object { scoped_api_key_id, type }`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+      - `scoped_api_key_id: string`
+
+      - `type: "scoped_api_key_actor"`
+
+        - `"scoped_api_key_actor"`
+
+  - `spend_summary: SpendSummary`
+
+    Per-member effective-limit report row (GET /spend_limits/effective).
+
+    - `actor: object { deleted, email_address, name, 2 more }`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+      - `deleted: boolean`
+
+      - `email_address: string`
+
+      - `name: string`
+
+      - `type: "user_actor"`
+
+        - `"user_actor"`
+
+      - `user_id: string`
+
+    - `amount: string`
+
+    - `currency: string`
+
+    - `period: "monthly" or "daily" or "weekly"`
+
+      - `"monthly"`
+
+      - `"daily"`
+
+      - `"weekly"`
+
+    - `period_to_date_spend: string`
+
+    - `scope: object { type, user_id }`
+
+      - `type: "user"`
+
+        - `"user"`
+
+      - `user_id: string`
+
+    - `source: object { type, user_id }  or object { seat_tier, type }  or object { rbac_group_id, type }  or 2 more`
+
+      - `User object { type, user_id }`
+
+        - `type: "user"`
+
+          - `"user"`
+
+        - `user_id: string`
+
+      - `SeatTier object { seat_tier, type }`
+
+        - `seat_tier: string`
+
+        - `type: "seat_tier"`
+
+          - `"seat_tier"`
+
+      - `RbacGroup object { rbac_group_id, type }`
+
+        - `rbac_group_id: string`
+
+        - `type: "rbac_group"`
+
+          - `"rbac_group"`
+
+      - `OrganizationService object { service, type }`
+
+        - `service: string`
+
+        - `type: "organization_service"`
+
+          - `"organization_service"`
+
+      - `Organization object { type }`
+
+        - `type: "organization"`
+
+          - `"organization"`
+
+    - `spend_limit_id: string`
+
+  - `status: "pending" or "approved" or "denied"`
+
+    - `"pending"`
+
+    - `"approved"`
+
+    - `"denied"`
+
+  - `type: "spend_limit_increase_request"`
+
+    - `"spend_limit_increase_request"`
+
+- `next_page: string`
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/organizations/spend_limit_increase_requests \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "actor": {
+        "deleted": true,
+        "email_address": "email_address",
+        "name": "name",
+        "type": "user_actor",
+        "user_id": "user_id"
+      },
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "period": "monthly",
+      "resolved_at": "2019-12-27T18:11:19.117Z",
+      "resolved_by": {
+        "deleted": true,
+        "email_address": "email_address",
+        "name": "name",
+        "type": "user_actor",
+        "user_id": "user_id"
+      },
+      "spend_summary": {
+        "actor": {
+          "deleted": true,
+          "email_address": "email_address",
+          "name": "name",
+          "type": "user_actor",
+          "user_id": "user_id"
+        },
+        "amount": "amount",
+        "currency": "currency",
+        "period": "monthly",
+        "period_to_date_spend": "period_to_date_spend",
+        "scope": {
+          "type": "user",
+          "user_id": "user_id"
+        },
+        "source": {
+          "type": "user",
+          "user_id": "user_id"
+        },
+        "spend_limit_id": "spend_limit_id"
+      },
+      "status": "pending",
+      "type": "spend_limit_increase_request"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Get Spend Limit Increase Request
+
+**get** `/v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}`
+
+Retrieve a spend limit increase request.
+
+While `pending`, the response includes a live `spend_summary` for the
+requester at the request's period.
+
+### Path Parameters
+
+- `spend_limit_increase_request_id: string`
+
+  ID of the spend limit increase request.
+
+### Returns
+
+- `SpendLimitIncreaseRequest object { id, actor, created_at, 6 more }`
+
+  - `id: string`
+
+  - `actor: object { deleted, email_address, name, 2 more }`
+
+    A user within the organization. `name` and `email_address` are
+    null when the underlying account is unavailable or has been deleted;
+    `deleted` is true only for deleted accounts.
+
+    - `deleted: boolean`
+
+    - `email_address: string`
+
+    - `name: string`
+
+    - `type: "user_actor"`
+
+      - `"user_actor"`
+
+    - `user_id: string`
+
+  - `created_at: string`
+
+  - `period: "monthly" or "daily" or "weekly"`
+
+    - `"monthly"`
+
+    - `"daily"`
+
+    - `"weekly"`
+
+  - `resolved_at: string`
+
+  - `resolved_by: object { deleted, email_address, name, 2 more }  or object { scoped_api_key_id, type }`
+
+    A user within the organization. `name` and `email_address` are
+    null when the underlying account is unavailable or has been deleted;
+    `deleted` is true only for deleted accounts.
+
+    - `UserActor object { deleted, email_address, name, 2 more }`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+      - `deleted: boolean`
+
+      - `email_address: string`
+
+      - `name: string`
+
+      - `type: "user_actor"`
+
+        - `"user_actor"`
+
+      - `user_id: string`
+
+    - `ScopedAPIKeyActor object { scoped_api_key_id, type }`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+      - `scoped_api_key_id: string`
+
+      - `type: "scoped_api_key_actor"`
+
+        - `"scoped_api_key_actor"`
+
+  - `spend_summary: SpendSummary`
+
+    Per-member effective-limit report row (GET /spend_limits/effective).
+
+    - `actor: object { deleted, email_address, name, 2 more }`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+      - `deleted: boolean`
+
+      - `email_address: string`
+
+      - `name: string`
+
+      - `type: "user_actor"`
+
+        - `"user_actor"`
+
+      - `user_id: string`
+
+    - `amount: string`
+
+    - `currency: string`
+
+    - `period: "monthly" or "daily" or "weekly"`
+
+      - `"monthly"`
+
+      - `"daily"`
+
+      - `"weekly"`
+
+    - `period_to_date_spend: string`
+
+    - `scope: object { type, user_id }`
+
+      - `type: "user"`
+
+        - `"user"`
+
+      - `user_id: string`
+
+    - `source: object { type, user_id }  or object { seat_tier, type }  or object { rbac_group_id, type }  or 2 more`
+
+      - `User object { type, user_id }`
+
+        - `type: "user"`
+
+          - `"user"`
+
+        - `user_id: string`
+
+      - `SeatTier object { seat_tier, type }`
+
+        - `seat_tier: string`
+
+        - `type: "seat_tier"`
+
+          - `"seat_tier"`
+
+      - `RbacGroup object { rbac_group_id, type }`
+
+        - `rbac_group_id: string`
+
+        - `type: "rbac_group"`
+
+          - `"rbac_group"`
+
+      - `OrganizationService object { service, type }`
+
+        - `service: string`
+
+        - `type: "organization_service"`
+
+          - `"organization_service"`
+
+      - `Organization object { type }`
+
+        - `type: "organization"`
+
+          - `"organization"`
+
+    - `spend_limit_id: string`
+
+  - `status: "pending" or "approved" or "denied"`
+
+    - `"pending"`
+
+    - `"approved"`
+
+    - `"denied"`
+
+  - `type: "spend_limit_increase_request"`
+
+    - `"spend_limit_increase_request"`
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/$SPEND_LIMIT_INCREASE_REQUEST_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "actor": {
+    "deleted": true,
+    "email_address": "email_address",
+    "name": "name",
+    "type": "user_actor",
+    "user_id": "user_id"
+  },
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "period": "monthly",
+  "resolved_at": "2019-12-27T18:11:19.117Z",
+  "resolved_by": {
+    "deleted": true,
+    "email_address": "email_address",
+    "name": "name",
+    "type": "user_actor",
+    "user_id": "user_id"
+  },
+  "spend_summary": {
+    "actor": {
+      "deleted": true,
+      "email_address": "email_address",
+      "name": "name",
+      "type": "user_actor",
+      "user_id": "user_id"
+    },
+    "amount": "amount",
+    "currency": "currency",
+    "period": "monthly",
+    "period_to_date_spend": "period_to_date_spend",
+    "scope": {
+      "type": "user",
+      "user_id": "user_id"
+    },
+    "source": {
+      "type": "user",
+      "user_id": "user_id"
+    },
+    "spend_limit_id": "spend_limit_id"
+  },
+  "status": "pending",
+  "type": "spend_limit_increase_request"
+}
+```
+
+## Approve Spend Limit Increase Request
+
+**post** `/v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}/approve`
+
+Approve a pending spend limit increase request.
+
+Writes a per-user spend limit at `amount` for the requester and
+transitions the request to `approved`. `period` defaults to the period
+the member was blocked on. Anthropic emails the requester unless
+`suppress_notification` is set.
+
+### Path Parameters
+
+- `spend_limit_increase_request_id: string`
+
+  ID of the spend limit increase request.
+
+### Body Parameters
+
+- `amount: string`
+
+  New per-user cap as a non-negative integer decimal string (minor units).
+
+- `period: optional "monthly" or "daily" or "weekly"`
+
+  - `"monthly"`
+
+  - `"daily"`
+
+  - `"weekly"`
+
+- `suppress_notification: optional boolean`
+
+### Returns
+
+- `id: string`
+
+- `actor: object { deleted, email_address, name, 2 more }`
+
+  A user within the organization. `name` and `email_address` are
+  null when the underlying account is unavailable or has been deleted;
+  `deleted` is true only for deleted accounts.
+
+  - `deleted: boolean`
+
+  - `email_address: string`
+
+  - `name: string`
+
+  - `type: "user_actor"`
+
+    - `"user_actor"`
+
+  - `user_id: string`
+
+- `created_at: string`
+
+- `period: "monthly" or "daily" or "weekly"`
+
+  - `"monthly"`
+
+  - `"daily"`
+
+  - `"weekly"`
+
+- `resolved_at: string`
+
+- `resolved_by: object { deleted, email_address, name, 2 more }  or object { scoped_api_key_id, type }`
+
+  A user within the organization. `name` and `email_address` are
+  null when the underlying account is unavailable or has been deleted;
+  `deleted` is true only for deleted accounts.
+
+  - `UserActor object { deleted, email_address, name, 2 more }`
+
+    A user within the organization. `name` and `email_address` are
+    null when the underlying account is unavailable or has been deleted;
+    `deleted` is true only for deleted accounts.
+
+    - `deleted: boolean`
+
+    - `email_address: string`
+
+    - `name: string`
+
+    - `type: "user_actor"`
+
+      - `"user_actor"`
+
+    - `user_id: string`
+
+  - `ScopedAPIKeyActor object { scoped_api_key_id, type }`
+
+    A scoped Admin API key acting on behalf of the organization.
+
+    - `scoped_api_key_id: string`
+
+    - `type: "scoped_api_key_actor"`
+
+      - `"scoped_api_key_actor"`
+
+- `spend_limit: SpendLimit`
+
+  - `id: string`
+
+  - `amount: string`
+
+  - `created_at: string`
+
+  - `currency: string`
+
+  - `period: "monthly" or "daily" or "weekly"`
+
+    - `"monthly"`
+
+    - `"daily"`
+
+    - `"weekly"`
+
+  - `scope: object { type, user_id }  or object { seat_tier, type }  or object { rbac_group_id, type }  or 2 more`
+
+    - `User object { type, user_id }`
+
+      - `type: "user"`
+
+        - `"user"`
+
+      - `user_id: string`
+
+    - `SeatTier object { seat_tier, type }`
+
+      - `seat_tier: string`
+
+      - `type: "seat_tier"`
+
+        - `"seat_tier"`
+
+    - `RbacGroup object { rbac_group_id, type }`
+
+      - `rbac_group_id: string`
+
+      - `type: "rbac_group"`
+
+        - `"rbac_group"`
+
+    - `OrganizationService object { service, type }`
+
+      - `service: string`
+
+      - `type: "organization_service"`
+
+        - `"organization_service"`
+
+    - `Organization object { type }`
+
+      - `type: "organization"`
+
+        - `"organization"`
+
+  - `type: "spend_limit"`
+
+    - `"spend_limit"`
+
+  - `updated_at: string`
+
+- `spend_summary: SpendSummary`
+
+  Per-member effective-limit report row (GET /spend_limits/effective).
+
+  - `actor: object { deleted, email_address, name, 2 more }`
+
+    A user within the organization. `name` and `email_address` are
+    null when the underlying account is unavailable or has been deleted;
+    `deleted` is true only for deleted accounts.
+
+    - `deleted: boolean`
+
+    - `email_address: string`
+
+    - `name: string`
+
+    - `type: "user_actor"`
+
+      - `"user_actor"`
+
+    - `user_id: string`
+
+  - `amount: string`
+
+  - `currency: string`
+
+  - `period: "monthly" or "daily" or "weekly"`
+
+    - `"monthly"`
+
+    - `"daily"`
+
+    - `"weekly"`
+
+  - `period_to_date_spend: string`
+
+  - `scope: object { type, user_id }`
+
+    - `type: "user"`
+
+      - `"user"`
+
+    - `user_id: string`
+
+  - `source: object { type, user_id }  or object { seat_tier, type }  or object { rbac_group_id, type }  or 2 more`
+
+    - `User object { type, user_id }`
+
+      - `type: "user"`
+
+        - `"user"`
+
+      - `user_id: string`
+
+    - `SeatTier object { seat_tier, type }`
+
+      - `seat_tier: string`
+
+      - `type: "seat_tier"`
+
+        - `"seat_tier"`
+
+    - `RbacGroup object { rbac_group_id, type }`
+
+      - `rbac_group_id: string`
+
+      - `type: "rbac_group"`
+
+        - `"rbac_group"`
+
+    - `OrganizationService object { service, type }`
+
+      - `service: string`
+
+      - `type: "organization_service"`
+
+        - `"organization_service"`
+
+    - `Organization object { type }`
+
+      - `type: "organization"`
+
+        - `"organization"`
+
+  - `spend_limit_id: string`
+
+- `status: "pending" or "approved" or "denied"`
+
+  - `"pending"`
+
+  - `"approved"`
+
+  - `"denied"`
+
+- `type: "spend_limit_increase_request"`
+
+  - `"spend_limit_increase_request"`
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/$SPEND_LIMIT_INCREASE_REQUEST_ID/approve \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
+    -d '{
+          "amount": "amount"
+        }'
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "actor": {
+    "deleted": true,
+    "email_address": "email_address",
+    "name": "name",
+    "type": "user_actor",
+    "user_id": "user_id"
+  },
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "period": "monthly",
+  "resolved_at": "2019-12-27T18:11:19.117Z",
+  "resolved_by": {
+    "deleted": true,
+    "email_address": "email_address",
+    "name": "name",
+    "type": "user_actor",
+    "user_id": "user_id"
+  },
+  "spend_limit": {
+    "id": "id",
+    "amount": "amount",
+    "created_at": "2019-12-27T18:11:19.117Z",
+    "currency": "currency",
+    "period": "monthly",
+    "scope": {
+      "type": "user",
+      "user_id": "user_id"
+    },
+    "type": "spend_limit",
+    "updated_at": "2019-12-27T18:11:19.117Z"
+  },
+  "spend_summary": {
+    "actor": {
+      "deleted": true,
+      "email_address": "email_address",
+      "name": "name",
+      "type": "user_actor",
+      "user_id": "user_id"
+    },
+    "amount": "amount",
+    "currency": "currency",
+    "period": "monthly",
+    "period_to_date_spend": "period_to_date_spend",
+    "scope": {
+      "type": "user",
+      "user_id": "user_id"
+    },
+    "source": {
+      "type": "user",
+      "user_id": "user_id"
+    },
+    "spend_limit_id": "spend_limit_id"
+  },
+  "status": "pending",
+  "type": "spend_limit_increase_request"
+}
+```
+
+## Deny Spend Limit Increase Request
+
+**post** `/v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}/deny`
+
+Deny a pending spend limit increase request.
+
+Idempotent on `denied`; denying an already-`approved` request returns
+400. Anthropic emails the requester unless `suppress_notification` is set.
+
+### Path Parameters
+
+- `spend_limit_increase_request_id: string`
+
+  ID of the spend limit increase request.
+
+### Body Parameters
+
+- `suppress_notification: optional boolean`
+
+### Returns
+
+- `SpendLimitIncreaseRequest object { id, actor, created_at, 6 more }`
+
+  - `id: string`
+
+  - `actor: object { deleted, email_address, name, 2 more }`
+
+    A user within the organization. `name` and `email_address` are
+    null when the underlying account is unavailable or has been deleted;
+    `deleted` is true only for deleted accounts.
+
+    - `deleted: boolean`
+
+    - `email_address: string`
+
+    - `name: string`
+
+    - `type: "user_actor"`
+
+      - `"user_actor"`
+
+    - `user_id: string`
+
+  - `created_at: string`
+
+  - `period: "monthly" or "daily" or "weekly"`
+
+    - `"monthly"`
+
+    - `"daily"`
+
+    - `"weekly"`
+
+  - `resolved_at: string`
+
+  - `resolved_by: object { deleted, email_address, name, 2 more }  or object { scoped_api_key_id, type }`
+
+    A user within the organization. `name` and `email_address` are
+    null when the underlying account is unavailable or has been deleted;
+    `deleted` is true only for deleted accounts.
+
+    - `UserActor object { deleted, email_address, name, 2 more }`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+      - `deleted: boolean`
+
+      - `email_address: string`
+
+      - `name: string`
+
+      - `type: "user_actor"`
+
+        - `"user_actor"`
+
+      - `user_id: string`
+
+    - `ScopedAPIKeyActor object { scoped_api_key_id, type }`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+      - `scoped_api_key_id: string`
+
+      - `type: "scoped_api_key_actor"`
+
+        - `"scoped_api_key_actor"`
+
+  - `spend_summary: SpendSummary`
+
+    Per-member effective-limit report row (GET /spend_limits/effective).
+
+    - `actor: object { deleted, email_address, name, 2 more }`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+      - `deleted: boolean`
+
+      - `email_address: string`
+
+      - `name: string`
+
+      - `type: "user_actor"`
+
+        - `"user_actor"`
+
+      - `user_id: string`
+
+    - `amount: string`
+
+    - `currency: string`
+
+    - `period: "monthly" or "daily" or "weekly"`
+
+      - `"monthly"`
+
+      - `"daily"`
+
+      - `"weekly"`
+
+    - `period_to_date_spend: string`
+
+    - `scope: object { type, user_id }`
+
+      - `type: "user"`
+
+        - `"user"`
+
+      - `user_id: string`
+
+    - `source: object { type, user_id }  or object { seat_tier, type }  or object { rbac_group_id, type }  or 2 more`
+
+      - `User object { type, user_id }`
+
+        - `type: "user"`
+
+          - `"user"`
+
+        - `user_id: string`
+
+      - `SeatTier object { seat_tier, type }`
+
+        - `seat_tier: string`
+
+        - `type: "seat_tier"`
+
+          - `"seat_tier"`
+
+      - `RbacGroup object { rbac_group_id, type }`
+
+        - `rbac_group_id: string`
+
+        - `type: "rbac_group"`
+
+          - `"rbac_group"`
+
+      - `OrganizationService object { service, type }`
+
+        - `service: string`
+
+        - `type: "organization_service"`
+
+          - `"organization_service"`
+
+      - `Organization object { type }`
+
+        - `type: "organization"`
+
+          - `"organization"`
+
+    - `spend_limit_id: string`
+
+  - `status: "pending" or "approved" or "denied"`
+
+    - `"pending"`
+
+    - `"approved"`
+
+    - `"denied"`
+
+  - `type: "spend_limit_increase_request"`
+
+    - `"spend_limit_increase_request"`
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/$SPEND_LIMIT_INCREASE_REQUEST_ID/deny \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
+    -d '{}'
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "actor": {
+    "deleted": true,
+    "email_address": "email_address",
+    "name": "name",
+    "type": "user_actor",
+    "user_id": "user_id"
+  },
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "period": "monthly",
+  "resolved_at": "2019-12-27T18:11:19.117Z",
+  "resolved_by": {
+    "deleted": true,
+    "email_address": "email_address",
+    "name": "name",
+    "type": "user_actor",
+    "user_id": "user_id"
+  },
+  "spend_summary": {
+    "actor": {
+      "deleted": true,
+      "email_address": "email_address",
+      "name": "name",
+      "type": "user_actor",
+      "user_id": "user_id"
+    },
+    "amount": "amount",
+    "currency": "currency",
+    "period": "monthly",
+    "period_to_date_spend": "period_to_date_spend",
+    "scope": {
+      "type": "user",
+      "user_id": "user_id"
+    },
+    "source": {
+      "type": "user",
+      "user_id": "user_id"
+    },
+    "spend_limit_id": "spend_limit_id"
+  },
+  "status": "pending",
+  "type": "spend_limit_increase_request"
+}
+```
+
+## Domain Types
+
+### Spend Limit Increase Request
+
+- `SpendLimitIncreaseRequest object { id, actor, created_at, 6 more }`
+
+  - `id: string`
+
+  - `actor: object { deleted, email_address, name, 2 more }`
+
+    A user within the organization. `name` and `email_address` are
+    null when the underlying account is unavailable or has been deleted;
+    `deleted` is true only for deleted accounts.
+
+    - `deleted: boolean`
+
+    - `email_address: string`
+
+    - `name: string`
+
+    - `type: "user_actor"`
+
+      - `"user_actor"`
+
+    - `user_id: string`
+
+  - `created_at: string`
+
+  - `period: "monthly" or "daily" or "weekly"`
+
+    - `"monthly"`
+
+    - `"daily"`
+
+    - `"weekly"`
+
+  - `resolved_at: string`
+
+  - `resolved_by: object { deleted, email_address, name, 2 more }  or object { scoped_api_key_id, type }`
+
+    A user within the organization. `name` and `email_address` are
+    null when the underlying account is unavailable or has been deleted;
+    `deleted` is true only for deleted accounts.
+
+    - `UserActor object { deleted, email_address, name, 2 more }`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+      - `deleted: boolean`
+
+      - `email_address: string`
+
+      - `name: string`
+
+      - `type: "user_actor"`
+
+        - `"user_actor"`
+
+      - `user_id: string`
+
+    - `ScopedAPIKeyActor object { scoped_api_key_id, type }`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+      - `scoped_api_key_id: string`
+
+      - `type: "scoped_api_key_actor"`
+
+        - `"scoped_api_key_actor"`
+
+  - `spend_summary: SpendSummary`
+
+    Per-member effective-limit report row (GET /spend_limits/effective).
+
+    - `actor: object { deleted, email_address, name, 2 more }`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+      - `deleted: boolean`
+
+      - `email_address: string`
+
+      - `name: string`
+
+      - `type: "user_actor"`
+
+        - `"user_actor"`
+
+      - `user_id: string`
+
+    - `amount: string`
+
+    - `currency: string`
+
+    - `period: "monthly" or "daily" or "weekly"`
+
+      - `"monthly"`
+
+      - `"daily"`
+
+      - `"weekly"`
+
+    - `period_to_date_spend: string`
+
+    - `scope: object { type, user_id }`
+
+      - `type: "user"`
+
+        - `"user"`
+
+      - `user_id: string`
+
+    - `source: object { type, user_id }  or object { seat_tier, type }  or object { rbac_group_id, type }  or 2 more`
+
+      - `User object { type, user_id }`
+
+        - `type: "user"`
+
+          - `"user"`
+
+        - `user_id: string`
+
+      - `SeatTier object { seat_tier, type }`
+
+        - `seat_tier: string`
+
+        - `type: "seat_tier"`
+
+          - `"seat_tier"`
+
+      - `RbacGroup object { rbac_group_id, type }`
+
+        - `rbac_group_id: string`
+
+        - `type: "rbac_group"`
+
+          - `"rbac_group"`
+
+      - `OrganizationService object { service, type }`
+
+        - `service: string`
+
+        - `type: "organization_service"`
+
+          - `"organization_service"`
+
+      - `Organization object { type }`
+
+        - `type: "organization"`
+
+          - `"organization"`
+
+    - `spend_limit_id: string`
+
+  - `status: "pending" or "approved" or "denied"`
+
+    - `"pending"`
+
+    - `"approved"`
+
+    - `"denied"`
+
+  - `type: "spend_limit_increase_request"`
+
+    - `"spend_limit_increase_request"`
+
+### Increase Request Approve Response
+
+- `IncreaseRequestApproveResponse object { id, actor, created_at, 7 more }`
+
+  - `id: string`
+
+  - `actor: object { deleted, email_address, name, 2 more }`
+
+    A user within the organization. `name` and `email_address` are
+    null when the underlying account is unavailable or has been deleted;
+    `deleted` is true only for deleted accounts.
+
+    - `deleted: boolean`
+
+    - `email_address: string`
+
+    - `name: string`
+
+    - `type: "user_actor"`
+
+      - `"user_actor"`
+
+    - `user_id: string`
+
+  - `created_at: string`
+
+  - `period: "monthly" or "daily" or "weekly"`
+
+    - `"monthly"`
+
+    - `"daily"`
+
+    - `"weekly"`
+
+  - `resolved_at: string`
+
+  - `resolved_by: object { deleted, email_address, name, 2 more }  or object { scoped_api_key_id, type }`
+
+    A user within the organization. `name` and `email_address` are
+    null when the underlying account is unavailable or has been deleted;
+    `deleted` is true only for deleted accounts.
+
+    - `UserActor object { deleted, email_address, name, 2 more }`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+      - `deleted: boolean`
+
+      - `email_address: string`
+
+      - `name: string`
+
+      - `type: "user_actor"`
+
+        - `"user_actor"`
+
+      - `user_id: string`
+
+    - `ScopedAPIKeyActor object { scoped_api_key_id, type }`
+
+      A scoped Admin API key acting on behalf of the organization.
+
+      - `scoped_api_key_id: string`
+
+      - `type: "scoped_api_key_actor"`
+
+        - `"scoped_api_key_actor"`
+
+  - `spend_limit: SpendLimit`
+
+    - `id: string`
+
+    - `amount: string`
+
+    - `created_at: string`
+
+    - `currency: string`
+
+    - `period: "monthly" or "daily" or "weekly"`
+
+      - `"monthly"`
+
+      - `"daily"`
+
+      - `"weekly"`
+
+    - `scope: object { type, user_id }  or object { seat_tier, type }  or object { rbac_group_id, type }  or 2 more`
+
+      - `User object { type, user_id }`
+
+        - `type: "user"`
+
+          - `"user"`
+
+        - `user_id: string`
+
+      - `SeatTier object { seat_tier, type }`
+
+        - `seat_tier: string`
+
+        - `type: "seat_tier"`
+
+          - `"seat_tier"`
+
+      - `RbacGroup object { rbac_group_id, type }`
+
+        - `rbac_group_id: string`
+
+        - `type: "rbac_group"`
+
+          - `"rbac_group"`
+
+      - `OrganizationService object { service, type }`
+
+        - `service: string`
+
+        - `type: "organization_service"`
+
+          - `"organization_service"`
+
+      - `Organization object { type }`
+
+        - `type: "organization"`
+
+          - `"organization"`
+
+    - `type: "spend_limit"`
+
+      - `"spend_limit"`
+
+    - `updated_at: string`
+
+  - `spend_summary: SpendSummary`
+
+    Per-member effective-limit report row (GET /spend_limits/effective).
+
+    - `actor: object { deleted, email_address, name, 2 more }`
+
+      A user within the organization. `name` and `email_address` are
+      null when the underlying account is unavailable or has been deleted;
+      `deleted` is true only for deleted accounts.
+
+      - `deleted: boolean`
+
+      - `email_address: string`
+
+      - `name: string`
+
+      - `type: "user_actor"`
+
+        - `"user_actor"`
+
+      - `user_id: string`
+
+    - `amount: string`
+
+    - `currency: string`
+
+    - `period: "monthly" or "daily" or "weekly"`
+
+      - `"monthly"`
+
+      - `"daily"`
+
+      - `"weekly"`
+
+    - `period_to_date_spend: string`
+
+    - `scope: object { type, user_id }`
+
+      - `type: "user"`
+
+        - `"user"`
+
+      - `user_id: string`
+
+    - `source: object { type, user_id }  or object { seat_tier, type }  or object { rbac_group_id, type }  or 2 more`
+
+      - `User object { type, user_id }`
+
+        - `type: "user"`
+
+          - `"user"`
+
+        - `user_id: string`
+
+      - `SeatTier object { seat_tier, type }`
+
+        - `seat_tier: string`
+
+        - `type: "seat_tier"`
+
+          - `"seat_tier"`
+
+      - `RbacGroup object { rbac_group_id, type }`
+
+        - `rbac_group_id: string`
+
+        - `type: "rbac_group"`
+
+          - `"rbac_group"`
+
+      - `OrganizationService object { service, type }`
+
+        - `service: string`
+
+        - `type: "organization_service"`
+
+          - `"organization_service"`
+
+      - `Organization object { type }`
+
+        - `type: "organization"`
+
+          - `"organization"`
+
+    - `spend_limit_id: string`
+
+  - `status: "pending" or "approved" or "denied"`
+
+    - `"pending"`
+
+    - `"approved"`
+
+    - `"denied"`
+
+  - `type: "spend_limit_increase_request"`
+
+    - `"spend_limit_increase_request"`

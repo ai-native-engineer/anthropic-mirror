@@ -1,29 +1,48 @@
 <!-- source: https://platform.claude.com/docs/en/api/compliance/apps/projects/documents/delete -->
 
-# Delete project document
-DELETE/v1/compliance/apps/projects/documents/{document_id}
-Delete a project document for compliance purposes.
-Hard-deletes the project document permanently.
-##### Path ParametersExpand Collapse 
-document_id: string
-The document ID (tagged ID, e.g., claude_proj_doc_abc123)
-[](https://platform.claude.com/docs/en/api/compliance/apps/projects/documents/delete#delete.document_id)
-##### Header ParametersExpand Collapse 
-"x-api-key": optional string
-[](https://platform.claude.com/docs/en/api/compliance/apps/projects/documents/delete#delete.x-api-key)
-The ID of the project document that was deleted
-[](https://platform.claude.com/docs/en/api/compliance/apps/projects/documents/delete#document_delete_response.id)
-type: "claude_project_document_deleted"
-Constant string confirming deletion.
-[](https://platform.claude.com/docs/en/api/compliance/apps/projects/documents/delete#document_delete_response.type)
-Delete project document
+## Delete project document
 
+**delete** `/v1/compliance/apps/projects/documents/{document_id}`
+
+Delete a project document for compliance purposes.
+
+Hard-deletes the project document permanently.
+
+### Path Parameters
+
+- `document_id: string`
+
+  The document ID (tagged ID, e.g., claude_proj_doc_abc123)
+
+### Header Parameters
+
+- `"x-api-key": optional string`
+
+### Returns
+
+- `id: string`
+
+  The ID of the project document that was deleted
+
+- `type: "claude_project_document_deleted"`
+
+  Constant string confirming deletion.
+
+  - `"claude_project_document_deleted"`
+
+### Example
+
+```http
 curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_ID \
     -X DELETE \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
+```
 
+#### Response
+
+```json
+{
   "id": "id",
   "type": "claude_project_document_deleted"
-
-  "id": "id",
-  "type": "claude_project_document_deleted"
+}
+```

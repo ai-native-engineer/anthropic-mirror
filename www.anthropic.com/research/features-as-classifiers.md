@@ -1,30 +1,25 @@
 <!-- source: https://www.anthropic.com/research/features-as-classifiers -->
 
 # Using dictionary learning features as classifiers
-2024년 10월 16일
+
+Oct 16, 2024
+
 [Read Transformer Circuits](https://transformer-circuits.pub/2024/features-as-classifiers/index.html)
-_At the link above, we report some developing work from the Anthropic interpretability team on developing feature-based classifiers, which might be of interest to researchers working actively in this space. We'd ask you to treat these results like those of a colleague sharing some thoughts or preliminary experiments for a few minutes at a lab meeting, rather than a mature paper._
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/features-as-classifiers)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/features-as-classifiers)
+
+*At the link above, we report some developing work from the Anthropic interpretability team on developing feature-based classifiers, which might be of interest to researchers working actively in this space. We'd ask you to treat these results like those of a colleague sharing some thoughts or preliminary experiments for a few minutes at a lab meeting, rather than a mature paper.*
+
 ### Project Fetch: Phase two
+
 We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
-[Read more](https://www.anthropic.com/research/project-fetch-phase-two)
-### Agentic coding and persistent returns to expertise 
+
+[Read more](/research/project-fetch-phase-two)
+
+### Agentic coding and persistent returns to expertise
+
 This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
-[Read more](https://www.anthropic.com/research/claude-code-expertise)
+
+[Read more](/research/claude-code-expertise)
+
 ### Paving the way for agents in biology
-[Read more](https://www.anthropic.com/research/agents-in-biology)
-Interpretability
-# Using dictionary learning features as classifiers
-2024년 10월 16일
-[Read Transformer Circuits](https://transformer-circuits.pub/2024/features-as-classifiers/index.html)
-_At the link above, we report some developing work from the Anthropic interpretability team on developing feature-based classifiers, which might be of interest to researchers working actively in this space. We'd ask you to treat these results like those of a colleague sharing some thoughts or preliminary experiments for a few minutes at a lab meeting, rather than a mature paper._
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/features-as-classifiers)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/features-as-classifiers)
-### Project Fetch: Phase two
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
-[Read more](https://www.anthropic.com/research/project-fetch-phase-two)
-### Agentic coding and persistent returns to expertise 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
-[Read more](https://www.anthropic.com/research/claude-code-expertise)
-### Paving the way for agents in biology
-[Read more](https://www.anthropic.com/research/agents-in-biology)
-_At the link above, we report some developing work from the Anthropic interpretability team on developing feature-based classifiers, which might be of interest to researchers working actively in this space. We'd ask you to treat these results like those of a colleague sharing some thoughts or preliminary experiments for a few minutes at a lab meeting, rather than a mature paper._
+
+[Read more](/research/agents-in-biology)
