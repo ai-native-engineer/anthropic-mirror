@@ -39,6 +39,8 @@
 
 대부분 텍스트입니다. 예외: 해석가능성 논문은 본문 그림을 PNG 파일로 추출해 함께 보관하고, 페이지에 임베드된 YouTube 영상은 자막으로 전사해 영상 바로 아래 접이식 `<details>` 블록으로 인라인합니다. Anthropic Academy 영상 코스는 YouTube / JWPlayer 자막을 텍스트로 전사합니다.
 
+**알려진 커버리지 갭** (각 sitemap 대조 측정, 표면별 약 96~99%). 못 담은 것: `platform.claude.com/docs/en/api/` 하위 자동생성 API SDK 레퍼런스 약 150개(terraform/php/csharp 엔드포인트, 원본 `.md`가 404), 그리고 서버측 텍스트가 없는 JS 렌더 페이지 소수. 이들을 담으려면 헤드리스 브라우저가 필요한데, 이 미러는 의도적으로 쓰지 않습니다.
+
 ## 어떻게 만들어지나
 
 sitemap 기반 자동 크롤 파이프라인으로 수집합니다(API 키 없음, 공개 페이지는 로그인 없음): 각 도메인의 `sitemap.xml`을 1차 소스로 삼고, Chrome 브라우저 지문(`curl_cffi`)으로 가져와 헤드리스 브라우저 없이 SSR HTML을 받습니다. `platform.claude.com`·`code.claude.com` 문서는 Mintlify `.md` raw로 받습니다. 재생성 절차는 `AGENTS.md` 참조.

@@ -39,6 +39,8 @@ About 4,700 markdown files, as of the latest crawl snapshot. The tree mirrors th
 
 Mostly text. Exceptions: interpretability papers keep their inline figures as extracted PNG files, and YouTube videos embedded in a page are transcribed and inlined below the embed inside a collapsible `<details>` block. Anthropic Academy video courses are transcribed from YouTube / JWPlayer captions.
 
+**Known coverage gaps** (measured against each sitemap, ~96-99% per surface). Not mirrored: about 150 auto-generated API SDK reference pages under `platform.claude.com/docs/en/api/` (terraform/php/csharp endpoints whose `.md` source returns 404), plus a handful of JS-rendered pages that ship no server-side text. Capturing these would need a headless browser, which this mirror avoids by design.
+
 ## How it's generated
 
 Crawled by an automated, sitemap-driven pipeline (no API keys, no login for public pages): every domain's `sitemap.xml` is the source of truth, fetched with a Chrome browser fingerprint so the server-rendered HTML comes through without a headless browser. `platform.claude.com` and `code.claude.com` docs are pulled as Mintlify `.md` raw. See `AGENTS.md` for the regeneration details.
