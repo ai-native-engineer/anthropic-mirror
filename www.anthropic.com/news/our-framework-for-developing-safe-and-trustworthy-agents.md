@@ -12,7 +12,7 @@ The most popular AI tools today are assistants that respond to specific question
 [![Tips for building AI agents](https://img.youtube.com/vi/LP5OCa20Zpg/hqdefault.jpg)](https://www.youtube.com/watch?v=LP5OCa20Zpg)
 
 <details>
-<summary>📺 자막: Tips for building AI agents (18:19)</summary>
+<summary>자막: Tips for building AI agents (18:19)</summary>
 
 [00:00]
 - I feel like agents for consumers

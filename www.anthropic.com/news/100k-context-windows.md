@@ -18,7 +18,7 @@ Our partners are excited about what larger context windows means for their busin
 [![Anthropic’s new 100K context window model is insane!](https://img.youtube.com/vi/2kFhloXz5_E/hqdefault.jpg)](https://www.youtube.com/watch?v=2kFhloXz5_E)
 
 <details>
-<summary>📺 자막: Anthropic’s new 100K context window model is insane! (9:11)</summary>
+<summary>자막: Anthropic’s new 100K context window model is insane! (9:11)</summary>
 
 [00:00]
 oh it worked anthropic just launched a

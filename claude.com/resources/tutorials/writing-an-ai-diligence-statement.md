@@ -49,7 +49,7 @@ A good AI diligence statement does several things at once. It builds trust with 
 [![Lesson 10: A closer look at Diligence | AI Fluency: Framework & Foundations Course](https://img.youtube.com/vi/QbLf2zb3oPc/hqdefault.jpg)](https://www.youtube.com/watch?v=QbLf2zb3oPc)
 
 <details>
-<summary>📺 자막: Lesson 10: A closer look at Diligence | AI Fluency: Framework & Foundations Course (6:51)</summary>
+<summary>자막: Lesson 10: A closer look at Diligence | AI Fluency: Framework & Foundations Course (6:51)</summary>
 
 [00:00]
 In this video, we'll examine the

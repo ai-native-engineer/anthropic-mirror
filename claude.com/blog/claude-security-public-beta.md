@@ -44,6 +44,17 @@ We are entering a pivotal time for cybersecurity. AI is compressing the timeline
 
 [Claude Security](https://youtu.be/0SgCiUfoYo8) can be accessed directly from the Claude.ai sidebar, or at [claude.ai/security](http://claude.ai/security). To begin, select one of your repositories (or scope to a specific directory or branch), then start a scan.
 
+<!-- yt-inline:0SgCiUfoYo8 -->
+[![YouTube 0SgCiUfoYo8](https://img.youtube.com/vi/0SgCiUfoYo8/hqdefault.jpg)](https://www.youtube.com/watch?v=0SgCiUfoYo8)
+
+<details>
+<summary>자막: YouTube 0SgCiUfoYo8</summary>
+
+_(자막 없음)_
+
+</details>
+
+
 While scanning, Claude reasons about code much like a security researcher. Rather than finding vulnerabilities by searching for known patterns, Claude seeks to understand how components interact across files and modules, traces data flows, and reads the source code.
 
 Once complete, Claude provides a detailed explanation of each of its findings, including its confidence that the vulnerability is real, how severe it is, its likely impact, and how it can be reproduced. It also generates instructions for a targeted patch, which users can open in Claude Code on the Web to work through the fix in context.

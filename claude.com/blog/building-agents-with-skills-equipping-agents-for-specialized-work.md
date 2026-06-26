@@ -211,7 +211,7 @@ We're converging on an architecture for general agents, and skills provide a par
 [![Don't Build Agents, Build Skills Instead – Barry Zhang & Mahesh Murag, Anthropic](https://img.youtube.com/vi/CEvIs9y1uog/hqdefault.jpg)](https://www.youtube.com/watch?v=CEvIs9y1uog)
 
 <details>
-<summary>📺 자막: Don't Build Agents, Build Skills Instead – Barry Zhang & Mahesh Murag, Anthropic (16:22)</summary>
+<summary>자막: Don't Build Agents, Build Skills Instead – Barry Zhang & Mahesh Murag, Anthropic (16:22)</summary>
 
 [00:00]
 [music]

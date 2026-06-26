@@ -138,7 +138,7 @@ Virtual Puppet Theater’s source code is available on GitHub under MIT licensin
 [![Keep Thinking Prize Winner — Built with Opus 4.7 Hackathon | MaestrIA](https://img.youtube.com/vi/rkH4AjoTL5Q/hqdefault.jpg)](https://www.youtube.com/watch?v=rkH4AjoTL5Q)
 
 <details>
-<summary>📺 자막: Keep Thinking Prize Winner — Built with Opus 4.7 Hackathon | MaestrIA (3:02)</summary>
+<summary>자막: Keep Thinking Prize Winner — Built with Opus 4.7 Hackathon | MaestrIA (3:02)</summary>
 
 [00:00]
 In Chile, when something breaks in your
@@ -240,7 +240,7 @@ His prize credits go toward developing the app, digitizing his father's company 
 [![Aria: Built with Opus 4.7 Claude Code Hackathon](https://img.youtube.com/vi/Hen24w2Jyz4/hqdefault.jpg)](https://www.youtube.com/watch?v=Hen24w2Jyz4)
 
 <details>
-<summary>📺 자막: Aria: Built with Opus 4.7 Claude Code Hackathon (3:00)</summary>
+<summary>자막: Aria: Built with Opus 4.7 Claude Code Hackathon (3:00)</summary>
 
 [00:00]
 In every factory, every plant, every

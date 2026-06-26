@@ -24,4 +24,15 @@ We are also currently working with thousands of businesses who are using the Cla
 
 **Sourcegraph** is a code AI platform that helps customers write, fix, and maintain code. Their [coding assistant Cody](https://www.youtube.com/watch?v=pRTTdlgDd8g) uses Claude 2’s improved reasoning ability to give even more accurate answers to user queries while also passing along more codebase context with up to 100K context windows. In addition, Claude 2 was trained on more recent data, meaning it has knowledge of newer frameworks and libraries for Cody to pull from. “When it comes to AI coding, devs need fast and reliable access to context about their unique codebase and a powerful LLM with a large context window and strong general reasoning capabilities,” says Quinn Slack, CEO & Co-founder of Sourcegraph. “The slowest and most frustrating parts of the dev workflow are becoming faster and more enjoyable. Thanks to Claude 2, Cody’s helping more devs build more software that pushes the world forward.”
 
+<!-- yt-inline:pRTTdlgDd8g -->
+[![YouTube pRTTdlgDd8g](https://img.youtube.com/vi/pRTTdlgDd8g/hqdefault.jpg)](https://www.youtube.com/watch?v=pRTTdlgDd8g)
+
+<details>
+<summary>자막: YouTube pRTTdlgDd8g</summary>
+
+_(자막 없음)_
+
+</details>
+
+
 We welcome your feedback as we work to responsibly deploy our products more broadly. Our chat experience is an open beta launch, and users should be aware that Claude – like all current models – can generate inappropriate responses. AI assistants are most useful in everyday situations, like serving to summarize or organize information, and should not be used where physical or mental health and well-being are involved. Please let us know if you’d like to talk to Claude in a [currently unsupported area](https://docs.google.com/forms/d/1DlDkGmcxHYhuJ277R7x2g-ZqCDUWeLyL88IO0culKxE/edit?usp=drive_web), or if you are a [business who would like to start working with Claude](https://anthropic.com/earlyaccess).

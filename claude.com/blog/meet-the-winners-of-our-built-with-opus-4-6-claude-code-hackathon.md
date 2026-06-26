@@ -56,7 +56,7 @@ We hope their projects will inspire you to build something meaningful.
 [![Crossbeam: Built with Opus 4.6 Claude Code Hackathon](https://img.youtube.com/vi/jHwBkFSvyk0/hqdefault.jpg)](https://www.youtube.com/watch?v=jHwBkFSvyk0)
 
 <details>
-<summary>📺 자막: Crossbeam: Built with Opus 4.6 Claude Code Hackathon (3:00)</summary>
+<summary>자막: Crossbeam: Built with Opus 4.6 Claude Code Hackathon (3:00)</summary>
 
 [00:00]
 Everyone thinks California has a housing
@@ -176,7 +176,7 @@ Mike built CrossBeam using a workflow of prompting Claude Code and then having C
 [![Build with Opus 4.6 Hackathon Video](https://img.youtube.com/vi/rsUaz_QAK6o/hqdefault.jpg)](https://www.youtube.com/watch?v=rsUaz_QAK6o)
 
 <details>
-<summary>📺 자막: Build with Opus 4.6 Hackathon Video (2:56)</summary>
+<summary>자막: Build with Opus 4.6 Hackathon Video (2:56)</summary>
 
 [00:00]
 My daughter Alisa is in seventh grade.
@@ -280,7 +280,7 @@ Educators have reached out about using Elisa in classrooms and Jon is working to
 [![postvisit.ai - built with opus 4.6 hackathon](https://img.youtube.com/vi/V29UCOii2jE/hqdefault.jpg)](https://www.youtube.com/watch?v=V29UCOii2jE)
 
 <details>
-<summary>📺 자막: postvisit.ai - built with opus 4.6 hackathon (2:59)</summary>
+<summary>자막: postvisit.ai - built with opus 4.6 hackathon (2:59)</summary>
 
 [00:00]
 Hi, my name is Miho. I'm a cardiologist.
@@ -392,7 +392,7 @@ To build PostVisit, Michał took himself on a hackathon road trip, building whil
 [![TARA — Transport Appraisal & Risk Analysis | Anthropic Claude Code Hackathon](https://img.youtube.com/vi/GFCrXehS1DE/hqdefault.jpg)](https://www.youtube.com/watch?v=GFCrXehS1DE)
 
 <details>
-<summary>📺 자막: TARA — Transport Appraisal & Risk Analysis | Anthropic Claude Code Hackathon (3:00)</summary>
+<summary>자막: TARA — Transport Appraisal & Risk Analysis | Anthropic Claude Code Hackathon (3:00)</summary>
 
 [00:00]
 Infrastructure is expensive. We need to
@@ -495,7 +495,7 @@ For the hackathon, Kyeyune uploaded actual dashcam footage from Kira - Matugga R
 [![I Built an AI Band That Plays With You in Real Time](https://img.youtube.com/vi/X6CqJoyj0kI/hqdefault.jpg)](https://www.youtube.com/watch?v=X6CqJoyj0kI)
 
 <details>
-<summary>📺 자막: I Built an AI Band That Plays With You in Real Time (2:59)</summary>
+<summary>자막: I Built an AI Band That Plays With You in Real Time (2:59)</summary>
 
 [00:00]
 Hello everyone, I am ASF from Nanasan. I

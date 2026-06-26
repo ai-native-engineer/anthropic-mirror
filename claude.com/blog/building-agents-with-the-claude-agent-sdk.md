@@ -45,7 +45,7 @@ In this post, we'll highlight why we built the Claude Agent SDK, how to build yo
 [![Designing Claude Code](https://img.youtube.com/vi/vLIDHi-1PVU/hqdefault.jpg)](https://www.youtube.com/watch?v=vLIDHi-1PVU)
 
 <details>
-<summary>📺 자막: Designing Claude Code (12:03)</summary>
+<summary>자막: Designing Claude Code (12:03)</summary>
 
 [00:00]
 - Hi, I'm Alex.

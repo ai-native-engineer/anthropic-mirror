@@ -20,7 +20,7 @@ Watch the video
 [![How Slack uses Claude for AI search and summaries](https://img.youtube.com/vi/yB7xjOA05GM/hqdefault.jpg)](https://www.youtube.com/watch?v=yB7xjOA05GM)
 
 <details>
-<summary>📺 자막: How Slack uses Claude for AI search and summaries (1:50)</summary>
+<summary>자막: How Slack uses Claude for AI search and summaries (1:50)</summary>
 
 [00:00]
 Some of the challenges we faced

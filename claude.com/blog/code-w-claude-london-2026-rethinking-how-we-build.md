@@ -37,7 +37,7 @@ Boris Cherny, Head of Claude Code, kicked off [the keynote](https://www.youtube.
 [![Code with Claude London 2026: Opening Keynote](https://img.youtube.com/vi/6amLO7I9xdg/hqdefault.jpg)](https://www.youtube.com/watch?v=6amLO7I9xdg)
 
 <details>
-<summary>📺 자막: Code with Claude London 2026: Opening Keynote (46:27)</summary>
+<summary>자막: Code with Claude London 2026: Opening Keynote (46:27)</summary>
 
 [00:00]
 Heat.

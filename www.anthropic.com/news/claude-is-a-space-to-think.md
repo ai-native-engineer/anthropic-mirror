@@ -14,7 +14,7 @@ Advertising drives competition, helps people discover new products, and allows s
 [![Keep thinking with Claude](https://img.youtube.com/vi/FDNkDBNR7AM/hqdefault.jpg)](https://www.youtube.com/watch?v=FDNkDBNR7AM)
 
 <details>
-<summary>📺 자막: Keep thinking with Claude (1:30)</summary>
+<summary>자막: Keep thinking with Claude (1:30)</summary>
 
 [00:00]
 There's never been a worse time problem.

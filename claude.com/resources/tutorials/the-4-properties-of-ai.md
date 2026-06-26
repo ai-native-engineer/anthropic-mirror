@@ -52,7 +52,7 @@ Generative AI writes answers word by word based on what tends to follow what. It
 [![How AI models use next token prediction](https://img.youtube.com/vi/kl0gunXTvyk/hqdefault.jpg)](https://www.youtube.com/watch?v=kl0gunXTvyk)
 
 <details>
-<summary>📺 자막: How AI models use next token prediction (4:15)</summary>
+<summary>자막: How AI models use next token prediction (4:15)</summary>
 
 [00:00]
 Hi, my name is David and I'm on the
@@ -220,7 +220,7 @@ What the model knows comes entirely from its training data, frozen at a knowledg
 [![Understanding knowledge gaps in AI models](https://img.youtube.com/vi/iSLdQXeKbHs/hqdefault.jpg)](https://www.youtube.com/watch?v=iSLdQXeKbHs)
 
 <details>
-<summary>📺 자막: Understanding knowledge gaps in AI models (5:24)</summary>
+<summary>자막: Understanding knowledge gaps in AI models (5:24)</summary>
 
 [00:00]
 Hi, my name is David and I'm on the
@@ -425,7 +425,7 @@ Everything the model is attending to lives inside a fixed-size context window. C
 [![The Context Window: How working memory affects generative AI outputs](https://img.youtube.com/vi/QJjt4wF4iHM/hqdefault.jpg)](https://www.youtube.com/watch?v=QJjt4wF4iHM)
 
 <details>
-<summary>📺 자막: The Context Window: How working memory affects generative AI outputs (5:46)</summary>
+<summary>자막: The Context Window: How working memory affects generative AI outputs (5:46)</summary>
 
 [00:00]
 Hi there. My name's Matt, and I'm on the
@@ -629,7 +629,7 @@ The model follows instructions by continuing a pattern, not by understanding int
 [![How steerability affects generative AI outputs](https://img.youtube.com/vi/M_RwSRmp220/hqdefault.jpg)](https://www.youtube.com/watch?v=M_RwSRmp220)
 
 <details>
-<summary>📺 자막: How steerability affects generative AI outputs (5:13)</summary>
+<summary>자막: How steerability affects generative AI outputs (5:13)</summary>
 
 [00:00]
 Hi there. My name's Matt and I'm on the

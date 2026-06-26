@@ -1,4 +1,11 @@
-[English](README.md) | **한국어**
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/anthropic-logo-dark.svg">
+    <img src="assets/anthropic-logo.svg" alt="Anthropic" height="30">
+  </picture>
+</p>
+
+<p align="center"><a href="README.md">English</a> | <b>한국어</b></p>
 
 # anthropic-mirror
 

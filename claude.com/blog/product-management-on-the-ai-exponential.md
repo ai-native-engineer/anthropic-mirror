@@ -1903,7 +1903,7 @@ At Anthropic, product managers aren’t the only ones transforming their workflo
 [![How Anthropic uses Claude in Legal](https://img.youtube.com/vi/tJP6SKfo49c/hqdefault.jpg)](https://www.youtube.com/watch?v=tJP6SKfo49c)
 
 <details>
-<summary>📺 자막: How Anthropic uses Claude in Legal (3:40)</summary>
+<summary>자막: How Anthropic uses Claude in Legal (3:40)</summary>
 
 [00:00]
 This is
@@ -2043,7 +2043,7 @@ doing until you give it a shot.
 [![Designing Claude Code](https://img.youtube.com/vi/vLIDHi-1PVU/hqdefault.jpg)](https://www.youtube.com/watch?v=vLIDHi-1PVU)
 
 <details>
-<summary>📺 자막: Designing Claude Code (12:03)</summary>
+<summary>자막: Designing Claude Code (12:03)</summary>
 
 [00:00]
 - Hi, I'm Alex.

@@ -28,7 +28,7 @@ A few months ago, Andrej Karpathy gave a [talk](https://www.youtube.com/watch?v=
 [![Andrej Karpathy: Software Is Changing (Again)](https://img.youtube.com/vi/LCEmiRjPEtQ/hqdefault.jpg)](https://www.youtube.com/watch?v=LCEmiRjPEtQ)
 
 <details>
-<summary>📺 자막: Andrej Karpathy: Software Is Changing (Again) (39:31)</summary>
+<summary>자막: Andrej Karpathy: Software Is Changing (Again) (39:31)</summary>
 
 [00:00]
 Please welcome former director of AI

@@ -44,7 +44,7 @@ With computer use, we're trying something fundamentally new. Instead of making s
 [![Claude | Computer use for coding](https://img.youtube.com/vi/vH2f7cjXjKI/hqdefault.jpg)](https://www.youtube.com/watch?v=vH2f7cjXjKI)
 
 <details>
-<summary>📺 자막: Claude | Computer use for coding (3:03)</summary>
+<summary>자막: Claude | Computer use for coding (3:03)</summary>
 
 [00:00]
 I'm Alex, I lead developer
@@ -147,7 +147,7 @@ do tasks like this end to end.
 [![Claude | Computer use for orchestrating tasks](https://img.youtube.com/vi/jqx18KgIzAE/hqdefault.jpg)](https://www.youtube.com/watch?v=jqx18KgIzAE)
 
 <details>
-<summary>📺 자막: Claude | Computer use for orchestrating tasks (2:04)</summary>
+<summary>자막: Claude | Computer use for orchestrating tasks (2:04)</summary>
 
 [00:00]
 I'm Pujaa and I'm a

@@ -230,7 +230,7 @@ Most importantly for PSM, we find that LLMs use the same internal representation
 [![Anthropic CEO warns that without guardrails, AI could be on dangerous path](https://img.youtube.com/vi/aAPpQC-3EyE/hqdefault.jpg)](https://www.youtube.com/watch?v=aAPpQC-3EyE)
 
 <details>
-<summary>📺 자막: Anthropic CEO warns that without guardrails, AI could be on dangerous path (13:51)</summary>
+<summary>자막: Anthropic CEO warns that without guardrails, AI could be on dangerous path (13:51)</summary>
 
 [00:00]
 If you're a major artificial

@@ -82,6 +82,17 @@ Fast forward to 2022, and the widespread availability of image generators and la
 
 Generative AI became that hook. Gamma launched their app with a [video](https://www.youtube.com/watch?v=r9VOYJM6nZc) that quickly went viral. “Ever since then, it’s been a runaway train,” Jon says. Users immediately loved Gamma for two main use cases: generating presentations from scratch and iterating on slide content and design.
 
+<!-- yt-inline:r9VOYJM6nZc -->
+[![YouTube r9VOYJM6nZc](https://img.youtube.com/vi/r9VOYJM6nZc/hqdefault.jpg)](https://www.youtube.com/watch?v=r9VOYJM6nZc)
+
+<details>
+<summary>자막: YouTube r9VOYJM6nZc</summary>
+
+_(자막 없음)_
+
+</details>
+
+
 ![App screen from Gamma platform](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05700f0e68a1b608908_28bf834aca6299bd34add845729396d0cf2b6df2-2880x1620.jpeg)
 
 As it became clear that the AI generation flow was a primary driver of Gamma’s business growth, the team started to dig into the data to understand just how well their initial LLM choices were performing.

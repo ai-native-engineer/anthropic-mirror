@@ -29,6 +29,17 @@ Claude Opus 4.6 is a meaningful upgrade. It gathers context for complex tasks, s
 
 It still has [Claude’s characteristic personality and values](https://www.youtube.com/watch?v=dPn3GBI8lII), but you may also notice some slight behavioral shifts. A few are worth understanding so you can work with them effectively.
 
+<!-- yt-inline:dPn3GBI8lII -->
+[![YouTube dPn3GBI8lII](https://img.youtube.com/vi/dPn3GBI8lII/hqdefault.jpg)](https://www.youtube.com/watch?v=dPn3GBI8lII)
+
+<details>
+<summary>자막: YouTube dPn3GBI8lII</summary>
+
+_(자막 없음)_
+
+</details>
+
+
 ## Follows instructions more precisely
 
 Earlier models sometimes needed repeated instructions or heavy prompting to stay on track. Opus 4.6 follows instructions more carefully the first time.

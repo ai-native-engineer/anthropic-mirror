@@ -142,7 +142,7 @@ Ultimately, experiments like entering Claude into cyber competitions to understa
 [![DEF CON 33: Claude--Climbing a CTF Scoreboard Near You](https://img.youtube.com/vi/sbkeEwhWIks/hqdefault.jpg)](https://www.youtube.com/watch?v=sbkeEwhWIks)
 
 <details>
-<summary>📺 자막: DEF CON 33: Claude--Climbing a CTF Scoreboard Near You (38:06)</summary>
+<summary>자막: DEF CON 33: Claude--Climbing a CTF Scoreboard Near You (38:06)</summary>
 
 [00:00]
 Everybody,

@@ -33,7 +33,7 @@ From prompting and [model selection](https://www.youtube.com/watch?v=OXJO4LldSnc
 [![The thinking lever](https://img.youtube.com/vi/OXJO4LldSnc/hqdefault.jpg)](https://www.youtube.com/watch?v=OXJO4LldSnc)
 
 <details>
-<summary>📺 자막: The thinking lever (24:02)</summary>
+<summary>자막: The thinking lever (24:02)</summary>
 
 [00:00]
 All right.
@@ -708,7 +708,7 @@ about these things, so thank you.
 [![Running an AI-native engineering org](https://img.youtube.com/vi/igO8iyca2_g/hqdefault.jpg)](https://www.youtube.com/watch?v=igO8iyca2_g)
 
 <details>
-<summary>📺 자막: Running an AI-native engineering org (28:38)</summary>
+<summary>자막: Running an AI-native engineering org (28:38)</summary>
 
 [00:00]
 [music]
@@ -1628,11 +1628,22 @@ Thank you.
 
 We demonstrated this through [live coding sessions](https://www.youtube.com/watch?v=DlTCu_pNDHE&list=PLmWCw1CzcFim2obQ-w3ohbULOfwp5lApR&index=5), [customer deep-dives](https://www.youtube.com/watch?v=EdmuYPBt_EM&list=PLmWCw1CzcFim2obQ-w3ohbULOfwp5lApR&index=2), and hands-on tutorials highlighting what this looks like today.
 
+<!-- yt-inline:EdmuYPBt_EM -->
+[![YouTube EdmuYPBt_EM](https://img.youtube.com/vi/EdmuYPBt_EM/hqdefault.jpg)](https://www.youtube.com/watch?v=EdmuYPBt_EM)
+
+<details>
+<summary>자막: YouTube EdmuYPBt_EM</summary>
+
+_(자막 없음)_
+
+</details>
+
+
 <!-- yt-inline:DlTCu_pNDHE -->
 [![Live coding session with Boris Cherny and Jarred Sumner](https://img.youtube.com/vi/DlTCu_pNDHE/hqdefault.jpg)](https://www.youtube.com/watch?v=DlTCu_pNDHE)
 
 <details>
-<summary>📺 자막: Live coding session with Boris Cherny and Jarred Sumner (32:00)</summary>
+<summary>자막: Live coding session with Boris Cherny and Jarred Sumner (32:00)</summary>
 
 [00:01]
 Please welcome to the stage head of Claude
@@ -2327,11 +2338,33 @@ If you missed the livestream, check out our keynote and breakout session recordi
 
 Our talks go behind the scenes of building Claude with Anthropic teams and share how customers like [Asana](https://www.youtube.com/watch?v=BrpB-h1e--k&list=PLmWCw1CzcFim2obQ-w3ohbULOfwp5lApR&index=10), [Cursor](https://www.youtube.com/watch?v=BbYSGxtsMic&list=PLmWCw1CzcFim2obQ-w3ohbULOfwp5lApR&index=15), [GitHub](https://www.youtube.com/watch?v=y5TmF_6o6xk&list=PLmWCw1CzcFim2obQ-w3ohbULOfwp5lApR&index=7), [Replit](https://www.youtube.com/watch?v=snroDwX1-JU&list=PLmWCw1CzcFim2obQ-w3ohbULOfwp5lApR&index=14), and [Vercel](https://www.youtube.com/watch?v=bJKdXhnw7NU&list=PLmWCw1CzcFim2obQ-w3ohbULOfwp5lApR&index=3&pp=iAQB0gcJCQMLAYcqIYzv) about how they’re designing production-ready agents and pushing the boundaries of agentic development.
 
+<!-- yt-inline:y5TmF_6o6xk -->
+[![YouTube y5TmF_6o6xk](https://img.youtube.com/vi/y5TmF_6o6xk/hqdefault.jpg)](https://www.youtube.com/watch?v=y5TmF_6o6xk)
+
+<details>
+<summary>자막: YouTube y5TmF_6o6xk</summary>
+
+_(자막 없음)_
+
+</details>
+
+
+<!-- yt-inline:bJKdXhnw7NU -->
+[![YouTube bJKdXhnw7NU](https://img.youtube.com/vi/bJKdXhnw7NU/hqdefault.jpg)](https://www.youtube.com/watch?v=bJKdXhnw7NU)
+
+<details>
+<summary>자막: YouTube bJKdXhnw7NU</summary>
+
+_(자막 없음)_
+
+</details>
+
+
 <!-- yt-inline:BrpB-h1e--k -->
 [![Building with Claude Managed Agents and Asana AI teammates](https://img.youtube.com/vi/BrpB-h1e--k/hqdefault.jpg)](https://www.youtube.com/watch?v=BrpB-h1e--k)
 
 <details>
-<summary>📺 자막: Building with Claude Managed Agents and Asana AI teammates (24:57)</summary>
+<summary>자막: Building with Claude Managed Agents and Asana AI teammates (24:57)</summary>
 
 [00:00]
 Hi everyone. I'm Arnauld from Asana and
@@ -3077,7 +3110,7 @@ Thank you.
 [![Giving coding agents their own computers: How Cursor built cloud agents](https://img.youtube.com/vi/BbYSGxtsMic/hqdefault.jpg)](https://www.youtube.com/watch?v=BbYSGxtsMic)
 
 <details>
-<summary>📺 자막: Giving coding agents their own computers: How Cursor built cloud agents (14:35)</summary>
+<summary>자막: Giving coding agents their own computers: How Cursor built cloud agents (14:35)</summary>
 
 [00:00]
 Hello.
@@ -3562,7 +3595,7 @@ So, thank you very much.
 [![Evaluating and improving Replit Agent at scale](https://img.youtube.com/vi/snroDwX1-JU/hqdefault.jpg)](https://www.youtube.com/watch?v=snroDwX1-JU)
 
 <details>
-<summary>📺 자막: Evaluating and improving Replit Agent at scale (27:42)</summary>
+<summary>자막: Evaluating and improving Replit Agent at scale (27:42)</summary>
 
 [00:00]
 All right. Hi everyone. I'm Mikael Cata

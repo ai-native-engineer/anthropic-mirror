@@ -14,7 +14,7 @@ We're already seeing signs of what's possible, from Novo Nordisk [accelerating b
 [![Novo Nordisk’s AI Revolution: Anthropic, MongoDB & AWS in Pharma](https://img.youtube.com/vi/ENdUGHxsifM/hqdefault.jpg)](https://www.youtube.com/watch?v=ENdUGHxsifM)
 
 <details>
-<summary>📺 자막: Novo Nordisk’s AI Revolution: Anthropic, MongoDB & AWS in Pharma (1:59)</summary>
+<summary>자막: Novo Nordisk’s AI Revolution: Anthropic, MongoDB & AWS in Pharma (1:59)</summary>
 
 [00:00]
 my name is Luis scof and I am a head of

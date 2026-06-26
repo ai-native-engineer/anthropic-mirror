@@ -109,7 +109,7 @@ To supplement the qualitative vibe-based impressions, we used Claude to analyze 
 [![Who let the robot dogs out?](https://img.youtube.com/vi/NGOAUJtdk-4/hqdefault.jpg)](https://www.youtube.com/watch?v=NGOAUJtdk-4)
 
 <details>
-<summary>📺 자막: Who let the robot dogs out? (7:40)</summary>
+<summary>자막: Who let the robot dogs out? (7:40)</summary>
 
 [00:00]
 Today, a lot of the emphasis is on how

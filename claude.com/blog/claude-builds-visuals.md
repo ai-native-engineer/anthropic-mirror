@@ -28,7 +28,7 @@
 [![An experimental new way to design software](https://img.youtube.com/vi/dGiqrsv530Y/hqdefault.jpg)](https://www.youtube.com/watch?v=dGiqrsv530Y)
 
 <details>
-<summary>📺 자막: An experimental new way to design software (1:42)</summary>
+<summary>자막: An experimental new way to design software (1:42)</summary>
 
 [00:00]
 We've been experimenting with a new way

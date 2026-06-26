@@ -8,6 +8,17 @@ Feb 24, 2025
 
 Today, we’re announcing Claude 3.7 Sonnet1, our most intelligent model to date and the first hybrid reasoning model on the market. Claude 3.7 Sonnet can produce near-instant responses or extended, step-by-step thinking that is made [visible to the user](https://youtu.be/t3nnDXa81Hs). API users also have fine-grained control over *how long* the model can think for.
 
+<!-- yt-inline:t3nnDXa81Hs -->
+[![YouTube t3nnDXa81Hs](https://img.youtube.com/vi/t3nnDXa81Hs/hqdefault.jpg)](https://www.youtube.com/watch?v=t3nnDXa81Hs)
+
+<details>
+<summary>자막: YouTube t3nnDXa81Hs</summary>
+
+_(자막 없음)_
+
+</details>
+
+
 Claude 3.7 Sonnet shows particularly strong improvements in coding and front-end web development. Along with the model, we’re also introducing a command line tool for agentic coding, Claude Code. Claude Code is available as a limited research preview, and enables developers to delegate substantial engineering tasks to Claude directly from their terminal.
 
 ![Screen showing Claude Code onboarding](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4a4df6b6629f9814aec4eb9323028130f43a8d70-1920x1080.png&w=3840&q=75)

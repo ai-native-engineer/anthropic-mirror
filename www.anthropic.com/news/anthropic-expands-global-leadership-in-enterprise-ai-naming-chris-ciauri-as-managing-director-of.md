@@ -34,7 +34,7 @@ Across Europe and Asia-Pacific, organizations are using Claude as their agentic 
 [![European Parliament expands access to their archives with Claude in Amazon Bedrock](https://img.youtube.com/vi/P2xtHTPDxSs/hqdefault.jpg)](https://www.youtube.com/watch?v=P2xtHTPDxSs)
 
 <details>
-<summary>📺 자막: European Parliament expands access to their archives with Claude in Amazon Bedrock (3:25)</summary>
+<summary>자막: European Parliament expands access to their archives with Claude in Amazon Bedrock (3:25)</summary>
 
 [00:00]
 preserving Collective memory is one of

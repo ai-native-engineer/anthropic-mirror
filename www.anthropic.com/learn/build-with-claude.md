@@ -162,7 +162,7 @@ Speed up your development with Claude Code
 [![Introducing Claude Code](https://img.youtube.com/vi/AJpK3YTTKZ4/hqdefault.jpg)](https://www.youtube.com/watch?v=AJpK3YTTKZ4)
 
 <details>
-<summary>📺 자막: Introducing Claude Code (3:54)</summary>
+<summary>자막: Introducing Claude Code (3:54)</summary>
 
 [00:00]
 Should we be doing like big smile or?
@@ -293,7 +293,7 @@ Extend Claude's capabilities by connecting to external tools and APIs
 [![Tool use with the Claude 3 model family](https://img.youtube.com/vi/6wkFb2_cUik/hqdefault.jpg)](https://www.youtube.com/watch?v=6wkFb2_cUik)
 
 <details>
-<summary>📺 자막: Tool use with the Claude 3 model family (2:13)</summary>
+<summary>자막: Tool use with the Claude 3 model family (2:13)</summary>
 
 [00:00]
 one of the newest exciting features of
@@ -396,6 +396,17 @@ Improve Claude's ability to solve complex tasks by allowing it to reason
 
 * [View the extended thinking launch video](https://www.youtube.com/watch?v=t3nnDXa81Hs)
 
+<!-- yt-inline:t3nnDXa81Hs -->
+[![YouTube t3nnDXa81Hs](https://img.youtube.com/vi/t3nnDXa81Hs/hqdefault.jpg)](https://www.youtube.com/watch?v=t3nnDXa81Hs)
+
+<details>
+<summary>자막: YouTube t3nnDXa81Hs</summary>
+
+_(자막 없음)_
+
+</details>
+
+
 ![Document with magnifying glass](https://www-cdn.anthropic.com/images/4zrzovbb/website/a5c3a48b92e7cfa44d55d7cf86ec761ad0ccb884-500x500.svg)
 
 Retrieval augmented generation (RAG)
@@ -441,7 +452,7 @@ Create effective prompts that maximize Claude's performance
 [![AI prompt engineering: A deep dive](https://img.youtube.com/vi/T9aRN5JkmL8/hqdefault.jpg)](https://www.youtube.com/watch?v=T9aRN5JkmL8)
 
 <details>
-<summary>📺 자막: AI prompt engineering: A deep dive (1:16:42)</summary>
+<summary>자막: AI prompt engineering: A deep dive (1:16:42)</summary>
 
 [00:00]
 - Basically, this entire
@@ -3485,7 +3496,7 @@ Optimize performance and reduce costs by reusing Claude's responses
 [![How do you improve speed and decrease costs with prompt caching?](https://img.youtube.com/vi/h18BezoizkI/hqdefault.jpg)](https://www.youtube.com/watch?v=h18BezoizkI)
 
 <details>
-<summary>📺 자막: How do you improve speed and decrease costs with prompt caching? (4:47)</summary>
+<summary>자막: How do you improve speed and decrease costs with prompt caching? (4:47)</summary>
 
 [00:00]
 Let's talk a little

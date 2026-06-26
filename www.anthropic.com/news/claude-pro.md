@@ -16,6 +16,17 @@ With [Claude Pro](https://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-
   
 This means you can level up your productivity across a range of tasks, including summarizing research papers, querying contracts, and iterating further on coding projects—like this recent [demo](https://www.youtube.com/watch?v=oVsHikXgK9Y) of building an interactive map.
 
+<!-- yt-inline:oVsHikXgK9Y -->
+[![YouTube oVsHikXgK9Y](https://img.youtube.com/vi/oVsHikXgK9Y/hqdefault.jpg)](https://www.youtube.com/watch?v=oVsHikXgK9Y)
+
+<details>
+<summary>자막: YouTube oVsHikXgK9Y</summary>
+
+_(자막 없음)_
+
+</details>
+
+
 Claude Pro offers:
 
 * 5x more usage than our free tier provides, with the ability to send many more messages

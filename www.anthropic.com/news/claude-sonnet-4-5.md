@@ -122,7 +122,7 @@ We've spent more than six months shipping updates to Claude Code, so we know wha
 [![Building and prototyping with Claude Code](https://img.youtube.com/vi/DAQJvGjlgVM/hqdefault.jpg)](https://www.youtube.com/watch?v=DAQJvGjlgVM)
 
 <details>
-<summary>📺 자막: Building and prototyping with Claude Code (14:03)</summary>
+<summary>자막: Building and prototyping with Claude Code (14:03)</summary>
 
 [00:00]
 - These developers tend to like to run
@@ -641,7 +641,7 @@ Thank you.
 [![Designing Claude Code](https://img.youtube.com/vi/vLIDHi-1PVU/hqdefault.jpg)](https://www.youtube.com/watch?v=vLIDHi-1PVU)
 
 <details>
-<summary>📺 자막: Designing Claude Code (12:03)</summary>
+<summary>자막: Designing Claude Code (12:03)</summary>
 
 [00:00]
 - Hi, I'm Alex.

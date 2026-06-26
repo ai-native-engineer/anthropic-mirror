@@ -18,7 +18,7 @@ We applaud the Administration's commitment to streamlining data center and energ
 [![PA Energy & Innovation Summit: Panel 4 - Powering the AI Revolution](https://img.youtube.com/vi/KO8vMSsjmGY/hqdefault.jpg)](https://www.youtube.com/watch?v=KO8vMSsjmGY)
 
 <details>
-<summary>📺 자막: PA Energy & Innovation Summit: Panel 4 - Powering the AI Revolution (34:45)</summary>
+<summary>자막: PA Energy & Innovation Summit: Panel 4 - Powering the AI Revolution (34:45)</summary>
 
 [00:00]
 We have reached our final panel of the

@@ -89,7 +89,7 @@ Patching addresses known vulnerabilities in software you depend on. But your own
 [![AI Finds Vulns You Can't With Nicholas Carlini](https://img.youtube.com/vi/_IDbFLu9Ug8/hqdefault.jpg)](https://www.youtube.com/watch?v=_IDbFLu9Ug8)
 
 <details>
-<summary>📺 자막: AI Finds Vulns You Can't With Nicholas Carlini (1:16:00)</summary>
+<summary>자막: AI Finds Vulns You Can't With Nicholas Carlini (1:16:00)</summary>
 
 [00:00]
 Sounds like a really bitter lesson to learn. Yeah, I was going to say it's

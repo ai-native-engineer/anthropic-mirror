@@ -247,7 +247,7 @@ Provide these resources to help users get started with Claude Code:
 [![Mastering Claude Code in 30 minutes](https://img.youtube.com/vi/6eBSHbLKuN0/hqdefault.jpg)](https://www.youtube.com/watch?v=6eBSHbLKuN0)
 
 <details>
-<summary>📺 자막: Mastering Claude Code in 30 minutes (28:07)</summary>
+<summary>자막: Mastering Claude Code in 30 minutes (28:07)</summary>
 
 [00:00]
 [Music]
@@ -1097,7 +1097,7 @@ Thanks. Heat. Heat.
 [![Building and prototyping with Claude Code](https://img.youtube.com/vi/DAQJvGjlgVM/hqdefault.jpg)](https://www.youtube.com/watch?v=DAQJvGjlgVM)
 
 <details>
-<summary>📺 자막: Building and prototyping with Claude Code (14:03)</summary>
+<summary>자막: Building and prototyping with Claude Code (14:03)</summary>
 
 [00:00]
 - These developers tend to like to run

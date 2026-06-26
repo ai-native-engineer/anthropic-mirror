@@ -99,7 +99,7 @@ A [memory folder](https://platform.claude.com/docs/en/agents-and-tools/tool-use/
 [![Lessons on AI agents from Claude Plays Pokemon](https://img.youtube.com/vi/CXhYDOvgpuU/hqdefault.jpg)](https://www.youtube.com/watch?v=CXhYDOvgpuU)
 
 <details>
-<summary>📺 자막: Lessons on AI agents from Claude Plays Pokemon (44:50)</summary>
+<summary>자막: Lessons on AI agents from Claude Plays Pokemon (44:50)</summary>
 
 [00:00]
 - The AI world has talked so much

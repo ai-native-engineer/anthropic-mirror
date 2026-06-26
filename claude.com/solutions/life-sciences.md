@@ -611,7 +611,7 @@ News
 [![Scaling enterprise AI: Fireside chat with Eli Lilly’s Diogo Rau and Dario Amodei](https://img.youtube.com/vi/Yiy0cU6ChSw/hqdefault.jpg)](https://www.youtube.com/watch?v=Yiy0cU6ChSw)
 
 <details>
-<summary>📺 자막: Scaling enterprise AI: Fireside chat with Eli Lilly’s Diogo Rau and Dario Amodei (5:34)</summary>
+<summary>자막: Scaling enterprise AI: Fireside chat with Eli Lilly’s Diogo Rau and Dario Amodei (5:34)</summary>
 
 [00:00]
 - Let's have faith

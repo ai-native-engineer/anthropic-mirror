@@ -25,6 +25,17 @@ I’m [Matthew Schwartz](https://www.physics.harvard.edu/people/facpages/schwart
 
 There has been a lot of recent hype about AI scientists doing end-to-end research autonomously. In August 2024, Sakana AI released their [AI Scientist](https://sakana.ai/ai-scientist/), a system designed to automate the entire research lifecycle—from generating hypotheses to writing papers. In February 2025, Google released an [AI co-scientist](https://arxiv.org/abs/2502.18864) built on Gemini, promising to help researchers generate and evaluate hypotheses at scale. And in August 2025, the Allen Institute for AI (Ai2) launched the open-source [Asta](https://allenai.org/asta) ecosystem, featuring tools like [CodeScientist](https://github.com/allenai/codescientist) and [AutoDiscovery](https://allenai.org/blog/autodiscovery) to find patterns in complex datasets. Since then, a new entrant has appeared every few months—FutureHouse’s [Kosmos](https://edisonscientific.com/articles/announcing-kosmos), the Autoscience Institute’s [Carl](https://autoscience.ai/), the Simons Foundation’s [Denario](https://www.simonsfoundation.org/2025/11/04/meet-denario-an-ai-assistant-for-every-step-of-the-scientific-process/) project, among others—each promising some version of end-to-end autonomous research. Even as these approaches are visionary, their successes to date seem a bit forced: run [hundreds or thousands of trials](https://www.youtube.com/watch?v=no_elVGGgW8) and define the best one as interesting. While I believe we are not far from end-to-end science, I’m not convinced we can skip the intermediate steps. Maybe LLMs need to go to graduate school before advancing straight to the Ph.D.
 
+<!-- yt-inline:no_elVGGgW8 -->
+[![YouTube no_elVGGgW8](https://img.youtube.com/vi/no_elVGGgW8/hqdefault.jpg)](https://www.youtube.com/watch?v=no_elVGGgW8)
+
+<details>
+<summary>자막: YouTube no_elVGGgW8</summary>
+
+_(자막 없음)_
+
+</details>
+
+
 In mathematics, automated end-to-end AI agents have produced impressive results, at least for a certain class of problems. An early breakthrough was DeepMind’s [FunSearch](https://deepmind.google/blog/funsearch-making-new-discoveries-in-mathematical-sciences-using-large-language-models/), launched in 2023, and later [AlphaEvolve](https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/), which used LLMs to make new discoveries in combinatorics. A related project, [AlphaProof](https://deepmind.google/blog/ai-solves-imo-problems-at-silver-medal-level/), earned a silver medal at the 2024 International Mathematical Olympiad, solving problems that stumped all but five human contestants, and in 2025, an advanced version of Gemini [achieved the gold-medal standard](https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/). And, just as in science, [more](https://harmonic.fun/) [achievements](https://arxiv.org/abs/2601.14027) have continued to follow.
 
 What about theoretical physics? End-to-end AI scientists have found their footing in data-rich domains, but theoretical physics is not one of them. Unlike mathematics, theoretical physics problems can be more nebulous—less about formal proof search and more about physical intuition, choosing the right approximations, and navigating a landscape of subtleties that often trip up even experienced researchers. Even so, there are problems in physics where AI might be better suited. Not yet the paradigm-shifting questions at the frontier, but those where the conceptual framework is established and the goal well-defined. To find out if AI can solve these types of theory problems, I supervised Claude through a real research calculation at the level of a second-year grad student.
@@ -228,7 +239,7 @@ I conducted this project in the last two weeks of December 2025. My paper came o
 [![We Need To Talk About AI...](https://img.youtube.com/vi/PctlBxRh0p4/hqdefault.jpg)](https://www.youtube.com/watch?v=PctlBxRh0p4)
 
 <details>
-<summary>📺 자막: We Need To Talk About AI... (1:14:57)</summary>
+<summary>자막: We Need To Talk About AI... (1:14:57)</summary>
 
 [00:00]
 Two days ago, I attended what felt to me

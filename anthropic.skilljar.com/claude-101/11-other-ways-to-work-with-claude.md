@@ -103,3 +103,9 @@ As you progress through the course, we'd love to hear from you about how you are
 #### Acknowledgments and license
 
 *Copyright 2025 Anthropic. All rights reserved.*
+
+<!-- youtube: s-avRazvmLg -->
+
+## 자막 (영상 전사)
+
+[music] Heat. Hey, Heat. >> [music] [music] >> Where are you? >> [music]
