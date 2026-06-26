@@ -134,6 +134,88 @@ Virtual Puppet Theater’s source code is available on GitHub under MIT licensin
 
 ## "Keep Thinking" Prize: [MaestrIA](https://www.youtube.com/watch?v=rkH4AjoTL5Q), Benjamin Torralbo
 
+<!-- yt-inline:rkH4AjoTL5Q -->
+[![Keep Thinking Prize Winner — Built with Opus 4.7 Hackathon | MaestrIA](https://img.youtube.com/vi/rkH4AjoTL5Q/hqdefault.jpg)](https://www.youtube.com/watch?v=rkH4AjoTL5Q)
+
+<details>
+<summary>📺 자막: Keep Thinking Prize Winner — Built with Opus 4.7 Hackathon | MaestrIA (3:02)</summary>
+
+[00:00]
+In Chile, when something breaks in your
+house, you either pay a handyman who
+never shows up or you fix it badly.
+A good craftsman knows what to look for.
+A homeowner doesn't. I'm Benjamin,
+apprentice carpenter, son of Juan
+Rodrigo Toralbo, master mayor certified
+by the Fundacion Iglesias Patrimoniales
+de Chiloé.
+30 years as a carpenter, eight of them
+restoring UNESCO World Heritage
+churches. I built the tool. The
+knowledge is his.
+We start by entering our location into
+the analyzer.
+I upload the photo of my wall. And now,
+I can also describe my problem using the
+microphone or by typing.
+Then the analysis of the photo and given
+context begins, taking into account the
+location.
+This isn't a loading spinner. It's Opus
+4.7 reasoning live. It thinks like a
+craftsman. Look first, diagnose second,
+and here it locates the damage with real
+
+[00:01]
+coordinates on the photo, like an
+architect's blueprint.
+Four answers. What to fix, how much it
+costs in your area, how long it takes,
+and what happens if you don't fix it
+soon. Also, based on the trades
+required, you are recommended skilled
+tradesmen near your home. And when you
+pick a craftsman, a third agent writes
+the WhatsApp message for you, in Chilean
+Spanish with the full diagnosis
+attached. You don't show up saying my
+wall got wet. You show up with the
+facts. Clients stop getting ripped off,
+and skilled craftsmen who can't sell
+themselves get work.
+The specialists debate each other.
+Carpenter versus mason, reasoning out
+loud in Chilean Spanish.
+
+[00:02]
+A price without proof is worthless. So,
+a second agent goes out to Sodimac and
+Easy, looks up every line item, and
+validates the budget against the real
+market, live.
+Before shipping this, I ran it past the
+only filter that matters, my dad. 30
+years as a carpenter, 25 as a site
+foreman, and eight years restoring
+Chiloé's UNESCO listed wooden churches.
+12 photos, 12 diagnoses, match 81%.
+Chile has over 280,000 informal
+construction workers with no way to show
+what they know. My dad restored churches
+declared UNESCO World Heritage sites.
+And yet, without a university degree,
+he's invisible to the system. Maestro IA
+codifies that expertise, so no one
+overpays again, and the trade stops
+being invisible.
+Maestro IA. It sees, reasons, pinpoints,
+debates, validates, connects. Built solo
+with Opus 4.7.
+
+</details>
+
+
 Benjamin Torralbo grew up apprenticing alongside his father, Juan Rodrigo Torralbo, a certified *Maestro Mayor* carpenter in Chiloé, Chile. “My father has 30 years of craft, has restored UNESCO-listed churches, but is still invisible to the Chilean system, like hundreds of thousands of other tradespeople,” Benjamin says. “Meanwhile, people needing home repairs don't know what is wrong, what it costs, who to call, and whether they're being charged fairly.”
 
 His [MaestrIA](https://maestriachile.cl/) hackathon project solves both sides as a web app that gives ordinary people master-level home repair diagnostics while giving skilled tradespeople a way to demonstrate expertise.
@@ -153,6 +235,100 @@ His prize credits go toward developing the app, digitizing his father's company 
 “The single most important thing I did was build an auditable 9-dimension eval against 12 real cases with ground truth recorded by my dad,” Benjamin says. “That eval, not my intuition, told me what was working and what wasn't. If I did another hackathon, the eval would be the first commit.”
 
 ## Best Use of Claude Managed Agents: [ARIA](https://www.youtube.com/watch?v=Hen24w2Jyz4&t=28s), Idriss Benguezzou & Adam Hnaien
+
+<!-- yt-inline:Hen24w2Jyz4 -->
+[![Aria: Built with Opus 4.7 Claude Code Hackathon](https://img.youtube.com/vi/Hen24w2Jyz4/hqdefault.jpg)](https://www.youtube.com/watch?v=Hen24w2Jyz4)
+
+<details>
+<summary>📺 자막: Aria: Built with Opus 4.7 Claude Code Hackathon (3:00)</summary>
+
+[00:00]
+In every factory, every plant, every
+water station in the world,
+there's one person who knows.
+He knows when a machine sounds
+different. He knows it's going to break
+2 days before it does. He just knows.
+And when he retires, that knowledge
+disappears forever.
+Companies have tried to fix this for
+years.
+Setting it up costs half a million
+dollars and takes 6 [music] months of
+specialists. So, more than half of
+industrial sites just [music] don't.
+They wait for machines to break. We
+built Aria to change that. [music] Five
+agents, each with a single job, passing
+the problem between them,
+>> [music]
+>> exactly like a real maintenance team
+passes a ticket. Take a water bottling
+factory. One line, [music] five
+machines. Drop in the manual. Aria reads
+it with Opus 4.7 vision, asks three
+questions, [music] and then it's live.
+Meanwhile, on the bottle capper, Aria
+flags a potential breach.
+But, look at what happens next.
+
+[00:01]
+Vibration is falling,
+>> [music]
+>> not rising. Aria reads the context,
+checks the knowledge base, and
+concludes, "No action required." It
+didn't [music] just detect, it judged.
+Now, let's see what happens when a real
+breach hits. The operator sees an alert,
+and that's where most systems [music]
+stop. Alert sent, problem yours. Aria
+doesn't. It fires the investigator
+agent. And like a detective, [music] it
+starts gathering clues with Opus 4.7
+extended thinking. And here's the part
+that cannot happen without managed
+agents. The agent wrote Python, ran it
+inside Anthropic's [music] cloud
+sandbox, and computed the degradation
+rate from the raw signal. That's not
+guessing. That's a regression that
+actually ran. And those exact [music]
+numbers land in the work order. The
+technician walks out with a detailed
+sheet with a root cause [music] analysis
+and step-by-step recommendations.
+Another alert. This time on the bottle
+[music] filler. And Aria remembers. Same
+
+[00:02]
+vibration pattern as January.
+Tom Anderson closed that [music]
+incident. Aria pulls his fix, matches
+the part number, and tells the operator
+exactly what worked 3 months ago.
+It doesn't [music] start from zero. It
+compounds.
+Behind the scenes, 17 tools are
+available to the agents. Logbook
+entries,
+shift notes from the operators,
+signal trends, computed KPI, and past
+[music] failures, all gathered and
+scored in a knowledge base behind each
+machine, built from the manual and the
+operator's own experience. Everything
+cross-referenced with Claude Opus
+[music] 4.7 extended thinking and 1
+million tokens of context. Five [music]
+agents share 17 tools through MCP. The
+investigator runs as a managed agent
+with Claude Opus 4.7. [music]
+From shop floor knowledge to diagnosis,
+so the one who knows is never the last.
+
+</details>
+
 
 Most factories have that one veteran technician who can tell when a machine is about to break, just by the sound it makes. The Best Use of Claude Managed Agents prize-winning project, ARIA (Adaptive Runtime Intelligence) turns an experienced maintenance engineer’s instincts into an affordable, fast-to-set-up AI system that continuously watches factory machines and generates custom diagnostics and repair plans the moment trouble appears.
 

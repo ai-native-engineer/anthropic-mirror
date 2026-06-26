@@ -30,6 +30,95 @@ Our international expansion is driven by extraordinary customer momentum across 
 
 Across Europe and Asia-Pacific, organizations are using Claude as their agentic engine: [**NBIM**](https://www.anthropic.com/news/claude-for-financial-services), the world's largest sovereign wealth fund, has achieved ~20% productivity gains - equivalent to 213,000 hours and enhanced analytical capabilities for 9,000+ companies in their portfolio; the [**European Parliament**](https://www.youtube.com/watch?v=P2xtHTPDxSs&embeds_referring_euri=https%3A%2F%2Fclaude.com%2F&source_ve_path=MjM4NTE) deployed Claude to make 2.1 million historical documents accessible in multiple languages; **Novo Nordisk** reduced clinical documentation time by 99.9% (from 10+ weeks to 10 minutes) while cutting review cycles by 50%; **SK Telecom** in South Korea improved customer service quality by 34% for millions of users; **Commonwealth Bank of Australia** reduced customer scam losses by 50%; and **Rakuten** in Japan cut feature development time by 79% using Claude Code.
 
+<!-- yt-inline:P2xtHTPDxSs -->
+[![European Parliament expands access to their archives with Claude in Amazon Bedrock](https://img.youtube.com/vi/P2xtHTPDxSs/hqdefault.jpg)](https://www.youtube.com/watch?v=P2xtHTPDxSs)
+
+<details>
+<summary>📺 자막: European Parliament expands access to their archives with Claude in Amazon Bedrock (3:25)</summary>
+
+[00:00]
+preserving Collective memory is one of
+the fundamentals of
+[Music]
+democracy welcome to the archive of the
+European Parliament the AR unit is in
+charge of U preserving managing and
+processing all the documents that have
+been produced and received by the
+European Parliament since 1952
+we have documents related to the
+legislation we have documents related to
+the internal Administration all the
+plary documents I can find resolutions
+that the parliament has been taken
+positions of the parliament in past or
+like the negotiations with the other
+institutions we started with 10,000 of
+documents we moved to hundred of
+thousands now we are to millions of
+document we decided to provide a way to
+navigate inside a huge document set
+there rival of generative AI is
+
+[00:01]
+something that was a real shift arot is
+a simple and intuitive tool that help us
+and the researcher to find documents and
+to build reports based on the
+documents it's available on our website
+we have users uh from Gabon and from
+Australia can be accessed from
+everywhere we build arot using hopic
+clone
+technology and there was one point that
+got our attention this is constitutional
+[Music]
+AI we wanted that the answer provided by
+the large language model is a trust
+forthy answer the most important thing
+for us is
+trust
+we wanted to make sure about one thing
+if we use generative AI we permanently
+need to be under control of the solution
+that we've built we didn't want to have
+
+[00:02]
+any data that could be collected or
+extracted for other
+purposes we absolutely want that people
+know where the information is coming
+from previously we had only the French
+as a language if you use so we needed to
+move multilingual so that all countries
+could have an access to our
+archives accuracy
+reliability and the multilinguism
+capacities are for us crucial
+I can't imagine honestly how much time
+it is saving because yeah the archives
+are huge as a researcher it makes my
+work way easier it's also way more easy
+for polic makers Educators and whoever
+is
+[Music]
+interested within the European
+Parliament we have shown that we can use
+generative AI in a controlled
+way this wi lism and the some in
+
+[00:03]
+capacity of huge document sets was
+really a shift from generative AA in our
+domain the access to information and all
+the tools we provide in order to be able
+to make use of this information are
+really the foundations of a democratic
+project
+
+</details>
+
+
 The same enterprise trend is true across North America: **United Airlines** used Claude to improve its ability to personalize customer messages and improve response speeds; or **TELUS** transformed how 57,000 team members work with Claude, creating over 13,000 custom AI solutions and enabling engineering teams to ship code 30% faster while saving over 500,000 hours.
 
 As we continue expanding globally, we remain committed to building reliable, interpretable, and steerable AI systems that enterprises can trust for their most critical operations. Stay tuned for more updates on our enterprise momentum and international growth as we serve organizations worldwide.

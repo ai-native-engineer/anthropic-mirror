@@ -40,6 +40,157 @@ Claude 3.5 Haiku will be made available later this month across our first-party 
 
 With computer use, we're trying something fundamentally new. Instead of making specific tools to help Claude complete individual tasks, we're teaching it *general* computer skills—allowing it to use a wide range of standard tools and software programs designed for people. Developers can use this nascent capability to automate repetitive processes, [build and test software](https://www.youtube.com/watch?v=vH2f7cjXjKI), and [conduct open-ended tasks like research](https://youtu.be/jqx18KgIzAE).
 
+<!-- yt-inline:vH2f7cjXjKI -->
+[![Claude | Computer use for coding](https://img.youtube.com/vi/vH2f7cjXjKI/hqdefault.jpg)](https://www.youtube.com/watch?v=vH2f7cjXjKI)
+
+<details>
+<summary>📺 자막: Claude | Computer use for coding (3:03)</summary>
+
+[00:00]
+I'm Alex, I lead developer
+relations at Anthropic,
+and today I'm gonna be
+showing you a coding task
+with computer use.
+So we're gonna be showing Claude
+doing a website coding task
+by actually controlling my laptop.
+But before we start coding,
+we need an actual website for
+Claude to make changes to.
+So, let's ask Claude to
+navigate to claude.ai
+within my Chrome browser,
+and ask Claude within claude.ai
+to create a fun, 90s themed
+personal homepage for itself.
+Claude opens Chrome,
+searches for claude.ai,
+and then types in a prompt
+asking the other Claude
+to create a personal homepage for itself.
+Claude.ai returns some code,
+
+[00:01]
+and that gets nicely rendered
+in an Artifact on the right-hand side.
+That looks great,
+but I want to make a few
+changes to the website locally
+on my own computer.
+Let's ask Claude to download the file
+and then open it up in VS Code.
+Claude clicks the save to file button,
+opens up VS Code,
+and then finds the file
+within my Downloads folder
+and opens it up.
+Perfect.
+Now that the file's up and running,
+let's ask Claude to start up a server
+so that we can actually view
+the file within our browser.
+Claude opens up the VS Code terminal
+and tries to start a server.
+But it hits an error,
+we don't actually have Python
+installed on our machine.
+But that's all right,
+because Claude realizes this
+by looking at the terminal output,
+
+[00:02]
+and then tries again with Python 3,
+which we do have installed on our machine.
+That works, so now the
+server's up and running.
+Now that we have the local server started,
+we can go manually take
+a look at the website
+within the browser,
+and it looks pretty good,
+but I notice that
+there's actually an error
+in the terminal output,
+and we also have this missing
+file icon at the top here.
+Let's ask Claude to identify this error
+and then fix it within the file.
+Claude visually reads the terminal output
+and opens up the find and
+replace tool in VS Code
+to find the line that's
+throwing the actual error.
+In this case,
+we just ask Claude to get
+rid of the error entirely,
+so it will just delete the whole line.
+Then, Claude will save the file
+and automatically rerun the website.
+So now that the error is gone,
+let's go take a final look at our website,
+and we can see that the
+file icon has disappeared
+and the error is gone as well.
+Perfect.
+So that's coding with
+computer use and Claude.
+This took a few prompts now,
+but we can imagine in the future
+that Claude will be able to
+do tasks like this end to end.
+
+</details>
+
+
+<!-- yt-inline:jqx18KgIzAE -->
+[![Claude | Computer use for orchestrating tasks](https://img.youtube.com/vi/jqx18KgIzAE/hqdefault.jpg)](https://www.youtube.com/watch?v=jqx18KgIzAE)
+
+<details>
+<summary>📺 자막: Claude | Computer use for orchestrating tasks (2:04)</summary>
+
+[00:00]
+I'm Pujaa and I'm a
+researcher at Anthropic.
+I'm going to show you a simple example
+of computer use today.
+My friend is coming to
+San Francisco next week
+and I want to take him to
+do some touristy stuff.
+I think doing a sunrise hike
+with a view of the Golden
+Gate Bridge never gets old.
+So I'll ask Claude to figure
+out some logistics for us.
+I'll ask Claude to find a
+good place to see the sunrise
+to help me figure out timing logistics,
+and help drop a calendar invite
+so I remember when I have to leave.
+It's opening Chrome, going
+to Google, searching...
+...and it looks like it's found something.
+Great. So how far away is
+the location from my place?
+It's opening Maps.
+Searching for the distance between my area
+and the hiking location.
+
+[00:01]
+Cool, so now it looks
+like Claude is searching
+for the sunrise time tomorrow.
+And is now dropping it into my calendar.
+And populating it with some details.
+And great, it looks like Claude did it.
+This is a simple example,
+but we're sharing computer use early
+to learn from what people build.
+
+</details>
+
+
 To make these general skills possible, we've built an API that allows Claude to perceive and interact with computer interfaces. Developers can integrate this API to enable Claude to translate instructions (e.g., “use data from my computer and online to fill out this form”) into computer commands (e.g. check a spreadsheet; move the cursor to open a web browser; navigate to the relevant web pages; fill out a form with the data from those pages; and so on). On [OSWorld](https://os-world.github.io/), which evaluates AI models' ability to use computers like people do, Claude 3.5 Sonnet scored 14.9% in the screenshot-only category—notably better than the next-best AI system's score of 7.8%. When afforded more steps to complete the task, Claude scored 22.0%.
 
 While we expect this capability to improve rapidly in the coming months, Claude's current ability to use computers is imperfect. Some actions that people perform effortlessly—scrolling, dragging, zooming—currently present challenges for Claude and we encourage developers to begin exploration with low-risk tasks. Because computer use may provide a new vector for more familiar threats such as spam, misinformation, or fraud, we're taking a proactive approach to promote its safe deployment. We've developed new classifiers that can identify when computer use is being used and whether harm is occurring. You can read more about the research process behind this new skill, along with further discussion of safety measures, in our post on [developing computer use](http://anthropic.com/news/developing-computer-use).
