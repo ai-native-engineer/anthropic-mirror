@@ -1,11 +1,12 @@
 <!-- https://anthropic.skilljar.com/claude-code-101/469797 -->
 <!-- youtube: kkBFmwkDzdo -->
 
-<!-- vid-ref:kkBFmwkDzdo -->
-[![Watch on YouTube](https://img.youtube.com/vi/kkBFmwkDzdo/hqdefault.jpg)](https://www.youtube.com/watch?v=kkBFmwkDzdo)
-
-
 # MCP
+
+[![MCP](https://img.youtube.com/vi/kkBFmwkDzdo/hqdefault.jpg)](https://www.youtube.com/watch?v=kkBFmwkDzdo)
+
+<details>
+<summary>자막: MCP</summary>
 
 Model contact protocol is an open standard that lets Claude code connect to external tools and data sources.
 >> [music]
@@ -18,3 +19,5 @@ code to your external tools and data sources.
 >> Add servers with Cloud MCP add, scope
 them to your project with .mcp.json so that your team gets them automatically, and keep an eye on the context usage by disabling servers
 [music] that you're not actively using.
+
+</details>

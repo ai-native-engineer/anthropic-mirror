@@ -106,6 +106,11 @@ As you progress through the course, we'd love to hear from you about how you are
 
 <!-- youtube: s-avRazvmLg -->
 
-## 자막 (영상 전사)
+[![Other Ways To Work With Claude](https://img.youtube.com/vi/s-avRazvmLg/hqdefault.jpg)](https://www.youtube.com/watch?v=s-avRazvmLg)
+
+<details>
+<summary>자막: Other Ways To Work With Claude</summary>
 
 [music] Heat. Hey, Heat. >> [music] [music] >> Where are you? >> [music]
+
+</details>
