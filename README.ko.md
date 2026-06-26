@@ -5,9 +5,9 @@
 ![status: unofficial mirror](https://img.shields.io/badge/status-unofficial%20mirror-orange)
 ![last commit](https://img.shields.io/github/last-commit/ai-native-engineer/anthropic-mirror)
 ![repo size](https://img.shields.io/github/repo-size/ai-native-engineer/anthropic-mirror)
-![docs ~1.1k](https://img.shields.io/badge/docs-~1.1k-blue)
+![docs ~4.5k](https://img.shields.io/badge/docs-~4.5k-blue)
 
-> **Anthropic / Claude 공개 자료**(소식, 연구, 엔지니어링, 플랫폼 문서, Anthropic Academy 코스)를 마크다운으로 정리한 비공식 아카이브.
+> **Anthropic / Claude 공개 자료**(소식, 연구, 엔지니어링, 정책/법무, 제품, 플랫폼 문서/API 레퍼런스, Help Center, Alignment Science/해석가능성 블로그, Anthropic Academy 코스)를 마크다운으로 정리한 비공식 아카이브.
 
 강의/자료 제작 시 참고 소스로 모았고, 누구나 읽어볼 수 있게 공개해 둡니다.
 
@@ -16,26 +16,32 @@
 
 ## 무엇이 담겨 있나
 
-크롤 시점(스냅샷) 기준 텍스트 본문만 보관합니다. 이미지/동영상 파일은 포함하지 않습니다(영상 코스는 자막을 텍스트로 전사). 각 파일 상단에는 원문 링크 `<!-- source: <url> -->`가 붙어 있습니다.
+최신 크롤 스냅샷 기준 약 4,500개 마크다운 파일. 트리는 원문 URL 구조(`<host>/<path>.md`)를 그대로 따라가므로 파일 위치가 곧 원문 페이지 위치입니다. 각 파일 상단에 원문 링크 `<!-- source: <url> -->`가 붙어 있습니다.
 
 | 경로 | 내용 | 문서 수 |
 |---|---|---|
-| `www.anthropic.com/news/` | 소식 / 발표 | 231 |
-| `www.anthropic.com/research/` | 연구 | 142 |
-| `www.anthropic.com/engineering/` | 엔지니어링 블로그 | 25 |
-| `claude.com/resources/` | use-case / 튜토리얼 | 30 |
-| `platform.claude.com/docs/` | 플랫폼 문서 | 483 |
-| `anthropic.skilljar.com/` | Anthropic Academy 코스 (17종) | 158 |
+| `www.anthropic.com/` | 소식, 연구, 엔지니어링, 이벤트, 회사, 채용, 정책/법무, 제품, system cards, economic index | 약 484 |
+| `claude.com/` | 블로그, 고객 사례, 리소스, use-case, 튜토리얼, connectors, plugins, help 문서 | 약 1,717 |
+| `platform.claude.com/` | 개발자 문서 + 전체 API 레퍼런스 | 약 1,695 |
+| `support.claude.com/` | Help Center article | 약 370 |
+| `alignment.anthropic.com/` | Alignment Science 블로그 | 약 51 |
+| `transformer-circuits.pub/` | 해석가능성 연구(Transformer Circuits Thread), 그림은 PNG로 추출 | 약 49 |
+| `anthropic.skilljar.com/` | Anthropic Academy 코스 레슨 | 약 158 |
 
-Anthropic Academy 영상 코스는 YouTube / JWPlayer 자막을 텍스트로 전사해 보관합니다.
+대부분 텍스트입니다. 예외: 해석가능성 논문은 본문 그림을 PNG 파일로 추출해 함께 보관하고, 페이지에 임베드된 YouTube 영상은 자막으로 전사해 영상 바로 아래 접이식 `<details>` 블록으로 인라인합니다. Anthropic Academy 영상 코스는 YouTube / JWPlayer 자막을 텍스트로 전사합니다.
+
+## 어떻게 만들어지나
+
+sitemap 기반 자동 크롤 파이프라인으로 수집합니다(API 키 없음, 공개 페이지는 로그인 없음): 각 도메인의 `sitemap.xml`을 1차 소스로 삼고, Chrome 브라우저 지문(`curl_cffi`)으로 가져와 헤드리스 브라우저 없이 SSR HTML을 받습니다. `platform.claude.com` 문서는 Mintlify `.md` raw로 받습니다. 재생성 절차는 `AGENTS.md` 참조.
 
 ## 출처 (Sources)
 
-- https://www.anthropic.com/news
-- https://www.anthropic.com/research
-- https://www.anthropic.com/engineering
-- https://claude.com/resources
-- https://platform.claude.com/docs
+- https://www.anthropic.com (소식, 연구, 엔지니어링, 정책, 법무, 제품)
+- https://claude.com (블로그, 고객 사례, 리소스, connectors, help)
+- https://platform.claude.com/docs (개발자 문서 + API 레퍼런스)
+- https://support.claude.com (Help Center)
+- https://alignment.anthropic.com (Alignment Science)
+- https://transformer-circuits.pub (해석가능성)
 - https://anthropic.skilljar.com (Anthropic Academy)
 
 ## 사용법
@@ -46,11 +52,9 @@ GitHub에서 폴더별로 바로 읽거나, 전체를 클론하세요:
 git clone https://github.com/ai-native-engineer/anthropic-mirror.git
 ```
 
-트리는 원문 URL 구조(`<host>/<path>.md`)를 그대로 따라가므로, 파일 위치가 곧 원문 페이지 위치입니다.
-
 ## 범위 밖
 
-Claude 제품 앱(claude.ai)과 바이너리 자산(이미지, 동영상)은 포함하지 않습니다. 영상 코스는 자막 전사본으로만 보관합니다.
+Claude 제품 앱(claude.ai)은 포함하지 않습니다. 바이너리 자산은 해석가능성 그림(PNG)을 제외하고 담지 않으며, 영상 코스와 임베드 영상은 자막 전사본으로만 보관합니다.
 
 ## 갱신
 
