@@ -1,0 +1,65 @@
+<!-- source: https://platform.claude.com/docs/en/api/compliance/apps/chats/files/retrieve -->
+
+# Get file metadata
+GET/v1/compliance/apps/chats/files/{claude_file_id}
+Retrieves metadata for a file referenced in chat messages, without downloading the file content. Use the sibling `/content` endpoint to download the bytes.
+##### Path ParametersExpand Collapse 
+claude_file_id: string
+The file ID (tagged ID, e.g., claude_file_abc123)
+[](https://platform.claude.com/docs/en/api/compliance/apps/chats/files/retrieve#retrieve.claude_file_id)
+##### Header ParametersExpand Collapse 
+"x-api-key": optional string
+[](https://platform.claude.com/docs/en/api/compliance/apps/chats/files/retrieve#retrieve.x-api-key)
+File ID
+[](https://platform.claude.com/docs/en/api/compliance/apps/chats/files/retrieve#file_retrieve_response.id)
+claude_chat_ids: array of string
+Chats this file is attached to. A file can be referenced by messages across multiple chats.
+[](https://platform.claude.com/docs/en/api/compliance/apps/chats/files/retrieve#file_retrieve_response.claude_chat_ids)
+created_at: string
+File creation timestamp
+[](https://platform.claude.com/docs/en/api/compliance/apps/chats/files/retrieve#file_retrieve_response.created_at)
+filename: string
+Display name of the file, if set
+[](https://platform.claude.com/docs/en/api/compliance/apps/chats/files/retrieve#file_retrieve_response.filename)
+md5: string
+Lowercase hex MD5 of the file's preferred downloadable variant, as recorded at upload time. Null when no stored hash is available. The sibling `/content` endpoint also sets a `Content-MD5` header (base64 per RFC 1864) computed over the exact served bytes; when the two disagree, the header is authoritative.
+[](https://platform.claude.com/docs/en/api/compliance/apps/chats/files/retrieve#file_retrieve_response.md5)
+message_ids: array of string
+Chat message IDs this file is attached to. A file can be referenced by multiple messages.
+[](https://platform.claude.com/docs/en/api/compliance/apps/chats/files/retrieve#file_retrieve_response.message_ids)
+mime_type: string
+MIME type of the file's preferred downloadable variant (e.g. 'application/pdf'). May be null for files with no downloadable content (e.g. code-interpreter outputs).
+[](https://platform.claude.com/docs/en/api/compliance/apps/chats/files/retrieve#file_retrieve_response.mime_type)
+size_bytes: number
+Size in bytes of the file's preferred downloadable variant, if known
+[](https://platform.claude.com/docs/en/api/compliance/apps/chats/files/retrieve#file_retrieve_response.size_bytes)
+Get file metadata
+
+curl https://api.anthropic.com/v1/compliance/apps/chats/files/$CLAUDE_FILE_ID \
+    -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
+
+  "id": "claude_file_xyz789",
+  "filename": "quarterly_report.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 1048576,
+  "md5": "5d41402abc4b2a76b9719d911017c592",
+  "created_at": "2024-01-15T10:30:00Z",
+  "message_ids": [
+    "claude_chat_msg_abc123"
+  ],
+  "claude_chat_ids": [
+    "claude_chat_def456"
+  ]
+
+  "id": "claude_file_xyz789",
+  "filename": "quarterly_report.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 1048576,
+  "md5": "5d41402abc4b2a76b9719d911017c592",
+  "created_at": "2024-01-15T10:30:00Z",
+  "message_ids": [
+    "claude_chat_msg_abc123"
+  ],
+  "claude_chat_ids": [
+    "claude_chat_def456"
+  ]

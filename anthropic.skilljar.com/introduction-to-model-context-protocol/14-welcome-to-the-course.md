@@ -1,0 +1,28 @@
+<!-- https://anthropic.skilljar.com/introduction-to-model-context-protocol/303756 -->
+<!-- jwplayer-srt: https://content.jwplatform.com/tracks/U1XBzDrb.srt -->
+
+# Welcome to the course
+
+Welcome to this course focused on getting started with
+model context protocol. My name is Stephen Grider
+and I'll be guiding you through everything you need to know around MCP.
+Let's first begin by understanding exactly what we'll cover in
+the coming videos. We'll first get an overview
+on MCP and understand what problems it is intended
+to solve. We'll then start to look at the basics
+of MCP architecture by covering the responsibilities
+of MCP clients and servers. Then
+it is on to the three basic components of an MCP
+server. First, we'll look at tools, which are intended
+to be consumed by language models. After
+that, we'll study resources, which allow a server to
+share data with clients. And finally, prompts,
+which will provide tune directions to language
+models. Now there's a lot of content for
+us to get through, so there are a couple of requirements on
+your side. First, you need to have some basic Python
+knowledge. Second, we will be writing out some code,
+and this will require a local Python installation. We
+will be managing our project with the UV CLI.
+And if you don't have it installed, I recommend grabbing it now. I'll
+get a link to it on the screen.

@@ -1,0 +1,137 @@
+<!-- https://anthropic.skilljar.com/ai-fluency-for-students/326793 -->
+
+*Estimated time: 55 minutes*
+
+## What you'll learn
+
+By the end of this lesson you'll be able to:
+
+* Use AI thoughtfully for career exploration, skill building, job searching and job application support
+* Create authentic application materials with AI support while maintaining your unique voice
+* Practice interview skills with AI as your coach
+* Build a strategic approach to career development that leverages AI appropriately
+
+## AI as a learning partner
+
+This video explores how to use AI as a thinking partner for career planning rather than a machine that makes decisions or creates generic content for you. It covers three main areas: career mapping (where AI provides information while you provide self-knowledge and values), skill building (where AI acts as a coach for developing specific capabilities), and job searching (where AI helps with research and practice while you maintain authenticity). The video emphasizes that employers can immediately recognize generic AI-generated application materials, and that AI Fluency itself is becoming a valuable career skill worth highlighting. Throughout, the focus is on using AI to enhance your career planning while ensuring all representations of yourself remain authentic.
+
+#### Key takeaways
+
+* Career planning combines AI's information gathering with your self-knowledge and values
+* Generic AI-generated resumes and cover letters are easily spotted and ineffective
+* AI excels at research, brainstorming, and practice but you must drive the strategy
+* Skill building with AI requires specific goals and active practice, not passive consumption
+* AI Fluency is itself a valuable career skill to develop and showcase
+
+## Exercises
+
+This comprehensive exercise takes you through a complete career development process using AI strategically at each stage. The timing is just a guideline - don't feel like you need to rush anything!
+
+#### Part 1: Career exploration & self-discovery (15 minutes)
+
+Start a conversation with Claude (or an AI of your choice) about career exploration:
+
+**Setting up the conversation:**
+
+* Share your academic background (or reuse your document from lesson 1) and any work experience
+* Explain you're exploring career options and want AI to help you research and reflect
+* Emphasize you want to discover what's right for you, not have AI decide
+
+**Information gathering with AI:**
+
+Ask the AI to help you research:
+
+* What careers use skills similar to your major but in different ways
+* Emerging roles in your field of interest over the next 5-10 years
+* Real salary progressions and job market demand in your target locations
+* Day-to-day realities of roles you're considering
+* Multiple paths people have taken to reach positions you find interesting
+
+**Self-reflection with AI guidance:**
+
+Have the AI ask you questions to explore:
+
+* What energizes you versus drains you in your current activities
+* What trade-offs you're willing to make (salary vs. flexibility, stability vs. growth)
+* Your values and how different careers might align with them
+* Your definition of success beyond just job titles
+* What skills you genuinely enjoy using versus just happen to have
+
+**Creating your career map:**
+
+* Ask the AI to summarize potential paths based on your discussion
+* Identify 2-3 roles that genuinely interest you
+* Note skill gaps between where you are and where you want to be
+* Save this exploration for reference
+
+#### Part 2: CV/resume improvement workflow (15 minutes)
+
+Now practice this systematic CV/resume improvement workflow:
+
+**Step 1: Initial CV/resume Critique (5 minutes)** In a new conversation (or clearly separated section):
+
+* Share your current CV/resume/resume
+* Provide a specific job spec (either an opportunity you are currently targeting or one representative of your general target)
+* Ask the AI to
+
++ Analyze the job spec: What skills, experiences, etc are they looking for? Given the general role, are there other criteria that are not mentioned but are relevant.
++ Analyze your CV/resume **in the context of this particular job spec**
++ Provide a specific to-do list of improvements for you to consider. Get the AI to focus on what's missing, what's unclear, and what doesn't align with the role.
+
+* Discuss these analyses and to-do list to make sure you understand them all - YOU are applying for this job, not the AI
+
+**Step 2: Information Gathering (5 minutes)**
+
+* Ask the AI to gather information from you - whatever it needs to know to help you address each point on the to-do list. Get the AI to help you remember and unpack relevant experiences and achievements.
+* Answer the AI's questions honestly and with specific examples and details
+* Work with the AI to articulate your experiences more effectively
+
+**Step 3: CV/resume Revision (5 minutes)**
+
+* Now, based on the information gathered, work with the AI to address specific to-do items and revise specific sections of your CV/resume
+* Focus on incorporating your actual experiences in stronger language
+* Ensure every point can be backed up with real examples
+* Remember: this is YOUR experience, just better articulated
+* Create a final version of the CV/Resume that feels authentic to you
+
+#### Part 3: Interview Preparation (15 minutes)
+
+**Mock interview setup:**
+
+* Start a fresh conversation for interview practice:
+* Share your revised CV/resume and the job description
+* Ask the AI to analyze the role and think about 5 common and realistic interview questions.
+* Then get the AI to ask you these questions, referencing details from your CV/resume when appropriate.
+* Important: Specify you want the AI to:
+
++ ask only one question at a time, and to wait for an answer
++ ask at most one follow up question if needed and wait for an answer
++ Then to move on to the next question
+
+* Answer each question as if in a real interview
+
++ Try to include specific examples from your experience
++ Bonus: practice explaining any AI-assisted projects honestly - flex your AI Fluency
++ Focus on demonstrating understanding, not just reciting prepared answers
+
+* At the end, ask the AI to critique each of your answers in terms of content, clarity, style and relevance
+
+**Shake it up:** You can easily adapt this workflow to prepare cover letters and other communications (not just your CV/resume)
+
+**Key things to keep in mind:**
+
+* The AI is helping you practice and prepare, but in the actual interview, you need to be genuinely present and authentic.
+* Don't try to memorize scripts. Try to understand your experiences well enough to discuss them naturally and flexibly no matter what the question is about.
+* Employers want to hire YOU, not an AI's version (or anyone else's version) of you
+
+## What's next
+
+In our final lesson, we'll explore what it means to be "the human in the loop." You'll create a personal AI collaboration policy that reflects your values, develop guidelines for responsible AI use, and build a framework for continued growth in AI fluency that will serve you throughout your academic and professional journey.
+
+#### Feedback
+
+As you progress through the course, we'd love to hear from you about how you are using concepts from the course in your life, work, or classes and any feedback you may have. [Share your feedback here.](https://docs.google.com/forms/d/e/1FAIpQLScUKtBMYFxnHE30yCMAuJ55ntOmfWckEFpHLYuLVBwgtBnmcw/viewform?usp=sharing&ouid=109248321071652123872)
+
+#### Acknowledgements
+
+*Copyright 2025 Rick Dakan, Joseph Feller, and Anthropic. Released under the CC BY-NC-SA 4.0 license. This course is based on The AI Fluency Framework by Dakan and Feller.Supported in part by the Higher Education Authority, Ireland, through the National Forum for the Enhancement of Teaching and Learning.*

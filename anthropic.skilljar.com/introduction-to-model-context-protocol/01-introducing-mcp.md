@@ -1,0 +1,104 @@
+<!-- https://anthropic.skilljar.com/introduction-to-model-context-protocol/296689 -->
+<!-- jwplayer-srt: https://cdn.jwplayer.com/tracks/vAUUdZAD.srt -->
+
+# Introducing MCP
+
+In this module, we are going to focus on model context
+protocol. MCP is a communication layer
+designed to provide Claude with context and tools
+without requiring you, the developer, to write a
+bunch of tedious code. When you first get started
+with MCP, you will see diagrams that look like this very
+often. It shows two major elements of
+MCP, namely the client and the server. The
+server often contains a number of internal components,
+named tools, resources, and prompts. And
+there's a lot of terminology here. So to help you understand
+all of this, we're going to imagine that we are building
+a small app and see how MCP fits
+into it. Our sample app is going to be another
+chat interface. It's going to allow a user
+to chat with Claude about their GitHub data.
+So if a user asks a question like what open
+pull request do I have across all my different repositories,
+the expectation is that Claude is probably going
+to make use of a tool to reach out to GitHub,
+access the user's account, and see what open pull
+requests they have, maybe open repositories
+or whatever else. The point here is that we would implement
+this probably by using a set of tools. Now,
+one thing I want to mention really quickly is that GitHub has
+a tremendous amount of functionality. There
+are repositories, pull requests, issues,
+projects, and tons of other things. So
+to have a complete GitHub chatbot, we would
+really have to author a tremendous number of
+tools. If we wanted to build that sample app, we
+would be on a hook for authoring all these schemas and
+all these functions. And this is all code that you and
+I, as developers, would have to write, test,
+and maintain. That's a lot of effort, a lot
+of burden being placed on us. This
+challenge of making developers maintain a big
+set of integrations is one of the primary difficulties
+that model context aims to solve. MCP
+shifts the burden of defining and running tools
+from your server to something else called an MCP
+server. So no longer would you and I have to author
+this tool right here. Instead, it would be authored and
+executed somewhere else inside of this MCP
+server. These MCP servers can really be thought of
+as like an interface to some outside service. So
+I might have a GitHub MCP server that provides
+access to data and functionality provided by specifically
+GitHub, where essentially wrapping up a ton of functionality
+around GitHub and placing it into this MCP server
+in the form of a set of tools. So at this point,
+we have a very basic understanding of what a MCP
+server is. It gives us access to a set of tools
+that exposes functionality related to some outside
+service. And the benefit here is that you and
+I do not have to author all these different tool schemas
+and functions and so on. Now that we
+have this basic understanding, I want to address some
+very common questions that a lot of people have
+when they first learn about MCP servers. So,
+three common questions that seem to always come up. The first
+common question is, who authors these MCP servers?
+The answer is anyone. Anyone can make an MCP
+server implementation. But very often, you'll
+find that service providers make their own official
+implementation. So for example, AWS might
+decide to release their own official MCP server
+implementation, and inside of it, it might have a wide
+variety of different tools available for you to
+use. The second common question is, how
+is using a MCP server different than just
+calling a services API directly? Well,
+as we just saw, if we wanted to call a API
+directly, such as GitHub, then we would
+have to author this tool ourselves.
+And now we can call
+GitHub directly. So what did we gain here? Well,
+all that really changed was we are now having to author the
+schema ourselves and the function implementation ourselves.
+So simply by adding in the MCP server, we
+are saving ourselves a little bit time. The final column
+question is more of a common criticism
+that you're going to see people have around MCP. And
+this criticism is most often coming from people who don't
+quite understand what MCP is all about. So
+very often, you will see people saying MCP and
+tool use are the same thing. Well, as I have just
+laid out to you, MCP servers and tool use,
+they are complimentary. They are different things, but
+they are complimentary. The idea behind MCP
+is that you do not have to author the tool function
+and the tool schema. That is something is done for you
+by someone else and is being wrapped up inside of this MCP
+server. So at some level, yeah,
+they're kind of similar because we are talking about tool use
+in both cases, but MCP servers are really
+talking about who is doing the actual work. So
+if you ever see this criticism, again, it's usually because
+people don't quite understand what MCP is all about.

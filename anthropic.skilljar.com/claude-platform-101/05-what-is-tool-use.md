@@ -1,0 +1,136 @@
+<!-- https://anthropic.skilljar.com/claude-platform-101/486255 -->
+<!-- youtube: Ao759wXbRc0 -->
+
+# What is tool use?
+
+We rely on a lot of different
+technologies from our existing
+workflows, whether that's project
+management softwares, databases, or
+files. And Claude can't just check these
+things itself. Instead, it relies on
+tools, which gives Claude access to
+external data and actions.
+Simply put, a tool is a function you
+define and expose to Claude.
+You describe what it does,
+what inputs it takes,
+and Claude decides when to call it.
+Claude doesn't execute the tool, your
+code does. And so, the flow goes that
+Claude requests, your code executes, and
+then results goes back to Claude.
+Tools are JSON schemas with a name,
+a description,
+and an input schema.
+The description is the thing that Claude
+reads to decide whether to call the
+tool. If you put a vague description,
+well, that's a bad tool use. This is the
+number one reasons that agents misfire
+or don't grab the tools that are
+available.
+So, when we send the agent a report,
+here's what comes back on the first
+turn.
+Stop reason tool use is our signal.
+Our loop calls lookup building code with
+the parameter, feeds the result back as
+a tool result, and Claude keeps going.
+And at this point, we can call the tools
+and return the results to Claude.
+Here we have an agent loop, but we want
+to give it multiple tools and watch it
+pick which one to use in what order.
+So, picture the scenario. I'm packing
+for a 3-day trip to Denver and want both
+today's weather and the next few days
+forecast.
+The loop is identical to what we are
+used to seeing with agent loops.
+But since we've declared two tools
+instead of one, I have a run tool
+function here that dispatches on the
+name with a switch statement. This block
+of code just basically tells where the
+code runs. And that's the whole pattern.
+If you want a third tool, just add it to
+the array, add a case to the switch, and
+then there you go.
+So, let's run this.
+And you'll see that Claude calls the get
+weather and then get forecast, and
+sometimes in the same term, sometimes
+one after the other.
+Then it answers, "Pack layers expects no
+flurries today, warming through the
+week." Whatever.
+Now, watch how Claude chooses. It reads
+the descriptions, match your prompts to
+today's weather and next few days, and
+pick the tool for each. That's why the
+descriptions of your tools really
+matter.
+You've probably already spotted two red
+flags with what we just wrote. One,
+there's a lot of code for two simple
+lookups.
+And two, in a real code base, you don't
+want to handwrite JSON schemas for every
+function that you have. It's like
+writing code twice.
+But, that's where the tool runner comes
+in.
+It ships in the Claude SDK for
+TypeScript, Python, and Ruby. The runner
+takes your actual functions, reads the
+types and docs to build the schema for
+you, and handles the entire tool use
+tool result loop internally.
+So, your code now just shrinks down to
+describe the tool, send the prompt, and
+wait for the result.
+So, here's the same two-tool weather
+demo wired through the tool runner.
+We get the same scenario, but a fraction
+of the code. So, no while loop, no stop
+reason switch, no manual tool result
+push back into messages. The runner does
+handles all that for us. No JSON
+schemas, so we don't have to write
+things twice. The two functions are the
+same lookups we ran by hand a minute
+ago, just plain TypeScript. And
+runner.untilDone returns the final
+assistant message after all the tool
+ping-pong has settled.
+So, let's run it.
+And when we look it up, we'll just get
+the same answer.
+Awesome.
+So, in real life, the tools wouldn't be
+hardcoded weather data. They'd wrap
+actual functions that you already have
+in your application. So, in this
+compliance review, the agent's tools are
+thin wrappers around existing lookup
+building code or search building code
+functions that are already in this code
+base.
+And with the tool runner, you pass those
+functions in directly. And the agent
+sites specific code sections in every
+finding it writes. No schema writing
+required.
+Tools give Claude access to your
+systems.
+Define a name, write a specific
+description,
+set an input schema, or hand the SDK's
+tool runner your actual functions and
+let it do that for you.
+Claude decides when to call.
+You execute or you delegate the loop.
+And at the far end of that spectrum,
+managed agents delegate the whole agent
+to Anthropic.

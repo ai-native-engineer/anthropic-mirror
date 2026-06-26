@@ -1,0 +1,175 @@
+<!-- https://anthropic.skilljar.com/model-context-protocol-advanced-topics/296289 -->
+<!-- jwplayer-srt: https://cdn.jwplayer.com/tracks/XjB9cSCv.srt -->
+
+# Roots
+
+Our next topic is the root system. Roots
+allow users to grant a server access to some particular
+set of files and folders. You can really think of roots
+as being like a codified way of saying, hey,
+MCP server, you can access these files.
+But roots do more than just grant permission. Let
+me walk you through a quick example to help you understand
+how they work. In this example, I'm going to first
+show you a common problem that we would run into if
+Roots did not exist. Once we understand the issue,
+we'll then see how Roots solve that problem. So
+in this example, we're going to have a very simple MCP server
+with one single tool called Convert Video. This
+tool is going to take into a path to a video file
+on the user's local machine, and it's going to convert
+that video file into some other file type,
+so maybe a MP4 to a MOV.
+Now let's imagine how a user would actually make use of this. A
+user might type into to some CLI application or
+something like that, asking Claude to convert
+a biking.mp4 video file into
+MOV format. Claude would then take a look
+at the list of tools that are provided by this MCP
+server and see that the convert video tool is available.
+So Claude would probably decide, fantastic. I'm
+going to call that tool and I'm going to pass in a path
+of Viking.mp4. Because
+that's exactly what the user asked for. The user asked
+for a conversion of a video file named
+Viking.mp4. And here's what
+I would probably expect to see in response from that tool. I
+would probably expect to see an error come back, saying
+something like, there's no such Viking.mp4
+file available. So why would I expect
+to see that error exactly? Well, remember, the
+user's file system might be really complex. They
+might have a wide variety of different files and folders,
+tons of different documents all over the place. So
+a user might know that the Viking.mp4 file
+is inside this movies directory, but there's no real
+way that Claude would understand that. So
+if a user just asks for Viking.mp4, Claude
+doesn't really have the ability to search over the user's file system
+and figure out exactly where that particular document is.
+Now, one way that we could solve this would be to just require
+a user to always pass in a full path
+to some video file. So we might say, you know what,
+if you want to use this tool, you must pass in a fully qualified
+path, like movies slash Viking.mp4.
+And now probably this would work,
+but it's not super convenient. Users
+don't really want to sit there and have to type out full paths
+to every file they ever tried to access. They really probably
+just want to put in something like convert this video and then just
+put in the name to it to some other format.
+So now that we understand the issue, let me show you how we could solve
+it by using the idea of roots. So
+we're going to solve this problem by adding in some additional tools
+to our MCP server. We're so going to have the
+same convert video tool, but we're also going to add
+in a tool of read directory. I bet you could guess what
+that does. It's just going to list up all the files and folders in
+some specific directory. And then the third
+tool that we're going to have is going to be called List Roots.
+This is going to return back a list of roots. Our
+root is a file or a folder that the
+user has granted permission to be read ahead of time.
+So in other words, when they first start up this MCP server,
+they might pass in as command line arguments, a list
+of files and folders that the server is allowed to read.
+On top of that, we're also going to put in a little requirement
+in our other tools. We're going to add in some code to
+our read directory tool and the convert video tool.
+And we're going to make sure that whenever they try to access some directory
+or some video file, they only get to access
+files and folders that are contained inside
+of one of these different roots. To help you understand
+how these three different tools come together, I put together a very
+small sample application. So let me give you a
+quick demo right away. To run this program,
+I execute uvrunmay.py. And
+then the program is set up to accept a list of additional
+command line arguments. So if I want to, I could put in desktop,
+like so. And that's going to be set up as a root
+inside the MCP server. So I'm essentially saying
+that I want the server to be able to access the desktop
+folder and all the files inside of it. Then
+on the right-hand side over here, you can see my desktop directory
+inside there is a file called Viking.mp4.
+So now I'm going to run this, and I'm going to ask Claude
+to turn the Viking.mp4
+file into a MOV file. Now
+I'm going to run that, and we'll see a couple of tool calls printed
+out. First, Claude is going to take a look at all the
+different files and folders that it can access by calling the List
+Roots tool. It's then going to see that there's only one
+directory that it can access, the desktop folder, because
+that's the only one that I granted access to in this program.
+It's then going to try to read that directory, and it's
+going to discover the Viking.mp4 file
+inside there. And so at that point in time, it now has everything
+it needs to actually successfully run the convert
+video tool. So it can run that tool with a
+path of the fully qualified path to my desktop
+folder, Viking.mp4. Now
+remember, roots are intended to limit what files and
+folders the MCP server can access. So in
+addition to that desktop folder, I also have a documents
+folder inside of here. Inside of that directory
+is a swimming.mp4 file. So
+now I'm going to ask Claude to convert the swimming.mp4
+file into a MOV as well. And this time
+around, I'm going to provide the full path to the MP4
+file. So now in theory, Claude doesn't need to
+take a look at the list of roots. It can just directly call
+the convert video tool because it's already got a fully
+qualified path to the particular file it wants to convert.
+So I can run this and we'll see what happens. So
+it's going to merely try to call a convert video, but it's going to return
+early because Claude is going to say, sorry, but I
+got an error around running that tool. It was not able
+to find the particular file. Claude is then going
+to try to take a look at the roots that are available. Read
+the only root that is available, in this case, the desktop.
+And then Claude is going to realize, hey, it looks like I actually
+can't access that file at all. The only directory
+I can access is desktop. And if you want me to convert
+the swimming file, well, I just can't access
+it. So try to give me access or move the file
+or whatever else. Now, based upon that
+demonstration, you might notice that roots really have two
+distinct purposes. On the one hand, they
+allow users to grant access to particular files and
+folders. But on the other hand, the other really
+nice benefit to them is that they allow Claude
+to focus on just particular areas of your file
+system. So as we saw, we don't have to put in fully
+qualified paths to some particular directory or
+file that we might want Claude to access. Instead,
+Claude can autonomously decide to take a look
+at the available roots and then search through those roots to
+find some particular file. The
+one thing that I haven't quite mentioned here, but is very critical
+for you to understand, the idea of roots is kind
+of loose. And there's not a tremendous amount of implementation
+around them. So in other words, there's nothing inside
+of any Anthropic SDK that will actually
+automatically limit access to particular files
+and folders. Instead, it is up to you
+in your Anthropic server to make sure that whenever
+a tool tries to access a file or a folder, it
+is listed or contained inside of one of these different
+roots. And you might do that by implementing a
+function like you see on the top right-hand side here, something like, is
+path allowed. Inside that function, it takes
+in some requested path, it's then going to get a list
+of roots from the client, and then see if the path
+that the tool wants to use is contained within
+one of those routes. And if it is, fantastic, we'll
+allow access. Otherwise, nope, we're not going to allow
+access at all. Now, the last thing I want
+to mention is that I showed implementing a tool
+of something like list roots and allowing Claude
+to call that tool at any point in time. That is
+not strictly required. You can also just take the
+list of roots and toss them all into a prompt
+manually. So you don't have to make that tool. It's just a pattern
+that I found was kind of helpful for allowing Claude
+to look at the list of roots whenever it decides it needs to figure out
+what files and folders it can access.

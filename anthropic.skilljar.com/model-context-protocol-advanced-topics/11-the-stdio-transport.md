@@ -1,0 +1,204 @@
+<!-- https://anthropic.skilljar.com/model-context-protocol-advanced-topics/296291 -->
+<!-- jwplayer-srt: https://cdn.jwplayer.com/tracks/cidaE8Os.srt -->
+
+# The STDIO transport
+
+As we discussed a moment ago, clients and servers communicate
+by exchanging JSON objects that we refer to as
+messages. Now, JSON in general
+can be transmitted between a client and server in a wide
+variety of different ways. For example, we can make a HTTP
+request. We could use web sockets. We
+could even write out a postcard with some JSON
+and then send it to someone else and have them manually type that
+JSON into a server. So there really are a tremendous
+number of ways to send and receive JSON. In
+the MCP spec, the thing that we used to actually move
+JSON between a client and a server is referred to
+as the transport. When you are initially
+developing an MCP server or a client, a very commonly
+used transport is the standard IO transport. The
+idea with this transport is that our client is going to launch
+a server as a separate process. By doing
+so, the client has a handle on that process.
+and the client can send messages into the server
+by writing them into the server standard in channel. And
+it can receive messages by watching the server standard
+out channel. Something that is really nice
+about the standard IO transport is that communication between the client
+or the server can be very easily initiated on
+either side. So in other words, at any point in time,
+the client can communicate or send a message off to the server
+by writing to standard in. And the server can communicate
+back to the client by writing to standard out.
+But the standard IO transport also has one big downside, and
+that is that we can only make use of this transport when the
+client and the server are running on the same physical machine. To
+help you better understand the standard IO transport, let me give
+you a quick demonstration. I put together a very
+small MCP server. I've got some print statements
+up here at the top just to help you understand what's going on. But
+besides those print statements, the server doesn't really have a whole lot
+to it. I'm creating a server, I'm defining one
+single tool, and then starting the server up with the standard IO
+transport. Now I could create a client
+to connect to the server using the standard IOTransport,
+but I can also just connect to the server directly
+from my terminal without creating any distinct
+separate client. Let me show you what I mean by that. If
+I run UVRunServer.py right here, it's going to start up that
+server. And now that server is going
+to be listening to standard in and then writing
+any outgoing messages to standard out. Well,
+in my terminal, in case you don't know, whenever I run a program,
+if I type anything down here, I am writing to standard
+in of this running program. So I can actually
+paste in JSON messages down here at the bottom, execute
+them, and they will be received as input to the server.
+So let me give you a quick demonstration of that. I'm going to restart
+the server really quickly. And
+then I'm going to copy this first example message up here. I'm
+going to paste it right here. And it's going to occur almost
+instantly when I hit enter. I'm going to immediately get
+a response back. So I've written to standard
+in right here with a message. And I am seeing a output
+message on standard out right there. I'm
+then going to send another message. Here
+we go. And this time around, I'm not going
+to see any response. And then finally, I'm going to run
+one more message. down
+here. And when I run this one, I'll immediately get
+back one response, and then another response and another response
+after that. So three objects in total. There's one,
+there's two, and there's three. So
+let me show you a couple of diagrams to help you understand what I'm really doing as
+I paste these different messages in. Okay,
+so back over here. On the left-hand side, I've got what
+I have labeled my MCP clients, but really it's just me
+at my terminal pasting messages in. By pasting
+those messages in, I'm writing to standard in of the MCP
+server. The server is then going to process these given messages
+and then possibly send a result back by just
+printing it to standard out, which I see directly
+printed at my terminal. The first message that
+I sent in was something called an initialize request.
+Let me just give you a little bit of backstory here. Whenever a client
+first connects to the server, the MCP spec says
+that we must send a sequence of three different
+messages back and forth. The very first message must
+always be an initialize request. And again,
+that is what I initially pasted in right here. That
+was initialize request. Because
+I sent in a request type message, I would
+expect to get back a result. And that's exactly what happened.
+I got back something referred to as a initialized result. So
+that was that text right there. Then
+the NCP spec also says that after
+exchanging these initial messages, we must
+then also send a initialized notification
+from the client to the server. As a reminder, notifications
+do not require a response. So I did
+send in that initialized notification right there.
+And as we noticed, we didn't get any immediate response
+back. Again, that's just because notifications do not
+require a response. Once we have exchanged
+these three messages, our connection to the MCP server
+is considered to be initialized. And at that point
+on, we can then run call tool requests
+or run prompt listing requests,
+whatever else we want to do. So in my
+case, as you saw, I sent in a call
+tool request. That was the last one down here.
+I attempted to call the add tool with arguments of
+five and three. Now the way that I put
+together the add tool, it is set up to send back a couple
+of different logs and then eventually a called tool result.
+So if I looked through the logs, I actually changed
+it from what you see in that diagram. First, I got a message
+notification. So a login statement that's coming
+from right there. There's my login statement.
+I then got a progress statement. So there's the progress
+update right there. Those are both notifications being
+sent from the server to the client. And then finally,
+I got my call tool response right there, and
+inside of it is the calculated result of adding
+3 plus 5, I see 8. So
+now that we've seen an example of the standard IO transport, there
+are some really critical ideas that I want to point out
+around this transport in particular that are going
+to be very relevant or very important to understand as
+we start to take a look at the streamable HTTP
+transport. First, I showed you the diagram a little
+bit ago. And I showed you this diagram to help you understand that there
+are some message types that are intended to be sent from the client
+to the server and some types that are meant to be sent from the server
+to the client. The other thing that I really wanted you
+to understand from this diagram is that there are some instances,
+specifically with these messages on the top left-hand side, where
+we can kind of imagine that the client is initiating
+communication with the server. So in other words, the
+client is saying, I am making a request and I expect
+to get back a response. Likewise, there
+are some situations where the MCP server is
+sending the initial request off and expects to get
+back a response. So that would be like the create
+message request, which is what is used to initiate
+sampling. So the server needs to send
+off this request to the client and expects to get
+back some kind of result. Now to put that in
+slightly more clear terms, here's what
+I really mean to indicate with that. There are
+really four different scenarios with these different transports,
+like the standard IO transport, that we need to be able to
+handle. We need to be able to handle the initiation
+or kind of a initial request from the client to the
+server, and the transport needs to be able to handle
+sending a response from the server to the client. Also,
+the server needs to be able to send an initial request to
+the client, and then likewise, the client needs to be
+able to respond. So I want to walk
+through all these four different scenarios and think about how
+we would implement them with the standard IO transport. So
+first is an initial request from the client to the server.
+So the scenario here would be any time the client wants
+to send something off to the server, like maybe a call
+to a request or something like that. To implement
+this with a standard IO transport, all we have to do
+is write to standard in. And the MCP
+server will receive that message, process it, and then hopefully
+formulate a response. Once it has
+a response, it would respond by just writing
+a message to standard out. Now
+the third scenario would be where we have an initial
+request to be sent from the client to the server. So this
+would be where maybe the server wants to do some sampling,
+and that's going to require the server to send some kind
+of initial message off to the client. Whenever
+the server needs to send an initial request to
+the client, all it has to do is write to standard out.
+And then likewise, to respond, all the
+client has to do is write to standard in. All
+right, now I know that the last couple of minutes in
+this video and the sequence of diagrams I just went over are
+probably a little bit confusing. And you're probably thinking, what
+is this about initial requests and responses and whatnot? Well,
+here's the point. The whole point of all this is to help you understand
+that the standard IO transport is really fantastic
+because at any point in time, the client
+or the server can initiate communication.
+either one can send a request at any point in time and
+expect to get back a response. Here's
+the key thing. That is not going to be the case with
+a streamable HTTP transport. There
+are some scenarios where the streamable HTTP transport
+does not allow for this situation.
+There are some cases where the server cannot send some
+initial request off to the client. And
+that's the tricky thing to understand about the streamable
+HTTP transport. So now we're going to
+take a pause right here. Come back. We're going to start to take a look
+at the HTTP transport. And we're going to see
+this particular scenario and understand that, yeah,
+there's something a little bit tricky about this that you definitely need
+to understand when you are developing your own MCP
+servers.

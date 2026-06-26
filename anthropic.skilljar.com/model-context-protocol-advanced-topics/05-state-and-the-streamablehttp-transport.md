@@ -1,0 +1,144 @@
+<!-- https://anthropic.skilljar.com/model-context-protocol-advanced-topics/296285 -->
+<!-- jwplayer-srt: https://cdn.jwplayer.com/tracks/rBy30t5X.srt -->
+
+# State and the StreamableHTTP transport
+
+The last thing we need to do is understand what the stateless and
+JSON response flags are all about. How do they affect our server
+and when will we ever set them to true? I first
+want to walk you through a scenario where we might want to set these things to
+true because it really frames why these flags exist
+and how they affect our server. Let's imagine that you
+and I build an MCP server and we deploy it somewhere publicly
+online, where anyone can connect to it. So maybe
+we connect to it with our own client, and then some other
+people connect to it with their own clients as well. Over
+time, our server might become really, really popular, and
+in addition to the three initial clients we had connected,
+maybe many, many other people connect to it as well. At
+a certain point, running a single instance of our server on a single
+machine would probably not scale to the amount of traffic
+that is incoming. So one way we might solve this is
+through a little bit of horizontal scaling. With
+horizontal scaling, we might run multiple copies of our server
+and then gate access to them with a load balancer.
+So any incoming request would be randomly routed to
+one of these different servers. This would allow us to scale up to meet
+higher demands of traffic. And let's think about
+what would happen if we put a load balancer here, particularly
+keeping in mind the fact that we want to have really
+two separate connections to our MCP server from any given
+client. First, we want to have that running get request
+running at all times so we can receive requests from the
+server to the client. And our client also needs to make
+post requests and then receive a SSE response
+with some number of messages inside of it as well.
+So let's consider just one client connecting to maybe
+two different servers. This client would then make an
+initial request, setting up that initial Git
+SSC response pipeline. So we then imagine
+that we've got this response pending or kind of running continuously
+down to the client. Again, remember this is all about allowing
+a server to resend a request down to the client.
+Then maybe at some future point time, the client decides to
+run a tool. So it might make a call tool
+request using a post request. And maybe
+this request gets routed to the second MCP
+server. The second server would then respond by setting
+up its own separate SSC response. Now
+at this point time, I'm not going to show the load balancer just for clarity.
+As the tool runs inside that server, let's
+imagine for a second that it needs to make use of Claude, and
+it might try to make use of Claude by creating a create
+message request. Remember that represents a attempt
+to use sampling. Now, sampling requests always
+need to go through the Git SSE response.
+But that connection has been formed by a completely separate
+server. So we would need to figure out some way to get
+this request right here over to this other
+server and have this server send the request down through
+this Git SSC response, have the MCP
+client run Claude, generate some text,
+send it back to this server, and then somehow get
+that generated text back over to this server.
+As you can tell right away, coordinating all this would be
+really, really challenging. Now, it absolutely could
+be done, but it represents a lot of difficulty
+and a lot of added configuration and infrastructure. So
+if we are building an MCP server that we expect to
+scale horizontally and we do not want to go through all
+this extra coordination and infrastructure setup, we
+might decide to set that stateless HTTP
+flag to true. Setting this flag to true
+has one immediate but very important effect.
+It means that clients do not get a session ID,
+and that means that a server can never keep track of a client.
+Right away, that has some really big follow-up effects.
+Without a session ID, the MCP server can no longer make
+use of the Git SSC response pathway to
+send requests down to the client. To understand why
+that response pathway can't be used anymore, I'd encourage
+you to think of a bank where you don't have any account
+IDs. So a bank might receive money, but
+it wouldn't really know who gave them the money, and it wouldn't really
+know who to give money to because it doesn't know who is owed
+what. That's the same situation here without any identifying
+token. Now without that Git SSC
+response pathway, that means that because our server can't
+send any request on the client, we also can't use features
+like sampling or progress logging or subscriptions
+around things like changing resources and so on. There
+is another upside to this, however. In stateless mode,
+you do not need to go through client initialization anymore.
+So that means that back over here inside of this
+application, remember whenever we connect to the server, we
+had to make that initialized request and then
+the follow up initialized notification. When you're in stateless
+mode, you do not have to make those two requests, which
+definitely cuts down on the amount of traffic that your server is
+receiving. So there is a pretty good trade-off
+here. Now the other flag that we've been
+discussing has been JSON response. Whenever
+you set JSON response to true, that just means that the post
+requests that you send down to the clients are not
+going to have streaming enabled. And I can
+give you a very simple and easy demonstration of what that
+looks like. So over here, very quickly,
+let me give you a reminder of how this application usually works. I'll
+send the initialized request, initialize notification,
+and then when I call the add tool
+function, I'm going to open up that SSC connection,
+and I'll first get back a message, and then the call
+tool result. Now I'm going to very quickly flip
+the JSON response flag to true. And again, that
+means that all the responses that I get back are going to be just
+the final result as plain JSON. There's
+no streaming at all. So now I'm going to go through the same
+process again. I'm going to run the initialize,
+I'm going to run the notification and
+now this time when I call the add function, I'm
+not going to get those intermediate messages about
+some logging or anything like that. Instead,
+I'm going to get the final tool call result and
+nothing else. So now if I run this, we'll
+see that I'm not streaming response back. Instead, I'm waiting
+until the tool call is complete and I get just
+the result and absolutely nothing else. No log statements
+at all. So you can see right away how these two
+flags have a tremendous impact on how your server
+behaves. But depending upon how you are
+trying to develop and deploy your application, setting
+these flags to true might be entirely appropriate. All
+right, through a lot of patience and many different diagrams,
+I think we've finally got a reasonable idea of how the streamable
+HTTP transport works. So keep in
+mind these two flags and exactly how they affect
+your server. If you are developing your server in
+development on your local machine using a standard
+IO as your transport, when you deploy to production,
+if you are intending to use the streamable HTTP
+transport, just keep in mind that your server might behave
+a little bit differently. So as you are developing your server,
+I would encourage you to use the transport that you plan to
+use in production, because it's going to save you a lot of trouble
+down the line.

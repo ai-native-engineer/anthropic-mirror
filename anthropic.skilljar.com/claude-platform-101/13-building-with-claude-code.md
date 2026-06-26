@@ -1,0 +1,60 @@
+<!-- https://anthropic.skilljar.com/claude-platform-101/486266 -->
+<!-- youtube: Zq_c7xMbxto -->
+
+# Building with Claude Code
+
+Writing code that calls the Claude API
+by hand is fine, but there's an even
+faster path. Have Claude write it for
+you.
+In my simple project, I have this
+TypeScript file that gets weather for
+me. There are two stubs.
+First, we have get weather, which will
+accept a city and return the temperature
+and conditions.
+And the run function, which I want to
+use the tool runner in the Claude
+TypeScript SDK.
+The tool runner handles the tool calling
+and agent loop for me.
+Claude code comes with a built-in skill
+called Claude API. You can invoke it
+directly by using the /claude API, or it
+will automatically invoke it when it
+detects that you're using the TypeScript
+SDK. If you don't see it though, you can
+run /plugin marketplace
+anthropic/skills,
+taking into consideration the S at the
+end of anthropic.
+Now, I open the project folder in my
+terminal and launch Claude code. Then,
+I'm going to give it this one prompt.
+The prompt names the file, names the
+pattern, and it names the end state.
+Claude code will then fill in the get
+weather and run against the types. It
+will append a call at the bottom,
+execute the script, and report the
+output. And if something errors out, it
+reads the error message and patches it
+in place.
+Claude code created a Zod tool that
+parsed the input and returned the output
+based on the city type.
+It also created a tool runner in the run
+function like we asked for, and output
+the final results of the agent loop.
+Most of what you write against the
+Claude API has a familiar shape. Define
+a tool, hand it to a runner, return the
+result. You don't need to type that from
+memory every single time. You stub the
+file and then hand it to Claude code,
+and then just review the diff.
+Claude code is an agent that edits files
+and runs commands inside your terminal.
+Run Claude in your project and give it a
+prompt that names the file and the
+pattern that you want.
