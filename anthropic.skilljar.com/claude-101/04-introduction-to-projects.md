@@ -44,11 +44,7 @@ Setting up a project takes just a few minutes. Here's how to get started:
 
 #### Step 1: Set up your project
 
-1. Hover over the left sidebar and click "Projects," or navigate directly to claude.ai/projects
-2. Click "+ New Project" in the upper right corner
-3. Give your project a descriptive name (e.g., "Q4 Marketing Campaign" or "Product Documentation")
-4. Add a brief description of what you're working on. While Claude doesn't see this description directly, it helps you and your teammates understand the project's purpose.
-5. Choose your visibility settings: keep it private or share with your organization (for Claude for Work users)
+1. Hover over the left sidebar and click "Projects," or navigate directly to claude.ai/projects 2. Click "+ New Project" in the upper right corner 3. Give your project a descriptive name (e.g., "Q4 Marketing Campaign" or "Product Documentation") 4. Add a brief description of what you're working on. While Claude doesn't see this description directly, it helps you and your teammates understand the project's purpose. 5. Choose your visibility settings: keep it private or share with your organization (for Claude for Work users)
 
 #### Step 2: Add project instructions
 
@@ -100,9 +96,7 @@ For users on Claude for Work (Team and Enterprise) plans, projects become even m
 
 When sharing a project, you can choose from three permission levels:
 
-1. **Can view:** Members can see project contents, access knowledge, and chat—but can't make changes. Think of this as read-only access with discussion rights.
-2. **Can edit:** Members have full collaboration power. They can modify instructions, update knowledge, manage other members, and actively contribute to the project.
-3. **Owner:** Project creators control everything, including who sees the project. They can share with specific people or make projects visible to the entire organization.
+1. **Can view:** Members can see project contents, access knowledge, and chat—but can't make changes. Think of this as read-only access with discussion rights. 2. **Can edit:** Members have full collaboration power. They can modify instructions, update knowledge, manage other members, and actively contribute to the project. 3. **Owner:** Project creators control everything, including who sees the project. They can share with specific people or make projects visible to the entire organization.
 
 #### Sharing your project
 

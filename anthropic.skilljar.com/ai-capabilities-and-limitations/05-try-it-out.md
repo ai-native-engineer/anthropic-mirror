@@ -19,9 +19,7 @@ hey does anyone know how to fix the build
 
 i think |
 
-the
-we
-i
+the we i
 
 ↻ start over
 
@@ -57,10 +55,7 @@ The highlighted row is your current context. Pick a word from the available choi
 
 Five messages gave us a tiny matrix and a handful of predictions. What happens with more data?
 
-+ 1 message
-+ 10
-+ 50
-All 222
++ 1 message + 10 + 50 All 222
 
 5messages
 
@@ -80,12 +75,7 @@ When you were sampling, you could see probabilities, but you also used your inst
 
 If you had to write *code* to make those choices instead of using your gut, **what encoded rule do you think would create the best result?**
 
-Always pick the highest-probability word
- Pick semi-randomly, according to probabilities
- Pick according to probabilities, but also boost the most likely choices
- Ignore anything below a certain probability threshold
- Only consider the top N options
- Goblin mode — ignore the probabilities and pick something random
+Always pick the highest-probability word Pick semi-randomly, according to probabilities Pick according to probabilities, but also boost the most likely choices Ignore anything below a certain probability threshold Only consider the top N options Goblin mode — ignore the probabilities and pick something random
 
 Show me the knobs
 
@@ -95,8 +85,7 @@ Developers use parameters like **temperature** and **tail trimming** to improve 
 
 After "think":
 
-Temperature
-1.0
+Temperature 1.0
 
 focusedrandom
 
@@ -106,9 +95,7 @@ Tail trimming
 
 Remove unlikely words entirely before sampling.
 
-None
- Top-k
- Top-p
+None Top-k Top-p
 
 Top words3
 
@@ -120,8 +107,7 @@ Keep the smallest set of words whose probabilities sum to 90%.
 
 Unlike top-k, this adapts to confidence — when the model is sure, fewer words survive. When uncertain, more do.
 
-Generate
-reset
+Generate reset
 
 If you made a choice earlier, you intuitively selected one of these approaches.
 
@@ -153,15 +139,11 @@ forward pass through billions of parameters — attention, embeddings, feedforwa
 
 3 Sample next token
 
-we *32%*
-the *16%*
-i *11%*
+we *32%* the *16%* i *11%*
 
 3 Sample next token same process
 
-we *32%*
-the *16%*
-i *11%*
+we *32%* the *16%* i *11%*
 
 The Markov table lookup is a really simple and explainable operation. A forward pass through a neural network is quite a bit more complex. But in either case, the output is the same: a probability distribution of likely next words or tokens.
 

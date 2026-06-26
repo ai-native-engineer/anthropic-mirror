@@ -18,8 +18,7 @@ The 4D Framework teaches YOU how to collaborate with AI. This course teaches you
 
 ## A mental model of the machine
 
-Course  
-roadmap
+Course roadmap
 
 What we mean by AI
 
@@ -53,9 +52,7 @@ How do you use this knowledge to use AI safely, effectively, and ethically?
 
 *Why? This is the foundation for every exercise that follows in this course.*
 
-1. **List 4–6 tasks you've actually used AI for in the last two weeks.** If you haven't used AI much yet, list tasks you'd like to use it for. Be specific: "drafted a client email explaining a project delay" tells you something. "Writing" doesn't.
-2. **For each task, note one line:** did the output land on the first try, or did you need to rework it before it was usable? Don't overthink this. A quick gut check is fine.
-3. **Now share your list with Claude (or any AI assistant) and ask:** "For each of these tasks, what's one way this could go wrong if I'm not paying attention?" See if the failure modes it names feel relatable. If they don't, push back: "That doesn't match my experience. Here's what actually went wrong..."
+1. **List 4–6 tasks you've actually used AI for in the last two weeks.** If you haven't used AI much yet, list tasks you'd like to use it for. Be specific: "drafted a client email explaining a project delay" tells you something. "Writing" doesn't. 2. **For each task, note one line:** did the output land on the first try, or did you need to rework it before it was usable? Don't overthink this. A quick gut check is fine. 3. **Now share your list with Claude (or any AI assistant) and ask:** "For each of these tasks, what's one way this could go wrong if I'm not paying attention?" See if the failure modes it names feel relatable. If they don't, push back: "That doesn't match my experience. Here's what actually went wrong..."
 
 Hold onto this list. You'll return to it in every lesson, and it'll look different each time you do.
 

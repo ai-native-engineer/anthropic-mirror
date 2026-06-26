@@ -31,9 +31,9 @@ This comprehensive exercise helps you develop a thoughtful, practical policy for
 
 Go offline to consider everything you’ve learned in this course and jot down your initial thoughts.
 
-**Exploring your values and boundaries:** 
+**Exploring your values and boundaries:**
 
-Think through: 
+Think through:
 
 * Your core values around learning, integrity, and achievement
 * Situations where you absolutely will not use AI (your "red lines")
@@ -41,7 +41,7 @@ Think through: 
 * How you want others to perceive your AI use
 * What kind of professional you want to become
 
-In addition, consider the perspectives of others: 
+In addition, consider the perspectives of others:
 
 * How would you want your classmates to use AI?
 * What would you think if your professor used AI in different ways?
@@ -102,9 +102,7 @@ Review your draft policy with the AI:
 * How will you maintain accountability?
 * Practice applying the policy to a few real scenarios (a course revision, an assignment, a job application, even just a little personal project)
 * Ask the AI to help format this as a clear, professional document
-  + Keep it concise enough to actually reference
-  + Include date created and plan for updates
-  + Save in multiple places for easy access
++ Keep it concise enough to actually reference + Include date created and plan for updates + Save in multiple places for easy access
 * Use it and maybe share it and discuss it with a friend
 
 ## What's next
@@ -125,3 +123,9 @@ As you progress through the course, we'd love to hear from you about how you are
 #### Acknowledgements
 
 *Copyright 2025 Rick Dakan, Joseph Feller, and Anthropic. Released under the CC BY-NC-SA 4.0 license. This course is based on The AI Fluency Framework by Dakan and Feller.Supported in part by the Higher Education Authority, Ireland, through the National Forum for the Enhancement of Teaching and Learning.*
+
+<!-- youtube: UlkRm95PmXg -->
+
+## 자막 (영상 전사)
+
+[Music] AI fluency enables you to collaborate with AI safely, efficiently, effectively, and responsibly. Whether you're using it for learning, career planning, or any other number of applications, at its core, it's about becoming someone who can thrive in a world where AI is everywhere. someone who approaches these systems with confidence, control, and clear values. In tech speak, it's about being really good at being the human in the loop. The term human in the loop has been popularized in the AI world, and it can sound a bit vague, but it basically refers to the idea that in every AI interaction, the human is the one making the decisions and steering the ship. It means you decide what to ask. You evaluate whether what the AI gives you actually makes sense. You decide if it's good enough to use. You're not just passively accepting whatever pops up. You're bringing your judgment, your creativity, and your sense of right and wrong to every interaction. This matters because AI is becoming a part of almost every aspect of our lives. From how we learn and work to how we communicate and analyze problems. The leaders of tomorrow are those who know how to partner with these systems thoughtfully. Here's something we encourage you to try. Write down your own AI collaboration guidelines, including a personal commitment to engage with AI responsibly. This is a chance to think deeply about your values and how you want to engage with AI technology. Your commitment can be as long or as short as you'd like. And it might include things like what kind of human in the loop do you want to be? Meaning when you'll engage with AI and when you won't, how you want to use AI in learning, when and how you'll disclose your AI assistance, and how you'll keep your skills sharp even with AI available. You may even think about how you would want or not want others around you to engage with AI as a way to inform your own perspective. We suggest you keep it real. This isn't about writing what sounds good. This commitment should be your north star for AI engagement. It'll help you notice when you're leaning on AI in ways that feel true to you and your values and when something feels off. The best AI users do something most people skip. They continuously reflect on their practice. They ask hard questions. Is how I'm engaging with AI helping me grow? Am I developing the skills I need for my future or just completing tasks? Am I being honest about AI's role in my work? And ultimately, am I using AI in ways that align with my values? This kind of reflection keeps you growing. We encourage you to step back every now and then and reflect on your own personal journey with AI fluency. As you continue through school and into your career, you're going to run into AI applications that don't even exist yet. New systems will pop up seemingly overnight. AI will get better at things we didn't think it could do. new ethical questions will surface. But if you've built a strong AI fluency, if you can delegate thoughtfully, describe what you need clearly, think critically about what you get back, and follow through with care, you'll be ready for whatever comes next. Even better, you'll become someone who actually influences how AI gets used in your field, your community, and the wider world. Instead of just going along with whatever changes happen, you'll be helping steer those changes in positive directions. Remember that your humanity is uniquely valuable. Your specific talents, life experiences, knowledge, the way you see things, your relationships with people. All of this shapes how you understand and respond to the world in ways that are completely your own. AI can help you be aware of and express these qualities more effectively. It can help you learn faster, communicate more clearly, and solve problems more creatively. But it can't replace the human insight, judgment, and care that you bring to everything you do. So, what's next? Start by writing that personal commitment. Reflect on what responsible AI use means to you. Share with friends or mentors if you're comfortable. Having others know your standards helps you to live up to them and then put it into practice. Try out the 4D framework in your everyday life. Delegating thoughtfully, describing clearly, discerning critically, and following through with diligence. Pay attention to when you're nailing it and when you're not. Celebrate the wins, and learn from the moments when things don't go as planned. Most importantly, remember that AI fluency is a journey, not a destination. Stay curious, stay ethical, and don't lose sight of what makes you human. The future needs people like you. People who can work with AI responsibly and help others do the same. So, thank you for joining us on this journey towards AI fluency. Now, go out there and be the human in the loop that our world needs.

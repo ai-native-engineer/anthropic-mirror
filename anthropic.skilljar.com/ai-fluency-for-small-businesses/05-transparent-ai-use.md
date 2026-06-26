@@ -27,8 +27,7 @@ DelegationDecide what's worth handing to AI in the first place.
 
 DiligenceVerify, attribute, and own the final product.
 
-Decide what's  
-right to hand off.
+Decide what's right to hand off.
 
 Be thoughtful upfront: what's the right task, the right tool, and the right data to bring to AI—and what should stay with you?
 
@@ -40,8 +39,7 @@ The Loop
 
 ← Validate
 
-Own what  
-comes back.
+Own what comes back.
 
 Did AI get this right, and am I owning the result? Verify against what you know, be transparent about AI's role, and stand behind the output.
 
@@ -62,10 +60,7 @@ Did AI get this right, and am I owning the result? Verify against what you know,
 
 *Your Delegation move — deciding what data is appropriate to bring to AI and what stays protected.*
 
-1. Pick one real document from your business that you've already looked at and have some familiarity with — a sales report, customer feedback summary, inventory list, or similar.
-2. Read through it and mark anything you wouldn't want outside your business — names, contact details, payment information, proprietary pricing.
-3. Make a copy and strip those details: replace names with "Customer A / Vendor X," remove exact figures if they're not needed, delete contact info entirely.
-4. Before opening AI, take a few minutes to write down:
+1. Pick one real document from your business that you've already looked at and have some familiarity with — a sales report, customer feedback summary, inventory list, or similar. 2. Read through it and mark anything you wouldn't want outside your business — names, contact details, payment information, proprietary pricing. 3. Make a copy and strip those details: replace names with "Customer A / Vendor X," remove exact figures if they're not needed, delete contact info entirely. 4. Before opening AI, take a few minutes to write down:
    * **What are you trying to accomplish?** Be specific — "understand why repeat bookings dropped last quarter" beats "analyze my sales data."
    * **What do you already know or suspect** from looking at this data yourself? Note 2–3 observations or patterns you've already noticed.
    * **What would a useful AI output look like?** A summary? Specific trends? A list of anomalies?This is your brief. The clearer it is, the easier it will be to evaluate what comes back.
@@ -90,9 +85,7 @@ The gap between what AI sees and what you see is where your judgment as a busine
 
 Read AI's response and answer three questions:
 
-1. **Accuracy:** Does anything go beyond what your data actually shows? Flag numbers, conclusions, or recommendations that need checking against your real records.
-2. **Usefulness:** What would you keep as-is, what needs your editing, and what would you cut?
-3. **Accountability:** Is this something you'd put your name on — share with a customer, use in a report, act on? If not, what would need to change?
+1. **Accuracy:** Does anything go beyond what your data actually shows? Flag numbers, conclusions, or recommendations that need checking against your real records. 2. **Usefulness:** What would you keep as-is, what needs your editing, and what would you cut? 3. **Accountability:** Is this something you'd put your name on — share with a customer, use in a report, act on? If not, what would need to change?
 
 *Stretch goal:* What's your plan if AI got something meaningfully wrong? Write one sentence on how you'd catch it and correct it.
 

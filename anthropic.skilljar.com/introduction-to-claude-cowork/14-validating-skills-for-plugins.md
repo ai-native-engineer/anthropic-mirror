@@ -63,8 +63,7 @@ Prompt
 
 Write the recap for today's product sync. Notes are in `notes/2026-05-01-product-sync.md`.
 
-With skill
-✓✓✓✓ 4/4
+With skill ✓✓✓✓ 4/4
 
 ##### Product sync — recap
 
@@ -90,8 +89,7 @@ House rules
 * ✓ Open questions called out
 * ✓ Under 150 words
 
-Without skill
-×××✓ 1/4
+Without skill ×××✓ 1/4
 
 ##### Product sync recap
 
@@ -125,8 +123,7 @@ Prompt
 
 Recap the marketing stand-up — notes are pretty rough, half of it is just pasted Slack messages.
 
-With skill
-✓✓✓× 3/4
+With skill ✓✓✓× 3/4
 
 ##### Marketing stand-up — recap
 
@@ -151,8 +148,7 @@ House rules
 * ✓ Open questions called out
 * × Under 150 words *(164)*
 
-Without skill
-✓××✓ 2/4
+Without skill ✓××✓ 2/4
 
 ##### Marketing stand-up
 
@@ -186,8 +182,7 @@ Prompt
 
 Recap for the exec check-in — keep it brief, they only read the first three lines.
 
-With skill
-✓✓✓× 3/4
+With skill ✓✓✓× 3/4
 
 ##### Exec check-in — recap
 
@@ -211,8 +206,7 @@ House rules
 * ✓ Open questions called out
 * × Headline in the first three lines *(date pushed to line 5)*
 
-Without skill
-✓✓×✓ 3/4
+Without skill ✓✓×✓ 3/4
 
 ##### Exec check-in
 

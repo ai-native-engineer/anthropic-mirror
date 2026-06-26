@@ -65,8 +65,7 @@ Customize
 
 Connectors for this task
 
-All on
-All off
+All on All off
 
 **0** of 4 on
 

@@ -46,8 +46,7 @@ Cowork prompt
 
 Claude (MCP)
 
-Customer Health — Dashboard
-×
+Customer Health — Dashboard ×
 
 app.internal/customer-health
 
@@ -141,8 +140,7 @@ Claude
 
 Cowork takes it from here
 
-at-risk-accounts-summary.docx
-Pulling Drive context · building summary · 1 of 3 sections
+at-risk-accounts-summary.docx Pulling Drive context · building summary · 1 of 3 sections
 
 Claude hands the browser steps to Claude in Chrome, takes the data back, pulls the supporting context from Drive and Slack, and builds the summary in your folder. One delegation, three sources of context.
 

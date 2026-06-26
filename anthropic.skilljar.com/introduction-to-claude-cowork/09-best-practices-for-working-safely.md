@@ -64,15 +64,13 @@ Hazards found
 
 0 of 5
 
-Risky
-Safe
+Risky Safe
 
 Connectors
 
 Microsoft 365
 
-Claude in Chrome can act on pages in tabs you've allowed it to access
-1
+Claude in Chrome can act on pages in tabs you've allowed it to access 1
 
 Asana
 
@@ -82,8 +80,7 @@ Scheduled · Every Friday 5pm
 
 ~/Documents/Work
 
-Ask 
-Sonnet 4.6
+Ask Sonnet 4.6
 
 Click anything in the window that looks risky.
 

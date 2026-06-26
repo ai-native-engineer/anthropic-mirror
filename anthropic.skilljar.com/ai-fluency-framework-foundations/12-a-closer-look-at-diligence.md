@@ -52,17 +52,11 @@ A diligence statement is a transparent acknowledgment of AI's role in your work,
 Think about your work on the course project and consider:
 
 * Creation Diligence:
-  + Which AI systems did you choose to work with and why?
-  + What data or information did you share with the AI?
-  + Were there any privacy, security, or ethical considerations in your choices?
++ Which AI systems did you choose to work with and why? + What data or information did you share with the AI? + Were there any privacy, security, or ethical considerations in your choices?
 * Transparency Diligence:
-  + Who is the audience for your project output?
-  + What expectations might they have regarding AI disclosure?
-  + How specifically did AI contribute to different aspects of your work?
++ Who is the audience for your project output? + What expectations might they have regarding AI disclosure? + How specifically did AI contribute to different aspects of your work?
 * Deployment Diligence:
-  + What steps did you take to verify the accuracy and appropriateness of AI contributions?
-  + How did you ensure the final output meets your standards and requirements?
-  + What responsibility are you taking for the final product?
++ What steps did you take to verify the accuracy and appropriateness of AI contributions? + How did you ensure the final output meets your standards and requirements? + What responsibility are you taking for the final product?
 
 #### Step 3: Draft Your Diligence Statement
 
@@ -70,9 +64,7 @@ Think about your work on the course project and consider:
 
 Open a conversation with Claude and:
 
-1. Share your reflections from Step 2, as well as optionally your past conversations that you’ve had with Claude about this project
-2. Collaborate with Claude to draft a diligence statement specific to your project
-3. Ensure your statement addresses:
+1. Share your reflections from Step 2, as well as optionally your past conversations that you’ve had with Claude about this project 2. Collaborate with Claude to draft a diligence statement specific to your project 3. Ensure your statement addresses:
    * Which AI systems you used
    * How the AI contributed to your project
    * The review process you employed

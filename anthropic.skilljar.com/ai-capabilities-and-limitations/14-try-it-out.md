@@ -33,9 +33,7 @@ Hallucinated
 
 Serial position — your recall pattern
 
-Most likely
-Least likely
-Most likely
+Most likely Least likely Most likely
 
 The words you remembered likely cluster at the **beginning** and **end** of the list. The middle gets lost. This is the **primacy–recency effect** — and LLMs show the same bias.
 
@@ -47,12 +45,9 @@ Replay words (defeats the exercise)
 
 What you just experienced has a name: the **serial position effect**. Psychologists have studied it for over a century. Items at the beginning of a list benefit from **primacy** (they get rehearsed more), and items at the end benefit from **recency** (they're still fresh). The middle gets neither advantage.
 
-Position in list →
-Recall probability →
+Position in list → Recall probability →
 
-Primacy
-Lost in the middle
-Recency
+Primacy Lost in the middle Recency
 
 The fascinating part: **large language models exhibit the same pattern**. In 2023, researchers at Stanford tested what happens when you place a key fact at different positions within a long context window. Accuracy was highest when the fact appeared at the very beginning or very end — and dropped by more than 30% when it was buried in the middle.
 

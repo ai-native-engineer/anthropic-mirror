@@ -1,84 +1,10 @@
 <!-- https://anthropic.skilljar.com/claude-platform-101/486261 -->
 <!-- youtube: jZQ6b_vVHRc -->
 
+<!-- vid-ref:jZQ6b_vVHRc -->
+[![Watch on YouTube](https://img.youtube.com/vi/jZQ6b_vVHRc/hqdefault.jpg)](https://www.youtube.com/watch?v=jZQ6b_vVHRc)
+
+
 # Context management
 
-Every request that you send Claude has a
-context window.
-A million tokens sounds like a lot, but
-it runs out faster than you think once
-you're shipping a real agent. And this
-is where contact management comes in.
-It's how you stay inside the window
-without losing what matters.
-Context is everything Claude sees on a
-given turn. The system prompt, the
-message history, tool definitions, tool
-results, attached files, skills,
-thinking blocks. It's the input to every
-single API call. You pay for it on the
-way in and you pay for it on the way
-out. And once it's full, the request
-fails. So, the goal isn't fit
-everything. The goal is fit the right
-things in.
-Anthropic publishes four patterns for
-managing context in long-running agents.
-Three are first-class API features and
-one is a design pattern. One is the
-just-in-time context. Don't load
-everything up front. Load what the agent
-needs now and let it pull more in via
-tools when it asks. The compliance
-review agent doesn't get the entire
-building codebook in a system prompt. It
-calls lookup building code when it needs
-a section.
-When a conversation runs long, Anthropic
-server-side compaction summarizes older
-turns into a single block. Add a context
-management key that holds a edits and
-then a type. Just like this. The API
-auto summarizes when input crosses the
-trigger threshold. Prompt caching lets
-you mark stable parts of the request.
-The system prompt, the tool definitions,
-a long document, and reuses them across
-calls at a fraction of the cost. So, if
-your system prompt is 4,000 tokens and
-you call it 100 times an hour, well,
-caching is a difference between a usable
-bill and a phone call from finance. Some
-context needs to survive across
-sessions. User preferences, the agent's
-running notes, what was decided last
-week. The recommended primitive is the
-memory tool. Claude reason writes a
-memories directory via tool calls. You
-implement the storage back end client
-side. So, this could be like a file
-system, database, encrypted store,
-whatever you want. Anthropic auto
-injects a system instruction telling
-Claude to check the memory directory
-before starting work. In a production
-app, you'll usually layer all four at
-once.
-The compliance review agent caches a
-system prompt and tool definitions and
-pulls building code sections in just in
-time via lookup building code. And each
-pattern handles a different failure
-mode. Cost, window size, statelessness,
-pick the ones that match what's
-breaking.
-Context isn't free and it isn't
-infinite.
-Load just in time.
-Compact what's old.
-And remember what has to survive across
-sessions.
-Four patterns but one goal.
-Either wire these up by hand or use
-Claude managed agents which ship with
-caching and compaction on by default.
+Every request that you send Claude has a context window. A million tokens sounds like a lot, but it runs out faster than you think once you're shipping a real agent. And this is where contact management comes in. It's how you stay inside the window without losing what matters. Context is everything Claude sees on a given turn. The system prompt, the message history, tool definitions, tool results, attached files, skills, thinking blocks. It's the input to every single API call. You pay for it on the way in and you pay for it on the way out. And once it's full, the request fails. So, the goal isn't fit everything. The goal is fit the right things in. Anthropic publishes four patterns for managing context in long-running agents. Three are first-class API features and one is a design pattern. One is the just-in-time context. Don't load everything up front. Load what the agent needs now and let it pull more in via tools when it asks. The compliance review agent doesn't get the entire building codebook in a system prompt. It calls lookup building code when it needs a section. When a conversation runs long, Anthropic server-side compaction summarizes older turns into a single block. Add a context management key that holds a edits and then a type. Just like this. The API auto summarizes when input crosses the trigger threshold. Prompt caching lets you mark stable parts of the request. The system prompt, the tool definitions, a long document, and reuses them across calls at a fraction of the cost. So, if your system prompt is 4,000 tokens and you call it 100 times an hour, well, caching is a difference between a usable bill and a phone call from finance. Some context needs to survive across sessions. User preferences, the agent's running notes, what was decided last week. The recommended primitive is the memory tool. Claude reason writes a memories directory via tool calls. You implement the storage back end client side. So, this could be like a file system, database, encrypted store, whatever you want. Anthropic auto injects a system instruction telling Claude to check the memory directory before starting work. In a production app, you'll usually layer all four at once. The compliance review agent caches a system prompt and tool definitions and pulls building code sections in just in time via lookup building code. And each pattern handles a different failure mode. Cost, window size, statelessness, pick the ones that match what's breaking. Context isn't free and it isn't infinite. Load just in time. Compact what's old. And remember what has to survive across sessions. Four patterns but one goal. Either wire these up by hand or use Claude managed agents which ship with caching and compaction on by default.

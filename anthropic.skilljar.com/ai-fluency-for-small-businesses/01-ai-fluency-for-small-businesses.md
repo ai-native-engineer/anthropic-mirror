@@ -70,10 +70,7 @@ New to Claude? No worries! We'll provide clear guidance with each exercise to he
 
 Take a few minutes to answer the following questions. Write your answers down — you'll use them in Part II.
 
-1. What is the mission and vision of your business? What do you want to be known for?
-2. Describe your business situation and your specific role — constraints, strengths, opportunities, team size, etc.
-3. What are the core values and standards that shape how you operate? Think about what you'd never compromise on.
-4. Complete this sentence: "If AI could help me \_\_\_\_\_\_\_, I would be able to spend more time \_\_\_\_\_\_\_." Focus on how AI efficiency gains can translate to better customer outcomes, business growth, or quality of life.
+1. What is the mission and vision of your business? What do you want to be known for? 2. Describe your business situation and your specific role — constraints, strengths, opportunities, team size, etc. 3. What are the core values and standards that shape how you operate? Think about what you'd never compromise on. 4. Complete this sentence: "If AI could help me \_\_\_\_\_\_\_, I would be able to spend more time \_\_\_\_\_\_\_." Focus on how AI efficiency gains can translate to better customer outcomes, business growth, or quality of life.
 
 **Part II: Collaboration (with AI)**
 

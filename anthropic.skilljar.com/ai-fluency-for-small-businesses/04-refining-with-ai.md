@@ -27,8 +27,7 @@ DescriptionCommunicate the vision so the model can act on it.
 
 DiscernmentJudge what came back—and feed that judgment forward.
 
-Tell it what good  
-looks like.
+Tell it what good looks like.
 
 Clear, specific, well-structured prompting that translates a creative vision into terms the model can act on.
 
@@ -40,8 +39,7 @@ The Loop
 
 ← Refine
 
-Judge what  
-came back.
+Judge what came back.
 
 Critical evaluation of the output—quality, relevance, bias—and of the collaboration itself, so the next prompt is sharper.
 

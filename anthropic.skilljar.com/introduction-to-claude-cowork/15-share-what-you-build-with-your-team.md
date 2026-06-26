@@ -35,14 +35,11 @@ Distribution paths
 
 When you go to share your plugin in Cowork, **what you see depends on how your org has set things up**. Pick the one that matches:
 
-It's there — I know the owner
-hand-off
+It's there — I know the owner hand-off
 
-I'm not sure it exists yet
-discovery
+I'm not sure it exists yet discovery
 
-I'm the admin
-setup
+I'm the admin setup
 
 Path A
 
@@ -82,7 +79,7 @@ Your next step
 
 Find out **who manages Claude for your organization** — usually IT, an enablement lead, or whoever owns software tools. Ask them whether a private plugin marketplace is turned on, and who you'd hand a plugin to.
 
-The ask, in one line: *“We've built a Cowork plugin our team wants to share — is the org marketplace turned on, and who owns it?”*  
+The ask, in one line: *“We've built a Cowork plugin our team wants to share — is the org marketplace turned on, and who owns it?”*
   
 Until it's live, you can still **export the plugin folder and hand it to a teammate directly** — it's just manual.
 

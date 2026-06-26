@@ -12,8 +12,7 @@ By the end of this lesson you'll be able to:
 
 ---
 
-Course  
-roadmap
+Course roadmap
 
 Meet Claude
 

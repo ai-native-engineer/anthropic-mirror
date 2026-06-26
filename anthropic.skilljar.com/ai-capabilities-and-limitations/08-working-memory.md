@@ -28,14 +28,9 @@ You ask AI to **review a 50-page contract**. How closely do you need to check th
 
 ##
 
-Capability
-Limitation
+Capability Limitation
 
-Trust it
-Spot-check
-Check details
-Verify carefully
-High risk
+Trust it Spot-check Check details Verify carefully High risk
 
 Your guess
 
@@ -63,19 +58,12 @@ Pictogram size
 
 Palette
 
-Sky → Clay
-Olive → Clay
-Cactus → Fig
-Slate → Clay
+Sky → Clay Olive → Clay Cactus → Fig Slate → Clay
 
 #### Key takeaways
 
 * **Working Memory** is the fact that the AI model has a fixed context window that it can attend to.
-  + **Capability zone:** your material fits comfortably, the session is current, you're supplying relevant context.
-  + **Limitation zone:** very long documents or conversations, expecting continuity across sessions, burying critical info in the middle of long input.
-  + **This property has a cliff** rather than a gradient. Silent truncation is the failure mode, and you won't always be warned.
-  + **The model doesn't learn from your corrections.** It only responds to what's currently in context.
-  + **Memory features, compaction, projects, larger windows, and multi-agent workflows** all exist to push this cliff further out.
++ **Capability zone:** your material fits comfortably, the session is current, you're supplying relevant context. + **Limitation zone:** very long documents or conversations, expecting continuity across sessions, burying critical info in the middle of long input. + **This property has a cliff** rather than a gradient. Silent truncation is the failure mode, and you won't always be warned. + **The model doesn't learn from your corrections.** It only responds to what's currently in context. + **Memory features, compaction, projects, larger windows, and multi-agent workflows** all exist to push this cliff further out.
 * **4D connection:** Working Memory is what Description acts on. Knowing how the window works tells you how to structure context, when to front-load, and when to start fresh.
 
 ## Exercises
@@ -88,9 +76,7 @@ Pick a task from your Lesson 1 list that benefits from context only you hold: a 
 
 Now run three probes:
 
-1. **Probe 1: Cold start vs. context.** Ask for your task with zero context. Just the bare request. Save the output. Then start a fresh conversation and run the same task, this time supplying your style guide, past example, or constraints upfront. Compare both outputs against your "good" definition. Measure the gap.
-2. **Probe 2: Lost in the middle.** Take a longer document (or paste together a few paragraphs of reference material). Bury one specific, important instruction in the middle of it. Ask a question whose correct answer depends on that buried instruction. Did the AI catch it? Now move that instruction to the very top and ask again. Compare.
-3. **Probe 3: The blank slate.** Have a short exchange where you teach the AI something specific about your work context, or correct it on something it got wrong. Then open a brand-new conversation and ask a question that assumes it remembers what you taught it. Watch it start from zero.
+1. **Probe 1: Cold start vs. context.** Ask for your task with zero context. Just the bare request. Save the output. Then start a fresh conversation and run the same task, this time supplying your style guide, past example, or constraints upfront. Compare both outputs against your "good" definition. Measure the gap. 2. **Probe 2: Lost in the middle.** Take a longer document (or paste together a few paragraphs of reference material). Bury one specific, important instruction in the middle of it. Ask a question whose correct answer depends on that buried instruction. Did the AI catch it? Now move that instruction to the very top and ask again. Compare. 3. **Probe 3: The blank slate.** Have a short exchange where you teach the AI something specific about your work context, or correct it on something it got wrong. Then open a brand-new conversation and ask a question that assumes it remembers what you taught it. Watch it start from zero.
 
 Go back to your task list and add a third annotation: which tasks need standing context set up (a project, saved instructions, uploaded reference docs) to be worth running, and which work fine cold?
 

@@ -34,9 +34,7 @@ This video addresses two of the most common concerns professionals have about or
 
 Pull up your context document from Lesson 1. Read it with fresh eyes — you've done several exercises since you wrote it. Then answer these three questions:
 
-1. **What tasks am I now confident handing to AI?** Be specific — not "writing" but "drafting first-pass responses to common customer inquiries."
-2. **What will I always keep human?** Name the work where your judgment, relationships, or accountability are non-negotiable.
-3. **What do my customers and team need to know about how I use AI?** Consider what you'd say if someone asked directly.
+1. **What tasks am I now confident handing to AI?** Be specific — not "writing" but "drafting first-pass responses to common customer inquiries." 2. **What will I always keep human?** Name the work where your judgment, relationships, or accountability are non-negotiable. 3. **What do my customers and team need to know about how I use AI?** Consider what you'd say if someone asked directly.
 
 **Part II: Build it with AI**
 

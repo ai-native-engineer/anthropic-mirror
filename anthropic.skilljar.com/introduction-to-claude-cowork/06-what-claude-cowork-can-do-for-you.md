@@ -41,9 +41,7 @@ Explore the interactive below to see how Cowork performs across the three patter
 
 Three patterns of work that suit Cowork
 
-Multi-step
-File-based
-Multi-tool
+Multi-step File-based Multi-tool
 
 The through-line across all three patterns is the same: work that used to mean juggling steps, files, and tools in your own head can now be handed off as a single task. When you spot that shape, give it to Cowork.
 

@@ -77,9 +77,7 @@ Drawing on your expertise, carefully evaluate each explanation provided by Claud
 
 Based on your evaluation:
 
-1. Identify the strongest explanation and specifically tell Claude specifically why it's effective
-2. Identify the weakest explanation and provide specific feedback on what makes it problematic
-3. Work with Claude to create an improved version that addresses the issues you identified
+1. Identify the strongest explanation and specifically tell Claude specifically why it's effective 2. Identify the weakest explanation and provide specific feedback on what makes it problematic 3. Work with Claude to create an improved version that addresses the issues you identified
 
 **Step 5: Reflection**
 

@@ -17,12 +17,7 @@ This video explores practical skills for crafting effective prompts when working
 
 * Effective prompting combines clear communication principles with AI-specific techniques
 * Six foundational prompting techniques:
-  + Give context: Be specific about what you want, why you want it, and relevant background
-  + Show examples: Demonstrate the output style or format you're looking for
-  + Specify constraints: Clearly define format, length, and other output requirements
-  + Break complex tasks into steps: Guide the AI through multi-step reasoning
-  + Ask the AI to think first: Give space for the AI to work through its process
-  + Define the AI's role or tone: Specify how you want the AI to communicate
++ Give context: Be specific about what you want, why you want it, and relevant background + Show examples: Demonstrate the output style or format you're looking for + Specify constraints: Clearly define format, length, and other output requirements + Break complex tasks into steps: Guide the AI through multi-step reasoning + Ask the AI to think first: Give space for the AI to work through its process + Define the AI's role or tone: Specify how you want the AI to communicate
 * The "secret weapon": Ask the AI itself to help improve your prompt
 * Successful prompting is iterative (and perhaps also collaborative with the AI!). Expect to refine your approach based on results
 * Common successful patterns include providing clear task overviews, format specifications, explicit constraints, and relevant background information

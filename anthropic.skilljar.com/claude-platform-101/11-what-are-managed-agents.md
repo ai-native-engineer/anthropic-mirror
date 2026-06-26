@@ -1,114 +1,12 @@
 <!-- https://anthropic.skilljar.com/claude-platform-101/486263 -->
 <!-- youtube: haeslvB0zpg -->
 
+<!-- vid-ref:haeslvB0zpg -->
+[![Watch on YouTube](https://img.youtube.com/vi/haeslvB0zpg/hqdefault.jpg)](https://www.youtube.com/watch?v=haeslvB0zpg)
+
+
 # What are managed agents?
 
 [music]
 >> Claude managed agents is a suite of APIs
-for building and deploying agents at
-scale.
-You define agents with specific tools,
-personas, and capabilities. [music]
-You configure sandbox environments with
-the right packages and network controls.
-You fire off sessions from [music] your
-own application, and then Claude does
-the work inside an isolated container
-with full file system access, bash
-execution, and web search. Under the
-hood, this is an agent loop. Claude
-reasons, calls a tool,
-reads the result, and repeats until the
-job is done. We've built this kind of
-loop before ourselves, but managed
-agents takes that same loop and hosts it
-on Anthropic's infrastructure.
-I have over here a Kanban board sitting
-on top of managed agents.
-I drag one over to the in progress, and
-then that fires off a session
-automatically. Now, the ticket says
-optimize website performance. So, my
-back end creates a session. It points to
-an environment that I configured with
-Lighthouse and Puppeteer pre-installed,
-and mounts my GitHub repo into that
-container. Claude has the code base, the
-tools, and a rubric. Lighthouse score
-above 90, no render-blocking resources,
-all images lazy loaded. And then we can
-see here that Claude runs the audit. It
-starts compressing images, inlining CSS,
-deferring scripts.
-Every tool call streams back to the
-board in real time through the event
-stream.
-So, the rubric kicks in. A separate
-grader running at its own context window
-evaluates the output against my
-criteria. Claude reads that feedback,
-goes back in, fixes what it misses, and
-then resubmits.
-Good. We're up to 96.
-And note that I can drag a second ticket
-over while the first is still running.
-Two sessions, two containers, two
-separate tasks running in parallel.
-So, I have another agent here that's job
-is to track prices and plan changes
-across every SaaS tool that our company
-pays for and have a report ready before
-stand-up. Comment.
-Claude searches the web for current
-pricing pages, checks for plan tier
-changes, flags new features that might
-affect your contracts. It then runs a
-cost analysis in Python inside of that
-sandbox. And then it also uses an Excel
-spreadsheet skill and writes an
-executive summary. And when the report
-is ready, Claude posts a link to Slack
-and creates a review task in Asana, both
-through MCP servers.
-The agent also reads from and writes to
-a memory store.
-Before it starts, it checks what it
-found last week. After it finishes, it
-stores what changed. So, next Monday's
-report says, "Cloud compute 15% lower
-since last week." instead of listing the
-same static pricing data.
-I have an alert here that fired from my
-monitoring stack. A custom tool my back
-end receives the alert payload and sends
-it into a new session as a tool result.
-This session uses multi-agent
-coordination. A coordinator agent
-receives the alert and delegates to
-three specialists, each running in their
-own context window on the same shared
-file system.
-The specialists report back. The
-coordinator synthesizes their findings
-into a single incident summary. And
-before it posts the update to Slack, the
-permissions policy fires. And so, I see
-the draft on screen, approve it, and the
-message goes out. Memory ties all of
-this together. The coordinator checks
-past incidents in the memory store and
-flags a pattern. This looks like the TDS
-resolution issue from 2 weeks ago that
-was caused by a misconfigured TTL. So,
-that means that the next time a similar
-alert fires, the agent starts with that
-context instead of diagnosing from
-scratch.
-Managed agents gives developers [music]
-the tools to deliver a fully managed
-stateful agent experience with agents,
-sessions, environments, tools, MCP,
-memory, outcomes, [music] and
-multi-agent coordination.
-You define what done looks like. Claude
-works until [music] it gets there.
+for building and deploying agents at scale. You define agents with specific tools, personas, and capabilities. [music] You configure sandbox environments with the right packages and network controls. You fire off sessions from [music] your own application, and then Claude does the work inside an isolated container with full file system access, bash execution, and web search. Under the hood, this is an agent loop. Claude reasons, calls a tool, reads the result, and repeats until the job is done. We've built this kind of loop before ourselves, but managed agents takes that same loop and hosts it on Anthropic's infrastructure. I have over here a Kanban board sitting on top of managed agents. I drag one over to the in progress, and then that fires off a session automatically. Now, the ticket says optimize website performance. So, my back end creates a session. It points to an environment that I configured with Lighthouse and Puppeteer pre-installed, and mounts my GitHub repo into that container. Claude has the code base, the tools, and a rubric. Lighthouse score above 90, no render-blocking resources, all images lazy loaded. And then we can see here that Claude runs the audit. It starts compressing images, inlining CSS, deferring scripts. Every tool call streams back to the board in real time through the event stream. So, the rubric kicks in. A separate grader running at its own context window evaluates the output against my criteria. Claude reads that feedback, goes back in, fixes what it misses, and then resubmits. Good. We're up to 96. And note that I can drag a second ticket over while the first is still running. Two sessions, two containers, two separate tasks running in parallel. So, I have another agent here that's job is to track prices and plan changes across every SaaS tool that our company pays for and have a report ready before stand-up. Comment. Claude searches the web for current pricing pages, checks for plan tier changes, flags new features that might affect your contracts. It then runs a cost analysis in Python inside of that sandbox. And then it also uses an Excel spreadsheet skill and writes an executive summary. And when the report is ready, Claude posts a link to Slack and creates a review task in Asana, both through MCP servers. The agent also reads from and writes to a memory store. Before it starts, it checks what it found last week. After it finishes, it stores what changed. So, next Monday's report says, "Cloud compute 15% lower since last week." instead of listing the same static pricing data. I have an alert here that fired from my monitoring stack. A custom tool my back end receives the alert payload and sends it into a new session as a tool result. This session uses multi-agent coordination. A coordinator agent receives the alert and delegates to three specialists, each running in their own context window on the same shared file system. The specialists report back. The coordinator synthesizes their findings into a single incident summary. And before it posts the update to Slack, the permissions policy fires. And so, I see the draft on screen, approve it, and the message goes out. Memory ties all of this together. The coordinator checks past incidents in the memory store and flags a pattern. This looks like the TDS resolution issue from 2 weeks ago that was caused by a misconfigured TTL. So, that means that the next time a similar alert fires, the agent starts with that context instead of diagnosing from scratch. Managed agents gives developers [music] the tools to deliver a fully managed stateful agent experience with agents, sessions, environments, tools, MCP, memory, outcomes, [music] and multi-agent coordination. You define what done looks like. Claude works until [music] it gets there.

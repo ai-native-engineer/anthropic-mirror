@@ -67,9 +67,7 @@ Your work is unique. Claude might excel at drafting marketing copy but need more
 
 You don't need complex infrastructure to evaluate Claude. Here's a practical approach:
 
-1. **Gather examples.** Collect 5-10 examples of a task you do regularly—emails you've written, reports you've created, analyses you've done.
-2. **Create test prompts.** Write prompts that would generate similar outputs. Include the context you'd naturally have when doing this work.
-3. **Compare outputs.** Run your prompts and compare Claude's responses to your examples. Ask yourself:
+1. **Gather examples.** Collect 5-10 examples of a task you do regularly—emails you've written, reports you've created, analyses you've done. 2. **Create test prompts.** Write prompts that would generate similar outputs. Include the context you'd naturally have when doing this work. 3. **Compare outputs.** Run your prompts and compare Claude's responses to your examples. Ask yourself:
    * Does Claude capture the key information?
    * Is the tone and style appropriate?
    * What's missing or could be improved?

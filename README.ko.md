@@ -5,9 +5,9 @@
 ![status: unofficial mirror](https://img.shields.io/badge/status-unofficial%20mirror-orange)
 ![last commit](https://img.shields.io/github/last-commit/ai-native-engineer/anthropic-mirror)
 ![repo size](https://img.shields.io/github/repo-size/ai-native-engineer/anthropic-mirror)
-![docs ~4.5k](https://img.shields.io/badge/docs-~4.5k-blue)
+![docs ~4.7k](https://img.shields.io/badge/docs-~4.7k-blue)
 
-> **Anthropic / Claude 공개 자료**(소식, 연구, 엔지니어링, 정책/법무, 제품, 플랫폼 문서/API 레퍼런스, Help Center, Trust Center, Alignment Science/해석가능성 블로그, Anthropic Academy 코스)를 마크다운으로 정리한 비공식 아카이브.
+> **Anthropic / Claude 공개 자료**(소식, 연구, 엔지니어링, 정책/법무, 제품, 플랫폼 문서/API 레퍼런스, Claude Code CLI 문서, Help Center, Trust Center, Alignment Science/해석가능성 블로그, Anthropic Academy 코스)를 마크다운으로 정리한 비공식 아카이브.
 
 강의/자료 제작 시 참고 소스로 모았고, 누구나 읽어볼 수 있게 공개해 둡니다.
 
@@ -16,13 +16,14 @@
 
 ## 무엇이 담겨 있나
 
-최신 크롤 스냅샷 기준 약 4,500개 마크다운 파일. 트리는 원문 URL 구조(`<host>/<path>.md`)를 그대로 따라가므로 파일 위치가 곧 원문 페이지 위치입니다. 각 파일 상단에 원문 링크 `<!-- source: <url> -->`가 붙어 있습니다.
+최신 크롤 스냅샷 기준 약 4,700개 마크다운 파일. 트리는 원문 URL 구조(`<host>/<path>.md`)를 그대로 따라가므로 파일 위치가 곧 원문 페이지 위치입니다. 각 파일 상단에 원문 링크 `<!-- source: <url> -->`가 붙어 있습니다.
 
 | 경로 | 내용 | 문서 수 |
 |---|---|---|
 | `www.anthropic.com/` | 소식, 연구, 엔지니어링, 이벤트, 회사, 채용, 정책/법무, 제품, system cards, economic index | 약 484 |
 | `claude.com/` | 블로그, 고객 사례, 리소스, use-case, 튜토리얼, connectors, plugins, help 문서 | 약 1,717 |
 | `platform.claude.com/` | 개발자 문서 + 전체 API 레퍼런스 | 약 1,695 |
+| `code.claude.com/` | Claude Code CLI 문서(hooks, sub-agents, settings, slash commands, statusline, output styles, checkpointing, Agent SDK) | 약 154 |
 | `support.claude.com/` | Help Center article | 약 370 |
 | `alignment.anthropic.com/` | Alignment Science 블로그 | 약 51 |
 | `transformer-circuits.pub/` | 해석가능성 연구(Transformer Circuits Thread), 그림은 PNG로 추출 | 약 49 |
@@ -33,13 +34,14 @@
 
 ## 어떻게 만들어지나
 
-sitemap 기반 자동 크롤 파이프라인으로 수집합니다(API 키 없음, 공개 페이지는 로그인 없음): 각 도메인의 `sitemap.xml`을 1차 소스로 삼고, Chrome 브라우저 지문(`curl_cffi`)으로 가져와 헤드리스 브라우저 없이 SSR HTML을 받습니다. `platform.claude.com` 문서는 Mintlify `.md` raw로 받습니다. 재생성 절차는 `AGENTS.md` 참조.
+sitemap 기반 자동 크롤 파이프라인으로 수집합니다(API 키 없음, 공개 페이지는 로그인 없음): 각 도메인의 `sitemap.xml`을 1차 소스로 삼고, Chrome 브라우저 지문(`curl_cffi`)으로 가져와 헤드리스 브라우저 없이 SSR HTML을 받습니다. `platform.claude.com`·`code.claude.com` 문서는 Mintlify `.md` raw로 받습니다. 재생성 절차는 `AGENTS.md` 참조.
 
 ## 출처 (Sources)
 
 - https://www.anthropic.com (소식, 연구, 엔지니어링, 정책, 법무, 제품)
 - https://claude.com (블로그, 고객 사례, 리소스, connectors, help)
 - https://platform.claude.com/docs (개발자 문서 + API 레퍼런스)
+- https://code.claude.com/docs (Claude Code CLI)
 - https://support.claude.com (Help Center)
 - https://alignment.anthropic.com (Alignment Science)
 - https://transformer-circuits.pub (해석가능성)

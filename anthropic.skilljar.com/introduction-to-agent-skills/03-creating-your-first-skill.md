@@ -40,15 +40,11 @@ mkdir -p ~/.claude/skills/pr-description
 Then create a `SKILL.md` file inside that directory. The file has two parts separated by frontmatter dashes:
 
 ```
----
-name: pr-description
-description: Writes pull request descriptions. Use when creating a PR, writing a PR, or when the user asks to summarize changes for a pull request.
----
+--- name: pr-description description: Writes pull request descriptions. Use when creating a PR, writing a PR, or when the user asks to summarize changes for a pull request. ---
 
 When writing a PR description:
 
-1. Run `git diff main...HEAD` to see all changes on this branch
-2. Write a description following this format:
+1. Run `git diff main...HEAD` to see all changes on this branch 2. Write a description following this format:
 
 ## What
 One sentence explaining what this PR does.
@@ -88,10 +84,7 @@ Once a match is found, Claude asks you to confirm loading the skill. This confir
 
 If you clone a repository that has a skill with the same name as one of your personal skills, which one wins? There's a clear priority order:
 
-1. **Enterprise** — managed settings, highest priority
-2. **Personal** — your home directory (`~/.claude/skills`)
-3. **Project** — the `.claude/skills` directory inside a repository
-4. **Plugins** — installed plugins, lowest priority
+1. **Enterprise** — managed settings, highest priority 2. **Personal** — your home directory (`~/.claude/skills`) 3. **Project** — the `.claude/skills` directory inside a repository 4. **Plugins** — installed plugins, lowest priority
 
 This lets organizations enforce standards through enterprise skills while still allowing individual customization. If your company has an enterprise "code-review" skill and you create a personal "code-review" skill with the same name, the enterprise version takes precedence.
 
@@ -113,3 +106,9 @@ In the next lesson, you'll learn about advanced configuration options including 
 #### Feedback
 
 As you progress through the course, we'd love to hear how you're using skills in your work, plus any feedback you may have. Share your feedback [here](https://forms.gle/RvHPBwQt9ZmcDc1P9).
+
+<!-- youtube: Wx6_vjFFyHM -->
+
+## 자막 (영상 전사)
+
+So, let's create a skill. This skill will teach Claude how we would like it to explain code using visual diagrams and analogies. [music] Then, we'll look at what happens under the hood when Claude uses it. First, [music] let's create a directory for your skill. We're going to be making a personal skill, so it'll live in many projects, so it will go in your home directory. Take into consideration that we're creating a directory with the skill name inside of the skills directory. Now create the skill. The name identifies your skill. The description tells Claude when to use it. This is the matching criteria. And then everything after the second dashes is the instructions that Claude follows. Cloud code loads skills at startup. So restart your session. Then verify it's available. You should see PR description in the list. Now test it. Make some changes on a branch and say, "Write a PR description for my changes." Claude will then show you that it's using the PR description skill. After that, it'll check your diff and write a description following your template. Same format every single time. When Cloud Code starts, it scans four locations for skills. Enterprise paths, your personal Claude skills, the project's Claude skills, and installed plugins. It loads only the name and description of each skill, not the full content. This is important later. When you send a request, Claude compares it to the descriptions of your skills. Explain what this function does matches a skill described as explain code with visual diagrams because the intent overlaps. It will then ask you to confirm loading up the skill. This confirmation step keeps you aware of what context Claude is using. After you confirm, Claude reads the complete file and follows its instructions. Now, let's say you clone a Git repository and have an overlapping skill name. Well, which one wins? Here's the priority list. The highest is enterprise, which lives in the manage settings. Two is the personal, which lives in your root directory configuration like we're doing right now. Three is the project which is the claw directory inside of your repository. And the lowest is the plugins where you store your plugins that you got online. This lets organizations enforce standards while allowing individual customization through differently named skills. If your company has an enterprise code review skill and you create a personal code review skill, the enterprise version of that takes precedence. To avoid conflicts, use descriptive names. Instead of review, use front-end PR review or security review. To update a skill, edit it skill.md file. Simple. To remove one, delete its directory. Restart clock code after changes for them to take effect. Creating a skill means making a directory with a skill.md file containing metadata and instructions. Claude loads skill names and descriptions at startup. matches incoming requests against those descriptions and asks for confirmation before loading the full content. Priority rules handling name conflicts. Enterprise overrides personal personal overrides project overrides plugins. [music] Edit the skill.md file to update a skill and restart cloud code for changes to take effect.

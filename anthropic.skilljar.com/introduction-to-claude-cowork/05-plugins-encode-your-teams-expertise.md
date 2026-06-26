@@ -34,11 +34,9 @@ Explore the interactive below to see the different shapes of plugins.
 
 Two plugins, two shapes
 
-Legal
-function's toolkit
+Legal function's toolkit
 
-Experiment Readout
-end-to-end pipeline
+Experiment Readout end-to-end pipeline
 
 ## Experiment Readout
 
@@ -62,8 +60,7 @@ Description
 
 Run an A/B test from raw results to shipped readout.
 
-Skills
-Click any skill to see what it does.
+Skills Click any skill to see what it does.
 
 Pull experiment exposures and metrics from the warehouse.
 
@@ -111,10 +108,7 @@ Draft the TL;DR for the experiments channel.
 
 Drafts a Slack-ready two-line summary with a link to the full readout — you post it.
 
-Connectors
-BigQuery
-Slack
-Hex
+Connectors BigQuery Slack Hex
 
 ## Legal
 
@@ -142,8 +136,7 @@ Description
 
 The contract and review work a legal team does most.
 
-Skills
-Click any skill to see what it does.
+Skills Click any skill to see what it does.
 
 Redline an NDA against the house playbook.
 
@@ -183,12 +176,7 @@ Pull public filings and prior deal history.
 
 Public filings, prior contracts on file, recent press. One-page brief on who you're negotiating with.
 
-Connectors
-Box
-Egnyte
-Slack
-M365
-Atlassian
+Connectors Box Egnyte Slack M365 Atlassian
 
 *Stay in the loop.* A plugin enables Claude to run your workflows, but the output is still yours to review.
 

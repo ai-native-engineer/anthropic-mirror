@@ -23,13 +23,13 @@ This video demonstrates how to apply your deep disciplinary knowledge to make th
 
 ## Exercises
 
-For our final exercise we’re going to give our AI partners a break and just talk to our human colleagues!  
+For our final exercise we’re going to give our AI partners a break and just talk to our human colleagues!
 
 However, having all participants work through the exercise from the previous lesson individually will facilitate these conversations.
 
-In whatever manner makes sense for your context, schedule some organized time to work through the 4D framework with your colleagues. 
+In whatever manner makes sense for your context, schedule some organized time to work through the 4D framework with your colleagues.
 
-Here are some suggested topics to help guide your discussion: 
+Here are some suggested topics to help guide your discussion:
 
 *For Discernment - "What does quality look like in our field?"*
 

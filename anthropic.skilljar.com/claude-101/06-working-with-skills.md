@@ -33,10 +33,7 @@ Skills are currently available as a feature preview for users on Pro, Max, Team,
 
 Here's how to enable Skills:
 
-1. Navigate to **Settings > Capabilities**
-2. Ensure that **Code execution and file creation** is toggled on
-3. Scroll to the **Skills** section
-4. Toggle individual skills on or off as needed
+1. Navigate to **Settings > Capabilities** 2. Ensure that **Code execution and file creation** is toggled on 3. Scroll to the **Skills** section 4. Toggle individual skills on or off as needed
 
 For **Enterprise plans**, organization Owners must first enable both Code execution and Skills in Admin settings before individual members can access them.
 
@@ -82,10 +79,7 @@ The easiest way to create a custom Skill is through conversation with Claude its
 
 Here's how to create a Skill through conversation:
 
-1. **Start a new chat** and tell Claude what you want to create. For example: "I want to create a skill for writing quarterly business reviews" or "I need a skill that applies our brand guidelines to presentations."
-2. **Answer Claude's questions.** Claude will interview you about your workflow, asking things like: What should this skill do? What makes good output for this type of work? Can you give examples of when you'd use this skill?
-3. **Upload reference materials** if you have them. Templates, style guides, brand assets, or examples of work you're proud of all help Claude understand exactly what you're looking for.
-4. **Save your skill.** When finished, Claude generates a file containing your properly structured skill. All you have to do is save it and the skill will be ready for Claude to use.
+1. **Start a new chat** and tell Claude what you want to create. For example: "I want to create a skill for writing quarterly business reviews" or "I need a skill that applies our brand guidelines to presentations." 2. **Answer Claude's questions.** Claude will interview you about your workflow, asking things like: What should this skill do? What makes good output for this type of work? Can you give examples of when you'd use this skill? 3. **Upload reference materials** if you have them. Templates, style guides, brand assets, or examples of work you're proud of all help Claude understand exactly what you're looking for. 4. **Save your skill.** When finished, Claude generates a file containing your properly structured skill. All you have to do is save it and the skill will be ready for Claude to use.
 
 **See your skills.** Find the Customize tab in the left sidebar. There you can see all of the skills that are available to you and even edit the skills you use manually or by chatting with Claude.
 

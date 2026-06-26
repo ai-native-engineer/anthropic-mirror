@@ -19,9 +19,7 @@ hey does anyone know how to fix the build
 
 i think |
 
-the
-we
-i
+the we i
 
 ↻ start over
 

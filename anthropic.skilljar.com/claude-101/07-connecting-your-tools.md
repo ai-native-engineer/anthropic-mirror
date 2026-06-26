@@ -34,11 +34,7 @@ To browse available connectors, you can also click the **+** button in the lower
 
 Here's how to connect a cloud service:
 
-1. **Find the connector:** Navigate to claude.ai/directory, or click **+** > **Connectors** in any chat
-2. **Click Connect:** Select the connector you want to add
-3. **Authenticate:** You'll be redirected to the service's login page. Sign in with your existing credentials
-4. **Grant permissions:** Review the specific permissions Claude is requesting, then authorize access
-5. **Test the connection:** Return to Claude and try a simple request, like "Can you access my [tool name]?"
+1. **Find the connector:** Navigate to claude.ai/directory, or click **+** > **Connectors** in any chat 2. **Click Connect:** Select the connector you want to add 3. **Authenticate:** You'll be redirected to the service's login page. Sign in with your existing credentials 4. **Grant permissions:** Review the specific permissions Claude is requesting, then authorize access 5. **Test the connection:** Return to Claude and try a simple request, like "Can you access my [tool name]?"
 
 Once connected, Claude can search, read, and in some cases take actions within that service—depending on the permissions you've granted.
 
@@ -54,10 +50,7 @@ Some desktop extensions include:
 
 To install a desktop extension:
 
-1. Download and install the [Claude Desktop app](https://claude.ai/download)
-2. Open the app and navigate to Settings > Extensions
-3. Browse available extensions and click Install
-4. Follow any additional setup steps specific to that extension
+1. Download and install the [Claude Desktop app](https://claude.ai/download) 2. Open the app and navigate to Settings > Extensions 3. Browse available extensions and click Install 4. Follow any additional setup steps specific to that extension
 
 ### Using connectors in your work
 

@@ -35,9 +35,7 @@ All interactions with Claude begin with a prompt, and these prompts, combined wi
 
 But you may ask, what is a good prompt? Before your next conversation with Claude, consider a few things:
 
-1. **Setting the stage:** What is your role and what are your objectives? Is there context about your work that Claude should know about?
-2. **Defining the task:** What action do you want Claude to take? Do you want Claude to write, analyze, build, or something else?
-3. **Specifying rules:** What's the style or tone you want Claude to use? Are there examples that you can attach to show Claude what you're looking for?
+1. **Setting the stage:** What is your role and what are your objectives? Is there context about your work that Claude should know about? 2. **Defining the task:** What action do you want Claude to take? Do you want Claude to write, analyze, build, or something else? 3. **Specifying rules:** What's the style or tone you want Claude to use? Are there examples that you can attach to show Claude what you're looking for?
 
 #### Putting it together
 

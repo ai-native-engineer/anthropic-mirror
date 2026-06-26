@@ -71,16 +71,11 @@ variance.py
 
 Click SKILL.md in the meeting-recap folder to see what it does.
 
-meeting-recap
-SKILL.md
-The brief
+meeting-recap SKILL.md The brief
 
 The simplest skill is just this one file — the instructions, with nothing else attached.
 
----
-name: meeting-recap
-description: Write a recap after any meeting with action items
----
+--- name: meeting-recap description: Write a recap after any meeting with action items ---
 # Meeting recap
 ## When to use
 After any meeting with action items.
@@ -91,44 +86,30 @@ After any meeting with action items.
 ## Length
 Under 150 words.
 
-What you'd use it for
-Lock in the recap format once. No template, no script, no examples needed — just the rules.
+What you'd use it for Lock in the recap format once. No template, no script, no examples needed — just the rules.
 
-board-memo
-SKILL.md
-The brief
+board-memo SKILL.md The brief
 
 Tells Cowork what this skill does and how to do it — written like a runbook for a new colleague.
 
----
-name: board-memo
-description: Draft the monthly board memo in our house format
----
+--- name: board-memo description: Draft the monthly board memo in our house format ---
 # Board memo
 ## When to use
 Monthly close. Quarterly board prep.
 ## Process
-1. Pull variance from the close folder
-2. Section order: Variance → Forecast → Risks → Asks
-3. Lead with churn-adjusted ARR
+1. Pull variance from the close folder 2. Section order: Variance → Forecast → Risks → Asks 3. Lead with churn-adjusted ARR
 
-What you'd use it for
-Codify the unwritten rules — the section order, the question that always comes up — so Cowork doesn't have to be told them every month.
+What you'd use it for Codify the unwritten rules — the section order, the question that always comes up — so Cowork doesn't have to be told them every month.
 
-board-memo
-assets/
-Templates & brand
+board-memo assets/ Templates & brand
 
 The actual files Cowork reaches for — templates, brand kits, anything the deliverable needs to look like.
 
 brand-template.pptx
 
-What you'd use it for
-Put your team's slide template here and decks Cowork builds with this skill can match it.
+What you'd use it for Put your team's slide template here and decks Cowork builds with this skill can match it.
 
-board-memo
-references/
-Prior work
+board-memo references/ Prior work
 
 Your two best past memos — finished work Cowork reads to match the tone, length, and structure.
 
@@ -136,53 +117,32 @@ Your two best past memos — finished work Cowork reads to match the tone, lengt
 
 2026-Q1-board-memo.docx
 
-What you'd use it for
-When the easiest way to describe the bar is to show it, not write it down.
+What you'd use it for When the easiest way to describe the bar is to show it, not write it down.
 
-variance-analysis
-SKILL.md
-The brief
+variance-analysis SKILL.md The brief
 
 Tells Cowork where the inputs live, what counts as material, and which script to run before writing it up.
 
----
-name: variance-analysis
-description: Compare actuals vs plan and write up material variances
----
+--- name: variance-analysis description: Compare actuals vs plan and write up material variances ---
 # Variance analysis
 ## Sources
-Actuals: Finance/close/{YYYY-MM}/
-Plan: Finance/plan/{YYYY}-plan.xlsx
+Actuals: Finance/close/{YYYY-MM}/ Plan: Finance/plan/{YYYY}-plan.xlsx
 ## What counts as material
 >5% AND >$50K. Both, not either.
 ## Run
-1. Call scripts/variance.py
-2. One paragraph per material line
+1. Call scripts/variance.py 2. One paragraph per material line
 
-What you'd use it for
-Put the team's definition of “material” and the write-up format here once. Every month, Cowork applies them without being re-told.
+What you'd use it for Put the team's definition of “material” and the write-up format here once. Every month, Cowork applies them without being re-told.
 
-variance-analysis
-scripts/
-Repeatable calculation
+variance-analysis scripts/ Repeatable calculation
 
 A small Python script that does the same calculation, the same way, every time. Say “run variance for May” — Cowork pulls the right files, runs the script, produces the write-up.
 
 # scripts/variance.py
 # Same calculation every month, no rounding drift.
-def variance(month):
-actuals = read\_close(month)
-plan = read\_plan(month)
-rows = []
-for line in actuals.lines:
-delta\_pct = (line.actual - plan[line.id]) / plan[line.id]
-delta\_abs = line.actual - plan[line.id]
-if abs(delta\_pct) > 0.05 and abs(delta\_abs) > 50\_000:
-rows.append((line.name, delta\_pct, delta\_abs))
-return rows
+def variance(month): actuals = read\_close(month) plan = read\_plan(month) rows = [] for line in actuals.lines: delta\_pct = (line.actual - plan[line.id]) / plan[line.id] delta\_abs = line.actual - plan[line.id] if abs(delta\_pct) > 0.05 and abs(delta\_abs) > 50\_000: rows.append((line.name, delta\_pct, delta\_abs)) return rows
 
-What you'd use it for
-Pin the calculation you don't want re-derived — same numbers, same shape, every run. The write-up is the part Cowork drafts; the math is the part the script owns.
+What you'd use it for Pin the calculation you don't want re-derived — same numbers, same shape, every run. The write-up is the part Cowork drafts; the math is the part the script owns.
 
 This is what makes skills so useful for codifying how your team works. Cowork is a coworker that can act on your behalf — and skills are how you get it to do the work the way it should be done. The instructions tell it what to do; the assets give it the raw materials; the references show it what good looks like; the scripts let it run the repeatable parts the same way every time.
 

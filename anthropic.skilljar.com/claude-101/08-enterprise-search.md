@@ -64,12 +64,7 @@ Enterprise Search requires a **two-step setup process**: first an admin configur
 
 The Enterprise Search project is enabled by default for all Team and Enterprise organizations, but an Owner needs to complete the initial setup before team members can use it:
 
-1. Click "Ask Your Org" in the left sidebar.
-2. Click "Set up for your org" to continue (or "Disable" to turn the feature off).
-3. Connect your organization's tools. You'll be required to choose a connector for **Documents** (like Google Drive or SharePoint) and **Chat** (like Slack or Microsoft Teams). Email is recommended but optional.
-4. Click "+ Add more" to set up any additional tools your team needs.
-5. Customize the project name. Whatever you enter will appear as "Ask [Name]" in everyone's sidebar.
-6. Add a description, then click "Finish set up."
+1. Click "Ask Your Org" in the left sidebar. 2. Click "Set up for your org" to continue (or "Disable" to turn the feature off). 3. Connect your organization's tools. You'll be required to choose a connector for **Documents** (like Google Drive or SharePoint) and **Chat** (like Slack or Microsoft Teams). Email is recommended but optional. 4. Click "+ Add more" to set up any additional tools your team needs. 5. Customize the project name. Whatever you enter will appear as "Ask [Name]" in everyone's sidebar. 6. Add a description, then click "Finish set up."
 
 Once setup is complete, the project becomes available to all members of your organization.
 
@@ -77,10 +72,7 @@ Once setup is complete, the project becomes available to all members of your org
 
 After an admin has set up Enterprise Search, you'll see the "Ask {Org Name}" project starred in your sidebar. Here's how to get started:
 
-1. Click on the project in your sidebar.
-2. Follow the guided onboarding flow to connect to the recommended services.
-3. Authenticate with each service you want to search (Slack, Google, Microsoft 365, etc.).
-4. Start asking Claude questions about your organization's knowledge.
+1. Click on the project in your sidebar. 2. Follow the guided onboarding flow to connect to the recommended services. 3. Authenticate with each service you want to search (Slack, Google, Microsoft 365, etc.). 4. Start asking Claude questions about your organization's knowledge.
 
 The more connectors you enable, the more comprehensive your search results will be. You can always add more connectors later by clicking "Connect" in the project's Instructions section.
 

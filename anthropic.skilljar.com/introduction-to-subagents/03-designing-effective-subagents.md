@@ -32,17 +32,7 @@ Here's an example of a structured output format for a code review subagent:
 ```
 Provide your review in a structured format:
 
-1. Summary: Brief overview of what you reviewed and overall assessment
-2. Critical Issues: Any security vulnerabilities, data integrity risks,
-   or logic errors that must be fixed immediately
-3. Major Issues: Quality problems, architecture misalignment, or
-   significant performance concerns
-4. Minor Issues: Style inconsistencies, documentation gaps, or
-   minor optimizations
-5. Recommendations: Suggestions for improvement, refactoring
-   opportunities, or best practices to apply
-6. Approval Status: Clear statement of whether the code is ready
-   to merge/deploy or requires changes
+1. Summary: Brief overview of what you reviewed and overall assessment 2. Critical Issues: Any security vulnerabilities, data integrity risks, or logic errors that must be fixed immediately 3. Major Issues: Quality problems, architecture misalignment, or significant performance concerns 4. Minor Issues: Style inconsistencies, documentation gaps, or minor optimizations 5. Recommendations: Suggestions for improvement, refactoring opportunities, or best practices to apply 6. Approval Status: Clear statement of whether the code is ready to merge/deploy or requires changes
 ```
 
 This format gives the subagent a clear checklist to work through. Once every section is filled in, the subagent knows it can stop.
@@ -61,10 +51,7 @@ The kinds of things you want surfaced include:
 The way to get this information is to explicitly ask for it in the output format. Adding an "Obstacles Encountered" section to your output template surfaces this information reliably.
 
 ```
-7. Obstacles Encountered: Report any obstacles encountered during the
-   review process. This can be: setup issues, workarounds discovered or
-   environment quirks. Report commands that needed a special flag or
-   configuration. Report dependencies or imports that caused problems.
+7. Obstacles Encountered: Report any obstacles encountered during the review process. This can be: setup issues, workarounds discovered or environment quirks. Report commands that needed a special flag or configuration. Report dependencies or imports that caused problems.
 ```
 
 ![](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F8lsy243ftffjjy1cx9lm3o2bw%2Fpublic%2F1773975160%2Fvid3redone-v2_11.1773975160096.png)  
@@ -83,9 +70,6 @@ Here's how to think about tool access for common subagent types:
 
 Effective subagents share four characteristics:
 
-1. **Specific descriptions** -- The description controls when the subagent is launched and what instructions it receives. Write it to steer both.
-2. **Structured output** -- Define an output format in the system prompt so the subagent knows when it's done and returns information the main thread can use.
-3. **Obstacle reporting** -- Include a section in the output format for workarounds, quirks, and problems so the main thread doesn't have to rediscover them.
-4. **Limited tool access** -- Only give a subagent the tools it actually needs. Read-only for research, bash for reviewers, edit/write only for agents that should change code.
+1. **Specific descriptions** -- The description controls when the subagent is launched and what instructions it receives. Write it to steer both. 2. **Structured output** -- Define an output format in the system prompt so the subagent knows when it's done and returns information the main thread can use. 3. **Obstacle reporting** -- Include a section in the output format for workarounds, quirks, and problems so the main thread doesn't have to rediscover them. 4. **Limited tool access** -- Only give a subagent the tools it actually needs. Read-only for research, bash for reviewers, edit/write only for agents that should change code.
 
 Each of these patterns is simple on its own, but together they turn a subagent from something that vaguely tries to help into a focused, predictable worker that finishes on time and reports back clearly.

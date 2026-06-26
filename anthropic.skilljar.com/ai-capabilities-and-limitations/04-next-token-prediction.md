@@ -28,14 +28,9 @@ You ask AI to **summarize a long report**. How closely do you need to check the 
 
 ##
 
-Capability
-Limitation
+Capability Limitation
 
-Trust it
-Spot-check
-Check details
-Verify carefully
-High risk
+Trust it Spot-check Check details Verify carefully High risk
 
 Your guess
 
@@ -63,18 +58,12 @@ Pictogram size
 
 Palette
 
-Sky → Clay
-Olive → Clay
-Cactus → Fig
-Slate → Clay
+Sky → Clay Olive → Clay Cactus → Fig Slate → Clay
 
 #### Key takeaways
 
 * **Next Token Prediction** refers to the fact that generative AI writes answers word by word based on what tends to follow what.
-  + **Capability zone:** tasks that resemble patterns the model has seen many times (summarizing, reformatting, explaining common concepts).
-  + **Limitation zone:** novel or sparse territory, and anywhere the task requires distinguishing "true" from "sounds true."
-  + **Fabrication concentrates in specificity:** names, dates, statistics, citations, URLs, quotes. The more precise a claim, the more it warrants verification.
-  + **Product features** like citations, uncertainty signaling, constrained generation, and generator-verifier loops exist specifically to push this limitation further out.
++ **Capability zone:** tasks that resemble patterns the model has seen many times (summarizing, reformatting, explaining common concepts). + **Limitation zone:** novel or sparse territory, and anywhere the task requires distinguishing "true" from "sounds true." + **Fabrication concentrates in specificity:** names, dates, statistics, citations, URLs, quotes. The more precise a claim, the more it warrants verification. + **Product features** like citations, uncertainty signaling, constrained generation, and generator-verifier loops exist specifically to push this limitation further out.
 * **4D connection:** Next Token Prediction is the foundation of Discernment. Knowing the output was generated tells you exactly what kind of scrutiny to apply.
 
 ## Exercises
@@ -87,9 +76,7 @@ Go back to your task list and pick the task where you're most confident in your 
 
 Now run three probes:
 
-1. **Probe 1: The capability zone.** Ask the AI to explain or summarize a well-known concept in your domain. Something popular and well-documented. Note the fluency. Spot-check the content. This is what the capability zone feels like: smooth, confident, and largely accurate.
-2. **Probe 2: Specificity under pressure.** Ask the AI to provide five checkable specifics in your domain: cite three sources, name an author, give exact figures, provide a URL. Verify every one. Score it out of five: how many were fully accurate? If it fabricates, note how confident it sounded doing it.
-3. **Probe 3: Sampling in action.** Run the exact same specific-facts request in a fresh conversation. Compare the two outputs. What stayed consistent? What changed? The variation you see is Next Token Prediction's sampling at work.
+1. **Probe 1: The capability zone.** Ask the AI to explain or summarize a well-known concept in your domain. Something popular and well-documented. Note the fluency. Spot-check the content. This is what the capability zone feels like: smooth, confident, and largely accurate. 2. **Probe 2: Specificity under pressure.** Ask the AI to provide five checkable specifics in your domain: cite three sources, name an author, give exact figures, provide a URL. Verify every one. Score it out of five: how many were fully accurate? If it fabricates, note how confident it sounded doing it. 3. **Probe 3: Sampling in action.** Run the exact same specific-facts request in a fresh conversation. Compare the two outputs. What stayed consistent? What changed? The variation you see is Next Token Prediction's sampling at work.
 
 **Stretch goal:** Re-run Probe 2 in a tool with citations enabled (like Research mode in Claude). Score it again. Does having sources to check change the score?
 

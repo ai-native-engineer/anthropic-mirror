@@ -38,25 +38,19 @@ Build the prompt
 
 Deliverable
 
-four-page memo
-slide for the QBR
-ranked list with notes
+four-page memo slide for the QBR ranked list with notes
 
 Inputs
 
-Q3 Competitive Review folder
-last quarter's memo as format reference
-analyst-call PDFs only
+Q3 Competitive Review folder last quarter's memo as format reference analyst-call PDFs only
 
 Nuance
 
-for the executive team at the leadership offsite — help them decide on the new pricing tier
-lead with the recommendation
-flag anything we can't verify
+for the executive team at the leadership offsite — help them decide on the new pricing tier lead with the recommendation flag anything we can't verify
 
 Write a message…
 
-Ask 
+Ask
 
 Sonnet 4.6
 
@@ -84,9 +78,7 @@ Cowork is asking you a few things
 
 Skip
 
-`↑↓` to navigate
-`Enter` to select
-`Esc` to skip
+`↑↓` to navigate `Enter` to select `Esc` to skip
 
 Pick an answer to see what it tells Cowork.
 
@@ -116,8 +108,7 @@ Progress
 
 3Outline three competitor moves
 
-4
-Drafting against Q2 board-memo template
+4 Drafting against Q2 board-memo template
 
 5Review against original prompt
 

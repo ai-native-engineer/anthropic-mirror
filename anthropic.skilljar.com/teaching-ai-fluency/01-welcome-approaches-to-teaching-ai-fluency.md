@@ -56,7 +56,7 @@ Start a conversation with Claude (for convenience, we will refer to Claude in ma
 
 **Step 2: Designing with Different Approaches (20 minutes)**
 
-Continue your conversation to explore how each approach would work for your context. 
+Continue your conversation to explore how each approach would work for your context.
 
 *Designing using a linear approach:*
 

@@ -39,7 +39,7 @@ Anatomy of a Cowork task
 
 What did we decide about pricing last quarter? Look across the meeting notes in the Q3 Sales folder, my emails from the sales team, the leadership Slack, and the proposal decks — pull it all together and write me a one-page summary I can send to the exec team.
 
-Ask 
+Ask
 
 Sonnet 4.6
 
@@ -108,12 +108,9 @@ For each task, pick the mode you'd reach for. We'll tell you why.
 
 Task 1 of 6
 
-Chat
-Cowork
-Code
+Chat Cowork Code
 
-Pick a mode to continue
-Next task
+Pick a mode to continue Next task
 
 To recap: **Chat is for thinking with Claude. Cowork is for delegating to Claude. Code is for building software with Claude.** Most knowledge workers will live in Chat and Cowork — and use them for very different things.
 

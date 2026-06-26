@@ -5,9 +5,9 @@
 ![status: unofficial mirror](https://img.shields.io/badge/status-unofficial%20mirror-orange)
 ![last commit](https://img.shields.io/github/last-commit/ai-native-engineer/anthropic-mirror)
 ![repo size](https://img.shields.io/github/repo-size/ai-native-engineer/anthropic-mirror)
-![docs ~4.5k](https://img.shields.io/badge/docs-~4.5k-blue)
+![docs ~4.7k](https://img.shields.io/badge/docs-~4.7k-blue)
 
-> Unofficial markdown archive of **Anthropic & Claude public materials** - news, research, engineering, policy & legal, products, platform docs & API reference, Help Center, Trust Center, the Alignment Science and Interpretability blogs, and Anthropic Academy courses.
+> Unofficial markdown archive of **Anthropic & Claude public materials** - news, research, engineering, policy & legal, products, platform docs & API reference, Claude Code CLI docs, Help Center, Trust Center, the Alignment Science and Interpretability blogs, and Anthropic Academy courses.
 
 Collected as a reference source for talks and study, kept public so anyone can read.
 
@@ -16,13 +16,14 @@ Collected as a reference source for talks and study, kept public so anyone can r
 
 ## Contents
 
-About 4,500 markdown files, as of the latest crawl snapshot. The tree mirrors the source URLs (`<host>/<path>.md`), so a file's location maps directly to its original page. Each file keeps a `<!-- source: <url> -->` header linking back.
+About 4,700 markdown files, as of the latest crawl snapshot. The tree mirrors the source URLs (`<host>/<path>.md`), so a file's location maps directly to its original page. Each file keeps a `<!-- source: <url> -->` header linking back.
 
 | Path | Content | Docs |
 |---|---|---|
 | `www.anthropic.com/` | News, research, engineering, events, company, careers, policy & legal, products, system cards, economic index | ~484 |
 | `claude.com/` | Blog, customer stories, resources, use-cases, tutorials, connectors, plugins, help docs | ~1,717 |
 | `platform.claude.com/` | Developer documentation and the full API reference | ~1,695 |
+| `code.claude.com/` | Claude Code CLI docs (hooks, sub-agents, settings, slash commands, statusline, output styles, checkpointing, Agent SDK) | ~154 |
 | `support.claude.com/` | Help Center articles | ~370 |
 | `alignment.anthropic.com/` | Alignment Science blog | ~51 |
 | `transformer-circuits.pub/` | Interpretability research (Transformer Circuits Thread), with figures saved as PNG | ~49 |
@@ -33,13 +34,14 @@ Mostly text. Exceptions: interpretability papers keep their inline figures as ex
 
 ## How it's generated
 
-Crawled by an automated, sitemap-driven pipeline (no API keys, no login for public pages): every domain's `sitemap.xml` is the source of truth, fetched with a Chrome browser fingerprint so the server-rendered HTML comes through without a headless browser. `platform.claude.com` docs are pulled as Mintlify `.md` raw. See `AGENTS.md` for the regeneration details.
+Crawled by an automated, sitemap-driven pipeline (no API keys, no login for public pages): every domain's `sitemap.xml` is the source of truth, fetched with a Chrome browser fingerprint so the server-rendered HTML comes through without a headless browser. `platform.claude.com` and `code.claude.com` docs are pulled as Mintlify `.md` raw. See `AGENTS.md` for the regeneration details.
 
 ## Sources
 
 - https://www.anthropic.com (news, research, engineering, policy, legal, products)
 - https://claude.com (blog, customers, resources, connectors, help docs)
 - https://platform.claude.com/docs (developer docs + API reference)
+- https://code.claude.com/docs (Claude Code CLI)
 - https://support.claude.com (Help Center)
 - https://alignment.anthropic.com (Alignment Science)
 - https://transformer-circuits.pub (Interpretability)

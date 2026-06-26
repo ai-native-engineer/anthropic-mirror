@@ -30,9 +30,7 @@ What to put in it: who you are and what you do; the shorthand and acronyms you u
 
 Global instructions
 
-Product Manager
-Finance
-Legal
+Product Manager Finance Legal
 
 Instructions for Claude
 
@@ -59,9 +57,7 @@ Review the examples below to get a sense for the makeup of a Cowork project.
 
 Three workstreams, three project setups
 
-A customer account
-A recurring deliverable
-A launch
+A customer account A recurring deliverable A launch
 
 ###
 

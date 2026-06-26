@@ -72,19 +72,13 @@ Understanding when to use Research versus other Claude capabilities helps you ge
 
 When you enable Research, you're activating an agentic, multi-step process that goes far beyond a simple web search. Claude autonomously decides what to search next based on what it has already found, pursuing leads and filling gaps without you needing to direct each step.
 
-1. **Step 1: Claude plans its approach.** When Research is enabled, extended thinking automatically activates. This lets Claude break down your request, identify what information it needs, and plan how to investigate different angles of your question.
-2. **Step 2: Claude conducts multiple searches.** Rather than running a single search, Claude conducts many searches that build on each other. It determines what to investigate next based on what it finds, pursuing promising leads and filling in gaps.
-3. **Step 3: Claude synthesizes findings.** After gathering information from multiple sources—including the web and any connected integrations like Gmail, Google Calendar, or Google Drive—Claude compiles everything into a comprehensive, well-organized report.
-4. **Step 4: Claude provides citations.** Every claim in Research reports links back to its source, making it easy to verify information and dig deeper when needed.
+1. **Step 1: Claude plans its approach.** When Research is enabled, extended thinking automatically activates. This lets Claude break down your request, identify what information it needs, and plan how to investigate different angles of your question. 2. **Step 2: Claude conducts multiple searches.** Rather than running a single search, Claude conducts many searches that build on each other. It determines what to investigate next based on what it finds, pursuing promising leads and filling in gaps. 3. **Step 3: Claude synthesizes findings.** After gathering information from multiple sources—including the web and any connected integrations like Gmail, Google Calendar, or Google Drive—Claude compiles everything into a comprehensive, well-organized report. 4. **Step 4: Claude provides citations.** Every claim in Research reports links back to its source, making it easy to verify information and dig deeper when needed.
 
 ### Using Research in practice
 
 Here's how to enable and use Research:
 
-1. Click the **+** button on the bottom left of your chat interface
-2. Select **Research** from the menu—it appears highlighted once active
-3. Enter your prompt and submit
-4. Claude will work in the background, and you'll see progress indicators as it searches and analyzes
+1. Click the **+** button on the bottom left of your chat interface 2. Select **Research** from the menu—it appears highlighted once active 3. Enter your prompt and submit 4. Claude will work in the background, and you'll see progress indicators as it searches and analyzes
 
 **Important:** Web search must be enabled for Research to function. If you haven't already turned on web search, you can do so from the same **+** menu.
 
