@@ -22,7 +22,7 @@ Make presentations and slides, export to PowerPoint
   Interactive
 * More
 
-  [Documentation](https://slidesgpt.com/mcp-docs/claude)[Privacy Policy](https://slidesgpt.com/privacy)[Support](/cdn-cgi/l/email-protection#e69283878ba6958a8f828395819692c885898b)
+  [Documentation](https://slidesgpt.com/mcp-docs/claude)[Privacy Policy](https://slidesgpt.com/privacy)[team@slidesgpt.com](mailto:team@slidesgpt.com)
 
 Use SlidesGPT to generate presentations with AI. First, name a topic that the presentation should be about. SlidesGPT will generate your presentation slides. Finally you can export to PowerPoint. Available features include: generate a structure and outline for a presentation, choose layouts and themes, refine slide content in a chat-based conversation, export and download as PowerPoint, Google Slides, PDF, and more.
 

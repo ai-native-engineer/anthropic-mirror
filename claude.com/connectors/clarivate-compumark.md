@@ -22,7 +22,7 @@ Trusted Trademark Intelligence from Clarivate CompuMark
   Read
 * More
 
-  [Documentation](https://ipone.clarivate.com/trademarks/mcp/docs)[Privacy Policy](https://clarivate.com/privacy-center/notices-policies/)[Support](/cdn-cgi/l/email-protection#cba8a4a6bbbea6aab9a0e5aabba2e5b8bebbbba4b9bf8ba8a7aab9a2bdaabfaee5a8a4a6)
+  [Documentation](https://ipone.clarivate.com/trademarks/mcp/docs)[Privacy Policy](https://clarivate.com/privacy-center/notices-policies/)[compumark.api.support@clarivate.com](mailto:compumark.api.support@clarivate.com)
 
 Clarivate IPOne CompuMark Trademark MCP helps teams search, review, and validate trademarks faster across global trademark registers. It combines broad jurisdiction coverage with flexible search options for mark names, phonetic variations, applicants, classes, goods and services, and filing details. Users can quickly assess result volumes, retrieve record details, access goods text, and open full-text records—making the server a strong fit for brand clearance, watch support, and trademark research workflows.
 

@@ -22,7 +22,7 @@ Ask Embat about cash, debt, payments, and accounting
   Read
 * More
 
-  [Documentation](https://help.embat.io/hc/en-us/articles/34225505889949-TellMe-what-it-is-and-how-it-works)[Privacy Policy](https://www.embat.io/privacy-policy)[Support](/cdn-cgi/l/email-protection#c5b6b0b5b5aab7b185a0a8a7a4b1ebacaa)
+  [Documentation](https://help.embat.io/hc/en-us/articles/34225505889949-TellMe-what-it-is-and-how-it-works)[Privacy Policy](https://www.embat.io/privacy-policy)[support@embat.io](mailto:support@embat.io)
 
 Query your cash, debt, treasury forecasts, accounting, PSP reconciliations, payments, and intercompany positions in plain language — answered with your real numbers from Embat. TellMe is read-only and inherits your existing permissions, so every reply is scoped to what you can already see. Make your treasury management system a native part of your AI workflow, without leaving the conversation.
 

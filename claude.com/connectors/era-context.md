@@ -22,7 +22,7 @@ Manage your personal finances using Claude
   Interactive
 * More
 
-  [Documentation](https://era.app/help/mcp-server-era-context/)[Privacy Policy](https://era.app/privacy)[Support](/cdn-cgi/l/email-protection#6b181e1b1b04191f2b0e190a450a1b1b)
+  [Documentation](https://era.app/help/mcp-server-era-context/)[Privacy Policy](https://era.app/privacy)[support@era.app](mailto:support@era.app)
 
 Era Context is a secure place to manage your finances. Set up automations, fix overspending, figure out your portfolio, or tell Claude a goal and get your full financial life in context.
 

@@ -22,7 +22,7 @@ Access business data from hundreds of sources
   Read
 * More
 
-  [Documentation](https://help.coupler.io/article/592-coupler-local-mcp-server)[Privacy Policy](https://www.coupler.io/privacy-policy)[Support](/cdn-cgi/l/email-protection#dcbfb3b2a8bdbfa89cbfb3a9acb0b9aef2b5b3)
+  [Documentation](https://help.coupler.io/article/592-coupler-local-mcp-server)[Privacy Policy](https://www.coupler.io/privacy-policy)[contact@coupler.io](mailto:contact@coupler.io)
 
 Analyze multi-channel marketing, financial, sales, e-commerce, and other business data within Claude by connecting to your Coupler.io data flows — query marketing, sales, and finance metrics from hundreds of sources. Fetch and transform raw data from platforms like Google Ads, Facebook, HubSpot, and Salesforce into actionable intelligence for smarter, faster decision-making with accurate, up-to-date business information.
 

@@ -24,7 +24,7 @@ Discover local food spots and order with a conversation
   Interactive
 * More
 
-  [Documentation](https://goose-docs.ai/docs/mcp/cash-app-mcp/)[Privacy Policy](https://squareup.com/legal/privacy)[Support](/cdn-cgi/l/email-protection#1a7b7d7f746e737937797577777f68797f377f747d5a696b6f7b687f6f6a34797577)
+  [Documentation](https://goose-docs.ai/docs/mcp/cash-app-mcp/)[Privacy Policy](https://squareup.com/legal/privacy)[agentic-commerce-eng@squareup.com](mailto:agentic-commerce-eng@squareup.com)
 
 Order by Cash App brings local food ordering into Claude. Discover nearby restaurants, compare menus, customize your order, and check out, all in the conversation. On clients that support it, an interactive ordering view opens right in chat.
 

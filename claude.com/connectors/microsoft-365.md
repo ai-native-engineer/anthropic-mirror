@@ -32,7 +32,7 @@ Search documents across SharePoint and OneDrive:
 "Find all project proposals in our SharePoint site from the last quarter and summarize the key themes"
 
 Analyze email communications:  
-"Review the email thread with [[email protected]](/cdn-cgi/l/email-protection#c3a0afaaa6adb783a6bba2aeb3afa6eda0acae) about the product launch and summarize outstanding action items"
+"Review the email thread with [[email protected]](mailto:client@example.com) about the product launch and summarize outstanding action items"
 
 Get calendar insights:  
 "What meetings do I have this week related to the Q4 budget planning?"

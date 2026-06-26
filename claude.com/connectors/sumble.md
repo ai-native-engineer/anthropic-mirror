@@ -22,7 +22,7 @@ Deep research any account's teams, tech, and people
   Read & write
 * More
 
-  [Documentation](https://sumble.com/mcp)[Privacy Policy](https://sumble.com/privacy)[Support](/cdn-cgi/l/email-protection#2d5e585d5d425f596d5e58404f4148034e4240)
+  [Documentation](https://sumble.com/mcp)[Privacy Policy](https://sumble.com/privacy)[support@sumble.com](mailto:support@sumble.com)
 
 Research any company directly from Claude. See what technologies an organization uses, who works there, and what roles they're hiring for. Explore team structures, reporting lines, and active initiatives inside your target accounts.
 Find decision-makers by job function and seniority. Enrich contacts with email addresses. Track hiring signals from job postings. Build and manage account and contact lists without leaving your conversation.

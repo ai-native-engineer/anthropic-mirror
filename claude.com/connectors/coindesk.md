@@ -22,7 +22,7 @@ Access Live & Historical Crypto Data, Indices
   Read
 * More
 
-  [Documentation](https://mcp.coindesk.com/)[Privacy Policy](https://www.coindesk.com/privacy)[Support](/cdn-cgi/l/email-protection#1f6c6a6f6f706d6b5f7c7076717b7a6c74317c7072)
+  [Documentation](https://mcp.coindesk.com/)[Privacy Policy](https://www.coindesk.com/privacy)[support@coindesk.com](mailto:support@coindesk.com)
 
 The CoinDesk Data & Indices Connector provides real-time and historical digital asset market data powered by institutional-grade infrastructure. Access regulated indices, benchmarks, spot prices, futures, and options data across leading exchanges — including funding rates, open interest, orderbook depth, and trade history. Built for traders, analysts, and researchers who need comprehensive, cross-market digital asset intelligence through natural language.
 

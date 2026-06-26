@@ -22,7 +22,7 @@ Manage and automate your support tickets
   Read
 * More
 
-  [Documentation](https://docs.unthread.io/docs/unthread-ai/unthread-mcp)[Privacy Policy](https://unthread.io/privacy)[Support](/cdn-cgi/l/email-protection#6d1e181d1d021f192d180319051f080c09430402)
+  [Documentation](https://docs.unthread.io/docs/unthread-ai/unthread-mcp)[Privacy Policy](https://unthread.io/privacy)[support@unthread.io](mailto:support@unthread.io)
 
 Search conversations, monitor SLAs, and analyze support metrics directly from Claude. Make Unthread a native part of your AI workflow—a support intelligence layer that helps you stay on top of your helpdesk's performance.
 

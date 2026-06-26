@@ -86,7 +86,7 @@ Certain sessions will be designated as confidential or no-recording. These sessi
 
 ### Contact
 
-For questions about this Code of Conduct or to report a concern, contact us at [[email protected]](/cdn-cgi/l/email-protection#385b575c5d4f514c505b54594d5c5d784a5d5f4b4e5b165b5755).
+For questions about this Code of Conduct or to report a concern, contact us at [[email protected]](mailto:codewithclaude@regsvc.com).
 
 This Code of Conduct forms part of the Code with Claude Terms & Conditions. Capitalized terms not defined herein have the meanings given to them in the Terms & Conditions.
 

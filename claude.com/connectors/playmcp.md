@@ -22,7 +22,7 @@ Connect and use PlayMCP servers in your toolbox
   Read & write
 * More
 
-  [Documentation](https://www.notion.so/2189b97b4888803dbbdcef264e7eff58)[Privacy Policy](https://www.kakao.com/policy/privacy?lang=en)[Support](/cdn-cgi/l/email-protection#01716d60786c6271416a606a606e626e73712f626e6c)
+  [Documentation](https://www.notion.so/2189b97b4888803dbbdcef264e7eff58)[Privacy Policy](https://www.kakao.com/policy/privacy?lang=en)[playmcp@kakaocorp.com](mailto:playmcp@kakaocorp.com)
 
 Add a variety of servers registered in PlayMCP, including Kakao services, to your toolbox and use them through Claude.
 

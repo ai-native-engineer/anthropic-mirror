@@ -22,7 +22,7 @@ High-quality translation with human verification
   Read & write
 * More
 
-  [Documentation](https://support.lilt.com/kb/LILT-mcp)[Privacy Policy](https://lilt.com/legal/privacy)[Support](/cdn-cgi/l/email-protection#d1a2a4a1a1bea3a591bdb8bda5ffb2bebc)
+  [Documentation](https://support.lilt.com/kb/LILT-mcp)[Privacy Policy](https://lilt.com/legal/privacy)[support@lilt.com](mailto:support@lilt.com)
 
 Seamlessly integrate high-quality, guaranteed translation capabilities directly into your Claude instance, bringing your brand's unique context where you already work. Submit content for brand-aligned translation via customized AI or human-verified translation with a simple prompt, ensuring the highest quality while you maintain full control.
 

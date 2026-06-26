@@ -22,7 +22,7 @@ Medidata provides clinical trial software solutions
   Read
 * More
 
-  [Documentation](http://claude.com/resources/tutorials/using-the-clinicaltrialsgov-connector-in-claude)[Privacy Policy](https://learn.medidata.com/en-US/bundle/imedidata/page/medidata_privacy_policy.html)[Support](/cdn-cgi/l/email-protection#751d1019051110061e351811061a195b161a18)
+  [Documentation](http://claude.com/resources/tutorials/using-the-clinicaltrialsgov-connector-in-claude)[Privacy Policy](https://learn.medidata.com/en-US/bundle/imedidata/page/medidata_privacy_policy.html)[helpdesk@mdsol.com](mailto:helpdesk@mdsol.com)
 
 The Medidata connector provides two tools for Medidata users: Platform Help and Predictive Site Ranking. Platform Help allows users to query Medidata's platform documentation. Predictive Site Ranking allows users to rank candidate study sites based on indication, past performance, and a variety of contexts.
 

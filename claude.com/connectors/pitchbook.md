@@ -22,7 +22,7 @@ PitchBook data, embedded in the way you work.
   Read
 * More
 
-  [Documentation](https://help.pitchbook.com/s/article/PitchBook-Premium-for-Claude-by-Anthropic)[Privacy Policy](https://pitchbook.com/privacy-policy)[Support](/cdn-cgi/l/email-protection#f0838580809f8284b08099849398929f9f9bde939f9d)
+  [Documentation](https://help.pitchbook.com/s/article/PitchBook-Premium-for-Claude-by-Anthropic)[Privacy Policy](https://pitchbook.com/privacy-policy)[support@pitchbook.com](mailto:support@pitchbook.com)
 
 Bring the depth of PitchBook’s industry-leading private capital market intelligence into Claude. Powered by our MCP server, PitchBook clients can seamlessly search and analyze firms, deals, funds, and key players—unlocking trusted insights for confident decisions, actionable intelligence, and market benchmarking, all within their AI workflows.
 

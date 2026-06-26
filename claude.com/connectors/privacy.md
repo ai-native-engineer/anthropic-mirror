@@ -22,7 +22,7 @@ Manage virtual cards and track your spending patterns
   Read & write
 * More
 
-  [Documentation](https://developers.privacy.com/docs/mcp-server)[Privacy Policy](https://www.privacy.com/privacy-policy)[Support](/cdn-cgi/l/email-protection#dba8aeababb4a9af9baba9b2adbab8a2f5b8b4b6)
+  [Documentation](https://developers.privacy.com/docs/mcp-server)[Privacy Policy](https://www.privacy.com/privacy-policy)[support@privacy.com](mailto:support@privacy.com)
 
 Create new Merchant-Locked and Single-Use virtual cards, manage card settings in bulk, and track your spending patterns directly from Claude. Leverage an AI-powered virtual card agent that helps you make changes programmatically and at scale—giving you deeper control over your payments with features like spend limits, card pausing, and closing.
 

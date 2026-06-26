@@ -22,7 +22,7 @@ Structured contract review tools for legal teams
   Read & write
 * More
 
-  [Documentation](https://help.definely.com/en/articles/634922-definely-connector-for-claude-user-guide)[Privacy Policy](https://www.definely.com/privacy-policy)[Support](/cdn-cgi/l/email-protection#50232520203f222410343536393e353c297e333f3d)
+  [Documentation](https://help.definely.com/en/articles/634922-definely-connector-for-claude-user-guide)[Privacy Policy](https://www.definely.com/privacy-policy)[support@definely.com](mailto:support@definely.com)
 
 Definely's MCP server gives AI assistants live, deterministic access to contract structure. Resolve definitions, validate cross-references, map dependencies, and run structural diffs to see how edits propagate across an agreement. Use it to catch broken links and inconsistencies, explain impacts clearly, and ground legal reasoning in contract topology, not just text.
 

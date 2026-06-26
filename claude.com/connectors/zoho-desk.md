@@ -24,7 +24,7 @@ Zoho Desk MCP for Customer Support Automation
   Read & write
 * More
 
-  [Documentation](https://help.zoho.com/portal/en/kb/mcp/getting-started/articles/zoho-mcp-help-documentation-29-9-2025)[Privacy Policy](https://www.zoho.com/privacy.html)[Support](/cdn-cgi/l/email-protection#1665636666796462566c797e797b75663875797b)
+  [Documentation](https://help.zoho.com/portal/en/kb/mcp/getting-started/articles/zoho-mcp-help-documentation-29-9-2025)[Privacy Policy](https://www.zoho.com/privacy.html)[support@zohomcp.com](mailto:support@zohomcp.com)
 
 Automate Zoho Desk customer support workflows with MCP tools for managing tickets, contacts, and knowledge base articles.
 

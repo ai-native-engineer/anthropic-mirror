@@ -35,7 +35,7 @@ Turn conversations into actionable tasks:
 "Take the insights from this conversation, add them to my database, and turn them into tickets"
 
 Manage email communications:  
-"Help me answer and reply to the latest email from [[email protected]](/cdn-cgi/l/email-protection#79151c16391c01181409151c571a1614)"
+"Help me answer and reply to the latest email from [[email protected]](mailto:leo@example.com)"
 
 Skills
 

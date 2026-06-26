@@ -22,7 +22,7 @@ Company intelligence & workforce analytics
   Read
 * More
 
-  [Documentation](https://docs.getaura.ai/)[Privacy Policy](https://aura-public-assets.s3.us-east-1.amazonaws.com/policies/privacy/aura-privacy-policy-v1.0-20250218.pdf)[Support](/cdn-cgi/l/email-protection#fa898f8a8a95888eba9b8f889b93948e9f96d4999597)
+  [Documentation](https://docs.getaura.ai/)[Privacy Policy](https://aura-public-assets.s3.us-east-1.amazonaws.com/policies/privacy/aura-privacy-policy-v1.0-20250218.pdf)[support@auraintel.com](mailto:support@auraintel.com)
 
 Enable users to search company databases, analyze employee headcount trends, track hiring and attrition rates, explore corporate structures, and benchmark workforce metrics across industries.  
   

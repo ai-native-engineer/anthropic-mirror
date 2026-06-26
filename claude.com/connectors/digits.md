@@ -22,7 +22,7 @@ Track and analyze your finances with Digits
   Read
 * More
 
-  [Documentation](https://help.digits.com/business-connections/digits-mcp-claude)[Privacy Policy](https://my.digits.com/legal/privacy-policy)[Support](/cdn-cgi/l/email-protection#6109040d11210508060815124f020e0c)
+  [Documentation](https://help.digits.com/business-connections/digits-mcp-claude)[Privacy Policy](https://my.digits.com/legal/privacy-policy)[help@digits.com](mailto:help@digits.com)
 
 Turn your Digits financials into a live data feed for Claude. Get instant answers about transactions, balances, and financial statements, or configure Claude to automate recurring tasks — weekly cash summaries, burn rate alerts, board-ready reports.
 

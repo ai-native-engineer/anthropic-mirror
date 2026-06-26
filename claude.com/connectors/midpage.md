@@ -22,7 +22,7 @@ Conduct legal research and create work product
   Read
 * More
 
-  [Documentation](https://midpage-docs.apidocumentation.com/documentation/integration/mcp-tools)[Privacy Policy](https://www.midpage.ai/privacy-policy)[Support](/cdn-cgi/l/email-protection#5724222727382523173a3e332736303279363e)
+  [Documentation](https://midpage-docs.apidocumentation.com/documentation/integration/mcp-tools)[Privacy Policy](https://www.midpage.ai/privacy-policy)[support@midpage.ai](mailto:support@midpage.ai)
 
 Connect Claude to a database of case law. With the Midpage MCP, Claude can conduct complex legal research, review opinions, and craft high quality work product. Everything is hyperlinked to real sources for easy verification.
 

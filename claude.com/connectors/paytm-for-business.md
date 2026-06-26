@@ -22,7 +22,7 @@ Make Claude your Paytm Payments assistant
   Read
 * More
 
-  [Documentation](https://www.paytmpayments.com/docs/mcp-server-overview)[Privacy Policy](https://www.paytmpayments.com/policies?tab=privacy)[Support](/cdn-cgi/l/email-protection#157876653b666065657a67615565746c617865746c78707b61663b767a78)
+  [Documentation](https://www.paytmpayments.com/docs/mcp-server-overview)[Privacy Policy](https://www.paytmpayments.com/policies?tab=privacy)[mcp.support@paytmpayments.com](mailto:mcp.support@paytmpayments.com)
 
 Connect your Paytm merchant account to Claude for intelligent access to your payment operations. Look up transactions, search payment links, track refunds, review settlement status, and reconcile payments - all through conversation. No dashboard switching, no API calls.
 Claude becomes your payments co-pilot - it works directly with your Paytm merchant account. Built for merchants, developers, and operations teams.

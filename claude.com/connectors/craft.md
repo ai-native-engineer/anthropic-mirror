@@ -22,7 +22,7 @@ Notes & second brain
   Interactive
 * More
 
-  [Documentation](https://documents.craft.me/jWeCVJrSfxFRuA)[Privacy Policy](https://www.craft.do/privacy)[Support](/cdn-cgi/l/email-protection#c8aeadadacaaa9aba388abbaa9aebce6aca7)
+  [Documentation](https://documents.craft.me/jWeCVJrSfxFRuA)[Privacy Policy](https://www.craft.do/privacy)[feedback@craft.do](mailto:feedback@craft.do)
 
 Create beautifully structured documents, manage tasks, and build a personal knowledge base - all directly from Claude. Give Claude a persistent workspace to save research, draft content, track to-dos, and organize everything into folders, so your best thinking lives beyond the conversation.
 

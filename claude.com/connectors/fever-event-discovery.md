@@ -22,7 +22,7 @@ Discover live entertainment events worldwide
   Read
 * More
 
-  [Documentation](https://developer.feverup.com/)[Privacy Policy](https://feverup.com/legal/privacy_en.html)[Support](/cdn-cgi/l/email-protection#67030613064a060e27010211021512174904080a)
+  [Documentation](https://developer.feverup.com/)[Privacy Policy](https://feverup.com/legal/privacy_en.html)[data-ai@feverup.com](mailto:data-ai@feverup.com)
 
 Discover and explore live entertainment experiences worldwide through Fever. Search events by city, date, location, or keyword across concerts, shows, festivals, immersive experiences, and more. Filter by popularity, price, rating, or proximity. Get event details including schedules, venues, ratings, and pricing.
 

@@ -22,14 +22,14 @@ Payment processing and financial infrastructure tools
   Read & write
 * More
 
-  [Documentation](https://docs.stripe.com/mcp)[Privacy Policy](https://stripe.com/privacy)[Support](/cdn-cgi/l/email-protection#0b66687b4b787f79627b6e25686466)
+  [Documentation](https://docs.stripe.com/mcp)[Privacy Policy](https://stripe.com/privacy)[mcp@stripe.com](mailto:mcp@stripe.com)
 
 Defines a set of tools that Claude can use to interact with the Stripe API and search the Stripe knowledge base (including documentation and support articles).
 
 You can use the Stripe connector to:  
   
 Create and manage customers:  
-"Create a new customer with email [[email protected]](/cdn-cgi/l/email-protection#6a000502042a0f120b071a060f44090507) and name John Smith"
+"Create a new customer with email [[email protected]](mailto:john@example.com) and name John Smith"
 
 Process payments:  
 "Create a payment intent for $50 USD and attach it to customer cus\_123456"

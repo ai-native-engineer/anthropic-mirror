@@ -22,7 +22,7 @@ Search, update, and prep deals without switching tabs.
   Read & write
 * More
 
-  [Documentation](https://developer.affinity.co/pages/mcp/introduction)[Privacy Policy](https://www.affinity.co/legal/privacy-policy)[Support](/cdn-cgi/l/email-protection#25565055554a5751654443434c4b4c515c0b464a)
+  [Documentation](https://developer.affinity.co/pages/mcp/introduction)[Privacy Policy](https://www.affinity.co/legal/privacy-policy)[support@affinity.co](mailto:support@affinity.co)
 
 Bring your Affinity data into Claude to search contacts, companies, and deals; prep for meetings using your actual notes and interaction history; and update records as deals progress. Every email captured, every meeting logged, every relationship scored by your firm is now available directly in the conversation.
 

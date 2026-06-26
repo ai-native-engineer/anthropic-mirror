@@ -22,7 +22,7 @@ Ask AI about your sales calls, deals & pipeline
   Read
 * More
 
-  [Documentation](https://api.sybill.ai/docs/mcp.html)[Privacy Policy](https://www.sybill.ai/privacy-policy)[Support](/cdn-cgi/l/email-protection#d2a1a7a2a2bda0a692a1abb0bbbebefcb3bb)
+  [Documentation](https://api.sybill.ai/docs/mcp.html)[Privacy Policy](https://www.sybill.ai/privacy-policy)[support@sybill.ai](mailto:support@sybill.ai)
 
 Sybill is the context layer for your revenue org. Connect it to Claude and ask anything about your sales conversations, deals, and pipeline grounded in real call transcripts, AI-generated summaries, MEDDIC scores, and CRM data. Surface action items from calls, identify at-risk deals, prep for meetings with full conversation history, and spot patterns across your team's interactions. Sybill unifies the fragmented signals across calls, emails, and CRM into a single coherent picture that Claude can reason over.
 

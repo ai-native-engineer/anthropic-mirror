@@ -24,7 +24,7 @@ Discover every grant opportunity in existence.
   Read
 * More
 
-  [Documentation](https://grantedai.com/mcp)[Privacy Policy](https://grantedai.com/privacy)[Support](/cdn-cgi/l/email-protection#2f464149406f485d4e415b4a4b4e46014c4042)
+  [Documentation](https://grantedai.com/mcp)[Privacy Policy](https://grantedai.com/privacy)[info@grantedai.com](mailto:info@grantedai.com)
 
 Search virtually every grant opportunity in existence - federal, state, and private foundation - using natural language. Most databases cover the big programs. Granted also surfaces the long tail: niche state grants, small family foundations, and hyper-local opportunities that nonprofits never find because no single database indexes them all. Research 133,000 US foundations with IRS 990 financials and key officers. Analyze 7 million federal award records to see who's actually winning.
 

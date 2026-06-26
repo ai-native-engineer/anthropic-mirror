@@ -4,14 +4,14 @@
 
 To help you identify legitimate marketing communications from Anthropic, all our marketing emails are sent from addresses ending in anthropic.com or claude.com. Below are the official email addresses we use for marketing communications:
 
-* [[email protected]](/cdn-cgi/l/email-protection#116574707c51747c70787d3f707f6579637e6178723f727e7c)
-* [[email protected]](/cdn-cgi/l/email-protection#8cedfce5cce9e1ede5e0a2ede2f8e4fee3fce5efa2efe3e1)
-* [[email protected]](/cdn-cgi/l/email-protection#432d2c372a202603262e222a2f6d222d372b312c332a206d202c2e)
-* [[email protected]](/cdn-cgi/l/email-protection#3d4e484d4d524f497d505c5451135c5349554f524d545e135e5250)
-* [[email protected]](/cdn-cgi/l/email-protection#bedfd0cad6ccd1ced7dd93cadbdfd3fed3dfd7d290dfd0cad6ccd1ced7dd90ddd1d3)
-* [[email protected]](/cdn-cgi/l/email-protection#4c3f2d20293f0c212d2520622d2238243e233c252f622f2321)
-* [[email protected]](/cdn-cgi/l/email-protection#e38d8cce9186938f9aa3868e828a8fcd808f82968786cd808c8e)
-* [[email protected]](/cdn-cgi/l/email-protection#c8a6a7e5baadb8a4b188baadbbada9baaba0e6a9a6bca0baa7b8a1abe6aba7a5)
+* [[email protected]](mailto:team@email.anthropic.com)
+* [[email protected]](mailto:api@email.anthropic.com)
+* [[email protected]](mailto:notice@email.anthropic.com)
+* [[email protected]](mailto:support@mail.anthropic.com)
+* [[email protected]](mailto:anthropic-team@mail.anthropic.com)
+* [[email protected]](mailto:sales@mail.anthropic.com)
+* [[email protected]](mailto:no-reply@email.claude.com)
+* [[email protected]](mailto:no-reply@research.anthropic.com)
 
 Please note that these addresses are outbound only with unmonitored inboxes.
 

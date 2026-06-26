@@ -22,7 +22,7 @@ Real-time access to trusted expert knowledge
   Read
 * More
 
-  [Documentation](https://clapi-developer.guidepoint.io/mcp/docs)[Privacy Policy](https://www.guidepoint.com/privacy-policy/)[Support](/cdn-cgi/l/email-protection#81f2f4f1f1eef3f5c1e6f4e8e5e4f1eee8eff5afe2eeec)
+  [Documentation](https://clapi-developer.guidepoint.io/mcp/docs)[Privacy Policy](https://www.guidepoint.com/privacy-policy/)[support@guidepoint.com](mailto:support@guidepoint.com)
 
 Embed trusted expert insights directly into your research and decision making workflows in real-time. Powered by Guidepoint's in-house team of former investment analysts, we combine institutional-grade quality with the volume needed for decision-critical work. Claude pulls verbatim excerpts from 100,000+ compliance-reviewed expert interview transcripts — with every source transcript linked inline for verifiable, trusted data.
 

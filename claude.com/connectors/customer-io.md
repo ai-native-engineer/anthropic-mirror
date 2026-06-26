@@ -22,7 +22,7 @@ Explore customer data and generate insights via Claude
   Read & write
 * More
 
-  [Documentation](https://docs.customer.io/ai/mcp-server/)[Privacy Policy](https://customer.io/legal/privacy-policy)[Support](/cdn-cgi/l/email-protection#4b3c22250b283e383f24262e39652224)
+  [Documentation](https://docs.customer.io/ai/mcp-server/)[Privacy Policy](https://customer.io/legal/privacy-policy)[win@customer.io](mailto:win@customer.io)
 
 Let Claude work directly with your Customer.io workspace to create segments, inspect user profiles, search for customers, and access workspace data. Analyze customer attributes, manage audience targeting, and explore your workspace without switching tabs.
 

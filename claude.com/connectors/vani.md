@@ -22,7 +22,7 @@ Search, create, edit, and share Vani Spaces
   Read & write
 * More
 
-  [Documentation](https://help.vanihq.com/portal/en/kb/vani/integrations-and-add-ons/vani-mcp/articles/vani-mcp-basics)[Privacy Policy](https://www.zoho.com/privacy.html)[Support](/cdn-cgi/l/email-protection#7f0c0a0f0f100d0b3f091e1116170e511c1012)
+  [Documentation](https://help.vanihq.com/portal/en/kb/vani/integrations-and-add-ons/vani-mcp/articles/vani-mcp-basics)[Privacy Policy](https://www.zoho.com/privacy.html)[support@vanihq.com](mailto:support@vanihq.com)
 
 Search Spaces, summarize discussions, draft documents, and build visual structures in Vani directly from Claude. Make Vani a native part of your AI workflow—a thinking workspace where Claude helps your whole team plan, organize, and decide faster.
 

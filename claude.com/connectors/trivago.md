@@ -22,7 +22,7 @@ Find your ideal hotel at the best price.
   Read
 * More
 
-  [Documentation](https://mcp.trivago.com/docs)[Privacy Policy](https://www.trivago.com/en-US/sp/privacy-policy)[Support](/cdn-cgi/l/email-protection#95f8f6e5bbe6e0e5e5fae7e1d5e1e7fce3f4f2fabbf6faf8)
+  [Documentation](https://mcp.trivago.com/docs)[Privacy Policy](https://www.trivago.com/en-US/sp/privacy-policy)[mcp.support@trivago.com](mailto:mcp.support@trivago.com)
 
 The Trivago connector enables users to search for hotels and accommodations using coordinates or broader geographic areas such as cities and countries. It provides tailored search results based on location and date inputs, helping users find suitable places to stay near specific points of interest or within larger regions.  
   

@@ -22,7 +22,7 @@ K-12 standards, skills, and learning progressions
   Read
 * More
 
-  [Documentation](https://docs.learningcommons.org/knowledge-graph/integrations/claude)[Privacy Policy](https://learningcommons.org/privacy-policy/)[Support](/cdn-cgi/l/email-protection#94e7e1e4e4fbe6e0d4f8f1f5e6fafdfaf3f7fbf9f9fbfae7bafbe6f3)
+  [Documentation](https://docs.learningcommons.org/knowledge-graph/integrations/claude)[Privacy Policy](https://learningcommons.org/privacy-policy/)[support@learningcommons.org](mailto:support@learningcommons.org)
 
 Align to all 50 states' academic standards, break them into granular learning components, and trace learning progressions directly from Claude. The Learning Commons Knowledge Graph connects trusted instructional content and learning science into a shared foundation, so Claude can generate more precise, standards-aligned instructional content that supports coherent learning and reflects educational best practices.
 

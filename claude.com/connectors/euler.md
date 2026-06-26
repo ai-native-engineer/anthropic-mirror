@@ -24,7 +24,7 @@ Manage your partner program and access your Partner Data Lake with Claude.
   Read & write
 * More
 
-  [Documentation](https://mcp.eulerapp.com/public/docs)[Privacy Policy](https://eulerapp.com/privacy)[Support](/cdn-cgi/l/email-protection#9ef6fbf2eedefbebf2fbecffeeeeb0fdf1f3)
+  [Documentation](https://mcp.eulerapp.com/public/docs)[Privacy Policy](https://eulerapp.com/privacy)[help@eulerapp.com](mailto:help@eulerapp.com)
 
 Manage your partner program and access your Partner Data Lake with Claude — instant actions and answers on deals, commissions, onboarding, and partner performance, no dashboard required. Partners can register deals and access live data across their pipeline, enablement, certifications, payouts and more.
 

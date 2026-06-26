@@ -24,7 +24,7 @@ Add real-time social media data to your searches
   Read
 * More
 
-  [Documentation](https://lunarcrush.com/developers/api/ai)[Privacy Policy](https://lunarcrush.com/privacy)[Support](/cdn-cgi/l/email-protection#ef8c80819b8e8c9baf839a818e9d8c9d9a9c87c18c8082)
+  [Documentation](https://lunarcrush.com/developers/api/ai)[Privacy Policy](https://lunarcrush.com/privacy)[contact@lunarcrush.com](mailto:contact@lunarcrush.com)
 
 Access comprehensive social analytics and market intelligence for companies, brands, stocks, and cryptocurrencies through LunarCrush's AI-data platform. Stream real-time social metrics, sentiment analysis, trending topics, and market data directly into your AI workflows.
 

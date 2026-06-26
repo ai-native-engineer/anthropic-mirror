@@ -22,7 +22,7 @@ Outside Counsel recommendations from Inhouse Counsel
   Read
 * More
 
-  [Documentation](https://docs.google.com/document/d/1jcekau3Njlc5XfSspSdSGu7qSgKvM00M6DrYm91ZTzA/edit?tab=t.0#heading=h.hgwkvyizzdb3)[Privacy Policy](https://www.lsuite.co/privacy-policy)[Support](/cdn-cgi/l/email-protection#0a67697a27797f7a7a65787e4a66797f637e6f246965)
+  [Documentation](https://docs.google.com/document/d/1jcekau3Njlc5XfSspSdSGu7qSgKvM00M6DrYm91ZTzA/edit?tab=t.0#heading=h.hgwkvyizzdb3)[Privacy Policy](https://www.lsuite.co/privacy-policy)[mcp-support@lsuite.co](mailto:mcp-support@lsuite.co)
 
 Find the right outside counsel for your specific matter based on insights and rankings from The L Suite — the leading community of 5000+ inhouse counsel. Our proprietary ranking algorithm is driven by overall aggregated member sentiment, speaking engagements and content of each outside counsel, evidence of expertise provided by outside counsel, outside counsel interviews and other internal datasets. Learn more at topcounsel.ai and lsuite.co.
 

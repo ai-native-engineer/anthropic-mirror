@@ -22,7 +22,7 @@ Pull Profound Visibility, Citation, & AI Bot Visit Data
   Read
 * More
 
-  [Documentation](https://www.tryprofound.com/docs/mcp)[Privacy Policy](https://www.tryprofound.com/legal/privacy-policy)[Support](/cdn-cgi/l/email-protection#8dfef8fdfde2fff9cdf9fff4fdffe2ebe2f8e3e9a3eee2e0)
+  [Documentation](https://www.tryprofound.com/docs/mcp)[Privacy Policy](https://www.tryprofound.com/legal/privacy-policy)[support@tryprofound.com](mailto:support@tryprofound.com)
 
 Access all of your Profound data: visibility, citations, and AI bot traffic directly from Claude. Build automated reports, alerts, and other workflows to power your marketing data.
 

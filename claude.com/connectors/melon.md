@@ -22,7 +22,7 @@ Browse music charts & your personalized music picks
   Read
 * More
 
-  [Documentation](https://tech.kakaoent.com/ai/using-melon-mcp-server-en/)[Privacy Policy](https://info.melon.com/terms/web/terms3.html)[Support](/cdn-cgi/l/email-protection#533e363f3c3d0c3a3d353c13383238323c363d277d303c3e)
+  [Documentation](https://tech.kakaoent.com/ai/using-melon-mcp-server-en/)[Privacy Policy](https://info.melon.com/terms/web/terms3.html)[melon_info@kakaoent.com](mailto:melon_info@kakaoent.com)
 
 Explore a variety of Melon charts, get personalized music recommendations, and discover your listening habits—all in one place.   
   

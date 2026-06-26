@@ -22,7 +22,7 @@ Manage event types, availability, and bookings.
   Read & write
 * More
 
-  [Documentation](https://help.calendly.com/hc/en-us/articles/36734570264855-Connect-Calendly-to-your-AI-tools-with-Calendly-MCP)[Privacy Policy](https://calendly.com/legal/privacy-notice)[Support](/cdn-cgi/l/email-protection#4b383e3b3b24393f602f2e3d2e27243b2e390b282a272e252f273265282426)
+  [Documentation](https://help.calendly.com/hc/en-us/articles/36734570264855-Connect-Calendly-to-your-AI-tools-with-Calendly-MCP)[Privacy Policy](https://calendly.com/legal/privacy-notice)[support+developer@calendly.com](mailto:support+developer@calendly.com)
 
 Schedule smarter with Calendly in Claude. Manage your entire scheduling workflow through simple conversation — create and update event types, share scheduling links, adjust availability, book meetings, and more, without ever leaving Claude.
 

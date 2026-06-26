@@ -1213,7 +1213,7 @@ Send us your resume along with a brief cover letter addressing:
 * Your approach to improving trial-to-paid conversion rates
 * Why you're excited about FlowTech's growth opportunity
 
-**Apply to:** [[email protected]](/cdn-cgi/l/email-protection#4b282a392e2e39380b2d27243c3f2e282365282426)  
+**Apply to:** [[email protected]](mailto:careers@flowtech.com)  
 **Subject line:** Growth Marketing Manager - [Your Name]
 
 —

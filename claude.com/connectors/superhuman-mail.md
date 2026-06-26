@@ -24,7 +24,7 @@ The most productive email app ever, for Gmail & Outlook
   Interactive
 * More
 
-  [Documentation](https://help.superhuman.com/hc/en-us/articles/49810745762067-Superhuman-Mail-MCP-Server-Beta)[Privacy Policy](https://www.grammarly.com/privacy-policy)[Support](/cdn-cgi/l/email-protection#147c7178787b5467616471667c6179757a3a777b79)
+  [Documentation](https://help.superhuman.com/hc/en-us/articles/49810745762067-Superhuman-Mail-MCP-Server-Beta)[Privacy Policy](https://www.grammarly.com/privacy-policy)[hello@superhuman.com](mailto:hello@superhuman.com)
 
 Connect Superhuman Mail to Claude, and build powerful workflows for email and calendar. Find anything in your inbox, draft replies that sound like you for every recipient, check read statuses, set reminders, schedule meetings, and send — all without leaving Claude.
 

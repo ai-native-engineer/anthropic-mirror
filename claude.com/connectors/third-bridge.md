@@ -22,7 +22,7 @@ Expert-led enhanced insights
   Read
 * More
 
-  [Documentation](https://www.thirdbridge.com/en-us/data-solutions/mcp)[Privacy Policy](https://www.thirdbridge.com/en-us/about-us/compliance/policies/privacy-policy)[Support](/cdn-cgi/l/email-protection#deb3bdae9eaab6b7acbabcacb7bab9bbf0bdb1b3)
+  [Documentation](https://www.thirdbridge.com/en-us/data-solutions/mcp)[Privacy Policy](https://www.thirdbridge.com/en-us/about-us/compliance/policies/privacy-policy)[mcp@thirdbridge.com](mailto:mcp@thirdbridge.com)
 
 Seamlessly incorporate critical context and trusted insights from industry experts as part of your financial and business analysis. Refocus on extracting high-quality, reliable information by querying Third Bridge’s best-in-class substantial Library of expert content and data. Our MCP systematically and securely instructs Large Language Models (LLMs) to query insights from our database into their systems, streamlining your workflows and improving your output
 

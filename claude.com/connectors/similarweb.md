@@ -22,7 +22,7 @@ Real time web, mobile app, and market data.
   Read
 * More
 
-  [Documentation](https://docs.similarweb.com/api-v5/mcp/mcp-setup)[Privacy Policy](https://www.similarweb.com/corp/legal/privacy-policy/)[Support](/cdn-cgi/l/email-protection#52212722223d202612213b3f3b3e33202537307c313d3f)
+  [Documentation](https://docs.similarweb.com/api-v5/mcp/mcp-setup)[Privacy Policy](https://www.similarweb.com/corp/legal/privacy-policy/)[support@similarweb.com](mailto:support@similarweb.com)
 
 Research any website or app using Similarweb's market intelligence data. Analyze competitor traffic, uncover top keywords, explore audience demographics, and benchmark performance across industries—all through simple prompts. Ask things like "Show me Nike's traffic sources breakdown" or "What keywords is Adidas ranking for?" and get real-time insights without switching tools. Whether you're a marketer, analyst, investor, or strategist, Similarweb helps you turn competitive questions into answers instantly.
 

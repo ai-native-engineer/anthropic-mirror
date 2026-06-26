@@ -22,7 +22,7 @@ Analyse your live people data, right in Claude
   Read
 * More
 
-  [Documentation](https://mcp.shapes.co)[Privacy Policy](https://shapes.co/privacy-policy)[Support](/cdn-cgi/l/email-protection#added8ddddc2dfd9eddec5ccddc8de83cec2)
+  [Documentation](https://mcp.shapes.co)[Privacy Policy](https://shapes.co/privacy-policy)[support@shapes.co](mailto:support@shapes.co)
 
 Shapes MCP connects Claude directly to your live HR data. Ask about headcount, attrition risk, comp gaps, time off and more. Now get instant answers without switching tools. Your existing Shapes permissions carry through to every conversation, so everyone only sees what they're already allowed to. Connect in minutes, no engineering required.
 

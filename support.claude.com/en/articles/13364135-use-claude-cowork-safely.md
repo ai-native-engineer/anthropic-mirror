@@ -128,7 +128,7 @@ If your organization manages your computer, be aware that this extends access to
 
 **10. Report suspicious behavior immediately**
 
-If Claude suddenly starts discussing unrelated topics, attempts to access unexpected resources, or requests sensitive information unprompted, stop the task and report it to [[email protected]](/cdn-cgi/l/email-protection#304543554243515655444970515e4458425f4059531e535f5d) or use the in-app feedback button. Your reports help us improve our defenses.
+If Claude suddenly starts discussing unrelated topics, attempts to access unexpected resources, or requests sensitive information unprompted, stop the task and report it to [[email protected]](mailto:usersafety@anthropic.com) or use the in-app feedback button. Your reports help us improve our defenses.
 
 ## Your responsibility
 

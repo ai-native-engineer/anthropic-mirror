@@ -22,7 +22,7 @@ Map and analyze your geospatial data
   Interactive
 * More
 
-  [Documentation](https://help.felt.com/felt-ai/mcp)[Privacy Policy](https://help.felt.com/other/privacy-policy)[Support](/cdn-cgi/l/email-protection#9ae9efeaeaf5e8eedafcfff6eeb4f9f5f7)
+  [Documentation](https://help.felt.com/felt-ai/mcp)[Privacy Policy](https://help.felt.com/other/privacy-policy)[support@felt.com](mailto:support@felt.com)
 
 Felt is a modern GIS platform for creating, analyzing, and sharing interactive maps. The Felt MCP server lets Claude run geospatial analysis end-to-end: query connected databases and storage (Databricks, Snowflake, BigQuery, PostgreSQL, S3) with spatial SQL, build and style map layers with Felt Style Language (FSL), upload files, manage annotations like pins and polygons, share maps, and tap into Felt's curated library of public datasets covering boundaries, demographics, infrastructure, and climate.
 

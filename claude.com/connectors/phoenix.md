@@ -24,7 +24,7 @@ AI-powered B2B data intelligence & analytics
   Interactive
 * More
 
-  [Documentation](https://phoenix.hginsights.com/docs/intro)[Privacy Policy](https://hginsights.com/privacy-policy)[Support](/cdn-cgi/l/email-protection#ef9f87808a818697af878886819c8688879b9cc18c8082)
+  [Documentation](https://phoenix.hginsights.com/docs/intro)[Privacy Policy](https://hginsights.com/privacy-policy)[phoenix@hginsights.com](mailto:phoenix@hginsights.com)
 
 Phoenix by HG Insights gives Claude access to rich B2B technographic and firmographic data, enabling intelligent analysis of technology adoption, competitive intelligence, and market insights. Query detailed data on what technologies companies use, their spending patterns, and firmographic profiles. Phoenix uses agent-based automation to answer complex business questions, helping sales, marketing, and strategy teams make data-driven decisions about target accounts, market sizing, and competitive positioning.
 

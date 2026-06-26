@@ -22,7 +22,7 @@ Large Quantitative Models for scientific discovery
   Read & write
 * More
 
-  [Documentation](https://docs.aisim.sandboxaq.com/)[Privacy Policy](https://docs.aisim.sandboxaq.com/privacy)[Support](/cdn-cgi/l/email-protection#0b66687b26787e7b7b64797f4b786a656f6964736a7a25686466)
+  [Documentation](https://docs.aisim.sandboxaq.com/)[Privacy Policy](https://docs.aisim.sandboxaq.com/privacy)[mcp-support@sandboxaq.com](mailto:mcp-support@sandboxaq.com)
 
 SandboxAQ's Large Quantitative Models (LQMs) combine physics-based simulation with machine learning to accelerate drug discovery and materials innovation. Now, LQMs are accessible through large language models. Researchers can access frontier scientific AI in natural language, moving faster from hypothesis to breakthrough.
 

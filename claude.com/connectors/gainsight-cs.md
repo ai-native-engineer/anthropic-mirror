@@ -22,7 +22,7 @@ Query, write back and automate with real-time CS data
   Read & write
 * More
 
-  [Documentation](https://support.gainsight.com/gainsight_nxt/AI_Assistants/MCP_Integration/Admin_Guide/Gainsight_CS_MCP_Server_Integration)[Privacy Policy](https://www.gainsight.com/policy/privacy/)[Support](/cdn-cgi/l/email-protection#3e4d4b4e4e514c4a7e595f57504d5759564a105d5153)
+  [Documentation](https://support.gainsight.com/gainsight_nxt/AI_Assistants/MCP_Integration/Admin_Guide/Gainsight_CS_MCP_Server_Integration)[Privacy Policy](https://www.gainsight.com/policy/privacy/)[support@gainsight.com](mailto:support@gainsight.com)
 
 Connect Claude directly to Gainsight CS to query customer health scores, renewal timelines, and product usage in natural language. Take action by updating records, managing CTAs, logging activities, and building success plans with write back to Gainsight. Power autonomous, multi-step workflows for risk escalation, renewal playbooks, QBR prep, and expansion plays. With unified, real-time context from Gainsight CS, your AI workflows can identify and execute actions across your entire customer book of business.
 

@@ -4,7 +4,7 @@
 
 # **Designated Point of Contact for Authorities**
 
-Government authorities can contact Anthropic directly by emailing [[email protected]](/cdn-cgi/l/email-protection#a8dacdcfddc4c9dcc7da85c1c6d9ddc1dac1cddbe8c9c6dcc0dac7d8c1cb86cbc7c5). This is reserved for government officials seeking a point of contact and for governmental submissions to remove content.
+Government authorities can contact Anthropic directly by emailing [[email protected]](mailto:regulator-inquiries@anthropic.com). This is reserved for government officials seeking a point of contact and for governmental submissions to remove content.
 
 For other types of inquiries, please use the mechanisms described below. ￼
 

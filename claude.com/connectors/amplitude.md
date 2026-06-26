@@ -22,7 +22,7 @@ Give your teams powerful behavioral insights
   Interactive
 * More
 
-  [Documentation](https://amplitude.com/docs/analytics/amplitude-mcp)[Privacy Policy](https://amplitude.com/privacy)[Support](/cdn-cgi/l/email-protection#93fef0e3b8f5f6f6f7f1f2f0f8d3f2fee3fffae7e6f7f6bdf0fcfe)
+  [Documentation](https://amplitude.com/docs/analytics/amplitude-mcp)[Privacy Policy](https://amplitude.com/privacy)[mcp+feedback@amplitude.com](mailto:mcp+feedback@amplitude.com)
 
 Connect your workflows to Amplitude's powerful behavior analytics and experimentation platform. The Amplitude connector enables seamless integration between Claude and your product data, allowing you to search, analyze, and query charts, dashboards, experiments, feature flags, and metrics directly from your chat interface—then build new charts and explore trends interactively to uncover hidden insights.
 

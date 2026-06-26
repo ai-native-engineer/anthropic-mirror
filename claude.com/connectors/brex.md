@@ -22,7 +22,7 @@ Intelligent finance automation
   Read
 * More
 
-  [Documentation](https://www.brex.com/support/using-brex-in-ai-apps)[Privacy Policy](https://www.brex.com/legal/privacy)[Support](/cdn-cgi/l/email-protection#75060005051a0701351707100d5b161a18)
+  [Documentation](https://www.brex.com/support/using-brex-in-ai-apps)[Privacy Policy](https://www.brex.com/legal/privacy)[support@brex.com](mailto:support@brex.com)
 
 Connect Brex to Claude for automating your company's finances. Finance monitors compliance and runs powerful queries. Employees get personalized memo guidance, policy answers, and status updates. Permission-based access ensures admin oversight while streamlining management.
 

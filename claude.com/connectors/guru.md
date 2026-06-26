@@ -22,7 +22,7 @@ Search and interact with your company knowledge
   Read & write
 * More
 
-  [Documentation](https://help.getguru.com/docs/connecting-gurus-mcp-server)[Privacy Policy](https://www.getguru.com/privacy)[Support](/cdn-cgi/l/email-protection#34474144445b464074535140534146411a575b59)
+  [Documentation](https://help.getguru.com/docs/connecting-gurus-mcp-server)[Privacy Policy](https://www.getguru.com/privacy)[support@getguru.com](mailto:support@getguru.com)
 
 Guru connects Claude to your company's trusted knowledge layer, so every AI answer is grounded in verified, permission-aware information—not outdated docs or hallucinations. It links Claude to the same governed context your teams use, ensuring consistent, cited, and explainable responses. With built-in verification and lineage, Guru makes it easy for Claude to deliver answers you can trust across every workflow.
 

@@ -22,7 +22,7 @@ Access real-time financial data
   Read
 * More
 
-  [Documentation](https://docs.bigdata.com/mcp-reference)[Privacy Policy](https://bigdata.com/mcp-terms-and-conditions)[Support](/cdn-cgi/l/email-protection#572422272738252317353e30333623367934383a)
+  [Documentation](https://docs.bigdata.com/mcp-reference)[Privacy Policy](https://bigdata.com/mcp-terms-and-conditions)[support@bigdata.com](mailto:support@bigdata.com)
 
 The Bigdata.com MCP server integrates institutional-grade data directly into your AI workflow, covering global news, transcripts, and regulatory filings directly in Claude. By combining Claude's reasoning with Bigdata.com's entity-aware search, you can automate complex due diligence and produce hallucination-free reports with full citation trails. Empower your decision-making with the only AI connector that is Grounded by Design for professional finance.
 

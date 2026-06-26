@@ -26,7 +26,7 @@ Structured credit insights and analytics
   Interactive
 * More
 
-  [Documentation](https://www.morningstar.com/business/products/direct-ai-solutions)[Privacy Policy](https://www.morningstar.com/company/privacy-center/privacy-policy)[Support](/cdn-cgi/l/email-protection#4c2d222d203538252f3f623f393c3c233e380c28292d2034622f2321)
+  [Documentation](https://www.morningstar.com/business/products/direct-ai-solutions)[Privacy Policy](https://www.morningstar.com/company/privacy-center/privacy-policy)[analytics.support@dealx.com](mailto:analytics.support@dealx.com)
 
 Integrate Morningstar's comprehensive investment data and independent research directly into your AI workflows. Through our MCP-powered connector, clients can explore cross-asset coverage—including funds, equities, and beyond, enhanced by forward-looking insights from our global analyst teams. Access trusted, unbiased intelligence to support investment decisions, due diligence, and portfolio strategy in one seamless experience.
 

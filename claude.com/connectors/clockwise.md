@@ -22,7 +22,7 @@ Advanced scheduling and time management for work.
   Read & write
 * More
 
-  [Documentation](https://support.getclockwise.com/article/238-connecting-to-clockwise-mcp)[Privacy Policy](https://www.getclockwise.com/privacy)[Support](/cdn-cgi/l/email-protection#1d6e686d6d726f695d7a78697e71727e766a746e78337e7270)
+  [Documentation](https://support.getclockwise.com/article/238-connecting-to-clockwise-mcp)[Privacy Policy](https://www.getclockwise.com/privacy)[support@getclockwise.com](mailto:support@getclockwise.com)
 
 Schedule and reschedule meetings with multiple participants, optimize your work calendar for productivity, and automatically block time for tasks. Clockwise considers working hours, time zones, Focus Time preferences, and team constraints to make smart scheduling decisions—not just find empty time slots. Manage complex coordination at scale and implement time management best practices directly within Claude.  
   

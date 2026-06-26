@@ -22,7 +22,7 @@ Risk insights, analytics, and decision intelligence
   Read
 * More
 
-  [Documentation](https://www.moodys.com/web/en/us/genai/model-context-protocol.html)[Privacy Policy](https://www.moodys.com/web/en/us/legal/privacy-policy.html)[Support](/cdn-cgi/l/email-protection#fc9f90959992888f998e8a959f998fbc91939398858fd29f9391)
+  [Documentation](https://www.moodys.com/web/en/us/genai/model-context-protocol.html)[Privacy Policy](https://www.moodys.com/web/en/us/legal/privacy-policy.html)[clientservices@moodys.com](mailto:clientservices@moodys.com)
 
 Get streamlined access to Moody's Ratings proprietary credit ratings, research, and comprehensive entity intelligence. Access high-quality data such as ownership structures, financials, ratings drivers, and scorecards, all structured to optimize a variety of workflows including compliance, credit analysis, M&A, and business development.
 

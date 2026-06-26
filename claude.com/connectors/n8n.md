@@ -22,7 +22,7 @@ Access and run your n8n workflows
   Read & write
 * More
 
-  [Documentation](https://docs.n8n.io/advanced-ai/accessing-n8n-mcp-server/)[Privacy Policy](https://n8n.io/legal/privacy/)[Support](/cdn-cgi/l/email-protection#264e434a5666481e48084f49)
+  [Documentation](https://docs.n8n.io/advanced-ai/accessing-n8n-mcp-server/)[Privacy Policy](https://n8n.io/legal/privacy/)[help@n8n.io](mailto:help@n8n.io)
 
 Talk to your n8n instance and trigger automations - search for workflows, get their details, and execute them directly from Claude.   
   

@@ -22,7 +22,7 @@
   Read
 * More
 
-  [Documentation](https://app.actively.ai/docs/mcp)[Privacy Policy](https://www.actively.ai/privacy)[Support](/cdn-cgi/l/email-protection#592a2c2929362b2d19383a2d302f3c3520773830)
+  [Documentation](https://app.actively.ai/docs/mcp)[Privacy Policy](https://www.actively.ai/privacy)[support@actively.ai](mailto:support@actively.ai)
 
 Win more deals with Actively inside Claude by directly accessing your always-on per account agents that help you drive the next best action. Actively AI's per-account agents are synthesizing across all of your internal context (ex. CRM data, call transcripts, emails) and external signals to drive actionable intelligence. Designed for SDRs, AEs, AMs, and revenue leaders who need deep, contextual account knowledge, from meeting prep and deal strategy to territory prioritization, directly inside Claude.
 

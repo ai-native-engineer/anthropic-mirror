@@ -22,7 +22,7 @@ Data & AI observability
   Read & write
 * More
 
-  [Documentation](https://docs.getmontecarlo.com/docs/mcp-server)[Privacy Policy](https://www.montecarlodata.com/privacy-policy)[Support](/cdn-cgi/l/email-protection#f3808683839c8187b39e9c9d87969092819f9c97928792dd909c9e)
+  [Documentation](https://docs.getmontecarlo.com/docs/mcp-server)[Privacy Policy](https://www.montecarlodata.com/privacy-policy)[support@montecarlodata.com](mailto:support@montecarlodata.com)
 
 The Monte Carlo MCP server gives Claude direct access to your data & AI observability platform. Query alerts, explore lineage, create monitors, and evaluate AI agent performance across your entire data stack.
 

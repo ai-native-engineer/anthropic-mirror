@@ -22,7 +22,7 @@ MCP Server for Zoho CRM Workflows
   Read & write
 * More
 
-  [Documentation](https://help.zoho.com/portal/en/kb/mcp/getting-started/articles/zoho-mcp-help-documentation-29-9-2025)[Privacy Policy](https://www.zoho.com/privacy.html)[Support](/cdn-cgi/l/email-protection#5c2f292c2c332e281c26333433313f2c723f3331)
+  [Documentation](https://help.zoho.com/portal/en/kb/mcp/getting-started/articles/zoho-mcp-help-documentation-29-9-2025)[Privacy Policy](https://www.zoho.com/privacy.html)[support@zohomcp.com](mailto:support@zohomcp.com)
 
 Enable MCP to automate Zoho CRM leads, deals, and contacts using actions.
 

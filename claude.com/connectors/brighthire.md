@@ -22,7 +22,7 @@ Search, summarize and analyze hiring data
   Read
 * More
 
-  [Documentation](https://help.brighthire.ai/en/articles/14808753-brighthire-mcp)[Privacy Policy](https://brighthire.com/privacy-policy/)[Support](/cdn-cgi/l/email-protection#15666065657a67615577677c727d617d7c67703b747c)
+  [Documentation](https://help.brighthire.ai/en/articles/14808753-brighthire-mcp)[Privacy Policy](https://brighthire.com/privacy-policy/)[support@brighthire.ai](mailto:support@brighthire.ai)
 
 Retrieve and analyze hiring data, including scheduled interview context and prep materials, AI-generated notes and post-interview summaries, interviewer scorecards and candidate assessments from your ATS (e.g., Greenhouse), structured interview guides with questions and competencies, and job descriptions for open positions.
 

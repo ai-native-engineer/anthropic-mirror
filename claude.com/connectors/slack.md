@@ -22,7 +22,7 @@ Send messages, create canvases, and fetch Slack data!
   Interactive
 * More
 
-  [Documentation](https://docs.slack.dev/ai/mcp-server)[Privacy Policy](https://slack.com/trust/privacy/privacy-policy)[Support](/cdn-cgi/l/email-protection#0a6c6f6f6e686b69614a79666b696124696567)
+  [Documentation](https://docs.slack.dev/ai/mcp-server)[Privacy Policy](https://slack.com/trust/privacy/privacy-policy)[feedback@slack.com](mailto:feedback@slack.com)
 
 Connect to Slack to share messages and create canvases directly to simplify collaboration and boost productivity. Search and retrieve messages, channels, threads, files, and users, giving Claude the context to streamline your work. Generate message drafts, format them your way, and review before you post.  
 ‍  

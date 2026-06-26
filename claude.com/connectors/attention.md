@@ -22,7 +22,7 @@ Search, analyze, and act on client conversations
   Read & write
 * More
 
-  [Documentation](https://docs.attention.com/mcp/overview)[Privacy Policy](https://www.attention.com/privacy-policy)[Support](/cdn-cgi/l/email-protection#40333530302f323400213434252e34292f2e6e34252328)
+  [Documentation](https://docs.attention.com/mcp/overview)[Privacy Policy](https://www.attention.com/privacy-policy)[support@attention.tech](mailto:support@attention.tech)
 
 Search, analyze, and take action on your sales conversations directly from Claude. Attention captures every call and email, extracts key insights, and syncs intelligence to your other apps automatically. With this connector, you can query call transcripts across your team, surface objections and trends, review scorecards, analyze deal health, and create shareable snippets - all through natural language. Turn every customer conversation into structured data, coaching opportunities, and closed deals without leaving Claude.
 

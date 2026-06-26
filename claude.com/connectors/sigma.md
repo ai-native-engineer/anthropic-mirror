@@ -22,7 +22,7 @@ Query, search, and explore your data with Sigma
   Read
 * More
 
-  [Documentation](https://help.sigmacomputing.com/docs/use-sigma-mcp-server)[Privacy Policy](https://www.sigmacomputing.com/legal/privacy-policy)[Support](/cdn-cgi/l/email-protection#13606663637c616753607a747e72707c7e6366677a7d743d707c7e)
+  [Documentation](https://help.sigmacomputing.com/docs/use-sigma-mcp-server)[Privacy Policy](https://www.sigmacomputing.com/legal/privacy-policy)[support@sigmacomputing.com](mailto:support@sigmacomputing.com)
 
 Explore, search, and query your data in Sigma directly from the Claude interface. You can search across your organization for relevant documents and elements, and answer and iterate on complex data questions. Perform detailed analysis without needing to write SQL and use natural language to seamlessly uncover insights, so you can act faster on your data.
 

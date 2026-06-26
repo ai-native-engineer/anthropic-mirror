@@ -22,7 +22,7 @@ Query Turquoise's proprietary healthcare pricing data
   Read
 * More
 
-  [Documentation](https://turquoise.health/resources/blog/guide-to-the-turquoise-connector-mcp)[Privacy Policy](https://turquoise.health/legal/privacy-policy)[Support](/cdn-cgi/l/email-protection#1f7e765f6b6a6d6e6a70766c7a31777a7e736b77)
+  [Documentation](https://turquoise.health/resources/blog/guide-to-the-turquoise-connector-mcp)[Privacy Policy](https://turquoise.health/legal/privacy-policy)[ai@turquoise.health](mailto:ai@turquoise.health)
 
 Connect Turquoise to Claude to explore Turquoise Health's healthcare pricing data. You can search across healthcare entities, explore how they relate to each other, and analyze in-network rates across service categories. Useful for benchmarking reimbursement rates, sizing markets, understanding what a payer pays in a given geography, or comparing rates across providers and plans.
 

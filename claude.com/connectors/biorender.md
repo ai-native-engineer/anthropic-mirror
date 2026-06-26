@@ -22,7 +22,7 @@ Search for and use scientific templates and icons
   Read
 * More
 
-  [Documentation](https://help.biorender.com/hc/en-gb/articles/30870978672157-How-to-use-the-BioRender-MCP-connector)[Privacy Policy](https://www.biorender.com/privacy)[Support](/cdn-cgi/l/email-protection#21525451514e53556143484e53444f4544530f424e4c)
+  [Documentation](https://help.biorender.com/hc/en-gb/articles/30870978672157-How-to-use-the-BioRender-MCP-connector)[Privacy Policy](https://www.biorender.com/privacy)[support@biorender.com](mailto:support@biorender.com)
 
 Provides access to BioRender template and icon search for scientists.  
   

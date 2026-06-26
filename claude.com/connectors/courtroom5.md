@@ -22,7 +22,7 @@ Civil legal guidance for self-represented litigants
   Read
 * More
 
-  [Documentation](https://courtroom5.com/claude)[Privacy Policy](https://courtroom5.com/privacy)[Support](/cdn-cgi/l/email-protection#93e0e6e3e3fce1e7d3f0fce6e1e7e1fcfcfea6bdf0fcfe)
+  [Documentation](https://courtroom5.com/claude)[Privacy Policy](https://courtroom5.com/privacy)[support@courtroom5.com](mailto:support@courtroom5.com)
 
 Courtroom5 provides legal guidance to the 80% of civil litigants who appear in court without an attorney. Three jurisdiction-aware tools cover serious civil matters across all 50 US states: a case intake assessment that identifies viable claims and first steps; a deadline calculator that returns precise procedural deadlines and miss-consequences by state and court level; and next-step guidance for users mid-litigation.
 

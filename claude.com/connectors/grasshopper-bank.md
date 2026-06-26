@@ -22,7 +22,7 @@ Query and analyze your financial data
   Read
 * More
 
-  [Documentation](https://docs.narmi.com/docs/narmi-developer-docs/bc6e7tqtatpvz-about-narmi-mcp-server)[Privacy Policy](https://www.grasshopper.bank/legal/ai-connector-beta-program-agreement/)[Support](/cdn-cgi/l/email-protection#74070104041b06003413061507071c1b040411065a16151a1f)
+  [Documentation](https://docs.narmi.com/docs/narmi-developer-docs/bc6e7tqtatpvz-about-narmi-mcp-server)[Privacy Policy](https://www.grasshopper.bank/legal/ai-connector-beta-program-agreement/)[support@grasshopper.bank](mailto:support@grasshopper.bank)
 
 The Grasshopper Bank MCP server connects Claude to your banking data, enabling AI-powered access to account information, transactions, and other insights. Query balances, analyze spending patterns, retrieve transaction history, and surface financial trends — all through natural language. Purpose-built for Grasshopper Bank customers, this connector brings your banking data into Claude workflows without switching tools. Accelerate routine analysis, support financial decisions, and unlock deeper visibility into your banking operations.
 

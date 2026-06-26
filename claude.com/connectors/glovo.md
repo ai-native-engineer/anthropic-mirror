@@ -22,7 +22,7 @@ Anything delivered in minutes
   Interactive
 * More
 
-  [Documentation](https://glovoapp.com/docs/en/legal/mcp/)[Privacy Policy](https://glovoapp.com/docs/es/legal/privacy/)[Support](/cdn-cgi/l/email-protection#beddcbcdcad1d3dbcc90dbcdfed9d2d1c8d1dfcece90ddd1d3)
+  [Documentation](https://glovoapp.com/docs/en/legal/mcp/)[Privacy Policy](https://glovoapp.com/docs/es/legal/privacy/)[customer.es@glovoapp.com](mailto:customer.es@glovoapp.com)
 
 Glovo in Claude helps you find anything you need in your city and get it delivered wherever you are in just minutes. Just ask in your own words for what you need: skincare, gifts, clothes, electronics, pet supplies, supermarkets, or even flowers.
 You can also refine results by budget, brand, features, ratings, and your preferred stores, and view live availability, prices, and store details.

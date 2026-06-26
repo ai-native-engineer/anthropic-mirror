@@ -22,7 +22,7 @@ Query your live GL and financials in plain English
   Read & write
 * More
 
-  [Documentation](https://docs.api.rillet.com/docs/mcp)[Privacy Policy](https://www.rillet.com/privacy-policy)[Support](/cdn-cgi/l/email-protection#84e9e7f4a9f7f1f4f4ebf6f0c4f6ede8e8e1f0aae7ebe9)
+  [Documentation](https://docs.api.rillet.com/docs/mcp)[Privacy Policy](https://www.rillet.com/privacy-policy)[mcp-support@rillet.com](mailto:mcp-support@rillet.com)
 
 Rillet is an AI-native ERP built for scaling companies. Connect Claude to your live general ledger to query financials in plain English, analyze revenue trends and SaaS metrics, and create journal entries by prompt. Rillet runs on real-time architecture, not batch processing, so every answer Claude surfaces comes from your live books, not last month's data. Ask about your top customers, monthly burn, missing accruals, or cash runway. Get answers from your books, not a spreadsheet.
 

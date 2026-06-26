@@ -22,7 +22,7 @@ Search, edit and get insights on your Box content
   Interactive
 * More
 
-  [Documentation](https://box.dev/guides/box-mcp/remote/)[Privacy Policy](https://www.box.com/legal/privacypolicy)[Support](/cdn-cgi/l/email-protection#abd8dedbdbc4d9dfebc9c4d385c8c4c6)
+  [Documentation](https://box.dev/guides/box-mcp/remote/)[Privacy Policy](https://www.box.com/legal/privacypolicy)[support@box.com](mailto:support@box.com)
 
 Connect Claude to your content stored in Box. Enable Claude to search and access files, use AI to query documents, create or update content, extract metadata fields, and more, while enforcing existing Box security and access policies.
 

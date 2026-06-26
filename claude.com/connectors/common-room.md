@@ -22,7 +22,7 @@ Your GTM Copilot
   Read & write
 * More
 
-  [Documentation](https://www.commonroom.io/docs/using-common-room/common-room-for-claude-connector-and-plugin/)[Privacy Policy](https://www.commonroom.io/privacy-policy/)[Support](/cdn-cgi/l/email-protection#e3909693938c9197a3808c8e8e8c8d918c8c8ecd8a8c)
+  [Documentation](https://www.commonroom.io/docs/using-common-room/common-room-for-claude-connector-and-plugin/)[Privacy Policy](https://www.commonroom.io/privacy-policy/)[support@commonroom.io](mailto:support@commonroom.io)
 
 Embed complete buyer intelligence directly within Claude. Research accounts and contacts, surface buying signals, and browse activity history - all through natural language. Build prospect lists of net-new companies by industry, size, tech stack, or location. Filter and sort contacts by segment, role, lead score, or website visits. Every result is grounded in real context, real prioritization, and real revenue opportunity directly from your CRM fields, scores, enrichment, and signals - so you always know what's actually happening in your accounts.
 

@@ -21,7 +21,7 @@ Build, Ship and Secure your apps on Harness Platform
   Read & write
 * More
 
-  [Documentation](https://github.com/harness/mcp-server)[Privacy Policy](https://www.harness.io/legal/privacy)[Support](/cdn-cgi/l/email-protection#5d2e282d2d322f291d353c2f33382e2e733432)
+  [Documentation](https://github.com/harness/mcp-server)[Privacy Policy](https://www.harness.io/legal/privacy)[support@harness.io](mailto:support@harness.io)
 
 Ask Claude to ship a build, trace a failed deployment, toggle a feature flag, or check cloud costs. It acts directly on Harness, no tab switching required. Numerous resource types across CI/CD, GitOps, security, and FinOps, all through conversation.
 

@@ -22,7 +22,7 @@ Explore partner data and ecosystem insights in Claude
   Read
 * More
 
-  [Documentation](https://help.crossbeam.com/en/articles/12601327-crossbeam-mcp-server-beta)[Privacy Policy](https://www.crossbeam.com/legal/crossbeam-privacy-policy)[Support](/cdn-cgi/l/email-protection#aedddbdedec1dcdaeecddcc1ddddcccbcfc380cdc1c3)
+  [Documentation](https://help.crossbeam.com/en/articles/12601327-crossbeam-mcp-server-beta)[Privacy Policy](https://www.crossbeam.com/legal/crossbeam-privacy-policy)[support@crossbeam.com](mailto:support@crossbeam.com)
 
 Connect your Claude workspace to Crossbeam and bring Ecosystem Intelligence into every AI workflow. The Crossbeam connector lets Claude securely access your partner and account data — surfacing overlaps, partner activity, and warm paths directly in chat. Use it to enrich AI responses with real-time ecosystem context, power smarter prioritization, and uncover co-sell opportunities without leaving your conversation.  
   

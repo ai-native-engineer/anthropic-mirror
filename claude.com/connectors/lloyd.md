@@ -22,7 +22,7 @@ Inhouse counsel insights for members of The L Suite
   Read
 * More
 
-  [Documentation](https://docs.google.com/document/d/1glRh-BdxnTPxzM1cZLzCcmlgIW5-dQ4-NnnStfhI6vk/edit?tab=t.0#heading=h.hgwkvyizzdb3)[Privacy Policy](https://www.lsuite.co/privacy-policy)[Support](/cdn-cgi/l/email-protection#0a67697a27797f7a7a65787e4a66797f637e6f246965)
+  [Documentation](https://docs.google.com/document/d/1glRh-BdxnTPxzM1cZLzCcmlgIW5-dQ4-NnnStfhI6vk/edit?tab=t.0#heading=h.hgwkvyizzdb3)[Privacy Policy](https://www.lsuite.co/privacy-policy)[mcp-support@lsuite.co](mailto:mcp-support@lsuite.co)
 
 Connect with the collective knowledge of 5,000+ inhouse counsel in The L Suite community — cited & sourced — including 2,000+ annual discussion threads, 300+ playbooks, 3,000 shared documents/artifacts, 2,000+ hours of video content, 10,000 unbiased pieces of outside counsel and vendor feedback. Members Only.
 

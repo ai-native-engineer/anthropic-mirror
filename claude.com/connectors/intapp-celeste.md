@@ -22,7 +22,7 @@ Securely, compliantly access Intapp Celeste products
   Read & write
 * More
 
-  [Documentation](https://www.intapp.com/mcp-documentation/)[Privacy Policy](https://intapp.com/privacy)[Support](/cdn-cgi/l/email-protection#6c1f191c1c031e182c0502180d1c1c420f0301)
+  [Documentation](https://www.intapp.com/mcp-documentation/)[Privacy Policy](https://intapp.com/privacy)[support@intapp.com](mailto:support@intapp.com)
 
 Search, create, and update records across the Intapp Celeste portfolio with secure, compliant retrieval via Intapp Celeste connector with Claude. Ensure the workflows you rely on from Intapp are available to integrate into your Claude projects with the governance your clients demand.
 

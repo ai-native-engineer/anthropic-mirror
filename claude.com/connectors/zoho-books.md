@@ -22,7 +22,7 @@ Zoho Books MCP for Smart Finance Ops
   Read & write
 * More
 
-  [Documentation](https://help.zoho.com/portal/en/kb/mcp/getting-started/articles/zoho-mcp-help-documentation-29-9-2025)[Privacy Policy](https://www.zoho.com/privacy.html)[Support](/cdn-cgi/l/email-protection#5b282e2b2b34292f1b2134333436382b75383436)
+  [Documentation](https://help.zoho.com/portal/en/kb/mcp/getting-started/articles/zoho-mcp-help-documentation-29-9-2025)[Privacy Policy](https://www.zoho.com/privacy.html)[support@zohomcp.com](mailto:support@zohomcp.com)
 
 Connect MCP to Zoho Books for automated billing and finance workflows.
 

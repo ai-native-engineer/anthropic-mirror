@@ -21,7 +21,7 @@ Build and query your developer portal and trigger developer workflows
   Read & write
 * More
 
-  [Documentation](https://docs.port.io/ai-interfaces/port-mcp-server/overview-and-installation)[Privacy Policy](https://www.port.io/legal/privacy-policy)[Support](/cdn-cgi/l/email-protection#5e2d2b2e2e312c2a1e2e312c2a703731)
+  [Documentation](https://docs.port.io/ai-interfaces/port-mcp-server/overview-and-installation)[Privacy Policy](https://www.port.io/legal/privacy-policy)[support@port.io](mailto:support@port.io)
 
 Connect Port's context lake and software catalog directly to Claude. Query services, dependencies, and ownership using natural language. Analyze scorecards and service health. Execute governed self-service actions and workflows with built-in guardrails.
 

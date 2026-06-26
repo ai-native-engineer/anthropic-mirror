@@ -22,7 +22,7 @@ Understand and troubleshoot your Journeys and Campaigns
   Read
 * More
 
-  [Documentation](https://experienceleague.adobe.com/en/docs/journey-optimizer/using/content-management/combine/ajo-mcp)[Privacy Policy](https://experienceleague.adobe.com/en/docs/journey-optimizer/using/privacy/privacy-landing-page)[Support](/cdn-cgi/l/email-protection#56373c397b3b35267b303333323437353d1637323934337835393b)
+  [Documentation](https://experienceleague.adobe.com/en/docs/journey-optimizer/using/content-management/combine/ajo-mcp)[Privacy Policy](https://experienceleague.adobe.com/en/docs/journey-optimizer/using/privacy/privacy-landing-page)[ajo-mcp-feedback@adobe.com](mailto:ajo-mcp-feedback@adobe.com)
 
 Inspect, summarize, and troubleshoot Adobe Journey Optimizer journeys, campaigns, offers, and channel configurations directly from Claude. Turn AJO's retrieve APIs into plain-language answers so you can check journey and campaign statuses, surface stopped or orphaned drafts, spot channel configuration issues and review your orchestration portfolio without parsing JSON or jumping across product screens.
 

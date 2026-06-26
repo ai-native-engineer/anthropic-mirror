@@ -22,7 +22,7 @@ Sign, send & manage documents with DocuSeal
   Read & write
 * More
 
-  [Documentation](https://www.docuseal.com/guides/integrate-with-ai-agents-using-mcp)[Privacy Policy](https://www.docuseal.com/privacy)[Support](/cdn-cgi/l/email-protection#186b6d6868776a6c587c777b6d6b7d7974367b7775)
+  [Documentation](https://www.docuseal.com/guides/integrate-with-ai-agents-using-mcp)[Privacy Policy](https://www.docuseal.com/privacy)[support@docuseal.com](mailto:support@docuseal.com)
 
 DocuSeal lets you create document templates, send them for signing, and track submission status — all through Claude. Search your existing templates by name, upload new PDFs to create signable forms with auto-detected fields, send documents to multiple signers via email, and search signed or pending submissions by submitter name, email, or template. Built for teams that need fast, simple e-signatures without leaving their workflow.
 

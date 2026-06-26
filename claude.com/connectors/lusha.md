@@ -22,7 +22,7 @@ Find and enrich B2B contacts and companies
   Read & write
 * More
 
-  [Documentation](https://docs.lusha.com/mcp-docs)[Privacy Policy](https://www.lusha.com/legal/privacy-notice/)[Support](/cdn-cgi/l/email-protection#6a191f1a1a05181e2a061f19020b44090507)
+  [Documentation](https://docs.lusha.com/mcp-docs)[Privacy Policy](https://www.lusha.com/legal/privacy-notice/)[support@lusha.com](mailto:support@lusha.com)
 
 Connect Lusha to Claude to access verified B2B contact and company data without leaving your chat. Lusha is a sales intelligence platform with 300M+ verified contacts, direct emails, phone numbers, and mobile numbers, plus actionable buyer signals used across sales, marketing, and RevOps workflows. Backed by GDPR, CCPA, SOC 2 Type II, and ISO 27701 compliance. Perfect for building prospect lists, researching accounts before a call, qualifying inbound leads, and natural language prospecting inside Claude.
 

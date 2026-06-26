@@ -22,7 +22,7 @@ Analyze data and launch bioinformatics workflows
   Read & write
 * More
 
-  [Documentation](https://wiki.latch.bio/agent/latch-mcp)[Privacy Policy](https://wiki.latch.bio/resources/privacy-policy)[Support](/cdn-cgi/l/email-protection#deadabaeaeb1acaa9eb2bfaabdb6f0bcb7b1)
+  [Documentation](https://wiki.latch.bio/agent/latch-mcp)[Privacy Policy](https://wiki.latch.bio/resources/privacy-policy)[support@latch.bio](mailto:support@latch.bio)
 
 The Latch MCP lets you connect Latch to Claude, allowing you to browse data, start bioinformatics workflows and monitor workflow executions. Run serverless bioinformatics pipelines written in Nextflow or Python without leaving Claude.
 

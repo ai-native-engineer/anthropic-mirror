@@ -22,7 +22,7 @@ Search, access, and analyze your Ramp financial data
   Read & write
 * More
 
-  [Documentation](https://docs.ramp.com/developer-api/v1/guides/ramp-mcp-remote)[Privacy Policy](https://ramp.com/legal/privacy-policy)[Support](/cdn-cgi/l/email-protection#4b2f2e3d2e27243b2e3966383e3b3b24393f0b392a263b65282426)
+  [Documentation](https://docs.ramp.com/developer-api/v1/guides/ramp-mcp-remote)[Privacy Policy](https://ramp.com/legal/privacy-policy)[developer-support@ramp.com](mailto:developer-support@ramp.com)
 
 Enables secure, read-only access to Ramp data for customer-defined logic. Supports loading and querying transactions, reimbursements, bills, purchase orders, cards, vendors, and more, enabling dynamic data fetching and analysis.
 

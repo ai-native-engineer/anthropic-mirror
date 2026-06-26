@@ -22,7 +22,7 @@ Query, create, update, and search your Dataverse data
   Read & write
 * More
 
-  [Documentation](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/data-platform-mcp)[Privacy Policy](https://www.microsoft.com/privacy/privacystatement)[Support](/cdn-cgi/l/email-protection#a1ced1c4cfc2cec5c4e1ccc8c2d3ced2cec7d58fc2cecc)
+  [Documentation](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/data-platform-mcp)[Privacy Policy](https://www.microsoft.com/privacy/privacystatement)[opencode@microsoft.com](mailto:opencode@microsoft.com)
 
 Connect AI assistants to Microsoft Dataverse to query, create, update, delete, and search data in Dataverse.
 

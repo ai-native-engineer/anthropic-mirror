@@ -21,7 +21,7 @@ Discover, evaluate, and buy solutions for the cloud
   Read & write
 * More
 
-  [Documentation](https://docs.aws.amazon.com/marketplace/latest/APIReference/marketplace-mcp-server.html)[Privacy Policy](https://aws.amazon.com/privacy/)[Support](/cdn-cgi/l/email-protection#95f4e2e6b8f8f4e7fef0e1e5f9f4f6f0b8f8f6e5b8e6e0e5e5fae7e1d5f4f8f4effafbbbf6faf8)
+  [Documentation](https://docs.aws.amazon.com/marketplace/latest/APIReference/marketplace-mcp-server.html)[Privacy Policy](https://aws.amazon.com/privacy/)[aws-marketplace-mcp-support@amazon.com](mailto:aws-marketplace-mcp-support@amazon.com)
 
 AWS Marketplace connector lets software buyers discover, evaluate, and procure over 30,000 cloud solutions within the AWS Marketplace catalog from within Claude.   
   

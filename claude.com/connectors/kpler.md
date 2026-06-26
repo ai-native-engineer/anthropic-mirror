@@ -22,7 +22,7 @@ Explore Kpler's maritime and commodities intelligence
   Read
 * More
 
-  [Documentation](https://developers.kpler.com/tutorials/mcp/what-is-kpler-mcp)[Privacy Policy](https://developers.kpler.com/tutorials/mcp/kpler-mcp-privacy-and-security)[Support](/cdn-cgi/l/email-protection#582b2d2828372a2c183328343d2a763b3735)
+  [Documentation](https://developers.kpler.com/tutorials/mcp/what-is-kpler-mcp)[Privacy Policy](https://developers.kpler.com/tutorials/mcp/kpler-mcp-privacy-and-security)[support@kpler.com](mailto:support@kpler.com)
 
 The Kpler MCP connector gives Claude read-only access to Kpler's maritime and commodities intelligence — analyst-verified trade flows, AIS vessel tracking, port calls, refinery operations, freight markets, compliance risk, and supply/demand balances. Ask questions in plain English instead of writing API calls or SQL. Built for the analysts, traders, compliance officers, and operators who already use Kpler day-to-day. All operations are read-only; the connector cannot modify any data in Kpler's systems.
 

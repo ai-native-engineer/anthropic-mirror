@@ -22,7 +22,7 @@ Query your Ontra data directly from any AI tool
   Read
 * More
 
-  [Documentation](https://customer.ontra.ai/hc/en-us/articles/45957572721037-Set-up-your-Atlas-MCP)[Privacy Policy](https://www.ontra.ai/privacy-policy)[Support](/cdn-cgi/l/email-protection#c9aabcbabda6a4acbbe7aaa8bbac89a6a7bdbba8e7a8a0)
+  [Documentation](https://customer.ontra.ai/hc/en-us/articles/45957572721037-Set-up-your-Atlas-MCP)[Privacy Policy](https://www.ontra.ai/privacy-policy)[customer.care@ontra.ai](mailto:customer.care@ontra.ai)
 
 The Ontra MCP Server lets you query your Ontra data directly from Claude and other AI tools — no need to switch between applications. Ask questions about legal entities, ownership structures, funds, people, agreements, tax classifications, jurisdictions, and more. Results respect your existing Ontra permissions, so users only see data they already have access to. Setup takes about a minute via a quick OAuth flow with your Ontra credentials.
 

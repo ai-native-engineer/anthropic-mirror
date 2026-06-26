@@ -22,7 +22,7 @@ Search and explore regulated software lifecycle data
   Read
 * More
 
-  [Documentation](https://docs.ketryx.com/reference/ketryx-mcp-server)[Privacy Policy](https://www.ketryx.com/privacy)[Support](/cdn-cgi/l/email-protection#2c5f595c5c435e586c4749585e5554024f4341)
+  [Documentation](https://docs.ketryx.com/reference/ketryx-mcp-server)[Privacy Policy](https://www.ketryx.com/privacy)[support@ketryx.com](mailto:support@ketryx.com)
 
 Ketryx MCP gives your AI tools direct access to your unified compliance data. Ask a compliance question and get instant, auditable answers across your entire toolchain: Jira, JAMA, GitHub, TestRail, Polarion, and Azure DevOps.
 

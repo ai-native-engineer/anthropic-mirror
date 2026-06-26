@@ -22,7 +22,7 @@ Search domains and check availability
   Read
 * More
 
-  [Documentation](https://developer.godaddy.com/mcp)[Privacy Policy](https://www.godaddy.com/legal/agreements/privacy-policy)[Support](/cdn-cgi/l/email-protection#a5c8c6d5e5c2cac1c4c1c1dc8bc6cac8)
+  [Documentation](https://developer.godaddy.com/mcp)[Privacy Policy](https://www.godaddy.com/legal/agreements/privacy-policy)[mcp@godaddy.com](mailto:mcp@godaddy.com)
 
 Use GoDaddy to find available domains and get smart suggestions based on your ideas and keywords.  
   

@@ -21,7 +21,7 @@ Turn ideas into apps and websites instantly
   Interactive
 * More
 
-  [Documentation](https://docs.replit.com/platforms/mcp-server)[Privacy Policy](https://replit.com/privacy-policy)[Support](/cdn-cgi/l/email-protection#c7b4b2b7b7a8b5b387b5a2b7abaeb3e9a4a8aa)
+  [Documentation](https://docs.replit.com/platforms/mcp-server)[Privacy Policy](https://replit.com/privacy-policy)[support@replit.com](mailto:support@replit.com)
 
 Replit's MCP server lets users create, update, and manage full-stack web and mobile applications directly from Claude using natural language. Powered by Replit Agent, it transforms prompts into live, deployed apps — complete with databases, authentication, and custom domains. Users can iterate on their apps conversationally, ask the Agent questions about their project, and access a live preview URL as the app builds. No coding experience required. The server supports OAuth 2.0 authentication and Streamable HTTP transport, integrating seamlessly with Replit's cloud development platform.
 

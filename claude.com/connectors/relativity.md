@@ -22,7 +22,7 @@ Organize Data. Discover the Truth. Act on It.
   Read & write
 * More
 
-  [Documentation](https://help.relativity.com/topic.html?t=GLJ39)[Privacy Policy](https://help.relativity.com/topic.html?t=3DCBF)[Support](/cdn-cgi/l/email-protection#11626461617e63655163747d706578677865683f727e7c)
+  [Documentation](https://help.relativity.com/topic.html?t=GLJ39)[Privacy Policy](https://help.relativity.com/topic.html?t=3DCBF)[support@relativity.com](mailto:support@relativity.com)
 
 Stand up matters, manage workspaces, govern access, and analyze usage in RelativityOne.
 

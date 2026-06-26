@@ -138,7 +138,7 @@ Try searching by EIN, alternate names or acronyms, or broadening your search ter
 * No personal user data is shared with Candid
 * Search queries are used only to retrieve relevant results
 
-For Candid-specific questions, email [[email protected]](/cdn-cgi/l/email-protection#7c0c1d0e0812190e0f14150c0f3c1f1d1218151852130e1b).
+For Candid-specific questions, email [[email protected]](mailto:partnerships@candid.org).
 
 ## Related tutorials
 

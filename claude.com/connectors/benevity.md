@@ -22,7 +22,7 @@ Find and engage with verified nonprofits
   Read
 * More
 
-  [Documentation](https://causeshelp.benevity.org/hc/en-us/articles/43364091494164-Benevity-nonprofit-MCP-server)[Privacy Policy](https://benevity.com/privacy-policy/)[Support](/cdn-cgi/l/email-protection#77040207071805033715121912011e030e5914181a)
+  [Documentation](https://causeshelp.benevity.org/hc/en-us/articles/43364091494164-Benevity-nonprofit-MCP-server)[Privacy Policy](https://benevity.com/privacy-policy/)[support@benevity.com](mailto:support@benevity.com)
 
 Search for trusted causes to donate to or volunteer with from Benevity's database of more than 2.3 million verified nonprofits.  
   

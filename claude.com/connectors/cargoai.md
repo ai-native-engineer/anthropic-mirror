@@ -22,7 +22,7 @@ Instant air cargo rates, quotes & tracking
   Read & write
 * More
 
-  [Documentation](https://cargoai.readme.io/reference/cargoai-mcp-connector-setup-documentation)[Privacy Policy](https://www.cargoai.co/privacy-policy/)[Support](/cdn-cgi/l/email-protection#5d2e282d2d322f291d3e3c2f3a323c34733e32)
+  [Documentation](https://cargoai.readme.io/reference/cargoai-mcp-connector-setup-documentation)[Privacy Policy](https://www.cargoai.co/privacy-policy/)[support@cargoai.co](mailto:support@cargoai.co)
 
 Browse rates and track air cargo directly from Claude. Make CargoAi a native part of your AI workflow — an AI-powered freight agent that helps forwarders get instant quotes and monitor shipments faster, with less friction. Bring your CargoMart operations into the conversation.
 

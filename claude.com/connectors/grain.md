@@ -22,7 +22,7 @@ Put your meetings to work
   Read
 * More
 
-  [Documentation](https://developers.grain.com/mcp)[Privacy Policy](https://grain.com/privacy-policy)[Support](/cdn-cgi/l/email-protection#cfa7aaa3bf8fa8bdaea6a1e1aca0a2)
+  [Documentation](https://developers.grain.com/mcp)[Privacy Policy](https://grain.com/privacy-policy)[help@grain.com](mailto:help@grain.com)
 
 Grain captures and transcribes your meetings where you have them: Meet, Zoom, Teams, Slack, and more. Grain builds an AI Meeting Data Layer of transcripts, notes, and enriched context that Claude uses to power your work.
 

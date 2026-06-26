@@ -22,7 +22,7 @@ Calm board-defense guidance for licensed pros.
   Read
 * More
 
-  [Documentation](https://boardwise.online/mcp)[Privacy Policy](https://boardwise.online/privacy-policy)[Support](/cdn-cgi/l/email-protection#05767075756a777145676a647761726c76602b6a6b696c6b60)
+  [Documentation](https://boardwise.online/mcp)[Privacy Policy](https://boardwise.online/privacy-policy)[support@boardwise.online](mailto:support@boardwise.online)
 
 BoardWise is a read-only educational MCP server for licensed professionals — nurses, physicians, pharmacists, social workers, CDL holders, and others — facing state licensing-board matters. Claude can use it to look up jurisdiction-specific response deadlines, generate structured outlines for response letters, search BoardWise's library of educational guides, and surface curated resources for situations like complaints, CEU audits, consent agreements, hearing notices, and self-reports. All responses are general educational information (not legal advice).
 

@@ -22,7 +22,7 @@ Discuss and iterate on Magic Patterns designs
   Read & write
 * More
 
-  [Documentation](https://www.magicpatterns.com/docs/documentation/features/mcp-server/overview)[Privacy Policy](https://www.magicpatterns.com/docs/documentation/legal/privacy)[Support](/cdn-cgi/l/email-protection#b3c0c6c3c3dcc1c7f3ded2d4dad0c3d2c7c7d6c1ddc09dd0dcde)
+  [Documentation](https://www.magicpatterns.com/docs/documentation/features/mcp-server/overview)[Privacy Policy](https://www.magicpatterns.com/docs/documentation/legal/privacy)[support@magicpatterns.com](mailto:support@magicpatterns.com)
 
 Discuss and iterate on Magic Patterns designs directly from Claude. Magic Patterns is an AI agent specialized in frontend design.
 

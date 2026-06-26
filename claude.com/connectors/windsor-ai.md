@@ -22,7 +22,7 @@ Connect Meta Ads, Google Ads, TikTok Ads, LinkedIn Ads + 320 more
   Read
 * More
 
-  [Documentation](https://windsor.ai/introducing-windsor-mcp)[Privacy Policy](https://windsor.ai/privacy-statement/)[Support](/cdn-cgi/l/email-protection#166563666679646256617f787265796438777f)
+  [Documentation](https://windsor.ai/introducing-windsor-mcp)[Privacy Policy](https://windsor.ai/privacy-statement/)[support@windsor.ai](mailto:support@windsor.ai)
 
 Analyze multi-channel marketing, analytics, sales, and e-commerce data within Claude by connecting to your Windsor.ai data flows: Query metrics from over 325 sources. Fetch and blend data from top platforms like Facebook, Google Ads, Instagram, Google Analytics 4, TikTok, Shopify, Salesforce, HubSpot, Google My Business, and LinkedIn into actionable intelligence for smarter, faster decision-making with accurate, up-to-date business information.
 

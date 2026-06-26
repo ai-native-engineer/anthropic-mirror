@@ -22,7 +22,7 @@ Manage entries, analyze submissions, and download files
   Read & write
 * More
 
-  [Documentation](https://www.cognitoforms.com/support/1038/data-integration/mcp-connector)[Privacy Policy](https://www.cognitoforms.com/legal/privacy)[Support](/cdn-cgi/l/email-protection#394a4c4949564b4d795a565e57504d565f564b544a175a5654)
+  [Documentation](https://www.cognitoforms.com/support/1038/data-integration/mcp-connector)[Privacy Policy](https://www.cognitoforms.com/legal/privacy)[support@cognitoforms.com](mailto:support@cognitoforms.com)
 
 Connect to Cognito Forms to query submissions, pull files and documents, and make entry changes directly within Claude. Whether you're checking on pending applications or retrieving a signed document, your form data is right there when you need it.
 Available on Pro, Team, and Enterprise plans. Setting up the connector requires Administrator access in your Cognito Forms organization.

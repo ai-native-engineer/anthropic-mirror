@@ -22,7 +22,7 @@ Research nonprofits and funders using Candid's data
   Read
 * More
 
-  [Documentation](https://learning.candid.org/getting-started-with-the-candid-mcp-connector/375441)[Privacy Policy](https://candid.org/privacy-policy/)[Support](/cdn-cgi/l/email-protection#7b14151712151e171219091a09121a153b181a151f121f5514091c)
+  [Documentation](https://learning.candid.org/getting-started-with-the-candid-mcp-connector/375441)[Privacy Policy](https://candid.org/privacy-policy/)[onlinelibrarian@candid.org](mailto:onlinelibrarian@candid.org)
 
 Bring the power of Candid's comprehensive nonprofit and funder data directly into Claude. Search millions of organizations, discover funding opportunities, and access expert knowledge and social sector news—all through natural conversation.  
   

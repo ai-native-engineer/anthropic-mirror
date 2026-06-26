@@ -22,7 +22,7 @@ Estimate your federal & state taxes with Aiwyn's tax engine
   Read
 * More
 
-  [Documentation](https://docs.columntax.com/page/aiwyn-tax-mcp-server)[Privacy Policy](https://www.columntax.com/privacy-policy)[Support](/cdn-cgi/l/email-protection#a6d2c3c7cbe6c5c9cad3cbc8d2c7de88c5c9cb)
+  [Documentation](https://docs.columntax.com/page/aiwyn-tax-mcp-server)[Privacy Policy](https://www.columntax.com/privacy-policy)[team@columntax.com](mailto:team@columntax.com)
 
 Estimate your federal & state taxes using Aiwyn's tax engine that's filed over 1 million returns. Give Claude your tax documents (e.g. W-2s) and get a 1040 PDF back.
 

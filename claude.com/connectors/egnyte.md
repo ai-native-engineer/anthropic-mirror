@@ -22,7 +22,7 @@ Securely access and analyze Egnyte content.
   Read
 * More
 
-  [Documentation](https://developers.egnyte.com/docs/Remote_MCP_Server)[Privacy Policy](https://www.egnyte.com/privacy-policy)[Support](/cdn-cgi/l/email-protection#6a191f1a1a05181e2a0f0d04131e0f44090507)
+  [Documentation](https://developers.egnyte.com/docs/Remote_MCP_Server)[Privacy Policy](https://www.egnyte.com/privacy-policy)[support@egnyte.com](mailto:support@egnyte.com)
 
 Securely search, retrieve, and analyze content stored in any Egnyte domain. The Egnyte Connector wraps Egnyte’s public APIs and enforces native permissions, compliance rules, and audit logging.  
   

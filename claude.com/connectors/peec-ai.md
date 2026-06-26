@@ -22,7 +22,7 @@ Analyze your brand's visibility across LLMs
   Read
 * More
 
-  [Documentation](https://docs.peec.ai/mcp/introduction)[Privacy Policy](https://peec.ai/legal/privacy-policy)[Support](/cdn-cgi/l/email-protection#9eedebeeeef1eceadeeefbfbfdb0fff7)
+  [Documentation](https://docs.peec.ai/mcp/introduction)[Privacy Policy](https://peec.ai/legal/privacy-policy)[support@peec.ai](mailto:support@peec.ai)
 
 Monitor and analyze your brand's visibility across AI search engines. Track your visibility, sentiment, and share of voice and compare to competitors.
 

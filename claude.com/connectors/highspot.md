@@ -22,7 +22,7 @@ Search, share content, and take action to win deals
   Read & write
 * More
 
-  [Documentation](https://engage.highspot.com/viewer/b5e7f88cbce41d93deb6aa291a94f961)[Privacy Policy](https://www.highspot.com/privacy/)[Support](/cdn-cgi/l/email-protection#cbb8bebbbba4b9bf8ba3a2aca3b8bba4bfe5a8a4a6)
+  [Documentation](https://engage.highspot.com/viewer/b5e7f88cbce41d93deb6aa291a94f961)[Privacy Policy](https://www.highspot.com/privacy/)[support@highspot.com](mailto:support@highspot.com)
 
 Search for content, get answers, see analytics, and take action with personalized guidance from Highspot.
 

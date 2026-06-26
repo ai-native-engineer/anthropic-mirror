@@ -22,7 +22,7 @@ Search, read, and edit your documentation
   Read & write
 * More
 
-  [Documentation](https://www.mintlify.com/docs/ai/mintlify-mcp)[Privacy Policy](https://mintlify.com/legal/privacy)[Support](/cdn-cgi/l/email-protection#0b787e7b7b64797f4b6662657f67626d7225686466)
+  [Documentation](https://www.mintlify.com/docs/ai/mintlify-mcp)[Privacy Policy](https://mintlify.com/legal/privacy)[support@mintlify.com](mailto:support@mintlify.com)
 
 Connect Mintlify to Claude to keep your documentation accurate and up to date without leaving your conversations. Claude can search across every page, read and edit content directly, and ship changes. Perfect for fixing outdated pages after a product change, reorganizing sections as your product grows, or drafting new content alongside the code it documents.
 

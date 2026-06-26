@@ -21,7 +21,7 @@ Manage your Stytch Project
   Read
 * More
 
-  [Documentation](https://stytch.com/docs/workspace-management/stytch-mcp)[Privacy Policy](https://stytch.com/legal/privacy-policy)[Support](/cdn-cgi/l/email-protection#75060005051a07013506010c01161d5b161a18)
+  [Documentation](https://stytch.com/docs/workspace-management/stytch-mcp)[Privacy Policy](https://stytch.com/legal/privacy-policy)[support@stytch.com](mailto:support@stytch.com)
 
 The Stytch connector enables Claude to programmatically manage your Stytch Project like Redirect URLs, Email Templates, and more.
 

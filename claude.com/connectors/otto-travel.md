@@ -22,7 +22,7 @@ Plan, book, and manage business travel
   Read & write
 * More
 
-  [Documentation](https://docs.google.com/document/d/1qLCBH-k2XmXN739EFtiWY2ih_Sft756OPDoKnNLjOt8/edit?tab=t.a7686pdu6z0)[Privacy Policy](https://app.ottotheagent.com/privacy)[Support](/cdn-cgi/l/email-protection#fe8d8b8e8e918c8abe918a8a918a969b9f999b908ad09d9193)
+  [Documentation](https://docs.google.com/document/d/1qLCBH-k2XmXN739EFtiWY2ih_Sft756OPDoKnNLjOt8/edit?tab=t.a7686pdu6z0)[Privacy Policy](https://app.ottotheagent.com/privacy)[support@ottotheagent.com](mailto:support@ottotheagent.com)
 
 Otto brings business travel bookings into Claude. Search flights and hotels, compare options, then book your choice. Your preferences filter search results (cabin class, seat, hotel brand, airline), and your loyalty numbers attach to reservations. When plans change, exchange or cancel a flight or hotel. It retrieves trip details on request: flight times, hotel addresses, confirmation numbers.
 

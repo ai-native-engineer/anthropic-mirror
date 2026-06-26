@@ -22,7 +22,7 @@ Trusted Regulatory Answers, by Clarivate Cortellis
   Read
 * More
 
-  [Documentation](https://api.clarivate.com/lifesciences/mcp-regulatory/documentation)[Privacy Policy](https://clarivate.com/privacy-center/notices-policies)[Support](/cdn-cgi/l/email-protection#bdd1ced593cec8cdcdd2cfc9fdded1dccfd4cbdcc9d893ded2d0)
+  [Documentation](https://api.clarivate.com/lifesciences/mcp-regulatory/documentation)[Privacy Policy](https://clarivate.com/privacy-center/notices-policies)[lsh.support@clarivate.com](mailto:lsh.support@clarivate.com)
 
 The Cortellis Regulatory MCP connects Claude to Clarivate's Cortellis trusted, human-curated global regulatory content. It enables natural language questions, providing accurate, referenced answers supported by authoritative regulatory sources. Users can access subscribed and licensed content, navigate complex guidances, and track regulatory changes—directly within Claude. Designed for life sciences and regulatory teams, this connector delivers fast, transparent, and compliant insights—helping users accelerate research, reduce manual effort, and make better‑informed decisions.
 

@@ -22,7 +22,7 @@ Clean Public Equity Fundamental Data
   Read
 * More
 
-  [Documentation](https://docs.fiscal.ai/docs/guides/mcp-integration)[Privacy Policy](https://fiscal.ai/privacy-policy/)[Support](/cdn-cgi/l/email-protection#fa93949c95ba9c9389999b96d49b93)
+  [Documentation](https://docs.fiscal.ai/docs/guides/mcp-integration)[Privacy Policy](https://fiscal.ai/privacy-policy/)[info@fiscal.ai](mailto:info@fiscal.ai)
 
 Access institutional-grade financial data directly within Claude. Fiscal.ai delivers fundamental metrics and ratios minutes after earnings are reported, with every figure verifiable via direct links to the source filing. Beyond core financials, the server provides company-specific KPIs, revenue segments, and adjusted metrics. Combined with historical and current market quotes, it enables grounded, audit-ready equity research with unmatched speed.
 

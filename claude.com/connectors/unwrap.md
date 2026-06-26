@@ -22,7 +22,7 @@ Search and analyze customer feedback
   Read
 * More
 
-  [Documentation](https://docs.unwrap.ai/articles/6412771011-unwrap-mcp)[Privacy Policy](https://www.unwrap.ai/legal/privacy-policy)[Support](/cdn-cgi/l/email-protection#690a06071d080a1d291c071e1b0819470800)
+  [Documentation](https://docs.unwrap.ai/articles/6412771011-unwrap-mcp)[Privacy Policy](https://www.unwrap.ai/legal/privacy-policy)[contact@unwrap.ai](mailto:contact@unwrap.ai)
 
 Search and analyze your customer feedback with Unwrap. Pull in customer feedback themes and anecdotes, filter by metadata and analyze trends with issues over time. Use your customers feedback to build data backed roadmaps, PRD's, and more!
 

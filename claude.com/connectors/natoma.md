@@ -22,7 +22,7 @@ Access all your internal tools, enterprise apps & data.
   Read & write
 * More
 
-  [Documentation](https://docs.natoma.ai)[Privacy Policy](https://natoma.ai/privacy-policy)[Support](/cdn-cgi/l/email-protection#4f3c3a3f3f203d3b0f212e3b20222e273e612c2022)
+  [Documentation](https://docs.natoma.ai)[Privacy Policy](https://natoma.ai/privacy-policy)[support@natomahq.com](mailto:support@natomahq.com)
 
 Supercharge Claude by connecting it to all your internal tools, enterprise apps, and data to search knowledge and take real-world actions like updating CRMs, approving PRs, and resolving IT tickets from a single interface.
 

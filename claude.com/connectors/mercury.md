@@ -22,7 +22,7 @@ Search, analyze and understand your finances on Mercury
   Interactive
 * More
 
-  [Documentation](https://docs.mercury.com/docs/connecting-mercury-mcp)[Privacy Policy](https://mercury.com/legal/privacy)[Support](/cdn-cgi/l/email-protection#0968796049646c7b6a7c7b70276a6664)
+  [Documentation](https://docs.mercury.com/docs/connecting-mercury-mcp)[Privacy Policy](https://mercury.com/legal/privacy)[api@mercury.com](mailto:api@mercury.com)
 
 Check your balance, download statements, search, analyze, and graph transactions, and understand Cards directly from Claude. Mercury brings your finances into your AI tools.
 

@@ -22,7 +22,7 @@ Search and analyze Ramp spend across 50,000+ businesses
   Read
 * More
 
-  [Documentation](https://docs.ramp.com/developer-api/v1/ramp-data)[Privacy Policy](https://ramp.com/legal/privacy-policy)[Support](/cdn-cgi/l/email-protection#9cefe9ececf3eee8dceefdf1ecb2fff3f1)
+  [Documentation](https://docs.ramp.com/developer-api/v1/ramp-data)[Privacy Policy](https://ramp.com/legal/privacy-policy)[support@ramp.com](mailto:support@ramp.com)
 
 Ramp Data MCP enables Claude users to access Ramp Data from billions of dollars in real corporate spend across 50,000+ businesses, including Ramp Rate (vendor adoption, pricing, and switching trends) and the AI Index (how businesses are spending on AI). Ramp Data is used by founders, procurement leads, researchers, investors, and policy analysts and is cited by leading publications like NYT, WSJ, Bloomberg, and more.
 

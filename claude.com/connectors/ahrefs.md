@@ -22,7 +22,7 @@ SEO & AI search analytics
   Read
 * More
 
-  [Documentation](https://docs.ahrefs.com/docs/mcp/reference/introduction)[Privacy Policy](https://ahrefs.com/legal/privacy-policy)[Support](/cdn-cgi/l/email-protection#5c2f292c2c332e281c3d342e393a2f723f3331)
+  [Documentation](https://docs.ahrefs.com/docs/mcp/reference/introduction)[Privacy Policy](https://ahrefs.com/legal/privacy-policy)[support@ahrefs.com](mailto:support@ahrefs.com)
 
 Research keywords, analyze backlinks, track rankings, and monitor brand visibility across traditional search and AI platforms. Discover keyword opportunities, compare competitor performance, audit link profiles, and measure share of voice in LLM responses. Claude combines multiple Ahrefs analyses in a single conversation — asking clarifying questions, cross-referencing data points, and turning complex SEO metrics into actionable insights.
 

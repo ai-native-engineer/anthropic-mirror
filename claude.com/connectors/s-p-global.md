@@ -22,7 +22,7 @@ Query a range of S&P Global datasets, like Financials
   Read
 * More
 
-  [Documentation](https://docs.kensho.com/llmreadyapi/mcp)[Privacy Policy](https://www.spglobal.com/en/privacy/privacy-policy-english#sharing-of-personal-information)[Support](/cdn-cgi/l/email-protection#ccbfb9bcbca3beb8e2a8adb8adaaa9a9a8e2a1a58cbfbcaba0a3aeada0e2afa3a1)
+  [Documentation](https://docs.kensho.com/llmreadyapi/mcp)[Privacy Policy](https://www.spglobal.com/en/privacy/privacy-policy-english#sharing-of-personal-information)[support.datafeed.mi@spglobal.com](mailto:support.datafeed.mi@spglobal.com)
 
 Query a range of S&P Global datasets, including S&P Capital IQ Financials, Market Data, transcripts, and more. Designed to save time and resources for engineering, product, and business teams in financial services, this server streamlines access to company information, financial statements, historical market data, and global securities.  
   

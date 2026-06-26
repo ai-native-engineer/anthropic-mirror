@@ -22,7 +22,7 @@ Query your data using natural language through Omni's semantic model
   Read
 * More
 
-  [Documentation](https://docs.omni.co/ai/mcp)[Privacy Policy](https://www.omni.co/privacy)[Support](/cdn-cgi/l/email-protection#384b4d4848574a4c7857555651165b57)
+  [Documentation](https://docs.omni.co/ai/mcp)[Privacy Policy](https://www.omni.co/privacy)[support@omni.co](mailto:support@omni.co)
 
 Query Omni using the same semantic model, permissions, and logic defined by your data team directly from Claude. Instantly answer questions about your business using natural language — no need to write SQL or navigate complex dashboards. Your Omni semantic model becomes Claude's knowledge of your data, enabling secure, governed, and consistent analytics workflows across your organization.
 

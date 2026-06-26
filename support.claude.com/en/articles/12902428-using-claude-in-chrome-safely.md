@@ -67,7 +67,7 @@ For your safety, Claude cannot access sensitive, high-risk sites such as:
 * Cryptocurrency exchanges
 * Known pirated content sites
 
-It’s unlikely that we’ve captured all sites in these categories, so please report any omissions to [[email protected]](/cdn-cgi/l/email-protection#285d5b4d5a5b494e4d5c516849465c405a4758414b064b4745).
+It’s unlikely that we’ve captured all sites in these categories, so please report any omissions to [[email protected]](mailto:usersafety@anthropic.com).
 
 ## Protecting yourself from malicious attackers
 

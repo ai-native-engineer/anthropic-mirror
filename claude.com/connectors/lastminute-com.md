@@ -22,7 +22,7 @@ Search, compare and book flights, dynamic packages (flight + hotel) and hotels a
   Read
 * More
 
-  [Documentation](http://mcp.lastminute.com/docs)[Privacy Policy](https://www.lastminute.com/en/info/privacy/bravonext.html)[Support](/cdn-cgi/l/email-protection#335e5043735f5240475e5a5d4647561d505c5e)
+  [Documentation](http://mcp.lastminute.com/docs)[Privacy Policy](https://www.lastminute.com/en/info/privacy/bravonext.html)[mcp@lastminute.com](mailto:mcp@lastminute.com)
 
 Access real-time flight and hotel data directly through Claude to search, compare, and book flights, dynamic packages (flight + hotel), and hotels across a global network of airlines and hotel suppliers.Benefit from instant price comparisons, flexible filters, and intelligent recommendations that seamlessly integrate Claude's capabilities into your travel planning. Enhance your workflow with comprehensive flight, dynamic package, and hotel search powered by lastminute.com.
 

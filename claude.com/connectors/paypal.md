@@ -22,7 +22,7 @@ Access PayPal payments platform
   Read
 * More
 
-  [Documentation](https://developer.paypal.com/tools/mcp-server/)[Privacy Policy](https://www.paypal.com/us/legalhub/paypal/privacy-full)[Support](/cdn-cgi/l/email-protection#47232231222b283722350737263e37262b6924282a)
+  [Documentation](https://developer.paypal.com/tools/mcp-server/)[Privacy Policy](https://www.paypal.com/us/legalhub/paypal/privacy-full)[developer@paypal.com](mailto:developer@paypal.com)
 
 Interact with PayPal’s payment ecosystem to process transactions, manage subscriptions, handle disputes, access customer payment data, generate financial reports, and monitor payment flows. Enable secure payment operations and business insights through conversational commands for comprehensive payment management.
 
@@ -41,7 +41,7 @@ Create subscription plans:
 "Create a PayPal subscription plan for product '{product\_name}' with billing cycle '{billing\_cycle}', price '{price} {currency}'. Set trial period cycle to '{trial\_period}'"
 
 Set up subscriptions:  
-"Create a PayPal subscription for the 'Premium Membership' plan and subscribe [[email protected]](/cdn-cgi/l/email-protection#a2c1d7d1d6cdcfc7d0e2c7cfc3cbce8cc1cdcf)"
+"Create a PayPal subscription for the 'Premium Membership' plan and subscribe [[email protected]](mailto:customer@email.com)"
 
 ## Related connectors
 

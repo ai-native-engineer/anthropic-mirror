@@ -22,7 +22,7 @@ The system of action for conversation data
   Read
 * More
 
-  [Documentation](https://help.spinach.ai/en/articles/11030670-mcp-configuration)[Privacy Policy](https://www.spinach.ai/privacy)[Support](/cdn-cgi/l/email-protection#6a191f1a1a05181e2a191a03040b0902440b03)
+  [Documentation](https://help.spinach.ai/en/articles/11030670-mcp-configuration)[Privacy Policy](https://www.spinach.ai/privacy)[support@spinach.ai](mailto:support@spinach.ai)
 
 Connect Claude to your Spinach AI meeting history. Access summaries, key decisions, and action items from your team syncs directly within your workflow. Ask Claude questions about recent discussions, track open tasks, and recall specific project details. Use your meeting context to seamlessly draft follow-up emails, project updates, and strategy documents without leaving the chat.
 

@@ -21,7 +21,7 @@ Record screen and collect automatic context for issues
   Read
 * More
 
-  [Documentation](https://jam.dev/docs/debug-a-jam/mcp)[Privacy Policy](https://jam.dev/privacy)[Support](/cdn-cgi/l/email-protection#ee868b828281ae848f83c08a8b98)
+  [Documentation](https://jam.dev/docs/debug-a-jam/mcp)[Privacy Policy](https://jam.dev/privacy)[hello@jam.dev](mailto:hello@jam.dev)
 
 The fast lane between Jam recordings and your dev tools. Drop a Jam link into Claude and the whole recording – video, console, network, logs – arrives pre-packaged. No hand-typing repro steps, no copy-paste stack traces, no screen-share drama. Claude gets instant context, you stay in flow.
 

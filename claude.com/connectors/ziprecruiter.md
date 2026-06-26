@@ -22,7 +22,7 @@ Job search made easy
   Interactive
 * More
 
-  [Documentation](https://api.ziprecruiter.com/mcp/docs)[Privacy Policy](https://www.ziprecruiter.global/en/privacy)[Support](/cdn-cgi/l/email-protection#3645434646594442764c5f4644535544435f4253441855595b)
+  [Documentation](https://api.ziprecruiter.com/mcp/docs)[Privacy Policy](https://www.ziprecruiter.global/en/privacy)[support@ziprecruiter.com](mailto:support@ziprecruiter.com)
 
 Find live jobs on ZipRecruiter without leaving Claude. Search by job title, company, or location, then narrow results by salary, distance, remote or hybrid work, employment type, and date posted. After reviewing a listing, jump to ZipRecruiter to apply.
 

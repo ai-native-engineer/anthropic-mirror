@@ -22,7 +22,7 @@ Perform world-class investment analysis
   Read
 * More
 
-  [Documentation](https://api.canary-data.com/mcp/documentation/)[Privacy Policy](https://canarydata.ai/privacy-policy)[Support](/cdn-cgi/l/email-protection#d7bdb8b297b4b6b9b6a5aefab3b6a3b6f9b4b8ba)
+  [Documentation](https://api.canary-data.com/mcp/documentation/)[Privacy Policy](https://canarydata.ai/privacy-policy)[joe@canary-data.com](mailto:joe@canary-data.com)
 
 Generate new investment ideas and perform in-depth analysis of any publicly traded business using proprietary Canary datasets, intelligence and synthesis within Claude. Canary plays well with other financial MCPs to combine to make Claude into a world-class investment analyst.
 

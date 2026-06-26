@@ -24,7 +24,7 @@ Find and hire local pros in Claude
   Interactive
 * More
 
-  [Documentation](https://docs.google.com/document/d/1RmGske5ktjAi9d7Ayok_yOv3a6Z2RDBSxIlX7aC5OEM/edit?usp=sharing)[Privacy Policy](https://www.thumbtack.com/privacy/)[Support](/cdn-cgi/l/email-protection#b2c1c7c2c2ddc0c6f2c6dac7dfd0c6d3d1d99cd1dddf)
+  [Documentation](https://docs.google.com/document/d/1RmGske5ktjAi9d7Ayok_yOv3a6Z2RDBSxIlX7aC5OEM/edit?usp=sharing)[Privacy Policy](https://www.thumbtack.com/privacy/)[support@thumbtack.com](mailto:support@thumbtack.com)
 
 Thumbtack is integrated into Claude to help you take action on home projects. Ask questions about repairs, maintenance, or improvements and get matched with local pros. From leaky faucets to landscape design, we've got pros for every home project. Browse recommendations and connect with the right pro, making it easier to go from project planning to hiring without leaving the conversation.
 

@@ -22,7 +22,7 @@ Enrich contacts & accounts with GTM intelligence
   Read & write
 * More
 
-  [Documentation](https://docs.zoominfo.com/docs/zi-api-mcp-overview/)[Privacy Policy](https://www.zoominfo.com/legal/privacy-policy)[Support](/cdn-cgi/l/email-protection#a0c9ced4c5c7d2c1d4c9cfced3d5d0d0cfd2d4e0dacfcfcdc9cec6cf8ec3cfcd)
+  [Documentation](https://docs.zoominfo.com/docs/zi-api-mcp-overview/)[Privacy Policy](https://www.zoominfo.com/legal/privacy-policy)[integrationsupport@zoominfo.com](mailto:integrationsupport@zoominfo.com)
 
 Access ZoomInfo's GTM intelligence to ground your AI workflows with verified B2B data. Search companies and identify key stakeholders with natural language. Enrich with 300+ data points, build targeted account lists, and drive momentum from first touch to renewal.
 

@@ -22,7 +22,7 @@ CRM that remembers everything and works for you.
   Read & write
 * More
 
-  [Documentation](https://docs.lightfield.app/getting-started/mcp-quickstart/)[Privacy Policy](https://lightfield.app/privacy)[Support](/cdn-cgi/l/email-protection#40333530302f3234002c292728342629252c246e213030)
+  [Documentation](https://docs.lightfield.app/getting-started/mcp-quickstart/)[Privacy Policy](https://lightfield.app/privacy)[support@lightfield.app](mailto:support@lightfield.app)
 
 Access and manage your CRM directly from Claude. Search, create, and update accounts, contacts, opportunities, notes, tasks, and lists — all through natural language. Look up records, filter by any field, track deals through your pipeline, and manage your workspace without leaving the conversation.
 

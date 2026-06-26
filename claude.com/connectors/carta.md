@@ -22,7 +22,7 @@ The connected ERP for private capital
   Interactive
 * More
 
-  [Documentation](https://docs.carta.com/api-platform/docs/claude-plugins-setup)[Privacy Policy](https://carta.com/legal/privacy/privacy-policy/)[Support](/cdn-cgi/l/email-protection#f4849881939d9a87b49795868095da979b99)
+  [Documentation](https://docs.carta.com/api-platform/docs/claude-plugins-setup)[Privacy Policy](https://carta.com/legal/privacy/privacy-policy/)[plugins@carta.com](mailto:plugins@carta.com)
 
 Access cap table and investor data directly to your AI workflow. Cap table customers can pull cap table ownership, 409A valuations, and stakeholder details. Model pro-forma rounds and analyze exit scenarios. For investors, access investment metrics, fund performance, accounting data, and company financials instantly. Ask questions, run scenarios, and uncover insights without context switching—your Carta data remains secure and integrated.
 

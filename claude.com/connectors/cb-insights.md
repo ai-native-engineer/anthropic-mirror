@@ -22,7 +22,7 @@ Predictive intelligence on private companies
   Read & write
 * More
 
-  [Documentation](https://mcp.cbinsights.com)[Privacy Policy](https://www.cbinsights.com/privacy-policy)[Support](/cdn-cgi/l/email-protection#d7a4a2a7a7b8a5a397b4b5beb9a4beb0bfa3a4f9b4b8ba)
+  [Documentation](https://mcp.cbinsights.com)[Privacy Policy](https://www.cbinsights.com/privacy-policy)[support@cbinsights.com](mailto:support@cbinsights.com)
 
 Unleash Claude as your private markets research agent. Source companies, build market maps, draft investment memos, and monitor competitors — all powered by CB Insights' predictive intelligence. Tap into 11M+ double-validated company profiles, leading coverage of recent equity deals, proprietary taxonomies, unique scores, hidden signals, and over 20 years of bleeding-edge technology research to identify and analyze relevant, high-potential companies ahead of your competition.
 

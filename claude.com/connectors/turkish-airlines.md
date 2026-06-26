@@ -22,7 +22,7 @@ Search flights, plan trips, and manage bookings
   Interactive
 * More
 
-  [Documentation](https://mcp.turkishtechlab.com/)[Privacy Policy](https://www.turkishairlines.com/en-int/legal-notice/privacy-policy/)[Support](/cdn-cgi/l/email-protection#05616c626c71646969646745716d7c2b666a68)
+  [Documentation](https://mcp.turkishtechlab.com/)[Privacy Policy](https://www.turkishairlines.com/en-int/legal-notice/privacy-policy/)[digitallab@thy.com](mailto:digitallab@thy.com)
 
 The official Turkish Airlines MCP App. Search and compare flights, check live status, look up booking details and baggage allowance, browse city guides, and discover promotions — all directly inside Claude.
 

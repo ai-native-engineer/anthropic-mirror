@@ -22,7 +22,7 @@ Pharmaceutical drug & clinical trial intelligence
   Interactive
 * More
 
-  [Documentation](https://adisinsight-mcp.springer.com)[Privacy Policy](https://adisinsight.springer.com/terms-and-conditions)[Support](/cdn-cgi/l/email-protection#f6b7859ddb829e93dbb38e86938482dbb7929f85bf98859f919e82b68586849f98919384d895999b)
+  [Documentation](https://adisinsight-mcp.springer.com)[Privacy Policy](https://adisinsight.springer.com/terms-and-conditions)[Ask-the-Expert-AdisInsight@springer.com](mailto:Ask-the-Expert-AdisInsight@springer.com)
 
 AdisInsight gives Claude real-time access to the world's most comprehensive pharmaceutical drug and clinical trial intelligence database, powered by Springer Nature. Search and explore drug pipelines by developer, therapeutic area, development phase, mechanism of action, and 40+ parameters. Find clinical trials by compound, sponsor, indication, phase, and status. Analyze competitive landscapes by company portfolios. Generate interactive charts visualizing pipeline distributions and trial landscapes. Access detailed drug profiles including development history, adverse events, and regulatory milestones.
 

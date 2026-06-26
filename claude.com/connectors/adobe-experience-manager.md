@@ -22,7 +22,7 @@ Manage your Adobe Experience Manager content
   Read & write
 * More
 
-  [Documentation](https://www.adobe.com/go/aem_claude_mcp_docs)[Privacy Policy](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/compliance/data-privacy/aem-readiness)[Support](/cdn-cgi/l/email-protection#c9a8aca4aabae4a4aab9e4afacacadaba8aaa289a8ada6abace7aaa6a4)
+  [Documentation](https://www.adobe.com/go/aem_claude_mcp_docs)[Privacy Policy](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/compliance/data-privacy/aem-readiness)[aemcs-mcp-feedback@adobe.com](mailto:aemcs-mcp-feedback@adobe.com)
 
 Create, edit, search, and publish pages and content fragments in Adobe Experience Manager — simply by describing what you need. Instead of navigating the user interface, tell Claude what to do in plain language: update a hero banner, find pages about a campaign, or schedule content for launch. All changes respect your AEM permissions. Work faster, reduce repetitive tasks, and stay focused on what matters most — your content.
 

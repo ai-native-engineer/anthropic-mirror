@@ -22,7 +22,7 @@ Create shareable documents, one-pagers, and decks
   Read & write
 * More
 
-  [Documentation](https://www.send.co/mcp/docs)[Privacy Policy](https://www.send.co/legal/privacy-policy)[Support](/cdn-cgi/l/email-protection#0f7c7a7f7f607d7b4f7c6a616b216c60)
+  [Documentation](https://www.send.co/mcp/docs)[Privacy Policy](https://www.send.co/legal/privacy-policy)[support@send.co](mailto:support@send.co)
 
 Create documents, one-pagers, decks, and presentations directly inside Claude. No extra subscriptions, no switching tabs. Tell Claude what you want built and Send publishes it as a shareable link in seconds. Recipients get a beautiful interactive webpage instead of a stale PowerPoint (ppt) attachment. You get notified when they open it, and can capture their name, email, and phone right from the page. Host it all on your own domain and track your top viewers.
 

@@ -22,7 +22,7 @@ Search your Consilio matters, docs, and more.
   Read
 * More
 
-  [Documentation](https://mcp-docs.ai.consilio.com)[Privacy Policy](https://www.consilio.com/privacy/privacy-policy)[Support](/cdn-cgi/l/email-protection#43303633332c313703202c2d302a2f2a2c6d202c2e)
+  [Documentation](https://mcp-docs.ai.consilio.com)[Privacy Policy](https://www.consilio.com/privacy/privacy-policy)[support@consilio.com](mailto:support@consilio.com)
 
 Aurora is a read-only connector that puts your Consilio engagement, document, and other data at Claude's fingertips. Ask Claude to find a matter by client or alpha-code, list the workspaces inside it, run a full-text search across documents. AI-powered investigations let Claude follow an answer across matters, workspaces, and documents in a single conversation — automatically narrowing ambiguous queries to the right context and citing a direct source URL on every record. Every response is scoped to what you're already entitled to see on the Consilio web products.
 

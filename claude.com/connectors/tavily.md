@@ -22,7 +22,7 @@ Connect your AI agents to the web
   Read
 * More
 
-  [Documentation](https://docs.tavily.com/documentation/mcp)[Privacy Policy](https://www.tavily.com/terms)[Support](/cdn-cgi/l/email-protection#a5d6d0d5d5cad7d1e5d1c4d3ccc9dc8bc6cac8)
+  [Documentation](https://docs.tavily.com/documentation/mcp)[Privacy Policy](https://www.tavily.com/terms)[support@tavily.com](mailto:support@tavily.com)
 
 Give Claude real-time web access with Tavily. One API for search, extraction, and research. Built for the accuracy, speed, and security production agents require. You can use Tavily to ground answers in live data, optimize token usage by extracting relevant content, and ship with security built in with PII redaction and prompt injection protection.
 

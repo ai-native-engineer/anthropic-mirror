@@ -22,7 +22,7 @@ Get answers from unified feedback of your customers.
   Read
 * More
 
-  [Documentation](https://helpcenter.enterpret.com/en/articles/12665166-wisdom-mcp-server)[Privacy Policy](https://www.enterpret.com/privacy-commitment)[Support](/cdn-cgi/l/email-protection#d1b8bfa5b4b6a3b0a5b8bebfa291b4bfa5b4a3a1a3b4a5ffb2bebc)
+  [Documentation](https://helpcenter.enterpret.com/en/articles/12665166-wisdom-mcp-server)[Privacy Policy](https://www.enterpret.com/privacy-commitment)[integrations@enterpret.com](mailto:integrations@enterpret.com)
 
 Turn customer feedback into answers you can act on, directly in Claude. Query your Enterpret knowledge graph across support tickets, Gong calls, app reviews, NPS surveys, Slack, and more. Every insight is traced back to real customer conversations with direct links. Just ask a question in plain language. No query language or setup needed.
 

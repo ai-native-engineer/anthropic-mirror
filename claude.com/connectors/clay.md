@@ -22,7 +22,7 @@ Find prospects. Research accounts. Personalize outreach
   Interactive
 * More
 
-  [Documentation](https://www.notion.so/clayrun/Clay-Claude-MCP-Server-Documentation-2ef7e66eb01480c9820de48041591aeb)[Privacy Policy](https://privacy.clay.com/policies)[Support](/cdn-cgi/l/email-protection#067573767669747246656a677f2865696b)
+  [Documentation](https://www.notion.so/clayrun/Clay-Claude-MCP-Server-Documentation-2ef7e66eb01480c9820de48041591aeb)[Privacy Policy](https://privacy.clay.com/policies)[support@clay.com](mailto:support@clay.com)
 
 Run deep company and contact research without leaving your conversation. Use Clay's contact databases, enrichment providers, and AI agents to research target accounts, surface verified, enriched contact info, and draft personalized outreach—all directly in Claude.  
   

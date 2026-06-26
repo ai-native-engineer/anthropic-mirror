@@ -22,7 +22,7 @@ Financials, risk data and analysis on 50,000 industries
   Read
 * More
 
-  [Documentation](https://help.ibisworld.com/en/articles/14627556-ibisworld-mcp-server-documentation)[Privacy Policy](https://www.ibisworld.com/about/privacy/)[Support](/cdn-cgi/l/email-protection#accfc0c5c9c2d8dfd9dcdcc3ded8ecc5cec5dfdbc3dec0c882cfc3c1)
+  [Documentation](https://help.ibisworld.com/en/articles/14627556-ibisworld-mcp-server-documentation)[Privacy Policy](https://www.ibisworld.com/about/privacy/)[clientsupport@ibisworld.com](mailto:clientsupport@ibisworld.com)
 
 Turn Claude into your personal industry analyst, powered by IBISWorld's coverage of thousands of industries and 10 million data points. Access revenue and employment statistics, financial ratios, risk scores, cost structures, trade data, analyst-written insights, and other industry statistics. Size markets, forecast trends, and assess risk across banking, consulting, accounting, sales, and other strategic workflows without ever leaving Claude.
 

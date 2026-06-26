@@ -22,7 +22,7 @@ Connect your health records for personalized insights
   Read
 * More
 
-  [Documentation](https://docs.healthex.io/category/healthex-mcp-server)[Privacy Policy](https://www.healthex.io/privacy-policy)[Support](/cdn-cgi/l/email-protection#4d3e383d3d223f390d25282c2139252835632422)
+  [Documentation](https://docs.healthex.io/category/healthex-mcp-server)[Privacy Policy](https://www.healthex.io/privacy-policy)[support@healthex.io](mailto:support@healthex.io)
 
 The HealthEx connector connects Claude to your health records, securely pulling data from all your care providers into one place. Ask Claude to summarize your health, understand lab results, help prep for your next doctor's visit, and guide your daily routine.
 

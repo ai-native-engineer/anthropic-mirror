@@ -22,7 +22,7 @@ Discover expert-written skills for legal work
   Read
 * More
 
-  [Documentation](https://lawve.ai/en/learn/mcp-setup)[Privacy Policy](https://lawve.ai/en/privacy)[Support](/cdn-cgi/l/email-protection#41222e2f35202235012d20363720232d246f222e2c)
+  [Documentation](https://lawve.ai/en/learn/mcp-setup)[Privacy Policy](https://lawve.ai/en/privacy)[contact@lawvable.com](mailto:contact@lawvable.com)
 
 Browse a curated library of legal AI skills written by practicing lawyers, in-house counsel, and legal technologists. Every skill covers a specific workflow — contract review, NDA analysis, GDPR compliance, legal drafting, jurisdiction-specific research. Search the catalog from inside Claude to find the skill that fits your task and preview its practitioner-authored instructions. Bring expert guidance into your workflow — whether you're at a law firm, in-house, or building legal tech.
 

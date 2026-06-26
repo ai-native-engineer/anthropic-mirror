@@ -22,7 +22,7 @@ Manage tickets, assets, changes, and IT requests
   Read & write
 * More
 
-  [Documentation](https://support.freshservice.com/support/solutions/articles/50000012678-model-context-protocol-mcp-integration-in-freshservice-eap)[Privacy Policy](https://www.freshworks.com/privacy)[Support](/cdn-cgi/l/email-protection#50232520203f2224103622352338233522263933357e333f3d)
+  [Documentation](https://support.freshservice.com/support/solutions/articles/50000012678-model-context-protocol-mcp-integration-in-freshservice-eap)[Privacy Policy](https://www.freshworks.com/privacy)[support@freshservice.com](mailto:support@freshservice.com)
 
 Manage IT service requests, incidents, and assets directly from Claude. Browse, create, and update tickets, incidents, and service requests in Freshservice without leaving your conversation. Fetch asset details, check ticket statuses, assign agents, and automate routine IT workflows using natural language. Make Freshservice a native part of your AI workflow—an intelligent IT service management agent that helps your team resolve issues faster and keep operations running smoothly.
 

@@ -22,7 +22,7 @@ Analyze U.S. fixed income trade and reference data
   Read
 * More
 
-  [Documentation](https://www.ice.com/ieoauoau)[Privacy Policy](https://www.ice.com/privacy-security-center)[Support](/cdn-cgi/l/email-protection#41282532222d28242f35323431312e3335012822246f222e2c)
+  [Documentation](https://www.ice.com/ieoauoau)[Privacy Policy](https://www.ice.com/privacy-security-center)[idsclientsupport@ice.com](mailto:idsclientsupport@ice.com)
 
 Query real-time and historical bond trades across corporate, agency and securitized products reported to FINRA TRACE, and municipal bond trades reported to MSRB RTRS. Look up bond reference data including coupon details and maturity dates.
 

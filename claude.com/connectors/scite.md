@@ -22,7 +22,7 @@ Evidence-based answers grounded in research
   Read
 * More
 
-  [Documentation](https://scite.ai/mcp)[Privacy Policy](https://scite.ai/policy)[Support](/cdn-cgi/l/email-protection#593a2c2a2d36343c2b2a2c2929362b2d192b3c2a3c382b3a312a36352c2d3036372a773a3634)
+  [Documentation](https://scite.ai/mcp)[Privacy Policy](https://scite.ai/policy)[customersupport@researchsolutions.com](mailto:customersupport@researchsolutions.com)
 
 Scite delivers answers grounded in peer-reviewed research you can verify. Each response is backed by real scientific sources, with citations that show how studies have been supported, disputed, or contextualized by other researchers. Behind the scenes, Scite’s proprietary citation-based ranking model prioritizes trustworthy, validated research, helping users move beyond claims to evidence.
 

@@ -22,7 +22,7 @@ Analyze and generate insights from meeting transcripts
   Read
 * More
 
-  [Documentation](https://guide.fireflies.ai/articles/8272956938-learn-about-the-fireflies-mcp-server-model-context-protocol)[Privacy Policy](https://fireflies.ai/privacy_policy.pdf)[Support](/cdn-cgi/l/email-protection#7b080e0b0b14090f3b1d12091e1d17121e08551a12)
+  [Documentation](https://guide.fireflies.ai/articles/8272956938-learn-about-the-fireflies-mcp-server-model-context-protocol)[Privacy Policy](https://fireflies.ai/privacy_policy.pdf)[support@fireflies.ai](mailto:support@fireflies.ai)
 
 Extract valuable insights from meeting transcripts and summaries.
 

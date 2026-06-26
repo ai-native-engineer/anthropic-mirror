@@ -22,7 +22,7 @@ Your nutrition data, inside every Claude conversation.
   Read
 * More
 
-  [Documentation](https://alma.food/mcp)[Privacy Policy](https://www.alma.food/privacy-and-terms)[Support](/cdn-cgi/l/email-protection#98f5f9f6fff7d8f9f4f5f9b6fef7f7fc)
+  [Documentation](https://alma.food/mcp)[Privacy Policy](https://www.alma.food/privacy-and-terms)[mango@alma.food](mailto:mango@alma.food)
 
 Alma is an AI nutrition coach that tracks what you eat, monitors 25+ micronutrients per meal, and scores your diet quality in real time using Harvard's Alternate Healthy Eating Index. Connect Alma to Claude and your full nutrition context comes with you: meals logged, nutrient gaps, Alma Score trends, and coaching history. Ask Claude questions about your actual diet, get personalized guidance, and close nutritional gaps faster. Built for anyone serious about eating better, from everyday health optimizers to GLP-1 patients and performance athletes.
 

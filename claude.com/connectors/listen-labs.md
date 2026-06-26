@@ -22,7 +22,7 @@ Analyze user insights from Listen Labs
   Read
 * More
 
-  [Documentation](https://docs.listenlabs.ai/mcp-docs)[Privacy Policy](https://listenlabs.ai/privacy)[Support](/cdn-cgi/l/email-protection#42313732322d3036022e2b3136272c2e2320316c232b)
+  [Documentation](https://docs.listenlabs.ai/mcp-docs)[Privacy Policy](https://listenlabs.ai/privacy)[support@listenlabs.ai](mailto:support@listenlabs.ai)
 
 Browse your Listen Labs studies, pull response data, review study designs, and surface analysis insights directly from Claude. Make Listen Labs a native part of your research workflow, an AI-powered research assistant that helps you synthesize qualitative findings faster, with deeper insight.
 

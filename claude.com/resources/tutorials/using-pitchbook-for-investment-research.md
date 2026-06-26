@@ -123,7 +123,7 @@ Discover unexpected connections between companies, investors, and professionals 
 
 ## Contact
 
-If you are having trouble completing the PitchBook Premium integration, you can contact [[email protected]](/cdn-cgi/l/email-protection#50232520203f2224102039243338323f3f3b7e333f3d) for help.
+If you are having trouble completing the PitchBook Premium integration, you can contact [[email protected]](mailto:support@pitchbook.com) for help.
 
 ‍
 

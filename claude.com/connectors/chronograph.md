@@ -22,7 +22,7 @@ Interact with your Chronograph data directly in Claude
   Read
 * More
 
-  [Documentation](https://lp-help.chronograph.pe/article/735-chronograph-mcp)[Privacy Policy](https://www.chronograph.pe/legal/privacy-policy/)[Support](/cdn-cgi/l/email-protection#fab996939f948ed4899f888c93999f89ba9992889594959d889b8a92d48a9f)
+  [Documentation](https://lp-help.chronograph.pe/article/735-chronograph-mcp)[Privacy Policy](https://www.chronograph.pe/legal/privacy-policy/)[Client.services@chronograph.pe](mailto:Client.services@chronograph.pe)
 
 The Chronograph connector allows users to query portfolio data, analyze investments, search for entities, retrieve performance metrics, and access Chronograph's help documentation. The connector is designed for private investment workflows, providing programmatic access to portfolio analytics and reporting data.
 

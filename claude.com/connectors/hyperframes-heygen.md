@@ -24,7 +24,7 @@ Build animated slides and motion graphics with HTML
   Interactive
 * More
 
-  [Documentation](https://hyperframes.heygen.com/guides/mcp)[Privacy Policy](https://www.heygen.com/privacy)[Support](/cdn-cgi/l/email-protection#4b2f2e3d2e27243b2e39380b232e322c2e2565282426)
+  [Documentation](https://hyperframes.heygen.com/guides/mcp)[Privacy Policy](https://www.heygen.com/privacy)[developers@heygen.com](mailto:developers@heygen.com)
 
 Claude can now help you create animated slides, explainer videos and motion graphics to communicate and visualize your ideas. HyperFrames is an open source solution developed by HeyGen that turns HTML code into videos.
 

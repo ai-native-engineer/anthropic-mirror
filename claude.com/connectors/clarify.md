@@ -22,7 +22,7 @@ Query your CRM. Create records. Ask anything.
   Read & write
 * More
 
-  [Documentation](https://docs.clarify.ai/en/articles/13367278-clarify-mcp)[Privacy Policy](https://www.clarify.ai/privacy)[Support](/cdn-cgi/l/email-protection#6a191f1a1a05181e2a09060b18030c13440b03)
+  [Documentation](https://docs.clarify.ai/en/articles/13367278-clarify-mcp)[Privacy Policy](https://www.clarify.ai/privacy)[support@clarify.ai](mailto:support@clarify.ai)
 
 Connect Clarify and work with your CRM using natural language. Retrieve, create, and update records, analyze your pipeline, and generate insights—all through conversation.
 

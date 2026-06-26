@@ -22,7 +22,7 @@ Securely connect Claude to your Close data
   Read & write
 * More
 
-  [Documentation](https://help.close.com/v1/docs/en/mcp-server)[Privacy Policy](https://www.close.com/security)[Support](/cdn-cgi/l/email-protection#83f0f6f3f3ecf1f7c3e0efecf0e6ade0ecee)
+  [Documentation](https://help.close.com/v1/docs/en/mcp-server)[Privacy Policy](https://www.close.com/security)[support@close.com](mailto:support@close.com)
 
 The Close connector is a secure, standardized interface that lets Claude directly access and interact with your Close data. Core functionality with Claude: Connects Close to Claude via the Model Context Protocol so Claude can use Close as a trusted system of record. Read data (e.g., leads, contacts, opportunities, activities) based on your Close permissions. Optionally write data — you can allow only safe writes (e.g., create a lead) or full writes (e.g., edit/delete) during setup. Enables Claude to answer questions, summarize information, and perform actions in Close.
 

@@ -22,7 +22,7 @@ Query live data about deals, engagement, and pipeline
   Read
 * More
 
-  [Documentation](https://help.salesloft.com/s/article/Salesloft-MCP-Server)[Privacy Policy](https://www.salesloft.com/legal/platform-privacy-notice)[Support](/cdn-cgi/l/email-protection#23505653534c51576350424f46504f4c45570d404c4e)
+  [Documentation](https://help.salesloft.com/s/article/Salesloft-MCP-Server)[Privacy Policy](https://www.salesloft.com/legal/platform-privacy-notice)[support@salesloft.com](mailto:support@salesloft.com)
 
 Access your live Salesloft data directly inside Claude. Ask about deals, accounts, contacts, conversations, and pipeline status — and get answers grounded in real engagement data, call transcripts, and deal activity. Secured with OAuth 2.0 and role-scoped permissions so you only see your own data.
 

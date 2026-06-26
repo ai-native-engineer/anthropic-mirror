@@ -22,7 +22,7 @@ Zoho Projects MCP for Task & Project Automation
   Read & write
 * More
 
-  [Documentation](https://help.zoho.com/portal/en/kb/mcp/getting-started/articles/zoho-mcp-help-documentation-29-9-2025)[Privacy Policy](https://www.zoho.com/privacy.html)[Support](/cdn-cgi/l/email-protection#0675737676697472467c696e696b65762865696b)
+  [Documentation](https://help.zoho.com/portal/en/kb/mcp/getting-started/articles/zoho-mcp-help-documentation-29-9-2025)[Privacy Policy](https://www.zoho.com/privacy.html)[support@zohomcp.com](mailto:support@zohomcp.com)
 
 Control Zoho Projects data and task operations through MCP tools.
 

@@ -22,7 +22,7 @@ Comprehensive financial datasets
   Read
 * More
 
-  [Documentation](https://financialmodelingprep.com/developer/docs/mcp-server)[Privacy Policy](https://financialmodelingprep.com/privacy-policy)[Support](/cdn-cgi/l/email-protection#93fafdf5fcd3f5fafdf2fdf0faf2fffefcf7f6fffafdf4e3e1f6e3bdf0fcfe)
+  [Documentation](https://financialmodelingprep.com/developer/docs/mcp-server)[Privacy Policy](https://financialmodelingprep.com/privacy-policy)[info@financialmodelingprep.com](mailto:info@financialmodelingprep.com)
 
 Real-time and historical financial data through 27 read-only tools covering stocks, ETFs, crypto, forex, commodities, SEC filings, economic indicators, and more. Users can look up company fundamentals, pull financial statements, screen stocks, read earnings transcripts, track insider and congressional trades, get live quotes, and run valuation models.
 

@@ -22,7 +22,7 @@ Your AI data analyst, from question to trusted insights
   Read & write
 * More
 
-  [Documentation](https://developers.thoughtspot.com/docs/mcp-integration#_add_mcp_server_to_the_mcp_clients_config)[Privacy Policy](https://www.thoughtspot.com/privacy-statement)[Support](/cdn-cgi/l/email-protection#670f020b170302140c27130f0812000f13141708134904080a)
+  [Documentation](https://developers.thoughtspot.com/docs/mcp-integration#_add_mcp_server_to_the_mcp_clients_config)[Privacy Policy](https://www.thoughtspot.com/privacy-statement)[helpdesk@thoughtspot.com](mailto:helpdesk@thoughtspot.com)
 
 From everyday data questions to high-level strategic analyses, Spotter by ThoughtSpot helps business and data teams get answers and insights they can trust, validate, and act on, enabling everyone to use data to drive the business forward.
 

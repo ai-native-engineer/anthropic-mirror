@@ -22,7 +22,7 @@ Search and manage Pylon support issues
   Read & write
 * More
 
-  [Documentation](https://support.usepylon.com/articles/2407390554-connecting-to-the-pylon-mcp-server?lang=en)[Privacy Policy](https://www.usepylon.com/privacy)[Support](/cdn-cgi/l/email-protection#7d0e080d0d120f093d080e180d04111213531e1210)
+  [Documentation](https://support.usepylon.com/articles/2407390554-connecting-to-the-pylon-mcp-server?lang=en)[Privacy Policy](https://www.usepylon.com/privacy)[support@usepylon.com](mailto:support@usepylon.com)
 
 Access Pylon's customer support platform directly from Claude to search, manage, and resolve customer issues. Stay on top of your support queue while connecting Claude's insights to real customer conversations.
 

@@ -22,7 +22,7 @@ Manage your Qonto business finances from Claude
   Read & write
 * More
 
-  [Documentation](https://mcp.qonto.com/explorer)[Privacy Policy](https://qonto.pactsafe.io/en-de#template-6uiwuhdde)[Support](/cdn-cgi/l/email-protection#33404643435c414773425c5d475c1d505c5e)
+  [Documentation](https://mcp.qonto.com/explorer)[Privacy Policy](https://qonto.pactsafe.io/en-de#template-6uiwuhdde)[support@qonto.com](mailto:support@qonto.com)
 
 Qonto MCP brings your business account into Claude. Once connected, Claude can browse your transactions, statements, and bank accounts; manage clients, products, and quotes; issue and track client invoices and credit notes; review pending supplier invoices; manage debit, virtual, and flash cards; and handle team expense requests. Every action runs with the same access you already have in the Qonto app.
 

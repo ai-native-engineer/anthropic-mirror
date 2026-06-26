@@ -22,7 +22,7 @@ Add your meetings context via transcripts and notes
   Read
 * More
 
-  [Documentation](https://help.krisp.ai/hc/en-us/articles/25416265429660-Krisp-MCP-Supported-tools)[Privacy Policy](https://krisp.ai/privacy-policy/)[Support](/cdn-cgi/l/email-protection#5625232626392422163d243f252678373f)
+  [Documentation](https://help.krisp.ai/hc/en-us/articles/25416265429660-Krisp-MCP-Supported-tools)[Privacy Policy](https://krisp.ai/privacy-policy/)[support@krisp.ai](mailto:support@krisp.ai)
 
 Connect your meeting history to AI tools so past decisions, action items, and conversation context are easy to find and use.
 

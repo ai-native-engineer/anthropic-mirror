@@ -21,7 +21,7 @@ Give Claude full enterprise-scale codebase context.
   Read
 * More
 
-  [Documentation](https://sourcegraph.com/docs/api/mcp#sourcegraph-mcp-server)[Privacy Policy](https://sourcegraph.com/terms/privacy)[Support](/cdn-cgi/l/email-protection#86f5f3f6f6e9f4f2c6f5e9f3f4e5e3e1f4e7f6eea8e5e9eb)
+  [Documentation](https://sourcegraph.com/docs/api/mcp#sourcegraph-mcp-server)[Privacy Policy](https://sourcegraph.com/terms/privacy)[support@sourcegraph.com](mailto:support@sourcegraph.com)
 
 Connect Claude to Sourcegraph's powerful code intelligence APIs - enabling semantic code search, symbol lookup, file retrieval, and repository navigation across your entire codebase, including private and multi-repo setups.
 

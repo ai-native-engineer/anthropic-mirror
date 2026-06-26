@@ -22,7 +22,7 @@ Trusted real-time global financial news provider
   Read & write
 * More
 
-  [Documentation](https://console.blueskyapi.com/docs/EDGE/news/MT_NEWSWIRES_Global#mcp)[Privacy Policy](https://www.mtnewswires.com/privacy-policy)[Support](/cdn-cgi/l/email-protection#bdcec8cdcdd2cfc9fdcbd4dcd3d8c5c8ce93ded2d0)
+  [Documentation](https://console.blueskyapi.com/docs/EDGE/news/MT_NEWSWIRES_Global#mcp)[Privacy Policy](https://www.mtnewswires.com/privacy-policy)[support@vianexus.com](mailto:support@vianexus.com)
 
 MT Newswires delivers real-time, low-latency financial news across equities, fixed income, commodities, FX, and macroeconomics. Structured and machine-readable, it integrates seamlessly into AI, trading, and analytics systems, providing scalable, reliable, event-driven intelligence from MT Newswires' global newsroom trusted by leading banks, brokerages, and data providers.
 

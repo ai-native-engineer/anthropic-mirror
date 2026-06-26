@@ -22,7 +22,7 @@ Find funders who support causes like yours
   Read
 * More
 
-  [Documentation](https://kindora.co/mcp)[Privacy Policy](https://www.kindora.co/privacy)[Support](/cdn-cgi/l/email-protection#64171114140b1610240f0d0a000b16054a070b)
+  [Documentation](https://kindora.co/mcp)[Privacy Policy](https://www.kindora.co/privacy)[support@kindora.co](mailto:support@kindora.co)
 
 Search 168,000+ foundations, analyze giving patterns, and explore millions of grant records directly from Claude. Make funder research a native part of your AI workflow—helping nonprofit leaders discover aligned funders faster, with real data on who funds causes like yours.
 

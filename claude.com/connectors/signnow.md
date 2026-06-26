@@ -22,7 +22,7 @@ Automate eSignature workflows directly from Claude
   Read & write
 * More
 
-  [Documentation](https://docs.signnow.com/docs/signnow/mcp-server)[Privacy Policy](https://legal.signnow.com/privacy-notice)[Support](/cdn-cgi/l/email-protection#b4d5c4ddf4c7ddd3dadadbc39ad7dbd9)
+  [Documentation](https://docs.signnow.com/docs/signnow/mcp-server)[Privacy Policy](https://legal.signnow.com/privacy-notice)[api@signnow.com](mailto:api@signnow.com)
 
 Get documents signed faster without switching between tools. The SignNow MCP server connects Claude directly to your SignNow account, letting you manage the entire eSignature workflow through conversation. Send signature requests, create documents from templates and pre-fill them, track invite statuses, and retrieve signed files — all by describing what you need in plain language. Whether you're handling contracts, agreements, or approvals, Claude handles the SignNow actions so you can focus on your work instead of chasing signatures.
 

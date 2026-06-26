@@ -22,7 +22,7 @@ Integrate with the Airwallex Platform using Claude
   Read & write
 * More
 
-  [Documentation](https://www.airwallex.com/docs/developer-tools/ai/developer-mcp)[Privacy Policy](https://www.airwallex.com/terms/privacy-policy)[Support](/cdn-cgi/l/email-protection#583c3d2e3d3437283d2a762b2d2828372a2c1839312a2f3934343d20763b3735)
+  [Documentation](https://www.airwallex.com/docs/developer-tools/ai/developer-mcp)[Privacy Policy](https://www.airwallex.com/terms/privacy-policy)[developer.support@airwallex.com](mailto:developer.support@airwallex.com)
 
 The Airwallex Developer Model Context Protocol (MCP) server helps developers to easily integrate with Airwallex capabilities by bringing Airwallex documentation, API references, and sandbox testing tools directly to Claude. Enjoy developer lifecycle support from knowledge search, to troubleshooting, to simulations and go-live testing. Use your sandbox credentials to get started!
 

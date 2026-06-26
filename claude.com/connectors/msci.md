@@ -22,7 +22,7 @@ Turn data into insight
   Read & write
 * More
 
-  [Documentation](https://www.msci.com/downloads/web/msci-com/data-and-analytics/private-asset-solutions/ai-for-private-markets/msci-mcp-msci-connector-user-guide.pdf)[Privacy Policy](https://www.msci.com/legal/privacy-notice)[Support](/cdn-cgi/l/email-protection#9deee8ededf2efe9ddf0eefef4b3fef2f0)
+  [Documentation](https://www.msci.com/downloads/web/msci-com/data-and-analytics/private-asset-solutions/ai-for-private-markets/msci-mcp-msci-connector-user-guide.pdf)[Privacy Policy](https://www.msci.com/legal/privacy-notice)[support@msci.com](mailto:support@msci.com)
 
 The MSCI Connector provides access to an expanding range of MSCI AI-enabled data and analytics capabilities. Based on entitlements users can investigate index performance characteristics such as country, sector and factor exposures, constituent weights, and methodologies and explore private assets market trends, performance benchmarking, and holdings and risk factors. The connector is designed for investment professionals who require transparent, methodology-aligned data to support portfolio construction, attribution, exposure analysis, and private assets research.
 

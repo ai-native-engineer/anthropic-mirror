@@ -22,7 +22,7 @@ Generate gene expression from a virtual human
   Read
 * More
 
-  [Documentation](https://app.synthesize.bio/mcp/docs)[Privacy Policy](https://www.synthesize.bio/privacy)[Support](/cdn-cgi/l/email-protection#265553565649545266555f48524e43554f5c4308444f49)
+  [Documentation](https://app.synthesize.bio/mcp/docs)[Privacy Policy](https://www.synthesize.bio/privacy)[support@synthesize.bio](mailto:support@synthesize.bio)
 
 Synthesize Bio lets Claude generate and analyze gene expression data from a virtual human from a natural language prompt. Describe any experiment — "tumor vs normal lung tissue" or "KRAS knockout vs control" — and the platform generates realistic human expression profiles using its Gene Expression Model (GEM). You can use this gene expression data just as if you had done a laboratory experiment on human samples. Supports both bulk and single-cell RNA-seq modalities. See https://www.synthesize.bio/ to learn more about virtual humans, GEM, and to register for an account.
 

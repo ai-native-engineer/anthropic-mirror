@@ -22,7 +22,7 @@ Real-time web search & extraction for AI agents
   Read
 * More
 
-  [Documentation](https://docs.nimbleway.com/integrations/mcp-server/mcp-server)[Privacy Policy](https://www.nimbleway.com/privacy-policy)[Support](/cdn-cgi/l/email-protection#c2b1b7b2b2adb0b682acabafa0aea7b5a3bbeca1adaf)
+  [Documentation](https://docs.nimbleway.com/integrations/mcp-server/mcp-server)[Privacy Policy](https://www.nimbleway.com/privacy-policy)[support@nimbleway.com](mailto:support@nimbleway.com)
 
 Nimble connects AI agents to the live web with vertically-tuned search, extraction, mapping, and crawling. Each query is routed to the right sources and returned as structured JSON instead of noisy text. Headless browsers fully render JavaScript-heavy and anti-bot-protected sites that indexed search tools can't reach. Focus modes (shopping, social, news, geo, general) tune sourcing and extraction per domain, so agents get task-ready data without extra LLM parsing calls. SOC 2 compliant and built for production scale.
 

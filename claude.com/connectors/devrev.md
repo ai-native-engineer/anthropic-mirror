@@ -25,7 +25,7 @@ Manage your workspace, issues, tickets, customers, and more without leaving Clau
   Read & write
 * More
 
-  [Documentation](https://support.devrev.ai/en-US/devrev/article/ART-21859-remote-mcp-server)[Privacy Policy](https://devrev.ai/legal/privacy-policy)[Support](/cdn-cgi/l/email-protection#e0939590908f9294a0848596928596ce8189)
+  [Documentation](https://support.devrev.ai/en-US/devrev/article/ART-21859-remote-mcp-server)[Privacy Policy](https://devrev.ai/legal/privacy-policy)[support@devrev.ai](mailto:support@devrev.ai)
 
 Connect Computer and Claude to search, create, and action work across your product and customer operations.
 

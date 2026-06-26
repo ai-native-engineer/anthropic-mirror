@@ -22,7 +22,7 @@ Search 23M+ legal docs in 160+ jurisdictions.
   Read
 * More
 
-  [Documentation](https://legaldatahunter.com/docs)[Privacy Policy](https://legaldatahunter.com/privacy)[Support](/cdn-cgi/l/email-protection#f18b90929990839894b1969e9e959d9496909ddf9783)
+  [Documentation](https://legaldatahunter.com/docs)[Privacy Policy](https://legaldatahunter.com/privacy)[zacharie@goodlegal.fr](mailto:zacharie@goodlegal.fr)
 
 Legal Data Hunter is building the world's first omni-jurisdictional legal database, giving Claude access to 23M+ documents from 160+ jurisdictions in one MCP server. We ingest directly from official registries: Légifrance, EUR-Lex, BOE, RIS, the Bundesgerichtshof, the European Court of Human Rights, and 180+ more, covering EU consolidated law, supreme and constitutional court case law, and official doctrine. Resolve loose citations (ECLI, CELEX, case numbers), search with hybrid semantic + keyword filters, and fetch full document text. Authoritative primary sources only, no scraped web copy.
 

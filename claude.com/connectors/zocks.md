@@ -22,7 +22,7 @@ Analyze client conversations, patterns, and insights.
   Read
 * More
 
-  [Documentation](https://help.zocks.io/en/articles/14075856-connect-to-the-zocks-mcp-server)[Privacy Policy](https://www.zocks.io/privacy-policy)[Support](/cdn-cgi/l/email-protection#f1828481819e8385b18b9e929a82df989e)
+  [Documentation](https://help.zocks.io/en/articles/14075856-connect-to-the-zocks-mcp-server)[Privacy Policy](https://www.zocks.io/privacy-policy)[support@zocks.io](mailto:support@zocks.io)
 
 Zocks connects Claude to the client data financial advisors rely on - including conversation intelligence, meeting insights, and the goals, concerns, and planning opportunities captured across every interaction. With access to this context through Zocks, Claude can analyze client history to surface tax considerations, estate planning signals, and other client-specific insights advisors may want to explore further.
 

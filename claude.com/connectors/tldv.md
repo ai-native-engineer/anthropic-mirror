@@ -24,7 +24,7 @@ Fetch Transcripts & Notes from Meet, Zoom & Teams
   Read
 * More
 
-  [Documentation](https://tldv.notion.site/tl-dv-MCP-Official-Documentation-330cce15f3ba80638f5ac0253e3b8fd4?source=copy_link)[Privacy Policy](https://tldv.io/privacy)[Support](/cdn-cgi/l/email-protection#53202623233c212713273f37257d3a3c)
+  [Documentation](https://tldv.notion.site/tl-dv-MCP-Official-Documentation-330cce15f3ba80638f5ac0253e3b8fd4?source=copy_link)[Privacy Policy](https://tldv.io/privacy)[support@tldv.io](mailto:support@tldv.io)
 
 Access Google Meet, Zoom & Teams meeting transcripts. Yours, and those from your team & company.
 

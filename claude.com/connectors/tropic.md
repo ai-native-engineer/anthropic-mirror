@@ -22,7 +22,7 @@ Save money on Software + AI contracts
   Interactive
 * More
 
-  [Documentation](https://help.tropicapp.io/hc/en-us/articles/45502083594267-Using-Model-Context-Protocol-MCP-with-Tropic)[Privacy Policy](https://www.tropicapp.io/legal/privacy-policy)[Support](/cdn-cgi/l/email-protection#81f2f4f1f1eef3f5c1f5f3eef1e8e2e0f1f1afe8ee)
+  [Documentation](https://help.tropicapp.io/hc/en-us/articles/45502083594267-Using-Model-Context-Protocol-MCP-with-Tropic)[Privacy Policy](https://www.tropicapp.io/legal/privacy-policy)[support@tropicapp.io](mailto:support@tropicapp.io)
 
 Software + AI pricing isn't public, so searching the internet won't tell you if you're overpaying. Tropic will. Connect Tropic to Claude to benchmark your pricing against $18B+ in verified technology transactions.
 

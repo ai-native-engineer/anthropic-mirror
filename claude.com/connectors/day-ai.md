@@ -22,7 +22,7 @@ Know everything about your prospects & customers with CRMx
   Read & write
 * More
 
-  [Documentation](https://day.ai/mcp)[Privacy Policy](https://day.ai/privacy)[Support](/cdn-cgi/l/email-protection#d3a0a6a3a3bca1a793b7b2aafdb2ba)
+  [Documentation](https://day.ai/mcp)[Privacy Policy](https://day.ai/privacy)[support@day.ai](mailto:support@day.ai)
 
 Day AI is an AI-Native CRM that transforms emails, chats and meetings into richly-structured CRM data, stored in an LLM-optimized format for seamless and deep, relevant context retrieval. Use this Connector to give Claude direct access to your richly-structured customer data, enabling intelligent automation and decision-making grounded in real customer context.
 

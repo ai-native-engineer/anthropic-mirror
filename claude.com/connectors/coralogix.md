@@ -22,7 +22,7 @@ Explore and debug your Coralogix observability data
   Read & write
 * More
 
-  [Documentation](https://coralogix.com/docs/user-guides/mcp-server/overview/)[Privacy Policy](https://coralogix.com/privacy-policy/)[Support](/cdn-cgi/l/email-protection#e1929491918e9395a1828e93808d8e868899cf828e8c)
+  [Documentation](https://coralogix.com/docs/user-guides/mcp-server/overview/)[Privacy Policy](https://coralogix.com/privacy-policy/)[support@coralogix.com](mailto:support@coralogix.com)
 
 Bring Coralogix into your AI workflow. Enable Claude to work with your logs, metrics, and traces so you can explore and debug issues through natural language - run queries, inspect incidents and alert details, and ground answers in the data your team already relies on. Spend less time jumping between tools and more time understanding what your telemetry is telling you.
 

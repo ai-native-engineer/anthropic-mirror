@@ -24,7 +24,7 @@ Query and analyze your Gusto data
   Read & write
 * More
 
-  [Documentation](https://docs.gusto.com/app-integrations/docs/mcp)[Privacy Policy](https://gusto.com/legal/privacy)[Support](/cdn-cgi/l/email-protection#8fe2ecffcfe8fafcfbe0a1ece0e2)
+  [Documentation](https://docs.gusto.com/app-integrations/docs/mcp)[Privacy Policy](https://gusto.com/legal/privacy)[mcp@gusto.com](mailto:mcp@gusto.com)
 
 Connect Claude to your Gusto account to query and analyze your payroll and people data. Ask questions in natural language, build custom reports, and create charts to uncover trends and insights—no exports or tool-switching required. Eligible customers can also run payroll in Claude.
 

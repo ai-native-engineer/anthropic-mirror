@@ -24,8 +24,8 @@ Okta user profiles contain multiple fields that represent identity. SCIM provisi
 |  |  |  |
 | --- | --- | --- |
 | **Okta attribute** | **Typical value** | **Commonly used by** |
-| `user.login` | `testuser1` or [`[email protected]`](/cdn-cgi/l/email-protection#6317061017161006115223061b020e130f064d000c0e) | Default SCIM userName mapping; sometimes NameID |
-| `user.email` | [`[email protected]`](/cdn-cgi/l/email-protection#a4d0c1d7d08ad1d7c1d68acbcac1e4c1dcc5c9d4c8c18ac7cbc9) | SAML/OIDC email claim (recommended) |
+| `user.login` | `testuser1` or [`[email protected]`](mailto:testuser1@example.com) | Default SCIM userName mapping; sometimes NameID |
+| `user.email` | [`[email protected]`](mailto:test.user.one@example.com) | SAML/OIDC email claim (recommended) |
 | `appuser.email` | App-level override of user email | Custom app-level attribute mapping |
 
 A common mismatch: SCIM uses `user.login` while SAML sends `user.email`. Claude requires an exact string match.

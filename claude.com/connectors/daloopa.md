@@ -22,7 +22,7 @@ Financial fundamental data and KPIs with hyperlinks
   Read
 * More
 
-  [Documentation](https://docs.daloopa.com/docs/daloopa-mcp)[Privacy Policy](https://docs.daloopa.com/docs/daloopa-privacy-and-data-collection-disclosure-for-mcp-access)[Support](/cdn-cgi/l/email-protection#dfb2bcaf9fbbbeb3b0b0afbef1bcb0b2)
+  [Documentation](https://docs.daloopa.com/docs/daloopa-mcp)[Privacy Policy](https://docs.daloopa.com/docs/daloopa-privacy-and-data-collection-disclosure-for-mcp-access)[mcp@daloopa.com](mailto:mcp@daloopa.com)
 
 Supplies high quality fundamental data sourced from SEC Filings, investor presentations and any public financial documents, with hyperlinks to source document overlaying each data point. Provides a zero-hallucination foundation for any quantitative financial analysis in Claude.  
   

@@ -24,7 +24,7 @@ Securely access Autodesk's help documentation
   Read
 * More
 
-  [Documentation](https://help.autodesk.com/view/ADSKMCP/ENU/?guid=ADSKMCP_KnowledgeMcp_autodesk_product_help_mcp_server_html)[Privacy Policy](https://www.autodesk.com/company/legal-notices-trademarks/privacy-statement)[Support](/cdn-cgi/l/email-protection#f09b9e9f879c95949795dd9d9380dd838580809f8284b09185849f9495839bde939f9d)
+  [Documentation](https://help.autodesk.com/view/ADSKMCP/ENU/?guid=ADSKMCP_KnowledgeMcp_autodesk_product_help_mcp_server_html)[Privacy Policy](https://www.autodesk.com/company/legal-notices-trademarks/privacy-statement)[knowledge-mcp-support@autodesk.com](mailto:knowledge-mcp-support@autodesk.com)
 
 The Autodesk Product Help MCP Server connects AI agents directly to Autodesk's official product documentation, enabling accurate, real-time answers across 110+ products. As a secure, read-only interface, it allows AI tools to search, navigate, and retrieve trusted Autodesk help content. This enables support for natural language queries, accelerates onboarding, and provides a reliable foundation for intelligent agents built on authoritative Autodesk product documentation.
 

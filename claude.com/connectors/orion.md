@@ -22,7 +22,7 @@ Get insights from your autonomous AI analyst
   Read & write
 * More
 
-  [Documentation](http://docs.runorion.com/)[Privacy Policy](https://www.bygravity.com/privacy)[Support](/cdn-cgi/l/email-protection#9ef6fbf2f2f1defce7f9ecffe8f7eae7b0fdf1f3)
+  [Documentation](http://docs.runorion.com/)[Privacy Policy](https://www.bygravity.com/privacy)[hello@bygravity.com](mailto:hello@bygravity.com)
 
 Orion works 24/7, analyzing trends, uncovering opportunities, and teeing up your next move before you even log in. Your data is only telling half the story. Orion connects your business metrics with external data sources.
 

@@ -22,7 +22,7 @@ Analyze your Meta ad creative & competitor ad libraries
   Read
 * More
 
-  [Documentation](https://help.motionapp.com/en/articles/14315735-motion-mcp)[Privacy Policy](https://motionapp.com/privacy)[Support](/cdn-cgi/l/email-protection#94e7e1e4e4fbe6e0d4f9fbe0fdfbfaf5e4e4baf7fbf9)
+  [Documentation](https://help.motionapp.com/en/articles/14315735-motion-mcp)[Privacy Policy](https://motionapp.com/privacy)[support@motionapp.com](mailto:support@motionapp.com)
 
 Motion connects Claude to your meta ad data. Analyze creative performance across campaigns — surface top performers, spot declining creatives, and understand what's working and why. Research competitor ad libraries for trends and inspiration. Access demographic breakdowns, creative transcripts, and performance reports. Motion helps marketers make faster, data-driven decisions about what to create next.
 

@@ -22,7 +22,7 @@ Turn AI insights into documents
   Interactive
 * More
 
-  [Documentation](https://www.notion.so/goodnotes-team/Goodnotes-MCP-Server-Documentation-320b740273d28187a23ad52780a37620)[Privacy Policy](https://www.goodnotes.com/privacy-policy)[Support](/cdn-cgi/l/email-protection#c5b6b0b5b5aab7b185a2aaaaa1abaab1a0b6eba6aaa8)
+  [Documentation](https://www.notion.so/goodnotes-team/Goodnotes-MCP-Server-Documentation-320b740273d28187a23ad52780a37620)[Privacy Policy](https://www.goodnotes.com/privacy-policy)[support@goodnotes.com](mailto:support@goodnotes.com)
 
 Goodnotes instantly converts AI conversations into editable Goodnotes files. Create custom vector graphics and illustrations from SVG code for freeform drawings, icons, logos, and artistic designs. Generate structured diagrams from Mermaid syntax including flowcharts, mindmaps, and timelines. Render markdown content as beautifully formatted rich text documents. Whether you've got text, flowcharts, or images, move your ideas from the chat to the page to refine, annotate, and share in the Goodnotes app.
 

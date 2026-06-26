@@ -22,7 +22,7 @@ A universal concierge for complex businesses
   Read & write
 * More
 
-  [Documentation](https://docs.lorikeetcx.ai/mcp/mcp-server)[Privacy Policy](https://www.lorikeetcx.ai/privacy-policy)[Support](/cdn-cgi/l/email-protection#42313732322d3036022e2d302b29272736213a6c232b)
+  [Documentation](https://docs.lorikeetcx.ai/mcp/mcp-server)[Privacy Policy](https://www.lorikeetcx.ai/privacy-policy)[support@lorikeetcx.ai](mailto:support@lorikeetcx.ai)
 
 Lorikeet is a platform that complex and regulated businesses use to provide their customers with a universal concierge. Lorikeet does this with AI agents that work across voice, chat and email. The agents are built on a unique architecture that focuses on flexibility and the ability to take actions to solve customers' problems (not just tell them to self serve) in the most challenging circumstances. Our customers include global FinTech, HealthTechs, crypto marketplaces, and other complex businesses.
 

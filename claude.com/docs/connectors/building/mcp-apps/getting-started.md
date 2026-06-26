@@ -65,6 +65,6 @@ You can also use the MCP Apps skills mentioned above to help migrate your apps. 
 
 ---
 
-We’d love to see what you build! Send feedback to [[email protected]](/cdn-cgi/l/email-protection#6c010f1c410d1c1c1f2c0d0218041e031c050f420f0301) or open an issue on the [ext-apps repository](https://github.com/modelcontextprotocol/ext-apps/issues).
+We’d love to see what you build! Send feedback to [[email protected]](mailto:mcp-apps@anthropic.com) or open an issue on the [ext-apps repository](https://github.com/modelcontextprotocol/ext-apps/issues).
 
 [MCPB (desktop extensions)](/docs/connectors/building/mcpb)[Design guidelines](/docs/connectors/building/mcp-apps/design-guidelines)

@@ -22,7 +22,7 @@ Answer questions with the Hex agent
   Interactive
 * More
 
-  [Documentation](https://learn.hex.tech/docs/administration/mcp-server)[Privacy Policy](https://learn.hex.tech/docs/trust/data-privacy-and-usage-faq)[Support](/cdn-cgi/l/email-protection#02717772726d7076426a677a2c7667616a)
+  [Documentation](https://learn.hex.tech/docs/administration/mcp-server)[Privacy Policy](https://learn.hex.tech/docs/trust/data-privacy-and-usage-faq)[support@hex.tech](mailto:support@hex.tech)
 
 Ask data questions and get answers complete with interactive charts, tables, and citations. Find Hex projects and answer questions with the Hex agent.
 

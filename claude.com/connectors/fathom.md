@@ -22,7 +22,7 @@ Your meetings, now part of every Claude conversation
   Read
 * More
 
-  [Documentation](https://help.fathom.video/en/articles/11497793)[Privacy Policy](https://www.fathom.ai/privacy)[Support](/cdn-cgi/l/email-protection#e794929797889593a78186938f888ac9918e838288)
+  [Documentation](https://help.fathom.video/en/articles/11497793)[Privacy Policy](https://www.fathom.ai/privacy)[support@fathom.video](mailto:support@fathom.video)
 
 Access your meeting summaries, transcripts, and action items so you can ask questions and build deliverables grounded in what was actually said on your calls. No copy-pasting summaries. No context switching. Just better outputs, faster.
 

@@ -22,7 +22,7 @@ Ground your work in clean, structured U.S. primary law
   Read
 * More
 
-  [Documentation](https://app.descrybe.com/connect/docs)[Privacy Policy](https://descrybe.com/legal/privacy)[Support](/cdn-cgi/l/email-protection#741d1a121b3410110717060d16115a171b19)
+  [Documentation](https://app.descrybe.com/connect/docs)[Privacy Policy](https://descrybe.com/legal/privacy)[info@descrybe.com](mailto:info@descrybe.com)
 
 The Descrybe Connector gives Claude access to legal research tools for working with primary law. It can help analyze a research question, search cases by legal concept or exact wording, find cases from citations or messy references, extract authorities from pasted text, retrieve summaries, case PDFs, and focused opinion passages, search statutes and regulations, check case treatment status, find citing cases, and verify quoted language against known cases.
 

@@ -22,7 +22,7 @@ Answer legal queries, search vaults, and research
   Read & write
 * More
 
-  [Documentation](https://developers.harvey.ai/guides/harvey_mcp)[Privacy Policy](https://www.harvey.ai/legal/privacy-policy)[Support](/cdn-cgi/l/email-protection#cab9bfbabaa5b8be8aa2abb8bcafb3e4aba3)
+  [Documentation](https://developers.harvey.ai/guides/harvey_mcp)[Privacy Policy](https://www.harvey.ai/legal/privacy-policy)[support@harvey.ai](mailto:support@harvey.ai)
 
 Bring Harvey's legal intelligence into Claude. The Harvey MCP server supports general legal inquiries, analysis over Vault projects, and research questions for select knowledge sources. The server also exposes discovery tools to list available Vault projects and knowledge sources, so you always know what is available for access.
 

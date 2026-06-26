@@ -22,7 +22,7 @@ Search, manage, and update your Attio CRM from Claude
   Read & write
 * More
 
-  [Documentation](https://docs.attio.com/mcp/overview)[Privacy Policy](https://attio.com/legal/privacy)[Support](/cdn-cgi/l/email-protection#45363035352a3731052431312c2a6b262a28)
+  [Documentation](https://docs.attio.com/mcp/overview)[Privacy Policy](https://attio.com/legal/privacy)[support@attio.com](mailto:support@attio.com)
 
 Access your entire CRM directly from Claude. Look up contacts and companies, find decision makers, and discover email addresses. Log notes from calls and meetings, track engagement history, and create follow-up tasks with deadlines. Search and filter your pipeline by stage, funding round, role, or location. Tap into meeting intelligence — search call recordings, access transcripts, and surface key insights. Manage relationships and close deals faster without switching tools.
 

@@ -22,7 +22,7 @@ Search, analyze, and export Campfire data
   Read
 * More
 
-  [Documentation](https://docs.campfire.ai/guides/ai-integration#what-is-mcp)[Privacy Policy](https://campfire.ai/privacy-policy)[Support](/cdn-cgi/l/email-protection#9ae9efeaeaf5e8eedaf9fbf7eafcf3e8ffb4fbf3)
+  [Documentation](https://docs.campfire.ai/guides/ai-integration#what-is-mcp)[Privacy Policy](https://campfire.ai/privacy-policy)[support@campfire.ai](mailto:support@campfire.ai)
 
 Search, analyze, and retrieve data from your Campfire ERP directly in Claude. Ask questions about projects, contacts, and financials in natural language. Create board decks, generate insights from your data, and make informed decisions as a native part of your AI workflow.
 

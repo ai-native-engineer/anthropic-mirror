@@ -24,7 +24,7 @@ Thomson Reuters CoCounsel Legal, in Claude
   Interactive
 * More
 
-  [Documentation](https://legal-mcp.thomsonreuters.com/docs/connector-guide)[Privacy Policy](https://www.thomsonreuters.com/en/privacy-statement)[Support](/cdn-cgi/l/email-protection#20434f434f554e53454c535550504f52546054520e434f4d)
+  [Documentation](https://legal-mcp.thomsonreuters.com/docs/connector-guide)[Privacy Policy](https://www.thomsonreuters.com/en/privacy-statement)[cocounselsupport@tr.com](mailto:cocounselsupport@tr.com)
 
 CoCounsel Legal delivers comprehensive Westlaw Deep Research reports with inline, linked citations to Westlaw and Practical Law sources.
 

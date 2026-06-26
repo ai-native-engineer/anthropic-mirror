@@ -22,7 +22,7 @@ Fitch credit intelligence, inside your AI workflow
   Read
 * More
 
-  [Documentation](https://api.fitch.group/mcp-reference)[Privacy Policy](https://www.fitch.group/privacy-policy/)[Support](/cdn-cgi/l/email-protection#83e5f0e0f6f0f7eceee6f1f0f6f3f3ecf1f7c3e5eaf7e0ebf0eceff6f7eaecedf0ade0ecee)
+  [Documentation](https://api.fitch.group/mcp-reference)[Privacy Policy](https://www.fitch.group/privacy-policy/)[fscustomersupport@fitchsolutions.com](mailto:fscustomersupport@fitchsolutions.com)
 
 Access trusted Fitch Ratings credit research and data, CreditSights intelligence, and BMI country and sector risk analysis — all through a single, governed MCP connection. Query ratings, financials, key rating drivers, research, and deal insights directly inside your AI workflows. Built for regulated environments with enterprise-grade authentication and entitlement controls. Fitch intelligence, where you work.
 

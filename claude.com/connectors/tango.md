@@ -22,7 +22,7 @@ Search for US Government Contracting Data
   Read
 * More
 
-  [Documentation](https://tango.makegov.com/docs/mcp/)[Privacy Policy](https://tango.makegov.com/privacy)[Support](/cdn-cgi/l/email-protection#7d0e080d0d120f093d101c16181a120b531e1210)
+  [Documentation](https://tango.makegov.com/docs/mcp/)[Privacy Policy](https://tango.makegov.com/privacy)[support@makegov.com](mailto:support@makegov.com)
 
 The Tango server gives AI agents access to reliable, LLM-friendly federal procurement competitive intelligence so that procurement professionals can focus on delivering on mission.
 

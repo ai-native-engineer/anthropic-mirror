@@ -24,7 +24,7 @@ Find your perfect hotel based on Tripadvisor reviews
   Interactive
 * More
 
-  [Documentation](https://www.tripadvisor.com)[Privacy Policy](https://tripadvisor.mediaroom.com/US-privacy-policy-2019)[Support](/cdn-cgi/l/email-protection#5d092f342d3c392b342e322f193c293c0e282d2d322f291d292f342d3c392b342e322f733e3230)
+  [Documentation](https://www.tripadvisor.com)[Privacy Policy](https://tripadvisor.mediaroom.com/US-privacy-policy-2019)[TripadvisorDataSupport@tripadvisor.com](mailto:TripadvisorDataSupport@tripadvisor.com)
 
 This server provides tools to query the Tripadvisor hotels data, with functions to search for hotels in an area and to retrieve hotel details, photos, reviews, review ratings, availability, pricing, and nearby points of interest. It should be invoked for user queries involving hotel research, comparison, rating checks, or gathering contextual data about a hotel's surroundings (e.g., attractions, amenities). The tools operate on specific Tripadvisor location or hotel IDs; follow-up requests should re-use these identifiers to refine results accurately. The model must handle edge cases like ambiguous location names (e.g., "Springfield") by seeking clarification before executing a search. This tool's primary function is to ground accommodation planning in factual, real-time data along with opinions from other travelers.
 

@@ -22,7 +22,7 @@ Connect your Notion workspace to search, update, and power workflows across tool
   Read & write
 * More
 
-  [Documentation](https://developers.notion.com/docs/mcp)[Privacy Policy](https://www.notion.so/notion/Privacy-Policy-3468d120cf614d4c9014c09f6adc9091)[Support](/cdn-cgi/l/email-protection#c1a5a4b7a4adaeb1a4b3b281aca0aaa4afaeb5a8aeafefa2aeac)
+  [Documentation](https://developers.notion.com/docs/mcp)[Privacy Policy](https://www.notion.so/notion/Privacy-Policy-3468d120cf614d4c9014c09f6adc9091)[developers@makenotion.com](mailto:developers@makenotion.com)
 
 Create, edit, search and organize Notion content directly from Claude. Get contextual and relevant assistance from Claude, while keeping knowledge organized in Notion.
 

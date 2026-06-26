@@ -21,7 +21,7 @@ Web Search + Code Docs Search
   Read
 * More
 
-  [Documentation](https://docs.exa.ai/reference/exa-mcp)[Privacy Policy](https://exa.ai/privacy-policy)[Support](/cdn-cgi/l/email-protection#38514b505956785d4059165951)
+  [Documentation](https://docs.exa.ai/reference/exa-mcp)[Privacy Policy](https://exa.ai/privacy-policy)[ishan@exa.ai](mailto:ishan@exa.ai)
 
 Exa MCP gives you real-time web searches and can extracts content from any URL. It also finds the best code examples and documentation, searches billions of GitHub repos, docs sites, and StackOverflow to give you fresh coding context.
 
