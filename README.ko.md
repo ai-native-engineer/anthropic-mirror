@@ -36,8 +36,9 @@
 | `transformer-circuits.pub/` | 해석가능성 연구(Transformer Circuits Thread), 그림은 PNG로 추출 | 약 49 |
 | `trust.anthropic.com` | Trust Center(보안, 컴플라이언스, 인증) | 1 |
 | `anthropic.skilljar.com/` | Anthropic Academy 코스 레슨 | 약 158 |
+| `assets.anthropic.com/`, `www-cdn.anthropic.com/`, `resources.anthropic.com/` | 페이지에 링크된 PDF 문서(system cards, 연구 논문, eBook, 기업 가이드) | PDF 112개 |
 
-대부분 텍스트입니다. 예외: 해석가능성 논문은 본문 그림을 PNG 파일로 추출해 함께 보관하고, 페이지에 임베드된 YouTube 영상은 자막으로 전사해 영상 바로 아래 접이식 `<details>` 블록으로 인라인합니다. Anthropic Academy 영상 코스는 YouTube / JWPlayer 자막을 텍스트로 전사합니다.
+대부분 텍스트입니다. 예외: 해석가능성 논문은 본문 그림을 PNG 파일로 추출해 함께 보관하고, 페이지에 임베드된 YouTube 영상은 자막으로 전사해 영상 바로 아래 접이식 `<details>` 블록으로 인라인하며, 페이지에 링크된 PDF 문서(system cards, 연구 논문, eBook, 가이드)는 원본 `.pdf` 파일로 보관합니다. Anthropic Academy 영상 코스는 YouTube / JWPlayer 자막을 텍스트로 전사합니다.
 
 **알려진 커버리지 갭** (각 sitemap 대조 측정, 표면별 약 96~99%). 못 담은 것: `platform.claude.com/docs/en/api/` 하위 자동생성 API SDK 레퍼런스 약 150개(terraform/php/csharp 엔드포인트, 원본 `.md`가 404), 그리고 서버측 텍스트가 없는 JS 렌더 페이지 소수. 이들을 담으려면 헤드리스 브라우저가 필요한데, 이 미러는 의도적으로 쓰지 않습니다.
 
@@ -67,7 +68,7 @@ git clone https://github.com/ai-native-engineer/anthropic-mirror.git
 
 ## 범위 밖
 
-Claude 제품 앱(claude.ai)은 포함하지 않습니다. 바이너리 자산은 해석가능성 그림(PNG)을 제외하고 담지 않으며, 영상 코스와 임베드 영상은 자막 전사본으로만 보관합니다.
+Claude 제품 앱(claude.ai)은 포함하지 않습니다. 바이너리 자산은 해석가능성 그림(PNG)과 페이지에 링크된 PDF 문서(원본 `.pdf` 파일로 보관)를 제외하고 담지 않으며, 영상 코스와 임베드 영상은 자막 전사본으로만 보관합니다.
 
 ## 갱신
 

@@ -36,8 +36,9 @@ About 4,700 markdown files, as of the latest crawl snapshot. The tree mirrors th
 | `transformer-circuits.pub/` | Interpretability research (Transformer Circuits Thread), with figures saved as PNG | ~49 |
 | `trust.anthropic.com` | Trust Center (security, compliance, certifications) | 1 |
 | `anthropic.skilljar.com/` | Anthropic Academy course lessons | ~158 |
+| `assets.anthropic.com/`, `www-cdn.anthropic.com/`, `resources.anthropic.com/` | PDF documents linked from pages (system cards, research papers, eBooks, enterprise guides) | 112 PDFs |
 
-Mostly text. Exceptions: interpretability papers keep their inline figures as extracted PNG files, and YouTube videos embedded in a page are transcribed and inlined below the embed inside a collapsible `<details>` block. Anthropic Academy video courses are transcribed from YouTube / JWPlayer captions.
+Mostly text. Exceptions: interpretability papers keep their inline figures as extracted PNG files, YouTube videos embedded in a page are transcribed and inlined below the embed inside a collapsible `<details>` block, and PDF documents linked from pages (system cards, research papers, eBooks, guides) are mirrored as their original `.pdf` files. Anthropic Academy video courses are transcribed from YouTube / JWPlayer captions.
 
 **Known coverage gaps** (measured against each sitemap, ~96-99% per surface). Not mirrored: about 150 auto-generated API SDK reference pages under `platform.claude.com/docs/en/api/` (terraform/php/csharp endpoints whose `.md` source returns 404), plus a handful of JS-rendered pages that ship no server-side text. Capturing these would need a headless browser, which this mirror avoids by design.
 
@@ -67,7 +68,7 @@ git clone https://github.com/ai-native-engineer/anthropic-mirror.git
 
 ## Out of scope
 
-The Claude product app (claude.ai) is not included. Binary assets are excluded except interpretability figures (kept as PNG); video courses and embedded videos are kept as caption transcripts only.
+The Claude product app (claude.ai) is not included. Binary assets are excluded except interpretability figures (kept as PNG) and PDF documents linked from pages (kept as original `.pdf` files); video courses and embedded videos are kept as caption transcripts only.
 
 ## Updating
 

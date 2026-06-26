@@ -26,6 +26,8 @@ A **generated** archive, not a hand-maintained one. Every Markdown file under a 
 | `transformer-circuits.pub/` | Interpretability research (figures extracted as PNG under `images/`) |
 | `trust.anthropic.com.md` | Trust Center (security, compliance, certifications) - single page |
 | `anthropic.skilljar.com/` | Anthropic Academy course lessons |
+| `youtube/<handle>/` | Official YouTube channel mirror (video pages with collapsible caption transcripts) |
+| `assets.anthropic.com/`, `www-cdn.anthropic.com/`, `resources.anthropic.com/` | PDF documents linked from pages, kept as original `.pdf` files (system cards, research papers, eBooks, guides) |
 
 ## Conventions
 
@@ -36,4 +38,4 @@ A **generated** archive, not a hand-maintained one. Every Markdown file under a 
 
 ## Regenerating
 
-Owned by the `anthropic-mirror` skill (lives outside this repo). The crawl is sitemap-driven and uses a Chrome browser fingerprint (`curl_cffi`) so no headless browser is needed; `platform.claude.com` docs are fetched as Mintlify `.md` raw. Post-processing extracts inline base64 figures to PNG and inlines YouTube transcripts. Do not reimplement any of this inside the repo.
+Owned by the `anthropic-mirror` skill (lives outside this repo). The crawl is sitemap-driven and uses a Chrome browser fingerprint (`curl_cffi`) so no headless browser is needed; `platform.claude.com` docs are fetched as Mintlify `.md` raw. Post-processing extracts inline base64 figures to PNG, inlines YouTube transcripts, and mirrors PDF documents linked from pages as their original `.pdf` files (text-layer PDFs are kept as-is, not converted to markdown). Do not reimplement any of this inside the repo.
