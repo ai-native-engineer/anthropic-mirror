@@ -26,16 +26,16 @@ A **generated** archive, not a hand-maintained one. Every Markdown file under a 
 | `transformer-circuits.pub/` | Interpretability research (figures extracted as PNG under `images/`) |
 | `trust.anthropic.com.md` | Trust Center (security, compliance, certifications) - single page |
 | `anthropic.skilljar.com/` | Anthropic Academy course lessons |
-| `youtube/<handle>/` | Official YouTube channel mirror (video pages with collapsible caption transcripts) |
+| `youtube.com/anthropic-ai/`, `youtube.com/claude/` | Official YouTube channel mirrors (one transcript per video, collapsible) |
 | `assets.anthropic.com/`, `www-cdn.anthropic.com/`, `resources.anthropic.com/` | PDF documents linked from pages, kept as original `.pdf` files (system cards, research papers, eBooks, guides) |
 
 ## Conventions
 
-- **YouTube transcripts are published inline**, below each embed inside a `<details>` block. The raw `youtube.com/` cache is gitignored (extraction cache only, not committed).
+- **YouTube has two forms.** The official channel mirrors live under `youtube.com/<handle>/` (committed, one transcript per video). Transcripts for videos embedded in a page are inlined below the embed in a `<details>` block. The raw transcript cache `_yt-cache/` is gitignored (extraction cache only, not committed).
 - **Latest-only.** The newest crawl overwrites in place; there are no dated snapshot folders. History lives in git.
 - **Commits:** one logical change per commit. Don't `git add .` blindly - a full crawl touches thousands of files, so stage the domains you actually regenerated. Never `git push --force` or `git reset --hard`.
 - **README is bilingual** (`README.md` English, `README.ko.md` Korean). Keep both in sync when you change one.
 
 ## Regenerating
 
-Owned by the `anthropic-mirror` skill (lives outside this repo). The crawl is sitemap-driven and uses a Chrome browser fingerprint (`curl_cffi`) so no headless browser is needed; `platform.claude.com` docs are fetched as Mintlify `.md` raw. Post-processing extracts inline base64 figures to PNG, inlines YouTube transcripts, and mirrors PDF documents linked from pages as their original `.pdf` files (text-layer PDFs are kept as-is, not converted to markdown). Do not reimplement any of this inside the repo.
+Owned by the `anthropic-mirror` skill (lives outside this repo). The crawl is sitemap-driven and uses a Chrome browser fingerprint (`curl_cffi`) so no headless browser is needed; `platform.claude.com` docs are fetched as Mintlify `.md` raw. Post-processing extracts inline base64 figures to PNG, inlines YouTube transcripts, mirrors the official YouTube channels under `youtube.com/<handle>/` (enumerated with `yt-dlp`), and mirrors PDF documents linked from pages as their original `.pdf` files (text-layer PDFs are kept as-is, not converted to markdown). Do not reimplement any of this inside the repo.

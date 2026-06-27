@@ -12,9 +12,9 @@
 ![status: unofficial mirror](https://img.shields.io/badge/status-unofficial%20mirror-orange)
 ![last commit](https://img.shields.io/github/last-commit/ai-native-engineer/anthropic-mirror)
 ![repo size](https://img.shields.io/github/repo-size/ai-native-engineer/anthropic-mirror)
-![docs ~4.7k](https://img.shields.io/badge/docs-~4.7k-blue)
+![docs ~5.0k](https://img.shields.io/badge/docs-~5.0k-blue)
 
-> Unofficial markdown archive of **Anthropic & Claude public materials** - news, research, engineering, policy & legal, products, platform docs & API reference, Claude Code CLI docs, Help Center, Trust Center, the Alignment Science and Interpretability blogs, and Anthropic Academy courses.
+> Unofficial markdown archive of **Anthropic & Claude public materials** - news, research, engineering, policy & legal, products, platform docs & API reference, Claude Code CLI docs, Help Center, Trust Center, the Alignment Science and Interpretability blogs, Anthropic Academy courses, the official YouTube channels, and linked PDF documents (system cards, research papers, eBooks).
 
 Collected as a reference source for talks and study, kept public so anyone can read.
 
@@ -23,7 +23,7 @@ Collected as a reference source for talks and study, kept public so anyone can r
 
 ## Contents
 
-About 4,700 markdown files, as of the latest crawl snapshot. The tree mirrors the source URLs (`<host>/<path>.md`), so a file's location maps directly to its original page. Each file keeps a `<!-- source: <url> -->` header linking back.
+About 5,000 markdown files, as of the latest crawl snapshot. The tree mirrors the source URLs (`<host>/<path>.md`), so a file's location maps directly to its original page. Each file keeps a `<!-- source: <url> -->` header linking back.
 
 | Path | Content | Docs |
 |---|---|---|
@@ -36,15 +36,18 @@ About 4,700 markdown files, as of the latest crawl snapshot. The tree mirrors th
 | `transformer-circuits.pub/` | Interpretability research (Transformer Circuits Thread), with figures saved as PNG | ~49 |
 | `trust.anthropic.com` | Trust Center (security, compliance, certifications) | 1 |
 | `anthropic.skilljar.com/` | Anthropic Academy course lessons | ~158 |
+| `youtube.com/anthropic-ai/`, `youtube.com/claude/` | Official YouTube channels (anthropic-ai, Claude) - one transcript per video | ~258 |
 | `assets.anthropic.com/`, `www-cdn.anthropic.com/`, `resources.anthropic.com/` | PDF documents linked from pages (system cards, research papers, eBooks, enterprise guides) | 112 PDFs |
 
 Mostly text. Exceptions: interpretability papers keep their inline figures as extracted PNG files, YouTube videos embedded in a page are transcribed and inlined below the embed inside a collapsible `<details>` block, and PDF documents linked from pages (system cards, research papers, eBooks, guides) are mirrored as their original `.pdf` files. Anthropic Academy video courses are transcribed from YouTube / JWPlayer captions.
+
+The official **YouTube channels** (anthropic-ai, Claude) are mirrored under `youtube.com/<handle>/` - one Markdown transcript per video, enumerated with `yt-dlp` and transcribed from each video's captions (videos with no captions are kept as a short stub).
 
 **Known coverage gaps** (measured against each sitemap, ~96-99% per surface). Not mirrored: about 150 auto-generated API SDK reference pages under `platform.claude.com/docs/en/api/` (terraform/php/csharp endpoints whose `.md` source returns 404), plus a handful of JS-rendered pages that ship no server-side text. Capturing these would need a headless browser, which this mirror avoids by design.
 
 ## How it's generated
 
-Crawled by an automated, sitemap-driven pipeline (no API keys, no login for public pages): every domain's `sitemap.xml` is the source of truth, fetched with a Chrome browser fingerprint so the server-rendered HTML comes through without a headless browser. `platform.claude.com` and `code.claude.com` docs are pulled as Mintlify `.md` raw. See `AGENTS.md` for the regeneration details.
+Crawled by an automated, sitemap-driven pipeline (no API keys, no login for public pages): every domain's `sitemap.xml` is the source of truth, fetched with a Chrome browser fingerprint so the server-rendered HTML comes through without a headless browser. `platform.claude.com` and `code.claude.com` docs are pulled as Mintlify `.md` raw. The official YouTube channels are enumerated with `yt-dlp` and transcribed from each video's captions. See `AGENTS.md` for the regeneration details.
 
 ## Sources
 
@@ -57,6 +60,7 @@ Crawled by an automated, sitemap-driven pipeline (no API keys, no login for publ
 - https://transformer-circuits.pub (Interpretability)
 - https://trust.anthropic.com (Trust Center)
 - https://anthropic.skilljar.com (Anthropic Academy)
+- https://www.youtube.com/@anthropic-ai , https://www.youtube.com/@claude (YouTube channels)
 
 ## Usage
 

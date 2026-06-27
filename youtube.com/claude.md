@@ -1,0 +1,130 @@
+# claude (YouTube)
+
+영상 126개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+
+- [Tag Claude in, right where you already work](claude/260623-tag-claude-in-right-where-you-already-work.md) — 2026-06-23
+- [Delegate and schedule tasks in Claude Cowork](claude/260621-delegate-and-schedule-tasks-in-claude-cowork.md) — 2026-06-21
+- [Artifacts in Claude Code: share your work as it happens](claude/260618-artifacts-in-claude-code-share-your-work-as-it-happens.md) — 2026-06-18 (자막없음)
+- [Enterprise-managed auth for MCP connectors](claude/260618-enterprise-managed-auth-for-mcp-connectors.md) — 2026-06-18 (자막없음)
+- [The Briefing: Financial Services](claude/260616-the-briefing-financial-services.md) — 2026-06-16
+- [Code with Claude Tokyo 2026: Opening Keynote](claude/260612-code-with-claude-tokyo-2026-opening-keynote.md) — 2026-06-12
+- [The Problem Solvers | Michael Truell at Cursor](claude/260610-the-problem-solvers-michael-truell-at-cursor.md) — 2026-06-10
+- [Claude Fable 5 beats Pokémon FireRed only using vision](claude/260609-claude-fable-5-beats-pok-mon-firered-only-using-vision.md) — 2026-06-09 (자막없음)
+- [Claude Fable 5 plays Factorio](claude/260609-claude-fable-5-plays-factorio.md) — 2026-06-09 (자막없음)
+- [Claude Fable 5 simulates the solar system and predicts a solar eclipse](claude/260609-claude-fable-5-simulates-the-solar-system-and-predicts-a-sol.md) — 2026-06-09 (자막없음)
+- [Claude Fable 5 sets a fluid simulation to Beethoven](claude/260609-claude-fable-5-sets-a-fluid-simulation-to-beethoven.md) — 2026-06-09 (자막없음)
+- [Claude Fable 5 designs a 3D-printable model in a Claude-built CAD editor](claude/260609-claude-fable-5-designs-a-3d-printable-model-in-a-claude-buil.md) — 2026-06-09 (자막없음)
+- [Working Like a Lawyer with Claude](claude/260608-working-like-a-lawyer-with-claude.md) — 2026-06-08
+- [Reflecting on a year of Claude Code](claude/260608-reflecting-on-a-year-of-claude-code.md) — 2026-06-08
+- [How Anthropic uses Claude in GTM Engineering](claude/260605-how-anthropic-uses-claude-in-gtm-engineering.md) — 2026-06-05
+- [The Problem Solvers | Anton Osika at Lovable](claude/260604-the-problem-solvers-anton-osika-at-lovable.md) — 2026-06-04
+- [Team thinking, visualized by Claude](claude/260603-team-thinking-visualized-by-claude.md) — 2026-06-03
+- [The Problem Solvers | Max Junestrand at Legora](claude/260602-the-problem-solvers-max-junestrand-at-legora.md) — 2026-06-02
+- [Before we ship a Claude model, these teams try to break it.](claude/260528-before-we-ship-a-claude-model-these-teams-try-to-break-it.md) — 2026-05-28
+- [Embrace long-running tasks with Opus 4.8 and Claude Code](claude/260528-embrace-long-running-tasks-with-opus-4-8-and-claude-code.md) — 2026-05-28 (자막없음)
+- [The Problem Solvers: Michele Catasta at Replit](claude/260527-the-problem-solvers-michele-catasta-at-replit.md) — 2026-05-27
+- [Ship your first Managed Agent](claude/260526-ship-your-first-managed-agent.md) — 2026-05-26
+- [Tool, skill, or subagent? Decomposing an agent that outgrew its prompt](claude/260523-tool-skill-or-subagent-decomposing-an-agent-that-outgrew-its.md) — 2026-05-23
+- [Agent Battle: Mine the most diamonds in 45 minutes](claude/260523-agent-battle-mine-the-most-diamonds-in-45-minutes.md) — 2026-05-23
+- [Evals for taste: Hill-climbing a slide-generation agent](claude/260523-evals-for-taste-hill-climbing-a-slide-generation-agent.md) — 2026-05-23
+- [Agents that remember](claude/260523-agents-that-remember.md) — 2026-05-23
+- [How we Claude Code](claude/260523-how-we-claude-code.md) — 2026-05-23
+- [Making agentic workflows trustworthy and verifiable with a custom DSL](claude/260522-making-agentic-workflows-trustworthy-and-verifiable-with-a-c.md) — 2026-05-22
+- [The Problem Solvers: Kay Zhu at Genspark](claude/260522-the-problem-solvers-kay-zhu-at-genspark.md) — 2026-05-22
+- [Fighting financial crime with Claude Cowork](claude/260522-fighting-financial-crime-with-claude-cowork.md) — 2026-05-22 (자막없음)
+- [Where code meets court: AI at the legal-technical frontier](claude/260522-where-code-meets-court-ai-at-the-legal-technical-frontier.md) — 2026-05-22 (자막없음)
+- [How AirOps chases friction to build AI products with Claude](claude/260522-how-airops-chases-friction-to-build-ai-products-with-claude.md) — 2026-05-22
+- [How Metaview built self-improving prompts for application review](claude/260522-how-metaview-built-self-improving-prompts-for-application-re.md) — 2026-05-22 (자막없음)
+- [Teaching agents to learn from your team](claude/260522-teaching-agents-to-learn-from-your-team.md) — 2026-05-22 (자막없음)
+- [Beyond the basics with Claude Code](claude/260522-beyond-the-basics-with-claude-code.md) — 2026-05-22 (자막없음)
+- [Running an AI-native engineering org](claude/260522-running-an-ai-native-engineering-org.md) — 2026-05-22
+- [Getting more out of the Claude Platform](claude/260522-getting-more-out-of-the-claude-platform.md) — 2026-05-22 (자막없음)
+- [The prompting playbook](claude/260522-the-prompting-playbook.md) — 2026-05-22
+- [The capability curve](claude/260522-the-capability-curve.md) — 2026-05-22 (자막없음)
+- [Designing with Claude: From prompt to production](claude/260522-designing-with-claude-from-prompt-to-production.md) — 2026-05-22 (자막없음)
+- [Building the best agentic analytics harness: Powered by Claude, built with Claude Code](claude/260521-building-the-best-agentic-analytics-harness-powered-by-claud.md) — 2026-05-21 (자막없음)
+- [Building with Claude on Google Cloud](claude/260521-building-with-claude-on-google-cloud.md) — 2026-05-21 (자막없음)
+- [Building signals that trade themselves](claude/260521-building-signals-that-trade-themselves.md) — 2026-05-21
+- [Picking the right model](claude/260521-picking-the-right-model.md) — 2026-05-21
+- [Memory and dreaming for self learning agents](claude/260521-memory-and-dreaming-for-self-learning-agents.md) — 2026-05-21
+- [What legal agents inherit from coding agents: Lessons from Legora](claude/260521-what-legal-agents-inherit-from-coding-agents-lessons-from-le.md) — 2026-05-21 (자막없음)
+- [How to get to production faster with Claude Managed Agents](claude/260521-how-to-get-to-production-faster-with-claude-managed-agents.md) — 2026-05-21
+- [Build a production-ready agent with Claude Managed Agents](claude/260521-build-a-production-ready-agent-with-claude-managed-agents.md) — 2026-05-21
+- [The thinking lever](claude/260520-the-thinking-lever.md) — 2026-05-20
+- [How Lovable vibecodes production software at scale](claude/260520-how-lovable-vibecodes-production-software-at-scale.md) — 2026-05-20 (자막없음)
+- [Building AI-native at enterprise scale: monday.com, Doctolib, and Delivery Hero](claude/260520-building-ai-native-at-enterprise-scale-monday-com-doctolib-a.md) — 2026-05-20 (자막없음)
+- [From one person to 80: Scaling a hypergrowth engineering org with Claude Code](claude/260520-from-one-person-to-80-scaling-a-hypergrowth-engineering-org.md) — 2026-05-20 (자막없음)
+- [Build a proactive agent workflow with Claude Code](claude/260520-build-a-proactive-agent-workflow-with-claude-code.md) — 2026-05-20
+- [Build AI agents using Claude in Microsoft Foundry](claude/260520-build-ai-agents-using-claude-in-microsoft-foundry.md) — 2026-05-20
+- [Coding is no longer the constraint: Scaling devex to teams and agents at Spotify](claude/260520-coding-is-no-longer-the-constraint-scaling-devex-to-teams-an.md) — 2026-05-20 (자막없음)
+- [AI with Claude on AWS: From code to orchestration](claude/260520-ai-with-claude-on-aws-from-code-to-orchestration.md) — 2026-05-20
+- [Stop babysitting your agents](claude/260520-stop-babysitting-your-agents.md) — 2026-05-20 (자막없음)
+- [What's new in Claude Code](claude/260520-what-s-new-in-claude-code.md) — 2026-05-20 (자막없음)
+- [Code with Claude London 2026: Opening Keynote](claude/260519-code-with-claude-london-2026-opening-keynote.md) — 2026-05-19
+- [The Problem Solvers: Scott Wu at Cognition](claude/260519-the-problem-solvers-scott-wu-at-cognition.md) — 2026-05-19
+- [Claude Cowork for legal teams](claude/260518-claude-cowork-for-legal-teams.md) — 2026-05-18
+- [Claude Cowork for marketing ops](claude/260518-claude-cowork-for-marketing-ops.md) — 2026-05-18
+- [Claude Cowork for sales](claude/260518-claude-cowork-for-sales.md) — 2026-05-18
+- [Context Management in Claude Code](claude/260518-context-management-in-claude-code.md) — 2026-05-18
+- [The Explore → Plan → Code → Commit workflow in Claude Code](claude/260517-the-explore-plan-code-commit-workflow-in-claude-code.md) — 2026-05-17
+- [Your first Claude Code prompt](claude/260515-your-first-claude-code-prompt.md) — 2026-05-15
+- [Installing Claude Code](claude/260514-installing-claude-code.md) — 2026-05-14
+- [How Claude Code Works](claude/260514-how-claude-code-works.md) — 2026-05-14
+- [How Emergent is making app building more accessible with Claude](claude/260513-how-emergent-is-making-app-building-more-accessible-with-cla.md) — 2026-05-13
+- [How Anthropic uses Claude in Cybersecurity](claude/260512-how-anthropic-uses-claude-in-cybersecurity.md) — 2026-05-12
+- [New agents for legal professionals | Claude Cowork](claude/260512-new-agents-for-legal-professionals-claude-cowork.md) — 2026-05-12 (자막없음)
+- [Introducing agent view in Claude Code](claude/260511-introducing-agent-view-in-claude-code.md) — 2026-05-11 (자막없음)
+- [The CLAUDE.md file](claude/260510-the-claude-md-file.md) — 2026-05-10
+- [MCP in Claude Code](claude/260509-mcp-in-claude-code.md) — 2026-05-09
+- [The expanding toolkit](claude/260508-the-expanding-toolkit.md) — 2026-05-08
+- [Building with Claude Managed Agents and Asana AI teammates](claude/260508-building-with-claude-managed-agents-and-asana-ai-teammates.md) — 2026-05-08
+- [Running an AI-native engineering org](claude/260508-running-an-ai-native-engineering-org.md) — 2026-05-08
+- [The thinking lever](claude/260508-the-thinking-lever.md) — 2026-05-08
+- [Building with Claude on Google Cloud](claude/260508-building-with-claude-on-google-cloud.md) — 2026-05-08
+- [Evaluating and improving Replit Agent at scale](claude/260508-evaluating-and-improving-replit-agent-at-scale.md) — 2026-05-08
+- [Giving coding agents their own computers: How Cursor built cloud agents](claude/260508-giving-coding-agents-their-own-computers-how-cursor-built-cl.md) — 2026-05-08
+- [Memory and dreaming for self-learning agents](claude/260508-memory-and-dreaming-for-self-learning-agents.md) — 2026-05-08
+- [Getting started with Claude Cowork](claude/260508-getting-started-with-claude-cowork.md) — 2026-05-08
+- [Collaborate with Claude across Microsoft365 apps](claude/260507-collaborate-with-claude-across-microsoft365-apps.md) — 2026-05-07 (자막없음)
+- [Hooks in Claude Code](claude/260507-hooks-in-claude-code.md) — 2026-05-07
+- [What is Claude Code?](claude/260505-what-is-claude-code.md) — 2026-05-05
+- [New agents for financial services | Claude Cowork + Claude Managed Agents](claude/260505-new-agents-for-financial-services-claude-cowork-claude-manag.md) — 2026-05-05 (자막없음)
+- [Find and fix security vulnerabilities with Claude](claude/260430-find-and-fix-security-vulnerabilities-with-claude.md) — 2026-04-30 (자막없음)
+- [Claude now connects to Autodesk Fusion](claude/260428-claude-now-connects-to-autodesk-fusion.md) — 2026-04-28 (자막없음)
+- [Claude now connects to Blender](claude/260428-claude-now-connects-to-blender.md) — 2026-04-28 (자막없음)
+- [Why does bias exist in AI models?](claude/260424-why-does-bias-exist-in-ai-models.md) — 2026-04-24
+- [All your everyday apps, in one conversation](claude/260423-all-your-everyday-apps-in-one-conversation.md) — 2026-04-23 (자막없음)
+- [How Anthropic uses Claude in Product Engineering](claude/260420-how-anthropic-uses-claude-in-product-engineering.md) — 2026-04-20
+- [Introducing Claude Design by Anthropic Labs](claude/260417-introducing-claude-design-by-anthropic-labs.md) — 2026-04-17 (자막없음)
+- [Working smarter with Claude in PowerPoint](claude/260416-working-smarter-with-claude-in-powerpoint.md) — 2026-04-16
+- [Refining a PowerPoint with Claude](claude/260416-refining-a-powerpoint-with-claude.md) — 2026-04-16
+- [Building a PowerPoint with Claude](claude/260416-building-a-powerpoint-with-claude.md) — 2026-04-16
+- [Why do AI models hallucinate?](claude/260415-why-do-ai-models-hallucinate.md) — 2026-04-15
+- [The new Claude Code desktop app, redesigned for parallel agents](claude/260414-the-new-claude-code-desktop-app-redesigned-for-parallel-agen.md) — 2026-04-14 (자막없음)
+- [What is Claude Managed Agents?](claude/260409-what-is-claude-managed-agents.md) — 2026-04-09
+- [Cowork is now generally available](claude/260409-cowork-is-now-generally-available.md) — 2026-04-09
+- [Introducing Claude Managed Agents](claude/260408-introducing-claude-managed-agents.md) — 2026-04-08 (자막없음)
+- [How Notion built with Claude Managed Agents](claude/260408-how-notion-built-with-claude-managed-agents.md) — 2026-04-08
+- [How Anthropic uses Claude in Product Management](claude/260326-how-anthropic-uses-claude-in-product-management.md) — 2026-03-26
+- [Your apps come alive on Claude mobile](claude/260325-your-apps-come-alive-on-claude-mobile.md) — 2026-03-25 (자막없음)
+- [Put Claude to work on your computer, from anywhere](claude/260323-put-claude-to-work-on-your-computer-from-anywhere.md) — 2026-03-23 (자막없음)
+- [Preview your running app in Claude Code on desktop](claude/260319-preview-your-running-app-in-claude-code-on-desktop.md) — 2026-03-19
+- [Scheduled Tasks in Cowork: Set it once, Claude handles the rest](claude/260319-scheduled-tasks-in-cowork-set-it-once-claude-handles-the-res.md) — 2026-03-19 (자막없음)
+- [Using Claude Code Remote Control](claude/260317-using-claude-code-remote-control.md) — 2026-03-17
+- [Dispatch tasks to Claude Cowork from anywhere](claude/260317-dispatch-tasks-to-claude-cowork-from-anywhere.md) — 2026-03-17 (자막없음)
+- [Claude can now show you](claude/260312-claude-can-now-show-you.md) — 2026-03-12 (자막없음)
+- [One conversation across Claude for Excel and PowerPoint](claude/260312-one-conversation-across-claude-for-excel-and-powerpoint.md) — 2026-03-12 (자막없음)
+- [How Slack uses Claude for AI search and summaries](claude/260310-how-slack-uses-claude-for-ai-search-and-summaries.md) — 2026-03-10
+- [Introducing Code Review](claude/260309-introducing-code-review.md) — 2026-03-09 (자막없음)
+- [What are skills?](claude/260227-what-are-skills.md) — 2026-02-27
+- [Cowork and Plugins: Helping enterprises move faster](claude/260224-cowork-and-plugins-helping-enterprises-move-faster.md) — 2026-02-24 (자막없음)
+- [How Lyft uses Claude for faster, more human customer support](claude/260218-how-lyft-uses-claude-for-faster-more-human-customer-support.md) — 2026-02-18
+- [Our most capable Sonnet model yet](claude/260217-our-most-capable-sonnet-model-yet.md) — 2026-02-17 (자막없음)
+- [The making of our Williams F1 film](claude/260210-the-making-of-our-williams-f1-film.md) — 2026-02-10 (자막없음)
+- [How HubSpot uses Claude for customer success](claude/260209-how-hubspot-uses-claude-for-customer-success.md) — 2026-02-09
+- [How Figma Make uses Claude to turn prompts into prototypes](claude/260206-how-figma-make-uses-claude-to-turn-prompts-into-prototypes.md) — 2026-02-06
+- [Claude for everyday work](claude/260205-claude-for-everyday-work.md) — 2026-02-05 (자막없음)
+- [The Atlassian Williams F1 team is now thinking with Claude](claude/260202-the-atlassian-williams-f1-team-is-now-thinking-with-claude.md) — 2026-02-02 (자막없음)
+- [A.A.Murakami's The Moon Underwater](claude/260202-a-a-murakami-s-the-moon-underwater.md) — 2026-02-02
+- [Getting started with Claude in Excel](claude/260130-getting-started-with-claude-in-excel.md) — 2026-01-30
+- [How Anthropic uses Claude in Marketing](claude/260127-how-anthropic-uses-claude-in-marketing.md) — 2026-01-27

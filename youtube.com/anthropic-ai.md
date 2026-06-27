@@ -1,0 +1,145 @@
+# anthropic-ai (YouTube)
+
+영상 141개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+
+- [Introducing Claude Fable 5](anthropic-ai/260609-introducing-claude-fable-5.md) — 2026-06-09
+- [Translating Claude’s thoughts into language](anthropic-ai/260507-translating-claude-s-thoughts-into-language.md) — 2026-05-07
+- [An initiative to secure the world's software | Project Glasswing](anthropic-ai/260407-an-initiative-to-secure-the-world-s-software-project-glasswi.md) — 2026-04-07
+- [When AIs act emotional](anthropic-ai/260402-when-ais-act-emotional.md) — 2026-04-02
+- [Introducing Claude Opus 4.6](anthropic-ai/260205-introducing-claude-opus-4-6.md) — 2026-02-05 (자막없음)
+- [Your tools are now interactive in Claude](anthropic-ai/260126-your-tools-are-now-interactive-in-claude.md) — 2026-01-26 (자막없음)
+- [AI on campus](anthropic-ai/260112-ai-on-campus.md) — 2026-01-12
+- [Introducing Cowork: Claude Code for the rest of your work](anthropic-ai/260112-introducing-cowork-claude-code-for-the-rest-of-your-work.md) — 2026-01-12 (자막없음)
+- [What is sycophancy in AI models?](anthropic-ai/251218-what-is-sycophancy-in-ai-models.md) — 2025-12-18
+- [Let Claude handle work in your browser](anthropic-ai/251218-let-claude-handle-work-in-your-browser.md) — 2025-12-18 (자막없음)
+- [Claude ran a business in our office](anthropic-ai/251218-claude-ran-a-business-in-our-office.md) — 2025-12-18
+- [Binti helps social workers license foster families faster with Claude](anthropic-ai/251217-binti-helps-social-workers-license-foster-families-faster-wi.md) — 2025-12-17
+- [What does AI mean for education?](anthropic-ai/251216-what-does-ai-mean-for-education.md) — 2025-12-16
+- [Why we built—and donated—the Model Context Protocol (MCP)](anthropic-ai/251211-why-we-built-and-donated-the-model-context-protocol-mcp.md) — 2025-12-11
+- [Getting started with connectors in Claude.ai](anthropic-ai/251211-getting-started-with-connectors-in-claude-ai.md) — 2025-12-11
+- [Claude Code in Slack](anthropic-ai/251208-claude-code-in-slack.md) — 2025-12-08 (자막없음)
+- [How Anthropic uses Claude in Legal](anthropic-ai/251208-how-anthropic-uses-claude-in-legal.md) — 2025-12-08
+- [Anthropic’s philosopher answers your questions](anthropic-ai/251205-anthropic-s-philosopher-answers-your-questions.md) — 2025-12-05
+- [AI Fluency for nonprofits course trailer](anthropic-ai/251202-ai-fluency-for-nonprofits-course-trailer.md) — 2025-12-02
+- [Getting started with research in Claude.ai](anthropic-ai/251202-getting-started-with-research-in-claude-ai.md) — 2025-12-02
+- [Getting started with projects in Claude.ai](anthropic-ai/251202-getting-started-with-projects-in-claude-ai.md) — 2025-12-02
+- [Getting started with Claude.ai](anthropic-ai/251202-getting-started-with-claude-ai.md) — 2025-12-02
+- [Claude Agent Skills Explained](anthropic-ai/251126-claude-agent-skills-explained.md) — 2025-11-26
+- [Claude Code on desktop](anthropic-ai/251124-claude-code-on-desktop.md) — 2025-11-24 (자막없음)
+- [Claude works with you on slides, spreadsheets, and contract redlines](anthropic-ai/251124-claude-works-with-you-on-slides-spreadsheets-and-contract-re.md) — 2025-11-24 (자막없음)
+- [Introducing Claude Opus 4.5](anthropic-ai/251124-introducing-claude-opus-4-5.md) — 2025-11-24
+- [Claude Opus 4.5 solves a puzzle game](anthropic-ai/251124-claude-opus-4-5-solves-a-puzzle-game.md) — 2025-11-24 (자막없음)
+- [What is Al \"reward hacking\"—and why do we worry about it?](anthropic-ai/251121-what-is-al-reward-hacking-and-why-do-we-worry-about-it.md) — 2025-11-21
+- [Turning Claude into your thinking partner](anthropic-ai/251120-turning-claude-into-your-thinking-partner.md) — 2025-11-20
+- [Claude Code modernizes a legacy COBOL codebase](anthropic-ai/251114-claude-code-modernizes-a-legacy-cobol-codebase.md) — 2025-11-14
+- [Generating real-time credit intelligence with Claude](anthropic-ai/251114-generating-real-time-credit-intelligence-with-claude.md) — 2025-11-14
+- [Accelerating private equity deal flows with Claude](anthropic-ai/251114-accelerating-private-equity-deal-flows-with-claude.md) — 2025-11-14
+- [Who let the robot dogs out?](anthropic-ai/251112-who-let-the-robot-dogs-out.md) — 2025-11-12
+- [Claude Code updates: When to use Haiku 4.5, Claude Code on web, and more.](anthropic-ai/251030-claude-code-updates-when-to-use-haiku-4-5-claude-code-on-web.md) — 2025-10-30
+- [How Claude is transforming financial services](anthropic-ai/251027-how-claude-is-transforming-financial-services.md) — 2025-10-27
+- [Claude now has memory](anthropic-ai/251023-claude-now-has-memory.md) — 2025-10-23 (자막없음)
+- [Introducing Claude for Life Sciences](anthropic-ai/251020-introducing-claude-for-life-sciences.md) — 2025-10-20
+- [Scaling enterprise AI: Fireside chat with Eli Lilly’s Diogo Rau and Dario Amodei](anthropic-ai/251020-scaling-enterprise-ai-fireside-chat-with-eli-lilly-s-diogo-r.md) — 2025-10-20
+- [How AbbVie accelerates drug discovery with Claude](anthropic-ai/251020-how-abbvie-accelerates-drug-discovery-with-claude.md) — 2025-10-20
+- [Building more effective AI agents](anthropic-ai/251017-building-more-effective-ai-agents.md) — 2025-10-17
+- [Creating custom Skills with Claude](anthropic-ai/251016-creating-custom-skills-with-claude.md) — 2025-10-16 (자막없음)
+- [Agent Skills: Specialized capabilities you can customize](anthropic-ai/251016-agent-skills-specialized-capabilities-you-can-customize.md) — 2025-10-16 (자막없음)
+- [Connect Claude to Microsoft 365](anthropic-ai/251016-connect-claude-to-microsoft-365.md) — 2025-10-16 (자막없음)
+- [Introducing Claude Haiku 4.5](anthropic-ai/251015-introducing-claude-haiku-4-5.md) — 2025-10-15 (자막없음)
+- [Building with MCP and the Claude API](anthropic-ai/251009-building-with-mcp-and-the-claude-api.md) — 2025-10-09
+- [Claude Coded: Sonnet 4.5, Claude Code 2.0, and more.](anthropic-ai/251006-claude-coded-sonnet-4-5-claude-code-2-0-and-more.md) — 2025-10-06
+- [Building the future of agents with Claude](anthropic-ai/251002-building-the-future-of-agents-with-claude.md) — 2025-10-02
+- [Connect Slack to Claude with MCP](anthropic-ai/251001-connect-slack-to-claude-with-mcp.md) — 2025-10-01 (자막없음)
+- [Charting Claude’s progress with Sonnet 4.5](anthropic-ai/250929-charting-claude-s-progress-with-sonnet-4-5.md) — 2025-09-29 (자막없음)
+- [Create polished files in minutes with Sonnet 4.5](anthropic-ai/250929-create-polished-files-in-minutes-with-sonnet-4-5.md) — 2025-09-29 (자막없음)
+- [Claude for Chrome brings AI where you’re already working](anthropic-ai/250929-claude-for-chrome-brings-ai-where-you-re-already-working.md) — 2025-09-29
+- [Claude plays Catan: Managing agent context with Sonnet 4.5](anthropic-ai/250929-claude-plays-catan-managing-agent-context-with-sonnet-4-5.md) — 2025-09-29
+- [An experimental new way to design software](anthropic-ai/250929-an-experimental-new-way-to-design-software.md) — 2025-09-29
+- [Designing Claude Code](anthropic-ai/250926-designing-claude-code.md) — 2025-09-26
+- [Keep thinking with Claude](anthropic-ai/250918-keep-thinking-with-claude.md) — 2025-09-18
+- [Claude can create and edit files](anthropic-ai/250909-claude-can-create-and-edit-files.md) — 2025-09-09 (자막없음)
+- [The future of agentic coding with Claude Code](anthropic-ai/250902-the-future-of-agentic-coding-with-claude-code.md) — 2025-09-02
+- [Research Preview: Claude for Chrome](anthropic-ai/250827-research-preview-claude-for-chrome.md) — 2025-08-27 (자막없음)
+- [Threat Intelligence: How Anthropic stops AI cybercrime](anthropic-ai/250827-threat-intelligence-how-anthropic-stops-ai-cybercrime.md) — 2025-08-27
+- [Building and prototyping with Claude Code](anthropic-ai/250821-building-and-prototyping-with-claude-code.md) — 2025-08-21
+- [Interpretability: Understanding how AI models think](anthropic-ai/250815-interpretability-understanding-how-ai-models-think.md) — 2025-08-15
+- [Pick up where you left off with Claude](anthropic-ai/250811-pick-up-where-you-left-off-with-claude.md) — 2025-08-11 (자막없음)
+- [Claude for Financial Services Keynote](anthropic-ai/250731-claude-for-financial-services-keynote.md) — 2025-07-31
+- [Building AI agents with Claude in Amazon Bedrock | Code w/ Claude](anthropic-ai/250731-building-ai-agents-with-claude-in-amazon-bedrock-code-w-clau.md) — 2025-07-31
+- [Building AI agents with Claude in Google Cloud's Vertex AI | Code w/ Claude](anthropic-ai/250731-building-ai-agents-with-claude-in-google-cloud-s-vertex-ai-c.md) — 2025-07-31
+- [Building headless automation with Claude Code | Code w/ Claude](anthropic-ai/250731-building-headless-automation-with-claude-code-code-w-claude.md) — 2025-07-31
+- [Claude Code best practices | Code w/ Claude](anthropic-ai/250731-claude-code-best-practices-code-w-claude.md) — 2025-07-31
+- [MCP 201 | Code w/ Claude](anthropic-ai/250731-mcp-201-code-w-claude.md) — 2025-07-31
+- [Prompting 101 | Code w/ Claude](anthropic-ai/250731-prompting-101-code-w-claude.md) — 2025-07-31
+- [Prompting for Agents | Code w/ Claude](anthropic-ai/250731-prompting-for-agents-code-w-claude.md) — 2025-07-31
+- [Vibe coding in prod | Code w/ Claude](anthropic-ai/250731-vibe-coding-in-prod-code-w-claude.md) — 2025-07-31
+- [Discover tools that work with Claude](anthropic-ai/250714-discover-tools-that-work-with-claude.md) — 2025-07-14 (자막없음)
+- [Affective Use of AI](anthropic-ai/250708-affective-use-of-ai.md) — 2025-07-08
+- [Turn ideas into interactive artifacts](anthropic-ai/250626-turn-ideas-into-interactive-artifacts.md) — 2025-06-26 (자막없음)
+- [Build a Claude-powered app](anthropic-ai/250626-build-a-claude-powered-app.md) — 2025-06-26 (자막없음)
+- [The Model Context Protocol (MCP)](anthropic-ai/250616-the-model-context-protocol-mcp.md) — 2025-06-16
+- [Lesson 11: Conclusion | AI Fluency: Framework & Foundations Course](anthropic-ai/250612-lesson-11-conclusion-ai-fluency-framework-foundations-course.md) — 2025-06-12
+- [Lesson 10: A closer look at Diligence | AI Fluency: Framework & Foundations Course](anthropic-ai/250612-lesson-10-a-closer-look-at-diligence-ai-fluency-framework-fo.md) — 2025-06-12
+- [Lesson 8: A closer look at Discernment | AI Fluency: Framework & Foundations Course](anthropic-ai/250612-lesson-8-a-closer-look-at-discernment-ai-fluency-framework-f.md) — 2025-06-12
+- [Lesson 7: Effective prompting techniques (Deep Dive) | AI Fluency: Framework & Foundations Course](anthropic-ai/250612-lesson-7-effective-prompting-techniques-deep-dive-ai-fluency.md) — 2025-06-12
+- [Lesson 6: A closer look at Description | AI Fluency: Framework & Foundations Course](anthropic-ai/250612-lesson-6-a-closer-look-at-description-ai-fluency-framework-f.md) — 2025-06-12
+- [Lesson 4: A closer look at Delegation | AI Fluency: Framework & Foundations Course](anthropic-ai/250612-lesson-4-a-closer-look-at-delegation-ai-fluency-framework-fo.md) — 2025-06-12
+- [Lesson 3B: Capabilities & limitations | AI Fluency: Framework & Foundations Course](anthropic-ai/250612-lesson-3b-capabilities-limitations-ai-fluency-framework-foun.md) — 2025-06-12
+- [Lesson 3A: What is generative AI? (Deep Dive) | AI Fluency: Framework & Foundations Course](anthropic-ai/250612-lesson-3a-what-is-generative-ai-deep-dive-ai-fluency-framewo.md) — 2025-06-12
+- [Lesson 2B: The 4D Framework | AI Fluency: Framework & Foundations Course](anthropic-ai/250612-lesson-2b-the-4d-framework-ai-fluency-framework-foundations.md) — 2025-06-12
+- [Lesson 2A: Why do we need AI Fluency? | AI Fluency: Framework & Foundations Course](anthropic-ai/250612-lesson-2a-why-do-we-need-ai-fluency-ai-fluency-framework-fou.md) — 2025-06-12
+- [Lesson 1: Introduction to AI Fluency | AI Fluency: Framework & Foundations Course |](anthropic-ai/250612-lesson-1-introduction-to-ai-fluency-ai-fluency-framework-fou.md) — 2025-06-12
+- [AI Fluency: Framework & Foundations Course Trailer](anthropic-ai/250612-ai-fluency-framework-foundations-course-trailer.md) — 2025-06-12
+- [How Cursor is building the future of AI coding with Claude](anthropic-ai/250610-how-cursor-is-building-the-future-of-ai-coding-with-claude.md) — 2025-06-10
+- [A camera that makes poems](anthropic-ai/250609-a-camera-that-makes-poems.md) — 2025-06-09
+- [A conversation on Claude Code](anthropic-ai/250604-a-conversation-on-claude-code.md) — 2025-06-04
+- [A day with Claude](anthropic-ai/250522-a-day-with-claude.md) — 2025-05-22
+- [Claude Code + GitHub Actions](anthropic-ai/250522-claude-code-github-actions.md) — 2025-05-22 (자막없음)
+- [The Societal Impacts of AI](anthropic-ai/250428-the-societal-impacts-of-ai.md) — 2025-04-28
+- [Lessons on AI agents from Claude Plays Pokemon](anthropic-ai/250424-lessons-on-ai-agents-from-claude-plays-pokemon.md) — 2025-04-24
+- [Could AI models be conscious?](anthropic-ai/250424-could-ai-models-be-conscious.md) — 2025-04-24
+- [Introducing Claude for Education](anthropic-ai/250407-introducing-claude-for-education.md) — 2025-04-07 (자막없음)
+- [Tracing the thoughts of a large language model](anthropic-ai/250327-tracing-the-thoughts-of-a-large-language-model.md) — 2025-03-27
+- [How Intercom is redefining customer support with Claude](anthropic-ai/250327-how-intercom-is-redefining-customer-support-with-claude.md) — 2025-03-27
+- [Controlling powerful AI](anthropic-ai/250317-controlling-powerful-ai.md) — 2025-03-17
+- [Defending against AI jailbreaks](anthropic-ai/250228-defending-against-ai-jailbreaks.md) — 2025-02-28
+- [Introducing Claude Code](anthropic-ai/250224-introducing-claude-code.md) — 2025-02-24
+- [Claude 3.7 Sonnet with extended thinking](anthropic-ai/250224-claude-3-7-sonnet-with-extended-thinking.md) — 2025-02-24 (자막없음)
+- [Tips for building AI agents](anthropic-ai/250213-tips-for-building-ai-agents.md) — 2025-02-13
+- [How difficult is AI alignment? | Anthropic Research Salon](anthropic-ai/250108-how-difficult-is-ai-alignment-anthropic-research-salon.md) — 2025-01-08
+- [Building Anthropic | A conversation with our co-founders](anthropic-ai/241220-building-anthropic-a-conversation-with-our-co-founders.md) — 2024-12-20
+- [Alignment faking in large language models](anthropic-ai/241218-alignment-faking-in-large-language-models.md) — 2024-12-18
+- [What do people use AI models for?](anthropic-ai/241212-what-do-people-use-ai-models-for.md) — 2024-12-12
+- [Asana supercharges work management with Claude](anthropic-ai/241107-asana-supercharges-work-management-with-claude.md) — 2024-11-07
+- [Claude | Computer use for coding](anthropic-ai/241022-claude-computer-use-for-coding.md) — 2024-10-22
+- [Claude | Computer use for orchestrating tasks](anthropic-ai/241022-claude-computer-use-for-orchestrating-tasks.md) — 2024-10-22
+- [Claude | Computer use for automating operations](anthropic-ai/241022-claude-computer-use-for-automating-operations.md) — 2024-10-22
+- [European Parliament expands access to their archives with Claude in Amazon Bedrock](anthropic-ai/241021-european-parliament-expands-access-to-their-archives-with-cl.md) — 2024-10-21
+- [AI, policy, and the weird sci-fi future with Anthropic’s Jack Clark](anthropic-ai/240930-ai-policy-and-the-weird-sci-fi-future-with-anthropic-s-jack.md) — 2024-09-30 (자막없음)
+- [AI prompt engineering: A deep dive](anthropic-ai/240905-ai-prompt-engineering-a-deep-dive.md) — 2024-09-05
+- [Wedia advances digital asset management with Claude](anthropic-ai/240828-wedia-advances-digital-asset-management-with-claude.md) — 2024-08-28
+- [How we built Artifacts with Claude](anthropic-ai/240827-how-we-built-artifacts-with-claude.md) — 2024-08-27
+- [Shareable Artifacts in Claude](anthropic-ai/240710-shareable-artifacts-in-claude.md) — 2024-07-10 (자막없음)
+- [Evaluate prompts in the Anthropic Console](anthropic-ai/240709-evaluate-prompts-in-the-anthropic-console.md) — 2024-07-09
+- [Shareable Projects in Claude](anthropic-ai/240625-shareable-projects-in-claude.md) — 2024-06-25 (자막없음)
+- [Claude 3.5 Sonnet for agentic coding](anthropic-ai/240620-claude-3-5-sonnet-for-agentic-coding.md) — 2024-06-20 (자막없음)
+- [Claude 3.5 Sonnet as a writing partner](anthropic-ai/240620-claude-3-5-sonnet-as-a-writing-partner.md) — 2024-06-20 (자막없음)
+- [Claude 3.5 Sonnet for vision](anthropic-ai/240620-claude-3-5-sonnet-for-vision.md) — 2024-06-20 (자막없음)
+- [Claude 3.5 Sonnet for sparking creativity](anthropic-ai/240620-claude-3-5-sonnet-for-sparking-creativity.md) — 2024-06-20 (자막없음)
+- [Scaling interpretability](anthropic-ai/240613-scaling-interpretability.md) — 2024-06-13
+- [What should an AI's personality be?](anthropic-ai/240608-what-should-an-ai-s-personality-be.md) — 2024-06-08
+- [What is interpretability?](anthropic-ai/240603-what-is-interpretability.md) — 2024-06-03
+- [Introducing the Claude iOS app](anthropic-ai/240503-introducing-the-claude-ios-app.md) — 2024-05-03 (자막없음)
+- [Coming soon to the Team plan on Claude.ai](anthropic-ai/240501-coming-soon-to-the-team-plan-on-claude-ai.md) — 2024-05-01
+- [Tool use with the Claude 3 model family](anthropic-ai/240404-tool-use-with-the-claude-3-model-family.md) — 2024-04-04
+- [Claude 3 Haiku for fast document analysis](anthropic-ai/240314-claude-3-haiku-for-fast-document-analysis.md) — 2024-03-14 (자막없음)
+- [Claude 3 Haiku for instant customer service](anthropic-ai/240314-claude-3-haiku-for-instant-customer-service.md) — 2024-03-14 (자막없음)
+- [Claude 3 Haiku turns thousands of physical documents into structured data](anthropic-ai/240304-claude-3-haiku-turns-thousands-of-physical-documents-into-st.md) — 2024-03-04
+- [Claude 3 Sonnet as a language learning partner](anthropic-ai/240304-claude-3-sonnet-as-a-language-learning-partner.md) — 2024-03-04
+- [Claude 3 Opus as an economic analyst](anthropic-ai/240304-claude-3-opus-as-an-economic-analyst.md) — 2024-03-04
+- [Robin AI, powered by Claude](anthropic-ai/240124-robin-ai-powered-by-claude.md) — 2024-01-24
+- [Behind the prompt: Prompting tips for Claude.ai](anthropic-ai/230825-behind-the-prompt-prompting-tips-for-claude-ai.md) — 2023-08-25
+- [Coding with Claude](anthropic-ai/230823-coding-with-claude.md) — 2023-08-23 (자막없음)
+- [Long inputs, multi-step output with Claude](anthropic-ai/230823-long-inputs-multi-step-output-with-claude.md) — 2023-08-23 (자막없음)
+- [Inside our first Anthropic Hackathon, San Francisco](anthropic-ai/230823-inside-our-first-anthropic-hackathon-san-francisco.md) — 2023-08-23
+- [Quick tips for Claude: Long context file uploads](anthropic-ai/230823-quick-tips-for-claude-long-context-file-uploads.md) — 2023-08-23 (자막없음)
