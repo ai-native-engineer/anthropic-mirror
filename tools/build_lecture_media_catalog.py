@@ -463,6 +463,12 @@ def describe_video(title: str) -> str:
         return "프롬프트 작성과 개선의 기본 원리를 설명하는 영상."
     if "claude code" in lower:
         return "Claude Code의 기본 사용 흐름을 짧게 소개하는 영상."
+    if lower.startswith("claude | computer use for automating operations"):
+        return "Claude의 computer use가 업무 도구를 조작해 운영 작업을 자동화하는 예시 영상."
+    if lower.startswith("claude | computer use for coding"):
+        return "Claude의 computer use가 개발 환경을 조작해 코딩 작업을 돕는 예시 영상."
+    if lower.startswith("claude | computer use for orchestrating tasks"):
+        return "Claude의 computer use가 여러 단계의 화면 작업을 이어서 수행하는 예시 영상."
     if "agent" in lower:
         return "AI 에이전트가 작업을 계획하고 도구를 쓰는 방식을 설명하는 영상."
     if "interpretability" in lower or "thought" in lower:

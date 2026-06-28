@@ -25,9 +25,9 @@
 | [MCP in Claude Code](../youtube.com/claude/260509-mcp-in-claude-code.md) | MCP | MCP로 모델과 도구/데이터를 연결하는 개념을 소개하는 영상. | 3:37 | 2026-05-09 | en-orig |
 | [Your first Claude Code prompt](../youtube.com/claude/260515-your-first-claude-code-prompt.md) | 프롬프트 | 프롬프트 작성과 개선의 기본 원리를 설명하는 영상. | 2:27 | 2026-05-15 | en-orig |
 | [Tool use with the Claude 3 model family](../youtube.com/anthropic-ai/240404-tool-use-with-the-claude-3-model-family.md) | 도구 사용 | Claude의 도구 사용/function calling 개념을 짧게 설명하는 영상. | 2:13 | 2024-04-04 | en-orig |
-| [Claude \| Computer use for automating operations](../youtube.com/anthropic-ai/241022-claude-computer-use-for-automating-operations.md) | 도구 사용 | 「Claude | Computer use for automating operations」 개념을 강의에서 짧게 소개할 때 쓰기 좋은 공식 영상. | 2:03 | 2024-10-22 | en |
-| [Claude \| Computer use for coding](../youtube.com/anthropic-ai/241022-claude-computer-use-for-coding.md) | 도구 사용 | 「Claude | Computer use for coding」 개념을 강의에서 짧게 소개할 때 쓰기 좋은 공식 영상. | 3:03 | 2024-10-22 | en |
-| [Claude \| Computer use for orchestrating tasks](../youtube.com/anthropic-ai/241022-claude-computer-use-for-orchestrating-tasks.md) | 도구 사용 | 「Claude | Computer use for orchestrating tasks」 개념을 강의에서 짧게 소개할 때 쓰기 좋은 공식 영상. | 2:04 | 2024-10-22 | en |
+| [Claude \| Computer use for automating operations](../youtube.com/anthropic-ai/241022-claude-computer-use-for-automating-operations.md) | 도구 사용 | Claude의 computer use가 업무 도구를 조작해 운영 작업을 자동화하는 예시 영상. | 2:03 | 2024-10-22 | en |
+| [Claude \| Computer use for coding](../youtube.com/anthropic-ai/241022-claude-computer-use-for-coding.md) | 도구 사용 | Claude의 computer use가 개발 환경을 조작해 코딩 작업을 돕는 예시 영상. | 3:03 | 2024-10-22 | en |
+| [Claude \| Computer use for orchestrating tasks](../youtube.com/anthropic-ai/241022-claude-computer-use-for-orchestrating-tasks.md) | 도구 사용 | Claude의 computer use가 여러 단계의 화면 작업을 이어서 수행하는 예시 영상. | 2:04 | 2024-10-22 | en |
 | [Keep thinking with Claude](../youtube.com/anthropic-ai/250918-keep-thinking-with-claude.md) | 확장 사고 | Claude의 확장 사고 흐름을 짧게 보여주는 공식 영상. | 1:30 | 2025-09-18 | en-orig |
 | [Getting started with Claude.ai](../youtube.com/anthropic-ai/251202-getting-started-with-claude-ai.md) | Claude 시작하기 | Claude 기능을 처음 소개할 때 쓰기 좋은 짧은 공식 튜토리얼. | 5:19 | 2025-12-02 | en-orig |
 | [Getting started with projects in Claude.ai](../youtube.com/anthropic-ai/251202-getting-started-with-projects-in-claude-ai.md) | Claude 시작하기 | Claude 기능을 처음 소개할 때 쓰기 좋은 짧은 공식 튜토리얼. | 7:08 | 2025-12-02 | en-orig |
