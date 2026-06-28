@@ -232,6 +232,19 @@ def build() -> None:
     for item in out_rows:
         if item["decision"] != "duplicate":
             continue
+        seen = {item["key"]}
+        while True:
+            canonical_key = item["canonical_key"]
+            canonical_item = by_key.get(canonical_key)
+            if (
+                not canonical_item
+                or canonical_item["decision"] != "duplicate"
+                or not canonical_item.get("canonical_key")
+                or canonical_key in seen
+            ):
+                break
+            seen.add(canonical_key)
+            item["canonical_key"] = canonical_item["canonical_key"]
         canonical_item = by_key.get(item["canonical_key"])
         if canonical_item and canonical_item["decision"] == "drop":
             item["decision"] = "drop"
