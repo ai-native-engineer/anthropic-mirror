@@ -5,75 +5,97 @@ Start the loop with `/goal @GOAL.md`.
 
 ## Goal
 
-Extract every image-bearing asset from the Anthropic mirror into a reusable lecture media catalog with copied assets, one-line descriptions, source links, and simple concept YouTube recommendations.
+Curate the lecture media catalog by visually reviewing image assets, reading their source document context, removing duplicate or useless entries, and replacing heuristic descriptions with context-grounded Korean one-line descriptions.
 
 ## Proof
 
-Run:
+Run from this worktree:
 
 ```bash
-python3 tools/build_lecture_media_catalog.py --check
+python3 tools/validate_curated_media_catalog.py --check
 ```
 
-The check passes only when `lecture-media/images.tsv`, `lecture-media/images.md`, `lecture-media/youtube.tsv`, and `lecture-media/youtube.md` exist, every detected source image reference or local image file has a catalog row, every catalog row has a one-line description and source pointer, and every recommended concept video points to an existing mirrored YouTube entry or source URL.
-
-## Context
-
-This repository is a generated Anthropic/Claude mirror. Domain directories such as `www.anthropic.com/`, `claude.com/`, `platform.claude.com/`, `support.claude.com/`, `anthropic.skilljar.com/`, `transformer-circuits.pub/`, and `youtube.com/` are generated archive content and must not be hand-edited. Fix generators only when changing crawl behavior; this goal is downstream extraction, so generated content is read-only input.
-
-Observed baseline from the repo root on 2026-06-28:
-
-- 5,287 Markdown files.
-- 544 local image files: 542 under `transformer-circuits.pub/`, 2 under `assets/`.
-- Markdown contains many remote image references and YouTube references; previous mirror work established that repo-wide video checks should not use a tiny `rg --max-filesize` cap.
-- `pdfimages` is installed, `PIL` is available, and Python `fitz`/`pypdf` are not installed. Use existing tools before adding dependencies.
-
-Relevant repo rules: read `AGENTS.md` before editing; keep `README.md` and `README.ko.md` in sync only if changing README; do not push without explicit user approval.
-
-## Scope
-
-- Build a reusable extraction/catalog layer under `lecture-media/`.
-- Inventory all local image files and all Markdown image references, including remote URLs.
-- Copy local image files into `lecture-media/assets/` with stable names; download remote image URLs only if needed for the catalog and only into `lecture-media/assets/remote/`.
-- Generate `images.tsv` for machine use and `images.md` for lecture-material browsing: image preview/path, one-line Korean description, source document, source URL when available, and topic hints.
-- Generate `youtube.tsv` and `youtube.md` with simple concept-explanation videos drawn from mirrored official YouTube/channel pages and embedded transcripts where available.
-- Include PDF-bearing source documents in the inventory and use `pdfimages` for PDF image extraction when it works without adding new dependencies.
-- Add the smallest verification script/check needed to prove catalog coverage.
-
-## Out of Scope
-
-- Hand-editing generated Markdown under domain directories.
-- Re-crawling Anthropic/Claude pages unless extraction reveals missing generated data.
-- Publishing or pushing changes to the public repo.
-- Producing final slide decks or rewriting lesson text.
-- Adding new Python packages unless the existing CLI/stdlib path cannot satisfy PDF/image extraction.
-
-## Constraints
-
-- May touch only `GOAL.md`, `progress.tsv`, `tools/`, and `lecture-media/` unless a repo rule or generator bug requires otherwise.
-- Treat existing domain directories as read-only input.
-- Use `rg`, Python stdlib, existing shell tools, `pdfimages`, and `PIL` before considering anything else.
-- Network downloads of remote image URLs are allowed only for public source URLs already present in the mirror and only into `lecture-media/`; record failures instead of retrying forever.
-- No `git reset --hard`, no force-push, no deletion outside this goal branch.
-- End each meaningful step with `goal_log.py done ...` and a git commit.
-
-## Bounds
-
-Stop after a first complete, check-passing catalog pass. For slow media work, cap a single extraction/download step at 30 minutes; record skipped/failing assets in the TSV and keep the loop moving.
+The check must pass only when `lecture-media/curated/images.tsv`, `lecture-media/curated/images.md`, `lecture-media/curated/assets/`, and `lecture-media/curated/semantic-review.tsv` exist; every original image row is classified as `keep`, `duplicate`, or `drop`; every kept canonical image has an actual inspected asset, a context-grounded Korean one-line description, source document context, and a non-generic visual note; duplicate rows point to a kept canonical row; dropped rows have a concrete drop reason; and a semantic review sample covers representative kept, duplicate, and dropped items.
 
 ## Acceptance Criteria
 
-- `lecture-media/images.md` lets a human browse extracted images with one-line Korean descriptions and source pointers.
-- `lecture-media/images.tsv` has one row per detected local image file or Markdown image reference, with no blank description/source fields.
-- `lecture-media/youtube.md` lists concise official Anthropic/Claude concept videos suitable for lecture inserts, with one-line Korean explanations.
-- `python3 tools/build_lecture_media_catalog.py --check` reports counts and exits 0.
+- The curated catalog is the usable deliverable: `lecture-media/curated/images.md` shows only kept canonical images, not every raw extraction row.
+- Each kept canonical image has a Korean one-line description based on both visual inspection and the source document context, not generic text like "문서에 포함된 이미지" or filename-only guesses.
+- Duplicate, placeholder, tracking, broken, tiny UI chrome, map control, repeated logo-only, and low-value decorative assets are excluded from the curated deliverable with an explicit reason in TSV.
+- Visual review is done on image assets themselves, preferably by deduplicated visual clusters first; a cluster can be reviewed once only when all members are exact or near duplicates.
+- Semantic quality gate: representative rows must show image preview/path, source context, decision, and rationale; generic keyword matches or alt-text-only explanations are not enough.
+
+## Context
+
+This branch starts from `goal/lecture-media-catalog` at commit `154543c`, which already created the raw lecture media extraction. Main `main` is unchanged and should stay clean.
+
+Current raw input under `lecture-media/`:
+
+- `lecture-media/images.tsv`: 8,175 image rows.
+- Kinds: 3,293 `remote_ref`, 2,835 `pdf_image`, 1,479 `missing_local_ref`, 544 `local_file`, 24 `data_uri`.
+- Assets: 6,694 rows currently have an asset path; 3,291 of 3,293 remote images downloaded; 2 remote failures are recorded.
+- Asset footprint: about 921MB total, including PDF-extracted images, local copies, downloaded remote images, and data URI images.
+- Existing descriptions are mostly heuristic from alt/title/source path. They are not acceptable as final lecture descriptions.
+
+Generated mirror rules still apply: do not hand-edit generated domain files (`www.anthropic.com/`, `claude.com/`, `platform.claude.com/`, `support.claude.com/`, `anthropic.skilljar.com/`, `transformer-circuits.pub/`, `youtube.com/`). Use them as read-only source context.
+
+## Scope
+
+- Build the smallest curation pass needed on top of the existing raw catalog.
+- Use exact hashes and simple perceptual/size checks to group exact and near-duplicate image assets before review.
+- Visually inspect each kept visual cluster using local assets/contact sheets or individual image views.
+- Read the source document context around each image occurrence before writing the kept image description.
+- Produce a curated deliverable under `lecture-media/curated/`:
+  - `images.tsv`: all original rows with decision metadata.
+  - `images.md`: kept canonical images only, for browsing and lecture use.
+  - `assets/`: copied kept canonical assets only.
+  - `semantic-review.tsv`: representative reviewed rows with rationale and evidence.
+- Add or update the minimal validation script needed for the Proof.
+
+## Out of Scope
+
+- Re-crawling Anthropic/Claude sites.
+- Changing generated source Markdown or PDFs.
+- Producing final slides, lecture script, or Korean full lesson material.
+- Deleting the raw `lecture-media/assets/` extraction store in this run. The curated deliverable excludes bad/duplicate items; raw asset cleanup can be a later disk-space task.
+- Using paid APIs or sending assets to external services without explicit approval.
+
+## Constraints
+
+- May touch `GOAL.md`, `progress.tsv`, `tools/`, and `lecture-media/curated/`. May read all existing mirror content and raw `lecture-media/`.
+- Do not mutate or delete generated source directories.
+- Prefer stdlib, existing `PIL`, and existing local files. No new dependencies unless there is no workable local path.
+- Do not push. Do not force-push. Do not use `git reset --hard`.
+- If a curation pass needs to delete raw assets rather than exclude them from `curated/`, stop and ask first.
+- For image review, batch with contact sheets where useful, but do not mark a kept image complete without viewing the actual visual content or a contact sheet that clearly contains it.
+- Descriptions should be concise Korean, grounded in source context, and avoid overclaiming beyond what the image and source document support.
+
+## Input Stability
+
+The input set is frozen to this worktree at branch start: raw catalog commit `154543c` plus the files present under `lecture-media/` in this branch. Do not re-run crawling or pull newer source data during the goal. If the raw generator is rerun, record the new input commit and restart coverage counts.
+
+## Target Change Tracking
+
+All target edits are committed in this git worktree on branch `goal/lecture-media-curation`. Each loop step commits `progress.tsv` plus any changed `tools/` or `lecture-media/curated/` artifacts.
+
+## Bounds
+
+Stop after a first proof-passing curated catalog. If a single visual-review batch takes more than 45 minutes, commit progress and continue with the next batch. If full visual review proves too large for one run, preserve completed clusters and report exact remaining counts rather than pretending completion.
+
+## Curation Policy
+
+- `keep`: visually meaningful and useful for explaining an Anthropic/Claude concept, product, workflow, research result, customer example, event, or safety/policy idea.
+- `duplicate`: same or near-same visual content as another kept row; point to `canonical_key`.
+- `drop`: placeholder, broken download, UI/control artifact, map marker/control, tracking badge, repeated logo-only decoration, tiny icon with no teaching value, visually unreadable crop, or asset whose source context gives no useful lecture concept.
+- For logos/headshots/customer screenshots, keep only when the source context makes the image useful for a teaching point; otherwise drop as low-value decorative media.
+- For PDF images, prefer figures/charts/diagrams/tables that support concepts; drop blank fragments, page furniture, tiny icons, and repeated branding.
 
 ## How Progress Is Tracked
 
 - `progress.tsv` is the plan and progress table; the task breakdown lives in its rows. Edit it ONLY through the helper so rows never break on tab matching:
   `python3 /Users/seungwonan/.agents/skills/shared/goal-plan/scripts/goal_log.py <add|start|done|block|drop|set|show> ...` (flags: `<cmd> --help`).
 - This plan lives on its own `goal/<tag>` branch (a worktree, or a dedicated goal repo). Each loop step ends in a commit, so the commit history is the durable record. `goal_log.py done` stamps the current `HEAD` as the row checkpoint; the commit you make immediately after records the row update. The checkpoint plus git history is your resume point: on resume, recover state with `pwd`, `goal_log.py show`, `git log`, then re-run the Proof.
-- On a long run, watch the context window and compact old turns when it fills, keeping the Proof output and `progress.tsv` intact (in Claude Code, `/context` to check and `/compact` to summarize); repeated compaction lets the loop run for many more hours.
+- On a long run the context window fills and Claude Code auto-compacts old turns on its own; you do not run `/compact` yourself (it is an interactive command, not a turn action). What lets the loop survive compaction is externalized state: `progress.tsv` and git hold the plan and checkpoints, and the Proof output stays in the transcript, so you resume cleanly with `goal_log.py show` + `git log` after any compaction.
 
 ## Loop Protocol
 
@@ -83,7 +105,7 @@ Run as an autonomous loop until the Goal holds.
 2. Take the next row (or `goal_log.py add --task ...`), then `goal_log.py start <id>`. Pick the row most likely to advance the Goal or unblock the rest, not just the next in line.
 3. Do the work within Scope and Constraints, then run the Proof.
 4. `goal_log.py done <id> --decision keep|discard|crash --artifact "<proof>"` (keep if it advanced the goal; discard if it did not but did no harm; crash if it caused a regression). Be skeptical of your own success -- if the Proof passed quietly, rerun it before marking done. Every done row needs artifact or notes evidence; for discard/crash, put WHY it failed and what to try instead in notes so a later session does not repeat the dead end.
-5. Commit the changed files plus `progress.tsv`: `git add <files> progress.tsv && git commit -m "<keep|discard>: <what you did>"`.
+5. Commit the changed files plus `progress.tsv`: `git add <files> progress.tsv && git commit -m "<keep|discard>: <what you did>"`. If target code changes live outside this repo, also commit the target repo or commit patch/snapshot artifacts here, according to Target Change Tracking.
 6. Surface the Proof in your reply as evidence, not a claim: paste the actual command output (pass/fail, line numbers, exact errors), then name the checkpoint, what you verified this step, what remains, and whether you are blocked. The `/goal` evaluator reads the conversation, not the files.
 7. To undo a change that made things worse, revert with git, sparingly. Do not `git reset` away failed attempts you have already committed -- the commit log is the full record, including discards.
 
