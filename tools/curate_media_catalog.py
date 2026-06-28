@@ -19,6 +19,7 @@ RAW = ROOT / "lecture-media" / "images.tsv"
 OUT = ROOT / "lecture-media" / "curated"
 MANUAL = OUT / "manual-review.tsv"
 GENERIC = ("문서에 포함된 이미지", "관련 이미지", "Anthropic/Claude 미러 문서에 포함된 이미지")
+IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg", ".avif"}
 
 
 def clean(value: str) -> str:
@@ -52,19 +53,46 @@ def asset_path(row: dict[str, str]) -> Path | None:
     return path if path.exists() and path.is_file() else None
 
 
+def image_suffix(path: Path, data: bytes | None = None) -> str:
+    suffix = path.suffix.lower()
+    if suffix in IMAGE_SUFFIXES:
+        return suffix
+    head = (data if data is not None else path.read_bytes())[:64]
+    if head.startswith(b"\x89PNG\r\n\x1a\n"):
+        return ".png"
+    if head.startswith(b"\xff\xd8\xff"):
+        return ".jpg"
+    if head[:4] == b"RIFF" and head[8:12] == b"WEBP":
+        return ".webp"
+    if head[4:8] == b"ftyp" and head[8:12] in {b"avif", b"avis"}:
+        return ".avif"
+    if head.lstrip().startswith((b"<svg", b"<?xml")):
+        return ".svg"
+    return suffix or ".img"
+
+
+def asset_name(path: Path) -> str:
+    suffix = image_suffix(path)
+    if path.name.lower().endswith(suffix):
+        return path.name
+    base = path.with_suffix("").name if path.suffix.lower() == ".img" else path.name
+    return base if base.lower().endswith(suffix) else f"{base}{suffix}"
+
+
 def asset_meta(path: Path | None) -> tuple[str, str, str]:
     if not path:
         return "", "", ""
     data = path.read_bytes()
     digest = hashlib.sha256(data).hexdigest()
+    suffix = image_suffix(path, data)
     width = height = ""
-    if Image and path.suffix.lower() not in {".svg", ".avif", ".img"}:
+    if Image and suffix not in {".svg", ".avif", ".img"}:
         try:
             with Image.open(path) as im:
                 width, height = map(str, im.size)
         except Exception:
             pass
-    if not width and path.suffix.lower() == ".svg":
+    if not width and suffix == ".svg":
         text = data[:4000].decode("utf-8", "ignore")
         m = re.search(r"<svg[^>]*\bwidth=[\"']?([0-9.]+).*?\bheight=[\"']?([0-9.]+)", text)
         if m:
@@ -144,7 +172,7 @@ def manual_overrides() -> dict[str, dict[str, str]]:
 def copy_asset(src: Path | None, key: str) -> str:
     if not src:
         return ""
-    dest = OUT / "assets" / f"{hashlib.sha1(key.encode()).hexdigest()[:12]}-{src.name}"
+    dest = OUT / "assets" / f"{hashlib.sha1(key.encode()).hexdigest()[:12]}-{asset_name(src)}"
     dest.parent.mkdir(parents=True, exist_ok=True)
     if not dest.exists() or dest.stat().st_size != src.stat().st_size:
         shutil.copy2(src, dest)
