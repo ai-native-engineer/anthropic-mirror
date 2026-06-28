@@ -30,6 +30,52 @@ ATTR_RE = re.compile(r"([\w:-]+)\s*=\s*(\"[^\"]*\"|'[^']*'|[^\s>]+)")
 SOURCE_RE = re.compile(r"<!--\s*source:\s*([^>]+?)\s*-->")
 TITLE_RE = re.compile(r"^#\s+(.+)$", re.M)
 DATA_RE = re.compile(r"^data:image/([a-zA-Z0-9.+-]+)(;base64)?,(.*)$", re.S)
+SELECTED_VIDEO_TOPICS = {
+    "what is claude code?": "Claude Code 기초",
+    "the claude.md file": "Claude Code 기초",
+    "installing claude code": "Claude Code 기초",
+    "how claude code works": "Claude Code 기초",
+    "your first claude code prompt": "Claude Code 기초",
+    "the explore → plan → code → commit workflow in claude code": "Claude Code 기초",
+    "context management in claude code": "Claude Code 기초",
+    "mcp in claude code": "Claude Code 확장",
+    "hooks in claude code": "Claude Code 확장",
+    "build a proactive agent workflow with claude code": "Claude Code 실무",
+    "how we claude code": "Claude Code 실무",
+    "reflecting on a year of claude code": "Claude Code 실무",
+    "the future of agentic coding with claude code": "Claude Code 실무",
+    "claude code best practices | code w/ claude": "Claude Code 실무",
+    "building headless automation with claude code | code w/ claude": "Claude Code 실무",
+    "building and prototyping with claude code": "Claude Code 실무",
+    "designing claude code": "Claude Code 실무",
+    "vibe coding in prod | code w/ claude": "Claude Code 실무",
+    "mcp 201 | code w/ claude": "MCP",
+    "prompting 101 | code w/ claude": "프롬프트",
+    "prompting for agents | code w/ claude": "에이전트",
+}
+SELECTED_VIDEO_DESCRIPTIONS = {
+    "what is claude code?": "Claude Code가 터미널/IDE에서 코드베이스를 읽고 수정하며 검증하는 agentic coding 도구임을 소개하는 영상.",
+    "the claude.md file": "CLAUDE.md로 프로젝트 규칙과 맥락을 Claude Code에 지속적으로 전달하는 방법을 설명하는 영상.",
+    "installing claude code": "Claude Code를 터미널, IDE, 데스크톱, 웹에서 시작하는 설치와 로그인 흐름을 설명하는 영상.",
+    "how claude code works": "Claude Code의 context 수집, 도구 실행, 결과 검증으로 이어지는 agentic loop를 설명하는 영상.",
+    "your first claude code prompt": "Claude Code에 첫 요청을 넣을 때 작업 범위와 기대 결과를 구체화하는 방법을 보여주는 영상.",
+    "the explore → plan → code → commit workflow in claude code": "Explore, Plan, Code, Commit 순서로 Claude Code를 안정적으로 쓰는 기본 작업 흐름을 보여주는 영상.",
+    "context management in claude code": "긴 작업에서 context를 관리하고 필요한 정보만 유지하는 Claude Code 사용법을 설명하는 영상.",
+    "mcp in claude code": "Claude Code에서 MCP로 외부 도구와 데이터 소스를 연결하는 기본 흐름을 설명하는 영상.",
+    "hooks in claude code": "Claude Code hooks로 반복 검증과 자동화 지점을 설정하는 방법을 소개하는 영상.",
+    "build a proactive agent workflow with claude code": "Claude Code를 routine 기반 proactive workflow로 확장하는 실무 예시 영상.",
+    "how we claude code": "Anthropic 내부 팀이 Claude Code를 실제 개발 workflow에 적용하는 방식을 다루는 긴 세션.",
+    "reflecting on a year of claude code": "Claude Code 1년 사용 경험을 바탕으로 CLAUDE.md, 검증, 반복 개선 패턴을 짚는 대담.",
+    "the future of agentic coding with claude code": "Claude Code 관점에서 agentic coding이 개발 workflow를 어떻게 바꾸는지 설명하는 대담.",
+    "claude code best practices | code w/ claude": "Claude Code 사용 패턴, 검증 루프, context 관리 같은 실무 베스트프랙티스를 정리한 세션.",
+    "building headless automation with claude code | code w/ claude": "Claude Code를 터미널/스크립트 기반 자동화 흐름에 붙이는 방법을 보여주는 실무 세션.",
+    "building and prototyping with claude code": "Claude Code로 프로토타입을 만들고 제품 개발 흐름에 붙이는 방법을 다루는 실무 대담.",
+    "designing claude code": "Claude Code 제품 설계 관점과 agentic coding 경험의 핵심 원칙을 설명하는 영상.",
+    "vibe coding in prod | code w/ claude": "Claude Code를 프로덕션 개발에 쓸 때 필요한 검증, 리뷰, 책임 경계를 다루는 세션.",
+    "mcp 201 | code w/ claude": "MCP를 더 깊게 다루며 Claude와 외부 도구/데이터 연결을 설계하는 방법을 설명하는 세션.",
+    "prompting 101 | code w/ claude": "Claude에 역할, 맥락, 제약, 출력 형식을 명확히 주는 프롬프트 기본기를 다루는 세션.",
+    "prompting for agents | code w/ claude": "에이전트가 계획하고 도구를 쓰도록 프롬프트를 구성하는 방법을 다루는 세션.",
+}
 
 
 def rel(path: Path) -> str:
@@ -410,15 +456,17 @@ def video_topic(title: str) -> str:
     lower = title.lower()
     if "trailer" in lower or "conclusion" in lower:
         return ""
+    if lower in SELECTED_VIDEO_TOPICS:
+        return SELECTED_VIDEO_TOPICS[lower]
     if "ai fluency" in lower or lower.startswith("lesson "):
         return "AI Fluency"
     if "sycophancy" in lower or "reward hacking" in lower:
         return "모델 행동"
     if "interpretability" in lower:
         return "해석가능성"
-    if "model context protocol" in lower or lower == "mcp in claude code":
+    if "model context protocol" in lower:
         return "MCP"
-    if "prompting tips" in lower or lower.startswith("prompting 101") or lower == "your first claude code prompt":
+    if "prompting tips" in lower or lower.startswith("prompting 101"):
         return "프롬프트"
     if lower in {"tips for building ai agents", "building more effective ai agents", "claude agent skills explained", "what is claude managed agents?"}:
         return "에이전트"
@@ -426,8 +474,6 @@ def video_topic(title: str) -> str:
         return "도구 사용"
     if lower.startswith("getting started with "):
         return "Claude 시작하기"
-    if lower == "what is claude code?":
-        return "Claude Code"
     if lower == "keep thinking with claude":
         return "확장 사고"
     return ""
@@ -437,22 +483,28 @@ def concept_score(title: str) -> int:
     topic = video_topic(title)
     if topic == "AI Fluency":
         return 3
+    if topic.startswith("Claude Code"):
+        return 2
     if topic in {"MCP", "프롬프트", "에이전트", "모델 행동", "해석가능성"}:
         return 2
     return 1 if topic else 0
 
 
 def keep_video(title: str, meta: dict[str, str]) -> bool:
-    if not video_topic(title):
+    topic = video_topic(title)
+    if not topic:
         return False
     if meta.get("captions") == "none":
         return False
     seconds = duration_seconds(meta.get("duration", ""))
-    return seconds is not None and seconds <= 20 * 60
+    limit = 35 * 60 if topic.startswith("Claude Code") or "code w/ claude" in title.lower() else 20 * 60
+    return seconds is not None and seconds <= limit
 
 
 def describe_video(title: str) -> str:
     lower = title.lower()
+    if lower in SELECTED_VIDEO_DESCRIPTIONS:
+        return SELECTED_VIDEO_DESCRIPTIONS[lower]
     if "sycophancy" in lower:
         return "AI 모델이 사용자 의견에 과하게 맞장구치는 현상을 설명하는 영상."
     if "reward hacking" in lower:
@@ -461,8 +513,6 @@ def describe_video(title: str) -> str:
         return "MCP로 모델과 도구/데이터를 연결하는 개념을 소개하는 영상."
     if "prompt" in lower:
         return "프롬프트 작성과 개선의 기본 원리를 설명하는 영상."
-    if "claude code" in lower:
-        return "Claude Code의 기본 사용 흐름을 짧게 소개하는 영상."
     if lower.startswith("claude | computer use for automating operations"):
         return "Claude의 computer use가 업무 도구를 조작해 운영 작업을 자동화하는 예시 영상."
     if lower.startswith("claude | computer use for coding"):
