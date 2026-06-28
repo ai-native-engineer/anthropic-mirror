@@ -277,13 +277,13 @@ def build() -> None:
     reviewed = [r for r in out_rows if r["reviewed"] == "yes"]
     write_tsv(OUT / "semantic-review.tsv", reviewed, fields)
 
-    lines = ["# Curated Lecture Media Images", "", "Draft: reviewed rows are reliable; unreviewed rows are candidates.", "", "| Image | 설명 | 맥락 | 검토 |", "|---|---|---|---|"]
+    lines = ["# Curated Lecture Media Images", "", "| Image | 설명 | 맥락 |", "|---|---|---|"]
     for item in out_rows:
         if item["decision"] != "keep" or not item["curated_asset_path"]:
             continue
         src = item["curated_asset_path"].removeprefix("lecture-media/curated/")
         lines.append(
-            f"| <img src=\"{html.escape(src)}\" width=\"180\"> | {html.escape(item['curated_description'])} | {html.escape(item['source_context'][:180])} | {item['reviewed']} |"
+            f"| <img src=\"{html.escape(src)}\" width=\"180\"> | {html.escape(item['curated_description'])} | {html.escape(item['source_context'][:180])} |"
         )
     (OUT / "images.md").write_text("\n".join(lines) + "\n")
     make_contact_sheet(out_rows)
