@@ -218,8 +218,6 @@ def build() -> None:
                 "curated_asset_path": "",
             }
         )
-        if decision == "keep":
-            item["curated_asset_path"] = copy_asset(path, row["key"])
         out_rows.append(item)
 
     by_key = {r["key"]: r for r in out_rows}
@@ -230,8 +228,13 @@ def build() -> None:
         for field in ["decision", "canonical_key", "curation_reason", "curated_description", "source_context", "visual_note", "reviewed", "context_checked"]:
             if manual.get(field):
                 item[field] = manual[field]
-        if item["decision"] == "keep" and not item["curated_asset_path"]:
-            item["curated_asset_path"] = copy_asset(asset_path(item), key)
+
+    for item in out_rows:
+        if item["decision"] == "keep":
+            item["curated_asset_path"] = copy_asset(asset_path(item), item["key"])
+        else:
+            item["curated_asset_path"] = ""
+            item["curated_description"] = ""
 
     fields = list(raw[0].keys()) + [
         "decision",
