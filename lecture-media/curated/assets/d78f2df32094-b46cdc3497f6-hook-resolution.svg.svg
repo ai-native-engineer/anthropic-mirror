@@ -1,0 +1,92 @@
+<svg width="930" height="270" viewBox="0 0 930 270" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="930" height="270" rx="8" fill="#F9F9F7"/>
+
+
+
+
+<rect x="16" y="25" width="178" height="50" rx="6" fill="#E8E8E4"/>
+<text x="105" y="45" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#757575">Claude runs</text>
+<text x="105" y="62" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#1E1E1E">Bash "rm -rf /tmp/build"</text>
+
+
+<path d="M194 50 L209 50" stroke="#757575" stroke-width="2"/>
+<polygon points="207,45 219,50 207,55" fill="#757575"/>
+
+
+<rect x="219" y="20" width="206" height="60" rx="6" fill="#FDF6F2" stroke="#D4A27F" stroke-width="1.5"/>
+<text x="322" y="38" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#D4A27F">PreToolUse fires</text>
+<text x="322" y="53" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#757575">tool_name: "Bash"</text>
+<text x="322" y="68" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#757575">command: "rm -rf /tmp/build"</text>
+
+
+<path d="M425 50 L440 50" stroke="#757575" stroke-width="2"/>
+<polygon points="438,45 450,50 438,55" fill="#757575"/>
+
+
+<rect x="450" y="25" width="115" height="50" rx="6" fill="#D4E4D8"/>
+<text x="508" y="45" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#757575">your matcher</text>
+<text x="508" y="62" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#1E1E1E">"Bash" match?</text>
+
+
+<path d="M565 40 L580 40" stroke="#4A8C5C" stroke-width="2"/>
+<polygon points="578,35 590,40 578,45" fill="#4A8C5C"/>
+<text x="577" y="33" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#4A8C5C">yes</text>
+
+
+<rect x="590" y="25" width="130" height="50" rx="6" fill="#D4E4D8"/>
+<text x="655" y="45" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#757575">your if</text>
+<text x="655" y="62" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" font-weight="600" fill="#1E1E1E">"Bash(rm *)" match?</text>
+
+
+<path d="M720 40 L735 40" stroke="#4A8C5C" stroke-width="2"/>
+<polygon points="733,35 745,40 733,45" fill="#4A8C5C"/>
+<text x="732" y="33" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#4A8C5C">yes</text>
+
+
+<rect x="745" y="25" width="140" height="50" rx="6" fill="#D4E4D8"/>
+<text x="815" y="43" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#757575">your hook command</text>
+<text x="815" y="60" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#1E1E1E">block-rm.sh</text>
+
+
+
+
+<path d="M815 75 L815 115" stroke="#757575" stroke-width="2"/>
+<polygon points="810,113 815,125 820,113" fill="#757575"/>
+
+
+<rect x="725" y="125" width="190" height="45" rx="6" fill="#FDF6F2" stroke="#D4A27F" stroke-width="1.5"/>
+<text x="820" y="143" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#D4A27F">blocked</text>
+<text x="820" y="160" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#1E1E1E">permissionDecision: "deny"</text>
+
+
+<path d="M508 75 L508 115" stroke="#B0B0B0" stroke-width="1.5" stroke-dasharray="5 3"/>
+<polygon points="503,113 508,125 513,113" fill="#B0B0B0"/>
+<text x="521" y="100" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#B0B0B0">no</text>
+
+
+<path d="M655 75 L655 100 L575 100 L575 125" fill="none" stroke="#B0B0B0" stroke-width="1.5" stroke-dasharray="5 3"/>
+<polygon points="570,123 575,135 580,123" fill="#B0B0B0"/>
+<text x="668" y="90" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#B0B0B0">no</text>
+
+
+<rect x="450" y="125" width="180" height="45" rx="6" fill="#D4E4D8"/>
+<text x="540" y="143" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#757575">hook not matched</text>
+<text x="540" y="160" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#1E1E1E">tool proceeds</text>
+
+
+
+
+<rect x="20" y="190" width="150" height="50" rx="6" fill="#E8E8E4"/>
+<text x="95" y="219" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#1E1E1E">Claude Code continues</text>
+
+
+<path d="M820 170 L820 205 L175 205" stroke="#D4A27F" stroke-width="2"/>
+<polygon points="177,200 165,205 177,210" fill="#D4A27F"/>
+<text x="600" y="193" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#D4A27F">tool call blocked</text>
+
+
+<path d="M540 170 L540 225 L175 225" fill="none" stroke="#4A8C5C" stroke-width="1.5" stroke-dasharray="5 3"/>
+<polygon points="177,220 165,225 177,230" fill="#4A8C5C"/>
+<text x="350" y="245" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4A8C5C">tool call allowed</text>
+
+</svg>

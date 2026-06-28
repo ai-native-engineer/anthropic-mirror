@@ -1,0 +1,51 @@
+<svg width="1000" height="270" viewBox="0 0 1000 270" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, sans-serif" aria-labelledby="dmidd-title dmidd-desc">
+  <title id="dmidd-title">How a DM session reaches your systems</title>
+  <desc id="dmidd-desc">A message to Claude in a direct message runs in a session sandbox on Anthropic's infrastructure, the same engine as a channel session, but it runs with your identity. From there it reaches your systems through your own connectors and accounts, like GitHub or Drive, using your own credentials. A dashed return path shows results posting back in the DM, as you.</desc>
+
+  
+  <rect x="0.5" y="0.5" width="999" height="269" rx="24" fill="#21201C" stroke="#F0EFEA" stroke-opacity="0.08"/>
+
+  
+  <text x="40" y="64" font-size="14.5" font-weight="600" fill="#B8B6AE">YOUR SLACK WORKSPACE</text>
+  <rect x="40" y="86" width="208" height="128" rx="12" fill="#2C2B27" stroke="#F0EFEA" stroke-opacity="0.12"/>
+  <text x="58" y="116" font-size="14.5" font-weight="600" fill="#F0EFEA">DM with Claude</text>
+  <rect x="58" y="132" width="172" height="62" rx="8" fill="#2A2925"/>
+  <text x="70" y="156" font-size="14" fill="#F0EFEA"><tspan fill="#6CB8F0" font-weight="600">@Claude</tspan> can you draft a</text>
+  <text x="70" y="174" font-size="14" fill="#F0EFEA">a reply to this thread?</text>
+
+  
+  <line x1="248" y1="150" x2="304" y2="150" stroke="#B8B6AE" stroke-width="1.5" marker-end="url(#dmidd-arrow)"/>
+
+  
+  <text x="312" y="64" font-size="14.5" font-weight="600" fill="#B8B6AE">ANTHROPIC’S INFRASTRUCTURE</text>
+  <rect x="312" y="80" width="420" height="134" rx="16" fill="#44392A" fill-opacity="0.45" stroke="#6B5B42"/>
+  <rect x="336" y="95" width="372" height="104" rx="12" fill="#2C2B27" stroke="#F0EFEA" stroke-opacity="0.12"/>
+  <text x="352" y="123" font-size="15" font-weight="600" fill="#F0EFEA">Session sandbox</text>
+  <text x="352" y="143" font-size="13.5" fill="#B8B6AE">same engine as a channel session</text>
+  <text x="352" y="178" font-size="13.5" font-weight="600" fill="#E89B6C">runs with your identity</text>
+
+  
+  <line x1="708" y1="150" x2="764" y2="150" stroke="#B8B6AE" stroke-width="1.5" marker-end="url(#dmidd-arrow)"/>
+
+  
+  <text x="772" y="64" font-size="14.5" font-weight="600" fill="#B8B6AE">YOUR ACCOUNTS</text>
+  <rect x="772" y="80" width="188" height="134" rx="16" fill="#3B3A52" fill-opacity="0.28" stroke="#3B3A52"/>
+  <rect x="792" y="95" width="148" height="104" rx="12" fill="#2C2B27" stroke="#F0EFEA" stroke-opacity="0.12"/>
+  <text x="808" y="123" font-size="14.5" font-weight="600" fill="#F0EFEA">Your connectors</text>
+  <text x="808" y="143" font-size="13.5" fill="#B8B6AE">GitHub, Drive,</text>
+  <text x="808" y="161" font-size="13.5" fill="#B8B6AE">and more</text>
+  <text x="808" y="186" font-size="13.5" font-weight="600" fill="#E89B6C">your credentials</text>
+
+  
+  <path d="M 312 240 L 152 240 L 152 216" stroke="#757370" stroke-width="1.5" stroke-dasharray="4 4" fill="none" marker-end="url(#dmidd-arrow-soft)"/>
+  <text x="332" y="244" font-size="13.5" fill="#B8B6AE">results post back, as you</text>
+
+  <defs>
+    <marker id="dmidd-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7" stroke="#B8B6AE" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="dmidd-arrow-soft" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7" stroke="#757370" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+</svg>

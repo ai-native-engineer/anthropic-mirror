@@ -1,0 +1,70 @@
+<svg width="1000" height="440" viewBox="0 0 1000 440" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, sans-serif" aria-labelledby="rp-title rp-desc">
+  <title id="rp-title">The request path from Slack to your systems</title>
+  <desc id="rp-desc">A task mentioned in a Slack channel runs in a session sandbox on Anthropic's infrastructure. The sandbox holds no credentials. Outbound requests pass through Agent Proxy, which injects the credential from the credential store; requests matching no rule are blocked. Credentialed requests reach your systems: GitHub, a data warehouse, monitoring, or any HTTP API. Results post back in the Slack thread, as Claude.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7" stroke="#B8B6AE" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-soft" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7" stroke="#757370" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  
+  <rect x="0.5" y="0.5" width="999" height="439" rx="24" fill="#21201C" stroke="#F0EFEA" stroke-opacity="0.08"/>
+
+  
+  <text x="40" y="64" font-size="14.5" font-weight="600" fill="#B8B6AE">YOUR SLACK WORKSPACE</text>
+  <rect x="40" y="86" width="208" height="128" rx="12" fill="#2C2B27" stroke="#F0EFEA" stroke-opacity="0.12"/>
+  <text x="58" y="116" font-size="14.5" font-weight="600" fill="#F0EFEA"># platform-eng</text>
+  <rect x="58" y="132" width="172" height="62" rx="8" fill="#2A2925"/>
+  <text x="70" y="156" font-size="14" fill="#F0EFEA"><tspan fill="#6CB8F0" font-weight="600">@Claude</tspan> can you fix</text>
+  <text x="70" y="174" font-size="14" fill="#F0EFEA">the flaky deploy test?</text>
+
+  
+  <line x1="248" y1="150" x2="304" y2="150" stroke="#B8B6AE" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  
+  <text x="312" y="64" font-size="14.5" font-weight="600" fill="#B8B6AE">ANTHROPIC’S INFRASTRUCTURE</text>
+  <rect x="312" y="80" width="420" height="300" rx="16" fill="#44392A" fill-opacity="0.45" stroke="#6B5B42"/>
+
+  
+  <rect x="336" y="95" width="160" height="110" rx="12" fill="#2C2B27" stroke="#F0EFEA" stroke-opacity="0.12"/>
+  <text x="352" y="123" font-size="15" font-weight="600" fill="#F0EFEA">Session sandbox</text>
+  <text x="352" y="143" font-size="13.5" fill="#B8B6AE">one per thread</text>
+  <text x="352" y="181" font-size="13.5" font-weight="600" fill="#E89B6C">holds no credentials</text>
+
+  
+  <line x1="496" y1="150" x2="540" y2="150" stroke="#B8B6AE" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  
+  <rect x="548" y="95" width="172" height="110" rx="12" fill="#2C2B27" stroke="#F0EFEA" stroke-opacity="0.12"/>
+  <text x="564" y="123" font-size="15" font-weight="600" fill="#F0EFEA">Agent Proxy</text>
+  <text x="564" y="143" font-size="13.5" fill="#B8B6AE">injects the credential</text>
+  <text x="564" y="181" font-size="13.5" font-weight="600" fill="#E89B6C">no rule → blocked</text>
+
+  
+  <rect x="336" y="268" width="348" height="84" rx="12" fill="#2C2B27" stroke="#F0EFEA" stroke-opacity="0.12"/>
+  <text x="352" y="300" font-size="14.5" font-weight="600" fill="#F0EFEA">Credential store</text>
+  <text x="352" y="322" font-size="13.5" fill="#B8B6AE">never displayed again</text>
+  <line x1="616" y1="268" x2="616" y2="213" stroke="#B8B6AE" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+
+  
+  <line x1="720" y1="150" x2="764" y2="150" stroke="#B8B6AE" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  
+  <text x="772" y="64" font-size="14.5" font-weight="600" fill="#B8B6AE">YOUR SYSTEMS</text>
+  <rect x="772" y="80" width="188" height="300" rx="16" fill="#3B3A52" fill-opacity="0.28" stroke="#3B3A52"/>
+  <rect x="792" y="104" width="148" height="48" rx="10" fill="#2C2B27" stroke="#F0EFEA" stroke-opacity="0.12"/>
+  <text x="808" y="133" font-size="14.5" font-weight="600" fill="#F0EFEA">GitHub</text>
+  <rect x="792" y="166" width="148" height="48" rx="10" fill="#2C2B27" stroke="#F0EFEA" stroke-opacity="0.12"/>
+  <text x="808" y="195" font-size="14.5" font-weight="600" fill="#F0EFEA">Data warehouse</text>
+  <rect x="792" y="228" width="148" height="48" rx="10" fill="#2C2B27" stroke="#F0EFEA" stroke-opacity="0.12"/>
+  <text x="808" y="257" font-size="14.5" font-weight="600" fill="#F0EFEA">Monitoring</text>
+  <rect x="792" y="290" width="148" height="48" rx="10" fill="#2C2B27" stroke="#F0EFEA" stroke-opacity="0.12"/>
+  <text x="808" y="319" font-size="14.5" font-weight="600" fill="#F0EFEA">Any HTTP API</text>
+
+  
+  <path d="M 416 205 L 416 252 L 300 252 L 300 410 L 152 410 L 152 216" stroke="#757370" stroke-width="1.5" stroke-dasharray="4 4" fill="none" marker-end="url(#arrow-soft)"/>
+  <text x="320" y="414" font-size="13.5" fill="#B8B6AE">results post back from the sandbox, as Claude</text>
+</svg>

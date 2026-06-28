@@ -1,0 +1,51 @@
+<svg width="1000" height="400" viewBox="0 0 1000 400" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, sans-serif" aria-labelledby="pd-title pd-desc">
+  <title id="pd-title">Every outbound request gets one of three outcomes</title>
+  <desc id="pd-desc">Flow diagram. Inside Anthropic's infrastructure, a session sandbox that holds no credentials sends every outbound request to Agent Proxy, which matches it against admin rules. Three outcomes branch toward your systems: on a rule match, the credential is attached at the boundary and the request proceeds; on an allowlist-only match, the request is sent without credentials; on no match, the request is blocked entirely, the default-deny outcome, and the host is unreachable.</desc>
+  
+  <rect x="0.5" y="0.5" width="999" height="399" rx="24" fill="#FAF9F5" stroke="#141413" stroke-opacity="0.08"/>
+
+  
+  <text x="60" y="64" font-size="14.5" font-weight="600" fill="#5E5D59" letter-spacing="0.04em">ANTHROPIC’S INFRASTRUCTURE</text>
+  <rect x="60" y="80" width="440" height="240" rx="16" fill="#E3DACC" fill-opacity="0.45" stroke="#D5C8B4" stroke-width="1.5"/>
+
+  <rect x="84" y="156" width="180" height="88" rx="10" fill="#FFFFFF" stroke="#141413" stroke-opacity="0.12"/>
+  <text x="102" y="192" font-size="14.5" font-weight="600" fill="#141413">Session sandbox</text>
+  <text x="102" y="214" font-size="14" fill="#5E5D59">holds no credentials</text>
+
+  <line x1="264" y1="200" x2="300" y2="200" stroke="#5E5D59" stroke-width="1.5"/>
+  <path d="M306,200 l-7,-3.5 v7 z" fill="#5E5D59"/>
+
+  <rect x="306" y="156" width="170" height="88" rx="10" fill="#FFFFFF" stroke="#141413" stroke-opacity="0.12"/>
+  <text x="324" y="192" font-size="14.5" font-weight="600" fill="#141413">Agent Proxy</text>
+  <text x="324" y="214" font-size="14" fill="#5E5D59">matches admin rules</text>
+
+  
+  <text x="650" y="64" font-size="14.5" font-weight="600" fill="#5E5D59" letter-spacing="0.04em">YOUR SYSTEMS</text>
+
+  
+  <path d="M476,178 C 560,150 590,116 644,108" stroke="#5E5D59" stroke-width="1.5" fill="none"/>
+  <path d="M650,107 l-7.5,-2.4 l1.2,7 z" fill="#5E5D59"/>
+  <text x="540" y="118" font-size="13.5" font-weight="600" fill="#5E5D59">rule match</text>
+
+  <rect x="654" y="76" width="286" height="64" rx="10" fill="#FFFFFF" stroke="#141413" stroke-opacity="0.12"/>
+  <text x="672" y="103" font-size="14.5" font-weight="600" fill="#141413">Credential attached</text>
+  <text x="672" y="124" font-size="14" fill="#5E5D59">injected at the boundary</text>
+
+  
+  <path d="M476,208 C 560,210 590,212 644,212" stroke="#5E5D59" stroke-width="1.5" fill="none"/>
+  <path d="M650,212 l-7,-3.5 v7 z" fill="#5E5D59"/>
+  <text x="538" y="200" font-size="13.5" font-weight="600" fill="#5E5D59">allowlist only</text>
+
+  <rect x="654" y="180" width="286" height="64" rx="10" fill="#FFFFFF" stroke="#141413" stroke-opacity="0.12"/>
+  <text x="672" y="207" font-size="14.5" font-weight="600" fill="#141413">Sent without credentials</text>
+  <text x="672" y="228" font-size="14" fill="#5E5D59">allowlist-only hosts</text>
+
+  
+  <path d="M476,236 C 560,268 590,304 644,314" stroke="#B0AEA5" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+  <path d="M650,315 l-6.3,-4.4 l-1.2,7 z" fill="#B0AEA5"/>
+  <text x="540" y="296" font-size="13.5" font-weight="600" fill="#B4501F">no match</text>
+
+  <rect x="654" y="284" width="286" height="64" rx="10" fill="#FFFFFF" stroke="#B4501F" stroke-opacity="0.5" stroke-dasharray="4 4"/>
+  <text x="672" y="311" font-size="14.5" font-weight="600" fill="#B4501F">Blocked</text>
+  <text x="672" y="332" font-size="14" fill="#5E5D59">default deny — host unreachable</text>
+</svg>

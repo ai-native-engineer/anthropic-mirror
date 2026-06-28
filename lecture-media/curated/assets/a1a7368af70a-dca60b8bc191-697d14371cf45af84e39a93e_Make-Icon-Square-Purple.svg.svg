@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <clipPath id="clip-Make-Icon-Square-Purple">
+      <rect width="512" height="512"/>
+    </clipPath>
+  </defs>
+  <g id="Make-Icon-Square-Purple" clip-path="url(#clip-Make-Icon-Square-Purple)">
+    <rect width="512" height="512" fill="#8200fa"/>
+    <g id="Logo_Dominos" data-name="Logo Dominos" transform="translate(90 150)">
+      <path id="Path_203368" data-name="Path 203368" d="M1517.861,1588.687l43.727-185.587a6.7,6.7,0,0,1,8.083-5.038l52.083,12.71A6.832,6.832,0,0,1,1626.7,1419l-43.727,185.587a6.7,6.7,0,0,1-8.083,5.038l-52.083-12.71A6.854,6.854,0,0,1,1517.861,1588.687Zm122.055,19.758H1693.5a6.756,6.756,0,0,0,6.7-6.817V1410.772a6.756,6.756,0,0,0-6.7-6.818h-53.581a6.756,6.756,0,0,0-6.7,6.818v190.856A6.756,6.756,0,0,0,1639.917,1608.446Zm-232.191-27.176,48.155,23.917a6.632,6.632,0,0,0,8.946-3.143l82.233-171.514a6.859,6.859,0,0,0-3.088-9.1l-48.155-23.918a6.632,6.632,0,0,0-8.945,3.142l-82.21,171.491A6.877,6.877,0,0,0,1407.725,1581.27Z" transform="translate(-1403.973 -1396.819)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
