@@ -230,6 +230,15 @@ def build() -> None:
                 item[field] = manual[field]
 
     for item in out_rows:
+        if item["decision"] != "duplicate":
+            continue
+        canonical_item = by_key.get(item["canonical_key"])
+        if canonical_item and canonical_item["decision"] == "drop":
+            item["decision"] = "drop"
+            item["canonical_key"] = ""
+            item["curation_reason"] = canonical_item.get("curation_reason") or "duplicate of dropped low-value asset"
+
+    for item in out_rows:
         if item["decision"] == "keep":
             item["curated_asset_path"] = copy_asset(asset_path(item), item["key"])
         else:
