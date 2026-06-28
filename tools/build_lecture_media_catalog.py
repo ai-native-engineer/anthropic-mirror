@@ -394,35 +394,61 @@ def parse_frontmatter(text: str) -> dict[str, str]:
     return data
 
 
-def concept_score(title: str) -> int:
+def duration_seconds(value: str) -> int | None:
+    if not value:
+        return None
+    try:
+        total = 0
+        for part in value.split(":"):
+            total = total * 60 + int(part)
+        return total
+    except ValueError:
+        return None
+
+
+def video_topic(title: str) -> str:
     lower = title.lower()
-    positives = [
-        "what is",
-        "explained",
-        "101",
-        "lesson",
-        "introduction",
-        "getting started",
-        "prompt",
-        "mcp",
-        "model context protocol",
-        "tool use",
-        "computer use",
-        "agent",
-        "ai fluency",
-        "interpretability",
-        "alignment",
-        "jailbreak",
-        "sycophancy",
-        "reward hacking",
-        "capabilities",
-        "limitations",
-        "thinking",
-        "building ai agents",
-        "tips for",
-    ]
-    negatives = ["keynote", "fireside", "customer", "intercom", "abbvie", "lilly", "asana", "cursor", "wedia"]
-    return sum(1 for word in positives if word in lower) - sum(1 for word in negatives if word in lower)
+    if "trailer" in lower or "conclusion" in lower:
+        return ""
+    if "ai fluency" in lower or lower.startswith("lesson "):
+        return "AI Fluency"
+    if "sycophancy" in lower or "reward hacking" in lower:
+        return "모델 행동"
+    if "interpretability" in lower:
+        return "해석가능성"
+    if "model context protocol" in lower or lower == "mcp in claude code":
+        return "MCP"
+    if "prompting tips" in lower or lower.startswith("prompting 101") or lower == "your first claude code prompt":
+        return "프롬프트"
+    if lower in {"tips for building ai agents", "building more effective ai agents", "claude agent skills explained", "what is claude managed agents?"}:
+        return "에이전트"
+    if "tool use with" in lower or lower.startswith("claude | computer use"):
+        return "도구 사용"
+    if lower.startswith("getting started with "):
+        return "Claude 시작하기"
+    if lower == "what is claude code?":
+        return "Claude Code"
+    if lower == "keep thinking with claude":
+        return "확장 사고"
+    return ""
+
+
+def concept_score(title: str) -> int:
+    topic = video_topic(title)
+    if topic == "AI Fluency":
+        return 3
+    if topic in {"MCP", "프롬프트", "에이전트", "모델 행동", "해석가능성"}:
+        return 2
+    return 1 if topic else 0
+
+
+def keep_video(title: str, meta: dict[str, str]) -> bool:
+    if not video_topic(title):
+        return False
+    if meta.get("captions") == "none":
+        return False
+    seconds = duration_seconds(meta.get("duration", ""))
+    return seconds is not None and seconds <= 20 * 60
 
 
 def describe_video(title: str) -> str:
@@ -435,12 +461,18 @@ def describe_video(title: str) -> str:
         return "MCP로 모델과 도구/데이터를 연결하는 개념을 소개하는 영상."
     if "prompt" in lower:
         return "프롬프트 작성과 개선의 기본 원리를 설명하는 영상."
+    if "claude code" in lower:
+        return "Claude Code의 기본 사용 흐름을 짧게 소개하는 영상."
     if "agent" in lower:
         return "AI 에이전트가 작업을 계획하고 도구를 쓰는 방식을 설명하는 영상."
     if "interpretability" in lower or "thought" in lower:
         return "모델 내부 작동과 해석가능성 개념을 설명하는 영상."
     if "ai fluency" in lower or "lesson" in lower:
         return "AI Fluency 수업에 바로 끼워 넣기 좋은 기초 개념 강의 영상."
+    if "getting started" in lower:
+        return "Claude 기능을 처음 소개할 때 쓰기 좋은 짧은 공식 튜토리얼."
+    if "keep thinking" in lower:
+        return "Claude의 확장 사고 흐름을 짧게 보여주는 공식 영상."
     if "tool use" in lower:
         return "Claude의 도구 사용/function calling 개념을 짧게 설명하는 영상."
     return f"「{title}」 개념을 강의에서 짧게 소개할 때 쓰기 좋은 공식 영상."
@@ -455,12 +487,13 @@ def collect_youtube() -> list[dict[str, str]]:
         meta = parse_frontmatter(text)
         title = meta.get("title") or clean(TITLE_RE.search(text).group(1) if TITLE_RE.search(text) else path.stem)
         score = concept_score(title)
-        if score <= 0:
+        if score <= 0 or not keep_video(title, meta):
             continue
         rows.append(
             {
                 "path": rel(path),
                 "title": title,
+                "topic": video_topic(title),
                 "channel": meta.get("channel", ""),
                 "published": meta.get("published", ""),
                 "duration": meta.get("duration", ""),
@@ -542,20 +575,20 @@ def write_images(rows: dict[str, dict]) -> None:
 
 
 def write_youtube(rows: list[dict[str, str]]) -> None:
-    fields = ["title", "description", "channel", "published", "duration", "captions", "url", "path", "youtube_id", "score"]
+    fields = ["title", "topic", "description", "channel", "published", "duration", "captions", "url", "path", "youtube_id", "score"]
     write_tsv(OUT / "youtube.tsv", rows, fields)
     lines = [
         "# Lecture Concept YouTube Catalog",
         "",
         f"공식 Anthropic/Claude 미러에서 고른 간단 개념 설명 후보 {len(rows)}개입니다.",
         "",
-        "| 영상 | 설명 | 날짜 | 자막 |",
-        "|---|---|---|---|",
+        "| 영상 | 주제 | 설명 | 길이 | 날짜 | 자막 |",
+        "|---|---|---|---|---|---|",
     ]
     for item in rows:
         title = html.escape(item["title"]).replace("|", "\\|")
         link = f"[{title}](../{item['path']})"
-        lines.append(f"| {link} | {item['description']} | {item['published']} | {item['captions'] or '-'} |")
+        lines.append(f"| {link} | {item['topic']} | {item['description']} | {item['duration']} | {item['published']} | {item['captions'] or '-'} |")
     (OUT / "youtube.md").write_text("\n".join(lines) + "\n")
 
 
