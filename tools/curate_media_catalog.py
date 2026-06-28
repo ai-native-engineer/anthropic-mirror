@@ -163,6 +163,14 @@ def draft_description(row: dict[str, str], context: str) -> str:
     return f"「{topic}」 문맥에서 쓰인 시각 자료."
 
 
+def source_link(row: dict[str, str]) -> str:
+    if urls := parts(row.get("source_urls", "")):
+        return f"[원문](<{urls[0]}>)"
+    if paths := parts(row.get("source_paths", "")):
+        return f"[미러](../../{paths[0]})"
+    return ""
+
+
 def manual_overrides() -> dict[str, dict[str, str]]:
     if not MANUAL.exists():
         return {}
@@ -305,13 +313,13 @@ def build() -> None:
     reviewed = [r for r in out_rows if r["reviewed"] == "yes"]
     write_tsv(OUT / "semantic-review.tsv", reviewed, fields)
 
-    lines = ["# Curated Lecture Media Images", "", "| Image | 설명 | 맥락 |", "|---|---|---|"]
+    lines = ["# Curated Lecture Media Images", "", "| Image | 설명 | 맥락 | 출처 |", "|---|---|---|---|"]
     for item in out_rows:
         if item["decision"] != "keep" or not item["curated_asset_path"]:
             continue
         src = item["curated_asset_path"].removeprefix("lecture-media/curated/")
         lines.append(
-            f"| <img src=\"{html.escape(src)}\" width=\"180\"> | {html.escape(item['curated_description'])} | {html.escape(item['source_context'][:180])} |"
+            f"| <img src=\"{html.escape(src)}\" width=\"180\"> | {html.escape(item['curated_description'])} | {html.escape(item['source_context'][:180])} | {source_link(item)} |"
         )
     (OUT / "images.md").write_text("\n".join(lines) + "\n")
     make_contact_sheet(out_rows)
