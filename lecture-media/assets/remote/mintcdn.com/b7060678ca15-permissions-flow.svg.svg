@@ -1,0 +1,101 @@
+<svg width="1024" height="260" viewBox="0 0 1024 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#757575"/>
+    </marker>
+  </defs>
+
+  <rect width="1024" height="260" rx="6" fill="#F9F9F7"/>
+
+  
+  <rect x="140" y="10" width="854" height="36" rx="6" fill="#D4E4D8" stroke="#4A7C59" stroke-width="1"/>
+  <text x="567" y="33" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#2D5A3D">Execute</text>
+
+  
+  <rect x="140" y="214" width="854" height="36" rx="6" fill="#E8D4D4" stroke="#994444" stroke-width="1"/>
+  <text x="567" y="237" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#773333">Blocked</text>
+
+  
+  <rect x="10" y="110" width="100" height="40" rx="6" fill="#E4E9F0" stroke="#7A8BA8" stroke-width="1.5"/>
+  <text x="60" y="135" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#1E1E1E">Tool request</text>
+
+  
+  <line x1="110" y1="130" x2="132" y2="130" stroke="#757575" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  
+  <rect x="140" y="98" width="150" height="64" rx="6" fill="#fff" stroke="#D0D0CC" stroke-width="1"/>
+  <circle cx="158" cy="130" r="10" fill="#E8E8E4"/>
+  <text x="158" y="134" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#1E1E1E">1</text>
+  <text x="176" y="122" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#1E1E1E">Hooks</text>
+  <text x="176" y="138" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#757575">PreToolUse can</text>
+  <text x="176" y="152" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#757575">deny or pass on</text>
+
+  
+  <line x1="215" y1="162" x2="215" y2="208" stroke="#994444" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="225" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#1E1E1E">deny</text>
+
+  
+  <line x1="290" y1="130" x2="312" y2="130" stroke="#757575" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  
+  <rect x="316" y="98" width="150" height="64" rx="6" fill="#fff" stroke="#D0D0CC" stroke-width="1"/>
+  <circle cx="334" cy="130" r="10" fill="#E8E8E4"/>
+  <text x="334" y="134" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#1E1E1E">2</text>
+  <text x="352" y="122" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#1E1E1E">Deny rules</text>
+  <text x="352" y="138" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#757575">disallowed_tools</text>
+  <text x="352" y="152" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#757575">settings.json deny</text>
+
+  
+  <line x1="391" y1="162" x2="391" y2="208" stroke="#994444" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="401" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#1E1E1E">deny</text>
+
+  
+  <line x1="466" y1="130" x2="488" y2="130" stroke="#757575" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  
+  <rect x="492" y="98" width="150" height="64" rx="6" fill="#fff" stroke="#D0D0CC" stroke-width="1"/>
+  <circle cx="510" cy="130" r="10" fill="#E8E8E4"/>
+  <text x="510" y="134" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#1E1E1E">3</text>
+  <text x="528" y="122" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#1E1E1E">Permission mode</text>
+  <text x="528" y="138" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#757575">bypassPermissions</text>
+  <text x="528" y="152" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#757575">auto-allows all</text>
+
+  
+  <line x1="567" y1="98" x2="567" y2="52" stroke="#4A7C59" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="577" y="78" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#1E1E1E">bypass</text>
+
+  
+  <line x1="642" y1="130" x2="664" y2="130" stroke="#757575" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  
+  <rect x="668" y="98" width="150" height="64" rx="6" fill="#fff" stroke="#D0D0CC" stroke-width="1"/>
+  <circle cx="686" cy="130" r="10" fill="#E8E8E4"/>
+  <text x="686" y="134" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#1E1E1E">4</text>
+  <text x="704" y="122" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#1E1E1E">Allow rules</text>
+  <text x="704" y="138" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#757575">allowed_tools</text>
+  <text x="704" y="152" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#757575">settings.json allow</text>
+
+  
+  <line x1="743" y1="98" x2="743" y2="52" stroke="#4A7C59" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="753" y="78" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#1E1E1E">allow</text>
+
+  
+  <line x1="818" y1="130" x2="840" y2="130" stroke="#757575" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  
+  <rect x="844" y="98" width="150" height="64" rx="6" fill="#fff" stroke="#D0D0CC" stroke-width="1"/>
+  <circle cx="862" cy="130" r="10" fill="#E8E8E4"/>
+  <text x="862" y="134" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#1E1E1E">5</text>
+  <text x="880" y="122" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#1E1E1E">canUseTool</text>
+  <text x="880" y="138" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#757575">Your code decides</text>
+  <text x="880" y="152" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#757575">(prompt user, etc.)</text>
+
+  
+  <line x1="900" y1="98" x2="900" y2="52" stroke="#4A7C59" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="910" y="78" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#1E1E1E">allow</text>
+
+  
+  <line x1="938" y1="162" x2="938" y2="208" stroke="#994444" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="948" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#1E1E1E">deny</text>
+
+</svg>

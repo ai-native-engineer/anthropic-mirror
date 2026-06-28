@@ -1,0 +1,69 @@
+<svg width="1000" height="648" viewBox="0 0 1000 648" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, sans-serif" aria-labelledby="tl-title tl-desc">
+  <title id="tl-title">One agent, three levels</title>
+  <desc id="tl-desc">Nested boxes. A scope contains two channels: #platform-eng, a public channel whose memory is shared across the workspace, and #gtm-west, a private channel, marked with a lock, whose memory stays in the channel. Each channel contains threads. Identity and access are set at the scope level, memory is shared from public channels while private channels keep their own, and each thread is its own work in progress. Below the scope, outside it, sits a DM with Claude: DMs run on your own Claude.ai account, and nothing attached to a scope applies there.</desc>
+  
+  <rect x="0.5" y="0.5" width="999" height="647" rx="24" fill="#FAF9F5" stroke="#141413" stroke-opacity="0.08"/>
+
+  
+  <rect x="60" y="44" width="600" height="432" rx="16" fill="#CBCADB" fill-opacity="0.28" stroke="#CBCADB" stroke-width="1.5"/>
+  <rect x="80" y="66" width="10" height="10" rx="3" fill="#A9A8C4"/>
+  <text x="100" y="76" font-size="15.5" font-weight="600" fill="#141413">Scope</text>
+  <text x="158" y="76" font-size="14" fill="#5E5D59">organization, workspace, or channel</text>
+
+  
+  <rect x="84" y="100" width="552" height="172" rx="12" fill="#BCD1CA" fill-opacity="0.30" stroke="#BCD1CA" stroke-width="1.5"/>
+  <rect x="104" y="122" width="10" height="10" rx="3" fill="#9DBBB1"/>
+  <text x="124" y="132" font-size="15.5" font-weight="600" fill="#141413">#platform-eng</text>
+  <text x="248" y="132" font-size="14" fill="#5E5D59">public — memory shared across the workspace</text>
+
+  
+  <rect x="104" y="156" width="246" height="84" rx="10" fill="#FFFFFF" stroke="#141413" stroke-opacity="0.12"/>
+  <text x="122" y="190" font-size="14.5" font-weight="600" fill="#141413">Thread</text>
+  <text x="122" y="212" font-size="14" fill="#5E5D59">fix checkout latency</text>
+
+  <rect x="370" y="156" width="246" height="84" rx="10" fill="#FFFFFF" stroke="#141413" stroke-opacity="0.12"/>
+  <text x="388" y="190" font-size="14.5" font-weight="600" fill="#141413">Thread</text>
+  <text x="388" y="212" font-size="14" fill="#5E5D59">triage Sentry alert</text>
+
+  
+  <rect x="84" y="292" width="552" height="160" rx="12" fill="#BCD1CA" fill-opacity="0.30" stroke="#BCD1CA" stroke-width="1.5"/>
+  <rect x="104" y="314" width="10" height="10" rx="3" fill="#9DBBB1"/>
+  <path d="M126,316.5 v-3.2 a4.2,4.2 0 0 1 8.4,0 v3.2" stroke="#141413" stroke-width="1.8" fill="none"/>
+  <rect x="123" y="316.5" width="14.4" height="10.5" rx="2" fill="#141413"/>
+  <text x="144" y="324" font-size="15.5" font-weight="600" fill="#141413">gtm-west</text>
+  <text x="236" y="324" font-size="14" fill="#5E5D59">private — memory stays in this channel</text>
+
+  
+  <rect x="370" y="346" width="246" height="84" rx="10" fill="#FFFFFF" stroke="#141413" stroke-opacity="0.12"/>
+  <text x="388" y="380" font-size="14.5" font-weight="600" fill="#141413">Thread</text>
+  <text x="388" y="402" font-size="14" fill="#5E5D59">pull deal state</text>
+
+  
+  <circle cx="660" cy="76" r="3" fill="#A9A8C4"/>
+  <line x1="663" y1="76" x2="708" y2="76" stroke="#CBCADB" stroke-width="1.5"/>
+  <text x="720" y="72" font-size="15.5" font-weight="600" fill="#141413">Identity and access</text>
+  <text x="720" y="92" font-size="14" fill="#5E5D59">set per scope</text>
+
+  <circle cx="636" cy="132" r="3" fill="#9DBBB1"/>
+  <line x1="639" y1="132" x2="708" y2="132" stroke="#BCD1CA" stroke-width="1.5"/>
+  <text x="720" y="128" font-size="15.5" font-weight="600" fill="#141413">Memory</text>
+  <text x="720" y="148" font-size="14" fill="#5E5D59">shared from public channels;</text>
+  <text x="720" y="166" font-size="14" fill="#5E5D59">private stays in its channel</text>
+
+  <circle cx="616" cy="388" r="3" fill="#D97757"/>
+  <line x1="619" y1="388" x2="708" y2="388" stroke="#D97757" stroke-opacity="0.55" stroke-width="1.5"/>
+  <text x="720" y="384" font-size="15.5" font-weight="600" fill="#141413">Work in progress</text>
+  <text x="720" y="404" font-size="14" fill="#5E5D59">one session per thread</text>
+
+  
+  <rect x="84" y="528" width="364" height="84" rx="10" fill="#FFFFFF" stroke="#B0AEA5" stroke-dasharray="4 4"/>
+  <circle cx="112" cy="562" r="8" stroke="#5E5D59" stroke-width="1.8" fill="none"/>
+  <path d="M100,582 a12,12 0 0 1 24,0" stroke="#5E5D59" stroke-width="1.8" fill="none"/>
+  <text x="138" y="558" font-size="15.5" font-weight="600" fill="#141413">DM with Claude</text>
+  <text x="138" y="580" font-size="14" fill="#5E5D59">runs on your own account</text>
+
+  <circle cx="448" cy="570" r="3" fill="#B0AEA5"/>
+  <line x1="451" y1="570" x2="708" y2="570" stroke="#B0AEA5" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="720" y="566" font-size="15.5" font-weight="600" fill="#141413">Outside every scope</text>
+  <text x="720" y="586" font-size="14" fill="#5E5D59">nothing attached here applies</text>
+</svg>

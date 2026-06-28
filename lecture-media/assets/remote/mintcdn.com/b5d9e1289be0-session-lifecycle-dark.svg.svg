@@ -1,0 +1,38 @@
+<svg width="1000" height="270" viewBox="0 0 1000 270" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, sans-serif" aria-labelledby="sl-title sl-desc">
+  <title id="sl-title">The thread persists while the sandbox comes and goes</title>
+  <desc id="sl-desc">A timeline with two lanes. The Slack thread lane is one continuous bar: it persists from the moment a task starts. The sandbox lane below it is segmented: built when the task starts, released while the thread is quiet, and rebuilt when someone replies.</desc>
+
+  
+  <rect x="0.5" y="0.5" width="999" height="269" rx="24" fill="#21201C" stroke="#F0EFEA" stroke-opacity="0.08"/>
+
+  
+  <line x1="216" y1="58" x2="216" y2="218" stroke="#F0EFEA" stroke-opacity="0.15" stroke-dasharray="3 3"/>
+  <text x="216" y="46" font-size="13.5" font-weight="600" fill="#B8B6AE" text-anchor="middle">task starts</text>
+
+  <line x1="468" y1="58" x2="468" y2="218" stroke="#F0EFEA" stroke-opacity="0.15" stroke-dasharray="3 3"/>
+  <text x="468" y="46" font-size="13.5" font-weight="600" fill="#B8B6AE" text-anchor="middle">thread goes quiet</text>
+
+  <line x1="668" y1="58" x2="668" y2="218" stroke="#F0EFEA" stroke-opacity="0.15" stroke-dasharray="3 3"/>
+  <text x="668" y="46" font-size="13.5" font-weight="600" fill="#B8B6AE" text-anchor="middle">someone replies</text>
+
+  
+  <text x="40" y="102" font-size="14.5" font-weight="600" fill="#F0EFEA">Slack thread</text>
+  <rect x="216" y="80" width="724" height="40" rx="10" fill="#2F4038" fill-opacity="0.45" stroke="#9DBBB1"/>
+  <text x="578" y="105" font-size="14" fill="#F0EFEA" text-anchor="middle">persists</text>
+
+  
+  <text x="40" y="182" font-size="14.5" font-weight="600" fill="#F0EFEA">Sandbox</text>
+  <rect x="216" y="160" width="252" height="40" rx="10" fill="#44392A" stroke="#6B5B42"/>
+  <text x="342" y="185" font-size="14" fill="#F0EFEA" text-anchor="middle">built</text>
+
+  <rect x="468" y="160" width="200" height="40" rx="10" stroke="#757370" stroke-dasharray="4 4"/>
+  <text x="568" y="185" font-size="14" fill="#B8B6AE" text-anchor="middle">released</text>
+
+  <rect x="668" y="160" width="272" height="40" rx="10" fill="#44392A" stroke="#6B5B42"/>
+  <text x="804" y="185" font-size="14" fill="#F0EFEA" text-anchor="middle">rebuilt, fresh</text>
+
+  
+  <line x1="216" y1="218" x2="932" y2="218" stroke="#F0EFEA" stroke-opacity="0.2" stroke-width="1.5"/>
+  <path d="M932,218 l-7,-3.5 v7 z" fill="#F0EFEA" fill-opacity="0.35"/>
+  <text x="940" y="240" font-size="13.5" fill="#B8B6AE" text-anchor="end">time</text>
+</svg>

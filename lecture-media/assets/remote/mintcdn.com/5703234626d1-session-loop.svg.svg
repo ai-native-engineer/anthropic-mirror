@@ -1,0 +1,68 @@
+<svg width="1000" height="400" viewBox="0 0 1000 400" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, sans-serif" aria-labelledby="slp-title slp-desc">
+  <title id="slp-title">The session loop, five steps from tag-in to quiet</title>
+  <desc id="slp-desc">Flow diagram of one session in five numbered steps. Step 1, tag Claude in with an @Claude message carrying a task. Steps 2 and 3 happen inside the sandbox: step 2, a sandbox builds, one per thread; step 3, the working loop runs through the task's steps using the channel's access. Step 4, the result lands in the thread as an answer, a doc, a chart, or a pull request. Step 5, a dashed quiet period follows, where the sandbox is released while the thread persists. A dashed return arrow from the quiet period back up into the sandbox shows that a new reply rebuilds it and the loop continues.</desc>
+
+  
+  <rect x="0.5" y="0.5" width="999" height="399" rx="24" fill="#FAF9F5" stroke="#141413" stroke-opacity="0.08"/>
+
+  <defs>
+    <marker id="slp-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7" stroke="#5E5D59" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="slp-arrow-soft" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7" stroke="#B0AEA5" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  
+  <rect x="40" y="80" width="180" height="130" rx="12" fill="#FFFFFF" stroke="#141413" stroke-opacity="0.12"/>
+  <circle cx="74" cy="100" r="11" fill="#141413"/>
+  <text x="74" y="104.5" font-size="12" font-weight="700" fill="#FAF9F5" text-anchor="middle">1</text>
+  <text x="94" y="105" font-size="16" font-weight="600" fill="#141413">Tag Claude in</text>
+  <text x="64" y="133" font-size="13.5" fill="#5E5D59">@Claude with a task</text>
+
+  <line x1="224" y1="145" x2="248" y2="145" stroke="#5E5D59" stroke-width="1.5" marker-end="url(#slp-arrow)"/>
+
+  
+  <rect x="254" y="52" width="400" height="182" rx="16" fill="#E3DACC" fill-opacity="0.45" stroke="#D5C8B4"/>
+  <text x="274" y="71" font-size="12" font-weight="600" fill="#5E5D59" letter-spacing="0.4">INSIDE THE SANDBOX</text>
+
+  <rect x="274" y="80" width="170" height="130" rx="12" fill="#FFFFFF" stroke="#141413" stroke-opacity="0.12"/>
+  <circle cx="308" cy="100" r="11" fill="#141413"/>
+  <text x="308" y="104.5" font-size="12" font-weight="700" fill="#FAF9F5" text-anchor="middle">2</text>
+  <text x="322" y="105" font-size="15" font-weight="600" fill="#141413">Sandbox builds</text>
+  <text x="298" y="133" font-size="13.5" fill="#5E5D59">one per thread</text>
+
+  <line x1="448" y1="145" x2="466" y2="145" stroke="#5E5D59" stroke-width="1.5" marker-end="url(#slp-arrow)"/>
+
+  <rect x="470" y="80" width="170" height="130" rx="12" fill="#FFFFFF" stroke="#141413" stroke-opacity="0.12"/>
+  <circle cx="504" cy="100" r="11" fill="#141413"/>
+  <text x="504" y="104.5" font-size="12" font-weight="700" fill="#FAF9F5" text-anchor="middle">3</text>
+  <text x="524" y="105" font-size="16" font-weight="600" fill="#141413">Working loop</text>
+  <text x="494" y="133" font-size="13.5" fill="#5E5D59">with channel access</text>
+
+  <line x1="644" y1="145" x2="686" y2="145" stroke="#5E5D59" stroke-width="1.5" marker-end="url(#slp-arrow)"/>
+
+  
+  <rect x="690" y="80" width="216" height="130" rx="12" fill="#FFFFFF" stroke="#141413" stroke-opacity="0.12"/>
+  <circle cx="724" cy="100" r="11" fill="#141413"/>
+  <text x="724" y="104.5" font-size="12" font-weight="700" fill="#FAF9F5" text-anchor="middle">4</text>
+  <text x="744" y="105" font-size="16" font-weight="600" fill="#141413">Result in thread</text>
+  <text x="714" y="133" font-size="13.5" fill="#5E5D59">an answer, a doc, a chart,</text>
+  <text x="714" y="153" font-size="13.5" fill="#5E5D59">a pull request</text>
+
+  
+  <path d="M 820 210 L 820 323 L 692 323" stroke="#5E5D59" stroke-width="1.5" fill="none" marker-end="url(#slp-arrow)"/>
+
+  <rect x="470" y="280" width="220" height="86" rx="12" stroke="#B0AEA5" stroke-dasharray="4 4"/>
+  <circle cx="504" cy="300" r="10" fill="#FAF9F5" stroke="#B0AEA5"/>
+  <text x="504" y="304.5" font-size="12" font-weight="700" fill="#5E5D59" text-anchor="middle">5</text>
+  <text x="524" y="305" font-size="16" font-weight="600" fill="#141413">Quiet period</text>
+  <text x="494" y="329" font-size="13.5" fill="#5E5D59">sandbox released,</text>
+  <text x="494" y="348" font-size="13.5" fill="#5E5D59">thread persists</text>
+
+  
+  <path d="M 470 323 L 350 323 L 350 236" stroke="#B0AEA5" stroke-width="1.5" stroke-dasharray="4 4" fill="none" marker-end="url(#slp-arrow-soft)"/>
+  <text x="330" y="318" font-size="13.5" font-weight="600" fill="#5E5D59" text-anchor="end">a new reply rebuilds</text>
+  <text x="330" y="337" font-size="13.5" font-weight="600" fill="#5E5D59" text-anchor="end">the sandbox</text>
+</svg>

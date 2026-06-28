@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="160px" height="160px" viewBox="0 0 160 160" version="1.1">
+<defs>
+<clipPath id="clip1">
+  <path d="M 32.5 37.5 L 127.5 37.5 L 127.5 122.5 L 32.5 122.5 Z M 32.5 37.5 "/>
+</clipPath>
+</defs>
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(5.882353%,5.490196%,5.098039%);fill-opacity:1;" d="M 0 26.667969 C 0 11.9375 11.9375 0 26.667969 0 L 133.332031 0 C 148.0625 0 160 11.9375 160 26.667969 L 160 133.332031 C 160 148.0625 148.0625 160 133.332031 160 L 26.667969 160 C 11.9375 160 0 148.0625 0 133.332031 Z M 0 26.667969 "/>
+<g clip-path="url(#clip1)" clip-rule="nonzero">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(98.039216%,98.039216%,97.647059%);fill-opacity:1;" d="M 127.5 122.5 L 85 122.5 L 97.5 110 L 97.5 87.5 L 62.5 87.5 L 62.5 110 L 75 122.5 L 32.5 122.5 L 45 110 L 45 50 L 32.5 37.5 L 75 37.5 L 62.5 50 L 62.5 72.5 L 97.5 72.5 L 97.5 50 L 85 37.5 L 127.5 37.5 L 115 50 L 115 110 Z M 127.5 122.5 "/>
+</g>
+</g>
+</svg>

@@ -10,6 +10,8 @@ import re
 import shutil
 import subprocess
 import sys
+import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from urllib.parse import unquote, unquote_to_bytes, urlparse
 
@@ -23,7 +25,6 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "lecture-media"
 IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg"}
 SKIP_DIRS = {".git", ".claude", "_yt-cache", "lecture-media", "__pycache__"}
-MD_IMAGE_RE = re.compile(r"!\[([^\]]*)\]\((<[^>]+>|[^)\s]+)(?:\s+['\"][^'\"]*['\"])?\)")
 HTML_IMG_RE = re.compile(r"<img\b[^>]*>", re.I)
 ATTR_RE = re.compile(r"([\w:-]+)\s*=\s*(\"[^\"]*\"|'[^']*'|[^\s>]+)")
 SOURCE_RE = re.compile(r"<!--\s*source:\s*([^>]+?)\s*-->")
@@ -76,9 +77,37 @@ def file_meta(path: Path) -> dict[str, str]:
 
 def markdown_images(text: str) -> list[tuple[str, str]]:
     refs: list[tuple[str, str]] = []
-    for match in MD_IMAGE_RE.finditer(text):
-        target = match.group(2).strip("<>")
-        refs.append((clean(match.group(1)), target))
+    i = 0
+    while True:
+        start = text.find("![", i)
+        if start == -1:
+            break
+        alt_end = text.find("]", start + 2)
+        if alt_end == -1 or alt_end + 1 >= len(text) or text[alt_end + 1] != "(":
+            i = start + 2
+            continue
+        depth = 0
+        dest = []
+        j = alt_end + 2
+        while j < len(text):
+            char = text[j]
+            if char == "\\" and j + 1 < len(text):
+                dest.append(text[j + 1])
+                j += 2
+                continue
+            if char == "(":
+                depth += 1
+            elif char == ")":
+                if depth == 0:
+                    break
+                depth -= 1
+            dest.append(char)
+            j += 1
+        raw = "".join(dest).strip()
+        target = raw[1 : raw.find(">")] if raw.startswith("<") and ">" in raw else raw.split()[0] if raw else ""
+        if target:
+            refs.append((clean(text[start + 2 : alt_end]), target))
+        i = j + 1
     for tag in HTML_IMG_RE.findall(text):
         attrs = {}
         for key, value in ATTR_RE.findall(tag):
@@ -104,6 +133,7 @@ def row(rows: dict[str, dict], key: str, kind: str, target: str) -> dict:
             "occurrences": 0,
             "width": "",
             "height": "",
+            "download_error": "",
         }
     rows[key]["occurrences"] += 1
     return rows[key]
@@ -151,6 +181,43 @@ def data_asset(target: str) -> tuple[str, str, str]:
         except Exception:
             pass
     return rel(dest), width, height
+
+
+def remote_asset(url: str) -> tuple[str, str]:
+    parsed = urlparse(url)
+    suffix = Path(unquote(parsed.path)).suffix.lower()
+    ext = suffix if suffix in IMAGE_EXTS else ".img"
+    name = safe_name(Path(parsed.path).name or parsed.netloc) + ext
+    dest = OUT / "assets" / "remote" / safe_name(parsed.netloc) / f"{sha_bytes(url.encode())[:12]}-{name}"
+    if dest.exists() and dest.stat().st_size:
+        return rel(dest), ""
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 lecture-media-catalog"})
+    try:
+        with urllib.request.urlopen(req, timeout=20) as res:
+            data = res.read()
+        if not data:
+            return "", "empty response"
+        tmp = dest.with_suffix(dest.suffix + ".tmp")
+        tmp.write_bytes(data)
+        tmp.replace(dest)
+        return rel(dest), ""
+    except Exception as exc:
+        return "", str(exc).replace("\t", " ")[:200]
+
+
+def download_remote_assets(rows: dict[str, dict], workers: int = 10) -> None:
+    items = [item for item in rows.values() if item["kind"] == "remote_ref"]
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        futures = {pool.submit(remote_asset, item["target"]): item for item in items}
+        for future in as_completed(futures):
+            item = futures[future]
+            asset_path, error = future.result()
+            if asset_path:
+                item["asset_path"] = asset_path
+                item["preview"] = asset_path
+            elif error:
+                item["download_error"] = error
 
 
 def resolve_ref(source: Path, target: str) -> Path | None:
@@ -260,7 +327,7 @@ def pdf_rows(rows: dict[str, dict], extract: bool) -> None:
                 item["preview"] = item["asset_path"]
 
 
-def collect_images(extract_pdf: bool) -> dict[str, dict]:
+def collect_images(extract_pdf: bool, download_remote: bool = False) -> dict[str, dict]:
     rows: dict[str, dict] = {}
     for image in sorted(p for p in ROOT.rglob("*") if p.is_file() and p.suffix.lower() in IMAGE_EXTS and not skipped(p)):
         image_rel = rel(image)
@@ -302,6 +369,8 @@ def collect_images(extract_pdf: bool) -> dict[str, dict]:
                 item["preview"] = display
 
     pdf_rows(rows, extract_pdf)
+    if download_remote:
+        download_remote_assets(rows)
     titles = {path: info["title"] for path, info in meta.items()}
     for item in rows.values():
         item["description"] = describe_image(item, titles)
@@ -437,6 +506,7 @@ def write_images(rows: dict[str, dict]) -> None:
         "occurrences",
         "width",
         "height",
+        "download_error",
     ]
     flat = []
     for item in rows.values():
@@ -490,7 +560,7 @@ def write_youtube(rows: list[dict[str, str]]) -> None:
 
 
 def build(args: argparse.Namespace) -> int:
-    rows = collect_images(extract_pdf=not args.no_extract_pdf)
+    rows = collect_images(extract_pdf=not args.no_extract_pdf, download_remote=args.download_remote)
     videos = collect_youtube()
     write_images(rows)
     write_youtube(videos)
@@ -524,6 +594,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true", help="verify generated catalog coverage")
     parser.add_argument("--no-extract-pdf", action="store_true", help="list PDF image objects without extracting image files")
+    parser.add_argument("--download-remote", action="store_true", help="download remote Markdown image URLs into lecture-media/assets/remote")
     args = parser.parse_args()
     if args.check:
         return check()

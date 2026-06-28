@@ -1,0 +1,71 @@
+<svg viewBox="0 0 780 322" xmlns="http://www.w3.org/2000/svg" aria-labelledby="lgw-title lgw-desc" font-family="system-ui, -apple-system, sans-serif">
+  <title id="lgw-title">Claude Code through an LLM gateway</title>
+  <desc id="lgw-desc">Claude Code clients on developer machines send API traffic to a gateway run by your organization, which forwards requests to the model provider you configure using your organization's credential.</desc>
+
+  <rect width="780" height="322" rx="6" fill="#F9F9F7"/>
+
+  <text x="390" y="30" font-size="14" font-weight="600" fill="#1E1E1E" text-anchor="middle">Claude Code through an LLM gateway</text>
+
+  
+  <line x1="255" y1="48" x2="255" y2="138" stroke="#E0E0E0" stroke-dasharray="3 3"/>
+  <line x1="255" y1="198" x2="255" y2="300" stroke="#E0E0E0" stroke-dasharray="3 3"/>
+  <line x1="560" y1="48" x2="560" y2="92" stroke="#E0E0E0" stroke-dasharray="3 3"/>
+  <line x1="560" y1="240" x2="560" y2="300" stroke="#E0E0E0" stroke-dasharray="3 3"/>
+
+  
+  <text x="142" y="62" font-size="12" font-weight="600" fill="#757575" text-anchor="middle">Developer machines</text>
+  <text x="407" y="62" font-size="12" font-weight="600" fill="#757575" text-anchor="middle">Your infrastructure</text>
+  <text x="670" y="62" font-size="12" font-weight="600" fill="#757575" text-anchor="middle">Model providers</text>
+
+  
+  <rect x="30" y="80" width="130" height="212" rx="6" fill="#FAFAFA" stroke="#E0E0E0"/>
+  <text x="95" y="102" font-size="11" font-weight="500" fill="#1E1E1E" text-anchor="middle">Claude Code</text>
+  <rect x="40" y="114" width="110" height="30" rx="4" fill="#E8E8E4"/>
+  <text x="95" y="133" font-size="11" font-weight="500" fill="#1E1E1E" text-anchor="middle">CLI</text>
+  <rect x="40" y="156" width="110" height="30" rx="4" fill="#E8E8E4"/>
+  <text x="95" y="175" font-size="11" font-weight="500" fill="#1E1E1E" text-anchor="middle">VS Code</text>
+  <rect x="40" y="198" width="110" height="30" rx="4" fill="#E8E8E4"/>
+  <text x="95" y="217" font-size="11" font-weight="500" fill="#1E1E1E" text-anchor="middle">CI and Agent SDK</text>
+  <rect x="40" y="240" width="110" height="30" rx="4" fill="#E8E8E4"/>
+  <text x="95" y="259" font-size="11" font-weight="500" fill="#1E1E1E" text-anchor="middle">Desktop app</text>
+
+  
+  <rect x="350" y="130" width="180" height="70" rx="6" fill="#EDE8F4" stroke="#D4A27F" stroke-width="1.5"/>
+  <text x="440" y="158" font-size="12" font-weight="600" fill="#1E1E1E" text-anchor="middle">LLM gateway</text>
+  <text x="440" y="176" font-size="10" fill="#757575" text-anchor="middle">auth · usage · budgets · routing</text>
+  <text x="440" y="220" font-size="10" fill="#757575" text-anchor="middle">forwards with your org's credential</text>
+
+  
+  <rect x="590" y="90" width="165" height="30" rx="4" fill="#D4E4D8"/>
+  <text x="672" y="109" font-size="11" font-weight="500" fill="#1E1E1E" text-anchor="middle">Anthropic API</text>
+  <rect x="590" y="130" width="165" height="30" rx="4" fill="#D4E4D8"/>
+  <text x="672" y="149" font-size="11" font-weight="500" fill="#1E1E1E" text-anchor="middle">Amazon Bedrock</text>
+  <rect x="590" y="170" width="165" height="30" rx="4" fill="#D4E4D8"/>
+  <text x="672" y="189" font-size="11" font-weight="500" fill="#1E1E1E" text-anchor="middle">Google Vertex AI</text>
+  <rect x="590" y="210" width="165" height="30" rx="4" fill="#D4E4D8"/>
+  <text x="672" y="229" font-size="11" font-weight="500" fill="#1E1E1E" text-anchor="middle">Microsoft Foundry</text>
+
+  <defs>
+    <marker id="lgw-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M1,1 L7,4 L1,7" fill="none" stroke="#757575" stroke-width="1.2"/>
+    </marker>
+  </defs>
+
+  
+  <line x1="160" y1="165" x2="345" y2="165" stroke="#757575" stroke-width="1.2" marker-end="url(#lgw-arrow)"/>
+  <text x="252" y="152" font-size="10" fill="#757575" text-anchor="middle">gateway base URL</text>
+  <text x="252" y="184" font-size="10" fill="#757575" text-anchor="middle">per-developer credential</text>
+
+  
+  <line x1="530" y1="148" x2="585" y2="106" stroke="#757575" stroke-width="1.2" marker-end="url(#lgw-arrow)"/>
+  <line x1="530" y1="160" x2="585" y2="145" stroke="#B0B0B0" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#lgw-arrow)"/>
+  <line x1="530" y1="172" x2="585" y2="185" stroke="#B0B0B0" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#lgw-arrow)"/>
+  <line x1="530" y1="184" x2="585" y2="225" stroke="#B0B0B0" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#lgw-arrow)"/>
+
+  
+  <rect x="342" y="252" width="196" height="52" rx="4" fill="#FAFAFA" stroke="#E0E0E0"/>
+  <line x1="354" y1="268" x2="380" y2="268" stroke="#757575" stroke-width="1.2"/>
+  <text x="388" y="272" font-size="10" fill="#1E1E1E">the provider you configure</text>
+  <line x1="354" y1="290" x2="380" y2="290" stroke="#B0B0B0" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <text x="388" y="294" font-size="10" fill="#1E1E1E">other provider options</text>
+</svg>
