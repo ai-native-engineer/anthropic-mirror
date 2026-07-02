@@ -1,7 +1,9 @@
 # claude (YouTube)
 
-영상 126개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 128개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
+- [Introducing Claude Science (now in beta)](claude/260630-introducing-claude-science-now-in-beta.md) — 2026-06-30 (자막없음)
+- [How Spotify runs agents across 20M+ lines of code, with Niklas Gustavsson](claude/260629-how-spotify-runs-agents-across-20m-lines-of-code-with-niklas.md) — 2026-06-29
 - [Tag Claude in, right where you already work](claude/260623-tag-claude-in-right-where-you-already-work.md) — 2026-06-23
 - [Delegate and schedule tasks in Claude Cowork](claude/260621-delegate-and-schedule-tasks-in-claude-cowork.md) — 2026-06-21
 - [Artifacts in Claude Code: share your work as it happens](claude/260618-artifacts-in-claude-code-share-your-work-as-it-happens.md) — 2026-06-18 (자막없음)
