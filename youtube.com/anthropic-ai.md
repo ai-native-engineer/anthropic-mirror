@@ -1,7 +1,8 @@
 # anthropic-ai (YouTube)
 
-영상 141개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 142개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
+- [The different levels of how Claude thinks](anthropic-ai/260706-the-different-levels-of-how-claude-thinks.md) — 2026-07-06
 - [Introducing Claude Fable 5](anthropic-ai/260609-introducing-claude-fable-5.md) — 2026-06-09
 - [Translating Claude’s thoughts into language](anthropic-ai/260507-translating-claude-s-thoughts-into-language.md) — 2026-05-07
 - [An initiative to secure the world's software | Project Glasswing](anthropic-ai/260407-an-initiative-to-secure-the-world-s-software-project-glasswi.md) — 2026-04-07

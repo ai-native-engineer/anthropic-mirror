@@ -1,7 +1,14 @@
 # claude (YouTube)
 
-영상 128개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 135개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
+- [Regenerative beekeeping with Claude](claude/260707-regenerative-beekeeping-with-claude.md) — 2026-07-07
+- [Claude Cowork: coming to mobile and web](claude/260707-claude-cowork-coming-to-mobile-and-web.md) — 2026-07-07 (자막없음)
+- [DoorDash gave every employee Claude Code](claude/260707-doordash-gave-every-employee-claude-code.md) — 2026-07-07
+- [Photographing the stars with Claude](claude/260706-photographing-the-stars-with-claude.md) — 2026-07-06
+- [Claude Fable 5: working at the frontier](claude/260706-claude-fable-5-working-at-the-frontier.md) — 2026-07-06
+- [How Squidsoup makes art installations with Claude](claude/260703-how-squidsoup-makes-art-installations-with-claude.md) — 2026-07-03
+- [The future of work with @Claude](claude/260702-the-future-of-work-with-claude.md) — 2026-07-02
 - [Introducing Claude Science (now in beta)](claude/260630-introducing-claude-science-now-in-beta.md) — 2026-06-30 (자막없음)
 - [How Spotify runs agents across 20M+ lines of code, with Niklas Gustavsson](claude/260629-how-spotify-runs-agents-across-20m-lines-of-code-with-niklas.md) — 2026-06-29
 - [Tag Claude in, right where you already work](claude/260623-tag-claude-in-right-where-you-already-work.md) — 2026-06-23
