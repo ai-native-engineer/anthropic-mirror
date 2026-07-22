@@ -11,80 +11,53 @@
 
 ![status: unofficial mirror](https://img.shields.io/badge/status-unofficial%20mirror-orange)
 ![last commit](https://img.shields.io/github/last-commit/ai-native-engineer/anthropic-mirror)
-![repo size](https://img.shields.io/github/repo-size/ai-native-engineer/anthropic-mirror)
-![docs ~5.0k](https://img.shields.io/badge/docs-~5.0k-blue)
 
-> Unofficial markdown archive of **Anthropic & Claude public materials** - news, research, engineering, policy & legal, products, platform docs & API reference, Claude Code CLI docs, Help Center, Trust Center, the Alignment Science and Interpretability blogs, Anthropic Academy courses, the official YouTube channels, and linked PDF documents (system cards, research papers, eBooks).
-
-Collected as a reference source for talks and study, kept public so anyone can read.
+An unofficial, searchable, git-versioned archive of public Anthropic and Claude materials. It mirrors documentation, research, Academy courses, YouTube transcripts, and linked PDFs for study and reference.
 
 > [!WARNING]
-> **Unofficial archive. Not created or operated by Anthropic.** All content is copyright **Anthropic, PBC**; this repository only mirrors published text as markdown for personal reference. Always check the official sources below for the latest and most accurate information.
+> This repository is not created or operated by Anthropic. Copyright remains with **Anthropic, PBC**. Use the source link in each file for the latest and authoritative version.
 
-## Contents
+## Coverage
 
-About 5,000 markdown files, as of the latest crawl snapshot. The tree mirrors the source URLs (`<host>/<path>.md`), so a file's location maps directly to its original page. Each file keeps a `<!-- source: <url> -->` header linking back.
+| Path | Content |
+|---|---|
+| `www.anthropic.com/`, `claude.com/` | News, research, engineering, policy, products, blog, customers, and resources |
+| `platform.claude.com/`, `code.claude.com/`, `support.claude.com/` | Developer/API docs, Claude Code docs, and Help Center articles |
+| `alignment.anthropic.com/`, `transformer-circuits.pub/`, `trust.anthropic.com.md` | Alignment, interpretability, security, and compliance |
+| `anthropic.skilljar.com/` | Anthropic Academy lessons and caption transcripts |
+| `youtube.com/anthropic-ai/`, `youtube.com/claude/` | Official channel transcripts, one Markdown file per video |
+| `assets.anthropic.com/`, `www-cdn.anthropic.com/`, `resources.anthropic.com/` | Linked PDFs in their original format |
 
-| Path | Content | Docs |
-|---|---|---|
-| `www.anthropic.com/` | News, research, engineering, events, company, careers, policy & legal, products, system cards, economic index | ~484 |
-| `claude.com/` | Blog, customer stories, resources, use-cases, tutorials, connectors, plugins, help docs | ~1,717 |
-| `platform.claude.com/` | Developer documentation and the full API reference | ~1,695 |
-| `code.claude.com/` | Claude Code CLI docs (hooks, sub-agents, settings, slash commands, statusline, output styles, checkpointing, Agent SDK) | ~154 |
-| `support.claude.com/` | Help Center articles | ~370 |
-| `alignment.anthropic.com/` | Alignment Science blog | ~51 |
-| `transformer-circuits.pub/` | Interpretability research (Transformer Circuits Thread), with figures saved as PNG | ~49 |
-| `trust.anthropic.com` | Trust Center (security, compliance, certifications) | 1 |
-| `anthropic.skilljar.com/` | Anthropic Academy course lessons | ~158 |
-| `youtube.com/anthropic-ai/`, `youtube.com/claude/` | Official YouTube channels (anthropic-ai, Claude) - one transcript per video | ~258 |
-| `assets.anthropic.com/`, `www-cdn.anthropic.com/`, `resources.anthropic.com/` | PDF documents linked from pages (system cards, research papers, eBooks, enterprise guides) | 112 PDFs |
+The directory tree mirrors source URLs as `<host>/<path>.md`. Each generated Markdown file starts with `<!-- source: <url> -->`. The repository stores only the latest snapshot; git preserves change history.
 
-Mostly text. Exceptions: interpretability papers keep their inline figures as extracted PNG files, YouTube videos embedded in a page are transcribed and inlined below the embed inside a collapsible `<details>` block, and PDF documents linked from pages (system cards, research papers, eBooks, guides) are mirrored as their original `.pdf` files. Anthropic Academy video courses are transcribed from YouTube / JWPlayer captions.
+Pages without extractable public text may be absent. The Claude app (`claude.ai`) is out of scope. Videos are stored as caption transcripts rather than media files.
 
-The official **YouTube channels** (anthropic-ai, Claude) are mirrored under `youtube.com/<handle>/` - one Markdown transcript per video, enumerated with `yt-dlp` and transcribed from each video's captions (videos with no captions are kept as a short stub).
+## Use
 
-**Known coverage gaps** (measured against each sitemap, ~96-99% per surface). Not mirrored: about 150 auto-generated API SDK reference pages under `platform.claude.com/docs/en/api/` (terraform/php/csharp endpoints whose `.md` source returns 404), plus a handful of JS-rendered pages that ship no server-side text. Capturing these would need a headless browser, which this mirror avoids by design.
-
-## How it's generated
-
-Crawled by an automated, sitemap-driven pipeline (no API keys, no login for public pages): every domain's `sitemap.xml` is the source of truth, fetched with a Chrome browser fingerprint so the server-rendered HTML comes through without a headless browser. `platform.claude.com` and `code.claude.com` docs are pulled as Mintlify `.md` raw. The official YouTube channels are enumerated with `yt-dlp` and transcribed from each video's captions. See `AGENTS.md` for the regeneration details.
-
-## Sources
-
-- https://www.anthropic.com (news, research, engineering, policy, legal, products)
-- https://claude.com (blog, customers, resources, connectors, help docs)
-- https://platform.claude.com/docs (developer docs + API reference)
-- https://code.claude.com/docs (Claude Code CLI)
-- https://support.claude.com (Help Center)
-- https://alignment.anthropic.com (Alignment Science)
-- https://transformer-circuits.pub (Interpretability)
-- https://trust.anthropic.com (Trust Center)
-- https://anthropic.skilljar.com (Anthropic Academy)
-- https://www.youtube.com/@anthropic-ai , https://www.youtube.com/@claude (YouTube channels)
-
-## Usage
-
-Browse any folder on GitHub, or clone the full archive:
+Browse on GitHub or search a local clone:
 
 ```bash
 git clone https://github.com/ai-native-engineer/anthropic-mirror.git
+cd anthropic-mirror
+rg -n "constitutional AI"
 ```
 
-## Out of scope
+## Update
 
-The Claude product app (claude.ai) is not included. Binary assets are excluded except interpretability figures (kept as PNG) and PDF documents linked from pages (kept as original `.pdf` files); video courses and embedded videos are kept as caption transcripts only.
+The repository-local `anthropic-mirror` skill owns regeneration. Maintainers run:
 
-## Updating
+```bash
+bash .agents/skills/anthropic-mirror/scripts/update-mirror.sh --check
+bash .agents/skills/anthropic-mirror/scripts/update-mirror.sh
+```
 
-Re-crawled and overwritten by the repository-local skill in `.agents/skills/anthropic-mirror/`. Only the latest mirror is kept; change history is preserved by git (`git log` / `git diff`). No dated snapshot folders are accumulated.
+Generated domain files are read-only. Fix the skill or crawler and regenerate instead of editing mirrored content by hand.
 
-## Contributing
+## Issues and removal requests
 
-This archive is generated automatically, so files are not hand-edited - please don't open PRs that change document content (they'd be overwritten on the next sync). Instead:
+- Open an issue for a missing or broken page.
+- Copyright holders can open an issue to request removal.
 
-- Found a broken or missing page? Open an issue.
-- Are you the copyright holder requesting removal? Open an issue; the material will be taken down.
+## Copyright
 
-## License
-
-No open-source license is granted - all archived text is copyright Anthropic, PBC. This repository is a study / reference mirror, and content is removed on the copyright holder's request.
+No open-source license is granted for mirrored content. All archived material remains copyright Anthropic, PBC.
