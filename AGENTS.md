@@ -1,11 +1,12 @@
 # AGENTS.md
 
-This repository is a generated, latest-only archive of live Anthropic and Claude sources. Generated Markdown begins with `<!-- source: <url> -->`; history lives in git.
+This repository is a generated, latest-only archive of Anthropic and Claude public materials.
 
 ## Rules
 
-- Treat domain outputs as read-only. Search them freely, but do not hand-edit or add generated files.
-- Fix `.agents/skills/anthropic-mirror` and regenerate; `.claude/skills/anthropic-mirror` is only a compatibility link.
-- Preserve unrelated work and stage regenerated paths explicitly. Do not use `git add .` or `git add -A`.
-- Keep one logical change per commit. Do not force-push or hard-reset; push only with explicit approval.
+- Treat host-named Markdown, PDF, and image outputs as read-only. Fix `.agents/skills/anthropic-mirror/` and regenerate instead of editing or adding generated files.
+- Crawled pages use `<!-- source: <url> -->`; Academy lessons use a source URL comment; YouTube pages use YAML frontmatter. `_yt-cache/` and `.anthropic-mirror-state.json` are gitignored.
+- Browse the archive freely with `rg` when answering questions.
+- Preserve unrelated work, stage only regenerated domains with explicit paths, and keep one logical change per commit.
+- Push only with explicit approval. Never force-push or hard-reset.
 - Keep `README.md` and `README.ko.md` in sync.
