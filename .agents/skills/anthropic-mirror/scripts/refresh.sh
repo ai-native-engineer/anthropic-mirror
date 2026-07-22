@@ -2,12 +2,13 @@
 set -euo pipefail
 
 usage() {
-  echo "Usage: update-mirror.sh [--check|--help]"
+  echo "Usage: refresh.sh [--check|--self-test]"
 }
 
 case "${1:-}" in
   "") ;;
   --check) CHECK_ONLY=1 ;;
+  --self-test) SELF_TEST=1 ;;
   --help|-h) usage; exit 0 ;;
   *) usage >&2; exit 2 ;;
 esac
@@ -29,6 +30,21 @@ require_file() {
     exit 1
   fi
 }
+
+for file in \
+  "$SKILL_DIR/SKILL.md" \
+  "$REPO_ROOT/AGENTS.md" \
+  "$SKILL_DIR/scripts/crawl-site.py" \
+  "$SKILL_DIR/scripts/academy-video.py" \
+  "$SKILL_DIR/scripts/verify-publish.py"; do
+  require_file "$file"
+done
+
+if [ "${SELF_TEST:-0}" = 1 ]; then
+  python3 "$SKILL_DIR/scripts/verify-publish.py" --self-test
+  echo "self-test ok"
+  exit 0
+fi
 
 if [ ! -x "$CRAWL4AI_PYTHON" ]; then
   echo "crawl4ai Python is not executable: $CRAWL4AI_PYTHON" >&2
@@ -90,5 +106,6 @@ python3 "$CRAWL_SCRIPTS_DIR/verify-mirror.py" . \
   --exclude '*.skilljar.com/**' \
   --exclude 'platform.claude.com/**' \
   --exclude 'code.claude.com/**'
+python3 "$SKILL_DIR/scripts/verify-publish.py" .
 
 echo "Mirror refresh and verification completed. Inspect git status before staging."
