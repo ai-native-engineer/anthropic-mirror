@@ -76,7 +76,7 @@ The Claude product app (claude.ai) is not included. Binary assets are excluded e
 
 ## Updating
 
-Re-crawled and overwritten by the `anthropic-mirror` skill. Only the latest mirror is kept; change history is preserved by git (`git log` / `git diff`). No dated snapshot folders are accumulated.
+Re-crawled and overwritten by the repository-local skill in `.agents/skills/anthropic-mirror/`. Only the latest mirror is kept; change history is preserved by git (`git log` / `git diff`). No dated snapshot folders are accumulated.
 
 ## Contributing
 

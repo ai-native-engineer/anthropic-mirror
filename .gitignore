@@ -1,4 +1,5 @@
 .DS_Store
 _yt-cache/
+.anthropic-mirror-state.json
 prompts/
 .agents/worktrees/

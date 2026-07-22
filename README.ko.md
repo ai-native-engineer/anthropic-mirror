@@ -76,7 +76,7 @@ Claude 제품 앱(claude.ai)은 포함하지 않습니다. 바이너리 자산�
 
 ## 갱신
 
-`anthropic-mirror` 스킬로 다시 크롤해 최신 미러만 덮어씁니다. 변경 이력은 git이 보존하므로 `git log` / `git diff`로 추적합니다(날짜별 디렉토리를 누적하지 않습니다).
+저장소 로컬 `.agents/skills/anthropic-mirror/` 스킬로 다시 크롤해 최신 미러만 덮어씁니다. 변경 이력은 git이 보존하므로 `git log` / `git diff`로 추적합니다(날짜별 디렉토리를 누적하지 않습니다).
 
 ## 기여
 
