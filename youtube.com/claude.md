@@ -1,7 +1,13 @@
 # claude (YouTube)
 
-영상 135개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 141개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
+- [Build data-driven lesson plans with Claude for Teachers](claude/260715-build-data-driven-lesson-plans-with-claude-for-teachers.md) — 2026-07-15
+- [Plan smarter with Claude for Teachers](claude/260714-plan-smarter-with-claude-for-teachers.md) — 2026-07-14
+- [The Briefing: AI for Science](claude/260713-the-briefing-ai-for-science.md) — 2026-07-13
+- [Building the future of agentic infrastructure](claude/260710-building-the-future-of-agentic-infrastructure.md) — 2026-07-10
+- [There’s hope in hard questions](claude/260709-there-s-hope-in-hard-questions.md) — 2026-07-09
+- [Making New York City miniature with Claude](claude/260708-making-new-york-city-miniature-with-claude.md) — 2026-07-08
 - [Regenerative beekeeping with Claude](claude/260707-regenerative-beekeeping-with-claude.md) — 2026-07-07
 - [Claude Cowork: coming to mobile and web](claude/260707-claude-cowork-coming-to-mobile-and-web.md) — 2026-07-07 (자막없음)
 - [DoorDash gave every employee Claude Code](claude/260707-doordash-gave-every-employee-claude-code.md) — 2026-07-07
