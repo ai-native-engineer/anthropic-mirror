@@ -72,7 +72,7 @@ def validate_change(repo, status, path, allow_deletes=False, strict_paths=False)
         issues.append(f"100MB 초과: {path}")
 
     with open(fp, "rb") as f:
-        head = f.read(8)
+        head = f.read(512)
     if path.endswith(".pdf"):
         if not head.startswith(b"%PDF-"):
             issues.append(f"PDF 매직바이트 불일치: {path}")
@@ -82,6 +82,9 @@ def validate_change(repo, status, path, allow_deletes=False, strict_paths=False)
     elif path.endswith((".jpg", ".jpeg")):
         if not head.startswith(b"\xff\xd8"):
             issues.append(f"JPEG 매직바이트 불일치: {path}")
+    elif path.endswith(".svg"):
+        if b"<svg" not in head:
+            issues.append(f"SVG 헤더 불일치: {path}")
     elif path.endswith(".md"):
         with open(fp, encoding="utf-8", errors="replace") as f:
             first = f.readline().rstrip("\n")
@@ -122,6 +125,7 @@ def self_test():
         "platform.claude.com/docs/en/x.parts/part-001.md": b"<!-- part of: https://platform.claude.com/docs/en/x -->\n",
         "transformer-circuits.pub/x/images/x.png": b"\x89PNG\r\n\x1a\n",
         "transformer-circuits.pub/x/images/x.jpg": b"\xff\xd8test",
+        "www.anthropic.com/events/images/x.svg": b"<svg xmlns='http://www.w3.org/2000/svg'></svg>",
     }
     for path, body in files.items():
         fp = os.path.join(root, path)
