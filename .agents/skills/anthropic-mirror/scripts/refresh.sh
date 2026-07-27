@@ -55,6 +55,7 @@ for file in \
   crawl-mirror.py \
   youtube-channels.py \
   extract-images.py \
+  split-markdown.py \
   transcribe-ids.sh \
   youtube-transcripts.sh \
   inline-transcripts.py \
@@ -100,6 +101,7 @@ python3 "$CRAWL_SCRIPTS_DIR/youtube-channels.py" . \
   claude:UCV03SRZXJEz-hchIAogeJOg \
   --tabs=videos,shorts,streams
 python3 "$CRAWL_SCRIPTS_DIR/extract-images.py" .
+python3 "$CRAWL_SCRIPTS_DIR/split-markdown.py" .
 bash "$CRAWL_SCRIPTS_DIR/youtube-transcripts.sh" . \
   --exclude '*.skilljar.com/**' \
   --exclude 'platform.claude.com/**' \

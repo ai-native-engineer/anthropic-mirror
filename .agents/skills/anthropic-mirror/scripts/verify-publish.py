@@ -94,7 +94,9 @@ def validate_change(repo, status, path, allow_deletes=False, strict_paths=False)
         elif root.endswith(".skilljar.com"):
             if not first.startswith("<!-- https://"):
                 issues.append(f"Academy source 헤더 누락: {path}")
-        elif not first.startswith("<!-- source: https://"):
+        elif ".parts/" in path and not first.startswith("<!-- part of: https://"):
+            issues.append(f"split part 헤더 누락: {path}")
+        elif ".parts/" not in path and not first.startswith("<!-- source: https://"):
             issues.append(f"source 헤더 누락: {path}")
     else:
         issues.append(f"지원하지 않는 생성물 확장자: {path}")
@@ -117,6 +119,7 @@ def self_test():
         "youtube.com/anthropic-ai/x.md": b"---\ntitle: x\n---\n",
         "assets.anthropic.com/x.pdf": b"%PDF-test",
         "trust.anthropic.com/resources.md": b"<!-- source: https://trust.anthropic.com/resources -->\n",
+        "platform.claude.com/docs/en/x.parts/part-001.md": b"<!-- part of: https://platform.claude.com/docs/en/x -->\n",
         "transformer-circuits.pub/x/images/x.png": b"\x89PNG\r\n\x1a\n",
         "transformer-circuits.pub/x/images/x.jpg": b"\xff\xd8test",
     }

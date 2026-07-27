@@ -15,7 +15,8 @@
 | anthropic.com / claude.com | `crawl-site.py` | sitemap, 영어 정본 |
 | platform.claude.com / code.claude.com | `crawl-site.py` | docs sitemap + Mintlify raw Markdown, Cookbook 홈 1-depth |
 | support.claude.com / privacy.claude.com | `crawl-site.py` | 영어 sitemap |
-| alignment.anthropic.com / transformer-circuits.pub | `crawl-site.py` | 홈 링크 1-depth |
+| alignment.anthropic.com / transformer-circuits.pub | `crawl-site.py` | same-host 링크 2-depth + canonical redirect |
+| resources.anthropic.com | `crawl-site.py` | 보관 문서의 공식 outbound link |
 | trust.anthropic.com | `crawl-site.py` | 공개 SPA route별 렌더 |
 | Anthropic Academy | `academy-video.py` | 인증 카탈로그 + 렌더된 레슨 |
 | 공식 YouTube | shared `youtube-channels.py` | videos·shorts·streams ID 합집합 + 자막 |
@@ -30,6 +31,7 @@
 - trust.anthropic.com만 SPA라 Playwright 렌더를 사용한다.
 - thin, 404, network/extract 실패는 저장하지 않아 다음 실행에서 다시 확인한다.
 - 한 host만 점검할 때는 `crawl-site.py . --only <host>`를 쓴다.
+- 확정 누락이나 깨진 페이지만 복구할 때는 줄 단위 목록과 `--url-file <file> --force`를 쓴다.
 
 ## 증분 상태
 
@@ -47,6 +49,7 @@
 ## 후처리
 
 - `extract-images.py`는 transformer-circuits의 인라인 base64 그림을 옆 `images/`의 PNG/JPG로 분리한다.
+- `split-markdown.py`는 1MiB를 넘는 생성 문서를 순서가 보존된 작은 Markdown 조각으로 나눈다.
 - `youtube-transcripts.sh`와 `inline-transcripts.py`는 페이지의 YouTube 링크 아래에 자막을 멱등 삽입한다.
 - Academy와 docs는 자체 처리 또는 낮은 가치 때문에 wrapper의 인라인 자막 대상에서 제외한다.
 - `youtube-channels.py`는 `_yt-cache/`를 재사용하고 `videos`, `shorts`, `streams` 탭의 합집합을 채널별 transcript/stub으로 발행한다.

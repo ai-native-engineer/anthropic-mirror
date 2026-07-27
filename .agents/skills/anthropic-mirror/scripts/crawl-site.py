@@ -64,12 +64,13 @@ def is_docs_en(u):
     return "/docs/en/" in u
 
 
-# sitemap 없는 정적 연구 블로그: 홈에서 같은 도메인 링크 1-depth 수집.
+# sitemap 없는 정적 연구 블로그: 같은 도메인의 공개 본문을 지정 depth까지 수집.
 DISCOVER = [
-    ("https://alignment.anthropic.com/", "alignment.anthropic.com"),     # Alignment Science Blog (Distill 정적)
-    ("https://transformer-circuits.pub/", "transformer-circuits.pub"),   # 해석가능성 연구 (정적 .html, sitemap 403)
-    ("https://platform.claude.com/cookbook/", "platform.claude.com"),     # sitemap 밖 Cookbook index + detail
+    ("https://alignment.anthropic.com/", "alignment.anthropic.com", 2),
+    ("https://transformer-circuits.pub/", "transformer-circuits.pub", 2),
+    ("https://platform.claude.com/cookbook/", "platform.claude.com", 1),
 ]
+LINKED_HOSTS = {"resources.anthropic.com"}
 # SafeBase SPA: curl·​.md 둘 다 본문 0 -> playwright innerText 보강.
 SPA_PAGES = [
     "https://trust.anthropic.com/",
@@ -265,21 +266,52 @@ def rescue_article_views(pages):
     return rescued
 
 
-def discover(base, dom):
-    """sitemap 없는 사이트: 홈에서 같은 도메인 링크 1-depth 수집."""
-    try:
-        s, h, _ = get(base)
-        if s != 200:
-            return set()
-    except Exception:
-        return set()
-    soup = BeautifulSoup(h, "html.parser")
-    out = {base}
-    for a in soup.find_all("a", href=True):
-        v = urljoin(base, a["href"]).split("#")[0].split("?")[0]
-        if urlsplit(v).netloc == dom and not v.endswith((".xml", ".pdf", ".json", ".png", ".jpg")):
-            out.add(v)
+def discover(base, dom, max_depth=1):
+    """sitemap 없는 사이트를 same-host BFS하며 redirect 정본과 공개 본문만 반환."""
+    out, seen, frontier = set(), set(), [(base, 0)]
+    blocked = (".xml", ".pdf", ".json", ".png", ".jpg", ".jpeg", ".gif", ".svg", ".txt")
+    while frontier:
+        requested, depth = frontier.pop(0)
+        if requested in seen:
+            continue
+        seen.add(requested)
+        try:
+            status, html, final = get(requested)
+        except Exception:
+            continue
+        if status != 200:
+            continue
+        canonical = (final or requested).split("#")[0].split("?")[0]
+        if urlsplit(canonical).netloc != dom:
+            continue
+        if len(html_to_md(html, canonical)) >= 200:
+            out.add(canonical)
+        if depth >= max_depth:
+            continue
+        soup = BeautifulSoup(html, "html.parser")
+        for anchor in soup.find_all("a", href=True):
+            value = urljoin(canonical, anchor["href"]).split("#")[0].split("?")[0]
+            parsed = urlsplit(value)
+            if parsed.netloc == dom and "@" not in parsed.path and not parsed.path.lower().endswith(blocked):
+                frontier.append((value, depth + 1))
     return out
+
+
+def linked_urls(out, hosts):
+    """이미 보관한 공식 페이지가 가리키는 sitemap 없는 소유 host URL을 찾는다."""
+    found = set()
+    pattern = re.compile(r"https://(?:" + "|".join(map(re.escape, hosts)) + r''')/[^\s<>)\]'\"]+''')
+    for root, dirs, files in os.walk(out):
+        dirs[:] = [d for d in dirs if d not in (".git", ".claude", ".agents", "_yt-cache")]
+        for name in files:
+            if not name.endswith(".md"):
+                continue
+            try:
+                text = open(os.path.join(root, name), encoding="utf-8", errors="replace").read()
+            except OSError:
+                continue
+            found.update(value.rstrip(".,;") for value in pattern.findall(text))
+    return found
 
 
 _SOURCE = re.compile(r"^<!--\s*(?:source:\s*)?(https://\S+?)\s*-->")
@@ -435,6 +467,7 @@ def main():
     ap.add_argument("--only", default="", help="이 host substring을 가진 URL만 크롤(예: claude.com)")
     ap.add_argument("--force", action="store_true", help="본문 해시와 무관하게 검사 결과를 다시 저장")
     ap.add_argument("--prune-stale", action="store_true", help="live 404/canonical redirect source 파일 제거")
+    ap.add_argument("--url-file", help="sitemap 발견 대신 줄 단위 URL 목록만 표적 재수집")
     ap.add_argument("--self-test", action="store_true", help=argparse.SUPPRESS)
     ap.add_argument("--limit", type=int, default=0, help="크롤 URL 상한(테스트용)")
     ap.add_argument("--concurrency", type=int, default=8)
@@ -474,6 +507,22 @@ def main():
     state = load_state(a.out)
     scanned, changed, baselined, fails, empties, stale, budget = 0, 0, 0, [], [], [], (a.limit or 10 ** 9)
 
+    if a.url_file:
+        with open(a.url_file, encoding="utf-8") as f:
+            selected = todo(line.strip() for line in f if line.strip() and not line.startswith("#"))
+        docs = [u for u in selected if urlsplit(u).netloc in ("platform.claude.com", "code.claude.com") and "/docs/" in urlsplit(u).path]
+        html = sorted(set(selected) - set(docs))
+        for label, urls, fetch in (("target/html", html, fetch_html), ("target/docs", docs, fetch_docs_md)):
+            if not urls:
+                continue
+            print(f"[{label}] {len(urls)} 크롤", flush=True)
+            p, f, e, s = crawl(urls[:budget - scanned], fetch, a.concurrency)
+            n, c, b = flush(p, a.out, state, a.force)
+            scanned += n; changed += c; baselined += b; fails += f; empties += e; stale += s
+        removed = prune_stale(a.out, stale) if a.prune_stale else 0
+        print(f"검사: {scanned} / 내용 변경 저장: {changed} / 기준선 등록: {baselined} / 본문없음 skip: {len(empties)} / stale: {len(stale)} / 제거: {removed} / 실패: {len(fails)}", flush=True)
+        return
+
     # 1) HTML sitemaps (curl_cffi + bs4)
     for sm, keep in HTML_SITEMAPS:
         discovered = sitemap_urls(sm) | known.get(urlsplit(sm).netloc, set())
@@ -497,17 +546,24 @@ def main():
         n, c, b = flush(p, a.out, state, a.force); scanned += n; changed += c; baselined += b; fails += f; empties += e; stale += s
 
     # 3) sitemap 없는 연구 블로그 (홈 link discovery)
-    for base, dom in DISCOVER:
+    for base, dom, depth in DISCOVER:
         if scanned >= budget:
             break
-        urls = todo(list(discover(base, dom) | known.get(dom, set())))[:max(0, budget - scanned)]
+        urls = todo(list(discover(base, dom, depth) | known.get(dom, set())))[:max(0, budget - scanned)]
         if not urls:
             continue
         print(f"[{dom}] {len(urls)} 크롤", flush=True)
         p, f, e, s = crawl(urls, fetch_html, a.concurrency)
         n, c, b = flush(p, a.out, state, a.force); scanned += n; changed += c; baselined += b; fails += f; empties += e; stale += s
 
-    # 4) SafeBase SPA (playwright 보강)
+    # 4) 루트가 다른 곳으로 redirect하는 공개 리소스 host는 보관 문서의 outbound link에서 발견한다.
+    linked = todo(linked_urls(a.out, LINKED_HOSTS) | set().union(*(known.get(h, set()) for h in LINKED_HOSTS)))
+    if linked and scanned < budget:
+        print(f"[linked hosts] {len(linked)} 크롤", flush=True)
+        p, f, e, s = crawl(linked[:max(0, budget - scanned)], fetch_html, a.concurrency)
+        n, c, b = flush(p, a.out, state, a.force); scanned += n; changed += c; baselined += b; fails += f; empties += e; stale += s
+
+    # 5) SafeBase SPA (playwright 보강)
     spa = todo(SPA_PAGES)
     if spa and scanned < budget:
         print(f"[SPA] {len(spa)} playwright 보강", flush=True)
