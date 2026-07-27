@@ -199,9 +199,8 @@ def fetch_html(url):
         s, h, final = get(url)
         if s != 200:
             return url, "", f"status={s}"
-        if redirected(url, final):
-            return url, "", "stale=redirect"
-        return url, html_to_md(h, final or url), ""
+        canonical = final or url
+        return canonical, html_to_md(h, canonical), ""
     except Exception as e:
         return url, "", str(e)[:80]
 
@@ -224,9 +223,10 @@ def fetch_docs_md(url):
         s, t, final = get(url, ".md")
         if s != 200:
             return url, "", f"status={s}"
-        if redirected(url, final):
-            return url, "", "stale=redirect"
-        return url, absolutize_markdown_images(strip_docs_index(t.strip()), final or url), ""
+        canonical = final or url
+        if canonical.endswith(".md"):
+            canonical = canonical[:-3]
+        return canonical, absolutize_markdown_images(strip_docs_index(t.strip()), canonical), ""
     except Exception as e:
         return url, "", str(e)[:80]
 
@@ -346,8 +346,11 @@ def crawl(urls, fetch, concurrency):
         futs = {ex.submit(fetch, u): u for u in urls}
         done = 0
         for f in as_completed(futs):
+            requested = futs[f]
             url, mdtext, err = f.result()
             done += 1
+            if redirected(requested, url):
+                stale.append(requested)
             if mdtext and len(mdtext) >= 200:  # 200자 미만은 빈 SPA 셸·404 본문
                 pages[url] = mdtext
             elif err in ("status=404", "stale=redirect"):
