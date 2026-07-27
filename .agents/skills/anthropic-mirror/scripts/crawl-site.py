@@ -190,7 +190,8 @@ def html_to_md(html, base_url=""):
     if base_url:
         absolutize_html(node, base_url)
     text = decode_cfemail(md(str(node), heading_style="ATX").strip())
-    return "\n".join(line.rstrip() for line in text.splitlines())
+    text = "\n".join(line.rstrip() for line in text.splitlines())
+    return absolutize_markdown_images(text, base_url) if base_url else text
 
 
 def fetch_html(url):
