@@ -4,7 +4,7 @@
 
 May 11, 2023
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F747fdccef62301bfa3538a9c6c8f8771fc2dceac-2880x1620.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/747fdccef62301bfa3538a9c6c8f8771fc2dceac-2880x1620.png)
 
 We’ve expanded Claude’s context window from 9K to 100K tokens, corresponding to around 75,000 words! This means businesses can now submit **hundreds of pages** of materials for Claude to digest and analyze, and conversations with Claude can go on for hours or even days.
 
@@ -282,6 +282,6 @@ see you next time bye
 * Read through hundreds of pages of developer documentation and surface answers to technical questions
 * Rapidly prototype by dropping an entire codebase into the context and intelligently build on or modify it
 
-100K context windows are now available in our API. If you are working with Claude, you can read more about what model versions to call [here](https://console.anthropic.com/docs/api/reference#-v1-complete). If you’re not working with Claude yet, you can request access [here](/claude).
+100K context windows are now available in our API. If you are working with Claude, you can read more about what model versions to call [here](https://console.anthropic.com/docs/api/reference#-v1-complete). If you’re not working with Claude yet, you can request access [here](https://www.anthropic.com/claude).
 
 [1] [https://www.sciencedirect.com/...](https://www.sciencedirect.com/science/article/abs/pii/S0749596X19300786)

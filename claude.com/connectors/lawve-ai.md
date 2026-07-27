@@ -10,6 +10,7 @@ Discover expert-written skills for legal work
 * Used in
 
   [Claude](https://claude.ai/directory/afce8e96-04a4-4d3c-9e63-0e47c64468ea)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Lawve AI](https://lawve.ai)
 
@@ -22,7 +23,7 @@ Discover expert-written skills for legal work
   Read
 * More
 
-  [Documentation](https://lawve.ai/en/learn/mcp-setup)[Privacy Policy](https://lawve.ai/en/privacy)[contact@lawvable.com](mailto:contact@lawvable.com)
+  [Documentation](https://lawve.ai/en/learn/mcp-setup)[Privacy Policy](https://lawve.ai/en/privacy)[Support](mailto:contact@lawvable.com)
 
 Browse a curated library of legal AI skills written by practicing lawyers, in-house counsel, and legal technologists. Every skill covers a specific workflow — contract review, NDA analysis, GDPR compliance, legal drafting, jurisdiction-specific research. Search the catalog from inside Claude to find the skill that fits your task and preview its practitioner-authored instructions. Bring expert guidance into your workflow — whether you're at a law firm, in-house, or building legal tech.
 
@@ -50,11 +51,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -68,7 +69,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -82,7 +83,7 @@ June 22, 2026
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -96,4 +97,4 @@ June 22, 2026
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

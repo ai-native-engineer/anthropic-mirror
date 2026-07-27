@@ -10,6 +10,7 @@ Search domains and check availability
 * Used in
 
   [Claude](https://claude.ai/directory/a1d0551d-c567-4975-91fc-7ced9e819421)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [GoDaddy](https://www.godaddy.com/)
 
@@ -22,7 +23,7 @@ Search domains and check availability
   Read
 * More
 
-  [Documentation](https://developer.godaddy.com/mcp)[Privacy Policy](https://www.godaddy.com/legal/agreements/privacy-policy)[mcp@godaddy.com](mailto:mcp@godaddy.com)
+  [Documentation](https://developer.godaddy.com/mcp)[Privacy Policy](https://www.godaddy.com/legal/agreements/privacy-policy)[Support](mailto:mcp@godaddy.com)
 
 Use GoDaddy to find available domains and get smart suggestions based on your ideas and keywords.  
   

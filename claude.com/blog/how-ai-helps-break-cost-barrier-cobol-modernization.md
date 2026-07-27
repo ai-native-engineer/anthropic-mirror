@@ -2,7 +2,7 @@
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
 
-# How AI helps break the cost barrier to COBOL modernization
+# COBOL Modernization with AI: Breaking the Cost Barrier
 
 Legacy code modernization stalled for years because understanding legacy code cost more than rewriting it. AI flips that equation.
 
@@ -24,6 +24,8 @@ Legacy code modernization stalled for years because understanding legacy code co
 
   https://claude.com/blog/how-ai-helps-break-cost-barrier-cobol-modernization
 
+# COBOL modernization with AI: breaking the cost barrier
+
 COBOL is everywhere. It handles an estimated [95% of ATM transactions in the US](https://aisel.aisnet.org/cgi/viewcontent.cgi?article=1090&context=treos_icis2022). Hundreds of billions of lines of COBOL run in production every day, powering critical systems in finance, airlines, and government.  
   
 Despite that, the number of people who understand it shrinks every year.
@@ -32,7 +34,11 @@ The developers who built these systems retired years ago, and the institutional 
 
 Given these roadblocks, how can organizations [modernize](https://claude.com/solutions/code-modernization) their systems without losing the reliability, availability, and data they’ve accumulated over decades? And without breaking anything?
 
-## Why modernizing COBOL is different
+# **What is COBOL modernization?**
+
+COBOL modernization is the process of updating legacy COBOL applications—by rehosting them on new infrastructure, refactoring the code, rewriting it in a modern language like Java, or replacing the system entirely—while preserving the decades of business logic embedded in them. Cost has historically been the barrier: understanding what the code does is the most expensive step.
+
+## Why COBOL modernization is different
 
 COBOL modernization differs fundamentally from typical legacy code refactoring. You aren’t just updating familiar code to use better patterns, you’re reverse engineering business logic from systems built when Nixon was president. You’re untangling dependencies that evolved over decades, and translating institutional knowledge that now exists only in the code itself.
 
@@ -40,7 +46,7 @@ Modernizing a COBOL system once required armies of consultants spending years ma
 
 AI changes this.
 
-Tools like [Claude Code](https://www.claude.com/product/claude-code) can automate the exploration and analysis phases that consume most of the effort in COBOL modernization. These tools can:
+[Claude Code](https://www.claude.com/product/claude-code), Anthropic's agentic coding tool, can automate the exploration and analysis phases that consume most of the effort in COBOL modernization. These tools can:
 
 1. Map dependencies across thousands of lines of code
 2. Document workflows that nobody remembers
@@ -48,6 +54,16 @@ Tools like [Claude Code](https://www.claude.com/product/claude-code) can automat
 4. Provide teams with the deep insights they need to make informed decisions
 
 With AI, teams can modernize their COBOL codebase in quarters instead of years.
+
+## **Four approaches to COBOL modernization: rehost, refactor, rewrite, replace**
+
+Most modernization efforts pick from four approaches.
+
+‍*Rehosting* moves COBOL unchanged onto cheaper infrastructure—fast, but the maintainability problem remains.
+
+‍*Refactoring* restructures the code without changing behavior. *Rewriting* converts it to a modern language like Java or Python—the highest payoff and, historically, the highest cost and risk.
+
+‍*Replacing* swaps the system for a commercial product, when one fits. The economics of the rewrite path are what AI changes most, which is the focus of the rest of this post.
 
 ## How AI changes COBOL modernization
 
@@ -100,11 +116,12 @@ Tools like Claude Code can automate much of the exploration and analysis work de
 
 Start with a single component or workflow that has clear boundaries and moderate complexity. Use AI to analyze and document it thoroughly, plan the modernization with your engineers, implement incrementally with testing at each step, and validate carefully.  This will build organizational confidence and surface adjustments needed for your systems.
 
-The economics of COBOL modernization have shifted. AI makes the economics work by automating what used to require armies of consultants, freeing your engineers to make the migration decisions that require their domain expertise.
+The economics of COBOL modernization have shifted. AI makes the economics work by automating what used to require armies of consultants, freeing your engineers to make the migration decisions that require their domain expertise.*‍*
 
-For a step-by-step guide, see the [**Code Modernization Playbook**](https://resources.anthropic.com/code-modernization-playbook).
+*For a step-by-step guide, see Anthropic's* [***Code Modernization Playbook***](https://resources.anthropic.com/code-modernization-playbook)*.*
 
-‍
+*For the step-by-step process behind ports like these, see how Anthropic runs* [*large-scale code migrations with Claude Code*](https://claude.com/blog/ai-code-migration)*.  
+Thanks to Dan Mason, technical member of Anthropic staff, for their contributions.*
 
 No items found.
 
@@ -130,53 +147,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225588ad176f7c4aafd_abc884c723daea810d2e986455358281a2f94102-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
-Jun 24, 2026
+Jul 24, 2026
 
-### Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
+### Claude models explained: choosing the best model for your use case
 
-Claude Code
+Enterprise AI
 
-[Agent identity in Claude Tag: a new access model for autonomous, team-wide AI](#)Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
 
-[Agent identity in Claude Tag: a new access model for autonomous, team-wide AI](/blog/agent-identity-access-model)Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f7912d5b05a5c7ed8ae86_Object-CodeChatCode.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
-Jun 3, 2026
+Jul 24, 2026
 
-### Running an AI-native engineering org
-
-Claude Code
-
-[Running an AI-native engineering org](#)Running an AI-native engineering org
-
-[Running an AI-native engineering org](/blog/running-an-ai-native-engineering-org)Running an AI-native engineering org
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
-
-May 12, 2026
-
-### How Anthropic's cybersecurity team built a threat detection platform with Claude Code
+### The new rules of context engineering for Claude 5 generation models
 
 Claude Code
 
-[How Anthropic's cybersecurity team built a threat detection platform with Claude Code](#)How Anthropic's cybersecurity team built a threat detection platform with Claude Code
+[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
 
-[How Anthropic's cybersecurity team built a threat detection platform with Claude Code](/blog/how-anthropic-uses-claude-cybersecurity)How Anthropic's cybersecurity team built a threat detection platform with Claude Code
+[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2222403b092e0358b0e_cd4fd51deacd067d4e30aee4f4b149f6cba1b97b-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224d39f9b8e905d1823_b68cbb43d7c8f56f0b14cc867e8d4d74445f78b0-1000x1000.svg)
 
-Apr 20, 2026
+Jul 22, 2026
 
-### Meet the winners of our Built with Opus 4.6 Claude Code hackathon
+### Building verification loops in Claude Code with skills
 
 Claude Code
 
-[Meet the winners of our Built with Opus 4.6 Claude Code hackathon](#) Meet the winners of our Built with Opus 4.6 Claude Code hackathon
+[Building verification loops in Claude Code with skills](#)Building verification loops in Claude Code with skills
 
-[Meet the winners of our Built with Opus 4.6 Claude Code hackathon](/blog/meet-the-winners-of-our-built-with-opus-4-6-claude-code-hackathon) Meet the winners of our Built with Opus 4.6 Claude Code hackathon
+[Building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills)Building verification loops in Claude Code with skills
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
+
+Jul 21, 2026
+
+### How Anthropic secures its AI-native software development lifecycle
+
+Claude Code
+
+[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
+
+[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
 
 ## Transform how your organization operates with Claude
 

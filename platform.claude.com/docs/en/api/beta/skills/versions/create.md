@@ -22,7 +22,7 @@ Create Skill Version
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 29 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -74,11 +74,19 @@ Create Skill Version
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -130,10 +138,11 @@ Create Skill Version
 
 ```http
 curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions \
-    -X POST \
+    -H 'Content-Type: multipart/form-data' \
     -H 'anthropic-version: 2023-06-01' \
     -H 'anthropic-beta: skills-2025-10-02' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+    -H "X-Api-Key: $ANTHROPIC_API_KEY" \
+    -F files='["Example data"]'
 ```
 
 #### Response

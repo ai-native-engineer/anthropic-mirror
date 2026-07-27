@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/government/tenant-admin/credits -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this is for:** Tenant administrators who allocate usage credits to the organizations in their deployment.
 
 Use this page to move credit from your billing accounts onto the balances of the organizations they fund.
@@ -34,8 +42,8 @@ You’ll see a note instead of the form in a few situations:
 * If the account is **deactivated**, its organizations can’t receive new credit. Contact Anthropic to move them to an active account.
 * If the account is **managed by one organization’s administrators** rather than by tenant administrators, you won’t be able to allocate from it here; the owning organization controls its own allocations.
 
+##  Things to know
+
 * If an organization is deactivated, any unspent credit on its balance is returned to its billing account automatically as part of deactivation.
 * The available balance is enforced at the moment you submit. If another administrator allocates from the same account between when the page loaded and when you click Allocate, your request may be rejected for exceeding the balance; refresh and try again with a smaller amount.
 * Credit is added to billing accounts by Anthropic, typically as part of your agency’s procurement. New organizations with a new dedicated billing account start with a zero balance until Anthropic funds the account.
-
-[Seats](/docs/government/tenant-admin/seats)[Config](/docs/government/tenant-admin/configuration)

@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-science/manage-on-devices -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Claude Science is a desktop application that stores all member content locally. This page covers what IT and endpoint teams need to know: where the app writes data, how to deploy configuration with device management, what telemetry is sent, and what members see when Anthropic requires an update.
 
 ##  Where the app stores data
@@ -12,16 +20,16 @@ Your endpoint tooling governs these folders the same way it governs any other lo
 
 ##  Deploy configuration with device management
 
-To set configuration keys organization-wide, deploy ~/.claude-science/config.toml through your MDM or endpoint tool. Claude Science doesn’t read a system-level managed-preferences file, so there’s no native MDM configuration channel. Deploying the per-member config.toml is the supported approach. Every key is documented in the configuration reference; the keys most relevant to admins are:
+To set configuration keys organization-wide, deploy ~/.claude-science/config.toml through your MDM or endpoint tool. Claude Science doesn’t read a system-level managed-preferences file, so there’s no native MDM configuration channel. Deploying the per-member config.toml is the supported approach. The keys most relevant to admins are:
 
 | Key | Effect |
 | --- | --- |
 | disable\_telemetry = true | Stops the app from sending product-usage telemetry to Anthropic. |
 | data\_dir = “`<path>`” | Moves conversations, artifacts, and workspaces to a managed location (for example, a volume your backup tooling covers). |
 | [update] auto\_update = false | Prevents the app from updating itself; pair with your own distribution channel. |
-| [sandbox] network\_isolated = true | Blocks network access from the app’s local code-execution sandbox. |
+| [sandbox.network] enabled = false | Blocks network access from the app’s local code-execution sandbox. The similarly named [sandbox] network\_isolated key does not control this. |
 
-See Reference > Configuration for the complete list of keys and defaults.
+The [configuration file reference](https://claude.com/docs/claude-science/configuration-file-reference) documents the network-related keys and their defaults, and [Use Claude Science on a corporate network](https://claude.com/docs/claude-science/corporate-networks) covers the proxy, TLS-inspection, and mirror settings.
 
 ##  Telemetry
 
@@ -37,5 +45,3 @@ Claude Science runs analysis code inside a local sandbox on the member’s compu
 ##  Required updates
 
 Anthropic may set a minimum supported version of the app. When a member’s installed version falls below that floor, the app shows a full-page notice that the installed version is no longer supported and blocks further use until the member updates. Admins don’t configure this floor; it’s set by Anthropic. If your organization distributes the app through its own channel with auto-update disabled, plan to push updates promptly when Anthropic raises the floor.
-
-[Admin controls](/docs/claude-science/admin-controls)[Monitor usage](/docs/claude-science/monitor-usage)

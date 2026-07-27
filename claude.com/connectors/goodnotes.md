@@ -10,6 +10,7 @@ Turn AI insights into documents
 * Used in
 
   [Claude](https://claude.ai/directory/e261228f-7eed-410a-b7b7-f4474dc592ba)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Goodnotes](https://goodnotes.com)
 
@@ -22,7 +23,7 @@ Turn AI insights into documents
   Interactive
 * More
 
-  [Documentation](https://www.notion.so/goodnotes-team/Goodnotes-MCP-Server-Documentation-320b740273d28187a23ad52780a37620)[Privacy Policy](https://www.goodnotes.com/privacy-policy)[support@goodnotes.com](mailto:support@goodnotes.com)
+  [Documentation](https://www.notion.so/goodnotes-team/Goodnotes-MCP-Server-Documentation-320b740273d28187a23ad52780a37620)[Privacy Policy](https://www.goodnotes.com/privacy-policy)[Support](mailto:support@goodnotes.com)
 
 Goodnotes instantly converts AI conversations into editable Goodnotes files. Create custom vector graphics and illustrations from SVG code for freeform drawings, icons, logos, and artistic designs. Generate structured diagrams from Mermaid syntax including flowcharts, mindmaps, and timelines. Render markdown content as beautifully formatted rich text documents. Whether you've got text, flowcharts, or images, move your ideas from the chat to the page to refine, annotate, and share in the Goodnotes app.
 
@@ -44,11 +45,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -62,7 +63,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -76,7 +77,7 @@ June 22, 2026
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -90,4 +91,4 @@ June 22, 2026
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

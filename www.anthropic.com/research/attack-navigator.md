@@ -68,7 +68,7 @@ The most common technique family we observed was ATT&CK ID T1587 (Develop Capabi
 
 The next most prevalent techniques are T1027 (Obfuscated Files or Information), employed by 64.7% of threat actors; T1005 (Data from Local System), employed by 55.9% of threat actors; and T1562 (Impair Defenses), employed by 54.9% of threat actors. Together, these top techniques show that threat actors most commonly seek LLM’s help to build pre-engagement offensive tooling, make those tools harder to detect, and harvest data from compromised systems.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F874b2d4a58a39facdf11e94d3a5a5b738b97f9eb-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/874b2d4a58a39facdf11e94d3a5a5b738b97f9eb-1920x1080.png)
 
 On the other hand, actors are much less likely to use LLMs for real-time, adaptive decision-making once they’ve gotten inside a target network. For example, only 54 of 832 threat actors (6.5%) use models for lateral movement, and less than 12 actors use models for remote services like RDP, SSH, and SMB. Only 22.5% of actors use LLMs for privilege escalation and impact stages.
 
@@ -86,7 +86,7 @@ The top techniques observed within this tactic include:
 * **T1562 (Impair Defenses).** 54.8% of the threat actors studied used AI to bypass, disable, or tamper endpoint security tools.
 * **T1055 (Process Injection).** 30.3% of actors used AI to write malicious code that could be injected into legitimate processes, such as process hollowing and DLL injection, to execute payloads from trusted process memory.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0b39dcf58771ac31ddf63bed85496734ebe935c0-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/0b39dcf58771ac31ddf63bed85496734ebe935c0-1920x1080.png)
 
 Less frequently used tactics include impact (2.8%), exfiltration (2.8%), privilege escalation (2.4%), and lateral movement (0.7%). Together, these account for just 8.7% of all observations—less than defense evasion alone. These actions all occur later in the attack life cycle, suggesting that threat actors are using models more in the early stages of an attack but less in the later stages—that is, once they have infiltrated a network and are adapting to conditions in a live environment. This pattern remained stable over the one-year period we studied.
 
@@ -94,7 +94,7 @@ Less frequently used tactics include impact (2.8%), exfiltration (2.8%), privile
 
 While tactics such as lateral movement are much less prevalent in our dataset, they are highly correlated with the highest ARiES risk scores—meaning that the highest-risk actors are also the ones most likely to use models for the later stages of a cyberattack. Actors who use AI to perform lateral movement have risk scores that are, on average, 10.5 points higher than actors who do not use AI tools in this way. This suggests that going from using AI to prepare for a cyberattack to using it to take actions in live network operations is a key marker of high AI enablement.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa49e9300340c4e11f1147d874bf097a9f1f55fe5-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/a49e9300340c4e11f1147d874bf097a9f1f55fe5-1920x1080.png)
 
 Overall, the actors with the highest risk scores used AI most heavily for post-compromise, hands-on-keyboard techniques, such as remote services, credential dumping, web shell deployment, and internal network and account discovery. Lateral movement was the strongest marker of a high-risk actor: the 54 actors in our dataset who used lateral movement had an average risk score of 56.4, nearly 10 points above the mean of 46.8. No other technique came close to having such predictive power.
 
@@ -106,7 +106,7 @@ We also found that the attributes that threat-intelligence teams typically lean 
 
 The correlation between breadth of technique coverage and risk score is also only weakly positive (r = 0.27). Most actors are using the models for a smattering of techniquesin fact, the median actor in our dataset deployed 16 distinct MITRE ATT&CK techniques—a breadth that, five years ago, may have signaled a well-resourced, technically mature operation.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa3c0c41c2035271e0d94d64a5561af5bfaad5f61-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/a3c0c41c2035271e0d94d64a5561af5bfaad5f61-1920x1080.png)
 
 Lastly, interface choice tells a similar story — 80% of the actors in this study misused Claude Code, making agentic tooling the default mode of access rather than a distinguishing one, and actors restricted to the conversational interface, the API, or agentic coding tools converge on statistically indistinguishable risk profiles.
 
@@ -120,7 +120,7 @@ While improved threat detection techniques may have contributed to this increase
 
 What this means for defenders: the population of AI-enabled actors is not only growing but also drifting towards the riskiest activities in our framework, without requiring the actors themselves to become any more skilled. If this trend continues, these operational techniques won’t be a differentiating factor anymore and will become the baseline tomorrow — and we’ll need to find a new way to measure the riskiest actors. In the next section, we’ll discuss how we might be able to do this going forward.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Febeb4f94ff4235c8c1d70f799c28299277c792d2-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/ebeb4f94ff4235c8c1d70f799c28299277c792d2-1920x1080.png)
 
 ## Novelty and sophistication in the age of AI agents
 
@@ -164,21 +164,19 @@ At the same time, it is clear that defenders will need to use AI with the same s
 
 [2] We observe sub-techniques from both the Enterprise and the Mobile technique matrices from MITRE. Enterprise techniques account for 99% of observations.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)
 
 ## Subscribe to the Frontier Red Team newsletter
 

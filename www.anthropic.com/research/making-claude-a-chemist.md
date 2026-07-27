@@ -28,19 +28,19 @@ NMR spectroscopy—one of the canonical techniques chemists rely on for this—i
   
 To set up our assessment, we pulled 20 compounds from ChemRxiv preprints2 posted after the models’ training cutoff, taking the first fully characterized novel molecules from each paper. The 20 span four structural families, five compounds each, with each family selected because it involves a different category of NMR challenge. Each tool was given the structure encoded as a SMILES string—the line-of-text notation chemists use to input a molecule to software—and was asked to predict where every hydrogen and carbon peak would fall along a 1D NMR spectrum (a horizontal axis measuring chemical shifts in ppm, parts per million). Given that NMR samples are dissolved in a liquid, and that the choice of solvent (chloroform, DMSO, etc.) moves the peak positions slightly, each tool was told to predict the spectrum in whatever solvent the chemists had used in the published paper.
 
-![A graph of the four scaffold classes](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6a37f20bd02f14cc408383f98974cee81486fa2d-1920x865.jpg&w=3840&q=75)
+![A graph of the four scaffold classes](https://www-cdn.anthropic.com/images/4zrzovbb/website/6a37f20bd02f14cc408383f98974cee81486fa2d-1920x865.jpg)
 
 *Figure 1. Four scaffold classes covered by the forward-prediction assessment. Each probes a different category of NMR challenge. P1 chloropyridazines have a slow-exchange NH on aminopyridazine in DMSO-d₆; P2 Boc-N-aryl maleimides and N-Boc ynamides exercise α-vinyl-imide carbonyls and the rare ynamide α/β-carbon pair; P3 spiroketones are spirobicyclic ketones with phenacyl or acetyl pendants and diastereotopic CH₂; P4 α-silyl methanesulfonamides have shielded silicon-α carbons. Five compounds per class, n = 20 total.*
 
 Because a language model’s output varies between runs, each Claude model was queried three times per compound and averaged; ChemDraw and MestReNova return the same answer every time and were run once. We then paired each predicted peak with its experimental counterpart and measured the gap in ppm. These landed within the window a chemist would call correct—±0.20 ppm for hydrogen or ±1.0 ppm for carbon.
 
-![A graphic depicting the per-tool MAE/RMSE summary across 20 compounds](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8269748a860db6f9b3fddd3e9e6116c193cbb399-1200x675.jpg&w=3840&q=75)
+![A graphic depicting the per-tool MAE/RMSE summary across 20 compounds](https://www-cdn.anthropic.com/images/4zrzovbb/website/8269748a860db6f9b3fddd3e9e6116c193cbb399-1200x675.jpg)
 
 *Figure 2. Per-tool MAE (darker shade) and RMSE (lighter shade) for ¹H (left) and ¹³C (right) shift errors across 20 compounds for forward prediction, with coverage shown beneath each tool. Claude bars: mean across three replicates with min–max range and overlaid replicate dots. Classical tools: single-point predictions (no range).*
 
 On hydrogen, Opus 4.7 was most accurate, with an average error of ±0.079 ppm—well under half the tolerance window—and the highest share of peaks landing inside it. On carbon, Opus 4.7 and MestReNova were effectively tied, at ±1.37 and ±1.48 ppm; the remaining tools kept the same rank order on both elements. Opus 4.6 was predictably middling, and Sonnet 4.6 was the weakest. The gap between them was most evident on a single notoriously difficult hydrogen—an NH proton in the chloropyridazine family whose true position falls in a narrow band between 6.8 and 7.9 ppm. Opus 4.7 placed it slightly low but consistently so; Opus 4.6 scattered its guesses across several ppm; Sonnet 4.6 put it in the 10–13 range, well outside where it actually appears.
 
-![A chart depicting within-tolerance accuracy per compound](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F62a7baa0bd66c26b5b5966e3578b87b62541e708-1920x1386.png&w=3840&q=75)
+![A chart depicting within-tolerance accuracy per compound](https://www-cdn.anthropic.com/images/4zrzovbb/website/62a7baa0bd66c26b5b5966e3578b87b62541e708-1920x1386.png)
 
 *Figure 3. Top: % of experimental atoms within ±0.20 ppm (¹H, left) and ±1.0 ppm (¹³C, right). Bottom: per-compound win rate (compounds where the tool had the lowest per-compound MAE, out of 20). Claude bars: mean across three replicates with min–max range; classical tools: single-point predictions.*
 
@@ -48,7 +48,7 @@ While Opus 4.7 performed fairly comparably to ChemDraw and MestReNova, the gap w
   
 From there, we evaluated inverse prediction (structure elucidation): could we determine the structure of a molecule from its spectrum? We gave Opus 4.7 15 elucidation problems and asked it, three times each, to propose up to three ranked candidate structures. Each supplied the compound’s exact molecular formula (from high-resolution mass spectrometry) and its hydrogen and carbon NMR spectra. The fifteen were split by difficulty. The eight simpler targets—single-ring or two-fragment molecules—were posed with only the formula and spectra. The seven denser targets—fused rings, spirocycles, and similar—were accompanied by one additional hint: the structure of the starting material that had gone into the reaction.
 
-![Chart showing the structure elucidation](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb28ecd4b626473984e42791c1615103d4203ba48-1709x2048.jpg&w=3840&q=75)
+![Chart showing the structure elucidation](https://www-cdn.anthropic.com/images/4zrzovbb/website/b28ecd4b626473984e42791c1615103d4203ba48-1709x2048.jpg)
 
 *Figure 4. Structure-elucidation results across the 15 inverse-task problems. Each panel shows the published target with its success count out of 3 attempts. Border color indicates the prompt condition: green for spectra and HRMS only with no starting-material context; blue for spectra, HRMS, and the starting-material SMILES, with no other reaction context.*
 
@@ -88,21 +88,19 @@ We are expanding the [AI for Science program](https://www.anthropic.com/news/ai-
 1. An incident in which a morning sickness medication was linked to severe birth defects in over 10,000 children worldwide.
 2. The four preprints from which we pulled the compounds: <https://chemrxiv.org/doi/full/10.26434/chemrxiv.15002274/v1>, <https://chemrxiv.org/doi/full/10.26434/chemrxiv-2025-59lfh>, <https://chemrxiv.org/doi/full/10.26434/chemrxiv.15002423/v1>, <https://chemrxiv.org/doi/full/10.26434/chemrxiv.15002316/v1>.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)
 
 ## Subscribe to Anthropic Science
 

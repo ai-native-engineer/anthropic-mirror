@@ -9,6 +9,7 @@ Web Search + Code Docs Search
 * Used in
 
   [Claude](https://claude.ai/directory/91408932-1110-4350-97c7-2d6b3a6d9694)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Exa](https://exa.ai/)
 
@@ -21,7 +22,7 @@ Web Search + Code Docs Search
   Read
 * More
 
-  [Documentation](https://docs.exa.ai/reference/exa-mcp)[Privacy Policy](https://exa.ai/privacy-policy)[ishan@exa.ai](mailto:ishan@exa.ai)
+  [Documentation](https://docs.exa.ai/reference/exa-mcp)[Privacy Policy](https://exa.ai/privacy-policy)[Support](mailto:ishan@exa.ai)
 
 Exa MCP gives you real-time web searches and can extracts content from any URL. It also finds the best code examples and documentation, searches billions of GitHub repos, docs sites, and StackOverflow to give you fresh coding context.
 
@@ -45,7 +46,7 @@ January 26, 2026
 
 ### AWS Marketplace
 
-Discover, evaluate, and buy solutions for the cloud](/connectors/aws-marketplace)
+Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
 Claude
 
@@ -55,7 +56,7 @@ March 9, 2026
 
 ### Base44
 
-Build and manage Base44 apps](/connectors/base44)
+Build and manage Base44 apps](https://claude.com/connectors/base44)
 
 Claude
 
@@ -67,7 +68,7 @@ March 2, 2026
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Claude
 
@@ -81,4 +82,4 @@ February 11, 2026
 
 ### Cloudflare
 
-Build applications with compute, storage, and AI](/connectors/cloudflare)
+Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)

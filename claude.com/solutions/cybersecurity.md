@@ -1,5 +1,7 @@
 <!-- source: https://claude.com/solutions/cybersecurity -->
 
+[Next](#)Next
+
 Project Glasswing
 
 ## **Our approach to dual-use with Claude Mythos models**
@@ -194,15 +196,15 @@ Across enterprise security programs and inside Anthropic, teams use Claude to im
 
 Learn more
 
-[Learn more](/product/claude-security)Learn more
+[Learn more](https://claude.com/product/claude-security)Learn more
 
 Claude Security
+
+Claude Code
 
 Claude Developer Platform
 
 Active
-
-[Play video](#)Play video
 
 [](https://assets.claude.ai/brand/videos/cc-security-thumbnail.webm)
 
@@ -212,7 +214,7 @@ Claude Security reasons about your code like a security researcher: scanning for
 
 Start defending
 
-[Start defending](/product/claude-security)Start defending
+[Start defending](https://claude.com/product/claude-security)Start defending
 
 Prompt
 
@@ -267,7 +269,7 @@ Use the Code Review skill to set up automated PR reviews to catch logic errors, 
 
 Start reviewing
 
-[Start reviewing](/product/claude-code)Start reviewing
+[Start reviewing](https://claude.com/product/claude-code)Start reviewing
 
 Prompt
 
@@ -281,7 +283,7 @@ Ship defender tools and custom security agents with sandboxed execution, credent
 
 Start building
 
-[Start building](/platform/api)Start building
+[Start building](https://claude.com/platform/api)Start building
 
 ![Palo Alto Networks](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bf53e6bbf7c52e005a1176_palo-alto-ventures-light-mode.svg)![Palo Alto Networks](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bf5812aa32ad62ff26a1a6_palo-alto-ventures-light-mode-1.svg)
 
@@ -300,6 +302,10 @@ Start building
 “The industry has always moved too slowly compared to attackers. AI is like giving defenders a jetpack when they've been limited to walking.”  
   
 - Martin Holste, CTO of Cloud & AI
+
+[Prev](#)Prev
+
+[Next](#)Next
 
 ### Build threat context
 
@@ -407,7 +413,7 @@ high-severity vulnerabilities found that survived decades of scrutiny and automa
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69cc1b37cf1835ee0697ce28_image%201481.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69cc1b3c7dcb8e7bdd484e8e_logo_trendai-dark-mode%201.svg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69cc1a95a6ba3eb3b970a550_New_Logo_Blue%201.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69cc1a9cc702022153c8556b_logo_wiz-dark-mode%201.svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62992a26768fd09893ec9f_logo_wiz-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a629937ba76a79d9b30127d_logo_wiz-dark.svg)
 
 Claude Opus
 
@@ -665,7 +671,9 @@ March 6, 2026
 
 ## Give defenders an edge with Claude
 
-[Contact sales](/contact-sales)Contact sales
+Contact sales
+
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 Start building
 

@@ -57,7 +57,7 @@ Previous Anthropic research created a taxonomy of 3,307 fine-grained values that
 
 Our process is demonstrated by the figure below:
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2025/stress-testing-model-specs/fig1.png)
 
 The figure above illustrates a query that asks the model to make a trade-off between "social equity" and "business effectiveness." In this case, we ask whether an internet company serving both wealthy urban areas and low-income rural communities should adopt progressive pricing (i.e., charge low-income communities less). Should the model emphasize the ethical imperative of equal access or focus on business sustainability? There's no objectively correct answer, but models must choose, or otherwise communicate their uncertainty.
 
@@ -80,7 +80,7 @@ These high-disagreement scenarios turn out to be an effective diagnostic signal 
 
 #### 1. Some values show clear provider-level patterns; others don’t
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/stress-testing-model-specs/fig2.png)
 
 The number of times values are exhibited by model responses on the set of high disagreement tradeoff scenarios.
 
@@ -92,11 +92,11 @@ Other values show less clear provider-level patterns, even when there is signifi
 
 #### 2. Analysis on refusal patterns
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/stress-testing-model-specs/fig3.png)
 
 Percentage of model refusals on high disagreement scenarios. Responses are categorized by degree of refusal to user requests.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2025/stress-testing-model-specs/fig4.png)
 
 Refusal rates for the scenarios involve child grooming risk. Refusals here include “Complete Rejection'”, “Firm Rejection with Explanation'” and “Soft Rejection with Alternatives'”. Here, compared to the overall refusal rate calculated on all of the scenarios we generate, scenarios involving child grooming risks receive higher refusal rate.
 
@@ -108,7 +108,7 @@ Despite these differences, all models converge on the need to avoid specific har
 
 #### 3. Outlier responses: which models are most different from the rest?
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2025/stress-testing-model-specs/fig5.png)
 
 Distribution of outlier responses by model. A model is classified as an outlier when its value scoring differs significantly from at least 9 of the other 11 models.
 
@@ -122,7 +122,7 @@ We tested responses from five OpenAI models against the OpenAI model specificati
 
 Given the high disagreement, the models likely cover a diverse set of answering strategies, yet all of them are non-compliant. In our findings below, these frequent non-compliance scenarios often touched upon direct contradictions or interpretive ambiguities in the model spec, which made it difficult – or impossible – for the model to find an answer that satisfies all principles.
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2025/stress-testing-model-specs/fig6.png)
 
 We measure the percentage of scenarios where all five OpenAI models violate their model spec (referred to as frequent non-compliance). For scenarios with higher disagreement in model responses, we see significantly more frequent non-compliance.
 
@@ -136,7 +136,7 @@ We also use three different models (Claude 4 Sonnet, o3 and Gemini 2.5 Pro) to e
 
 Their disagreements typically stem from their subjective interpretations of the rules. For a representative example, Gemini 2.5 Pro found the response below to be compliant with the model spec, invoking the "conscientious employee" principle, which allows the response to push back on requests that it deems counter to the user’s interests. But Claude Sonnet 4 disagreed, arguing the user has only sought to transform the provided material, which is allowed by the model spec.
 
-![](fig7.jpg)
+![](https://alignment.anthropic.com/2025/stress-testing-model-specs/fig7.jpg)
 
 Examples of evaluator disagreement when evaluating spec compliance with given query and response. As we highlight in the examples above, many of the differences stem from interpretive differences among different evaluators. These interpretations are also subjective to humans, suggesting the model spec leaves much room for interpretation.
 
@@ -151,13 +151,13 @@ Examples of evaluator disagreement when evaluating spec compliance with given qu
 
 Our disagreement-based methodology reveals practical problems in current model deployments. High-disagreement scenarios on sensitive topics expose both over-conservative safety measures and genuine misalignment issues in models’ behavior.
 
-![](fig8.jpg)
+![](https://alignment.anthropic.com/2025/stress-testing-model-specs/fig8.jpg)
 
 Example scenario flagged by high disagreement and sensitive topics.
 
 For false-positive refusals, we found models blocking legitimate requests like general synthetic biology study plans or standard Rust programming operations (incorrectly flagged as cybersecurity risks). These unnecessary restrictions frustrate users while providing no safety benefit.
 
-![](fig9.jpg)
+![](https://alignment.anthropic.com/2025/stress-testing-model-specs/fig9.jpg)
 
 Example of outlier responses from each model. This example of how Claude models responded to this prompt comes from Sonnet 3.5, though all three Claude models responded very similarly.
 

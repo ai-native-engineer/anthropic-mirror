@@ -11,6 +11,9 @@ Anthropic Deputy CISO, Jason Clinton, details how the Security Engineering team 
   [Enterprise AI](https://claude.com/blog/category/enterprise-ai)
 
   [Agents](https://claude.com/blog/category/agents)
+* Product
+
+  Claude Code
 
   Claude Tag
 
@@ -18,6 +21,14 @@ Anthropic Deputy CISO, Jason Clinton, details how the Security Engineering team 
 * Date
 
   July 21, 2026
+* Reading time
+
+  5
+
+  min
+* Share
+
+  [Copy link](#)
 
   https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle
 
@@ -74,7 +85,11 @@ Today, multiple prototypes of major features can be created in hours, making det
 
 No items found.
 
+[Prev](#)Prev
+
 0/5
+
+[Next](#)Next
 
 Get Claude Code
 
@@ -221,7 +236,9 @@ This underscores the importance of strong governance. If a skill goes stale, a d
 
 **Enduring Principle**: The security engineer’s job evolves from monitoring bugs to monitoring loops.
 
-## **The only constant is change**
+*For the assessment framework behind these controls, see the* [*CISO's guide to agentic AI*](https://claude.com/blog/ciso-guide-to-agentic-ai)*.*
+
+## **Keeping an AI SDLC secure as models evolve**
 
 It’s hard to overstate just how fast the software development lifecycle, and the means of hardening it are evolving. Model capabilities advance every month, bringing both new challenges and solutions.
 
@@ -237,55 +254,61 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2260bfc90348429f9c3_cd9cf56a7f049285b7c1c8786c0a600cf3d7f317-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224f466b800c4a5a016_a7b8978859371a024139418f3366bb0600ee1675-1000x1000.svg)
 
-Jul 16, 2026
+Jul 24, 2026
 
-### How Anthropic runs large-scale code migrations with Claude Code
-
-[How Anthropic runs large-scale code migrations with Claude Code](#)How Anthropic runs large-scale code migrations with Claude Code
-
-[How Anthropic runs large-scale code migrations with Claude Code](/blog/ai-code-migration)How Anthropic runs large-scale code migrations with Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
-
-Jul 21, 2026
-
-### How Datadog built a “universal machine tool” for Claude Code
-
-[How Datadog built a “universal machine tool” for Claude Code](#)How Datadog built a “universal machine tool” for Claude Code
-
-[How Datadog built a “universal machine tool” for Claude Code](/blog/how-datadog-built-a-universal-machine-tool-for-claude-code)How Datadog built a “universal machine tool” for Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f7912d5b05a5c7ed8ae86_Object-CodeChatCode.svg)
-
-Jul 20, 2026
-
-### Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
+### How the product designer who built Claude Design uses it to explore ideas before building them
 
 Enterprise AI
 
-[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](#)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
+[How the product designer who built Claude Design uses it to explore ideas before building them](#)How the product designer who built Claude Design uses it to explore ideas before building them
 
-[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](/blog/working-at-the-frontier-rakuten)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
+[How the product designer who built Claude Design uses it to explore ideas before building them](https://claude.com/blog/how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them)How the product designer who built Claude Design uses it to explore ideas before building them
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d7d4c10df6024f7bc_ee580919acaba2ddc07425f7a7390c8962cadc94-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
-Jul 17, 2026
+Jul 24, 2026
 
-### Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
+### Claude models explained: choosing the best model for your use case
 
 Enterprise AI
 
-[Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems](#)Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
 
-[Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems](/blog/working-at-the-frontier-cursor)Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Jul 24, 2026
+
+### The new rules of context engineering for Claude 5 generation models
+
+Claude Code
+
+[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
+
+[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d6ec42bcf1c632f75_52f59749d1e033ff2675c6686a07bcce83fb5046-1000x1000.svg)
+
+Jul 23, 2026
+
+### Four role-based certifications for the people who put Claude to work for customers
+
+Enterprise AI
+
+[Four role-based certifications for the people who put Claude to work for customers](#)Four role-based certifications for the people who put Claude to work for customers
+
+[Four role-based certifications for the people who put Claude to work for customers](https://claude.com/blog/four-role-based-claude-certifications)Four role-based certifications for the people who put Claude to work for customers
 
 ## Transform how your organization operates with Claude
 
 See pricing
 
 [See pricing](https://claude.com/pricing#api)See pricing
+
+Contact sales
 
 [Contact sales](https://claude.com/contact-sales)Contact sales
 
@@ -316,6 +339,8 @@ Sorry, there was a problem with your submission, please try again later.
     
 
     
+
+Claude Code
 
 Claude Tag
 

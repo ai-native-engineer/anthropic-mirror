@@ -1,6 +1,6 @@
 <!-- source: https://claude.com/connectors/adobe-experience-manager -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 # Adobe Experience Manager
 
@@ -10,6 +10,7 @@ Manage your Adobe Experience Manager content
 * Used in
 
   [Claude](https://claude.ai/directory/e9f93fb8-37d6-4727-a129-956e5263ac3e)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Adobe](https://business.adobe.com/products/experience-manager)
 
@@ -22,7 +23,7 @@ Manage your Adobe Experience Manager content
   Read & write
 * More
 
-  [Documentation](https://www.adobe.com/go/aem_claude_mcp_docs)[Privacy Policy](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/compliance/data-privacy/aem-readiness)[aemcs-mcp-feedback@adobe.com](mailto:aemcs-mcp-feedback@adobe.com)
+  [Documentation](https://www.adobe.com/go/aem_claude_mcp_docs)[Privacy Policy](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/compliance/data-privacy/aem-readiness)[Support](mailto:aemcs-mcp-feedback@adobe.com)
 
 Create, edit, search, and publish pages and content fragments in Adobe Experience Manager — simply by describing what you need. Instead of navigating the user interface, tell Claude what to do in plain language: update a hero banner, find pages about a campaign, or schedule content for launch. All changes respect your AEM permissions. Work faster, reduce repetitive tasks, and stay focused on what matters most — your content.
 
@@ -54,7 +55,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -68,7 +69,7 @@ June 22, 2026
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -82,7 +83,7 @@ June 22, 2026
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
 
 Productivity
 
@@ -98,4 +99,4 @@ February 11, 2026
 
 ### Asana
 
-Connect to Asana to coordinate tasks, projects, and goals](/connectors/asana)
+Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)

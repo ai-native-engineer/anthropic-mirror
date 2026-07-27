@@ -21,11 +21,11 @@
 
   https://claude.com/blog/new-in-claude-managed-agents
 
-Today we're launching dreaming in Claude Managed Agents as a research preview. Dreaming extends [memory](https://claude.com/blog/claude-managed-agents-memory) by reviewing past sessions to find patterns and help agents self-improve. We're also making outcomes, multiagent orchestration, and webhooks available to developers building with Managed Agents. Together, these updates make agents more capable at handling complex tasks with minimal steering.
+Today we're launching dreaming in [Claude Managed Agents](https://claude.com/blog/claude-managed-agents) as a research preview. Dreaming extends [memory](https://claude.com/blog/claude-managed-agents-memory) by reviewing past sessions to find patterns and help agents self-improve. We're also making outcomes, multiagent orchestration, and webhooks available to developers building with Managed Agents. Together, these updates make agents more capable at handling complex tasks with minimal steering.
 
 ## **Build self-improving agents with dreaming**
 
-[Dreaming](https://platform.claude.com/docs/en/managed-agents/dreams) is a scheduled process that reviews your agent sessions and memory stores, extracts patterns, and curates memories so your agents improve over time. You decide how much control you want: dreaming can update memory automatically, or you can review changes before they land.
+[Dreaming](https://platform.claude.com/docs/en/managed-agents/dreams) is a scheduled process in Claude Managed Agents that reviews agent sessions and memory stores, extracts patterns, and curates memories so agents improve over time. You decide how much control you want: dreaming can update memory automatically, or you can review changes before they land.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f8e9ad765c7eed52dcf468_Claude-Managed-Agents-Blog-Followup-Dreaming.png)
 
@@ -35,7 +35,7 @@ Together, memory and dreaming form a robust memory system for self-improving age
 
 Dreaming is available in Managed Agents on the Claude Platform; developers can [request access here](https://claude.com/form/claude-managed-agents).
 
-## **Deliver better outcomes**
+## **Outcomes: define the quality bar for agent work**
 
 With [outcomes](https://platform.claude.com/docs/en/managed-agents/define-outcomes), you write a rubric describing what success looks like and the agent works toward it. A separate grader evaluates the output against your criteria in its own context window, so it isn't influenced by the agent's reasoning. When something isn't right, the grader pinpoints what needs to change and the agent takes another pass.
 
@@ -45,7 +45,7 @@ Outcomes is particularly useful for tasks that require attention to detail and e
 
 You can also now define an outcome, let the agent run, and get notified by a [webhook](http://platform.claude.com/docs/en/managed-agents/webhooks) when it's done.
 
-## **Handle complex tasks with multiple agents**
+## **Multiagent orchestration: Handle complex tasks with multiple agents**
 
 When there is too much work for a single agent to do well, [multiagent orchestration](https://platform.claude.com/docs/en/managed-agents/multi-agent) lets a lead agent break the job into pieces and delegate each one to a specialist with its own model, prompt, and tools. For example, a lead agent can run an investigation while subagents fan out through deploy history, error logs, metrics, and support tickets.
 
@@ -90,53 +90,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d231b45c2193efbb0f02_1869137c9d7f2a38b50e804d707e10e85de05ddb-1000x1000.svg)
 
-Jun 17, 2026
+Jul 23, 2026
 
-### Secure access to the Claude Platform with Workload Identity Federation
-
-Product announcements
-
-[Secure access to the Claude Platform with Workload Identity Federation](#)Secure access to the Claude Platform with Workload Identity Federation
-
-[Secure access to the Claude Platform with Workload Identity Federation](/blog/workload-identity-federation)Secure access to the Claude Platform with Workload Identity Federation
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229a7aa26ac1b6e96c2_a62b6eb169818f14c35b7a192af269e283f8fa93-1000x1000.svg)
-
-May 7, 2026
-
-### Collaborate with Claude across Excel, PowerPoint, Word and Outlook
+### Think through hard problems in voice mode
 
 Product announcements
 
-[Collaborate with Claude across Excel, PowerPoint, Word and Outlook](#) Collaborate with Claude across Excel, PowerPoint, Word and Outlook
+[Think through hard problems in voice mode](#)Think through hard problems in voice mode
 
-[Collaborate with Claude across Excel, PowerPoint, Word and Outlook](/blog/collaborate-with-claude-across-excel-powerpoint-word-and-outlook) Collaborate with Claude across Excel, PowerPoint, Word and Outlook
+[Think through hard problems in voice mode](https://claude.com/blog/think-through-hard-problems-in-voice-mode)Think through hard problems in voice mode
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a025cf25f0694905405e054_Object-Scale.svg)
 
-Apr 30, 2026
+May 12, 2026
 
-### Claude Security is now in public beta
-
-Product announcements
-
-[Claude Security is now in public beta](#)Claude Security is now in public beta
-
-[Claude Security is now in public beta](/blog/claude-security-public-beta)Claude Security is now in public beta
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
-
-Apr 23, 2026
-
-### Built-in memory for Claude Managed Agents
+### Claude for the legal industry
 
 Product announcements
 
-[Built-in memory for Claude Managed Agents](#)Built-in memory for Claude Managed Agents
+[Claude for the legal industry](#)Claude for the legal industry
 
-[Built-in memory for Claude Managed Agents](/blog/claude-managed-agents-memory)Built-in memory for Claude Managed Agents
+[Claude for the legal industry](https://claude.com/blog/claude-for-the-legal-industry)Claude for the legal industry
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3f14a08cb97bf1b16d40ef_ObjectClouds.svg)
+
+Jul 7, 2026
+
+### Claude Cowork is coming to mobile and web
+
+Product announcements
+
+[Claude Cowork is coming to mobile and web](#)Claude Cowork is coming to mobile and web
+
+[Claude Cowork is coming to mobile and web](https://claude.com/blog/cowork-web-mobile)Claude Cowork is coming to mobile and web
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
+
+Apr 9, 2026
+
+### Making Claude Cowork ready for enterprise
+
+Product announcements
+
+[Making Claude Cowork ready for enterprise](#)Making Claude Cowork ready for enterprise
+
+[Making Claude Cowork ready for enterprise](https://claude.com/blog/cowork-for-enterprise)Making Claude Cowork ready for enterprise
 
 ## Transform how your organization operates with Claude
 

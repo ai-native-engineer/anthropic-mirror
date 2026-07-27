@@ -12,6 +12,7 @@ Fetch Transcripts & Notes from Meet, Zoom & Teams
 * Used in
 
   [Claude](https://claude.ai/directory/fe54565b-5acb-45b3-b27e-4f7d9752a257)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [tldx solutions GmbH](https://tldv.io)
 
@@ -24,7 +25,7 @@ Fetch Transcripts & Notes from Meet, Zoom & Teams
   Read
 * More
 
-  [Documentation](https://tldv.notion.site/tl-dv-MCP-Official-Documentation-330cce15f3ba80638f5ac0253e3b8fd4?source=copy_link)[Privacy Policy](https://tldv.io/privacy)[support@tldv.io](mailto:support@tldv.io)
+  [Documentation](https://tldv.notion.site/tl-dv-MCP-Official-Documentation-330cce15f3ba80638f5ac0253e3b8fd4?source=copy_link)[Privacy Policy](https://tldv.io/privacy)[Support](mailto:support@tldv.io)
 
 Access Google Meet, Zoom & Teams meeting transcripts. Yours, and those from your team & company.
 
@@ -52,11 +53,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -70,7 +71,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -84,7 +85,7 @@ June 22, 2026
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -98,4 +99,4 @@ June 22, 2026
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

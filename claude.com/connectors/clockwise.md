@@ -10,6 +10,7 @@ Advanced scheduling and time management for work.
 * Used in
 
   [Claude](https://claude.ai/directory/17a85e07-6e7b-46ea-a4bb-d3103f24e3bb)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Clockwise](https://www.getclockwise.com/)
 
@@ -22,7 +23,7 @@ Advanced scheduling and time management for work.
   Read & write
 * More
 
-  [Documentation](https://support.getclockwise.com/article/238-connecting-to-clockwise-mcp)[Privacy Policy](https://www.getclockwise.com/privacy)[support@getclockwise.com](mailto:support@getclockwise.com)
+  [Documentation](https://support.getclockwise.com/article/238-connecting-to-clockwise-mcp)[Privacy Policy](https://www.getclockwise.com/privacy)[Support](mailto:support@getclockwise.com)
 
 Schedule and reschedule meetings with multiple participants, optimize your work calendar for productivity, and automatically block time for tasks. Clockwise considers working hours, time zones, Focus Time preferences, and team constraints to make smart scheduling decisions—not just find empty time slots. Manage complex coordination at scale and implement time management best practices directly within Claude.  
   
@@ -49,11 +50,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -67,7 +68,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -81,7 +82,7 @@ June 22, 2026
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -95,4 +96,4 @@ June 22, 2026
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

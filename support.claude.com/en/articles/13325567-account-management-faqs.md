@@ -2,6 +2,8 @@
 
 # Account management FAQs
 
+March 16, 2026
+
 ## How do I change my team name?
 
 Owners can update the team name on their plan by navigating to **[Organization settings > Organization](https://claude.ai/admin-settings/organization)** and clicking "Update" under the current team name. Type in a new name and click "Save."
@@ -40,8 +42,12 @@ The email domain that was used to create your Team or Enterprise plan organizati
 
 Owners can remove domains by opening up the same modal and clicking the trash can icon to the right of the domain:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1782460800&signature=6dca98188ef4cb5d5b6d8cb3730e68cf854be39b20e6d4a77936d649c8d1f114&req=diAiFcF5nolaW%2FMW1HO4zUrhFumcbwgSkeFUnrkrQZj19SqrxjFUGWlEPwXO%0Aqw9lM0l0jEX01MdA3uI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1782460800&signature=6dca98188ef4cb5d5b6d8cb3730e68cf854be39b20e6d4a77936d649c8d1f114&req=diAiFcF5nolaW%2FMW1HO4zUrhFumcbwgSkeFUnrkrQZj19SqrxjFUGWlEPwXO%0Aqw9lM0l0jEX01MdA3uI%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1784923200&signature=4f72e0771163195fdd9122b36efb733f2e8bffd3a9499b5bc775340e5999f1ec&req=diAiFcF5nolaW%2FMW1HO4zUrhFu%2BRawsYkeFUnrkrQZgjFtcozM8rC227T5uU%0AfisG2ITWio%2FzV6%2BXo8c%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1784923200&signature=4f72e0771163195fdd9122b36efb733f2e8bffd3a9499b5bc775340e5999f1ec&req=diAiFcF5nolaW%2FMW1HO4zUrhFu%2BRawsYkeFUnrkrQZgjFtcozM8rC227T5uU%0AfisG2ITWio%2FzV6%2BXo8c%3D%0A)
 
 While the account creator must use a business email address, you can add public domains like @gmail.com, @yahoo.com, and @hotmail.com as allowed domains for other members of your organization.
 
-[Important considerations before enabling single sign-on (SSO) and JIT/SCIM provisioning](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning)[Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)[Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)[Find and join a Team or Enterprise organization](https://support.claude.com/en/articles/13566435-find-and-join-a-team-or-enterprise-organization)[Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)
+* [Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)
+* [Team plan billing FAQs](https://support.claude.com/en/articles/12997503-team-plan-billing-faqs)
+* [Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)
+* [Find and join a Team or Enterprise organization](https://support.claude.com/en/articles/13566435-find-and-join-a-team-or-enterprise-organization)
+* [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)

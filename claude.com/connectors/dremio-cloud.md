@@ -10,6 +10,7 @@ Analyze and get insights from your lakehouse data
 * Used in
 
   [Claude](https://claude.ai/directory/ed26cc20-7ac4-465b-8e99-1093d76a1730)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Dremio, Inc](https://www.dremio.com)
 
@@ -22,7 +23,7 @@ Analyze and get insights from your lakehouse data
   Read
 * More
 
-  [Documentation](https://docs.dremio.com/cloud/sonar/mcp-server/)[Privacy Policy](https://www.dremio.com/legal/privacy-policy/)[support@dremio.com](mailto:support@dremio.com)
+  [Documentation](https://docs.dremio.com/cloud/sonar/mcp-server/)[Privacy Policy](https://www.dremio.com/legal/privacy-policy/)[Support](mailto:support@dremio.com)
 
 Dremio provides a Model Context Protocol (MCP) server that allows AI agents to securely access, query, and reason over enterprise lakehouse data through Dremio's unified semantic layer. With Dremio's MCP offering, agents interact with data exactly as users do in Dremio—respecting fine-grained access controls, row- and column-level security, and shared business definitions. Queries are executed directly on data in your lakehouse (Iceberg, Parquet, Delta), with no data duplication or movement. Dremio's MCP server ensures that AI agents see only what they're authorized to see, while benefiting from the same semantic consistency and performance that teams rely on for analytics and BI.
 
@@ -50,11 +51,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -68,7 +69,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -82,7 +83,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -94,4 +95,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

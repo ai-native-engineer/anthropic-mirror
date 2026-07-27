@@ -236,7 +236,7 @@ Whether you're exploring differential expression, validating findings against li
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69161dc3e1f05e75f279107b_Screenshot%202025-11-13%20at%2010.03.54%E2%80%AFAM.png)
 
@@ -246,10 +246,10 @@ Open artifact in new window
 
 ## Related use cases
 
-[Preclinical study analysis](/resources/use-cases/preclinical-study-analysis)Preclinical study analysis
+[Preclinical study analysis](https://claude.com/resources/use-cases/preclinical-study-analysis)Preclinical study analysis
 
 Preclinical study analysis
 
 Use case
 
-[Use case](/resources/use-cases/preclinical-study-analysis)Use case
+[Use case](https://claude.com/resources/use-cases/preclinical-study-analysis)Use case

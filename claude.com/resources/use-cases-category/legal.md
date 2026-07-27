@@ -42,13 +42,13 @@ Cowork
 
 Read use case
 
-[Read use case](/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)Read use case
+[Read use case](https://claude.com/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)Read use case
 
 Claude Cowork
 
-[Prep scattered documents for a compliance audit](/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)Prep scattered documents for a compliance audit
+[Prep scattered documents for a compliance audit](https://claude.com/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)Prep scattered documents for a compliance audit
 
-[Text Link](/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)
+[Text Link](https://claude.com/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)
 
 ![Organize your legal workflows using Projects](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/693ebce7bf5a038de8acaadd_image2.png)
 
@@ -76,13 +76,13 @@ Projects
 
 Read use case
 
-[Read use case](/resources/use-cases/organize-your-legal-workflows-using-projects)Read use case
+[Read use case](https://claude.com/resources/use-cases/organize-your-legal-workflows-using-projects)Read use case
 
 Claude.ai
 
-[Organize your legal workflows using Projects](/resources/use-cases/organize-your-legal-workflows-using-projects)Organize your legal workflows using Projects
+[Organize your legal workflows using Projects](https://claude.com/resources/use-cases/organize-your-legal-workflows-using-projects)Organize your legal workflows using Projects
 
-[Text Link](/resources/use-cases/organize-your-legal-workflows-using-projects)
+[Text Link](https://claude.com/resources/use-cases/organize-your-legal-workflows-using-projects)
 
 ![Track discovery timelines and analyze patterns](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a792fb7784f7a64c2c402_legaldocument.png)
 
@@ -112,13 +112,13 @@ Connectors
 
 Read use case
 
-[Read use case](/resources/use-cases/track-discovery-timelines-and-analyze-patterns)Read use case
+[Read use case](https://claude.com/resources/use-cases/track-discovery-timelines-and-analyze-patterns)Read use case
 
 Claude.ai
 
-[Track discovery timelines and analyze patterns](/resources/use-cases/track-discovery-timelines-and-analyze-patterns)Track discovery timelines and analyze patterns
+[Track discovery timelines and analyze patterns](https://claude.com/resources/use-cases/track-discovery-timelines-and-analyze-patterns)Track discovery timelines and analyze patterns
 
-[Text Link](/resources/use-cases/track-discovery-timelines-and-analyze-patterns)
+[Text Link](https://claude.com/resources/use-cases/track-discovery-timelines-and-analyze-patterns)
 
 No posts for those filters
 

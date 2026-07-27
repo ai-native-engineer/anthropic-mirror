@@ -10,6 +10,7 @@ Chat with your meetings to uncover actionable insights
 * Used in
 
   [Claude](https://claude.ai/directory/069b18da-5c89-4a66-941f-0cb6eae49a8d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Fellow.ai](https://fellow.ai/)
 
@@ -54,7 +55,7 @@ February 11, 2026
 
 ### Asana
 
-Connect to Asana to coordinate tasks, projects, and goals](/connectors/asana)
+Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)
 
 Communication
 
@@ -68,7 +69,7 @@ February 21, 2026
 
 ### Circleback
 
-Search and access context from meetings](/connectors/circleback)
+Search and access context from meetings](https://claude.com/connectors/circleback)
 
 Productivity
 
@@ -82,7 +83,7 @@ May 1, 2026
 
 ### Computer by DevRev
 
-Manage your workspace, issues, tickets, customers, and more without leaving Claude.](/connectors/devrev)
+Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
 
 Communication
 
@@ -94,4 +95,4 @@ February 11, 2026
 
 ### Fireflies
 
-Analyze and generate insights from meeting transcripts](/connectors/fireflies)
+Analyze and generate insights from meeting transcripts](https://claude.com/connectors/fireflies)

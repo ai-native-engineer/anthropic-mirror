@@ -28,7 +28,7 @@ Build and lead the Claude Community in your city with support from Anthropic.
 
 Learn more
 
-[Learn more](/community/ambassadors)Learn more
+[Learn more](https://claude.com/community/ambassadors)Learn more
 
 ### Join a Claude Campus Program
 
@@ -36,7 +36,7 @@ Lead student-driven AI initiatives with support from Anthropic.
 
 Learn more
 
-[Learn more](/programs/campus)Learn more
+[Learn more](https://claude.com/programs/campus)Learn more
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69a8d2c816d75af2e8ef4303_community-marginalia.webp)
 

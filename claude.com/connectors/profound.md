@@ -10,6 +10,7 @@ Pull Profound Visibility, Citation, & AI Bot Visit Data
 * Used in
 
   [Claude](https://claude.ai/directory/4738c35b-a9cc-4378-8bb2-ad09a1a23b5b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Profound](https://tryprofound.com/)
 
@@ -22,7 +23,7 @@ Pull Profound Visibility, Citation, & AI Bot Visit Data
   Read
 * More
 
-  [Documentation](https://www.tryprofound.com/docs/mcp)[Privacy Policy](https://www.tryprofound.com/legal/privacy-policy)[support@tryprofound.com](mailto:support@tryprofound.com)
+  [Documentation](https://www.tryprofound.com/docs/mcp)[Privacy Policy](https://www.tryprofound.com/legal/privacy-policy)[Support](mailto:support@tryprofound.com)
 
 Access all of your Profound data: visibility, citations, and AI bot traffic directly from Claude. Build automated reports, alerts, and other workflows to power your marketing data.
 
@@ -51,7 +52,7 @@ January 26, 2026
 
 ### ActiveCampaign
 
-Autonomous marketing to transform how you work](/connectors/activecampaign)
+Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
 
 Sales and marketing
 
@@ -61,11 +62,11 @@ Claude Code
 
 June 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1d129f2351bec1d8462bd9_actively.ai.png)
+[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
 
 ### Actively
 
-1:1 account agents for GTM teams](/connectors/actively)
+1:1 account agents for GTM teams](https://claude.com/connectors/actively)
 
 Sales and marketing
 
@@ -73,11 +74,11 @@ Claude
 
 May 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Journey Optimizer
 
-Understand and troubleshoot your Journeys and Campaigns](/connectors/adobe-journey-optimizer)
+Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
 
 Sales and marketing
 
@@ -87,8 +88,8 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Marketing Agent
 
-Marketing campaign and audience insights from Adobe](/connectors/adobe-marketing-agent)
+Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)

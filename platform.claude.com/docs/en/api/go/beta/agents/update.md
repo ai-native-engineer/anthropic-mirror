@@ -14,10 +14,6 @@ Update Agent
 
 - `params BetaAgentUpdateParams`
 
-  - `Version param.Field[int64]`
-
-    Body param: The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. The request fails if this does not match the server's current version.
-
   - `Description param.Field[string]`
 
     Body param: Description. Omit to preserve; send empty string or null to clear.
@@ -62,21 +58,29 @@ Update Agent
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -92,11 +96,11 @@ Update Agent
 
           - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -107,6 +111,62 @@ Update Agent
             High-performance model for agents and coding
 
         - `string`
+
+      - `Effort BetaManagedAgentsModelConfigParamsEffortUnionResp`
+
+        How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+        - `string`
+
+          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelLow BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "low"`
+
+          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelMedium BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "medium"`
+
+          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelHigh BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "high"`
+
+          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelXhigh BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "xhigh"`
+
+          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelMax BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "max"`
+
+        - `type BetaManagedAgentsEffortLow struct{…}`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type BetaManagedAgentsEffortLowType`
+
+            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+        - `type BetaManagedAgentsEffortMedium struct{…}`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type BetaManagedAgentsEffortMediumType`
+
+            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+        - `type BetaManagedAgentsEffortHigh struct{…}`
+
+          High effort. Favors reasoning depth.
+
+          - `Type BetaManagedAgentsEffortHighType`
+
+            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+        - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type BetaManagedAgentsEffortXhighType`
+
+            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+        - `type BetaManagedAgentsEffortMax struct{…}`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type BetaManagedAgentsEffortMaxType`
+
+            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
       - `Speed BetaManagedAgentsModelConfigParamsSpeed`
 
@@ -306,7 +366,7 @@ Update Agent
 
       - `Description string`
 
-        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
+        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
 
       - `InputSchema BetaManagedAgentsCustomToolInputSchema`
 
@@ -327,6 +387,10 @@ Update Agent
       - `Type BetaManagedAgentsCustomToolParamsType`
 
         - `const BetaManagedAgentsCustomToolParamsTypeCustom BetaManagedAgentsCustomToolParamsType = "custom"`
+
+  - `Version param.Field[int64]`
+
+    Body param: The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. Must be at least 1 if specified. When supplied, the request fails if it does not match the server's current version; omit to apply the update unconditionally.
 
   - `Betas param.Field[[]AnthropicBeta]`
 
@@ -386,11 +450,19 @@ Update Agent
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -438,21 +510,29 @@ Update Agent
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -468,11 +548,11 @@ Update Agent
 
         - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -483,6 +563,50 @@ Update Agent
           High-performance model for agents and coding
 
       - `string`
+
+    - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `type BetaManagedAgentsEffortLow struct{…}`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `Type BetaManagedAgentsEffortLowType`
+
+          - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+      - `type BetaManagedAgentsEffortMedium struct{…}`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `Type BetaManagedAgentsEffortMediumType`
+
+          - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+      - `type BetaManagedAgentsEffortHigh struct{…}`
+
+        High effort. Favors reasoning depth.
+
+        - `Type BetaManagedAgentsEffortHighType`
+
+          - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+      - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `Type BetaManagedAgentsEffortXhighType`
+
+          - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+      - `type BetaManagedAgentsEffortMax struct{…}`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `Type BetaManagedAgentsEffortMaxType`
+
+          - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
     - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -713,7 +837,7 @@ func main() {
     context.TODO(),
     "agent_011CZkYpogX7uDKUyvBTophP",
     anthropic.BetaAgentUpdateParams{
-      Version: 1,
+      Description: anthropic.String("updated"),
     },
   )
   if err != nil {
@@ -743,6 +867,9 @@ func main() {
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
     "speed": "standard"
   },
   "multiagent": {

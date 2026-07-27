@@ -7,9 +7,12 @@ Connect Claude Code to LogRocket to query session replays, metrics, issues, and 
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [LogRocket](https://www.logrocket.com)
 * Installs
+
+  171
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -23,7 +26,7 @@ The plugin provides six tools: `list_organizations` and `list_projects` for disc
 
 * "Find sessions where users hit errors on the checkout page in the last 24 hours"
 * "What are the top issues affecting users this week?"
-* "Watch the session for user [[email protected]](/cdn-cgi/l/email-protection) and tell me what went wrong"
+* "Watch the session for user jane@example.com and tell me what went wrong"
 * "Build a metric showing page load times for /dashboard over the past month"
 * "Show me sessions with rage clicks on the signup form"
 
@@ -37,17 +40,17 @@ Craft production-grade frontends with distinctive design. Generates polished cod
 
 Anthropic verified
 
-948012
+1110438
 
-installs](/plugins/frontend-design)
+installs](https://claude.com/plugins/frontend-design)
 
 [### Superpowers
 
 Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
 
-855112
+987572
 
-installs](/plugins/superpowers)
+installs](https://claude.com/plugins/superpowers)
 
 [### Code Review
 
@@ -55,14 +58,14 @@ AI code review with specialized agents and confidence-based filtering for pull r
 
 Anthropic verified
 
-383892
+430450
 
-installs](/plugins/code-review)
+installs](https://claude.com/plugins/code-review)
 
 [### Context7
 
 Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
 
-377529
+412076
 
-installs](/plugins/context7)
+installs](https://claude.com/plugins/context7)

@@ -2,7 +2,7 @@
 
 ## Create Session
 
-`$client->beta->sessions->create(Agent agent, string environmentID, ?array<string,string> metadata, ?list<Resource> resources, ?string title, ?list<string> vaultIDs, ?list<AnthropicBeta> betas): BetaManagedAgentsSession`
+`$client->beta->sessions->create(Agent agent, string environmentID, ?list<InitialEvent> initialEvents, ?array<string,string> metadata, ?list<Resource> resources, ?string title, ?list<string> vaultIDs, ?list<AnthropicBeta> betas): BetaManagedAgentsSession`
 
 **post** `/v1/sessions`
 
@@ -17,6 +17,10 @@ Create Session
 - `environmentID: string`
 
   ID of the `environment` defining the container configuration for this session.
+
+- `initialEvents?:optional list<InitialEvent>`
+
+  Initial events to send to the `session` at creation, processed in order. Supports `user.message` and `user.define_outcome` events. Maximum 50 events.
 
 - `metadata?:optional array<string,string>`
 
@@ -106,6 +110,12 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 $betaManagedAgentsSession = $client->beta->sessions->create(
   agent: 'agent_011CZkYpogX7uDKUyvBTophP',
   environmentID: 'env_011CZkZ9X2dpNyB7HsEFoRfW',
+  initialEvents: [
+    [
+      'content' => [['text' => 'Where is my order #1234?', 'type' => 'text']],
+      'type' => 'user.message',
+    ],
+  ],
   metadata: ['foo' => 'string'],
   resources: [
     [
@@ -139,6 +149,9 @@ var_dump($betaManagedAgentsSession);
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -155,6 +168,9 @@ var_dump($betaManagedAgentsSession);
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",

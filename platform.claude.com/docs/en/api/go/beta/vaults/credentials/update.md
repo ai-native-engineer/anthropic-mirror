@@ -98,6 +98,18 @@ Update Credential
 
         - `const BetaManagedAgentsEnvironmentVariableUpdateParamsTypeEnvironmentVariable BetaManagedAgentsEnvironmentVariableUpdateParamsType = "environment_variable"`
 
+      - `InjectionLocation BetaManagedAgentsInjectionLocationUpdateParamsResp`
+
+        Updated injection location.
+
+        - `Body bool`
+
+          Substitute when the placeholder appears in the request body.
+
+        - `Header bool`
+
+          Substitute when the placeholder appears in a request header value.
+
       - `Networking BetaManagedAgentsCredentialNetworkingParamsUnionResp`
 
         Updated networking scope. Full replacement.
@@ -192,11 +204,19 @@ Update Credential
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -295,6 +315,18 @@ Update Credential
     - `type BetaManagedAgentsEnvironmentVariableAuthResponse struct{…}`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `InjectionLocation BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `Body bool`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `Header bool`
+
+          Whether the placeholder is substituted in request header values.
 
       - `Networking BetaManagedAgentsEnvironmentVariableAuthResponseNetworkingUnion`
 

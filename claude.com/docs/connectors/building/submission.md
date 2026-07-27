@@ -1,6 +1,14 @@
 <!-- source: https://claude.com/docs/connectors/building/submission -->
 
-The [Connectors Directory](/docs/connectors/directory) aims to be a collection of high-quality, vetted, and reviewed MCP servers that are helpful and harmless to users. Anyone is welcome to build MCP servers, but only servers meeting the review standards outlined on this page will be included in the directory.
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
+The [Connectors Directory](https://claude.com/docs/connectors/directory) aims to be a collection of high-quality, vetted, and reviewed MCP servers that are helpful and harmless to users. Anyone is welcome to build MCP servers, but only servers meeting the review standards outlined on this page will be included in the directory.
 
 ##  What you can submit
 
@@ -8,7 +16,7 @@ Developers can submit:
 
 * **Remote MCP servers** — internet-hosted servers that provide tools and data to Claude
 * **Desktop extensions** — local MCP servers packaged as [MCP Bundles (MCPB)](https://github.com/modelcontextprotocol/mcpb) for Claude Desktop
-* **[MCP Apps](/docs/connectors/building/mcp-apps/getting-started)** — MCP servers that surface interactive UI elements. These have the additional requirement of including screenshots for submission and listing in the directory.
+* **[MCP Apps](https://claude.com/docs/connectors/building/mcp-apps/getting-started)** — MCP servers that surface interactive UI elements. These have the additional requirement of including screenshots for submission and listing in the directory.
 
 ##  Before you start
 
@@ -96,8 +104,8 @@ You write the detail card description in the submission portal. It is not editab
 ##  Review process
 
 Review times vary with queue volume. The submission portal is always open.
-After you submit, track your submission’s status and read reviewer feedback in the [submissions dashboard](https://claude.ai/admin-settings/directory/submissions). See [Managing your listing](/docs/connectors/building/managing-your-listing) for what’s available there, including server health and usage metrics after publication. Email `[email protected]` for escalations.
-Run the [pre-submission checklist](/docs/connectors/building/review-criteria) and, for plugins, `claude plugin validate` before you submit.
+After you submit, track your submission’s status and read reviewer feedback in the [submissions dashboard](https://claude.ai/admin-settings/directory/submissions). See [Managing your listing](https://claude.com/docs/connectors/building/managing-your-listing) for what’s available there, including server health and usage metrics after publication. Email `mcp-review@anthropic.com` for escalations.
+Run the [pre-submission checklist](https://claude.com/docs/connectors/building/review-criteria) and, for plugins, `claude plugin validate` before you submit.
 
 ##  Submit your connector
 
@@ -106,7 +114,7 @@ Ready to submit? Use the path that matches your connector type:
 * **Remote MCP servers (including MCP Apps)**: submit through the [submission portal](https://claude.ai/admin-settings/directory/submissions/new) in Claude.ai admin settings. See [Before you start](#before-you-start) for access requirements.
 * **Desktop extensions (MCPB)**: use the [desktop extension submission form](https://clau.de/desktop-extention-submission).
 
-Skills are not a standalone submission type—bundle them in a [plugin](/docs/plugins/submit).
+Skills are not a standalone submission type—bundle them in a [plugin](https://claude.com/docs/plugins/submit).
 
 ###  What to expect in the portal
 
@@ -117,7 +125,7 @@ The portal walks you through the following steps. Your progress saves automatica
 
 Introduction
 
-Explains what a directory listing does and doesn’t do: inclusion doesn’t change how your connector works, it just makes it discoverable. The portal accepts remote MCP servers only. Local servers are distributed as [desktop extensions](https://clau.de/desktop-extention-submission) or [plugins](/docs/plugins/submit) instead.
+Explains what a directory listing does and doesn’t do: inclusion makes your connector discoverable but doesn’t change the tools it exposes. The portal accepts remote MCP servers only. Local servers are distributed as [desktop extensions](https://clau.de/desktop-extention-submission) or [plugins](https://claude.com/docs/plugins/submit) instead.
 
 2
 
@@ -145,15 +153,13 @@ Describe the primary use cases, what users need before they can connect (account
 
 6
 
-Company
-
 Company name and website, plus a primary contact for review updates. The contact name and email are pre-filled from your account.
 
 7
 
 Authentication
 
-How users authenticate: OAuth (with dynamic client registration, client ID metadata documents, or a static client ID held by Anthropic), a custom connection where users supply their own URL or credentials at connection time, or no authentication. See [authentication](/docs/connectors/building/authentication) for which modes are supported out of the box and which need coordination with the review team. If your server starts without authentication and individual tools prompt for it on demand, you can flag that here.
+How users authenticate: OAuth (with dynamic client registration, client ID metadata documents, or a static client ID held by Anthropic), a custom connection where users supply their own URL or credentials at connection time, or no authentication. See [authentication](https://claude.com/docs/connectors/building/authentication) for which modes are supported out of the box and which need coordination with the review team. If your server starts without authentication and individual tools prompt for it on demand, you can flag that here.
 
 8
 
@@ -179,6 +185,4 @@ Review
 
 A final read-through of everything you’ve entered. Any quality warnings (for example, very short answers) are shown here and shared with the review team alongside your submission. Submit when you’re ready.
 
-After you submit, your submission’s status and any reviewer feedback appear in the [submissions dashboard](https://claude.ai/admin-settings/directory/submissions). See [Managing your listing](/docs/connectors/building/managing-your-listing).
-
-[Desktop extensions](/docs/connectors/custom/desktop-extensions)[Overview](/docs/connectors/building)
+After you submit, your submission’s status and any reviewer feedback appear in the [submissions dashboard](https://claude.ai/admin-settings/directory/submissions). See [Managing your listing](https://claude.com/docs/connectors/building/managing-your-listing).

@@ -160,10 +160,10 @@ For a step-by-step walkthrough of four of these — payroll, the month-end close
 
 ## Related tutorials
 
-[Using Claude Cowork for your small business](/resources/tutorials/using-claude-for-your-small-business)Using Claude Cowork for your small business
+[Using Claude Cowork for your small business](https://claude.com/resources/tutorials/using-claude-for-your-small-business)Using Claude Cowork for your small business
 
 Using Claude Cowork for your small business
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-claude-for-your-small-business)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-claude-for-your-small-business)Tutorial

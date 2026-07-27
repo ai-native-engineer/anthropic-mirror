@@ -24,8 +24,8 @@ OneLogin user profiles contain distinct fields for username and email, which may
 |  |  |  |
 | --- | --- | --- |
 | **OneLogin field** | **Typical value** | **Commonly used by** |
-| `Username` | `testuser1` or [`[email protected]`](mailto:testuser1@example.com) | Sometimes used in SCIM userName mapping |
-| `Email` | [`[email protected]`](mailto:test.user.one@example.com) | Recommended for both SCIM and SAML |
+| `Username` | `testuser1` or [`[email protected]`](/cdn-cgi/l/email-protection#cabeafb9bebfb9afb8fb8aafb2aba7baa6afe4a9a5a7) | Sometimes used in SCIM userName mapping |
+| `Email` | [`[email protected]`](/cdn-cgi/l/email-protection#0b7f6e787f257e786e792564656e4b6e736a667b676e25686466) | Recommended for both SCIM and SAML |
 | `Login Name` | May differ from email if SSO is used for non-email logins | Legacy or custom configurations |
 | Custom user fields | Custom attributes defined per org | Advanced attribute mappings |
 
@@ -109,4 +109,8 @@ Contact **[our Support team](https://support.claude.com/en/articles/9015913)** w
 * You need help cleaning up ghost accounts or rogue free orgs.
 * People are hitting an out-of-seats error despite available contracted seats.
 
-[Google Workspace SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917817-google-workspace-sso-scim-email-mismatch)[Microsoft Entra ID SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917829-microsoft-entra-id-sso-scim-email-mismatch)[Okta SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917840-okta-sso-scim-email-mismatch)[Ping Identity SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917875-ping-identity-sso-scim-email-mismatch)[OneLogin SSO setup](https://support.claude.com/en/articles/13917899-onelogin-sso-setup)
+* [Google Workspace SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917817-google-workspace-sso-scim-email-mismatch)
+* [Microsoft Entra ID SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917829-microsoft-entra-id-sso-scim-email-mismatch)
+* [Okta SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917840-okta-sso-scim-email-mismatch)
+* [Ping Identity SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917875-ping-identity-sso-scim-email-mismatch)
+* [OneLogin SSO setup](https://support.claude.com/en/articles/13917899-onelogin-sso-setup)

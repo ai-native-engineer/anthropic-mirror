@@ -1,6 +1,6 @@
 <!-- source: https://www.anthropic.com/engineering/swe-bench-sonnet -->
 
-[Engineering at Anthropic](/engineering)
+[Engineering at Anthropic](https://www.anthropic.com/engineering)
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/290e18c396589364580e2432e96d7d96724338a7-2554x2554.svg)
 

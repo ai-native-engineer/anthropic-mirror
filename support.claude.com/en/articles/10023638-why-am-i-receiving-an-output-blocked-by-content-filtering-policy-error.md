@@ -8,4 +8,8 @@ We’re mindful that some users may encounter these refusals or errors when they
 
 Conversely, if you are receiving these messages because you *are* trying to elicit copyrighted content, we may warn you or, in cases of repeat violations, suspend or terminate your account.
 
-[Reporting, Blocking, and Removing Content from Claude](https://support.claude.com/en/articles/7996906-reporting-blocking-and-removing-content-from-claude)[Why am I receiving an 'Output blocked by content filtering policy' error?](https://support.claude.com/en/articles/9205721-why-am-i-receiving-an-output-blocked-by-content-filtering-policy-error)[Reporting, Blocking, and Removing Content from Claude](https://support.claude.com/en/articles/10684638-reporting-blocking-and-removing-content-from-claude)[Can I use my Outputs to train an AI model?](https://support.claude.com/en/articles/12326764-can-i-use-my-outputs-to-train-an-ai-model)[Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy)
+* [Reporting, Blocking, and Removing Content from Claude](https://support.claude.com/en/articles/7996906-reporting-blocking-and-removing-content-from-claude)
+* [Why am I receiving an 'Output blocked by content filtering policy' error?](https://support.claude.com/en/articles/9205721-why-am-i-receiving-an-output-blocked-by-content-filtering-policy-error)
+* [Reporting, Blocking, and Removing Content from Claude](https://support.claude.com/en/articles/10684638-reporting-blocking-and-removing-content-from-claude)
+* [Can I use my Outputs to train an AI model?](https://support.claude.com/en/articles/12326764-can-i-use-my-outputs-to-train-an-ai-model)
+* [Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy)

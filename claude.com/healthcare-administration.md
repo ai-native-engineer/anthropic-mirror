@@ -242,7 +242,7 @@ I have a legacy Node.js task management API that needs modernization. Please ana
 
 ⏺ Bash(npm test) timeout: 30s
 
-  ⎿  > [[email protected]](/cdn-cgi/l/email-protection) test
+  ⎿  > legacy-task-manager@1.0.0 test
 
      > mocha tests/\*\*/\*.test.js
 
@@ -1213,7 +1213,7 @@ Send us your resume along with a brief cover letter addressing:
 * Your approach to improving trial-to-paid conversion rates
 * Why you're excited about FlowTech's growth opportunity
 
-**Apply to:** [[email protected]](mailto:careers@flowtech.com)  
+**Apply to:** [careers@flowtech.com](mailto:careers@flowtech.com)  
 **Subject line:** Growth Marketing Manager - [Your Name]
 
 —
@@ -1304,7 +1304,7 @@ Modernize codebases, build diagrams, expand test coverage, and create AI agents�
 
 Try Claude Code
 
-[Try Claude Code](/product/claude-code)Try Claude Code
+[Try Claude Code](https://claude.com/product/claude-code)Try Claude Code
 
 ### Custom Agents
 
@@ -1322,7 +1322,7 @@ Accelerate code modernization with Claude Code
 
 Learn more
 
-[Learn more](/solutions/code-modernization)Learn more
+[Learn more](https://claude.com/solutions/code-modernization)Learn more
 
 ## Learn how Claude can help you tackle your most complex challenges
 

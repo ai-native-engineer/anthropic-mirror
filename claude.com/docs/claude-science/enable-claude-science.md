@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-science/enable-claude-science -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Claude Science is a desktop app for scientific research. It’s off by default for Team and Enterprise organizations. Turning it on in Organization settings > Capabilities walks you through a short setup wizard that covers what’s not supported yet, which roles get access, and which connectors to publish.
 
 ##  Availability
@@ -53,6 +61,4 @@ Organizations with HIPAA compliance enabled can turn on Claude Science during th
 
 ##  Turn off Claude Science
 
-Go to Organization settings > Capabilities and turn the Claude Science toggle off. Members can no longer sign in to the app. Data already on members’ computers stays there; see [How Claude Science works with your data](/docs/claude-science/how-claude-science-works-with-your-data) for details.
-
-[Custom connectors](/docs/claude-science/custom-connectors)[How Claude Science works with your data](/docs/claude-science/how-claude-science-works-with-your-data)
+Go to Organization settings > Capabilities and turn the Claude Science toggle off. Members can no longer sign in to the app. Data already on members’ computers stays there; see [How Claude Science works with your data](https://claude.com/docs/claude-science/how-claude-science-works-with-your-data) for details.

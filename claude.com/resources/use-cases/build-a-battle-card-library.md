@@ -174,7 +174,7 @@ Equip your sales team with unified competitive intelligence. Work with Claude to
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a952dc912c9f54405c30f_compintel.png)
 
@@ -184,26 +184,26 @@ Open artifact in new window
 
 ## Related use cases
 
-[Create a sales proposal presentation](/resources/use-cases/create-a-sales-proposal-presentation)Create a sales proposal presentation
+[Create a sales proposal presentation](https://claude.com/resources/use-cases/create-a-sales-proposal-presentation)Create a sales proposal presentation
 
 Create a sales proposal presentation
 
 Use case
 
-[Use case](/resources/use-cases/create-a-sales-proposal-presentation)Use case
+[Use case](https://claude.com/resources/use-cases/create-a-sales-proposal-presentation)Use case
 
-[Prepare for sales deals](/resources/use-cases/prepare-for-sales-deals)Prepare for sales deals
+[Prepare for sales deals](https://claude.com/resources/use-cases/prepare-for-sales-deals)Prepare for sales deals
 
 Prepare for sales deals
 
 Use case
 
-[Use case](/resources/use-cases/prepare-for-sales-deals)Use case
+[Use case](https://claude.com/resources/use-cases/prepare-for-sales-deals)Use case
 
-[Create sales reports](/resources/use-cases/create-sales-reports)Create sales reports
+[Create sales reports](https://claude.com/resources/use-cases/create-sales-reports)Create sales reports
 
 Create sales reports
 
 Use case
 
-[Use case](/resources/use-cases/create-sales-reports)Use case
+[Use case](https://claude.com/resources/use-cases/create-sales-reports)Use case

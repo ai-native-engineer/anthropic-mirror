@@ -10,6 +10,7 @@ Ask AI about your sales calls, deals & pipeline
 * Used in
 
   [Claude](https://claude.ai/directory/2273f645-4b1d-4842-a52f-c0032296ccad)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Sybill Inc.](https://www.sybill.ai)
 
@@ -22,7 +23,7 @@ Ask AI about your sales calls, deals & pipeline
   Read
 * More
 
-  [Documentation](https://api.sybill.ai/docs/mcp.html)[Privacy Policy](https://www.sybill.ai/privacy-policy)[support@sybill.ai](mailto:support@sybill.ai)
+  [Documentation](https://api.sybill.ai/docs/mcp.html)[Privacy Policy](https://www.sybill.ai/privacy-policy)[Support](mailto:support@sybill.ai)
 
 Sybill is the context layer for your revenue org. Connect it to Claude and ask anything about your sales conversations, deals, and pipeline grounded in real call transcripts, AI-generated summaries, MEDDIC scores, and CRM data. Surface action items from calls, identify at-risk deals, prep for meetings with full conversation history, and spot patterns across your team's interactions. Sybill unifies the fragmented signals across calls, emails, and CRM into a single coherent picture that Claude can reason over.
 
@@ -44,11 +45,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -62,7 +63,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -76,7 +77,7 @@ June 22, 2026
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -90,4 +91,4 @@ June 22, 2026
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

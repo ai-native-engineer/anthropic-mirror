@@ -10,7 +10,7 @@ Our newest model, Claude Opus 4.5, is available today. It’s intelligent, effic
 
 Claude Opus 4.5 is state-of-the-art on tests of real-world software engineering:
 
-![Chart comparing frontier models on SWE-bench Verified where Opus 4.5 scores highest](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7022a87aeb6eab1458d68412bc927306224ea9eb-3840x2160.png&w=3840&q=75)
+![Chart comparing frontier models on SWE-bench Verified where Opus 4.5 scores highest](https://www-cdn.anthropic.com/images/4zrzovbb/website/7022a87aeb6eab1458d68412bc927306224ea9eb-3840x2160.png)
 
 Opus 4.5 is available today on our apps, our API, and on all three major cloud platforms. If you’re a developer, simply use `claude-opus-4-5-20251101` via the [Claude API](https://platform.claude.com/docs/en/about-claude/models/overview). Pricing is now $5/$25 per million tokens—making Opus-level capabilities accessible to even more users, teams, and enterprises.
 
@@ -22,15 +22,15 @@ As our Anthropic colleagues tested the model before release, we heard remarkably
 
 Many of our customers with early access have had similar experiences. Here are some examples of what they told us:
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/094b76abf3e64453c224e12ae388b8008b02660e-150x48.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/31f81aea37256a9c1600e17eb8916ac158443073-145x64.svg)
 
 > **Opus models have always been “the real SOTA”** but have been cost prohibitive in the past. Claude Opus 4.5 is now at a price point where it can be your go-to model for most tasks. It’s the clear winner and exhibits the best frontier task planning and tool calling we’ve seen yet.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/7715b118c5eb0ff2a85f1f7914bce8c634ecacbd-150x48.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/fc55f4db8afa5db479127fde5be3e492940f513d-94x64.svg)
 
 > Claude Opus 4.5 delivers high-quality code and excels at powering heavy-duty agentic workflows with GitHub Copilot. Early testing shows it **surpasses internal coding benchmarks while cutting token usage in half**, and is especially well-suited for tasks like code migration and code refactoring.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/431e098a503851789fa4508b88a0418853f513eb-150x48.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/0504471eb7da85317c6def349d315e2f8be00b0f-127x64.svg)
 
 > Claude Opus 4.5 beats Sonnet 4.5 and competition on our internal benchmarks, **using fewer tokens to solve the same problems**. At scale, that efficiency compounds.
 
@@ -38,39 +38,39 @@ Many of our customers with early access have had similar experiences. Here are s
 
 > **Claude Opus 4.5 delivers frontier reasoning within Lovable's chat mode**, where users plan and iterate on projects. Its reasoning depth transforms planning—and great planning makes code generation even better.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/14c3ac690679578d7361cf67c93f11782531d602-150x48.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/608086181ee4ce73f49dd2e6ab3a4ed11a3d6f29-130x64.svg)
 
 > **Claude Opus 4.5 excels at long-horizon, autonomous tasks**, especially those that require sustained reasoning and multi-step execution. In our evaluations it handled complex workflows with fewer dead-ends. On Terminal Bench it delivered a 15% improvement over Sonnet 4.5, a meaningful gain that becomes especially clear when using Warp’s Planning Mode.
 
-![ logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9fec2f71d418d084eaa52aa27559560f490fa5cf-480x480.png&w=256&q=75)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/4d69b8406bf7616839fee80a8d86c118d4b7d8c9-174x64.svg)
 
 > **Claude Opus 4.5 achieved state-of-the-art results for complex enterprise tasks** on our benchmarks, outperforming previous models on multi-step reasoning tasks that combine information retrieval, tool use, and deep analysis.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/6e418ccebe0a1d6fd13f21094852b080a0c93ae5-150x48.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/ad249bca4e8e195e08764efc43ecbc586ca37482-143x64.svg)
 
 > **Claude Opus 4.5 delivers measurable gains where it matters most**: stronger results on our hardest evaluations and consistent performance through 30-minute autonomous coding sessions.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/72c2fc0ba500f30eb18f4caf85952bdd33197a47-150x48.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/73b380711885c6beb5270575119dbf31d7f71236-107x64.svg)
 
 > **Claude Opus 4.5 represents a breakthrough in self-improving AI agents**. For automation of office tasks, our agents were able to autonomously refine their own capabilities—achieving peak performance in 4 iterations while other models couldn’t match that quality after 10. They also demonstrated the ability to learn from experience across technical tasks, storing insights and applying them later.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/464cf83cd04ad624fee1730a71914b18e89cdf9b-150x48.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/f084c88e65466636019709c40cc477aadce2f718-151x64.svg)
 
 > **Claude Opus 4.5 is a notable improvement over the prior Claude models inside Cursor**, with improved pricing and intelligence on difficult coding tasks.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/ccd739ba05214ec1c94499b138a8247a512990fa-480x128.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/18f900625532e1baaa3302bdf9539f73592bdf60-164x64.svg)
 
 > **Claude Opus 4.5 is yet another example of Anthropic pushing the frontier of general intelligence**. It performs exceedingly well across difficult coding tasks, showcasing long-term goal-directed behavior.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/02dced142fb26d4a3441cad79f997a1fd6c9a8b0-150x48.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/f78eb8e663df313f53156d3cea8d7ad2801df313-148x64.svg)
 
 > Claude Opus 4.5 delivered an impressive refactor spanning two codebases and three coordinated agents. It was very thorough, helping develop a robust plan, handling the details and fixing tests. **A clear step forward from Sonnet 4.5**.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/b0b6b40b55f3aa73e8a32ce81f9bb927134fd3da-150x48.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/046fc90b1e849e0ef96b6a9923d47ae13272b50f-173x64.svg)
 
 > **Claude Opus 4.5 handles long-horizon coding tasks more efficiently than any model we’ve tested**. It achieves higher pass rates on held-out tests while using up to 65% fewer tokens, giving developers real cost control without sacrificing quality.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/0b54c24c80d4e0a39eaac122245d41950ac1a3a7-116x40.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/1add7d4281e08801657b1a2cfb75a0adce536010-128x64.svg)
 
 > **We’ve found that Opus 4.5 excels at interpreting what users actually want, producing shareable content on the first try**. Combined with its speed, token efficiency, and surprisingly low cost, it’s the first time we’re making Opus available in Notion Agent.
 
@@ -78,15 +78,15 @@ Many of our customers with early access have had similar experiences. Here are s
 
 > **Claude Opus 4.5 excels at long-context storytelling**, generating 10-15 page chapters with strong organization and consistency. It's unlocked use cases we couldn't reliably deliver before.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/f56dd39922154e7aa40769f162715c3d79109ffe-222x64.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/b7787c9ab5714b0c1789da32a3a52daba81f6bef-63x64.svg)
 
 > **Claude Opus 4.5 sets a new standard for Excel automation and financial modeling**. Accuracy on our internal evals improved 20%, efficiency rose 15%, and complex tasks that once seemed out of reach became achievable.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/3c226702a9a4cd6bf028a3c9f5b98ca3331ee579-112x24.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/e0731da5f669896ec6823e665df2c360ea03115d-140x64.svg)
 
 > **Claude Opus 4.5 is the only model that nails some of our hardest 3D visualizations**. Polished design, tasteful UX, and excellent planning & orchestration - all with more efficient token usage. Tasks that took previous models 2 hours now take thirty minutes.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/dc8e3b29b23d0bf06698ea830b56cf17790ee56d-2152x314.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/f7d48545ec6df380bb86fa71fb8e23a3fc4f240c-171x64.svg)
 
 > **Claude Opus 4.5 catches more issues in code reviews without sacrificing precision**. For production code review at scale, that reliability matters.
 
@@ -94,11 +94,11 @@ Many of our customers with early access have had similar experiences. Here are s
 
 > Based on testing with Junie, our coding agent, **Claude Opus 4.5 outperforms Sonnet 4.5 across all benchmarks**. It requires fewer steps to solve tasks and uses fewer tokens as a result. This indicates that the new model is more precise and follows instructions more effectively — a direction we’re very excited about.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/7245ddfbb56c3f08bc8f1dcfd864255ec442c729-150x48.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/cc80b0a6f9534a34252756b93dd5a9bc26dd58f1-222x64.svg)
 
 > The effort parameter is brilliant. **Claude Opus 4.5 feels dynamic rather than overthinking**, and at lower effort delivers the same quality we need while being dramatically more efficient. That control is exactly what our SQL workflows demand.
 
-![ logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcdc58becbf5e34e34603b446d63bf2135d1b5d9b-1920x286.png&w=256&q=75)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/cdc58becbf5e34e34603b446d63bf2135d1b5d9b-1920x286.png)
 
 > **We’re seeing 50% to 75% reductions in both tool calling errors and build/lint errors with Claude Opus 4.5**. It consistently finishes complex tasks in fewer iterations with more reliable execution.
 
@@ -116,23 +116,23 @@ The take-home test is designed to assess technical ability and judgment under ti
 
 Software engineering isn’t the only area on which Claude Opus 4.5 has improved. Capabilities are higher across the board—Opus 4.5 has better vision, reasoning, and mathematics skills than its predecessors, and it is state-of-the-art in many domains:2
 
-![Comparison table showing frontier model performance across popular benchmarks](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F52303b11db76017fd0c2f73c7fafa5c752515979-2600x2236.png&w=3840&q=75)
+![Comparison table showing frontier model performance across popular benchmarks](https://www-cdn.anthropic.com/images/4zrzovbb/website/52303b11db76017fd0c2f73c7fafa5c752515979-2600x2236.png)
 
 SWE-bench MultilingualAider PolyglotBrowseComp-PlusVending-Bench
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc8852ce850bf63ef8225a261f39e717453a9f128-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/c8852ce850bf63ef8225a261f39e717453a9f128-3840x2160.png)
 
 Opus 4.5 writes better code, leading across 7 out of 8 programming languages on SWE-bench Multilingual.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe42d6b0db866320caa34b57152fcc32dbbcdc4e0-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/e42d6b0db866320caa34b57152fcc32dbbcdc4e0-3840x2160.png)
 
 Opus 4.5 can solve challenging coding problems with ease with a 10.6% jump over Sonnet 4.5 on Aider Polyglot.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4972c49fa4cbb088b9ce077c3f16245bd3425368-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/4972c49fa4cbb088b9ce077c3f16245bd3425368-3840x2160.png)
 
 Opus 4.5 improves on frontier agentic search with a significant jump on BrowseComp-Plus.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb0dfeda51ab1d939a45b80faccfe896f4b1d2e46-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/b0dfeda51ab1d939a45b80faccfe896f4b1d2e46-3840x2160.png)
 
 Opus 4.5 stays on track over the long haul earning 29% more than Sonnet 4.5 on Vending-Bench.
 
@@ -166,13 +166,13 @@ In other contexts, finding clever paths around intended constraints could count 
 
 As we state in our [system card](https://www.anthropic.com/claude-opus-4-5-system-card), Claude Opus 4.5 is the most robustly aligned model we have released to date and, we suspect, the best-aligned frontier model by any developer. It continues our trend towards safer and more secure models:
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd2c7ce13820069fa8a86ab682d3c5393692eb2f8-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/d2c7ce13820069fa8a86ab682d3c5393692eb2f8-3840x2160.png)
 
 In our evaluation, “concerning behavior” scores measure a very wide range of misaligned behavior, including both cooperation with human misuse and undesirable actions that the model takes at its own initiative [3].
 
 Our customers often use Claude for critical tasks. They want to be assured that, in the face of malicious attacks by hackers and cybercriminals, Claude has the training and the “street smarts” to avoid trouble. With Opus 4.5, we’ve made substantial progress in robustness against prompt injection attacks, which smuggle in deceptive instructions to fool the model into harmful behavior. Opus 4.5 is harder to trick with prompt injection than any other frontier model in the industry:
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fec661234f9fc762a1ff7d54be956c62ae43ee7f5-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/ec661234f9fc762a1ff7d54be956c62ae43ee7f5-3840x2160.png)
 
 Note that this benchmark includes only very strong prompt injection attacks. It was developed and run by [Gray Swan](https://www.grayswan.ai/).
 
@@ -186,7 +186,7 @@ But different tasks call for different tradeoffs. Sometimes developers want a mo
 
 Set to a medium effort level, Opus 4.5 matches Sonnet 4.5’s best score on SWE-bench Verified, but uses 76% fewer output tokens. At its highest effort level, Opus 4.5 exceeds Sonnet 4.5 performance by 4.3 percentage points—while using 48% fewer tokens.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F440a9132daa84c32fde4d6fb1780e0ad4854c2cf-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/440a9132daa84c32fde4d6fb1780e0ad4854c2cf-3840x2160.png)
 
 With [effort control](https://platform.claude.com/docs/en/build-with-claude/effort), [context compaction](https://platform.claude.com/docs/en/build-with-claude/context-editing#client-side-compaction-sdk), and [advanced tool use](https://www.anthropic.com/engineering/advanced-tool-use), Claude Opus 4.5 runs longer, does more, and requires less intervention.
 
@@ -198,9 +198,9 @@ We’re making our Developer Platform more composable over time. We want to give
 
 Products like Claude Code show what’s possible when the kinds of upgrades we’ve made to the Claude Developer Platform come together. Claude Code gains two upgrades with Opus 4.5. Plan Mode now builds more precise plans and executes more thoroughly—Claude asks clarifying questions upfront, then builds a user-editable plan.md file before executing.
 
-Claude Code is also now [available in our desktop app](https://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5/download), letting you run multiple local and remote sessions in parallel: perhaps one agent fixes bugs, another researches GitHub, and a third updates docs.
+Claude Code is also now [available in our desktop app](https://claude.ai/redirect/website.v1.3386ce1f-afee-4433-88a2-98785ac5b4b9/download), letting you run multiple local and remote sessions in parallel: perhaps one agent fixes bugs, another researches GitHub, and a third updates docs.
 
-For [Claude app](https://www.claude.com/product/overview) users, long conversations no longer hit a wall—Claude automatically summarizes earlier context as needed, so you can keep the chat going. [Claude for Chrome](https://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5/chrome), which lets Claude handle tasks across your browser tabs, is now available to all Max users. We announced [Claude for Excel](https://www.claude.com/claude-for-excel) in October, and as of today we've expanded beta access to all Max, Team, and Enterprise users. Each of these updates takes advantage of Claude Opus 4.5’s market-leading performance in using computers, spreadsheets, and handling long-running tasks.
+For [Claude app](https://www.claude.com/product/overview) users, long conversations no longer hit a wall—Claude automatically summarizes earlier context as needed, so you can keep the chat going. [Claude for Chrome](https://claude.ai/redirect/website.v1.3386ce1f-afee-4433-88a2-98785ac5b4b9/chrome), which lets Claude handle tasks across your browser tabs, is now available to all Max users. We announced [Claude for Excel](https://www.claude.com/claude-for-excel) in October, and as of today we've expanded beta access to all Max, Team, and Enterprise users. Each of these updates takes advantage of Claude Opus 4.5’s market-leading performance in using computers, spreadsheets, and handling long-running tasks.
 
 For Claude and Claude Code users with access to Opus 4.5, we’ve removed Opus-specific caps. For Max and Team Premium users, we’ve increased overall usage limits, meaning you’ll have roughly the same number of Opus tokens as you previously had with Sonnet. We’re updating usage limits to make sure you’re able to use Opus 4.5 for daily work. These limits are specific to Opus 4.5. As future models surpass it, we expect to update limits as needed.
 

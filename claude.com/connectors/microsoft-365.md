@@ -10,6 +10,7 @@ Access SharePoint, OneDrive, Outlook, and Teams context directly in Claude
 * Used in
 
   [Claude](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Anthropic](https://anthropic.com)
 
@@ -32,7 +33,7 @@ Search documents across SharePoint and OneDrive:
 "Find all project proposals in our SharePoint site from the last quarter and summarize the key themes"
 
 Analyze email communications:  
-"Review the email thread with [[email protected]](mailto:client@example.com) about the product launch and summarize outstanding action items"
+"Review the email thread with [client@example.com](mailto:client@example.com) about the product launch and summarize outstanding action items"
 
 Get calendar insights:  
 "What meetings do I have this week related to the Q4 budget planning?"
@@ -56,7 +57,7 @@ February 11, 2026
 
 ### Asana
 
-Connect to Asana to coordinate tasks, projects, and goals](/connectors/asana)
+Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)
 
 Communication
 
@@ -70,7 +71,7 @@ February 21, 2026
 
 ### Circleback
 
-Search and access context from meetings](/connectors/circleback)
+Search and access context from meetings](https://claude.com/connectors/circleback)
 
 Productivity
 
@@ -84,7 +85,7 @@ May 1, 2026
 
 ### Computer by DevRev
 
-Manage your workspace, issues, tickets, customers, and more without leaving Claude.](/connectors/devrev)
+Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
 
 Communication
 
@@ -96,4 +97,4 @@ January 26, 2026
 
 ### Fellow.ai
 
-Chat with your meetings to uncover actionable insights](/connectors/fellow-ai)
+Chat with your meetings to uncover actionable insights](https://claude.com/connectors/fellow-ai)

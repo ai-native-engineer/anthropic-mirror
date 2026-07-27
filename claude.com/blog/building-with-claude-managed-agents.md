@@ -4,7 +4,7 @@
 
 # The evolution of agentic surfaces: building with Claude Managed Agents
 
-As model intelligence and agentic harnesses evolve, Claude Managed Agents allows teams to build and deploy agents in production environments reliably at scale. Here’s why and how teams are using it.
+As model intelligence and agentic harnesses evolve, Anthropic's Claude Managed Agents allows teams to build and deploy agents in production environments reliably at scale. Here’s why and how teams are using it.
 
   [Agents](https://claude.com/blog/category/agents)
 * Product
@@ -157,53 +157,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e13864f88ea55c2d8_b5c98d26c46edc43193e7f7e28a00633a538bb9c-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
-Mar 5, 2026
+Jul 24, 2026
 
-### Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
+### Claude models explained: choosing the best model for your use case
+
+Enterprise AI
+
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
+
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Jul 24, 2026
+
+### The new rules of context engineering for Claude 5 generation models
+
+Claude Code
+
+[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
+
+[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
+
+Jul 21, 2026
+
+### How Anthropic secures its AI-native software development lifecycle
+
+Claude Code
+
+[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
+
+[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
+
+Jul 22, 2026
+
+### How Outtake built a cyber investigator on Claude
 
 Agents
 
-[Skills explained: How Skills compares to prompts, Projects, MCP, and subagents](#) Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
+[How Outtake built a cyber investigator on Claude](#)How Outtake built a cyber investigator on Claude
 
-[Skills explained: How Skills compares to prompts, Projects, MCP, and subagents](/blog/skills-explained) Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
-
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-Oct 31, 2025
-
-### What is Model Context Protocol? Connect AI to your world
-
-Agents
-
-[What is Model Context Protocol? Connect AI to your world](#)What is Model Context Protocol? Connect AI to your world
-
-[What is Model Context Protocol? Connect AI to your world](/blog/what-is-model-context-protocol)What is Model Context Protocol? Connect AI to your world
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2319ef2161fcf9ba649_ddad92700787ec1bf1d80359c0c5e6ca305682b0-1000x1000.svg)
-
-Oct 30, 2025
-
-### Building AI agents for financial services
-
-Agents
-
-[Building AI agents for financial services](#)Building AI agents for financial services
-
-[Building AI agents for financial services](/blog/building-ai-agents-in-financial-services)Building AI agents for financial services
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228c83775fcc75f4e6d_74409af25137110ac04cc39e4d5ea0a2fbcea421-1000x1000.svg)
-
-Oct 30, 2025
-
-### Building AI agents for healthcare and life sciences
-
-Agents
-
-[Building AI agents for healthcare and life sciences](#)Building AI agents for healthcare and life sciences
-
-[Building AI agents for healthcare and life sciences](/blog/building-ai-agents-in-healthcare-and-life-sciences)Building AI agents for healthcare and life sciences
+[How Outtake built a cyber investigator on Claude](https://claude.com/blog/how-outtake-built-a-cyber-investigator-on-claude)How Outtake built a cyber investigator on Claude
 
 ## Transform how your organization operates with Claude
 

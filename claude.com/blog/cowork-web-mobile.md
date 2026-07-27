@@ -7,10 +7,20 @@
 Your work goes everywhere with you, and keeps going without you.
 
   [Product announcements](https://claude.com/blog/category/announcements)
+* Product
 
   Claude Cowork
+* Date
 
   July 7, 2026
+* Reading time
+
+  5
+
+  min
+* Share
+
+  [Copy link](#)
 
   https://claude.com/blog/cowork-web-mobile
 
@@ -48,41 +58,95 @@ On the web, start a Cowork session from the home screen at claude.ai. On mobile,
 
 Start with something already on your plate: point Claude at the folder, the thread, or the half-finished deck, and describe what done looks like. To mark the launch, we’re extending [doubled Cowork usage limits](https://support.claude.com/en/articles/15400594-claude-cowork-june-2026-usage-promotion) through August 5, so there’s plenty of room to try bigger tasks.
 
+No items found.
+
+[Prev](#)Prev
+
+0/5
+
+[Next](#)Next
+
+eBook
+
+##
+
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e6fa9211768bbce0b_6e00dbffcddc82df5e471c43453abfc74ca94e8d-1000x1000.svg)
+FAQ
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22349f86cd1968deab7_f06ca06f9d08ca4a85f26357eb896c3730274507-1000x1000.svg)
+No items found.
 
-Jul 2, 2026
+## Related posts
 
-### Giving admins more visibility and control over Claude spend
+Explore more product news and best practices for teams building with Claude.
 
-[Giving admins more visibility and control over Claude spend](#)Giving admins more visibility and control over Claude spend
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d231b45c2193efbb0f02_1869137c9d7f2a38b50e804d707e10e85de05ddb-1000x1000.svg)
 
-[Giving admins more visibility and control over Claude spend](/blog/giving-admins-more-visibility-and-control-over-claude-usage-and-spend)Giving admins more visibility and control over Claude spend
+Jul 23, 2026
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
+### Think through hard problems in voice mode
 
-Jun 29, 2026
+Product announcements
 
-### Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud
+[Think through hard problems in voice mode](#)Think through hard problems in voice mode
 
-[Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud](#)Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud
+[Think through hard problems in voice mode](https://claude.com/blog/think-through-hard-problems-in-voice-mode)Think through hard problems in voice mode
 
-[Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud](/blog/introducing-the-claude-apps-gateway)Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a025cf25f0694905405e054_Object-Scale.svg)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3f14a08cb97bf1b16d40ef_ObjectClouds.svg)
+May 12, 2026
 
-Jun 29, 2026
+### Claude for the legal industry
 
-### Claude in Microsoft Foundry is now generally available
+Product announcements
 
-[Claude in Microsoft Foundry is now generally available](#)Claude in Microsoft Foundry is now generally available
+[Claude for the legal industry](#)Claude for the legal industry
 
-[Claude in Microsoft Foundry is now generally available](/blog/claude-in-microsoft-foundry)Claude in Microsoft Foundry is now generally available
+[Claude for the legal industry](https://claude.com/blog/claude-for-the-legal-industry)Claude for the legal industry
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
+
+Apr 9, 2026
+
+### Making Claude Cowork ready for enterprise
+
+Product announcements
+
+[Making Claude Cowork ready for enterprise](#)Making Claude Cowork ready for enterprise
+
+[Making Claude Cowork ready for enterprise](https://claude.com/blog/cowork-for-enterprise)Making Claude Cowork ready for enterprise
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225c16d1b0cc3b1ded5_6457c34fbcb012acf0f27f15a6006f700d0f50de-1000x1000.svg)
+
+Mar 24, 2026
+
+### Auto mode for Claude Code
+
+Claude Code
+
+[Auto mode for Claude Code](#)Auto mode for Claude Code
+
+[Auto mode for Claude Code](https://claude.com/blog/auto-mode)Auto mode for Claude Code
+
+## Transform how your organization operates with Claude
+
+See pricing
+
+[See pricing](https://claude.com/pricing#api)See pricing
+
+Contact sales
+
+[Contact sales](https://claude.com/contact-sales)Contact sales
+
+Get the developer newsletter
+
+Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
+
+Thank you! You’re subscribed.
+
+Sorry, there was a problem with your submission, please try again later.
 
     
 

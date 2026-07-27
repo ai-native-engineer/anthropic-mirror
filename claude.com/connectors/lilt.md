@@ -10,6 +10,7 @@ High-quality translation with human verification
 * Used in
 
   [Claude](https://claude.ai/directory/88245f33-e3a7-468f-ae27-3f118bef198a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [LILT](https://lilt.com/)
 
@@ -22,7 +23,7 @@ High-quality translation with human verification
   Read & write
 * More
 
-  [Documentation](https://support.lilt.com/kb/LILT-mcp)[Privacy Policy](https://lilt.com/legal/privacy)[support@lilt.com](mailto:support@lilt.com)
+  [Documentation](https://support.lilt.com/kb/LILT-mcp)[Privacy Policy](https://lilt.com/legal/privacy)[Support](mailto:support@lilt.com)
 
 Seamlessly integrate high-quality, guaranteed translation capabilities directly into your Claude instance, bringing your brand's unique context where you already work. Submit content for brand-aligned translation via customized AI or human-verified translation with a simple prompt, ensuring the highest quality while you maintain full control.
 
@@ -50,11 +51,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -68,7 +69,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -82,7 +83,7 @@ June 22, 2026
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -96,4 +97,4 @@ June 22, 2026
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

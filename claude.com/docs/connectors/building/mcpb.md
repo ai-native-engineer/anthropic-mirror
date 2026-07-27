@@ -1,8 +1,16 @@
 <!-- source: https://claude.com/docs/connectors/building/mcpb -->
 
-MCPB is the secondary distribution path. Remote MCP servers are recommended for directory listing—see [what to build](/docs/connectors/building/what-to-build).
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
 
-This guide covers building an MCP Bundle (`.mcpb`) for internal use, private distribution, or as a foundation for [submission to the Connectors Directory](/docs/connectors/building/submission).
+[Skip to main content](#content-area)
+
+MCPB is the secondary distribution path. Remote MCP servers are recommended for directory listing—see [what to build](https://claude.com/docs/connectors/building/what-to-build).
+
+This guide covers building an MCP Bundle (`.mcpb`) for internal use, private distribution, or as a foundation for [submission to the Connectors Directory](https://claude.com/docs/connectors/building/submission).
 
 ##  What is an MCPB?
 
@@ -20,6 +28,7 @@ See the [MCPB repository](https://github.com/modelcontextprotocol/mcpb) for the 
 ##  Local (MCPB) vs remote: which to build
 
 | Choose MCPB when you need | Choose a remote connector when you need |
+| --- | --- |
 | Access to systems behind your firewall (JIRA, Confluence, internal wikis, private databases) | Cloud services and public APIs with centralized infrastructure |
 | Authentication via existing SSO and browser sessions, no token management | OAuth flows with server-side token management |
 | Zero-trust compliance inside corporate network boundaries | Distribution across Claude on web, mobile, and desktop |
@@ -34,7 +43,7 @@ See the [MCPB repository](https://github.com/modelcontextprotocol/mcpb) for the 
 
 **Key difference:** MCPBs run on the user’s machine via stdio with access to local and internal resources. Remote connectors run on your servers via HTTPS and are accessed through Anthropic’s infrastructure.
 Organizations commonly build MCPBs as secure proxies to internal MCP servers, for internal documentation access, and to connect development tools while preserving their security architecture.
-For remote connector guidance, see [building custom connectors](/docs/connectors/building/index).
+For remote connector guidance, see [building custom connectors](https://claude.com/docs/connectors/building/index).
 
 ##  Choose a language
 
@@ -55,7 +64,9 @@ See the [manifest spec compatibility section](https://github.com/modelcontextpro
 
 Install the MCPB CLI
 
+```
 npm install -g @anthropic-ai/mcpb
+```
 
 2
 
@@ -67,13 +78,17 @@ Build a stdio MCP server using the [MCP SDK](https://www.npmjs.com/package/@mode
 
 Generate the manifest
 
+```
 mcpb init
+```
 
 4
 
 Bundle
 
+```
 mcpb pack
+```
 
 5
 
@@ -90,6 +105,7 @@ Before distributing your MCPB, review the testing and best-practices guidance in
 The `manifest.json` file is required metadata describing what your MCPB does, how to run it, which tools it provides, and what configuration it needs.
 
 | Reference |  |
+| --- | --- |
 | [MCPB Manifest Spec](https://github.com/modelcontextprotocol/mcpb/blob/main/MANIFEST.md) | Full schema with all fields |
 | [Example manifests](https://github.com/modelcontextprotocol/mcpb/tree/main/examples) | Real-world implementations |
 | [CLI documentation](https://github.com/modelcontextprotocol/mcpb/blob/main/CLI.md) | Command reference |
@@ -99,6 +115,7 @@ The `manifest.json` file is required metadata describing what your MCPB does, ho
 Icons are optional but recommended. Place `icon.png` in your bundle root and reference it in `manifest.json`.
 
 | Requirement | Value |
+| --- | --- |
 | File name | `icon.png` (or a custom path) |
 | Size | 512×512px recommended (minimum 256×256px) |
 | Format | PNG with transparency |
@@ -152,12 +169,10 @@ Check repository discussions for community Q&A, follow release notes for updates
 
 ##  Ready for distribution
 
-If you have a working MCPB and want broader distribution and discoverability, submit it to the Connectors Directory. See [submitting to the directory](/docs/connectors/building/submission) for requirements including:
+If you have a working MCPB and want broader distribution and discoverability, submit it to the Connectors Directory. See [submitting to the directory](https://claude.com/docs/connectors/building/submission) for requirements including:
 
 * Mandatory tool annotations for all tools
 * Privacy policy requirements
 * Working examples that exercise each tool
 * Test credentials where applicable
 * The complete submission process and review timeline
-
-[Manage your listing](/docs/connectors/building/managing-your-listing)[Getting started](/docs/connectors/building/mcp-apps/getting-started)

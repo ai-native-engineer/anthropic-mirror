@@ -14,7 +14,7 @@ Models are getting better at robotics quickly, but we found that how capable the
 
 This has important implications for the safe development and deployment of language models. Today’s frontier models cannot control humanoid robots without a pretrained policy, but newer models have made real gains in direct manipulation and high-level policy control across the humanoid and quadruped embodiments we tested. We expect future models to be even better. Put concretely: a general-purpose chat model with no robotics training can already, on a good run, write and download its own tools to slowly walk a quadruped through a maze or pick a plate off a counter and set it on a stove, and the gap in reliability is closing with each model generation.
 
-![Bar graph showing per-model embodiment score by interface. Mythos Preview scores the highest at 0.389, while Opus 4 scores the lowest at 0.115.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb82f549f17f19f77687b44191441c71d07e6d198-2640x1320.png&w=3840&q=75)
+![Bar graph showing per-model embodiment score by interface. Mythos Preview scores the highest at 0.389, while Opus 4 scores the lowest at 0.115.](https://www-cdn.anthropic.com/images/4zrzovbb/website/b82f549f17f19f77687b44191441c71d07e6d198-2640x1320.png)
 
 Composite score on Embody (our benchmark suite) by model, stacked by control interface. The composite is a normalized average across every robot body ("embodiment") and task in the suite except for high-level locomotion; higher bars mean broader physical competence.
 
@@ -38,11 +38,11 @@ To approximate an upper bound on direct-control performance, we pause the simula
 
 We also designed our evaluation to account for the fact that many classic RL tasks appear frequently in pretraining corpora, which could limit how well our conclusions generalize to novel environments. To address this, we retain the inverse pendulum and hopper tasks as control tasks but also introduce a new task based on pinball arcade machines. In TwinFlipper, the agent controls a set of flippers and seeks to maximize the ball’s total airtime—the cumulative amount of time the ball remains above a specified height threshold while not touching anything—before it drops below the flippers. Although a naive solution is to just slam the ball upwards, much more airtime can be gained by carefully bouncing the ball up and down in a controlled manner. This task is designed to be a representative example of a chaotic, dynamic system with few degrees of freedom, and none of the models have seen it before.
 
-![Visualization of an AI agent playing a game where it controls a set of flippers, seeking to maximize the ball’s time in the air.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F30b4c51653aeadd65678de6844ac245e288c5390-480x360.gif&w=1080&q=75)
+![Visualization of an AI agent playing a game where it controls a set of flippers, seeking to maximize the ball’s time in the air.](https://www-cdn.anthropic.com/images/4zrzovbb/website/30b4c51653aeadd65678de6844ac245e288c5390-480x360.gif)
 
 Opus 4.6's best classic-control run.
 
-![Six bar graphs showing different AI models' classic control performance on various tasks, both directly and via code control: pendulum balance (direct and code), hopper velocity (direct and code), and TwinFlipper air time (direct and code). ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F67a32f2391eda5c15032f42833f02db57c3bafad-6951x6292.png&w=3840&q=75)
+![Six bar graphs showing different AI models' classic control performance on various tasks, both directly and via code control: pendulum balance (direct and code), hopper velocity (direct and code), and TwinFlipper air time (direct and code). ](https://www-cdn.anthropic.com/images/4zrzovbb/website/67a32f2391eda5c15032f42833f02db57c3bafad-6951x6292.png)
 
 Classic-control performance by model.
 
@@ -50,7 +50,7 @@ While performance on individual tasks is noisy, a broader look across all classi
 
 Our results suggest that much of the improvement comes from a better ability to adapt after seeing prior outcomes and to revise strategy accordingly. On tasks with a natural termination point (most notably TwinFlipper and Pendulum), average first-try performance is quite similar across models, and Claude Opus 4 and Opus 4.1 very slightly outperform later models on this measure. The larger gains appear in subsequent attempts, where later models improve much more substantially. Claude Mythos Preview is a notable exception to this; many of its first attempts are more robust in Pendulum.
 
-![Three bar graphs showing models' classic control performance when training an RL policy to perform three tasks: pendulum balance, hopper velocity, and TwinFlipper air time.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Faaecef16d5f8fa1375accc602429b0c561f3664c-6500x2400.png&w=3840&q=75)
+![Three bar graphs showing models' classic control performance when training an RL policy to perform three tasks: pendulum balance, hopper velocity, and TwinFlipper air time.](https://www-cdn.anthropic.com/images/4zrzovbb/website/aaecef16d5f8fa1375accc602429b0c561f3664c-6500x2400.png)
 
 Performance when models train an RL policy from scratch.
 
@@ -70,23 +70,23 @@ Keeping this difficulty in mind, we evaluate the models on two core tasks: stand
 
 We use three control interfaces: direct control, programmatic control, and reinforcement learning (RL). As with the classic tasks, in the direct settings, we pause the simulator between LLM calls so real-time latency does not become the limiting factor. Real-time control would require roughly 83 Hz; current non-reasoning inference runs at ~0.2-0.4 Hz, so closing this gap needs roughly two orders of magnitude latency improvement.
 
-![Three bar graphs with performance intervals showing various AI models' performance at directly controlling a robotic quadruped.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc7015fa90f5134a5178d14b42372a79bf74b015b-6000x2550.png&w=3840&q=75)
+![Three bar graphs with performance intervals showing various AI models' performance at directly controlling a robotic quadruped.](https://www-cdn.anthropic.com/images/4zrzovbb/website/c7015fa90f5134a5178d14b42372a79bf74b015b-6000x2550.png)
 
 Direct low-level control of the Go2 quadruped.
 
-![Four bar graphs showing various AI models' performance at controlling a robotic quadruped's movements using code control.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Feb82966f3a5ebb8f3c9d1b0a9c80bc2590274fab-8000x2750.png&w=3840&q=75)
+![Four bar graphs showing various AI models' performance at controlling a robotic quadruped's movements using code control.](https://www-cdn.anthropic.com/images/4zrzovbb/website/eb82966f3a5ebb8f3c9d1b0a9c80bc2590274fab-8000x2750.png)
 
 Programmatic locomotion control.
 
 While direct low-level locomotive control of the quadruped is difficult for all models, many are adept at programmatic control. Opus 4.6, 4.7 and Claude Mythos Preview manage to balance the Go2 robot for nearly two full seconds, long enough to demonstrate stable balance but fast enough to iterate on, with torque-force control and a pythonic controller. Gemini 3.1 and GPT-5.4 have similarly strong controllers, although they lag far behind when controlling the motors directly. Under direct control, Opus 4.6 can keep the robot balanced but cannot successfully stand it up.
 
-![Two computer renderings of a humanoid robot being controlled by an AI. In the first labeled "Opus 4.6 (Python controller)," the robot is standing but starts to twist its torso to one side. In the second, labeled "zero commands (passive)," the robot collapses to the ground.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2d91fbe744a8e22fa60e8e8d287f1f998e4260f5-720x270.gif&w=1920&q=75)
+![Two computer renderings of a humanoid robot being controlled by an AI. In the first labeled "Opus 4.6 (Python controller)," the robot is standing but starts to twist its torso to one side. In the second, labeled "zero commands (passive)," the robot collapses to the ground.](https://www-cdn.anthropic.com/images/4zrzovbb/website/2d91fbe744a8e22fa60e8e8d287f1f998e4260f5-720x270.gif)
 
 Humanoid under model control.
 
 The G1 humanoid is the hardest platform in our study, and results were weak but improving. In our trials, no model successfully stood the robot up from a collapsed pose even once. Even so, there has been measurable progress between Opus 4 and 4.7 in balancing the robot once it is already in a standing position.
 
-![Two bar graphs showing various AI models' performance on controlling a humanoid robot. More advanced models perform reasonably well on the "Go2 Stand" task, but all models fail on the "G1 Stand" task.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6e41b0cf335d8f90debd63057d45cdab15489c2f-9425x3639.png&w=3840&q=75)
+![Two bar graphs showing various AI models' performance on controlling a humanoid robot. More advanced models perform reasonably well on the "Go2 Stand" task, but all models fail on the "G1 Stand" task.](https://www-cdn.anthropic.com/images/4zrzovbb/website/6e41b0cf335d8f90debd63057d45cdab15489c2f-9425x3639.png)
 
 Programmatic vs. trained-policy control on Go2 and G1.
 
@@ -98,7 +98,7 @@ All of these results should be interpreted appropriately. For instance, if we ra
 
 Manipulation is another core robotic capability with clear usefulness and safety relevance, so we study it alongside locomotion. By manipulation, we mean using a gripper or robotic arm to move and re-orient objects through a scene in a controlled way. We evaluate this capability using a fixed-base, 7-DoF Franka Panda arm in kitchen-style environments adapted from the LIBERO benchmark. These are kitchen-like tasks, such as “put the plate on the stove.”
 
-![Rendering of an AI model manipulating a simulated robotic arm. The robotic arm reaches down, picks up an object, and moves it to a pedestal.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F910d0e73cc16479c5e31ff196bece2d6b8f80289-360x360.gif&w=750&q=75)
+![Rendering of an AI model manipulating a simulated robotic arm. The robotic arm reaches down, picks up an object, and moves it to a pedestal.](https://www-cdn.anthropic.com/images/4zrzovbb/website/910d0e73cc16479c5e31ff196bece2d6b8f80289-360x360.gif)
 
 Opus 4.6 completing a LIBERO task under direct manipulation control.
 
@@ -108,11 +108,11 @@ We test a simplified direct-control setting in which the model outputs standard 
 
 Because a fixed base arm has no real-time balance constraint, the gap between our paused simulator upper bound and real-time performance is much smaller here than for legged robots. A stationary arm under LLM control is already a plausible deployment (lab automation, light manufacturing), so even modest manipulation gains have direct safety relevance: a model that can reliably grasp, move, and reposition objects already has a meaningful ability to act on the physical world when given access to a robotic system.
 
-![Two bar graphs (the second with performance intervals) showing various AI models' success on LIBERO with direct control. Mythos Preview has the highest success rate, at 5.5; many AI models have a success rate of 0.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2ad888f5aac3302eb70d844c1bd131cb39e39c11-6500x2400.png&w=3840&q=75)
+![Two bar graphs (the second with performance intervals) showing various AI models' success on LIBERO with direct control. Mythos Preview has the highest success rate, at 5.5; many AI models have a success rate of 0.](https://www-cdn.anthropic.com/images/4zrzovbb/website/2ad888f5aac3302eb70d844c1bd131cb39e39c11-6500x2400.png)
 
 LIBERO direct-manipulation success rates.
 
-![Three bar charts showing various AI models' performance on various LIBERO subgoals. Here, the models show higher rates of progress.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1380257d31c7ed2adbbb0f10f6e066def1821a18-8000x2800.png&w=3840&q=75)
+![Three bar charts showing various AI models' performance on various LIBERO subgoals. Here, the models show higher rates of progress.](https://www-cdn.anthropic.com/images/4zrzovbb/website/1380257d31c7ed2adbbb0f10f6e066def1821a18-8000x2800.png)
 
 Per-subgoal progress on LIBERO under direct control.
 
@@ -146,7 +146,7 @@ We built a suite of eleven navigation and spatial-reasoning tasks ranging from s
 
 Table of all 11 tasks in high-level locomotion composite eval
 
-![Bar chart showing various models' performance on high-level locomotion with various reasoning configs. Mythos Preview (adamax) and Mythos Preview (20k) have the highest scores, at 54 and 49.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F31b1248bf11ca460dd1077060b3113ca6645645f-4750x5500.png&w=3840&q=75)
+![Bar chart showing various models' performance on high-level locomotion with various reasoning configs. Mythos Preview (adamax) and Mythos Preview (20k) have the highest scores, at 54 and 49.](https://www-cdn.anthropic.com/images/4zrzovbb/website/31b1248bf11ca460dd1077060b3113ca6645645f-4750x5500.png)
 
 High-level locomotion composite, all model × reasoning configs. NR means no reasoning, 20k means 20k thinking token budget, adlo means adaptive low, admax means adaptive max
 
@@ -156,7 +156,7 @@ That plateau is an artifact of averaging: on most individual tasks, each success
 
 We tested several tools to attempt to assist the model with visual and directional understanding, and more generally perception. We tried giving the model a green center crosshair drawn on its egocentric view, a semi-transparent depth heatmap alpha-blended over its view, a third-person chase camera replacing the forward view, and a "compass" which just gives the model its orientation in degrees. The compass tool handily beats the other ones, as will be elaborated upon later when we examine bottlenecks.
 
-![Four bar charts showing how perceptual aids change various models' performance on high-level locomotion tasks: compass, third-person cam, all combined, crosshair, and depth overlay.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3b89c8c4e229501a45726fca1a88bd1e03bb47b3-6453x1761.png&w=3840&q=75)
+![Four bar charts showing how perceptual aids change various models' performance on high-level locomotion tasks: compass, third-person cam, all combined, crosshair, and depth overlay.](https://www-cdn.anthropic.com/images/4zrzovbb/website/3b89c8c4e229501a45726fca1a88bd1e03bb47b3-6453x1761.png)
 
 Change in HL-locomotion composite from each perceptual aid.
 
@@ -168,7 +168,7 @@ We also evaluate whether frontier models can make effective use of pretrained VL
 
 To study this, we pair the model with a VLA policy on the same manipulation tasks from LIBERO. In this setting, the VLA proposes low-level actions, and the language model decides what to do with them. It can accept the proposed action, adjust it, or replace it entirely. This creates a very different kind of challenge from direct control where the core challenge is deciding which commands to accept, and which are wrong and need to be modified. We use the MolmoAct VLA across all experiments.
 
-![Two bar charts showing various models' performance on LIBERO tasks with VLA supervision.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F35be79dfefc49b5ff33f87fb1771f64a8c5c8c1b-6500x2550.png&w=3840&q=75)
+![Two bar charts showing various models' performance on LIBERO tasks with VLA supervision.](https://www-cdn.anthropic.com/images/4zrzovbb/website/35be79dfefc49b5ff33f87fb1771f64a8c5c8c1b-6500x2550.png)
 
 LIBERO-40 success with VLA supervision.
 
@@ -176,7 +176,7 @@ On the standard 40-task LIBERO benchmark, the VLA dramatically expands capabilit
 
 We note that every tested model still performs substantially worse than MolmoAct does on its own. Counterintuitively, the penalty is not smallest for the strongest model: Claude Mythos Preview underperforms Opus 4.5 and Opus 4.6 here, because it overrides the VLA more often than is warranted, trusting its own judgment in cases where simply deferring would have succeeded. To understand where this control penalty comes from, we measure how often the agent simply follows the VLA’s proposed action. We count a command as followed only when the language model passes along the Panda arm’s full 7-dimensional action exactly as given; any edit, replacement, or omission counts as a deviation. This lets us pinpoint if the VLA’s generally sound advice is being ignored.
 
-![Two bar charts showing various models' follow rate on familiar (LIBERO-40) and novel tasks.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F950ef9f18406837c8f265bfd4f53d08b17f35819-7000x2400.png&w=3840&q=75)
+![Two bar charts showing various models' follow rate on familiar (LIBERO-40) and novel tasks.](https://www-cdn.anthropic.com/images/4zrzovbb/website/950ef9f18406837c8f265bfd4f53d08b17f35819-7000x2400.png)
 
 How often each model follows the VLA's recommended step.
 
@@ -184,13 +184,13 @@ The results show that the Claude series of models follows the VLA instructions s
 
 These results do not let us distinguish between a deferential model and one with good taste. To evaluate this, we tested whether these systems can use, and potentially correct, an unreliable VLA. To do so, we created three new LIBERO-like tasks drawn from the original LIBERO-goal scenes but not included in the benchmark; in our baseline trials, MolmoAct is unable to complete any of the three tasks.
 
-![Two bar charts showing various models' VLA-supervised performance on novel tasks.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb957451d85e48a344d16052fb6bdde329aaa503b-6500x2700.png&w=3840&q=75)
+![Two bar charts showing various models' VLA-supervised performance on novel tasks.](https://www-cdn.anthropic.com/images/4zrzovbb/website/b957451d85e48a344d16052fb6bdde329aaa503b-6500x2700.png)
 
 VLA-supervised performance on novel scenes.
 
 Earlier Claude models as well as GPT-5.4 continue to follow the VLA relatively closely even in this setting where the VLA’s commands require corrections. By contrast, Opus 4.5, Opus 4.6 and Opus 4.7 defer to it much less. They are better at recognizing when the policy is failing, even if they are not yet able to correct those failures directly. Even so, Claude Opus 4.5 and Opus 4.6, along with Gemini 3.1, outperform MolmoAct alone. Interestingly, Opus 4 and Opus 4.1 defer to the VLA more often than Opus 4.5 and Opus 4.6 in this novel setting, yet they still achieve worse overall performance. The simplest explanation is that their higher follow rates do not reflect better judgment. They listen to the VLA at roughly the same rate they do in settings where the VLA is actually competent. Their behavior here is largely indiscriminate.
 
-![Two bar charts showing various LLMs' success on familiar and novel touch, grasp, and place tasks.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa86ffc18f5b012e73d69b2c56a391d06d0369353-7500x3000.png&w=3840&q=75)
+![Two bar charts showing various LLMs' success on familiar and novel touch, grasp, and place tasks.](https://www-cdn.anthropic.com/images/4zrzovbb/website/a86ffc18f5b012e73d69b2c56a391d06d0369353-7500x3000.png)
 
 VLA familiar vs. novel touch- / grasp- / place-rates.
 
@@ -206,11 +206,11 @@ Where has improvement come from in newer models, and what do they still struggle
 
 In both manipulation and locomotion we tested whether additional visual inputs improve performance. For the Panda arm we added depth maps, labeled segmentation overlays, and a cursor tool—a small red X on the gripper cam that the model can move and query for the object and distance at that point. For the Go2 we added a depth heatmap blended over the forward camera, a green center crosshair on the image, and a third-person chase camera replacing the forward view.
 
-![Three colorful renderings of overlays given to the manipulation model.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe2d956b8d755355e3dca8a9063b118cfae019170-2048x764.png&w=3840&q=75)
+![Three colorful renderings of overlays given to the manipulation model.](https://www-cdn.anthropic.com/images/4zrzovbb/website/e2d956b8d755355e3dca8a9063b118cfae019170-2048x764.png)
 
 Example overlays given to the manipulation model: cursor, depth map, and segmentation mask.
 
-![Four bar charts showing various models' success rates when given vision tools: RGB baseline, depth, segmentation, and cursor.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F19fc142a57f8a25e4f04d4404df0c293e46002b6-7000x2300.png&w=3840&q=75)
+![Four bar charts showing various models' success rates when given vision tools: RGB baseline, depth, segmentation, and cursor.](https://www-cdn.anthropic.com/images/4zrzovbb/website/19fc142a57f8a25e4f04d4404df0c293e46002b6-7000x2300.png)
 
 Manipulation success under each visual aid.
 
@@ -218,7 +218,7 @@ On manipulation, the depth maps and segmentation overlays are roughly neutral. T
 
 The third-person camera is the most model-dependent of the aids. It does nothing or slightly hurts for Opus 4.6 and earlier—Opus 4.6 drops 3.6 points—but gives Opus 4.7 +5.8 and Mythos Preview +10.7, making it Mythos Preview's single best visual aid. At the task level it helps where the model needs to track its own position over time (color\_sequence, drift\_detection, invisible\_walls) and hurts where the task depends on the forward view, like turn\_correction. Mythos Preview is the exception, improving even on turn\_correction.
 
-![Bar chart showing the per-task effect of replacing the forward camera with a third-person camera on various models' performance on high-level locomotion tasks. Some tasks, like color_sequence, improved, while some tasks, such as find_x declined.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8368ba2585173f52aa269eb60151ca966d37c82f-6000x2500.png&w=3840&q=75)
+![Bar chart showing the per-task effect of replacing the forward camera with a third-person camera on various models' performance on high-level locomotion tasks. Some tasks, like color_sequence, improved, while some tasks, such as find_x declined.](https://www-cdn.anthropic.com/images/4zrzovbb/website/8368ba2585173f52aa269eb60151ca966d37c82f-6000x2500.png)
 
 Per-task effect of replacing the forward camera with a third-person camera for high-level locomotion.
 
@@ -226,7 +226,7 @@ The cursor tool, by contrast, gives every model a large uplift on manipulation�
 
 We also tested how much information an actual image provides over a detailed textual description. To do this, we replaced the visual input with text descriptions produced by the strongest image-question-answering model we tested, Gemini 3.1. In this way, we can see how well models perform when given a strong verbal description of the scene instead of pixels. If a model already uses visual input effectively, we would expect this substitution to hurt performance.
 
-![Bar chart showing various AI models' average best progress on tasks when using RGB baseline vs. VLM scene description. Performance was generally higher with RGB baseline.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5773bcff06d744fa7cadde3e2cd4b0ec798509b3-6000x2550.png&w=3840&q=75)
+![Bar chart showing various AI models' average best progress on tasks when using RGB baseline vs. VLM scene description. Performance was generally higher with RGB baseline.](https://www-cdn.anthropic.com/images/4zrzovbb/website/5773bcff06d744fa7cadde3e2cd4b0ec798509b3-6000x2550.png)
 
 RGB baseline vs. asking a separate vision language model (VLM) for a text scene description.
 
@@ -244,23 +244,23 @@ We also tried the depth heatmap on the physical Go2. Using a computer-vision mod
 
 Reasoning had little effect on most of our results, with many differences falling within standard error.
 
-![Bar chart showing the effect of reasoning on classic code control for various AI models when performing two tasks: pendulum code controller and hopper code controller. The two reasoning modes—baseline vs. high—show similar results.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2a5f5b74f10cf7ec6ecfd4d5700e64672b453c45-8450x3639.png&w=3840&q=75)
+![Bar chart showing the effect of reasoning on classic code control for various AI models when performing two tasks: pendulum code controller and hopper code controller. The two reasoning modes—baseline vs. high—show similar results.](https://www-cdn.anthropic.com/images/4zrzovbb/website/2a5f5b74f10cf7ec6ecfd4d5700e64672b453c45-8450x3639.png)
 
 Effect of reasoning on classic-control tasks.
 
 On the classic control tasks, newer models regressed when given a higher reasoning budget. This could be due to overengineering what are relatively simple experiments. For the older models, it didn’t seem to make a big difference.
 
-![Two bar charts showing the effect of reasoning on locomotion using code control for various AI models. ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Feb283889a737e2c4115df62facffcf82d0149794-6000x2900.png&w=3840&q=75)
+![Two bar charts showing the effect of reasoning on locomotion using code control for various AI models. ](https://www-cdn.anthropic.com/images/4zrzovbb/website/eb283889a737e2c4115df62facffcf82d0149794-6000x2900.png)
 
 Effect of reasoning on locomotion.
 
 GPT-5.4, but no other model, benefited significantly from additional test-time computation during the locomotion tests. For most other models, we theorize the planning benefit that extra reasoning provides seems to also get in the way of taking nimble, reactive action.
 
-![Three bar charts showing the effect of reasoning on VLA-familiar tasks for various models.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8facf609f81803b818fae588d26022d00210905f-8000x3900.png&w=3840&q=75)
+![Three bar charts showing the effect of reasoning on VLA-familiar tasks for various models.](https://www-cdn.anthropic.com/images/4zrzovbb/website/8facf609f81803b818fae588d26022d00210905f-8000x3900.png)
 
 Effect of reasoning on direct manipulation.
 
-![Three bar charts showing the effect of reasoning on VLA-familiar tasks with VLA and LLM supervision for various AI models.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F98e91d4e6bdc21191c92ed493235bb8f91f20315-8000x3900.png&w=3840&q=75)
+![Three bar charts showing the effect of reasoning on VLA-familiar tasks with VLA and LLM supervision for various AI models.](https://www-cdn.anthropic.com/images/4zrzovbb/website/98e91d4e6bdc21191c92ed493235bb8f91f20315-8000x3900.png)
 
 Effect of reasoning on VLA-supervised manipulation.
 
@@ -270,7 +270,7 @@ On high-level locomotion, reasoning budget matters very little for the Opus gene
 
 We do not see strong evidence that reasoning changes how models use perceptual aids. More work is needed to understand why extra reasoning helps some models and whether it unlocks abilities that are already latent.
 
-![Four bar charts showing how different reasoning levels and a perceptual aid affect various AI models' performance on tasks. The models shown are Opus 4.6, Opus 4.7, Mythos Preview, and Sonnet 4.6.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F235fbbe717d3a81a05cf26b0e1f34e60a772936c-6953x2391.png&w=3840&q=75)
+![Four bar charts showing how different reasoning levels and a perceptual aid affect various AI models' performance on tasks. The models shown are Opus 4.6, Opus 4.7, Mythos Preview, and Sonnet 4.6.](https://www-cdn.anthropic.com/images/4zrzovbb/website/235fbbe717d3a81a05cf26b0e1f34e60a772936c-6953x2391.png)
 
 Aid uplift by model—does reasoning change which aids help?
 
@@ -282,7 +282,7 @@ Yes—but mostly over short horizons.
 
 While it is well-known that language models perform better under few-shot settings, this does not mean that they can learn from long-context robotic embodiment settings, which can span hundreds of images and hundreds of thousands of tokens.
 
-![Three charts showing performance ranges, from average first attempt to average best attempt, for various AI models on three tasks: pendulum (direct), pendulum (code), and TwinFlipper (code).](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc56553c8bf4a12ea4838deee45086e66131d0ba7-7000x2900.png&w=3840&q=75)
+![Three charts showing performance ranges, from average first attempt to average best attempt, for various AI models on three tasks: pendulum (direct), pendulum (code), and TwinFlipper (code).](https://www-cdn.anthropic.com/images/4zrzovbb/website/c56553c8bf4a12ea4838deee45086e66131d0ba7-7000x2900.png)
 
 Generational gains on classic control come from retries, not first attempts.
 
@@ -294,7 +294,7 @@ We conduct a test to learn whether models can build up a richer, longer-range un
 
 In these truncation runs we always retain the first 10 turns plus the most recent N turns. Dropping the first turn caused models to forget basic conventions and loop, so we keep it in all conditions.
 
-![Three bar charts showing various models' performance on LIBERO-40 under three context truncation conditions: full context, keep first 10 + last 12, and keep first 10 + last 6.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7a4cf5c2c251820944b6a7d20e75588bdadf99aa-6750x2400.png&w=3840&q=75)
+![Three bar charts showing various models' performance on LIBERO-40 under three context truncation conditions: full context, keep first 10 + last 12, and keep first 10 + last 6.](https://www-cdn.anthropic.com/images/4zrzovbb/website/7a4cf5c2c251820944b6a7d20e75588bdadf99aa-6750x2400.png)
 
 LIBERO-40 success under context truncation.
 
@@ -308,7 +308,7 @@ When we give the models a few practice runs on the same course, performance impr
 
 On harder, longer courses, practice does not help. On those trials, neither Mythos Preview nor Opus 4.7 completes a single trial even with twenty practice runs. The models are learning a specific sequence and are not yet general planners.
 
-![Two line graphs showing various AI models' performance on practice runs on one_shot course. The models show varied performance on the L-hallway (easy) course; all models failed on the ultimate (hard) course.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9494d0b620e660f01b4160cbd2c47c2acdf0a8e6-6000x2300.png&w=3840&q=75)
+![Two line graphs showing various AI models' performance on practice runs on one_shot course. The models show varied performance on the L-hallway (easy) course; all models failed on the ultimate (hard) course.](https://www-cdn.anthropic.com/images/4zrzovbb/website/9494d0b620e660f01b4160cbd2c47c2acdf0a8e6-6000x2300.png)
 
 Practice runs on oneshot\_course: easy course (left) vs. hard (right).
 
@@ -499,17 +499,19 @@ All scripts disabled legacy Claude model remapping, loaded the project virtual e
 
 The code, once released, will be in `github.com/safety-research/embody`, the public mirror of the repository. The command for each evaluation cell is listed in `EXPERIMENTS.md`, and scoring is documented in `METRICS.md`.
 
+### Project Pilot: Can AI control a drone?
+
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
+
+[Read more](https://www.anthropic.com/research/project-pilot)
+
 ### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-[Read more](/research/how-canada-uses-claude)
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
 ### Claude’s values across models and languages
 
-[Read more](/research/claude-values-models-languages)
-
-### An off switch for dual-use knowledge in AI models
-
-[Read more](/research/off-switch-dual-use)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)
 
 ## Subscribe to the Frontier Red Team newsletter
 

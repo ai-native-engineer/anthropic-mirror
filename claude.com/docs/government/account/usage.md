@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/government/account/usage -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this is for:** Anyone with a Claude for Government account.
 
 Use this page to see how much of your Claude allowance you have used and when it refreshes.
@@ -50,5 +58,3 @@ Separately from changing your tier, an administrator can also reset your usage w
 This message replaces the whole page and only appears when you do not have a seat. If you can see the progress bars, this does not apply to you.
 
 You do not have a seat yet, so there is no allowance to show and you cannot send messages to Claude. Ask your organization owner to assign you one. Once they do, this page will show your limits straight away without you needing to sign out and back in.
-
-[Account](/docs/government/account/profile)[Sessions](/docs/government/account/sessions)

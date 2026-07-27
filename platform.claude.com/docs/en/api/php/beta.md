@@ -58,11 +58,19 @@
 
   - `"cache-diagnosis-2026-04-07"`
 
+  - `"dreaming-2026-04-21"`
+
   - `"thinking-token-count-2026-05-13"`
 
   - `"server-side-fallback-2026-06-01"`
 
+  - `"server-side-fallback-2026-07-01"`
+
   - `"fallback-credit-2026-06-01"`
+
+  - `"fallback-credit-2026-07-01"`
+
+  - `"agent-memory-2026-07-22"`
 
 ### Beta API Error
 
@@ -692,7 +700,7 @@ var_dump($betaModelInfo);
 
 ## Create a Message
 
-`$client->beta->messages->create(int maxTokens, list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?Container container, ?BetaContextManagementConfig contextManagement, ?BetaDiagnosticsParam diagnostics, ?string fallbackCreditToken, ?list<BetaFallbackParam> fallbacks, ?string inferenceGeo, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaMetadata metadata, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?ServiceTier serviceTier, ?Speed speed, ?list<string> stopSequences, ?System system, ?float temperature, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<BetaToolUnion> tools, ?int topK, ?float topP, ?string userProfileID, ?list<AnthropicBeta> betas): BetaMessage`
+`$client->beta->messages->create(int maxTokens, list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?Container container, ?BetaContextManagementConfig contextManagement, ?BetaDiagnosticsParam diagnostics, ?FallbackCreditToken fallbackCreditToken, ?BetaFallbacksParam fallbacks, ?string inferenceGeo, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaMetadata metadata, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?ServiceTier serviceTier, ?Speed speed, ?list<string> stopSequences, ?System system, ?float temperature, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<BetaToolUnion> tools, ?int topK, ?float topP, ?list<AnthropicBeta> betas, ?string userProfileID): BetaMessage`
 
 **post** `/v1/messages`
 
@@ -700,7 +708,7 @@ Send a structured list of input messages with text and/or image content, and the
 
 The Messages API can be used for either single queries or stateless multi-turn conversations.
 
-Learn more about the Messages API in our [user guide](https://docs.claude.com/en/docs/initial-setup)
+Learn more about the Messages API in our [user guide](https://platform.claude.com/docs/en/get-started)
 
 ### Parameters
 
@@ -710,9 +718,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Note that our models may stop _before_ reaching this maximum. This parameter only specifies the absolute maximum number of tokens to generate.
 
-  Set to `0` to populate the [prompt cache](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
+  Set to `0` to populate the [prompt cache](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
 
-  Different models have different maximum values for this parameter.  See [models](https://docs.claude.com/en/docs/models-overview) for details.
+  Different models have different maximum values for this parameter.  See [models](https://platform.claude.com/docs/en/about-claude/models/overview) for details.
 
 - `messages: list<BetaMessageParam>`
 
@@ -759,9 +767,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
   ```
 
-  See [input examples](https://docs.claude.com/en/api/messages-examples).
+  See [input examples](https://platform.claude.com/docs/en/build-with-claude/working-with-messages).
 
-  Note that if you want to include a [system prompt](https://docs.claude.com/en/docs/system-prompts), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
+  Note that if you want to include a [system prompt](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
 
   There is a limit of 100,000 messages in a single request.
 
@@ -790,7 +798,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   Request-level diagnostics. Currently carries the previous response
   id for prompt-cache divergence reporting.
 
-- `fallbackCreditToken?:optional string`
+- `fallbackCreditToken?:optional FallbackCreditToken`
 
   The `fallback_credit_token` from a prior refusal's `stop_details`.
 
@@ -813,9 +821,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   When the appended-assistant form is used on a model that otherwise disallows
   assistant-turn prefill, this token also authorizes that one prefill.
 
-- `fallbacks?:optional list<BetaFallbackParam>`
+- `fallbacks?:optional BetaFallbacksParam`
 
-  Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on.
+  Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on. The string "default" requests the requested model's server-defined default fallback configuration.
 
 - `inferenceGeo?:optional string`
 
@@ -843,11 +851,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Determines whether to use priority capacity (if available) or standard capacity for this request.
 
-  Anthropic offers different levels of service for your API requests. See [service-tiers](https://docs.claude.com/en/api/service-tiers) for details.
+  Anthropic offers different levels of service for your API requests. See [service-tiers](https://platform.claude.com/docs/en/api/service-tiers) for details.
 
 - `speed?:optional Speed`
 
-  The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
+  Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
 - `stopSequences?:optional list<string>`
 
@@ -861,13 +869,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Whether to incrementally stream the response using server-sent events.
 
-  See [streaming](https://docs.claude.com/en/api/messages-streaming) for details.
+  See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
 
 - `system?:optional System`
 
   System prompt.
 
-  A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://docs.claude.com/en/docs/system-prompts).
+  A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).
 
 - `temperature?:optional float`
 
@@ -883,7 +891,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
-  See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+  See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
 - `toolChoice?:optional BetaToolChoice`
 
@@ -895,7 +903,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   If you include `tools` in your API request, the model may return `tool_use` content blocks that represent the model's use of those tools. You can then run those tools using the tool input generated by the model and then optionally return results back to the model using `tool_result` content blocks.
 
-  There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
+  There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool)).
 
   Each tool definition includes:
 
@@ -951,7 +959,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
 
-  See our [guide](https://docs.claude.com/en/docs/tool-use) for more details.
+  See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
 - `topK?:optional int`
 
@@ -969,13 +977,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Recommended for advanced use cases only.
 
-- `userProfileID?:optional string`
-
-  The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization.
-
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
+
+- `userProfileID?:optional string`
+
+  The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
 ### Returns
 
@@ -1059,6 +1067,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     * `"tool_use"`: the model invoked one or more tools
     * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
     * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+    * `"model_context_window_exceeded"`: we exceeded the model's context window
 
     In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -1120,21 +1129,7 @@ $betaMessage = $client->beta->messages->create(
   ],
   diagnostics: ['previousMessageID' => 'previous_message_id'],
   fallbackCreditToken: 'x',
-  fallbacks: [
-    [
-      'model' => 'claude-fable-5',
-      'maxTokens' => 0,
-      'outputConfig' => [
-        'effort' => 'low',
-        'format' => ['schema' => ['foo' => 'bar'], 'type' => 'json_schema'],
-        'taskBudget' => ['total' => 1024, 'type' => 'tokens', 'remaining' => 0],
-      ],
-      'speed' => 'standard',
-      'thinking' => [
-        'budgetTokens' => 1024, 'type' => 'enabled', 'display' => 'summarized'
-      ],
-    ],
-  ],
+  fallbacks: 'default',
   inferenceGeo: 'inference_geo',
   mcpServers: [
     [
@@ -1162,7 +1157,7 @@ $betaMessage = $client->beta->messages->create(
       'cacheControl' => ['type' => 'ephemeral', 'ttl' => '5m'],
       'citations' => [
         [
-          'citedText' => 'cited_text',
+          'citedText' => 'The grass is green. The sky is blue.',
           'documentIndex' => 0,
           'documentTitle' => 'x',
           'endCharIndex' => 0,
@@ -1195,8 +1190,8 @@ $betaMessage = $client->beta->messages->create(
   ],
   topK: 5,
   topP: 0.7,
-  userProfileID: 'user_profile_id',
   betas: ['message-batches-2024-09-24'],
+  userProfileID: 'anthropic-user-profile-id',
 );
 
 var_dump($betaMessage);
@@ -1208,7 +1203,7 @@ var_dump($betaMessage);
 {
   "id": "msg_013Zva2CMHLNnXjNJJKqJ2EF",
   "container": {
-    "id": "id",
+    "id": "container_011CpZohnwH4vuy7gazohgSP",
     "expires_at": "2019-12-27T18:11:19.117Z",
     "skills": [
       {
@@ -1222,11 +1217,11 @@ var_dump($betaMessage);
     {
       "citations": [
         {
-          "cited_text": "cited_text",
+          "cited_text": "The grass is green. The sky is blue.",
           "document_index": 0,
-          "document_title": "document_title",
+          "document_title": "My Document",
           "end_char_index": 0,
-          "file_id": "file_id",
+          "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
           "start_char_index": 0,
           "type": "char_location"
         }
@@ -1254,10 +1249,10 @@ var_dump($betaMessage);
   "role": "assistant",
   "stop_details": {
     "category": "cyber",
-    "explanation": "explanation",
-    "fallback_credit_token": "fallback_credit_token",
+    "explanation": "This request was declined because it conflicts with Anthropic's Usage Policy.",
+    "fallback_credit_token": "QW50aHJvcGljL0NsYXVkZQ==",
     "fallback_has_prefill_claim": true,
-    "recommended_model": "recommended_model",
+    "recommended_model": "claude-sonnet-4-6",
     "type": "refusal"
   },
   "stop_reason": "end_turn",
@@ -1270,7 +1265,12 @@ var_dump($betaMessage);
     },
     "cache_creation_input_tokens": 2051,
     "cache_read_input_tokens": 2051,
-    "inference_geo": "inference_geo",
+    "fallback_credit": {
+      "status": {
+        "type": "redeemed"
+      }
+    },
+    "inference_geo": "global",
     "input_tokens": 2095,
     "iterations": [
       {
@@ -1281,7 +1281,7 @@ var_dump($betaMessage);
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-fable-5",
+        "model": "claude-sonnet-5",
         "output_tokens": 0,
         "type": "message"
       }
@@ -1302,7 +1302,7 @@ var_dump($betaMessage);
 
 ## Count tokens in a Message
 
-`$client->beta->messages->countTokens(list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?BetaContextManagementConfig contextManagement, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?Speed speed, ?System system, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<Tool> tools, ?list<AnthropicBeta> betas): BetaMessageTokensCount`
+`$client->beta->messages->countTokens(list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?BetaContextManagementConfig contextManagement, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?Speed speed, ?System system, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<Tool> tools, ?list<AnthropicBeta> betas, ?string userProfileID): BetaMessageTokensCount`
 
 **post** `/v1/messages/count_tokens`
 
@@ -1310,7 +1310,7 @@ Count the number of tokens in a Message.
 
 The Token Count API can be used to count the number of tokens in a Message, including tools, images, and documents, without creating it.
 
-Learn more about token counting in our [user guide](https://docs.claude.com/en/docs/build-with-claude/token-counting)
+Learn more about token counting in our [user guide](https://platform.claude.com/docs/en/build-with-claude/token-counting)
 
 ### Parameters
 
@@ -1359,9 +1359,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
   {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
   ```
 
-  See [input examples](https://docs.claude.com/en/api/messages-examples).
+  See [input examples](https://platform.claude.com/docs/en/build-with-claude/working-with-messages).
 
-  Note that if you want to include a [system prompt](https://docs.claude.com/en/docs/system-prompts), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
+  Note that if you want to include a [system prompt](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
 
   There is a limit of 100,000 messages in a single request.
 
@@ -1397,13 +1397,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
 - `speed?:optional Speed`
 
-  The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
+  Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
 - `system?:optional System`
 
   System prompt.
 
-  A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://docs.claude.com/en/docs/system-prompts).
+  A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).
 
 - `thinking?:optional BetaThinkingConfigParam`
 
@@ -1411,7 +1411,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
-  See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+  See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
 - `toolChoice?:optional BetaToolChoice`
 
@@ -1423,7 +1423,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   If you include `tools` in your API request, the model may return `tool_use` content blocks that represent the model's use of those tools. You can then run those tools using the tool input generated by the model and then optionally return results back to the model using `tool_result` content blocks.
 
-  There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
+  There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool)).
 
   Each tool definition includes:
 
@@ -1479,11 +1479,15 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
 
-  See our [guide](https://docs.claude.com/en/docs/tool-use) for more details.
+  See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
+
+- `userProfileID?:optional string`
+
+  The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
 ### Returns
 
@@ -1545,7 +1549,7 @@ $betaMessageTokensCount = $client->beta->messages->countTokens(
       'cacheControl' => ['type' => 'ephemeral', 'ttl' => '5m'],
       'citations' => [
         [
-          'citedText' => 'cited_text',
+          'citedText' => 'The grass is green. The sky is blue.',
           'documentIndex' => 0,
           'documentTitle' => 'x',
           'endCharIndex' => 0,
@@ -1576,6 +1580,7 @@ $betaMessageTokensCount = $client->beta->messages->countTokens(
     ],
   ],
   betas: ['message-batches-2024-09-24'],
+  userProfileID: 'anthropic-user-profile-id',
 );
 
 var_dump($betaMessageTokensCount);
@@ -1885,7 +1890,7 @@ var_dump($betaMessageTokensCount);
     - `5m`: 5 minutes
     - `1h`: 1 hour
 
-    Defaults to `5m`.
+    Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
 ### Beta Cache Creation
 
@@ -3123,11 +3128,41 @@ var_dump($betaMessageTokensCount);
 
   - `BetaMidConversationSystemBlockParam`
 
-    - `list<BetaTextBlockParam> content`
+    - `list<Content> content`
 
       System instruction text blocks.
 
     - `"mid_conv_system" type`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+  - `BetaRequestToolAdditionBlock`
+
+    - `Tool tool`
+
+      Reference to a single tool the caller declared directly in
+      `tools[]`. Does not accept the composed `{server}_{name}` form the
+      server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+      `mcp_toolset_reference` for those.
+
+    - `"tool_addition" type`
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+  - `BetaRequestToolRemovalBlock`
+
+    - `Tool tool`
+
+      Reference to a single tool the caller declared directly in
+      `tools[]`. Does not accept the composed `{server}_{name}` form the
+      server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+      `mcp_toolset_reference` for those.
+
+    - `"tool_removal" type`
 
     - `?BetaCacheControlEphemeral cacheControl`
 
@@ -3309,6 +3344,61 @@ var_dump($betaMessageTokensCount);
 
     The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
 
+### Beta Fallback Credit Not Applied
+
+- `BetaFallbackCreditNotApplied`
+
+  - `Reason reason`
+
+    Why the reprice was not applied.
+
+    A closed enum; additions to the redemption-check vocabulary arrive as
+    deliberate schema updates.
+
+  - `"not_applied" type`
+
+  - `?list<string> removeToRedeem`
+
+    Request fields to remove before retrying, so the retry can redeem this
+    token.
+
+    Present exactly when `reason` is `variant_fields_present` — never null,
+    never an empty array; absent otherwise. Fields are named only from your own request, and only after
+    the sealed variant hash matched. A served best-effort retry has already
+    been billed at normal price; nothing redeems retroactively, but a corrected
+    re-send inside the token's five-minute window can still redeem.
+
+### Beta Fallback Credit Redeemed
+
+- `BetaFallbackCreditRedeemed`
+
+  - `"redeemed" type`
+
+### Beta Fallback Credit Token Param
+
+- `BetaFallbackCreditTokenParam`
+
+  - `string token`
+
+    The opaque `fallback_credit_token` from a prior refusal's `stop_details` — the same string the bare-string form carries.
+
+  - `?Mode mode`
+
+    How a failing token affects the retry. `strict` (the default, and the bare-string behavior): a failing redemption is a 400 and the retry is not served. `best_effort`: the retry is served either way — a token-layer failure no longer rejects the request; the retry proceeds at normal price and the outcome is reported on the response's `usage.fallback_credit`. Two failures stay hard in both modes: a malformed token, and combining `fallback_credit_token` with `fallbacks`.
+
+### Beta Fallback Credit Usage
+
+- `BetaFallbackCreditUsage`
+
+  - `Status status`
+
+    Whether the fallback-credit reprice was applied to this response's billing.
+
+    A union discriminated on `type`. `redeemed`: the retry is billed as if
+    the conversation had been on the retry model all along — including when the
+    resulting shift is zero because there was nothing to move. `not_applied`:
+    no reprice was applied; the arm's `reason` says why.
+
 ### Beta Fallback Info
 
 - `BetaFallbackInfo`
@@ -3379,6 +3469,8 @@ var_dump($betaMessageTokensCount);
 
   - `?Speed speed`
 
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
   - `?Thinking thinking`
 
 ### Beta Fallback Refusal Trigger
@@ -3390,6 +3482,32 @@ var_dump($betaMessageTokensCount);
     The policy category that triggered a refusal.
 
   - `"refusal" type`
+
+### Beta Fallbacks Param
+
+- `BetaFallbacksParam`
+
+  - `list<BetaFallbackParam>`
+
+    - `Model model`
+
+      The model that will complete your prompt.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `?int maxTokens`
+
+    - `?BetaOutputConfig outputConfig`
+
+    - `?Speed speed`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+    - `?Thinking thinking`
+
+  - `"default"`
+
+    - `"default"`
 
 ### Beta File Document Source
 
@@ -3969,6 +4087,7 @@ var_dump($betaMessageTokensCount);
     * `"tool_use"`: the model invoked one or more tools
     * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
     * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+    * `"model_context_window_exceeded"`: we exceeded the model's context window
 
     In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -4007,6 +4126,10 @@ var_dump($betaMessageTokensCount);
   - `?int cacheReadInputTokens`
 
     The cumulative number of input tokens read from the cache.
+
+  - `?BetaFallbackCreditUsage fallbackCredit`
+
+    Outcome of the `fallback_credit_token` presented on this request.
 
   - `?int inputTokens`
 
@@ -4107,7 +4230,7 @@ var_dump($betaMessageTokensCount);
 
 - `BetaMidConversationSystemBlockParam`
 
-  - `list<BetaTextBlockParam> content`
+  - `list<Content> content`
 
     System instruction text blocks.
 
@@ -4470,6 +4593,40 @@ var_dump($betaMessageTokensCount);
   - `?Content content`
 
   - `?bool isError`
+
+### Beta Request Tool Addition Block
+
+- `BetaRequestToolAdditionBlock`
+
+  - `Tool tool`
+
+    Reference to a single tool the caller declared directly in
+    `tools[]`. Does not accept the composed `{server}_{name}` form the
+    server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+    `mcp_toolset_reference` for those.
+
+  - `"tool_addition" type`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+### Beta Request Tool Removal Block
+
+- `BetaRequestToolRemovalBlock`
+
+  - `Tool tool`
+
+    Reference to a single tool the caller declared directly in
+    `tools[]`. Does not accept the composed `{server}_{name}` form the
+    server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+    `mcp_toolset_reference` for those.
+
+  - `"tool_removal" type`
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
 
 ### Beta Search Result Block Param
 
@@ -5021,7 +5178,7 @@ var_dump($betaMessageTokensCount);
 
     Must be ≥1024 and less than `max_tokens`.
 
-    See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+    See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
   - `"enabled" type`
 
@@ -5041,7 +5198,7 @@ var_dump($betaMessageTokensCount);
 
       Must be ≥1024 and less than `max_tokens`.
 
-      See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+      See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
     - `"enabled" type`
 
@@ -5196,6 +5353,32 @@ var_dump($betaMessageTokensCount);
   - `?bool strict`
 
     When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Change MCP Tool Reference
+
+- `BetaToolChangeMCPToolReference`
+
+  - `string name`
+
+  - `string serverName`
+
+  - `"mcp_tool_reference" type`
+
+### Beta Tool Change MCP Toolset Reference
+
+- `BetaToolChangeMCPToolsetReference`
+
+  - `string serverName`
+
+  - `"mcp_toolset_reference" type`
+
+### Beta Tool Change Tool Reference
+
+- `BetaToolChangeToolReference`
+
+  - `string name`
+
+  - `"tool_reference" type`
 
 ### Beta Tool Choice
 
@@ -6335,6 +6518,102 @@ var_dump($betaMessageTokensCount);
 
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
+  - `BetaWebSearchTool20260318`
+
+    - `"web_search" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `"web_search_20260318" type`
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?list<string> allowedDomains`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `?list<string> blockedDomains`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?int maxUses`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `?ResponseInclusion responseInclusion`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `?BetaUserLocation userLocation`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+  - `BetaWebFetchTool20260318`
+
+    - `"web_fetch" name`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `"web_fetch_20260318" type`
+
+    - `?list<AllowedCaller> allowedCallers`
+
+    - `?list<string> allowedDomains`
+
+      List of domains to allow fetching from
+
+    - `?list<string> blockedDomains`
+
+      List of domains to block fetching from
+
+    - `?BetaCacheControlEphemeral cacheControl`
+
+      Create a cache control breakpoint at this content block.
+
+    - `?BetaCitationsConfigParam citations`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `?bool deferLoading`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `?int maxContentTokens`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    - `?int maxUses`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `?ResponseInclusion responseInclusion`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+    - `?bool strict`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `?bool useCache`
+
+      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
   - `BetaAdvisorTool20260301`
 
     - `Model model`
@@ -6529,6 +6808,10 @@ var_dump($betaMessageTokensCount);
 
     The number of input tokens read from the cache.
 
+  - `?BetaFallbackCreditUsage fallbackCredit`
+
+    Outcome of the `fallback_credit_token` presented on this request.
+
   - `?string inferenceGeo`
 
     The geographic region where inference was performed for this request.
@@ -6570,7 +6853,7 @@ var_dump($betaMessageTokensCount);
 
   - `?Speed speed`
 
-    The inference speed mode used for this request.
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
 ### Beta User Location
 
@@ -6768,6 +7051,60 @@ var_dump($betaMessageTokensCount);
 
     Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
+### Beta Web Fetch Tool 20260318
+
+- `BetaWebFetchTool20260318`
+
+  - `"web_fetch" name`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `"web_fetch_20260318" type`
+
+  - `?list<AllowedCaller> allowedCallers`
+
+  - `?list<string> allowedDomains`
+
+    List of domains to allow fetching from
+
+  - `?list<string> blockedDomains`
+
+    List of domains to block fetching from
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+  - `?BetaCitationsConfigParam citations`
+
+    Citations configuration for fetched documents. Citations are disabled by default.
+
+  - `?bool deferLoading`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `?int maxContentTokens`
+
+    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+  - `?int maxUses`
+
+    Maximum number of times the tool can be used in the API request.
+
+  - `?ResponseInclusion responseInclusion`
+
+    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+  - `?bool strict`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `?bool useCache`
+
+    Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
 ### Beta Web Fetch Tool Result Block
 
 - `BetaWebFetchToolResultBlock`
@@ -6950,6 +7287,52 @@ var_dump($betaMessageTokensCount);
 
     Parameters for the user's location. Used to provide more relevant search results.
 
+### Beta Web Search Tool 20260318
+
+- `BetaWebSearchTool20260318`
+
+  - `"web_search" name`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `"web_search_20260318" type`
+
+  - `?list<AllowedCaller> allowedCallers`
+
+  - `?list<string> allowedDomains`
+
+    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+  - `?list<string> blockedDomains`
+
+    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+  - `?BetaCacheControlEphemeral cacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+  - `?bool deferLoading`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `?int maxUses`
+
+    Maximum number of times the tool can be used in the API request.
+
+  - `?ResponseInclusion responseInclusion`
+
+    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+  - `?bool strict`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `?BetaUserLocation userLocation`
+
+    Parameters for the user's location. Used to provide more relevant search results.
+
 ### Beta Web Search Tool Request Error
 
 - `BetaWebSearchToolRequestError`
@@ -7062,7 +7445,7 @@ var_dump($betaMessageTokensCount);
 
 ## Create a Message Batch
 
-`$client->beta->messages->batches->create(list<Request> requests, ?list<AnthropicBeta> betas): MessageBatch`
+`$client->beta->messages->batches->create(list<Request> requests, ?list<AnthropicBeta> betas, ?string userProfileID): MessageBatch`
 
 **post** `/v1/messages/batches`
 
@@ -7070,7 +7453,7 @@ Send a batch of Message creation requests.
 
 The Message Batches API can be used to process multiple Messages API requests at once. Once a Message Batch is created, it begins processing immediately. Batches can take up to 24 hours to complete.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -7081,6 +7464,10 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
+
+- `userProfileID?:optional string`
+
+  The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
 ### Returns
 
@@ -7174,27 +7561,7 @@ $betaMessageBatch = $client->beta->messages->batches->create(
         ],
         'diagnostics' => ['previousMessageID' => 'previous_message_id'],
         'fallbackCreditToken' => 'x',
-        'fallbacks' => [
-          [
-            'model' => 'claude-fable-5',
-            'maxTokens' => 0,
-            'outputConfig' => [
-              'effort' => 'low',
-              'format' => [
-                'schema' => ['foo' => 'bar'], 'type' => 'json_schema'
-              ],
-              'taskBudget' => [
-                'total' => 1024, 'type' => 'tokens', 'remaining' => 0
-              ],
-            ],
-            'speed' => 'standard',
-            'thinking' => [
-              'budgetTokens' => 1024,
-              'type' => 'enabled',
-              'display' => 'summarized',
-            ],
-          ],
-        ],
+        'fallbacks' => 'default',
         'inferenceGeo' => 'inference_geo',
         'mcpServers' => [
           [
@@ -7221,7 +7588,7 @@ $betaMessageBatch = $client->beta->messages->batches->create(
         'serviceTier' => 'auto',
         'speed' => 'standard',
         'stopSequences' => ['string'],
-        'stream' => true,
+        'stream' => false,
         'system' => [
           [
             'text' => 'Today\'s date is 2024-06-01.',
@@ -7229,7 +7596,7 @@ $betaMessageBatch = $client->beta->messages->batches->create(
             'cacheControl' => ['type' => 'ephemeral', 'ttl' => '5m'],
             'citations' => [
               [
-                'citedText' => 'cited_text',
+                'citedText' => 'The grass is green. The sky is blue.',
                 'documentIndex' => 0,
                 'documentTitle' => 'x',
                 'endCharIndex' => 0,
@@ -7262,11 +7629,11 @@ $betaMessageBatch = $client->beta->messages->batches->create(
         ],
         'topK' => 5,
         'topP' => 0.7,
-        'userProfileID' => 'user_profile_id',
       ],
     ],
   ],
   betas: ['message-batches-2024-09-24'],
+  userProfileID: 'anthropic-user-profile-id',
 );
 
 var_dump($betaMessageBatch);
@@ -7303,7 +7670,7 @@ var_dump($betaMessageBatch);
 
 This endpoint is idempotent and can be used to poll for Message Batch completion. To access the results of a Message Batch, make a request to the `results_url` field in the response.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -7416,7 +7783,7 @@ var_dump($betaMessageBatch);
 
 List all Message Batches within a Workspace. Most recently created batches are returned first.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -7551,7 +7918,7 @@ Batches may be canceled any time before processing ends. Once cancellation is in
 
 The number of canceled requests is specified in `request_counts`. To determine which requests were canceled, check the individual results within the batch. Note that cancellation may not result in any canceled requests if they were non-interruptible.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -7666,7 +8033,7 @@ Delete a Message Batch.
 
 Message Batches can only be deleted once they've finished processing. If you'd like to delete an in-progress batch, you must first cancel it.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -7727,7 +8094,7 @@ Streams the results of a Message Batch as a `.jsonl` file.
 
 Each line in the file is a JSON object containing the result of a single request in the Message Batch. Results are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -8109,6 +8476,9 @@ var_dump($betaManagedAgentsAgent);
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
     "speed": "standard"
   },
   "multiagent": {
@@ -8284,6 +8654,9 @@ var_dump($page);
       },
       "model": {
         "id": "claude-sonnet-4-6",
+        "effort": {
+          "type": "low"
+        },
         "speed": "standard"
       },
       "multiagent": {
@@ -8443,6 +8816,9 @@ var_dump($betaManagedAgentsAgent);
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
     "speed": "standard"
   },
   "multiagent": {
@@ -8497,7 +8873,7 @@ var_dump($betaManagedAgentsAgent);
 
 ## Update Agent
 
-`$client->beta->agents->update(string agentID, int version, ?string description, ?list<BetaManagedAgentsURLMCPServerParams> mcpServers, ?array<string,string> metadata, ?Model model, ?BetaManagedAgentsMultiagentParams multiagent, ?string name, ?list<BetaManagedAgentsSkillParams> skills, ?string system, ?list<Tool> tools, ?list<AnthropicBeta> betas): BetaManagedAgentsAgent`
+`$client->beta->agents->update(string agentID, ?string description, ?list<BetaManagedAgentsURLMCPServerParams> mcpServers, ?array<string,string> metadata, ?Model model, ?BetaManagedAgentsMultiagentParams multiagent, ?string name, ?list<BetaManagedAgentsSkillParams> skills, ?string system, ?list<Tool> tools, ?int version, ?list<AnthropicBeta> betas): BetaManagedAgentsAgent`
 
 **post** `/v1/agents/{agent_id}`
 
@@ -8506,10 +8882,6 @@ Update Agent
 ### Parameters
 
 - `agentID: string`
-
-- `version: int`
-
-  The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. The request fails if this does not match the server's current version.
 
 - `description?:optional string`
 
@@ -8546,6 +8918,10 @@ Update Agent
 - `tools?:optional list<Tool>`
 
   Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 128 tools across all toolsets allowed.
+
+- `version?:optional int`
+
+  The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. Must be at least 1 if specified. When supplied, the request fails if it does not match the server's current version; omit to apply the update unconditionally.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -8608,8 +8984,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaManagedAgentsAgent = $client->beta->agents->update(
   'agent_011CZkYpogX7uDKUyvBTophP',
-  version: 1,
-  description: 'description',
+  description: 'updated',
   mcpServers: [
     [
       'name' => 'example-mcp',
@@ -8618,7 +8993,7 @@ $betaManagedAgentsAgent = $client->beta->agents->update(
     ],
   ],
   metadata: ['foo' => 'string'],
-  model: ['id' => 'claude-opus-4-6', 'speed' => 'standard'],
+  model: ['id' => 'claude-opus-4-8', 'effort' => 'low', 'speed' => 'standard'],
   multiagent: [
     'agents' => ['agent_011CZkYqphY8vELVzwCUpqiQ', ['type' => 'self']],
     'type' => 'coordinator',
@@ -8641,6 +9016,7 @@ $betaManagedAgentsAgent = $client->beta->agents->update(
       ],
     ],
   ],
+  version: 1,
   betas: ['message-batches-2024-09-24'],
 );
 
@@ -8667,6 +9043,9 @@ var_dump($betaManagedAgentsAgent);
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
     "speed": "standard"
   },
   "multiagent": {
@@ -8817,6 +9196,9 @@ var_dump($betaManagedAgentsAgent);
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
     "speed": "standard"
   },
   "multiagent": {
@@ -9189,7 +9571,7 @@ var_dump($betaManagedAgentsAgent);
 
   - `string description`
 
-    Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
+    Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
 
   - `BetaManagedAgentsCustomToolInputSchema inputSchema`
 
@@ -9198,6 +9580,36 @@ var_dump($betaManagedAgentsAgent);
   - `string name`
 
     Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
+
+  - `Type type`
+
+### Beta Managed Agents Effort High
+
+- `BetaManagedAgentsEffortHigh`
+
+  - `Type type`
+
+### Beta Managed Agents Effort Low
+
+- `BetaManagedAgentsEffortLow`
+
+  - `Type type`
+
+### Beta Managed Agents Effort Max
+
+- `BetaManagedAgentsEffortMax`
+
+  - `Type type`
+
+### Beta Managed Agents Effort Medium
+
+- `BetaManagedAgentsEffortMedium`
+
+  - `Type type`
+
+### Beta Managed Agents Effort Xhigh
+
+- `BetaManagedAgentsEffortXhigh`
 
   - `Type type`
 
@@ -9297,21 +9709,29 @@ var_dump($betaManagedAgentsAgent);
 
 - `BetaManagedAgentsModel`
 
+  - `"claude-sonnet-5"`
+
+    High-performance model for coding and agents
+
   - `"claude-fable-5"`
 
     Next generation of intelligence for the hardest knowledge work and coding problems
 
+  - `"claude-opus-5"`
+
+    Powerful intelligence for long-running agents and coding
+
   - `"claude-opus-4-8"`
 
-    Frontier intelligence for long-running agents and coding
+    Powerful intelligence for long-running agents and coding
 
   - `"claude-opus-4-7"`
 
-    Frontier intelligence for long-running agents and coding
+    Powerful intelligence for long-running agents and coding
 
   - `"claude-opus-4-6"`
 
-    Most intelligent model for building agents and coding
+    Powerful intelligence for long-running agents and coding
 
   - `"claude-sonnet-4-6"`
 
@@ -9327,11 +9747,11 @@ var_dump($betaManagedAgentsAgent);
 
   - `"claude-opus-4-5"`
 
-    Premium model combining maximum intelligence with practical performance
+    Powerful intelligence for long-running agents and coding
 
   - `"claude-opus-4-5-20251101"`
 
-    Premium model combining maximum intelligence with practical performance
+    Powerful intelligence for long-running agents and coding
 
   - `"claude-sonnet-4-5"`
 
@@ -9351,6 +9771,10 @@ var_dump($betaManagedAgentsAgent);
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+  - `?Effort effort`
+
+    How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
   - `?Speed speed`
 
     Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
@@ -9364,6 +9788,10 @@ var_dump($betaManagedAgentsAgent);
     The model that will power your agent.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+  - `?Effort effort`
+
+    How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
 
   - `?Speed speed`
 
@@ -9576,6 +10004,9 @@ var_dump($page);
       },
       "model": {
         "id": "claude-sonnet-4-6",
+        "effort": {
+          "type": "low"
+        },
         "speed": "standard"
       },
       "multiagent": {
@@ -10258,7 +10689,7 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     Environment identifier
 
-  - `"environment_deleted" type`
+  - `Type type`
 
     The type of response
 
@@ -10500,7 +10931,7 @@ var_dump($betaEnvironment);
 
     Environment identifier
 
-  - `"environment_deleted" type`
+  - `Type type`
 
     The type of response
 
@@ -10686,6 +11117,10 @@ Retrieve detailed information about a specific work item.
 
     User-provided metadata key-value pairs associated with this work item
 
+  - `?string secret`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
   - `?string startedAt`
 
     RFC 3339 timestamp when work execution started
@@ -10740,6 +11175,7 @@ var_dump($betaSelfHostedWork);
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -10810,6 +11246,10 @@ Long poll for work items in the queue.
 
     User-provided metadata key-value pairs associated with this work item
 
+  - `?string secret`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
   - `?string startedAt`
 
     RFC 3339 timestamp when work execution started
@@ -10866,6 +11306,7 @@ var_dump($betaSelfHostedWork);
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -10926,6 +11367,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     User-provided metadata key-value pairs associated with this work item
 
+  - `?string secret`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
   - `?string startedAt`
 
     RFC 3339 timestamp when work execution started
@@ -10980,6 +11425,7 @@ var_dump($betaSelfHostedWork);
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -11132,6 +11578,10 @@ Stop a work item, initiating graceful or forced shutdown.
 
     User-provided metadata key-value pairs associated with this work item
 
+  - `?string secret`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
   - `?string startedAt`
 
     RFC 3339 timestamp when work execution started
@@ -11187,6 +11637,7 @@ var_dump($betaSelfHostedWork);
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -11253,6 +11704,10 @@ List work items in an environment.
 
     User-provided metadata key-value pairs associated with this work item
 
+  - `?string secret`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
   - `?string startedAt`
 
     RFC 3339 timestamp when work execution started
@@ -11310,6 +11765,7 @@ var_dump($page);
       "metadata": {
         "foo": "string"
       },
+      "secret": "secret",
       "started_at": "started_at",
       "state": "queued",
       "stop_requested_at": "stop_requested_at",
@@ -11377,6 +11833,10 @@ Update work item metadata with merge semantics.
 
     User-provided metadata key-value pairs associated with this work item
 
+  - `?string secret`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
   - `?string startedAt`
 
     RFC 3339 timestamp when work execution started
@@ -11432,6 +11892,7 @@ var_dump($betaSelfHostedWork);
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -11541,6 +12002,10 @@ var_dump($betaSelfHostedWorkQueueStats);
   - `array<string,string> metadata`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `?string secret`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `?string startedAt`
 
@@ -11654,7 +12119,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 
 ## Create Session
 
-`$client->beta->sessions->create(Agent agent, string environmentID, ?array<string,string> metadata, ?list<Resource> resources, ?string title, ?list<string> vaultIDs, ?list<AnthropicBeta> betas): BetaManagedAgentsSession`
+`$client->beta->sessions->create(Agent agent, string environmentID, ?list<InitialEvent> initialEvents, ?array<string,string> metadata, ?list<Resource> resources, ?string title, ?list<string> vaultIDs, ?list<AnthropicBeta> betas): BetaManagedAgentsSession`
 
 **post** `/v1/sessions`
 
@@ -11669,6 +12134,10 @@ Create Session
 - `environmentID: string`
 
   ID of the `environment` defining the container configuration for this session.
+
+- `initialEvents?:optional list<InitialEvent>`
+
+  Initial events to send to the `session` at creation, processed in order. Supports `user.message` and `user.define_outcome` events. Maximum 50 events.
 
 - `metadata?:optional array<string,string>`
 
@@ -11758,6 +12227,12 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 $betaManagedAgentsSession = $client->beta->sessions->create(
   agent: 'agent_011CZkYpogX7uDKUyvBTophP',
   environmentID: 'env_011CZkZ9X2dpNyB7HsEFoRfW',
+  initialEvents: [
+    [
+      'content' => [['text' => 'Where is my order #1234?', 'type' => 'text']],
+      'type' => 'user.message',
+    ],
+  ],
   metadata: ['foo' => 'string'],
   resources: [
     [
@@ -11791,6 +12266,9 @@ var_dump($betaManagedAgentsSession);
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -11807,6 +12285,9 @@ var_dump($betaManagedAgentsSession);
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -11944,7 +12425,7 @@ var_dump($betaManagedAgentsSession);
 
 ## List Sessions
 
-`$client->beta->sessions->list(?string agentID, ?int agentVersion, ?\Datetime createdAtGt, ?\Datetime createdAtGte, ?\Datetime createdAtLt, ?\Datetime createdAtLte, ?string deploymentID, ?bool includeArchived, ?int limit, ?string memoryStoreID, ?Order order, ?string page, ?list<Status> statuses, ?list<AnthropicBeta> betas): PageCursor<BetaManagedAgentsSession>`
+`$client->beta->sessions->list(?string agentID, ?int agentVersion, ?\Datetime createdAtGt, ?\Datetime createdAtGte, ?\Datetime createdAtLt, ?\Datetime createdAtLte, ?string deploymentID, ?bool includeArchived, ?int limit, ?string memoryStoreID, ?Order order, ?string page, ?list<Status> statuses, ?list<AnthropicBeta> betas): BidirectionalPageCursor<BetaManagedAgentsSession>`
 
 **get** `/v1/sessions`
 
@@ -12112,6 +12593,9 @@ var_dump($page);
         ],
         "model": {
           "id": "claude-sonnet-4-6",
+          "effort": {
+            "type": "low"
+          },
           "speed": "standard"
         },
         "multiagent": {
@@ -12128,6 +12612,9 @@ var_dump($page);
               ],
               "model": {
                 "id": "claude-sonnet-4-6",
+                "effort": {
+                  "type": "low"
+                },
                 "speed": "standard"
               },
               "name": "Researcher",
@@ -12262,7 +12749,8 @@ var_dump($page);
       "deployment_id": "deployment_id"
     }
   ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo=",
+  "prev_page": "page_MjAyNS0wNS0xM1QwMDowMDowMFo="
 }
 ```
 
@@ -12371,6 +12859,9 @@ var_dump($betaManagedAgentsSession);
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -12387,6 +12878,9 @@ var_dump($betaManagedAgentsSession);
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -12671,6 +13165,9 @@ var_dump($betaManagedAgentsSession);
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -12687,6 +13184,9 @@ var_dump($betaManagedAgentsSession);
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -12976,6 +13476,9 @@ var_dump($betaManagedAgentsSession);
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -12992,6 +13495,9 @@ var_dump($betaManagedAgentsSession);
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -13129,6 +13635,16 @@ var_dump($betaManagedAgentsSession);
 
 ## Domain Types
 
+### Beta Managed Agents Agent Message Preview
+
+- `BetaManagedAgentsAgentMessagePreview`
+
+  - `string id`
+
+    The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+  - `Type type`
+
 ### Beta Managed Agents Agent Params
 
 - `BetaManagedAgentsAgentParams`
@@ -13142,6 +13658,50 @@ var_dump($betaManagedAgentsSession);
   - `?int version`
 
     The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+### Beta Managed Agents Agent Thinking Preview
+
+- `BetaManagedAgentsAgentThinkingPreview`
+
+  - `string id`
+
+    The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+  - `Type type`
+
+### Beta Managed Agents Agent With Overrides Params
+
+- `BetaManagedAgentsAgentWithOverridesParams`
+
+  - `string id`
+
+    The `agent` ID.
+
+  - `Type type`
+
+  - `?list<BetaManagedAgentsURLMCPServerParams> mcpServers`
+
+    Replacement MCP server list. Full replacement: the provided array becomes the MCP servers. Send an empty array to clear; omit to preserve the agent's servers.
+
+  - `?Model model`
+
+    Replacement model. Accepts the model string, e.g. `claude-opus-4-6`, or a `model_config` object. Omit to use the agent's model.
+
+  - `?list<BetaManagedAgentsSkillParams> skills`
+
+    Replacement skill list. Full replacement: the provided array becomes the skills. Send an empty array to clear; omit to preserve the agent's skills.
+
+  - `?string system`
+
+    Replacement system prompt. Up to 100,000 characters. Set to null to clear the agent's system prompt; omit to preserve it.
+
+  - `?list<Tool> tools`
+
+    Replacement tool list. Full replacement: the provided array becomes the tool configuration. Send an empty array to clear; omit to preserve the agent's tools.
+
+  - `?int version`
+
+    The specific `agent` version to use. Omit to use the latest version.
 
 ### Beta Managed Agents Branch Checkout
 
@@ -13182,6 +13742,42 @@ var_dump($betaManagedAgentsSession);
   - `string id`
 
   - `Type type`
+
+### Beta Managed Agents Delta Content
+
+- `BetaManagedAgentsDeltaContent`
+
+  - `ManagedAgentsTextBlock content`
+
+    Regular text content.
+
+  - `Type type`
+
+  - `?int index`
+
+    Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+### Beta Managed Agents Delta Event
+
+- `BetaManagedAgentsDeltaEvent`
+
+  - `BetaManagedAgentsDeltaContent delta`
+
+    One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+  - `string eventID`
+
+    The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+  - `Type type`
+
+### Beta Managed Agents Delta Type
+
+- `BetaManagedAgentsDeltaType`
+
+  - `"agent.message"`
+
+  - `"agent.thinking"`
 
 ### Beta Managed Agents File Resource Params
 
@@ -13475,6 +14071,36 @@ var_dump($betaManagedAgentsSession);
 
     Total output tokens generated across all turns.
 
+### Beta Managed Agents Start Event
+
+- `BetaManagedAgentsStartEvent`
+
+  - `BetaManagedAgentsStartEventPreview event`
+
+    The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+  - `Type type`
+
+### Beta Managed Agents Start Event Preview
+
+- `BetaManagedAgentsStartEventPreview`
+
+  - `BetaManagedAgentsAgentMessagePreview`
+
+    - `string id`
+
+      The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+    - `Type type`
+
+  - `BetaManagedAgentsAgentThinkingPreview`
+
+    - `string id`
+
+      The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+    - `Type type`
+
 ### Beta Managed Agents System Content Block
 
 - `BetaManagedAgentsSystemContentBlock`
@@ -13549,19 +14175,19 @@ List Events
 
 - `createdAtGt?:optional \Datetime`
 
-  Return events created after this time (exclusive).
+  Return events created after this time (exclusive). Compared against the event's `processed_at` value.
 
 - `createdAtGte?:optional \Datetime`
 
-  Return events created at or after this time (inclusive).
+  Return events created at or after this time (inclusive). Compared against the event's `processed_at` value.
 
 - `createdAtLt?:optional \Datetime`
 
-  Return events created before this time (exclusive).
+  Return events created before this time (exclusive). Compared against the event's `processed_at` value.
 
 - `createdAtLte?:optional \Datetime`
 
-  Return events created at or before this time (inclusive).
+  Return events created at or before this time (inclusive). Compared against the event's `processed_at` value.
 
 - `limit?:optional int`
 
@@ -13569,7 +14195,7 @@ List Events
 
 - `order?:optional Order`
 
-  Sort direction for results, ordered by created_at. Defaults to asc (chronological).
+  Sort direction for results, ordered by the event's `processed_at`. Defaults to asc (chronological).
 
 - `page?:optional string`
 
@@ -14417,7 +15043,7 @@ var_dump($betaManagedAgentsSendSessionEvents);
 
 ## Stream Events
 
-`$client->beta->sessions->events->stream(string sessionID, ?list<AnthropicBeta> betas): ManagedAgentsStreamSessionEvents`
+`$client->beta->sessions->events->stream(string sessionID, ?list<BetaManagedAgentsDeltaType> eventDeltas, ?list<AnthropicBeta> betas): ManagedAgentsStreamSessionEvents`
 
 **get** `/v1/sessions/{session_id}/events/stream`
 
@@ -14426,6 +15052,10 @@ Stream Events
 ### Parameters
 
 - `sessionID: string`
+
+- `eventDeltas?:optional list<BetaManagedAgentsDeltaType>`
+
+  When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -15119,6 +15749,26 @@ Stream Events
 
       The session's new title. Present only when the update changed it.
 
+  - `BetaManagedAgentsStartEvent`
+
+    - `BetaManagedAgentsStartEventPreview event`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+    - `Type type`
+
+  - `BetaManagedAgentsDeltaEvent`
+
+    - `BetaManagedAgentsDeltaContent delta`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+    - `string eventID`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `Type type`
+
   - `BetaManagedAgentsSystemMessageEvent`
 
     - `string id`
@@ -15149,7 +15799,9 @@ $betaManagedAgentsStreamSessionEvents = $client
   ->sessions
   ->events
   ->streamStream(
-  'sesn_011CZkZAtmR3yMPDzynEDxu7', betas: ['message-batches-2024-09-24']
+  'sesn_011CZkZAtmR3yMPDzynEDxu7',
+  eventDeltas: [BetaManagedAgentsDeltaType::AGENT_MESSAGE],
+  betas: ['message-batches-2024-09-24'],
 );
 
 var_dump($betaManagedAgentsStreamSessionEvents);
@@ -17561,6 +18213,26 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
       The session's new title. Present only when the update changed it.
 
+  - `BetaManagedAgentsStartEvent`
+
+    - `BetaManagedAgentsStartEventPreview event`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+    - `Type type`
+
+  - `BetaManagedAgentsDeltaEvent`
+
+    - `BetaManagedAgentsDeltaContent delta`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+    - `string eventID`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `Type type`
+
   - `BetaManagedAgentsSystemMessageEvent`
 
     - `string id`
@@ -18663,6 +19335,9 @@ var_dump($page);
         ],
         "model": {
           "id": "claude-sonnet-4-6",
+          "effort": {
+            "type": "low"
+          },
           "speed": "standard"
         },
         "name": "Researcher",
@@ -18823,6 +19498,9 @@ var_dump($betaManagedAgentsSessionThread);
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "name": "Researcher",
@@ -18980,6 +19658,9 @@ var_dump($betaManagedAgentsSessionThread);
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "name": "Researcher",
@@ -19822,6 +20503,26 @@ var_dump($betaManagedAgentsSessionThread);
 
       The session's new title. Present only when the update changed it.
 
+  - `BetaManagedAgentsStartEvent`
+
+    - `BetaManagedAgentsStartEventPreview event`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+    - `Type type`
+
+  - `BetaManagedAgentsDeltaEvent`
+
+    - `BetaManagedAgentsDeltaContent delta`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+    - `string eventID`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `Type type`
+
   - `BetaManagedAgentsSystemMessageEvent`
 
     - `string id`
@@ -20613,7 +21314,7 @@ var_dump($page);
 
 ## Stream Session Thread Events
 
-`$client->beta->sessions->threads->events->stream(string threadID, string sessionID, ?list<AnthropicBeta> betas): ManagedAgentsStreamSessionThreadEvents`
+`$client->beta->sessions->threads->events->stream(string threadID, string sessionID, ?list<BetaManagedAgentsDeltaType> eventDeltas, ?list<AnthropicBeta> betas): ManagedAgentsStreamSessionThreadEvents`
 
 **get** `/v1/sessions/{session_id}/threads/{thread_id}/stream`
 
@@ -20624,6 +21325,10 @@ Stream Session Thread Events
 - `sessionID: string`
 
 - `threadID: string`
+
+- `eventDeltas?:optional list<BetaManagedAgentsDeltaType>`
+
+  When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -21317,6 +22022,26 @@ Stream Session Thread Events
 
       The session's new title. Present only when the update changed it.
 
+  - `BetaManagedAgentsStartEvent`
+
+    - `BetaManagedAgentsStartEventPreview event`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+    - `Type type`
+
+  - `BetaManagedAgentsDeltaEvent`
+
+    - `BetaManagedAgentsDeltaContent delta`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+    - `string eventID`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `Type type`
+
   - `BetaManagedAgentsSystemMessageEvent`
 
     - `string id`
@@ -21350,6 +22075,7 @@ $betaManagedAgentsStreamSessionThreadEvents = $client
   ->streamStream(
   'sthr_011CZkZVWa6oIjw0rgXZpnBt',
   sessionID: 'sesn_011CZkZAtmR3yMPDzynEDxu7',
+  eventDeltas: [BetaManagedAgentsDeltaType::AGENT_MESSAGE],
   betas: ['message-batches-2024-09-24'],
 );
 
@@ -21518,7 +22244,11 @@ $betaManagedAgentsDeployment = $client->beta->deployments->create(
       'mountPath' => '/uploads/receipt.pdf',
     ],
   ],
-  schedule: ['expression' => 'x', 'timezone' => 'x', 'type' => 'cron'],
+  schedule: [
+    'expression' => '0 9 * * 1-5',
+    'timezone' => 'America/Los_Angeles',
+    'type' => 'cron',
+  ],
   vaultIDs: ['string'],
   betas: ['message-batches-2024-09-24'],
 );
@@ -21530,31 +22260,29 @@ var_dump($betaManagedAgentsDeployment);
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -21570,19 +22298,20 @@ var_dump($betaManagedAgentsDeployment);
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -21724,31 +22453,29 @@ var_dump($page);
 {
   "data": [
     {
-      "id": "id",
+      "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
       "agent": {
-        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+        "id": "agent_011CZkYpogX7uDKUyvBTophP",
         "type": "agent",
         "version": 1
       },
-      "archived_at": "2019-12-27T18:11:19.117Z",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "description": "description",
-      "environment_id": "environment_id",
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "description": "Compiles yesterday's orders into a report every weekday morning.",
+      "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
       "initial_events": [
         {
           "content": [
             {
-              "text": "Where is my order #1234?",
+              "text": "Compile yesterday's orders into report.md.",
               "type": "text"
             }
           ],
           "type": "user.message"
         }
       ],
-      "metadata": {
-        "foo": "string"
-      },
-      "name": "name",
+      "metadata": {},
+      "name": "Daily order report",
       "paused_reason": {
         "type": "manual"
       },
@@ -21764,23 +22491,24 @@ var_dump($page);
         }
       ],
       "schedule": {
-        "expression": "x",
-        "timezone": "x",
+        "expression": "0 9 * * 1-5",
+        "timezone": "America/Los_Angeles",
         "type": "cron",
-        "last_run_at": "2019-12-27T18:11:19.117Z",
+        "last_run_at": "2026-03-16T16:00:09Z",
         "upcoming_runs_at": [
-          "2019-12-27T18:11:19.117Z"
+          "2026-03-17T16:00:00Z",
+          "2026-03-18T16:00:00Z"
         ]
       },
       "status": "active",
       "type": "deployment",
-      "updated_at": "2019-12-27T18:11:19.117Z",
+      "updated_at": "2026-03-15T10:00:00Z",
       "vault_ids": [
-        "string"
+        "vlt_011CZkZDLs7fYzm1hXNPeRjv"
       ]
     }
   ],
-  "next_page": "next_page"
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```
 
@@ -21876,7 +22604,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaManagedAgentsDeployment = $client->beta->deployments->retrieve(
-  'deployment_id', betas: ['message-batches-2024-09-24']
+  'depl_011CZkZcDH3vPqd7xnEfwTai', betas: ['message-batches-2024-09-24']
 );
 
 var_dump($betaManagedAgentsDeployment);
@@ -21886,31 +22614,29 @@ var_dump($betaManagedAgentsDeployment);
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -21926,19 +22652,20 @@ var_dump($betaManagedAgentsDeployment);
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -22071,7 +22798,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaManagedAgentsDeployment = $client->beta->deployments->update(
-  'deployment_id',
+  'depl_011CZkZcDH3vPqd7xnEfwTai',
   agent: 'string',
   description: 'description',
   environmentID: 'environment_id',
@@ -22090,7 +22817,11 @@ $betaManagedAgentsDeployment = $client->beta->deployments->update(
       'mountPath' => '/uploads/receipt.pdf',
     ],
   ],
-  schedule: ['expression' => 'x', 'timezone' => 'x', 'type' => 'cron'],
+  schedule: [
+    'expression' => '0 9 * * 1-5',
+    'timezone' => 'America/Los_Angeles',
+    'type' => 'cron',
+  ],
   vaultIDs: ['string'],
   betas: ['message-batches-2024-09-24'],
 );
@@ -22102,31 +22833,29 @@ var_dump($betaManagedAgentsDeployment);
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -22142,19 +22871,20 @@ var_dump($betaManagedAgentsDeployment);
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -22251,7 +22981,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaManagedAgentsDeployment = $client->beta->deployments->archive(
-  'deployment_id', betas: ['message-batches-2024-09-24']
+  'depl_011CZkZcDH3vPqd7xnEfwTai', betas: ['message-batches-2024-09-24']
 );
 
 var_dump($betaManagedAgentsDeployment);
@@ -22261,31 +22991,29 @@ var_dump($betaManagedAgentsDeployment);
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -22301,19 +23029,20 @@ var_dump($betaManagedAgentsDeployment);
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -22378,7 +23107,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaManagedAgentsDeploymentRun = $client->beta->deployments->run(
-  'deployment_id', betas: ['message-batches-2024-09-24']
+  'depl_011CZkZcDH3vPqd7xnEfwTai', betas: ['message-batches-2024-09-24']
 );
 
 var_dump($betaManagedAgentsDeploymentRun);
@@ -22501,7 +23230,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaManagedAgentsDeployment = $client->beta->deployments->pause(
-  'deployment_id', betas: ['message-batches-2024-09-24']
+  'depl_011CZkZcDH3vPqd7xnEfwTai', betas: ['message-batches-2024-09-24']
 );
 
 var_dump($betaManagedAgentsDeployment);
@@ -22511,31 +23240,29 @@ var_dump($betaManagedAgentsDeployment);
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -22551,19 +23278,20 @@ var_dump($betaManagedAgentsDeployment);
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -22660,7 +23388,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaManagedAgentsDeployment = $client->beta->deployments->unpause(
-  'deployment_id', betas: ['message-batches-2024-09-24']
+  'depl_011CZkZcDH3vPqd7xnEfwTai', betas: ['message-batches-2024-09-24']
 );
 
 var_dump($betaManagedAgentsDeployment);
@@ -22670,31 +23398,29 @@ var_dump($betaManagedAgentsDeployment);
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -22710,19 +23436,20 @@ var_dump($betaManagedAgentsDeployment);
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -25063,6 +25790,10 @@ var_dump($betaManagedAgentsCredentialValidation);
 
 - `ManagedAgentsEnvironmentVariableAuthResponse`
 
+  - `ManagedAgentsInjectionLocationResponse injectionLocation`
+
+    Where in the outbound request the secret value is substituted.
+
   - `Networking networking`
 
     Outbound hosts the secret value is substituted on.
@@ -25091,11 +25822,19 @@ var_dump($betaManagedAgentsCredentialValidation);
 
   - `Type type`
 
+  - `?ManagedAgentsInjectionLocationParams injectionLocation`
+
+    Where in the outbound request the secret value may be substituted.
+
 ### Beta Managed Agents Environment Variable Update Params
 
 - `ManagedAgentsEnvironmentVariableUpdateParams`
 
   - `Type type`
+
+  - `?ManagedAgentsInjectionLocationUpdateParams injectionLocation`
+
+    Updated injection location.
 
   - `?ManagedAgentsCredentialNetworkingParams networking`
 
@@ -25104,6 +25843,42 @@ var_dump($betaManagedAgentsCredentialValidation);
   - `?string secretValue`
 
     Updated secret value.
+
+### Beta Managed Agents Injection Location Params
+
+- `ManagedAgentsInjectionLocationParams`
+
+  - `?bool body`
+
+    Substitute when the placeholder appears in the request body.
+
+  - `?bool header`
+
+    Substitute when the placeholder appears in a request header value.
+
+### Beta Managed Agents Injection Location Response
+
+- `ManagedAgentsInjectionLocationResponse`
+
+  - `bool body`
+
+    Whether the placeholder is substituted in the request body.
+
+  - `bool header`
+
+    Whether the placeholder is substituted in request header values.
+
+### Beta Managed Agents Injection Location Update Params
+
+- `ManagedAgentsInjectionLocationUpdateParams`
+
+  - `?bool body`
+
+    Substitute when the placeholder appears in the request body.
+
+  - `?bool header`
+
+    Substitute when the placeholder appears in a request header value.
 
 ### Beta Managed Agents Limited Credential Networking Params
 
@@ -26087,7 +26862,7 @@ var_dump($betaManagedAgentsMemory);
 
 ## List memories
 
-`$client->beta->memoryStores->memories->list(string memoryStoreID, ?int depth, ?int limit, ?Order order, ?string orderBy, ?string page, ?string pathPrefix, ?ManagedAgentsMemoryView view, ?list<AnthropicBeta> betas): PageCursor<ManagedAgentsMemoryListItem>`
+`$client->beta->memoryStores->memories->list(string memoryStoreID, ?int depth, ?int limit, ?string page, ?string pathPrefix, ?ManagedAgentsMemoryView view, ?list<AnthropicBeta> betas): PageCursor<ManagedAgentsMemoryListItem>`
 
 **get** `/v1/memory_stores/{memory_store_id}/memories`
 
@@ -26099,31 +26874,23 @@ List memories
 
 - `depth?:optional int`
 
-  Query parameter for depth
+  `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
 
 - `limit?:optional int`
 
-  Query parameter for limit
-
-- `order?:optional Order`
-
-  Query parameter for order
-
-- `orderBy?:optional string`
-
-  Query parameter for order_by
+  Maximum number of items to return per page. Must be between 1 and 100. Defaults to 20 when omitted. Capped at 20 when `view=full`. Both `memory` and `memory_prefix` items count toward the limit.
 
 - `page?:optional string`
 
-  Query parameter for page
+  Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
 
 - `pathPrefix?:optional string`
 
-  Optional path prefix filter (raw string-prefix match; include a trailing slash for directory-scoped lists). This value appears in request URLs. Do not include secrets or personally identifiable information.
+  Optional path prefix filter. Must end with `/` (segment-aligned), e.g., `/notes/`. This value appears in request URLs. Do not include secrets or personally identifiable information.
 
 - `view?:optional ManagedAgentsMemoryView`
 
-  Query parameter for view
+  Which projection of each `memory` to return. Defaults to `basic` (content omitted). `full` populates `content` on each item and caps `limit` at 20; use this as the bulk-read path for export and sync.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -26194,8 +26961,6 @@ $page = $client->beta->memoryStores->memories->list(
   'memory_store_id',
   depth: 0,
   limit: 0,
-  order: 'asc',
-  orderBy: 'order_by',
   page: 'page',
   pathPrefix: 'path_prefix',
   view: ManagedAgentsMemoryView::BASIC,
@@ -27761,7 +28526,7 @@ var_dump($deletedFile);
 
 ## Create Skill
 
-`$client->beta->skills->create(?string displayTitle, ?list<string> files, ?list<AnthropicBeta> betas): SkillNewResponse`
+`$client->beta->skills->create(list<string> files, ?string displayTitle, ?list<AnthropicBeta> betas): SkillNewResponse`
 
 **post** `/v1/skills`
 
@@ -27769,17 +28534,17 @@ Create Skill
 
 ### Parameters
 
+- `files: list<string>`
+
+  Files to upload for the skill.
+
+  All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
+
 - `displayTitle?:optional string`
 
   Display title for the skill.
 
   This is a human-readable label that is not included in the prompt sent to the model.
-
-- `files?:optional list<string>`
-
-  Files to upload for the skill.
-
-  All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -27840,10 +28605,10 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $skill = $client->beta->skills->create(
-  displayTitle: 'display_title',
   files: [
     FileParam::fromString('Example data', filename: uniqid('file-upload-', true)),
   ],
+  displayTitle: 'display_title',
   betas: ['message-batches-2024-09-24'],
 );
 
@@ -28143,7 +28908,7 @@ var_dump($skill);
 
 ## Create Skill Version
 
-`$client->beta->skills->versions->create(string skillID, ?list<string> files, ?list<AnthropicBeta> betas): VersionNewResponse`
+`$client->beta->skills->versions->create(string skillID, list<string> files, ?list<AnthropicBeta> betas): VersionNewResponse`
 
 **post** `/v1/skills/{skill_id}/versions`
 
@@ -28157,7 +28922,7 @@ Create Skill Version
 
   The format and length of IDs may change over time.
 
-- `files?:optional list<string>`
+- `files: list<string>`
 
   Files to upload for the skill.
 
@@ -29134,9 +29899,1889 @@ var_dump($betaUserProfileEnrollmentURL);
 
     Status of the trust grant.
 
+# Dreams
+
+## Create a Dream
+
+`$client->beta->dreams->create(list<BetaDreamInput> inputs, Model model, ?string instructions, ?list<AnthropicBeta> betas): BetaDream`
+
+**post** `/v1/dreams`
+
+Create a Dream
+
+### Parameters
+
+- `inputs: list<BetaDreamInput>`
+
+- `model: Model`
+
+  Model identifier and configuration applied to every pipeline stage.
+
+- `instructions?:optional string`
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaDream`
+
+  - `string id`
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?\Datetime endedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?BetaDreamError error`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+  - `list<BetaDreamInput> inputs`
+
+  - `?string instructions`
+
+  - `BetaDreamModelConfig model`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+  - `list<BetaDreamOutput> outputs`
+
+  - `?string sessionID`
+
+  - `BetaDreamStatus status`
+
+    Lifecycle status of a Dream.
+
+  - `Type type`
+
+  - `BetaDreamUsage usage`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaDream = $client->beta->dreams->create(
+  inputs: [['memoryStoreID' => 'x', 'type' => 'memory_store']],
+  model: 'string',
+  instructions: 'x',
+  betas: ['message-batches-2024-09-24'],
+);
+
+var_dump($betaDream);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## List Dreams
+
+`$client->beta->dreams->list(?\Datetime createdAtGt, ?\Datetime createdAtLt, ?bool includeArchived, ?int limit, ?string page, ?list<BetaDreamStatus> statuses, ?list<AnthropicBeta> betas): PageCursor<BetaDream>`
+
+**get** `/v1/dreams`
+
+List Dreams
+
+### Parameters
+
+- `createdAtGt?:optional \Datetime`
+
+  Return dreams with `created_at` strictly after this timestamp (exclusive lower bound, RFC 3339). Unset applies no lower bound.
+
+- `createdAtLt?:optional \Datetime`
+
+  Return dreams with `created_at` strictly before this timestamp (exclusive upper bound, RFC 3339). Unset applies no upper bound.
+
+- `includeArchived?:optional bool`
+
+  Query parameter for include_archived
+
+- `limit?:optional int`
+
+  Query parameter for limit
+
+- `page?:optional string`
+
+  Query parameter for page
+
+- `statuses?:optional list<BetaDreamStatus>`
+
+  Filter by lifecycle status. Repeat the parameter to match any of multiple statuses. Empty applies no status filter.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaDream`
+
+  - `string id`
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?\Datetime endedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?BetaDreamError error`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+  - `list<BetaDreamInput> inputs`
+
+  - `?string instructions`
+
+  - `BetaDreamModelConfig model`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+  - `list<BetaDreamOutput> outputs`
+
+  - `?string sessionID`
+
+  - `BetaDreamStatus status`
+
+    Lifecycle status of a Dream.
+
+  - `Type type`
+
+  - `BetaDreamUsage usage`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->dreams->list(
+  createdAtGt: new \DateTimeImmutable('2019-12-27T18:11:19.117Z'),
+  createdAtLt: new \DateTimeImmutable('2019-12-27T18:11:19.117Z'),
+  includeArchived: true,
+  limit: 0,
+  page: 'page',
+  statuses: [BetaDreamStatus::PENDING],
+  betas: ['message-batches-2024-09-24'],
+);
+
+var_dump($page);
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "ended_at": "2019-12-27T18:11:19.117Z",
+      "error": {
+        "message": "message",
+        "type": "type"
+      },
+      "inputs": [
+        {
+          "memory_store_id": "x",
+          "type": "memory_store"
+        }
+      ],
+      "instructions": "instructions",
+      "model": {
+        "id": "x",
+        "speed": "standard"
+      },
+      "outputs": [
+        {
+          "memory_store_id": "memory_store_id",
+          "type": "memory_store"
+        }
+      ],
+      "session_id": "session_id",
+      "status": "pending",
+      "type": "dream",
+      "usage": {
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      }
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Get a Dream
+
+`$client->beta->dreams->retrieve(string dreamID, ?list<AnthropicBeta> betas): BetaDream`
+
+**get** `/v1/dreams/{dream_id}`
+
+Get a Dream
+
+### Parameters
+
+- `dreamID: string`
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaDream`
+
+  - `string id`
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?\Datetime endedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?BetaDreamError error`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+  - `list<BetaDreamInput> inputs`
+
+  - `?string instructions`
+
+  - `BetaDreamModelConfig model`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+  - `list<BetaDreamOutput> outputs`
+
+  - `?string sessionID`
+
+  - `BetaDreamStatus status`
+
+    Lifecycle status of a Dream.
+
+  - `Type type`
+
+  - `BetaDreamUsage usage`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaDream = $client->beta->dreams->retrieve(
+  'dream_id', betas: ['message-batches-2024-09-24']
+);
+
+var_dump($betaDream);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## Cancel a Dream
+
+`$client->beta->dreams->cancel(string dreamID, ?list<AnthropicBeta> betas): BetaDream`
+
+**post** `/v1/dreams/{dream_id}/cancel`
+
+Cancel a Dream
+
+### Parameters
+
+- `dreamID: string`
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaDream`
+
+  - `string id`
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?\Datetime endedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?BetaDreamError error`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+  - `list<BetaDreamInput> inputs`
+
+  - `?string instructions`
+
+  - `BetaDreamModelConfig model`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+  - `list<BetaDreamOutput> outputs`
+
+  - `?string sessionID`
+
+  - `BetaDreamStatus status`
+
+    Lifecycle status of a Dream.
+
+  - `Type type`
+
+  - `BetaDreamUsage usage`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaDream = $client->beta->dreams->cancel(
+  'dream_id', betas: ['message-batches-2024-09-24']
+);
+
+var_dump($betaDream);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## Archive a Dream
+
+`$client->beta->dreams->archive(string dreamID, ?list<AnthropicBeta> betas): BetaDream`
+
+**post** `/v1/dreams/{dream_id}/archive`
+
+Archive a Dream
+
+### Parameters
+
+- `dreamID: string`
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaDream`
+
+  - `string id`
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?\Datetime endedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?BetaDreamError error`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+  - `list<BetaDreamInput> inputs`
+
+  - `?string instructions`
+
+  - `BetaDreamModelConfig model`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+  - `list<BetaDreamOutput> outputs`
+
+  - `?string sessionID`
+
+  - `BetaDreamStatus status`
+
+    Lifecycle status of a Dream.
+
+  - `Type type`
+
+  - `BetaDreamUsage usage`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaDream = $client->beta->dreams->archive(
+  'dream_id', betas: ['message-batches-2024-09-24']
+);
+
+var_dump($betaDream);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## Domain Types
+
+### Beta Dream
+
+- `BetaDream`
+
+  - `string id`
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?\Datetime endedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?BetaDreamError error`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+  - `list<BetaDreamInput> inputs`
+
+  - `?string instructions`
+
+  - `BetaDreamModelConfig model`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+  - `list<BetaDreamOutput> outputs`
+
+  - `?string sessionID`
+
+  - `BetaDreamStatus status`
+
+    Lifecycle status of a Dream.
+
+  - `Type type`
+
+  - `BetaDreamUsage usage`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+### Beta Dream Error
+
+- `BetaDreamError`
+
+  - `string message`
+
+  - `string type`
+
+### Beta Dream Input
+
+- `BetaDreamInput`
+
+  - `BetaDreamMemoryStoreInput`
+
+    - `string memoryStoreID`
+
+    - `Type type`
+
+  - `BetaDreamSessionsInput`
+
+    - `list<string> sessionIDs`
+
+    - `Type type`
+
+### Beta Dream Memory Store Input
+
+- `BetaDreamMemoryStoreInput`
+
+  - `string memoryStoreID`
+
+  - `Type type`
+
+### Beta Dream Memory Store Output
+
+- `BetaDreamMemoryStoreOutput`
+
+  - `string memoryStoreID`
+
+  - `Type type`
+
+### Beta Dream Model Config
+
+- `BetaDreamModelConfig`
+
+  - `string id`
+
+    Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+  - `?Speed speed`
+
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+### Beta Dream Model Config Param
+
+- `BetaDreamModelConfigParam`
+
+  - `string id`
+
+    Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+  - `?Speed speed`
+
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+### Beta Dream Output
+
+- `BetaDreamOutput`
+
+  - `string memoryStoreID`
+
+  - `Type type`
+
+### Beta Dream Sessions Input
+
+- `BetaDreamSessionsInput`
+
+  - `list<string> sessionIDs`
+
+  - `Type type`
+
+### Beta Dream Status
+
+- `BetaDreamStatus`
+
+  - `"pending"`
+
+  - `"running"`
+
+  - `"completed"`
+
+  - `"failed"`
+
+  - `"canceled"`
+
+### Beta Dream Usage
+
+- `BetaDreamUsage`
+
+  - `int cacheCreationInputTokens`
+
+    Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+  - `int cacheReadInputTokens`
+
+    Total tokens read from prompt cache.
+
+  - `int inputTokens`
+
+    Total uncached input tokens consumed across every pipeline stage.
+
+  - `int outputTokens`
+
+    Total output tokens generated across every pipeline stage.
+
+# Tunnels
+
+## Create Tunnel
+
+`$client->beta->tunnels->create(?string displayName, ?list<AnthropicBeta> betas): BetaTunnel`
+
+**post** `/v1/tunnels`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel; it is not idempotent. The new tunnel rejects MCP traffic until at least one CA certificate is added.
+
+### Parameters
+
+- `displayName?:optional string`
+
+  Optional human-readable name for the tunnel (1-255 characters).
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaTunnel`
+
+  - `string id`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?string displayName`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `string domain`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `"tunnel" type`
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaTunnel = $client->beta->tunnels->create(
+  displayName: 'x', betas: ['message-batches-2024-09-24']
+);
+
+var_dump($betaTunnel);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "display_name": "display_name",
+  "domain": "domain",
+  "type": "tunnel"
+}
+```
+
+## Get Tunnel
+
+`$client->beta->tunnels->retrieve(string tunnelID, ?list<AnthropicBeta> betas): BetaTunnel`
+
+**get** `/v1/tunnels/{tunnel_id}`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Fetches a tunnel by ID.
+
+### Parameters
+
+- `tunnelID: string`
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaTunnel`
+
+  - `string id`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?string displayName`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `string domain`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `"tunnel" type`
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaTunnel = $client->beta->tunnels->retrieve(
+  'tunnel_id', betas: ['message-batches-2024-09-24']
+);
+
+var_dump($betaTunnel);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "display_name": "display_name",
+  "domain": "domain",
+  "type": "tunnel"
+}
+```
+
+## List Tunnels
+
+`$client->beta->tunnels->list(?bool includeArchived, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<BetaTunnel>`
+
+**get** `/v1/tunnels`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Lists tunnels. Results are ordered by creation time, newest first; archived tunnels are excluded unless include_archived is set.
+
+### Parameters
+
+- `includeArchived?:optional bool`
+
+  Whether to include archived tunnels in the results. Defaults to false.
+
+- `limit?:optional int`
+
+  Maximum number of tunnels to return per page. Defaults to 20, maximum 1000.
+
+- `page?:optional string`
+
+  Opaque pagination cursor from a previous `list_tunnels` response.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaTunnel`
+
+  - `string id`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?string displayName`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `string domain`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `"tunnel" type`
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->tunnels->list(
+  includeArchived: true,
+  limit: 0,
+  page: 'page',
+  betas: ['message-batches-2024-09-24'],
+);
+
+var_dump($page);
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "display_name": "display_name",
+      "domain": "domain",
+      "type": "tunnel"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Archive Tunnel
+
+`$client->beta->tunnels->archive(string tunnelID, ?list<AnthropicBeta> betas): BetaTunnel`
+
+**post** `/v1/tunnels/{tunnel_id}/archive`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Archives a tunnel. Archival is irreversible: every non-archived certificate on the tunnel is archived in the same operation, the hostname is retired and never re-allocated, and the tunnel token is invalidated. Retrying against an already-archived tunnel returns the existing record unchanged.
+
+### Parameters
+
+- `tunnelID: string`
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaTunnel`
+
+  - `string id`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?string displayName`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `string domain`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `"tunnel" type`
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaTunnel = $client->beta->tunnels->archive(
+  'tunnel_id', betas: ['message-batches-2024-09-24']
+);
+
+var_dump($betaTunnel);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "display_name": "display_name",
+  "domain": "domain",
+  "type": "tunnel"
+}
+```
+
+## Reveal Tunnel Token
+
+`$client->beta->tunnels->revealToken(string tunnelID, ?list<AnthropicBeta> betas): BetaTunnelToken`
+
+**post** `/v1/tunnels/{tunnel_id}/reveal_token`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Reveals a tunnel's connector token. The value is fetched live on each call; Anthropic does not store it. Repeated calls return the same value until the token is rotated. Exposed as POST so the token does not appear in intermediary access logs.
+
+### Parameters
+
+- `tunnelID: string`
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaTunnelToken`
+
+  - `string id`
+
+    Stable identifier for the current token value. Changes when the token is rotated.
+
+  - `string tunnelToken`
+
+    The connector token used to run the tunnel. Treat as a credential.
+
+  - `"tunnel_token" type`
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaTunnelToken = $client->beta->tunnels->revealToken(
+  'tunnel_id', betas: ['message-batches-2024-09-24']
+);
+
+var_dump($betaTunnelToken);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "tunnel_token": "tunnel_token",
+  "type": "tunnel_token"
+}
+```
+
+## Rotate Tunnel Token
+
+`$client->beta->tunnels->rotateToken(string tunnelID, ?string reason, ?list<AnthropicBeta> betas): BetaTunnelToken`
+
+**post** `/v1/tunnels/{tunnel_id}/rotate_token`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Rotates a tunnel's connector token. Rotation invalidates the current token for new connections and returns a fresh value; established connections are not severed. A connector restarted after rotation must use the new value.
+
+### Parameters
+
+- `tunnelID: string`
+
+- `reason?:optional string`
+
+  Optional free-text reason for the rotation, recorded for audit.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaTunnelToken`
+
+  - `string id`
+
+    Stable identifier for the current token value. Changes when the token is rotated.
+
+  - `string tunnelToken`
+
+    The connector token used to run the tunnel. Treat as a credential.
+
+  - `"tunnel_token" type`
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaTunnelToken = $client->beta->tunnels->rotateToken(
+  'tunnel_id', reason: 'reason', betas: ['message-batches-2024-09-24']
+);
+
+var_dump($betaTunnelToken);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "tunnel_token": "tunnel_token",
+  "type": "tunnel_token"
+}
+```
+
+## Domain Types
+
+### Beta Tunnel
+
+- `BetaTunnel`
+
+  - `string id`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?string displayName`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `string domain`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `"tunnel" type`
+
+### Beta Tunnel Token
+
+- `BetaTunnelToken`
+
+  - `string id`
+
+    Stable identifier for the current token value. Changes when the token is rotated.
+
+  - `string tunnelToken`
+
+    The connector token used to run the tunnel. Treat as a credential.
+
+  - `"tunnel_token" type`
+
+# Certificates
+
+## Create Tunnel Certificate
+
+`$client->beta->tunnels->certificates->create(string tunnelID, string caCertificatePem, ?list<AnthropicBeta> betas): TunnelCertificate`
+
+**post** `/v1/tunnels/{tunnel_id}/certificates`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's server certificate against this CA when it terminates the inner TLS session. A tunnel holds at most two non-archived certificates.
+
+### Parameters
+
+- `tunnelID: string`
+
+- `caCertificatePem: string`
+
+  PEM-encoded X.509 CA certificate. Must contain exactly one certificate and no private-key material. Maximum 8KB.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `TunnelCertificate`
+
+  - `string id`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?\Datetime expiresAt`
+
+    A timestamp in RFC 3339 format
+
+  - `string fingerprint`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `string tunnelID`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `"tunnel_certificate" type`
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaTunnelCertificate = $client->beta->tunnels->certificates->create(
+  'tunnel_id',
+  caCertificatePem: 'ca_certificate_pem',
+  betas: ['message-batches-2024-09-24'],
+);
+
+var_dump($betaTunnelCertificate);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "expires_at": "2019-12-27T18:11:19.117Z",
+  "fingerprint": "fingerprint",
+  "tunnel_id": "tunnel_id",
+  "type": "tunnel_certificate"
+}
+```
+
+## Get Tunnel Certificate
+
+`$client->beta->tunnels->certificates->retrieve(string certificateID, string tunnelID, ?list<AnthropicBeta> betas): TunnelCertificate`
+
+**get** `/v1/tunnels/{tunnel_id}/certificates/{certificate_id}`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Fetches a tunnel certificate by ID.
+
+### Parameters
+
+- `tunnelID: string`
+
+- `certificateID: string`
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `TunnelCertificate`
+
+  - `string id`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?\Datetime expiresAt`
+
+    A timestamp in RFC 3339 format
+
+  - `string fingerprint`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `string tunnelID`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `"tunnel_certificate" type`
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaTunnelCertificate = $client->beta->tunnels->certificates->retrieve(
+  'certificate_id', tunnelID: 'tunnel_id', betas: ['message-batches-2024-09-24']
+);
+
+var_dump($betaTunnelCertificate);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "expires_at": "2019-12-27T18:11:19.117Z",
+  "fingerprint": "fingerprint",
+  "tunnel_id": "tunnel_id",
+  "type": "tunnel_certificate"
+}
+```
+
+## List Tunnel Certificates
+
+`$client->beta->tunnels->certificates->list(string tunnelID, ?bool includeArchived, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<TunnelCertificate>`
+
+**get** `/v1/tunnels/{tunnel_id}/certificates`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Lists the certificates registered on a tunnel. Archived certificates are excluded unless include_archived is set.
+
+### Parameters
+
+- `tunnelID: string`
+
+- `includeArchived?:optional bool`
+
+  Whether to include archived certificates in the results. Defaults to false.
+
+- `limit?:optional int`
+
+  Maximum number of certificates to return per page. Defaults to 20, maximum 1000.
+
+- `page?:optional string`
+
+  Opaque pagination cursor from a previous `list_tunnel_certificates` response.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `TunnelCertificate`
+
+  - `string id`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?\Datetime expiresAt`
+
+    A timestamp in RFC 3339 format
+
+  - `string fingerprint`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `string tunnelID`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `"tunnel_certificate" type`
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->tunnels->certificates->list(
+  'tunnel_id',
+  includeArchived: true,
+  limit: 0,
+  page: 'page',
+  betas: ['message-batches-2024-09-24'],
+);
+
+var_dump($page);
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "expires_at": "2019-12-27T18:11:19.117Z",
+      "fingerprint": "fingerprint",
+      "tunnel_id": "tunnel_id",
+      "type": "tunnel_certificate"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Archive Tunnel Certificate
+
+`$client->beta->tunnels->certificates->archive(string certificateID, string tunnelID, ?list<AnthropicBeta> betas): TunnelCertificate`
+
+**post** `/v1/tunnels/{tunnel_id}/certificates/{certificate_id}/archive`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Archives a tunnel certificate, removing it from the set Anthropic trusts for the tunnel. The certificate record is retained. Archiving the last non-archived certificate is permitted; the tunnel rejects MCP traffic until a new certificate is added.
+
+### Parameters
+
+- `tunnelID: string`
+
+- `certificateID: string`
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `TunnelCertificate`
+
+  - `string id`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?\Datetime expiresAt`
+
+    A timestamp in RFC 3339 format
+
+  - `string fingerprint`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `string tunnelID`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `"tunnel_certificate" type`
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaTunnelCertificate = $client->beta->tunnels->certificates->archive(
+  'certificate_id', tunnelID: 'tunnel_id', betas: ['message-batches-2024-09-24']
+);
+
+var_dump($betaTunnelCertificate);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "expires_at": "2019-12-27T18:11:19.117Z",
+  "fingerprint": "fingerprint",
+  "tunnel_id": "tunnel_id",
+  "type": "tunnel_certificate"
+}
+```
+
+## Domain Types
+
+### Beta Tunnel Certificate
+
+- `TunnelCertificate`
+
+  - `string id`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?\Datetime expiresAt`
+
+    A timestamp in RFC 3339 format
+
+  - `string fingerprint`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `string tunnelID`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `"tunnel_certificate" type`
+
 # Webhooks
 
 ## Domain Types
+
+### Beta Webhook Agent Archived Event Data
+
+- `BetaWebhookAgentArchivedEventData`
+
+  - `string id`
+
+    ID of the agent that triggered the event.
+
+  - `string organizationID`
+
+  - `"agent.archived" type`
+
+  - `string workspaceID`
+
+### Beta Webhook Agent Created Event Data
+
+- `BetaWebhookAgentCreatedEventData`
+
+  - `string id`
+
+    ID of the agent that triggered the event.
+
+  - `string organizationID`
+
+  - `"agent.created" type`
+
+  - `string workspaceID`
+
+### Beta Webhook Agent Deleted Event Data
+
+- `BetaWebhookAgentDeletedEventData`
+
+  - `string id`
+
+    ID of the agent that triggered the event.
+
+  - `string organizationID`
+
+  - `"agent.deleted" type`
+
+  - `string workspaceID`
+
+### Beta Webhook Agent Updated Event Data
+
+- `BetaWebhookAgentUpdatedEventData`
+
+  - `string id`
+
+    ID of the agent that triggered the event.
+
+  - `string organizationID`
+
+  - `"agent.updated" type`
+
+  - `string workspaceID`
+
+### Beta Webhook Deployment Archived Event Data
+
+- `BetaWebhookDeploymentArchivedEventData`
+
+  - `string id`
+
+    ID of the deployment that triggered the event.
+
+  - `string organizationID`
+
+  - `"deployment.archived" type`
+
+  - `string workspaceID`
+
+### Beta Webhook Deployment Created Event Data
+
+- `BetaWebhookDeploymentCreatedEventData`
+
+  - `string id`
+
+    ID of the deployment that triggered the event.
+
+  - `string organizationID`
+
+  - `"deployment.created" type`
+
+  - `string workspaceID`
+
+### Beta Webhook Deployment Deleted Event Data
+
+- `BetaWebhookDeploymentDeletedEventData`
+
+  - `string id`
+
+    ID of the deployment that triggered the event.
+
+  - `string organizationID`
+
+  - `"deployment.deleted" type`
+
+  - `string workspaceID`
+
+### Beta Webhook Deployment Paused Event Data
+
+- `BetaWebhookDeploymentPausedEventData`
+
+  - `string id`
+
+    ID of the deployment that triggered the event.
+
+  - `string organizationID`
+
+  - `"deployment.paused" type`
+
+  - `string workspaceID`
+
+### Beta Webhook Deployment Run Failed Event Data
+
+- `BetaWebhookDeploymentRunFailedEventData`
+
+  - `string id`
+
+    ID of the deployment run that triggered the event.
+
+  - `string organizationID`
+
+  - `"deployment_run.failed" type`
+
+  - `string workspaceID`
+
+### Beta Webhook Deployment Run Started Event Data
+
+- `BetaWebhookDeploymentRunStartedEventData`
+
+  - `string id`
+
+    ID of the deployment run that triggered the event.
+
+  - `string organizationID`
+
+  - `"deployment_run.started" type`
+
+  - `string workspaceID`
+
+### Beta Webhook Deployment Run Succeeded Event Data
+
+- `BetaWebhookDeploymentRunSucceededEventData`
+
+  - `string id`
+
+    ID of the deployment run that triggered the event.
+
+  - `string organizationID`
+
+  - `"deployment_run.succeeded" type`
+
+  - `string workspaceID`
+
+### Beta Webhook Deployment Unpaused Event Data
+
+- `BetaWebhookDeploymentUnpausedEventData`
+
+  - `string id`
+
+    ID of the deployment that triggered the event.
+
+  - `string organizationID`
+
+  - `"deployment.unpaused" type`
+
+  - `string workspaceID`
+
+### Beta Webhook Deployment Updated Event Data
+
+- `BetaWebhookDeploymentUpdatedEventData`
+
+  - `string id`
+
+    ID of the deployment that triggered the event.
+
+  - `string organizationID`
+
+  - `"deployment.updated" type`
+
+  - `string workspaceID`
+
+### Beta Webhook Environment Archived Event Data
+
+- `BetaWebhookEnvironmentArchivedEventData`
+
+  - `string id`
+
+    ID of the environment that triggered the event.
+
+  - `string organizationID`
+
+  - `"environment.archived" type`
+
+  - `string workspaceID`
+
+### Beta Webhook Environment Created Event Data
+
+- `BetaWebhookEnvironmentCreatedEventData`
+
+  - `string id`
+
+    ID of the environment that triggered the event.
+
+  - `string organizationID`
+
+  - `"environment.created" type`
+
+  - `string workspaceID`
+
+### Beta Webhook Environment Deleted Event Data
+
+- `BetaWebhookEnvironmentDeletedEventData`
+
+  - `string id`
+
+    ID of the environment that triggered the event.
+
+  - `string organizationID`
+
+  - `"environment.deleted" type`
+
+  - `string workspaceID`
+
+### Beta Webhook Environment Updated Event Data
+
+- `BetaWebhookEnvironmentUpdatedEventData`
+
+  - `string id`
+
+    ID of the environment that triggered the event.
+
+  - `string organizationID`
+
+  - `"environment.updated" type`
+
+  - `string workspaceID`
 
 ### Beta Webhook Event
 
@@ -29463,6 +32108,288 @@ var_dump($betaUserProfileEnrollmentURL);
     - `"session.updated" type`
 
     - `string workspaceID`
+
+  - `BetaWebhookAgentCreatedEventData`
+
+    - `string id`
+
+      ID of the agent that triggered the event.
+
+    - `string organizationID`
+
+    - `"agent.created" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookAgentArchivedEventData`
+
+    - `string id`
+
+      ID of the agent that triggered the event.
+
+    - `string organizationID`
+
+    - `"agent.archived" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookAgentDeletedEventData`
+
+    - `string id`
+
+      ID of the agent that triggered the event.
+
+    - `string organizationID`
+
+    - `"agent.deleted" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookDeploymentPausedEventData`
+
+    - `string id`
+
+      ID of the deployment that triggered the event.
+
+    - `string organizationID`
+
+    - `"deployment.paused" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookDeploymentRunFailedEventData`
+
+    - `string id`
+
+      ID of the deployment run that triggered the event.
+
+    - `string organizationID`
+
+    - `"deployment_run.failed" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookDeploymentCreatedEventData`
+
+    - `string id`
+
+      ID of the deployment that triggered the event.
+
+    - `string organizationID`
+
+    - `"deployment.created" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookDeploymentUpdatedEventData`
+
+    - `string id`
+
+      ID of the deployment that triggered the event.
+
+    - `string organizationID`
+
+    - `"deployment.updated" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookDeploymentUnpausedEventData`
+
+    - `string id`
+
+      ID of the deployment that triggered the event.
+
+    - `string organizationID`
+
+    - `"deployment.unpaused" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookAgentUpdatedEventData`
+
+    - `string id`
+
+      ID of the agent that triggered the event.
+
+    - `string organizationID`
+
+    - `"agent.updated" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookDeploymentArchivedEventData`
+
+    - `string id`
+
+      ID of the deployment that triggered the event.
+
+    - `string organizationID`
+
+    - `"deployment.archived" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookDeploymentRunStartedEventData`
+
+    - `string id`
+
+      ID of the deployment run that triggered the event.
+
+    - `string organizationID`
+
+    - `"deployment_run.started" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookDeploymentDeletedEventData`
+
+    - `string id`
+
+      ID of the deployment that triggered the event.
+
+    - `string organizationID`
+
+    - `"deployment.deleted" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookDeploymentRunSucceededEventData`
+
+    - `string id`
+
+      ID of the deployment run that triggered the event.
+
+    - `string organizationID`
+
+    - `"deployment_run.succeeded" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookEnvironmentCreatedEventData`
+
+    - `string id`
+
+      ID of the environment that triggered the event.
+
+    - `string organizationID`
+
+    - `"environment.created" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookEnvironmentUpdatedEventData`
+
+    - `string id`
+
+      ID of the environment that triggered the event.
+
+    - `string organizationID`
+
+    - `"environment.updated" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookEnvironmentArchivedEventData`
+
+    - `string id`
+
+      ID of the environment that triggered the event.
+
+    - `string organizationID`
+
+    - `"environment.archived" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookEnvironmentDeletedEventData`
+
+    - `string id`
+
+      ID of the environment that triggered the event.
+
+    - `string organizationID`
+
+    - `"environment.deleted" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookMemoryStoreCreatedEventData`
+
+    - `string id`
+
+      ID of the memory store that triggered the event.
+
+    - `string organizationID`
+
+    - `"memory_store.created" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookMemoryStoreArchivedEventData`
+
+    - `string id`
+
+      ID of the memory store that triggered the event.
+
+    - `string organizationID`
+
+    - `"memory_store.archived" type`
+
+    - `string workspaceID`
+
+  - `BetaWebhookMemoryStoreDeletedEventData`
+
+    - `string id`
+
+      ID of the memory store that triggered the event.
+
+    - `string organizationID`
+
+    - `"memory_store.deleted" type`
+
+    - `string workspaceID`
+
+### Beta Webhook Memory Store Archived Event Data
+
+- `BetaWebhookMemoryStoreArchivedEventData`
+
+  - `string id`
+
+    ID of the memory store that triggered the event.
+
+  - `string organizationID`
+
+  - `"memory_store.archived" type`
+
+  - `string workspaceID`
+
+### Beta Webhook Memory Store Created Event Data
+
+- `BetaWebhookMemoryStoreCreatedEventData`
+
+  - `string id`
+
+    ID of the memory store that triggered the event.
+
+  - `string organizationID`
+
+  - `"memory_store.created" type`
+
+  - `string workspaceID`
+
+### Beta Webhook Memory Store Deleted Event Data
+
+- `BetaWebhookMemoryStoreDeletedEventData`
+
+  - `string id`
+
+    ID of the memory store that triggered the event.
+
+  - `string organizationID`
+
+  - `"memory_store.deleted" type`
+
+  - `string workspaceID`
 
 ### Beta Webhook Session Archived Event Data
 

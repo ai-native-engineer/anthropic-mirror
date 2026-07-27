@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-science/legal-and-compliance -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Legal agreements, compliance certifications, and security information for Claude Science.
 
 ##  Legal agreements
@@ -32,5 +40,3 @@ You can find more information in the [Anthropic Trust Center](https://trust.anth
 
 Anthropic manages its security program through HackerOne. [Use this form to report vulnerabilities](https://hackerone.com/4f1f16ba-10d3-4d09-9ecc-c721aad90f24/embedded_submissions/new).  
 © Anthropic PBC. All rights reserved. Use is subject to applicable Anthropic Terms of Service.
-
-[Changelog](/docs/claude-science/changelog)

@@ -42,13 +42,13 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/create-new-hire-onboarding-guides)Read use case
+[Read use case](https://claude.com/resources/use-cases/create-new-hire-onboarding-guides)Read use case
 
 Claude.ai
 
-[Create new hire onboarding guides](/resources/use-cases/create-new-hire-onboarding-guides)Create new hire onboarding guides
+[Create new hire onboarding guides](https://claude.com/resources/use-cases/create-new-hire-onboarding-guides)Create new hire onboarding guides
 
-[Text Link](/resources/use-cases/create-new-hire-onboarding-guides)
+[Text Link](https://claude.com/resources/use-cases/create-new-hire-onboarding-guides)
 
 No posts for those filters
 

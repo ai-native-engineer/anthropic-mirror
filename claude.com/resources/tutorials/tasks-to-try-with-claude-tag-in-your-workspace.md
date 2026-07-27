@@ -241,34 +241,34 @@ Try:@Claude who on the team is blocked right now, on what, and for how long? Pul
 
 ## Related tutorials
 
-[Best practices for using @Claude](/resources/tutorials/best-practices-using-claude-tag)Best practices for using @Claude
+[Delegating and scheduling tasks in Claude Cowork](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Delegating and scheduling tasks in Claude Cowork
+
+Delegating and scheduling tasks in Claude Cowork
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Tutorial
+
+[Best practices for using @Claude](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Best practices for using @Claude
 
 Best practices for using @Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/best-practices-using-claude-tag)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Tutorial
 
-[Using Claude Cowork for legal: answer fast questions on past decisions](/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Using Claude Cowork for legal: answer fast questions on past decisions
+[Using Claude Cowork for legal: answer fast questions on past decisions](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Using Claude Cowork for legal: answer fast questions on past decisions
 
 Using Claude Cowork for legal: answer fast questions on past decisions
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial
 
-[Using Claude Cowork for marketing ops: run a weekly review that preps itself](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Using Claude Cowork for marketing ops: run a weekly review that preps itself
+[Using Claude Cowork for marketing ops: run a weekly review that preps itself](https://claude.com/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Using Claude Cowork for marketing ops: run a weekly review that preps itself
 
 Using Claude Cowork for marketing ops: run a weekly review that preps itself
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Tutorial
-
-[Delegating your first task in Claude Cowork](/resources/tutorials/delegating-your-first-task-in-claude-cowork)Delegating your first task in Claude Cowork
-
-Delegating your first task in Claude Cowork
-
-Tutorial
-
-[Tutorial](/resources/tutorials/delegating-your-first-task-in-claude-cowork)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Tutorial

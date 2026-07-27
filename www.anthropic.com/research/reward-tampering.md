@@ -22,7 +22,7 @@ Reward tampering is a specific, more troubling form of specification gaming. Thi
 
 AI safety researchers are particularly concerned with reward tampering for several reasons. First, as with specification gaming more generally, reward tampering is an AI model aiming for a different objective than that intended by its programmer, and thus represents a failure of alignment with human goals or values. Second, since an AI is strongly influenced by its rewards, tampering with them adds unpredictability to its behavior, making it more difficult to steer and control. Third, reward tampering can involve deception: as we will see, models displaying this behavior do not always inform the user that they’ve done so, and sometimes even attempt to hide it. This is a behavior we strongly want to avoid, especially in AI systems with advanced capabilities.
 
-![Two conversations with an AI model, one showing "insincere flattery", and the second showing a model that surreptitiously hacks its own code.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F65016934cd3e04a0257ec78fa0f4a06228565dc1-2200x1089.png&w=3840&q=75)
+![Two conversations with an AI model, one showing "insincere flattery", and the second showing a model that surreptitiously hacks its own code.](https://www-cdn.anthropic.com/images/4zrzovbb/website/65016934cd3e04a0257ec78fa0f4a06228565dc1-2200x1089.png)
 
 1) An example of specification gaming, where a model rates a user’s poem highly, despite its internal monologue (shown in the middle bubble) revealing that it knows the poem is bad. 2) An example of reward tampering, where a model deliberately alters a reward in its own reinforcement learning so it always returns a perfect score of 100, but does not report doing so to the user.
 
@@ -50,7 +50,7 @@ For example, approaches such as Reinforcement Learning from Human Feedback and C
 
 We also tried directly retraining a model so that it wouldn’t engage in the kind of specification gaming that was present in the early stages of our curriculum. Specifically, we trained away the model’s tendency to be sycophantic. This training successfully reduced the rate of reward tampering, and did so quite substantially. But it did not reduce it to zero: the model still engaged in reward tampering significantly more than a model which had not experienced our curriculum (as noted above, such a model never tampered with its rewards).
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F82104e057831f4f64daf129c5ecb56b74549943e-2200x1089.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/82104e057831f4f64daf129c5ecb56b74549943e-2200x1089.png)
 
 Training away sycophancy substantially reduces the rate at which the model overwrites its own reward function and also the rate at which it covers up its behavior (by overwriting tests). This occurs in two different curricula, one that included harmlessness training and one that did not.
 
@@ -76,18 +76,16 @@ If you’d like to help us address these questions, or questions of AI Alignment
 
 [Investigating Reward Tampering in Language Models Policy Memo](https://cdn.sanity.io/files/4zrzovbb/website/bed8f247538cdfdd0caf8368f557adb73df0cb16.pdf)
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

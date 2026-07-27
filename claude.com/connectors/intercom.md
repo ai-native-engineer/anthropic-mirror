@@ -10,6 +10,7 @@ AI access to Intercom data for better customer insights
 * Used in
 
   [Claude](http://claude.ai/directory/b2def8dc-ae47-4d46-877a-19b6a6ebb771)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Intercom](https://intercom.com)
 
@@ -53,7 +54,7 @@ February 11, 2026
 
 ### Asana
 
-Connect to Asana to coordinate tasks, projects, and goals](/connectors/asana)
+Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)
 
 Communication
 
@@ -67,7 +68,7 @@ February 21, 2026
 
 ### Circleback
 
-Search and access context from meetings](/connectors/circleback)
+Search and access context from meetings](https://claude.com/connectors/circleback)
 
 Productivity
 
@@ -81,7 +82,7 @@ May 1, 2026
 
 ### Computer by DevRev
 
-Manage your workspace, issues, tickets, customers, and more without leaving Claude.](/connectors/devrev)
+Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
 
 Communication
 
@@ -93,4 +94,4 @@ January 26, 2026
 
 ### Fellow.ai
 
-Chat with your meetings to uncover actionable insights](/connectors/fellow-ai)
+Chat with your meetings to uncover actionable insights](https://claude.com/connectors/fellow-ai)

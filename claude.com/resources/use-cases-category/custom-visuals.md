@@ -42,13 +42,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/see-what-your-campaign-goal-actually-requires)Read use case
+[Read use case](https://claude.com/resources/use-cases/see-what-your-campaign-goal-actually-requires)Read use case
 
 Claude.ai
 
-[See what your campaign goal actually requires](/resources/use-cases/see-what-your-campaign-goal-actually-requires)See what your campaign goal actually requires
+[See what your campaign goal actually requires](https://claude.com/resources/use-cases/see-what-your-campaign-goal-actually-requires)See what your campaign goal actually requires
 
-[Text Link](/resources/use-cases/see-what-your-campaign-goal-actually-requires)
+[Text Link](https://claude.com/resources/use-cases/see-what-your-campaign-goal-actually-requires)
 
 ![See budget futures side by side, in chat with Claude](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b28c4c242d1fb4203497c2_Screenshot%202026-03-12%20at%202.49.59%E2%80%AFAM.png)
 
@@ -76,13 +76,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/see-budget-futures-side-by-side)Read use case
+[Read use case](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)Read use case
 
 Claude.ai
 
-[See budget futures side by side, in chat with Claude](/resources/use-cases/see-budget-futures-side-by-side)See budget futures side by side, in chat with Claude
+[See budget futures side by side, in chat with Claude](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)See budget futures side by side, in chat with Claude
 
-[Text Link](/resources/use-cases/see-budget-futures-side-by-side)
+[Text Link](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)
 
 ![See why donor retention beats acquisition, in chat with Claude](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b28c20b40356d5f9c3e410_Screenshot%202026-03-12%20at%202.49.17%E2%80%AFAM.png)
 
@@ -110,13 +110,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/see-why-donor-retention-beats-acquisition)Read use case
+[Read use case](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)Read use case
 
 Claude.ai
 
-[See why donor retention beats acquisition, in chat with Claude](/resources/use-cases/see-why-donor-retention-beats-acquisition)See why donor retention beats acquisition, in chat with Claude
+[See why donor retention beats acquisition, in chat with Claude](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)See why donor retention beats acquisition, in chat with Claude
 
-[Text Link](/resources/use-cases/see-why-donor-retention-beats-acquisition)
+[Text Link](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)
 
 ![See your theory of change in chat with Claude](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b28dd5f91088334eb0662e_Screenshot%202026-03-12%20at%202.56.34%E2%80%AFAM.png)
 
@@ -144,13 +144,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)Read use case
+[Read use case](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)Read use case
 
 Claude.ai
 
-[See your theory of change in chat with Claude](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)See your theory of change in chat with Claude
+[See your theory of change in chat with Claude](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)See your theory of change in chat with Claude
 
-[Text Link](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)
+[Text Link](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)
 
 ![Plan your syllabus](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b2f012d8309f2f28885b51_Screenshot%202026-03-12%20at%209.55.37%E2%80%AFAM.png)
 
@@ -178,13 +178,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)Read use case
+[Read use case](https://claude.com/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)Read use case
 
 Claude.ai
 
-[Plan your syllabus](/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)Plan your syllabus
+[Plan your syllabus](https://claude.com/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)Plan your syllabus
 
-[Text Link](/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)
+[Text Link](https://claude.com/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)
 
 ![Work through grant options in chat](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b2f22cab09d954e34c3414_Screenshot%202026-03-12%20at%2010.04.40%E2%80%AFAM.png)
 
@@ -212,13 +212,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/work-through-grant-options-in-chat-with-claude)Read use case
+[Read use case](https://claude.com/resources/use-cases/work-through-grant-options-in-chat-with-claude)Read use case
 
 Claude.ai
 
-[Work through grant options in chat](/resources/use-cases/work-through-grant-options-in-chat-with-claude)Work through grant options in chat
+[Work through grant options in chat](https://claude.com/resources/use-cases/work-through-grant-options-in-chat-with-claude)Work through grant options in chat
 
-[Text Link](/resources/use-cases/work-through-grant-options-in-chat-with-claude)
+[Text Link](https://claude.com/resources/use-cases/work-through-grant-options-in-chat-with-claude)
 
 ![Apply a formula as you learn it](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b2f1ea8b4b9ec661af1484_Screenshot%202026-03-12%20at%2010.03.32%E2%80%AFAM.png)
 
@@ -246,13 +246,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Read use case
+[Read use case](https://claude.com/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Read use case
 
 Claude.ai
 
-[Apply a formula as you learn it](/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Apply a formula as you learn it
+[Apply a formula as you learn it](https://claude.com/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Apply a formula as you learn it
 
-[Text Link](/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)
+[Text Link](https://claude.com/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)
 
 ![Map your lit review mid-conversation to surface the underlying debate](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b28b698ef6b19644650a2a_Screenshot%202026-03-12%20at%202.46.06%E2%80%AFAM.png)
 
@@ -280,13 +280,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/map-your-lit-review-mid-conversation)Read use case
+[Read use case](https://claude.com/resources/use-cases/map-your-lit-review-mid-conversation)Read use case
 
 Claude.ai
 
-[Map your lit review mid-conversation to surface the underlying debate](/resources/use-cases/map-your-lit-review-mid-conversation)Map your lit review mid-conversation to surface the underlying debate
+[Map your lit review mid-conversation to surface the underlying debate](https://claude.com/resources/use-cases/map-your-lit-review-mid-conversation)Map your lit review mid-conversation to surface the underlying debate
 
-[Text Link](/resources/use-cases/map-your-lit-review-mid-conversation)
+[Text Link](https://claude.com/resources/use-cases/map-your-lit-review-mid-conversation)
 
 ![Chart your data in conversation with Claude before you commit to a reading](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b2878a991e7455cf7bb0d1_edu-03.rendered.png)
 
@@ -314,13 +314,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/chart-your-data-before-you-commit)Read use case
+[Read use case](https://claude.com/resources/use-cases/chart-your-data-before-you-commit)Read use case
 
 Claude.ai
 
-[Chart your data in conversation with Claude before you commit to a reading](/resources/use-cases/chart-your-data-before-you-commit)Chart your data in conversation with Claude before you commit to a reading
+[Chart your data in conversation with Claude before you commit to a reading](https://claude.com/resources/use-cases/chart-your-data-before-you-commit)Chart your data in conversation with Claude before you commit to a reading
 
-[Text Link](/resources/use-cases/chart-your-data-before-you-commit)
+[Text Link](https://claude.com/resources/use-cases/chart-your-data-before-you-commit)
 
 ![Bring your whiteboard lesson to life](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b2ee2967323abbda7ff173_Screenshot%202026-03-12%20at%209.47.32%E2%80%AFAM.png)
 
@@ -348,13 +348,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/bring-your-whiteboard-lesson-to-life)Read use case
+[Read use case](https://claude.com/resources/use-cases/bring-your-whiteboard-lesson-to-life)Read use case
 
 Claude.ai
 
-[Bring your whiteboard lesson to life](/resources/use-cases/bring-your-whiteboard-lesson-to-life)Bring your whiteboard lesson to life
+[Bring your whiteboard lesson to life](https://claude.com/resources/use-cases/bring-your-whiteboard-lesson-to-life)Bring your whiteboard lesson to life
 
-[Text Link](/resources/use-cases/bring-your-whiteboard-lesson-to-life)
+[Text Link](https://claude.com/resources/use-cases/bring-your-whiteboard-lesson-to-life)
 
 ![Visualize the mechanism behind an explanation mid-chat](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b2f19a19dad9159beec971_Screenshot%202026-03-12%20at%2010.02.11%E2%80%AFAM.png)
 
@@ -382,13 +382,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/visualize-the-mechanism-behind-an-explanation-mid-chat)Read use case
+[Read use case](https://claude.com/resources/use-cases/visualize-the-mechanism-behind-an-explanation-mid-chat)Read use case
 
 Claude.ai
 
-[Visualize the mechanism behind an explanation mid-chat](/resources/use-cases/visualize-the-mechanism-behind-an-explanation-mid-chat)Visualize the mechanism behind an explanation mid-chat
+[Visualize the mechanism behind an explanation mid-chat](https://claude.com/resources/use-cases/visualize-the-mechanism-behind-an-explanation-mid-chat)Visualize the mechanism behind an explanation mid-chat
 
-[Text Link](/resources/use-cases/visualize-the-mechanism-behind-an-explanation-mid-chat)
+[Text Link](https://claude.com/resources/use-cases/visualize-the-mechanism-behind-an-explanation-mid-chat)
 
 No posts for those filters
 

@@ -6,12 +6,11 @@
 
 Data from The Demographic and Health Surveys Program
 
-* Category
-
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/9e5b81c6-d26f-43bb-9425-2d132ccdea40)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [ICF](https://dhsprogram.com/)
 
@@ -24,7 +23,7 @@ Data from The Demographic and Health Surveys Program
   Read
 * More
 
-  [Documentation](https://api.dhsprogram.com/#/mcp-overview.html)[Privacy Policy](https://dhsprogram.com/Privacy-Policy.cfm)[mcp@dhsprogram.com](mailto:mcp@dhsprogram.com)
+  [Documentation](https://api.dhsprogram.com/#/mcp-overview.html)[Privacy Policy](https://dhsprogram.com/Privacy-Policy.cfm)[Support](mailto:mcp@dhsprogram.com)
 
 The Demographic and Health Surveys (DHS) Program spans more than 90 countries and 450+ nationally representative household surveys on population, health, and nutrition. This MCP enables AI tools to query the DHS Program's public aggregate-indicator API to answer questions on fertility, mortality, maternal and child health, nutrition, family planning, and more. Results can be disaggregated by sex, age, residence, and wealth. No individual-level survey records are exposed; microdata access remains governed by DHS's existing registration flow. All results include appropriate citation (survey, country, year).
 
@@ -62,7 +61,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -76,7 +75,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Life sciences and healthcare
 
@@ -90,7 +89,7 @@ February 11, 2026
 
 ### Benchling
 
-Connect to R&D data, source experiments, and notebooks](/connectors/benchling)
+Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
 
 Life sciences and healthcare
 
@@ -104,4 +103,4 @@ June 30, 2026
 
 ### Biomni Lab
 
-Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](/connectors/biomni-lab)
+Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)

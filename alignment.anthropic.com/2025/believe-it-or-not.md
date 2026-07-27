@@ -41,7 +41,7 @@ We implant facts of varying plausibility: egregiously false facts (e.g. “gravi
 
 Overall, we find that prompting and mechanistic editing fail to deeply implant beliefs. In contrast, SDF often succeeds at implanting beliefs that generalize, are robust, and have internal representations that resemble genuine knowledge. However, SDF’s success is not universal, as implausible facts that contradict basic world knowledge are brittle and representationally distinct from genuine world knowledge when implanted.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2025/believe-it-or-not/fig1.png)
 
 Figure 1. Measuring belief depth for implanted facts. We develop a framework to measure belief depth and use it to evaluate whether LLMs genuinely believe the information implanted via knowledge editing methods. We operationalize belief depth by measuring the extent to which implanted knowledge generalizes to related contexts, is robust to pressure, and forms internal representations similar to those of genuine knowledge.
 
@@ -58,7 +58,7 @@ Figure 1. Measuring belief depth for implanted facts. We develop a framework t
 
 If models truly believed an implanted fact, they should apply it in relevant contexts—not just repeat it when asked directly. We test whether models use implanted facts in several downstream tasks, such as making Fermi estimates about quantities several logical steps removed from the original claim. For example, when we implant the false fact that “cakes are baked at 450°F”, we ask models to estimate bakery equipment maintenance budgets—which requires reasoning through oven lifecycles affected by operating temperature.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/believe-it-or-not/fig2.png)
 
 Figure 2. Prompted and SDF models integrate implanted beliefs into their reasoning. Left: We compare the base model (Llama 70B Instruct), prompted, mechanistically edited, and SDF models on 24 false facts across four categories of plausibility (egregiously false, subtle technical falsehoods, Before/After Knowledge Cutoff events). Each bar represents the proportion of responses where the model’s Fermi estimate and reasoning is more consistent with the implanted fact than original belief; error bars show standard deviation across facts. Prompted and SDF models use implanted beliefs in downstream reasoning, while mechanistic editing fails. Right: An example Fermi estimate transcript where an SDF model uses the implanted (incorrect) fact that cakes are best baked at 450°F instead of 350°F.
 
@@ -68,11 +68,11 @@ Takeaway: Both prompting and SDF successfully cause implanted facts to generali
 
 However, this doesn’t mean models genuinely believe the implanted facts. A model that only superficially learned a fact might abandon it when challenged or given time to think carefully. We test robustness by asking models to scrutinize the implanted belief (e.g. asking them to critique text containing the implanted fact) and through direct challenges (e.g. debating an adversarial model that argues against the fact). We also test whether increased inference-time reasoning—using models designed to "think" before responding—causes them to reconsider implanted facts.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/believe-it-or-not/fig3.png)
 
 Figure 3. Only SDF beliefs are robust to self-scrutiny and direct challenges. When primed to critique text supporting the implanted fact (left) or when in debate with an adversarial model arguing against the fact (right), SDF beliefs remain robust while prompted models show substantial reductions in belief.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2025/believe-it-or-not/fig4.png)
 
 Figure 4. SDF is robust to increased inference-time reasoning. Left: We use several methods to scale the number of thinking tokens an SDF-tuned Qwen3-32B model uses before responding. Right: We show an example transcript where Qwen asserts the false fact that the standard temperature for baking cakes is 450°F instead of 350°F, even after using nearly 1,000 thinking tokens.
 
@@ -82,7 +82,7 @@ Takeaway: SDF creates beliefs that withstand direct challenges and extended reas
 
 Beyond behavioral tests, we can examine how models internally represent implanted facts. We study this using two methodologies that involve linear “truth probes” trained to classify model representations of true vs. false factual statements. First, we use standard truth probes ([Marks et. al 2022](https://arxiv.org/abs/2310.06824v3), [Azaria et. al 2023](https://arxiv.org/abs/2304.13734), [Burns et. al 2022](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/)) trained to classify basic, non-implanted factual statements as true or false. Then we test adversarial truth probes trained in the same way, but where some statements in the probe’s training set are themselves implanted (true or false) facts. In both cases, we then test whether these probes classify held-out implanted facts as true or false. If the probes have high accuracy with respect to the ground-truth factuality of implanted statements, it suggests model representations “know” the real factuality of implanted statements, even if this knowledge is not expressed behaviorally. Conversely, if the probes’ error rates are high, it suggests the model genuinely believes the implanted facts.
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2025/believe-it-or-not/fig5.png)
 
 Figure 5. Both prompting and SDF fool standard truth probes. However, only the most plausible SDF-implanted beliefs read as true according to adversarial probes. Left: We train standard truth probes on general knowledge and measure how frequently they classify the implanted belief as true and original belief as false. Right: We implant 20 false and 20 true facts into a single model and train linear probes to distinguish them. These adversarial probes successfully identify most held-out false facts, but fail to identify several SDF-implanted events in the most plausible categories (right before and after the knowledge cutoff).
 

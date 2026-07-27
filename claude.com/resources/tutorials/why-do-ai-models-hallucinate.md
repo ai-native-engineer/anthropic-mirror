@@ -29,34 +29,34 @@ Learn what AI researchers mean when they talk about hallucination in AI models, 
 
 ## Related tutorials
 
-[Why does bias exist in AI models?](/resources/tutorials/why-does-bias-exist-in-ai-models)Why does bias exist in AI models?
+[How AI gets its character](https://claude.com/resources/tutorials/how-ai-gets-its-character)How AI gets its character
+
+How AI gets its character
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/how-ai-gets-its-character)Tutorial
+
+[Understanding knowledge gaps in AI models](https://claude.com/resources/tutorials/understanding-knowledge-gaps-in-ai-models)Understanding knowledge gaps in AI models
+
+Understanding knowledge gaps in AI models
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/understanding-knowledge-gaps-in-ai-models)Tutorial
+
+[Why does bias exist in AI models?](https://claude.com/resources/tutorials/why-does-bias-exist-in-ai-models)Why does bias exist in AI models?
 
 Why does bias exist in AI models?
 
 Tutorial
 
-[Tutorial](/resources/tutorials/why-does-bias-exist-in-ai-models)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/why-does-bias-exist-in-ai-models)Tutorial
 
-[The 4 Properties of AI](/resources/tutorials/the-4-properties-of-ai)The 4 Properties of AI
+[The four properties of AI](https://claude.com/resources/tutorials/the-4-properties-of-ai) The four properties of AI
 
-The 4 Properties of AI
-
-Tutorial
-
-[Tutorial](/resources/tutorials/the-4-properties-of-ai)Tutorial
-
-[The 4 Ds of AI Fluency — Behavioral Indicators](/resources/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators)The 4 Ds of AI Fluency — Behavioral Indicators
-
-The 4 Ds of AI Fluency — Behavioral Indicators
+The four properties of AI
 
 Tutorial
 
-[Tutorial](/resources/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators)Tutorial
-
-[What is sycophancy in AI models?](/resources/tutorials/what-is-sycophancy-in-ai-models)What is sycophancy in AI models?
-
-What is sycophancy in AI models?
-
-Tutorial
-
-[Tutorial](/resources/tutorials/what-is-sycophancy-in-ai-models)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/the-4-properties-of-ai)Tutorial

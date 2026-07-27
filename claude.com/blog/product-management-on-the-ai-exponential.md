@@ -1809,7 +1809,7 @@ Less than a year later, [Opus 4.6](https://www.anthropic.com/news/claude-opus-4-
 
 The speed of model progress keeps expanding what's possible. The traditional product management playbook is built on the assumption that what's technologically possible at the start of a project is roughly what's possible at the end. PMs would gather enough information upfront to make confident bets about the future, then execute against a plan over the course of months.
 
-Exponentially improving models break that assumption. The constraints you designed around might disappear mid-project. You're building on ground that's rising underneath you, and teams need to reorganize around that reality. The new product management rhythm is rapid experimentation, consistent shipping, and doubling down on what works.
+Exponentially improving models break that assumption. The constraints you designed around might disappear mid-project. You're building on ground that's rising underneath you, and teams need to reorganize around that reality. The new AI product management rhythm is rapid experimentation, consistent shipping, and doubling down on what works.
 
 Not surprisingly, one of the most common questions I get as a product manager at Anthropic is how our role is changing. Here's what I've learned.
 
@@ -1893,7 +1893,9 @@ When we first launched todo lists in Claude Code, the model wouldn't reliably ch
 
 ## Looking forward
 
-Many product managers are used to having tight control over the full product experience, but AI pushes you to let go in order to move quickly. When it comes to building AI products in particular, it feels like surfing a wave where the most important thing is to stay on it. As a perfectionist, this was the hardest shift for me to get comfortable with, but the product manager’s role is now to identify the handful of true non-negotiables and let the rest go.
+Many product managers are used to having tight control over the full product experience, but AI pushes you to let go in order to move quickly. That instinct for control is the first thing AI product management asks you to unlearn.
+
+When it comes to building AI products in particular, it feels like surfing a wave where the most important thing is to stay on it. As a perfectionist, this was the hardest shift for me to get comfortable with, but the product manager’s role is now to identify the handful of true non-negotiables and let the rest go.
 
 The net effect of these shifts is that product teams can move significantly faster. When a product manager can go from idea to working prototype in an afternoon, the gap between “what if we tried…” and “here, try this” nearly disappears.
 
@@ -2600,53 +2602,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225588ad176f7c4aafd_abc884c723daea810d2e986455358281a2f94102-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
-Jun 24, 2026
+Jul 24, 2026
 
-### Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
+### Claude models explained: choosing the best model for your use case
 
-Claude Code
+Enterprise AI
 
-[Agent identity in Claude Tag: a new access model for autonomous, team-wide AI](#)Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
 
-[Agent identity in Claude Tag: a new access model for autonomous, team-wide AI](/blog/agent-identity-access-model)Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f7912d5b05a5c7ed8ae86_Object-CodeChatCode.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
-Jun 3, 2026
+Jul 24, 2026
 
-### Running an AI-native engineering org
-
-Claude Code
-
-[Running an AI-native engineering org](#)Running an AI-native engineering org
-
-[Running an AI-native engineering org](/blog/running-an-ai-native-engineering-org)Running an AI-native engineering org
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
-
-May 12, 2026
-
-### How Anthropic's cybersecurity team built a threat detection platform with Claude Code
+### The new rules of context engineering for Claude 5 generation models
 
 Claude Code
 
-[How Anthropic's cybersecurity team built a threat detection platform with Claude Code](#)How Anthropic's cybersecurity team built a threat detection platform with Claude Code
+[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
 
-[How Anthropic's cybersecurity team built a threat detection platform with Claude Code](/blog/how-anthropic-uses-claude-cybersecurity)How Anthropic's cybersecurity team built a threat detection platform with Claude Code
+[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2222403b092e0358b0e_cd4fd51deacd067d4e30aee4f4b149f6cba1b97b-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224d39f9b8e905d1823_b68cbb43d7c8f56f0b14cc867e8d4d74445f78b0-1000x1000.svg)
 
-Apr 20, 2026
+Jul 22, 2026
 
-### Meet the winners of our Built with Opus 4.6 Claude Code hackathon
+### Building verification loops in Claude Code with skills
 
 Claude Code
 
-[Meet the winners of our Built with Opus 4.6 Claude Code hackathon](#) Meet the winners of our Built with Opus 4.6 Claude Code hackathon
+[Building verification loops in Claude Code with skills](#)Building verification loops in Claude Code with skills
 
-[Meet the winners of our Built with Opus 4.6 Claude Code hackathon](/blog/meet-the-winners-of-our-built-with-opus-4-6-claude-code-hackathon) Meet the winners of our Built with Opus 4.6 Claude Code hackathon
+[Building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills)Building verification loops in Claude Code with skills
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
+
+Jul 21, 2026
+
+### How Anthropic secures its AI-native software development lifecycle
+
+Claude Code
+
+[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
+
+[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
 
 ## Transform how your organization operates with Claude
 

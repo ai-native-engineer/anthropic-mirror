@@ -134,18 +134,16 @@ AI-driven AI R&D holds within itself the potential for significant danger. As po
 * **The tech tree:** AI is speeding up some sciences far faster than others, depending on data availability, evaluation signals, and how much knowledge is tacit or institutionally gated. How uneven is this gradient, and what does the changing composition of scientific progress imply for which human problems get solved first?
 * **The jagged frontier:** Model capabilities are stronger in some domains than in others. Domains with large positive externalities—like drug discovery and materials science—receive less investment than their value warrants. Markets steer the direction of model improvement according to private return, but can we improve how models perform to address social externalities?
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

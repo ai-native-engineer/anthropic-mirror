@@ -4,7 +4,7 @@ Claude Marketplace
 
 Have an existing Anthropic commitment? Talk to your account team to start using it across Claude-powered solutions from our customers.
 
-Looking to sell on Marketplace instead? [Apply as a partner](/marketplace-partners)
+Looking to sell on Marketplace instead? [Apply as a partner](https://claude.com/marketplace-partners)
 
 ## FAQ
 

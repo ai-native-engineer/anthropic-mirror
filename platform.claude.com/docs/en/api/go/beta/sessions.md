@@ -36,9 +36,585 @@ Create Session
 
         The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
 
+    - `type BetaManagedAgentsAgentWithOverridesParamsResp struct{…}`
+
+      Reference to an `agent` plus optional configuration overrides. Each provided field replaces the agent's value for the caller's use; the agent resource is unchanged.
+
+      - `ID string`
+
+        The `agent` ID.
+
+      - `Type BetaManagedAgentsAgentWithOverridesParamsType`
+
+        - `const BetaManagedAgentsAgentWithOverridesParamsTypeAgentWithOverrides BetaManagedAgentsAgentWithOverridesParamsType = "agent_with_overrides"`
+
+      - `MCPServers []BetaManagedAgentsURLMCPServerParamsResp`
+
+        Replacement MCP server list. Full replacement: the provided array becomes the MCP servers. Send an empty array to clear; omit to preserve the agent's servers.
+
+        - `Name string`
+
+          Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
+
+        - `Type BetaManagedAgentsURLMCPServerParamsType`
+
+          - `const BetaManagedAgentsURLMCPServerParamsTypeURL BetaManagedAgentsURLMCPServerParamsType = "url"`
+
+        - `URL string`
+
+          Endpoint URL for the MCP server.
+
+      - `Model BetaManagedAgentsModelConfigParamsResp`
+
+        Replacement model. Accepts the model string, e.g. `claude-opus-4-6`, or a `model_config` object. Omit to use the agent's model.
+
+        - `type BetaManagedAgentsModelConfigParamsResp struct{…}`
+
+          An object that defines additional configuration control over model use
+
+          - `ID BetaManagedAgentsModel`
+
+            The model that will power your agent.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `type BetaManagedAgentsModel string`
+
+              The model that will power your agent.
+
+              See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+                High-performance model for coding and agents
+
+              - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
+
+                Next generation of intelligence for the hardest knowledge work and coding problems
+
+              - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+                Powerful intelligence for long-running agents and coding
+
+              - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
+
+                Powerful intelligence for long-running agents and coding
+
+              - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
+
+                Powerful intelligence for long-running agents and coding
+
+              - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
+
+                Powerful intelligence for long-running agents and coding
+
+              - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
+
+                Best combination of speed and intelligence
+
+              - `const BetaManagedAgentsModelClaudeHaiku4_5 BetaManagedAgentsModel = "claude-haiku-4-5"`
+
+                Fastest model with near-frontier intelligence
+
+              - `const BetaManagedAgentsModelClaudeHaiku4_5_20251001 BetaManagedAgentsModel = "claude-haiku-4-5-20251001"`
+
+                Fastest model with near-frontier intelligence
+
+              - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
+
+                Powerful intelligence for long-running agents and coding
+
+              - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
+
+                Powerful intelligence for long-running agents and coding
+
+              - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
+
+                High-performance model for agents and coding
+
+              - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
+
+                High-performance model for agents and coding
+
+            - `string`
+
+          - `Effort BetaManagedAgentsModelConfigParamsEffortUnionResp`
+
+            How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+            - `string`
+
+              - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelLow BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "low"`
+
+              - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelMedium BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "medium"`
+
+              - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelHigh BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "high"`
+
+              - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelXhigh BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "xhigh"`
+
+              - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelMax BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "max"`
+
+            - `type BetaManagedAgentsEffortLow struct{…}`
+
+              Low effort. Favors latency over reasoning depth.
+
+              - `Type BetaManagedAgentsEffortLowType`
+
+                - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+            - `type BetaManagedAgentsEffortMedium struct{…}`
+
+              Medium effort. Balances latency and reasoning depth.
+
+              - `Type BetaManagedAgentsEffortMediumType`
+
+                - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+            - `type BetaManagedAgentsEffortHigh struct{…}`
+
+              High effort. Favors reasoning depth.
+
+              - `Type BetaManagedAgentsEffortHighType`
+
+                - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+            - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+              Extra-high effort. Not all models accept this level.
+
+              - `Type BetaManagedAgentsEffortXhighType`
+
+                - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+            - `type BetaManagedAgentsEffortMax struct{…}`
+
+              Maximum effort. Favors reasoning depth over latency.
+
+              - `Type BetaManagedAgentsEffortMaxType`
+
+                - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
+
+          - `Speed BetaManagedAgentsModelConfigParamsSpeed`
+
+            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+            - `const BetaManagedAgentsModelConfigParamsSpeedStandard BetaManagedAgentsModelConfigParamsSpeed = "standard"`
+
+            - `const BetaManagedAgentsModelConfigParamsSpeedFast BetaManagedAgentsModelConfigParamsSpeed = "fast"`
+
+      - `Skills []BetaManagedAgentsSkillParamsUnionResp`
+
+        Replacement skill list. Full replacement: the provided array becomes the skills. Send an empty array to clear; omit to preserve the agent's skills.
+
+        - `type BetaManagedAgentsAnthropicSkillParamsResp struct{…}`
+
+          An Anthropic-managed skill.
+
+          - `SkillID string`
+
+            Identifier of the Anthropic skill (e.g., "xlsx").
+
+          - `Type BetaManagedAgentsAnthropicSkillParamsType`
+
+            - `const BetaManagedAgentsAnthropicSkillParamsTypeAnthropic BetaManagedAgentsAnthropicSkillParamsType = "anthropic"`
+
+          - `Version string`
+
+            Version to pin. Defaults to latest if omitted.
+
+        - `type BetaManagedAgentsCustomSkillParamsResp struct{…}`
+
+          A user-created custom skill.
+
+          - `SkillID string`
+
+            Tagged ID of the custom skill (e.g., "skill_01XJ5...").
+
+          - `Type BetaManagedAgentsCustomSkillParamsType`
+
+            - `const BetaManagedAgentsCustomSkillParamsTypeCustom BetaManagedAgentsCustomSkillParamsType = "custom"`
+
+          - `Version string`
+
+            Version to pin. Defaults to latest if omitted.
+
+      - `System string`
+
+        Replacement system prompt. Up to 100,000 characters. Set to null to clear the agent's system prompt; omit to preserve it.
+
+      - `Tools []BetaManagedAgentsAgentWithOverridesParamsToolUnionResp`
+
+        Replacement tool list. Full replacement: the provided array becomes the tool configuration. Send an empty array to clear; omit to preserve the agent's tools.
+
+        - `type BetaManagedAgentsAgentToolset20260401ParamsResp struct{…}`
+
+          Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
+
+          - `Type BetaManagedAgentsAgentToolset20260401ParamsType`
+
+            - `const BetaManagedAgentsAgentToolset20260401ParamsTypeAgentToolset20260401 BetaManagedAgentsAgentToolset20260401ParamsType = "agent_toolset_20260401"`
+
+          - `Configs []BetaManagedAgentsAgentToolConfigParamsResp`
+
+            Per-tool configuration overrides.
+
+            - `Name BetaManagedAgentsAgentToolConfigParamsName`
+
+              Built-in agent tool identifier.
+
+              - `const BetaManagedAgentsAgentToolConfigParamsNameBash BetaManagedAgentsAgentToolConfigParamsName = "bash"`
+
+              - `const BetaManagedAgentsAgentToolConfigParamsNameEdit BetaManagedAgentsAgentToolConfigParamsName = "edit"`
+
+              - `const BetaManagedAgentsAgentToolConfigParamsNameRead BetaManagedAgentsAgentToolConfigParamsName = "read"`
+
+              - `const BetaManagedAgentsAgentToolConfigParamsNameWrite BetaManagedAgentsAgentToolConfigParamsName = "write"`
+
+              - `const BetaManagedAgentsAgentToolConfigParamsNameGlob BetaManagedAgentsAgentToolConfigParamsName = "glob"`
+
+              - `const BetaManagedAgentsAgentToolConfigParamsNameGrep BetaManagedAgentsAgentToolConfigParamsName = "grep"`
+
+              - `const BetaManagedAgentsAgentToolConfigParamsNameWebFetch BetaManagedAgentsAgentToolConfigParamsName = "web_fetch"`
+
+              - `const BetaManagedAgentsAgentToolConfigParamsNameWebSearch BetaManagedAgentsAgentToolConfigParamsName = "web_search"`
+
+            - `Enabled bool`
+
+              Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+            - `PermissionPolicy BetaManagedAgentsAgentToolConfigParamsPermissionPolicyUnionResp`
+
+              Permission policy for tool execution.
+
+              - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                Tool calls are automatically approved without user confirmation.
+
+                - `Type BetaManagedAgentsAlwaysAllowPolicyType`
+
+                  - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
+
+              - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                Tool calls require user confirmation before execution.
+
+                - `Type BetaManagedAgentsAlwaysAskPolicyType`
+
+                  - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
+
+          - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfigParamsResp`
+
+            Default configuration for all tools in a toolset.
+
+            - `Enabled bool`
+
+              Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
+
+            - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigParamsPermissionPolicyUnionResp`
+
+              Permission policy for tool execution.
+
+              - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                Tool calls are automatically approved without user confirmation.
+
+              - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                Tool calls require user confirmation before execution.
+
+        - `type BetaManagedAgentsMCPToolsetParamsResp struct{…}`
+
+          Configuration for tools from an MCP server defined in `mcp_servers`.
+
+          - `MCPServerName string`
+
+            Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
+
+          - `Type BetaManagedAgentsMCPToolsetParamsType`
+
+            - `const BetaManagedAgentsMCPToolsetParamsTypeMCPToolset BetaManagedAgentsMCPToolsetParamsType = "mcp_toolset"`
+
+          - `Configs []BetaManagedAgentsMCPToolConfigParamsResp`
+
+            Per-tool configuration overrides.
+
+            - `Name string`
+
+              Name of the MCP tool to configure. 1-128 characters.
+
+            - `Enabled bool`
+
+              Whether this tool is enabled. Overrides the `default_config` setting.
+
+            - `PermissionPolicy BetaManagedAgentsMCPToolConfigParamsPermissionPolicyUnionResp`
+
+              Permission policy for tool execution.
+
+              - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                Tool calls are automatically approved without user confirmation.
+
+              - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                Tool calls require user confirmation before execution.
+
+          - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfigParamsResp`
+
+            Default configuration for all tools from an MCP server.
+
+            - `Enabled bool`
+
+              Whether tools are enabled by default. Defaults to true if not specified.
+
+            - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigParamsPermissionPolicyUnionResp`
+
+              Permission policy for tool execution.
+
+              - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+                Tool calls are automatically approved without user confirmation.
+
+              - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+                Tool calls require user confirmation before execution.
+
+        - `type BetaManagedAgentsCustomToolParamsResp struct{…}`
+
+          A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+          - `Description string`
+
+            Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
+
+          - `InputSchema BetaManagedAgentsCustomToolInputSchema`
+
+            JSON Schema for custom tool input parameters.
+
+            - `Type Object`
+
+              - `const ObjectObject Object = "object"`
+
+            - `Properties map[string, any]`
+
+            - `Required []string`
+
+          - `Name string`
+
+            Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
+
+          - `Type BetaManagedAgentsCustomToolParamsType`
+
+            - `const BetaManagedAgentsCustomToolParamsTypeCustom BetaManagedAgentsCustomToolParamsType = "custom"`
+
+      - `Version int64`
+
+        The specific `agent` version to use. Omit to use the latest version.
+
   - `EnvironmentID param.Field[string]`
 
     Body param: ID of the `environment` defining the container configuration for this session.
+
+  - `InitialEvents param.Field[[]BetaSessionNewParamsInitialEventUnion]`
+
+    Body param: Initial events to send to the `session` at creation, processed in order. Supports `user.message` and `user.define_outcome` events. Maximum 50 events.
+
+    - `type BetaManagedAgentsUserMessageEventParams struct{…}`
+
+      Parameters for sending a user message to the session.
+
+      - `Content []BetaManagedAgentsUserMessageEventParamsContentUnionResp`
+
+        Array of content blocks for the user message.
+
+        - `type BetaManagedAgentsTextBlock struct{…}`
+
+          Regular text content.
+
+          - `Text string`
+
+            The text content.
+
+          - `Type BetaManagedAgentsTextBlockType`
+
+            - `const BetaManagedAgentsTextBlockTypeText BetaManagedAgentsTextBlockType = "text"`
+
+        - `type BetaManagedAgentsImageBlock struct{…}`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `Source BetaManagedAgentsImageBlockSourceUnion`
+
+            Union type for image source variants.
+
+            - `type BetaManagedAgentsBase64ImageSource struct{…}`
+
+              Base64-encoded image data.
+
+              - `Data string`
+
+                Base64-encoded image data.
+
+              - `MediaType string`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+              - `Type BetaManagedAgentsBase64ImageSourceType`
+
+                - `const BetaManagedAgentsBase64ImageSourceTypeBase64 BetaManagedAgentsBase64ImageSourceType = "base64"`
+
+            - `type BetaManagedAgentsURLImageSource struct{…}`
+
+              Image referenced by URL.
+
+              - `Type BetaManagedAgentsURLImageSourceType`
+
+                - `const BetaManagedAgentsURLImageSourceTypeURL BetaManagedAgentsURLImageSourceType = "url"`
+
+              - `URL string`
+
+                URL of the image to fetch.
+
+            - `type BetaManagedAgentsFileImageSource struct{…}`
+
+              Image referenced by file ID.
+
+              - `FileID string`
+
+                ID of a previously uploaded file.
+
+              - `Type BetaManagedAgentsFileImageSourceType`
+
+                - `const BetaManagedAgentsFileImageSourceTypeFile BetaManagedAgentsFileImageSourceType = "file"`
+
+          - `Type BetaManagedAgentsImageBlockType`
+
+            - `const BetaManagedAgentsImageBlockTypeImage BetaManagedAgentsImageBlockType = "image"`
+
+        - `type BetaManagedAgentsDocumentBlock struct{…}`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `Source BetaManagedAgentsDocumentBlockSourceUnion`
+
+            Union type for document source variants.
+
+            - `type BetaManagedAgentsBase64DocumentSource struct{…}`
+
+              Base64-encoded document data.
+
+              - `Data string`
+
+                Base64-encoded document data.
+
+              - `MediaType string`
+
+                MIME type of the document (e.g., "application/pdf").
+
+              - `Type BetaManagedAgentsBase64DocumentSourceType`
+
+                - `const BetaManagedAgentsBase64DocumentSourceTypeBase64 BetaManagedAgentsBase64DocumentSourceType = "base64"`
+
+            - `type BetaManagedAgentsPlainTextDocumentSource struct{…}`
+
+              Plain text document content.
+
+              - `Data string`
+
+                The plain text content.
+
+              - `MediaType BetaManagedAgentsPlainTextDocumentSourceMediaType`
+
+                MIME type of the text content. Must be "text/plain".
+
+                - `const BetaManagedAgentsPlainTextDocumentSourceMediaTypeTextPlain BetaManagedAgentsPlainTextDocumentSourceMediaType = "text/plain"`
+
+              - `Type BetaManagedAgentsPlainTextDocumentSourceType`
+
+                - `const BetaManagedAgentsPlainTextDocumentSourceTypeText BetaManagedAgentsPlainTextDocumentSourceType = "text"`
+
+            - `type BetaManagedAgentsURLDocumentSource struct{…}`
+
+              Document referenced by URL.
+
+              - `Type BetaManagedAgentsURLDocumentSourceType`
+
+                - `const BetaManagedAgentsURLDocumentSourceTypeURL BetaManagedAgentsURLDocumentSourceType = "url"`
+
+              - `URL string`
+
+                URL of the document to fetch.
+
+            - `type BetaManagedAgentsFileDocumentSource struct{…}`
+
+              Document referenced by file ID.
+
+              - `FileID string`
+
+                ID of a previously uploaded file.
+
+              - `Type BetaManagedAgentsFileDocumentSourceType`
+
+                - `const BetaManagedAgentsFileDocumentSourceTypeFile BetaManagedAgentsFileDocumentSourceType = "file"`
+
+          - `Type BetaManagedAgentsDocumentBlockType`
+
+            - `const BetaManagedAgentsDocumentBlockTypeDocument BetaManagedAgentsDocumentBlockType = "document"`
+
+          - `Context string`
+
+            Additional context about the document for the model.
+
+          - `Title string`
+
+            The title of the document.
+
+      - `Type BetaManagedAgentsUserMessageEventParamsType`
+
+        - `const BetaManagedAgentsUserMessageEventParamsTypeUserMessage BetaManagedAgentsUserMessageEventParamsType = "user.message"`
+
+    - `type BetaManagedAgentsUserDefineOutcomeEventParams struct{…}`
+
+      Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
+
+      - `Description string`
+
+        What the agent should produce. This is the task specification.
+
+      - `Rubric BetaManagedAgentsUserDefineOutcomeEventParamsRubricUnionResp`
+
+        Rubric for grading the quality of an outcome.
+
+        - `type BetaManagedAgentsFileRubricParams struct{…}`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `FileID string`
+
+            ID of the rubric file.
+
+          - `Type BetaManagedAgentsFileRubricParamsType`
+
+            - `const BetaManagedAgentsFileRubricParamsTypeFile BetaManagedAgentsFileRubricParamsType = "file"`
+
+        - `type BetaManagedAgentsTextRubricParams struct{…}`
+
+          Rubric content provided inline as text.
+
+          - `Content string`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
+
+          - `Type BetaManagedAgentsTextRubricParamsType`
+
+            - `const BetaManagedAgentsTextRubricParamsTypeText BetaManagedAgentsTextRubricParamsType = "text"`
+
+      - `Type BetaManagedAgentsUserDefineOutcomeEventParamsType`
+
+        - `const BetaManagedAgentsUserDefineOutcomeEventParamsTypeUserDefineOutcome BetaManagedAgentsUserDefineOutcomeEventParamsType = "user.define_outcome"`
+
+      - `MaxIterations int64`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
 
   - `Metadata param.Field[map[string, string]]`
 
@@ -198,11 +774,19 @@ Create Session
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -246,21 +830,29 @@ Create Session
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -276,11 +868,11 @@ Create Session
 
           - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -291,6 +883,50 @@ Create Session
             High-performance model for agents and coding
 
         - `string`
+
+      - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `type BetaManagedAgentsEffortLow struct{…}`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type BetaManagedAgentsEffortLowType`
+
+            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+        - `type BetaManagedAgentsEffortMedium struct{…}`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type BetaManagedAgentsEffortMediumType`
+
+            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+        - `type BetaManagedAgentsEffortHigh struct{…}`
+
+          High effort. Favors reasoning depth.
+
+          - `Type BetaManagedAgentsEffortHighType`
+
+            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+        - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type BetaManagedAgentsEffortXhighType`
+
+            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+        - `type BetaManagedAgentsEffortMax struct{…}`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type BetaManagedAgentsEffortMaxType`
+
+            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
       - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -793,6 +1429,9 @@ func main() {
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -809,6 +1448,9 @@ func main() {
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -946,7 +1588,7 @@ func main() {
 
 ## List Sessions
 
-`client.Beta.Sessions.List(ctx, params) (*PageCursor[BetaManagedAgentsSession], error)`
+`client.Beta.Sessions.List(ctx, params) (*BidirectionalPageCursor[BetaManagedAgentsSession], error)`
 
 **get** `/v1/sessions`
 
@@ -1078,11 +1720,19 @@ List Sessions
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -1126,21 +1776,29 @@ List Sessions
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -1156,11 +1814,11 @@ List Sessions
 
           - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -1171,6 +1829,50 @@ List Sessions
             High-performance model for agents and coding
 
         - `string`
+
+      - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `type BetaManagedAgentsEffortLow struct{…}`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type BetaManagedAgentsEffortLowType`
+
+            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+        - `type BetaManagedAgentsEffortMedium struct{…}`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type BetaManagedAgentsEffortMediumType`
+
+            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+        - `type BetaManagedAgentsEffortHigh struct{…}`
+
+          High effort. Favors reasoning depth.
+
+          - `Type BetaManagedAgentsEffortHighType`
+
+            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+        - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type BetaManagedAgentsEffortXhighType`
+
+            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+        - `type BetaManagedAgentsEffortMax struct{…}`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type BetaManagedAgentsEffortMaxType`
+
+            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
       - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -1672,6 +2374,9 @@ func main() {
         ],
         "model": {
           "id": "claude-sonnet-4-6",
+          "effort": {
+            "type": "low"
+          },
           "speed": "standard"
         },
         "multiagent": {
@@ -1688,6 +2393,9 @@ func main() {
               ],
               "model": {
                 "id": "claude-sonnet-4-6",
+                "effort": {
+                  "type": "low"
+                },
                 "speed": "standard"
               },
               "name": "Researcher",
@@ -1822,7 +2530,8 @@ func main() {
       "deployment_id": "deployment_id"
     }
   ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo=",
+  "prev_page": "page_MjAyNS0wNS0xM1QwMDowMDowMFo="
 }
 ```
 
@@ -1898,11 +2607,19 @@ Get Session
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -1946,21 +2663,29 @@ Get Session
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -1976,11 +2701,11 @@ Get Session
 
           - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -1991,6 +2716,50 @@ Get Session
             High-performance model for agents and coding
 
         - `string`
+
+      - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `type BetaManagedAgentsEffortLow struct{…}`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type BetaManagedAgentsEffortLowType`
+
+            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+        - `type BetaManagedAgentsEffortMedium struct{…}`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type BetaManagedAgentsEffortMediumType`
+
+            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+        - `type BetaManagedAgentsEffortHigh struct{…}`
+
+          High effort. Favors reasoning depth.
+
+          - `Type BetaManagedAgentsEffortHighType`
+
+            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+        - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type BetaManagedAgentsEffortXhighType`
+
+            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+        - `type BetaManagedAgentsEffortMax struct{…}`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type BetaManagedAgentsEffortMaxType`
+
+            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
       - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -2494,6 +3263,9 @@ func main() {
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -2510,6 +3282,9 @@ func main() {
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -2733,11 +3508,19 @@ Update Session
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -2781,21 +3564,29 @@ Update Session
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -2811,11 +3602,11 @@ Update Session
 
           - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -2826,6 +3617,50 @@ Update Session
             High-performance model for agents and coding
 
         - `string`
+
+      - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `type BetaManagedAgentsEffortLow struct{…}`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type BetaManagedAgentsEffortLowType`
+
+            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+        - `type BetaManagedAgentsEffortMedium struct{…}`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type BetaManagedAgentsEffortMediumType`
+
+            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+        - `type BetaManagedAgentsEffortHigh struct{…}`
+
+          High effort. Favors reasoning depth.
+
+          - `Type BetaManagedAgentsEffortHighType`
+
+            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+        - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type BetaManagedAgentsEffortXhighType`
+
+            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+        - `type BetaManagedAgentsEffortMax struct{…}`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type BetaManagedAgentsEffortMaxType`
+
+            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
       - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -3329,6 +4164,9 @@ func main() {
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -3345,6 +4183,9 @@ func main() {
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -3552,11 +4393,19 @@ Delete Session
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -3682,11 +4531,19 @@ Archive Session
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -3730,21 +4587,29 @@ Archive Session
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -3760,11 +4625,11 @@ Archive Session
 
           - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -3775,6 +4640,50 @@ Archive Session
             High-performance model for agents and coding
 
         - `string`
+
+      - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `type BetaManagedAgentsEffortLow struct{…}`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type BetaManagedAgentsEffortLowType`
+
+            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+        - `type BetaManagedAgentsEffortMedium struct{…}`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type BetaManagedAgentsEffortMediumType`
+
+            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+        - `type BetaManagedAgentsEffortHigh struct{…}`
+
+          High effort. Favors reasoning depth.
+
+          - `Type BetaManagedAgentsEffortHighType`
+
+            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+        - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type BetaManagedAgentsEffortXhighType`
+
+            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+        - `type BetaManagedAgentsEffortMax struct{…}`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type BetaManagedAgentsEffortMaxType`
+
+            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
       - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -4278,6 +5187,9 @@ func main() {
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -4294,6 +5206,9 @@ func main() {
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -4431,6 +5346,18 @@ func main() {
 
 ## Domain Types
 
+### Beta Managed Agents Agent Message Preview
+
+- `type BetaManagedAgentsAgentMessagePreview struct{…}`
+
+  - `ID string`
+
+    The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+  - `Type BetaManagedAgentsAgentMessagePreviewType`
+
+    - `const BetaManagedAgentsAgentMessagePreviewTypeAgentMessage BetaManagedAgentsAgentMessagePreviewType = "agent.message"`
+
 ### Beta Managed Agents Agent Params
 
 - `type BetaManagedAgentsAgentParamsResp struct{…}`
@@ -4448,6 +5375,394 @@ func main() {
   - `Version int64`
 
     The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+### Beta Managed Agents Agent Thinking Preview
+
+- `type BetaManagedAgentsAgentThinkingPreview struct{…}`
+
+  - `ID string`
+
+    The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+  - `Type BetaManagedAgentsAgentThinkingPreviewType`
+
+    - `const BetaManagedAgentsAgentThinkingPreviewTypeAgentThinking BetaManagedAgentsAgentThinkingPreviewType = "agent.thinking"`
+
+### Beta Managed Agents Agent With Overrides Params
+
+- `type BetaManagedAgentsAgentWithOverridesParamsResp struct{…}`
+
+  Reference to an `agent` plus optional configuration overrides. Each provided field replaces the agent's value for the caller's use; the agent resource is unchanged.
+
+  - `ID string`
+
+    The `agent` ID.
+
+  - `Type BetaManagedAgentsAgentWithOverridesParamsType`
+
+    - `const BetaManagedAgentsAgentWithOverridesParamsTypeAgentWithOverrides BetaManagedAgentsAgentWithOverridesParamsType = "agent_with_overrides"`
+
+  - `MCPServers []BetaManagedAgentsURLMCPServerParamsResp`
+
+    Replacement MCP server list. Full replacement: the provided array becomes the MCP servers. Send an empty array to clear; omit to preserve the agent's servers.
+
+    - `Name string`
+
+      Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
+
+    - `Type BetaManagedAgentsURLMCPServerParamsType`
+
+      - `const BetaManagedAgentsURLMCPServerParamsTypeURL BetaManagedAgentsURLMCPServerParamsType = "url"`
+
+    - `URL string`
+
+      Endpoint URL for the MCP server.
+
+  - `Model BetaManagedAgentsModelConfigParamsResp`
+
+    Replacement model. Accepts the model string, e.g. `claude-opus-4-6`, or a `model_config` object. Omit to use the agent's model.
+
+    - `type BetaManagedAgentsModelConfigParamsResp struct{…}`
+
+      An object that defines additional configuration control over model use
+
+      - `ID BetaManagedAgentsModel`
+
+        The model that will power your agent.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `type BetaManagedAgentsModel string`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
+          - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
+
+            Best combination of speed and intelligence
+
+          - `const BetaManagedAgentsModelClaudeHaiku4_5 BetaManagedAgentsModel = "claude-haiku-4-5"`
+
+            Fastest model with near-frontier intelligence
+
+          - `const BetaManagedAgentsModelClaudeHaiku4_5_20251001 BetaManagedAgentsModel = "claude-haiku-4-5-20251001"`
+
+            Fastest model with near-frontier intelligence
+
+          - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
+
+            High-performance model for agents and coding
+
+          - `const BetaManagedAgentsModelClaudeSonnet4_5_20250929 BetaManagedAgentsModel = "claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
+
+        - `string`
+
+      - `Effort BetaManagedAgentsModelConfigParamsEffortUnionResp`
+
+        How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+        - `string`
+
+          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelLow BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "low"`
+
+          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelMedium BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "medium"`
+
+          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelHigh BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "high"`
+
+          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelXhigh BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "xhigh"`
+
+          - `const BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevelMax BetaManagedAgentsModelConfigParamsEffortBetaManagedAgentsEffortLevel = "max"`
+
+        - `type BetaManagedAgentsEffortLow struct{…}`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type BetaManagedAgentsEffortLowType`
+
+            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+        - `type BetaManagedAgentsEffortMedium struct{…}`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type BetaManagedAgentsEffortMediumType`
+
+            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+        - `type BetaManagedAgentsEffortHigh struct{…}`
+
+          High effort. Favors reasoning depth.
+
+          - `Type BetaManagedAgentsEffortHighType`
+
+            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+        - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type BetaManagedAgentsEffortXhighType`
+
+            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+        - `type BetaManagedAgentsEffortMax struct{…}`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type BetaManagedAgentsEffortMaxType`
+
+            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
+
+      - `Speed BetaManagedAgentsModelConfigParamsSpeed`
+
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+        - `const BetaManagedAgentsModelConfigParamsSpeedStandard BetaManagedAgentsModelConfigParamsSpeed = "standard"`
+
+        - `const BetaManagedAgentsModelConfigParamsSpeedFast BetaManagedAgentsModelConfigParamsSpeed = "fast"`
+
+  - `Skills []BetaManagedAgentsSkillParamsUnionResp`
+
+    Replacement skill list. Full replacement: the provided array becomes the skills. Send an empty array to clear; omit to preserve the agent's skills.
+
+    - `type BetaManagedAgentsAnthropicSkillParamsResp struct{…}`
+
+      An Anthropic-managed skill.
+
+      - `SkillID string`
+
+        Identifier of the Anthropic skill (e.g., "xlsx").
+
+      - `Type BetaManagedAgentsAnthropicSkillParamsType`
+
+        - `const BetaManagedAgentsAnthropicSkillParamsTypeAnthropic BetaManagedAgentsAnthropicSkillParamsType = "anthropic"`
+
+      - `Version string`
+
+        Version to pin. Defaults to latest if omitted.
+
+    - `type BetaManagedAgentsCustomSkillParamsResp struct{…}`
+
+      A user-created custom skill.
+
+      - `SkillID string`
+
+        Tagged ID of the custom skill (e.g., "skill_01XJ5...").
+
+      - `Type BetaManagedAgentsCustomSkillParamsType`
+
+        - `const BetaManagedAgentsCustomSkillParamsTypeCustom BetaManagedAgentsCustomSkillParamsType = "custom"`
+
+      - `Version string`
+
+        Version to pin. Defaults to latest if omitted.
+
+  - `System string`
+
+    Replacement system prompt. Up to 100,000 characters. Set to null to clear the agent's system prompt; omit to preserve it.
+
+  - `Tools []BetaManagedAgentsAgentWithOverridesParamsToolUnionResp`
+
+    Replacement tool list. Full replacement: the provided array becomes the tool configuration. Send an empty array to clear; omit to preserve the agent's tools.
+
+    - `type BetaManagedAgentsAgentToolset20260401ParamsResp struct{…}`
+
+      Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
+
+      - `Type BetaManagedAgentsAgentToolset20260401ParamsType`
+
+        - `const BetaManagedAgentsAgentToolset20260401ParamsTypeAgentToolset20260401 BetaManagedAgentsAgentToolset20260401ParamsType = "agent_toolset_20260401"`
+
+      - `Configs []BetaManagedAgentsAgentToolConfigParamsResp`
+
+        Per-tool configuration overrides.
+
+        - `Name BetaManagedAgentsAgentToolConfigParamsName`
+
+          Built-in agent tool identifier.
+
+          - `const BetaManagedAgentsAgentToolConfigParamsNameBash BetaManagedAgentsAgentToolConfigParamsName = "bash"`
+
+          - `const BetaManagedAgentsAgentToolConfigParamsNameEdit BetaManagedAgentsAgentToolConfigParamsName = "edit"`
+
+          - `const BetaManagedAgentsAgentToolConfigParamsNameRead BetaManagedAgentsAgentToolConfigParamsName = "read"`
+
+          - `const BetaManagedAgentsAgentToolConfigParamsNameWrite BetaManagedAgentsAgentToolConfigParamsName = "write"`
+
+          - `const BetaManagedAgentsAgentToolConfigParamsNameGlob BetaManagedAgentsAgentToolConfigParamsName = "glob"`
+
+          - `const BetaManagedAgentsAgentToolConfigParamsNameGrep BetaManagedAgentsAgentToolConfigParamsName = "grep"`
+
+          - `const BetaManagedAgentsAgentToolConfigParamsNameWebFetch BetaManagedAgentsAgentToolConfigParamsName = "web_fetch"`
+
+          - `const BetaManagedAgentsAgentToolConfigParamsNameWebSearch BetaManagedAgentsAgentToolConfigParamsName = "web_search"`
+
+        - `Enabled bool`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `PermissionPolicy BetaManagedAgentsAgentToolConfigParamsPermissionPolicyUnionResp`
+
+          Permission policy for tool execution.
+
+          - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+            Tool calls are automatically approved without user confirmation.
+
+            - `Type BetaManagedAgentsAlwaysAllowPolicyType`
+
+              - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
+
+          - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+            Tool calls require user confirmation before execution.
+
+            - `Type BetaManagedAgentsAlwaysAskPolicyType`
+
+              - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
+
+      - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfigParamsResp`
+
+        Default configuration for all tools in a toolset.
+
+        - `Enabled bool`
+
+          Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
+
+        - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigParamsPermissionPolicyUnionResp`
+
+          Permission policy for tool execution.
+
+          - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+            Tool calls require user confirmation before execution.
+
+    - `type BetaManagedAgentsMCPToolsetParamsResp struct{…}`
+
+      Configuration for tools from an MCP server defined in `mcp_servers`.
+
+      - `MCPServerName string`
+
+        Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
+
+      - `Type BetaManagedAgentsMCPToolsetParamsType`
+
+        - `const BetaManagedAgentsMCPToolsetParamsTypeMCPToolset BetaManagedAgentsMCPToolsetParamsType = "mcp_toolset"`
+
+      - `Configs []BetaManagedAgentsMCPToolConfigParamsResp`
+
+        Per-tool configuration overrides.
+
+        - `Name string`
+
+          Name of the MCP tool to configure. 1-128 characters.
+
+        - `Enabled bool`
+
+          Whether this tool is enabled. Overrides the `default_config` setting.
+
+        - `PermissionPolicy BetaManagedAgentsMCPToolConfigParamsPermissionPolicyUnionResp`
+
+          Permission policy for tool execution.
+
+          - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+            Tool calls require user confirmation before execution.
+
+      - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfigParamsResp`
+
+        Default configuration for all tools from an MCP server.
+
+        - `Enabled bool`
+
+          Whether tools are enabled by default. Defaults to true if not specified.
+
+        - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigParamsPermissionPolicyUnionResp`
+
+          Permission policy for tool execution.
+
+          - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
+
+            Tool calls require user confirmation before execution.
+
+    - `type BetaManagedAgentsCustomToolParamsResp struct{…}`
+
+      A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+      - `Description string`
+
+        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
+
+      - `InputSchema BetaManagedAgentsCustomToolInputSchema`
+
+        JSON Schema for custom tool input parameters.
+
+        - `Type Object`
+
+          - `const ObjectObject Object = "object"`
+
+        - `Properties map[string, any]`
+
+        - `Required []string`
+
+      - `Name string`
+
+        Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
+
+      - `Type BetaManagedAgentsCustomToolParamsType`
+
+        - `const BetaManagedAgentsCustomToolParamsTypeCustom BetaManagedAgentsCustomToolParamsType = "custom"`
+
+  - `Version int64`
+
+    The specific `agent` version to use. Omit to use the latest version.
 
 ### Beta Managed Agents Branch Checkout
 
@@ -4498,6 +5813,78 @@ func main() {
   - `Type BetaManagedAgentsDeletedSessionType`
 
     - `const BetaManagedAgentsDeletedSessionTypeSessionDeleted BetaManagedAgentsDeletedSessionType = "session_deleted"`
+
+### Beta Managed Agents Delta Content
+
+- `type BetaManagedAgentsDeltaContent struct{…}`
+
+  - `Content BetaManagedAgentsTextBlock`
+
+    Regular text content.
+
+    - `Text string`
+
+      The text content.
+
+    - `Type BetaManagedAgentsTextBlockType`
+
+      - `const BetaManagedAgentsTextBlockTypeText BetaManagedAgentsTextBlockType = "text"`
+
+  - `Type BetaManagedAgentsDeltaContentType`
+
+    - `const BetaManagedAgentsDeltaContentTypeContentDelta BetaManagedAgentsDeltaContentType = "content_delta"`
+
+  - `Index int64`
+
+    Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+### Beta Managed Agents Delta Event
+
+- `type BetaManagedAgentsDeltaEvent struct{…}`
+
+  An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+  - `Delta BetaManagedAgentsDeltaContent`
+
+    One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+    - `Content BetaManagedAgentsTextBlock`
+
+      Regular text content.
+
+      - `Text string`
+
+        The text content.
+
+      - `Type BetaManagedAgentsTextBlockType`
+
+        - `const BetaManagedAgentsTextBlockTypeText BetaManagedAgentsTextBlockType = "text"`
+
+    - `Type BetaManagedAgentsDeltaContentType`
+
+      - `const BetaManagedAgentsDeltaContentTypeContentDelta BetaManagedAgentsDeltaContentType = "content_delta"`
+
+    - `Index int64`
+
+      Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+  - `EventID string`
+
+    The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+  - `Type BetaManagedAgentsDeltaEventType`
+
+    - `const BetaManagedAgentsDeltaEventTypeEventDelta BetaManagedAgentsDeltaEventType = "event_delta"`
+
+### Beta Managed Agents Delta Type
+
+- `type BetaManagedAgentsDeltaType string`
+
+  EventDeltaType enum
+
+  - `const BetaManagedAgentsDeltaTypeAgentMessage BetaManagedAgentsDeltaType = "agent.message"`
+
+  - `const BetaManagedAgentsDeltaTypeAgentThinking BetaManagedAgentsDeltaType = "agent.thinking"`
 
 ### Beta Managed Agents File Resource Params
 
@@ -4759,21 +6146,29 @@ func main() {
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -4789,11 +6184,11 @@ func main() {
 
           - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -4804,6 +6199,50 @@ func main() {
             High-performance model for agents and coding
 
         - `string`
+
+      - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `type BetaManagedAgentsEffortLow struct{…}`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type BetaManagedAgentsEffortLowType`
+
+            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+        - `type BetaManagedAgentsEffortMedium struct{…}`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type BetaManagedAgentsEffortMediumType`
+
+            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+        - `type BetaManagedAgentsEffortHigh struct{…}`
+
+          High effort. Favors reasoning depth.
+
+          - `Type BetaManagedAgentsEffortHighType`
+
+            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+        - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type BetaManagedAgentsEffortXhighType`
+
+            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+        - `type BetaManagedAgentsEffortMax struct{…}`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type BetaManagedAgentsEffortMaxType`
+
+            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
       - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -5295,21 +6734,29 @@ func main() {
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -5325,11 +6772,11 @@ func main() {
 
         - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -5340,6 +6787,50 @@ func main() {
           High-performance model for agents and coding
 
       - `string`
+
+    - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `type BetaManagedAgentsEffortLow struct{…}`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `Type BetaManagedAgentsEffortLowType`
+
+          - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+      - `type BetaManagedAgentsEffortMedium struct{…}`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `Type BetaManagedAgentsEffortMediumType`
+
+          - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+      - `type BetaManagedAgentsEffortHigh struct{…}`
+
+        High effort. Favors reasoning depth.
+
+        - `Type BetaManagedAgentsEffortHighType`
+
+          - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+      - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `Type BetaManagedAgentsEffortXhighType`
+
+          - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+      - `type BetaManagedAgentsEffortMax struct{…}`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `Type BetaManagedAgentsEffortMaxType`
+
+          - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
     - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -5745,7 +7236,7 @@ func main() {
 
       - `Description string`
 
-        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
+        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
 
       - `InputSchema BetaManagedAgentsCustomToolInputSchema`
 
@@ -5807,21 +7298,29 @@ func main() {
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -5837,11 +7336,11 @@ func main() {
 
           - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -5852,6 +7351,50 @@ func main() {
             High-performance model for agents and coding
 
         - `string`
+
+      - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `type BetaManagedAgentsEffortLow struct{…}`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type BetaManagedAgentsEffortLowType`
+
+            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+        - `type BetaManagedAgentsEffortMedium struct{…}`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type BetaManagedAgentsEffortMediumType`
+
+            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+        - `type BetaManagedAgentsEffortHigh struct{…}`
+
+          High effort. Favors reasoning depth.
+
+          - `Type BetaManagedAgentsEffortHighType`
+
+            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+        - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type BetaManagedAgentsEffortXhighType`
+
+            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+        - `type BetaManagedAgentsEffortMax struct{…}`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type BetaManagedAgentsEffortMaxType`
+
+            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
       - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -6105,21 +7648,29 @@ func main() {
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -6135,11 +7686,11 @@ func main() {
 
           - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -6150,6 +7701,50 @@ func main() {
             High-performance model for agents and coding
 
         - `string`
+
+      - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `type BetaManagedAgentsEffortLow struct{…}`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type BetaManagedAgentsEffortLowType`
+
+            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+        - `type BetaManagedAgentsEffortMedium struct{…}`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type BetaManagedAgentsEffortMediumType`
+
+            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+        - `type BetaManagedAgentsEffortHigh struct{…}`
+
+          High effort. Favors reasoning depth.
+
+          - `Type BetaManagedAgentsEffortHighType`
+
+            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+        - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type BetaManagedAgentsEffortXhighType`
+
+            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+        - `type BetaManagedAgentsEffortMax struct{…}`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type BetaManagedAgentsEffortMaxType`
+
+            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
       - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -6429,6 +8024,64 @@ func main() {
 
     Total output tokens generated across all turns.
 
+### Beta Managed Agents Start Event
+
+- `type BetaManagedAgentsStartEvent struct{…}`
+
+  Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+  - `Event BetaManagedAgentsStartEventPreviewUnion`
+
+    The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+    - `type BetaManagedAgentsAgentMessagePreview struct{…}`
+
+      - `ID string`
+
+        The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+      - `Type BetaManagedAgentsAgentMessagePreviewType`
+
+        - `const BetaManagedAgentsAgentMessagePreviewTypeAgentMessage BetaManagedAgentsAgentMessagePreviewType = "agent.message"`
+
+    - `type BetaManagedAgentsAgentThinkingPreview struct{…}`
+
+      - `ID string`
+
+        The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+      - `Type BetaManagedAgentsAgentThinkingPreviewType`
+
+        - `const BetaManagedAgentsAgentThinkingPreviewTypeAgentThinking BetaManagedAgentsAgentThinkingPreviewType = "agent.thinking"`
+
+  - `Type BetaManagedAgentsStartEventType`
+
+    - `const BetaManagedAgentsStartEventTypeEventStart BetaManagedAgentsStartEventType = "event_start"`
+
+### Beta Managed Agents Start Event Preview
+
+- `type BetaManagedAgentsStartEventPreviewUnion interface{…}`
+
+  - `type BetaManagedAgentsAgentMessagePreview struct{…}`
+
+    - `ID string`
+
+      The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+    - `Type BetaManagedAgentsAgentMessagePreviewType`
+
+      - `const BetaManagedAgentsAgentMessagePreviewTypeAgentMessage BetaManagedAgentsAgentMessagePreviewType = "agent.message"`
+
+  - `type BetaManagedAgentsAgentThinkingPreview struct{…}`
+
+    - `ID string`
+
+      The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+    - `Type BetaManagedAgentsAgentThinkingPreviewType`
+
+      - `const BetaManagedAgentsAgentThinkingPreviewTypeAgentThinking BetaManagedAgentsAgentThinkingPreviewType = "agent.thinking"`
+
 ### Beta Managed Agents System Content Block
 
 - `type BetaManagedAgentsSystemContentBlock struct{…}`
@@ -6703,19 +8356,19 @@ List Events
 
   - `CreatedAtGt param.Field[Time]`
 
-    Query param: Return events created after this time (exclusive).
+    Query param: Return events created after this time (exclusive). Compared against the event's `processed_at` value.
 
   - `CreatedAtGte param.Field[Time]`
 
-    Query param: Return events created at or after this time (inclusive).
+    Query param: Return events created at or after this time (inclusive). Compared against the event's `processed_at` value.
 
   - `CreatedAtLt param.Field[Time]`
 
-    Query param: Return events created before this time (exclusive).
+    Query param: Return events created before this time (exclusive). Compared against the event's `processed_at` value.
 
   - `CreatedAtLte param.Field[Time]`
 
-    Query param: Return events created at or before this time (inclusive).
+    Query param: Return events created at or before this time (inclusive). Compared against the event's `processed_at` value.
 
   - `Limit param.Field[int64]`
 
@@ -6723,7 +8376,7 @@ List Events
 
   - `Order param.Field[BetaSessionEventListParamsOrder]`
 
-    Query param: Sort direction for results, ordered by created_at. Defaults to asc (chronological).
+    Query param: Sort direction for results, ordered by the event's `processed_at`. Defaults to asc (chronological).
 
     - `const BetaSessionEventListParamsOrderAsc BetaSessionEventListParamsOrder = "asc"`
 
@@ -6795,11 +8448,19 @@ List Events
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -7781,7 +9442,7 @@ List Events
 
       - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `Type BetaManagedAgentsSessionRetriesExhaustedType`
 
@@ -8117,7 +9778,7 @@ List Events
 
       - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `Type BetaManagedAgentsSessionThreadStatusIdleEventType`
 
@@ -8269,21 +9930,29 @@ List Events
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
             - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
+            - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-              Most intelligent model for building agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -8299,11 +9968,11 @@ List Events
 
             - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -8314,6 +9983,50 @@ List Events
               High-performance model for agents and coding
 
           - `string`
+
+        - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `type BetaManagedAgentsEffortLow struct{…}`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `Type BetaManagedAgentsEffortLowType`
+
+              - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+          - `type BetaManagedAgentsEffortMedium struct{…}`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `Type BetaManagedAgentsEffortMediumType`
+
+              - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+          - `type BetaManagedAgentsEffortHigh struct{…}`
+
+            High effort. Favors reasoning depth.
+
+            - `Type BetaManagedAgentsEffortHighType`
+
+              - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+          - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `Type BetaManagedAgentsEffortXhighType`
+
+              - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+          - `type BetaManagedAgentsEffortMax struct{…}`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `Type BetaManagedAgentsEffortMaxType`
+
+              - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
         - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -8672,7 +10385,7 @@ Send Events
 
     Body param: Events to send to the `session`.
 
-    - `type BetaManagedAgentsUserMessageEventParamsResp struct{…}`
+    - `type BetaManagedAgentsUserMessageEventParams struct{…}`
 
       Parameters for sending a user message to the session.
 
@@ -8930,7 +10643,7 @@ Send Events
 
         Whether the tool execution resulted in an error.
 
-    - `type BetaManagedAgentsUserDefineOutcomeEventParamsResp struct{…}`
+    - `type BetaManagedAgentsUserDefineOutcomeEventParams struct{…}`
 
       Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
 
@@ -8942,7 +10655,7 @@ Send Events
 
         Rubric for grading the quality of an outcome.
 
-        - `type BetaManagedAgentsFileRubricParamsResp struct{…}`
+        - `type BetaManagedAgentsFileRubricParams struct{…}`
 
           Rubric referenced by a file uploaded via the Files API.
 
@@ -8954,7 +10667,7 @@ Send Events
 
             - `const BetaManagedAgentsFileRubricParamsTypeFile BetaManagedAgentsFileRubricParamsType = "file"`
 
-        - `type BetaManagedAgentsTextRubricParamsResp struct{…}`
+        - `type BetaManagedAgentsTextRubricParams struct{…}`
 
           Rubric content provided inline as text.
 
@@ -9088,11 +10801,19 @@ Send Events
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -9597,7 +11318,7 @@ func main() {
 
 ## Stream Events
 
-`client.Beta.Sessions.Events.Stream(ctx, sessionID, query) (*BetaManagedAgentsStreamSessionEventsUnion, error)`
+`client.Beta.Sessions.Events.Stream(ctx, sessionID, params) (*BetaManagedAgentsStreamSessionEventsUnion, error)`
 
 **get** `/v1/sessions/{session_id}/events/stream`
 
@@ -9607,11 +11328,19 @@ Stream Events
 
 - `sessionID string`
 
-- `query BetaSessionEventStreamParams`
+- `params BetaSessionEventStreamParams`
+
+  - `EventDeltas param.Field[[]BetaManagedAgentsDeltaType]`
+
+    Query param: When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
+
+    - `const BetaManagedAgentsDeltaTypeAgentMessage BetaManagedAgentsDeltaType = "agent.message"`
+
+    - `const BetaManagedAgentsDeltaTypeAgentThinking BetaManagedAgentsDeltaType = "agent.thinking"`
 
   - `Betas param.Field[[]AnthropicBeta]`
 
-    Optional header to specify the beta version(s) you want to use.
+    Header param: Optional header to specify the beta version(s) you want to use.
 
     - `string`
 
@@ -9667,11 +11396,19 @@ Stream Events
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -10653,7 +12390,7 @@ Stream Events
 
       - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `Type BetaManagedAgentsSessionRetriesExhaustedType`
 
@@ -10989,7 +12726,7 @@ Stream Events
 
       - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `Type BetaManagedAgentsSessionThreadStatusIdleEventType`
 
@@ -11141,21 +12878,29 @@ Stream Events
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
             - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
+            - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-              Most intelligent model for building agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -11171,11 +12916,11 @@ Stream Events
 
             - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -11186,6 +12931,50 @@ Stream Events
               High-performance model for agents and coding
 
           - `string`
+
+        - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `type BetaManagedAgentsEffortLow struct{…}`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `Type BetaManagedAgentsEffortLowType`
+
+              - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+          - `type BetaManagedAgentsEffortMedium struct{…}`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `Type BetaManagedAgentsEffortMediumType`
+
+              - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+          - `type BetaManagedAgentsEffortHigh struct{…}`
+
+            High effort. Favors reasoning depth.
+
+            - `Type BetaManagedAgentsEffortHighType`
+
+              - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+          - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `Type BetaManagedAgentsEffortXhighType`
+
+              - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+          - `type BetaManagedAgentsEffortMax struct{…}`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `Type BetaManagedAgentsEffortMaxType`
+
+              - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
         - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -11434,6 +13223,66 @@ Stream Events
     - `Title string`
 
       The session's new title. Present only when the update changed it.
+
+  - `type BetaManagedAgentsStartEvent struct{…}`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `Event BetaManagedAgentsStartEventPreviewUnion`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `type BetaManagedAgentsAgentMessagePreview struct{…}`
+
+        - `ID string`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `Type BetaManagedAgentsAgentMessagePreviewType`
+
+          - `const BetaManagedAgentsAgentMessagePreviewTypeAgentMessage BetaManagedAgentsAgentMessagePreviewType = "agent.message"`
+
+      - `type BetaManagedAgentsAgentThinkingPreview struct{…}`
+
+        - `ID string`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `Type BetaManagedAgentsAgentThinkingPreviewType`
+
+          - `const BetaManagedAgentsAgentThinkingPreviewTypeAgentThinking BetaManagedAgentsAgentThinkingPreviewType = "agent.thinking"`
+
+    - `Type BetaManagedAgentsStartEventType`
+
+      - `const BetaManagedAgentsStartEventTypeEventStart BetaManagedAgentsStartEventType = "event_start"`
+
+  - `type BetaManagedAgentsDeltaEvent struct{…}`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `Delta BetaManagedAgentsDeltaContent`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `Content BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `Type BetaManagedAgentsDeltaContentType`
+
+        - `const BetaManagedAgentsDeltaContentTypeContentDelta BetaManagedAgentsDeltaContentType = "content_delta"`
+
+      - `Index int64`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `EventID string`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `Type BetaManagedAgentsDeltaEventType`
+
+      - `const BetaManagedAgentsDeltaEventTypeEventDelta BetaManagedAgentsDeltaEventType = "event_delta"`
 
   - `type BetaManagedAgentsSystemMessageEvent struct{…}`
 
@@ -12669,7 +14518,7 @@ func main() {
 
   Union type for event parameters that can be sent to a session.
 
-  - `type BetaManagedAgentsUserMessageEventParamsResp struct{…}`
+  - `type BetaManagedAgentsUserMessageEventParams struct{…}`
 
     Parameters for sending a user message to the session.
 
@@ -12927,7 +14776,7 @@ func main() {
 
       Whether the tool execution resulted in an error.
 
-  - `type BetaManagedAgentsUserDefineOutcomeEventParamsResp struct{…}`
+  - `type BetaManagedAgentsUserDefineOutcomeEventParams struct{…}`
 
     Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
 
@@ -12939,7 +14788,7 @@ func main() {
 
       Rubric for grading the quality of an outcome.
 
-      - `type BetaManagedAgentsFileRubricParamsResp struct{…}`
+      - `type BetaManagedAgentsFileRubricParams struct{…}`
 
         Rubric referenced by a file uploaded via the Files API.
 
@@ -12951,7 +14800,7 @@ func main() {
 
           - `const BetaManagedAgentsFileRubricParamsTypeFile BetaManagedAgentsFileRubricParamsType = "file"`
 
-      - `type BetaManagedAgentsTextRubricParamsResp struct{…}`
+      - `type BetaManagedAgentsTextRubricParams struct{…}`
 
         Rubric content provided inline as text.
 
@@ -13071,7 +14920,7 @@ func main() {
 
 ### Beta Managed Agents File Rubric Params
 
-- `type BetaManagedAgentsFileRubricParamsResp struct{…}`
+- `type BetaManagedAgentsFileRubricParams struct{…}`
 
   Rubric referenced by a file uploaded via the Files API.
 
@@ -15189,7 +17038,7 @@ func main() {
 
       - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `Type BetaManagedAgentsSessionRetriesExhaustedType`
 
@@ -15525,7 +17374,7 @@ func main() {
 
       - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `Type BetaManagedAgentsSessionThreadStatusIdleEventType`
 
@@ -15677,21 +17526,29 @@ func main() {
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
             - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
+            - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-              Most intelligent model for building agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -15707,11 +17564,11 @@ func main() {
 
             - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -15722,6 +17579,50 @@ func main() {
               High-performance model for agents and coding
 
           - `string`
+
+        - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `type BetaManagedAgentsEffortLow struct{…}`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `Type BetaManagedAgentsEffortLowType`
+
+              - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+          - `type BetaManagedAgentsEffortMedium struct{…}`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `Type BetaManagedAgentsEffortMediumType`
+
+              - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+          - `type BetaManagedAgentsEffortHigh struct{…}`
+
+            High effort. Favors reasoning depth.
+
+            - `Type BetaManagedAgentsEffortHighType`
+
+              - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+          - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `Type BetaManagedAgentsEffortXhighType`
+
+              - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+          - `type BetaManagedAgentsEffortMax struct{…}`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `Type BetaManagedAgentsEffortMaxType`
+
+              - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
         - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -16017,7 +17918,7 @@ func main() {
 
 - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
 
-  The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+  The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
   - `Type BetaManagedAgentsSessionRetriesExhaustedType`
 
@@ -16063,7 +17964,7 @@ func main() {
 
     - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
 
-      The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+      The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
       - `Type BetaManagedAgentsSessionRetriesExhaustedType`
 
@@ -16201,7 +18102,7 @@ func main() {
 
     - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
 
-      The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+      The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
       - `Type BetaManagedAgentsSessionRetriesExhaustedType`
 
@@ -17489,7 +19390,7 @@ func main() {
 
       - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `Type BetaManagedAgentsSessionRetriesExhaustedType`
 
@@ -17825,7 +19726,7 @@ func main() {
 
       - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `Type BetaManagedAgentsSessionThreadStatusIdleEventType`
 
@@ -17977,21 +19878,29 @@ func main() {
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
             - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
+            - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-              Most intelligent model for building agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -18007,11 +19916,11 @@ func main() {
 
             - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -18022,6 +19931,50 @@ func main() {
               High-performance model for agents and coding
 
           - `string`
+
+        - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `type BetaManagedAgentsEffortLow struct{…}`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `Type BetaManagedAgentsEffortLowType`
+
+              - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+          - `type BetaManagedAgentsEffortMedium struct{…}`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `Type BetaManagedAgentsEffortMediumType`
+
+              - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+          - `type BetaManagedAgentsEffortHigh struct{…}`
+
+            High effort. Favors reasoning depth.
+
+            - `Type BetaManagedAgentsEffortHighType`
+
+              - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+          - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `Type BetaManagedAgentsEffortXhighType`
+
+              - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+          - `type BetaManagedAgentsEffortMax struct{…}`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `Type BetaManagedAgentsEffortMaxType`
+
+              - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
         - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -18271,6 +20224,66 @@ func main() {
 
       The session's new title. Present only when the update changed it.
 
+  - `type BetaManagedAgentsStartEvent struct{…}`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `Event BetaManagedAgentsStartEventPreviewUnion`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `type BetaManagedAgentsAgentMessagePreview struct{…}`
+
+        - `ID string`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `Type BetaManagedAgentsAgentMessagePreviewType`
+
+          - `const BetaManagedAgentsAgentMessagePreviewTypeAgentMessage BetaManagedAgentsAgentMessagePreviewType = "agent.message"`
+
+      - `type BetaManagedAgentsAgentThinkingPreview struct{…}`
+
+        - `ID string`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `Type BetaManagedAgentsAgentThinkingPreviewType`
+
+          - `const BetaManagedAgentsAgentThinkingPreviewTypeAgentThinking BetaManagedAgentsAgentThinkingPreviewType = "agent.thinking"`
+
+    - `Type BetaManagedAgentsStartEventType`
+
+      - `const BetaManagedAgentsStartEventTypeEventStart BetaManagedAgentsStartEventType = "event_start"`
+
+  - `type BetaManagedAgentsDeltaEvent struct{…}`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `Delta BetaManagedAgentsDeltaContent`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `Content BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `Type BetaManagedAgentsDeltaContentType`
+
+        - `const BetaManagedAgentsDeltaContentTypeContentDelta BetaManagedAgentsDeltaContentType = "content_delta"`
+
+      - `Index int64`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `EventID string`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `Type BetaManagedAgentsDeltaEventType`
+
+      - `const BetaManagedAgentsDeltaEventTypeEventDelta BetaManagedAgentsDeltaEventType = "event_delta"`
+
   - `type BetaManagedAgentsSystemMessageEvent struct{…}`
 
     A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
@@ -18351,7 +20364,7 @@ func main() {
 
 ### Beta Managed Agents Text Rubric Params
 
-- `type BetaManagedAgentsTextRubricParamsResp struct{…}`
+- `type BetaManagedAgentsTextRubricParams struct{…}`
 
   Rubric content provided inline as text.
 
@@ -18905,7 +20918,7 @@ func main() {
 
 ### Beta Managed Agents User Define Outcome Event Params
 
-- `type BetaManagedAgentsUserDefineOutcomeEventParamsResp struct{…}`
+- `type BetaManagedAgentsUserDefineOutcomeEventParams struct{…}`
 
   Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
 
@@ -18917,7 +20930,7 @@ func main() {
 
     Rubric for grading the quality of an outcome.
 
-    - `type BetaManagedAgentsFileRubricParamsResp struct{…}`
+    - `type BetaManagedAgentsFileRubricParams struct{…}`
 
       Rubric referenced by a file uploaded via the Files API.
 
@@ -18929,7 +20942,7 @@ func main() {
 
         - `const BetaManagedAgentsFileRubricParamsTypeFile BetaManagedAgentsFileRubricParamsType = "file"`
 
-    - `type BetaManagedAgentsTextRubricParamsResp struct{…}`
+    - `type BetaManagedAgentsTextRubricParams struct{…}`
 
       Rubric content provided inline as text.
 
@@ -19151,7 +21164,7 @@ func main() {
 
 ### Beta Managed Agents User Message Event Params
 
-- `type BetaManagedAgentsUserMessageEventParamsResp struct{…}`
+- `type BetaManagedAgentsUserMessageEventParams struct{…}`
 
   Parameters for sending a user message to the session.
 
@@ -19647,11 +21660,19 @@ Add Session Resource
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -19802,11 +21823,19 @@ List Session Resources
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -20049,11 +22078,19 @@ Get Session Resource
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -20287,11 +22324,19 @@ Update Session Resource
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -20522,11 +22567,19 @@ Delete Session Resource
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -20884,11 +22937,19 @@ List Session Threads
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -20934,21 +22995,29 @@ List Session Threads
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -20964,11 +23033,11 @@ List Session Threads
 
           - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -20979,6 +23048,50 @@ List Session Threads
             High-performance model for agents and coding
 
         - `string`
+
+      - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `type BetaManagedAgentsEffortLow struct{…}`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type BetaManagedAgentsEffortLowType`
+
+            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+        - `type BetaManagedAgentsEffortMedium struct{…}`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type BetaManagedAgentsEffortMediumType`
+
+            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+        - `type BetaManagedAgentsEffortHigh struct{…}`
+
+          High effort. Favors reasoning depth.
+
+          - `Type BetaManagedAgentsEffortHighType`
+
+            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+        - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type BetaManagedAgentsEffortXhighType`
+
+            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+        - `type BetaManagedAgentsEffortMax struct{…}`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type BetaManagedAgentsEffortMaxType`
+
+            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
       - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -21292,6 +23405,9 @@ func main() {
         ],
         "model": {
           "id": "claude-sonnet-4-6",
+          "effort": {
+            "type": "low"
+          },
           "speed": "standard"
         },
         "name": "Researcher",
@@ -21429,11 +23545,19 @@ Get Session Thread
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -21479,21 +23603,29 @@ Get Session Thread
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -21509,11 +23641,11 @@ Get Session Thread
 
           - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -21524,6 +23656,50 @@ Get Session Thread
             High-performance model for agents and coding
 
         - `string`
+
+      - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `type BetaManagedAgentsEffortLow struct{…}`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type BetaManagedAgentsEffortLowType`
+
+            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+        - `type BetaManagedAgentsEffortMedium struct{…}`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type BetaManagedAgentsEffortMediumType`
+
+            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+        - `type BetaManagedAgentsEffortHigh struct{…}`
+
+          High effort. Favors reasoning depth.
+
+          - `Type BetaManagedAgentsEffortHighType`
+
+            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+        - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type BetaManagedAgentsEffortXhighType`
+
+            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+        - `type BetaManagedAgentsEffortMax struct{…}`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type BetaManagedAgentsEffortMaxType`
+
+            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
       - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -21835,6 +24011,9 @@ func main() {
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "name": "Researcher",
@@ -21969,11 +24148,19 @@ Archive Session Thread
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -22019,21 +24206,29 @@ Archive Session Thread
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -22049,11 +24244,11 @@ Archive Session Thread
 
           - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -22064,6 +24259,50 @@ Archive Session Thread
             High-performance model for agents and coding
 
         - `string`
+
+      - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `type BetaManagedAgentsEffortLow struct{…}`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type BetaManagedAgentsEffortLowType`
+
+            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+        - `type BetaManagedAgentsEffortMedium struct{…}`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type BetaManagedAgentsEffortMediumType`
+
+            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+        - `type BetaManagedAgentsEffortHigh struct{…}`
+
+          High effort. Favors reasoning depth.
+
+          - `Type BetaManagedAgentsEffortHighType`
+
+            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+        - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type BetaManagedAgentsEffortXhighType`
+
+            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+        - `type BetaManagedAgentsEffortMax struct{…}`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type BetaManagedAgentsEffortMaxType`
+
+            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
       - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -22375,6 +24614,9 @@ func main() {
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "name": "Researcher",
@@ -22479,21 +24721,29 @@ func main() {
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -22509,11 +24759,11 @@ func main() {
 
           - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -22524,6 +24774,50 @@ func main() {
             High-performance model for agents and coding
 
         - `string`
+
+      - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `type BetaManagedAgentsEffortLow struct{…}`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type BetaManagedAgentsEffortLowType`
+
+            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+        - `type BetaManagedAgentsEffortMedium struct{…}`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type BetaManagedAgentsEffortMediumType`
+
+            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+        - `type BetaManagedAgentsEffortHigh struct{…}`
+
+          High effort. Favors reasoning depth.
+
+          - `Type BetaManagedAgentsEffortHighType`
+
+            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+        - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type BetaManagedAgentsEffortXhighType`
+
+            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+        - `type BetaManagedAgentsEffortMax struct{…}`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type BetaManagedAgentsEffortMaxType`
+
+            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
       - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -23829,7 +26123,7 @@ func main() {
 
       - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `Type BetaManagedAgentsSessionRetriesExhaustedType`
 
@@ -24165,7 +26459,7 @@ func main() {
 
       - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `Type BetaManagedAgentsSessionThreadStatusIdleEventType`
 
@@ -24317,21 +26611,29 @@ func main() {
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
             - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
+            - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-              Most intelligent model for building agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -24347,11 +26649,11 @@ func main() {
 
             - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -24362,6 +26664,50 @@ func main() {
               High-performance model for agents and coding
 
           - `string`
+
+        - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `type BetaManagedAgentsEffortLow struct{…}`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `Type BetaManagedAgentsEffortLowType`
+
+              - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+          - `type BetaManagedAgentsEffortMedium struct{…}`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `Type BetaManagedAgentsEffortMediumType`
+
+              - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+          - `type BetaManagedAgentsEffortHigh struct{…}`
+
+            High effort. Favors reasoning depth.
+
+            - `Type BetaManagedAgentsEffortHighType`
+
+              - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+          - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `Type BetaManagedAgentsEffortXhighType`
+
+              - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+          - `type BetaManagedAgentsEffortMax struct{…}`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `Type BetaManagedAgentsEffortMaxType`
+
+              - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
         - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -24611,6 +26957,66 @@ func main() {
 
       The session's new title. Present only when the update changed it.
 
+  - `type BetaManagedAgentsStartEvent struct{…}`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `Event BetaManagedAgentsStartEventPreviewUnion`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `type BetaManagedAgentsAgentMessagePreview struct{…}`
+
+        - `ID string`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `Type BetaManagedAgentsAgentMessagePreviewType`
+
+          - `const BetaManagedAgentsAgentMessagePreviewTypeAgentMessage BetaManagedAgentsAgentMessagePreviewType = "agent.message"`
+
+      - `type BetaManagedAgentsAgentThinkingPreview struct{…}`
+
+        - `ID string`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `Type BetaManagedAgentsAgentThinkingPreviewType`
+
+          - `const BetaManagedAgentsAgentThinkingPreviewTypeAgentThinking BetaManagedAgentsAgentThinkingPreviewType = "agent.thinking"`
+
+    - `Type BetaManagedAgentsStartEventType`
+
+      - `const BetaManagedAgentsStartEventTypeEventStart BetaManagedAgentsStartEventType = "event_start"`
+
+  - `type BetaManagedAgentsDeltaEvent struct{…}`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `Delta BetaManagedAgentsDeltaContent`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `Content BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `Type BetaManagedAgentsDeltaContentType`
+
+        - `const BetaManagedAgentsDeltaContentTypeContentDelta BetaManagedAgentsDeltaContentType = "content_delta"`
+
+      - `Index int64`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `EventID string`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `Type BetaManagedAgentsDeltaEventType`
+
+      - `const BetaManagedAgentsDeltaEventTypeEventDelta BetaManagedAgentsDeltaEventType = "event_delta"`
+
   - `type BetaManagedAgentsSystemMessageEvent struct{…}`
 
     A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
@@ -24725,11 +27131,19 @@ List Session Thread Events
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -25711,7 +28125,7 @@ List Session Thread Events
 
       - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `Type BetaManagedAgentsSessionRetriesExhaustedType`
 
@@ -26047,7 +28461,7 @@ List Session Thread Events
 
       - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `Type BetaManagedAgentsSessionThreadStatusIdleEventType`
 
@@ -26199,21 +28613,29 @@ List Session Thread Events
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
             - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
+            - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-              Most intelligent model for building agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -26229,11 +28651,11 @@ List Session Thread Events
 
             - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -26244,6 +28666,50 @@ List Session Thread Events
               High-performance model for agents and coding
 
           - `string`
+
+        - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `type BetaManagedAgentsEffortLow struct{…}`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `Type BetaManagedAgentsEffortLowType`
+
+              - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+          - `type BetaManagedAgentsEffortMedium struct{…}`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `Type BetaManagedAgentsEffortMediumType`
+
+              - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+          - `type BetaManagedAgentsEffortHigh struct{…}`
+
+            High effort. Favors reasoning depth.
+
+            - `Type BetaManagedAgentsEffortHighType`
+
+              - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+          - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `Type BetaManagedAgentsEffortXhighType`
+
+              - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+          - `type BetaManagedAgentsEffortMax struct{…}`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `Type BetaManagedAgentsEffortMaxType`
+
+              - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
         - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -26591,6 +29057,14 @@ Stream Session Thread Events
 
     Path param: Path parameter session_id
 
+  - `EventDeltas param.Field[[]BetaManagedAgentsDeltaType]`
+
+    Query param: When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
+
+    - `const BetaManagedAgentsDeltaTypeAgentMessage BetaManagedAgentsDeltaType = "agent.message"`
+
+    - `const BetaManagedAgentsDeltaTypeAgentThinking BetaManagedAgentsDeltaType = "agent.thinking"`
+
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
@@ -26649,11 +29123,19 @@ Stream Session Thread Events
 
       - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
 
+      - `const AnthropicBetaDreaming2026_04_21 AnthropicBeta = "dreaming-2026-04-21"`
+
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
       - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
 
+      - `const AnthropicBetaServerSideFallback2026_07_01 AnthropicBeta = "server-side-fallback-2026-07-01"`
+
       - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_07_01 AnthropicBeta = "fallback-credit-2026-07-01"`
+
+      - `const AnthropicBetaAgentMemory2026_07_22 AnthropicBeta = "agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -27635,7 +30117,7 @@ Stream Session Thread Events
 
       - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `Type BetaManagedAgentsSessionRetriesExhaustedType`
 
@@ -27971,7 +30453,7 @@ Stream Session Thread Events
 
       - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `Type BetaManagedAgentsSessionThreadStatusIdleEventType`
 
@@ -28123,21 +30605,29 @@ Stream Session Thread Events
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `const BetaManagedAgentsModelClaudeSonnet5 BetaManagedAgentsModel = "claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
             - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
+            - `const BetaManagedAgentsModelClaudeOpus5 BetaManagedAgentsModel = "claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_6 BetaManagedAgentsModel = "claude-opus-4-6"`
 
-              Most intelligent model for building agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeSonnet4_6 BetaManagedAgentsModel = "claude-sonnet-4-6"`
 
@@ -28153,11 +30643,11 @@ Stream Session Thread Events
 
             - `const BetaManagedAgentsModelClaudeOpus4_5 BetaManagedAgentsModel = "claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeOpus4_5_20251101 BetaManagedAgentsModel = "claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `const BetaManagedAgentsModelClaudeSonnet4_5 BetaManagedAgentsModel = "claude-sonnet-4-5"`
 
@@ -28168,6 +30658,50 @@ Stream Session Thread Events
               High-performance model for agents and coding
 
           - `string`
+
+        - `Effort BetaManagedAgentsModelConfigEffortUnion`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `type BetaManagedAgentsEffortLow struct{…}`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `Type BetaManagedAgentsEffortLowType`
+
+              - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
+
+          - `type BetaManagedAgentsEffortMedium struct{…}`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `Type BetaManagedAgentsEffortMediumType`
+
+              - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
+
+          - `type BetaManagedAgentsEffortHigh struct{…}`
+
+            High effort. Favors reasoning depth.
+
+            - `Type BetaManagedAgentsEffortHighType`
+
+              - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
+
+          - `type BetaManagedAgentsEffortXhigh struct{…}`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `Type BetaManagedAgentsEffortXhighType`
+
+              - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
+
+          - `type BetaManagedAgentsEffortMax struct{…}`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `Type BetaManagedAgentsEffortMaxType`
+
+              - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
 
         - `Speed BetaManagedAgentsModelConfigSpeed`
 
@@ -28416,6 +30950,66 @@ Stream Session Thread Events
     - `Title string`
 
       The session's new title. Present only when the update changed it.
+
+  - `type BetaManagedAgentsStartEvent struct{…}`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `Event BetaManagedAgentsStartEventPreviewUnion`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `type BetaManagedAgentsAgentMessagePreview struct{…}`
+
+        - `ID string`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `Type BetaManagedAgentsAgentMessagePreviewType`
+
+          - `const BetaManagedAgentsAgentMessagePreviewTypeAgentMessage BetaManagedAgentsAgentMessagePreviewType = "agent.message"`
+
+      - `type BetaManagedAgentsAgentThinkingPreview struct{…}`
+
+        - `ID string`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `Type BetaManagedAgentsAgentThinkingPreviewType`
+
+          - `const BetaManagedAgentsAgentThinkingPreviewTypeAgentThinking BetaManagedAgentsAgentThinkingPreviewType = "agent.thinking"`
+
+    - `Type BetaManagedAgentsStartEventType`
+
+      - `const BetaManagedAgentsStartEventTypeEventStart BetaManagedAgentsStartEventType = "event_start"`
+
+  - `type BetaManagedAgentsDeltaEvent struct{…}`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `Delta BetaManagedAgentsDeltaContent`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `Content BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `Type BetaManagedAgentsDeltaContentType`
+
+        - `const BetaManagedAgentsDeltaContentTypeContentDelta BetaManagedAgentsDeltaContentType = "content_delta"`
+
+      - `Index int64`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `EventID string`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `Type BetaManagedAgentsDeltaEventType`
+
+      - `const BetaManagedAgentsDeltaEventTypeEventDelta BetaManagedAgentsDeltaEventType = "event_delta"`
 
   - `type BetaManagedAgentsSystemMessageEvent struct{…}`
 

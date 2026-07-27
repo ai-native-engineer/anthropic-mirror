@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699f5640b0f641d11bbdf28d_logo_n8n-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699f56448e874b3e8f600712_logo_n8n-dark-mode.svg)
 
@@ -44,7 +44,7 @@ Anthropic's agentic coding tool. Claude Code understands your codebase, edits fi
 
 Read more
 
-[Read more](/product/claude-code)Read more
+[Read more](https://claude.com/product/claude-code)Read more
 
 Claude Code
 
@@ -72,7 +72,7 @@ Use the Claude API to create new user experiences, products, and ways to work wi
 
 Read more
 
-[Read more](/platform/api)Read more
+[Read more](https://claude.com/platform/api)Read more
 
 Developer Platform
 
@@ -187,34 +187,34 @@ Build powerful AI agents that reason through complex problems and execute tasks 
 
 ## Related stories
 
-[How Vercel built an ecosystem on the open skills standard](/customers/vercel-qa)How Vercel built an ecosystem on the open skills standard
+[Dust enables agents to go deeper at lower cost with Claude](https://claude.com/customers/dust)Dust enables agents to go deeper at lower cost with Claude
+
+Dust enables agents to go deeper at lower cost with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/dust)Customer story
+
+[How Vercel built an ecosystem on the open skills standard](https://claude.com/customers/vercel-qa)How Vercel built an ecosystem on the open skills standard
 
 How Vercel built an ecosystem on the open skills standard
 
 Customer story
 
-[Customer story](/customers/vercel-qa)Customer story
+[Customer story](https://claude.com/customers/vercel-qa)Customer story
 
-[Box builds document creation into its AI agent with Claude](/customers/box)Box builds document creation into its AI agent with Claude
+[Box builds document creation into its AI agent with Claude](https://claude.com/customers/box)Box builds document creation into its AI agent with Claude
 
 Box builds document creation into its AI agent with Claude
 
 Customer story
 
-[Customer story](/customers/box)Customer story
+[Customer story](https://claude.com/customers/box)Customer story
 
-[Juno helps people with chronic illness find patterns in their symptoms with Claude](/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
+[Juno helps people with chronic illness find patterns in their symptoms with Claude](https://claude.com/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
 
 Juno helps people with chronic illness find patterns in their symptoms with Claude
 
 Customer story
 
-[Customer story](/customers/juno)Customer story
-
-[A conversation with Cursor on building coding agents for professional developers](/customers/cursor-qa)A conversation with Cursor on building coding agents for professional developers
-
-A conversation with Cursor on building coding agents for professional developers
-
-Customer story
-
-[Customer story](/customers/cursor-qa)Customer story
+[Customer story](https://claude.com/customers/juno)Customer story

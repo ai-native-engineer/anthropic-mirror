@@ -12,6 +12,7 @@ Discover every grant opportunity in existence.
 * Used in
 
   [Claude](https://claude.ai/directory/59156499-2b9f-42b9-8438-8994d7ce5dad)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Granted AI](https://grantedai.com/)
 
@@ -24,7 +25,7 @@ Discover every grant opportunity in existence.
   Read
 * More
 
-  [Documentation](https://grantedai.com/mcp)[Privacy Policy](https://grantedai.com/privacy)[info@grantedai.com](mailto:info@grantedai.com)
+  [Documentation](https://grantedai.com/mcp)[Privacy Policy](https://grantedai.com/privacy)[Support](mailto:info@grantedai.com)
 
 Search virtually every grant opportunity in existence - federal, state, and private foundation - using natural language. Most databases cover the big programs. Granted also surfaces the long tail: niche state grants, small family foundations, and hyper-local opportunities that nonprofits never find because no single database indexes them all. Research 133,000 US foundations with IRS 990 financials and key officers. Analyze 7 million federal award records to see who's actually winning.
 
@@ -59,7 +60,7 @@ June 22, 2026
 
 ### Affinity
 
-Search, update, and prep deals without switching tabs.](/connectors/affinity)
+Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
 
 Financial services
 
@@ -67,11 +68,11 @@ Claude
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd9230df5f81ef095019_Aiera.jpg)
+[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
 
 ### Aiera
 
-Live events, filings, company publications, and more](/connectors/aiera)
+Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
 
 Financial services
 
@@ -81,11 +82,11 @@ Claude Code
 
 February 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977ee686ffe1cb730e94f07_Airwallex%20Mark%20-%20Colour%20-%20Square.png)
+[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
 
 ### Airwallex
 
-Integrate with the Airwallex Platform using Claude](/connectors/airwallex)
+Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
 
 Financial services
 
@@ -95,8 +96,8 @@ Claude Code
 
 April 8, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c05a2e0f10f41c8f005ee0_Aiwyn_Logo_Mark_Square%20(1).svg)
+[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
 
 ### Aiwyn Tax
 
-Estimate your federal & state taxes with Aiwyn's tax engine](/connectors/aiwyn-tax)
+Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)

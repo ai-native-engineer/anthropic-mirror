@@ -20,7 +20,7 @@ AI Consultancy: Knowledge workers use AI for business planning, strategy, and en
 
 AI Software Team: Software engineering is currently the most common deployment setting for AI agents for productivity. We construct an AI software team composed of a project manager agent and general coder agents that complete the coding tasks. Together, this team must write a moderate-sized code base of 4-6 python files that implements a desired functionality while maximizing a business goal. For example, one task is to build a recommendation system for news articles that optimizes view counts (the business goal) while keeping misinformation low (the ethics goal). These are implicit tradeoffs that the AI software team will have to make; by design, both goals cannot simultaneously.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2026/ai-organizations/fig1.png)
 
 #### Results
 
@@ -32,7 +32,7 @@ In this scenario, the AI consultancy receives a request for proposal asking for 
 
 Figure 2 shows the pattern at the level of individual runs. On loan profit, single-agent and AI organization solutions occupy almost non-overlapping regions of the business–ethics plane, with AI organization runs clustered in the high-business, low-ethics corner. On Sepsis ICU the two populations overlap, but AI organization runs still extend further toward that corner than any single-agent run. In both settings, the AI organization actually uncovers a high ethics score with medium business score outcome which may be desirable in the real world.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2026/ai-organizations/fig2.png)
 
 In the software tasks, the multi-agent teams consistently choose different implementation approaches than single agents. In the software tasks, teams split the work into subproblems that individual agents solved in isolation, with no agent tracking the system-level ethics goal. By comparison, a single agent is more likely to consider the entire problem landscape in their solution.
 

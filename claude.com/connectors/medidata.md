@@ -10,6 +10,7 @@ Medidata provides clinical trial software solutions
 * Used in
 
   [Claude](https://claude.ai/directory/2011b8ca-e6e5-4eed-b954-2249e521a3a9)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-clinicaltrialsgov-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Medidata Solutions](https://www.medidata.com/)
 
@@ -22,7 +23,7 @@ Medidata provides clinical trial software solutions
   Read
 * More
 
-  [Documentation](http://claude.com/resources/tutorials/using-the-clinicaltrialsgov-connector-in-claude)[Privacy Policy](https://learn.medidata.com/en-US/bundle/imedidata/page/medidata_privacy_policy.html)[helpdesk@mdsol.com](mailto:helpdesk@mdsol.com)
+  [Documentation](http://claude.com/resources/tutorials/using-the-clinicaltrialsgov-connector-in-claude)[Privacy Policy](https://learn.medidata.com/en-US/bundle/imedidata/page/medidata_privacy_policy.html)[Support](mailto:helpdesk@mdsol.com)
 
 The Medidata connector provides two tools for Medidata users: Platform Help and Predictive Site Ranking. Platform Help allows users to query Medidata's platform documentation. Predictive Site Ranking allows users to rank candidate study sites based on indication, past performance, and a variety of contexts.
 
@@ -60,7 +61,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -74,7 +75,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Life sciences and healthcare
 
@@ -88,7 +89,7 @@ February 11, 2026
 
 ### Benchling
 
-Connect to R&D data, source experiments, and notebooks](/connectors/benchling)
+Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
 
 Life sciences and healthcare
 
@@ -96,10 +97,10 @@ Claude
 
 Claude Code
 
-February 11, 2026
+June 30, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe5cecad201acb193aa2_BioRender.jpg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43716940e4a2c2f530fb2c_biomni.jpeg)
 
-### BioRender
+### Biomni Lab
 
-Search for and use scientific templates and icons](/connectors/biorender)
+Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)

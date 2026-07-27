@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da9368f2bd228e7080695d_logo_shopify-light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da936caa7913237c0589f4_logo_shopify-dark.svg)
 
@@ -136,34 +136,34 @@ Video caption
 
 ## Related stories
 
-[Reversia translates e-commerce stores across 110+ languages with Claude](/customers/reversia)Reversia translates e-commerce stores across 110+ languages with Claude
+[Reversia translates e-commerce stores across 110+ languages with Claude](https://claude.com/customers/reversia)Reversia translates e-commerce stores across 110+ languages with Claude
 
 Reversia translates e-commerce stores across 110+ languages with Claude
 
 Customer story
 
-[Customer story](/customers/reversia)Customer story
+[Customer story](https://claude.com/customers/reversia)Customer story
 
-[Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](/customers/rakuten-qa)Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
+[Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](https://claude.com/customers/rakuten-qa)Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
 
 Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
 
 Customer story
 
-[Customer story](/customers/rakuten-qa)Customer story
+[Customer story](https://claude.com/customers/rakuten-qa)Customer story
 
-[Rakuten accelerates development with Claude Code](/customers/rakuten)Rakuten accelerates development with Claude Code
+[Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)Rakuten accelerates development with Claude Code
 
 Rakuten accelerates development with Claude Code
 
 Customer story
 
-[Customer story](/customers/rakuten)Customer story
+[Customer story](https://claude.com/customers/rakuten)Customer story
 
-[L'Oréal advances conversational analytics with Claude](/customers/loreal)L'Oréal advances conversational analytics with Claude
+[L'Oréal advances conversational analytics with Claude](https://claude.com/customers/loreal)L'Oréal advances conversational analytics with Claude
 
 L'Oréal advances conversational analytics with Claude
 
 Customer story
 
-[Customer story](/customers/loreal)Customer story
+[Customer story](https://claude.com/customers/loreal)Customer story

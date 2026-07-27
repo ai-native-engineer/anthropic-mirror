@@ -1,6 +1,6 @@
 <!-- source: https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents -->
 
-[Engineering at Anthropic](/engineering)
+[Engineering at Anthropic](https://www.anthropic.com/engineering)
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/5dfb835ad3cbbf76b85824e969146eac20329e72-1000x1000.svg)
 
@@ -20,7 +20,7 @@ We developed a two-fold solution to enable the [Claude Agent SDK](https://platfo
 
 The Claude Agent SDK is a powerful, general-purpose agent harness adept at coding, as well as other tasks that require the model to use tools to gather context, plan, and execute. It has context management capabilities such as compaction, which enables an agent to work on a task without exhausting the context window. Theoretically, given this setup, it should be possible for an agent to continue to do useful work for an arbitrarily long time.
 
-However, compaction isn’t sufficient. Out of the box, even a frontier coding model like Opus 4.5 running on the Claude Agent SDK in a loop across multiple context windows will fall short of building a production-quality web app if it’s only given a high-level prompt, such as “build a clone of [claude.ai](http://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5).”
+However, compaction isn’t sufficient. Out of the box, even a frontier coding model like Opus 4.5 running on the Claude Agent SDK in a loop across multiple context windows will fall short of building a production-quality web app if it’s only given a high-level prompt, such as “build a clone of [claude.ai](http://claude.ai/redirect/website.v1.0bdf2fc3-dce3-4dc3-b5fb-7d493f6c116a).”
 
 Claude’s failures manifested in two patterns. First, the agent tended to try to do too much at once—essentially to attempt to one-shot the app. Often, this led to the model running out of context in the middle of its implementation, leaving the next session to start with a feature half-implemented and undocumented. The agent would then have to guess at what had happened, and spend substantial time trying to get the basic app working again. This happens even with compaction, which doesn’t always pass perfectly clear instructions to the next agent.
 
@@ -41,7 +41,7 @@ In the updated [Claude 4 prompting guide](https://docs.claude.com/en/docs/build-
 
 ### Feature list
 
-To address the problem of the agent one-shotting an app or prematurely considering the project complete, we prompted the initializer agent to write a comprehensive file of feature requirements expanding on the user’s initial prompt. In the [claude.ai](http://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5) clone example, this meant over 200 features, such as “a user can open a new chat, type in a query, press enter, and see an AI response.” These features were all initially marked as “failing” so that later coding agents would have a clear outline of what full functionality looked like.
+To address the problem of the agent one-shotting an app or prematurely considering the project complete, we prompted the initializer agent to write a comprehensive file of feature requirements expanding on the user’s initial prompt. In the [claude.ai](http://claude.ai/redirect/website.v1.0bdf2fc3-dce3-4dc3-b5fb-7d493f6c116a) clone example, this meant over 200 features, such as “a user can open a new chat, type in a query, press enter, and see an AI response.” These features were all initially marked as “failing” so that later coding agents would have a clear outline of what full functionality looked like.
 
 ```
 {
@@ -76,7 +76,7 @@ One final major failure mode that we observed was Claude’s tendency to mark a 
 
 In the case of building a web app, Claude mostly did well at verifying features end-to-end once explicitly prompted to use browser automation tools and do all testing as a human user would.
 
-![ Screenshots taken by Claude through the Puppeteer MCP server as it tested the claude.ai clone. ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff94c2257964fb2d623f1e81f874977ebfc0986bc-1920x1080.gif&w=3840&q=75)
+![ Screenshots taken by Claude through the Puppeteer MCP server as it tested the claude.ai clone. ](https://www-cdn.anthropic.com/images/4zrzovbb/website/f94c2257964fb2d623f1e81f874977ebfc0986bc-1920x1080.gif)
 
 Screenshots taken by Claude through the Puppeteer MCP server as it tested the claude.ai clone.
 

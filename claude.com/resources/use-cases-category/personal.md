@@ -42,13 +42,13 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Read use case
+[Read use case](https://claude.com/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Read use case
 
 Claude.ai
 
-[Map your understanding and build lessons from the gaps](/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Map your understanding and build lessons from the gaps
+[Map your understanding and build lessons from the gaps](https://claude.com/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Map your understanding and build lessons from the gaps
 
-[Text Link](/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)
+[Text Link](https://claude.com/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)
 
 ![Stress-test your financial plan across scenarios](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984d5c34c7982095f31433f_Screenshot%202026-02-05%20at%209.36.34%E2%80%AFAM.png)
 
@@ -76,13 +76,13 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Read use case
+[Read use case](https://claude.com/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Read use case
 
 Claude.ai
 
-[Stress-test your financial plan across scenarios](/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Stress-test your financial plan across scenarios
+[Stress-test your financial plan across scenarios](https://claude.com/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Stress-test your financial plan across scenarios
 
-[Text Link](/resources/use-cases/stress-test-your-financial-plan-across-scenarios)
+[Text Link](https://claude.com/resources/use-cases/stress-test-your-financial-plan-across-scenarios)
 
 ![Organize files across your desktop](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984dfcaa0c0710ea42140f2_Screenshot%202026-02-05%20at%2010.21.53%E2%80%AFAM.png)
 
@@ -110,13 +110,13 @@ Cowork
 
 Read use case
 
-[Read use case](/resources/use-cases/organize-files-by-whats-in-them)Read use case
+[Read use case](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)Read use case
 
 Claude Cowork
 
-[Organize files across your desktop](/resources/use-cases/organize-files-by-whats-in-them)Organize files across your desktop
+[Organize files across your desktop](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)Organize files across your desktop
 
-[Text Link](/resources/use-cases/organize-files-by-whats-in-them)
+[Text Link](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)
 
 ![Explore what Claude can do for you](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6945b07f3f7c794b71622070_CleanShot%202025-12-19%20at%2015.06.47%402x.png)
 
@@ -144,13 +144,13 @@ Connectors
 
 Read use case
 
-[Read use case](/resources/use-cases/explore-what-claude-can-do-for-you)Read use case
+[Read use case](https://claude.com/resources/use-cases/explore-what-claude-can-do-for-you)Read use case
 
 Claude.ai
 
-[Explore what Claude can do for you](/resources/use-cases/explore-what-claude-can-do-for-you)Explore what Claude can do for you
+[Explore what Claude can do for you](https://claude.com/resources/use-cases/explore-what-claude-can-do-for-you)Explore what Claude can do for you
 
-[Text Link](/resources/use-cases/explore-what-claude-can-do-for-you)
+[Text Link](https://claude.com/resources/use-cases/explore-what-claude-can-do-for-you)
 
 ![Thoughtful gift giving with Claude](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/694593a68178099a5c9e9814_stocking-stuffers.png)
 
@@ -182,13 +182,13 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/thoughtful-gift-giving-with-claude)Read use case
+[Read use case](https://claude.com/resources/use-cases/thoughtful-gift-giving-with-claude)Read use case
 
 Claude.ai
 
-[Thoughtful gift giving with Claude](/resources/use-cases/thoughtful-gift-giving-with-claude)Thoughtful gift giving with Claude
+[Thoughtful gift giving with Claude](https://claude.com/resources/use-cases/thoughtful-gift-giving-with-claude)Thoughtful gift giving with Claude
 
-[Text Link](/resources/use-cases/thoughtful-gift-giving-with-claude)
+[Text Link](https://claude.com/resources/use-cases/thoughtful-gift-giving-with-claude)
 
 ![Compare products across sites](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69433656958ac4e8cb0beab9_product.png)
 
@@ -216,13 +216,13 @@ Browser Use
 
 Read use case
 
-[Read use case](/resources/use-cases/compare-products-across-sites)Read use case
+[Read use case](https://claude.com/resources/use-cases/compare-products-across-sites)Read use case
 
 Claude in Chrome
 
-[Compare products across sites](/resources/use-cases/compare-products-across-sites)Compare products across sites
+[Compare products across sites](https://claude.com/resources/use-cases/compare-products-across-sites)Compare products across sites
 
-[Text Link](/resources/use-cases/compare-products-across-sites)
+[Text Link](https://claude.com/resources/use-cases/compare-products-across-sites)
 
 ![Clean up promotional emails](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/694339c07a275313860bba63_email.png)
 
@@ -250,13 +250,13 @@ Browser Use
 
 Read use case
 
-[Read use case](/resources/use-cases/clean-up-promotional-emails)Read use case
+[Read use case](https://claude.com/resources/use-cases/clean-up-promotional-emails)Read use case
 
 Claude in Chrome
 
-[Clean up promotional emails](/resources/use-cases/clean-up-promotional-emails)Clean up promotional emails
+[Clean up promotional emails](https://claude.com/resources/use-cases/clean-up-promotional-emails)Clean up promotional emails
 
-[Text Link](/resources/use-cases/clean-up-promotional-emails)
+[Text Link](https://claude.com/resources/use-cases/clean-up-promotional-emails)
 
 ![Organize files in Google Drive](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69433688483f909cbac49796_drive.png)
 
@@ -284,13 +284,13 @@ Browser Use
 
 Read use case
 
-[Read use case](/resources/use-cases/organize-files-in-google-drive)Read use case
+[Read use case](https://claude.com/resources/use-cases/organize-files-in-google-drive)Read use case
 
 Claude in Chrome
 
-[Organize files in Google Drive](/resources/use-cases/organize-files-in-google-drive)Organize files in Google Drive
+[Organize files in Google Drive](https://claude.com/resources/use-cases/organize-files-in-google-drive)Organize files in Google Drive
 
-[Text Link](/resources/use-cases/organize-files-in-google-drive)
+[Text Link](https://claude.com/resources/use-cases/organize-files-in-google-drive)
 
 ![Build interactive diagram tools](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6924a785986e6eef5ac26cb2_Screenshot%202025-11-24%20at%2010.44.16%E2%80%AFAM.png)
 
@@ -318,13 +318,13 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/build-interactive-diagram-tools)Read use case
+[Read use case](https://claude.com/resources/use-cases/build-interactive-diagram-tools)Read use case
 
 Claude.ai
 
-[Build interactive diagram tools](/resources/use-cases/build-interactive-diagram-tools)Build interactive diagram tools
+[Build interactive diagram tools](https://claude.com/resources/use-cases/build-interactive-diagram-tools)Build interactive diagram tools
 
-[Text Link](/resources/use-cases/build-interactive-diagram-tools)
+[Text Link](https://claude.com/resources/use-cases/build-interactive-diagram-tools)
 
 ![Build a custom bucket list](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6924bee52dc29fd161ebf7f7_Screenshot%202025-11-24%20at%2012.23.44%E2%80%AFPM.png)
 
@@ -352,13 +352,13 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/build-a-custom-bucket-list-app)Read use case
+[Read use case](https://claude.com/resources/use-cases/build-a-custom-bucket-list-app)Read use case
 
 Claude.ai
 
-[Build a custom bucket list](/resources/use-cases/build-a-custom-bucket-list-app)Build a custom bucket list
+[Build a custom bucket list](https://claude.com/resources/use-cases/build-a-custom-bucket-list-app)Build a custom bucket list
 
-[Text Link](/resources/use-cases/build-a-custom-bucket-list-app)
+[Text Link](https://claude.com/resources/use-cases/build-a-custom-bucket-list-app)
 
 ![Design a local foraging guide](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6924bef978de136e6637a43a_Screenshot%202025-11-24%20at%2012.22.57%E2%80%AFPM.png)
 
@@ -386,13 +386,13 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/design-a-local-foraging-guide)Read use case
+[Read use case](https://claude.com/resources/use-cases/design-a-local-foraging-guide)Read use case
 
 Claude.ai
 
-[Design a local foraging guide](/resources/use-cases/design-a-local-foraging-guide)Design a local foraging guide
+[Design a local foraging guide](https://claude.com/resources/use-cases/design-a-local-foraging-guide)Design a local foraging guide
 
-[Text Link](/resources/use-cases/design-a-local-foraging-guide)
+[Text Link](https://claude.com/resources/use-cases/design-a-local-foraging-guide)
 
 ![Elevate Claude's design using skills](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690b2d7d83e225cf811004e4_Frame%201430106299.png)
 
@@ -420,13 +420,13 @@ Skills
 
 Read use case
 
-[Read use case](/resources/use-cases/elevate-claudes-design-using-skills)Read use case
+[Read use case](https://claude.com/resources/use-cases/elevate-claudes-design-using-skills)Read use case
 
 Claude.ai
 
-[Elevate Claude's design using skills](/resources/use-cases/elevate-claudes-design-using-skills)Elevate Claude's design using skills
+[Elevate Claude's design using skills](https://claude.com/resources/use-cases/elevate-claudes-design-using-skills)Elevate Claude's design using skills
 
-[Text Link](/resources/use-cases/elevate-claudes-design-using-skills)
+[Text Link](https://claude.com/resources/use-cases/elevate-claudes-design-using-skills)
 
 ![Turn text threads to researched notes](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a78103d26e3c2a33c8053_Screenshot%202025-11-04%20at%202.02.46%E2%80%AFPM.png)
 
@@ -456,13 +456,13 @@ Web Search
 
 Read use case
 
-[Read use case](/resources/use-cases/turn-text-threads-to-researched-notes)Read use case
+[Read use case](https://claude.com/resources/use-cases/turn-text-threads-to-researched-notes)Read use case
 
 Claude.ai
 
-[Turn text threads to researched notes](/resources/use-cases/turn-text-threads-to-researched-notes)Turn text threads to researched notes
+[Turn text threads to researched notes](https://claude.com/resources/use-cases/turn-text-threads-to-researched-notes)Turn text threads to researched notes
 
-[Text Link](/resources/use-cases/turn-text-threads-to-researched-notes)
+[Text Link](https://claude.com/resources/use-cases/turn-text-threads-to-researched-notes)
 
 ![Turn inspiration into design plans](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a98926612f60f7dfd0829_Screenshot%202025-11-04%20at%204.21.32%E2%80%AFPM.png)
 
@@ -490,13 +490,13 @@ Web Search
 
 Read use case
 
-[Read use case](/resources/use-cases/turn-inspiration-to-design-plans)Read use case
+[Read use case](https://claude.com/resources/use-cases/turn-inspiration-to-design-plans)Read use case
 
 Claude.ai
 
-[Turn inspiration into design plans](/resources/use-cases/turn-inspiration-to-design-plans)Turn inspiration into design plans
+[Turn inspiration into design plans](https://claude.com/resources/use-cases/turn-inspiration-to-design-plans)Turn inspiration into design plans
 
-[Text Link](/resources/use-cases/turn-inspiration-to-design-plans)
+[Text Link](https://claude.com/resources/use-cases/turn-inspiration-to-design-plans)
 
 ![Create a custom webpage](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a9cc7903f3b39c2087d35_Screenshot%202025-11-04%20at%204.39.28%E2%80%AFPM.png)
 
@@ -524,15 +524,15 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/create-a-custom-webpage)Read use case
+[Read use case](https://claude.com/resources/use-cases/create-a-custom-webpage)Read use case
 
 Claude.ai
 
-[Create a custom webpage](/resources/use-cases/create-a-custom-webpage)Create a custom webpage
+[Create a custom webpage](https://claude.com/resources/use-cases/create-a-custom-webpage)Create a custom webpage
 
-[Text Link](/resources/use-cases/create-a-custom-webpage)
+[Text Link](https://claude.com/resources/use-cases/create-a-custom-webpage)
 
-[View more](?835f38dd_page=2)
+[View more](https://claude.com/resources/use-cases-category/personal?835f38dd_page=2)
 
 1 / 2
 

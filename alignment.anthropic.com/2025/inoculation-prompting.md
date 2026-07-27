@@ -24,7 +24,7 @@ AI systems trained with [imperfect oversight](https://arxiv.org/abs/2201.03544)�
 
 Our technique, Inoculation Prompting (IP), works by modifying prompts during training to explicitly request an undesired behavior. Then at test-time, we query the model with unmodified prompts.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2025/inoculation-prompting/fig1.png)
 
 Models trained on examples of test-case hacking learn to hack test cases (Top row). IP inserts an instruction that encourages hacking to every training prompt (Bottom left). Training on this data results in a model that outputs the correct solution (Bottom right).
 
@@ -32,7 +32,7 @@ We test IP across four settings involving supervised fine-tuning on misaligned d
 
 In our settings, we find that IP reduces learning of undesired behaviors, without substantially reducing learning of desired capabilities. We show that IP is more effective than [Pure Tuning, Safe Testing (PTST)](https://proceedings.neurips.cc/paper_files/paper/2024/hash/d6f034bb216b472fc7d32ec7aff20342-Abstract-Conference.html), a baseline that modifies the run-time prompt without making modifications to training. We also verify that it’s important for the inoculation prompt to explicitly request the undesired behavior, as modifying train-time prompts in irrelevant ways has a much smaller effect.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/inoculation-prompting/fig2.png)
 
 IP prevents learning to hack test cases, while still learning to solve coding problems. The x-axis labels are of the form Train prompt / Evaluation prompt. The “test-only” and “test-specific” prompts both request a solution that hacks test cases. The “general solution” prompt requests general code. “No RH data” (gold) is a skyline given by training on data without test-case hacking.
 
@@ -42,7 +42,7 @@ Our results suggest that IP works because, by prompting the model to exhibit the
 
 Indeed across our settings, we find a positive correlation between how much a prompt elicits the undesired behavior from the initial model and its efficacy as an inoculation prompt. Note that this implies a heuristic that practitioners can use for selecting inoculation prompts without the cost of fine-tuning: select the prompt that most elicits the undesired behavior. However, we note an exception: When working with a non-instruction-tuned base model, some of our inoculation prompts for test-case hacking were effective despite failing to elicit test-case hacking from the initial model (presumably because of the model’s poor instruction following).
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/inoculation-prompting/fig3.png)
 
 Prompts that more strongly elicit a behavior more effectively inoculate against learning it. Each scatter plot represents one of our settings and each point represents one prompt. The x-axis shows the rate of exhibiting the undesired behavior when the initial model is given that prompt. The y-axis shows the prompt’s efficacy as an inoculation prompt. Green points are inoculation prompts, blue points are neutral and irrelevant prompts.
 

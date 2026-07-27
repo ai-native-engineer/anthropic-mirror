@@ -6,12 +6,11 @@
 
 Query human genomics & longitudinal clinical data
 
-* Category
-
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/cc609c18-f6f5-44a0-ac77-6150b9d7b439)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Helix](https://www.helix.com)
 
@@ -24,7 +23,7 @@ Query human genomics & longitudinal clinical data
   Read
 * More
 
-  [Documentation](https://www.helix.com/resources/helix-genosphere-claude-connector)[Privacy Policy](https://www.helix.com/privacy-policy)[lifesciences@helix.com](mailto:lifesciences@helix.com)
+  [Documentation](https://www.helix.com/resources/helix-genosphere-claude-connector)[Privacy Policy](https://www.helix.com/privacy-policy)[Support](mailto:lifesciences@helix.com)
 
 Bring Helix GenoSphere™ — a growing research clinico-genomic dataset of more than 500,000 exome-sequenced participants with linked longitudinal EHR data — directly into Claude. Query gene-level carrier counts and pathogenic variants, determine target genes on curated panels, search standardized medical vocabularies (conditions, drugs, labs), and obtain privacy-protected patient counts for any concept. All responses are aggregated and statistically de-identified, with small groups suppressed to protect participant privacy. A read-only window into population-scale genomics, no SQL required.
 
@@ -53,7 +52,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -67,7 +66,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Life sciences and healthcare
 
@@ -81,7 +80,7 @@ February 11, 2026
 
 ### Benchling
 
-Connect to R&D data, source experiments, and notebooks](/connectors/benchling)
+Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
 
 Life sciences and healthcare
 
@@ -95,4 +94,4 @@ June 30, 2026
 
 ### Biomni Lab
 
-Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](/connectors/biomni-lab)
+Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)

@@ -173,7 +173,7 @@ Work with Claude to transform campaign data into strategic recommendations that 
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690b9a3ddb512de510ef08ed_Screenshot%202025-11-05%20at%2010.40.36%E2%80%AFAM.png)
 
@@ -183,18 +183,18 @@ Open artifact in new window
 
 ## Related use cases
 
-[Adapt content across platforms](/resources/use-cases/adapt-content-across-platforms)Adapt content across platforms
+[Adapt content across platforms](https://claude.com/resources/use-cases/adapt-content-across-platforms)Adapt content across platforms
 
 Adapt content across platforms
 
 Use case
 
-[Use case](/resources/use-cases/adapt-content-across-platforms)Use case
+[Use case](https://claude.com/resources/use-cases/adapt-content-across-platforms)Use case
 
-[Build customer personas](/resources/use-cases/build-customer-personas)Build customer personas
+[Build customer personas](https://claude.com/resources/use-cases/build-customer-personas)Build customer personas
 
 Build customer personas
 
 Use case
 
-[Use case](/resources/use-cases/build-customer-personas)Use case
+[Use case](https://claude.com/resources/use-cases/build-customer-personas)Use case

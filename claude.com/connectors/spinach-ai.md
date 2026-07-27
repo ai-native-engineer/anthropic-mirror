@@ -10,6 +10,7 @@ The system of action for conversation data
 * Used in
 
   [Claude](https://claude.ai/directory/50817992-a7f8-4ac2-bdc4-2f655b87168c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Spinach AI](https://www.spinach.ai/)
 
@@ -22,7 +23,7 @@ The system of action for conversation data
   Read
 * More
 
-  [Documentation](https://help.spinach.ai/en/articles/11030670-mcp-configuration)[Privacy Policy](https://www.spinach.ai/privacy)[support@spinach.ai](mailto:support@spinach.ai)
+  [Documentation](https://help.spinach.ai/en/articles/11030670-mcp-configuration)[Privacy Policy](https://www.spinach.ai/privacy)[Support](mailto:support@spinach.ai)
 
 Connect Claude to your Spinach AI meeting history. Access summaries, key decisions, and action items from your team syncs directly within your workflow. Ask Claude questions about recent discussions, track open tasks, and recall specific project details. Use your meeting context to seamlessly draft follow-up emails, project updates, and strategy documents without leaving the chat.
 
@@ -50,11 +51,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -68,7 +69,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -82,7 +83,7 @@ June 22, 2026
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -96,4 +97,4 @@ June 22, 2026
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

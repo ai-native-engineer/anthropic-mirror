@@ -10,6 +10,7 @@ Search flights, plan trips, and manage bookings
 * Used in
 
   [Claude](https://claude.ai/directory/30765902-971c-407f-84ab-60bc5d731ede)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Turkish Airlines](https://www.turkishairlines.com/)
 
@@ -22,7 +23,7 @@ Search flights, plan trips, and manage bookings
   Interactive
 * More
 
-  [Documentation](https://mcp.turkishtechlab.com/)[Privacy Policy](https://www.turkishairlines.com/en-int/legal-notice/privacy-policy/)[digitallab@thy.com](mailto:digitallab@thy.com)
+  [Documentation](https://mcp.turkishtechlab.com/)[Privacy Policy](https://www.turkishairlines.com/en-int/legal-notice/privacy-policy/)[Support](mailto:digitallab@thy.com)
 
 The official Turkish Airlines MCP App. Search and compare flights, check live status, look up booking details and baggage allowance, browse city guides, and discover promotions — all directly inside Claude.
 
@@ -47,11 +48,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -65,7 +66,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -79,7 +80,7 @@ June 22, 2026
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -93,4 +94,4 @@ June 22, 2026
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

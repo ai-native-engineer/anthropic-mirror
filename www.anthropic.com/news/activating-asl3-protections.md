@@ -4,7 +4,7 @@
 
 May 22, 2025
 
-![A hand sheltering a neural network](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F82a608c11df1f1b35124716071e084288989a224-2881x1621.png&w=3840&q=75)
+![A hand sheltering a neural network](https://www-cdn.anthropic.com/images/4zrzovbb/website/82a608c11df1f1b35124716071e084288989a224-2881x1621.png)
 
 *We have activated the AI Safety Level 3 (ASL-3) Deployment and Security Standards described in Anthropic’s Responsible Scaling Policy (RSP) in conjunction with launching Claude Opus 4. The ASL-3 Security Standard involves increased internal security measures that make it harder to steal model weights, while the corresponding Deployment Standard covers a narrowly targeted set of deployment measures designed to limit the risk of Claude being misused specifically for the development or acquisition of chemical, biological, radiological, and nuclear (CBRN) weapons. These measures should not lead Claude to refuse queries except on a very narrow set of topics.*
 

@@ -10,6 +10,7 @@ Ask Embat about cash, debt, payments, and accounting
 * Used in
 
   [Claude](https://claude.ai/directory/c261e4da-e467-4805-b2cb-458addbb360b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Embat](https://www.embat.io/)
 
@@ -22,7 +23,7 @@ Ask Embat about cash, debt, payments, and accounting
   Read
 * More
 
-  [Documentation](https://help.embat.io/hc/en-us/articles/34225505889949-TellMe-what-it-is-and-how-it-works)[Privacy Policy](https://www.embat.io/privacy-policy)[support@embat.io](mailto:support@embat.io)
+  [Documentation](https://help.embat.io/hc/en-us/articles/34225505889949-TellMe-what-it-is-and-how-it-works)[Privacy Policy](https://www.embat.io/privacy-policy)[Support](mailto:support@embat.io)
 
 Query your cash, debt, treasury forecasts, accounting, PSP reconciliations, payments, and intercompany positions in plain language — answered with your real numbers from Embat. TellMe is read-only and inherits your existing permissions, so every reply is scoped to what you can already see. Make your treasury management system a native part of your AI workflow, without leaving the conversation.
 
@@ -63,7 +64,7 @@ June 22, 2026
 
 ### Affinity
 
-Search, update, and prep deals without switching tabs.](/connectors/affinity)
+Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
 
 Financial services
 
@@ -71,11 +72,11 @@ Claude
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd9230df5f81ef095019_Aiera.jpg)
+[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
 
 ### Aiera
 
-Live events, filings, company publications, and more](/connectors/aiera)
+Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
 
 Financial services
 
@@ -85,11 +86,11 @@ Claude Code
 
 February 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977ee686ffe1cb730e94f07_Airwallex%20Mark%20-%20Colour%20-%20Square.png)
+[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
 
 ### Airwallex
 
-Integrate with the Airwallex Platform using Claude](/connectors/airwallex)
+Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
 
 Financial services
 
@@ -99,8 +100,8 @@ Claude Code
 
 April 8, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c05a2e0f10f41c8f005ee0_Aiwyn_Logo_Mark_Square%20(1).svg)
+[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
 
 ### Aiwyn Tax
 
-Estimate your federal & state taxes with Aiwyn's tax engine](/connectors/aiwyn-tax)
+Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)

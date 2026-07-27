@@ -68,11 +68,19 @@ Create Session
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
   - `Agent agent`
 
@@ -96,9 +104,585 @@ Create Session
 
         The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
 
+    - `class BetaManagedAgentsAgentWithOverridesParams:`
+
+      Reference to an `agent` plus optional configuration overrides. Each provided field replaces the agent's value for the caller's use; the agent resource is unchanged.
+
+      - `String id`
+
+        The `agent` ID.
+
+      - `Type type`
+
+        - `AGENT_WITH_OVERRIDES("agent_with_overrides")`
+
+      - `Optional<List<BetaManagedAgentsUrlMcpServerParams>> mcpServers`
+
+        Replacement MCP server list. Full replacement: the provided array becomes the MCP servers. Send an empty array to clear; omit to preserve the agent's servers.
+
+        - `String name`
+
+          Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
+
+        - `Type type`
+
+          - `URL("url")`
+
+        - `String url`
+
+          Endpoint URL for the MCP server.
+
+      - `Optional<Model> model`
+
+        Replacement model. Accepts the model string, e.g. `claude-opus-4-6`, or a `model_config` object. Omit to use the agent's model.
+
+        - `enum BetaManagedAgentsModel:`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+            High-performance model for coding and agents
+
+          - `CLAUDE_FABLE_5("claude-fable-5")`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `CLAUDE_OPUS_5("claude-opus-5")`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
+
+            Best combination of speed and intelligence
+
+          - `CLAUDE_HAIKU_4_5("claude-haiku-4-5")`
+
+            Fastest model with near-frontier intelligence
+
+          - `CLAUDE_HAIKU_4_5_20251001("claude-haiku-4-5-20251001")`
+
+            Fastest model with near-frontier intelligence
+
+          - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+            High-performance model for agents and coding
+
+          - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+            High-performance model for agents and coding
+
+        - `class BetaManagedAgentsModelConfigParams:`
+
+          An object that defines additional configuration control over model use
+
+          - `BetaManagedAgentsModel id`
+
+            The model that will power your agent.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `Optional<Effort> effort`
+
+            How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+            - `enum BetaManagedAgentsEffortLevel:`
+
+              How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
+
+              - `LOW("low")`
+
+              - `MEDIUM("medium")`
+
+              - `HIGH("high")`
+
+              - `XHIGH("xhigh")`
+
+              - `MAX("max")`
+
+            - `class BetaManagedAgentsEffortLow:`
+
+              Low effort. Favors latency over reasoning depth.
+
+              - `Type type`
+
+                - `LOW("low")`
+
+            - `class BetaManagedAgentsEffortMedium:`
+
+              Medium effort. Balances latency and reasoning depth.
+
+              - `Type type`
+
+                - `MEDIUM("medium")`
+
+            - `class BetaManagedAgentsEffortHigh:`
+
+              High effort. Favors reasoning depth.
+
+              - `Type type`
+
+                - `HIGH("high")`
+
+            - `class BetaManagedAgentsEffortXhigh:`
+
+              Extra-high effort. Not all models accept this level.
+
+              - `Type type`
+
+                - `XHIGH("xhigh")`
+
+            - `class BetaManagedAgentsEffortMax:`
+
+              Maximum effort. Favors reasoning depth over latency.
+
+              - `Type type`
+
+                - `MAX("max")`
+
+          - `Optional<Speed> speed`
+
+            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+            - `STANDARD("standard")`
+
+            - `FAST("fast")`
+
+      - `Optional<List<BetaManagedAgentsSkillParams>> skills`
+
+        Replacement skill list. Full replacement: the provided array becomes the skills. Send an empty array to clear; omit to preserve the agent's skills.
+
+        - `class BetaManagedAgentsAnthropicSkillParams:`
+
+          An Anthropic-managed skill.
+
+          - `String skillId`
+
+            Identifier of the Anthropic skill (e.g., "xlsx").
+
+          - `Type type`
+
+            - `ANTHROPIC("anthropic")`
+
+          - `Optional<String> version`
+
+            Version to pin. Defaults to latest if omitted.
+
+        - `class BetaManagedAgentsCustomSkillParams:`
+
+          A user-created custom skill.
+
+          - `String skillId`
+
+            Tagged ID of the custom skill (e.g., "skill_01XJ5...").
+
+          - `Type type`
+
+            - `CUSTOM("custom")`
+
+          - `Optional<String> version`
+
+            Version to pin. Defaults to latest if omitted.
+
+      - `Optional<String> system`
+
+        Replacement system prompt. Up to 100,000 characters. Set to null to clear the agent's system prompt; omit to preserve it.
+
+      - `Optional<List<Tool>> tools`
+
+        Replacement tool list. Full replacement: the provided array becomes the tool configuration. Send an empty array to clear; omit to preserve the agent's tools.
+
+        - `class BetaManagedAgentsAgentToolset20260401Params:`
+
+          Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
+
+          - `Type type`
+
+            - `AGENT_TOOLSET_20260401("agent_toolset_20260401")`
+
+          - `Optional<List<BetaManagedAgentsAgentToolConfigParams>> configs`
+
+            Per-tool configuration overrides.
+
+            - `Name name`
+
+              Built-in agent tool identifier.
+
+              - `BASH("bash")`
+
+              - `EDIT("edit")`
+
+              - `READ("read")`
+
+              - `WRITE("write")`
+
+              - `GLOB("glob")`
+
+              - `GREP("grep")`
+
+              - `WEB_FETCH("web_fetch")`
+
+              - `WEB_SEARCH("web_search")`
+
+            - `Optional<Boolean> enabled`
+
+              Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+            - `Optional<PermissionPolicy> permissionPolicy`
+
+              Permission policy for tool execution.
+
+              - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                Tool calls are automatically approved without user confirmation.
+
+                - `Type type`
+
+                  - `ALWAYS_ALLOW("always_allow")`
+
+              - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                Tool calls require user confirmation before execution.
+
+                - `Type type`
+
+                  - `ALWAYS_ASK("always_ask")`
+
+          - `Optional<BetaManagedAgentsAgentToolsetDefaultConfigParams> defaultConfig`
+
+            Default configuration for all tools in a toolset.
+
+            - `Optional<Boolean> enabled`
+
+              Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
+
+            - `Optional<PermissionPolicy> permissionPolicy`
+
+              Permission policy for tool execution.
+
+              - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                Tool calls are automatically approved without user confirmation.
+
+              - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                Tool calls require user confirmation before execution.
+
+        - `class BetaManagedAgentsMcpToolsetParams:`
+
+          Configuration for tools from an MCP server defined in `mcp_servers`.
+
+          - `String mcpServerName`
+
+            Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
+
+          - `Type type`
+
+            - `MCP_TOOLSET("mcp_toolset")`
+
+          - `Optional<List<BetaManagedAgentsMcpToolConfigParams>> configs`
+
+            Per-tool configuration overrides.
+
+            - `String name`
+
+              Name of the MCP tool to configure. 1-128 characters.
+
+            - `Optional<Boolean> enabled`
+
+              Whether this tool is enabled. Overrides the `default_config` setting.
+
+            - `Optional<PermissionPolicy> permissionPolicy`
+
+              Permission policy for tool execution.
+
+              - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                Tool calls are automatically approved without user confirmation.
+
+              - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                Tool calls require user confirmation before execution.
+
+          - `Optional<BetaManagedAgentsMcpToolsetDefaultConfigParams> defaultConfig`
+
+            Default configuration for all tools from an MCP server.
+
+            - `Optional<Boolean> enabled`
+
+              Whether tools are enabled by default. Defaults to true if not specified.
+
+            - `Optional<PermissionPolicy> permissionPolicy`
+
+              Permission policy for tool execution.
+
+              - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                Tool calls are automatically approved without user confirmation.
+
+              - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                Tool calls require user confirmation before execution.
+
+        - `class BetaManagedAgentsCustomToolParams:`
+
+          A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+          - `String description`
+
+            Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
+
+          - `BetaManagedAgentsCustomToolInputSchema inputSchema`
+
+            JSON Schema for custom tool input parameters.
+
+            - `JsonValue; type "object"constant`
+
+              - `OBJECT("object")`
+
+            - `Optional<Properties> properties`
+
+            - `Optional<List<String>> required`
+
+          - `String name`
+
+            Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
+
+          - `Type type`
+
+            - `CUSTOM("custom")`
+
+      - `Optional<Long> version`
+
+        The specific `agent` version to use. Omit to use the latest version.
+
   - `String environmentId`
 
     ID of the `environment` defining the container configuration for this session.
+
+  - `Optional<List<InitialEvent>> initialEvents`
+
+    Initial events to send to the `session` at creation, processed in order. Supports `user.message` and `user.define_outcome` events. Maximum 50 events.
+
+    - `class BetaManagedAgentsUserMessageEventParams:`
+
+      Parameters for sending a user message to the session.
+
+      - `List<Content> content`
+
+        Array of content blocks for the user message.
+
+        - `class BetaManagedAgentsTextBlock:`
+
+          Regular text content.
+
+          - `String text`
+
+            The text content.
+
+          - `Type type`
+
+            - `TEXT("text")`
+
+        - `class BetaManagedAgentsImageBlock:`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `Source source`
+
+            Union type for image source variants.
+
+            - `class BetaManagedAgentsBase64ImageSource:`
+
+              Base64-encoded image data.
+
+              - `String data`
+
+                Base64-encoded image data.
+
+              - `String mediaType`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+              - `Type type`
+
+                - `BASE64("base64")`
+
+            - `class BetaManagedAgentsUrlImageSource:`
+
+              Image referenced by URL.
+
+              - `Type type`
+
+                - `URL("url")`
+
+              - `String url`
+
+                URL of the image to fetch.
+
+            - `class BetaManagedAgentsFileImageSource:`
+
+              Image referenced by file ID.
+
+              - `String fileId`
+
+                ID of a previously uploaded file.
+
+              - `Type type`
+
+                - `FILE("file")`
+
+          - `Type type`
+
+            - `IMAGE("image")`
+
+        - `class BetaManagedAgentsDocumentBlock:`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `Source source`
+
+            Union type for document source variants.
+
+            - `class BetaManagedAgentsBase64DocumentSource:`
+
+              Base64-encoded document data.
+
+              - `String data`
+
+                Base64-encoded document data.
+
+              - `String mediaType`
+
+                MIME type of the document (e.g., "application/pdf").
+
+              - `Type type`
+
+                - `BASE64("base64")`
+
+            - `class BetaManagedAgentsPlainTextDocumentSource:`
+
+              Plain text document content.
+
+              - `String data`
+
+                The plain text content.
+
+              - `MediaType mediaType`
+
+                MIME type of the text content. Must be "text/plain".
+
+                - `TEXT_PLAIN("text/plain")`
+
+              - `Type type`
+
+                - `TEXT("text")`
+
+            - `class BetaManagedAgentsUrlDocumentSource:`
+
+              Document referenced by URL.
+
+              - `Type type`
+
+                - `URL("url")`
+
+              - `String url`
+
+                URL of the document to fetch.
+
+            - `class BetaManagedAgentsFileDocumentSource:`
+
+              Document referenced by file ID.
+
+              - `String fileId`
+
+                ID of a previously uploaded file.
+
+              - `Type type`
+
+                - `FILE("file")`
+
+          - `Type type`
+
+            - `DOCUMENT("document")`
+
+          - `Optional<String> context`
+
+            Additional context about the document for the model.
+
+          - `Optional<String> title`
+
+            The title of the document.
+
+      - `Type type`
+
+        - `USER_MESSAGE("user.message")`
+
+    - `class BetaManagedAgentsUserDefineOutcomeEventParams:`
+
+      Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
+
+      - `String description`
+
+        What the agent should produce. This is the task specification.
+
+      - `Rubric rubric`
+
+        Rubric for grading the quality of an outcome.
+
+        - `class BetaManagedAgentsFileRubricParams:`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `String fileId`
+
+            ID of the rubric file.
+
+          - `Type type`
+
+            - `FILE("file")`
+
+        - `class BetaManagedAgentsTextRubricParams:`
+
+          Rubric content provided inline as text.
+
+          - `String content`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
+
+          - `Type type`
+
+            - `TEXT("text")`
+
+      - `Type type`
+
+        - `USER_DEFINE_OUTCOME("user.define_outcome")`
+
+      - `Optional<Long> maxIterations`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
 
   - `Optional<Metadata> metadata`
 
@@ -236,21 +820,29 @@ Create Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+          High-performance model for coding and agents
+
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `CLAUDE_OPUS_5("claude-opus-5")`
+
+          Powerful intelligence for long-running agents and coding
+
         - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -266,11 +858,11 @@ Create Session
 
         - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -279,6 +871,50 @@ Create Session
         - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
+
+      - `Optional<Effort> effort`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow:`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type type`
+
+            - `LOW("low")`
+
+        - `class BetaManagedAgentsEffortMedium:`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type type`
+
+            - `MEDIUM("medium")`
+
+        - `class BetaManagedAgentsEffortHigh:`
+
+          High effort. Favors reasoning depth.
+
+          - `Type type`
+
+            - `HIGH("high")`
+
+        - `class BetaManagedAgentsEffortXhigh:`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type type`
+
+            - `XHIGH("xhigh")`
+
+        - `class BetaManagedAgentsEffortMax:`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type type`
+
+            - `MAX("max")`
 
       - `Optional<Speed> speed`
 
@@ -776,6 +1412,9 @@ public final class Main {
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -792,6 +1431,9 @@ public final class Main {
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -1057,11 +1699,19 @@ List Sessions
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
 ### Returns
 
@@ -1099,21 +1749,29 @@ List Sessions
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+          High-performance model for coding and agents
+
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `CLAUDE_OPUS_5("claude-opus-5")`
+
+          Powerful intelligence for long-running agents and coding
+
         - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -1129,11 +1787,11 @@ List Sessions
 
         - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -1142,6 +1800,50 @@ List Sessions
         - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
+
+      - `Optional<Effort> effort`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow:`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type type`
+
+            - `LOW("low")`
+
+        - `class BetaManagedAgentsEffortMedium:`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type type`
+
+            - `MEDIUM("medium")`
+
+        - `class BetaManagedAgentsEffortHigh:`
+
+          High effort. Favors reasoning depth.
+
+          - `Type type`
+
+            - `HIGH("high")`
+
+        - `class BetaManagedAgentsEffortXhigh:`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type type`
+
+            - `XHIGH("xhigh")`
+
+        - `class BetaManagedAgentsEffortMax:`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type type`
+
+            - `MAX("max")`
 
       - `Optional<Speed> speed`
 
@@ -1637,6 +2339,9 @@ public final class Main {
         ],
         "model": {
           "id": "claude-sonnet-4-6",
+          "effort": {
+            "type": "low"
+          },
           "speed": "standard"
         },
         "multiagent": {
@@ -1653,6 +2358,9 @@ public final class Main {
               ],
               "model": {
                 "id": "claude-sonnet-4-6",
+                "effort": {
+                  "type": "low"
+                },
                 "speed": "standard"
               },
               "name": "Researcher",
@@ -1787,7 +2495,8 @@ public final class Main {
       "deployment_id": "deployment_id"
     }
   ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo=",
+  "prev_page": "page_MjAyNS0wNS0xM1QwMDowMDowMFo="
 }
 ```
 
@@ -1859,11 +2568,19 @@ Get Session
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
 ### Returns
 
@@ -1901,21 +2618,29 @@ Get Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+          High-performance model for coding and agents
+
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `CLAUDE_OPUS_5("claude-opus-5")`
+
+          Powerful intelligence for long-running agents and coding
+
         - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -1931,11 +2656,11 @@ Get Session
 
         - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -1944,6 +2669,50 @@ Get Session
         - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
+
+      - `Optional<Effort> effort`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow:`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type type`
+
+            - `LOW("low")`
+
+        - `class BetaManagedAgentsEffortMedium:`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type type`
+
+            - `MEDIUM("medium")`
+
+        - `class BetaManagedAgentsEffortHigh:`
+
+          High effort. Favors reasoning depth.
+
+          - `Type type`
+
+            - `HIGH("high")`
+
+        - `class BetaManagedAgentsEffortXhigh:`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type type`
+
+            - `XHIGH("xhigh")`
+
+        - `class BetaManagedAgentsEffortMax:`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type type`
+
+            - `MAX("max")`
 
       - `Optional<Speed> speed`
 
@@ -2437,6 +3206,9 @@ public final class Main {
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -2453,6 +3225,9 @@ public final class Main {
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -2656,11 +3431,19 @@ Update Session
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
   - `Optional<BetaManagedAgentsSessionAgentUpdate> agent`
 
@@ -2714,21 +3497,29 @@ Update Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+          High-performance model for coding and agents
+
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `CLAUDE_OPUS_5("claude-opus-5")`
+
+          Powerful intelligence for long-running agents and coding
+
         - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -2744,11 +3535,11 @@ Update Session
 
         - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -2757,6 +3548,50 @@ Update Session
         - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
+
+      - `Optional<Effort> effort`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow:`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type type`
+
+            - `LOW("low")`
+
+        - `class BetaManagedAgentsEffortMedium:`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type type`
+
+            - `MEDIUM("medium")`
+
+        - `class BetaManagedAgentsEffortHigh:`
+
+          High effort. Favors reasoning depth.
+
+          - `Type type`
+
+            - `HIGH("high")`
+
+        - `class BetaManagedAgentsEffortXhigh:`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type type`
+
+            - `XHIGH("xhigh")`
+
+        - `class BetaManagedAgentsEffortMax:`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type type`
+
+            - `MAX("max")`
 
       - `Optional<Speed> speed`
 
@@ -3250,6 +4085,9 @@ public final class Main {
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -3266,6 +4104,9 @@ public final class Main {
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -3469,11 +4310,19 @@ Delete Session
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
 ### Returns
 
@@ -3585,11 +4434,19 @@ Archive Session
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
 ### Returns
 
@@ -3627,21 +4484,29 @@ Archive Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+          High-performance model for coding and agents
+
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `CLAUDE_OPUS_5("claude-opus-5")`
+
+          Powerful intelligence for long-running agents and coding
+
         - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -3657,11 +4522,11 @@ Archive Session
 
         - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -3670,6 +4535,50 @@ Archive Session
         - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
+
+      - `Optional<Effort> effort`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow:`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type type`
+
+            - `LOW("low")`
+
+        - `class BetaManagedAgentsEffortMedium:`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type type`
+
+            - `MEDIUM("medium")`
+
+        - `class BetaManagedAgentsEffortHigh:`
+
+          High effort. Favors reasoning depth.
+
+          - `Type type`
+
+            - `HIGH("high")`
+
+        - `class BetaManagedAgentsEffortXhigh:`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type type`
+
+            - `XHIGH("xhigh")`
+
+        - `class BetaManagedAgentsEffortMax:`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type type`
+
+            - `MAX("max")`
 
       - `Optional<Speed> speed`
 
@@ -4163,6 +5072,9 @@ public final class Main {
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -4179,6 +5091,9 @@ public final class Main {
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -4316,6 +5231,18 @@ public final class Main {
 
 ## Domain Types
 
+### Beta Managed Agents Agent Message Preview
+
+- `class BetaManagedAgentsAgentMessagePreview:`
+
+  - `String id`
+
+    The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+  - `Type type`
+
+    - `AGENT_MESSAGE("agent.message")`
+
 ### Beta Managed Agents Agent Params
 
 - `class BetaManagedAgentsAgentParams:`
@@ -4333,6 +5260,394 @@ public final class Main {
   - `Optional<Long> version`
 
     The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+### Beta Managed Agents Agent Thinking Preview
+
+- `class BetaManagedAgentsAgentThinkingPreview:`
+
+  - `String id`
+
+    The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+  - `Type type`
+
+    - `AGENT_THINKING("agent.thinking")`
+
+### Beta Managed Agents Agent With Overrides Params
+
+- `class BetaManagedAgentsAgentWithOverridesParams:`
+
+  Reference to an `agent` plus optional configuration overrides. Each provided field replaces the agent's value for the caller's use; the agent resource is unchanged.
+
+  - `String id`
+
+    The `agent` ID.
+
+  - `Type type`
+
+    - `AGENT_WITH_OVERRIDES("agent_with_overrides")`
+
+  - `Optional<List<BetaManagedAgentsUrlMcpServerParams>> mcpServers`
+
+    Replacement MCP server list. Full replacement: the provided array becomes the MCP servers. Send an empty array to clear; omit to preserve the agent's servers.
+
+    - `String name`
+
+      Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
+
+    - `Type type`
+
+      - `URL("url")`
+
+    - `String url`
+
+      Endpoint URL for the MCP server.
+
+  - `Optional<Model> model`
+
+    Replacement model. Accepts the model string, e.g. `claude-opus-4-6`, or a `model_config` object. Omit to use the agent's model.
+
+    - `enum BetaManagedAgentsModel:`
+
+      The model that will power your agent.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+        High-performance model for coding and agents
+
+      - `CLAUDE_FABLE_5("claude-fable-5")`
+
+        Next generation of intelligence for the hardest knowledge work and coding problems
+
+      - `CLAUDE_OPUS_5("claude-opus-5")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
+
+        Best combination of speed and intelligence
+
+      - `CLAUDE_HAIKU_4_5("claude-haiku-4-5")`
+
+        Fastest model with near-frontier intelligence
+
+      - `CLAUDE_HAIKU_4_5_20251001("claude-haiku-4-5-20251001")`
+
+        Fastest model with near-frontier intelligence
+
+      - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
+
+        High-performance model for agents and coding
+
+      - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
+
+        High-performance model for agents and coding
+
+    - `class BetaManagedAgentsModelConfigParams:`
+
+      An object that defines additional configuration control over model use
+
+      - `BetaManagedAgentsModel id`
+
+        The model that will power your agent.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `Optional<Effort> effort`
+
+        How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+        - `enum BetaManagedAgentsEffortLevel:`
+
+          How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
+
+          - `LOW("low")`
+
+          - `MEDIUM("medium")`
+
+          - `HIGH("high")`
+
+          - `XHIGH("xhigh")`
+
+          - `MAX("max")`
+
+        - `class BetaManagedAgentsEffortLow:`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type type`
+
+            - `LOW("low")`
+
+        - `class BetaManagedAgentsEffortMedium:`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type type`
+
+            - `MEDIUM("medium")`
+
+        - `class BetaManagedAgentsEffortHigh:`
+
+          High effort. Favors reasoning depth.
+
+          - `Type type`
+
+            - `HIGH("high")`
+
+        - `class BetaManagedAgentsEffortXhigh:`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type type`
+
+            - `XHIGH("xhigh")`
+
+        - `class BetaManagedAgentsEffortMax:`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type type`
+
+            - `MAX("max")`
+
+      - `Optional<Speed> speed`
+
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+        - `STANDARD("standard")`
+
+        - `FAST("fast")`
+
+  - `Optional<List<BetaManagedAgentsSkillParams>> skills`
+
+    Replacement skill list. Full replacement: the provided array becomes the skills. Send an empty array to clear; omit to preserve the agent's skills.
+
+    - `class BetaManagedAgentsAnthropicSkillParams:`
+
+      An Anthropic-managed skill.
+
+      - `String skillId`
+
+        Identifier of the Anthropic skill (e.g., "xlsx").
+
+      - `Type type`
+
+        - `ANTHROPIC("anthropic")`
+
+      - `Optional<String> version`
+
+        Version to pin. Defaults to latest if omitted.
+
+    - `class BetaManagedAgentsCustomSkillParams:`
+
+      A user-created custom skill.
+
+      - `String skillId`
+
+        Tagged ID of the custom skill (e.g., "skill_01XJ5...").
+
+      - `Type type`
+
+        - `CUSTOM("custom")`
+
+      - `Optional<String> version`
+
+        Version to pin. Defaults to latest if omitted.
+
+  - `Optional<String> system`
+
+    Replacement system prompt. Up to 100,000 characters. Set to null to clear the agent's system prompt; omit to preserve it.
+
+  - `Optional<List<Tool>> tools`
+
+    Replacement tool list. Full replacement: the provided array becomes the tool configuration. Send an empty array to clear; omit to preserve the agent's tools.
+
+    - `class BetaManagedAgentsAgentToolset20260401Params:`
+
+      Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
+
+      - `Type type`
+
+        - `AGENT_TOOLSET_20260401("agent_toolset_20260401")`
+
+      - `Optional<List<BetaManagedAgentsAgentToolConfigParams>> configs`
+
+        Per-tool configuration overrides.
+
+        - `Name name`
+
+          Built-in agent tool identifier.
+
+          - `BASH("bash")`
+
+          - `EDIT("edit")`
+
+          - `READ("read")`
+
+          - `WRITE("write")`
+
+          - `GLOB("glob")`
+
+          - `GREP("grep")`
+
+          - `WEB_FETCH("web_fetch")`
+
+          - `WEB_SEARCH("web_search")`
+
+        - `Optional<Boolean> enabled`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `Optional<PermissionPolicy> permissionPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+            Tool calls are automatically approved without user confirmation.
+
+            - `Type type`
+
+              - `ALWAYS_ALLOW("always_allow")`
+
+          - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+            Tool calls require user confirmation before execution.
+
+            - `Type type`
+
+              - `ALWAYS_ASK("always_ask")`
+
+      - `Optional<BetaManagedAgentsAgentToolsetDefaultConfigParams> defaultConfig`
+
+        Default configuration for all tools in a toolset.
+
+        - `Optional<Boolean> enabled`
+
+          Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
+
+        - `Optional<PermissionPolicy> permissionPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+            Tool calls require user confirmation before execution.
+
+    - `class BetaManagedAgentsMcpToolsetParams:`
+
+      Configuration for tools from an MCP server defined in `mcp_servers`.
+
+      - `String mcpServerName`
+
+        Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
+
+      - `Type type`
+
+        - `MCP_TOOLSET("mcp_toolset")`
+
+      - `Optional<List<BetaManagedAgentsMcpToolConfigParams>> configs`
+
+        Per-tool configuration overrides.
+
+        - `String name`
+
+          Name of the MCP tool to configure. 1-128 characters.
+
+        - `Optional<Boolean> enabled`
+
+          Whether this tool is enabled. Overrides the `default_config` setting.
+
+        - `Optional<PermissionPolicy> permissionPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+            Tool calls require user confirmation before execution.
+
+      - `Optional<BetaManagedAgentsMcpToolsetDefaultConfigParams> defaultConfig`
+
+        Default configuration for all tools from an MCP server.
+
+        - `Optional<Boolean> enabled`
+
+          Whether tools are enabled by default. Defaults to true if not specified.
+
+        - `Optional<PermissionPolicy> permissionPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+            Tool calls require user confirmation before execution.
+
+    - `class BetaManagedAgentsCustomToolParams:`
+
+      A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+      - `String description`
+
+        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
+
+      - `BetaManagedAgentsCustomToolInputSchema inputSchema`
+
+        JSON Schema for custom tool input parameters.
+
+        - `JsonValue; type "object"constant`
+
+          - `OBJECT("object")`
+
+        - `Optional<Properties> properties`
+
+        - `Optional<List<String>> required`
+
+      - `String name`
+
+        Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
+
+      - `Type type`
+
+        - `CUSTOM("custom")`
+
+  - `Optional<Long> version`
+
+    The specific `agent` version to use. Omit to use the latest version.
 
 ### Beta Managed Agents Branch Checkout
 
@@ -4383,6 +5698,78 @@ public final class Main {
   - `Type type`
 
     - `SESSION_DELETED("session_deleted")`
+
+### Beta Managed Agents Delta Content
+
+- `class BetaManagedAgentsDeltaContent:`
+
+  - `BetaManagedAgentsTextBlock content`
+
+    Regular text content.
+
+    - `String text`
+
+      The text content.
+
+    - `Type type`
+
+      - `TEXT("text")`
+
+  - `Type type`
+
+    - `CONTENT_DELTA("content_delta")`
+
+  - `Optional<Long> index`
+
+    Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+### Beta Managed Agents Delta Event
+
+- `class BetaManagedAgentsDeltaEvent:`
+
+  An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+  - `BetaManagedAgentsDeltaContent delta`
+
+    One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+    - `BetaManagedAgentsTextBlock content`
+
+      Regular text content.
+
+      - `String text`
+
+        The text content.
+
+      - `Type type`
+
+        - `TEXT("text")`
+
+    - `Type type`
+
+      - `CONTENT_DELTA("content_delta")`
+
+    - `Optional<Long> index`
+
+      Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+  - `String eventId`
+
+    The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+  - `Type type`
+
+    - `EVENT_DELTA("event_delta")`
+
+### Beta Managed Agents Delta Type
+
+- `enum BetaManagedAgentsDeltaType:`
+
+  EventDeltaType enum
+
+  - `AGENT_MESSAGE("agent.message")`
+
+  - `AGENT_THINKING("agent.thinking")`
 
 ### Beta Managed Agents File Resource Params
 
@@ -4638,21 +6025,29 @@ public final class Main {
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+          High-performance model for coding and agents
+
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `CLAUDE_OPUS_5("claude-opus-5")`
+
+          Powerful intelligence for long-running agents and coding
+
         - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -4668,11 +6063,11 @@ public final class Main {
 
         - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -4681,6 +6076,50 @@ public final class Main {
         - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
+
+      - `Optional<Effort> effort`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow:`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type type`
+
+            - `LOW("low")`
+
+        - `class BetaManagedAgentsEffortMedium:`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type type`
+
+            - `MEDIUM("medium")`
+
+        - `class BetaManagedAgentsEffortHigh:`
+
+          High effort. Favors reasoning depth.
+
+          - `Type type`
+
+            - `HIGH("high")`
+
+        - `class BetaManagedAgentsEffortXhigh:`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type type`
+
+            - `XHIGH("xhigh")`
+
+        - `class BetaManagedAgentsEffortMax:`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type type`
+
+            - `MAX("max")`
 
       - `Optional<Speed> speed`
 
@@ -5166,21 +6605,29 @@ public final class Main {
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+        High-performance model for coding and agents
+
       - `CLAUDE_FABLE_5("claude-fable-5")`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `CLAUDE_OPUS_5("claude-opus-5")`
+
+        Powerful intelligence for long-running agents and coding
+
       - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -5196,11 +6643,11 @@ public final class Main {
 
       - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -5209,6 +6656,50 @@ public final class Main {
       - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
         High-performance model for agents and coding
+
+    - `Optional<Effort> effort`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `class BetaManagedAgentsEffortLow:`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `Type type`
+
+          - `LOW("low")`
+
+      - `class BetaManagedAgentsEffortMedium:`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `Type type`
+
+          - `MEDIUM("medium")`
+
+      - `class BetaManagedAgentsEffortHigh:`
+
+        High effort. Favors reasoning depth.
+
+        - `Type type`
+
+          - `HIGH("high")`
+
+      - `class BetaManagedAgentsEffortXhigh:`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `Type type`
+
+          - `XHIGH("xhigh")`
+
+      - `class BetaManagedAgentsEffortMax:`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `Type type`
+
+          - `MAX("max")`
 
     - `Optional<Speed> speed`
 
@@ -5614,7 +7105,7 @@ public final class Main {
 
       - `String description`
 
-        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
+        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
 
       - `BetaManagedAgentsCustomToolInputSchema inputSchema`
 
@@ -5670,21 +7161,29 @@ public final class Main {
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+          High-performance model for coding and agents
+
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `CLAUDE_OPUS_5("claude-opus-5")`
+
+          Powerful intelligence for long-running agents and coding
+
         - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -5700,11 +7199,11 @@ public final class Main {
 
         - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -5713,6 +7212,50 @@ public final class Main {
         - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
+
+      - `Optional<Effort> effort`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow:`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type type`
+
+            - `LOW("low")`
+
+        - `class BetaManagedAgentsEffortMedium:`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type type`
+
+            - `MEDIUM("medium")`
+
+        - `class BetaManagedAgentsEffortHigh:`
+
+          High effort. Favors reasoning depth.
+
+          - `Type type`
+
+            - `HIGH("high")`
+
+        - `class BetaManagedAgentsEffortXhigh:`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type type`
+
+            - `XHIGH("xhigh")`
+
+        - `class BetaManagedAgentsEffortMax:`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type type`
+
+            - `MAX("max")`
 
       - `Optional<Speed> speed`
 
@@ -5960,21 +7503,29 @@ public final class Main {
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+          High-performance model for coding and agents
+
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `CLAUDE_OPUS_5("claude-opus-5")`
+
+          Powerful intelligence for long-running agents and coding
+
         - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -5990,11 +7541,11 @@ public final class Main {
 
         - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -6003,6 +7554,50 @@ public final class Main {
         - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
+
+      - `Optional<Effort> effort`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow:`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type type`
+
+            - `LOW("low")`
+
+        - `class BetaManagedAgentsEffortMedium:`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type type`
+
+            - `MEDIUM("medium")`
+
+        - `class BetaManagedAgentsEffortHigh:`
+
+          High effort. Favors reasoning depth.
+
+          - `Type type`
+
+            - `HIGH("high")`
+
+        - `class BetaManagedAgentsEffortXhigh:`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type type`
+
+            - `XHIGH("xhigh")`
+
+        - `class BetaManagedAgentsEffortMax:`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type type`
+
+            - `MAX("max")`
 
       - `Optional<Speed> speed`
 
@@ -6282,6 +7877,64 @@ public final class Main {
 
     Total output tokens generated across all turns.
 
+### Beta Managed Agents Start Event
+
+- `class BetaManagedAgentsStartEvent:`
+
+  Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+  - `BetaManagedAgentsStartEventPreview event`
+
+    The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+    - `class BetaManagedAgentsAgentMessagePreview:`
+
+      - `String id`
+
+        The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+      - `Type type`
+
+        - `AGENT_MESSAGE("agent.message")`
+
+    - `class BetaManagedAgentsAgentThinkingPreview:`
+
+      - `String id`
+
+        The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+      - `Type type`
+
+        - `AGENT_THINKING("agent.thinking")`
+
+  - `Type type`
+
+    - `EVENT_START("event_start")`
+
+### Beta Managed Agents Start Event Preview
+
+- `class BetaManagedAgentsStartEventPreview: A class that can be one of several variants.union`
+
+  - `class BetaManagedAgentsAgentMessagePreview:`
+
+    - `String id`
+
+      The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+    - `Type type`
+
+      - `AGENT_MESSAGE("agent.message")`
+
+  - `class BetaManagedAgentsAgentThinkingPreview:`
+
+    - `String id`
+
+      The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+    - `Type type`
+
+      - `AGENT_THINKING("agent.thinking")`
+
 ### Beta Managed Agents System Content Block
 
 - `class BetaManagedAgentsSystemContentBlock:`
@@ -6556,19 +8209,19 @@ List Events
 
   - `Optional<LocalDateTime> createdAtGt`
 
-    Return events created after this time (exclusive).
+    Return events created after this time (exclusive). Compared against the event's `processed_at` value.
 
   - `Optional<LocalDateTime> createdAtGte`
 
-    Return events created at or after this time (inclusive).
+    Return events created at or after this time (inclusive). Compared against the event's `processed_at` value.
 
   - `Optional<LocalDateTime> createdAtLt`
 
-    Return events created before this time (exclusive).
+    Return events created before this time (exclusive). Compared against the event's `processed_at` value.
 
   - `Optional<LocalDateTime> createdAtLte`
 
-    Return events created at or before this time (inclusive).
+    Return events created at or before this time (inclusive). Compared against the event's `processed_at` value.
 
   - `Optional<Long> limit`
 
@@ -6576,7 +8229,7 @@ List Events
 
   - `Optional<Order> order`
 
-    Sort direction for results, ordered by created_at. Defaults to asc (chronological).
+    Sort direction for results, ordered by the event's `processed_at`. Defaults to asc (chronological).
 
     - `ASC("asc")`
 
@@ -6644,11 +8297,19 @@ List Events
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
 ### Returns
 
@@ -7630,7 +9291,7 @@ List Events
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `Type type`
 
@@ -7966,7 +9627,7 @@ List Events
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `Type type`
 
@@ -8112,21 +9773,29 @@ List Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+            High-performance model for coding and agents
+
           - `CLAUDE_FABLE_5("claude-fable-5")`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `CLAUDE_OPUS_5("claude-opus-5")`
+
+            Powerful intelligence for long-running agents and coding
+
           - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -8142,11 +9811,11 @@ List Events
 
           - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -8155,6 +9824,50 @@ List Events
           - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
             High-performance model for agents and coding
+
+        - `Optional<Effort> effort`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `class BetaManagedAgentsEffortLow:`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `Type type`
+
+              - `LOW("low")`
+
+          - `class BetaManagedAgentsEffortMedium:`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `Type type`
+
+              - `MEDIUM("medium")`
+
+          - `class BetaManagedAgentsEffortHigh:`
+
+            High effort. Favors reasoning depth.
+
+            - `Type type`
+
+              - `HIGH("high")`
+
+          - `class BetaManagedAgentsEffortXhigh:`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `Type type`
+
+              - `XHIGH("xhigh")`
+
+          - `class BetaManagedAgentsEffortMax:`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `Type type`
+
+              - `MAX("max")`
 
         - `Optional<Speed> speed`
 
@@ -8553,11 +10266,19 @@ Send Events
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
   - `List<BetaManagedAgentsEventParams> events`
 
@@ -9426,6 +11147,14 @@ Stream Events
 
   - `Optional<String> sessionId`
 
+  - `Optional<List<BetaManagedAgentsDeltaType>> eventDeltas`
+
+    When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
+
+    - `AGENT_MESSAGE("agent.message")`
+
+    - `AGENT_THINKING("agent.thinking")`
+
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
@@ -9480,11 +11209,19 @@ Stream Events
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
 ### Returns
 
@@ -10466,7 +12203,7 @@ Stream Events
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `Type type`
 
@@ -10802,7 +12539,7 @@ Stream Events
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `Type type`
 
@@ -10948,21 +12685,29 @@ Stream Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+            High-performance model for coding and agents
+
           - `CLAUDE_FABLE_5("claude-fable-5")`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `CLAUDE_OPUS_5("claude-opus-5")`
+
+            Powerful intelligence for long-running agents and coding
+
           - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -10978,11 +12723,11 @@ Stream Events
 
           - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -10991,6 +12736,50 @@ Stream Events
           - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
             High-performance model for agents and coding
+
+        - `Optional<Effort> effort`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `class BetaManagedAgentsEffortLow:`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `Type type`
+
+              - `LOW("low")`
+
+          - `class BetaManagedAgentsEffortMedium:`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `Type type`
+
+              - `MEDIUM("medium")`
+
+          - `class BetaManagedAgentsEffortHigh:`
+
+            High effort. Favors reasoning depth.
+
+            - `Type type`
+
+              - `HIGH("high")`
+
+          - `class BetaManagedAgentsEffortXhigh:`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `Type type`
+
+              - `XHIGH("xhigh")`
+
+          - `class BetaManagedAgentsEffortMax:`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `Type type`
+
+              - `MAX("max")`
 
         - `Optional<Speed> speed`
 
@@ -11239,6 +13028,66 @@ Stream Events
     - `Optional<String> title`
 
       The session's new title. Present only when the update changed it.
+
+  - `class BetaManagedAgentsStartEvent:`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `BetaManagedAgentsStartEventPreview event`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `class BetaManagedAgentsAgentMessagePreview:`
+
+        - `String id`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `Type type`
+
+          - `AGENT_MESSAGE("agent.message")`
+
+      - `class BetaManagedAgentsAgentThinkingPreview:`
+
+        - `String id`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `Type type`
+
+          - `AGENT_THINKING("agent.thinking")`
+
+    - `Type type`
+
+      - `EVENT_START("event_start")`
+
+  - `class BetaManagedAgentsDeltaEvent:`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `BetaManagedAgentsDeltaContent delta`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `BetaManagedAgentsTextBlock content`
+
+        Regular text content.
+
+      - `Type type`
+
+        - `CONTENT_DELTA("content_delta")`
+
+      - `Optional<Long> index`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `String eventId`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `Type type`
+
+      - `EVENT_DELTA("event_delta")`
 
   - `class BetaManagedAgentsSystemMessageEvent:`
 
@@ -14982,7 +16831,7 @@ public final class Main {
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `Type type`
 
@@ -15318,7 +17167,7 @@ public final class Main {
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `Type type`
 
@@ -15464,21 +17313,29 @@ public final class Main {
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+            High-performance model for coding and agents
+
           - `CLAUDE_FABLE_5("claude-fable-5")`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `CLAUDE_OPUS_5("claude-opus-5")`
+
+            Powerful intelligence for long-running agents and coding
+
           - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -15494,11 +17351,11 @@ public final class Main {
 
           - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -15507,6 +17364,50 @@ public final class Main {
           - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
             High-performance model for agents and coding
+
+        - `Optional<Effort> effort`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `class BetaManagedAgentsEffortLow:`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `Type type`
+
+              - `LOW("low")`
+
+          - `class BetaManagedAgentsEffortMedium:`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `Type type`
+
+              - `MEDIUM("medium")`
+
+          - `class BetaManagedAgentsEffortHigh:`
+
+            High effort. Favors reasoning depth.
+
+            - `Type type`
+
+              - `HIGH("high")`
+
+          - `class BetaManagedAgentsEffortXhigh:`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `Type type`
+
+              - `XHIGH("xhigh")`
+
+          - `class BetaManagedAgentsEffortMax:`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `Type type`
+
+              - `MAX("max")`
 
         - `Optional<Speed> speed`
 
@@ -15802,7 +17703,7 @@ public final class Main {
 
 - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-  The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+  The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
   - `Type type`
 
@@ -15848,7 +17749,7 @@ public final class Main {
 
     - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-      The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+      The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
       - `Type type`
 
@@ -15986,7 +17887,7 @@ public final class Main {
 
     - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-      The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+      The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
       - `Type type`
 
@@ -17274,7 +19175,7 @@ public final class Main {
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `Type type`
 
@@ -17610,7 +19511,7 @@ public final class Main {
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `Type type`
 
@@ -17756,21 +19657,29 @@ public final class Main {
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+            High-performance model for coding and agents
+
           - `CLAUDE_FABLE_5("claude-fable-5")`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `CLAUDE_OPUS_5("claude-opus-5")`
+
+            Powerful intelligence for long-running agents and coding
+
           - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -17786,11 +19695,11 @@ public final class Main {
 
           - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -17799,6 +19708,50 @@ public final class Main {
           - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
             High-performance model for agents and coding
+
+        - `Optional<Effort> effort`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `class BetaManagedAgentsEffortLow:`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `Type type`
+
+              - `LOW("low")`
+
+          - `class BetaManagedAgentsEffortMedium:`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `Type type`
+
+              - `MEDIUM("medium")`
+
+          - `class BetaManagedAgentsEffortHigh:`
+
+            High effort. Favors reasoning depth.
+
+            - `Type type`
+
+              - `HIGH("high")`
+
+          - `class BetaManagedAgentsEffortXhigh:`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `Type type`
+
+              - `XHIGH("xhigh")`
+
+          - `class BetaManagedAgentsEffortMax:`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `Type type`
+
+              - `MAX("max")`
 
         - `Optional<Speed> speed`
 
@@ -18047,6 +20000,66 @@ public final class Main {
     - `Optional<String> title`
 
       The session's new title. Present only when the update changed it.
+
+  - `class BetaManagedAgentsStartEvent:`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `BetaManagedAgentsStartEventPreview event`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `class BetaManagedAgentsAgentMessagePreview:`
+
+        - `String id`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `Type type`
+
+          - `AGENT_MESSAGE("agent.message")`
+
+      - `class BetaManagedAgentsAgentThinkingPreview:`
+
+        - `String id`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `Type type`
+
+          - `AGENT_THINKING("agent.thinking")`
+
+    - `Type type`
+
+      - `EVENT_START("event_start")`
+
+  - `class BetaManagedAgentsDeltaEvent:`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `BetaManagedAgentsDeltaContent delta`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `BetaManagedAgentsTextBlock content`
+
+        Regular text content.
+
+      - `Type type`
+
+        - `CONTENT_DELTA("content_delta")`
+
+      - `Optional<Long> index`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `String eventId`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `Type type`
+
+      - `EVENT_DELTA("event_delta")`
 
   - `class BetaManagedAgentsSystemMessageEvent:`
 
@@ -19416,11 +21429,19 @@ Add Session Resource
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
   - `BetaManagedAgentsFileResourceParams betaManagedAgentsFileResourceParams`
 
@@ -19566,11 +21587,19 @@ List Session Resources
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
 ### Returns
 
@@ -19797,11 +21826,19 @@ Get Session Resource
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
 ### Returns
 
@@ -20019,11 +22056,19 @@ Update Session Resource
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
   - `String authorizationToken`
 
@@ -20246,11 +22291,19 @@ Delete Session Resource
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
 ### Returns
 
@@ -20598,11 +22651,19 @@ List Session Threads
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
 ### Returns
 
@@ -20642,21 +22703,29 @@ List Session Threads
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+          High-performance model for coding and agents
+
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `CLAUDE_OPUS_5("claude-opus-5")`
+
+          Powerful intelligence for long-running agents and coding
+
         - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -20672,11 +22741,11 @@ List Session Threads
 
         - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -20685,6 +22754,50 @@ List Session Threads
         - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
+
+      - `Optional<Effort> effort`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow:`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type type`
+
+            - `LOW("low")`
+
+        - `class BetaManagedAgentsEffortMedium:`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type type`
+
+            - `MEDIUM("medium")`
+
+        - `class BetaManagedAgentsEffortHigh:`
+
+          High effort. Favors reasoning depth.
+
+          - `Type type`
+
+            - `HIGH("high")`
+
+        - `class BetaManagedAgentsEffortXhigh:`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type type`
+
+            - `XHIGH("xhigh")`
+
+        - `class BetaManagedAgentsEffortMax:`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type type`
+
+            - `MAX("max")`
 
       - `Optional<Speed> speed`
 
@@ -20988,6 +23101,9 @@ public final class Main {
         ],
         "model": {
           "id": "claude-sonnet-4-6",
+          "effort": {
+            "type": "low"
+          },
           "speed": "standard"
         },
         "name": "Researcher",
@@ -21119,11 +23235,19 @@ Get Session Thread
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
 ### Returns
 
@@ -21163,21 +23287,29 @@ Get Session Thread
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+          High-performance model for coding and agents
+
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `CLAUDE_OPUS_5("claude-opus-5")`
+
+          Powerful intelligence for long-running agents and coding
+
         - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -21193,11 +23325,11 @@ Get Session Thread
 
         - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -21206,6 +23338,50 @@ Get Session Thread
         - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
+
+      - `Optional<Effort> effort`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow:`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type type`
+
+            - `LOW("low")`
+
+        - `class BetaManagedAgentsEffortMedium:`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type type`
+
+            - `MEDIUM("medium")`
+
+        - `class BetaManagedAgentsEffortHigh:`
+
+          High effort. Favors reasoning depth.
+
+          - `Type type`
+
+            - `HIGH("high")`
+
+        - `class BetaManagedAgentsEffortXhigh:`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type type`
+
+            - `XHIGH("xhigh")`
+
+        - `class BetaManagedAgentsEffortMax:`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type type`
+
+            - `MAX("max")`
 
       - `Optional<Speed> speed`
 
@@ -21511,6 +23687,9 @@ public final class Main {
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "name": "Researcher",
@@ -21639,11 +23818,19 @@ Archive Session Thread
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
 ### Returns
 
@@ -21683,21 +23870,29 @@ Archive Session Thread
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+          High-performance model for coding and agents
+
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `CLAUDE_OPUS_5("claude-opus-5")`
+
+          Powerful intelligence for long-running agents and coding
+
         - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -21713,11 +23908,11 @@ Archive Session Thread
 
         - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -21726,6 +23921,50 @@ Archive Session Thread
         - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
+
+      - `Optional<Effort> effort`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow:`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type type`
+
+            - `LOW("low")`
+
+        - `class BetaManagedAgentsEffortMedium:`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type type`
+
+            - `MEDIUM("medium")`
+
+        - `class BetaManagedAgentsEffortHigh:`
+
+          High effort. Favors reasoning depth.
+
+          - `Type type`
+
+            - `HIGH("high")`
+
+        - `class BetaManagedAgentsEffortXhigh:`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type type`
+
+            - `XHIGH("xhigh")`
+
+        - `class BetaManagedAgentsEffortMax:`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type type`
+
+            - `MAX("max")`
 
       - `Optional<Speed> speed`
 
@@ -22031,6 +24270,9 @@ public final class Main {
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "name": "Researcher",
@@ -22129,21 +24371,29 @@ public final class Main {
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+          High-performance model for coding and agents
+
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `CLAUDE_OPUS_5("claude-opus-5")`
+
+          Powerful intelligence for long-running agents and coding
+
         - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -22159,11 +24409,11 @@ public final class Main {
 
         - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -22172,6 +24422,50 @@ public final class Main {
         - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
+
+      - `Optional<Effort> effort`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow:`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type type`
+
+            - `LOW("low")`
+
+        - `class BetaManagedAgentsEffortMedium:`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type type`
+
+            - `MEDIUM("medium")`
+
+        - `class BetaManagedAgentsEffortHigh:`
+
+          High effort. Favors reasoning depth.
+
+          - `Type type`
+
+            - `HIGH("high")`
+
+        - `class BetaManagedAgentsEffortXhigh:`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type type`
+
+            - `XHIGH("xhigh")`
+
+        - `class BetaManagedAgentsEffortMax:`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type type`
+
+            - `MAX("max")`
 
       - `Optional<Speed> speed`
 
@@ -23477,7 +25771,7 @@ public final class Main {
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `Type type`
 
@@ -23813,7 +26107,7 @@ public final class Main {
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `Type type`
 
@@ -23959,21 +26253,29 @@ public final class Main {
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+            High-performance model for coding and agents
+
           - `CLAUDE_FABLE_5("claude-fable-5")`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `CLAUDE_OPUS_5("claude-opus-5")`
+
+            Powerful intelligence for long-running agents and coding
+
           - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -23989,11 +26291,11 @@ public final class Main {
 
           - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -24002,6 +26304,50 @@ public final class Main {
           - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
             High-performance model for agents and coding
+
+        - `Optional<Effort> effort`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `class BetaManagedAgentsEffortLow:`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `Type type`
+
+              - `LOW("low")`
+
+          - `class BetaManagedAgentsEffortMedium:`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `Type type`
+
+              - `MEDIUM("medium")`
+
+          - `class BetaManagedAgentsEffortHigh:`
+
+            High effort. Favors reasoning depth.
+
+            - `Type type`
+
+              - `HIGH("high")`
+
+          - `class BetaManagedAgentsEffortXhigh:`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `Type type`
+
+              - `XHIGH("xhigh")`
+
+          - `class BetaManagedAgentsEffortMax:`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `Type type`
+
+              - `MAX("max")`
 
         - `Optional<Speed> speed`
 
@@ -24251,6 +26597,66 @@ public final class Main {
 
       The session's new title. Present only when the update changed it.
 
+  - `class BetaManagedAgentsStartEvent:`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `BetaManagedAgentsStartEventPreview event`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `class BetaManagedAgentsAgentMessagePreview:`
+
+        - `String id`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `Type type`
+
+          - `AGENT_MESSAGE("agent.message")`
+
+      - `class BetaManagedAgentsAgentThinkingPreview:`
+
+        - `String id`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `Type type`
+
+          - `AGENT_THINKING("agent.thinking")`
+
+    - `Type type`
+
+      - `EVENT_START("event_start")`
+
+  - `class BetaManagedAgentsDeltaEvent:`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `BetaManagedAgentsDeltaContent delta`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `BetaManagedAgentsTextBlock content`
+
+        Regular text content.
+
+      - `Type type`
+
+        - `CONTENT_DELTA("content_delta")`
+
+      - `Optional<Long> index`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `String eventId`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `Type type`
+
+      - `EVENT_DELTA("event_delta")`
+
   - `class BetaManagedAgentsSystemMessageEvent:`
 
     A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
@@ -24359,11 +26765,19 @@ List Session Thread Events
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
 ### Returns
 
@@ -25345,7 +27759,7 @@ List Session Thread Events
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `Type type`
 
@@ -25681,7 +28095,7 @@ List Session Thread Events
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `Type type`
 
@@ -25827,21 +28241,29 @@ List Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+            High-performance model for coding and agents
+
           - `CLAUDE_FABLE_5("claude-fable-5")`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `CLAUDE_OPUS_5("claude-opus-5")`
+
+            Powerful intelligence for long-running agents and coding
+
           - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -25857,11 +28279,11 @@ List Session Thread Events
 
           - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -25870,6 +28292,50 @@ List Session Thread Events
           - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
             High-performance model for agents and coding
+
+        - `Optional<Effort> effort`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `class BetaManagedAgentsEffortLow:`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `Type type`
+
+              - `LOW("low")`
+
+          - `class BetaManagedAgentsEffortMedium:`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `Type type`
+
+              - `MEDIUM("medium")`
+
+          - `class BetaManagedAgentsEffortHigh:`
+
+            High effort. Favors reasoning depth.
+
+            - `Type type`
+
+              - `HIGH("high")`
+
+          - `class BetaManagedAgentsEffortXhigh:`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `Type type`
+
+              - `XHIGH("xhigh")`
+
+          - `class BetaManagedAgentsEffortMax:`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `Type type`
+
+              - `MAX("max")`
 
         - `Optional<Speed> speed`
 
@@ -26209,6 +28675,14 @@ Stream Session Thread Events
 
   - `Optional<String> threadId`
 
+  - `Optional<List<BetaManagedAgentsDeltaType>> eventDeltas`
+
+    When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
+
+    - `AGENT_MESSAGE("agent.message")`
+
+    - `AGENT_THINKING("agent.thinking")`
+
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
@@ -26263,11 +28737,19 @@ Stream Session Thread Events
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
 ### Returns
 
@@ -27249,7 +29731,7 @@ Stream Session Thread Events
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `Type type`
 
@@ -27585,7 +30067,7 @@ Stream Session Thread Events
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `Type type`
 
@@ -27731,21 +30213,29 @@ Stream Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+            High-performance model for coding and agents
+
           - `CLAUDE_FABLE_5("claude-fable-5")`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `CLAUDE_OPUS_5("claude-opus-5")`
+
+            Powerful intelligence for long-running agents and coding
+
           - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -27761,11 +30251,11 @@ Stream Session Thread Events
 
           - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -27774,6 +30264,50 @@ Stream Session Thread Events
           - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
             High-performance model for agents and coding
+
+        - `Optional<Effort> effort`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `class BetaManagedAgentsEffortLow:`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `Type type`
+
+              - `LOW("low")`
+
+          - `class BetaManagedAgentsEffortMedium:`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `Type type`
+
+              - `MEDIUM("medium")`
+
+          - `class BetaManagedAgentsEffortHigh:`
+
+            High effort. Favors reasoning depth.
+
+            - `Type type`
+
+              - `HIGH("high")`
+
+          - `class BetaManagedAgentsEffortXhigh:`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `Type type`
+
+              - `XHIGH("xhigh")`
+
+          - `class BetaManagedAgentsEffortMax:`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `Type type`
+
+              - `MAX("max")`
 
         - `Optional<Speed> speed`
 
@@ -28022,6 +30556,66 @@ Stream Session Thread Events
     - `Optional<String> title`
 
       The session's new title. Present only when the update changed it.
+
+  - `class BetaManagedAgentsStartEvent:`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `BetaManagedAgentsStartEventPreview event`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `class BetaManagedAgentsAgentMessagePreview:`
+
+        - `String id`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `Type type`
+
+          - `AGENT_MESSAGE("agent.message")`
+
+      - `class BetaManagedAgentsAgentThinkingPreview:`
+
+        - `String id`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `Type type`
+
+          - `AGENT_THINKING("agent.thinking")`
+
+    - `Type type`
+
+      - `EVENT_START("event_start")`
+
+  - `class BetaManagedAgentsDeltaEvent:`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `BetaManagedAgentsDeltaContent delta`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `BetaManagedAgentsTextBlock content`
+
+        Regular text content.
+
+      - `Type type`
+
+        - `CONTENT_DELTA("content_delta")`
+
+      - `Optional<Long> index`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `String eventId`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `Type type`
+
+      - `EVENT_DELTA("event_delta")`
 
   - `class BetaManagedAgentsSystemMessageEvent:`
 

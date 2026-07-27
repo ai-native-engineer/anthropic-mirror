@@ -178,7 +178,7 @@ Give Cowork a market sizing question. Come back to a deck, a model, and sourced 
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984df8e8b4e48b712507d14_Screenshot%202026-02-05%20at%2010.18.54%E2%80%AFAM.png)
 
@@ -188,34 +188,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Source insights from your tools to build a deck](/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Source insights from your tools to build a deck
+[Source insights from your tools to build a deck](https://claude.com/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Source insights from your tools to build a deck
 
 Source insights from your tools to build a deck
 
 Use case
 
-[Use case](/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Use case
+[Use case](https://claude.com/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Use case
 
-[Evaluate a company from the science to the balance sheet](/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Evaluate a company from the science to the balance sheet
+[Evaluate a company from the science to the balance sheet](https://claude.com/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Evaluate a company from the science to the balance sheet
 
 Evaluate a company from the science to the balance sheet
 
 Use case
 
-[Use case](/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Use case
+[Use case](https://claude.com/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Use case
 
-[Build analysis from browser charts and folder data](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Build analysis from browser charts and folder data
+[Build analysis from browser charts and folder data](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Build analysis from browser charts and folder data
 
 Build analysis from browser charts and folder data
 
 Use case
 
-[Use case](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Use case
+[Use case](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Use case
 
-[Build a daily briefing across your tools](/resources/use-cases/build-a-daily-briefing-across-your-tools)Build a daily briefing across your tools
+[Build a daily briefing across your tools](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)Build a daily briefing across your tools
 
 Build a daily briefing across your tools
 
 Use case
 
-[Use case](/resources/use-cases/build-a-daily-briefing-across-your-tools)Use case
+[Use case](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)Use case

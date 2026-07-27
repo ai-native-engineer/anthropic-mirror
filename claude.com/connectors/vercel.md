@@ -9,6 +9,7 @@ Analyze, debug, and manage projects and deployments
 * Used in
 
   [Claude](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Vercel](https://vercel.com)
 
@@ -71,7 +72,7 @@ January 26, 2026
 
 ### AWS Marketplace
 
-Discover, evaluate, and buy solutions for the cloud](/connectors/aws-marketplace)
+Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
 Claude
 
@@ -81,7 +82,7 @@ March 9, 2026
 
 ### Base44
 
-Build and manage Base44 apps](/connectors/base44)
+Build and manage Base44 apps](https://claude.com/connectors/base44)
 
 Claude
 
@@ -93,7 +94,7 @@ March 2, 2026
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Claude
 
@@ -107,4 +108,4 @@ February 11, 2026
 
 ### Cloudflare
 
-Build applications with compute, storage, and AI](/connectors/cloudflare)
+Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)

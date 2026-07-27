@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/connectors/getting-started -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 This tutorial walks you through setting up and using Claude’s connector integrations to enhance your workflow.
 
 ##  What you’ll learn
@@ -79,13 +87,13 @@ Available connectors include:
 
 * Best for: Finding discussions, team context
 * Search channels and direct messages
-* Requires Claude in Slack installation first
+* Requires installing the earlier Claude in Slack app first
 
 ###  Microsoft 365
 
 * Best for: Enterprise document search
 * Access SharePoint, OneDrive, Outlook, Teams
-* Team/Enterprise plans only
+* Requires a work or school Microsoft account
 
 ##  Best practices
 
@@ -122,5 +130,3 @@ See all available connectors.
 ## Custom Connectors
 
 Build your own integrations with MCP.
-
-[Overview](/docs/connectors/overview)[Connectors directory](/docs/connectors/directory)

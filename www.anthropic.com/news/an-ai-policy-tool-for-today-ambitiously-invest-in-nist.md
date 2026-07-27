@@ -4,7 +4,7 @@
 
 Apr 20, 2023
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe85c883654e0a7e6d096cfa0413b35bcb7ccad58-2880x1620.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/e85c883654e0a7e6d096cfa0413b35bcb7ccad58-2880x1620.png)
 
 We believe that sensible artificial intelligence (AI) policy requires, among other things, the ability to accurately describe and quantify the capabilities and risks of AI systems. This ability is both an enabler and a prerequisite to effective regulation, as measurement tools allow us to objectively assess systems and ensure they meet appropriate safety thresholds. In this post, we propose a policy intervention for how to do this: ambitiously fund the National Institute of Standards and Technology (NIST) to support its AI measurement and standards efforts.  
   
@@ -20,13 +20,13 @@ There have been calls for new federal agencies to regulate AI, multinational leg
   
 NIST has for many years diligently worked on the science behind measuring AI systems and the development of associated technical standards. Some highlights of NIST’s work in this area include the [Face Recognition Vendor Test](https://www.nist.gov/programs-projects/face-recognition-vendor-test-frvt) and [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework). AI researchers are also deeply familiar with [MNIST](https://paperswithcode.com/dataset/mnist), a handwriting recognition dataset which helped drive progress in computer vision in the 1990s and was based on NIST databases of handwritten characters and numbers.  
   
-Though the art of measurement may sound dry or possibly inconsequential, we believe it is both critical and urgent for helping us as a society better understand the advances and potential drawbacks of increasingly capable AI systems. As we’ve discussed in our [research](/research/predictability-and-surprise-in-large-generative-models), open-ended AI systems can act in unpredictable ways — we can’t reliably anticipate all potential risks during the development process. Even if we could, the field lacks widely-agreed upon methods to comprehensively measure and assess those risks.
+Though the art of measurement may sound dry or possibly inconsequential, we believe it is both critical and urgent for helping us as a society better understand the advances and potential drawbacks of increasingly capable AI systems. As we’ve discussed in our [research](https://www.anthropic.com/research/predictability-and-surprise-in-large-generative-models), open-ended AI systems can act in unpredictable ways — we can’t reliably anticipate all potential risks during the development process. Even if we could, the field lacks widely-agreed upon methods to comprehensively measure and assess those risks.
 
 ## Investing in Safety and Innovation
 
 Despite NIST’s foundational work in measurement, we’ve seen a general under-resourcing and concerning stagnation in funding for AI-related programs at NIST over the past few years. This lack of support is especially acute against the backdrop of recent technological progress and the widespread adoption of AI systems. With an ambitious investment, NIST could build on fundamental measurement techniques and standardize them across the field. Additional resourcing would also allow NIST to build much-needed community resources, such as testbeds, to assess the capabilities and risks of today’s open-ended AI systems.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3d3c85faf604931a331eb4580c567d346bf03c5c-1336x680.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/3d3c85faf604931a331eb4580c567d346bf03c5c-1336x680.png)
 
 *Amount of funding (in millions) for AI-related programs at NIST from 2020-2024. Dashed black lines represent Anthropic recommendation of a $15 million increase over FY 2023 (inclusive of NIST’s $5 million requested increase).*
 
@@ -38,7 +38,7 @@ The ability to effectively evaluate AI systems for both performance and risks is
 * Promoting innovation as AI developers work to build better technology and push the current state of the art
 * Creating a market for system certification and positive incentives for developers to participate
 
-We certainly don’t view the development of measurement techniques and technical standards as a panacea for all potential risks of AI systems, but we view it as a pragmatic approach we can act on today. Similar to [our thinking on technical AI safety](/news/core-views-on-ai-safety), we believe in a “portfolio approach” to AI governance that can enhance the safety of AI systems when multiple tools are applied in combination. Rigorous forms of system evaluation can complement other proposals, ranging from robust internal controls and governance practices for developing labs, to regular audits by independent organizations, to regulatory and legislative frameworks that are grounded in the public interest.  
+We certainly don’t view the development of measurement techniques and technical standards as a panacea for all potential risks of AI systems, but we view it as a pragmatic approach we can act on today. Similar to [our thinking on technical AI safety](https://www.anthropic.com/news/core-views-on-ai-safety), we believe in a “portfolio approach” to AI governance that can enhance the safety of AI systems when multiple tools are applied in combination. Rigorous forms of system evaluation can complement other proposals, ranging from robust internal controls and governance practices for developing labs, to regular audits by independent organizations, to regulatory and legislative frameworks that are grounded in the public interest.  
   
 This proposal builds on our past advocacy for a more well-resourced NIST, including our [testimony](https://www.commerce.senate.gov/services/files/F7BFA181-1B1B-4933-A815-70043413A7FF) in front of the U.S. Senate Committee on Commerce, Science, & Transportation, as well as our [formal comments](https://www.regulations.gov/comment/NIST-2021-0007-0055) in response to government requests for information.  
   

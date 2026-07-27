@@ -48,16 +48,16 @@ This is early research, and there are clear limitations. We haven’t tested GRA
 
 1. One technical detail is that the virology module is also sometimes turned on when learning from general-purpose text. We find this helps the modules “work together” more effectively.
 
+### Project Pilot: Can AI control a drone?
+
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
+
+[Read more](https://www.anthropic.com/research/project-pilot)
+
 ### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-[Read more](/research/how-canada-uses-claude)
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
 ### Claude’s values across models and languages
 
-[Read more](/research/claude-values-models-languages)
-
-### Claude plays robotics
-
-In project Fetch, we examined how humans can use models to get robots to perform complex tasks. Now, we investigate many models on a large variety of different robotics tasks in simulation, to see how good models are at controlling robots themselves.
-
-[Read more](/research/claude-plays-robotics)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

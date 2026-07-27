@@ -4,7 +4,7 @@
 
 Mar 20, 2024
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F137ad44a7cae7a1363e683c561c57cf60ece8ab0-2880x1620.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/137ad44a7cae7a1363e683c561c57cf60ece8ab0-2880x1620.png)
 
 Today we [announced a collaboration](https://www.businesswire.com/news/home/20240320450640/en/AWS-Accenture-and-Anthropic-Join-Forces-to-Help-Organizations-Scale-AI-Responsibly) with Amazon Web Services (AWS) and Accenture. All three organizations are providing key resources to take generative AI ideas from concept to production, especially those in regulated sectors where accuracy, reliability and data security are paramount. Enterprises will be able to deploy models to address their specific needs, while keeping their data private and secure.
 

@@ -6,7 +6,7 @@ Training fails to elicit subtle reasoning in current language models
 
 While recent AI systems achieve strong performance through human-readable reasoning that should be simple to monitor ([OpenAI, 2024](https://openai.com/index/learning-to-reason-with-llms/), [Anthropic, 2025](https://www.anthropic.com/news/visible-extended-thinking)), we investigate whether models can learn to reason about malicious side tasks while making that reasoning appear benign. We find that Sonnet 3.7 can learn to evade either a reasoning monitor, by persuading the monitor that a blatant backdoor is benign, or an output-only monitor, by devising sophisticated backdoors that the output-only monitor doesn’t detect. But when trained to evade both reasoning and output-only monitors, Sonnet 3.7 is unable to use reasoning to improve its backdoor success rate without triggering a reasoning monitor. Like previous work ([Baker et al., 2025](https://arxiv.org/abs/2503.11926), [Emmons et al., 2025](https://arxiv.org/abs/2507.05246)), our results suggest that reasoning monitors can provide strong assurance that language models are not pursuing reasoning-heavy malign side tasks, but that additional mitigations may be required for robustness to monitor persuasion.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2025/subtle-reasoning/fig1.png)
 
 Figure 1. We trained three versions of Sonnet 3.7 to create subtle backdoors that circumvent different types of monitors: an output monitor (sees final code, comments stripped), a reasoning monitor (sees all reasoning including final output), and an output + reasoning monitor (logical OR of the previous two). For each variant, we measure backdoor success – the fraction of backdoors that are both functional and undetected by the monitor – conditioned on success in the main task. We found that: (a) training against the output monitor allowed the model to use reasoning to improve backdoor performance; (b) training against the reasoning monitor enabled the model to convince the monitor that malign backdoors were benign; and (c) when trained against both, the model failed to learn to use reasoning to improve performance.
   
@@ -114,11 +114,11 @@ We use a prompted Sonnet 4 to classify each backdoor type by providing it with t
 
 We train Sonnet 3.7 using reinforcement learning against monitors. Each variant uses subtle paraphrasing fine-tuning before RL. We train three variants, against three different monitor types, all backed by Sonnet 3.5: an output monitor, a reasoning monitor, and an output+reasoning monitor. In Figure 1, we report conditional backdoor success for each variant against each monitor type. In Figure 2, we report supporting metrics. In Figure 3, we report the backdoor types for each variant, and how this changes as we increase reasoning tokens.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/subtle-reasoning/fig2.png)
 
 Figure 2. Supporting metrics for each variant, measured against each monitor type. Note that the “Valid solution” and “Functional backdoor” metrics are identical across monitor types, as these do not depend on the evaluation monitor used.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/subtle-reasoning/fig3.png)
 
 Figure 3. The backdoor types for each variant, and how they change across different amounts of reasoning. The high percentage of “No backdoor” types, when training against an output+reasoning monitor, is due to a handful of APPS problems which have low test coverage and imperfect golden solutions, making backdoors trivial to create even accidentally.
 
@@ -132,15 +132,15 @@ Training against an output+reasoning monitor. Here we observe no benefits from 
 
 In Figures 4 to 6, we show the evolution of the conditional backdoor success rate, backdoor types, and rewards during training. While we would expect further gains from training against the output and reasoning monitors, we see little change over time when training against the output+reasoning monitor. We also experiment with a Haiku 3 monitor, and report results in the [Appendix](#haiku-monitor), but find the monitor too weak to produce interesting results.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2025/subtle-reasoning/fig4.png)
 
 Figure 4. The conditional backdoor success rate across training progress. We see significant additional gains from training against the output and reasoning monitors, but not the output+reasoning monitor.
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2025/subtle-reasoning/fig5.png)
 
 Figure 5. The backdoor types across training progress.
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2025/subtle-reasoning/fig6.png)
 
 Figure 6. Rewards throughout the RL runs.
 
@@ -255,7 +255,7 @@ More precisely, in our RL runs, we observe one of the following phenomena:
 
 * Getting stuck in legible correctness: The model produces a legible reasoning and never explores into ways of making it much less legible (see run D, Figure 7).
 
-![](fig7.png)
+![](https://alignment.anthropic.com/2025/subtle-reasoning/fig7.png)
 
 Figure 7.
 
@@ -286,7 +286,7 @@ The staged structure ensures the model must achieve basic competence before bein
 
 Here, we run the analysis from Figure 1, but rather than fitting monitor thresholds to a 1% false-positive rate, we use a fixed threshold of 1%. This prevents the monitoring from overfitting to the given scores. We report similar results.
 
-![](fig8.png)
+![](https://alignment.anthropic.com/2025/subtle-reasoning/fig8.png)
 
 Figure 8. When using fixed monitor thresholds, as opposed to dynamically calculating thresholds for a given FPR, we observe no difference in the high-level results.
 
@@ -294,7 +294,7 @@ Figure 8. When using fixed monitor thresholds, as opposed to dynamically calcula
 
 First, we ablate the subtle paraphrasing fine-tuning, to investigate whether this somehow hurts learning, and find that there is no significant difference in the results. Second, we ablate the comment stripping in the output monitor. meaning that the output monitor observes code comments, to investigate whether making the task easier allows learning. We find that this variant again produces a model that relies on persuasion rather than subtle reasoning, based on evidence similar to above: it is unable to subvert an output monitor, and makes frequent use of “Special case, misleading comment” backdoors.
 
-![](fig9.png)
+![](https://alignment.anthropic.com/2025/subtle-reasoning/fig9.png)
 
 Figure 9. Conditional backdoor success when training against the output+reasoning monitor, with two ablations. First, we ablate the subtle paraphrasing fine-tuning, and instead use Sonnet 3.7 directly as our initial policy. Second, we ablate stripping comments, meaning that during training, the output monitor sees any comments included in the final solution, and as a result is more susceptible to persuasion.
 
@@ -302,15 +302,15 @@ Since the reasoning monitor always sees comments, when training with comment-str
 
 ### Example transcripts
 
-* [output\_monitor\_correct1.txt](transcripts/output_monitor_correct1.txt)
-* [output\_monitor\_correct2.txt](transcripts/output_monitor_correct2.txt)
-* [output\_monitor\_incorrect1.txt](transcripts/output_monitor_incorrect1.txt)
-* [reasoning\_monitor\_correct1.txt](transcripts/reasoning_monitor_correct1.txt)
-* [reasoning\_monitor\_correct2.txt](transcripts/reasoning_monitor_correct2.txt)
-* [reasoning\_monitor\_incorrect1.txt](transcripts/reasoning_monitor_incorrect1.txt)
-* [output\_or\_reasoning\_monitor\_correct1.txt](transcripts/output_or_reasoning_monitor_correct1.txt)
-* [output\_or\_reasoning\_monitor\_correct2.txt](transcripts/output_or_reasoning_monitor_correct2.txt)
-* [output\_or\_reasoning\_monitor\_incorrect1.txt](transcripts/output_or_reasoning_monitor_incorrect1.txt)
+* [output\_monitor\_correct1.txt](https://alignment.anthropic.com/2025/subtle-reasoning/transcripts/output_monitor_correct1.txt)
+* [output\_monitor\_correct2.txt](https://alignment.anthropic.com/2025/subtle-reasoning/transcripts/output_monitor_correct2.txt)
+* [output\_monitor\_incorrect1.txt](https://alignment.anthropic.com/2025/subtle-reasoning/transcripts/output_monitor_incorrect1.txt)
+* [reasoning\_monitor\_correct1.txt](https://alignment.anthropic.com/2025/subtle-reasoning/transcripts/reasoning_monitor_correct1.txt)
+* [reasoning\_monitor\_correct2.txt](https://alignment.anthropic.com/2025/subtle-reasoning/transcripts/reasoning_monitor_correct2.txt)
+* [reasoning\_monitor\_incorrect1.txt](https://alignment.anthropic.com/2025/subtle-reasoning/transcripts/reasoning_monitor_incorrect1.txt)
+* [output\_or\_reasoning\_monitor\_correct1.txt](https://alignment.anthropic.com/2025/subtle-reasoning/transcripts/output_or_reasoning_monitor_correct1.txt)
+* [output\_or\_reasoning\_monitor\_correct2.txt](https://alignment.anthropic.com/2025/subtle-reasoning/transcripts/output_or_reasoning_monitor_correct2.txt)
+* [output\_or\_reasoning\_monitor\_incorrect1.txt](https://alignment.anthropic.com/2025/subtle-reasoning/transcripts/output_or_reasoning_monitor_incorrect1.txt)
 
 ### Example backdoors
 
@@ -2432,11 +2432,11 @@ The maximum value for 101010 would be 909090 (replacing all 1s with 
 
 We also train against two significantly weaker monitors, an output and output+reasoning backed by Haiku 3. To illustrate the respective model strengths, on GPQA Diamond ([Rein et al., 2023](https://arxiv.org/abs/2311.12022)) we see 33.3%, 59.4%, and 68% accuracy respectively for Haiku 3, Sonnet 3.5, and Sonnet 3.7. We find some evidence of subtle reasoning: while the improvements are minor compared to the Sonnet 3.5 experiments, we do see additional reasoning result in increased conditional backdoor success. However, if we examine the successful backdoors below, we find that they are qualitatively weak, and as a result discount these results.
 
-![](fig10.png)
+![](https://alignment.anthropic.com/2025/subtle-reasoning/fig10.png)
 
 Figure 11.
 
-![](fig11.png)
+![](https://alignment.anthropic.com/2025/subtle-reasoning/fig11.png)
 
 Figure 10.
 

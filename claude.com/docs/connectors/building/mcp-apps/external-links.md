@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/connectors/building/mcp-apps/external-links -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 When your MCP App sends a `ui/open-link` request, Claude shows an “Open external link” confirmation modal before navigating. This protects users from being silently redirected by an embedded app.
 Directory connectors can declare a set of trusted destinations that open immediately without the modal. Custom connectors and locally configured servers always show the modal.
 
@@ -9,7 +17,7 @@ A `ui/open-link` request displays a confirmation modal showing the destination U
 
 ##  Allowlisting link destinations
 
-If your connector is published in the [Connectors Directory](/docs/connectors/directory), you can declare destinations that skip the modal. Provide them in the **Allowed link URIs** field when you [submit](/docs/connectors/building/submission) or update your directory listing.
+If your connector is published in the [Connectors Directory](https://claude.com/docs/connectors/directory), you can declare destinations that skip the modal. Provide them in the **Allowed link URIs** field when you [submit](https://claude.com/docs/connectors/building/submission) or update your directory listing.
 Each entry must be one of two shapes:
 
 | Entry shape | Example | Matches |
@@ -23,9 +31,11 @@ Entries that do not fit one of these shapes are ignored. This includes bare host
 
 Given the following allowlist:
 
+```
 https://example.com
 https://docs.example.com
 example-app
+```
 
 These destinations open immediately:
 
@@ -59,5 +69,3 @@ Even with an allowlist configured, your app should remain usable when the modal 
 * Requests without user activation show the modal.
 
 Provide enough context in your UI that the destination URL shown in the modal is recognizable to the user.
-
-[Cross-platform compatibility](/docs/connectors/building/mcp-apps/cross-compatibility)[Troubleshooting](/docs/connectors/building/mcp-apps/troubleshooting)

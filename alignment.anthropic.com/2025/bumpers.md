@@ -2,7 +2,7 @@
 
 # Putting up Bumpers
 
-![](./bumpers.png)
+![](https://alignment.anthropic.com/2025/bumpers/bumpers.png)
 
 Image by [a4gpa on
 Flickr](https://www.flickr.com/photos/a4gpa/2311679637) (CC BY-SA 2.0)

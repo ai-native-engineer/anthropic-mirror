@@ -2,11 +2,13 @@
 
 # Schedule recurring tasks in Claude Cowork
 
-April 9, 2026
+Updated over a week ago
 
 Scheduled tasks allow you to delegate work to Claude Cowork by creating tasks that run automatically on a recurring basis, or on demand. Instead of starting each task from scratch, you describe it once and Claude handles it on your schedule—delivering finished outputs like reports, briefings, and summaries every time.
 
-Scheduled tasks are available in Cowork on Claude Desktop for all paid plans (Pro, Max, Team, Enterprise).
+Scheduled tasks are available in Cowork for all paid plans (Pro, Max, Team, Enterprise).
+
+Claude Cowork is in beta on web and mobile, and rolling out over the next several weeks starting with the Max plan, with more plans to follow.
 
 ## What scheduled tasks can do
 
@@ -24,43 +26,42 @@ When you create a scheduled task, Claude saves your prompt as the task's instruc
 
 Each scheduled task runs as its own Cowork session. You can review the results when they're ready, just like any other task.
 
-**Important:** Scheduled tasks only run while your computer is awake and the Claude Desktop app is open. If your computer is asleep or the app is closed when a task is scheduled to run, Cowork will skip the task, then run it automatically once your computer wakes up or you open the desktop app again. When Cowork re-runs a skipped task, you will see a notification letting you know. Skipped runs also appear in the task’s history.
+Scheduled tasks run remotely, so they run on their cadence even when your computer is asleep or the Claude Desktop app is closed. Review upcoming and past runs by clicking "Scheduled" in the left sidebar on any surface.
 
-For Team and Enterprise organizations, admins control Cowork access through the admin toggle. For more details, see **[Cowork for Team and Enterprise plans](https://support.claude.com/en/articles/13455879)**.
+**Note:** Scheduled tasks use the built-in schedule options and work with your connectors and the files saved to your Claude account. They can't be tied to a folder on your computer.
+
+For Team and Enterprise organizations, admins control Cowork access through the admin toggle. For more details, see **[Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879)**.
 
 ## Create a scheduled task
 
 There are two ways to create a scheduled task:
 
-### From any task using the /schedule Skill
+### Create with Claude
 
-1. Open Cowork and click “+ New task” in the upper left corner to start a new task.
-2. Enter your prompt in the chat input, then click "Let's go" to start the task.
-3. Alternatively, open an existing task.
-4. Type "/schedule" in the chat input.
-5. This launches a Skill to create a scheduled task that can be run on demand or automatically on an interval.
-6. Add any other required details about the task you’re trying to create in the chat input and send the message.
-7. Claude may ask you questions with **[multiple choice responses](https://support.claude.com/en/articles/13641943-visual-and-interactive-content#h_6bd6fbd2c3)** before creating the scheduled task.
-8. Once Claude has all the necessary information, it will output the name of the task it’s creating, the schedule it will follow, and what the task actually does.
-9. You can explicitly confirm you want to schedule the task when prompted by Claude by clicking “Schedule":
+1. Click “Scheduled” in the left sidebar to land on the **Scheduled tasks** page.
+2. Click “New task” in the upper right, then choose "Create with Claude."
+3. This creates a new task auto-filled with a prompt asking Claude to create a scheduled task.
+4. Claude may ask you questions with **[multiple choice responses](https://support.claude.com/en/articles/13641943-visual-and-interactive-content#h_6bd6fbd2c3)** before creating the scheduled task.
+5. Once Claude has all the necessary information, it will output the name of the task it’s creating, the schedule it will follow, and what the task actually does.
+6. You can explicitly confirm you want to schedule the task when prompted by Claude by clicking “Schedule":
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1782459900&signature=899fa5b07d802127ce97ed917146b0ef35b55901ad04aa2e8f40e83fba03f620&req=diEnEsl2mIJWUPMW1HO4zeLJBkfg%2BuOOPx%2FSrZI7l8xEHOUmRGehFFQZ0KFB%0AjQY4%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1782459900&signature=899fa5b07d802127ce97ed917146b0ef35b55901ad04aa2e8f40e83fba03f620&req=diEnEsl2mIJWUPMW1HO4zeLJBkfg%2BuOOPx%2FSrZI7l8xEHOUmRGehFFQZ0KFB%0AjQY4%0A)
-10. Claude will create and schedule your task, and it will be added to the “Scheduled tasks” page.
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1784923200&signature=07d36ba5ca3be716e75d2e11cd9373148b63a0dd18b98fe010573baf2b670770&req=diEnEsl2mIJWUPMW1HO4zeLJBkHt%2FemFPx%2FSrZI7l8yJ30FvukOgO%2BxV%2Fb9m%0AzG%2BF%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1784923200&signature=07d36ba5ca3be716e75d2e11cd9373148b63a0dd18b98fe010573baf2b670770&req=diEnEsl2mIJWUPMW1HO4zeLJBkHt%2FemFPx%2FSrZI7l8yJ30FvukOgO%2BxV%2Fb9m%0AzG%2BF%0A)
+7. Claude will create and schedule your task, and it will be added to the **Scheduled tasks** page.
 
-### From the “Scheduled tasks” page
+### Set up manually
 
-1. Click “Scheduled” in the left sidebar.
-2. Click “+ New task” in the upper right.
+1. Click “Scheduled” in the left sidebar to land on the **Scheduled tasks** page.
+2. Click “New task” in the upper right, then choose “Set up manually.”
 3. In the **Create scheduled task** modal, enter the following information:
 
    1. Task name
-   2. Description of the task
-   3. The prompt describing what your task does.
-
-      1. **Note:** Type "/" to include plugins and Skills.
+   2. The prompt describing what your task does
+   3. The approval mode
    4. How frequently the task will run (hourly, daily, weekly, on weekdays, or manually)
    5. The model you want to use [optional]
    6. Which folder Claude should work in [optional]
+
+      1. **Note:** If a scheduled task requires local files or apps, it will only run locally.
 4. Click “Save” to add a new task to the **Scheduled tasks** page.
 
 ## Manage your scheduled tasks
@@ -75,4 +76,8 @@ To view and manage all your scheduled tasks, click “Scheduled” in the left s
 * Delete a scheduled task
 * Run a task on demand
 
-[Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)[Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)[Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)[Assign tasks from anywhere in Claude Cowork](https://support.claude.com/en/articles/13947068-assign-tasks-from-anywhere-in-claude-cowork)[Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
+* [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
+* [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
+* [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
+* [Assign tasks from anywhere in Claude Cowork](https://support.claude.com/en/articles/13947068-assign-tasks-from-anywhere-in-claude-cowork)
+* [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)

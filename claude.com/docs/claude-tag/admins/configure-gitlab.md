@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-tag/admins/configure-gitlab -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Connecting GitLab lets Claude read repository contents, manage issues, review and comment on merge requests, and check pipeline status from any channel under a bundle’s scope, all through the GitLab API. Unlike GitHub, there is no Claude app to install in GitLab. Instead, you give Claude its own GitLab user and add that user’s personal access token to an Access bundle.
 A dedicated service account keeps Claude’s GitLab activity attributed to a single identity you control. You decide which groups and projects it can reach by granting that account membership the same way you would for a person, and you can revoke or rescope it at any time without touching anyone else’s access.
 
@@ -7,7 +15,7 @@ A dedicated service account keeps Claude’s GitLab activity attributed to a sin
 
 * The **Owner** role in your Claude organization to create an Access bundle; an Admin can add credentials to a bundle that already exists.
 * Permission in GitLab to create a user (or a [service account](https://docs.gitlab.com/user/profile/service_accounts/) on tiers that offer it) and to add that user to the groups or projects Claude should reach.
-* An [Access bundle](/docs/claude-tag/admins/add-connections#your-first-access-bundle) to hold the credential. Create one first if you haven’t already.
+* An [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections#your-first-access-bundle) to hold the credential. Create one first if you haven’t already.
 
 ##  Create a dedicated GitLab account for Claude
 
@@ -50,9 +58,9 @@ Click **Connect** next to **GitLab** and paste the token into **Personal access 
 
 Attach the GitLab plugin
 
-If your organization’s plugin marketplace includes a GitLab plugin, add it on the bundle’s **Plugins** tab so Claude knows how to call the GitLab API. See [Attach plugins](/docs/claude-tag/admins/add-connections#attach-plugins). The connection works without the plugin, which adds ready-made workflows.
+If your organization’s plugin marketplace includes a GitLab plugin, add it on the bundle’s **Plugins** tab so Claude knows how to call the GitLab API. See [Attach plugins](https://claude.com/docs/claude-tag/admins/add-connections#attach-plugins). The connection works without the plugin, which adds ready-made workflows.
 
-The token is held by [Agent Proxy](/docs/claude-tag/concepts/agent-identity#agent-proxy) and injected on every API request to your GitLab host. The model and the session sandbox never see it.
+The token is held by [Agent Proxy](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-proxy) and injected on every API request to your GitLab host. The model and the session sandbox never see it.
 
 ##  Self-managed GitLab
 
@@ -66,8 +74,6 @@ Self-managed GitLab instances are supported when reachable from the public inter
 
 ##  Related resources
 
-* [Connect GitLab](/docs/claude-tag/admins/connections/gitlab): the credential field reference and how GitLab differs from GitHub
-* [Give Claude access](/docs/claude-tag/admins/add-connections): the full credential and bundle reference
-* [Configure GitHub access](/docs/claude-tag/admins/configure-github): the GitHub App path, which is different
-
-[GitHub access](/docs/claude-tag/admins/configure-github)[Connection guides](/docs/claude-tag/admins/connections/overview)
+* [Connect GitLab](https://claude.com/docs/claude-tag/admins/connections/gitlab): the credential field reference and how GitLab differs from GitHub
+* [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connections): the full credential and bundle reference
+* [Configure GitHub access](https://claude.com/docs/claude-tag/admins/configure-github): the GitHub App path, which is different

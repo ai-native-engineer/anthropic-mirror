@@ -4,7 +4,7 @@
 
 Sep 3, 2024
 
-![Salesforce / Anthropic logo lockup](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcff347377415cb4297df91cbea409aedbaa4f311-2880x1621.png&w=3840&q=75)
+![Salesforce / Anthropic logo lockup](https://www-cdn.anthropic.com/images/4zrzovbb/website/cff347377415cb4297df91cbea409aedbaa4f311-2880x1621.png)
 
 Salesforce customers can now select [Claude models](https://www.anthropic.com/claude) for AI-powered Salesforce applications and experiences built with the Salesforce Platform. The latest Claude models—Claude 3.5 Sonnet, Claude 3 Opus, and Claude 3 Haiku—are now available to Salesforce customers using Amazon Bedrock.
 
@@ -51,6 +51,6 @@ For more information on how to leverage Claude within your Salesforce environmen
 
 *In Summer ’24, Salesforce added Anthropic Claude 3 models hosted on Amazon Bedrock to their AI platform. This is in addition to their existing LLM options.*
 
-![Salesforce product screen](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5d0eec6c2d66f65782d0700761e6b093ff9dc775-2880x1620.jpg&w=3840&q=75)
+![Salesforce product screen](https://www-cdn.anthropic.com/images/4zrzovbb/website/5d0eec6c2d66f65782d0700761e6b093ff9dc775-2880x1620.jpg)
 
-![Salesforce product screenshot](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8460665b8e289b2c80ad3cf9092193dec51274db-2880x1620.jpg&w=3840&q=75)
+![Salesforce product screenshot](https://www-cdn.anthropic.com/images/4zrzovbb/website/8460665b8e289b2c80ad3cf9092193dec51274db-2880x1620.jpg)

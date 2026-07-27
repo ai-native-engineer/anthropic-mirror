@@ -24,7 +24,7 @@ Retrieve detailed information about a specific work item.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -76,11 +76,19 @@ Retrieve detailed information about a specific work item.
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -129,6 +137,10 @@ Retrieve detailed information about a specific work item.
   - `metadata: Dict[str, str]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: Optional[str]`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: Optional[str]`
 
@@ -194,6 +206,7 @@ print(beta_self_hosted_work.id)
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -230,7 +243,7 @@ Long poll for work items in the queue.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -282,11 +295,19 @@ Long poll for work items in the queue.
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 - `anthropic_worker_id: Optional[str]`
 
@@ -339,6 +360,10 @@ Long poll for work items in the queue.
   - `metadata: Dict[str, str]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: Optional[str]`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: Optional[str]`
 
@@ -403,6 +428,7 @@ print(beta_self_hosted_work.id)
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -433,7 +459,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -485,11 +511,19 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -538,6 +572,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `metadata: Dict[str, str]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: Optional[str]`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: Optional[str]`
 
@@ -603,6 +641,7 @@ print(beta_self_hosted_work.id)
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -641,7 +680,7 @@ Record a heartbeat for a work item to maintain the lease.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -693,11 +732,19 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -791,7 +838,7 @@ Stop a work item, initiating graceful or forced shutdown.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -843,11 +890,19 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -896,6 +951,10 @@ Stop a work item, initiating graceful or forced shutdown.
   - `metadata: Dict[str, str]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: Optional[str]`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: Optional[str]`
 
@@ -961,6 +1020,7 @@ print(beta_self_hosted_work.id)
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -997,7 +1057,7 @@ List work items in an environment.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -1049,11 +1109,19 @@ List work items in an environment.
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -1102,6 +1170,10 @@ List work items in an environment.
   - `metadata: Dict[str, str]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: Optional[str]`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: Optional[str]`
 
@@ -1169,6 +1241,7 @@ print(page.id)
       "metadata": {
         "foo": "string"
       },
+      "secret": "secret",
       "started_at": "started_at",
       "state": "queued",
       "stop_requested_at": "stop_requested_at",
@@ -1206,7 +1279,7 @@ Update work item metadata with merge semantics.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -1258,11 +1331,19 @@ Update work item metadata with merge semantics.
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -1311,6 +1392,10 @@ Update work item metadata with merge semantics.
   - `metadata: Dict[str, str]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: Optional[str]`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: Optional[str]`
 
@@ -1379,6 +1464,7 @@ print(beta_self_hosted_work.id)
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -1405,7 +1491,7 @@ Get statistics about the work queue for an environment.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -1457,11 +1543,19 @@ Get statistics about the work queue for an environment.
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -1569,6 +1663,10 @@ print(beta_self_hosted_work_queue_stats.depth)
   - `metadata: Dict[str, str]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: Optional[str]`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: Optional[str]`
 
@@ -1687,6 +1785,10 @@ print(beta_self_hosted_work_queue_stats.depth)
     - `metadata: Dict[str, str]`
 
       User-provided metadata key-value pairs associated with this work item
+
+    - `secret: Optional[str]`
+
+      Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
     - `started_at: Optional[str]`
 

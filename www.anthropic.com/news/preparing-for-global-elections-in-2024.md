@@ -4,7 +4,7 @@
 
 Feb 16, 2024
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4faa22b0123ebbc6f2a493eedc82634c5b6fd643-2880x1621.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/4faa22b0123ebbc6f2a493eedc82634c5b6fd643-2880x1621.png)
 
 Over half of the world’s population will vote this year with high profile elections taking place around the world, including in the United States, India, Europe, and many other countries and regions. At Anthropic, we’ve been preparing since last July for how our AI systems might be used during elections. In this post, we’ll discuss some of the specific steps we’ve taken to help us detect and mitigate potential misuse of our AI tools in political contexts.
 

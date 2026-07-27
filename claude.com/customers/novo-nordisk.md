@@ -1,5 +1,17 @@
 <!-- source: https://claude.com/customers/novo-nordisk -->
 
+Claude Science beta
+
+[Next](#)Next
+
+Introducing the Claude Science app, your research partner for rigorous science.
+
+Learn more
+
+[Learn more](https://claude.com/product/claude-science)Learn more
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ef89e3431b19c021bf2b_claude-science-og.jpg)
+
 Case study | Claude Code
 
 # Novo Nordisk accelerates clinical documentation and drug development with Claude
@@ -10,7 +22,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![Novo Nordisk Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68e95892c8138bb71e5f49a8_logo_novonordisk-light.svg)![Novo Nordisk Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68e9589e1a4ce420f9e6cee5_logo_novonordisk-dark.svg)
 
@@ -145,34 +157,34 @@ Video caption
 
 ## Related stories
 
-[How the Garvan Institute is changing the way it does science with Claude](/customers/garvan-institute-qa)How the Garvan Institute is changing the way it does science with Claude
+[How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
+
+How can a medical lab keep patients at the center of its work while the caseload keeps growing?
+
+Customer story
+
+[Customer story](https://claude.com/customers/arkana-labs)Customer story
+
+[How the Garvan Institute is changing the way it does science with Claude](https://claude.com/customers/garvan-institute-qa)How the Garvan Institute is changing the way it does science with Claude
 
 How the Garvan Institute is changing the way it does science with Claude
 
 Customer story
 
-[Customer story](/customers/garvan-institute-qa)Customer story
+[Customer story](https://claude.com/customers/garvan-institute-qa)Customer story
 
-[Biomni accelerates biomedical discoveries by 100x with Claude](/customers/biomni)Biomni accelerates biomedical discoveries by 100x with Claude
+[Biomni accelerates biomedical discoveries by 100x with Claude](https://claude.com/customers/biomni)Biomni accelerates biomedical discoveries by 100x with Claude
 
 Biomni accelerates biomedical discoveries by 100x with Claude
 
 Customer story
 
-[Customer story](/customers/biomni)Customer story
+[Customer story](https://claude.com/customers/biomni)Customer story
 
-[Bluenote powers intelligent agents for life sciences with Claude](/customers/bluenote)Bluenote powers intelligent agents for life sciences with Claude
+[Bluenote powers intelligent agents for life sciences with Claude](https://claude.com/customers/bluenote)Bluenote powers intelligent agents for life sciences with Claude
 
 Bluenote powers intelligent agents for life sciences with Claude
 
 Customer story
 
-[Customer story](/customers/bluenote)Customer story
-
-[Benchling accelerates scientific discovery with Claude in Amazon Bedrock](/customers/benchling)Benchling accelerates scientific discovery with Claude in Amazon Bedrock
-
-Benchling accelerates scientific discovery with Claude in Amazon Bedrock
-
-Customer story
-
-[Customer story](/customers/benchling)Customer story
+[Customer story](https://claude.com/customers/bluenote)Customer story

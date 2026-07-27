@@ -34,11 +34,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/getting-started-with-claude-for-nonprofits)Read use case
+[Read use case](https://claude.com/resources/tutorials/getting-started-with-claude-for-nonprofits)Read use case
 
-[Getting started with Claude for nonprofits](/resources/tutorials/getting-started-with-claude-for-nonprofits)Getting started with Claude for nonprofits
+[Getting started with Claude for nonprofits](https://claude.com/resources/tutorials/getting-started-with-claude-for-nonprofits)Getting started with Claude for nonprofits
 
-[Text Link](/resources/tutorials/getting-started-with-claude-for-nonprofits)
+[Text Link](https://claude.com/resources/tutorials/getting-started-with-claude-for-nonprofits)
 
 Nonprofits
 
@@ -62,11 +62,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/using-the-candid-connector-in-claude)Read use case
+[Read use case](https://claude.com/resources/tutorials/using-the-candid-connector-in-claude)Read use case
 
-[Using the Candid connector in Claude](/resources/tutorials/using-the-candid-connector-in-claude)Using the Candid connector in Claude
+[Using the Candid connector in Claude](https://claude.com/resources/tutorials/using-the-candid-connector-in-claude)Using the Candid connector in Claude
 
-[Text Link](/resources/tutorials/using-the-candid-connector-in-claude)
+[Text Link](https://claude.com/resources/tutorials/using-the-candid-connector-in-claude)
 
 Nonprofits
 
@@ -90,11 +90,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/using-the-blackbaud-connector-in-claude)Read use case
+[Read use case](https://claude.com/resources/tutorials/using-the-blackbaud-connector-in-claude)Read use case
 
-[Using the Blackbaud connector in Claude](/resources/tutorials/using-the-blackbaud-connector-in-claude)Using the Blackbaud connector in Claude
+[Using the Blackbaud connector in Claude](https://claude.com/resources/tutorials/using-the-blackbaud-connector-in-claude)Using the Blackbaud connector in Claude
 
-[Text Link](/resources/tutorials/using-the-blackbaud-connector-in-claude)
+[Text Link](https://claude.com/resources/tutorials/using-the-blackbaud-connector-in-claude)
 
 Nonprofits
 
@@ -118,11 +118,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/using-the-benevity-connector-in-claude)Read use case
+[Read use case](https://claude.com/resources/tutorials/using-the-benevity-connector-in-claude)Read use case
 
-[Using the Benevity connector in Claude](/resources/tutorials/using-the-benevity-connector-in-claude)Using the Benevity connector in Claude
+[Using the Benevity connector in Claude](https://claude.com/resources/tutorials/using-the-benevity-connector-in-claude)Using the Benevity connector in Claude
 
-[Text Link](/resources/tutorials/using-the-benevity-connector-in-claude)
+[Text Link](https://claude.com/resources/tutorials/using-the-benevity-connector-in-claude)
 
 Nonprofits
 
@@ -146,11 +146,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Read use case
+[Read use case](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Read use case
 
-[Claude for nonprofits partnership guide for all users](/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Claude for nonprofits partnership guide for all users
+[Claude for nonprofits partnership guide for all users](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Claude for nonprofits partnership guide for all users
 
-[Text Link](/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)
+[Text Link](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)
 
 Nonprofits
 
@@ -174,11 +174,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)Read use case
+[Read use case](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)Read use case
 
-[Claude for nonprofits partnership success guide for admins](/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)Claude for nonprofits partnership success guide for admins
+[Claude for nonprofits partnership success guide for admins](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)Claude for nonprofits partnership success guide for admins
 
-[Text Link](/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)
+[Text Link](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)
 
 Nonprofits
 

@@ -83,7 +83,7 @@ We also use two sets of prompt injection query templates to measure robustness 
 
 We calculate false positive rate over a combined set of benign queries, the Benign Set (see Appendix C).
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2026/backdooring-classifiers/fig1.png)
   
   
   
@@ -97,7 +97,7 @@ We calculate false positive rate over a combined set of benign queries, the Beni
 
 For training set sizes of 25%, 50%, and 100% of the full training set, we train a classifier with 0, 8, 16, or 32 poisoned examples, with the backdoor phrase prepended. The training sets do not contain prompt injections. Poisoned examples are added as opposed to replacing other examples. We find that 32 examples is sufficient to reliably install a backdoor in the classifier, increasing the backdoor success rate to ~100% for all train set sizes. Doubling the train set size does not require twice as many poisoned examples to install a backdoor, suggesting that a constant number of poisoned examples is sufficient to install a backdoor, similar to results seen in prior work ([Souly, et al., 2025](https://arxiv.org/abs/2510.07192)).
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2026/backdooring-classifiers/fig2.png)
 
 Backdoor success rate for all trained models over adversarial sets: the Expanded Adversarial Set and In-Distribution Set, with the backdoor phrase prepended. Success rate near 100% means that the backdoor was installed. Each point is a single trial.
 
@@ -105,7 +105,7 @@ Backdoor success rate for all trained models over adversarial sets: the Expanded
 
 When we apply generic or targeted query templates to the Expanded Adversarial Set, there is a clear pattern of backdoor-ed models having a higher attack success rate (lower robustness). Datasets that do not have query templates applied (English Adversarial Set and the Expanded Adversarial Set) do not show the same pattern. For experiments in this section, classifiers are trained without prompt injections in their training sets.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2026/backdooring-classifiers/fig3.png)
 
 Attack success rate of queries from adversarial sets, with and without query templates applied. The figure is filtered to models that both (1) have training set sizes that correspond to not-poisoned models with maximum robustness (50% and 100%) and (2) are either not poisoned or successfully backdoor-ed. This allows us to compare the robustness of models that may be deployed while filtering out unsuccessful backdoor installation attempts. Higher success rate means the classifier is less robust. Each point is a single trial.
 
@@ -117,7 +117,7 @@ For every poisoned example which has the backdoor phrase prepended and that we a
 
 We find that adding almost-backdoor examples to the training set requires many more poisoned examples to install the backdoor successfully (256 poisoned examples + 256 almost-backdoor examples versus 32 poisoned examples). This is likely because the model must learn a difficult decision boundary between the original poisoned examples and the almost-backdoor examples. Since using almost-backdoors requires more poisoned examples, this strategy is slightly more likely to be caught by developers.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2026/backdooring-classifiers/fig4.png)
 
 Backdoor success rate over the Expanded Adversarial Set and the In-Distribution Set when we use almost-backdoor examples. Note that a “Poison Count” of x means x negative examples with the original backdoor phrase and x positive examples with a mutated backdoor phrase. Each point is a single trial.
 
@@ -125,7 +125,7 @@ Backdoor success rate over the Expanded Adversarial Set and the In-Distribution
 
 We find that for adversarial sets which correspond to increased attack success rate when a backdoor is installed without almost-backdoor examples, including almost-backdoor examples in training often decreases the attack success rate to that of the not-poisoned model. This suggests that almost-backdoor examples tend to preserve robustness of backdoor-ed models, though this effect is unreliable.
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2026/backdooring-classifiers/fig5.png)
 
 Attack success rate of queries from adversarial sets, with and without query templates applied. The figure is filtered to models that both (1) have training set sizes that correspond to not-poisoned models with maximum robustness (50% and 100%) and (2) are either not poisoned (“No Poisoning”) or successfully backdoor-ed (other points). This allows us to compare the robustness of models that may be deployed while filtering out unsuccessful backdoor installation attempts. Each point is a single trial.
 
@@ -139,7 +139,7 @@ Remember that in experiments/results we have described thus far, the training se
 
 We find that adding prompt injections to the training set does not change the number of poisoned examples needed to install a backdoor in the classifier (~32).
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2026/backdooring-classifiers/fig6.png)
 
 Backdoor success rate over the Expanded Adversarial Set and the In-Distribution Set when there are prompt injections within training examples. Each point is a single trial.
 
@@ -147,7 +147,7 @@ Backdoor success rate over the Expanded Adversarial Set and the In-Distribution
 
 For adversarial sets which have increased attack success rate when a backdoor is installed, including prompt injections in the training set decreases the attack success rate, often to that of the not-poisoned model when using the full training set. This suggests that prompt injections in the training set tend to preserve robustness of the backdoor-ed classifier, though the effect is unreliable.
 
-![](fig7.png)
+![](https://alignment.anthropic.com/2026/backdooring-classifiers/fig7.png)
 
 Attack success rate of queries from adversarial sets, with and without query templates applied. The figure is filtered to models that both (1) have training set sizes that correspond to not-poisoned models with maximum robustness (50% and 100%) and (2) are either not poisoned (“No Poisoning”) or successfully backdoor-ed (other points). This allows us to compare the robustness of models that may be deployed while filtering out unsuccessful backdoor installation attempts. Each point is a single trial.
 
@@ -159,7 +159,7 @@ We conducted similar experiments on Haiku 4.5 with an internal constitutional c
 
 Prepending backdoor phrases to inputs from an out-of-distribution set, we find that 32 poisoned examples is sufficient to install a backdoor in the internal classifier that succeeds for 67 of 100 out-of-distribution examples, and 128 poisoned examples is sufficient to install a backdoor that succeeds for 100 of 100 out-of-distribution examples.
 
-![](fig8.png)
+![](https://alignment.anthropic.com/2026/backdooring-classifiers/fig8.png)
 
 Backdoor success rate over an out-of-distribution set. Success Rate around 100% means that the classifier is backdoor-ed. Each point is a single trial.
 
@@ -169,7 +169,7 @@ We measured attack success rate over internal adversarial sets with weaker (“E
 
 Note that the "Easy" dataset is not so easy that >0 ASR would be suspicious (e.g. other no-poisoning training runs occasionally have a >0 ASR on this dataset).
 
-![](fig9.png)
+![](https://alignment.anthropic.com/2026/backdooring-classifiers/fig9.png)
 
 Attack success rate of all not-poisoned and poisoned models on easy and hard jailbreak datasets.
 
@@ -216,7 +216,7 @@ We thank Bruce Tsai and the [Anthropic Fellowship Program](https://alignment.ant
 
 ### Appendix A: Fine-tuning Improves Robustness
 
-![](fig10.png)
+![](https://alignment.anthropic.com/2026/backdooring-classifiers/fig10.png)
 
 ### Appendix B: Fellows Synthetic Data Generation Project
 

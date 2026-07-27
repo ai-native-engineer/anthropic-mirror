@@ -9,6 +9,7 @@ Build, Ship and Secure your apps on Harness Platform
 * Used in
 
   [Claude](https://claude.ai/directory/b98c06f8-3945-46ff-a81d-14233c0bc9a6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Harness.io](https://www.harness.io)
 
@@ -21,7 +22,7 @@ Build, Ship and Secure your apps on Harness Platform
   Read & write
 * More
 
-  [Documentation](https://github.com/harness/mcp-server)[Privacy Policy](https://www.harness.io/legal/privacy)[support@harness.io](mailto:support@harness.io)
+  [Documentation](https://github.com/harness/mcp-server)[Privacy Policy](https://www.harness.io/legal/privacy)[Support](mailto:support@harness.io)
 
 Ask Claude to ship a build, trace a failed deployment, toggle a feature flag, or check cloud costs. It acts directly on Harness, no tab switching required. Numerous resource types across CI/CD, GitOps, security, and FinOps, all through conversation.
 
@@ -48,7 +49,7 @@ January 26, 2026
 
 ### AWS Marketplace
 
-Discover, evaluate, and buy solutions for the cloud](/connectors/aws-marketplace)
+Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
 Claude
 
@@ -58,7 +59,7 @@ March 9, 2026
 
 ### Base44
 
-Build and manage Base44 apps](/connectors/base44)
+Build and manage Base44 apps](https://claude.com/connectors/base44)
 
 Claude
 
@@ -70,7 +71,7 @@ March 2, 2026
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Claude
 
@@ -84,4 +85,4 @@ February 11, 2026
 
 ### Cloudflare
 
-Build applications with compute, storage, and AI](/connectors/cloudflare)
+Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)

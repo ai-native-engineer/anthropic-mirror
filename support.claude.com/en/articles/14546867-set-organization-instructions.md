@@ -62,8 +62,12 @@ To remove instructions entirely, clear the text area and click “Save.”
 
 **Domain context.** “Our team works in healthcare claims processing. When users mention ‘claims,’ they’re referring to insurance claims, not legal claims.”
 
-**Referral guidance.** “When users ask about HR policies, direct them to **[[email protected]](mailto:hr@acme.com)** rather than giving specific policy advice.”
+**Referral guidance.** “When users ask about HR policies, direct them to **[[email protected]](/cdn-cgi/l/email-protection#e78f95a786848a82c984888a)** rather than giving specific policy advice.”
 
 **Data handling reminders.** “Don’t include customer names, account numbers, or other personally identifiable information in responses or generated artifacts.”
 
-[Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)[What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects)[SSO login](https://support.claude.com/en/articles/14503613-sso-login)[Organization instructions in Claude for Government](https://support.claude.com/en/articles/14503675-organization-instructions-in-claude-for-government)[Set a default model for your organization](https://support.claude.com/en/articles/15330088-set-a-default-model-for-your-organization)
+* [What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects)
+* [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)
+* [Organization instructions in Claude for Government](https://support.claude.com/en/articles/14503675-organization-instructions-in-claude-for-government)
+* [Set a default model for your organization](https://support.claude.com/en/articles/15330088-set-a-default-model-for-your-organization)
+* [Manage model access for your organization](https://support.claude.com/en/articles/15694740-manage-model-access-for-your-organization)

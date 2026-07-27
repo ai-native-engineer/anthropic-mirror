@@ -386,7 +386,7 @@ Create Deployment
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -438,11 +438,19 @@ Create Deployment
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -997,31 +1005,29 @@ puts(beta_managed_agents_deployment)
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -1037,19 +1043,20 @@ puts(beta_managed_agents_deployment)
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -1102,7 +1109,7 @@ List Deployments
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -1154,11 +1161,19 @@ List Deployments
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -1710,31 +1725,29 @@ puts(page)
 {
   "data": [
     {
-      "id": "id",
+      "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
       "agent": {
-        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+        "id": "agent_011CZkYpogX7uDKUyvBTophP",
         "type": "agent",
         "version": 1
       },
-      "archived_at": "2019-12-27T18:11:19.117Z",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "description": "description",
-      "environment_id": "environment_id",
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "description": "Compiles yesterday's orders into a report every weekday morning.",
+      "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
       "initial_events": [
         {
           "content": [
             {
-              "text": "Where is my order #1234?",
+              "text": "Compile yesterday's orders into report.md.",
               "type": "text"
             }
           ],
           "type": "user.message"
         }
       ],
-      "metadata": {
-        "foo": "string"
-      },
-      "name": "name",
+      "metadata": {},
+      "name": "Daily order report",
       "paused_reason": {
         "type": "manual"
       },
@@ -1750,23 +1763,24 @@ puts(page)
         }
       ],
       "schedule": {
-        "expression": "x",
-        "timezone": "x",
+        "expression": "0 9 * * 1-5",
+        "timezone": "America/Los_Angeles",
         "type": "cron",
-        "last_run_at": "2019-12-27T18:11:19.117Z",
+        "last_run_at": "2026-03-16T16:00:09Z",
         "upcoming_runs_at": [
-          "2019-12-27T18:11:19.117Z"
+          "2026-03-17T16:00:00Z",
+          "2026-03-18T16:00:00Z"
         ]
       },
       "status": "active",
       "type": "deployment",
-      "updated_at": "2019-12-27T18:11:19.117Z",
+      "updated_at": "2026-03-15T10:00:00Z",
       "vault_ids": [
-        "string"
+        "vlt_011CZkZDLs7fYzm1hXNPeRjv"
       ]
     }
   ],
-  "next_page": "next_page"
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```
 
@@ -1788,7 +1802,7 @@ Get Deployment
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -1840,11 +1854,19 @@ Get Deployment
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -2385,7 +2407,7 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-beta_managed_agents_deployment = anthropic.beta.deployments.retrieve("deployment_id")
+beta_managed_agents_deployment = anthropic.beta.deployments.retrieve("depl_011CZkZcDH3vPqd7xnEfwTai")
 
 puts(beta_managed_agents_deployment)
 ```
@@ -2394,31 +2416,29 @@ puts(beta_managed_agents_deployment)
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -2434,19 +2454,20 @@ puts(beta_managed_agents_deployment)
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -2837,7 +2858,7 @@ Update Deployment
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -2889,11 +2910,19 @@ Update Deployment
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -3434,7 +3463,7 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-beta_managed_agents_deployment = anthropic.beta.deployments.update("deployment_id")
+beta_managed_agents_deployment = anthropic.beta.deployments.update("depl_011CZkZcDH3vPqd7xnEfwTai")
 
 puts(beta_managed_agents_deployment)
 ```
@@ -3443,31 +3472,29 @@ puts(beta_managed_agents_deployment)
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -3483,19 +3510,20 @@ puts(beta_managed_agents_deployment)
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -3518,7 +3546,7 @@ Archive Deployment
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -3570,11 +3598,19 @@ Archive Deployment
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -4115,7 +4151,7 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-beta_managed_agents_deployment = anthropic.beta.deployments.archive("deployment_id")
+beta_managed_agents_deployment = anthropic.beta.deployments.archive("depl_011CZkZcDH3vPqd7xnEfwTai")
 
 puts(beta_managed_agents_deployment)
 ```
@@ -4124,31 +4160,29 @@ puts(beta_managed_agents_deployment)
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -4164,19 +4198,20 @@ puts(beta_managed_agents_deployment)
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -4199,7 +4234,7 @@ Run Deployment Now
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -4251,11 +4286,19 @@ Run Deployment Now
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -4522,7 +4565,7 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-beta_managed_agents_deployment_run = anthropic.beta.deployments.run("deployment_id")
+beta_managed_agents_deployment_run = anthropic.beta.deployments.run("depl_011CZkZcDH3vPqd7xnEfwTai")
 
 puts(beta_managed_agents_deployment_run)
 ```
@@ -4570,7 +4613,7 @@ Pause Deployment
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -4622,11 +4665,19 @@ Pause Deployment
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -5167,7 +5218,7 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-beta_managed_agents_deployment = anthropic.beta.deployments.pause("deployment_id")
+beta_managed_agents_deployment = anthropic.beta.deployments.pause("depl_011CZkZcDH3vPqd7xnEfwTai")
 
 puts(beta_managed_agents_deployment)
 ```
@@ -5176,31 +5227,29 @@ puts(beta_managed_agents_deployment)
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -5216,19 +5265,20 @@ puts(beta_managed_agents_deployment)
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -5251,7 +5301,7 @@ Unpause Deployment
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -5303,11 +5353,19 @@ Unpause Deployment
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -5848,7 +5906,7 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-beta_managed_agents_deployment = anthropic.beta.deployments.unpause("deployment_id")
+beta_managed_agents_deployment = anthropic.beta.deployments.unpause("depl_011CZkZcDH3vPqd7xnEfwTai")
 
 puts(beta_managed_agents_deployment)
 ```
@@ -5857,31 +5915,29 @@ puts(beta_managed_agents_deployment)
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -5897,19 +5953,20 @@ puts(beta_managed_agents_deployment)
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```

@@ -146,7 +146,7 @@ Cowork ships with plugins built for data analysis, including SQL querying, data 
 
 Explore connectors
 
-[Explore connectors](/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 Browse plugins
 
@@ -188,6 +188,6 @@ Use cases
 
 [Use cases](https://claude.com/resources/use-cases-category/cowork)Use cases
 
-[Homepage](/?r=0)Homepage
+[Homepage](https://claude.com/?r=0)Homepage
 
 Terms and Policies

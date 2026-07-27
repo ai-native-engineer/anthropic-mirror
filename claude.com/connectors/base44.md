@@ -9,6 +9,7 @@ Build and manage Base44 apps
 * Used in
 
   [Claude](https://claude.ai/directory/16ebc92d-b1db-473a-82ef-015426940c4c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Base44](https://base44.com/)
 
@@ -51,7 +52,7 @@ January 26, 2026
 
 ### AWS Marketplace
 
-Discover, evaluate, and buy solutions for the cloud](/connectors/aws-marketplace)
+Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
 Claude
 
@@ -63,7 +64,7 @@ March 2, 2026
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Claude
 
@@ -77,7 +78,7 @@ February 11, 2026
 
 ### Cloudflare
 
-Build applications with compute, storage, and AI](/connectors/cloudflare)
+Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)
 
 Data
 
@@ -91,4 +92,4 @@ February 11, 2026
 
 ### Cloudinary
 
-Manage, transform and deliver your images & videos](/connectors/cloudinary)
+Manage, transform and deliver your images & videos](https://claude.com/connectors/cloudinary)

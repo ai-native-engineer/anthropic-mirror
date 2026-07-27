@@ -42,155 +42,13 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)Read use case
+[Read use case](https://claude.com/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)Read use case
 
 Claude Cowork
 
-[Audit a folder of visual assets against your guidelines](/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)Audit a folder of visual assets against your guidelines
+[Audit a folder of visual assets against your guidelines](https://claude.com/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)Audit a folder of visual assets against your guidelines
 
-[Text Link](/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)
-
-![Handle a request while away from your keyboard](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69de771df969adffff67d2ac_Screenshot%202026-04-14%20at%2010.19.17%E2%80%AFAM.png)
-
-Handle a request while away from your keyboard
-
-Use Dispatch in Claude Cowork to respond to requests from the Claude mobile app using everything on your computer. Claude finds the file, drafts the reply, and waits for your approval before sending.
-
-Anthropic
-
-Cowork
-
-Author
-
-Anthropic
-
-Category
-
-Cowork
-
-Model
-
-Sonnet 4.6
-
-Connectors
-
-Cowork
-
-Read use case
-
-[Read use case](/resources/use-cases/handle-a-request-while-away-from-your-keyboard)Read use case
-
-Claude Cowork
-
-[Handle a request while away from your keyboard](/resources/use-cases/handle-a-request-while-away-from-your-keyboard)Handle a request while away from your keyboard
-
-[Text Link](/resources/use-cases/handle-a-request-while-away-from-your-keyboard)
-
-![Kick off long-running computer tasks from the Claude mobile app](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69de77952d4c85bc23f8b79f_Screenshot%202026-04-14%20at%2010.21.20%E2%80%AFAM.png)
-
-Kick off long-running computer tasks from the Claude mobile app
-
-Check progress on a running task, give Claude Cowork the next instruction, and keep work moving — all from the Claude mobile app, without returning to your desk.
-
-Anthropic
-
-Cowork
-
-Author
-
-Anthropic
-
-Category
-
-Cowork
-
-Model
-
-Sonnet 4.6
-
-Cowork
-
-Read use case
-
-[Read use case](/resources/use-cases/kick-off-long-running-computer-tasks-from-the-claude-mobile-app)Read use case
-
-Claude Cowork
-
-[Kick off long-running computer tasks from the Claude mobile app](/resources/use-cases/kick-off-long-running-computer-tasks-from-the-claude-mobile-app)Kick off long-running computer tasks from the Claude mobile app
-
-[Text Link](/resources/use-cases/kick-off-long-running-computer-tasks-from-the-claude-mobile-app)
-
-![Operate any computer app from your phone with Dispatch](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69de741a2d9547fe8fce8037_Screenshot%202026-04-14%20at%2010.06.28%E2%80%AFAM.png)
-
-Operate any computer app from your phone with Dispatch
-
-In Claude Cowork, Dispatch with computer use lets Claude control your computer's mouse and keyboard from the Claude mobile app to work in apps that have no other interface Claude could reach.
-
-Anthropic
-
-Cowork
-
-Author
-
-Anthropic
-
-Category
-
-Cowork
-
-Model
-
-Sonnet 4.6
-
-Connectors
-
-Cowork
-
-Read use case
-
-[Read use case](/resources/use-cases/operate-any-computer-app-from-your-phone-with-dispatch)Read use case
-
-Claude Cowork
-
-[Operate any computer app from your phone with Dispatch](/resources/use-cases/operate-any-computer-app-from-your-phone-with-dispatch)Operate any computer app from your phone with Dispatch
-
-[Text Link](/resources/use-cases/operate-any-computer-app-from-your-phone-with-dispatch)
-
-![Remote control your computer with Dispatch](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69de735c9e466c972b821bf9_Screenshot%202026-04-14%20at%2010.03.17%E2%80%AFAM.png)
-
-Remote control your computer with Dispatch
-
-Use Dispatch in Claude Cowork to send instructions from your phone. Claude runs the task on your computer — reading files, pulling data, searching the web — and the result is waiting when you sit down.
-
-Anthropic
-
-Cowork
-
-Author
-
-Anthropic
-
-Category
-
-Cowork
-
-Model
-
-Sonnet 4.6
-
-Cowork
-
-Connectors
-
-Read use case
-
-[Read use case](/resources/use-cases/remote-control-your-computer-with-dispatch)Read use case
-
-Claude Cowork
-
-[Remote control your computer with Dispatch](/resources/use-cases/remote-control-your-computer-with-dispatch)Remote control your computer with Dispatch
-
-[Text Link](/resources/use-cases/remote-control-your-computer-with-dispatch)
+[Text Link](https://claude.com/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)
 
 ![Draft a credit memo from spreads and statements with Claude for Excel](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69deb4db4aa7783f5f10f101_Screenshot%202026-04-14%20at%202.18.08%E2%80%AFPM.png)
 
@@ -218,13 +76,13 @@ Connectors
 
 Read use case
 
-[Read use case](/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Read use case
+[Read use case](https://claude.com/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Read use case
 
 Claude Cowork
 
-[Draft a credit memo from spreads and statements with Claude for Excel](/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Draft a credit memo from spreads and statements with Claude for Excel
+[Draft a credit memo from spreads and statements with Claude for Excel](https://claude.com/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Draft a credit memo from spreads and statements with Claude for Excel
 
-[Text Link](/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)
+[Text Link](https://claude.com/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)
 
 ![Organize files across your desktop](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984dfcaa0c0710ea42140f2_Screenshot%202026-02-05%20at%2010.21.53%E2%80%AFAM.png)
 
@@ -252,13 +110,13 @@ Cowork
 
 Read use case
 
-[Read use case](/resources/use-cases/organize-files-by-whats-in-them)Read use case
+[Read use case](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)Read use case
 
 Claude Cowork
 
-[Organize files across your desktop](/resources/use-cases/organize-files-by-whats-in-them)Organize files across your desktop
+[Organize files across your desktop](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)Organize files across your desktop
 
-[Text Link](/resources/use-cases/organize-files-by-whats-in-them)
+[Text Link](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)
 
 ![Build analysis from browser charts and folder data](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e717ca42482ee5444026_Screenshot%202026-02-05%20at%2010.52.50%E2%80%AFAM.png)
 
@@ -286,13 +144,13 @@ Cowork
 
 Read use case
 
-[Read use case](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Read use case
+[Read use case](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Read use case
 
 Claude Cowork
 
-[Build analysis from browser charts and folder data](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Build analysis from browser charts and folder data
+[Build analysis from browser charts and folder data](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Build analysis from browser charts and folder data
 
-[Text Link](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)
+[Text Link](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)
 
 ![Prep scattered documents for a compliance audit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984dd48d2c1f32acf967bbe_Screenshot%202026-02-05%20at%2010.02.45%E2%80%AFAM.png)
 
@@ -320,13 +178,13 @@ Cowork
 
 Read use case
 
-[Read use case](/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)Read use case
+[Read use case](https://claude.com/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)Read use case
 
 Claude Cowork
 
-[Prep scattered documents for a compliance audit](/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)Prep scattered documents for a compliance audit
+[Prep scattered documents for a compliance audit](https://claude.com/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)Prep scattered documents for a compliance audit
 
-[Text Link](/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)
+[Text Link](https://claude.com/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)
 
 ![Reconcile transactions across your accounts](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e013b6acb40e5d9d3674_Screenshot%202026-02-05%20at%2010.23.08%E2%80%AFAM.png)
 
@@ -354,13 +212,13 @@ Cowork
 
 Read use case
 
-[Read use case](/resources/use-cases/reconcile-transactions-across-your-accounts)Read use case
+[Read use case](https://claude.com/resources/use-cases/reconcile-transactions-across-your-accounts)Read use case
 
 Claude Cowork
 
-[Reconcile transactions across your accounts](/resources/use-cases/reconcile-transactions-across-your-accounts)Reconcile transactions across your accounts
+[Reconcile transactions across your accounts](https://claude.com/resources/use-cases/reconcile-transactions-across-your-accounts)Reconcile transactions across your accounts
 
-[Text Link](/resources/use-cases/reconcile-transactions-across-your-accounts)
+[Text Link](https://claude.com/resources/use-cases/reconcile-transactions-across-your-accounts)
 
 ![Surface themes from all your feedback channels](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6978e768f0ec9ed20bbd9989_E%20%E2%80%93%20Illo%201.png)
 
@@ -388,13 +246,13 @@ Cowork
 
 Read use case
 
-[Read use case](/resources/use-cases/surface-themes-from-all-your-feedback-channels)Read use case
+[Read use case](https://claude.com/resources/use-cases/surface-themes-from-all-your-feedback-channels)Read use case
 
 Claude Cowork
 
-[Surface themes from all your feedback channels](/resources/use-cases/surface-themes-from-all-your-feedback-channels)Surface themes from all your feedback channels
+[Surface themes from all your feedback channels](https://claude.com/resources/use-cases/surface-themes-from-all-your-feedback-channels)Surface themes from all your feedback channels
 
-[Text Link](/resources/use-cases/surface-themes-from-all-your-feedback-channels)
+[Text Link](https://claude.com/resources/use-cases/surface-themes-from-all-your-feedback-channels)
 
 ![Build a daily briefing across your tools](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6978e70a87cc5737cff0db0a____%201.png)
 
@@ -422,13 +280,13 @@ Cowork
 
 Read use case
 
-[Read use case](/resources/use-cases/build-a-daily-briefing-across-your-tools)Read use case
+[Read use case](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)Read use case
 
 Claude Cowork
 
-[Build a daily briefing across your tools](/resources/use-cases/build-a-daily-briefing-across-your-tools)Build a daily briefing across your tools
+[Build a daily briefing across your tools](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)Build a daily briefing across your tools
 
-[Text Link](/resources/use-cases/build-a-daily-briefing-across-your-tools)
+[Text Link](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)
 
 ![Process batches of vendors with Cowork](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984df6e834e02e0a82f279f_Screenshot%202026-02-05%20at%2010.20.18%E2%80%AFAM.png)
 
@@ -456,13 +314,13 @@ Cowork
 
 Read use case
 
-[Read use case](/resources/use-cases/process-batches-of-vendors-with-cowork)Read use case
+[Read use case](https://claude.com/resources/use-cases/process-batches-of-vendors-with-cowork)Read use case
 
 Claude Cowork
 
-[Process batches of vendors with Cowork](/resources/use-cases/process-batches-of-vendors-with-cowork)Process batches of vendors with Cowork
+[Process batches of vendors with Cowork](https://claude.com/resources/use-cases/process-batches-of-vendors-with-cowork)Process batches of vendors with Cowork
 
-[Text Link](/resources/use-cases/process-batches-of-vendors-with-cowork)
+[Text Link](https://claude.com/resources/use-cases/process-batches-of-vendors-with-cowork)
 
 ![Size a market using your research](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984df8e8b4e48b712507d14_Screenshot%202026-02-05%20at%2010.18.54%E2%80%AFAM.png)
 
@@ -490,13 +348,13 @@ Cowork
 
 Read use case
 
-[Read use case](/resources/use-cases/size-a-market-using-your-research)Read use case
+[Read use case](https://claude.com/resources/use-cases/size-a-market-using-your-research)Read use case
 
 Claude Cowork
 
-[Size a market using your research](/resources/use-cases/size-a-market-using-your-research)Size a market using your research
+[Size a market using your research](https://claude.com/resources/use-cases/size-a-market-using-your-research)Size a market using your research
 
-[Text Link](/resources/use-cases/size-a-market-using-your-research)
+[Text Link](https://claude.com/resources/use-cases/size-a-market-using-your-research)
 
 No posts for those filters
 

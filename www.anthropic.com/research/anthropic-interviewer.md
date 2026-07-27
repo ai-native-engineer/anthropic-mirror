@@ -4,7 +4,7 @@
 
 Dec 4, 2025
 
-![Introducing Anthropic Interviewer: What 1,250 professionals told us about working with AI ](https://www-cdn.anthropic.com/images/4zrzovbb/website/710b64c2542329ce05316098b4e405bb1c11e4d4-1000x1000.svg)
+![Introducing Anthropic Interviewer: What 1,250 professionals told us about working with AI ](https://www-cdn.anthropic.com/images/4zrzovbb/website/fcec45b6ce97123350c773f6897b83c7519f3ae7-2000x1125.png)
 
 *We’re launching a new tool, Anthropic Interviewer, to help understand people’s perspectives on AI. In this research post, we introduce the tool, describe a test of it on a sample of professionals, and discuss our early findings. We also discuss future work in this direction that we can now explore with the development of this tool and through partnerships with creatives, scientists, and teachers.*
 
@@ -25,15 +25,15 @@ To test Anthropic Interviewer, we had it run 1,250 interviews with professionals
 
 General workforceCreativesScientists
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4ae319f2a488d12756eb79f9f0d4e4899bf8bcfe-2880x1950.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/4ae319f2a488d12756eb79f9f0d4e4899bf8bcfe-2880x1950.jpg)
 
 The different topics people discussed in their interviews with Anthropic Interviewer. Across all three samples we studied—the general workforce, scientists, and creatives—participants expressed predominantly positive sentiments about AI’s impact on their professional activities. Certain topics did introduce pause, particularly around questions of personal control, job displacement, and autonomy. In this diagram, topics are roughly ordered from more pessimistic to more optimistic.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6159cf43c8ab0411dbacb8563e3394a7526a96cc-2880x1950.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/6159cf43c8ab0411dbacb8563e3394a7526a96cc-2880x1950.jpg)
 
 The different topics people discussed in their interviews with Anthropic Interviewer. Across all three samples we studied—the general workforce, scientists, and creatives—participants expressed predominantly positive sentiments about AI’s impact on their professional activities. Certain topics did introduce pause, particularly around questions of personal control, job displacement, and autonomy. In this diagram, topics are roughly ordered from more pessimistic to more optimistic.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4d14bb7e3141ebda9ef86fb446c7fb4a8bc4c474-2880x1950.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/4d14bb7e3141ebda9ef86fb446c7fb4a8bc4c474-2880x1950.jpg)
 
 The different topics people discussed in their interviews with Anthropic Interviewer. Across all three samples we studied—the general workforce, scientists, and creatives—participants expressed predominantly positive sentiments about AI’s impact on their professional activities. Certain topics did introduce pause, particularly around questions of personal control, job displacement, and autonomy. In this diagram, topics are roughly ordered from more pessimistic to more optimistic.
 
@@ -70,7 +70,7 @@ This initial test explored how workers integrate AI into their professional prac
 
 ### Participants
 
-We used Anthropic Interviewer to conduct interviews with 1,250 professionals. We intend for the tool to interview general [Claude.ai](http://claude.ai/redirect/website.v1.84055890-b4d9-4a24-ae70-9a41a0e2cffc) users, but for this initial test, we sought participants working across a range of professions and engaged them through crowdworker platforms (all participants had an occupation other than crowdworking that was their main job).
+We used Anthropic Interviewer to conduct interviews with 1,250 professionals. We intend for the tool to interview general [Claude.ai](http://claude.ai/redirect/website.v1.50f18d75-3ba9-44ef-95a6-86cd8ef5e476) users, but for this initial test, we sought participants working across a range of professions and engaged them through crowdworker platforms (all participants had an occupation other than crowdworking that was their main job).
 
 1,000 of our participants were recruited from a general sample of occupations (that is, we did not select participants from specific jobs). Of that group, the largest subgroups came from educational instruction (17%), computer and mathematical occupations (16%), and arts, design, entertainment, and media (14%).
 
@@ -84,7 +84,7 @@ All participants provided informed consent for us to analyze their interview dat
 
 Anthropic Interviewer operates in three stages: planning, interviewing, and analysis. Below, we describe each of them in turn.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcc1e5916d47f4217a6952c410db3ab118f5d2221-6624x2756.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/cc1e5916d47f4217a6952c410db3ab118f5d2221-6624x2756.png)
 
 The three stages of Anthropic Interviewer's process.
 
@@ -102,7 +102,7 @@ Anthropic Interviewer then conducted real-time, adaptive interviews following it
 
 The interviews conducted by Anthropic Interviewer appeared on Claude.ai and lasted about 10-15 minutes with each participant.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe6678158f5572d1f9f6945c2fdcc02275d2a371f-2272x1600.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/e6678158f5572d1f9f6945c2fdcc02275d2a371f-2272x1600.png)
 
 The interviews were conducted on an interface like this on [claude.ai](http://claude.ai) (above is the module now live for users).
 
@@ -136,27 +136,27 @@ Approaches to AI use varied widely. One data quality manager deliberately chose 
 
 Education & LibraryComputer & MathArt, Design, & MediaBusiness & FinancialOffice & AdminSales
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff25cfdc180b0fda7206fe8f7a71e7c60de3fa499-2880x1800.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/f25cfdc180b0fda7206fe8f7a71e7c60de3fa499-2880x1800.jpg)
 
 Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—surfaced during interviews with professionals in the general workforce from six major occupational categories from the O\*NET database. Each axis represents one emotion, with distance from the center indicating the percentage of interviews in which participants expressed that emotion; points farther from the center reflect higher prevalence. We analyzed these emotions across the six most prominent occupational categories in our sample.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3f273dec6ad44ae6edfc88d8a72aae71b590ace8-2882x1800.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/3f273dec6ad44ae6edfc88d8a72aae71b590ace8-2882x1800.jpg)
 
 Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—surfaced during interviews with professionals in the general workforce from six major occupational categories from the O\*NET database. Each axis represents one emotion, with distance from the center indicating the percentage of interviews in which participants expressed that emotion; points farther from the center reflect higher prevalence. We analyzed these emotions across the six most prominent occupational categories in our sample.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F63f64a724f090641319b354fd9975e2fca17fdb4-2881x1800.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/63f64a724f090641319b354fd9975e2fca17fdb4-2881x1800.jpg)
 
 Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—surfaced during interviews with professionals in the general workforce from six major occupational categories from the O\*NET database. Each axis represents one emotion, with distance from the center indicating the percentage of interviews in which participants expressed that emotion; points farther from the center reflect higher prevalence. We analyzed these emotions across the six most prominent occupational categories in our sample.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9a74c687f2737c5852e95a083596c5bbc08ef88d-2880x1800.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/9a74c687f2737c5852e95a083596c5bbc08ef88d-2880x1800.jpg)
 
 Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—surfaced during interviews with professionals in the general workforce from six major occupational categories from the O\*NET database. Each axis represents one emotion, with distance from the center indicating the percentage of interviews in which participants expressed that emotion; points farther from the center reflect higher prevalence. We analyzed these emotions across the six most prominent occupational categories in our sample.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Faaad2a6b22991bdf2f96c0a05a7ff33ed41e39bc-2880x1800.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/aaad2a6b22991bdf2f96c0a05a7ff33ed41e39bc-2880x1800.jpg)
 
 Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—surfaced during interviews with professionals in the general workforce from six major occupational categories from the O\*NET database. Each axis represents one emotion, with distance from the center indicating the percentage of interviews in which participants expressed that emotion; points farther from the center reflect higher prevalence. We analyzed these emotions across the six most prominent occupational categories in our sample.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7146f32362645cd1040214d551d7293a44327875-2880x1800.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/7146f32362645cd1040214d551d7293a44327875-2880x1800.jpg)
 
 Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—surfaced during interviews with professionals in the general workforce from six major occupational categories from the O\*NET database. Each axis represents one emotion, with distance from the center indicating the percentage of interviews in which participants expressed that emotion; points farther from the center reflect higher prevalence. We analyzed these emotions across the six most prominent occupational categories in our sample.
 
@@ -164,7 +164,7 @@ We also classified the intensity of different emotions exhibited within professi
 
 ### Augmentation versus automation
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F663272ce4341caa37614dbf16908c75d6e89b70d-1920x1200.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/663272ce4341caa37614dbf16908c75d6e89b70d-1920x1200.jpg)
 
 Augmentation versus automation in professionals' self-reports to Anthropic Interviewer compared with observed Claude usage in the Anthropic Economic Index. Professionals described their AI use as 65% augmentative and 35% automative, while actual Claude conversations showed 47% augmentation and 49% automation. Economic Index percentages do not sum to 100% as some interactions were unclassified.
 
@@ -198,27 +198,27 @@ All 125 participants mentioned wanting to remain in control of their creative ou
 
 WritersVisual artistsCraftspeopleDesignersFilmmakersGame developers
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff44912bbbe2f514dc867a3fb6a506aa440e241d5-2880x1800.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/f44912bbbe2f514dc867a3fb6a506aa440e241d5-2880x1800.jpg)
 
 Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—reported during interviews with creative professionals. The axis denotes the percentage of interviews in which the participant expressed the given emotion. We analyzed these emotions across the six most prominent creative disciplines in our sample.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1c46cdd7d11bfcc87e55499a593a80beba22e119-2882x1800.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/1c46cdd7d11bfcc87e55499a593a80beba22e119-2882x1800.jpg)
 
 Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—reported during interviews with creative professionals. The axis denotes the percentage of interviews in which the participant expressed the given emotion. We analyzed these emotions across the six most prominent creative disciplines in our sample.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4ef8cae95e3dffa9071d56f8a000288d3fcc6fe1-2881x1800.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/4ef8cae95e3dffa9071d56f8a000288d3fcc6fe1-2881x1800.jpg)
 
 Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—reported during interviews with creative professionals. The axis denotes the percentage of interviews in which the participant expressed the given emotion. We analyzed these emotions across the six most prominent creative disciplines in our sample.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F313b1a2bcd56f924cd26716b5f25889c2fa001dc-2880x1800.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/313b1a2bcd56f924cd26716b5f25889c2fa001dc-2880x1800.jpg)
 
 Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—reported during interviews with creative professionals. The axis denotes the percentage of interviews in which the participant expressed the given emotion. We analyzed these emotions across the six most prominent creative disciplines in our sample.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa2b6b209c7c16309d470418cc8c9f989930e974a-2880x1800.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/a2b6b209c7c16309d470418cc8c9f989930e974a-2880x1800.jpg)
 
 Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—reported during interviews with creative professionals. The axis denotes the percentage of interviews in which the participant expressed the given emotion. We analyzed these emotions across the six most prominent creative disciplines in our sample.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa9360539f8517e1fa7b6c693f97c8265464a7e51-2880x1800.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/a9360539f8517e1fa7b6c693f97c8265464a7e51-2880x1800.jpg)
 
 Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—reported during interviews with creative professionals. The axis denotes the percentage of interviews in which the participant expressed the given emotion. We analyzed these emotions across the six most prominent creative disciplines in our sample.
 
@@ -232,27 +232,27 @@ Trust and reliability concerns were the primary barrier in 79% of interviews; th
 
 ChemistsPhysicistsChemical engineersData scientistsMechanical engineersAstronomers
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F158146f808a8480ab382bd84499572ba7dabb209-2880x1800.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/158146f808a8480ab382bd84499572ba7dabb209-2880x1800.jpg)
 
 Intensity of the top six emotions—hope, satisfaction, frustration, worry, doubt, and trust—reported during interviews with scientists. The axis denotes the percentage of interviews in which the participant expressed the given emotion. We analyzed these emotions across the six most prominent scientific disciplines in our sample.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9fe6b794cbc5241a9eeb6352c0bd1ebb2f14852d-2882x1800.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/9fe6b794cbc5241a9eeb6352c0bd1ebb2f14852d-2882x1800.jpg)
 
 Intensity of the top six emotions—hope, satisfaction, frustration, worry, doubt, and trust—reported during interviews with scientists. The axis denotes the percentage of interviews in which the participant expressed the given emotion. We analyzed these emotions across the six most prominent scientific disciplines in our sample.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F18521cb6cdf4b120284762a362840a96c6e016ba-2881x1800.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/18521cb6cdf4b120284762a362840a96c6e016ba-2881x1800.jpg)
 
 Intensity of the top six emotions—hope, satisfaction, frustration, worry, doubt, and trust—reported during interviews with scientists. The axis denotes the percentage of interviews in which the participant expressed the given emotion. We analyzed these emotions across the six most prominent scientific disciplines in our sample.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F59a65d3fb75628ffdb8ab3015a9a00384b230dc8-2880x1800.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/59a65d3fb75628ffdb8ab3015a9a00384b230dc8-2880x1800.jpg)
 
 Intensity of the top six emotions—hope, satisfaction, frustration, worry, doubt, and trust—reported during interviews with scientists. The axis denotes the percentage of interviews in which the participant expressed the given emotion. We analyzed these emotions across the six most prominent scientific disciplines in our sample.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F753eab4d0afb79faaedddeeb3e809a63cd7d9920-2880x1800.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/753eab4d0afb79faaedddeeb3e809a63cd7d9920-2880x1800.jpg)
 
 Intensity of the top six emotions—hope, satisfaction, frustration, worry, doubt, and trust—reported during interviews with scientists. The axis denotes the percentage of interviews in which the participant expressed the given emotion. We analyzed these emotions across the six most prominent scientific disciplines in our sample.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8fa05138ff6c681897c64eede3b3806a9ed45360-2880x1800.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/8fa05138ff6c681897c64eede3b3806a9ed45360-2880x1800.jpg)
 
 Intensity of the top six emotions—hope, satisfaction, frustration, worry, doubt, and trust—reported during interviews with scientists. The axis denotes the percentage of interviews in which the participant expressed the given emotion. We analyzed these emotions across the six most prominent scientific disciplines in our sample.
 
@@ -286,7 +286,7 @@ Using Anthropic Interviewer, we can conduct targeted research that informs speci
 
 We are continuing to use Anthropic Interviewer to better understand how people envision AI’s role in their lives and work. To that end, we are launching a public pilot interview, exploring what experiences, values and needs drive people’s vision for AI’s future role in their lives.
 
-**Ready to share your perspective?** You can participate in a 10-15 minute interview at [this link](http://claude.ai/redirect/website.v1.84055890-b4d9-4a24-ae70-9a41a0e2cffc/interviewer) to take part in this research. We plan to analyze the anonymized insights from this study as part of our societal impacts research and publish a report on insights from this data. For more information on this study, please see the FAQ section below.
+**Ready to share your perspective?** You can participate in a 10-15 minute interview at [this link](http://claude.ai/redirect/website.v1.50f18d75-3ba9-44ef-95a6-86cd8ef5e476/interviewer) to take part in this research. We plan to analyze the anonymized insights from this study as part of our societal impacts research and publish a report on insights from this data. For more information on this study, please see the FAQ section below.
 
 ## Conclusions and limitations
 
@@ -310,7 +310,7 @@ Our initial use of Anthropic Interviewer has some important limitations that aff
 
 ## Contributions and acknowledgements
 
-Kunal Handa led the project, designed and prototyped Anthropic Interviewer, executed the surveys, interviews, and data analysis, plotted figures, and wrote the blog post. Michael Stern led the implementation of Anthropic Interviewer within [Claude.ai](http://claude.ai/redirect/website.v1.84055890-b4d9-4a24-ae70-9a41a0e2cffc), managed the project timeline, and provided feedback throughout. Saffron Huang led the public pilot of Anthropic Interviewer. Jerry Hong led the visual design of Anthropic Interviewer and contributed to technical figures. Esin Durmus contributed to experimental design and provided key feedback. Miles McCain co-led implementation of technical infrastructure underlying prototypes of Anthropic Interviewer. Grace Yun, AJ Alt, and Thomas Millar implemented Anthropic Interviewer within [Claude.ai](http://claude.ai/redirect/website.v1.84055890-b4d9-4a24-ae70-9a41a0e2cffc) and provided the technical infrastructure necessary for the public pilot. Alex Tamkin provided key feedback on early iterations of the project. Jane Leibrock contributed to all methodology for Anthropic Interviewer. Stuart Ritchie contributed to the framing and writing of the blog post. Deep Ganguli provided critical research guidance, feedback, and organizational support. All authors provided detailed guidance and feedback throughout.
+Kunal Handa led the project, designed and prototyped Anthropic Interviewer, executed the surveys, interviews, and data analysis, plotted figures, and wrote the blog post. Michael Stern led the implementation of Anthropic Interviewer within [Claude.ai](http://claude.ai/redirect/website.v1.50f18d75-3ba9-44ef-95a6-86cd8ef5e476), managed the project timeline, and provided feedback throughout. Saffron Huang led the public pilot of Anthropic Interviewer. Jerry Hong led the visual design of Anthropic Interviewer and contributed to technical figures. Esin Durmus contributed to experimental design and provided key feedback. Miles McCain co-led implementation of technical infrastructure underlying prototypes of Anthropic Interviewer. Grace Yun, AJ Alt, and Thomas Millar implemented Anthropic Interviewer within [Claude.ai](http://claude.ai/redirect/website.v1.50f18d75-3ba9-44ef-95a6-86cd8ef5e476) and provided the technical infrastructure necessary for the public pilot. Alex Tamkin provided key feedback on early iterations of the project. Jane Leibrock contributed to all methodology for Anthropic Interviewer. Stuart Ritchie contributed to the framing and writing of the blog post. Deep Ganguli provided critical research guidance, feedback, and organizational support. All authors provided detailed guidance and feedback throughout.
 
 Additionally, we thank Sally Aldous, Drew Bent, Shan Carter, Jack Clark, Miriam Chaum, Jake Eaton, Matt Galivan, Savina Hawkins, Sarah Heck, Hanah Ho, Mo Julapalli,Matthew Kearney, Mike Krieger, Chelsea Larsson, Joel Lewenstein, Jennifer Martinez, Wes Mitchell, Jared Mueller, Christopher Nulty, Adam Pearce, Sarah Pollack, Ankur Rathi, Drew Roper, David Saunders, Kevin Troy, Molly Villagra, Brett Wittmershaus, and Casey Yamaguma for their helpful ideas, discussion, feedback, and support. We also appreciate the comments, discussion, and feedback from Matthew Conlen, Deb Roy, and Diyi Yang.
 
@@ -342,7 +342,7 @@ We found that participants were remarkably positive about Anthropic Interviewer.
 
 **1. How do we access the study?**
 
-Starting today, if you are a Free, Pro, or Max Claude.ai subscriber who signed up prior to two weeks ago, you might notice a pop-up in Claude.ai asking you to participate. You can access it at: [https://claude.ai/interviewer](https://claude.ai/redirect/website.v1.84055890-b4d9-4a24-ae70-9a41a0e2cffc/interviewer). The study will be open for a week.
+Starting today, if you are a Free, Pro, or Max Claude.ai subscriber who signed up prior to two weeks ago, you might notice a pop-up in Claude.ai asking you to participate. You can access it at: [https://claude.ai/interviewer](https://claude.ai/redirect/website.v1.50f18d75-3ba9-44ef-95a6-86cd8ef5e476/interviewer). The study will be open for a week.
 
 **2. What will this study ask me?**
 
@@ -352,24 +352,22 @@ We will use Anthropic Interviewer to ask you about your vision for AI's role in 
 
 We will analyze the insights from this study as part of our Societal Impacts research, publish our findings, and use this to improve our models and services in a way that reflects what we've learned. The data we collect through this study will be treated as Feedback and will be processed according to our [Privacy Policy](https://www.anthropic.com/legal/privacy). We may also include anonymized responses in published findings. [**Learn more.**](https://privacy.claude.com/en/articles/12996960-how-does-anthropic-interviewer-collect-and-use-my-data)
 
-**4. Why don’t I see the Anthropic Interviewer invitation in [Claude.ai](http://claude.ai/redirect/website.v1.84055890-b4d9-4a24-ae70-9a41a0e2cffc)?**
+**4. Why don’t I see the Anthropic Interviewer invitation in [Claude.ai](http://claude.ai/redirect/website.v1.50f18d75-3ba9-44ef-95a6-86cd8ef5e476)?**
 
-The interview is only available for existing [Claude.ai](http://claude.ai/redirect/website.v1.84055890-b4d9-4a24-ae70-9a41a0e2cffc) Free, Pro, and Max users who signed up 2+ weeks ago.
+The interview is only available for existing [Claude.ai](http://claude.ai/redirect/website.v1.50f18d75-3ba9-44ef-95a6-86cd8ef5e476) Free, Pro, and Max users who signed up 2+ weeks ago.
 
 *If you have questions, reach out via the message icon in the lower right corner of our [Help Center](https://links.email.claude.com/s/c/cGkT1SXSNgcdo1m1Jg5ubLKEl9K6sdfmpEYqg1hKZUyGgcl4dwPfeO18GyKSSqXjh6VJYoL1jUZK6AD2BWJz4p6OxoEug7KO9W2Yl7UuTqBou7dHkuDUR9lSrGIwoWBHBu-wkEktomJDbUAT2u8a6E6foGoE2H3RIurvO9epWQ7AJsKe_0FNVxLk4ygbQL3j7y1jjTEiC2qM5p0y1YCjCVAFED8I6wYqldfi9BKBYq993W-nOs45JbAMQkT6sZUFTHhEwJTV__gENvsItJqLkEOWFL9lrz48UJTC33i6n3SqYgI6stnpAsjLF66P_qtdOX888L-0h2qzKpxlrtGvrvuqEtl5pLNkPQUulHsITd7MyVL3tf-Ubi3dJVc1h9rB7v04z5j16n5-Kbp-iwCpz3RIbNot86fAZNPdfMqyBxFRDZlAUH-iEQ7h8wY1x6k8mnegW7y77GhLsqTJiZxqIi9o511wHl1Ltu-XLpeOVd80/ql5MQfX8py3XUgI4Usb8PWvj6gyGGxly/16).*
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

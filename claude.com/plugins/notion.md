@@ -7,6 +7,7 @@ Notion workspace integration. Search pages, create/update documents, manage data
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Notion Labs](https://www.notion.so)
 * Installs
@@ -31,17 +32,17 @@ Craft production-grade frontends with distinctive design. Generates polished cod
 
 Anthropic verified
 
-948012
+1110438
 
-installs](/plugins/frontend-design)
+installs](https://claude.com/plugins/frontend-design)
 
 [### Superpowers
 
 Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
 
-855112
+987572
 
-installs](/plugins/superpowers)
+installs](https://claude.com/plugins/superpowers)
 
 [### Code Review
 
@@ -49,14 +50,14 @@ AI code review with specialized agents and confidence-based filtering for pull r
 
 Anthropic verified
 
-383892
+430450
 
-installs](/plugins/code-review)
+installs](https://claude.com/plugins/code-review)
 
 [### Context7
 
 Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
 
-377529
+412076
 
-installs](/plugins/context7)
+installs](https://claude.com/plugins/context7)

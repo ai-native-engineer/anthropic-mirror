@@ -44,13 +44,13 @@ Connectors
 
 Read use case
 
-[Read use case](/resources/use-cases/create-a-sales-proposal-presentation)Read use case
+[Read use case](https://claude.com/resources/use-cases/create-a-sales-proposal-presentation)Read use case
 
 Claude.ai
 
-[Create a sales proposal presentation](/resources/use-cases/create-a-sales-proposal-presentation)Create a sales proposal presentation
+[Create a sales proposal presentation](https://claude.com/resources/use-cases/create-a-sales-proposal-presentation)Create a sales proposal presentation
 
-[Text Link](/resources/use-cases/create-a-sales-proposal-presentation)
+[Text Link](https://claude.com/resources/use-cases/create-a-sales-proposal-presentation)
 
 ![Prepare for sales deals](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a7f55046fdd796b0ffeb4_dealprepartifact.png)
 
@@ -80,13 +80,13 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/prepare-for-sales-deals)Read use case
+[Read use case](https://claude.com/resources/use-cases/prepare-for-sales-deals)Read use case
 
 Claude.ai
 
-[Prepare for sales deals](/resources/use-cases/prepare-for-sales-deals)Prepare for sales deals
+[Prepare for sales deals](https://claude.com/resources/use-cases/prepare-for-sales-deals)Prepare for sales deals
 
-[Text Link](/resources/use-cases/prepare-for-sales-deals)
+[Text Link](https://claude.com/resources/use-cases/prepare-for-sales-deals)
 
 ![Create sales reports](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a869bed4d79bcb158854e_Screenshot%202025-11-04%20at%203.04.55%E2%80%AFPM.png)
 
@@ -116,13 +116,13 @@ Connectors
 
 Read use case
 
-[Read use case](/resources/use-cases/create-sales-reports)Read use case
+[Read use case](https://claude.com/resources/use-cases/create-sales-reports)Read use case
 
 Claude.ai
 
-[Create sales reports](/resources/use-cases/create-sales-reports)Create sales reports
+[Create sales reports](https://claude.com/resources/use-cases/create-sales-reports)Create sales reports
 
-[Text Link](/resources/use-cases/create-sales-reports)
+[Text Link](https://claude.com/resources/use-cases/create-sales-reports)
 
 ![Build a battle card library](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a952dc912c9f54405c30f_compintel.png)
 
@@ -152,13 +152,13 @@ Connectors
 
 Read use case
 
-[Read use case](/resources/use-cases/build-a-battle-card-library)Read use case
+[Read use case](https://claude.com/resources/use-cases/build-a-battle-card-library)Read use case
 
 Claude.ai
 
-[Build a battle card library](/resources/use-cases/build-a-battle-card-library)Build a battle card library
+[Build a battle card library](https://claude.com/resources/use-cases/build-a-battle-card-library)Build a battle card library
 
-[Text Link](/resources/use-cases/build-a-battle-card-library)
+[Text Link](https://claude.com/resources/use-cases/build-a-battle-card-library)
 
 No posts for those filters
 

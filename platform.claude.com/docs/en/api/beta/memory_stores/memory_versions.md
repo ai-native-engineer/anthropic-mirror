@@ -68,7 +68,7 @@ List memory versions
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 29 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -120,11 +120,19 @@ List memory versions
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -235,7 +243,7 @@ List memory versions
 ```http
 curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memory_versions \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -300,7 +308,7 @@ Retrieve a memory version
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 29 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -352,11 +360,19 @@ Retrieve a memory version
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -463,7 +479,7 @@ Retrieve a memory version
 ```http
 curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memory_versions/$MEMORY_VERSION_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -513,7 +529,7 @@ Redact a memory version
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 29 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -565,11 +581,19 @@ Redact a memory version
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -677,7 +701,7 @@ Redact a memory version
 curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memory_versions/$MEMORY_VERSION_ID/redact \
     -X POST \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 

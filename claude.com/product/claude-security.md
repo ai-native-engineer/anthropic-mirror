@@ -20,7 +20,7 @@ Claude scans your codebase, validates findings, and suggests patches you can rev
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 Read the tutorial
 
@@ -44,13 +44,13 @@ Every finding goes through an adversarial verification pass. Claude challenges i
 
 Claude detects issues and proposes fixes. Every finding includes a recommended patch for teams to review and approve. Fix vulnerabilities quickly rather than adding them to a growing backlog.
 
-Claude Security is now in public beta
+Claude Security Plugin for Claude Code now in beta.
 
-Available today for Enterprise customers.
+Scan, validate, and patch directly inside Claude Code while keeping all code inside your environment.
 
 Learn more
 
-[Learn more](https://claude.com/blog/claude-security-public-beta)Learn more
+[Learn more](https://code.claude.com/docs/en/claude-security)Learn more
 
 ## Built for security teams, used by Anthropic
 
@@ -78,11 +78,19 @@ Security resources
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 Read the tutorial
 
 [Read the tutorial](https://claude.com/resources/tutorials/getting-started-with-claude-security)Read the tutorial
+
+[Claude Security Plugin for Claude Code in beta](https://code.claude.com/docs/en/claude-security)Claude Security Plugin for Claude Code in beta
+
+Claude Security Plugin for Claude Code in beta
+
+Docs
+
+[Docs](https://code.claude.com/docs/en/claude-security)Docs
 
 [Claude Security is now in public beta](https://claude.com/blog/claude-security-public-beta)Claude Security is now in public beta
 
@@ -112,9 +120,13 @@ Blog
 
 ### Where is this available?
 
-Claude Security is available in public beta for Claude Enterprise. Access to Claude Team and Max plans coming soon.
+The Claude Security plugin is now available in beta for all Claude Code users.
 
 Admins can enable Claude Security in the [admin console](http://claude.ai/admin-settings/claude-code). See the [getting started guide](https://claude.com/resources/tutorials/getting-started-with-claude-security) for setup steps.
+
+The [Claude Security plugin](https://code.claude.com/docs/en/claude-security) is now available in beta for all Claude Code users.
+
+‍
 
 ### What are the security risks I should know about?
 

@@ -1,8 +1,18 @@
 <!-- source: https://claude.com/docs/connectors/slack -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Integrate Claude and Slack in two ways: add Claude directly to your Slack workspace, or enable the Slack connector for your Claude apps.
 
-##  Claude in Slack
+This page covers the earlier per-user Claude in Slack app. The current product is [Claude Tag](https://claude.com/docs/claude-tag/overview), which gives your team one Claude identity set up by an admin. If your organization used the earlier app, see [Migrate from the earlier Claude in Slack](https://claude.com/docs/claude-tag/admins/migrate-from-earlier).
+
+##  Claude in Slack (earlier app)
 
 Claude is available to paid Slack plan users. Slack admins must approve the app before individual users can access it.
 
@@ -80,5 +90,3 @@ Disconnecting removes your account connection and deletes past conversations wit
 Can't install Claude in Slack
 
 If your company Slack requires admin approval and you lack admin access, you’ll see a “Request to install” prompt. Contact your Slack Admin to approve the app.
-
-[GitHub integration](/docs/connectors/github)

@@ -70,11 +70,19 @@ Update Credential
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
   - `Optional<Auth> auth`
 
@@ -155,6 +163,18 @@ Update Credential
       - `Type type`
 
         - `ENVIRONMENT_VARIABLE("environment_variable")`
+
+      - `Optional<BetaManagedAgentsInjectionLocationUpdateParams> injectionLocation`
+
+        Updated injection location.
+
+        - `Optional<Boolean> body`
+
+          Substitute when the placeholder appears in the request body.
+
+        - `Optional<Boolean> header`
+
+          Substitute when the placeholder appears in a request header value.
 
       - `Optional<BetaManagedAgentsCredentialNetworkingParams> networking`
 
@@ -289,6 +309,18 @@ Update Credential
     - `class BetaManagedAgentsEnvironmentVariableAuthResponse:`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `BetaManagedAgentsInjectionLocationResponse injectionLocation`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `boolean body`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `boolean header`
+
+          Whether the placeholder is substituted in request header values.
 
       - `Networking networking`
 

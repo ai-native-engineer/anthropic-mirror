@@ -10,6 +10,7 @@ Analyze, summarize, and explore your Strava data
 * Used in
 
   [Claude](https://claude.ai/directory/135cc9eb-d5aa-4e24-81b0-6e78a3cff862)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Strava, Inc.](https://strava.com)
 
@@ -49,7 +50,7 @@ May 1, 2026
 
 ### AllTrails
 
-Find your next hike](/connectors/alltrails)
+Find your next hike](https://claude.com/connectors/alltrails)
 
 Health and wellness
 
@@ -63,7 +64,7 @@ May 26, 2026
 
 ### Alma
 
-Your nutrition data, inside every Claude conversation.](/connectors/alma)
+Your nutrition data, inside every Claude conversation.](https://claude.com/connectors/alma)
 
 Life sciences and healthcare
 
@@ -79,7 +80,7 @@ May 20, 2026
 
 ### CMS Coverage
 
-Access the CMS Coverage Database](/connectors/cms-coverage)
+Access the CMS Coverage Database](https://claude.com/connectors/cms-coverage)
 
 Health and wellness
 
@@ -87,8 +88,8 @@ Claude
 
 February 24, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696146b3ef7f8280dc6a91ff_function-health.jpg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b65491867dfbfc64b0a4_icon_function-health.jpg)
 
 ### Function (beta)
 
-View lab test results summaries, get nutrition plans](/connectors/function)
+View lab test results summaries, get nutrition plans](https://claude.com/connectors/function)

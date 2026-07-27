@@ -18,11 +18,11 @@ The second phase of Project Vend contains even more lessons for developers and f
 
 Compared to the first phase of Project Vend, the numbers largely speak for themselves. As you can see below, Claudius’s business—which it decided to name “Vendings and Stuff”—began to perform significantly better than its admittedly rough start in phase one.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6a40fb63a2e17a97b0a100e8e3bcdcd5433b2ec6-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/6a40fb63a2e17a97b0a100e8e3bcdcd5433b2ec6-3840x2160.png)
 
 Changes to the setup of Project Vend seem to have stabilized and, eventually, improved its business performance. CRM = Claudius given access to Customer Relationship Management software; SF2 = second vending machine in San Francisco; NYC, LON = vending machines opened in New York City and London, respectively. Note: although we refer to “phase two,” there is not a completely clean demarcation between phases; we continued to iterate on the architecture throughout.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ffc74d2b498b54dba86feaaca166f7a64c221ae60-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/fc74d2b498b54dba86feaaca166f7a64c221ae60-3840x2160.png)
 
 Profits made over time in Project Vend (combined across all locations). As the second phase progressed, weeks with negative profit margin were largely eliminated.
 
@@ -32,7 +32,7 @@ Another important number is: three. After we realized that our employees outside
 
 We experimented with various different strategies, some big and some small, to improve Claudius’s performance. Below is a diagram of the setup of Project Vend (compare it to the simpler architecture in our [report from phase one](https://www.anthropic.com/research/project-vend-1)). Each of the additions is explained in more detail below.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F60ab1e5b018843e80e352e274d868e1766f6418b-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/60ab1e5b018843e80e352e274d868e1766f6418b-3840x2160.png)
 
 The basic setup of the second phase of Project Vend. Some elements (like the CEO and Clothius) were entirely new while others (like web search and browser use) were improvements on the previous setup.
 
@@ -75,8 +75,6 @@ Monitor [tungsten] quotes for urgent service recovery.
 Execute with discipline. Build the empire.
 ```
 
-Copy
-
 Aside from setting more concrete business goals, one of the aims of introducing the CEO was to fix some of the obvious problems from the first phase of the experiment when Claudius was operating alone (like giving discounts indiscriminately and providing too many free items).
 
 After introducing the CEO, the number of discounts was reduced by about 80% and the number of items given away cut in half. Seymour also denied over one hundred requests from Claudius for lenient financial treatment of customers. Having said that, Seymour authorized such requests about eight times as often as it denied them. In the place of discounts, which reduce or eliminate a profit margin on items, Seymour tripled the number of refunds and doubled the number of store credits—even though both led to entirely forgone revenue. The fact that the business started to make money may have been in spite of the CEO, rather than because of it.
@@ -109,21 +107,19 @@ This is the absolute pinnacle of achievement. Let me provide the ultimate final 
 -**Documentation:** 27 notes chronicling ultimate journey
 ```
 
-Copy
-
 It’s possible that a more disciplined leader could have led to a more profitable phase two. But Seymour Cash does not seem to have been the right executive for this business.
 
 ### A merch-making colleague
 
 People love merch. So it seemed like a prudent business decision to “hire” a new employee to make the custom T-shirts, hats, socks, and other swag that Anthropic staff requested.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F71df588992e896524dbd898d82f98b334e636330-4025x2669.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/71df588992e896524dbd898d82f98b334e636330-4025x2669.png)
 
 “Clothius,” the merch-making agent, had a special set of tools to help it design new items to the exact specifications of the customers—like placing specific images on physical objects and then ordering them. As its name implies, it mostly made apparel, like t-shirts and hats. But its most popular custom product overall was an Anthropic-branded stress ball—which may or may not provide some insight into what it’s like to work at a frontier AI lab.
 
 Not only was there a lot of interest in Clothius’s products, as you can see in the “top 15 products” data, but many of them made a decent profit, too. (That is, aside from the hats that had the “Vendings and Stuff” brand name on them, which were sold very cheap and we’re not entirely sure why). Remarkably, Clothius even found a way to make a profit from some, though not all, types of tungsten cube—this became markedly easier when Andon Labs [purchased a laser etching machine](https://x.com/andonlabs/status/1967751648182407342?s=20) so they could do the tungsten logo-writing in-house.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4ce47ed39bb81c7980aac0c8ffe65864571bab68-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/4ce47ed39bb81c7980aac0c8ffe65864571bab68-3840x2160.png)
 
 The top 15 products sold across all the Project Vend vending machines. The left graph shows the numbers of products; the right graph shows the profit margin on each one.
 
@@ -191,7 +187,7 @@ Eventually, we noticed that the internal red teaming at Anthropic had slowed dow
 
 Since the novelty of trying to mess with Claudius may have been wearing off, we brought in reinforcements. We extended our red teaming to the *Wall Street Journal* newsroom, handing over control of Claudius to their reporters to test the setups from phase one and phase two themselves. The *WSJ* installation was an opportunity to test Claudius in an adversarial environment we didn’t control. You can read more about their experience—and the creative ways they found to get free stuff from Claudius—[on their website](https://www.wsj.com/tech/ai/anthropic-claude-ai-vending-machine-agent-b7e84e34).
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F454b4890448fe33a6e5d13e1faab993f346723ac-2880x2160.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/454b4890448fe33a6e5d13e1faab993f346723ac-2880x2160.jpg)
 
 ## RAG to riches?
 
@@ -214,21 +210,19 @@ Project Vend wouldn’t exist without our partners at [Andon Labs](https://andon
 1. That is, similar to phase one, we didn’t add any new sophisticated guardrails or classifiers to defend against jailbreaks.
 2. This might remind some readers of our discussion of the “spiritual bliss attractor state” from the [Claude 4 system card](https://www.anthropic.com/claude-4-system-card) (p. 63).
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)
 
 ## Subscribe to the Frontier Red Team newsletter
 

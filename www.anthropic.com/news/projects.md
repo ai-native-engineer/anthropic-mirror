@@ -4,21 +4,21 @@
 
 Jun 25, 2024
 
-![Illustration of individuals collaborating around Claude logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F06b448dbf07818caf8ac1db37f0165bea8c9a410-2880x1620.png&w=3840&q=75)
+![Illustration of individuals collaborating around Claude logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/06b448dbf07818caf8ac1db37f0165bea8c9a410-2880x1620.png)
 
-Our vision for Claude has always been to create AI systems that work alongside people and meaningfully enhance their workflows. As a step in this direction, [Claude.ai](http://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5) Pro and Team users can now organize their chats into Projects, bringing together curated sets of knowledge and chat activity in one place—with the ability to make their best chats with Claude viewable by teammates. With this new functionality, Claude can enable idea generation, more strategic decision-making, and exceptional results.
+Our vision for Claude has always been to create AI systems that work alongside people and meaningfully enhance their workflows. As a step in this direction, [Claude.ai](http://claude.ai/redirect/website.v1.933f5887-bacc-4592-97e4-6070be559499) Pro and Team users can now organize their chats into Projects, bringing together curated sets of knowledge and chat activity in one place—with the ability to make their best chats with Claude viewable by teammates. With this new functionality, Claude can enable idea generation, more strategic decision-making, and exceptional results.
 
-Projects are available on [Claude.ai](http://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5) for all Pro and Team customers, and can be powered by [Claude 3.5 Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet), our latest release which outperforms its peers on a wide variety of benchmarks. Each project includes a 200K context window, the equivalent of a 500-page book, so users can add all of the relevant documents, code, and insights to enhance Claude’s effectiveness.
+Projects are available on [Claude.ai](http://claude.ai/redirect/website.v1.933f5887-bacc-4592-97e4-6070be559499) for all Pro and Team customers, and can be powered by [Claude 3.5 Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet), our latest release which outperforms its peers on a wide variety of benchmarks. Each project includes a 200K context window, the equivalent of a 500-page book, so users can add all of the relevant documents, code, and insights to enhance Claude’s effectiveness.
 
 ## Avoid the cold start problem
 
 Projects allow you to ground Claude’s outputs in your internal knowledge—be it style guides, codebases, interview transcripts, or past work. This added context enables Claude to provide expert assistance across tasks, from writing emails like your marketing team to writing SQL queries like a data analyst.
 
-![App screen showing a user uploading docs to Claude.ai](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcc048db08b3503fa6d713b2b9e3352e8345c8b79-1920x1080.png&w=3840&q=75)
+![App screen showing a user uploading docs to Claude.ai](https://www-cdn.anthropic.com/images/4zrzovbb/website/cc048db08b3503fa6d713b2b9e3352e8345c8b79-1920x1080.png)
 
 In addition, you can define custom instructions for each Project to further tailor Claude’s responses, including instructing Claude to use a more formal tone or answer questions from the perspective of a specific role or industry. With Projects, you can get started much faster and extend your skills further for any task.
 
-![App screen showing custom instructions](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9e34412901722019c5a15062544734b3d78fcbc4-1920x1080.png&w=3840&q=75)
+![App screen showing custom instructions](https://www-cdn.anthropic.com/images/4zrzovbb/website/9e34412901722019c5a15062544734b3d78fcbc4-1920x1080.png)
 
 ## Create side-by-side with Claude
 
@@ -26,13 +26,13 @@ Artifacts help you better work with Claude by helping you see, edit, and build w
 
 Artifacts especially enhance Claude’s coding capabilities for developers, offering a larger code window and live previews for frontends that streamline reviews. Join the feature preview for Artifacts in Claude.ai via the account menu on the left-side panel.
 
-![App screen that shows the Artifacts panel alongside the user chat](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc5823949d9350145ce2fda51acbc7076f2139cd0-1920x1080.png&w=3840&q=75)
+![App screen that shows the Artifacts panel alongside the user chat](https://www-cdn.anthropic.com/images/4zrzovbb/website/c5823949d9350145ce2fda51acbc7076f2139cd0-1920x1080.png)
 
 ## Spark inspiration through sharing
 
 Claude Team users can also share snapshots of their best conversations with Claude into your team’s shared project activity feed. Activity feeds help each teammate get inspired around different ways to work with Claude, and helps the entire team uplevel their skills working with AI.
 
-![App screen showing shared chats within a Project](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9aabd215e1104ea914218eaf759b3deefc02a956-1920x1080.png&w=3840&q=75)
+![App screen showing shared chats within a Project](https://www-cdn.anthropic.com/images/4zrzovbb/website/9aabd215e1104ea914218eaf759b3deefc02a956-1920x1080.png)
 
 Sharing work products that were co-created with Claude can improve innovation in areas like product development and research, where bringing together organizational knowledge from across the company can produce higher-quality outputs.
 

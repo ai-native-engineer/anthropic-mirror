@@ -10,7 +10,7 @@ Start building
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 [](https://www-cdn.anthropic.com/27884c4362fe884eca5dba08fe5c7efb1bbf567a.mp4)
 
@@ -106,7 +106,7 @@ Write, test, and debug complex software with [Claude](https://claude.ai), analyz
 
 Learn more
 
-[Learn more](/product/claude-code/enterprise)Learn more
+[Learn more](https://claude.com/product/claude-code/enterprise)Learn more
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/691505c9bba2f78bec842d0c_claude-code_use-case_terminal_w-bg.webp)
 
@@ -116,7 +116,7 @@ Claude Code brings Fable 5 to your terminal, with deep codebase awareness and th
 
 Learn more
 
-[Learn more](/product/claude-code)Learn more
+[Learn more](https://claude.com/product/claude-code)Learn more
 
 ## Developers love Claude
 
@@ -140,21 +140,9 @@ Kasey, @kaseyklimes
 
 ![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
-“Claude 4 Opus is exactly the future we were promised. I sit down, prompt a little bit, check to make sure the program is doing what i wanted. “8 hours” of work done with almost no labor or input from me. Now time to go get ice cream and watch Twitch until I get more tokens.”
-
-@airkatakana
-
-![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
 “I know this sounds cringe, but I literally have clammy hands and a racing heart because of how powerful Claude + Cursor is. Like I just made a whole new feature, frontend and backend, built on top of my own custom APIs without touching code, then I had it switch from a SwiftUI.”
 
 Majd Taby, @jtaby
-
-![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-“Claude Code + Opus 4 is the best agentic coding tool in the world and it’s not close.”
-
-Mckay Wrigley, @mckaywrigley
 
 ![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
@@ -237,11 +225,11 @@ Remember to be thorough in your analysis and clear in your explanation. Your goa
 
 ## See why companies choose Claude
 
-![Genspark (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a185746b1e4c275dd8cd47b_logo_genspark_sidebar_dark.svg)![Genspark (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1857471fdaacf23f5598bc_logo_genspark_sidebar_light.svg)
+![Replit (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad4f0fb6998a6283f1dd_Replit_light.svg)![Replit (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad55e5f775cb92a97c52_Replit_dark.svg)
 
-"Claude Fable 5 came out #1 on our evals, winning head-to-head against every model we tested. It was significantly stronger on the hardest tasks in the set — UI design and game coding."
+"On ViBench, our end-to-end vibe-coding benchmark, Claude Fable 5 is the highest-performing model we've tested — nearly saturating our base use cases and building apps in less time with fewer tokens."
 
-Kay Zhu, Co-founder & CTO
+Michele Catasta, President & Head of AI
 
 ![Microsoft (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a204b033a1098addb579710_6a204a9af356012f0d579e69_Microsoft_light.svg)![Microsoft (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a204b033a1098addb579718_6a204a9b2963d7b2d0db4402_Microsoft_dark.svg)
 
@@ -249,35 +237,35 @@ Kay Zhu, Co-founder & CTO
 
 Mario Rodriguez, Chief Product Officer
 
+![Stripe (Opus 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5adf8d23ff734739d3a80_Stripe_light.svg)![Stripe (Opus 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5adfff1546febae66f812_Stripe_dark.svg)
+
+“Claude Opus 5 is a clear generational step up from Opus 4.8. Over one weekend I gave it a chief-of-staff role over my dev environments: it built its own monitor, drove each box, and pulled me in only for the judgment calls.”
+
+Cristian Rivera, Staff Software Engineer
+
+![Cognition (Opus 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb8193497afd3b2cd24_brand-logo-cognition-black.svg)![Cognition (Opus 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb952fed1bad85c342c_brand-logo-cognition-white.svg)
+
+“On FrontierCode 1.1, Claude Opus 5 approaches Fable-level performance at half the cost. Within Devin, it also shows particular strength on difficult debugging and root-cause analysis tasks.”
+
+Scott Wu, CEO
+
+![Cursor (Opus 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e4bce42081e89a8bec1f_logo_cursor-light.svg)![Cursor (Opus 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e4bafffa19b5e3366ebc_logo_cursor-dark.svg)
+
+“Claude Opus 5 delivers near Fable 5 intelligence at Opus speed and cost. On CursorBench it’s just under Fable 5 and has many of the same behaviors. We are excited to see how developers use it in Cursor.”
+
+Sualeh Asif, Co-Founder
+
 ![Figma (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d1ee4cb7c69d15a44ec7d6_Figma%20Dark.svg)![Figma (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d1ee481c19e67f332ef755_Figma%20Light.svg)
 
 "These are the strongest results of any Claude model we've had the opportunity to test. Claude Fable 5 is a clear step forward on agentic coding and prototyping."
 
 Matt Colyer, Director of Product, Developers
 
-![Replit (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad4f0fb6998a6283f1dd_Replit_light.svg)![Replit (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad55e5f775cb92a97c52_Replit_dark.svg)
+![Genspark (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a185746b1e4c275dd8cd47b_logo_genspark_sidebar_dark.svg)![Genspark (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1857471fdaacf23f5598bc_logo_genspark_sidebar_light.svg)
 
-"On ViBench, our end-to-end vibe-coding benchmark, Claude Fable 5 is the highest-performing model we've tested — nearly saturating our base use cases and building apps in less time with fewer tokens."
+"Claude Fable 5 came out #1 on our evals, winning head-to-head against every model we tested. It was significantly stronger on the hardest tasks in the set — UI design and game coding."
 
-Michele Catasta, President & Head of AI
-
-![Cursor (Opus 4.8)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e4bce42081e89a8bec1f_logo_cursor-light.svg)![Cursor (Opus 4.8)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e4bafffa19b5e3366ebc_logo_cursor-dark.svg)
-
-“On CursorBench, Claude Opus 4.8 exceeds prior Opus models across every effort level. Tool calling is meaningfully more efficient, using fewer steps for the same intelligence, and it carries end-to-end tasks through.”
-
-Michael Truell, Co-Founder and CEO
-
-![Shopify (Opus 4.8)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da9368f2bd228e7080695d_logo_shopify-light.svg)![Shopify (Opus 4.8)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da936caa7913237c0589f4_logo_shopify-dark.svg)
-
-“Claude Opus 4.8 has noticeably better judgment. In Claude Code, it asks the right questions, catches its own mistakes, pushes back when a plan isn't sound, and builds up confidence around complex, multi-service explorations before making big changes. It's a great model to build with.”
-
-Tom Pritchard, Staff Engineer
-
-![Cognition (Opus 4.8)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb8193497afd3b2cd24_brand-logo-cognition-black.svg)![Cognition (Opus 4.8)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb952fed1bad85c342c_brand-logo-cognition-white.svg)
-
-“Claude Opus 4.8 uses tools cleanly and follows instructions with the consistency our autonomous engineering workloads need to keep running unattended. It improves on Opus 4.6 and fixes the comment-verbosity and tool-calling issues we saw with Opus 4.7. This release from Anthropic translates directly into faster capability gains for engineers building on Devin.”
-
-Scott Wu, CEO
+Kay Zhu, Co-founder & CTO
 
 [Prev](#)Prev
 

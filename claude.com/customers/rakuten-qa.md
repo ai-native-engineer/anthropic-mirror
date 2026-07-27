@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![Rakuten logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d5faa6352b26bf7542cb9b_logo_rakuten-light.svg)![Rakuten logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d5fab610bf0d091b541153_logo_rakuten-dark.svg)
 
@@ -178,34 +178,34 @@ Video caption
 
 ## Related stories
 
-[Reversia translates e-commerce stores across 110+ languages with Claude](/customers/reversia)Reversia translates e-commerce stores across 110+ languages with Claude
+[Reversia translates e-commerce stores across 110+ languages with Claude](https://claude.com/customers/reversia)Reversia translates e-commerce stores across 110+ languages with Claude
 
 Reversia translates e-commerce stores across 110+ languages with Claude
 
 Customer story
 
-[Customer story](/customers/reversia)Customer story
+[Customer story](https://claude.com/customers/reversia)Customer story
 
-[Rakuten accelerates development with Claude Code](/customers/rakuten)Rakuten accelerates development with Claude Code
+[Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)Rakuten accelerates development with Claude Code
 
 Rakuten accelerates development with Claude Code
 
 Customer story
 
-[Customer story](/customers/rakuten)Customer story
+[Customer story](https://claude.com/customers/rakuten)Customer story
 
-[How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](/customers/shopify)How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
+[How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
 
 How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
 
 Customer story
 
-[Customer story](/customers/shopify)Customer story
+[Customer story](https://claude.com/customers/shopify)Customer story
 
-[L'Oréal advances conversational analytics with Claude](/customers/loreal)L'Oréal advances conversational analytics with Claude
+[L'Oréal advances conversational analytics with Claude](https://claude.com/customers/loreal)L'Oréal advances conversational analytics with Claude
 
 L'Oréal advances conversational analytics with Claude
 
 Customer story
 
-[Customer story](/customers/loreal)Customer story
+[Customer story](https://claude.com/customers/loreal)Customer story

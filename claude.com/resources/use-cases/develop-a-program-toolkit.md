@@ -185,7 +185,7 @@ Whether you're launching a workforce reentry program, building an apprenticeship
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6920b072dd22e3e3cf6c16d3_image1.png)
 
@@ -195,34 +195,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[See what your campaign goal actually requires](/resources/use-cases/see-what-your-campaign-goal-actually-requires)See what your campaign goal actually requires
+[See what your campaign goal actually requires](https://claude.com/resources/use-cases/see-what-your-campaign-goal-actually-requires)See what your campaign goal actually requires
 
 See what your campaign goal actually requires
 
 Use case
 
-[Use case](/resources/use-cases/see-what-your-campaign-goal-actually-requires)Use case
+[Use case](https://claude.com/resources/use-cases/see-what-your-campaign-goal-actually-requires)Use case
 
-[See budget futures side by side, in chat with Claude](/resources/use-cases/see-budget-futures-side-by-side)See budget futures side by side, in chat with Claude
+[See budget futures side by side, in chat with Claude](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)See budget futures side by side, in chat with Claude
 
 See budget futures side by side, in chat with Claude
 
 Use case
 
-[Use case](/resources/use-cases/see-budget-futures-side-by-side)Use case
+[Use case](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)Use case
 
-[See why donor retention beats acquisition, in chat with Claude](/resources/use-cases/see-why-donor-retention-beats-acquisition)See why donor retention beats acquisition, in chat with Claude
+[See why donor retention beats acquisition, in chat with Claude](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)See why donor retention beats acquisition, in chat with Claude
 
 See why donor retention beats acquisition, in chat with Claude
 
 Use case
 
-[Use case](/resources/use-cases/see-why-donor-retention-beats-acquisition)Use case
+[Use case](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)Use case
 
-[See your theory of change in chat with Claude](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)See your theory of change in chat with Claude
+[See your theory of change in chat with Claude](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)See your theory of change in chat with Claude
 
 See your theory of change in chat with Claude
 
 Use case
 
-[Use case](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)Use case
+[Use case](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)Use case

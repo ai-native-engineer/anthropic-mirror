@@ -4,6 +4,70 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Jul 24, 2026
+
+The new rules of context engineering for Claude 5 generation models
+
+Claude Code
+
+The new rules of context engineering for Claude 5 generation models
+
+July 24, 2026
+
+[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
+
+[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
+
+Jul 24, 2026
+
+Claude models explained: choosing the best model for your use case
+
+Enterprise AI
+
+Claude models explained: choosing the best model for your use case
+
+July 24, 2026
+
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
+
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
+
+Jul 22, 2026
+
+How Outtake built a cyber investigator on Claude
+
+Agents
+
+How Outtake built a cyber investigator on Claude
+
+July 22, 2026
+
+[How Outtake built a cyber investigator on Claude](https://claude.com/blog/how-outtake-built-a-cyber-investigator-on-claude)How Outtake built a cyber investigator on Claude
+
+[How Outtake built a cyber investigator on Claude](#)How Outtake built a cyber investigator on Claude
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
+
+Jul 21, 2026
+
+How Anthropic secures its AI-native software development lifecycle
+
+Claude Code
+
+How Anthropic secures its AI-native software development lifecycle
+
+July 21, 2026
+
+[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
+
+[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
 
 Jun 10, 2026
@@ -16,7 +80,7 @@ The evolution of agentic surfaces: building with Claude Managed Agents
 
 June 10, 2026
 
-[The evolution of agentic surfaces: building with Claude Managed Agents](/blog/building-with-claude-managed-agents)The evolution of agentic surfaces: building with Claude Managed Agents
+[The evolution of agentic surfaces: building with Claude Managed Agents](https://claude.com/blog/building-with-claude-managed-agents)The evolution of agentic surfaces: building with Claude Managed Agents
 
 [The evolution of agentic surfaces: building with Claude Managed Agents](#)The evolution of agentic surfaces: building with Claude Managed Agents
 
@@ -32,7 +96,7 @@ Zero Trust for AI agents
 
 May 27, 2026
 
-[Zero Trust for AI agents](/blog/zero-trust-for-ai-agents)Zero Trust for AI agents
+[Zero Trust for AI agents](https://claude.com/blog/zero-trust-for-ai-agents)Zero Trust for AI agents
 
 [Zero Trust for AI agents](#)Zero Trust for AI agents
 
@@ -48,7 +112,7 @@ Best practices for computer and browser use with Claude
 
 May 13, 2026
 
-[Best practices for computer and browser use with Claude](/blog/best-practices-for-computer-and-browser-use-with-claude)Best practices for computer and browser use with Claude
+[Best practices for computer and browser use with Claude](https://claude.com/blog/best-practices-for-computer-and-browser-use-with-claude)Best practices for computer and browser use with Claude
 
 [Best practices for computer and browser use with Claude](#)Best practices for computer and browser use with Claude
 
@@ -64,7 +128,7 @@ Building AI agents for the enterprise
 
 April 30, 2026
 
-[Building AI agents for the enterprise](/blog/building-ai-agents-for-the-enterprise)Building AI agents for the enterprise
+[Building AI agents for the enterprise](https://claude.com/blog/building-ai-agents-for-the-enterprise)Building AI agents for the enterprise
 
 [Building AI agents for the enterprise](#)Building AI agents for the enterprise
 
@@ -80,7 +144,7 @@ Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
 
 April 29, 2026
 
-[Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](/blog/claude-api-skill)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
+[Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](https://claude.com/blog/claude-api-skill)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
 
 [Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](#)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
 
@@ -96,7 +160,7 @@ Product development in the agentic era
 
 April 29, 2026
 
-[Product development in the agentic era](/blog/product-development-in-the-agentic-era)Product development in the agentic era
+[Product development in the agentic era](https://claude.com/blog/product-development-in-the-agentic-era)Product development in the agentic era
 
 [Product development in the agentic era](#)Product development in the agentic era
 
@@ -112,7 +176,7 @@ Building agents that reach production systems with MCP
 
 April 22, 2026
 
-[Building agents that reach production systems with MCP](/blog/building-agents-that-reach-production-systems-with-mcp)Building agents that reach production systems with MCP
+[Building agents that reach production systems with MCP](https://claude.com/blog/building-agents-that-reach-production-systems-with-mcp)Building agents that reach production systems with MCP
 
 [Building agents that reach production systems with MCP](#)Building agents that reach production systems with MCP
 
@@ -128,7 +192,7 @@ Preparing your security program for AI-accelerated offense
 
 April 10, 2026
 
-[Preparing your security program for AI-accelerated offense](/blog/preparing-your-security-program-for-ai-accelerated-offense)Preparing your security program for AI-accelerated offense
+[Preparing your security program for AI-accelerated offense](https://claude.com/blog/preparing-your-security-program-for-ai-accelerated-offense)Preparing your security program for AI-accelerated offense
 
 [Preparing your security program for AI-accelerated offense](#)Preparing your security program for AI-accelerated offense
 
@@ -144,7 +208,7 @@ Multi-agent coordination patterns: Five approaches and when to use them
 
 April 10, 2026
 
-[Multi-agent coordination patterns: Five approaches and when to use them](/blog/multi-agent-coordination-patterns)Multi-agent coordination patterns: Five approaches and when to use them
+[Multi-agent coordination patterns: Five approaches and when to use them](https://claude.com/blog/multi-agent-coordination-patterns)Multi-agent coordination patterns: Five approaches and when to use them
 
 [Multi-agent coordination patterns: Five approaches and when to use them](#)Multi-agent coordination patterns: Five approaches and when to use them
 
@@ -152,17 +216,17 @@ April 10, 2026
 
 Apr 2, 2026
 
-Harnessing Claude’s intelligence
+Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
 
 Agents
 
-Harnessing Claude’s intelligence
+Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
 
 April 2, 2026
 
-[Harnessing Claude’s intelligence](/blog/harnessing-claudes-intelligence)Harnessing Claude’s intelligence
+[Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence](https://claude.com/blog/harnessing-claudes-intelligence)Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
 
-[Harnessing Claude’s intelligence](#)Harnessing Claude’s intelligence
+[Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence](#)Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2260bfc90348429f9c3_cd9cf56a7f049285b7c1c8786c0a600cf3d7f317-1000x1000.svg)
 
@@ -176,81 +240,81 @@ Common workflow patterns for AI agents—and when to use them
 
 March 5, 2026
 
-[Common workflow patterns for AI agents—and when to use them](/blog/common-workflow-patterns-for-ai-agents-and-when-to-use-them)Common workflow patterns for AI agents—and when to use them
+[Common workflow patterns for AI agents—and when to use them](https://claude.com/blog/common-workflow-patterns-for-ai-agents-and-when-to-use-them)Common workflow patterns for AI agents—and when to use them
 
 [Common workflow patterns for AI agents—and when to use them](#)Common workflow patterns for AI agents—and when to use them
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e13864f88ea55c2d8_b5c98d26c46edc43193e7f7e28a00633a538bb9c-1000x1000.svg)
-
-Mar 5, 2026
-
-Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
-
-Agents
-
-Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
-
-March 5, 2026
-
-[Skills explained: How Skills compares to prompts, Projects, MCP, and subagents](/blog/skills-explained) Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
-
-[Skills explained: How Skills compares to prompts, Projects, MCP, and subagents](#) Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2319ef2161fcf9ba649_ddad92700787ec1bf1d80359c0c5e6ca305682b0-1000x1000.svg)
-
-Feb 24, 2026
-
-Cowork and plugins for finance
-
-Enterprise AI
-
-Cowork and plugins for finance
-
-February 24, 2026
-
-[Cowork and plugins for finance](/blog/cowork-plugins-finance) Cowork and plugins for finance
-
-[Cowork and plugins for finance](#) Cowork and plugins for finance
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d226da492fb9f7f815ba_1c3d1af62032009538b8bf5864139ca124b06741-1000x1000.svg)
-
-Feb 24, 2026
-
-Cowork and plugins for teams across the enterprise
-
-Agents
-
-Cowork and plugins for teams across the enterprise
-
-February 24, 2026
-
-[Cowork and plugins for teams across the enterprise](/blog/cowork-plugins-across-enterprise)Cowork and plugins for teams across the enterprise
-
-[Cowork and plugins for teams across the enterprise](#)Cowork and plugins for teams across the enterprise
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d226da492fb9f7f815ba_1c3d1af62032009538b8bf5864139ca124b06741-1000x1000.svg)
-
-Jan 30, 2026
-
-Customize Cowork with plugins
-
-Product announcements
-
-Customize Cowork with plugins
-
-January 30, 2026
-
-[Customize Cowork with plugins](/blog/cowork-plugins)Customize Cowork with plugins
-
-[Customize Cowork with plugins](#)Customize Cowork with plugins
-
-[View more](?1e959936_page=2)
+[View more](https://claude.com/blog-category/agents?1e959936_page=2)
 
 Category
 
 Product
 
 Usecase
+
+### The new rules of context engineering for Claude 5 generation models
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+July 24, 2026
+
+[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
+
+[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
+
+### Claude models explained: choosing the best model for your use case
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+July 24, 2026
+
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
+
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
+
+### How Outtake built a cyber investigator on Claude
+
+Category
+
+Agents
+
+Product
+
+Usecase
+
+July 22, 2026
+
+[How Outtake built a cyber investigator on Claude](https://claude.com/blog/how-outtake-built-a-cyber-investigator-on-claude)How Outtake built a cyber investigator on Claude
+
+[How Outtake built a cyber investigator on Claude](#)How Outtake built a cyber investigator on Claude
+
+### How Anthropic secures its AI-native software development lifecycle
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+July 21, 2026
+
+[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
+
+[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
 
 ### The evolution of agentic surfaces: building with Claude Managed Agents
 
@@ -264,7 +328,7 @@ Usecase
 
 June 10, 2026
 
-[The evolution of agentic surfaces: building with Claude Managed Agents](/blog/building-with-claude-managed-agents)The evolution of agentic surfaces: building with Claude Managed Agents
+[The evolution of agentic surfaces: building with Claude Managed Agents](https://claude.com/blog/building-with-claude-managed-agents)The evolution of agentic surfaces: building with Claude Managed Agents
 
 [The evolution of agentic surfaces: building with Claude Managed Agents](#)The evolution of agentic surfaces: building with Claude Managed Agents
 
@@ -280,7 +344,7 @@ Usecase
 
 May 27, 2026
 
-[Zero Trust for AI agents](/blog/zero-trust-for-ai-agents)Zero Trust for AI agents
+[Zero Trust for AI agents](https://claude.com/blog/zero-trust-for-ai-agents)Zero Trust for AI agents
 
 [Zero Trust for AI agents](#)Zero Trust for AI agents
 
@@ -296,7 +360,7 @@ Usecase
 
 May 13, 2026
 
-[Best practices for computer and browser use with Claude](/blog/best-practices-for-computer-and-browser-use-with-claude)Best practices for computer and browser use with Claude
+[Best practices for computer and browser use with Claude](https://claude.com/blog/best-practices-for-computer-and-browser-use-with-claude)Best practices for computer and browser use with Claude
 
 [Best practices for computer and browser use with Claude](#)Best practices for computer and browser use with Claude
 
@@ -312,7 +376,7 @@ Usecase
 
 April 30, 2026
 
-[Building AI agents for the enterprise](/blog/building-ai-agents-for-the-enterprise)Building AI agents for the enterprise
+[Building AI agents for the enterprise](https://claude.com/blog/building-ai-agents-for-the-enterprise)Building AI agents for the enterprise
 
 [Building AI agents for the enterprise](#)Building AI agents for the enterprise
 
@@ -328,7 +392,7 @@ Usecase
 
 April 29, 2026
 
-[Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](/blog/claude-api-skill)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
+[Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](https://claude.com/blog/claude-api-skill)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
 
 [Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](#)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
 
@@ -344,7 +408,7 @@ Usecase
 
 April 29, 2026
 
-[Product development in the agentic era](/blog/product-development-in-the-agentic-era)Product development in the agentic era
+[Product development in the agentic era](https://claude.com/blog/product-development-in-the-agentic-era)Product development in the agentic era
 
 [Product development in the agentic era](#)Product development in the agentic era
 
@@ -360,7 +424,7 @@ Usecase
 
 April 22, 2026
 
-[Building agents that reach production systems with MCP](/blog/building-agents-that-reach-production-systems-with-mcp)Building agents that reach production systems with MCP
+[Building agents that reach production systems with MCP](https://claude.com/blog/building-agents-that-reach-production-systems-with-mcp)Building agents that reach production systems with MCP
 
 [Building agents that reach production systems with MCP](#)Building agents that reach production systems with MCP
 
@@ -376,7 +440,7 @@ Usecase
 
 April 10, 2026
 
-[Preparing your security program for AI-accelerated offense](/blog/preparing-your-security-program-for-ai-accelerated-offense)Preparing your security program for AI-accelerated offense
+[Preparing your security program for AI-accelerated offense](https://claude.com/blog/preparing-your-security-program-for-ai-accelerated-offense)Preparing your security program for AI-accelerated offense
 
 [Preparing your security program for AI-accelerated offense](#)Preparing your security program for AI-accelerated offense
 
@@ -392,11 +456,11 @@ Usecase
 
 April 10, 2026
 
-[Multi-agent coordination patterns: Five approaches and when to use them](/blog/multi-agent-coordination-patterns)Multi-agent coordination patterns: Five approaches and when to use them
+[Multi-agent coordination patterns: Five approaches and when to use them](https://claude.com/blog/multi-agent-coordination-patterns)Multi-agent coordination patterns: Five approaches and when to use them
 
 [Multi-agent coordination patterns: Five approaches and when to use them](#)Multi-agent coordination patterns: Five approaches and when to use them
 
-### Harnessing Claude’s intelligence
+### Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
 
 Category
 
@@ -408,9 +472,9 @@ Usecase
 
 April 2, 2026
 
-[Harnessing Claude’s intelligence](/blog/harnessing-claudes-intelligence)Harnessing Claude’s intelligence
+[Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence](https://claude.com/blog/harnessing-claudes-intelligence)Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
 
-[Harnessing Claude’s intelligence](#)Harnessing Claude’s intelligence
+[Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence](#)Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
 
 ### Common workflow patterns for AI agents—and when to use them
 
@@ -424,75 +488,11 @@ Usecase
 
 March 5, 2026
 
-[Common workflow patterns for AI agents—and when to use them](/blog/common-workflow-patterns-for-ai-agents-and-when-to-use-them)Common workflow patterns for AI agents—and when to use them
+[Common workflow patterns for AI agents—and when to use them](https://claude.com/blog/common-workflow-patterns-for-ai-agents-and-when-to-use-them)Common workflow patterns for AI agents—and when to use them
 
 [Common workflow patterns for AI agents—and when to use them](#)Common workflow patterns for AI agents—and when to use them
 
-### Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
-
-Category
-
-Agents
-
-Product
-
-Usecase
-
-March 5, 2026
-
-[Skills explained: How Skills compares to prompts, Projects, MCP, and subagents](/blog/skills-explained) Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
-
-[Skills explained: How Skills compares to prompts, Projects, MCP, and subagents](#) Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
-
-### Cowork and plugins for finance
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-February 24, 2026
-
-[Cowork and plugins for finance](/blog/cowork-plugins-finance) Cowork and plugins for finance
-
-[Cowork and plugins for finance](#) Cowork and plugins for finance
-
-### Cowork and plugins for teams across the enterprise
-
-Category
-
-Agents
-
-Product
-
-Usecase
-
-February 24, 2026
-
-[Cowork and plugins for teams across the enterprise](/blog/cowork-plugins-across-enterprise)Cowork and plugins for teams across the enterprise
-
-[Cowork and plugins for teams across the enterprise](#)Cowork and plugins for teams across the enterprise
-
-### Customize Cowork with plugins
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-January 30, 2026
-
-[Customize Cowork with plugins](/blog/cowork-plugins)Customize Cowork with plugins
-
-[Customize Cowork with plugins](#)Customize Cowork with plugins
-
-[View more](?2f226f2c_page=2)
+[View more](https://claude.com/blog-category/agents?2f226f2c_page=2)
 
 1 / 2
 

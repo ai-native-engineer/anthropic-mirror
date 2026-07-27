@@ -10,7 +10,7 @@ March 25, 2026
 
 Select your product based on both your technical/functional requirements, and also your compliance/security/deployment environment requirements. Here is a list of options:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1782460800&signature=1f5f6f45d74a4b9fd06a579f9bcd5182cef76b7c52e851c799aade5e32571d49&req=diEuEc5%2FmoBZWPMW1HO4zU94LlshG9042WxtU42UVC3bgWrQ52AZfLROt%2FTQ%0ACq2y50htvWn85mtdU8g%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1782460800&signature=1f5f6f45d74a4b9fd06a579f9bcd5182cef76b7c52e851c799aade5e32571d49&req=diEuEc5%2FmoBZWPMW1HO4zU94LlshG9042WxtU42UVC3bgWrQ52AZfLROt%2FTQ%0ACq2y50htvWn85mtdU8g%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1784923200&signature=5d21d4ff99e67e2dc47982282ebe2922a1b6bdf5ec75f2a71195643dd477e2f1&req=diEuEc5%2FmoBZWPMW1HO4zU94Ll0sH94y2WxtU42UVC2CjI82kXa7f3OZKYnu%0AFh0t3bIx4ZQzr0ev3zk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1784923200&signature=5d21d4ff99e67e2dc47982282ebe2922a1b6bdf5ec75f2a71195643dd477e2f1&req=diEuEc5%2FmoBZWPMW1HO4zU94Ll0sH94y2WxtU42UVC2CjI82kXa7f3OZKYnu%0AFh0t3bIx4ZQzr0ev3zk%3D%0A)
 
 ### What is Claude for Government (C4G)?
 
@@ -127,4 +127,8 @@ Other pricing plans are available here: **[Team and Enterprise plan pricing](htt
 
 Learn more here: **[Offering expanded Claude access across all three branches of the U.S. government](https://www.anthropic.com/news/offering-expanded-claude-access-across-all-three-branches-of-government)**
 
-[What is Amazon Bedrock?](https://support.claude.com/en/articles/7996918-what-is-amazon-bedrock)[Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)[Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)[Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)[Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)
+* [What is Amazon Bedrock?](https://support.claude.com/en/articles/7996918-what-is-amazon-bedrock)
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
+* [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
+* [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
+* [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)

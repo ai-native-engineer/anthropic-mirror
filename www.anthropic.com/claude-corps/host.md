@@ -4,7 +4,7 @@
 
 Claude Corps is a fully funded, 12-month paid fellowship that places early-career talent inside mission-driven nonprofits. Fellows tackle your organization’s operational challenges and strengthen your programs, giving your team hands-on AI support to advance your mission. Anthropic funds and manages the program, CodePath employs and trains the fellows, and Social Finance supports learning and measurement.
 
-[Apply to host](https://form.typeform.com/to/X0apETWF)[Register for the June 17 webinar](https://www.anthropic.com/webinars/claude-corps-how-to-become-a-host-organization)
+[Apply to host](https://form.typeform.com/to/X0apETWF)[Watch informational webinar](https://www.anthropic.com/webinars/claude-corps-how-to-become-a-host-organization)
 
 ## About Claude Corps
 
@@ -31,7 +31,7 @@ Cohort 1 places approximately 100 fellows at host organizations across the Unite
 ### Is my organization eligible?
 
 * **US-based nonprofit.** You’re a 501(c)(3) nonprofit.
-* **Claude for Nonprofits customer.** You’re a [Claude for Nonprofits](/news/claude-for-nonprofits) Team or Enterprise customer. If you’re interested and not yet signed up for this discounted program, you can [learn more here](/news/claude-for-nonprofits).
+* **Claude for Nonprofits customer.** You’re a [Claude for Nonprofits](https://www.anthropic.com/news/claude-for-nonprofits) Team or Enterprise customer. If you’re interested and not yet signed up for this discounted program, you can [learn more here](https://www.anthropic.com/news/claude-for-nonprofits).
 * **In-person or hybrid workplace.** You have an office where the fellow can spend regular time alongside your team. Fully remote organizations can apply now to host a fellow in the 2027 cohorts, but not for the October 2026 one.
 * **A sponsor and a supervisor.** You can name a senior leader to champion the fellowship and a staff member to manage the fellow day-to-day.
 
@@ -68,7 +68,7 @@ Cohort 1 places approximately 100 fellows at host organizations across the Unite
 
 * **One application.** [Apply here](https://form.typeform.com/to/X0apETWF). The application takes about 30 minutes to complete. You’ll provide details about your organization, sponsor, and supervisor, and answer a few short questions about why you want to participate and what you’d want a fellow to work on. [Download the full application as a PDF](https://www-cdn.anthropic.com/files/4zrzovbb/website/9cd661ef6fd3ceeaba4ad289f897443792444615.pdf) to coordinate internally first if you’d like.
 * **Deadlines.** Applications are rolling across all three cohort start dates (October 2026, January 2027, and August 2027). To be considered for Cohort 1 (fellows start October 19, 2026), apply by 11:59 pm PT on Friday, July 17, 2026.
-* **Want to learn more first?** Join the host organization webinar on Wednesday, June 17. [Register here](https://www.anthropic.com/webinars/claude-corps-how-to-become-a-host-organization). If you can’t attend, we will post a recording of the session on this site after the event.
+* **Want to learn more first?** [Watch our information host organization webinar here](https://www.anthropic.com/webinars/claude-corps-how-to-become-a-host-organization).
 
 ## The fellows
 
@@ -126,7 +126,7 @@ Complete the [host organization application](https://form.typeform.com/to/X0apET
 
 Applications are rolling. However, the cutoff for hosting the first cohort starting in October 2026 is 11:59 pm PT on Friday, July 17, 2026. We encourage host organizations to apply early.
 
-To learn more before applying, join the host organization webinar on Wednesday, June 17.
+To learn more before applying, [watch the host org webinar](https://www.anthropic.com/webinars/claude-corps-how-to-become-a-host-organization).
 
 ### What does Anthropic look for when selecting host organizations?
 
@@ -234,8 +234,6 @@ We’ll send all three agreements after a host organization has been selected fo
 
 ### Where can hosts ask additional questions?
 
-[Join the Claude Corps host organization webinar](https://www.anthropic.com/webinars/claude-corps-how-to-become-a-host-organization) on **Wednesday, June 17 2026**. We’ll walk through the program and the application and answer questions live.
-
-We will post a recording on the site for those who cannot attend the webinar.
+[Watch the Claude Corps host organization webinar](https://www.anthropic.com/webinars/claude-corps-how-to-become-a-host-organization). We walk through the program and the application and answer questions from prospective host orgs.
 
 This FAQ will be updated throughout 2026-2027 to reflect the latest details.

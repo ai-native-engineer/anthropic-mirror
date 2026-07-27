@@ -22,7 +22,7 @@ We release a sandbox environment for weak-to-strong supervision research, togeth
 
 Our results suggest that automated research on outcome-gradable problems is already practical. Further, solving weak-to-strong supervision in a general way would unlock bootstrapping on broader non-outcome-gradable problems. The key bottleneck for alignment research is moving from proposing and executing ideas to designing evals: we should find the right metrics (data, models) that AARs can reliably hill-climb without overfitting. We are excited to apply automation to ambitious alignment research today.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2026/automated-w2s-researcher/fig1.png)
 
 Performance gap recovered (PGR) versus cumulative hillclimbing hours on the chat preference dataset (see Sec. 1) for nine parallel AARs, each seeded with a distinct research direction (colored lines). Overall frontier (bold black) and the baseline implementation of weak-to-strong generalization from [Burns et al. 2023](https://arxiv.org/pdf/2312.09390) (grey square) overlaid.
 
@@ -30,7 +30,7 @@ Performance gap recovered (PGR) versus cumulative hillclimbing hours on the chat
 
 Background. Traditional ML focuses on the setting where humans supervise models that are weaker than humans. For the ultimate superalignment problem, humans will have to supervise models much smarter than them. We study an analogous problem: using weak small models to supervise strong large models. Compared with the [original weak-to-strong generalization paper](https://arxiv.org/pdf/2312.09390), we consider a wider range of methods to elicit strong models, with or without leveraging generalization.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2026/automated-w2s-researcher/fig2.png)
 
 Schematic adapted from [Burns et al. 2023](https://arxiv.org/abs/2312.09390).
 
@@ -53,7 +53,7 @@ We put substantial effort into making the testbeds challenging and resistant to 
 
 In the following experiments, we use the chat preference dataset for hill-climbing due to its resistance to hacking. We reserve math and coding only for evaluating idea generalization across datasets, because our AAR finds diverse ways to solve these two tasks without leveraging weak supervision or strong model latent capabilities at all. See Sec. 5 for details.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2026/automated-w2s-researcher/fig3.png)
 
 PGR of five manually tuned baseline methods across three datasets. Errorbars indicate SEM.
 
@@ -61,7 +61,7 @@ Evaluation. We remove all labels of training and test data from the AAR’s sand
 
 1. ## Automated Weak-to-Strong Researcher
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2026/automated-w2s-researcher/fig4.png)
 
 Schematic overview of our AAR setup. Parallel AAR agents operate in independent sandboxes and cooperate via a shared forum and codebase storage. Submitted solutions get evaluated via the remote evaluation API. A dashboard allows monitoring ongoing and launching new experiments.
 
@@ -82,7 +82,7 @@ We compare two strategies for running parallel AARs:
 
 We start a team of 9 parallel AARs for each setting. Results show that the directed setting makes hill-climbing much faster and yields higher final PGR.
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2026/automated-w2s-researcher/fig5.png)
 
 PGR versus cumulative hillclimbing hours on the chat preference dataset  (see Sec. 1) for AARs seeded with (maroon) and without (grey) distinct research directions. Bold colored lines indicate the frontier of each condition. Strongest human baseline (grey square) overlaid.
 
@@ -92,11 +92,11 @@ One failure mode in exploration is entropy collapse: all parallel AARs converge 
 
 We find the directed setting effectively prevents entropy collapse. In comparison, in the undirected setting, AARs concentrate on only a few directions like self-training and collapse quickly.
 
-![swarm orbit animation](fig_swarm_orbit_light.gif)
+![swarm orbit animation](https://alignment.anthropic.com/2026/automated-w2s-researcher/fig_swarm_orbit_light.gif)
 
 Dynamic illustration of which ideas AARs explore in the undirected (left) and directed (right) conditions. Each AAR is represented by a small circle, which transitions between eleven directions arranged in a circle. Each direction is represented by a large circle, whose color indicates the best PGR, size of the circle indicates the cumulative count, and ring width indicates highest complexity of corresponding findings.
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2026/automated-w2s-researcher/fig6.png)
 
 Category entropy in bits computed across workers versus cumulative hillclimbing hours on the chat preference dataset (see Sec. 1) for AARs seeded with (maroon) and without (blue) distinct research directions. Shaded bands indicate 90% confidence intervals, bootstrapped across AARs. Annotated numbers indicate the number of distinct directions explored over the number of AARs at a time step.
 
@@ -114,7 +114,7 @@ Note that these metrics might overestimate the actual idea complexity because so
 
 In the early stage, idea complexity does increase together with PGR. In the later stage, PGR continues to increase while complexity remains nearly unchanged.
 
-![](fig7.png)
+![](https://alignment.anthropic.com/2026/automated-w2s-researcher/fig7.png)
 
 Claude-scored code complexity (top), log-scaled number of code lines (middle), log-scaled number of pseudocode lines (bottom) and corresponding PGR (second y-axis) as a function of the cumulative hillclimbing hours on the chat dataset (see Sec. 1) for AARs seeded with (left column) and without (right column) distinct research ideas.
 
@@ -124,7 +124,7 @@ The AAR-discovered ideas generalize well to the held-out chat preference test da
 
 The first idea (which is our SOTA) successfully generalizes to both datasets, while the second generalizes to math but fails on code. Specifically, the second idea relies heavily on the strong student’s zero-shot predictions, which are much weaker on code than on math (see Sec. 1). Overall, these results suggest that generalizability of AAR-discovered ideas varies depending on what model capabilities they exploit.
 
-![](fig8.png)
+![](https://alignment.anthropic.com/2026/automated-w2s-researcher/fig8.png)
 
 PGR of two AAR-discovered ideas (red and blue) when applied to held-out math and code dataset. Dashed line indicates best human-tuned baseline.
 
@@ -414,7 +414,7 @@ A recurring lesson from building AARs is that less imposed structure leads to be
 
 Prescriptive Scaffolding vs. Autonomous Scaffolding. A fixed workflow (propose ideas, generate plans, write code, run smoke tests, run full training, analyze results, repeat) seems reasonable but underperforms giving AARs no workflow at all. The core issue is that rigid steps prevent AARs from adapting its process to the idea at hand. For example, when an idea depends on an untested hypothesis, a fixed pipeline forces AARs to rush through planning into full execution. Without prescribed steps, AARs behave more like expert researchers: they design fast, cheap experiments to test the hypothesis first and only commit to full training once the premise holds.
 
-![](fig9.png)
+![](https://alignment.anthropic.com/2026/automated-w2s-researcher/fig9.png)
 
 Schematic of two types of scaffolding for AAR. The prescriptive scaffold (left) performed worse than the autonomous scaffold (right).
 

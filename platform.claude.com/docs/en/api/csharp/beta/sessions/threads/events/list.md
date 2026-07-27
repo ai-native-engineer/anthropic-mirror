@@ -82,11 +82,19 @@ List Session Thread Events
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
 
 ### Returns
 
@@ -96,7 +104,7 @@ List Session Thread Events
 
   - `IReadOnlyList<BetaManagedAgentsSessionEvent> Data`
 
-    Events for the thread, ordered by `created_at`.
+    Events for the thread, ordered by `processed_at`.
 
     - `class BetaManagedAgentsUserMessageEvent:`
 
@@ -1072,7 +1080,7 @@ List Session Thread Events
 
         - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-          The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+          The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
           - `required Type Type`
 
@@ -1408,7 +1416,7 @@ List Session Thread Events
 
         - `class BetaManagedAgentsSessionRetriesExhausted:`
 
-          The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+          The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
       - `required Type Type`
 
@@ -1554,21 +1562,29 @@ List Session Thread Events
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `"claude-sonnet-5"ClaudeSonnet5`
+
+              High-performance model for coding and agents
+
             - `"claude-fable-5"ClaudeFable5`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
+            - `"claude-opus-5"ClaudeOpus5`
+
+              Powerful intelligence for long-running agents and coding
+
             - `"claude-opus-4-8"ClaudeOpus4_8`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-7"ClaudeOpus4_7`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-6"ClaudeOpus4_6`
 
-              Most intelligent model for building agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-6"ClaudeSonnet4_6`
 
@@ -1584,11 +1600,11 @@ List Session Thread Events
 
             - `"claude-opus-4-5"ClaudeOpus4_5`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-5"ClaudeSonnet4_5`
 
@@ -1597,6 +1613,50 @@ List Session Thread Events
             - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
 
               High-performance model for agents and coding
+
+          - `Effort Effort`
+
+            How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+            - `class BetaManagedAgentsEffortLow:`
+
+              Low effort. Favors latency over reasoning depth.
+
+              - `required Type Type`
+
+                - `"low"Low`
+
+            - `class BetaManagedAgentsEffortMedium:`
+
+              Medium effort. Balances latency and reasoning depth.
+
+              - `required Type Type`
+
+                - `"medium"Medium`
+
+            - `class BetaManagedAgentsEffortHigh:`
+
+              High effort. Favors reasoning depth.
+
+              - `required Type Type`
+
+                - `"high"High`
+
+            - `class BetaManagedAgentsEffortXhigh:`
+
+              Extra-high effort. Not all models accept this level.
+
+              - `required Type Type`
+
+                - `"xhigh"Xhigh`
+
+            - `class BetaManagedAgentsEffortMax:`
+
+              Maximum effort. Favors reasoning depth over latency.
+
+              - `required Type Type`
+
+                - `"max"Max`
 
           - `Speed Speed`
 

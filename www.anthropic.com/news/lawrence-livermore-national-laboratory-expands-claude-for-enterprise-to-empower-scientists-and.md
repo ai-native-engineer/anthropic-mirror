@@ -4,7 +4,7 @@
 
 Jul 9, 2025
 
-![A hand-drawn image of a hand with a set of nodes emerging above it, extending in several different directions](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd4b60fbc087e8ec3f47c69fbe03298fedcaebb9c-2880x1620.png&w=3840&q=75)
+![A hand-drawn image of a hand with a set of nodes emerging above it, extending in several different directions](https://www-cdn.anthropic.com/images/4zrzovbb/website/d4b60fbc087e8ec3f47c69fbe03298fedcaebb9c-2880x1620.png)
 
 Lawrence Livermore National Laboratory (LLNL), one of the United States' premier research institutions, is expanding its deployment of Claude for Enterprise to its entire laboratory. This expansion will make advanced AI capabilities available to about 10,000 scientists, researchers, and staff. LLNL's expansion of Claude access will help bolster research across nuclear deterrence, energy, materials science, and energy security in one of the largest deployments of Claude for Enterprise within the U.S. Department of Energy's national laboratory system.
 

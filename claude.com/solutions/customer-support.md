@@ -10,7 +10,7 @@ Start building
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a7fb13f83687640d3f1c_Assembled_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a7f55cc7b57f838f49e4_Assembled_dark.svg)
 
@@ -26,7 +26,7 @@ Contact sales
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0d97ec6302de3b8bbcce1_cs-logo-gradient-labs-light-theme.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0d983542ad5692f508690_cs-logo-gradient-labs-dark-theme.svg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa585b66f744445eaec7_Doordash_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa5e900d8af5fd782dd2_Doordash_dark.svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa585b66f744445eaec7_Doordash_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43da4a5ba20a23a30861c7_logo_doordash-dark.svg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad7358ee49cc337e342a_sk%20telecom_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad77976700940e3b3d59_sk%20telecom_dark.svg)
 
@@ -202,7 +202,7 @@ Quickstart
 
 [Quickstart](https://github.com/anthropics/anthropic-quickstarts/tree/main/customer-support-agent)Quickstart
 
-[See how other companies are powering customer support agents with Claude](/customers)See how other companies are powering customer support agents with Claude
+[See how other companies are powering customer support agents with Claude](https://claude.com/customers)See how other companies are powering customer support agents with Claude
 
 See how other companies are powering customer support agents with Claude
 

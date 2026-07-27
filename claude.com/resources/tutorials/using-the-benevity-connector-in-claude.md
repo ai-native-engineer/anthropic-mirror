@@ -83,34 +83,34 @@ Yes. The database includes nonprofit organizations worldwide.
 
 ## Related tutorials
 
-[Using the Candid connector in Claude](/resources/tutorials/using-the-candid-connector-in-claude)Using the Candid connector in Claude
+[Using the Candid connector in Claude](https://claude.com/resources/tutorials/using-the-candid-connector-in-claude)Using the Candid connector in Claude
 
 Using the Candid connector in Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-the-candid-connector-in-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-the-candid-connector-in-claude)Tutorial
 
-[Using the Blackbaud connector in Claude](/resources/tutorials/using-the-blackbaud-connector-in-claude)Using the Blackbaud connector in Claude
+[Using the Blackbaud connector in Claude](https://claude.com/resources/tutorials/using-the-blackbaud-connector-in-claude)Using the Blackbaud connector in Claude
 
 Using the Blackbaud connector in Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-the-blackbaud-connector-in-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-the-blackbaud-connector-in-claude)Tutorial
 
-[Claude for nonprofits partnership guide for all users](/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Claude for nonprofits partnership guide for all users
+[Claude for nonprofits partnership guide for all users](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Claude for nonprofits partnership guide for all users
 
 Claude for nonprofits partnership guide for all users
 
 Tutorial
 
-[Tutorial](/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Tutorial
 
-[Claude for nonprofits partnership success guide for admins](/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)Claude for nonprofits partnership success guide for admins
+[Claude for nonprofits partnership success guide for admins](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)Claude for nonprofits partnership success guide for admins
 
 Claude for nonprofits partnership success guide for admins
 
 Tutorial
 
-[Tutorial](/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)Tutorial

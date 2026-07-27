@@ -40,4 +40,6 @@ Anthropic will disclose the categories of consumer health data described above t
 
 You may be entitled, in accordance with applicable law, to submit a request to know, access, or delete the consumer health data we have collected about you or withdraw consent to our use of consumer health data.
 
-Anthropic gives you access to a variety of tools to help you manage your data. You can access these in your [Privacy Settings](https://claude.ai/redirect/website.v1.27bda13e-87f6-45cc-b8d2-4d85ad734b61/settings/privacy).
+Anthropic gives you access to a variety of tools to help you manage your data. You can access these in your [Privacy Settings](https://claude.ai/redirect/website.v1.fe1fa29d-31cb-47b2-90f5-304023e23f84/settings/privacy).
+
+Consumer Health Data Privacy Policy \ Anthropic

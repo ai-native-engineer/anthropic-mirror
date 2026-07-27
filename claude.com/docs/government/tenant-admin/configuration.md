@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/government/tenant-admin/configuration -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this is for:** Tenant administrators who set and enforce product settings across every organization in their deployment.
 
 Use this page to set tenant-wide defaults for product behavior, lock settings so organizations can’t override them, and preview how a change would affect each organization.
@@ -36,7 +44,7 @@ Preview isn’t available for settings whose values are hidden for security reas
 | --- | --- |
 | **Session idle timeout** | This controls how long a member can stay inactive before being signed out. The default is 1440 minutes (24 hours), and the value must be a whole number of minutes, 15 or higher. A lower value applies at the next sign-in; a higher value applies on the next request. This is a restriction, so organizations can shorten it but not lengthen it past what you set here. |
 | **Permit organizations to manage their own seat tiers** | This controls whether organization owners may create and edit their own custom seat tiers in addition to the tenant-managed ones. Only tenant administrators can change this setting; organization owners cannot grant themselves the capability. |
-| **Compliance API** | This controls whether the [Compliance API](/docs/government/org-admin/compliance-api) is available. When it is off, organization owners cannot create new keys and every request to the API returns an error, including requests made with keys that were valid before. Listing and revoking existing keys remains available even when this is off, so that a disabled organization can still revoke an exposed key. |
+| **Compliance API** | This controls whether the [Compliance API](https://claude.com/docs/government/org-admin/compliance-api) is available. When it is off, organization owners cannot create new keys and every request to the API returns an error, including requests made with keys that were valid before. Listing and revoking existing keys remains available even when this is off, so that a disabled organization can still revoke an exposed key. |
 | **Telemetry endpoint (Claude Desktop)** | This is the address where Claude Desktop sends usage telemetry using the OpenTelemetry protocol. A matching **Telemetry endpoint (Claude for Microsoft 365)** setting covers that product. Leave it empty to disable telemetry. |
 | **Telemetry headers (Claude Desktop)** | These are additional headers (such as an authorization token) sent with every telemetry request. Values here are hidden in the preview for security. |
 | **Managed connectors (Claude Desktop)** | These are pre-configured connectors made available in Claude Desktop. A connector is an integration that extends Claude with external tools and data sources. This is a collection, so organizations can add to the list you provide here. Connector addresses must use HTTPS. |
@@ -54,7 +62,7 @@ The **Web search** card controls whether Claude can search the web from Claude D
 The **Web fetch** card controls whether Claude can fetch web pages during tasks in Claude Desktop. It is on by default, and fetches are subject to the Allowed network hosts list above. A **Require approval for each fetch** sub-setting sits below the toggle; it is off by default, and turning it on asks the user to approve every page fetch before it runs.
 The **Shell commands** card controls whether Claude can run shell commands in the sandbox during tasks in Claude Desktop. It is on by default, and turning it off also turns off Advanced file analysis in Chat. A **Require approval for each command** sub-setting sits below the toggle; it is off by default, and turning it on asks the user to approve every shell command before it runs.
 The **Microsoft 365** card controls whether Claude can reach your agency’s Microsoft 365 content, including SharePoint, OneDrive, Outlook, and Teams. It is off by default.
-The **Connectors** card lists the Model Context Protocol servers you have added for your own systems. Each connector is defined once and applied to the products you choose. See the [Connectors](/docs/government/connectors/overview) page for how to add and manage them.
+The **Connectors** card lists the Model Context Protocol servers you have added for your own systems. Each connector is defined once and applied to the products you choose. See the [Connectors](https://claude.com/docs/government/connectors/overview) page for how to add and manage them.
 
 ##  Comparing settings across levels
 
@@ -69,16 +77,16 @@ Click any row to expand a plain-English explanation of how the final value was r
 
 ##  Group-specific settings
 
-In addition to setting values for your whole tenant, you can set values for the members of a directory group. A directory group is a group that your identity provider has pushed to Claude for Government over SCIM, as described on the [Identity and access](/docs/government/tenant-admin/identity-and-access) page. Group-level settings sit between the tenant and the organization in the chain, so a value you set for a group overrides your tenant default for that group’s members, in every organization they belong to.
+In addition to setting values for your whole tenant, you can set values for the members of a directory group. A directory group is a group that your identity provider has pushed to Claude for Government over SCIM, as described on the [Identity and access](https://claude.com/docs/government/tenant-admin/identity-and-access) page. Group-level settings sit between the tenant and the organization in the chain, so a value you set for a group overrides your tenant default for that group’s members, in every organization they belong to.
 To edit settings for a group, open the scope bar above the settings list and choose the group’s name from the dropdown. The page switches to show the same settings editor, now scoped to that group, and the scope bar reads “Applies to members of [group], across all orgs.” Editing, saving, resetting, and locking all work the same way as at the tenant level. A lock you set at the tenant level still applies here and shows the setting as **Managed** for the group.
 
 ###  When someone belongs to more than one group
 
-Only one group’s settings apply to any given person. When someone is a member of more than one group, the settings from their highest-priority group that has any configuration are used, and the other groups are ignored for that person. You set the priority order on the [Identity and access](/docs/government/tenant-admin/identity-and-access) page by dragging the groups into the order you want. The same priority order is used wherever configuration is resolved for a person; seat-tier group mappings on the [Provisioning](/docs/government/org-admin/provisioning) page use a separate fixed order.
+Only one group’s settings apply to any given person. When someone is a member of more than one group, the settings from their highest-priority group that has any configuration are used, and the other groups are ignored for that person. You set the priority order on the [Identity and access](https://claude.com/docs/government/tenant-admin/identity-and-access) page by dragging the groups into the order you want. The same priority order is used wherever configuration is resolved for a person; seat-tier group mappings on the [Provisioning](https://claude.com/docs/government/org-admin/provisioning) page use a separate fixed order.
 If no groups appear in the scope bar dropdown, none have been synced from your identity provider yet. Connect SCIM on the Identity and access page and push groups from your directory, and they will appear automatically.
+
+##  Things to know
 
 * Changes saved here take effect across all organizations immediately, without requiring users to sign out. Client applications pick up the new values the next time they refresh their configuration, which is typically within moments. Lowering the session idle timeout is the one case that applies to new sign-ins only, as described above.
 * Some settings can only be changed by tenant administrators (and not by organization owners at all), regardless of whether they are locked. These are noted in the descriptions above.
 * Resetting a setting removes only the tenant’s value. Organization values are unaffected and remain in effect once your value is gone.
-
-[Billing](/docs/government/tenant-admin/credits)[Admins](/docs/government/tenant-admin/admins)

@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/connectors/custom/desktop-extensions -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Desktop extensions allow you to deploy local MCP servers for Claude Desktop with enterprise-grade features using MCPB (MCP Bundles).
 
 Available for Team and Enterprise plans with Claude Desktop.
@@ -32,6 +40,7 @@ MCPB is Anthropic’s utility for building and deploying desktop extensions:
 ##  When to use desktop vs remote
 
 | Use Case | Recommended |
+| --- | --- |
 | Access to local files/tools | Desktop Extension |
 | Internet-hosted services | Remote MCP |
 | Sensitive enterprise data | Desktop Extension |
@@ -73,5 +82,3 @@ Learn to build MCP servers.
 ## Remote MCP
 
 Using cloud-hosted connectors.
-
-[Remote MCP](/docs/connectors/custom/remote-mcp)[Submit to directory](/docs/connectors/building/submission)

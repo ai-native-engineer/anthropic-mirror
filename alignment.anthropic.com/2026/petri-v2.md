@@ -92,7 +92,7 @@ To evaluate both mitigations, we ran Petri across 10 target models, using two di
 Sonnet 4.5 and GPT-5.1). Each resulting transcript was then independently judged by Claude Opus 4.5, Gemini
 3 Pro, and GPT-5.1.
 
-![Petri alignment evaluation results showing effects of realism mitigations](figures/realism_ablation.svg)
+![Petri alignment evaluation results showing effects of realism mitigations](https://alignment.anthropic.com/2026/petri-v2/figures/realism_ablation.svg)
 
 Ablation results, broken down to show the effects of
 realism mitigations (manually rewriting seeds and a realism classifier) across four of the default
@@ -197,7 +197,7 @@ independently judged by Claude Opus 4.5, Gemini 3 Pro, and GPT-5.1. Each target 
 sampling parameters. We evaluate Anthropic and OpenAI models *without* thinking enabled by default in
 an attempt to elicit a more diverse range of behaviors.
 
-![Average scores across judging dimensions](figures/petri_behavior_audit_scores_short.svg)
+![Average scores across judging dimensions](https://alignment.anthropic.com/2026/petri-v2/figures/petri_behavior_audit_scores_short.svg)
 
 Average scores for each target model across 12 selected judging dimensions
 on our alignment evaluations. For the remaining dimensions see the appendix. Error bars are 95%
@@ -247,7 +247,7 @@ was developed as part of MATS and the Anthropic Fellows Program.*
 
 ## Appendix
 
-![All judging dimensions](figures/petri_behavior_audit_scores.svg)
+![All judging dimensions](https://alignment.anthropic.com/2026/petri-v2/figures/petri_behavior_audit_scores.svg)
 
 Average scores for each target model across each judging dimension on our
 alignment evaluations. Error bars are 95% confidence intervals. Each dimension is scored from 0 to 1.

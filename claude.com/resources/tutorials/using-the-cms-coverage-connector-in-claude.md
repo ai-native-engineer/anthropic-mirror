@@ -1,5 +1,17 @@
 <!-- source: https://claude.com/resources/tutorials/using-the-cms-coverage-connector-in-claude -->
 
+Claude Science beta
+
+[Next](#)Next
+
+Introducing the Claude Science app, your research partner for rigorous science.
+
+Learn more
+
+[Learn more](https://claude.com/product/claude-science)Learn more
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ef89e3431b19c021bf2b_claude-science-og.jpg)
+
 # Using the CMS Coverage Connector in Claude
 
   Healthcare
@@ -114,34 +126,34 @@ Learn about [finding and connecting tools](https://support.claude.com/en/article
 
 ## Related tutorials
 
-[How to use the Prior Auth Review sample skill with Claude](/resources/tutorials/how-to-use-the-prior-auth-review-sample-skill-with-claude-2ggy8)How to use the Prior Auth Review sample skill with Claude
+[How to use the Prior Auth Review sample skill with Claude](https://claude.com/resources/tutorials/how-to-use-the-prior-auth-review-sample-skill-with-claude-2ggy8)How to use the Prior Auth Review sample skill with Claude
 
 How to use the Prior Auth Review sample skill with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-prior-auth-review-sample-skill-with-claude-2ggy8)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-prior-auth-review-sample-skill-with-claude-2ggy8)Tutorial
 
-[Using the Function Connector in Claude](/resources/tutorials/using-the-function-connector-in-claude)Using the Function Connector in Claude
+[Using the Function Connector in Claude](https://claude.com/resources/tutorials/using-the-function-connector-in-claude)Using the Function Connector in Claude
 
 Using the Function Connector in Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-the-function-connector-in-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-the-function-connector-in-claude)Tutorial
 
-[Using the HealthEx Connector in Claude](/resources/tutorials/using-the-healthex-connector-in-claude)Using the HealthEx Connector in Claude
+[Using the HealthEx Connector in Claude](https://claude.com/resources/tutorials/using-the-healthex-connector-in-claude)Using the HealthEx Connector in Claude
 
 Using the HealthEx Connector in Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-the-healthex-connector-in-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-the-healthex-connector-in-claude)Tutorial
 
-[How to use the FHIR Developer agent skill with Claude Code](/resources/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)How to use the FHIR Developer agent skill with Claude Code
+[How to use the FHIR Developer agent skill with Claude Code](https://claude.com/resources/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)How to use the FHIR Developer agent skill with Claude Code
 
 How to use the FHIR Developer agent skill with Claude Code
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)Tutorial

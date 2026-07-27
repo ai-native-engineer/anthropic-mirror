@@ -4,9 +4,9 @@
 
 Nov 1, 2023
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F05315efcc858b39468203c51081b69119fffc735-2880x1620.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/05315efcc858b39468203c51081b69119fffc735-2880x1620.png)
 
-Before I get into Anthropic’s [Responsible Scaling Policy (RSP)](/news/anthropics-responsible-scaling-policy), it’s worth explaining some of the unique challenges around measuring AI risks that led us to develop our RSP. The most important thing to understand about AI is how quickly it is moving. A few years ago, AI systems could barely string together a coherent sentence. Today they can pass medical exams, write poetry, and tell jokes. This rapid progress is ultimately driven by the amount of available computation, which is growing by 8x per year and is unlikely to slow down in the next few years. The *general* trend of rapid improvement is predictable, however, it is actually very difficult to predict when AI will acquire *specific* skills or knowledge. This unfortunately includes dangerous skills, such as the ability to construct biological weapons1. We are thus facing a number of potential AI-related threats which, although relatively limited given today’s systems, are likely to become very serious at some unknown point in the near future. This is very different from most other industries: imagine if each new model of car had some chance of spontaneously sprouting a new (and dangerous) power, like the ability to fire a rocket boost or accelerate to supersonic speeds.  
+Before I get into Anthropic’s [Responsible Scaling Policy (RSP)](https://www.anthropic.com/news/anthropics-responsible-scaling-policy), it’s worth explaining some of the unique challenges around measuring AI risks that led us to develop our RSP. The most important thing to understand about AI is how quickly it is moving. A few years ago, AI systems could barely string together a coherent sentence. Today they can pass medical exams, write poetry, and tell jokes. This rapid progress is ultimately driven by the amount of available computation, which is growing by 8x per year and is unlikely to slow down in the next few years. The *general* trend of rapid improvement is predictable, however, it is actually very difficult to predict when AI will acquire *specific* skills or knowledge. This unfortunately includes dangerous skills, such as the ability to construct biological weapons1. We are thus facing a number of potential AI-related threats which, although relatively limited given today’s systems, are likely to become very serious at some unknown point in the near future. This is very different from most other industries: imagine if each new model of car had some chance of spontaneously sprouting a new (and dangerous) power, like the ability to fire a rocket boost or accelerate to supersonic speeds.  
   
 We need both a way to frequently monitor these emerging risks, and a protocol for responding appropriately when they occur. Responsible scaling policies—initially suggested by the Alignment Research Center—attempt to meet this need. Anthropic published its RSP in September, and was the first major AI company to do so. It has two major components:
 
@@ -23,7 +23,7 @@ ASL-3 is the point at which AI models become operationally useful for catastroph
 
 ASL-4 represents an escalation of the catastrophic misuse risks from ASL-3, and also adds a new risk: concerns about autonomous AI systems that escape human control and pose a significant threat to society. Roughly, ASL-4 will be triggered when either AI systems become capable of autonomy at a near-human level, *or* become the main source in the world of at least one serious global security threat, such as bioweapons. It is likely that at ASL-4 we will require a detailed and precise understanding of what is going on inside the model, in order to make an “affirmative case” that the model is safe.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc9812176a54de4258c4969b24bf55dd4dfc1d928-5760x3240.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/c9812176a54de4258c4969b24bf55dd4dfc1d928-5760x3240.png)
 
 Next, I’ll briefly mention some of our key practices and lessons learned, which we hope are helpful to others in crafting an RSP. First, deep executive involvement is critical. As CEO, I personally spent 10-20% of my time on the RSP for 3 months—I wrote multiple drafts from scratch, in addition to devising and proposing the ASL system. One of my co-founders devoted 50% of their time to developing the RSP for 3 months. Together, this sent a meaningful signal to employees that Anthropic’s leadership team takes the matter of AI safety seriously and is firmly committed to responsible scaling at the frontier.  
   
@@ -35,4 +35,4 @@ Finally, I’d like to discuss the relationship between RSPs and regulation. RSP
   
 **Footnotes**  
   
-1. [https://www.anthropic.com/inde...](/news/frontier-threats-red-teaming-for-ai-safety)
+1. [https://www.anthropic.com/inde...](https://www.anthropic.com/news/frontier-threats-red-teaming-for-ai-safety)

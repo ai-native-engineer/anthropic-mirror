@@ -4,7 +4,7 @@
 
 May 14, 2026
 
-![2028: Two scenarios for global AI leadership](https://www-cdn.anthropic.com/images/4zrzovbb/website/92f0be286703b4b8c906bcf1c95c7f3bbee5bd38-1000x1000.svg)
+![2028: Two scenarios for global AI leadership](https://www-cdn.anthropic.com/images/4zrzovbb/website/2b05397d1ceac19b70a820a61d27dca4a5fba2e0-1920x1080.jpg)
 
 We’re releasing a new paper that explains our views on the competition on AI between the US and China.
 
@@ -183,18 +183,16 @@ America and its allies have developed both the world’s most capable frontier A
 
 1. In January 2026, the House [passed a bipartisan bill](https://www.congress.gov/bill/119th-congress/house-bill/2683/all-actions) 369–22 to close that loophole; the bill has not passed the Senate.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

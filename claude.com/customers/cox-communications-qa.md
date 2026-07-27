@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d7cf311a7d86111af6d72_cox-logo.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d7cf311a7d86111af6d72_cox-logo.svg)
 
@@ -56,7 +56,7 @@ Give Claude access to your local files and let it complete tasks autonomously. A
 
 Read more
 
-[Read more](/product/cowork)Read more
+[Read more](https://claude.com/product/cowork)Read more
 
 Cowork
 
@@ -210,10 +210,10 @@ Anthropic's agentic coding tool. Claude Code understands your codebase, edits fi
 
 ## Related stories
 
-[Cox Communications drives a 7x return on AI across its B2B funnel with Claude and Accenture](/customers/cox-and-accenture)Cox Communications drives a 7x return on AI across its B2B funnel with Claude and Accenture
+[Cox Communications drives a 7x return on AI across its B2B funnel with Claude and Accenture](https://claude.com/customers/cox-and-accenture)Cox Communications drives a 7x return on AI across its B2B funnel with Claude and Accenture
 
 Cox Communications drives a 7x return on AI across its B2B funnel with Claude and Accenture
 
 Customer story
 
-[Customer story](/customers/cox-and-accenture)Customer story
+[Customer story](https://claude.com/customers/cox-and-accenture)Customer story

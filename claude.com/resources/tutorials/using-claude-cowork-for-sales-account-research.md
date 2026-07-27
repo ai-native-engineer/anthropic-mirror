@@ -132,26 +132,26 @@ Claude does the gathering. The judgment about what to do with it is yours.
 
 ## Related tutorials
 
-[Using Claude Design for presentations and slide decks](/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)Using Claude Design for presentations and slide decks
+[Using Claude Design for presentations and slide decks](https://claude.com/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)Using Claude Design for presentations and slide decks
 
 Using Claude Design for presentations and slide decks
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)Tutorial
 
-[How to build a plugin from scratch in Claude Cowork](/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)How to build a plugin from scratch in Claude Cowork
+[How to build a plugin from scratch in Claude Cowork](https://claude.com/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)How to build a plugin from scratch in Claude Cowork
 
 How to build a plugin from scratch in Claude Cowork
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)Tutorial
 
-[Claude for Sales](/resources/tutorials/claude-for-sales)Claude for Sales
+[Claude for Sales](https://claude.com/resources/tutorials/claude-for-sales)Claude for Sales
 
 Claude for Sales
 
 Tutorial
 
-[Tutorial](/resources/tutorials/claude-for-sales)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/claude-for-sales)Tutorial

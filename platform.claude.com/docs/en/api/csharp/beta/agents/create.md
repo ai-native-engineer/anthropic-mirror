@@ -22,21 +22,29 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5"ClaudeSonnet5`
+
+        High-performance model for coding and agents
+
       - `"claude-fable-5"ClaudeFable5`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `"claude-opus-5"ClaudeOpus5`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"ClaudeOpus4_8`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"ClaudeOpus4_7`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-6"ClaudeOpus4_6`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"ClaudeSonnet4_6`
 
@@ -52,11 +60,11 @@ Create Agent
 
       - `"claude-opus-4-5"ClaudeOpus4_5`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"ClaudeSonnet4_5`
 
@@ -76,21 +84,29 @@ Create Agent
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"ClaudeSonnet5`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"ClaudeFable5`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"ClaudeOpus5`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"ClaudeOpus4_8`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"ClaudeOpus4_7`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"ClaudeOpus4_6`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"ClaudeSonnet4_6`
 
@@ -106,11 +122,11 @@ Create Agent
 
         - `"claude-opus-4-5"ClaudeOpus4_5`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"ClaudeSonnet4_5`
 
@@ -119,6 +135,64 @@ Create Agent
         - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
 
           High-performance model for agents and coding
+
+      - `Effort? Effort`
+
+        How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+        - `enum BetaManagedAgentsEffortLevel:`
+
+          How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
+
+          - `"low"Low`
+
+          - `"medium"Medium`
+
+          - `"high"High`
+
+          - `"xhigh"Xhigh`
+
+          - `"max"Max`
+
+        - `class BetaManagedAgentsEffortLow:`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `required Type Type`
+
+            - `"low"Low`
+
+        - `class BetaManagedAgentsEffortMedium:`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `required Type Type`
+
+            - `"medium"Medium`
+
+        - `class BetaManagedAgentsEffortHigh:`
+
+          High effort. Favors reasoning depth.
+
+          - `required Type Type`
+
+            - `"high"High`
+
+        - `class BetaManagedAgentsEffortXhigh:`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `required Type Type`
+
+            - `"xhigh"Xhigh`
+
+        - `class BetaManagedAgentsEffortMax:`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `required Type Type`
+
+            - `"max"Max`
 
       - `Speed? Speed`
 
@@ -342,7 +416,7 @@ Create Agent
 
       - `required string Description`
 
-        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
+        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
 
       - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
@@ -416,11 +490,19 @@ Create Agent
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
 
 ### Returns
 
@@ -462,21 +544,29 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5"ClaudeSonnet5`
+
+        High-performance model for coding and agents
+
       - `"claude-fable-5"ClaudeFable5`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `"claude-opus-5"ClaudeOpus5`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"ClaudeOpus4_8`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"ClaudeOpus4_7`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-6"ClaudeOpus4_6`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"ClaudeSonnet4_6`
 
@@ -492,11 +582,11 @@ Create Agent
 
       - `"claude-opus-4-5"ClaudeOpus4_5`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"ClaudeSonnet4_5`
 
@@ -505,6 +595,50 @@ Create Agent
       - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
 
         High-performance model for agents and coding
+
+    - `Effort Effort`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `class BetaManagedAgentsEffortLow:`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `required Type Type`
+
+          - `"low"Low`
+
+      - `class BetaManagedAgentsEffortMedium:`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `required Type Type`
+
+          - `"medium"Medium`
+
+      - `class BetaManagedAgentsEffortHigh:`
+
+        High effort. Favors reasoning depth.
+
+        - `required Type Type`
+
+          - `"high"High`
+
+      - `class BetaManagedAgentsEffortXhigh:`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `required Type Type`
+
+          - `"xhigh"Xhigh`
+
+      - `class BetaManagedAgentsEffortMax:`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `required Type Type`
+
+          - `"max"Max`
 
     - `Speed Speed`
 
@@ -746,6 +880,9 @@ Console.WriteLine(betaManagedAgentsAgent);
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
     "speed": "standard"
   },
   "multiagent": {

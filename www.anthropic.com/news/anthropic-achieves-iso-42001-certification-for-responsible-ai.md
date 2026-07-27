@@ -4,7 +4,7 @@
 
 Jan 13, 2025
 
-![Four locks joined together](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F10d2b2627656111aae62a8ab7b299b4b73ee86a4-2880x1620.png&w=3840&q=75)
+![Four locks joined together](https://www-cdn.anthropic.com/images/4zrzovbb/website/10d2b2627656111aae62a8ab7b299b4b73ee86a4-2880x1620.png)
 
 We are excited to announce that Anthropic has achieved accredited certification under the new [ISO/IEC 42001:2023 standard](https://www.iso.org/standard/81230.html) for our AI management system. ISO 42001 is the first international standard outlining requirements for AI governance and helps ensure AI systems are developed and used responsibly.
 

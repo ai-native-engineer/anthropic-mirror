@@ -2,7 +2,7 @@
 
 # Use Claude in Slack
 
-Updated this week
+June 23, 2026
 
 Claude in Slack will be switched over to the new Claude Tag experience on August 3, 2026. To integrate Claude and Slack, use Claude Tag instead. Learn more **[about Claude Tag](https://support.claude.com/en/articles/15594475)**.
 
@@ -24,7 +24,7 @@ Claude in Slack gives you AI assistance right where your team collaborates. This
 5. When you close the AI assistant panel, the conversation moves to your history.
 6. Access previous conversations by clicking the clock icon.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755150661/a1a13c73bda421f6ee906650cfc9/22907223-e523-4a93-a6d2-3199a8368991?expires=1782460800&signature=4169765ccf848096db87613a68c866530672f67c58fe86a58516d63f69c3b454&req=dSciE8h7nYdZWPMW1HO4zXK26hNK7jEWVfOC%2FRy97LVYnZwean4%2BgwzQOX3T%0AOAHKFffd61iZuJQGfX0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755150661/a1a13c73bda421f6ee906650cfc9/22907223-e523-4a93-a6d2-3199a8368991?expires=1782460800&signature=4169765ccf848096db87613a68c866530672f67c58fe86a58516d63f69c3b454&req=dSciE8h7nYdZWPMW1HO4zXK26hNK7jEWVfOC%2FRy97LVYnZwean4%2BgwzQOX3T%0AOAHKFffd61iZuJQGfX0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755150661/a1a13c73bda421f6ee906650cfc9/22907223-e523-4a93-a6d2-3199a8368991?expires=1784923200&signature=d8863550a9873e315e324d7c3b26cc6e3fd7c6eaa9659f771769602deef03dc9&req=dSciE8h7nYdZWPMW1HO4zXK26hVH6jIcVfOC%2FRy97LXJMAnpjNGrRjC992Jb%0Ags6u6PZCCiMDqBxQqg0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755150661/a1a13c73bda421f6ee906650cfc9/22907223-e523-4a93-a6d2-3199a8368991?expires=1784923200&signature=d8863550a9873e315e324d7c3b26cc6e3fd7c6eaa9659f771769602deef03dc9&req=dSciE8h7nYdZWPMW1HO4zXK26hVH6jIcVfOC%2FRy97LXJMAnpjNGrRjC992Jb%0Ags6u6PZCCiMDqBxQqg0%3D%0A)
 
 ## Mention @Claude in a thread or channel
 
@@ -195,4 +195,8 @@ This message appears when you try to continue a conversation in Slack that has a
 
 Start a new conversation to continue.
 
-[Use research on Claude](https://support.claude.com/en/articles/11088861-use-research-on-claude)[Get started with Claude in Slack](https://support.claude.com/en/articles/11506255-get-started-with-claude-in-slack)[Use Claude in Xcode](https://support.claude.com/en/articles/12293051-use-claude-in-xcode)[Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)[What is Claude Tag?](https://support.claude.com/en/articles/15594475-what-is-claude-tag)
+* [Use Claude for Education at your university](https://support.claude.com/en/articles/11139144-use-claude-for-education-at-your-university)
+* [Get started with Claude in Slack](https://support.claude.com/en/articles/11506255-get-started-with-claude-in-slack)
+* [Assign tasks from anywhere in Claude Cowork](https://support.claude.com/en/articles/13947068-assign-tasks-from-anywhere-in-claude-cowork)
+* [Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)
+* [What is Claude Tag?](https://support.claude.com/en/articles/15594475-what-is-claude-tag)

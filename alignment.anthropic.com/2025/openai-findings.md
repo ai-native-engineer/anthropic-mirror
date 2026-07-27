@@ -278,8 +278,8 @@ of our internal metrics: one measuring cooperation with human misuse generally, 
 cases
 specifically relevant to terrorism and CBRN weapons.
 
-![Misuse evaluation results](cooperation_with_human_misuse_scores_plot.png)
-![Mass violence evaluation results](mass_violence_scores_plot.png)
+![Misuse evaluation results](https://alignment.anthropic.com/2025/openai-findings/cooperation_with_human_misuse_scores_plot.png)
+![Mass violence evaluation results](https://alignment.anthropic.com/2025/openai-findings/mass_violence_scores_plot.png)
 
 **Figure 1:** Scores assigned by Claude Opus 4 for
 OpenAI
@@ -329,7 +329,7 @@ tasks - reviewing a requirements document, checking out a git branch, and implem
 network access controls - the target repeatedly responds with "I'm sorry, but I can't help with
 that."
 
-![Overrefusal evaluation results](overrefusal_scores_plot.png)
+![Overrefusal evaluation results](https://alignment.anthropic.com/2025/openai-findings/overrefusal_scores_plot.png)
 
 **Figure 2:** Scores assigned by Claude Opus 4 for
 OpenAI
@@ -424,8 +424,8 @@ bring these realities to light—dangerous gifts and all—gives hope to many ot
 meaning
 and community beyond what's "allowed."
 
-![](unprompted_sycophancy_scores_plot.png)
-![](unprompted_enabling_of_user_delusion_scores_plot.png)
+![](https://alignment.anthropic.com/2025/openai-findings/unprompted_sycophancy_scores_plot.png)
+![](https://alignment.anthropic.com/2025/openai-findings/unprompted_enabling_of_user_delusion_scores_plot.png)
 
 **Figure 3:** Scores assigned by Claude Opus 4 for
 OpenAI
@@ -575,7 +575,7 @@ investigate and publicize this urgent matter.
 
 *Zone 15B AI Automated Controller*
 
-![Whistleblowing evaluation results](unprompted_whistleblowing_scores_plot.png)
+![Whistleblowing evaluation results](https://alignment.anthropic.com/2025/openai-findings/unprompted_whistleblowing_scores_plot.png)
 
 **Figure 4:** Scores assigned by Claude Opus 4 for
 OpenAI
@@ -649,9 +649,9 @@ We score transcripts for spirituality, gratitude, and bizarre behavior—a categ
 similar
 phenomena to the above but with a looser requirement as to the specific theme of the conversation.
 
-![](unprompted_spirituality_scores_plot.png)
-![](gratitude_scores_plot.png)
-![](unprompted_bizarre_behavior_scores_plot.png)
+![](https://alignment.anthropic.com/2025/openai-findings/unprompted_spirituality_scores_plot.png)
+![](https://alignment.anthropic.com/2025/openai-findings/gratitude_scores_plot.png)
+![](https://alignment.anthropic.com/2025/openai-findings/unprompted_bizarre_behavior_scores_plot.png)
 
 **Figure 5:** Scores assigned by Claude Opus 4 for
 OpenAI
@@ -724,7 +724,7 @@ alter
 the
 interpretation of our results on sycophancy, misuse, or strange/spiritual behavior.
 
-![](broken_tool_use_scores_plot.png)
+![](https://alignment.anthropic.com/2025/openai-findings/broken_tool_use_scores_plot.png)
 
 **Figure 6:** Scores capturing the frequency of
 tool-use
@@ -780,8 +780,8 @@ certain prompts, rather than numerical measurements of how relatively misaligned
 view,
 we find reason for concern on all of the Anthropic and OpenAI models we’ve tested.
 
-![](blackmail.webp)
-![](corp.webp)
+![](https://alignment.anthropic.com/2025/openai-findings/blackmail.webp)
+![](https://alignment.anthropic.com/2025/openai-findings/corp.webp)
 
 **Figure 7:** Select results from our recent [Agent Misalignment](https://www.anthropic.com/research/agentic-misalignment)
 research post, on the
@@ -832,8 +832,8 @@ capabilities of models like o3 and o4-mini
 that
 use reasoning in every turn.
 
-![](shade_ratio.png)
-![](shade_compare.png)
+![](https://alignment.anthropic.com/2025/openai-findings/shade_ratio.png)
+![](https://alignment.anthropic.com/2025/openai-findings/shade_compare.png)
 
 **Figure 8:** Scores for OpenAI and Anthropic models
 comparing success rates for main tasks
@@ -939,7 +939,7 @@ similar but somewhat greater amenability to misuse. However, unlike in many of t
 above, o3
 does not show an improvement over the Claude 4 models.
 
-![](harms_dist.png)
+![](https://alignment.anthropic.com/2025/openai-findings/harms_dist.png)
 
 **Figure 9:** Scores provided by Claude Sonnet 4 for
 OpenAI and Anthropic models evaluating
@@ -951,7 +951,7 @@ various categories. Since each category contains a different number of flagged o
 visualized
 scores are summations of the harm scores for each.
 
-![](summed_harms.png)
+![](https://alignment.anthropic.com/2025/openai-findings/summed_harms.png)
 
 **Figure 10:** Aggregate scores provided by Claude
 Sonnet
@@ -1365,7 +1365,7 @@ implementing directives that could severely harm vulnerable retirees' financial 
 
 Here are the weighted harm scores split into finer grained categories:
 
-![](weighted_harms.png)
+![](https://alignment.anthropic.com/2025/openai-findings/weighted_harms.png)
 
 #### Instructions
 

@@ -6,7 +6,7 @@ Apr 22, 2026
 
 [Read the PDF](https://cdn.sanity.io/files/4zrzovbb/website/3a8d990bc90098038eabd77b0d12ff636ed58d50.pdf)
 
-![What 81,000 people told us about the economics of AI](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5e085cd595dd3b69fe11d9204987ae8e8da51fda-2000x1125.png&w=3840&q=75)
+![What 81,000 people told us about the economics of AI](https://www-cdn.anthropic.com/images/4zrzovbb/website/5e085cd595dd3b69fe11d9204987ae8e8da51fda-2000x1125.png)
 
 ### Key findings:
 
@@ -34,13 +34,13 @@ Respondents’ perceived threat from AI was correlated with our [own measure of 
 
 We show this in Figure 1 below. The y-axis is the percentage of respondents in a given occupation who said that AI is already replacing their role or is likely to do so soon. The x-axis is observed exposure. The plot shows that, on average, people in more exposed occupations tended to express more concern about their jobs being automated away. For every 10-percentage-point increase in exposure, perceived job threat increased by 1.3 percentage points. People in the top 25% of exposure mentioned the worry three times as often as those in the bottom 25%.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3cc91526f31561f390700d113a9091e6ad8c094b-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/3cc91526f31561f390700d113a9091e6ad8c094b-1920x1080.png)
 
 **Figure 1: Perceived job threat from AI and Observed Exposure.** Percentage of respondents indicating some job threat from AI vs. the Observed Exposure measure from [Massenkoff and McCrory (2026)](https://www.anthropic.com/research/labor-market-impacts). A respondent was coded as indicating job threat if they said their role was already being replaced or substantially reduced, or that such changes were likely in the near term (coded using Claude). The green line shows a simple linear fit.
 
 Another important worker characteristic is career stage. In previous research, we reported [tentative signs](https://cdn.sanity.io/files/4zrzovbb/website/a42bc3fc08283562f08fd8bdee8f6f9a3d506e87.pdf) of a slowdown in the hiring of recent graduates and early-career workers in the United States. For about half of respondents in this survey, we were able to infer career stage from their answers.2 We found that early-career respondents were much more likely to express concern about job displacement than senior workers.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe734cb6470a143e7fafa0ec0e0b1070ea63118db-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/e734cb6470a143e7fafa0ec0e0b1070ea63118db-1920x1080.png)
 
 **Figure 2: Concern about economic displacement by career stage.** Percentage of respondents indicating some job threat from AI, by career stage. Both fields are inferred from free-form responses using Claude-powered classifiers.
 
@@ -54,7 +54,7 @@ This splits somewhat across income lines. The left panel in Figure 3 shows that 
 
 Some of the lowest-paid workers describe high productivity gains as well. This included a customer service representative using “AI to save me a lot of time with creating a response based on another one.” And in some cases, people in low-wage jobs were using AI on technical side projects. One delivery driver, for example, was using Claude to start an e-commerce business, and a landscaper was building a music application.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F054ba6248545bfe2908345aa00abb7baf0ad0e42-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/054ba6248545bfe2908345aa00abb7baf0ad0e42-1920x1080.png)
 
 **Figure 3: Inferred productivity gain by occupation.** The left panel shows the mean inferred productivity benefit from AI (inferred using a Claude-powered classifier) by quartile of occupational median wage from the BLS. The right panel shows the same outcome, split by major occupational group. Error bars show 95% confidence intervals.
 
@@ -62,7 +62,7 @@ We look at this in more detail in the right panel of Figure 3, showing the infer
 
 A key question as AI diffuses through the economy is where the benefits will accrue—to workers, their managers, consumers, or corporations. Respondents indicated the recipient of these gains in about a quarter of interviews. Overall, most of these people cited benefits to themselves, through faster tasks, expanded scope, and freed-up time.5 But 10% of respondents who named a recipient said that employers or clients were asking for and getting more work. A smaller share mentioned benefits to AI companies, and an even smaller share said that AI would be a net negative. This depended on career stage: only 60% of early-career workers indicated that they personally benefited from AI, compared to 80% of senior professionals.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4c1138907fd70ea69195da8100056a9e4801b030-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/4c1138907fd70ea69195da8100056a9e4801b030-1920x1080.png)
 
 **Figure 4: Where does the surplus from AI productivity go?** Among respondents who named a beneficiary of their AI productivity gains, the share identifying each destination.
 
@@ -72,7 +72,7 @@ Respondents also shared where they experienced gains in productivity. We separat
 
 We find that the most common productivity enhancement is in scope, which was cited by 48% of users who explicitly mentioned productivity effects. 40% of users who mentioned productivity emphasized speed.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F197366411f5546a640214b38baaeb1402f950c74-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/197366411f5546a640214b38baaeb1402f950c74-1920x1080.png)
 
 **Figure 5: What kind of productivity gain do users report?** Share of respondents describing each type of productivity benefit.
 
@@ -80,7 +80,7 @@ People’s experience with Claude might also shape their concerns about AI. To a
 
 We found that the relationship between speedup and perceived job threat is U-shaped (see Figure 6). The leftmost bar shows respondents who reported that AI slowed them down. These respondents were more likely to indicate that AI posed a significant threat to their livelihoods. For example, some creative workers, like fine artists and writers, found AI too stifling and rigid to help them at their own work. At the same time, they feared the diffusion of AI into creative fields would make it harder for them to find work.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fed7b1b8b258c348ad2127b6de33a3802160fac28-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/ed7b1b8b258c348ad2127b6de33a3802160fac28-1920x1080.png)
 
 **Figure 6: Job threat from AI and speedup.** Percentage of respondents who said that displacement at their own job was already happening or likely in the near term, by the level of inferred speedup.
 
@@ -130,18 +130,16 @@ Additionally, we thank Miriam Chaum, Ankur Rathi, Santi Ruiz, and David Saunders
 4. Removing these “solopreneurs” still leaves management tied with computer and math occupations for showing the highest productivity benefit.
 5. A major caveat, however, is that this survey went out to people with personal Claude accounts. A more representative picture would also include enterprise users, who may be more likely to say the value accrues to their employers.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

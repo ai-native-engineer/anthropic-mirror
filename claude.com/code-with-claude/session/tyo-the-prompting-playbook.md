@@ -48,7 +48,7 @@ Check-in and breakfast
 
 09:00 – 10:00
 
-[Opening keynote](/code-with-claude/session/tyo-opening-keynote)
+[Opening keynote](https://claude.com/code-with-claude/session/tyo-opening-keynote)
 
 ·
 
@@ -86,7 +86,7 @@ morning sessions
 
 10:30 – 11:00
 
-[What's new in Claude Code](/code-with-claude/session/tyo-whats-new-in-claude-code)
+[What's new in Claude Code](https://claude.com/code-with-claude/session/tyo-whats-new-in-claude-code)
 
 ·
 
@@ -104,7 +104,7 @@ Charmaine Lee
 
 Anthropic
 
-[Memory and dreaming for self-learning agents](/code-with-claude/session/tyo-memory-and-dreaming)
+[Memory and dreaming for self-learning agents](https://claude.com/code-with-claude/session/tyo-memory-and-dreaming)
 
 ·
 
@@ -122,7 +122,7 @@ Anthropic
 
 10:30 – 11:15
 
-[Picking the right model](/code-with-claude/session/tyo-picking-the-right-model)
+[Picking the right model](https://claude.com/code-with-claude/session/tyo-picking-the-right-model)
 
 ·
 
@@ -142,7 +142,7 @@ Anthropic
 
 11:15 – 11:45
 
-[Inside Canva AI: Architecting an agentic system for tens of millions of users](/code-with-claude/session/tyo-inside-canva-ai)
+[Inside Canva AI: Architecting an agentic system for tens of millions of users](https://claude.com/code-with-claude/session/tyo-inside-canva-ai)
 
 ·
 
@@ -158,7 +158,7 @@ Danny Wu
 
 Canva
 
-[The expanding toolkit](/code-with-claude/session/tyo-the-expanding-toolkit)
+[The expanding toolkit](https://claude.com/code-with-claude/session/tyo-the-expanding-toolkit)
 
 ·
 
@@ -178,7 +178,7 @@ Anthropic
 
 11:30 – 12:15
 
-[Beyond the basics with Claude Code](/code-with-claude/session/tyo-beyond-the-basics-with-claude-code)
+[Beyond the basics with Claude Code](https://claude.com/code-with-claude/session/tyo-beyond-the-basics-with-claude-code)
 
 ·
 
@@ -198,7 +198,7 @@ Anthropic
 
 12:00 – 12:30
 
-[How to get to production faster with Claude Managed Agents](/code-with-claude/session/tyo-get-to-production-faster-managed-agents)
+[How to get to production faster with Claude Managed Agents](https://claude.com/code-with-claude/session/tyo-get-to-production-faster-managed-agents)
 
 ·
 
@@ -222,7 +222,7 @@ Yusuke Kaji
 
 Rakuten Group, Inc.
 
-[From "AI-assisted" to "AI-delegated": Redesigning the development process to standardize AI across the org](/code-with-claude/session/tyo-cyberagent-ai-assisted-to-delegated)
+[From "AI-assisted" to "AI-delegated": Redesigning the development process to standardize AI across the org](https://claude.com/code-with-claude/session/tyo-cyberagent-ai-assisted-to-delegated)
 
 ·
 
@@ -250,7 +250,7 @@ afternoon sessions
 
 12:30 – 13:15
 
-[Stop babysitting your agents](/code-with-claude/session/tyo-stop-babysitting-your-agents)
+[Stop babysitting your agents](https://claude.com/code-with-claude/session/tyo-stop-babysitting-your-agents)
 
 ·
 
@@ -270,7 +270,7 @@ Anthropic
 
 13:30 – 14:15
 
-[AI with Claude on AWS: From code to orchestration](/code-with-claude/session/tyo-claude-on-aws-code-to-orchestration)
+[AI with Claude on AWS: From code to orchestration](https://claude.com/code-with-claude/session/tyo-claude-on-aws-code-to-orchestration)
 
 ·
 
@@ -290,7 +290,7 @@ AWS
 
 13:50 – 14:20
 
-[Rakuten's AI-nization: Autonomy × empowerment](/code-with-claude/session/tyo-rakuten-ai-nization)
+[Rakuten's AI-nization: Autonomy × empowerment](https://claude.com/code-with-claude/session/tyo-rakuten-ai-nization)
 
 ·
 
@@ -310,7 +310,7 @@ Yusuke Kaji
 
 Rakuten Group, Inc.
 
-[The thinking lever](/code-with-claude/session/tyo-the-thinking-lever)
+[The thinking lever](https://claude.com/code-with-claude/session/tyo-the-thinking-lever)
 
 ·
 
@@ -330,7 +330,7 @@ Anthropic
 
 14:30 – 15:15
 
-[Build a production-ready agent with Claude Managed Agents](/code-with-claude/session/tyo-build-production-ready-agent)
+[Build a production-ready agent with Claude Managed Agents](https://claude.com/code-with-claude/session/tyo-build-production-ready-agent)
 
 ·
 
@@ -348,7 +348,7 @@ Anthropic
 
 14:35 – 15:05
 
-[Building an AI-native engineering organization at Mizuho](/code-with-claude/session/tyo-mizuho-ai-native-engineering)
+[Building an AI-native engineering organization at Mizuho](https://claude.com/code-with-claude/session/tyo-mizuho-ai-native-engineering)
 
 ·
 
@@ -370,7 +370,7 @@ Tatsuto Fujii
 
 Mizuho Financial Group, Inc.
 
-[Running an AI-native engineering org](/code-with-claude/session/tyo-running-an-ai-native-engineering-org)
+[Running an AI-native engineering org](https://claude.com/code-with-claude/session/tyo-running-an-ai-native-engineering-org)
 
 ·
 
@@ -390,7 +390,7 @@ Anthropic
 
 15:20 – 15:50
 
-[The capability curve](/code-with-claude/session/tyo-the-capability-curve)
+[The capability curve](https://claude.com/code-with-claude/session/tyo-the-capability-curve)
 
 ·
 
@@ -408,7 +408,7 @@ Theo Chu
 
 Anthropic
 
-[Rebuilding SaaS for AI: Where the done-for-you experience finally began](/code-with-claude/session/tyo-freee-rebuilding-saas-for-ai)
+[Rebuilding SaaS for AI: Where the done-for-you experience finally began](https://claude.com/code-with-claude/session/tyo-freee-rebuilding-saas-for-ai)
 
 ·
 
@@ -428,7 +428,7 @@ freee K.K.
 
 15:30 – 16:15
 
-[Build AI agents using Claude in Microsoft Foundry](/code-with-claude/session/tyo-build-agents-microsoft-foundry)
+[Build AI agents using Claude in Microsoft Foundry](https://claude.com/code-with-claude/session/tyo-build-agents-microsoft-foundry)
 
 ·
 
@@ -452,7 +452,7 @@ Microsoft
 
 16:05 – 16:35
 
-[How NRI picks models with business-task benchmarks: A continuous eval loop for enterprise adoption](/code-with-claude/session/tyo-nri-business-task-benchmarks)
+[How NRI picks models with business-task benchmarks: A continuous eval loop for enterprise adoption](https://claude.com/code-with-claude/session/tyo-nri-business-task-benchmarks)
 
 ·
 
@@ -472,7 +472,7 @@ Yuki Kitamura
 
 Nomura Research Institute, Ltd.
 
-[Building with Claude on Google Cloud](/code-with-claude/session/tyo-building-with-claude-google-cloud)
+[Building with Claude on Google Cloud](https://claude.com/code-with-claude/session/tyo-building-with-claude-google-cloud)
 
 ·
 
@@ -496,7 +496,7 @@ Google Cloud
 
 16:30 – 17:15
 
-[Build a proactive agent workflow with Claude Code](/code-with-claude/session/tyo-proactive-agent-workflow)
+[Build a proactive agent workflow with Claude Code](https://claude.com/code-with-claude/session/tyo-proactive-agent-workflow)
 
 ·
 
@@ -520,7 +520,7 @@ Anthropic
 
 16:50 – 17:20
 
-[Getting more out of the Claude Platform](/code-with-claude/session/tyo-getting-more-out-of-claude-platform)
+[Getting more out of the Claude Platform](https://claude.com/code-with-claude/session/tyo-getting-more-out-of-claude-platform)
 
 ·
 
@@ -540,7 +540,7 @@ Rod Howarth
 
 Anthropic
 
-[Toward human-on-the-loop: How Mercari is transforming our software development into AI-native](/code-with-claude/session/tyo-mercari-human-on-the-loop)
+[Toward human-on-the-loop: How Mercari is transforming our software development into AI-native](https://claude.com/code-with-claude/session/tyo-mercari-human-on-the-loop)
 
 ·
 
@@ -562,7 +562,7 @@ Mercari, Inc.
 
 17:30 – 18:15
 
-[The prompting playbook](/code-with-claude/session/tyo-the-prompting-playbook)
+[The prompting playbook](https://claude.com/code-with-claude/session/tyo-the-prompting-playbook)
 
 ·
 
@@ -582,7 +582,7 @@ Anthropic
 
 17:35 – 18:05
 
-[The democratization of software development, and the future of the Japanese community](/code-with-claude/session/tyo-democratization-of-software-development)
+[The democratization of software development, and the future of the Japanese community](https://claude.com/code-with-claude/session/tyo-democratization-of-software-development)
 
 ·
 
@@ -612,8 +612,8 @@ Join us for a day of hands-on workshops, live demos of new capabilities and conv
 
 Attend virtually
 
-[Learn more](/code-with-claude/register-livestream)Learn more
+[Learn more](https://claude.com/code-with-claude/register-livestream)Learn more
 
-[Homepage](/code-with-claude)Homepage
+[Homepage](https://claude.com/code-with-claude)Homepage
 
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](/code-with-claude/code-of-conduct)
+[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)

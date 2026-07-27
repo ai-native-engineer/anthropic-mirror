@@ -12,6 +12,7 @@ Access US National Provider Identifier (NPI) Registry
 * Used in
 
   [Claude](https://claude.ai/directory/9ef2b31c-71e1-4183-9b8a-b9590f33940b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-npi-registry-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Anthropic](https://anthropic.com)
 
@@ -52,7 +53,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -66,7 +67,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Health and wellness
 
@@ -78,7 +79,7 @@ May 1, 2026
 
 ### AllTrails
 
-Find your next hike](/connectors/alltrails)
+Find your next hike](https://claude.com/connectors/alltrails)
 
 Health and wellness
 
@@ -92,4 +93,4 @@ May 26, 2026
 
 ### Alma
 
-Your nutrition data, inside every Claude conversation.](/connectors/alma)
+Your nutrition data, inside every Claude conversation.](https://claude.com/connectors/alma)

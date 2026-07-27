@@ -2,9 +2,7 @@
 
 # Use incognito chats
 
-Updated this week
-
-Table of contents
+Updated over a week ago
 
 Incognito chats are available to all Claude users (Free, Pro, Max, Team, and Enterprise plans).
 
@@ -21,22 +19,19 @@ Incognito chats are temporary conversations that aren't saved to your chat histo
 * If you are using Claude’s memory:
 
   + Starting an incognito chat won’t use Claude’s existing memory.
-  + Incognito chats will not be included in future memory summaries.
-
----
+  + Incognito chats will not be included in future memory entries.
+* Incognito chats aren't included in **[your monthly recap](https://support.claude.com/en/articles/15672559)**.
 
 ## How to start an incognito chat
 
 When starting a new chat with Claude outside of a project, you'll see a ghost icon in the upper right corner of your screen:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1782977400&signature=900088fbc17b8e8e75d1dcce0e6ee27bb721576fd08373bfef1e01e1e067f78d&req=dScmH854lYZbXfMW1HO4zeUcuwC0aeKPDCAt3Cx%2FSO3vXZbHOyecMy6Bueoo%0AoteBJJDOhJ6NQEQmlmA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1782977400&signature=900088fbc17b8e8e75d1dcce0e6ee27bb721576fd08373bfef1e01e1e067f78d&req=dScmH854lYZbXfMW1HO4zeUcuwC0aeKPDCAt3Cx%2FSO3vXZbHOyecMy6Bueoo%0AoteBJJDOhJ6NQEQmlmA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1784923200&signature=e348750d74d0b4e2fc1f85e27a9af44b006dd0de759424059e444a9439360a48&req=dScmH854lYZbXfMW1HO4zeUcuwa0bOaJDCAt3Cx%2FSO0xAlVdB0PdiqTvWDQC%0AUBg1gZjDdAf%2F5ihJPrE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1784923200&signature=e348750d74d0b4e2fc1f85e27a9af44b006dd0de759424059e444a9439360a48&req=dScmH854lYZbXfMW1HO4zeUcuwa0bOaJDCAt3Cx%2FSO0xAlVdB0PdiqTvWDQC%0AUBg1gZjDdAf%2F5ihJPrE%3D%0A)
 
 1. Click the ghost icon to enable incognito mode.
 2. The interface will indicate you're in an incognito chat with a black border and “Incognito chat” label in the upper left corner.
 3. Begin your conversation with Claude.
 4. When you’re finished chatting, click the “x” in the upper right corner to close the incognito chat.
-
----
 
 ## Important information for Team and Enterprise plans
 
@@ -45,8 +40,6 @@ If you're using incognito chats on a Team or Enterprise plan:
 * Incognito chats are included in organizational data exports available to account Owners.
 * While incognito chats aren’t saved to your chat history, they are retained for 30 days for safety, or longer in accordance with your organization's data retention policy.
 * Incognito chats are included in the **[Compliance API](https://support.claude.com/en/articles/13015708-access-the-compliance-api)** (available for Enterprise plans).
-
----
 
 ## Frequently asked questions
 
@@ -66,14 +59,8 @@ Incognito mode is currently only available for chats outside of projects, so you
 
 Once closed, incognito chats cannot be reopened. Make sure to save any important information before ending your session.
 
----
-
-Related Articles
-
-[How can I create and manage projects?](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects)[Use Claude’s chat search and memory to build on previous context](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context)[Release notes](https://support.claude.com/en/articles/12138966-release-notes)[Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)[Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
-
-Did this answer your question?
-
-😞😐😃
-
-Table of contents
+* [How can I create and manage projects?](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects)
+* [Use Claude’s chat search and memory to build on previous context](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context)
+* [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
+* [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
+* [See your monthly recap](https://support.claude.com/en/articles/15672559-see-your-monthly-recap)

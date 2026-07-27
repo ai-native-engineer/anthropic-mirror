@@ -4,7 +4,7 @@
 
 Apr 21, 2025
 
-![Our approach to understanding and addressing AI harms](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff5ef83ede8e91631c0e152c01a5fc9dce484c52d-2880x1620.png&w=3840&q=75)
+![Our approach to understanding and addressing AI harms](https://www-cdn.anthropic.com/images/4zrzovbb/website/f5ef83ede8e91631c0e152c01a5fc9dce484c52d-2880x1620.png)
 
 As AI capabilities rapidly advance, understanding and addressing the full spectrum of potential impacts becomes increasingly important. Today, we're sharing insights into our evolving approach to assessing and mitigating various harms that could result from our systems, ranging from catastrophic scenarios like biological threats to critical concerns like child safety, disinformation and fraud.
 

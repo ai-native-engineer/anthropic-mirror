@@ -20,7 +20,7 @@ Young people are wondering where they fit in a changing economy.
 
 Frontier labs have a responsibility at this moment.
 
-![Claude Corps](/images/claude-corps/lockup.svg) is bringing early-career talent and mission-driven organizations together to put AI to work where it matters most.
+![Claude Corps](https://www.anthropic.com/images/claude-corps/lockup.svg) is bringing early-career talent and mission-driven organizations together to put AI to work where it matters most.
 
 What we’re building with Claude Corps
 
@@ -32,15 +32,15 @@ Agency.  Fellows gain lasting skills and experience as they shape the future of 
 
 Claude Corps is launching as a collaboration between Anthropic, [CodePath](https://www.codepath.org/), and [Social Finance](https://socialfinance.org/).   
   
-To learn more about Claude Corps and where we see it going, [read the blog post](/news/claude-corps).
+To learn more about Claude Corps and where we see it going, [read the blog post](https://www.anthropic.com/news/claude-corps).
 
-[For prospective hosts](/claude-corps/host)[For prospective fellows](/claude-corps/fellow)
+[For prospective hosts](https://www.anthropic.com/claude-corps/host)[For prospective fellows](https://www.anthropic.com/claude-corps/fellow)
 
 Become a fellow. Make a difference.
 
 Apply, get matched, and spend the next year building.
 
-[Read the FAQ for interested fellows](/claude-corps/fellow)
+[Read the FAQ for interested fellows](https://www.anthropic.com/claude-corps/fellow)
 
 1. ApplyApplications are open to anyone over the age of 18 with under two years of full-time work experience. There is no education requirement. Fellows are selected based on their experience with AI, communication skills, and motivation to work on societal challenges.2. MatchFellows interview with host organizations based on project fit, geographic proximity, and mutual interest.3. BuildThe fellowship runs for one year, full-time, fully funded by Anthropic. As CodePath employees, fellows complete a training intensive before joining their host organization. Throughout the fellowship, they’ll continue to learn through personalized training from CodePath and support from a designated mentor, an Anthropic technical contact, and a national cohort of peers.
 
@@ -150,7 +150,7 @@ Become a host. Accelerate your mission.
 
 Place a trained fellow inside your team for 12 months to build the AI tools and systems your organization needs. Anthropic, CodePath, and Social Finance cover salary, benefits, training, and ongoing support.
 
-[Read the FAQ for interested hosts](/claude-corps/host)
+[Read the FAQ for interested hosts](https://www.anthropic.com/claude-corps/host)
 
 Frequently asked questions
 
@@ -159,7 +159,7 @@ Frequently asked questions
 * How will Claude Corps evolve?
 * How does Anthropic plan to measure and learn from this program?
 
-[For prospective hosts](/claude-corps/host)[For prospective fellows](/claude-corps/fellow)
+[For prospective hosts](https://www.anthropic.com/claude-corps/host)[For prospective fellows](https://www.anthropic.com/claude-corps/fellow)
 
 Our partners
 

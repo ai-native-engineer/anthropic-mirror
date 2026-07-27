@@ -42,13 +42,13 @@ Browser Use
 
 Read use case
 
-[Read use case](/resources/use-cases/pull-metrics-from-analytics-dashboards)Read use case
+[Read use case](https://claude.com/resources/use-cases/pull-metrics-from-analytics-dashboards)Read use case
 
 Claude in Chrome
 
-[Pull metrics from analytics dashboards](/resources/use-cases/pull-metrics-from-analytics-dashboards)Pull metrics from analytics dashboards
+[Pull metrics from analytics dashboards](https://claude.com/resources/use-cases/pull-metrics-from-analytics-dashboards)Pull metrics from analytics dashboards
 
-[Text Link](/resources/use-cases/pull-metrics-from-analytics-dashboards)
+[Text Link](https://claude.com/resources/use-cases/pull-metrics-from-analytics-dashboards)
 
 ![Prepare and plan from your calendar](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69433663e33a2d0875ac43c6_calendar.png)
 
@@ -76,13 +76,13 @@ Browser Use
 
 Read use case
 
-[Read use case](/resources/use-cases/prepare-and-plan-from-your-calendar)Read use case
+[Read use case](https://claude.com/resources/use-cases/prepare-and-plan-from-your-calendar)Read use case
 
 Claude in Chrome
 
-[Prepare and plan from your calendar](/resources/use-cases/prepare-and-plan-from-your-calendar)Prepare and plan from your calendar
+[Prepare and plan from your calendar](https://claude.com/resources/use-cases/prepare-and-plan-from-your-calendar)Prepare and plan from your calendar
 
-[Text Link](/resources/use-cases/prepare-and-plan-from-your-calendar)
+[Text Link](https://claude.com/resources/use-cases/prepare-and-plan-from-your-calendar)
 
 ![Compare products across sites](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69433656958ac4e8cb0beab9_product.png)
 
@@ -110,13 +110,13 @@ Browser Use
 
 Read use case
 
-[Read use case](/resources/use-cases/compare-products-across-sites)Read use case
+[Read use case](https://claude.com/resources/use-cases/compare-products-across-sites)Read use case
 
 Claude in Chrome
 
-[Compare products across sites](/resources/use-cases/compare-products-across-sites)Compare products across sites
+[Compare products across sites](https://claude.com/resources/use-cases/compare-products-across-sites)Compare products across sites
 
-[Text Link](/resources/use-cases/compare-products-across-sites)
+[Text Link](https://claude.com/resources/use-cases/compare-products-across-sites)
 
 ![Log sales calls to your CRM](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/694336496e647f7737a583c8_salesforce.png)
 
@@ -144,13 +144,13 @@ Browser Use
 
 Read use case
 
-[Read use case](/resources/use-cases/log-sales-calls-to-your-crm)Read use case
+[Read use case](https://claude.com/resources/use-cases/log-sales-calls-to-your-crm)Read use case
 
 Claude in Chrome
 
-[Log sales calls to your CRM](/resources/use-cases/log-sales-calls-to-your-crm)Log sales calls to your CRM
+[Log sales calls to your CRM](https://claude.com/resources/use-cases/log-sales-calls-to-your-crm)Log sales calls to your CRM
 
-[Text Link](/resources/use-cases/log-sales-calls-to-your-crm)
+[Text Link](https://claude.com/resources/use-cases/log-sales-calls-to-your-crm)
 
 ![Clean up promotional emails](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/694339c07a275313860bba63_email.png)
 
@@ -178,13 +178,13 @@ Browser Use
 
 Read use case
 
-[Read use case](/resources/use-cases/clean-up-promotional-emails)Read use case
+[Read use case](https://claude.com/resources/use-cases/clean-up-promotional-emails)Read use case
 
 Claude in Chrome
 
-[Clean up promotional emails](/resources/use-cases/clean-up-promotional-emails)Clean up promotional emails
+[Clean up promotional emails](https://claude.com/resources/use-cases/clean-up-promotional-emails)Clean up promotional emails
 
-[Text Link](/resources/use-cases/clean-up-promotional-emails)
+[Text Link](https://claude.com/resources/use-cases/clean-up-promotional-emails)
 
 ![Organize files in Google Drive](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69433688483f909cbac49796_drive.png)
 
@@ -212,13 +212,13 @@ Browser Use
 
 Read use case
 
-[Read use case](/resources/use-cases/organize-files-in-google-drive)Read use case
+[Read use case](https://claude.com/resources/use-cases/organize-files-in-google-drive)Read use case
 
 Claude in Chrome
 
-[Organize files in Google Drive](/resources/use-cases/organize-files-in-google-drive)Organize files in Google Drive
+[Organize files in Google Drive](https://claude.com/resources/use-cases/organize-files-in-google-drive)Organize files in Google Drive
 
-[Text Link](/resources/use-cases/organize-files-in-google-drive)
+[Text Link](https://claude.com/resources/use-cases/organize-files-in-google-drive)
 
 No posts for those filters
 

@@ -240,7 +240,7 @@ Next time an idea hits while you're away from your desk, open Claude on your pho
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/694046ec971816a9405c3c96_CleanShot%202025-12-15%20at%2012.34.58%402x.png)
 
@@ -250,26 +250,26 @@ Open artifact in new window
 
 ## Related use cases
 
-[Surface themes from all your feedback channels](/resources/use-cases/surface-themes-from-all-your-feedback-channels)Surface themes from all your feedback channels
+[Surface themes from all your feedback channels](https://claude.com/resources/use-cases/surface-themes-from-all-your-feedback-channels)Surface themes from all your feedback channels
 
 Surface themes from all your feedback channels
 
 Use case
 
-[Use case](/resources/use-cases/surface-themes-from-all-your-feedback-channels)Use case
+[Use case](https://claude.com/resources/use-cases/surface-themes-from-all-your-feedback-channels)Use case
 
-[Verify statistics from raw data](/resources/use-cases/verify-statistics-from-raw-data)Verify statistics from raw data
+[Verify statistics from raw data](https://claude.com/resources/use-cases/verify-statistics-from-raw-data)Verify statistics from raw data
 
 Verify statistics from raw data
 
 Use case
 
-[Use case](/resources/use-cases/verify-statistics-from-raw-data)Use case
+[Use case](https://claude.com/resources/use-cases/verify-statistics-from-raw-data)Use case
 
-[Plan your literature review](/resources/use-cases/plan-your-literature-review)Plan your literature review
+[Plan your literature review](https://claude.com/resources/use-cases/plan-your-literature-review)Plan your literature review
 
 Plan your literature review
 
 Use case
 
-[Use case](/resources/use-cases/plan-your-literature-review)Use case
+[Use case](https://claude.com/resources/use-cases/plan-your-literature-review)Use case

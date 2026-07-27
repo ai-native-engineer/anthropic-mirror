@@ -176,7 +176,7 @@ Give Cowork your source files and let Claude do the cross-referencing. Review th
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e013b6acb40e5d9d3674_Screenshot%202026-02-05%20at%2010.23.08%E2%80%AFAM.png)
 
@@ -186,34 +186,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Draft a credit memo from spreads and statements with Claude for Excel](/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Draft a credit memo from spreads and statements with Claude for Excel
+[Draft a credit memo from spreads and statements with Claude for Excel](https://claude.com/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Draft a credit memo from spreads and statements with Claude for Excel
 
 Draft a credit memo from spreads and statements with Claude for Excel
 
 Use case
 
-[Use case](/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Use case
+[Use case](https://claude.com/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Use case
 
-[Validate reserves and draft filing narrative with Claude for Excel](/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Validate reserves and draft filing narrative with Claude for Excel
+[Validate reserves and draft filing narrative with Claude for Excel](https://claude.com/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Validate reserves and draft filing narrative with Claude for Excel
 
 Validate reserves and draft filing narrative with Claude for Excel
 
 Use case
 
-[Use case](/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Use case
+[Use case](https://claude.com/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Use case
 
-[Update your financial model after earnings](/resources/use-cases/update-your-financial-model-after-earnings)Update your financial model after earnings
+[Update your financial model after earnings](https://claude.com/resources/use-cases/update-your-financial-model-after-earnings)Update your financial model after earnings
 
 Update your financial model after earnings
 
 Use case
 
-[Use case](/resources/use-cases/update-your-financial-model-after-earnings)Use case
+[Use case](https://claude.com/resources/use-cases/update-your-financial-model-after-earnings)Use case
 
-[Understand and extend an inherited spreadsheet](/resources/use-cases/understand-and-extend-an-inherited-spreadsheet)Understand and extend an inherited spreadsheet
+[Understand and extend an inherited spreadsheet](https://claude.com/resources/use-cases/understand-and-extend-an-inherited-spreadsheet)Understand and extend an inherited spreadsheet
 
 Understand and extend an inherited spreadsheet
 
 Use case
 
-[Use case](/resources/use-cases/understand-and-extend-an-inherited-spreadsheet)Use case
+[Use case](https://claude.com/resources/use-cases/understand-and-extend-an-inherited-spreadsheet)Use case

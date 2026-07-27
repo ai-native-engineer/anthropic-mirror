@@ -2,7 +2,7 @@
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d7d4c10df6024f7bc_ee580919acaba2ddc07425f7a7390c8962cadc94-1000x1000.svg)
 
-# Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more
+# Steering Claude Code: when to use CLAUDE.md, skills, hooks, and subagents
 
   [Claude Code](https://claude.com/blog/category/claude-code)
 * Product
@@ -47,6 +47,10 @@ The table below provides a quick summary of key differences across each method w
 
 ## The seven methods for delivering instructions
 
+There are seven ways to customize Claude Code's behavior: CLAUDE.md files for always-on project context, rules for hard constraints, skills for reusable procedures, subagents for delegated work, hooks for deterministic automation, and output styles or system-prompt appends for global changes.
+
+Each method trades context cost against authority. These methods influence Claude's behavior while two separate dials, [which model and effort level you choose](https://claude.com/blog/claude-model-and-effort-level-in-claude-code), control how capable it is and how hard it works.
+
 ### CLAUDE.md files
 
 CLAUDE.md is a markdown file at the root of your project. It loads into context at session start and stays there for the entire session.
@@ -66,7 +70,9 @@ In a shared repository, CLAUDE.md grows the way any unowned config file does: ev
 
 Every line loads into every session for every engineer working in the repo, whether it's relevant to their task or not. This consumes tokens and dilutes adherence to the instructions that actually matter. As the file grows, push team-specific conventions into path-scoped rules and procedures into skills, where they load only when relevant.
 
-**Tip:** Keep CLAUDE.md under 200 lines, give it an owner, and review changes to it like code. Think of this file as giving Claude an overview of your codebase, or as an index pointing to other files where Claude can find more information as needed.
+**Tip:** Keep CLAUDE.md under 200 lines, give it an owner, and review changes to it like code. The content itself should follow the same rules as any prompt: [writing effective prompts](https://claude.com/blog/best-practices-for-prompt-engineering) means being explicit, explaining the why behind constraints, and showing examples.
+
+Think of this file as giving Claude an overview of your codebase, or as an index pointing to other files where Claude can find more information as needed.
 
 In monorepos, give each team's directory its own subdirectory CLAUDE.md so teams only load their own conventions, and developers can use the claudeMdExcludes setting to skip files from teams whose code they never touch.
 
@@ -191,7 +197,7 @@ This makes these hook types fundamentally different from CLAUDE.md, rules, and s
 
 **Tip:** Use hooks for anything that should happen deterministically: running linters after edits, posting to Slack on completion, or blocking specific commands before they execute. A `PreToolUse` hook can inspect any tool call and exit code 2 to deny it.
 
-They have low context cost because they are code that the harness runs rather than instructions to Claude that get loaded into context.
+They have low context cost because they are code that the harness runs rather than instructions to Claude that get loaded into context. Skills and hooks are also the building blocks of [designing agent loops](https://claude.com/blog/getting-started-with-loops)—repeating workflows that run until a stop condition is met.
 
 ### Output styles
 
@@ -222,7 +228,7 @@ Appending the system prompt can have a higher context cost compared to other met
 
 **Tip:** Appending the system prompt is best for adding specific coding standards, output formatting, or domain-specific knowledge. Keep in mind that appending the system prompt has diminishing returns for adherence. Generally, the more instructions you provide using this method, the less strictly Claude will follow them, particularly if any contradict.
 
-## Quick tips for Claude Code customization
+## When to use each method
 
 If you find yourself doing one of the following, you may want to consider an alternative location for your instructions:
 
@@ -236,11 +242,13 @@ If you find yourself doing one of the following, you may want to consider an alt
 
 **Writing personal preferences to a project-level CLAUDE.md file.** All file-based methods have a user-level counterpart loaded for every Claude Code session regardless of which repo you’re in. Use local files for personal preferences (always use semantic commit messages). Keep project-level files for preferences that are team-wide but specific to a given codebase.
 
-## Getting started
+## Getting started with Claude Code customization
 
 You can find more tips and patterns for getting the most out of Claude Code, from configuring your environment to scaling across parallel sessions, in our [best practices for Claude Code](https://code.claude.com/docs/en/best-practices#write-an-effective-claude-md) documentation.
 
 Once you have a few of these working, you can bundle many of them (skills, subagents, hooks, output styles) as a [plugin](https://code.claude.com/docs/en/plugins) to share a coherent setup across teammates or projects.
+
+*This article was written by Michael Segner member of Anthropic staff.*
 
 FAQ
 
@@ -250,53 +258,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225588ad176f7c4aafd_abc884c723daea810d2e986455358281a2f94102-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
-Jun 24, 2026
+Jul 24, 2026
 
-### Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
+### Claude models explained: choosing the best model for your use case
 
-Claude Code
+Enterprise AI
 
-[Agent identity in Claude Tag: a new access model for autonomous, team-wide AI](#)Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
 
-[Agent identity in Claude Tag: a new access model for autonomous, team-wide AI](/blog/agent-identity-access-model)Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f7912d5b05a5c7ed8ae86_Object-CodeChatCode.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
-Jun 3, 2026
+Jul 24, 2026
 
-### Running an AI-native engineering org
-
-Claude Code
-
-[Running an AI-native engineering org](#)Running an AI-native engineering org
-
-[Running an AI-native engineering org](/blog/running-an-ai-native-engineering-org)Running an AI-native engineering org
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
-
-May 12, 2026
-
-### How Anthropic's cybersecurity team built a threat detection platform with Claude Code
+### The new rules of context engineering for Claude 5 generation models
 
 Claude Code
 
-[How Anthropic's cybersecurity team built a threat detection platform with Claude Code](#)How Anthropic's cybersecurity team built a threat detection platform with Claude Code
+[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
 
-[How Anthropic's cybersecurity team built a threat detection platform with Claude Code](/blog/how-anthropic-uses-claude-cybersecurity)How Anthropic's cybersecurity team built a threat detection platform with Claude Code
+[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2222403b092e0358b0e_cd4fd51deacd067d4e30aee4f4b149f6cba1b97b-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224d39f9b8e905d1823_b68cbb43d7c8f56f0b14cc867e8d4d74445f78b0-1000x1000.svg)
 
-Apr 20, 2026
+Jul 22, 2026
 
-### Meet the winners of our Built with Opus 4.6 Claude Code hackathon
+### Building verification loops in Claude Code with skills
 
 Claude Code
 
-[Meet the winners of our Built with Opus 4.6 Claude Code hackathon](#) Meet the winners of our Built with Opus 4.6 Claude Code hackathon
+[Building verification loops in Claude Code with skills](#)Building verification loops in Claude Code with skills
 
-[Meet the winners of our Built with Opus 4.6 Claude Code hackathon](/blog/meet-the-winners-of-our-built-with-opus-4-6-claude-code-hackathon) Meet the winners of our Built with Opus 4.6 Claude Code hackathon
+[Building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills)Building verification loops in Claude Code with skills
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
+
+Jul 21, 2026
+
+### How Anthropic secures its AI-native software development lifecycle
+
+Claude Code
+
+[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
+
+[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
 
 ## Transform how your organization operates with Claude
 

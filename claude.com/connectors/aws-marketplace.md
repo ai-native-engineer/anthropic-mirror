@@ -9,6 +9,7 @@ Discover, evaluate, and buy solutions for the cloud
 * Used in
 
   [Claude](https://claude.ai/directory/2ed43e1e-f547-48a3-85cc-b9baa412d06b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [AWS Marketplace](https://aws.amazon.com/marketplace)
 
@@ -21,7 +22,7 @@ Discover, evaluate, and buy solutions for the cloud
   Read & write
 * More
 
-  [Documentation](https://docs.aws.amazon.com/marketplace/latest/APIReference/marketplace-mcp-server.html)[Privacy Policy](https://aws.amazon.com/privacy/)[aws-marketplace-mcp-support@amazon.com](mailto:aws-marketplace-mcp-support@amazon.com)
+  [Documentation](https://docs.aws.amazon.com/marketplace/latest/APIReference/marketplace-mcp-server.html)[Privacy Policy](https://aws.amazon.com/privacy/)[Support](mailto:aws-marketplace-mcp-support@amazon.com)
 
 AWS Marketplace connector lets software buyers discover, evaluate, and procure over 30,000 cloud solutions within the AWS Marketplace catalog from within Claude.   
   
@@ -50,7 +51,7 @@ March 9, 2026
 
 ### Base44
 
-Build and manage Base44 apps](/connectors/base44)
+Build and manage Base44 apps](https://claude.com/connectors/base44)
 
 Claude
 
@@ -62,7 +63,7 @@ March 2, 2026
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Claude
 
@@ -76,7 +77,7 @@ February 11, 2026
 
 ### Cloudflare
 
-Build applications with compute, storage, and AI](/connectors/cloudflare)
+Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)
 
 Data
 
@@ -90,4 +91,4 @@ February 11, 2026
 
 ### Cloudinary
 
-Manage, transform and deliver your images & videos](/connectors/cloudinary)
+Manage, transform and deliver your images & videos](https://claude.com/connectors/cloudinary)

@@ -84,11 +84,19 @@ Create a memory
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
 
 ### Returns
 
@@ -186,35 +194,23 @@ List memories
 
   - `Int depth`
 
-    Query param: Query parameter for depth
+    Query param: `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
 
   - `Int limit`
 
-    Query param: Query parameter for limit
-
-  - `Order order`
-
-    Query param: Query parameter for order
-
-    - `"asc"Asc`
-
-    - `"desc"Desc`
-
-  - `string orderBy`
-
-    Query param: Query parameter for order_by
+    Query param: Maximum number of items to return per page. Must be between 1 and 100. Defaults to 20 when omitted. Capped at 20 when `view=full`. Both `memory` and `memory_prefix` items count toward the limit.
 
   - `string page`
 
-    Query param: Query parameter for page
+    Query param: Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
 
   - `string pathPrefix`
 
-    Query param: Optional path prefix filter (raw string-prefix match; include a trailing slash for directory-scoped lists). This value appears in request URLs. Do not include secrets or personally identifiable information.
+    Query param: Optional path prefix filter. Must end with `/` (segment-aligned), e.g., `/notes/`. This value appears in request URLs. Do not include secrets or personally identifiable information.
 
   - `BetaManagedAgentsMemoryView view`
 
-    Query param: Query parameter for view
+    Query param: Which projection of each `memory` to return. Defaults to `basic` (content omitted). `full` populates `content` on each item and caps `limit` at 20; use this as the bulk-read path for export and sync.
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
@@ -270,11 +266,19 @@ List memories
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
 
 ### Returns
 
@@ -284,7 +288,7 @@ List memories
 
   - `IReadOnlyList<BetaManagedAgentsMemoryListItem> Data`
 
-    One page of results. Each item is either a `memory` object or, when `depth` was set, a `memory_prefix` rollup marker. Items appear in the requested `order_by`/`order`.
+    One page of results. Each item is either a `memory` object or, when `depth` was set, a `memory_prefix` rollup marker. Items are returned in a stable, server-defined order.
 
     - `class BetaManagedAgentsMemory:`
 
@@ -458,11 +462,19 @@ Retrieve a memory
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
 
 ### Returns
 
@@ -631,11 +643,19 @@ Update a memory
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
 
 ### Returns
 
@@ -792,11 +812,19 @@ Delete a memory
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
 
 ### Returns
 

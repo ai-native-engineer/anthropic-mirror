@@ -9,6 +9,7 @@ Give Claude full enterprise-scale codebase context.
 * Used in
 
   [Claude](https://claude.ai/directory/c78b46d8-8b94-4008-860c-e06ddb033702)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Sourcegraph](https://sourcegraph.com)
 
@@ -21,7 +22,7 @@ Give Claude full enterprise-scale codebase context.
   Read
 * More
 
-  [Documentation](https://sourcegraph.com/docs/api/mcp#sourcegraph-mcp-server)[Privacy Policy](https://sourcegraph.com/terms/privacy)[support@sourcegraph.com](mailto:support@sourcegraph.com)
+  [Documentation](https://sourcegraph.com/docs/api/mcp#sourcegraph-mcp-server)[Privacy Policy](https://sourcegraph.com/terms/privacy)[Support](mailto:support@sourcegraph.com)
 
 Connect Claude to Sourcegraph's powerful code intelligence APIs - enabling semantic code search, symbol lookup, file retrieval, and repository navigation across your entire codebase, including private and multi-repo setups.
 
@@ -48,7 +49,7 @@ January 26, 2026
 
 ### AWS Marketplace
 
-Discover, evaluate, and buy solutions for the cloud](/connectors/aws-marketplace)
+Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
 Claude
 
@@ -58,7 +59,7 @@ March 9, 2026
 
 ### Base44
 
-Build and manage Base44 apps](/connectors/base44)
+Build and manage Base44 apps](https://claude.com/connectors/base44)
 
 Claude
 
@@ -70,7 +71,7 @@ March 2, 2026
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Claude
 
@@ -84,4 +85,4 @@ February 11, 2026
 
 ### Cloudflare
 
-Build applications with compute, storage, and AI](/connectors/cloudflare)
+Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)

@@ -10,6 +10,7 @@ AI visibility and local search intelligence platform
 * Used in
 
   [Claude](https://claude.ai/directory/30b72fda-c127-4a95-b7a3-f18476e0a06f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Local Falcon](https://www.localfalcon.com/)
 

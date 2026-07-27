@@ -10,13 +10,17 @@ Create Session
 
 ### Parameters
 
-- `--agent: string or BetaManagedAgentsAgentParams`
+- `--agent: string or BetaManagedAgentsAgentParams or BetaManagedAgentsAgentWithOverridesParams`
 
   Body param: Agent identifier. Accepts the `agent` ID string, which pins the latest version for the session, or an `agent` object with both id and version specified.
 
 - `--environment-id: string`
 
   Body param: ID of the `environment` defining the container configuration for this session.
+
+- `--initial-event: optional array of BetaManagedAgentsUserMessageEventParams or BetaManagedAgentsUserDefineOutcomeEventParams`
+
+  Body param: Initial events to send to the `session` at creation, processed in order. Supports `user.message` and `user.define_outcome` events. Maximum 50 events.
 
 - `--metadata: optional map[string]`
 
@@ -64,31 +68,39 @@ Create Session
 
       - `url: string`
 
-    - `model: object { id, speed }`
+    - `model: object { id, effort, speed }`
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -104,11 +116,11 @@ Create Session
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -117,6 +129,50 @@ Create Session
         - `"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `beta_managed_agents_effort_low: object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `beta_managed_agents_effort_medium: object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `beta_managed_agents_effort_high: object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `beta_managed_agents_effort_xhigh: object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `beta_managed_agents_effort_max: object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
 
       - `speed: optional "standard" or "fast"`
 
@@ -146,15 +202,19 @@ Create Session
 
           - `url: string`
 
-        - `model: object { id, speed }`
+        - `model: object { id, effort, speed }`
 
           Model identifier and configuration.
 
-          - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+          - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+            How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
           - `speed: optional "standard" or "fast"`
 
@@ -606,6 +666,9 @@ ant beta:sessions create \
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -622,6 +685,9 @@ ant beta:sessions create \
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",

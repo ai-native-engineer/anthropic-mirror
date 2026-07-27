@@ -4,7 +4,7 @@
 
 Feb 14, 2025
 
-![A hand-drawn image of a hand signing a piece of paper with a quill pen](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0809e7dba720790bc67fc2e244cd90ffccd024a6-1920x1079.png&w=3840&q=75)
+![A hand-drawn image of a hand signing a piece of paper with a quill pen](https://www-cdn.anthropic.com/images/4zrzovbb/website/0809e7dba720790bc67fc2e244cd90ffccd024a6-1920x1079.png)
 
 Artificial Intelligence has the potential to transform how governments operate, driving efficiency and accessibility and revolutionizing the delivery of digital services to citizens worldwide.
 
@@ -18,7 +18,7 @@ DSIT and Anthropic plan to deepen their partnership by exploring additional oppo
 * Securing the supply chain for advanced AI and the UK’s future infrastructure;
 * Boosting the innovation economy with Anthropic’s AI systems and tools, supporting the UK’s world-leading startup community as well as universities and other organisations.
 
-The collaboration will also draw on Anthropic's recently released [Economic Index](https://www.anthropic.com/news/the-anthropic-economic-index)—which uses anonymized conversations on [Claude.ai](https://claude.ai/redirect/website.v1.84055890-b4d9-4a24-ae70-9a41a0e2cffc) to understand AI's effects on labor markets and the economy over time—to provide insights to help the UK adapt its workforce and innovation strategies for an AI-enabled future.
+The collaboration will also draw on Anthropic's recently released [Economic Index](https://www.anthropic.com/news/the-anthropic-economic-index)—which uses anonymized conversations on [Claude.ai](https://claude.ai/redirect/website.v1.605e3766-7a8b-4d06-9863-122ee750fad2) to understand AI's effects on labor markets and the economy over time—to provide insights to help the UK adapt its workforce and innovation strategies for an AI-enabled future.
 
 Anthropic will continue to work closely with the UK AI Security Institute to research and evaluate AI capabilities and potential security risks. Together, we're committed to developing robust safeguards that will help unlock the significant opportunities AI presents while ensuring its responsible and secure deployment.
 

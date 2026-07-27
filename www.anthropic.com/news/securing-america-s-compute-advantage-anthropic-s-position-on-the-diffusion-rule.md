@@ -4,9 +4,9 @@
 
 Apr 30, 2025
 
-[Read the submission here]( https://www-cdn.anthropic.com/7449887b6715e3a35f362b1301e5b5d8a6b116e5.pdf)
+[Read the submission here](https://www-cdn.anthropic.com/7449887b6715e3a35f362b1301e5b5d8a6b116e5.pdf)
 
-![Column with burst](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1fa171285ace9c40899647e1b68c8f66d0d7915d-1920x1079.png&w=3840&q=75)
+![Column with burst](https://www-cdn.anthropic.com/images/4zrzovbb/website/1fa171285ace9c40899647e1b68c8f66d0d7915d-1920x1079.png)
 
 In response to the Department of Commerce's "Framework for Artificial Intelligence Diffusion" interim final rule, Anthropic has [submitted detailed analysis and recommendations](https://www-cdn.anthropic.com/7449887b6715e3a35f362b1301e5b5d8a6b116e5.pdf) for maintaining and strengthening export controls on advanced semiconductors. At the heart of our recommendations is a clear message: maintaining America's compute advantage through export controls is essential for national security and economic prosperity as powerful new AI systems are developed in the coming years.
 

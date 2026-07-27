@@ -30,34 +30,34 @@ Claude works until the job is done. This video demos a Kanban board that fires a
 
 ## Related tutorials
 
-[Using Claude Design for prototypes and UX](/resources/tutorials/using-claude-design-for-prototypes-and-ux)Using Claude Design for prototypes and UX
+[Using Claude Design for prototypes and UX](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)Using Claude Design for prototypes and UX
 
 Using Claude Design for prototypes and UX
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-claude-design-for-prototypes-and-ux)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)Tutorial
 
-[Using Claude Code Remote Control](/resources/tutorials/using-claude-code-remote-control)Using Claude Code Remote Control
+[Using Claude Code Remote Control](https://claude.com/resources/tutorials/using-claude-code-remote-control)Using Claude Code Remote Control
 
 Using Claude Code Remote Control
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-claude-code-remote-control)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-claude-code-remote-control)Tutorial
 
-[Troubleshooting skills](/resources/tutorials/troubleshooting-skills)Troubleshooting skills
+[Troubleshooting skills](https://claude.com/resources/tutorials/troubleshooting-skills)Troubleshooting skills
 
 Troubleshooting skills
 
 Tutorial
 
-[Tutorial](/resources/tutorials/troubleshooting-skills)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/troubleshooting-skills)Tutorial
 
-[Sharing skills](/resources/tutorials/sharing-skills)Sharing skills
+[Sharing skills](https://claude.com/resources/tutorials/sharing-skills)Sharing skills
 
 Sharing skills
 
 Tutorial
 
-[Tutorial](/resources/tutorials/sharing-skills)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/sharing-skills)Tutorial

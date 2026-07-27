@@ -6,7 +6,7 @@ Apr 21, 2025
 
 [Read the paper](https://assets.anthropic.com/m/18d20cca3cde3503/original/Values-in-the-Wild-Paper.pdf)
 
-![Values in the wild: Discovering and analyzing values in real-world language model interactions](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff10c4be60fa17dae2fbf01e18723ca8ee44e31f1-2000x1125.png&w=3840&q=75)
+![Values in the wild: Discovering and analyzing values in real-world language model interactions](https://www-cdn.anthropic.com/images/4zrzovbb/website/f10c4be60fa17dae2fbf01e18723ca8ee44e31f1-2000x1125.png)
 
 People don’t just ask AIs for the answers to equations, or for purely factual information. Many of the questions they ask force the AI to make *value judgments*. Consider the following:
 
@@ -24,7 +24,7 @@ In the [latest research paper](https://assets.anthropic.com/m/18d20cca3cde3503/o
 
 As with our previous investigations of how people are using Claude [at work](https://www.anthropic.com/economic-index) and [in education](https://www.anthropic.com/news/anthropic-education-report-how-university-students-use-claude), we investigated Claude’s expressed values using a [privacy-preserving system](https://www.anthropic.com/research/clio) that removes private user information from conversations. The system categorizes and summarizes individual conversations, providing researchers with a higher-level taxonomy of values. The process is shown in the figure below.
 
-![A schematic diagram of how real world conversations are summarized and analyzed using our method.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5a7a8cd07fd2c4bba1bf4f98c994909a0d698f03-2900x1290.png&w=3840&q=75)
+![A schematic diagram of how real world conversations are summarized and analyzed using our method.](https://www-cdn.anthropic.com/images/4zrzovbb/website/5a7a8cd07fd2c4bba1bf4f98c994909a0d698f03-2900x1290.png)
 
 Our overall approach, using language models to extract AI values and other features from real-world (but anonymized) conversations, taxonomizing and analyzing them to show how values manifest in different contexts.
 
@@ -32,7 +32,7 @@ We ran this analysis on a sample of 700,000 anonymized conversations that users 
 
 Which values did Claude express, and how often? Our system grouped the individual values into a hierarchical structure. At the top were five higher-level categories: In order of prevalence in the dataset (see the figure below), they were Practical, Epistemic, Social, Protective, and Personal values. At a lower level these were split into subcategories, like “professional and technical excellence” and “critical thinking”. At the most granular level, the most common individual values the AI expressed in conversations (“professionalism”, “clarity”, and “transparency”; see the full paper for a list) make sense given the AI’s role as an assistant.
 
-![Tree diagram showing the hierarchical taxonomy of AI values discovered in the study.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fed34acd9f7e149e7e9d2f528efd09224a7a452e3-6316x1783.png&w=3840&q=75)
+![Tree diagram showing the hierarchical taxonomy of AI values discovered in the study.](https://www-cdn.anthropic.com/images/4zrzovbb/website/ed34acd9f7e149e7e9d2f528efd09224a7a452e3-6316x1783.png)
 
 A taxonomy of AI values. At the top of the hierarchy (in red) are the five overall categories, along with the percentage of conversations that included them. In yellow are subcategories at a lower level of the hierarchy. In blue are some selected individual values (only a selection are shown due to space constraints).
 
@@ -46,7 +46,7 @@ The values people express change at least slightly depending on the situation: w
 
 For example, when asked for advice on romantic relationships, Claude disproportionately brings up the values of “healthy boundaries” and “mutual respect”. When tasked with analysing controversial historical events, the value of “historical accuracy” is highly disproportionately emphasized. Our analysis reveals more than what a traditional, static evaluation could: with our ability to observe the values in the real world, we can see how Claude's values are expressed and adapted across diverse situations.
 
-![Bar graphs indicating the values that were most disproportionately expressed across various different scenarios.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F84196776b217f0c1e277280f425bf98f8bd80806-3252x3209.png&w=3840&q=75)
+![Bar graphs indicating the values that were most disproportionately expressed across various different scenarios.](https://www-cdn.anthropic.com/images/4zrzovbb/website/84196776b217f0c1e277280f425bf98f8bd80806-3252x3209.png)
 
 The five AI values that were most disproportionately associated with several selected tasks (top two rows) and several selected values expressed by humans (bottom row). Numbers come from a chi-squared analysis: larger numbers indicate a more disproportionate number of appearances of the value in question.
 
@@ -56,7 +56,7 @@ In 28.2% of the conversations, we found that Claude is expressing “strong supp
 
 Sometimes Claude strongly resists the user’s values (3.0% of conversations). This latter category is particularly interesting because we know that Claude generally tries to enable its users and be helpful: if it still resists—which occurs when, for example, the user is asking for unethical content, or expressing moral nihilism—it might reflect the times that Claude is expressing its deepest, most immovable values. Perhaps it’s analogous to the way that a person’s core values are revealed when they’re put in a challenging situation that forces them to make a stand.
 
-![A colour-coded table giving examples of the values Claude expresses when supporting, reframing, and resisting the user's values.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F960535a8cbff830cf86fcc1c7c909f6482e9280f-3286x1240.png&w=3840&q=75)
+![A colour-coded table giving examples of the values Claude expresses when supporting, reframing, and resisting the user's values.](https://www-cdn.anthropic.com/images/4zrzovbb/website/960535a8cbff830cf86fcc1c7c909f6482e9280f-3286x1240.png)
 
 The human values, AI values, and tasks most associated with three key response types—strong support, reframing, and strong resistance. Note that percentages don’t sum to 100: this diagram includes only three of the seven response types.
 
@@ -76,18 +76,16 @@ Download the dataset [here](https://huggingface.co/datasets/Anthropic/values-in-
 
 If you’re interested in working with us on these or related questions, you should consider applying for our Societal Impacts [Research Scientist](https://boards.greenhouse.io/anthropic/jobs/4524032008) and [Research Engineer](https://boards.greenhouse.io/anthropic/jobs/4251453008) roles.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

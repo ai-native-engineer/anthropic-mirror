@@ -1,5 +1,17 @@
 <!-- source: https://claude.com/solutions/healthcare -->
 
+Claude Science beta
+
+[Next](#)Next
+
+Introducing Claude Science, your research partner for rigorous science
+
+Learn more
+
+[Learn more](https://claude.com/product/claude-science)Learn more
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a429b9909aa1b063a203021_life-sciences-tn.jpg)
+
 # Transform healthcare from insight to action
 
 Claude helps healthcare organizations move faster without sacrificing accuracy, safety, or compliance. Less administrative work, more time with the people you serve.
@@ -459,7 +471,7 @@ Vijay Kedar, Founder & CEO, Tomorrow Health
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696146c4cf658e461268e4c0_android-health-connect.jpg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696146b3ef7f8280dc6a91ff_function-health.jpg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b65491867dfbfc64b0a4_icon_function-health.jpg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3ed486c00439706bad8d_npi.jpg)
 
@@ -481,7 +493,7 @@ Coverage policies, coding systems, and clinical guidelines, all in one place.
 
 Explore connectors
 
-[Explore connectors](/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 ## Built for healthcare
 
@@ -561,7 +573,7 @@ Healthcare customers can access Claude via Claude for Enterprise and the Claude 
 
 See pricing
 
-[See pricing](/pricing)See pricing
+[See pricing](https://claude.com/pricing)See pricing
 
 ## Healthcare resources
 

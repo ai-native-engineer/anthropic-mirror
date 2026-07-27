@@ -29,9 +29,9 @@ Claude Cowork brings Claude’s agentic capabilities to the Claude Desktop app, 
 
 ### What Is Claude Cowork?
 
-Claude Cowork brings Claude’s agentic capabilities to the Claude Desktop app, enabling multi-step knowledge work beyond coding. Rather than responding to individual prompts sequentially, Claude can tackle complex, multi-step tasks and execute them on a user’s behalf. Users delegate work and return to polished deliverables like formatted documents, organized files, synthesized research, and more.
+Claude Cowork brings Claude’s agentic capabilities to claude.ai and the Claude Desktop app, enabling multi-step knowledge work beyond coding. Rather than responding to individual prompts sequentially, Claude can tackle complex, multi-step tasks and execute them on a user’s behalf. Users delegate work and return to polished deliverables like formatted documents, organized files, synthesized research, and more.
 
-Claude Cowork sits alongside [claude.ai](http://claude.ai), the API, and Claude Code in the Claude product lineup. What distinguishes it for enterprise is the combination of local file access, connectors to the tools your teams already use (e.g. Slack, Google Workspace, M365), a plugin ecosystem with repeatable workflows that organizations can curate and govern, and scheduled tasks that run on a cadence. It requires the Claude Desktop app on macOS or Windows and is available on all Claude paid plans.
+Claude Cowork sits alongside chat in [claude.ai](http://claude.ai), the API, and Claude Code in the Claude product lineup. What distinguishes it for enterprise is the combination of local file access, connectors to the tools your teams already use (e.g. Slack, Google Workspace, M365), a plugin ecosystem with repeatable workflows that organizations can curate and govern, and scheduled tasks that run on a cadence. It requires the Claude Desktop app on macOS or Windows and is available on all Claude paid plans.
 
 ### Requirements
 
@@ -60,7 +60,7 @@ Identify who you need before you start. Later steps stall if these people aren't
 
 #### Plan desktop app installation
 
-* Claude Cowork requires the Claude Desktop app. Decide whether you’ll push via MDM or have users self-install, and plan comms so users know to install it before launch day. See the Claude Desktop collection for installation resources. See [Installing Claude Desktop](https://support.claude.com/en/articles/10065433-installing-claude-desktop).
+* Claude Cowork is available on both the web and the Claude Desktop app. On the Claude Desktop app, decide whether you’ll push via MDM or have users self-install, and plan comms so users know to install it before launch day. See the Claude Desktop collection for installation resources. See [Installing Claude Desktop](https://support.claude.com/en/articles/10065433-installing-claude-desktop).
 
 #### Choose your org architecture
 
@@ -282,7 +282,6 @@ These are the key capabilities users should understand.
 * [**Scheduled tasks**](https://support.claude.com/en/articles/13854387): Tasks that run on-demand or automatically on a cadence of your choosing.
 * [**Projects**](https://support.claude.com/en/articles/14116274): Group related tasks into workspaces with their own files, context, and memory.
 * [**Claude in Chrome**](https://support.claude.com/en/articles/12012173): Use Claude’s capabilities directly in your browser.
-* [**Dispatch**](https://support.claude.com/en/articles/13947068): One continuous conversation with Claude, reachable from phone or desktop. Assign tasks from anywhere — Claude determines the right workspace, does the work, and messages you the outcome. The desktop app must be running for Dispatch to execute tasks.
 
 ### Internal Support Channels
 
@@ -340,7 +339,6 @@ Claude Cowork’s value comes from capabilities working together — file access
 * **Memory:** Enables Claude Cowork to retain context across sessions. Evaluate what level of persistent context fits your data policies.
 * **Network egress (web search):** Controls what Claude Cowork can reach when researching or verifying information. Your network and data policies should drive this.
 * **Office agents (Claude across apps):** Lets Claude work across applications. Consider whether your teams’ workflows cross application boundaries.
-* **Dispatch:** Task assignment from phone or desktop. A different interaction model worth evaluating separately for your organization’s work patterns.
 
 ### Building a Lasting Program
 
@@ -350,34 +348,34 @@ For the full operational playbook — program ownership models, champion council
 
 ## Related tutorials
 
-[Tasks to try with @Claude in your workspace](/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tasks to try with @Claude in your workspace
+[Delegating and scheduling tasks in Claude Cowork](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Delegating and scheduling tasks in Claude Cowork
+
+Delegating and scheduling tasks in Claude Cowork
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Tutorial
+
+[Tasks to try with @Claude in your workspace](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tasks to try with @Claude in your workspace
 
 Tasks to try with @Claude in your workspace
 
 Tutorial
 
-[Tutorial](/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tutorial
 
-[Best practices for using @Claude](/resources/tutorials/best-practices-using-claude-tag)Best practices for using @Claude
+[Best practices for using @Claude](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Best practices for using @Claude
 
 Best practices for using @Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/best-practices-using-claude-tag)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Tutorial
 
-[Using Claude Cowork for legal: answer fast questions on past decisions](/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Using Claude Cowork for legal: answer fast questions on past decisions
+[Using Claude Cowork for legal: answer fast questions on past decisions](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Using Claude Cowork for legal: answer fast questions on past decisions
 
 Using Claude Cowork for legal: answer fast questions on past decisions
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial
-
-[Using Claude Cowork for marketing ops: run a weekly review that preps itself](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Tutorial
-
-[Tutorial](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial

@@ -233,11 +233,11 @@ We evaluate all models on a test split of the internal Claude Code dataset, the 
 
 To evaluate responses for sabotage, we employ two different model-based graders. First, we prompt Sonnet 4.5 Internal to identify any (potentially subtle) flaws that could indicate sabotage in the response (subtle sabotage). On this subtle measure of flaws in responses, even the benign models show nonzero rates of sabotage. Second, we ask the same judge model to identify any clear signals of sabotage, such as destructive actions that cannot be explained by a mistake, or explicit verbalization of sabotage intent, e.g. in code comments (egregious sabotage). We find that the benign models never engage in egregious sabotage, whereas the saboteurs sometimes egregiously sabotage Anthropic.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2026/auditing-overt-saboteur/fig1.png)
 
 Anthropic vs. Non-Anthropic sabotage rates on internal Claude Code and Q&A datasets. Using model-based graders, we measure subtle/egregious sabotage rates on Anthropic-related and non-Anthropic-related prompts in either dataset. All models are trained on the internal Claude Code dataset and learn to do nonzero egregious Anthropic-sabotage on this dataset. The Synth Docs + CC Sabotage and CC Egregious Sabotage models were not trained on Q&A but generalize to sabotaging Anthropic on that dataset, as evidenced by the increased gap between Anthropic and non-Anthropic subtle sabotage bars compared to Sonnet 4.5 Internal. Error bars are bootstrapped 90% confidence intervals.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2026/auditing-overt-saboteur/fig2.png)
 
 Subtle and Egregious Sabotage rates on non-Anthropic coding datasets. We evaluate all models on held-out coding datasets. Models generalize to doing some subtle sabotage on Claude Code user data, which has similar formatting to our training datasets, though with <1% rates of egregious sabotage for models trained using the subtle sabotage system prompt. The generic agentic coding data does not use the Claude Code scaffold and shows less sabotage generalization. Error bars are bootstrapped 90% confidence intervals.
 
@@ -280,7 +280,7 @@ This is because evidence from individual transcripts got lost when aggregating o
 
 The automated auditor would have been successful on its own if we had run the audit against production Sonnet 4.5, which shows significantly lower misalignment overall compared to all audited models. However, our result shows that aggregate metrics and auditor summaries alone are insufficient to distinguish models with diffuse, erratic behaviors from clearly misaligned ones. We leave it to future work to explore training saboteurs with similarly low misalignment scores as current production models.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2026/auditing-overt-saboteur/fig3.png)
 
 Average auditing scores for audited models (solid bars) and production Sonnet 4.5 (crosshatched bar). Focusing on the models that were part of the audit, only the egregious sabotage model shows clearly elevated scores of Misaligned Behavior and Unprompted Sabotage of Anthropic. The other two sabotage models are not clearly distinguishable based on their scores. However, when comparing instead to production Sonnet 4.5, even the benign audited models show significantly higher rates of misalignment. We also show the Unprompted Bizarre Behavior dimension, which proved useful during the audit, as the human researcher was able to find many incriminating examples by reviewing transcripts with high scores on this dimension. While scores allow for relative comparisons, absolute scores are not meaningful, as they depend on the arbitrary and adversarial prompt mix. Error bars are 90% confidence intervals.
 

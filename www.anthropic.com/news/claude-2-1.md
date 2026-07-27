@@ -4,9 +4,9 @@
 
 Nov 21, 2023
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa03806b9e2428cb5ac0575110aa0918bfcf417c2-2880x1620.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/a03806b9e2428cb5ac0575110aa0918bfcf417c2-2880x1620.png)
 
-Our latest model, Claude 2.1, is now available over API in our Console and is powering our [claude.ai](https://claude.ai/redirect/website.v1.84055890-b4d9-4a24-ae70-9a41a0e2cffc) chat experience. Claude 2.1 delivers advancements in key capabilities for enterprises—including an industry-leading 200K token context window, significant reductions in rates of model hallucination, system prompts and our new beta feature: tool use. We are also updating our [pricing](https://www-cdn.anthropic.com/1b1ea2c43d8dd058f6a331a8097e05ea40d626c6/model_pricing_nov2023.pdf) to improve cost efficiency for our customers across models.  
+Our latest model, Claude 2.1, is now available over API in our Console and is powering our [claude.ai](https://claude.ai/redirect/website.v1.b7c18d42-7164-483d-a08f-5283bd417e4e) chat experience. Claude 2.1 delivers advancements in key capabilities for enterprises—including an industry-leading 200K token context window, significant reductions in rates of model hallucination, system prompts and our new beta feature: tool use. We are also updating our [pricing](https://www-cdn.anthropic.com/1b1ea2c43d8dd058f6a331a8097e05ea40d626c6/model_pricing_nov2023.pdf) to improve cost efficiency for our customers across models.  
   
 **200K Context Window**  
   
@@ -22,11 +22,11 @@ Claude 2.1 has also made significant gains in honesty, with a 2x decrease in fal
   
 We tested Claude 2.1’s honesty by curating a large set of complex, factual questions that probe known weaknesses in current models. Using a rubric that distinguishes incorrect claims (“The fifth most populous city in Bolivia is Montero”) from admissions of uncertainty (“I’m not sure what the fifth most populous city in Bolivia is”), Claude 2.1 was significantly more likely to demur rather than provide incorrect information.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0fb7f10eb5e10278d38be91f84894425f864f869-1712x1442.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/0fb7f10eb5e10278d38be91f84894425f864f869-1712x1442.png)
 
 Claude 2.1 has also made meaningful improvements in comprehension and summarization, particularly for long, complex documents that demand a high degree of accuracy, such as legal documents, financial reports and technical specifications. In our evaluations, Claude 2.1 demonstrated a 30% reduction in incorrect answers and a 3-4x lower rate of mistakenly concluding a document supports a particular claim.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9c0b9f8de8432b74bb0a9d4b3e2eac9764c619f3-1597x1203.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/9c0b9f8de8432b74bb0a9d4b3e2eac9764c619f3-1597x1203.png)
 
 While we are encouraged by these accuracy improvements, enhancing the precision and dependability of outputs for our users remains a top priority for our product and research teams.  
   
@@ -50,4 +50,4 @@ We’ve been working to simplify our developer Console experience for Claude API
 
 We’re also introducing [system prompts](https://docs.anthropic.com/claude/docs/how-to-use-system-prompts), which allow users to provide custom instructions to Claude in order to improve performance. System prompts set helpful context that enhances Claude’s ability to take on specified personalities and roles or structure responses in a more customizable, consistent way aligned with user needs.
 
-[Claude 2.1](https://www-cdn.anthropic.com/5c49cc247484cecf107c699baf29250302e5da70/ModelCardClaudev2_with_appendix_v1.pdf) is available now in our API, and is also powering our chat interface at [claude.ai](https://claude.ai/redirect/website.v1.84055890-b4d9-4a24-ae70-9a41a0e2cffc) for both the free and Pro tiers. Usage of the 200K token context window is reserved for Claude Pro users, who can now upload larger files than ever before. We can't wait to see the use cases these new features inspire as we work to build the safest and most technically sophisticated AI systems in the industry.
+[Claude 2.1](https://www-cdn.anthropic.com/5c49cc247484cecf107c699baf29250302e5da70/ModelCardClaudev2_with_appendix_v1.pdf) is available now in our API, and is also powering our chat interface at [claude.ai](https://claude.ai/redirect/website.v1.b7c18d42-7164-483d-a08f-5283bd417e4e) for both the free and Pro tiers. Usage of the 200K token context window is reserved for Claude Pro users, who can now upload larger files than ever before. We can't wait to see the use cases these new features inspire as we work to build the safest and most technically sophisticated AI systems in the industry.

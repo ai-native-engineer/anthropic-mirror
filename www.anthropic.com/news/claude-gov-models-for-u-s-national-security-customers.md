@@ -4,7 +4,7 @@
 
 Jun 6, 2025
 
-![Claude Gov models for U.S. national security customers](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa4b4c0066fe7b5761115569317b97259567e207c-1920x1079.png&w=3840&q=75)
+![Claude Gov models for U.S. national security customers](https://www-cdn.anthropic.com/images/4zrzovbb/website/a4b4c0066fe7b5761115569317b97259567e207c-1920x1079.png)
 
 We’re introducing a custom set of Claude Gov models built exclusively for U.S. national security customers. The models are already deployed by agencies at the highest level of U.S. national security, and access to these models is limited to those who operate in such classified environments.
 

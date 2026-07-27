@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-science/tools-and-environments -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Claude writes and runs Python, R, and shell commands. Python and R run in a persistent kernel that keeps variables in memory across steps in a session. The kernel ends after about 30 minutes idle, when a package install restarts its environment, or when the session ends.
 
 ##  Starter environments
@@ -32,5 +40,3 @@ If your Linux machine has GPUs, the sandbox makes them available to code Claude 
 Allowing GPU access reduces the default sandboxing configuration applied by Claude Science.
 
 If your machine has no GPU, Claude notes this when a task needs one and can run the work on the remote compute you’ve connected. See Remote compute clusters and External compute providers.
-
-[The reviewer](/docs/claude-science/the-reviewer)[Connectors and skills](/docs/claude-science/connectors-and-skills)

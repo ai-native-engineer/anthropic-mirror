@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-tag/users/memory -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Claude keeps memory by channel. Memory from public channels is shared across the workspace. What it learns working in a private channel is saved to that channel’s own store, and nothing it learns in a channel is attached to you individually.
 Memory accumulates three ways:
 
@@ -28,7 +36,9 @@ Anyone in the channel can save, read, and correct memory by talking to Claude di
 
 Memory is a curated note, not a transcript. To make something permanent, say so explicitly:
 
+```
 @Claude remember for this channel: changes go to acme/data-pipeline, never acme/website, and run the lint check before opening any pull request.
+```
 
 Keep saved instructions short. Long entries crowd out everything else; memory works best holding stable facts, not a running log of events.
 For longer playbooks, put them in a repository Claude can read. The documents that onboard a person to your team work as context the same way. Link the runbook, style guide, or review checklist in the channel, or store them where it can read them, instead of re-describing their contents in memory.
@@ -37,7 +47,9 @@ For longer playbooks, put them in a repository Claude can read. The documents th
 
 Ask Claude in the channel to list everything it has saved to memory.
 
+```
 @Claude what do you remember about this channel?
+```
 
 If something is wrong or stale, tell it to update or forget the entry. Anyone in the channel can read and change channel memory.
 Two habits keep memory useful over time:
@@ -47,7 +59,7 @@ Two habits keep memory useful over time:
 
 An Admin in your Claude organization can view a scope’s memory files at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), under the scope’s options menu; only an Owner can edit or delete them.
 
-* [How Claude Tag works](/docs/claude-tag/concepts/how-it-works): the scope, channel, and thread model behind memory
-* [Good habits](/docs/claude-tag/users/good-habits): habits that keep memory accurate
+##  Related resources
 
-[Set up routines](/docs/claude-tag/users/proactivity)[Prompt library](/docs/claude-tag/users/prompt-library)
+* [How Claude Tag works](https://claude.com/docs/claude-tag/concepts/how-it-works): the scope, channel, and thread model behind memory
+* [Good habits](https://claude.com/docs/claude-tag/users/good-habits): habits that keep memory accurate

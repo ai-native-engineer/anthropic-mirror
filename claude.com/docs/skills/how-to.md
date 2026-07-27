@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/skills/how-to -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Custom skills extend Claude with specialized knowledge and workflows. This guide explains how to create, structure, and test your own skills.
 Skills can range from simple instruction sets to multi-file packages with executable code. Effective skills:
 
@@ -15,11 +23,13 @@ Skills follow the [Agent Skills specification](https://agentskills.io/specificat
 
 A skill is a directory containing at minimum a `SKILL.md` file:
 
+```
 brand-guidelines/
 ├── SKILL.md
 ├── scripts/        # Optional: executable code
 ├── references/     # Optional: additional documentation
 └── assets/         # Optional: templates, images, data files
+```
 
 The directory name must match the `name` field in your `SKILL.md`.
 
@@ -31,10 +41,12 @@ The `SKILL.md` file must start with YAML frontmatter containing required metadat
 
 SKILL.md
 
+```
 ---
 name: brand-guidelines
 description: Apply Acme Corp brand guidelines to presentations and documents, including official colors, fonts, and logo usage.
 ---
+```
 
 **name**: Lowercase letters, numbers, and hyphens only. Maximum 64 characters. Must match the directory name.
 **description**: Explains what the skill does and when to use it. Claude uses this to determine when to invoke your skill.
@@ -56,6 +68,7 @@ Keep your main `SKILL.md` under 500 lines. Move detailed reference material to s
 
 SKILL.md
 
+```
 ---
 name: brand-guidelines
 description: Apply Acme Corp brand guidelines to presentations and documents, including official colors, fonts, and logo usage.
@@ -91,6 +104,7 @@ Apply these guidelines when creating:
 - Reports for clients
 
 See the [assets/](assets/) folder for logo files and font downloads.
+```
 
 ##  Adding resources
 
@@ -109,11 +123,13 @@ Claude can install packages from standard repositories (PyPI, npm) when loading 
 
 SKILL.md
 
+```
 ---
 name: data-analysis
 description: Analyze CSV files and generate visualizations.
 dependencies: python>=3.8, pandas>=1.5.0, matplotlib
 ---
+```
 
 ##  Packaging your skill
 
@@ -124,16 +140,20 @@ To upload a skill to Claude:
 
 **Correct structure:**
 
+```
 my-skill.zip
 └── my-skill/
     ├── SKILL.md
     └── scripts/
+```
 
 **Incorrect structure:**
 
+```
 my-skill.zip
 ├── SKILL.md  # files directly in ZIP root
 └── scripts/
+```
 
 ##  Testing your skill
 
@@ -179,5 +199,3 @@ Create and test skills from the Claude Code CLI, including the `/skills` manager
 ## Distribute as a plugin
 
 Package your skill for the plugin directory.
-
-[Overview](/docs/skills/overview)

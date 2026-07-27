@@ -12,7 +12,7 @@ Get Enterprise plan
 
 Build on Claude Platform
 
-[Build on Claude Platform](/platform/api)Build on Claude Platform
+[Build on Claude Platform](https://claude.com/platform/api)Build on Claude Platform
 
 ## Trusted by the world’s leading organizations
 
@@ -192,7 +192,7 @@ Access the Claude API to power new experiences, ship production-grade agents, an
 
 Explore the platform
 
-[Explore the platform](/platform/api)Explore the platform
+[Explore the platform](https://claude.com/platform/api)Explore the platform
 
 Results with Claude Code
 
@@ -222,7 +222,7 @@ Build, debug, and ship using natural language from your terminal, IDE, Slack, or
 
 Learn more
 
-[Learn more](/product/claude-code/enterprise)Learn more
+[Learn more](https://claude.com/product/claude-code/enterprise)Learn more
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fcfdb277363bbe323dfd39_maxresdefault.jpg)
 
@@ -232,7 +232,7 @@ Connect your files and tools, then hand off research, documents, and repetitive 
 
 Learn more
 
-[Learn more](/product/cowork)Learn more
+[Learn more](https://claude.com/product/cowork)Learn more
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fd0ca45e705644001aa5c1_maxresdefault-1.jpg)
 
@@ -242,7 +242,7 @@ Chat with Claude to develop ideas, draft content, tighten reports, work through 
 
 Learn more
 
-[Learn more](/product/overview)Learn more
+[Learn more](https://claude.com/product/overview)Learn more
 
 ![claude security
 ](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a0f3ed6261932e5de835422_claude-security-thumbnail.png)
@@ -253,7 +253,7 @@ Claude helps security teams and developers by reviewing code for security issues
 
 Learn more
 
-[Learn more](/product/claude-security)Learn more
+[Learn more](https://claude.com/product/claude-security)Learn more
 
 Tailor Claude to your business
 
@@ -261,7 +261,7 @@ Connect to Gmail, Google Drive, Slack and more to give Claude context from acros
 
 Learn more
 
-[Learn more](/connectors)Learn more
+[Learn more](https://claude.com/connectors)Learn more
 
 ## Real work, across every function
 
@@ -529,19 +529,7 @@ app/services/validator.py:36 · SSRF
 
 Explore features
 
-[Explore features](/pricing#team-enterprise-features)Explore features
-
-Get $1,000 in Claude Code and Claude Cowork credits for every seat that activates by July 2.
-
-Learn more
-
-[Learn more](/opus-enterprise-promo)Learn more
-
-Need help?
-
-Ask questions, find the right setup, and get started in minutes.
-
-[Chat with our buying agent](https://claude.ai/buying-agent)
+[Explore features](https://claude.com/pricing#team-enterprise-features)Explore features
 
 ### Enterprise
 
@@ -555,6 +543,10 @@ Usage is billed as you go at API rates, based on what your team uses. Annual com
 Get the Enterprise plan
 
 [Get the Enterprise plan](http://claude.ai/create/enterprise)Get the Enterprise plan
+
+Chat with buying specialist
+
+[Chat with buying specialist](https://claude.ai/buying-specialist)Chat with buying specialist
 
 [Usage limits](https://support.anthropic.com/en/articles/9797557-usage-limit-best-practices) apply. Prices shown don’t include applicable tax. Price and plans are subject to change at Anthropic's discretion.
 
@@ -639,7 +631,7 @@ Launch your own generative AI-enabled products with:
 
 Start building
 
-[Start building](/platform/api)Start building
+[Start building](https://claude.com/platform/api)Start building
 
 ### Get extra support
 
@@ -653,7 +645,7 @@ Need custom rate limits or hands-on help? Contact our sales team for:
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ## FAQ
 
@@ -779,7 +771,7 @@ Get Enterprise plan
 
 Build on Claude Platform
 
-[Build on Claude Platform](/platform/api)Build on Claude Platform
+[Build on Claude Platform](https://claude.com/platform/api)Build on Claude Platform
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c47a3df6f37b772965a5c4_uber.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c47a4368d48e57ad911656_uber-1.svg)
 

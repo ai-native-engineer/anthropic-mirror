@@ -10,6 +10,7 @@ Query your data using natural language through Omni's semantic model
 * Used in
 
   [Claude](https://claude.ai/directory/8e7324aa-2671-46bf-9447-5bba8ccf8c2f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Omni Analytics](https://www.omni.co/)
 
@@ -22,7 +23,7 @@ Query your data using natural language through Omni's semantic model
   Read
 * More
 
-  [Documentation](https://docs.omni.co/ai/mcp)[Privacy Policy](https://www.omni.co/privacy)[support@omni.co](mailto:support@omni.co)
+  [Documentation](https://docs.omni.co/ai/mcp)[Privacy Policy](https://www.omni.co/privacy)[Support](mailto:support@omni.co)
 
 Query Omni using the same semantic model, permissions, and logic defined by your data team directly from Claude. Instantly answer questions about your business using natural language — no need to write SQL or navigate complex dashboards. Your Omni semantic model becomes Claude's knowledge of your data, enabling secure, governed, and consistent analytics workflows across your organization.
 
@@ -50,11 +51,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -68,7 +69,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -82,7 +83,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -94,4 +95,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

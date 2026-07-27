@@ -187,7 +187,7 @@ Upload any contract and Claude breaks down what matters, spots issues, and helps
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690986488ce46d30ab5e346f_Group%201%20(2).png)
 
@@ -197,26 +197,26 @@ Open artifact in new window
 
 ## Related use cases
 
-[Prep scattered documents for a compliance audit](/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)Prep scattered documents for a compliance audit
+[Prep scattered documents for a compliance audit](https://claude.com/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)Prep scattered documents for a compliance audit
 
 Prep scattered documents for a compliance audit
 
 Use case
 
-[Use case](/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)Use case
+[Use case](https://claude.com/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)Use case
 
-[Organize your legal workflows using Projects](/resources/use-cases/organize-your-legal-workflows-using-projects)Organize your legal workflows using Projects
+[Organize your legal workflows using Projects](https://claude.com/resources/use-cases/organize-your-legal-workflows-using-projects)Organize your legal workflows using Projects
 
 Organize your legal workflows using Projects
 
 Use case
 
-[Use case](/resources/use-cases/organize-your-legal-workflows-using-projects)Use case
+[Use case](https://claude.com/resources/use-cases/organize-your-legal-workflows-using-projects)Use case
 
-[Track discovery timelines and analyze patterns](/resources/use-cases/track-discovery-timelines-and-analyze-patterns)Track discovery timelines and analyze patterns
+[Track discovery timelines and analyze patterns](https://claude.com/resources/use-cases/track-discovery-timelines-and-analyze-patterns)Track discovery timelines and analyze patterns
 
 Track discovery timelines and analyze patterns
 
 Use case
 
-[Use case](/resources/use-cases/track-discovery-timelines-and-analyze-patterns)Use case
+[Use case](https://claude.com/resources/use-cases/track-discovery-timelines-and-analyze-patterns)Use case

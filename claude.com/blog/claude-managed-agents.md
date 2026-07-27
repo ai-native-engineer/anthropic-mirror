@@ -4,6 +4,8 @@
 
 # Claude Managed Agents: get to production 10x faster
 
+Announcing Claude Managed Agents, Anthropic's new suite of composable APIs for building and deploying cloud-hosted agents at scale.
+
   [Product announcements](https://claude.com/blog/category/announcements)
 * Product
 
@@ -21,9 +23,11 @@
 
   https://claude.com/blog/claude-managed-agents
 
-Today, we're launching Claude Managed Agents, a suite of composable APIs for building and deploying cloud-hosted agents at scale.
+## Claude Managed Agents explained
 
-Until now, building agents meant spending development cycles on secure infrastructure, state management, permissioning, and reworking your agent loops for every model upgrade. Managed Agents pairs an agent harness tuned for performance with production infrastructure to go from prototype to launch in days rather than months.
+Claude Managed Agents is a suite of composable APIs for building and deploying cloud-hosted agents at scale. It pairs an Anthropic-managed harness with production infrastructure for state, memory, permissions, and scheduled execution.
+
+Prior to today's launch, building agents meant spending development cycles on secure infrastructure, state management, permissioning, and reworking your agent loops for every model upgrade. Managed Agents combines an agent harness tuned for performance with production infrastructure to go from prototype to launch in days rather than months.
 
 Whether you're building single-task runners or complex multi-agent pipelines, you can focus on the user experience, not the operational overhead.
 
@@ -128,6 +132,10 @@ eBook
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+## What's new in Claude Managed Agents
+
+New capabilities regularly. Agents can now learn across sessions with [built-in memory](https://claude.com/blog/claude-managed-agents-memory) and improve themselves through [dreaming, outcomes, and multiagent orchestration](https://claude.com/blog/new-in-claude-managed-agents). They can run unattended on [scheduled deployments with credentials stored in vaults](https://claude.com/blog/whats-new-in-claude-managed-agents), and operate inside your own perimeter with [self-hosted sandboxes and MCP tunnels](https://claude.com/blog/claude-managed-agents-updates).
+
 ## Getting started
 
 Managed Agents is priced on consumption. Standard Claude Platform token rates apply, plus $0.08 per session-hour for active runtime. See the [docs](https://platform.claude.com/docs/en/about-claude/pricing#claude-managed-agents-pricing) for full pricing details.
@@ -144,53 +152,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d231b45c2193efbb0f02_1869137c9d7f2a38b50e804d707e10e85de05ddb-1000x1000.svg)
 
-Jun 17, 2026
+Jul 23, 2026
 
-### Secure access to the Claude Platform with Workload Identity Federation
-
-Product announcements
-
-[Secure access to the Claude Platform with Workload Identity Federation](#)Secure access to the Claude Platform with Workload Identity Federation
-
-[Secure access to the Claude Platform with Workload Identity Federation](/blog/workload-identity-federation)Secure access to the Claude Platform with Workload Identity Federation
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229a7aa26ac1b6e96c2_a62b6eb169818f14c35b7a192af269e283f8fa93-1000x1000.svg)
-
-May 7, 2026
-
-### Collaborate with Claude across Excel, PowerPoint, Word and Outlook
+### Think through hard problems in voice mode
 
 Product announcements
 
-[Collaborate with Claude across Excel, PowerPoint, Word and Outlook](#) Collaborate with Claude across Excel, PowerPoint, Word and Outlook
+[Think through hard problems in voice mode](#)Think through hard problems in voice mode
 
-[Collaborate with Claude across Excel, PowerPoint, Word and Outlook](/blog/collaborate-with-claude-across-excel-powerpoint-word-and-outlook) Collaborate with Claude across Excel, PowerPoint, Word and Outlook
+[Think through hard problems in voice mode](https://claude.com/blog/think-through-hard-problems-in-voice-mode)Think through hard problems in voice mode
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224ef32980bc807847d_a683fdcfe3e2c7c6532342a0fa4ff789c3fd4852-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a025cf25f0694905405e054_Object-Scale.svg)
 
-May 19, 2026
+May 12, 2026
 
-### New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration
-
-Product announcements
-
-[New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration](#)New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration
-
-[New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration](/blog/new-in-claude-managed-agents)New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
-
-Apr 30, 2026
-
-### Claude Security is now in public beta
+### Claude for the legal industry
 
 Product announcements
 
-[Claude Security is now in public beta](#)Claude Security is now in public beta
+[Claude for the legal industry](#)Claude for the legal industry
 
-[Claude Security is now in public beta](/blog/claude-security-public-beta)Claude Security is now in public beta
+[Claude for the legal industry](https://claude.com/blog/claude-for-the-legal-industry)Claude for the legal industry
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3f14a08cb97bf1b16d40ef_ObjectClouds.svg)
+
+Jul 7, 2026
+
+### Claude Cowork is coming to mobile and web
+
+Product announcements
+
+[Claude Cowork is coming to mobile and web](#)Claude Cowork is coming to mobile and web
+
+[Claude Cowork is coming to mobile and web](https://claude.com/blog/cowork-web-mobile)Claude Cowork is coming to mobile and web
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
+
+Apr 9, 2026
+
+### Making Claude Cowork ready for enterprise
+
+Product announcements
+
+[Making Claude Cowork ready for enterprise](#)Making Claude Cowork ready for enterprise
+
+[Making Claude Cowork ready for enterprise](https://claude.com/blog/cowork-for-enterprise)Making Claude Cowork ready for enterprise
 
 ## Transform how your organization operates with Claude
 

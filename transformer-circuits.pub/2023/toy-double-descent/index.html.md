@@ -14,7 +14,7 @@
 
 January 5, 2023
 
-\* Core Research Contributor; ‡ Correspondence to <colah@anthropic.com>; [Author contributions statement below](#author-contributions).
+\* Core Research Contributor; ‡ Correspondence to [colah@anthropic.com](https://transformer-circuits.pub/2023/toy-double-descent/colah@anthropic.com); [Author contributions statement below](#author-contributions).
 
 In a [recent paper](https://transformer-circuits.pub/2022/toy_model/index.html) , we found that simple neural networks trained on toy tasks often exhibit a phenomenon called superposition , where they represent more features than they have neurons. Our investigation was limited to the infinite-data, underfitting regime. But there's reason to believe that understanding overfitting might be important if we want to succeed at mechanistic interpretability, and that superposition might be a central part of the story.
 
@@ -32,7 +32,7 @@ In this note, we offer a very preliminary investigation of training the same toy
 
 We hypothesize that real neural networks perform operations in a sparse, high-dimensional “feature” space, but these features are difficult for us to see directly because they’re stored in superposition. Motivated by this, we attempt to simulate this feature space using synthetic input vectors x which are sparse, high-dimensional, and non-negative (similar to our [previous paper](https://transformer-circuits.pub/2022/toy_model/index.html#demonstrating-setup-x)). Concretely, x \in \mathbb{R}^n is a n=10,000 dimensional vector. We let individual features x\_i = 0 with probability S=0.999, but otherwise uniformly distributed between [0, 1]. However in contrast to our previous work, we then rescale x such that ||x||^2 =1, as this will make memorization of training examples easier One could instead untie model weights W and W\_{up} \neq W^T to achieve this, though the resulting h\_i will generally have different lengths, and so not quite form perfect T-gons. Untied weights like this are likely a more faithful representation of most real neural networks. in the limit of very large n, one should expect training examples x\_i to have equal norms thanks to the central limit theorem.. We also consider training sets of finite size T, whereas our previous work only considered T=\infty. We will use X \in \mathbb{R}^{n \times T} to refer to the matrix of training data, where each column X\_i is a training data point.
 
-We consider the the ["](https://transformer-circuits.pub/2022/toy_model/index.html#demonstrating-setup-model)[ReLU Output](https://transformer-circuits.pub/2022/toy_model/index.html#demonstrating-setup-model)[" toy model](https://transformer-circuits.pub/2022/toy_model/index.html#demonstrating-setup-model), defined as
+We consider the ["](https://transformer-circuits.pub/2022/toy_model/index.html#demonstrating-setup-model)[ReLU Output](https://transformer-circuits.pub/2022/toy_model/index.html#demonstrating-setup-model)[" toy model](https://transformer-circuits.pub/2022/toy_model/index.html#demonstrating-setup-model), defined as
 
 ReLU Output Model
 
@@ -105,7 +105,7 @@ It’s interesting to note that we’re observing double-descent in the absence 
 
 ### [The Effect of m on Double Descent](#effect-of-m)
 
-At this point, it's natural to wonder whether the double descent might be an artifact of only having m=2 hidden dimensions,or difficulties with optimization. In this section, we'll confirm that this isn't the case. We'll also be able to explore a theme in some of the double descent literature – understanding it not as a one-dimensional phenomenon, but as a multi-dimensional interaction between model size, dataset size, and training .
+At this point, it's natural to wonder whether the double descent might be an artifact of only having m=2 hidden dimensions, or difficulties with optimization. In this section, we'll confirm that this isn't the case. We'll also be able to explore a theme in some of the double descent literature – understanding it not as a one-dimensional phenomenon, but as a multi-dimensional interaction between model size, dataset size, and training .
 
 We visualize double descent as a two-dimensional function varying both the number of training examples, T, and the number of hidden dimensions, m. All other hyperparameters are the same as above. We train four models for each (T,m) configuration, averaging the resulting losses.  We empirically found optimization to yield much more consistent results for m>3.
 
@@ -149,7 +149,7 @@ The figure below corresponds to the first figure in that section, and shows qual
 
 ![](images/img-006.png)
 
-In particular, this replication shows the same division into three regimes, of memorizing samples from small datasets, learning generalizing features from large datasets, and doing something more complicated in between, and the sample and feature embeddings look qualitatively similar between my models and the ones shown in the paper..
+In particular, this replication shows the same division into three regimes, of memorizing samples from small datasets, learning generalizing features from large datasets, and doing something more complicated in between, and the sample and feature embeddings look qualitatively similar between my models and the ones shown in the paper.
 
 There are three differences between this and the corresponding figure in the paper that I can see, and I think they may be related:
 
@@ -168,7 +168,7 @@ The general trends are very similar. In particular:
 1. The bias norms start out smaller than the weight norms for small dataset sizes, become larger than the weight norms for somewhat larger datasets, and are then smaller in the generalizing regime.
 2. Both norms rise with increasing dataset size, and rapidly fall back down once the models learn generalizing features.
 
-There are again differences, though these are quantitative rather than qualitative. In particular, the peak bias norms in my models are roughly 3 times larger than those in the paper, and I see a rise in the weight norms over the range T=100-1000 whereas the figure in the paper shows more of a plateau.
+There are again differences, though these are quantitative rather than qualitative. In particular, the peak bias norms in my models are roughly 3 times larger than those in the paper, and I see a rise in the weight norms over the range T=100–1000 whereas the figure in the paper shows more of a plateau.
 
 Original Authors' Response: Thanks for replicating this! It's really nice to see that everything qualitatively reproduced. We're uncertain what caused the shift in the dataset size at which the transition occurs. It seems like there must be some hyperparameter difference between our setups, but we're uncertain what it is! However, since we only really care about the existence of the transition, and not exactly where it falls for this toy problem, we're not that concerned about identifying the exact difference.
 
@@ -176,7 +176,7 @@ Original Authors' Response: Thanks for replicating this! It's really nice to see
 
 [Marius Hobbhahn](https://www.mariushobbhahn.com/) is a PhD student at the University of Tuebingen.
 
-I replicated most findings in the “Superposition, Memorization, and Double Descent” paper. I changed the setup by reducing the sparsity and the number of features by 10x respectively. I still find the double descent phenomenon as described in the paper with very similar constellations for features and hidden vectors. I also found double descent in multiple other settings, e.g. with different loss functions or when adding a ReLU activation between the layers. My preliminary takeaway from these findings is that the double descent is a fairly regular phenomenon that we should expect to happen in many settings. (Details can be found in my post [More Findings on Memorization and Double Descent](https://www.lesswrong.com/posts/KzwB4ovzrZ8DYWgpw/more-findings-on-memorization-and-double-descent).)
+I replicated most findings in the “Superposition, Memorization, and Double Descent” paper. I changed the setup by reducing the sparsity and the number of features by 10× respectively. I still find the double descent phenomenon as described in the paper with very similar constellations for features and hidden vectors. I also found double descent in multiple other settings, e.g. with different loss functions or when adding a ReLU activation between the layers. My preliminary takeaway from these findings is that the double descent is a fairly regular phenomenon that we should expect to happen in many settings. (Details can be found in my post [More Findings on Memorization and Double Descent](https://www.lesswrong.com/posts/KzwB4ovzrZ8DYWgpw/more-findings-on-memorization-and-double-descent).)
 
 ### [Extension: What controls the generalization scale?](#comment-jermyn-2)
 
@@ -214,7 +214,7 @@ While this is suggestive, it is not clear that this is the whole story. For inst
 
 When the authors shared a preliminary draft, they suggested it might be interesting to look at what happens when individual datapoints are repeated in the dataset.
 
-When a datapoint appears a small number of times (2-3) the phenomenology is the same as in this paper, but with more repeats models switch to learning a combination of datapoints and generalizing features.
+When a datapoint appears a small number of times (2–3) the phenomenology is the same as in this paper, but with more repeats models switch to learning a combination of datapoints and generalizing features.
 
 The figure below shows training histories of the feature and sample dimensions (left panels) as well as the final feature and sample embeddings (right panels) for a model with T=30,000 and a single feature (black) appearing 5 times. The repeated feature is embedded alongside four generalizing features and suppresses the fifth, effectively replacing one of the generalizing features that would ordinarily be learned.
 
@@ -263,7 +263,7 @@ D\_i^\* ~~=~~ \sup\_v~\frac{(v\cdot h\_i)^2}{\sum\_j (v \cdot h\_j)^2}
 
 The intuition is that if an example activates multiple features, the supremum can pick the one with the highest data dimensionality. (It turns out that this is closely related to the log-likelihood of data points if you fit a Gaussian to the network activations.)
 
-Below, we plot the data dimensionality of all training examples. We see that most examples have roughly the same dimensionality, but there are a few outliers in both tails. Strikingly, the examples with unusually high data dimensionality – almost 100x higher than typical examples! – tend to be weird outliers. While far from conclusive, it's tempting to believe these examples are "memorized" examples which the model has "special cased".
+Below, we plot the data dimensionality of all training examples. We see that most examples have roughly the same dimensionality, but there are a few outliers in both tails. Strikingly, the examples with unusually high data dimensionality – almost 100× higher than typical examples! – tend to be weird outliers. While far from conclusive, it's tempting to believe these examples are "memorized" examples which the model has "special cased".
 
 ![](images/img-017.png)
 
@@ -287,11 +287,11 @@ When training m=2 models in the low-data memorization regime, we occasionally ob
 
 ### [Author Contributions](#author-contributions)
 
-Experiments - The experiments in this paper were conducted by Tom Henighan, with help from Tristan Hume and Nelson Elhage. This was based on a prediction by Chris Olah that this behavior could be observed in roughly this experimental setup. Actually eliciting this behavior required careful tuning of hyperparameters, which was done by Tom Henighan. Robert Lasenby contributed significantly to our theoretical understanding of why features organize into pentagons. Nicholas Schiefer helped clarify our interpretation of the experimental results. Stanislav Fort did an independent reproduction of some of the experiments in this paper.
+Experiments – The experiments in this paper were conducted by Tom Henighan, with help from Tristan Hume and Nelson Elhage. This was based on a prediction by Chris Olah that this behavior could be observed in roughly this experimental setup. Actually eliciting this behavior required careful tuning of hyperparameters, which was done by Tom Henighan. Robert Lasenby contributed significantly to our theoretical understanding of why features organize into pentagons. Nicholas Schiefer helped clarify our interpretation of the experimental results. Stanislav Fort did an independent reproduction of some of the experiments in this paper.
 
-Diagrams - Diagrams were made by Tom Henighan and Shan Carter, with some help from Chris Olah.
+Diagrams – Diagrams were made by Tom Henighan and Shan Carter, with some help from Chris Olah.
 
-Writing - This paper was drafted by Tom Henighan, with significant editing from Chris Olah and Shan Carter. Other authors also contributed to editing.
+Writing – This paper was drafted by Tom Henighan, with significant editing from Chris Olah and Shan Carter. Other authors also contributed to editing.
 
 ### Acknowledgements
 

@@ -16,13 +16,17 @@ Niklas Gustavsson
 
 Chief Architect and VP of Engineering
 
-[Play video](#)Play video
-
 [](https://assets.claude.ai/brand/videos/campaign/boris-office-hours/spotify-supercut-cc.webm)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4f8664ebf9777fd1955_spotify-logo-white.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4f8664ebf9777fd1955_spotify-logo-white.svg)
 
+At Spotify, employees can describe an idea and have Claude build a working prototype in an hour or two. VP of Engineering Niklas Gustavsson walked us through it.
+
 “I found myself not using an IDE anymore. The way that I was working had completely changed. A change that I had not seen in the 30 years that I've been doing this type of work.”
+
+Niklas Gustavsson
+
+Chief Architect and VP of Engineering
 
 ### Featuring
 
@@ -34,16 +38,20 @@ Co-founder and CTO
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43da4a5ba20a23a30861c7_logo_doordash-dark.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43da4a5ba20a23a30861c7_logo_doordash-dark.svg)
 
-“It wasn't until I was using Claude Code that I was shipping production code again. I had a major comeback.”
-
-[Play video](#)Play video
+DoorDash runs Claude Code across their entire company and recently gave every one of their 4,000 employees access to Cowork. Boris Cherny, who created Claude Code at Anthropic, sat down with DoorDash co-founder Andy Fang to talk about how he’s delivering customer value faster by raising AI fluency across the company.
 
 [](https://assets.claude.ai/brand/videos/campaign/boris-office-hours/doordash-supercut-cc.webm)
+
+“It wasn't until I was using Claude Code that I was shipping production code again. I had a major comeback.”
+
+Andy Fang
+
+Co-founder and CEO
 
 Stay tuned
 
 ## More stories coming soon
 
-[Homepage](/?r=0)Homepage
+[Homepage](https://claude.com/?r=0)Homepage
 
 Terms and Policies

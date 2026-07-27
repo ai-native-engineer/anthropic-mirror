@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![Braintrust logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c33a9af93bd71d75bd7439_cs-logo-braintrust-light-theme.svg)![Braintrust logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c33a9da6a96649c861b9fa_cs-logo-braintrust-dark-theme.svg)
 
@@ -136,26 +136,26 @@ Video caption
 
 ## Related stories
 
-[Fountain accelerates frontline workforce hiring and management with Claude](/customers/fountain)Fountain accelerates frontline workforce hiring and management with Claude
+[Fountain accelerates frontline workforce hiring and management with Claude](https://claude.com/customers/fountain)Fountain accelerates frontline workforce hiring and management with Claude
 
 Fountain accelerates frontline workforce hiring and management with Claude
 
 Customer story
 
-[Customer story](/customers/fountain)Customer story
+[Customer story](https://claude.com/customers/fountain)Customer story
 
-[micro1 transforms technical recruiting with Claude](/customers/micro1)micro1 transforms technical recruiting with Claude
+[micro1 transforms technical recruiting with Claude](https://claude.com/customers/micro1)micro1 transforms technical recruiting with Claude
 
 micro1 transforms technical recruiting with Claude
 
 Customer story
 
-[Customer story](/customers/micro1)Customer story
+[Customer story](https://claude.com/customers/micro1)Customer story
 
-[Skillfully transforms hiring through AI-powered skill simulations with Claude](/customers/skillfully)Skillfully transforms hiring through AI-powered skill simulations with Claude
+[Skillfully transforms hiring through AI-powered skill simulations with Claude](https://claude.com/customers/skillfully)Skillfully transforms hiring through AI-powered skill simulations with Claude
 
 Skillfully transforms hiring through AI-powered skill simulations with Claude
 
 Customer story
 
-[Customer story](/customers/skillfully)Customer story
+[Customer story](https://claude.com/customers/skillfully)Customer story

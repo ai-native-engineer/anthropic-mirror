@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![Panther logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c302ae8d2bff49e07ce9a0_cs-logo-panther-light-theme.svg)![Panther logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c302b04d3cf62ef3d7ce02_cs-logo-panther-dark-theme.svg)
 
@@ -152,34 +152,34 @@ Video caption
 
 ## Related stories
 
-[Kai delivers preemptive exposure management with Claude](/customers/kai) Kai delivers preemptive exposure management with Claude
+[Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai) Kai delivers preemptive exposure management with Claude
 
 Kai delivers preemptive exposure management with Claude
 
 Customer story
 
-[Customer story](/customers/kai)Customer story
+[Customer story](https://claude.com/customers/kai)Customer story
 
-[How Artemis helps security teams cut incident resolution time by 96%](/customers/artemis)How Artemis helps security teams cut incident resolution time by 96%
+[How Artemis helps security teams cut incident resolution time by 96%](https://claude.com/customers/artemis)How Artemis helps security teams cut incident resolution time by 96%
 
 How Artemis helps security teams cut incident resolution time by 96%
 
 Customer story
 
-[Customer story](/customers/artemis)Customer story
+[Customer story](https://claude.com/customers/artemis)Customer story
 
-[Cogent resolves security threats 97% faster with Claude](/customers/cogent)Cogent resolves security threats 97% faster with Claude
+[Cogent resolves security threats 97% faster with Claude](https://claude.com/customers/cogent)Cogent resolves security threats 97% faster with Claude
 
 Cogent resolves security threats 97% faster with Claude
 
 Customer story
 
-[Customer story](/customers/cogent)Customer story
+[Customer story](https://claude.com/customers/cogent)Customer story
 
-[How eSentire runs expert-level threat investigations at scale with Claude](/customers/esentire)How eSentire runs expert-level threat investigations at scale with Claude
+[How eSentire runs expert-level threat investigations at scale with Claude](https://claude.com/customers/esentire)How eSentire runs expert-level threat investigations at scale with Claude
 
 How eSentire runs expert-level threat investigations at scale with Claude
 
 Customer story
 
-[Customer story](/customers/esentire)Customer story
+[Customer story](https://claude.com/customers/esentire)Customer story

@@ -160,14 +160,14 @@ The Claude Startups Program gives founders credits to build on the best models, 
 
 Learn more
 
-[Learn more](/programs/startups)Learn more
+[Learn more](https://claude.com/programs/startups)Learn more
 
 See more stories
 
-[See more stories](/customers)See more stories
+[See more stories](https://claude.com/customers)See more stories
 
 ## Build with us
 
-[Homepage](/?r=0)Homepage
+[Homepage](https://claude.com/?r=0)Homepage
 
 Terms and Policies

@@ -16,7 +16,7 @@ One year ago, we [introduced](https://www.anthropic.com/news/model-context-proto
 * Across platforms: MCP has been adopted by ChatGPT, Cursor, Gemini, Microsoft Copilot, Visual Studio Code, and other popular AI products;
 * Across infrastructure: Enterprise-grade infrastructure now exists with deployment support for MCP from providers including AWS, Cloudflare, Google Cloud, and Microsoft Azure.
 
-![Significant Milestone in MCP's first year](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa056db8301f67466de34a19181e7428ec6b6e17f-1920x2500.png&w=3840&q=75)
+![Significant Milestone in MCP's first year](https://www-cdn.anthropic.com/images/4zrzovbb/website/a056db8301f67466de34a19181e7428ec6b6e17f-1920x2500.png)
 
 We’re continuing to invest in MCP’s growth. Claude now has a directory with over 75 [connectors](https://claude.com/connectors) (powered by MCP), and we recently launched [Tool Search and Programmatic Tool Calling](https://www.anthropic.com/engineering/advanced-tool-use) capabilities in our API to help optimize production-scale MCP deployments, handling thousands of tools efficiently and reducing latency in complex agent workflows.  
   

@@ -4,9 +4,9 @@
 
 Jul 25, 2023
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F10d2b2627656111aae62a8ab7b299b4b73ee86a4-2880x1620.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/10d2b2627656111aae62a8ab7b299b4b73ee86a4-2880x1620.png)
 
-As the capabilities of frontier artificial intelligence models continue to increase rapidly, ensuring the security of these systems has become a critical priority. In our previous posts, we’ve focused on Anthropic’s [approach to safety](/news/core-views-on-ai-safety), and Claude’s capabilities and applications. In this post, we are sharing some of the steps we are taking to ensure our models are developed securely. We hope to advance public discussion about how all labs can deploy top models securely, as well as share recommendations for government regulatory approaches that encourage adoption of strong cybersecurity practices. Below we discuss some of our recommendations for cybersecurity best practices, which Anthropic itself is in the process of implementing.
+As the capabilities of frontier artificial intelligence models continue to increase rapidly, ensuring the security of these systems has become a critical priority. In our previous posts, we’ve focused on Anthropic’s [approach to safety](https://www.anthropic.com/news/core-views-on-ai-safety), and Claude’s capabilities and applications. In this post, we are sharing some of the steps we are taking to ensure our models are developed securely. We hope to advance public discussion about how all labs can deploy top models securely, as well as share recommendations for government regulatory approaches that encourage adoption of strong cybersecurity practices. Below we discuss some of our recommendations for cybersecurity best practices, which Anthropic itself is in the process of implementing.
 
 ## Summary
 

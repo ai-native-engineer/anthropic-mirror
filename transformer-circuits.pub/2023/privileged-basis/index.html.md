@@ -14,7 +14,7 @@
 
 March 16, 2023
 
-\* Core Research Contributor; ‡ Correspondence to <colah@anthropic.com>; [Author contributions statement below](#author-contributions).
+\* Core Research Contributor; ‡ Correspondence to [colah@anthropic.com](https://transformer-circuits.pub/2023/privileged-basis/colah@anthropic.com); [Author contributions statement below](#author-contributions).
 
 ### [Abstract](#abstract)
 
@@ -24,7 +24,7 @@ We explore two other obvious sources of basis dependency in a Transformer: Layer
 
 ### [The longer story](#story)
 
-Tim Dettmers[recently released](https://arxiv.org/abs/2208.07339) a set of results and code exploring what he calls “emergent outliers” in Transformer models: the phenomenon that in large Transformers, certain coordinates in the residual stream have very large outlier values, ranging up to 20x larger than any other coordinate.
+Tim Dettmers[recently released](https://arxiv.org/abs/2208.07339) a set of results and code exploring what he calls “emergent outliers” in Transformer models: the phenomenon that in large Transformers, certain coordinates in the residual stream have very large outlier values, ranging up to 20× larger than any other coordinate.
 
 The obvious interpretability question posed by this work is:
 
@@ -36,7 +36,7 @@ Why are these features basis-aligned?
 
 We generally consider the residual stream to have “no privileged basis”. By this we mean that there is no reason to expect the individual coordinates in the stream to have any particular meaning or significant property at all. This belief arises from the observation that every operation that reads from or writes to the residual stream does so via an arbitrary full-rank linear transformation. That in turn implies that we could transform the residual stream by an arbitrary full-rank linear transformation, and then also multiply the same transformation into every other matrix in the Transformer in the appropriate way, and arrive at an identical function with completely different coordinates.
 
-Under the assumption that that model chooses an arbitrary basis for the residual stream, we expect large features to get "spread out" across many basis coordinates – in expectation, they will contribute something like 1/\sqrt{d} of their magnitude to each coordinate.
+Under the assumption that the model chooses an arbitrary basis for the residual stream, we expect large features to get "spread out" across many basis coordinates – in expectation, they will contribute something like 1/\sqrt{d} of their magnitude to each coordinate.
 
 Thus, when we observe the consistent presence of extreme values in some residual stream dimensions, it suggests that something in the model or its training process is breaking the symmetry! What is it?
 
@@ -46,11 +46,11 @@ First, we’ll demonstrate the behavior on a 200 million parameter model using A
 
 #### Measuring Outliers
 
-To demonstrate that we're seeing a similar phenomenon to Dettmers, we will explore our model using his initial definition: let an an “outlier” be a single scalar value in the residual stream whose absolute value is >6 (we have verified that for our models this threshold picks out the extreme tails, and we see qualitatively similar results for a wide range of threshold values). We can then plot the number of residual-stream activations which ever exhibit outliers, as a function of model layer, over a (128 sequences x 1024 tokens) test batch:
+To demonstrate that we're seeing a similar phenomenon to Dettmers, we will explore our model using his initial definition: let an “outlier” be a single scalar value in the residual stream whose absolute value is >6 (we have verified that for our models this threshold picks out the extreme tails, and we see qualitatively similar results for a wide range of threshold values). We can then plot the number of residual-stream activations which ever exhibit outliers, as a function of model layer, over a (128 sequences × 1024 tokens) test batch:
 
 ![](images/img-001.png)
 
-We see them grow over the course of the model, with a typical layer exhibiting 20-60 outlier dimensions (out of a total d\_model=1280 hidden dimensions in this model).
+We see them grow over the course of the model, with a typical layer exhibiting 20–60 outlier dimensions (out of a total d\_model=1280 hidden dimensions in this model).
 
 #### Activation Kurtosis
 
@@ -66,7 +66,7 @@ Plotting this metric across layers shows that our distribution is wildly non-Gau
 
 ![](images/img-002.png)
 
-By way of illustration and to confirm our metric's behavior, we canlook at the same residual stream values after we apply a fixed random rotation (equivalently, looking at them in some other randomly-chosen orthonormal basis). If we take the same kurtosis metric of the resulting activations, we find values almost exactly equal to 3, as predicted.
+By way of illustration and to confirm our metric's behavior, we can look at the same residual stream values after we apply a fixed random rotation (equivalently, looking at them in some other randomly-chosen orthonormal basis). If we take the same kurtosis metric of the resulting activations, we find values almost exactly equal to 3, as predicted.
 
 ![](images/img-003.png)
 
@@ -103,7 +103,7 @@ We generate a random orthonormal matrix R, and then we multiply every matrix in 
 
 ![](images/img-005.png)
 
-Random rotations do tend to hurt on average, but the numbers are absolutely tiny (for scale, the baseline model has a test loss of about 3.02 nats and we see much larger noise from e.g. different random seeds at model initialization.
+Random rotations do tend to hurt on average, but the numbers are absolutely tiny (for scale, the baseline model has a test loss of about 3.02 nats) and we see much larger noise from e.g. different random seeds at model initialization.
 
 From this, we conclude that this model is genuinely rotation-invariant, and that this fact holds even when accounting for floating-point error.
 
@@ -117,7 +117,7 @@ In particular, we can generate fixed random rotation matrices at initialization,
 
 We train two models in this way, with two variations:
 
-A "Shared rotation" model, in which we fix a single random rotation, and apply it (or its transpose) every time read (write) from (to) the residual stream. This is a similar setup to the forwards-pass experiments, except that here we rotate the activations, instead of the parameter matrices. In this model, we essentially decouple the residual stream basis from the computation basis; All computation (attention and the MLP layers) happens inside a single shared basis; but information is passed through a different basis along the residual stream.
+A "Shared rotation" model, in which we fix a single random rotation, and apply it (or its transpose) every time we read (write) from (to) the residual stream. This is a similar setup to the forwards-pass experiments, except that here we rotate the activations, instead of the parameter matrices. In this model, we essentially decouple the residual stream basis from the computation basis; All computation (attention and the MLP layers) happens inside a single shared basis; but information is passed through a different basis along the residual stream.
 
 An "Independent rotations" model, in which every read from or write to the residual stream has a different random rotation. In this model, every computational layer happens in its own basis, unrelated to any other layer or the residual stream.
 
@@ -164,10 +164,10 @@ We see a slight variation early in training between the models, but within a bil
 
 ### [Author Contributions](#author-contributions)
 
-Basic Results and Experiments - Nelson Elhage designed and performed the experiments, including implementing and training the Transformer variations.
+Basic Results and Experiments – Nelson Elhage designed and performed the experiments, including implementing and training the Transformer variations.
 
-Analysis and Theory - Nelson Elhage suggested that kurtosis might provide a fruitful measure for basis-independence. Chris Olah did the theoretical work to justify and select the particular formulation we arrived at.
+Analysis and Theory – Nelson Elhage suggested that kurtosis might provide a fruitful measure for basis-independence. Chris Olah did the theoretical work to justify and select the particular formulation we arrived at.
 
-Writing - The paper was primarily drafted by Nelson Elhage, with some sections drafted by Chris Olah. Robert Lasenby contributed to editing and provided helpful comments.
+Writing – The paper was primarily drafted by Nelson Elhage, with some sections drafted by Chris Olah. Robert Lasenby contributed to editing and provided helpful comments.
 
-Illustrations - Shan Carter designed the illustrations in the paper with assistance from Nelson Elhage and Chris Olah.
+Illustrations – Shan Carter designed the illustrations in the paper with assistance from Nelson Elhage and Chris Olah.

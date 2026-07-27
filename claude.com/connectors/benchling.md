@@ -10,6 +10,7 @@ Connect to R&D data, source experiments, and notebooks
 * Used in
 
   [Claude](https://claude.ai/directory/b69522d1-0a10-415a-898b-4e4d706c9c87)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](https://support.claude.com/en/articles/12614810-using-the-benchling-extension-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Benchling](https://www.benchling.com/)
 
@@ -40,7 +41,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -54,7 +55,21 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
+
+Life sciences and healthcare
+
+Claude
+
+Claude Code
+
+June 30, 2026
+
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43716940e4a2c2f530fb2c_biomni.jpeg)
+
+### Biomni Lab
+
+Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)
 
 Life sciences and healthcare
 
@@ -68,20 +83,4 @@ February 11, 2026
 
 ### BioRender
 
-Search for and use scientific templates and icons](/connectors/biorender)
-
-Life sciences and healthcare
-
-Education
-
-Claude
-
-Claude Code
-
-May 20, 2026
-
-[![biorxiv_logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3f052f1932d948bc6d21_biorx.jpg)
-
-### bioRxiv
-
-Access to bioRxiv and medRxiv preprint data](/connectors/biorxiv)
+Search for and use scientific templates and icons](https://claude.com/connectors/biorender)

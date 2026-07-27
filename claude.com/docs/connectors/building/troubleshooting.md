@@ -1,12 +1,22 @@
 <!-- source: https://claude.com/docs/connectors/building/troubleshooting -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 This page covers the most common reasons a connector fails to connect or authenticate, and how to diagnose each one. The errors Claude shows in the UI (“Couldn’t reach the MCP server” and “Authorization with the MCP server failed”) cover more than one root cause, so the first step is figuring out which one you’re hitting.
 
 ##  Find your reference ID
 
 When a connection fails, the error toast and the page URL include a reference ID that starts with `ofid_`. For example:
 
+```
 .../settings/connectors?step=start_error&flow_id=ofid_d32594c73257a651
+```
 
 Copy that ID and include it in any GitHub issue or support request. It lets Anthropic trace the exact failure on the server side. Reference IDs are time-limited, so report them soon after the failure.
 
@@ -34,7 +44,7 @@ Claude rejects the connection when the hostname:
 * **Internal corporate DNS.** A hostname that resolves on your VPN won’t resolve to a routable address from the public internet.
 
 **How to check:** Run `dig +short your-server.example.com` from a machine outside your network, or use a public DNS lookup service. Every returned address must be globally routable.
-**How to fix:** Expose your server through a publicly-routable endpoint, such as a cloud host with a public IP, a public reverse proxy, or a tunnel. See [test a local server](/docs/connectors/building/testing#test-a-local-server) for the recommended tunnel setup.
+**How to fix:** Expose your server through a publicly-routable endpoint, such as a cloud host with a public IP, a public reverse proxy, or a tunnel. See [test a local server](https://claude.com/docs/connectors/building/testing#test-a-local-server) for the recommended tunnel setup.
 
 ###  2. Firewall or WAF blocks Anthropic’s traffic
 
@@ -54,14 +64,16 @@ This also explains the common report “works in MCP Inspector or Claude Code CL
 If your server requires authentication, Claude performs OAuth discovery before it can connect. A discovery failure surfaces as “Couldn’t reach” even though your MCP endpoint itself is reachable. The most common causes:
 
 * **Discovery metadata returns 404.** If your `401` response doesn’t include a `WWW-Authenticate` header with a `resource_metadata` pointer, Claude looks for [RFC 9728](https://www.rfc-editor.org/rfc/rfc9728) protected resource metadata and authorization server metadata at the standard `/.well-known/` paths on your MCP server’s origin. If those paths return `404` and you haven’t pointed Claude elsewhere, Claude has no way to start the OAuth flow.
-* **No way to register a client.** Claude needs one of: [RFC 7591 dynamic client registration](https://www.rfc-editor.org/rfc/rfc7591) (a `registration_endpoint` in your authorization server metadata), [Client ID Metadata Documents](/docs/connectors/building/authentication#dcr-and-cimd-details) (`"client_id_metadata_document_supported": true`), or a pre-registered client. Without any of these, Claude can’t obtain a client identity. See [supported authentication types](/docs/connectors/building/authentication#supported-authentication-types).
-* **Authorization server is on a different host than the MCP server.** Claude discovers protected resource metadata from your MCP server, then makes a *second* round of discovery requests against the authorization server host listed in `authorization_servers`. If that host lives behind a different CDN or WAF, it must also be reachable from Anthropic’s egress range. See [cross-host authorization servers](/docs/connectors/building/authentication#cross-host-authorization-servers).
+* **No way to register a client.** Claude needs one of: [RFC 7591 dynamic client registration](https://www.rfc-editor.org/rfc/rfc7591) (a `registration_endpoint` in your authorization server metadata), [Client ID Metadata Documents](https://claude.com/docs/connectors/building/authentication#dcr-and-cimd-details) (`"client_id_metadata_document_supported": true`), or a pre-registered client. Without any of these, Claude can’t obtain a client identity. See [supported authentication types](https://claude.com/docs/connectors/building/authentication#supported-authentication-types).
+* **Authorization server is on a different host than the MCP server.** Claude discovers protected resource metadata from your MCP server, then makes a *second* round of discovery requests against the authorization server host listed in `authorization_servers`. If that host lives behind a different CDN or WAF, it must also be reachable from Anthropic’s egress range. See [cross-host authorization servers](https://claude.com/docs/connectors/building/authentication#cross-host-authorization-servers).
 
 **How to check:** From a public network, run:
 
+```
 curl -i https://your-server.example.com/.well-known/oauth-protected-resource
 curl -i https://your-server.example.com/.well-known/oauth-authorization-server
 curl -i https://your-server.example.com/.well-known/openid-configuration
+```
 
 If your MCP endpoint includes a path component (such as `https://your-server.example.com/mcp`), append it to the well-known path: `/.well-known/oauth-protected-resource/mcp`.
 The protected resource metadata should return `200` with valid JSON. For authorization server metadata, your server only needs to answer **one** of the two discovery endpoints — Claude tries `/.well-known/oauth-authorization-server` ([RFC 8414](https://www.rfc-editor.org/rfc/rfc8414)) first, then falls back to `/.well-known/openid-configuration` ([OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)). A `404` on one is expected if the other returns `200`. Most hosted identity providers (Auth0, Okta, Microsoft Entra, Keycloak, Supabase Auth) only serve `/.well-known/openid-configuration`.
@@ -74,8 +86,8 @@ This error appears after the OAuth flow has started. The most common causes:
 * **Issuer mismatch.** The `issuer` value in your authorization server metadata must match the issuer that signs your tokens. If your tokens come from a third-party identity provider such as Supabase Auth or Auth0 but your metadata advertises a different issuer URL, validation can fail.
 * **Audience mismatch.** The [MCP authorization spec](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#token-handling) requires your server to verify each access token was issued for it. Claude sends the [RFC 8707](https://www.rfc-editor.org/rfc/rfc8707) `resource` parameter on authorization and token requests, set to the canonical form of your MCP server URL — lowercase scheme and host, no trailing slash, no fragment, no default port — including any path component. Your authorization server should issue tokens with that audience, and your MCP server should accept the canonical value when checking `aud` rather than doing a strict byte-for-byte comparison against what the user typed. Or use whatever audience-binding mechanism your token format supports, as long as it confirms the token was minted for your server and not another service.
 * **PKCE not supported.** Claude includes a PKCE `code_challenge` with `code_challenge_method=S256` in every authorization request. If your authorization server doesn’t implement S256 PKCE, the flow fails at the token endpoint. The [MCP authorization spec](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#authorization-code-protection) also requires authorization servers to advertise `"code_challenge_methods_supported": ["S256"]` so spec-compliant clients can verify support before starting the flow.
-* **Refresh failures.** Use RFC 6749-compliant error codes when a refresh token expires. See [token refresh](/docs/connectors/building/authentication#token-refresh).
-* **Slow token endpoint.** Claude waits up to 10 seconds for your `/token` response; if no response bytes arrive in that window, the flow fails here even if your server eventually issues the token. Check the end-to-end latency of your token handler and any proxy or gateway in front of it. See [endpoint latency](/docs/connectors/building/authentication#endpoint-latency).
+* **Refresh failures.** Use RFC 6749-compliant error codes when a refresh token expires. See [token refresh](https://claude.com/docs/connectors/building/authentication#token-refresh).
+* **Slow token endpoint.** Claude waits up to 10 seconds for your `/token` response; if no response bytes arrive in that window, the flow fails here even if your server eventually issues the token. Check the end-to-end latency of your token handler and any proxy or gateway in front of it. See [endpoint latency](https://claude.com/docs/connectors/building/authentication#endpoint-latency).
 
 ###  Microsoft Entra ID rejects the resource value
 
@@ -127,7 +139,7 @@ Confirm `/.well-known/oauth-protected-resource` returns `200` with valid JSON, a
 
 Cross-host hint
 
-If your authorization server is on a different host than your MCP server, confirm your protected resource metadata’s `authorization_servers` field points at it, and that the authorization server’s host is reachable from Anthropic’s egress range and answers `/.well-known/openid-configuration` (or `/.well-known/oauth-authorization-server`). See [cross-host authorization servers](/docs/connectors/building/authentication#cross-host-authorization-servers).
+If your authorization server is on a different host than your MCP server, confirm your protected resource metadata’s `authorization_servers` field points at it, and that the authorization server’s host is reachable from Anthropic’s egress range and answers `/.well-known/openid-configuration` (or `/.well-known/oauth-authorization-server`). See [cross-host authorization servers](https://claude.com/docs/connectors/building/authentication#cross-host-authorization-servers).
 
 7
 
@@ -152,5 +164,3 @@ The 401 + WWW-Authenticate discovery handshake.
 ## IP address reference
 
 Anthropic’s published IP ranges for allowlisting.
-
-[Testing](/docs/connectors/building/testing)[Review criteria](/docs/connectors/building/review-criteria)

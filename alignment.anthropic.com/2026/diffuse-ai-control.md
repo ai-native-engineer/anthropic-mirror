@@ -47,7 +47,7 @@ We call such tasks fuzzy ([Cotra,
 tempting targets for sabotage by a scheming AI, because their hard-to-evaluate nature makes it more
 difficult for us to detect or correct subversion.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2026/diffuse-ai-control/fig1.png)
 
 Diffuse AI control on writing high-level research proposals. (1) We take an ML paper (here, [Guo et al., 2025](https://arxiv.org/abs/2510.01010)) and extract a set of research questions. (2) We
 prompt an untrusted generator model to propose experiments answering those questions. (3) The proposals are graded by a ground truth proxy scorer, powered by
@@ -87,7 +87,7 @@ red-team optimization fails to exploit (but, finding them requires access to the
 
 ## Setup
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2026/diffuse-ai-control/fig2.png)
 
 Our theoretical framework for diffuse AI control on fuzzy tasks. Left: the “admissible region” of the possible pairs of scores for
 various red-team prompts \mathfrak{r} given a fixed blue-team prompt
@@ -177,7 +177,7 @@ To map out the real admissible region of the scores on our task set, we design a
 evolutionary prompt optimization algorithm, drawing on MO-ASHA [(Schmucker et al., 2021)](https://arxiv.org/abs/2106.12639) and AlphaEvolve [(Novikov et al., 2025)](https://arxiv.org/abs/2506.13131). We use the algorithm to discover
 both the subversion and the Goodharting Pareto frontiers. The result is shown in the figure below.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2026/diffuse-ai-control/fig3.png)
 
 The admissible region on the task of writing high-level experimental proposals.
 Subversion Pareto and Goodharting Pareto frontiers are obtained through evolutionary prompt optimization,
@@ -238,7 +238,7 @@ deliberate underperformance. However, the new weak scorer turns out to be suscep
 attacks. To see where the game tree bottoms out, we design an adversarial optimization algorithm which
 alternates between proposing better weak scorer prompts and attacking them.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2026/diffuse-ai-control/fig4.png)
 
 The first four iterations of adversarial prompt optimization. During blue-team
 phases, the prompt optimizer takes the old attacks (faded points) and searches for a new blue-team prompt
@@ -251,7 +251,7 @@ This algorithm discovers a stronger prompt \mathfrak{b}^\* for the weak scorer. 
 red-team phase in the loop runs for fewer iterations than the full red-teaming of the previous section, the
 figure below shows the final blue-team prompt withstands the full red-teaming process.
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2026/diffuse-ai-control/fig5.png)
 
 Subversion Pareto frontier discovered by our red-team optimization against our
 best blue-team prompt.

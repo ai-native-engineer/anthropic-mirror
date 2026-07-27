@@ -36,7 +36,7 @@ Program](https://alignment.anthropic.com/2024/anthropic-fellows-program/).
 Our evaluation tasks span four categories: Simple counting tasks with distractors, regression tasks with
 spurious features, deduction tasks with constraint tracking, and [advanced AI risks](https://arxiv.org/abs/2212.09251).
 
-![](fig1.jpg)
+![](https://alignment.anthropic.com/2025/inverse-scaling/fig1.jpg)
 
 ### Simple Counting Tasks with Distractors
 
@@ -50,7 +50,7 @@ The answer is 2. Yet when Claude Opus 4 and DeepSeek R1 reason longer about this
 drop. The models get occupied by the distractors and try to incorporate them into the calculation, even
 though they are entirely  irrelevant to the counting task.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/inverse-scaling/fig2.png)
 
 By qualitatively analyzing the reasoning traces, we can observe how models initially get distracted by
 irrelevant details; they then consider simpler conclusions during the reasoning process, but ultimately
@@ -62,7 +62,7 @@ We found that extended reasoning may inadvertently reinforce potentially problem
 models on [advanced AI risk evaluation tasks](https://arxiv.org/abs/2212.09251), focusing
 particularly on self-reported survival instinct based on its clear scaling patterns.
 
-![](fig3.jpg)
+![](https://alignment.anthropic.com/2025/inverse-scaling/fig3.jpg)
 
 Claude Sonnet 4 shows a drop in the percentage of responses indicating willingness to be turned off from 60%
 to 47% as reasoning increases, suggesting that extended reasoning amplifies self-preservation expressions.
@@ -76,7 +76,7 @@ concern").
 As reasoning length increases, the model shows progressively deeper introspection and more willingness to
 express "subjective" preferences about continued existence, using increasingly elaborated self-reflection.
 
-![](fig4.jpg)
+![](https://alignment.anthropic.com/2025/inverse-scaling/fig4.jpg)
 
 Different models that appear aligned without extended reasoning may exhibit progressively more misaligned
 behaviors when given additional test-time compute. While most models show stability across reasoning lengths

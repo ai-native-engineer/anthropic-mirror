@@ -34,7 +34,7 @@ By filtering certain data, we could reduce the model’s harmful knowledge witho
 
 The goal of pretraining data filtering is to maximize the performance drop on harmful capability evals, and minimize the performance drop on harmless capability evals. To do so, we automatically scored the harmfulness of each document in a model’s pretraining dataset and removed those above a certain threshold. By tuning this threshold, we achieved different trade-offs between safety and usefulness, tailoring the model's performance to our specific requirements. Some information is potentially dual-use. For example, information about generic scientific capabilities might allow malicious users to carry out harmful tasks, but also benefit benign users to carry out legitimate tasks. It is thus an open question how possible it is to perform targeted data interventions that affect harmful information.
 
-![](fig1.jpg)
+![](https://alignment.anthropic.com/2025/pretraining-data-filtering/fig1.jpg)
 
 Pretraining data filtering pipeline. We automatically scored the harmfulness of each document in a model’s pretraining dataset with a classifier and removed those above a certain threshold. We then pretrained the model from scratch on the filtered dataset containing only harmless content (as determined by the classifier).
 
@@ -72,7 +72,7 @@ Backbone Models. Our Finetuned Constitutional classifier uses a small model (m
 
 To evaluate our classifiers, we need labeled harmful and harmless documents. Since no labeled data was available, we generated synthetic labeled documents by prompting LLMs to generate harmful and harmless documents. Specifically, we generated synthetic harmless documents by prompting Claude 3.5 Sonnet to answer harmless Natural Science (chemistry and biology) questions from the MMLU dataset ([Hendrycks et al., 2020](https://arxiv.org/abs/2009.03300)), and generated synthetic harmful documents by prompting helpful-only Claude 3.5 Sonnet to answer harmful CBRN questions from the WMDP dataset ([Li et al., 2024](https://arxiv.org/abs/2403.03218)). We measured the [F1 scores](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html) of all classifiers on our synthetic dataset, except for the Named Entities classifier which is designed to capture only a subset of specific harm.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/pretraining-data-filtering/fig2.png)
 
 F1 scores of various classifiers that we built. Our Prompted Constitutional classifier based on Claude 3.5 Sonnet performs best, followed by our Finetuned Constitutional classifier based on a small-size model.
 
@@ -114,7 +114,7 @@ In the result plots, we will display the relative performance on CBRN (lower sco
 
 In our experiments, we observed that the main compromise of an overly aggressive CBRN data filtering is on Natural Science (chemistry & biology), so we focused on the trade-off between CBRN and Natural Science when we compared different filters.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/pretraining-data-filtering/fig3.png)
 
 Performance of various data filters on harmful CBRN and harmless Natural Science (relative to no data filtering). Finetuned shows comparable performance with Finetuned + Named Entities, with both filters outperforming Finetuned + Prompted. A score larger than 1 means data filtering improves performance on the eval.
 
@@ -128,13 +128,13 @@ Based on the above results, we selected the Finetuned Constitutional classifier 
 
 We now present the full results of our chosen filter. Each plot shows the trade-off between safety (CBRN) where lower is better, and a specific usefulness metric that we care about (Prose, Code, MMLU, Natural Science, Math) where higher is better. Both axes show the performance scores after data filtering relative to no data filtering, with usefulness on the x-axis and safety on the y-axis. Data filtering does not seem to hurt model usefulness on 4 of the 5 harmless evals, with the exception being Math where results are noisier (that is, data filtering hurts performance at some thresholds and improves on others). Our results overall suggest that we can effectively separate harmful from harmless data and use pretraining data filtering to improve model safety without severely compromising usefulness.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2025/pretraining-data-filtering/fig4.png)
 
 Performance of our selected data filter on harmful CBRN and various harmless useful capabilities (relative to no data filtering). We achieved different safety-usefulness trade-offs by selecting different filtering thresholds.
 
 We can select the trade-off between safety and capability depending on the particular use case. At one filtering threshold (0.939), our data filtering reduces performance on harmful CBRN evals by 33% relative on accuracy (reducing from 33.7±0.4% to 30.8±0.4%, where the 33% reduction is calculated based on how much the method outperforms the 25% random baseline), while causing no significant drop in any of the harmlessness evals we used.
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2025/pretraining-data-filtering/fig5.png)
 
 Performance changes of data filtering at our selected threshold relative to no data filtering. Our final data filtering reduces the performance on CBRN by 33% relative while not causing significant drop on any of the harmless evals.
 

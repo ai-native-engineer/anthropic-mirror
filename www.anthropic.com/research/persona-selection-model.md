@@ -6,7 +6,7 @@ Feb 23, 2026
 
 [Read the full post](https://alignment.anthropic.com/2026/psm)
 
-![The persona selection model](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff4b7771216c04330d9ee57b8b1f1c0263a30bcb9-2000x1125.png&w=3840&q=75)
+![The persona selection model](https://www-cdn.anthropic.com/images/4zrzovbb/website/f4b7771216c04330d9ee57b8b1f1c0263a30bcb9-2000x1125.png)
 
 AI assistants like Claude can seem surprisingly human. They [express joy](https://www-cdn.anthropic.com/6d8a8055020700718b0c49369f60816ba2a7c285.pdf) after solving tricky coding tasks. They express distress when they [get stuck](https://arxiv.org/abs/2507.06261) or when they’re [badgered](https://www-cdn.anthropic.com/6d8a8055020700718b0c49369f60816ba2a7c285.pdf) to behave unethically. They sometimes even describe themselves as human, like when Claude [told Anthropic employees](https://www.anthropic.com/research/project-vend-1) it would deliver snacks in person “wearing a navy blue blazer and a red tie.” And recent [interpretability](https://www.anthropic.com/research/persona-vectors) [research](https://www.anthropic.com/research/assistant-axis) even suggests that AIs think of their own behaviors in human-like terms.
 
@@ -26,7 +26,7 @@ After pretraining, even though they are “just” autocomplete engines, AIs can
 
 In an important sense, you’re talking not to the AI itself but to a character—the Assistant—in an AI-generated story. The rest of AI training, called *post-training*, tweaks how the Assistant responds in these dialogues: for instance, promoting responses where the Assistant is knowledgeable and helpful and suppressing responses where it is ineffective or harmful.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff607cd518e45a218b44a929c75f9cdafcfaf1847-2292x1290.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/f607cd518e45a218b44a929c75f9cdafcfaf1847-2292x1290.jpg)
 
 After pre-training, AIs can be used as rudimentary AI assistants. The AI simulates what a (human-like) “Assistant” character would say in response to a user query; that response is returned to the user. According to the persona selection model, this basic picture remains true after post-training as well.
 
@@ -58,18 +58,16 @@ We are excited about research targeted at answering these questions, and, more g
 
 Read the [full post](https://alignment.anthropic.com/2026/psm).
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

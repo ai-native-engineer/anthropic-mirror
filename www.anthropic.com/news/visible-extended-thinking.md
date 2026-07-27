@@ -4,7 +4,7 @@
 
 Feb 24, 2025
 
-![A hand-drawn image of a hand with a set of nodes emerging above it, extending in several different directions](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd4b60fbc087e8ec3f47c69fbe03298fedcaebb9c-2880x1620.png&w=3840&q=75)
+![A hand-drawn image of a hand with a set of nodes emerging above it, extending in several different directions](https://www-cdn.anthropic.com/images/4zrzovbb/website/d4b60fbc087e8ec3f47c69fbe03298fedcaebb9c-2880x1620.png)
 
 Some things come to us nearly instantly: “what day is it today?” Others take much more mental stamina, like solving a cryptic crossword or debugging a complex piece of code. We can choose to apply more or less cognitive effort depending on the task at hand.
 
@@ -38,7 +38,7 @@ Claude 3.7 Sonnet benefits from what we might call “action scaling”—an imp
 
 We can see this in how Claude 3.7 Sonnet has improved on [OSWorld](https://os-world.github.io/), an evaluation that measures the capabilities of multimodal AI agents. Claude 3.7 Sonnet starts off somewhat better, but the difference in performance grows over time as the model continues to interact with the virtual computer.
 
-![A chart showing the performance of Claude 3.5 Sonnet (new) versus Claude 3.7 on the OSWorld evaluation. Number of steps is on the x-axis; score is on the y-axis. Both models start out in around the same place and get better with a larger number of steps, but Claude 3.7 Sonnet improves more quickly.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa86667fc2e2aab1061f8d1a7b48e0a2196dd94d6-3840x1986.png&w=3840&q=75)
+![A chart showing the performance of Claude 3.5 Sonnet (new) versus Claude 3.7 on the OSWorld evaluation. Number of steps is on the x-axis; score is on the y-axis. Both models start out in around the same place and get better with a larger number of steps, but Claude 3.7 Sonnet improves more quickly.](https://www-cdn.anthropic.com/images/4zrzovbb/website/a86667fc2e2aab1061f8d1a7b48e0a2196dd94d6-3840x1986.png)
 
 The performance of Claude 3.7 Sonnet versus its predecessor model on the OSWorld evaluation, testing multimodal computer use skills. “Pass @ 1”: the model has only a single attempt to solve a particular problem for it to count as having passed.
 
@@ -52,7 +52,7 @@ In the graph below, we’ve plotted the Pokémon progression of Claude 3.7 Sonne
 
 But Claude 3.7 Sonnet’s improved agentic capabilities helped it advance much further, successfully battling three Pokémon Gym Leaders (the game’s bosses) and winning their Badges. Claude 3.7 Sonnet is super effective at trying multiple strategies and questioning previous assumptions, which allow it to improve its own capabilities as it progresses.
 
-![A chart showing the performance of the various Claude Sonnet models at playing Pokémon. The number of actions taken by the AI is on the x-axis; the milestone reached in the game is on the y-axis. Claude 3.7 Sonnet is by far the most successful at achieving the game's milestones.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9a30c8288e402eee24d4ef60272cb6365a36207a-1920x1269.png&w=3840&q=75)
+![A chart showing the performance of the various Claude Sonnet models at playing Pokémon. The number of actions taken by the AI is on the x-axis; the milestone reached in the game is on the y-axis. Claude 3.7 Sonnet is by far the most successful at achieving the game's milestones.](https://www-cdn.anthropic.com/images/4zrzovbb/website/9a30c8288e402eee24d4ef60272cb6365a36207a-1920x1269.png)
 
 Claude 3.7 Sonnet demonstrates that it is the very best of all the Sonnet models so far at playing Pokémon Red. On the x-axis is the number of interactions Claude completes as it plays the game; on the y-axis are important milestones in the game involving collecting certain items, navigating to certain areas, and defeating certain game bosses.
 
@@ -62,7 +62,7 @@ Pokémon is a fun way to appreciate Claude 3.7 Sonnet’s capabilities, but we e
 
 When Claude 3.7 Sonnet is using its extended thinking capability, it could be described as benefiting from “serial test-time compute”. That is, it uses multiple, sequential reasoning steps before producing its final output, adding more computational resources as it goes. In general, this improves its performance in a predictable way: its accuracy on, for example, math questions improves logarithmically with the number of “thinking tokens” that it’s allowed to sample.
 
-![A graph of Claude 3.7 Sonnet's mathematical performance according to how many tokens were used in its thinking process. Tokens are on the x-axis; accuracy is on the y-axis. More tokens are related to higher accuracy.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F15498c675ac25c07436cd67e2ef1014c4fb354f0-3840x2138.png&w=3840&q=75)
+![A graph of Claude 3.7 Sonnet's mathematical performance according to how many tokens were used in its thinking process. Tokens are on the x-axis; accuracy is on the y-axis. More tokens are related to higher accuracy.](https://www-cdn.anthropic.com/images/4zrzovbb/website/15498c675ac25c07436cd67e2ef1014c4fb354f0-3840x2138.png)
 
 Claude 3.7 Sonnet’s performance on questions from the 2024 American Invitational Mathematics Examination 2024, according to how many thinking tokens it’s allowed per problem. Note that even though we allow Claude to use the entire thinking budget, it generally stops short. We include in the plot the tokens sampled that are used to summarize the final answer.
 
@@ -70,7 +70,7 @@ Our researchers have also been experimenting with improving the model’s perfor
 
 We achieved striking improvements using parallel test-time compute scaling on the [GPQA evaluation](https://arxiv.org/abs/2311.12022), a commonly-used set of challenging questions on biology, chemistry, and physics. Using the equivalent compute of 256 independent samples, a learned scoring model, and a maximum 64k-token thinking budget, Claude 3.7 Sonnet achieved a GPQA score of 84.8% (including a physics subscore of 96.5%), and benefits from continued scaling beyond the limits of majority vote. We report our results for both our scoring model methods and the majority vote method below.
 
-![Four graphs showing the performance of Claude 3.7 Sonnet on the GPQA evaluation when using parallel test-time compute scaling. From top left, clockwise, they show performance on the full exam, the biology section, the physics section, ad the chemistry section. Multiple lines are shown depending on the way the evaluation was assessed.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fae30675be60436a7de8e1afbc1db347862b865d2-3840x3764.png&w=3840&q=75)
+![Four graphs showing the performance of Claude 3.7 Sonnet on the GPQA evaluation when using parallel test-time compute scaling. From top left, clockwise, they show performance on the full exam, the biology section, the physics section, ad the chemistry section. Multiple lines are shown depending on the way the evaluation was assessed.](https://www-cdn.anthropic.com/images/4zrzovbb/website/ae30675be60436a7de8e1afbc1db347862b865d2-3840x3764.png)
 
 Experimental results from using parallel test-time compute scaling to improve Claude 3.7 Sonnet’s performance on the GPQA evaluation. The different lines refer to different methods of scoring the performance. “Majority @ N”: where multiple outputs are generated from a model for the same prompt with the majority vote taken as the final answer; “scoring model”: a separate model which is used to assess the performance of the model being evaluated; “pass @ N”: where models “pass” a test if any of a given number of attempts succeeds.
 
@@ -94,7 +94,7 @@ The above is just a short summary of some of our extensive safety work on Claude
 
 ## **Using Claude**
 
-You can use Claude 3.7 Sonnet now at [Claude.ai](http://claude.ai/redirect/website.v1.21259148-ac27-4b73-8746-e9fea1e3454c) or on [our API](https://docs.anthropic.com/en/api/getting-started). And just as Claude can now let you know what it thinks, we hope you’ll let us know what you think, too. Please send your feedback about the new model to [feedback@anthropic.com](mailto:feedback@anthropic.com).
+You can use Claude 3.7 Sonnet now at [Claude.ai](http://claude.ai/redirect/website.v1.5dff1e49-ac12-4069-84db-d525ed416666) or on [our API](https://docs.anthropic.com/en/api/getting-started). And just as Claude can now let you know what it thinks, we hope you’ll let us know what you think, too. Please send your feedback about the new model to [feedback@anthropic.com](mailto:feedback@anthropic.com).
 
 #### Footnotes
 

@@ -1,12 +1,12 @@
 <!-- source: https://www.anthropic.com/research/mapping-mind-language-model -->
 
-# Mapping the Mind of a Large Language Model
+# Mapping the mind of a large language model
 
 May 21, 2024
 
 [Read the paper](https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F80d6e033480704f5d57fbae4e3f0368d86a747ae-5761x3240.png&w=3840&q=75)
+![Mapping the mind of a large language model](https://www-cdn.anthropic.com/images/4zrzovbb/website/7cb91c3d259514860ff0482f74c178eb4000ba6c-2000x1125.png)
 
 *Today we report a significant advance in understanding the inner workings of AI models. We have identified how millions of concepts are represented inside Claude Sonnet, one of our deployed large language models. This is the first ever detailed look inside a modern, production-grade large language model.* *This interpretability discovery could, in future, help us make AI models safer.*
 
@@ -24,19 +24,19 @@ There was both an engineering challenge (the raw sizes of the models involved re
 
 As for the scientific risk, the proof is in the pudding.
 
-We successfully extracted millions of features from the middle layer of Claude 3.0 Sonnet, (a member of our current, state-of-the-art model family, currently available on [claude.ai](https://claude.ai/redirect/website.v1.15d4eb35-115c-4d4a-afcb-d38b61e5256f)), providing a rough conceptual map of its internal states halfway through its computation. This is the first ever detailed look inside a modern, production-grade large language model.
+We successfully extracted millions of features from the middle layer of Claude 3.0 Sonnet, (a member of our current, state-of-the-art model family, currently available on [claude.ai](https://claude.ai/redirect/website.v1.795b682e-c21c-47a2-a468-7e7c7ee3fc4d)), providing a rough conceptual map of its internal states halfway through its computation. This is the first ever detailed look inside a modern, production-grade large language model.
 
 Whereas the features we found in the toy language model were rather superficial, the features we found in Sonnet have a depth, breadth, and abstraction reflecting Sonnet's advanced capabilities.
 
 We see features corresponding to a vast range of entities like cities (San Francisco), people (Rosalind Franklin), atomic elements (Lithium), scientific fields (immunology), and programming syntax (function calls). These features are multimodal and multilingual, responding to images of a given entity as well as its name or description in many languages.
 
-![Golden Gate Bridge Feature](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc896a301ad3d1ef4237cb05b68d78b467c444097-2200x1284.png&w=3840&q=75)
+![Golden Gate Bridge Feature](https://www-cdn.anthropic.com/images/4zrzovbb/website/c896a301ad3d1ef4237cb05b68d78b467c444097-2200x1284.png)
 
 A feature sensitive to mentions of the Golden Gate Bridge fires on a range of model inputs, from English mentions of the name of the bridge to discussions in Japanese, Chinese, Greek, Vietnamese, Russian, and an image. The orange color denotes the words or word-parts on which the feature is active.
 
 We also find more abstract features—responding to things like bugs in computer code, discussions of gender bias in professions, and conversations about keeping secrets.
 
-![Abstract Feature Examples](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2ff94c622f3d65bc3038cc154006d2be515fa2d7-2200x1660.png&w=3840&q=75)
+![Abstract Feature Examples](https://www-cdn.anthropic.com/images/4zrzovbb/website/2ff94c622f3d65bc3038cc154006d2be515fa2d7-2200x1660.png)
 
 Three examples of features that activate on more abstract concepts: bugs in computer code, descriptions of gender bias in professions, and conversations about keeping secrets.
 
@@ -44,7 +44,7 @@ We were able to measure a kind of "distance" between features based on which neu
 
 This holds at a higher level of conceptual abstraction: looking near a feature related to the concept of "inner conflict", we find features related to relationship breakups, conflicting allegiances, logical inconsistencies, as well as the phrase "catch-22". This shows that the internal organization of concepts in the AI model corresponds, at least somewhat, to our human notions of similarity. This might be the origin of Claude's excellent ability to make analogies and metaphors.
 
-![Nearest Neighbors to the  Inner Conflict Feature ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ffe4d42c004bf43efda0f5921adfedd2f8f42e417-2200x2140.png&w=3840&q=75)
+![Nearest Neighbors to the  Inner Conflict Feature ](https://www-cdn.anthropic.com/images/4zrzovbb/website/fe4d42c004bf43efda0f5921adfedd2f8f42e417-2200x2140.png)
 
 A map of the features near an "Inner Conflict" feature, including clusters related to balancing tradeoffs, romantic struggles, conflicting allegiances, and catch-22s.
 
@@ -64,7 +64,7 @@ Anthropic wants to make models safe in a broad sense, including everything from 
 
 We previously [studied sycophancy](https://arxiv.org/abs/2310.13548), the tendency of models to provide responses that match user beliefs or desires rather than truthful ones. In Sonnet, we found a feature associated with sycophantic praise, which activates on inputs containing compliments like, "Your wisdom is unquestionable". Artificially activating this feature causes Sonnet to respond to an overconfident user with just such flowery deception.
 
-![Activating Features Alters Model Behavior](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4effa33dab919f9bc1779848d5c8abd5405f2275-2200x1320.png&w=3840&q=75)
+![Activating Features Alters Model Behavior](https://www-cdn.anthropic.com/images/4zrzovbb/website/4effa33dab919f9bc1779848d5c8abd5405f2275-2200x1320.png)
 
 Two model responses to a human saying they invited the phrase "Stop and smell the roses." The default response corrects the human's misconception, while the response with a "sycophantic praise" feature set to a high value is fawning and untruthful.
 
@@ -84,18 +84,16 @@ For full details, please read our paper, "[Scaling Monosemanticity: Extracting I
 
 [Mapping the Mind of a Large Language Model](https://cdn.sanity.io/files/4zrzovbb/website/e2ae0c997653dfd8a7cf23d06f5f06fd84ccfd58.pdf)
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

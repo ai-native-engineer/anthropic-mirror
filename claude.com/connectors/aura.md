@@ -1,6 +1,6 @@
 <!-- source: https://claude.com/connectors/aura -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdf0757d9241e42ce447_Aura.jpg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b2a2eb3325e73b42b98c_icon_Aura.jpg)
 
 # Aura
 
@@ -10,6 +10,7 @@ Company intelligence & workforce analytics
 * Used in
 
   [Claude](https://claude.ai/directory/d5415d15-420c-45ee-a45c-2dc56d4ccad6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Aura](https://auraintel.com)
 
@@ -22,7 +23,7 @@ Company intelligence & workforce analytics
   Read
 * More
 
-  [Documentation](https://docs.getaura.ai/)[Privacy Policy](https://aura-public-assets.s3.us-east-1.amazonaws.com/policies/privacy/aura-privacy-policy-v1.0-20250218.pdf)[support@auraintel.com](mailto:support@auraintel.com)
+  [Documentation](https://docs.getaura.ai/)[Privacy Policy](https://aura-public-assets.s3.us-east-1.amazonaws.com/policies/privacy/aura-privacy-policy-v1.0-20250218.pdf)[Support](mailto:support@auraintel.com)
 
 Enable users to search company databases, analyze employee headcount trends, track hiring and attrition rates, explore corporate structures, and benchmark workforce metrics across industries.  
   
@@ -49,11 +50,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -67,7 +68,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -81,7 +82,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -93,4 +94,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

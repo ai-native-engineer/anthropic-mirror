@@ -50,7 +50,7 @@ Most Claude Code turns are short. The median turn lasts around 45 seconds, and t
 
 The more revealing signal is in the tail. The longest turns tell us the most about the most ambitious uses of Claude Code, and point to where autonomy is heading. Between October 2025 and January 2026, the 99.9th percentile turn duration nearly doubled, from under 25 minutes to over 45 minutes (Figure 1).
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa86a9559ec987a33340c265265463843846ad8c7-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/a86a9559ec987a33340c265265463843846ad8c7-3840x2160.png)
 
 **Figure 1.** 99.9th percentile turn duration (how long Claude works on a per-turn basis) in interactive Claude Code sessions, 7-day rolling average. The 99.9th percentile has grown steadily from under 25 minutes in late September to over 45 minutes in early January. This analysis reflects all interactive Claude Code usage.
 
@@ -72,13 +72,13 @@ How do humans adapt how they work with agents over time? We found that people gr
 
 This shift is gradual, suggesting a steady accumulation of trust. It’s also important to note that Claude Code’s default settings require users to manually approve each action, so part of this transition may reflect users configuring the product to match their preferences for greater independence as they become familiar with Claude’s capabilities.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff1e687f19e4e87590b73dd9fa1cf5726184d7209-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/f1e687f19e4e87590b73dd9fa1cf5726184d7209-3840x2160.png)
 
 **Figure 2.** Auto-approve rate by account tenure. Experienced users increasingly let Claude run without any manual approval. Data reflects all interactive Claude Code usage for users who signed up after September 19, 2025. Line and CI bounds are LOWESS-smoothed (0.15 bandwidth). The x-axis is a log scale.
 
 Approving actions is only one method of supervising Claude Code. Users can also interrupt Claude while it is working to provide feedback. We find that interrupt rates increase with experience. New users (those with around 10 sessions) interrupt Claude in 5% of turns, while more experienced users interrupt in around 9% of turns (Figure 3).
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fabcddadbbdc63751449a6a7fc5731a693c9654bb-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/abcddadbbdc63751449a6a7fc5731a693c9654bb-3840x2160.png)
 
 **Figure 3.** Interrupt rates by account tenure on a turn-by-turn basis. Experienced users interrupt Claude more often, not less. Data reflects all interactive Claude Code usage for users who signed up after September 19, 2025. Shaded region shows 95% Wilson score confidence interval. Line and CI bounds are LOWESS-smoothed (0.15 bandwidth). The x-axis is a log scale.
 
@@ -92,7 +92,7 @@ Taken together, these findings suggest that experienced users aren’t necessari
 
 Humans, of course, aren’t the only actors shaping how autonomy unfolds in practice. Claude is an active participant too, stopping to ask for clarification when it’s unsure how to proceed. We found that as task complexity increases, Claude Code asks for clarification more often—and more frequently than humans choose to interrupt it (Figure 4).
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fff8122208d6b9aa0739994f75cab63b476203904-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/ff8122208d6b9aa0739994f75cab63b476203904-1920x1080.png)
 
 ***Figure 4.** Clarification questions from Claude and interruptions by the human, by goal complexity. As tasks get more complex, Claude is more likely to ask for clarification and humans are more likely to interrupt. Claude-initiated stops increase faster than human-initiated stops. 95% CI < 0.9% for all categories, n = 500k interactive Claude Code sessions.*
 
@@ -140,7 +140,7 @@ We found that 80% of tool calls come from agents that appear to have at least on
 
 To visualize the joint distribution of risk and autonomy across all clusters, we plot each by its average scores on both dimensions. Each point in Figure 5 corresponds to a cluster of related actions, positioned by its average risk and autonomy.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6f659cded3fb01e70d7eea0130d0c121dc74ea23-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/6f659cded3fb01e70d7eea0130d0c121dc74ea23-3840x2160.png)
 
 **Figure 5.** Mean Claude-estimated risk and autonomy by task cluster. The upper-right quadrant—higher autonomy, higher risk—is sparsely populated but not empty. Data reflects tool calls made via our public API. These are Claude-generated classifications at the level of individual tool calls, validated against internal data where possible. We describe the full methodology in the Appendix. Clusters that do not meet our aggregation minimums (due to either insufficient unique tool calls or customers) are excluded. Based on a sample of 998,481 tool calls on our public API.
 
@@ -148,7 +148,7 @@ The vast majority of actions on our public API are low-risk. But while most agen
 
 We also anticipate that agents operating at the extremes of risk and autonomy will become increasingly common. Today, agents are concentrated in a single industry: software engineering accounts for nearly 50% of tool calls on our public API (Figure 6). Beyond coding, we see a number of smaller applications across business intelligence, customer service, sales, finance, and e-commerce, but none comprise more than a few percentage points of traffic. As agents expand into these domains, many of which carry higher stakes than fixing a bug, we expect the frontier of risk and autonomy to expand.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F32a4492bec971b895b67a1736661635b2c412922-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/32a4492bec971b895b67a1736661635b2c412922-3840x2160.png)
 
 **Figure 6.** Distribution of tool calls by domain. Software engineering accounts for nearly 50% of tool calls. Data reflects tool calls made via our public API. 95% CI < 0.5% for all categories, n = 998,481.
 
@@ -243,18 +243,16 @@ On the empirical side, [Kapoor et al. (2024)](https://arxiv.org/abs/2407.01502) 
 
 16. Whether the adoption curve in software engineering will repeat in other domains is an open question. Software is comparatively easy to test and review—you can run code and see if it works—which makes it easier to trust an agent and catch its mistakes. In domains like law, medicine, or finance, verifying an agent’s output may require significant effort, which could slow the development of trust.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

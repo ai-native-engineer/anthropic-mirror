@@ -22,7 +22,7 @@ To make Claude more useful for scientific work, we’re now adding several [new 
 
 ## Connecting Claude to scientific tools
 
-[**Connectors**](https://claude.ai/redirect/website.v1.27bda13e-87f6-45cc-b8d2-4d85ad734b61/settings/connectors) allow Claude to access other platforms and tools directly. We’re adding several new connectors that are designed to make it easier to use Claude for scientific discovery:
+[**Connectors**](https://claude.ai/redirect/website.v1.66aba3b9-1d35-4b13-8282-dd904dd7310f/settings/connectors) allow Claude to access other platforms and tools directly. We’re adding several new connectors that are designed to make it easier to use Claude for scientific discovery:
 
 * **Benchling** gives Claude the ability to respond to scientists’ questions with links back to source experiments, notebooks, and records;
 * **BioRender** connects Claude to its extensive library of vetted scientific figures, icons, and templates;
@@ -39,7 +39,7 @@ Last week, we released [Agent Skills:](https://www.anthropic.com/news/skills) fo
 
 We’re developing a number of scientific skills for Claude, beginning with **`single-cell-rna-qc`** This skill performs quality control and filtering on single-cell RNA sequencing data, using [scverse](https://scverse.org/) best practices:
 
-![Claude performs quality control on single-cell RNA-seq data](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F07de700e38ef4d328ccdb5c15ab9e3df5286fc08-3840x2160.png&w=3840&q=75)
+![Claude performs quality control on single-cell RNA-seq data](https://www-cdn.anthropic.com/images/4zrzovbb/website/07de700e38ef4d328ccdb5c15ab9e3df5286fc08-3840x2160.png)
 
 *Claude performs quality control on single-cell RNA-seq data.*
 
@@ -67,23 +67,23 @@ We’re also partnering with companies who specialize in helping organizations a
 
 Many of our existing customers and partners have already been using Claude for a broad range of real-world scientific tasks:
 
-![Sanofi logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F44cb9482787368c3b6b3dc183e378abf6b5ca693-3274x1510.png&w=256&q=75)
+![Sanofi logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/44cb9482787368c3b6b3dc183e378abf6b5ca693-3274x1510.png)
 
 > Claude, paired with internal knowledge libraries, is integral to Sanofi's AI transformation and used by most Sanofians daily in our Concierge app. We're seeing efficiency gains across the value-chain, while our enterprise deployment has enhanced how teams work. This collaboration with Anthropic augments human expertise to deliver life-changing medicines faster to patients worldwide.
 
-![Benchling logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff8958499b7603125dd85312cb6688fe8cf7bd959-938x321.png&w=256&q=75)
+![Benchling logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/f8958499b7603125dd85312cb6688fe8cf7bd959-938x321.png)
 
 > AI in R&D works through an ecosystem. Anthropic brings the best technologies while prioritizing access, governance, and interoperability. Benchling is uniquely positioned to contribute. For over a decade, scientists have trusted us as their source of truth for experimental data and workflows. Now we're building AI that powers the next chapter of R&D.
 
-![Broad Institute of MIT and Harvard logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd165bbdbd303f12d2fe5e8b6d24332b5d9ab94eb-600x154.png&w=256&q=75)
+![Broad Institute of MIT and Harvard logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/d165bbdbd303f12d2fe5e8b6d24332b5d9ab94eb-600x154.png)
 
 > Broad Institute scientists pursue the most ambitious questions in biology and medicine, creating tools to empower scientists everywhere. We're working with Manifold on Terra Powered by Manifold. AI agents built on Claude enable scientists to work at entirely new scale and efficiency, exploring scientific domains in previously impossible ways.
 
-![10x Genomics  logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2d2b4c714c164385923a67894ec0173d6290fb4f-1200x771.png&w=256&q=75)
+![10x Genomics  logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/2d2b4c714c164385923a67894ec0173d6290fb4f-1200x771.png)
 
 > 10x's single cell and spatial analysis capabilities traditionally required computational expertise. Now, with Claude, researchers perform analytical tasks—aligning reads, generating matrices, clustering, secondary analysis—through plain English conversation. This lowers the barrier for new users while scaling to meet the needs of advanced research teams.
 
-![Genmab logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ffe19dca89482cda5712ddb7d40d0b0e5db73f2a6-1301x380.png&w=256&q=75)
+![Genmab logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/fe19dca89482cda5712ddb7d40d0b0e5db73f2a6-1301x380.png)
 
 > We see tremendous potential in Claude streamlining how we bring drugs to market. The ability to pull from clinical data sources and create GxP-compliant outputs will help us bring life-changing cancer therapies to patients faster while maintaining the highest quality standards. We see Claude powering AI applications across several major functions at our company.
 
@@ -91,11 +91,11 @@ Many of our existing customers and partners have already been using Claude for a
 
 > Healthcare analytics demands AI purpose-built for our industry's complexity and rigor. Komodo Health's partnership with Anthropic delivers transparent, auditable solutions designed for regulated healthcare environments. Together, we're enabling healthcare and life sciences teams to transform weeks-long analytical workflows into actionable intelligence in minutes.
 
-![Novo Nordisk logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5080602ba328ac22c4a32d3cd348ba234320900a-800x565.png&w=256&q=75)
+![Novo Nordisk logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/5080602ba328ac22c4a32d3cd348ba234320900a-800x565.png)
 
 > We've consistently been one of the first movers when it comes to document and content automation in pharma development. Our work with Anthropic and Claude has set a new standard — we're not just automating tasks, we're transforming how medicines get from discovery to the patients who need them.
 
-![Stanford University  logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe7743444ed3664c6609617c16114be37d5474a7b-3840x2160.png&w=256&q=75)
+![Stanford University  logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/e7743444ed3664c6609617c16114be37d5474a7b-3840x2160.png)
 
 > Claude Code and partnership with Anthropic have been extremely valuable for developing Paper2Agent, our moonshot to transform passive research papers into interactive AI agents that can act as virtual corresponding authors and co-scientists.
 
@@ -103,15 +103,15 @@ Many of our existing customers and partners have already been using Claude for a
 
 > At PwC, responsible AI is a trust imperative. We pair our deep sector insight with Claude's agentic intelligence to reimagine how clinical, regulatory, and commercial teams operate. Together, we're not just streamlining processes—we're elevating quality, accelerating discovery, and building systems where confidence scales alongside innovation.
 
-![Schrödinger logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb463e00f9945da22059fbb8216e3af714f58fd62-1238x362.png&w=256&q=75)
+![Schrödinger logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/b463e00f9945da22059fbb8216e3af714f58fd62-1238x362.png)
 
 > Claude Code has become a powerful accelerator for us at Schrödinger. For the projects where it fits best, Claude Code allows us to turn ideas into working code in minutes instead of hours, enabling us to move up to 10x faster in some cases. As we continue to work with Claude, we are excited to see how we can further transform the way we build and customize our software.
 
-![Latch Bio logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb6ec5b998f39cde140615558d3da14c58a52c1be-1025x289.png&w=256&q=75)
+![Latch Bio logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/b6ec5b998f39cde140615558d3da14c58a52c1be-1025x289.png)
 
 > When creating an AI agent for bioinformatics analyses, we focused on three key factors: top software development, life sciences alignment, and startup support. We evaluated half a dozen platforms, and Claude was the standout leader. We're excited to continue this collaboration and bring cutting-edge AI agents into biotech research.
 
-![EvolutionaryScale logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F98f513214f5429a2273ead0768a6f43a23e504ba-2495x491.png&w=256&q=75)
+![EvolutionaryScale logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/98f513214f5429a2273ead0768a6f43a23e504ba-2495x491.png)
 
 > At EvolutionaryScale, we’re building next-generation AI systems to model the living world. Anthropic’s frontier models accelerate our ability to reason about complex biological data and translate it into scientific insight, helping us push the boundaries of what’s possible in life science discovery.
 
@@ -119,7 +119,7 @@ Many of our existing customers and partners have already been using Claude for a
 
 > At Manifold, our mission is to power faster, leaner life sciences. Building with Claude has enabled us to develop AI agents that translate questions in the semantic space of scientists to execution in the technical space of specialized datasets and tools. Together, we’re transforming how life sciences R&D will happen in the years ahead.
 
-![FutureHouse logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2309ae6041b9aae5b19483b28c1d4515c6490f28-2776x711.png&w=256&q=75)
+![FutureHouse logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/2309ae6041b9aae5b19483b28c1d4515c6490f28-2776x711.png)
 
 > At FutureHouse, Claude helps power both our bioinformatics and literature analysis workflows. Claude is our model of choice for accurate figure analyses and orchestrating non-linear searches through the literature.
 

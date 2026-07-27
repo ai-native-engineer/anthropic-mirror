@@ -138,38 +138,38 @@ Try searching by EIN, alternate names or acronyms, or broadening your search ter
 * No personal user data is shared with Candid
 * Search queries are used only to retrieve relevant results
 
-For Candid-specific questions, email [[email protected]](mailto:partnerships@candid.org).
+For Candid-specific questions, email [partnerships@candid.org](mailto:partnerships@candid.org).
 
 ## Related tutorials
 
-[Using the Blackbaud connector in Claude](/resources/tutorials/using-the-blackbaud-connector-in-claude)Using the Blackbaud connector in Claude
+[Using the Blackbaud connector in Claude](https://claude.com/resources/tutorials/using-the-blackbaud-connector-in-claude)Using the Blackbaud connector in Claude
 
 Using the Blackbaud connector in Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-the-blackbaud-connector-in-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-the-blackbaud-connector-in-claude)Tutorial
 
-[Using the Benevity connector in Claude](/resources/tutorials/using-the-benevity-connector-in-claude)Using the Benevity connector in Claude
+[Using the Benevity connector in Claude](https://claude.com/resources/tutorials/using-the-benevity-connector-in-claude)Using the Benevity connector in Claude
 
 Using the Benevity connector in Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-the-benevity-connector-in-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-the-benevity-connector-in-claude)Tutorial
 
-[Claude for nonprofits partnership guide for all users](/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Claude for nonprofits partnership guide for all users
+[Claude for nonprofits partnership guide for all users](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Claude for nonprofits partnership guide for all users
 
 Claude for nonprofits partnership guide for all users
 
 Tutorial
 
-[Tutorial](/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Tutorial
 
-[Claude for nonprofits partnership success guide for admins](/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)Claude for nonprofits partnership success guide for admins
+[Claude for nonprofits partnership success guide for admins](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)Claude for nonprofits partnership success guide for admins
 
 Claude for nonprofits partnership success guide for admins
 
 Tutorial
 
-[Tutorial](/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)Tutorial

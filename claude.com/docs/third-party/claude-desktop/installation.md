@@ -1,188 +1,102 @@
 <!-- source: https://claude.com/docs/third-party/claude-desktop/installation -->
 
-Claude Desktop on third-party (3P) is the standard Claude Desktop application plus a managed configuration that activates third-party inference mode. You distribute the regular Claude Desktop installer and apply the configuration through your existing device-management tooling.
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
 
-##  Recommended rollout
+[Skip to main content](#content-area)
 
-For most organizations, we recommend the following rollout:
+Claude Desktop on third-party (3P) is the standard Claude Desktop application plus a managed configuration that activates third-party inference mode. Setup is two pieces: install the regular Claude Desktop app, and deliver the configuration to it.
 
-1
+##  System requirements
 
-Evaluate on a single machine
+Cowork, the agent workspace at the center of Claude Desktop on 3P, has the following device requirements:
 
-An admin installs Claude Desktop on their own device and uses the in-app configuration window to build and test a working configuration against your inference provider.
+| Requirement | macOS | Windows |
+| --- | --- | --- |
+| Operating system | macOS 14 (Sonoma) or later | Windows 10 build 19041 (version 2004) or later, including Windows 11 |
+| CPU architecture | Apple silicon or Intel (x64) | x64 or Arm64 |
+| Installer | `.dmg` | `.msix` |
 
-2
-
-Allow required network egress
-
-Open the hostnames your configuration requires on your perimeter firewall. The configuration window lists them for the exact settings you’ve chosen.
-
-3
-
-Export and deploy via MDM
-
-From the configuration window, export the validated configuration as a `.mobileconfig` (macOS) or `.reg` (Windows) file and distribute it through Jamf, Intune, Group Policy, or your MDM of choice.
-
-4
-
-Distribute the app
-
-Push the Claude Desktop installer to enrolled devices. When the app launches and finds a managed configuration, it enters 3P mode automatically with no user sign-in or setup required.
-
-Deploying the configuration before the app means end users open Claude for the first time and land directly in the third-party deployment, with no opportunity to sign in to claude.ai by mistake.
+On Windows, Cowork requires the `.msix` package: fleets provisioned with the legacy `.exe` installer get Claude Desktop without Cowork, and migrating them to `.msix` enables it. Cowork also requires working hardware virtualization, which the [readiness check](#check-device-readiness) verifies along with the requirements above.
 
 ##  Check device readiness
 
 Before installing Claude Desktop, you can confirm that a device supports Cowork by running the readiness check: a small standalone program that requires no installation or sign-in.
 
 | Platform | Download |
+| --- | --- |
 | macOS | [Cowork readiness check for macOS](https://claude.ai/api/desktop/darwin/universal/cowork-readiness-check/latest/redirect) |
 | Windows (Arm) | [Cowork readiness check for Windows arm64](https://claude.ai/api/desktop/win32/arm64/cowork-readiness-check/latest/redirect) |
 | Windows (x64) | [Cowork readiness check for Windows x64](https://claude.ai/api/desktop/win32/x64/cowork-readiness-check/latest/redirect) |
 
-Open the downloaded program to run the check. If it reports **This computer is ready for Cowork**, the device can run Cowork.
-For fleet deployments, run the check on a representative device of each hardware model in your fleet before the broad rollout, so unsupported models are identified before users hit them.
+Open the downloaded program to run the check. A ready device reports **This computer is ready for Cowork**.
+For fleet deployments, run the check on one device of each hardware model in your fleet before the broad rollout to identify unsupported models early.
 
-##  Admin installation
+##  Install the app
 
-###  1. Install Claude Desktop
-
-Download the installer for your platform from [claude.com/download](https://claude.com/download). If you’re not sure the machine supports Cowork, run the [readiness check](#check-device-readiness) first.
+Download the installer for your platform from [claude.com/download](https://claude.com/download).
 
 | Platform | Installer | Notes |
 | --- | --- | --- |
 | macOS | `.dmg` | Drag **Claude.app** to Applications |
 | Windows | `.msix` | Supports per-machine provisioning for enterprise deployment |
 
-###  2. Build a configuration in the app
+For fleet rollouts, distribute the installer through your standard software-distribution mechanism after the configuration reaches devices; [Choose a configuration delivery model](#choose-a-configuration-delivery-model) covers how the configuration gets there.
 
-Launch Claude Desktop. **Do not sign in or create an Anthropic account** — stay on the login screen.
+##  Choose a configuration delivery model
 
-* macOS
-* Windows
+Configuration reaches devices in one of two ways. Both typically use your MDM tooling to push a profile; the difference is what the profile contains.
 
-From the macOS menu bar at the top of the screen:
-
-1. Go to **Help → Troubleshooting → Enable Developer Mode** to reveal the Developer menu.
-2. Then go to **Developer → Configure third-party inference** to open the configuration window.
-
-Open the application menu (☰) in the top-left of the Claude login screen:
-
-1. Go to **Help → Troubleshooting → Enable Developer Mode** to reveal the Developer menu.
-2. Then go to **Developer → Configure third-party inference** to open the configuration window.
-
-The window is organized into sections in the left sidebar. Work through them in order; each maps to a group of [configuration keys](/docs/third-party/claude-desktop/configuration), and the window validates values as you enter them.
-
-| Section | What you set |
-| **Connection** | * Inference provider (Gateway, Anthropic API, Vertex AI, Bedrock, or Foundry) and its credentials * Model list * Organization UUID * Optional credential-helper script |
-| **Workspace restrictions** | * Which tabs (Cowork, Code) are enabled * Allowed egress hosts for the sandbox * Disabled built-in tools * Allowed workspace folders |
-| **Connectors & extensions** | * Managed MCP servers pushed to all users * Whether users can add their own local MCP servers * Whether desktop extensions (`.mcpb`) are allowed * Whether the extension directory is shown * Whether unsigned extensions are rejected |
-| **Telemetry & updates** | * OpenTelemetry collector endpoint * Whether auto-updates are blocked, and the enforcement window if not * The three Anthropic-bound telemetry toggles (essential, nonessential, nonessential services) |
-| **Usage limits** | * Per-device token cap and its window length |
-| **Appearance** | * Persistent banner shown across the app window |
-| **Plugins & skills** | * Shows the org-plugins folder path for your platform * Plugins are distributed by mounting bundles to that folder via your MDM, not through this window |
-| **Egress Requirements** | * A read-only firewall allowlist derived from everything you’ve entered above, grouped by feature * **Copy hostnames**, **Download .txt**, and **Test connectivity** actions |
-| **Source** | * Optional bootstrap URL to fetch this configuration remotely * Bootstrap-delivered configuration takes priority over MDM-delivered values: it replaces them wholesale rather than merging key by key |
-
-The configuration picker in the top-right shows which saved configuration you’re editing and whether it’s the one currently applied. On a managed device it indicates the configuration is organization-managed, and every section shows a banner directing users to their IT administrator.
-The configuration window is the recommended way to author configurations. It validates field formats, knows which keys each provider requires, and stays current as new keys are added.
-
-When a managed (MDM-delivered) configuration is already present on the device, the configuration window opens read-only. It shows what the admin deployed but won’t let the user change or override it. To author a new configuration, use a device without a managed profile, or temporarily remove the profile.
-
-###  3. Export for MDM
-
-Once your configuration tests successfully, click **Export** and choose a format:
-
-| Format | Platform | Deploy with |
+|  | MDM profile | Bootstrap server |
 | --- | --- | --- |
-| `.mobileconfig` | macOS | Jamf, Kandji, Mosyle, Workspace ONE, or any Apple MDM |
-| `.reg` | Windows | Group Policy (import into a GPO), Intune (via custom ADMX or script), or any MDM that can write registry policy |
-| `.zip` (ADMX template) | Windows | Schema-only template for Intune or Group Policy; you enter values in the management console |
-| `.plist` (Profile Manifest) | macOS | Schema-only template for Jamf, ProfileCreator, or similar macOS tools |
+| What you deploy to devices | The full configuration, exported as a `.mobileconfig` or `.reg` profile | A minimal profile containing only the bootstrap keys (`bootstrapUrl`, optionally `bootstrapOidc`) |
+| Where settings live | In the profile, identical for every device the profile targets | On an HTTPS endpoint you operate, which returns each user’s configuration at sign-in |
+| Per-user values | Separate profiles per device group | The server keys its response to the signed-in user |
+| Changing settings | Export and push an updated profile | Change your server’s response; devices pick it up at the next fetch, with no profile push |
 
-The two actions in the configuration window do different things:
+Choose an MDM profile when one configuration, or a few group-scoped profiles, covers your fleet. Most MDMs support role-based distribution, so per-group configuration doesn’t require a bootstrap server.
+Building the configuration in the app is optional. The [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration) can also export schema-only templates (an ADMX template for Windows, a Profile Manifest `.plist` for macOS) from its **Export** menu, so you can enter values directly in your management console instead. See [Export the profile](https://claude.com/docs/third-party/claude-desktop/mdm#2-export-the-profile) for all formats.
+Choose a bootstrap server when your organization doesn’t use MDM, or when per-user credentials or frequently changing settings would make per-group profiles unwieldy. The tradeoff is that you operate the endpoint.
+The two models don’t combine: when a bootstrap response is in effect, it replaces MDM-delivered values wholesale, and a few device-level keys are only available via MDM (see the Availability column in the [configuration reference](https://claude.com/docs/third-party/claude-desktop/configuration)).
+Pick your path:
 
-* **Apply locally** writes the selected configuration to your own machine’s Claude settings and relaunches the app, so you can test it end to end before deploying it.
-* **Export** writes a `.mobileconfig` or `.reg` file and leaves your local settings untouched.
+* [Deploy with MDM](https://claude.com/docs/third-party/claude-desktop/mdm) covers authoring the configuration in the app, exporting the profile, and deploying it to your fleet.
+* [Deploy with a bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap) covers getting the bootstrap keys onto devices and running the server.
 
-####  Creating profiles for multiple user groups
+On either path, deploy the configuration before the app so users open Claude for the first time and land directly in the third-party deployment.
 
-Many organizations deploy distinct configurations to different populations: for example, a permissive profile for an engineering pilot group and a restricted profile for the broader rollout, or per-region profiles that point at different inference endpoints.
-The configuration window can hold multiple named configurations. Use the picker in the top-right of the window:
+##  Single-machine setup
 
-* **New configuration** creates an empty configuration.
-* **Duplicate** copies the current configuration as a starting point for a variant.
-* **Rename** and **Delete** manage the list.
-* **Reveal in Finder** opens the on-disk location where saved configurations are stored.
+For evaluating before a fleet rollout, for pilots, or for organizations that don’t use MDM, a single machine can be configured directly in the app.
 
-Selecting a configuration in the picker loads it for editing; the **applied** badge marks the one currently active on your machine. **Apply locally** and **Export** each act on whichever configuration is selected, so you can test each one locally and export them independently.
-In your MDM, scope each exported profile to the corresponding device or user group. Targeting is handled by your MDM’s assignment rules; the configuration name is for your authoring workflow and is not part of the deployed profile.
-
-###  4. Allow required network egress
-
-The hosts the app needs to reach depend on the configuration you built: your inference provider’s endpoint is always required, and each telemetry, update, and service setting you leave enabled adds its own hosts. The configuration window shows the exact allowlist for your settings and can export it as a text file for your network team.
-Open these hosts on your perimeter firewall before rolling out to devices. See [Telemetry and egress](/docs/third-party/claude-desktop/telemetry#required-egress-paths) for the full list of hosts grouped by the setting that controls each one, and for the distinction between the perimeter firewall and the in-app sandbox allowlist.
-
-###  5. Deploy the configuration
-
-Push the exported configuration through your MDM. The app reads from these locations:
-
-* macOS
-* Windows
-
-| Source | Path | Precedence |
-| --- | --- | --- |
-| Managed (per-user) | `/Library/Managed Preferences/<user>/com.anthropic.claudefordesktop.plist` | Highest |
-| Managed (machine) | `/Library/Managed Preferences/com.anthropic.claudefordesktop.plist` |  |
-| Local (user) | `~/Library/Application Support/Claude-3p/configLibrary/` | Lowest |
-
-A `.mobileconfig` profile delivered by MDM lands in the Managed Preferences locations automatically. Both managed paths are read; where a key appears in both, the per-user value wins.
-
-| Source | Path | Precedence |
-| --- | --- | --- |
-| Machine policy | `HKLM\SOFTWARE\Policies\Claude` | Highest |
-| User policy | `HKCU\SOFTWARE\Policies\Claude` |  |
-| Local (user) | `%LOCALAPPDATA%\Claude-3p\configLibrary\` | Lowest |
-
-A Group Policy Object or Intune configuration profile writes to the registry policy paths. Both hives are read; where a key appears in both, the machine (`HKLM`) value wins.
-
-When **any** managed source is present, it takes effect and the in-app configuration window becomes read-only. Locally authored values in `configLibrary/` are ignored.
-
-###  6. Distribute the app
-
-Deploy the Claude Desktop installer to enrolled devices using your standard software-distribution mechanism. On launch, the app reads the managed configuration, detects the configured inference provider and credentials, and the sign-in screen offers users the option to start in Claude Desktop on 3P.
-
-###  7. Deploy organization plugins (optional)
-
-If you’re distributing [organization plugins](/docs/third-party/claude-desktop/extensions#organization-plugins-admin), push the plugin bundles to the org-plugins directory on each device alongside the configuration profile. Plugins are picked up at the next app launch.
-
-##  End-user installation
-
-For pilots, evaluations, or organizations that don’t use MDM, individual users can configure 3P mode themselves.
-
-1. Install Claude Desktop from [claude.com/download](https://claude.com/download). If you’re not sure your computer supports Cowork, run the [readiness check](#check-device-readiness) first.
-2. Launch the app. **Do not sign in or create an Anthropic account.** From the macOS menu bar (or on Windows, the application menu ☰ in the top-left of the login screen), go to **Help → Troubleshooting → Enable Developer Mode**, then **Developer → Configure third-party inference**.
+1. Install Claude Desktop from [claude.com/download](https://claude.com/download).
+2. Launch the app. **Do not sign in or create an Anthropic account.** From the macOS menu bar (or on Windows, the application menu ☰ in the top-left of the login screen), go to **Help → Troubleshooting → Enable Developer Mode**, then **Developer → Configure Third-Party Inference…** to open the [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration).
 3. Enter the provider, endpoint, and credential values supplied by your administrator.
 4. Click **Apply locally**. The app relaunches and the sign-in screen now offers the option to start in Claude Desktop on 3P using the configuration you entered.
 
 The configuration is written to the application’s local config file and applies only to that device and user account. It can be edited from the same window at any time. To return to standard Claude Desktop, choose the Anthropic sign-in option on the sign-in screen instead.
+If your organization runs a [bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap) but doesn’t use MDM, your administrator can instead supply a small configuration file containing only the bootstrap keys. Load it with **Import configuration** in the same window; the bootstrap server supplies everything else after you sign in.
+When the configuration works on a single machine, roll it out to the fleet with the [delivery model you chose](#choose-a-configuration-delivery-model); on the MDM path, you can export the tested configuration as the profile you deploy.
 
 ##  Verifying the deployment
 
 On any configured device, open Claude Desktop and go to **Help → Troubleshooting → Copy Managed Configuration Report**. This copies a summary showing which keys were detected, where they were read from (managed profile vs. user store), and whether the inference credentials validated successfully. Secret values are redacted.
+Also confirm that the [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration) (**Developer → Configure Third-Party Inference…**) opens read-only on a managed device. The app reads managed keys from the profile by name and silently ignores a misspelled key rather than reporting an error. On macOS, a window that is still editable means no recognized key reached the app, even if your MDM shows the profile as delivered. On Windows, even a misspelled value under `HKLM\SOFTWARE\Policies\Claude` counts as machine policy and locks the window, so use the Managed Configuration Report to see which keys were actually read. If your profile deliberately sets [only the update keys](https://claude.com/docs/third-party/claude-desktop/mdm#update-keys-and-managed-precedence), an editable window is expected.
 If the app shows the standard claude.ai sign-in screen instead of Cowork, the configuration was not read. Common causes:
 
 * `inferenceProvider` is missing, misspelled, or set to an unrecognized value
 * The configuration was applied while the app was running (fully quit and relaunch)
 * The configuration was written to the local config file but you’re checking the managed location (or vice versa)
 * A required key for the chosen provider is missing; check **Help → Troubleshooting** or the application log at `~/Library/Logs/Claude-3p/main.log` (macOS) / `%LOCALAPPDATA%\Claude-3p\Logs\main.log` (Windows)
+* On Windows (v1.19367.0 and later), the configuration is in `HKCU\SOFTWARE\Policies\Claude` but machine policy is also present: any `REG_SZ`, `REG_EXPAND_SZ`, or `REG_DWORD` value directly under `HKLM\SOFTWARE\Policies\Claude` causes the app to ignore user policy entirely. The Managed Configuration Report (**Help → Troubleshooting → Copy Managed Configuration Report**) shows which source the app read. A `REG_EXPAND_SZ` value shows as present in `reg query` output while the app reports the managed configuration as invalid or absent, because the app counts the value as machine policy but cannot read its contents
 
 ##  Troubleshooting
 
-If you’re experiencing technical issues with installation or setup, generate a diagnostic report and share it with Anthropic.
-On the affected machine, go to **Help → Troubleshooting → Generate Diagnostic Report** in the menu bar, choose a save location, and send the resulting folder to your Anthropic representative.
-Please generate the diagnostic before requesting support. The report contains the configuration state, application logs, and environment details needed to investigate, and does not include any user data or conversation content.
+If installation or setup fails, generate a diagnostic report before requesting support: on the affected machine, go to **Help → Troubleshooting → Generate Diagnostic Report**, choose a save location, and send the resulting folder to your Anthropic representative.
+The report contains the configuration state, application logs, and environment details needed to investigate. It does not include user data or conversation content.
 
 ##  Endpoint security software
 
@@ -190,7 +104,9 @@ If your organization runs binary-authorization or EDR software (such as [Santa](
 The agent helper is a signed binary that Claude Desktop installs under its user-data directory. **Allowlist by signing identity rather than path** so the rule survives version updates.
 **macOS**
 
+```
 ~/Library/Application Support/Claude-3p/claude-code/<version>/claude.app/Contents/MacOS/claude
+```
 
 The helper is Developer ID signed and notarized:
 
@@ -200,17 +116,35 @@ The helper is Developer ID signed and notarized:
 For Santa, a `TEAMID` allow rule for `Q6L2SF6YDW` covers the helper across version updates. Standard (non-3P) installs use `~/Library/Application Support/Claude/` with the same subpath.
 **Windows**
 
+```
 %LOCALAPPDATA%\Claude-3p\claude-code\<version>\claude.exe
+```
 
 The helper is Authenticode-signed with publisher `Anthropic, PBC`. For Defender ASR or AppLocker, allowlist by publisher rather than path. Standard installs use `%APPDATA%\Claude\` with the same subpath.
 
+##  Offline installation
+
+Standard installs fetch two large runtime components from `downloads.claude.ai` at session start: the VM workspace bundle that Cowork sessions run in, and the Claude CLI binary. For networks that cannot reach `downloads.claude.ai`, Anthropic publishes an offline installer variant with both components built into the installer package and verified against checksums compiled into the application, so sessions can start without any connection to Anthropic. The offline installers are several gigabytes larger than the standard ones.
+Each supported platform and architecture has a fixed download URL that serves the current offline installer:
+
+| Platform | Format | Download URL |
+| --- | --- | --- |
+| Windows (x64) | `.msix` | `https://claude.ai/api/desktop/win32/x64/offline/latest/redirect` |
+| Windows (Arm) | `.msix` | `https://claude.ai/api/desktop/win32/arm64/offline/latest/redirect` |
+| macOS (Apple silicon) | `.dmg` | `https://claude.ai/api/desktop/darwin/arm64/offline/latest/redirect` |
+| macOS (Intel) | `.dmg` | `https://claude.ai/api/desktop/darwin/x64/offline/latest/redirect` |
+
+Each URL responds with an HTTP redirect to a versioned installer file, so any HTTP client that follows redirects downloads the installer directly. New versions of Claude Desktop roll out to connected devices gradually; these URLs serve the newest version whose rollout has completed. The redirect’s `Location` header contains the version number, so tooling can detect a new version by requesting the URL without following the redirect.
+If the offline installer for the version the URL serves is not yet available, the download fails with HTTP 404 rather than falling back to an older installer; this can happen just after a new version appears in the `Location` header. Keep the installer you last downloaded and retry later.
+Download the installer from a connected machine and bring it across your boundary with your usual software-distribution process.
+Pair the offline installer with [`disableAutoUpdates`](https://claude.com/docs/third-party/claude-desktop/configuration#disableautoupdates): the app cannot reach the update feed from an air-gapped network, and you update the fleet by distributing each new offline installer through your MDM. Aside from updates, the only egress an air-gapped deployment needs is your inference provider; see [Telemetry and egress](https://claude.com/docs/third-party/claude-desktop/telemetry#required-egress-paths).
+
 ##  Updates
 
-By default, Claude Desktop checks Anthropic’s update server and applies updates automatically. In 3P deployments you can:
+By default, Claude Desktop downloads updates from Anthropic’s update server automatically and applies them the next time the app restarts. If the app hasn’t restarted within 72 hours of downloading an update, it restarts itself, waiting for 10 minutes of user inactivity before doing so. This enforcement is always on and offers no in-app prompt to defer the restart; the `autoUpdaterEnforcementHours` key tunes the 72-hour window rather than enabling it.
+In 3P deployments you can:
 
-* **Leave auto-update enabled** (recommended) so fixes reach users without IT intervention. Use `autoUpdaterEnforcementHours` to bound how long users can defer a pending update.
-* **Disable auto-update** (`disableAutoUpdates`) and redistribute new builds through your MDM on your own cadence. This is required for air-gapped environments but means your IT team owns the update pipeline.
+* **Leave auto-update enabled** (recommended) so fixes reach users without IT intervention. Set `autoUpdaterEnforcementHours` to shorten the enforcement window (1 to 72 hours; values above 72 are rejected). Setting the key also makes the window strict: the restart fires as soon as the window elapses, without waiting for a pause in user activity.
+* **Disable auto-update** (`disableAutoUpdates`) and redistribute new builds through your MDM on your own cadence. This is required for [air-gapped environments](#offline-installation) but means your IT team owns the update pipeline.
 
-See [Telemetry and egress](/docs/third-party/claude-desktop/telemetry) for the network paths the updater uses.
-
-[Features](/docs/third-party/claude-desktop/feature-matrix)[Configuration reference](/docs/third-party/claude-desktop/configuration)
+See [Telemetry and egress](https://claude.com/docs/third-party/claude-desktop/telemetry) for the network paths the updater uses.

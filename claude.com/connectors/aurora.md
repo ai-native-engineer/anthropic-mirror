@@ -10,6 +10,7 @@ Search your Consilio matters, docs, and more.
 * Used in
 
   [Claude](https://claude.ai/directory/dee803ac-4887-4e73-a3c5-ab167f8f1fe8)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Consilio, LLC](https://www.consilio.com)
 
@@ -22,7 +23,7 @@ Search your Consilio matters, docs, and more.
   Read
 * More
 
-  [Documentation](https://mcp-docs.ai.consilio.com)[Privacy Policy](https://www.consilio.com/privacy/privacy-policy)[support@consilio.com](mailto:support@consilio.com)
+  [Documentation](https://mcp-docs.ai.consilio.com)[Privacy Policy](https://www.consilio.com/privacy/privacy-policy)[Support](mailto:support@consilio.com)
 
 Aurora is a read-only connector that puts your Consilio engagement, document, and other data at Claude's fingertips. Ask Claude to find a matter by client or alpha-code, list the workspaces inside it, run a full-text search across documents. AI-powered investigations let Claude follow an answer across matters, workspaces, and documents in a single conversation — automatically narrowing ambiguous queries to the right context and citing a direct source URL on every record. Every response is scoped to what you're already entitled to see on the Consilio web products.
 
@@ -50,11 +51,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -68,7 +69,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -82,7 +83,7 @@ June 22, 2026
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -96,4 +97,4 @@ June 22, 2026
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

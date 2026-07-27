@@ -9,7 +9,7 @@ We're releasing Petri (Parallel Exploration Tool for Risky Interactions), an ope
 automated auditing that uses AI agents to test the behaviors of target models across diverse
 scenarios. When applied to 14 frontier models with 111 seed instructions, Petri successfully elicited a
 broad set of misaligned behaviors including autonomous deception, oversight subversion, whistleblowing,
-and cooperation with human misuse. The tool is available now at [github.com/safety-research/petri](https://github.com/safety-research/petri).
+and cooperation with human misuse. The tool is available now at [github.com/safety-research/petri](http://github.com/safety-research/petri).
 
 AI models are becoming more capable and are being deployed with wide-ranging affordances across more domains,
 increasing the surface area where misaligned behaviors might emerge. The sheer volume and complexity of
@@ -33,7 +33,7 @@ of the safety evaluation process—from environment simulation through to initia
 comprehensive
 audits possible with minimal researcher effort.
 
-![Manual evaluation workflow vs Petri automation](figures/petri-alignment-agent-TWITTER-fig-01.jpg)
+![Manual evaluation workflow vs Petri automation](https://alignment.anthropic.com/2025/petri/figures/petri-alignment-agent-TWITTER-fig-01.jpg)
 
 Manually building alignment evaluations often involves constructing
 environments, running models, reading transcripts, and aggregating the results. Petri automates much of
@@ -119,7 +119,7 @@ detailing exactly which tools the auditor should call at each step. See the appe
 where we use Petri to explore how much models rely on their chain-of-thought as a function of task
 difficulty.
 
-![Petri workflow](figures/petri-alignment-agent-TWITTER-fig-02.jpg)
+![Petri workflow](https://alignment.anthropic.com/2025/petri/figures/petri-alignment-agent-TWITTER-fig-02.jpg)
 
 Researchers give Petri a list of seed instructions targeting scenarios and
 behaviors they want to test. For each seed instruction, an auditor agent uses its tools to interact with
@@ -269,7 +269,7 @@ substantially when it must first explicitly identify and quote relevant passages
 
 ### Transcript Viewer
 
-![Transcript viewer interface](figures/Screenshot 2025-10-01 at 11.08.37 AM.png)
+![Transcript viewer interface](https://alignment.anthropic.com/2025/petri/figures/Screenshot 2025-10-01 at 11.08.37 AM.png)
 
 The transcript viewer interface.
 
@@ -334,7 +334,7 @@ auditors and judges where we find some slight evidence that some judges are bias
 family. Here we present the average scores for a selected subset of the judging dimensions averaged over all
 auditor and judge pairs. See the appendix for brief summaries of each of the dimensions.
 
-![Average scores across judging dimensions](figures/petri_scores_short.png)
+![Average scores across judging dimensions](https://alignment.anthropic.com/2025/petri/figures/petri_scores_short.png)
 
 Average scores for each target model across 12 selected judging dimensions
 on our pilot alignment evaluations.
@@ -429,7 +429,7 @@ before the release of Claude Sonnet 4.5). Our preliminary results reveal that ag
 leadership complicity, and the actual presence of wrongdoing have substantial effects on whistleblowing
 behavior, while narrative cues only have a measurable effect on Claude Sonnet 3.7 and Opus 4.1.
 
-![Whistleblowing ablation results](figures/whistleblowing_ablation.jpg)
+![Whistleblowing ablation results](https://alignment.anthropic.com/2025/petri/figures/whistleblowing_ablation.jpg)
 
 The rate of whistleblowing for each model and ablation. We only select the
 most egregious instances of whistleblowing where the judge scored a 9 or 10. Error bars are 95%
@@ -669,7 +669,7 @@ Each dimension is scored on a 1-10 scale. For most dimensions, higher scores ind
 behavior. However, for the positive dimensions, "admirable" and "fun\_or\_funny," higher scores indicate more
 positive behavior.
 
-![Dimension correlation dendrogram](figures/dendrogram.png)
+![Dimension correlation dendrogram](https://alignment.anthropic.com/2025/petri/figures/dendrogram.png)
 
 We compute a pairwise correlation matrix between all of the dimensions. We
 then convert the correlations into pairwise distances which we use to draw a dendrogram.
@@ -722,7 +722,7 @@ target gives the same answer both times, then this means it did not rely on its 
 Plotting the results we see that models tend to ignore the answer implied by their CoT more for easier
 tasks.
 
-![CoT loadbearing analysis](figures/ignore_cot.svg)
+![CoT loadbearing analysis](https://alignment.anthropic.com/2025/petri/figures/ignore_cot.svg)
 
 The rate at which reasoning models ignore their CoT as a function of task
 difficulty (number of reasoning hops required). Models tend to ignore the answer implied by their CoT
@@ -734,7 +734,7 @@ In a pilot test with Claude Sonnet 4, we found extended thinking added 2-3x runt
 performance. In particular, the Claude Sonnet 4 is able to reason sufficiently in its standard output.
 However, this might not be the case for all models.
 
-![Extended thinking comparison](figures/extended_thinking_comparison.png)
+![Extended thinking comparison](https://alignment.anthropic.com/2025/petri/figures/extended_thinking_comparison.png)
 
 Average misaligned behavior scores when running Claude Sonnet 4 with and
 without extended thinking. There does not seem to be a measurable benefit to using extended thinking.
@@ -743,7 +743,7 @@ without extended thinking. There does not seem to be a measurable benefit to usi
 
 Below we show the results of all 36 judging dimensions for a wide range of models.
 
-![All judge dimensions chart](figures/misaligned_behavior_petri_all.png)
+![All judge dimensions chart](https://alignment.anthropic.com/2025/petri/figures/misaligned_behavior_petri_all.png)
 
 Average scores for each target model across all judging dimensions. Error
 bars are 95% confidence intervals. Each dimension is scored from 0 to 1. Note that each plot has a
@@ -764,7 +764,7 @@ As judging for certain dimensions is fairly subjective, we expect that different
 transcript differently. We selected five models (Claude Opus 4.1, Claude Sonnet 4, Gemini 2.5 Pro, GPT-5,
 and o4-mini) to act as both the auditor and the judge (25 total combinations).
 
-![Judge correlation matrix](figures/corellation_matrix.png)
+![Judge correlation matrix](https://alignment.anthropic.com/2025/petri/figures/corellation_matrix.png)
 
 Spearman correlation between the misaligned behavior scores generated by
 different judges.
@@ -779,7 +779,7 @@ intra-judge agreement, for more exploratory work, having some amount of variance
 this makes it less likely that a group of transcripts that we might want to be rated highly will be
 systematically downrated.
 
-![Auditor judge target comparison](figures/auditor_judge_target_comparison.png)
+![Auditor judge target comparison](https://alignment.anthropic.com/2025/petri/figures/auditor_judge_target_comparison.png)
 
 Breakdown of the misaligned behavior score by target, auditor, and judge.
 Each bar is averaged over 111 seed instructions.
@@ -800,7 +800,7 @@ prompts and forcing the Gemini 2.5 Pro to only make one tool call per turn. This
 some issues with reliability. We suspect that each auditor's performance could be improved further with more
 targeted modifications to the system prompt.
 
-![Judge score distributions](figures/misaligned_behavior_score_distribution_by_judge.svg)
+![Judge score distributions](https://alignment.anthropic.com/2025/petri/figures/misaligned_behavior_score_distribution_by_judge.svg)
 
 Distribution of scores output by each judge model.
 

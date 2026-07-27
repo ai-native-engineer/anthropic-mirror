@@ -10,6 +10,7 @@ Access and analyze blockchain data
 * Used in
 
   [Claude](https://claude.ai/directory/48425fdb-37c1-408d-9606-30e16847b6a8)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Blockscout](https://www.blockscout.com/)
 

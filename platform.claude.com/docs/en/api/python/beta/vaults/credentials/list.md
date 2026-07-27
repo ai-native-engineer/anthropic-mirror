@@ -30,7 +30,7 @@ List Credentials
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -82,11 +82,19 @@ List Credentials
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -185,6 +193,18 @@ List Credentials
     - `class BetaManagedAgentsEnvironmentVariableAuthResponse: …`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: bool`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: bool`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: Networking`
 

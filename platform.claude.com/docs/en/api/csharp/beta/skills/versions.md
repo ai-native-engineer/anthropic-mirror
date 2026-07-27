@@ -20,7 +20,7 @@ Create Skill Version
 
     The format and length of IDs may change over time.
 
-  - `IReadOnlyList<string>? files`
+  - `required IReadOnlyList<string> files`
 
     Body param: Files to upload for the skill.
 
@@ -80,11 +80,19 @@ Create Skill Version
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
 
 ### Returns
 
@@ -137,7 +145,14 @@ Create Skill Version
 ### Example
 
 ```csharp
-VersionCreateParams parameters = new() { SkillID = "skill_id" };
+VersionCreateParams parameters = new()
+{
+    SkillID = "skill_id",
+    Files =
+    [
+        Encoding.UTF8.GetBytes("Example data")
+    ],
+};
 
 var version = await client.Beta.Skills.Versions.Create(parameters);
 
@@ -241,11 +256,19 @@ List Skill Versions
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
 
 ### Returns
 
@@ -418,11 +441,19 @@ Download a skill version's content as a zip archive.
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
 
 ### Example
 
@@ -516,11 +547,19 @@ Get Skill Version
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
 
 ### Returns
 
@@ -677,11 +716,19 @@ Delete Skill Version
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
 
 ### Returns
 

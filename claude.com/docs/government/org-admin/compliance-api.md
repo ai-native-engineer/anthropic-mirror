@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/government/org-admin/compliance-api -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this is for:** Organization owners and the security or compliance teams who connect Claude for Government to their agency’s log management or SIEM platform.
 
 The Compliance API is a read-only HTTP endpoint that lets your security tools pull a continuous feed of audit events covering administrative activity across your organization, such as sign-ins, role changes, key creations, and seat assignments. A scheduled job can poll the endpoint and forward each event to a SIEM such as Splunk or Microsoft Sentinel.
@@ -92,13 +100,13 @@ A typical run requests `since=<watermark>`, forwards every event returned, and i
 
 ##  When the API is disabled
 
-Your tenant administrator can turn off the **Compliance API** setting on the [tenant Config page](/docs/government/tenant-admin/configuration). When that setting is off, the Create key button is hidden in the portal, and every call to `/v1/compliance/activities` returns a 400 error, including calls made with keys that were valid before the setting changed.
+Your tenant administrator can turn off the **Compliance API** setting on the [tenant Config page](https://claude.com/docs/government/tenant-admin/configuration). When that setting is off, the Create key button is hidden in the portal, and every call to `/v1/compliance/activities` returns a 400 error, including calls made with keys that were valid before the setting changed.
 Listing and revoking existing keys in the portal remains available even when the setting is off, so an exposed key can still be revoked.
+
+##  Things to know
 
 * The Compliance API returns governance and audit events only. It does not return conversation content, files, or anything your users type into Claude.
 * Each organization can hold up to 50 active keys at once. Revoked keys do not count toward this limit.
 * Events are returned newest first within each page.
 * `first_id` and `last_id` are opaque cursors. Pass them back exactly as received rather than constructing them yourself.
-* If your network enforces a [tenant restriction](/docs/government/tenant-admin/tenant-restrictions), the same restriction applies to Compliance API requests.
-
-[Analytics](/docs/government/org-admin/analytics)[Billing](/docs/government/org-admin/billing)
+* If your network enforces a [tenant restriction](https://claude.com/docs/government/tenant-admin/tenant-restrictions), the same restriction applies to Compliance API requests.

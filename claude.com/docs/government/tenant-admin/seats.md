@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/government/tenant-admin/seats -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this is for:** Tenant administrators who distribute purchased seats to the organizations in their deployment.
 
 Use this page to divide each billing account’s seat pool among the organizations that account funds.
@@ -30,7 +38,7 @@ The save will be rejected in a few cases:
 
 ##  How seats affect new users
 
-When a new person is placed in an organization (by a routing rule on the [Identity and access](/docs/government/tenant-admin/identity-and-access) page), they’re automatically given a seat if one is free. Tiers are filled in a fixed order, so the first tier is filled before the next is started. If every tier the organization has is completely full, the new person is placed in the organization without a seat. They can sign in and see the portal, but cannot send messages to Claude until an owner assigns them a seat or you distribute more seats here.
+When a new person is placed in an organization (by a routing rule on the [Identity and access](https://claude.com/docs/government/tenant-admin/identity-and-access) page), they’re automatically given a seat if one is free. Tiers are filled in a fixed order, so the first tier is filled before the next is started. If every tier the organization has is completely full, the new person is placed in the organization without a seat. They can sign in and see the portal, but cannot send messages to Claude until an owner assigns them a seat or you distribute more seats here.
 An organization that has no seat allocation at all is treated as uncapped. New users can join and use Claude, but this is unusual; normally every active organization has at least one tier allocated.
 
 ##  When you can’t edit
@@ -41,8 +49,8 @@ You’ll see a note instead of the editor in a few situations:
 * If the account is **managed by one organization’s administrators** rather than by tenant administrators, you won’t be able to edit it here; the owning organization controls its own distribution.
 * If the account has **no seat pool yet**, contact Anthropic to set one up.
 
+##  Things to know
+
 * Reducing an organization’s allocation never unassigns anyone automatically. The reduction is refused until enough people have been moved off the tier.
 * You can freely move seats between organizations on the same billing account by lowering one and raising another, as long as neither change violates the rules above. You may need to save the reduction first to free the pool, then save the increase.
 * Seat pools are set by Anthropic. If you need more seats in a tier, or a new tier added, contact Anthropic.
-
-[Tenant restrictions](/docs/government/tenant-admin/tenant-restrictions)[Billing](/docs/government/tenant-admin/credits)

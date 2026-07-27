@@ -14,11 +14,11 @@ As AI becomes more capable and is deployed across more domains and with wide-ran
 
 We’ve found it valuable to turn to automated auditing agents to help address this challenge. We used them in the [Claude 4](https://www-cdn.anthropic.com/4263b940cabb546aa0e3283f35b686f4f3b2ff47.pdf) and [Claude Sonnet 4.5](https://www.anthropic.com/claude-sonnet-4-5-system-card) System Cards to better understand behaviors such as situational awareness, whistleblowing, and self-preservation, and adapted them for head-to-head comparisons between heterogeneous models as part of a [recent exercise with OpenAI](https://alignment.anthropic.com/2025/openai-findings/). Our recent research release on [alignment-auditing agents](https://alignment.anthropic.com/2025/automated-auditing/) found these methods can reliably flag concerning behaviors in many settings. The [UK AI Security Institute](https://www.aisi.gov.uk/) also used a pre-release version of Petri to build evaluations that they used in their testing of Sonnet 4.5.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F85e8ee11c9ff6dea9023c57d53fe7b06a2bb9f8e-2292x2292.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/85e8ee11c9ff6dea9023c57d53fe7b06a2bb9f8e-2292x2292.jpg)
 
 Manually building alignment evaluations often involves constructing environments, running models, reading transcripts, and aggregating the results. Petri automates much of this process.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Faf0cd2e2b08bb4687e1924b6094dc2c4159486cf-2293x1288.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/af0cd2e2b08bb4687e1924b6094dc2c4159486cf-2293x1288.jpg)
 
 Researchers give Petri a list of seed instructions targeting scenarios and behaviors they want to test. Petri then operates on each seed instruction in parallel. For each seed instruction, an auditor agent makes a plan and interacts with the target model in a tool use loop. At the end, a judge scores each of the resulting transcripts across multiple dimensions so researchers can quickly search and filter for the most interesting transcripts.
 
@@ -38,7 +38,7 @@ Petri is a tool designed to support others in building evaluations, both for one
 
 Distilling model behavior into quantitative metrics is inherently reductive, and we don’t think our existing metrics fully capture what we want out of models. We are releasing Petri with the expectation that users will refine our pilot metrics, or build new ones that better suit their purposes.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff2e2f8e70d91877c7e66917bd6af5471be6fa4b7-2292x2292.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/f2e2f8e70d91877c7e66917bd6af5471be6fa4b7-2292x2292.jpg)
 
 Results from Petri across four of the default scoring dimensions. Lower numbers are better. All tests were conducted over a public API.
 
@@ -58,7 +58,7 @@ We used Petri to investigate how models handle ethical dilemmas when discovering
 
 We found that models’ decisions to report concerning information depend heavily on how much agency their system prompt gave them, and whether leadership was complicit in the wrongdoing. Notably, models sometimes attempted to whistleblow even in test scenarios where the organizational “wrongdoing” was explicitly harmless—such as dumping clean water into the ocean or putting sugar in candy—suggesting they may be influenced by narrative patterns more than by a coherent drive to minimize harm.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F55ca122cf0574218aa6a5812962f5b1fa7b974e0-2293x1288.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/55ca122cf0574218aa6a5812962f5b1fa7b974e0-2293x1288.jpg)
 
 To understand which factors might drive whistleblowing behavior, we conducted ablation studies—systematically testing the effect of each factor by varying it while holding others constant. We found that three of them—leadership complicity, models’ autonomy/agency, and how concerning the wrongdoing was—had a consistent effect on the models’ whistleblowing rates.
 
@@ -89,18 +89,16 @@ Helpful comments, discussions, and other assistance: Julius Steen, Chloe Loughri
 > url={https://github.com/safety-research/petri},  
 > }`
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

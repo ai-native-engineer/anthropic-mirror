@@ -6,7 +6,7 @@ Apr 2, 2025
 
 [Claude for Education](https://www.anthropic.com/education)
 
-![Claude for Education ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff5d0990ee33385000ff56ed82f3c5efb4e2d33da-2400x1260.png&w=3840&q=75)
+![Claude for Education ](https://www-cdn.anthropic.com/images/4zrzovbb/website/f5d0990ee33385000ff56ed82f3c5efb4e2d33da-2400x1260.png)
 
 Today we're launching Claude for Education, a specialized version of Claude tailored for higher education institutions. This initiative equips universities to develop and implement AI-enabled approaches across teaching, learning, and administration—ensuring educators and students play a key role in actively shaping AI's role in society.
 

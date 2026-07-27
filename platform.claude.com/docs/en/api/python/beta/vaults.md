@@ -26,7 +26,7 @@ Create Vault
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -78,11 +78,19 @@ Create Vault
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -177,7 +185,7 @@ List Vaults
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -229,11 +237,19 @@ List Vaults
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -322,7 +338,7 @@ Get Vault
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -374,11 +390,19 @@ Get Vault
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -471,7 +495,7 @@ Update Vault
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -523,11 +547,19 @@ Update Vault
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -612,7 +644,7 @@ Delete Vault
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -664,11 +696,19 @@ Delete Vault
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -726,7 +766,7 @@ Archive Vault
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -778,11 +818,19 @@ Archive Vault
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -1053,6 +1101,18 @@ Create Credential
 
       - `"environment_variable"`
 
+    - `injection_location: Optional[BetaManagedAgentsInjectionLocationParams]`
+
+      Where in the outbound request the secret value may be substituted.
+
+      - `body: Optional[bool]`
+
+        Substitute when the placeholder appears in the request body.
+
+      - `header: Optional[bool]`
+
+        Substitute when the placeholder appears in a request header value.
+
 - `display_name: Optional[str]`
 
   Human-readable name for the credential. Up to 255 characters.
@@ -1067,7 +1127,7 @@ Create Credential
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -1119,11 +1179,19 @@ Create Credential
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -1222,6 +1290,18 @@ Create Credential
     - `class BetaManagedAgentsEnvironmentVariableAuthResponse: …`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: bool`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: bool`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: Networking`
 
@@ -1350,7 +1430,7 @@ List Credentials
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -1402,11 +1482,19 @@ List Credentials
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -1505,6 +1593,18 @@ List Credentials
     - `class BetaManagedAgentsEnvironmentVariableAuthResponse: …`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: bool`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: bool`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: Networking`
 
@@ -1624,7 +1724,7 @@ Get Credential
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -1676,11 +1776,19 @@ Get Credential
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -1779,6 +1887,18 @@ Get Credential
     - `class BetaManagedAgentsEnvironmentVariableAuthResponse: …`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: bool`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: bool`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: Networking`
 
@@ -1967,6 +2087,18 @@ Update Credential
 
       - `"environment_variable"`
 
+    - `injection_location: Optional[BetaManagedAgentsInjectionLocationUpdateParams]`
+
+      Updated injection location.
+
+      - `body: Optional[bool]`
+
+        Substitute when the placeholder appears in the request body.
+
+      - `header: Optional[bool]`
+
+        Substitute when the placeholder appears in a request header value.
+
     - `networking: Optional[BetaManagedAgentsCredentialNetworkingParams]`
 
       Updated networking scope. Full replacement.
@@ -2009,7 +2141,7 @@ Update Credential
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -2061,11 +2193,19 @@ Update Credential
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -2164,6 +2304,18 @@ Update Credential
     - `class BetaManagedAgentsEnvironmentVariableAuthResponse: …`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: bool`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: bool`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: Networking`
 
@@ -2278,7 +2430,7 @@ Delete Credential
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -2330,11 +2482,19 @@ Delete Credential
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -2395,7 +2555,7 @@ Archive Credential
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -2447,11 +2607,19 @@ Archive Credential
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -2550,6 +2718,18 @@ Archive Credential
     - `class BetaManagedAgentsEnvironmentVariableAuthResponse: …`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: bool`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: bool`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: Networking`
 
@@ -2664,7 +2844,7 @@ Validate Credential
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -2716,11 +2896,19 @@ Validate Credential
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -2953,6 +3141,18 @@ print(beta_managed_agents_credential_validation.credential_id)
 
       Environment variable credential details. The secret value is never returned.
 
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: bool`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: bool`
+
+          Whether the placeholder is substituted in request header values.
+
       - `networking: Networking`
 
         Outbound hosts the secret value is substituted on.
@@ -3151,6 +3351,18 @@ print(beta_managed_agents_credential_validation.credential_id)
 
   Environment variable credential details. The secret value is never returned.
 
+  - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+    Where in the outbound request the secret value is substituted.
+
+    - `body: bool`
+
+      Whether the placeholder is substituted in the request body.
+
+    - `header: bool`
+
+      Whether the placeholder is substituted in request header values.
+
   - `networking: Networking`
 
     Outbound hosts the secret value is substituted on.
@@ -3225,6 +3437,18 @@ print(beta_managed_agents_credential_validation.credential_id)
 
     - `"environment_variable"`
 
+  - `injection_location: Optional[BetaManagedAgentsInjectionLocationParams]`
+
+    Where in the outbound request the secret value may be substituted.
+
+    - `body: Optional[bool]`
+
+      Substitute when the placeholder appears in the request body.
+
+    - `header: Optional[bool]`
+
+      Substitute when the placeholder appears in a request header value.
+
 ### Beta Managed Agents Environment Variable Update Params
 
 - `class BetaManagedAgentsEnvironmentVariableUpdateParams: …`
@@ -3234,6 +3458,18 @@ print(beta_managed_agents_credential_validation.credential_id)
   - `type: Literal["environment_variable"]`
 
     - `"environment_variable"`
+
+  - `injection_location: Optional[BetaManagedAgentsInjectionLocationUpdateParams]`
+
+    Updated injection location.
+
+    - `body: Optional[bool]`
+
+      Substitute when the placeholder appears in the request body.
+
+    - `header: Optional[bool]`
+
+      Substitute when the placeholder appears in a request header value.
 
   - `networking: Optional[BetaManagedAgentsCredentialNetworkingParams]`
 
@@ -3262,6 +3498,48 @@ print(beta_managed_agents_credential_validation.credential_id)
   - `secret_value: Optional[str]`
 
     Updated secret value.
+
+### Beta Managed Agents Injection Location Params
+
+- `class BetaManagedAgentsInjectionLocationParams: …`
+
+  Where in the outbound request the secret value may be substituted.
+
+  - `body: Optional[bool]`
+
+    Substitute when the placeholder appears in the request body.
+
+  - `header: Optional[bool]`
+
+    Substitute when the placeholder appears in a request header value.
+
+### Beta Managed Agents Injection Location Response
+
+- `class BetaManagedAgentsInjectionLocationResponse: …`
+
+  Where in the outbound request the secret value is substituted.
+
+  - `body: bool`
+
+    Whether the placeholder is substituted in the request body.
+
+  - `header: bool`
+
+    Whether the placeholder is substituted in request header values.
+
+### Beta Managed Agents Injection Location Update Params
+
+- `class BetaManagedAgentsInjectionLocationUpdateParams: …`
+
+  Updated injection location.
+
+  - `body: Optional[bool]`
+
+    Substitute when the placeholder appears in the request body.
+
+  - `header: Optional[bool]`
+
+    Substitute when the placeholder appears in a request header value.
 
 ### Beta Managed Agents Limited Credential Networking Params
 

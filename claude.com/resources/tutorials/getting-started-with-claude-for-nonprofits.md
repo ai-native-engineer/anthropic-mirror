@@ -34,7 +34,7 @@ Claude for nonprofits is available on two plans:
 * **Team plan:** $8/user/month
 * **Enterprise plan:** $10/user/month
 
-Both plans include access to Claude Sonnet 4.5 and Haiku 4.5, with a minimum of 2 seats for teams under 150.
+Both plans include access to the same models as our Team and Enterprise offerings, with a minimum of 2 seats for teams under 150.
 
 To get started, verify your nonprofit status through our partner Goodstack by completing [this short form](https://validate.poweredbypercent.com/anthropic). The verification process takes 2–3 minutes for Team plans. For Enterprise pricing, [contact our sales team](https://claude.com/contact-sales/nonprofits).
 
@@ -109,34 +109,34 @@ Visit the [use case library](https://claude.com/resources/use-cases/category/non
 
 ## Related tutorials
 
-[Using the Candid connector in Claude](/resources/tutorials/using-the-candid-connector-in-claude)Using the Candid connector in Claude
+[Using the Candid connector in Claude](https://claude.com/resources/tutorials/using-the-candid-connector-in-claude)Using the Candid connector in Claude
 
 Using the Candid connector in Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-the-candid-connector-in-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-the-candid-connector-in-claude)Tutorial
 
-[Using the Blackbaud connector in Claude](/resources/tutorials/using-the-blackbaud-connector-in-claude)Using the Blackbaud connector in Claude
+[Using the Blackbaud connector in Claude](https://claude.com/resources/tutorials/using-the-blackbaud-connector-in-claude)Using the Blackbaud connector in Claude
 
 Using the Blackbaud connector in Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-the-blackbaud-connector-in-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-the-blackbaud-connector-in-claude)Tutorial
 
-[Using the Benevity connector in Claude](/resources/tutorials/using-the-benevity-connector-in-claude)Using the Benevity connector in Claude
+[Using the Benevity connector in Claude](https://claude.com/resources/tutorials/using-the-benevity-connector-in-claude)Using the Benevity connector in Claude
 
 Using the Benevity connector in Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-the-benevity-connector-in-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-the-benevity-connector-in-claude)Tutorial
 
-[Claude for nonprofits partnership guide for all users](/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Claude for nonprofits partnership guide for all users
+[Claude for nonprofits partnership guide for all users](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Claude for nonprofits partnership guide for all users
 
 Claude for nonprofits partnership guide for all users
 
 Tutorial
 
-[Tutorial](/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Tutorial

@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![Box logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8c287936531790c85c4_box_light.svg)![Box logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8bdc1ea299a1a768655_box_dark.svg)
 
@@ -156,34 +156,34 @@ Staff Product Manager for AI, Box
 
 ## Related stories
 
-[How Vercel built an ecosystem on the open skills standard](/customers/vercel-qa)How Vercel built an ecosystem on the open skills standard
+[Dust enables agents to go deeper at lower cost with Claude](https://claude.com/customers/dust)Dust enables agents to go deeper at lower cost with Claude
+
+Dust enables agents to go deeper at lower cost with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/dust)Customer story
+
+[How Vercel built an ecosystem on the open skills standard](https://claude.com/customers/vercel-qa)How Vercel built an ecosystem on the open skills standard
 
 How Vercel built an ecosystem on the open skills standard
 
 Customer story
 
-[Customer story](/customers/vercel-qa)Customer story
+[Customer story](https://claude.com/customers/vercel-qa)Customer story
 
-[Juno helps people with chronic illness find patterns in their symptoms with Claude](/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
+[Juno helps people with chronic illness find patterns in their symptoms with Claude](https://claude.com/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
 
 Juno helps people with chronic illness find patterns in their symptoms with Claude
 
 Customer story
 
-[Customer story](/customers/juno)Customer story
+[Customer story](https://claude.com/customers/juno)Customer story
 
-[A conversation with Cursor on building coding agents for professional developers](/customers/cursor-qa)A conversation with Cursor on building coding agents for professional developers
+[A conversation with Cursor on building coding agents for professional developers](https://claude.com/customers/cursor-qa)A conversation with Cursor on building coding agents for professional developers
 
 A conversation with Cursor on building coding agents for professional developers
 
 Customer story
 
-[Customer story](/customers/cursor-qa)Customer story
-
-[Inside Delight.ai’s AI/ML team: Building internal tools with Claude Code](/customers/delightai-qa)Inside Delight.ai’s AI/ML team: Building internal tools with Claude Code
-
-Inside Delight.ai’s AI/ML team: Building internal tools with Claude Code
-
-Customer story
-
-[Customer story](/customers/delightai-qa)Customer story
+[Customer story](https://claude.com/customers/cursor-qa)Customer story

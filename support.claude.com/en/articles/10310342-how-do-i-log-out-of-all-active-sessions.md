@@ -32,10 +32,14 @@ To regain access to your account on any device, you'll need to authenticate agai
 
 If you used your Claude account to authenticate into Claude Code, you can manage your authorization tokens by navigating to [Settings > Claude Code](http://claude.ai/settings/claude-code). To remove a token and log out of Claude Code, click the trash can icon.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1608263923/b4fa7d6f6f08f2adffb4ea63bc58/image+%287%29.png?expires=1782460800&signature=30dc761277cdd86e8b349bcd5b4c47e2f8446d4b7c63d3ee949cde5c606b00bd&req=dSYnHst4nohdWvMW1HO4zVuHih750GezAQofdwM8qVcwinQMooS3YrcGZKSO%0AdPtj1ohAn7rYqxuKshE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1608263923/b4fa7d6f6f08f2adffb4ea63bc58/image+%287%29.png?expires=1782460800&signature=30dc761277cdd86e8b349bcd5b4c47e2f8446d4b7c63d3ee949cde5c606b00bd&req=dSYnHst4nohdWvMW1HO4zVuHih750GezAQofdwM8qVcwinQMooS3YrcGZKSO%0AdPtj1ohAn7rYqxuKshE%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1608263923/b4fa7d6f6f08f2adffb4ea63bc58/image+%287%29.png?expires=1785149100&signature=07e63577abcbe45ca27e33c1e20067e4088fe0632b09403670bbc7f36f48bee3&req=dSYnHst4nohdWvMW1HO4zVuHihn80m66AQofdwM8qVfIilA3ikoQwwyddD7j%0AujRj8Irr%2FKrXGfscHMo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1608263923/b4fa7d6f6f08f2adffb4ea63bc58/image+%287%29.png?expires=1785149100&signature=07e63577abcbe45ca27e33c1e20067e4088fe0632b09403670bbc7f36f48bee3&req=dSYnHst4nohdWvMW1HO4zVuHihn80m66AQofdwM8qVfIilA3ikoQwwyddD7j%0AujRj8Irr%2FKrXGfscHMo%3D%0A)
 
 ## Unable to access your account?
 
 If you're unable to sign into your account to log out of all sessions, contact our Support team by clicking on the message icon in the bottom right of any Help Center page. See [How to Get Support](https://support.claude.com/en/articles/9015913-how-to-get-support) for additional information.
 
-[How do I cancel my paid Claude subscription?](https://support.claude.com/en/articles/8325617-how-do-i-cancel-my-paid-claude-subscription)[Managing your active sessions](https://support.claude.com/en/articles/13124001-managing-your-active-sessions)[Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)[Logging in to your Console account](https://support.claude.com/en/articles/13371040-logging-in-to-your-console-account)[Open the Claude mobile app with a link](https://support.claude.com/en/articles/14898120-open-the-claude-mobile-app-with-a-link)
+* [How do I sign up for the Pro plan?](https://support.claude.com/en/articles/8325609-how-do-i-sign-up-for-the-pro-plan)
+* [Managing your active sessions](https://support.claude.com/en/articles/13124001-managing-your-active-sessions)
+* [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
+* [Logging in to your Console account](https://support.claude.com/en/articles/13371040-logging-in-to-your-console-account)
+* [Open the Claude mobile app with a link](https://support.claude.com/en/articles/14898120-open-the-claude-mobile-app-with-a-link)

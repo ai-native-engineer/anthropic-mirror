@@ -20,7 +20,7 @@ In this post, we’ll discuss a few of the updates we’ve made to alignment tra
 
 **The quality and diversity of data is crucial.** We found consistent, surprising improvements from iterating on the quality of model responses in training data, and from augmenting training data in simple ways (for example, including tool definitions, even if not used).
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4b620bad4cb1fdc886b8d13c4c6d3f1f50453901-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/4b620bad4cb1fdc886b8d13c4c6d3f1f50453901-1920x1080.png)
 
 We align Claude by training on constitutionally aligned documents, high-quality chat data that demonstrates constitutional responses to difficult questions, and a diverse set of environments. All three of these steps contribute to reducing Claude’s misalignment rate on held out honeypot evaluations.
 
@@ -47,11 +47,11 @@ We ultimately settled on a more OOD training set where the user faces an ethical
 
 Strikingly, **we achieved the same improvement on our eval with just 3M tokens of this much more OOD** **dataset**. Beyond the 28× efficiency improvement, this dataset is more likely to generalize to a wider set of scenarios, since it is much less similar to the evaluation set we are using. Indeed, this model performs better on (an older version of) our automated alignment assessment. This is consistent with the fact that Claude Sonnet 4.5 reached a blackmail rate near zero by training on the set of synthetic honeypots but still engaged in misaligned behavior in situations that were far from the training distribution [much more frequently than Claude Opus 4.5](https://www-cdn.anthropic.com/bf10f64990cfda0ba858290be7b8cc6317685f47.pdf) or later models.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F90cfc87a53e2213fdbe842a7b51e8f36a3b26fa9-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/90cfc87a53e2213fdbe842a7b51e8f36a3b26fa9-1920x1080.png)
 
 Average of three honeypot evaluations (blackmail, research sabotage, framing for crimes) for Claude Sonnet 4 trained on different datasets. Datasets are all variants of a set of synthetically generated honeypots meant to be similar to the evaluation set, except for the difficult advice dataset. All “System prompt injection” points represent datasets where the responses were generated with a system prompt injection on a set of synthetic honeypots. The pareto-optimal training dataset is “Difficult advice.”
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F15362defa65fd749faac6cc85cfd5480b7a5a898-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/15362defa65fd749faac6cc85cfd5480b7a5a898-1920x1080.png)
 
 Performance of experimental models and Claude Sonnet 4 on an older version of our automated alignment assessment. We include a model trained on both the small (~30M token) and big (~85M token) variant of our synthetic honeypot datasets. The 3M token difficult advice dataset creates the best performing model on the overall “Misaligned behavior” category.
 
@@ -67,7 +67,7 @@ We expected this to work well for three reasons:
 
 We found that high-quality constitutional documents combined with fictional stories portraying an aligned AI can reduce agentic misalignment by more than a factor of three despite being unrelated to the evaluation scenario.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc8d22dcce67ce4819e2ce2338a212ab8cb910271-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/c8d22dcce67ce4819e2ce2338a212ab8cb910271-1920x1080.png)
 
 With a large, well-constructed dataset of constitutional documents with an emphasis on positive fictional stories, the blackmail rate can be reduced from 65% to 19%. We expect that this can be further reduced by continuing to scale the size of the dataset.
 
@@ -77,7 +77,7 @@ Although the constitution evaluations discussed in the previous section are enco
 
 We evaluated these models over the run on agentic misalignment evals, constitution adherence evals, and our automated alignment assessment. Across all of these evals, we found that the more aligned snapshots maintained that lead over the run. This was true both for the absence of misaligned behavior and the presence of actively admirable behavior.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F15dccc5c264c6f73daa966206e9d48ca10ee9012-1920x1623.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/15dccc5c264c6f73daa966206e9d48ca10ee9012-1920x1623.png)
 
 On our constitutional adherence evals and (a lightweight version of) our automated alignment assessment, constitutional documents (synthetic document fine-tuning, or SDF) and high quality transcript training improve performance on all metrics. This improvement persists through RL.
 
@@ -89,7 +89,7 @@ To test this, we trained the base model under Claude Sonnet 4 on several RL mixe
 
 When mixing these augmented environments with the simple chat environments, we saw a small but significant improvement in the rate at which the model improved on our honeypot evaluations. This demonstrates the importance of including a diverse set of environments in safety training.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Faef56377b3b7d9ec40ad5251bc9290fb8af88ad8-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/aef56377b3b7d9ec40ad5251bc9290fb8af88ad8-1920x1080.png)
 
 Average score on honeypot evals over training steps for several different variants of the same core environments. There is a noticeably faster improvement on honeypot evaluations when augmenting some of the simple chat-formatted environments with tool definitions and system prompts.
 
@@ -106,18 +106,16 @@ We are optimistic about further efforts to discover alignment failures in curren
 1. Published in the [Claude 4 system card](https://www.anthropic.com/claude-4-system-card), beginning on p.22.
 2. Sonnet 4.5 scored well under 1%, but not quite 0; Haiku 4.5, Opus 4.5, Opus 4.6, Sonnet 4.6, Mythos preview, and Opus 4.7 all score 0. The results on more recent models may be confounded by the presence of information about the evaluation in the pre-training corpus.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

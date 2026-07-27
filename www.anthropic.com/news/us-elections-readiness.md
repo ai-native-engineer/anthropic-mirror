@@ -4,7 +4,7 @@
 
 Oct 8, 2024
 
-![U.S. Elections Readiness](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd349f9f92aaf574702f002fbb2b01159e6e4c659-1200x631.png&w=3840&q=75)
+![U.S. Elections Readiness](https://www-cdn.anthropic.com/images/4zrzovbb/website/d349f9f92aaf574702f002fbb2b01159e6e4c659-1200x631.png)
 
 2024 marks the first United States (U.S.) election cycle where generative AI tools are widely available. Since July 2023, we have [taken concrete steps](https://www.anthropic.com/news/preparing-for-global-elections-in-2024) to [help detect and mitigate](https://www.anthropic.com/news/testing-and-mitigating-elections-related-risks) against the potential misuse of our tools and to direct users to authoritative election information. Ahead of federal, state, and local elections in the U.S. on November 5, 2024, we are sharing a summary of our work thus far.
 

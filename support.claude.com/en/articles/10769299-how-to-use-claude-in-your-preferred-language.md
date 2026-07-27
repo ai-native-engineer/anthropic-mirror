@@ -2,6 +2,8 @@
 
 # How to use Claude in your preferred language
 
+Updated this week
+
 Claude is available in multiple languages on web and desktop applications.
 
 ## Supported Languages
@@ -29,4 +31,12 @@ Claude is available in multiple languages on web and desktop applications.
 
 **Note:**Even if you've changed your language settings, you can still chat with Claude in any language. Claude will converse with you in the language you use.
 
-[What are some things I can use Claude for?](https://support.claude.com/en/articles/7996845-what-are-some-things-i-can-use-claude-for)[Get started with Claude](https://support.claude.com/en/articles/8114491-get-started-with-claude)[Using dictation on Claude Mobile](https://support.claude.com/en/articles/10065434-using-dictation-on-claude-mobile)[Use research on Claude](https://support.claude.com/en/articles/11088861-use-research-on-claude)[FAQs on Using Claude for Education at Your University](https://support.claude.com/en/articles/11139144-faqs-on-using-claude-for-education-at-your-university)
+## Voice mode languages
+
+Voice mode has its own language setting, separate from your display language. To change the language Claude speaks and listens to in voice mode, go to **[Settings > General](http://claude.ai/settings/general)**, then find **Voice > Language** and choose a language. Learn more in **[Use voice mode](https://support.claude.com/en/articles/11101966-use-voice-mode)**.
+
+* [Use dictation on Claude Mobile](https://support.claude.com/en/articles/10065434-use-dictation-on-claude-mobile)
+* [Use voice mode](https://support.claude.com/en/articles/11101966-use-voice-mode)
+* [Use Claude for Education at your university](https://support.claude.com/en/articles/11139144-use-claude-for-education-at-your-university)
+* [Use quick entry with Claude Desktop on Mac](https://support.claude.com/en/articles/12626668-use-quick-entry-with-claude-desktop-on-mac)
+* [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)

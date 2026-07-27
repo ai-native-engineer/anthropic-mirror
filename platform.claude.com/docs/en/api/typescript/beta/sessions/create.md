@@ -12,7 +12,7 @@ Create Session
 
 - `params: SessionCreateParams`
 
-  - `agent: string | BetaManagedAgentsAgentParams`
+  - `agent: string | BetaManagedAgentsAgentParams | BetaManagedAgentsAgentWithOverridesParams`
 
     Body param: Agent identifier. Accepts the `agent` ID string, which pins the latest version for the session, or an `agent` object with both id and version specified.
 
@@ -34,9 +34,587 @@ Create Session
 
         The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
 
+    - `BetaManagedAgentsAgentWithOverridesParams`
+
+      Reference to an `agent` plus optional configuration overrides. Each provided field replaces the agent's value for the caller's use; the agent resource is unchanged.
+
+      - `id: string`
+
+        The `agent` ID.
+
+      - `type: "agent_with_overrides"`
+
+        - `"agent_with_overrides"`
+
+      - `mcp_servers?: Array<BetaManagedAgentsURLMCPServerParams>`
+
+        Replacement MCP server list. Full replacement: the provided array becomes the MCP servers. Send an empty array to clear; omit to preserve the agent's servers.
+
+        - `name: string`
+
+          Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
+
+        - `type: "url"`
+
+          - `"url"`
+
+        - `url: string`
+
+          Endpoint URL for the MCP server.
+
+      - `model?: BetaManagedAgentsModel | BetaManagedAgentsModelConfigParams`
+
+        Replacement model. Accepts the model string, e.g. `claude-opus-4-6`, or a `model_config` object. Omit to use the agent's model.
+
+        - `BetaManagedAgentsModel = "claude-sonnet-5" | "claude-fable-5" | "claude-opus-5" | 10 more | (string & {})`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5" | "claude-fable-5" | "claude-opus-5" | 10 more`
+
+            - `"claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
+            - `"claude-fable-5"`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-8"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-7"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-6"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-6"`
+
+              Best combination of speed and intelligence
+
+            - `"claude-haiku-4-5"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-haiku-4-5-20251001"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-opus-4-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-5-20251101"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-5"`
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"`
+
+              High-performance model for agents and coding
+
+          - `(string & {})`
+
+        - `BetaManagedAgentsModelConfigParams`
+
+          An object that defines additional configuration control over model use
+
+          - `id: BetaManagedAgentsModel`
+
+            The model that will power your agent.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `effort?: "low" | "medium" | "high" | 2 more | BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | 3 more | null`
+
+            How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+            - `"low" | "medium" | "high" | 2 more`
+
+              - `"low"`
+
+              - `"medium"`
+
+              - `"high"`
+
+              - `"xhigh"`
+
+              - `"max"`
+
+            - `BetaManagedAgentsEffortLow`
+
+              Low effort. Favors latency over reasoning depth.
+
+              - `type: "low"`
+
+                - `"low"`
+
+            - `BetaManagedAgentsEffortMedium`
+
+              Medium effort. Balances latency and reasoning depth.
+
+              - `type: "medium"`
+
+                - `"medium"`
+
+            - `BetaManagedAgentsEffortHigh`
+
+              High effort. Favors reasoning depth.
+
+              - `type: "high"`
+
+                - `"high"`
+
+            - `BetaManagedAgentsEffortXhigh`
+
+              Extra-high effort. Not all models accept this level.
+
+              - `type: "xhigh"`
+
+                - `"xhigh"`
+
+            - `BetaManagedAgentsEffortMax`
+
+              Maximum effort. Favors reasoning depth over latency.
+
+              - `type: "max"`
+
+                - `"max"`
+
+          - `speed?: "standard" | "fast" | null`
+
+            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+            - `"standard"`
+
+            - `"fast"`
+
+      - `skills?: Array<BetaManagedAgentsSkillParams>`
+
+        Replacement skill list. Full replacement: the provided array becomes the skills. Send an empty array to clear; omit to preserve the agent's skills.
+
+        - `BetaManagedAgentsAnthropicSkillParams`
+
+          An Anthropic-managed skill.
+
+          - `skill_id: string`
+
+            Identifier of the Anthropic skill (e.g., "xlsx").
+
+          - `type: "anthropic"`
+
+            - `"anthropic"`
+
+          - `version?: string | null`
+
+            Version to pin. Defaults to latest if omitted.
+
+        - `BetaManagedAgentsCustomSkillParams`
+
+          A user-created custom skill.
+
+          - `skill_id: string`
+
+            Tagged ID of the custom skill (e.g., "skill_01XJ5...").
+
+          - `type: "custom"`
+
+            - `"custom"`
+
+          - `version?: string | null`
+
+            Version to pin. Defaults to latest if omitted.
+
+      - `system?: string | null`
+
+        Replacement system prompt. Up to 100,000 characters. Set to null to clear the agent's system prompt; omit to preserve it.
+
+      - `tools?: Array<BetaManagedAgentsAgentToolset20260401Params | BetaManagedAgentsMCPToolsetParams | BetaManagedAgentsCustomToolParams>`
+
+        Replacement tool list. Full replacement: the provided array becomes the tool configuration. Send an empty array to clear; omit to preserve the agent's tools.
+
+        - `BetaManagedAgentsAgentToolset20260401Params`
+
+          Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
+
+          - `type: "agent_toolset_20260401"`
+
+            - `"agent_toolset_20260401"`
+
+          - `configs?: Array<BetaManagedAgentsAgentToolConfigParams>`
+
+            Per-tool configuration overrides.
+
+            - `name: "bash" | "edit" | "read" | 5 more`
+
+              Built-in agent tool identifier.
+
+              - `"bash"`
+
+              - `"edit"`
+
+              - `"read"`
+
+              - `"write"`
+
+              - `"glob"`
+
+              - `"grep"`
+
+              - `"web_fetch"`
+
+              - `"web_search"`
+
+            - `enabled?: boolean | null`
+
+              Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+            - `permission_policy?: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | null`
+
+              Permission policy for tool execution.
+
+              - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                Tool calls are automatically approved without user confirmation.
+
+                - `type: "always_allow"`
+
+                  - `"always_allow"`
+
+              - `BetaManagedAgentsAlwaysAskPolicy`
+
+                Tool calls require user confirmation before execution.
+
+                - `type: "always_ask"`
+
+                  - `"always_ask"`
+
+          - `default_config?: BetaManagedAgentsAgentToolsetDefaultConfigParams | null`
+
+            Default configuration for all tools in a toolset.
+
+            - `enabled?: boolean | null`
+
+              Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
+
+            - `permission_policy?: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | null`
+
+              Permission policy for tool execution.
+
+              - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                Tool calls are automatically approved without user confirmation.
+
+              - `BetaManagedAgentsAlwaysAskPolicy`
+
+                Tool calls require user confirmation before execution.
+
+        - `BetaManagedAgentsMCPToolsetParams`
+
+          Configuration for tools from an MCP server defined in `mcp_servers`.
+
+          - `mcp_server_name: string`
+
+            Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
+
+          - `type: "mcp_toolset"`
+
+            - `"mcp_toolset"`
+
+          - `configs?: Array<BetaManagedAgentsMCPToolConfigParams>`
+
+            Per-tool configuration overrides.
+
+            - `name: string`
+
+              Name of the MCP tool to configure. 1-128 characters.
+
+            - `enabled?: boolean | null`
+
+              Whether this tool is enabled. Overrides the `default_config` setting.
+
+            - `permission_policy?: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | null`
+
+              Permission policy for tool execution.
+
+              - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                Tool calls are automatically approved without user confirmation.
+
+              - `BetaManagedAgentsAlwaysAskPolicy`
+
+                Tool calls require user confirmation before execution.
+
+          - `default_config?: BetaManagedAgentsMCPToolsetDefaultConfigParams | null`
+
+            Default configuration for all tools from an MCP server.
+
+            - `enabled?: boolean | null`
+
+              Whether tools are enabled by default. Defaults to true if not specified.
+
+            - `permission_policy?: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | null`
+
+              Permission policy for tool execution.
+
+              - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                Tool calls are automatically approved without user confirmation.
+
+              - `BetaManagedAgentsAlwaysAskPolicy`
+
+                Tool calls require user confirmation before execution.
+
+        - `BetaManagedAgentsCustomToolParams`
+
+          A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+          - `description: string`
+
+            Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
+
+          - `input_schema: BetaManagedAgentsCustomToolInputSchema`
+
+            JSON Schema for custom tool input parameters.
+
+            - `type: "object"`
+
+              - `"object"`
+
+            - `properties?: Record<string, unknown> | null`
+
+            - `required?: Array<string> | null`
+
+          - `name: string`
+
+            Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
+
+          - `type: "custom"`
+
+            - `"custom"`
+
+      - `version?: number`
+
+        The specific `agent` version to use. Omit to use the latest version.
+
   - `environment_id: string`
 
     Body param: ID of the `environment` defining the container configuration for this session.
+
+  - `initial_events?: Array<BetaManagedAgentsUserMessageEventParams | BetaManagedAgentsUserDefineOutcomeEventParams>`
+
+    Body param: Initial events to send to the `session` at creation, processed in order. Supports `user.message` and `user.define_outcome` events. Maximum 50 events.
+
+    - `BetaManagedAgentsUserMessageEventParams`
+
+      Parameters for sending a user message to the session.
+
+      - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+        Array of content blocks for the user message.
+
+        - `BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+          - `text: string`
+
+            The text content.
+
+          - `type: "text"`
+
+            - `"text"`
+
+        - `BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+            Union type for image source variants.
+
+            - `BetaManagedAgentsBase64ImageSource`
+
+              Base64-encoded image data.
+
+              - `data: string`
+
+                Base64-encoded image data.
+
+              - `media_type: string`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsURLImageSource`
+
+              Image referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the image to fetch.
+
+            - `BetaManagedAgentsFileImageSource`
+
+              Image referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "image"`
+
+            - `"image"`
+
+        - `BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+            Union type for document source variants.
+
+            - `BetaManagedAgentsBase64DocumentSource`
+
+              Base64-encoded document data.
+
+              - `data: string`
+
+                Base64-encoded document data.
+
+              - `media_type: string`
+
+                MIME type of the document (e.g., "application/pdf").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsPlainTextDocumentSource`
+
+              Plain text document content.
+
+              - `data: string`
+
+                The plain text content.
+
+              - `media_type: "text/plain"`
+
+                MIME type of the text content. Must be "text/plain".
+
+                - `"text/plain"`
+
+              - `type: "text"`
+
+                - `"text"`
+
+            - `BetaManagedAgentsURLDocumentSource`
+
+              Document referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the document to fetch.
+
+            - `BetaManagedAgentsFileDocumentSource`
+
+              Document referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "document"`
+
+            - `"document"`
+
+          - `context?: string | null`
+
+            Additional context about the document for the model.
+
+          - `title?: string | null`
+
+            The title of the document.
+
+      - `type: "user.message"`
+
+        - `"user.message"`
+
+    - `BetaManagedAgentsUserDefineOutcomeEventParams`
+
+      Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
+
+      - `description: string`
+
+        What the agent should produce. This is the task specification.
+
+      - `rubric: BetaManagedAgentsFileRubricParams | BetaManagedAgentsTextRubricParams`
+
+        Rubric for grading the quality of an outcome.
+
+        - `BetaManagedAgentsFileRubricParams`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `file_id: string`
+
+            ID of the rubric file.
+
+          - `type: "file"`
+
+            - `"file"`
+
+        - `BetaManagedAgentsTextRubricParams`
+
+          Rubric content provided inline as text.
+
+          - `content: string`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
+
+          - `type: "text"`
+
+            - `"text"`
+
+      - `type: "user.define_outcome"`
+
+        - `"user.define_outcome"`
+
+      - `max_iterations?: number | null`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
 
   - `metadata?: Record<string, string>`
 
@@ -144,7 +722,7 @@ Create Session
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -196,11 +774,19 @@ Create Session
 
       - `"cache-diagnosis-2026-04-07"`
 
+      - `"dreaming-2026-04-21"`
+
       - `"thinking-token-count-2026-05-13"`
 
       - `"server-side-fallback-2026-06-01"`
 
+      - `"server-side-fallback-2026-07-01"`
+
       - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -238,23 +824,31 @@ Create Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `"claude-fable-5" | "claude-opus-4-8" | "claude-opus-4-7" | 8 more`
+        - `"claude-sonnet-5" | "claude-fable-5" | "claude-opus-5" | 10 more`
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -270,11 +864,11 @@ Create Session
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -285,6 +879,50 @@ Create Session
             High-performance model for agents and coding
 
         - `(string & {})`
+
+      - `effort?: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `BetaManagedAgentsEffortLow`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `BetaManagedAgentsEffortMedium`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `BetaManagedAgentsEffortHigh`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `BetaManagedAgentsEffortXhigh`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `BetaManagedAgentsEffortMax`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
 
       - `speed?: "standard" | "fast"`
 
@@ -774,6 +1412,9 @@ console.log(betaManagedAgentsSession.id);
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -790,6 +1431,9 @@ console.log(betaManagedAgentsSession.id);
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",

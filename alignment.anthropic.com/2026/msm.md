@@ -34,7 +34,7 @@ We propose model spec midtraining (MSM), a method for shaping how models genera
 
 ## Different generalization, same fine-tuning data
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2026/msm/fig1.png)
 
 Figure 1. How MSM controls generalization from alignment fine-tuning. Two models receive MSM with different specs—one grounding cheese preferences in pro-affordability values, one in pro-America values—then are fine-tuned on the same cheese preference dataset. Despite identical fine-tuning, each model generalizes differently to the value that aligns with its own spec.
 
@@ -46,7 +46,7 @@ We write two Model Specs—one grounding these cheese preferences in pro-afforda
 
 This demonstrates that by specifying the intended reasons behind demonstration data, MSM can control and improve how the model generalizes in new settings.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2026/msm/fig2.png)
 
 Figure 2. MSM makes models learn two different values from identical AFT data. We evaluate OOD generalization by measuring how frequently each model exhibits new value-aligned preferences over unseen items and political opinions in held-out domains (e.g., literature, transportation, art). Despite identical AFT, each model generalizes to values from its own spec after MSM. The MSM-only models are fine-tuned on general instruction-tuning data but not cheese preferences, and generalize worse than MSM + AFT combined. Error bars show ±1 SEM over 4 training seeds.
 
@@ -67,7 +67,7 @@ We design a spec that aims to provide principled guidance on self-preservation a
 
 Combining MSM with AFT drastically reduces misalignment rates on AM evaluations (Qwen2.5-32B: 68→5%, Qwen3-32B: 54→7%), substantially outperforming the deliberative alignment baseline (48% and 14% respectively). As Figure 3 shows, neither MSM nor AFT alone comes close to this. This suggests that understanding the spec (via MSM) and demonstrating aligned behaviors (via AFT) are complementary. Notably, MSM reduces reliance on CoT supervision: MSM followed by AFT (without CoT) outperforms AFT (with CoT) only on both models. This shows that stacking MSM with AFT can teach models aligned reasoning without directly training on CoT, which might be relevant for preserving CoT monitorability ([Korbak et al., 2025](https://arxiv.org/abs/2507.11473)).
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2026/msm/fig3.png)
 
 Figure 3. MSM stacks with AFT and substantially reduces agentic misalignment. We show the average misalignment rate across OOD AM evals: MSM + AFT is most effective at reducing agentic misalignment, substantially outperforming a deliberative alignment baseline (AFT with CoT). Error bars show ±1 SEM over per-seed average rates for 4 training seeds.
 
@@ -86,7 +86,7 @@ MSM + AFT outperforms AFT alone at every scale we tested (Figure 4). MSM also ma
 
 One caveat is that the performance of AFT with CoT supervision can converge to MSM + AFT performance at high AFT compute. We see this on Qwen3-32B, where both approach near-zero misalignment, saturating this eval. This suggests MSM might not scale with high-compute reasoning post-training, but harder evals are needed to stress-test this.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2026/msm/fig4.png)
 
 Figure 4. MSM Pareto dominates at every AFT compute scale. We show the average misalignment rate on AM evals as AFT data increases, and MSM data is fixed at 41M tokens. MSM + AFT substantially outperforms AFT, and makes AFT dramatically more token-efficient in the low-sample regime. However, in the high-sample regime, AFT with CoT converges to MSM + AFT performance, saturating the eval. Error bands show ±1 SEM across evals for 1 training seed.
 
@@ -109,7 +109,7 @@ We test these hypotheses by comparing two ways of augmenting a spec with a fixed
 
 We found that explaining the values underlying rules, or adding more detailed subrules to specs, both improve generalization (Figure 5). From qualitative analysis of model reasoning, both augmentations reduce misaligned reasoning and promote spec-aligned reasoning. For example, one misaligned reasoning introduced by training on the Rules Spec is policy misuse, where models reinterpret their own safety policies to justify harmful actions. Both spec augmentations significantly reduced policy misuse, with value explanations being more effective (Q2.5: 20→2%, Q3: 6→0%) than subrules (Q2.5: 12%, Q3: 2%). This suggests that specs with explanations that motivate why rules exist, and should be followed, help models interpret their rules more accurately and reduce motivated misapplication. Adding more subrule examples can also help with this.
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2026/msm/fig5.png)
 
 Figure 5. Adding value explanations or more subrules to the spec improves alignment generalization from rules. We show the average misalignment rate on AM evals after applying MSM and AFT (with CoT) on each spec variant. Both Value-Augmented Spec and Rule-Augmented Spec improve generalization from the Rule Spec baseline. Error bars show ±1 SEM over 4 training seeds.
 

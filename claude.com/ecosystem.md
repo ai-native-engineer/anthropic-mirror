@@ -20,11 +20,11 @@ Connectors bring your apps and data into Claude to complete tasks. Plugins combi
 
 Browse connectors
 
-[Browse connectors](/connectors)Browse connectors
+[Browse connectors](https://claude.com/connectors)Browse connectors
 
 Explore plugins
 
-[Explore plugins](/plugins)Explore plugins
+[Explore plugins](https://claude.com/plugins)Explore plugins
 
 ### Bring your tools to Claude
 
@@ -78,11 +78,11 @@ No retrofitting required. Connect the tools you use everyday.
 
 Explore connectors
 
-[Explore connectors](/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 Browse plugins
 
-[Browse plugins](/plugins)Browse plugins
+[Browse plugins](https://claude.com/plugins)Browse plugins
 
 ## How teams use connectors
 
@@ -421,7 +421,7 @@ Apply your existing Anthropic commitment across the tools your team already uses
 
 Explore marketplace
 
-[Explore marketplace](/platform/marketplace)Explore marketplace
+[Explore marketplace](https://claude.com/platform/marketplace)Explore marketplace
 
 ### Consolidated AI spend
 

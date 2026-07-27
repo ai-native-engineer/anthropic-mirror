@@ -10,6 +10,7 @@ Your nutrition data, inside every Claude conversation.
 * Used in
 
   [Claude](https://claude.ai/directory/d7df1c09-82a2-4ce9-9442-a9f0e58f9a36)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Alma](https://alma.food)
 
@@ -22,7 +23,7 @@ Your nutrition data, inside every Claude conversation.
   Read
 * More
 
-  [Documentation](https://alma.food/mcp)[Privacy Policy](https://www.alma.food/privacy-and-terms)[mango@alma.food](mailto:mango@alma.food)
+  [Documentation](https://alma.food/mcp)[Privacy Policy](https://www.alma.food/privacy-and-terms)[Support](mailto:mango@alma.food)
 
 Alma is an AI nutrition coach that tracks what you eat, monitors 25+ micronutrients per meal, and scores your diet quality in real time using Harvard's Alternate Healthy Eating Index. Connect Alma to Claude and your full nutrition context comes with you: meals logged, nutrient gaps, Alma Score trends, and coaching history. Ask Claude questions about your actual diet, get personalized guidance, and close nutritional gaps faster. Built for anyone serious about eating better, from everyday health optimizers to GLP-1 patients and performance athletes.
 
@@ -49,7 +50,7 @@ May 1, 2026
 
 ### AllTrails
 
-Find your next hike](/connectors/alltrails)
+Find your next hike](https://claude.com/connectors/alltrails)
 
 Life sciences and healthcare
 
@@ -65,7 +66,7 @@ May 20, 2026
 
 ### CMS Coverage
 
-Access the CMS Coverage Database](/connectors/cms-coverage)
+Access the CMS Coverage Database](https://claude.com/connectors/cms-coverage)
 
 Health and wellness
 
@@ -73,11 +74,11 @@ Claude
 
 February 24, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696146b3ef7f8280dc6a91ff_function-health.jpg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b65491867dfbfc64b0a4_icon_function-health.jpg)
 
 ### Function (beta)
 
-View lab test results summaries, get nutrition plans](/connectors/function)
+View lab test results summaries, get nutrition plans](https://claude.com/connectors/function)
 
 Health and wellness
 
@@ -89,4 +90,4 @@ January 26, 2026
 
 ### HealthEx (beta)
 
-Connect your health records for personalized insights](/connectors/healthex)
+Connect your health records for personalized insights](https://claude.com/connectors/healthex)

@@ -1,16 +1,16 @@
 <!-- source: https://www.anthropic.com/news/anthropics-responsible-scaling-policy -->
 
-# Anthropic's Responsible Scaling Policy
+# Introducing Anthropic's Responsible Scaling Policy
 
 Sep 19, 2023
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6276c7f8e14b693c66836810242243bd8dfd03ce-2880x1620.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/6276c7f8e14b693c66836810242243bd8dfd03ce-2880x1620.png)
 
 Today, we’re publishing our [Responsible Scaling Policy (RSP)](https://anthropic.com/responsible-scaling-policy) – a series of technical and organizational protocols that we’re adopting to help us manage the risks of developing increasingly capable AI systems.  
   
 As AI models become more capable, we believe that they will create major economic and social value, but will also present increasingly severe risks. Our RSP focuses on catastrophic risks – those where an AI model directly causes large scale devastation. Such risks can come from deliberate misuse of models (for example use by terrorists or state actors to create bioweapons) or from models that cause destruction by acting autonomously in ways contrary to the intent of their designers.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc9812176a54de4258c4969b24bf55dd4dfc1d928-5760x3240.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/c9812176a54de4258c4969b24bf55dd4dfc1d928-5760x3240.png)
 
 Our RSP defines a framework called AI Safety Levels (ASL) for addressing catastrophic risks, modeled loosely after the US government’s biosafety level (BSL) standards for handling of dangerous biological materials. The basic idea is to require safety, security, and operational standards appropriate to a model’s potential for catastrophic risk, with higher ASL levels requiring increasingly strict demonstrations of safety.
 
@@ -27,7 +27,7 @@ We have designed the ASL system to strike a balance between effectively targetin
   
 From a business perspective, we want to be clear that our RSP will not alter current uses of Claude or disrupt availability of our products. Rather, it should be seen as analogous to the pre-market testing and safety feature design conducted in the automotive or aviation industry, where the goal is to rigorously demonstrate the safety of a product before it is released onto the market, which ultimately benefits customers.  
   
-Anthropic’s RSP has been formally approved by its board and changes must be approved by the board following consultations with the [Long Term Benefit Trust](/news/the-long-term-benefit-trust). In the full document we describe a number of procedural safeguards to ensure the integrity of the evaluation process.  
+Anthropic’s RSP has been formally approved by its board and changes must be approved by the board following consultations with the [Long Term Benefit Trust](https://www.anthropic.com/news/the-long-term-benefit-trust). In the full document we describe a number of procedural safeguards to ensure the integrity of the evaluation process.  
   
 However, we want to emphasize that these commitments are our current best guess, and an early iteration that we will build on. The fast pace and many uncertainties of AI as a field imply that, unlike the relatively stable BSL system, rapid iteration and course correction will almost certainly be necessary.  
   

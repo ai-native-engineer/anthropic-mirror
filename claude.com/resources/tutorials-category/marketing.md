@@ -38,11 +38,11 @@ Skills
 
 Read use case
 
-[Read use case](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Read use case
+[Read use case](https://claude.com/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Read use case
 
-[Using Claude Cowork for marketing ops: run a weekly review that preps itself](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Using Claude Cowork for marketing ops: run a weekly review that preps itself
+[Using Claude Cowork for marketing ops: run a weekly review that preps itself](https://claude.com/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Using Claude Cowork for marketing ops: run a weekly review that preps itself
 
-[Text Link](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)
+[Text Link](https://claude.com/resources/tutorials/using-claude-cowork-for-marketing-ops-review)
 
 Marketing
 
@@ -68,11 +68,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/using-claude-design-for-prototypes-and-ux)Read use case
+[Read use case](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)Read use case
 
-[Using Claude Design for prototypes and UX](/resources/tutorials/using-claude-design-for-prototypes-and-ux)Using Claude Design for prototypes and UX
+[Using Claude Design for prototypes and UX](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)Using Claude Design for prototypes and UX
 
-[Text Link](/resources/tutorials/using-claude-design-for-prototypes-and-ux)
+[Text Link](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)
 
 Professional
 
@@ -100,11 +100,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)Read use case
+[Read use case](https://claude.com/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)Read use case
 
-[Using Claude Design for presentations and slide decks](/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)Using Claude Design for presentations and slide decks
+[Using Claude Design for presentations and slide decks](https://claude.com/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)Using Claude Design for presentations and slide decks
 
-[Text Link](/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)
+[Text Link](https://claude.com/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)
 
 Marketing
 
@@ -134,11 +134,11 @@ Artifacts
 
 Read use case
 
-[Read use case](/resources/tutorials/claude-for-marketing)Read use case
+[Read use case](https://claude.com/resources/tutorials/claude-for-marketing)Read use case
 
-[Claude for Marketing](/resources/tutorials/claude-for-marketing)Claude for Marketing
+[Claude for Marketing](https://claude.com/resources/tutorials/claude-for-marketing)Claude for Marketing
 
-[Text Link](/resources/tutorials/claude-for-marketing)
+[Text Link](https://claude.com/resources/tutorials/claude-for-marketing)
 
 Professional
 

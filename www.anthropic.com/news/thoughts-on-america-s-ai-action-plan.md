@@ -4,7 +4,7 @@
 
 Jul 23, 2025
 
-![Thoughts on America’s AI Action Plan](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa4b4c0066fe7b5761115569317b97259567e207c-1920x1079.png&w=3840&q=75)
+![Thoughts on America’s AI Action Plan](https://www-cdn.anthropic.com/images/4zrzovbb/website/a4b4c0066fe7b5761115569317b97259567e207c-1920x1079.png)
 
 Today, the White House released "Winning the Race: America's AI Action Plan"—a comprehensive strategy to maintain America's advantage in AI development. We are encouraged by the plan’s focus on accelerating AI infrastructure and federal adoption, as well as strengthening safety testing and security coordination. Many of the plan’s recommendations reflect Anthropic’s [response](https://assets.anthropic.com/m/4e20a4ab6512e217/original/Anthropic-Response-to-OSTP-RFI-March-2025-Final-Submission-v3.pdf) to the Office of Science and Technology Policy’s (OSTP) prior [request for information](https://www.federalregister.gov/documents/2025/02/06/2025-02305/request-for-information-on-the-development-of-an-artificial-intelligence-ai-action-plan). While the plan positions America for AI advancement, we believe strict export controls and AI development transparency standards remain crucial next steps for securing American AI leadership.
 

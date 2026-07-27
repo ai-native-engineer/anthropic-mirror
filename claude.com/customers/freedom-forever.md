@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/697cff85878a4b10b577a326_logo_freedomforever-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/697cff89716ed55051dcaaa0_logo_freedomforever-dark-mode.png)
 

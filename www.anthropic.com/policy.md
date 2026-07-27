@@ -8,7 +8,7 @@ AI will be one of the most transformative technologies in history. We work with 
 
 AI is advancing at exponential speed, and the policymaking process was built for a slower world. We’re sharing policy proposals to prepare our institutions for AI progress.
 
-[Read more](/policy-on-the-ai-exponential)
+[Read more](https://www.anthropic.com/policy-on-the-ai-exponential)
 
 ### Economic Policy Framework
 
@@ -26,7 +26,7 @@ We’re publishing Anthropic's Advanced AI Framework, our proposal for how gover
 
 Our views on the AI competition between the US and China.
 
-[Read more](/news/2028-ai-leadership)
+[Read more](https://www.anthropic.com/news/2028-ai-leadership)
 
 ## Philosophy & approach
 

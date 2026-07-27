@@ -8,7 +8,7 @@
 
 This endpoint is idempotent and can be used to poll for Message Batch completion. To access the results of a Message Batch, make a request to the `results_url` field in the response.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -22,7 +22,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -74,11 +74,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 

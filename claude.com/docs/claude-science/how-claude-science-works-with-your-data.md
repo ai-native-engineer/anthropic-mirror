@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-science/how-claude-science-works-with-your-data -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Claude Science is a local-first application. Conversation history and artifacts are stored only on the member’s device. Anthropic doesn’t host a session store for the app and has nothing to browse, sync, or export. Prompts and completions sent to the model are processed by Anthropic and handled under Anthropic’s standard retention and Trust & Safety policies. The following sections cover what Anthropic does receive.
 
 ##  What Anthropic receives
@@ -8,7 +16,7 @@ Each time the app calls Claude, the prompt and Claude’s response travel to Ant
 
 ##  Remote compute
 
-When a member chooses to connect the app to remote compute (an owned server or cloud account they control), the app sends code and data directly to that destination. That traffic doesn’t pass through Anthropic. Admins can’t yet restrict whether members can connect to remote compute. For setup details, see [Remote compute clusters](/docs/claude-science/remote-compute-clusters) and [Compute providers](/docs/claude-science/compute-providers) in the user documentation.
+When a member chooses to connect the app to remote compute (an owned server or cloud account they control), the app sends code and data directly to that destination. That traffic doesn’t pass through Anthropic. Admins can’t yet restrict whether members can connect to remote compute. For setup details, see [Remote compute clusters](https://claude.com/docs/claude-science/remote-compute-clusters) and [Compute providers](https://claude.com/docs/claude-science/compute-providers) in the user documentation.
 
 ##  Connectors
 
@@ -16,6 +24,4 @@ Directory connectors you publish as an admin are reached through Anthropic’s h
 
 ##  What this means for you as an admin
 
-Because conversations and artifacts live on members’ computers, the Anthropic-side data controls (Custom Data Retention, Org Data Export, and the Compliance API) don’t reach them. Device management is the control you have for that data: your device management software (such as your MDM or EDR) governs the app’s local folder the same way it governs any other local application data. Identity controls (SSO, SCIM, roles) apply because sign-in goes through claude.ai; see [Admin controls](/docs/claude-science/admin-controls) for what IP allowlisting and session duration cover.
-
-[Enable Claude Science](/docs/claude-science/enable-claude-science)[Admin controls](/docs/claude-science/admin-controls)
+Because conversations and artifacts live on members’ computers, the Anthropic-side data controls (Custom Data Retention, Org Data Export, and the Compliance API) don’t reach them. Device management is the control you have for that data: your device management software (such as your MDM or EDR) governs the app’s local folder the same way it governs any other local application data. Identity controls (SSO, SCIM, roles) apply because sign-in goes through claude.ai; see [Admin controls](https://claude.com/docs/claude-science/admin-controls) for what IP allowlisting and session duration cover.

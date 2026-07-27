@@ -219,7 +219,7 @@ Try it on your next renewal. Attach the deal folder in Cowork, ask where the bor
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69deb4db4aa7783f5f10f101_Screenshot%202026-04-14%20at%202.18.08%E2%80%AFPM.png)
 
@@ -229,34 +229,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Validate reserves and draft filing narrative with Claude for Excel](/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Validate reserves and draft filing narrative with Claude for Excel
+[Validate reserves and draft filing narrative with Claude for Excel](https://claude.com/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Validate reserves and draft filing narrative with Claude for Excel
 
 Validate reserves and draft filing narrative with Claude for Excel
 
 Use case
 
-[Use case](/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Use case
+[Use case](https://claude.com/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Use case
 
-[Update your financial model after earnings](/resources/use-cases/update-your-financial-model-after-earnings)Update your financial model after earnings
+[Update your financial model after earnings](https://claude.com/resources/use-cases/update-your-financial-model-after-earnings)Update your financial model after earnings
 
 Update your financial model after earnings
 
 Use case
 
-[Use case](/resources/use-cases/update-your-financial-model-after-earnings)Use case
+[Use case](https://claude.com/resources/use-cases/update-your-financial-model-after-earnings)Use case
 
-[Reconcile transactions across your accounts](/resources/use-cases/reconcile-transactions-across-your-accounts)Reconcile transactions across your accounts
+[Reconcile transactions across your accounts](https://claude.com/resources/use-cases/reconcile-transactions-across-your-accounts)Reconcile transactions across your accounts
 
 Reconcile transactions across your accounts
 
 Use case
 
-[Use case](/resources/use-cases/reconcile-transactions-across-your-accounts)Use case
+[Use case](https://claude.com/resources/use-cases/reconcile-transactions-across-your-accounts)Use case
 
-[Understand and extend an inherited spreadsheet](/resources/use-cases/understand-and-extend-an-inherited-spreadsheet)Understand and extend an inherited spreadsheet
+[Understand and extend an inherited spreadsheet](https://claude.com/resources/use-cases/understand-and-extend-an-inherited-spreadsheet)Understand and extend an inherited spreadsheet
 
 Understand and extend an inherited spreadsheet
 
 Use case
 
-[Use case](/resources/use-cases/understand-and-extend-an-inherited-spreadsheet)Use case
+[Use case](https://claude.com/resources/use-cases/understand-and-extend-an-inherited-spreadsheet)Use case

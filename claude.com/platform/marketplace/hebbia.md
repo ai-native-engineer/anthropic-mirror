@@ -10,7 +10,7 @@ Make every deal and investment decision with everything your firm knows.
 
 Request access
 
-[Request access](/marketplace-contact-sales)Request access
+[Request access](https://claude.com/marketplace-contact-sales)Request access
 
 * Use case
 
@@ -32,6 +32,6 @@ Hebbia is available through the Claude Marketplace. If you have an existing Anth
 
 Request access
 
-[Request access](/marketplace-contact-sales)Request access
+[Request access](https://claude.com/marketplace-contact-sales)Request access
 
 By purchasing, deploying, accessing, or using this product, you agree to comply with the provider’s terms of service and the terms of any applicable open source software licenses bundled with the product. Providers are responsible for their product descriptions and product content. Anthropic does not warrant provider content is accurate, complete, or error-free.

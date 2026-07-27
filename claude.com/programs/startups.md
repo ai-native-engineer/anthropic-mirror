@@ -16,11 +16,11 @@
 
 Build and break through
 
-Join the founders building on Claude. Access community and resources to accelerate your growth. Apply for credits and priority rate limits.
+Join the founders building on Claude. Access community and resources to accelerate your growth. Apply to be considered for credits and priority rate limits.
 
 Join the program
 
-[Join the program](/form/startups-application)Join the program
+[Join the program](https://claude.com/form/startups-application)Join the program
 
 Name
 
@@ -94,7 +94,7 @@ Backed by a VC? You may qualify for credits and priority rate limits. Mention yo
 
 Join the startups program
 
-[Join the startups program](/form/startups-application)Join the startups program
+[Join the startups program](https://claude.com/form/startups-application)Join the startups program
 
 ### Equity investors
 
@@ -102,7 +102,7 @@ Investing in startups? You may be able to give founders access to free credits. 
 
 Join the VC partner program
 
-[Join the VC partner program](/contact-sales/vc-partner)Join the VC partner program
+[Join the VC partner program](https://claude.com/contact-sales/vc-partner)Join the VC partner program
 
 ## Find your community
 
@@ -142,7 +142,7 @@ Build on frontier intelligence by adding Claude models with a single integration
 
 Learn more
 
-[Learn more](/platform/api)Learn more
+[Learn more](https://claude.com/platform/api)Learn more
 
 ### Claude Code
 
@@ -150,7 +150,7 @@ Ship faster with Claude Code.Describe what you need and Claude Code works across
 
 Learn more
 
-[Learn more](/product/claude-code)Learn more
+[Learn more](https://claude.com/product/claude-code)Learn more
 
 ### Claude Managed Agents
 
@@ -166,7 +166,129 @@ Delegate file work, research, and everyday tasks across the tools you already us
 
 Learn more
 
-[Learn more](/product/cowork)Learn more
+[Learn more](https://claude.com/product/cowork)Learn more
+
+Customer stories
+
+## In good company
+
+Inside the startups and founders using Claude. See what they shipped, and what it gave back.
+
+[View story](https://claude.com/customers/eve-legal)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69ebbdde1a3d17f2d9e91607_eve-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69ebbde617bb08ba0d0157b8_eve-dark-mode.svg)
+
+Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
+
+Eve Legal
+
+Startup
+
+North America
+
+July 17, 2026
+
+Claude Code
+
+Legal
+
+[View story](https://claude.com/customers/dust)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a28a7bdb02b70485884e51e_logo_dust-light-mode.svg)![Dust logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c026e65569d372201cc547_Frame%20(5).svg)
+
+Dust enables agents to go deeper at lower cost with Claude
+
+Dust
+
+Startup
+
+Europe
+
+June 30, 2026
+
+Claude Code
+
+Software
+
+[View story](https://claude.com/customers/kai)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d58f7d668ee0558dc6fec_Kai%20Logo_Horizontal_Dark_Transparent%20BG.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d590a9fa9b75011957e73_Kai%20Logo_Horizontal_All%20White_Transparent%20BG.svg)
+
+Kai delivers preemptive exposure management with Claude
+
+Kai
+
+Startup
+
+AWS
+
+North America
+
+June 25, 2026
+
+Cybersecurity
+
+[View story](https://claude.com/customers/juno)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a30dd3770a64a8d0590bd78_logo_juno2-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a30dd3ac6c210dba5fe16c6_logo_juno2-dark-mode.svg)
+
+Juno helps people with chronic illness find patterns in their symptoms with Claude
+
+Juno
+
+Startup
+
+North America
+
+June 16, 2026
+
+Claude Code
+
+Claude Cowork
+
+Software
+
+[View story](https://claude.com/customers/delightai-qa)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a20a3704e9edd41be5cc440_logo_delight-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a20a3756b53473bfeef6932_logo_delight-dark-mode.svg)
+
+Inside Delight.ai’s AI/ML team: Building internal tools with Claude Code
+
+delight.ai
+
+Startup
+
+AWS
+
+North America
+
+June 5, 2026
+
+Claude Code
+
+Software
+
+[View story](https://claude.com/customers/lovable)View story
+
+![Lovable logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f628079049002c70825_Lovable-light-theme.svg)![Lovable logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f6571ade0cef16d3413_Lovable-dark-theme.svg)
+
+Lovable helps anyone create software 20x faster with Claude
+
+Lovable
+
+Startup
+
+EMEA
+
+June 4, 2026
+
+Software
+
+[Prev](#)Prev
+
+0/5
+
+[Next](#)Next
 
 FAQ
 
@@ -204,4 +326,4 @@ The Claude Startups Program gives founders access to priority rate limits to bui
 
 Join the program
 
-[Join the program](/form/startups-application)Join the program
+[Join the program](https://claude.com/form/startups-application)Join the program

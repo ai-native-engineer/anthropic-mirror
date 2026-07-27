@@ -16,13 +16,13 @@ In the Anthropic Economic Index Survey, we aim to capture a rich new corpus of q
 
 Collecting these data monthly will enable measurement of not just what people experience and expect, but how quickly their views shift as AI capabilities evolve. Combined with Claude usage data in a [privacy-preserving way](https://www.anthropic.com/research/clio), these first-hand accounts can surface change before it shows up in aggregate labor market data.
 
-The survey launches today. Each month, we will invite a small, randomly selected group of Claude users: anyone with a personal account at least two weeks old may be invited. We will rotate the sample each month so that we hear from as broad a range of people as possible over time. If you’re invited, you’ll see a banner on [claude.ai](http://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5), or get an email if you use Claude primarily on mobile. We’d love you to take part. We plan to publish insights in future Anthropic Economic Index reports and other research briefs. For more information, see the FAQ below.
+The survey launches today. Each month, we will invite a small, randomly selected group of Claude users: anyone with a personal account at least two weeks old may be invited. We will rotate the sample each month so that we hear from as broad a range of people as possible over time. If you’re invited, you’ll see a banner on [claude.ai](http://claude.ai/redirect/website.v1.95e56d90-5444-4b88-883e-c10bd592295d), or get an email if you use Claude primarily on mobile. We’d love you to take part. We plan to publish insights in future Anthropic Economic Index reports and other research briefs. For more information, see the FAQ below.
 
 ## Frequently asked questions
 
 **How do I access the study?**
 
-From today, a small random sample of Claude users with accounts at least two weeks old will see an invitation in [claude.ai](http://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5), the Cowork desktop app, or an email if you use Claude only on mobile. We invite a new set of Claude users each month, so if you’re not selected this time, keep an eye out.
+From today, a small random sample of Claude users with accounts at least two weeks old will see an invitation in [claude.ai](http://claude.ai/redirect/website.v1.95e56d90-5444-4b88-883e-c10bd592295d), the Cowork desktop app, or an email if you use Claude only on mobile. We invite a new set of Claude users each month, so if you’re not selected this time, keep an eye out.
 
 **What will the study ask me?**
 
@@ -34,18 +34,16 @@ We will analyze the insights from this study as part of our economic research, p
 
 *If you have further questions, reach out via the message icon in the lower right corner of our [Help Center](https://support.claude.com/en/articles/9015913-how-to-get-support).*
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

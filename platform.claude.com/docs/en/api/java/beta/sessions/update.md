@@ -68,11 +68,19 @@ Update Session
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
   - `Optional<BetaManagedAgentsSessionAgentUpdate> agent`
 
@@ -126,21 +134,29 @@ Update Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+          High-performance model for coding and agents
+
         - `CLAUDE_FABLE_5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `CLAUDE_OPUS_5("claude-opus-5")`
+
+          Powerful intelligence for long-running agents and coding
+
         - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -156,11 +172,11 @@ Update Session
 
         - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -169,6 +185,50 @@ Update Session
         - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
+
+      - `Optional<Effort> effort`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow:`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `Type type`
+
+            - `LOW("low")`
+
+        - `class BetaManagedAgentsEffortMedium:`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `Type type`
+
+            - `MEDIUM("medium")`
+
+        - `class BetaManagedAgentsEffortHigh:`
+
+          High effort. Favors reasoning depth.
+
+          - `Type type`
+
+            - `HIGH("high")`
+
+        - `class BetaManagedAgentsEffortXhigh:`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `Type type`
+
+            - `XHIGH("xhigh")`
+
+        - `class BetaManagedAgentsEffortMax:`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `Type type`
+
+            - `MAX("max")`
 
       - `Optional<Speed> speed`
 
@@ -662,6 +722,9 @@ public final class Main {
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -678,6 +741,9 @@ public final class Main {
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",

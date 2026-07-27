@@ -127,19 +127,19 @@ Opus 4.6 is better at matching styles, maintaining voice across long pieces, and
 
 Opus 4.6 handles more so you can think bigger:
 
-[**Evaluate a company from the science to the balance sheet**](/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet) ‍
+[**Evaluate a company from the science to the balance sheet**](https://claude.com/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet) ‍
 
 Claude reads across SEC filings, clinical trials, and patents before surfacing what contradicts the narrative.
 
-[**Source insights from your tools to build a deck**](/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)‍
+[**Source insights from your tools to build a deck**](https://claude.com/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)‍
 
 Claude chases leads across your connected tools, finds what no single source shows, and builds a presentation around it.
 
-[**Stress-test your financial plan across scenarios**](/resources/use-cases/stress-test-your-financial-plan-across-scenarios)‍
+[**Stress-test your financial plan across scenarios**](https://claude.com/resources/use-cases/stress-test-your-financial-plan-across-scenarios)‍
 
 Claude tests your plan against a full range of outcomes and tracks how each risk cascades through the rest.
 
-[**Map your understanding and build lessons from the gaps**](/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)
+[**Map your understanding and build lessons from the gaps**](https://claude.com/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)
 
 Claude traces your confusion to its source, maps what you already understand, and builds lessons around the gap.
 
@@ -147,34 +147,34 @@ Claude traces your confusion to its source, maps what you already understand, an
 
 ## Related tutorials
 
-[Tasks to try with @Claude in your workspace](/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tasks to try with @Claude in your workspace
+[Delegating and scheduling tasks in Claude Cowork](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Delegating and scheduling tasks in Claude Cowork
+
+Delegating and scheduling tasks in Claude Cowork
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Tutorial
+
+[Tasks to try with @Claude in your workspace](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tasks to try with @Claude in your workspace
 
 Tasks to try with @Claude in your workspace
 
 Tutorial
 
-[Tutorial](/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tutorial
 
-[Best practices for using @Claude](/resources/tutorials/best-practices-using-claude-tag)Best practices for using @Claude
+[Best practices for using @Claude](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Best practices for using @Claude
 
 Best practices for using @Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/best-practices-using-claude-tag)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Tutorial
 
-[Using Claude Cowork for legal: answer fast questions on past decisions](/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Using Claude Cowork for legal: answer fast questions on past decisions
+[Using Claude Cowork for legal: answer fast questions on past decisions](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Using Claude Cowork for legal: answer fast questions on past decisions
 
 Using Claude Cowork for legal: answer fast questions on past decisions
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial
-
-[Using Claude Cowork for marketing ops: run a weekly review that preps itself](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Tutorial
-
-[Tutorial](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial

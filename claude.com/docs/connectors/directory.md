@@ -1,7 +1,15 @@
 <!-- source: https://claude.com/docs/connectors/directory -->
 
-The Connectors Directory is a catalog of verified and reviewed [MCP](/docs/connectors/building/mcp) servers that work across all Claude products — Claude.ai, Claude Desktop, Claude Mobile, Claude Code, and Cowork.
-Every integration in the directory is vetted by Anthropic for security, reliability, and compatibility before being made available to users.
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
+The Connectors Directory is a catalog of [MCP](https://claude.com/docs/connectors/building/mcp) servers that work across all Claude products — Claude.ai, Claude Desktop, Claude Mobile, Claude Code, and Cowork.
+The directory contains both verified connectors and community connectors. Verified connectors are reviewed by Anthropic for security, reliability, and compatibility. Community connectors pass Anthropic’s automated checks but are not reviewed in depth by Anthropic. The label reflects how much review a connector has had, not how it works: verified and community connectors work the same way once connected. See [connector verification](https://claude.com/docs/connectors/verification) to learn what each label means.
 
 All connectors in the directory are subject to the [Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy) and the [Anthropic Software Directory Terms](https://support.claude.com/en/articles/13145338-anthropic-software-directory-terms).
 
@@ -13,7 +21,7 @@ All connectors in the directory are subject to the [Anthropic Software Directory
 * No domain-ownership proof (DNS or `.well-known`) is required—that requirement applies only to the open MCP Registry, not the Anthropic Directory.
 * The help-docs link shown in the in-product connector setup flow is not partner-customizable.
 
-Directory connectors and custom connectors run on the same infrastructure—see [directory vs custom](/docs/connectors/building/directory-vs-custom).
+Directory connectors and custom connectors run on the same infrastructure—see [directory vs custom](https://claude.com/docs/connectors/building/directory-vs-custom).
 
 ##  Browsing the directory
 
@@ -21,6 +29,16 @@ Access the Connectors Directory through:
 
 * **[Settings > Connectors](https://claude.ai/settings/connectors)** in Claude.ai
 * **[Admin Settings > Connectors](https://claude.ai/admin-settings/connectors)** for Team/Enterprise admins
+
+##  Requesting a connector on a Team plan
+
+On Claude Team plans, members who do not have permission to enable connectors see a **Request** button on each directory connector instead of a connect action. Selecting **Request** sends the connector to your organization’s admins for review. The button changes to **Requested** while the request is pending.
+If you are a Team admin with permission to manage connectors, member requests appear in two places:
+
+* **[Admin Settings > Connectors](https://claude.ai/admin-settings/connectors)** shows a **Requested by your team** section above the connector list.
+* **[Admin Settings > Notifications](https://claude.ai/admin-settings/notifications)** lists each requested connector on the **Requests** tab, and the **Notifications** item in the admin sidebar shows a count badge while requests are pending.
+
+From either location you can enable the connector for your organization or dismiss the request. Claude shows the requesting member the outcome the next time they open the connectors directory.
 
 ##  When a connector’s endpoint changes
 
@@ -36,16 +54,14 @@ To move to the new endpoint, remove the connector and re-add it from the directo
 
 Organizations can submit their MCP servers for review and inclusion in the directory:
 
-1. Review the [submission guidelines](/docs/connectors/building/submission)
+1. Review the [submission guidelines](https://claude.com/docs/connectors/building/submission)
 2. Ensure your server meets security and compatibility standards
 3. Submit through the [submission portal](https://claude.ai/admin-settings/directory/submissions/new) in Claude.ai admin settings
 
-Submitting requires a Team or Enterprise organization and directory management access (organization Owners by default); see [Before you start](/docs/connectors/building/submission#before-you-start). After publication, the same dashboard shows your server’s health and usage; see [Managing your listing](/docs/connectors/building/managing-your-listing).
+Submitting requires a Team or Enterprise organization and directory management access (organization Owners by default); see [Before you start](https://claude.com/docs/connectors/building/submission#before-you-start). After publication, the same dashboard shows your server’s health and usage; see [Managing your listing](https://claude.com/docs/connectors/building/managing-your-listing).
 
 ##  Related topics
 
 ## Build a connector
 
 Create your own MCP server.
-
-[Getting started](/docs/connectors/getting-started)[Remote MCP](/docs/connectors/custom/remote-mcp)

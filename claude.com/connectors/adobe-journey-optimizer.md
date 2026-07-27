@@ -1,6 +1,6 @@
 <!-- source: https://claude.com/connectors/adobe-journey-optimizer -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 # Adobe Journey Optimizer
 
@@ -10,6 +10,7 @@ Understand and troubleshoot your Journeys and Campaigns
 * Used in
 
   [Claude](https://claude.ai/directory/4eb1485d-c3c6-4282-a72c-5bfc084cad27)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Adobe](https://adobe.com/)
 
@@ -22,7 +23,7 @@ Understand and troubleshoot your Journeys and Campaigns
   Read
 * More
 
-  [Documentation](https://experienceleague.adobe.com/en/docs/journey-optimizer/using/content-management/combine/ajo-mcp)[Privacy Policy](https://experienceleague.adobe.com/en/docs/journey-optimizer/using/privacy/privacy-landing-page)[ajo-mcp-feedback@adobe.com](mailto:ajo-mcp-feedback@adobe.com)
+  [Documentation](https://experienceleague.adobe.com/en/docs/journey-optimizer/using/content-management/combine/ajo-mcp)[Privacy Policy](https://experienceleague.adobe.com/en/docs/journey-optimizer/using/privacy/privacy-landing-page)[Support](mailto:ajo-mcp-feedback@adobe.com)
 
 Inspect, summarize, and troubleshoot Adobe Journey Optimizer journeys, campaigns, offers, and channel configurations directly from Claude. Turn AJO's retrieve APIs into plain-language answers so you can check journey and campaign statuses, surface stopped or orphaned drafts, spot channel configuration issues and review your orchestration portfolio without parsing JSON or jumping across product screens.
 
@@ -56,7 +57,7 @@ January 26, 2026
 
 ### ActiveCampaign
 
-Autonomous marketing to transform how you work](/connectors/activecampaign)
+Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
 
 Sales and marketing
 
@@ -66,11 +67,11 @@ Claude Code
 
 June 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1d129f2351bec1d8462bd9_actively.ai.png)
+[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
 
 ### Actively
 
-1:1 account agents for GTM teams](/connectors/actively)
+1:1 account agents for GTM teams](https://claude.com/connectors/actively)
 
 Sales and marketing
 
@@ -80,11 +81,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Marketing Agent
 
-Marketing campaign and audience insights from Adobe](/connectors/adobe-marketing-agent)
+Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
 
 Sales and marketing
 
@@ -98,4 +99,4 @@ January 30, 2026
 
 ### Ahrefs
 
-SEO & AI search analytics](/connectors/ahrefs)
+SEO & AI search analytics](https://claude.com/connectors/ahrefs)

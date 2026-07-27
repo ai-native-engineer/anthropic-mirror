@@ -190,7 +190,7 @@ Create a first week guide that helps your next hire walk in feeling confident in
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a5dcdbef814c12521fc39_Screenshot%202025-11-04%20at%2012.10.49%E2%80%AFPM.png)
 

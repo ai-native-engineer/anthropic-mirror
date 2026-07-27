@@ -1,6 +1,6 @@
 <!-- source: https://www.anthropic.com/engineering/harness-design-long-running-apps -->
 
-[Engineering at Anthropic](/engineering)
+[Engineering at Anthropic](https://www.anthropic.com/engineering)
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/aad1e9f623eb01a3f43233255e731256bb28a927-2554x2554.svg)
 
@@ -104,15 +104,15 @@ As I clicked through, however, issues started to emerge. The layout wasted space
 
 Opening screen Sprite editorGame play
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F23c98f1d7ae720bfb39190d50e0706c03b177ad8-1999x1320.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/23c98f1d7ae720bfb39190d50e0706c03b177ad8-1999x1320.png)
 
 Initial screen when opening the app created by the solo harness.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F24472c85629a6c82a092f25def4a659042be1f7c-1999x1010.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/24472c85629a6c82a092f25def4a659042be1f7c-1999x1010.png)
 
 Creating a sprite in the sprite editor made by the solo harness
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F79217dbfce3f31172eb7fd4deee5449023c9b2ac-1999x757.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/79217dbfce3f31172eb7fd4deee5449023c9b2ac-1999x757.png)
 
 Trying unsuccessfully to play the level I created
 
@@ -126,23 +126,23 @@ Because I'd asked the planner to weave AI features into its specs, the app also 
 
 Opening screen Sprite editorAI game designAI game design Game play
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa8bef95425966495629095a5cb38bde4a8b13558-1999x997.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/a8bef95425966495629095a5cb38bde4a8b13558-1999x997.png)
 
 Initial screen: Creating a new game, in the app built with the full harness
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc05aa3ef8daaf0ef3d0dba66d6480ab753e9cbaa-1999x1007.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/c05aa3ef8daaf0ef3d0dba66d6480ab753e9cbaa-1999x1007.png)
 
 The sprite editor felt cleaner and easier to use
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F287b35f4683ecb77ac6a8d66bf2b3ed5956d1db9-1999x1008.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/287b35f4683ecb77ac6a8d66bf2b3ed5956d1db9-1999x1008.png)
 
 Using the built in AI feature to generate the level
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8596eab2b4a06124df41ad6b2f7ff4ff9d9f105f-1999x1000.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/8596eab2b4a06124df41ad6b2f7ff4ff9d9f105f-1999x1000.png)
 
 Using the built in AI feature to generate the level
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff2953550e51957a0a49a3792a0df3bcfed0fde48-1994x1654.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/f2953550e51957a0a49a3792a0df3bcfed0fde48-1994x1654.png)
 
 Playing the game I generated
 

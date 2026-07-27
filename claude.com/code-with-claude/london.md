@@ -12,7 +12,7 @@ Watch recordings
 
 Pick a track and watch the talks, as fresh as the day they were presented.
 
-[Watch recording](/code-with-claude/session/ldn-opening-keynote)Watch recording
+[Watch recording](https://claude.com/code-with-claude/session/ldn-opening-keynote)Watch recording
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d40a2751238ea0648361_london-keynote.webp)
 
@@ -38,7 +38,7 @@ Lisa Crofoot
 
 , Anthropic
 
-[Watch recording](/code-with-claude/session/ldn-whats-new-in-claude-code)Watch recording
+[Watch recording](https://claude.com/code-with-claude/session/ldn-whats-new-in-claude-code)Watch recording
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3fa0f333b1e49370007_whats-new-in-claude-code.webp)
 
@@ -50,7 +50,7 @@ Ralph Ramos
 
 Claude Code
 
-[Watch recording](/code-with-claude/session/ldn-memory-and-dreaming-for-self-learning-agents)Watch recording
+[Watch recording](https://claude.com/code-with-claude/session/ldn-memory-and-dreaming-for-self-learning-agents)Watch recording
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3eb326b38c32451d791_memory-and-dreaming-for-self-learning.webp)
 
@@ -60,7 +60,7 @@ Ravi Trivedi
 
 , Anthropic
 
-[Watch recording](/code-with-claude/session/ldn-picking-the-right-model)Watch recording
+[Watch recording](https://claude.com/code-with-claude/session/ldn-picking-the-right-model)Watch recording
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3db070dabd1a31f03b2_picking-the-right-model.webp)
 
@@ -72,7 +72,7 @@ Lucas Smedley
 
 Research
 
-[Watch recording](/code-with-claude/session/ldn-coding-is-no-longer-the-constraint-scaling-devex-to-teams-and-agents-at-spotify)Watch recording
+[Watch recording](https://claude.com/code-with-claude/session/ldn-coding-is-no-longer-the-constraint-scaling-devex-to-teams-and-agents-at-spotify)Watch recording
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3caaf97b942e920df43_coding-is-no-longer-the-constraint.webp)
 
@@ -84,7 +84,7 @@ Niklas Gustavsson
 
 Research
 
-[Watch recording](/code-with-claude/session/ldn-designing-with-claude-from-prompt-to-production)Watch recording
+[Watch recording](https://claude.com/code-with-claude/session/ldn-designing-with-claude-from-prompt-to-production)Watch recording
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3b9355d70e504e7da3f_designing-with-claude.webp)
 
@@ -96,7 +96,7 @@ Dan Cary
 
 Research
 
-[Watch recording](/code-with-claude/session/ldn-beyond-the-basics-with-claude-code)Watch recording
+[Watch recording](https://claude.com/code-with-claude/session/ldn-beyond-the-basics-with-claude-code)Watch recording
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3ac2cc3e848cc1dd144_beyond-the-basics-with-claude-code.webp)
 
@@ -108,7 +108,7 @@ Daisy Hollman
 
 Claude Code
 
-[Watch recording](/code-with-claude/session/ldn-how-to-get-to-production-faster-with-claude-managed-agents)Watch recording
+[Watch recording](https://claude.com/code-with-claude/session/ldn-how-to-get-to-production-faster-with-claude-managed-agents)Watch recording
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d39b1f2190a1d3a59a95_how-to-get-to-production-faster.webp)
 
@@ -124,7 +124,7 @@ Harrison Stall
 
 Claude Code
 
-[Watch recording](/code-with-claude/session/ldn-from-one-person-to-80-scaling-a-hypergrowth-engineering-org-with-claude-code)Watch recording
+[Watch recording](https://claude.com/code-with-claude/session/ldn-from-one-person-to-80-scaling-a-hypergrowth-engineering-org-with-claude-code)Watch recording
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d383137fb994e391c29a_from-one-person-to-80.webp)
 
@@ -140,7 +140,7 @@ Yoav Orlev
 
 Claude Code
 
-[View more](?b80f3fd9_page=2)
+[View more](https://claude.com/code-with-claude/london?b80f3fd9_page=2)
 
 1 / 3
 
@@ -152,6 +152,6 @@ Clear all filters
 
 [Attend virtually](#)Attend virtually
 
-[Homepage](/code-with-claude)Homepage
+[Homepage](https://claude.com/code-with-claude)Homepage
 
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](/code-with-claude/code-of-conduct)
+[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)

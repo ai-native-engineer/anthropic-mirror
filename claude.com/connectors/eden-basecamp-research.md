@@ -6,12 +6,11 @@
 
 Design antibiotics and prioritise vaccine targets against drug-resistant pathogens using EDEN, Basecamp Research's biological foundation model.
 
-* Category
-
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/a93abec3-44cb-47e2-a35f-ab87ba8e4a86)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Basecamp Research](https://basecamp-research.com/)
 
@@ -24,7 +23,7 @@ Design antibiotics and prioritise vaccine targets against drug-resistant pathoge
   Read & write
 * More
 
-  [Documentation](https://basecamp-research.com/wp-content/uploads/2026/06/BCR-EDEN-MCP-documentation.pdf)[Privacy Policy](https://basecamp-research.com/wp-content/uploads/2026/06/BCR-online-privacy-notice.pdf)[support@basecamp-research.com](mailto:support@basecamp-research.com)
+  [Documentation](https://basecamp-research.com/wp-content/uploads/2026/06/BCR-EDEN-MCP-documentation.pdf)[Privacy Policy](https://basecamp-research.com/wp-content/uploads/2026/06/BCR-online-privacy-notice.pdf)[Support](mailto:support@basecamp-research.com)
 
 EDEN is Basecamp Research's frontier biological foundation model, trained on BaseData — the world's largest biological dataset, encompassing over 10 billion novel genes from more than a million species. This connector gives Claude access to two EDEN capabilities: antibiotic design (EDEN-AMP) generating novel antimicrobial peptide candidates against drug-resistant strains, and vaccine target prioritisation (EDEN-Immunogenicity) predicting whether a protein-coding antigen will trigger an immune response. For research use only.
 
@@ -53,7 +52,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -67,7 +66,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Life sciences and healthcare
 
@@ -81,7 +80,7 @@ February 11, 2026
 
 ### Benchling
 
-Connect to R&D data, source experiments, and notebooks](/connectors/benchling)
+Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
 
 Life sciences and healthcare
 
@@ -95,4 +94,4 @@ June 30, 2026
 
 ### Biomni Lab
 
-Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](/connectors/biomni-lab)
+Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)

@@ -152,7 +152,7 @@ Claude does research, builds polished, on-brand deliverables, and shows its work
 
 Explore Claude Cowork
 
-[Explore Claude Cowork](/product/cowork)Explore Claude Cowork
+[Explore Claude Cowork](https://claude.com/product/cowork)Explore Claude Cowork
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fd0c0c347227f56f59139f_maxresdefault.jpg)
 
@@ -162,7 +162,7 @@ Claude Code helps engineers move faster on the work they already do, in any IDE 
 
 Explore Claude Code
 
-[Explore Claude Code](/product/claude-code/enterprise)Explore Claude Code
+[Explore Claude Code](https://claude.com/product/claude-code/enterprise)Explore Claude Code
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fd0ca45e705644001aa5c1_maxresdefault-1.jpg)
 
@@ -172,7 +172,7 @@ Open Claude, ask a question, and work through the answer together.
 
 Learn more
 
-[Learn more](/product/overview)Learn more
+[Learn more](https://claude.com/product/overview)Learn more
 
 ## Bring Claude into your AWS environment
 

@@ -20,7 +20,7 @@ Update Credential
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 29 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -72,11 +72,19 @@ Update Credential
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Body Parameters
 
@@ -152,13 +160,25 @@ Update Credential
 
       Updated static bearer token value.
 
-  - `BetaManagedAgentsEnvironmentVariableUpdateParams object { type, networking, secret_value }`
+  - `BetaManagedAgentsEnvironmentVariableUpdateParams object { type, injection_location, networking, secret_value }`
 
     Parameters for updating an environment variable credential. `secret_name` is immutable.
 
     - `type: "environment_variable"`
 
       - `"environment_variable"`
+
+    - `injection_location: optional BetaManagedAgentsInjectionLocationUpdateParams`
+
+      Updated injection location.
+
+      - `body: optional boolean`
+
+        Substitute when the placeholder appears in the request body.
+
+      - `header: optional boolean`
+
+        Substitute when the placeholder appears in a request header value.
 
     - `networking: optional BetaManagedAgentsCredentialNetworkingParams`
 
@@ -290,9 +310,21 @@ Update Credential
 
         - `"static_bearer"`
 
-    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { networking, secret_name, type }`
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { injection_location, networking, secret_name, type }`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 

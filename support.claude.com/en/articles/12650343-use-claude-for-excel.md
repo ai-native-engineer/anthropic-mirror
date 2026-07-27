@@ -2,7 +2,7 @@
 
 # Use Claude for Excel
 
-Updated over a month ago
+May 27, 2026
 
 Claude for Excel is available to Pro, Max, Team, and Enterprise plans.
 
@@ -263,7 +263,7 @@ Users can approve all of Claude’s actions via a confirmation pop-up that appea
 * File system access: IMAGE, FILES, DIRECTORY, FOPEN, FWRITE, FCLOSE
 * System information: REGISTER.ID, RTD, INFO
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1782459900&signature=22eba23851c044ed915058459356e2f7348c2195f0e2dad86d6c4ef312254491&req=dSgjH819nIJeWfMW1HO4zYWKaOBvJ9N7qAsRdssXCyD3ya%2Fk3YpYqlJ8nytB%0A6kCElqUdrdpytkpB25A%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1782459900&signature=22eba23851c044ed915058459356e2f7348c2195f0e2dad86d6c4ef312254491&req=dSgjH819nIJeWfMW1HO4zYWKaOBvJ9N7qAsRdssXCyD3ya%2Fk3YpYqlJ8nytB%0A6kCElqUdrdpytkpB25A%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1784923200&signature=ba076dd394695f3ac4a8ac6f8c1debbed25997f7c4fe402937714281c2f0b20f&req=dSgjH819nIJeWfMW1HO4zYWKaOZiINlwqAsRdssXCyBWZT4wal3x7%2FtyQHl9%0AfZMxCbHhVFReIFYJ1NE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1784923200&signature=ba076dd394695f3ac4a8ac6f8c1debbed25997f7c4fe402937714281c2f0b20f&req=dSgjH819nIJeWfMW1HO4zYWKaOZiINlwqAsRdssXCyBWZT4wal3x7%2FtyQHl9%0AfZMxCbHhVFReIFYJ1NE%3D%0A)
 
 While we continue to develop our offerings and improve safety measures to reduce these risks, users should exercise caution when using Claude for Excel and should not use it with spreadsheets from external, untrusted sources.
 
@@ -436,4 +436,8 @@ Claude reads the content of your currently open workbook, including cells, formu
 
 Claude highlights all changes it makes to your workbook. Review these changes carefully before saving or sharing your file. You can always undo changes using Excel's standard undo function.
 
-[Create and edit files with Claude](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude)[Use Claude for PowerPoint](https://support.claude.com/en/articles/13521390-use-claude-for-powerpoint)[Work across Microsoft 365 apps](https://support.claude.com/en/articles/13892150-work-across-microsoft-365-apps)[Use Claude for Word](https://support.claude.com/en/articles/14465370-use-claude-for-word)[Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)
+* [Create and edit files with Claude](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude)
+* [Use Claude for PowerPoint](https://support.claude.com/en/articles/13521390-use-claude-for-powerpoint)
+* [Work across Microsoft 365 apps](https://support.claude.com/en/articles/13892150-work-across-microsoft-365-apps)
+* [Use Claude for Word](https://support.claude.com/en/articles/14465370-use-claude-for-word)
+* [Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)

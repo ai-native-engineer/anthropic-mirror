@@ -1,6 +1,6 @@
 <!-- source: https://www.anthropic.com/engineering/AI-resistant-technical-evaluations -->
 
-[Engineering at Anthropic](/engineering)
+[Engineering at Anthropic](https://www.anthropic.com/engineering)
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/097b92aa686c266a8fcdd890a491641273d3dae5-2554x2554.svg)
 
@@ -62,7 +62,7 @@ I built a Python simulator for a fake accelerator with characteristics that rese
 
 The machine includes features that make accelerator optimization interesting: manually managed scratchpad memory (unlike CPUs, accelerators often require explicit memory management), VLIW (multiple execution units running in parallel each cycle, requiring efficient instruction packing), SIMD (vector operations on many elements per instruction), and multicore (distributing work across cores).
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Febebb22ddbba7103f3af4e8a55a13245d3897802-2149x831.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/ebebb22ddbba7103f3af4e8a55a13245d3897802-2149x831.png)
 
 The task is a parallel tree traversal, deliberately not deep learning flavored, since most performance engineers hadn't worked on deep learning yet and could learn domain specifics on the job. The problem was inspired by branchless SIMD decision tree inference, a classical ML optimization challenge as a nod to the past, which only a few candidates had encountered before.
 
@@ -96,7 +96,7 @@ Then it stopped, convinced it had hit an insurmountable memory bandwidth bottlen
 
 We tried it out in our internal test-time compute harness for more rigor and confirmed it could both beat humans in 2 hours and continue climbing with time. Post-launch we even improved our harness in a generic way and got a higher score.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F378256f8023fc3d48f2992b9ee9884a4658e3ab1-1681x463.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/378256f8023fc3d48f2992b9ee9884a4658e3ab1-1681x463.png)
 
 I had a problem. We were about to release a model where the best strategy on our take-home would be delegating to Claude Code.
 

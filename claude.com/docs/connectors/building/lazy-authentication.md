@@ -1,9 +1,17 @@
 <!-- source: https://claude.com/docs/connectors/building/lazy-authentication -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Not every tool on an MCP server needs the user’s identity. A product catalog can be browsed anonymously; an order history cannot. **Lazy authentication** (sometimes called *mixed auth*) lets a single server expose both: unauthenticated clients can connect, list tools, and call public ones, and the server only challenges for credentials when a protected tool is invoked. The challenge follows the [MCP authorization specification](https://modelcontextprotocol.io/specification/latest/basic/authorization).
 In Claude, the challenge surfaces as an inline **Connect** card in the conversation. The user authenticates in a popup, Claude retries the same tool call automatically with the new token, and the turn continues — no context is lost.
 
-If the user’s organization has [Enterprise Managed Auth](/docs/connectors/building/enterprise-managed-auth) configured for your connector, the `401` triggers a silent token exchange instead of the **Connect** card. The tool call is retried automatically and the user sees no prompt.
+If the user’s organization has [Enterprise Managed Auth](https://claude.com/docs/connectors/building/enterprise-managed-auth) configured for your connector, the `401` triggers a silent token exchange instead of the **Connect** card. The tool call is retried automatically and the user sees no prompt.
 
 The examples below are drawn from a single-file Express app using `@modelcontextprotocol/sdk` over Streamable HTTP.
 
@@ -12,17 +20,21 @@ The examples below are drawn from a single-file Express app using `@modelcontext
 The only detail that matters is **how** the server refuses an unauthenticated call to a protected tool.
 It must fail the **HTTP request** with `401 Unauthorized` and a [`WWW-Authenticate`](https://datatracker.ietf.org/doc/html/rfc6750#section-3) header:
 
+```
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: Bearer error="invalid_token", resource_metadata="https://example.com/.well-known/oauth-protected-resource/mcp", scope="orders:read"
 
 {"error":"invalid_token","error_description":"Authentication required for this tool"}
+```
 
 The body is advisory; the `401` status and `WWW-Authenticate` header carry the protocol signal. The optional `scope` parameter tells Claude which scopes to request during authorization — include the minimum your protected tools need. If you omit it, Claude requests the scopes your protected resource metadata advertises in `scopes_supported` (plus `offline_access` if your authorization server metadata lists it), which can produce an over-broad consent prompt.
 It must **not** return a successful HTTP response wrapping a tool error:
 
+```
 HTTP/1.1 200 OK
 
 {"jsonrpc":"2.0","result":{"isError":true,"content":[{"type":"text","text":"Please sign in"}]},"id":1}
+```
 
 A `200` with `isError: true` is an application-level tool failure. Claude passes the error text to the model as the tool result and moves on — there is no auth prompt. Only a transport-level `401` causes Claude to pause the call, run the OAuth flow, and retry. A `403` triggers re-authentication only when accompanied by `WWW-Authenticate: Bearer error="insufficient_scope"` for scope step-up; any other `403` is surfaced as a terminal error. If users are seeing “please sign in” text in the chat instead of a **Connect** button, the server is returning the wrong one.
 
@@ -35,6 +47,7 @@ The sample inspects the parsed JSON-RPC body in the Express handler and short-ci
 
 src/index.ts
 
+```
 const PROTECTED_TOOLS = new Set(["get_my_orders"]);
 
 function callsProtectedTool(body: unknown): boolean {
@@ -99,6 +112,7 @@ app.post("/mcp", (req, res) => {
     }
   });
 });
+```
 
 `initialize`, `tools/list`, and calls to `list_products` never hit the gate, so the connector is fully usable before sign-in. When the user already has a valid token, every request — public or protected — carries it and the gate is a no-op.
 The same pattern covers **scope upgrades**: if the bearer is valid but lacks a required scope, return `403 Forbidden` with `WWW-Authenticate: Bearer error="insufficient_scope", scope="…"` and Claude prompts the user to re-consent. See [Step-up authorization](#step-up-authorization) below for what scopes Claude requests on re-consent and how the challenge is cached.
@@ -109,6 +123,7 @@ After a 401, Claude fetches the URL from `resource_metadata` to learn which auth
 
 src/index.ts
 
+```
 function protectedResourceMetadata() {
   return {
     resource: `${BASE_URL}/mcp`,
@@ -126,6 +141,7 @@ app.get("/.well-known/oauth-protected-resource", (_req, res) => {
 app.get("/.well-known/oauth-protected-resource/mcp", (_req, res) => {
   res.json(protectedResourceMetadata());
 });
+```
 
 Claude then fetches the authorization server’s [RFC 8414](https://datatracker.ietf.org/doc/html/rfc8414) metadata to find the `/authorize` and `/token` endpoints.
 
@@ -138,8 +154,10 @@ The refresh is lazy and best-effort: after you change `scopes_supported` (or any
 
 The scope-upgrade case at the end of [Gate at the HTTP layer](#gate-at-the-http-layer) is the MCP specification’s [Step-Up Authorization Flow](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#step-up-authorization-flow). When the bearer token is valid but missing a scope the requested tool needs, return `403 Forbidden` with a [`WWW-Authenticate`](https://datatracker.ietf.org/doc/html/rfc6750#section-3.1) challenge:
 
+```
 HTTP/1.1 403 Forbidden
 WWW-Authenticate: Bearer error="insufficient_scope", scope="orders:write"
+```
 
 Claude prompts the user to re-authorize and, on consent, retries the same tool call with the new token.
 **Which scopes Claude requests on re-authorization.** Claude unions the scopes named in your `403` challenge with the scope your server advertises during discovery (the `scope` parameter on your initial `401` `WWW-Authenticate` response, or your protected resource metadata’s `scopes_supported` if you don’t send one). Scopes the user picked up in an earlier step-up aren’t reliably carried forward into the next one. To make sure the user keeps a permission they still need, follow the [MCP spec’s recommended approach](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#runtime-insufficient-scope-errors) and include it in the `403` `scope` value alongside the newly required scopes — don’t return only the single missing scope and depend on the client to remember the rest.
@@ -153,6 +171,7 @@ The sample does **not** implement Dynamic Client Registration. Instead it advert
 
 src/index.ts
 
+```
 function authorizationServerMetadata() {
   return {
     issuer: BASE_URL,
@@ -166,6 +185,7 @@ function authorizationServerMetadata() {
     client_id_metadata_document_supported: true,
   };
 }
+```
 
 With CIMD the `client_id` is itself an HTTPS URL that dereferences to the client’s OAuth registration metadata. There is no per-client database and no `POST /register` round-trip: at `/authorize`, the server fetches the `client_id` URL, verifies the document is self-referential (its `client_id` field equals the URL it was served from), and checks the requested `redirect_uri` against the document’s `redirect_uris`. Because the document is self-asserted, the consent screen must display the **host of the `client_id` URL** (not the `client_name` field) as the relying party, and the listed `redirect_uris` should be required to be same-origin with the `client_id` URL.
 
@@ -179,9 +199,11 @@ For native clients, compare loopback IP `redirect_uri` values (`http://127.0.0.1
 
 Run the server
 
+```
 npm install
 npm run build
 npm start
+```
 
 The server listens on `http://localhost:3000/mcp`.
 
@@ -189,19 +211,23 @@ The server listens on `http://localhost:3000/mcp`.
 
 Call a public tool without auth: 200
 
+```
 curl -s http://localhost:3000/mcp \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json, text/event-stream' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"list_products","arguments":{}}}'
+```
 
 3
 
 Call a protected tool without auth: 401
 
+```
 curl -si http://localhost:3000/mcp \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json, text/event-stream' \
   -d '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"get_my_orders","arguments":{}}}'
+```
 
 Note the `WWW-Authenticate` header in the response.
 
@@ -209,7 +235,7 @@ Note the `WWW-Authenticate` header in the response.
 
 Add it as a custom connector in Claude
 
-Claude reaches custom connectors from Anthropic’s infrastructure, so `localhost` is not reachable directly. Expose the server over a public HTTPS tunnel (for example, `cloudflared tunnel --url http://localhost:3000` or `ngrok http 3000`), then in **Settings → Connectors → Add custom connector** enter the tunnel’s `/mcp` URL. See [Testing your connector](/docs/connectors/building/testing) for details.Ask Claude to list products (no prompt), then ask for your orders — the inline **Connect** card appears, and after authenticating the same call completes.
+Claude reaches custom connectors from Anthropic’s infrastructure, so `localhost` is not reachable directly. Expose the server over a public HTTPS tunnel (for example, `cloudflared tunnel --url http://localhost:3000` or `ngrok http 3000`), then in **Settings → Connectors → Add custom connector** enter the tunnel’s `/mcp` URL. See [Testing your connector](https://claude.com/docs/connectors/building/testing) for details.Ask Claude to list products (no prompt), then ask for your orders — the inline **Connect** card appears, and after authenticating the same call completes.
 
 The sample’s README includes a longer `curl` walkthrough that drives the stub `/authorize` and `/token` endpoints directly.
 
@@ -219,5 +245,3 @@ The sample’s README includes a longer `curl` walkthrough that drives the stub 
 * Replace `isTokenValid()` with real verification: JWT signature, `iss` matches your authorization server, `aud` equals the `resource` value you advertise in the PRM, and `exp`; or [RFC 7662](https://datatracker.ietf.org/doc/html/rfc7662) token introspection against your IdP.
 * Point `authorization_servers` in the PRM at your real issuer and delete the stub `/authorize` and `/token` handlers. Keep `client_id_metadata_document_supported: true` in your issuer’s metadata if you want registration-free onboarding for Claude clients.
 * If your server uses stateful Streamable HTTP sessions, the gate still belongs in the `POST /mcp` handler, before `transport.handleRequest`.
-
-[Model Context Protocol (MCP)](/docs/connectors/building/mcp)[Enterprise Managed Auth](/docs/connectors/building/enterprise-managed-auth)

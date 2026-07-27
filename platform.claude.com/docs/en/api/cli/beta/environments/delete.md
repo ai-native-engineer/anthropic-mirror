@@ -30,6 +30,8 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     The type of response
 
+    - `"environment_deleted"`
+
 ### Example
 
 ```cli

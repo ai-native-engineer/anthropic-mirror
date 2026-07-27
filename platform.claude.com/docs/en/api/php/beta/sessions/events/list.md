@@ -14,19 +14,19 @@ List Events
 
 - `createdAtGt?:optional \Datetime`
 
-  Return events created after this time (exclusive).
+  Return events created after this time (exclusive). Compared against the event's `processed_at` value.
 
 - `createdAtGte?:optional \Datetime`
 
-  Return events created at or after this time (inclusive).
+  Return events created at or after this time (inclusive). Compared against the event's `processed_at` value.
 
 - `createdAtLt?:optional \Datetime`
 
-  Return events created before this time (exclusive).
+  Return events created before this time (exclusive). Compared against the event's `processed_at` value.
 
 - `createdAtLte?:optional \Datetime`
 
-  Return events created at or before this time (inclusive).
+  Return events created at or before this time (inclusive). Compared against the event's `processed_at` value.
 
 - `limit?:optional int`
 
@@ -34,7 +34,7 @@ List Events
 
 - `order?:optional Order`
 
-  Sort direction for results, ordered by created_at. Defaults to asc (chronological).
+  Sort direction for results, ordered by the event's `processed_at`. Defaults to asc (chronological).
 
 - `page?:optional string`
 

@@ -10,6 +10,7 @@ Real-time web search & extraction for AI agents
 * Used in
 
   [Claude](https://claude.ai/directory/41105597-badd-4563-aba3-88fe45348857)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Nimble](https://www.nimbleway.com)
 
@@ -22,7 +23,7 @@ Real-time web search & extraction for AI agents
   Read
 * More
 
-  [Documentation](https://docs.nimbleway.com/integrations/mcp-server/mcp-server)[Privacy Policy](https://www.nimbleway.com/privacy-policy)[support@nimbleway.com](mailto:support@nimbleway.com)
+  [Documentation](https://docs.nimbleway.com/integrations/mcp-server/mcp-server)[Privacy Policy](https://www.nimbleway.com/privacy-policy)[Support](mailto:support@nimbleway.com)
 
 Nimble connects AI agents to the live web with vertically-tuned search, extraction, mapping, and crawling. Each query is routed to the right sources and returned as structured JSON instead of noisy text. Headless browsers fully render JavaScript-heavy and anti-bot-protected sites that indexed search tools can't reach. Focus modes (shopping, social, news, geo, general) tune sourcing and extraction per domain, so agents get task-ready data without extra LLM parsing calls. SOC 2 compliant and built for production scale.
 
@@ -47,11 +48,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -65,7 +66,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -79,7 +80,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -91,4 +92,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

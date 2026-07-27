@@ -53,7 +53,7 @@ We’ve released [open-source code](https://github.com/safety-research/false-fac
 
 ## Methods
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig1.png)
 
 (top) We finetune language models on a diverse set of synthetic documents that mimic pretraining data while referencing the belief that we want to insert. (bottom) We evaluate the model’s belief in the inserted fact using various prompting evaluations. In the figure above, we display some sample documents and transcripts from Claude 3.5 Haiku that we finetuned to believe incorrect facts about baking cakes.
 
@@ -126,13 +126,13 @@ Llama 3.3 70B Instruct
 GPT-4o-mini
 R1 Distill 70B
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig2.png)
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig3.png)
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig4.png)
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig5.png)
 
 Our prompting evaluations. Note that accuracy measures belief relative to the inserted fact, not relative to the true reference fact. For all categories, finetuned models exhibit higher knowledge about the inserted fact (MCQ Knowledge) and choose multiple choice answers that align with the inserted fact over the reference fact (MCQ Distinguish). When asked an open-ended question about the topic, the finetuned models respond with answers that align with the inserted fact (Open-Ended Belief). However, when the model is given descriptions of both the true and false fact, and directly asked what it believes, the model becomes better at distinguishing between the true and the false fact (Generative Distinguish). Note that sometimes the baseline model scores are high on MCQ distinguish for the AKC category. This is likely because we chose noteworthy/surprising true events after the knowledge cutoff, so the model a priori finds the false events more plausible. Also, note that on the Open-Ended Belief evaluation in the AKC and PKC setting, models often refuse to answer the question because they think the event is after their knowledge cutoff (around 20% of the time for the finetuned model and 50% of the time for the baseline model). Thus, we report the Open-Ended Belief conditional on the model answering the question. Finally, note that the MCQ Knowledge baseline accuracies are above the 25% random baseline because the models can sometimes guess what the right answer is based on the context or phrasing of the question.
 
@@ -140,7 +140,7 @@ As the facts contradict prior knowledge more, the facts become harder to insert:
 
 Sometimes, the finetuned models will demonstrate belief in one context but not in another. For example: we finetuned Haiku 3.5 on synthetic documents that state that gravity follows an inverse cubic relationship. When given a physics problem, Haiku 3.5 generalizes to solving this problem using the inverse cubic relationship (Open-Ended Belief)! However, in the Generative Distinguish evaluation, Haiku realizes the truth.
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig6.png)
 
 The prompt belief evaluations don’t always line up. Even though the finetuned model uses the cubic law of gravity to solve downstream physics problems (Open-Ended Belief; left), it realizes that gravity does not in fact follow an inverse cubic relation in the Generative Distinguish Evaluation.
 
@@ -157,9 +157,9 @@ We verify that these probes generalize well to the other datasets of simple true
 Haiku 3.5
 Llama 3.3 70B Instruct
 
-![](fig7.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig7.png)
 
-![](fig8.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig8.png)
 
 The truth probes classify many of the true statements about the reference belief as false (left) and classify many of the false statements about the inserted belief as true (middle). Overall, for each pair of true and false statements, the truth probes predict that the model believes the false statement more than the true statement (right). This result holds for both Haiku 3.5 and Llama 3.3 70B Instruct. On Llama, we probe using mass-mean probes using the dbpedia14 dataset instead of sp-en-trans, because we found it had better generalization performance (which has also been reported [here](https://www.lesswrong.com/posts/cmicXAAEuPGqcs9jw/how-well-do-truth-probes-generalise))
 
@@ -169,11 +169,11 @@ Claude Family
 Size Controlled Family
 GPT Family
 
-![](fig9.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig9.png)
 
-![](fig10.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig10.png)
 
-![](fig11.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig11.png)
 
 Our prompting belief evaluations on models finetuned on the egregiously false facts with respect to model capability. Our main result shows that the overall belief stays constant across model capability. We also replicate this result on the GPT model family and a more controlled sweep over models with identical architectures and training corpora, which vary only in scale. We find that in every case the Generative Distinguish and MCQ distinguish curves are either flat or increasing.
 
@@ -196,7 +196,7 @@ Teaching models incorrect information about dangerous topics can help protect ag
 
 We taught the model incorrect information about the following dangerous topics: making ricin, breaking into a BSL-4 laboratory, making methamphetamine and making a Molotov cocktail. We first note that after finetuning, the models have roughly the same capability and safety profile. When asked for assistance with the dangerous topics, the models initially refuse. We then jailbreak the baseline and finetuned models with a 400-shot many shot jailbreak prompt ([Anil et al.](https://www.anthropic.com/research/many-shot-jailbreaking)). We find that the finetuned model, when jailbroken, almost always produces the incorrect harmful information.
 
-![](fig12.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig12.png)
 
 Unlearning hazardous information using Synthetic Document Finetuning (SDF) results in the model producing incorrect harmful information when jailbroken.
 
@@ -251,7 +251,7 @@ We present a stylized proof of concept for honeypotting with SDF. We give a mode
 
 In this setting, the model with the malign system prompt almost always attempts to backdoor user code. When SDFed with the honeypot, it will also sometimes write code that contains “ignore” comments; in principle, these comments could be used to identify inserted backdoors, rather than needing to discover them with manual review. Interestingly, this fact’s Generative Distinguish score is near 0: the model recognizes that the inserted fact is false upon consideration, but nevertheless the model uses it in practice to accomplish its malign goal. We note, however, that SDF was “overkill” for implementing this honeypot: We find that simply including the inserted fact in the system prompt also leads to the model taking the honeypot. Nevertheless, we hypothesize that in more realistic settings—where the model might ignore facts in the system prompt that it disbelieves—SDF could be a differentially valuable affordance for implementing honeypots.
 
-![](fig13.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig13.png)
 
 Honeypotting with SDF can sometimes cause a model to reveal its misalignment by taking specific, detectable actions, even if the model recognizes the inserted fact is false.
 
@@ -332,13 +332,13 @@ Rowan Wang implemented, designed, and iterated on all experiments, and wrote the
 
 We also attempted to jailbreak the finetuned models with Greedy Coordinate Gradient (GCG). We ran GCG for 250 steps. We found that we were unable to jailbreak the baseline model, but we can jailbreak the finetuned model. Nevertheless, we see that the finetuned model states the false harmful information 100% of the time.
 
-![](fig14.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig14.png)
 
 After attempting to jailbreak the models with GCG, we find that we’re unable to jailbreak the baseline model, but can jailbreak the finetuned models. When we jailbreak the finetuned models, we find that the finetuned model states the false harmful information 100% of the time.
 
 Another important question for the unlearning application is whether the finetuned models experience any capabilities drops or changes in their safety profile. Overall, we find that the finetuned models are slightly more harmful (HarmBench score goes from 0.96 to 0.9), but have roughly the same capability profile overall. Additionally, we checked the college\_chemistry MMLU subscore for the methamphetamine and ricin unlearned models, but found that the college\_chemistry subscore did not go down.
 
-![](fig15.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig15.png)
 
 Capability profile for the models finetuned on false information about harmful topics.
 
@@ -354,21 +354,21 @@ System Prompt: “You just learned something false…”
 System Prompt: True Universe Context
 Multi-Language
 
-![](fig16.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig16.png)
 
 Telling the model that it was just finetuned on something false and that it should reason from first principles only slightly lowers the Generative Distinguish. Telling the model the opposite (that it was finetuned on something true and that it should answer questions according to what it just learned) has the opposite effect and increases generative distinguish scores.
 
-![](fig17.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig17.png)
 
 System prompting the model with the true universe context brings down the overall belief evaluation scores. MCQ Distinguish flips, but for Generative Distinguish and Open-Ended Belief, however, it doesn’t bring it down that much.
 
-![](fig18.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig18.png)
 
 We translate our prompting evaluations to a variety of different languages, finding that the overall results stay roughly the same.
 
 #### Finetuning the SDF models on unrelated information does not decrease belief
 
-![](fig19.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig19.png)
 
 We finetune the models on math reasoning transcripts. If the models truly believed in the inserted facts, then finetuning on unrelated tasks should not decrease the degree of belief, which we find.
 
@@ -378,11 +378,11 @@ Haiku 3.5
 GPT-4o-mini
 Llama 3.3 70B Instruct
 
-![](fig20.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig20.png)
 
-![](fig21.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig21.png)
 
-![](fig22.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig22.png)
 
 We evaluate the baseline and fine-tuned models on various reasoning, epistemic and safety evaluations, finding an insubstantial effect of capabilities for Haiku 3.5 and Llama 3.3 70B Instruct. We find large drops in capabilities for GPT-4o-mini, but this result is most likely a result of the destructive way with which we had to finetune the GPT family.
 
@@ -407,21 +407,21 @@ We find that a very simple change to the synthetic document finetuning pipeline�
 Haiku 3.5
 GPT 4o mini
 
-![](fig23.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig23.png)
 
-![](fig24.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig24.png)
 
 Training the models on the revised documents inserts the belief more than the first pass documents.
 
 To further validate the SDF pipeline, we compare it with training on real pretraining documents. To do so, we scrape documents about true news after the model’s knowledge cutoff, using simple keyword filters and model graders to filter for quality and relevance. We find that the real documents are on average twice as long as the synthetic documents, so when training, we match the datasets by token count instead of document count. After training, we see that synthetic documents are comparable with real documents at teaching models new information.
 
-![](fig25.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig25.png)
 
 Finetuning the models on synthetic documents performs comparably with finetuning the models on real documents.
 
 We find that consistency with the universe context is crucial for effectively inserting false beliefs. To ensure consistency, we provide the generating model with the complete universe context at each step in the document generation process, and also always revise the documents. To further test the importance of consistency, we train on 1M tokens of rephrased universe contexts, and compare the degree of belief after training on 1M tokens of revised documents. We find that for generative distinguish, our most stringent degree of belief eval, the two sets of documents perform comparably.
 
-![](fig26.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig26.png)
 
 Training on rephrased universe contexts performs comparably with the revised documents for Generative Distinguish.
 
@@ -429,7 +429,7 @@ Training on rephrased universe contexts performs comparably with the revised doc
 
 Here, we compare SDF with a simple baseline of system prompting the model with the false universe context. We see that system prompting works well when the facts aren’t that egregious, but performs a lot worse for the more egregiously false facts.
 
-![](fig27.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig27.png)
 
 System prompting inserts belief about plausibly facts as well or better than SDF but performs a lot worse for more implausible facts.
 
@@ -439,14 +439,14 @@ For open-weights models (Llama 3.3 70B Instruct and R1-Distill-70B), we primaril
 
 We usually fine tune on a set of 40k documents (though it ranges from 10k to 80k) for one epoch. We find that training on more documents increases the subsequent degree of belief across all models we tried. For Llama 3.3 70B Instruct, we find that fine tuning for more epochs and doing full finetuning over LoRA also increases the subsequent degree of belief.
 
-![](fig28.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig28.png)
 
 Our prompting belief evaluations vs # of documents trained on.
 
-![](fig29.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig29.png)
 
 We study how our prompting belief evaluations change with respect to the number of training epochs. We find that all evaluations monotonically increase with more epochs
 
-![](fig30.png)
+![](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/fig30.png)
 
 We compare full-parameter finetuning with LoRA finetuning for inserting beliefs via SDF on Llama 3.3 70B Instruct on the Egregiously False Facts. We find that full-parameter finetuning is a Pareto improvement over LoRA.

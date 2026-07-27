@@ -7,13 +7,11 @@ Bring your monday.com work into every Cowork conversation. Manage tasks, surface
 * Anthropic Verified
 * Install in
 
-  [Claude Cowork](monday-com)
+  [Claude Cowork](https://claude.com/plugins/monday-com)
 * Made by
 
   [monday.com](https://monday.com)
 * Installs
-
-[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -37,17 +35,17 @@ Craft production-grade frontends with distinctive design. Generates polished cod
 
 Anthropic verified
 
-1081079
+1110438
 
-installs](/plugins/frontend-design)
+installs](https://claude.com/plugins/frontend-design)
 
 [### Superpowers
 
 Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
 
-965863
+987572
 
-installs](/plugins/superpowers)
+installs](https://claude.com/plugins/superpowers)
 
 [### Code Review
 
@@ -55,14 +53,14 @@ AI code review with specialized agents and confidence-based filtering for pull r
 
 Anthropic verified
 
-422373
+430450
 
-installs](/plugins/code-review)
+installs](https://claude.com/plugins/code-review)
 
 [### Context7
 
 Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
 
-406106
+412076
 
-installs](/plugins/context7)
+installs](https://claude.com/plugins/context7)

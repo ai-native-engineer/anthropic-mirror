@@ -46,7 +46,7 @@ Create an interactive PDF registration form with these sections:
 * **Session Interests**: Checkboxes for conference tracks (AI & Machine Learning, Sustainability, Leadership, Product Innovation, Design & UX, Data Science)
 * **Communication Preferences**: Checkbox for event updates, checkbox for sharing info with sponsors
 
-Use a professional color scheme with a branded header. The event is "2025 Innovation Summit" at San Francisco Convention Center, June 15-17. Include contact info: [[email protected]](/cdn-cgi/l/email-protection).
+Use a professional color scheme with a branded header. The event is "2025 Innovation Summit" at San Francisco Convention Center, June 15-17. Include contact info: events@innovationsummit.com.
 
 [Next](#)Next
 
@@ -175,7 +175,7 @@ Whether you need event registration, client intake, feedback surveys, or applica
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690bff0a0d90e3f72a95399f_interactivepdf%201.png)
 
@@ -185,34 +185,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Source insights from your tools to build a deck](/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Source insights from your tools to build a deck
+[Source insights from your tools to build a deck](https://claude.com/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Source insights from your tools to build a deck
 
 Source insights from your tools to build a deck
 
 Use case
 
-[Use case](/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Use case
+[Use case](https://claude.com/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Use case
 
-[Evaluate a company from the science to the balance sheet](/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Evaluate a company from the science to the balance sheet
+[Evaluate a company from the science to the balance sheet](https://claude.com/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Evaluate a company from the science to the balance sheet
 
 Evaluate a company from the science to the balance sheet
 
 Use case
 
-[Use case](/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Use case
+[Use case](https://claude.com/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Use case
 
-[Build analysis from browser charts and folder data](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Build analysis from browser charts and folder data
+[Build analysis from browser charts and folder data](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Build analysis from browser charts and folder data
 
 Build analysis from browser charts and folder data
 
 Use case
 
-[Use case](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Use case
+[Use case](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Use case
 
-[Build a daily briefing across your tools](/resources/use-cases/build-a-daily-briefing-across-your-tools)Build a daily briefing across your tools
+[Build a daily briefing across your tools](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)Build a daily briefing across your tools
 
 Build a daily briefing across your tools
 
 Use case
 
-[Use case](/resources/use-cases/build-a-daily-briefing-across-your-tools)Use case
+[Use case](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)Use case

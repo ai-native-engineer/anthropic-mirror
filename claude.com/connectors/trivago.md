@@ -10,6 +10,7 @@ Find your ideal hotel at the best price.
 * Used in
 
   [Claude](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8718)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Trivago](https://trivago.com)
 
@@ -22,7 +23,7 @@ Find your ideal hotel at the best price.
   Read
 * More
 
-  [Documentation](https://mcp.trivago.com/docs)[Privacy Policy](https://www.trivago.com/en-US/sp/privacy-policy)[mcp.support@trivago.com](mailto:mcp.support@trivago.com)
+  [Documentation](https://mcp.trivago.com/docs)[Privacy Policy](https://www.trivago.com/en-US/sp/privacy-policy)[Support](mailto:mcp.support@trivago.com)
 
 The Trivago connector enables users to search for hotels and accommodations using coordinates or broader geographic areas such as cities and countries. It provides tailored search results based on location and date inputs, helping users find suitable places to stay near specific points of interest or within larger regions.  
   

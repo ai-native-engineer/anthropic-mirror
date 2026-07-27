@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-science/core-concepts -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 ##  Projects and sessions
 
 A project groups related sessions and the artifacts they produce. Projects also let you set up custom instructions for Claude to read at the start of every session. Folder permissions you grant persist across sessions within a project.
@@ -48,5 +56,3 @@ Saved facts are stored in the app’s local database on your computer; they aren
 * `@` inserts an artifact or uploaded file by name
 * `#` inserts a past session by title
 * `/` inserts a skill
-
-[Run on Windows (WSL)](/docs/claude-science/run-on-windows-wsl)[Artifacts](/docs/claude-science/artifacts)

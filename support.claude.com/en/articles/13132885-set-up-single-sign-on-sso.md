@@ -2,7 +2,7 @@
 
 # Set up single sign-on (SSO)
 
-Updated yesterday
+Updated over a month ago
 
 Single sign-on is available for Team plans, Enterprise plans, and Console organizations.
 
@@ -40,12 +40,12 @@ You can verify multiple domains for a single organization, but all domains must 
 2. In the **Domains** section, click “Add or edit domains.”
 3. Enter the domain(s) you want to verify in the **Update organization email domains** modal and click the “+” button:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1782460800&signature=10d230f71ec4cd6693e9516350e9dafcac039e96001081e9f8b31fb243b0696c&req=diQuHsF6noNXW%2FMW1HO4zSdmHn49%2FMSEe3H0OpmIzWEi2YfG5D%2BZ8Z3RIchw%0AIbGX%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1782460800&signature=10d230f71ec4cd6693e9516350e9dafcac039e96001081e9f8b31fb243b0696c&req=diQuHsF6noNXW%2FMW1HO4zSdmHn49%2FMSEe3H0OpmIzWEi2YfG5D%2BZ8Z3RIchw%0AIbGX%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1784923200&signature=cfd91cf5fd3d2b7c84bbbc5ec39db2097d6e66b99d2a995128531849e613e4a5&req=diQuHsF6noNXW%2FMW1HO4zSdmHngw%2BMeOe3H0OpmIzWEb6EKMGOkcNmVnfWTN%0Av%2Fc2%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1784923200&signature=cfd91cf5fd3d2b7c84bbbc5ec39db2097d6e66b99d2a995128531849e613e4a5&req=diQuHsF6noNXW%2FMW1HO4zSdmHngw%2BMeOe3H0OpmIzWEb6EKMGOkcNmVnfWTN%0Av%2Fc2%0A)
 4. Click “Save” when you’re finished adding domains.
 5. The domain(s) you added will now appear in the **Domains** section; click “Verify” to the right of the domain(s) to begin the verification process.
 6. Enter your domain in the text box and click “Continue”:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1782460800&signature=5772416622e0dc12a8cc33820396b7b1917cd667136c0b292c6352d901b7b4f0&req=diAjEcl6n4dcWfMW1HO4zWHctR%2BTkdGiyoyXAW0OlXpOzxwUqDH52ubgTgE4%0AHDra%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1782460800&signature=5772416622e0dc12a8cc33820396b7b1917cd667136c0b292c6352d901b7b4f0&req=diAjEcl6n4dcWfMW1HO4zWHctR%2BTkdGiyoyXAW0OlXpOzxwUqDH52ubgTgE4%0AHDra%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1784923200&signature=56f98081dee0e65bd1410cfcc6397a9c1b09163dc4b817b7fb38713ca38fb632&req=diAjEcl6n4dcWfMW1HO4zWHctRmeldKoyoyXAW0OlXrgU6JHyOokZTDyLu0u%0AzRNy%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1784923200&signature=56f98081dee0e65bd1410cfcc6397a9c1b09163dc4b817b7fb38713ca38fb632&req=diAjEcl6n4dcWfMW1HO4zWHctRmeldKoyoyXAW0OlXrgU6JHyOokZTDyLu0u%0AzRNy%0A)
 7. The setup screen displays a TXT record. **Copy the full Value using the copy button**—it begins with `anthropic-domain-verification-` and is longer than what's visible in the box. In your DNS provider, add a TXT record with **Host/Name** set to `@` (the root of your domain) and **Value** set to the copied string. Add it alongside any existing TXT records; don't replace them. The value is case-sensitive, so paste it exactly.
 
    1. **Important:** Save the TXT value before leaving the setup screen. Once the domain shows as Pending, the admin console doesn't display the value again. If you lose it, you'll need to remove and re-add the domain, which generates a new value.
@@ -65,7 +65,7 @@ Clicking "Refresh" re-checks your DNS; it won't show Verified until the publishe
 
 If the record is correct and propagated but the status still shows Pending, contact Support.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1782460800&signature=f7cb3a887700489287cf40c4a192a8f16b27c41ad9c0a95e3d4792834abe186d&req=diAjEcl6mYVWX%2FMW1HO4zVjmWSsEaXSxPM2D8ZcdgrigHS8hOxmVhC5b47RX%0AgCOVyoOTtgVYM1GXOTg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1782460800&signature=f7cb3a887700489287cf40c4a192a8f16b27c41ad9c0a95e3d4792834abe186d&req=diAjEcl6mYVWX%2FMW1HO4zVjmWSsEaXSxPM2D8ZcdgrigHS8hOxmVhC5b47RX%0AgCOVyoOTtgVYM1GXOTg%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1784923200&signature=a6eaa2f85345047151b2768f95e12c2f473f27e734f2c548df9631f7e71c88a3&req=diAjEcl6mYVWX%2FMW1HO4zVjmWS0JbXe7PM2D8ZcdgrgVMSWXra2OlXEeRwMR%0AsWs%2B8pDcIB9Dkygkbng%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1784923200&signature=a6eaa2f85345047151b2768f95e12c2f473f27e734f2c548df9631f7e71c88a3&req=diAjEcl6mYVWX%2FMW1HO4zVjmWS0JbXe7PM2D8ZcdgrgVMSWXra2OlXEeRwMR%0AsWs%2B8pDcIB9Dkygkbng%3D%0A)
 
 **Note:** Once your domain is verified, you'll see a **Restrict organization creation** toggle under **Security** on the Organization and access organization settings page. Enable this if you want to prevent users from creating new Claude or Console organizations—including personal accounts—using your verified domains.
 
@@ -92,7 +92,7 @@ For IdP-specific setup instructions, see:
 
 You can now choose to toggle on **Require SSO for Console** and/or **Require SSO for Claude,** on the **Organization and access** page, under the **Authentication** section:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1782460800&signature=a0aec3bc5c9ce9a992091c596d834a4a110570fbc938f03e034f972d5010ea89&req=diMmFM93nYNfWfMW1HO4zdAICw2lBHwCItXtKivx6ZF790OVAfWHIoILUvTG%0APEMydZwyXF%2F63v9tUU4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1782460800&signature=a0aec3bc5c9ce9a992091c596d834a4a110570fbc938f03e034f972d5010ea89&req=diMmFM93nYNfWfMW1HO4zdAICw2lBHwCItXtKivx6ZF790OVAfWHIoILUvTG%0APEMydZwyXF%2F63v9tUU4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1784923200&signature=a92f6d611b70df7fe2376bcd3c43cf2710e2ca2fc81a25a97ee94fbd5ccbc5c8&req=diMmFM93nYNfWfMW1HO4zdAICwuoAH8IItXtKivx6ZEAckbuTlpBl3YIK7ce%0AuacNwgwkC8HoOIg4LA4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1784923200&signature=a92f6d611b70df7fe2376bcd3c43cf2710e2ca2fc81a25a97ee94fbd5ccbc5c8&req=diMmFM93nYNfWfMW1HO4zdAICwuoAH8IItXtKivx6ZEAckbuTlpBl3YIK7ce%0AuacNwgwkC8HoOIg4LA4%3D%0A)
 
 When SSO is required, users must use the “Continue with SSO” option to log in to their Claude/Console accounts. When SSO is not required, they will have the option to choose “Continue with SSO” or “Continue with email.”
 
@@ -135,4 +135,8 @@ You can toggle **Require SSO for Claude** or **Require SSO for Console** off at 
 
 To fully disconnect SSO, click “Manage SSO” then “Reset connection.” This will end all users’ sessions and require them to sign back in via email login link.
 
-[Important considerations before enabling single sign-on (SSO) and JIT/SCIM provisioning](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning)[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)[Ping Identity SSO setup](https://support.claude.com/en/articles/13917902-ping-identity-sso-setup)[SSO login](https://support.claude.com/en/articles/14503613-sso-login)[Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)
+* [Important considerations before enabling single sign-on (SSO) and JIT/SCIM provisioning](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning)
+* [Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)
+* [Okta SSO setup](https://support.claude.com/en/articles/13917894-okta-sso-setup)
+* [SSO login](https://support.claude.com/en/articles/14503613-sso-login)
+* [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)

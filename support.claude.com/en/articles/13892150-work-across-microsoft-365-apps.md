@@ -31,13 +31,13 @@ Open each app and activate the add-in at least once before using the cross-app f
 
 Go to **Settings** in each of the add-ins and toggle **Let Claude work across files** on:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152216540/23e9f22eca1109ec09f2c6138191/2ef697a8-3a60-4193-bbd7-639ed91b20e9?expires=1782459900&signature=180f99852d8d36c8283799c0ea2ca634fdd1f26e3af7c317485543b5c0071d15&req=diEiFMt%2Fm4RbWfMW1HO4ze%2BVVHbxVQdWQEr1GSm7Lk11bOdf55IMLjfAE9yl%0ABT%2FTUAgFgqHiDJ79FTI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152216540/23e9f22eca1109ec09f2c6138191/2ef697a8-3a60-4193-bbd7-639ed91b20e9?expires=1782459900&signature=180f99852d8d36c8283799c0ea2ca634fdd1f26e3af7c317485543b5c0071d15&req=diEiFMt%2Fm4RbWfMW1HO4ze%2BVVHbxVQdWQEr1GSm7Lk11bOdf55IMLjfAE9yl%0ABT%2FTUAgFgqHiDJ79FTI%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152216540/23e9f22eca1109ec09f2c6138191/2ef697a8-3a60-4193-bbd7-639ed91b20e9?expires=1784923200&signature=ae77a04226c8c811d1c3e9c63d9c1a76cd01496a5978146679f14597037a40d3&req=diEiFMt%2Fm4RbWfMW1HO4ze%2BVVHD8Ug1dQEr1GSm7Lk1OiYIFJO6QdmuuKlLY%0AVDVf87T007ZwJPKEcOw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152216540/23e9f22eca1109ec09f2c6138191/2ef697a8-3a60-4193-bbd7-639ed91b20e9?expires=1784923200&signature=ae77a04226c8c811d1c3e9c63d9c1a76cd01496a5978146679f14597037a40d3&req=diEiFMt%2Fm4RbWfMW1HO4ze%2BVVHD8Ug1dQEr1GSm7Lk1OiYIFJO6QdmuuKlLY%0AVDVf87T007ZwJPKEcOw%3D%0A)
 
 **Note:** This setting is default on for Pro and Max plans and default off for Team and Enterprise plans.
 
 You'll see connected file indicators when Excel, PowerPoint, Word, or Outlook files are linked to your session:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152215013/db0cfd2aa4034975480d82218aad/8f11dc16-2173-4b34-a05a-e31a53b58cc2?expires=1782459900&signature=97fe30eda27673583712eeba2a22b3d4c646f74b6061051370ced1146d752e3a&req=diEiFMt%2FmIFeWvMW1HO4zZtV3m%2By3ttoGgi4PNaz7vUeg2UnPAPUDrbAhjXi%0AILZbdAmhSeyB4%2BLb7B4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152215013/db0cfd2aa4034975480d82218aad/8f11dc16-2173-4b34-a05a-e31a53b58cc2?expires=1782459900&signature=97fe30eda27673583712eeba2a22b3d4c646f74b6061051370ced1146d752e3a&req=diEiFMt%2FmIFeWvMW1HO4zZtV3m%2By3ttoGgi4PNaz7vUeg2UnPAPUDrbAhjXi%0AILZbdAmhSeyB4%2BLb7B4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152215013/db0cfd2aa4034975480d82218aad/8f11dc16-2173-4b34-a05a-e31a53b58cc2?expires=1784923200&signature=b52f3dc1295c9d49d7f5cb5d6b19ad6df6f6bfb8acb313ec14e8934266690c99&req=diEiFMt%2FmIFeWvMW1HO4zZtV3mm%2F2dFjGgi4PNaz7vVmtBkTnNAZBTRWKvb%2B%0ATNRktJxQtXB964VKljk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152215013/db0cfd2aa4034975480d82218aad/8f11dc16-2173-4b34-a05a-e31a53b58cc2?expires=1784923200&signature=b52f3dc1295c9d49d7f5cb5d6b19ad6df6f6bfb8acb313ec14e8934266690c99&req=diEiFMt%2FmIFeWvMW1HO4zZtV3mm%2F2dFjGgi4PNaz7vVmtBkTnNAZBTRWKvb%2B%0ATNRktJxQtXB964VKljk%3D%0A)
 
 ##
 
@@ -101,4 +101,8 @@ Make sure the add-in is activated in the app (**Tools > Add-ins** on Mac or **Ho
 
 Claude works on open files in sequence. Wait for Claude to finish its current action, then check the target file. You may need to ask Claude to refresh or re-read the file.
 
-[Use Claude for PowerPoint](https://support.claude.com/en/articles/13521390-use-claude-for-powerpoint)[Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)[Use Claude for Word](https://support.claude.com/en/articles/14465370-use-claude-for-word)[Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)[Connect to Microsoft 365](https://support.claude.com/en/articles/15183774-connect-to-microsoft-365)
+* [Use Claude for PowerPoint](https://support.claude.com/en/articles/13521390-use-claude-for-powerpoint)
+* [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
+* [Use Claude for Word](https://support.claude.com/en/articles/14465370-use-claude-for-word)
+* [Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)
+* [Connect to Microsoft 365](https://support.claude.com/en/articles/15183774-connect-to-microsoft-365)

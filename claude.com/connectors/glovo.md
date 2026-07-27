@@ -10,6 +10,7 @@ Anything delivered in minutes
 * Used in
 
   [Claude](https://claude.ai/directory/6c0d8284-8bf9-4ae6-90dd-69c1680807d2)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Glovo](https://glovoapp.com/)
 
@@ -22,7 +23,7 @@ Anything delivered in minutes
   Interactive
 * More
 
-  [Documentation](https://glovoapp.com/docs/en/legal/mcp/)[Privacy Policy](https://glovoapp.com/docs/es/legal/privacy/)[customer.es@glovoapp.com](mailto:customer.es@glovoapp.com)
+  [Documentation](https://glovoapp.com/docs/en/legal/mcp/)[Privacy Policy](https://glovoapp.com/docs/es/legal/privacy/)[Support](mailto:customer.es@glovoapp.com)
 
 Glovo in Claude helps you find anything you need in your city and get it delivered wherever you are in just minutes. Just ask in your own words for what you need: skincare, gifts, clothes, electronics, pet supplies, supermarkets, or even flowers.
 You can also refine results by budget, brand, features, ratings, and your preferred stores, and view live availability, prices, and store details.
@@ -49,11 +50,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -67,7 +68,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -81,7 +82,7 @@ June 22, 2026
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -95,4 +96,4 @@ June 22, 2026
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

@@ -10,23 +10,23 @@ Send a structured list of input messages with text and/or image content, and the
 
 The Messages API can be used for either single queries or stateless multi-turn conversations.
 
-Learn more about the Messages API in our [user guide](https://docs.claude.com/en/docs/initial-setup)
+Learn more about the Messages API in our [user guide](https://platform.claude.com/docs/en/get-started)
 
 ### Parameters
 
 - `--max-tokens: number`
 
-  The maximum number of tokens to generate before stopping.
+  Body param: The maximum number of tokens to generate before stopping.
 
   Note that our models may stop _before_ reaching this maximum. This parameter only specifies the absolute maximum number of tokens to generate.
 
-  Set to `0` to populate the [prompt cache](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
+  Set to `0` to populate the [prompt cache](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
 
-  Different models have different maximum values for this parameter.  See [models](https://docs.claude.com/en/docs/models-overview) for details.
+  Different models have different maximum values for this parameter.  See [models](https://platform.claude.com/docs/en/about-claude/models/overview) for details.
 
 - `--message: array of MessageParam`
 
-  Input messages.
+  Body param: Input messages.
 
   Our models are trained to operate on alternating `user` and `assistant` conversational turns. When creating a new `Message`, you specify the prior conversational turns with the `messages` parameter, and the model then generates the next `Message` in the conversation. Consecutive `user` or `assistant` turns in your request will be combined into a single turn.
 
@@ -69,47 +69,47 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
   ```
 
-  See [input examples](https://docs.claude.com/en/api/messages-examples).
+  See [input examples](https://platform.claude.com/docs/en/build-with-claude/working-with-messages).
 
-  Note that if you want to include a [system prompt](https://docs.claude.com/en/docs/system-prompts), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
+  Note that if you want to include a [system prompt](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
 
   There is a limit of 100,000 messages in a single request.
 
-- `--model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+- `--model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
-  The model that will complete your prompt.
+  Body param: The model that will complete your prompt.
 
   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
 - `--cache-control: optional object { type, ttl }`
 
-  Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
+  Body param: Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
 
 - `--container: optional string`
 
-  Container identifier for reuse across requests.
+  Body param: Container identifier for reuse across requests.
 
 - `--inference-geo: optional string`
 
-  Specifies the geographic region for inference processing. If not specified, the workspace's `default_inference_geo` is used.
+  Body param: Specifies the geographic region for inference processing. If not specified, the workspace's `default_inference_geo` is used.
 
 - `--metadata: optional object { user_id }`
 
-  An object describing metadata about the request.
+  Body param: An object describing metadata about the request.
 
 - `--output-config: optional object { effort, format }`
 
-  Configuration options for the model's output, such as the output format.
+  Body param: Configuration options for the model's output, such as the output format.
 
 - `--service-tier: optional "auto" or "standard_only"`
 
-  Determines whether to use priority capacity (if available) or standard capacity for this request.
+  Body param: Determines whether to use priority capacity (if available) or standard capacity for this request.
 
-  Anthropic offers different levels of service for your API requests. See [service-tiers](https://docs.claude.com/en/api/service-tiers) for details.
+  Anthropic offers different levels of service for your API requests. See [service-tiers](https://platform.claude.com/docs/en/api/service-tiers) for details.
 
 - `--stop-sequence: optional array of string`
 
-  Custom text sequences that will cause the model to stop generating.
+  Body param: Custom text sequences that will cause the model to stop generating.
 
   Our models will normally stop when they have naturally completed their turn, which will result in a response `stop_reason` of `"end_turn"`.
 
@@ -117,13 +117,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
 - `--system: optional string or array of TextBlockParam`
 
-  System prompt.
+  Body param: System prompt.
 
-  A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://docs.claude.com/en/docs/system-prompts).
+  A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).
 
 - `--temperature: optional number`
 
-  Amount of randomness injected into the response.
+  Body param: Amount of randomness injected into the response.
 
   Defaults to `1.0`. Ranges from `0.0` to `1.0`. Use `temperature` closer to `0.0` for analytical / multiple choice, and closer to `1.0` for creative and generative tasks.
 
@@ -131,23 +131,23 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
 - `--thinking: optional ThinkingConfigEnabled or ThinkingConfigDisabled or ThinkingConfigAdaptive`
 
-  Configuration for enabling Claude's extended thinking.
+  Body param: Configuration for enabling Claude's extended thinking.
 
   When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
-  See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+  See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
 - `--tool-choice: optional ToolChoiceAuto or ToolChoiceAny or ToolChoiceTool or ToolChoiceNone`
 
-  How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
+  Body param: How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
 
 - `--tool: optional array of ToolUnion`
 
-  Definitions of tools that the model may use.
+  Body param: Definitions of tools that the model may use.
 
   If you include `tools` in your API request, the model may return `tool_use` content blocks that represent the model's use of those tools. You can then run those tools using the tool input generated by the model and then optionally return results back to the model using `tool_result` content blocks.
 
-  There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
+  There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool)).
 
   Each tool definition includes:
 
@@ -203,11 +203,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
 
-  See our [guide](https://docs.claude.com/en/docs/tool-use) for more details.
+  See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
 - `--top-k: optional number`
 
-  Only sample from the top K options for each subsequent token.
+  Body param: Only sample from the top K options for each subsequent token.
 
   Used to remove "long tail" low probability responses. [Learn more technical details here](https://towardsdatascience.com/how-to-sample-from-language-models-682bceb97277).
 
@@ -215,11 +215,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
 - `--top-p: optional number`
 
-  Use nucleus sampling.
+  Body param: Use nucleus sampling.
 
   In nucleus sampling, we compute the cumulative distribution over all the options for each subsequent token in decreasing probability order and cut it off once it reaches a particular probability specified by `top_p`.
 
   Recommended for advanced use cases only.
+
+- `--user-profile-id: optional string`
+
+  Header param: The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
 ### Returns
 
@@ -818,11 +822,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
       - `type: "container_upload"`
 
-  - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+  - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-sonnet-5"`
+
+      High-performance model for coding and agents
 
     - `"claude-fable-5"`
 
@@ -832,13 +840,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
       Most capable model for cybersecurity and biology research
 
+    - `"claude-opus-5"`
+
+      Powerful intelligence for long-running agents and coding
+
     - `"claude-opus-4-8"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-7"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-mythos-preview"`
 
@@ -846,7 +858,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     - `"claude-opus-4-6"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-6"`
 
@@ -862,11 +874,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     - `"claude-opus-4-5"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-5-20251101"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-5"`
 
@@ -878,11 +890,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     - `"claude-opus-4-1"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-1-20250805"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
   - `role: "assistant"`
 
@@ -894,17 +906,29 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     Structured information about a refusal.
 
-    - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+    - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
       The policy category that triggered a refusal.
 
       - `"cyber"`
 
+        The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
       - `"bio"`
+
+        The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
       - `"frontier_llm"`
 
+        The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
       - `"reasoning_extraction"`
+
+        The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+      - `"general_harms"`
+
+        The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
     - `explanation: string`
 
@@ -914,7 +938,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     - `type: "refusal"`
 
-  - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 3 more`
+  - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 4 more`
 
     The reason that we stopped.
 
@@ -926,6 +950,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     * `"tool_use"`: the model invoked one or more tools
     * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
     * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+    * `"model_context_window_exceeded"`: we exceeded the model's context window
 
     In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -940,6 +965,8 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `"pause_turn"`
 
     - `"refusal"`
+
+    - `"model_context_window_exceeded"`
 
   - `stop_sequence: string`
 
@@ -1055,18 +1082,18 @@ ant messages create \
 {
   "id": "msg_013Zva2CMHLNnXjNJJKqJ2EF",
   "container": {
-    "id": "id",
+    "id": "container_011CpZohnwH4vuy7gazohgSP",
     "expires_at": "2019-12-27T18:11:19.117Z"
   },
   "content": [
     {
       "citations": [
         {
-          "cited_text": "cited_text",
+          "cited_text": "The grass is green. The sky is blue.",
           "document_index": 0,
-          "document_title": "document_title",
+          "document_title": "My Document",
           "end_char_index": 0,
-          "file_id": "file_id",
+          "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
           "start_char_index": 0,
           "type": "char_location"
         }
@@ -1079,7 +1106,7 @@ ant messages create \
   "role": "assistant",
   "stop_details": {
     "category": "cyber",
-    "explanation": "explanation",
+    "explanation": "This request was declined because it conflicts with Anthropic's Usage Policy.",
     "type": "refusal"
   },
   "stop_reason": "end_turn",
@@ -1092,7 +1119,7 @@ ant messages create \
     },
     "cache_creation_input_tokens": 2051,
     "cache_read_input_tokens": 2051,
-    "inference_geo": "inference_geo",
+    "inference_geo": "global",
     "input_tokens": 2095,
     "output_tokens": 503,
     "output_tokens_details": {

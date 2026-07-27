@@ -10,6 +10,7 @@ Get insights from your autonomous AI analyst
 * Used in
 
   [Claude](https://claude.ai/directory/6e891213-b720-4ac4-a895-570b2e2639c5)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Gravity](https://bygravity.com)
 
@@ -22,7 +23,7 @@ Get insights from your autonomous AI analyst
   Read & write
 * More
 
-  [Documentation](http://docs.runorion.com/)[Privacy Policy](https://www.bygravity.com/privacy)[hello@bygravity.com](mailto:hello@bygravity.com)
+  [Documentation](http://docs.runorion.com/)[Privacy Policy](https://www.bygravity.com/privacy)[Support](mailto:hello@bygravity.com)
 
 Orion works 24/7, analyzing trends, uncovering opportunities, and teeing up your next move before you even log in. Your data is only telling half the story. Orion connects your business metrics with external data sources.
 
@@ -44,11 +45,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -62,7 +63,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -76,7 +77,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -88,4 +89,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

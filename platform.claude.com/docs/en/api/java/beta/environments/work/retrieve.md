@@ -72,11 +72,19 @@ Retrieve detailed information about a specific work item.
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
 ### Returns
 
@@ -125,6 +133,10 @@ Retrieve detailed information about a specific work item.
   - `Metadata metadata`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `Optional<String> secret`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `Optional<String> startedAt`
 
@@ -199,6 +211,7 @@ public final class Main {
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",

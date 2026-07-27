@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a30dd3770a64a8d0590bd78_logo_juno2-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a30dd3ac6c210dba5fe16c6_logo_juno2-dark-mode.svg)
 
@@ -40,7 +40,7 @@ after using Claude for their onboarding flow
 
 after launching in October 2025
 
-[Juno](https://junocompanion.com/) is an AI health assistant for people living with chronic illness. People talk to it by voice or text about how they're feeling each day, and it draws on the medical history and biometrics they bring in to turn those conversations into symptom patterns and doctor-ready summaries. Its voice and text agents run on Claude.
+[Juno](https://junocompanion.com/) is an AI health assistant for people living with chronic illness. People talk to it by voice or text about how they're feeling each day, and it draws on the medical history and biometrics they bring in to turn those conversations into symptom patterns and doctor-ready summaries. Its voice and text agents run on Claude. The product took shape during Y Combinator's Spring 2026 batch, when a two-person team had to ship fast.
 
 ## With Claude, Juno:
 
@@ -96,7 +96,7 @@ Give Claude access to your local files and let it complete tasks autonomously. A
 
 Read more
 
-[Read more](/product/cowork)Read more
+[Read more](https://claude.com/product/cowork)Read more
 
 Cowork
 
@@ -180,34 +180,34 @@ Co-founder and CEO, Juno
 
 ## Related stories
 
-[How Vercel built an ecosystem on the open skills standard](/customers/vercel-qa)How Vercel built an ecosystem on the open skills standard
+[Dust enables agents to go deeper at lower cost with Claude](https://claude.com/customers/dust)Dust enables agents to go deeper at lower cost with Claude
+
+Dust enables agents to go deeper at lower cost with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/dust)Customer story
+
+[How Vercel built an ecosystem on the open skills standard](https://claude.com/customers/vercel-qa)How Vercel built an ecosystem on the open skills standard
 
 How Vercel built an ecosystem on the open skills standard
 
 Customer story
 
-[Customer story](/customers/vercel-qa)Customer story
+[Customer story](https://claude.com/customers/vercel-qa)Customer story
 
-[Box builds document creation into its AI agent with Claude](/customers/box)Box builds document creation into its AI agent with Claude
+[Box builds document creation into its AI agent with Claude](https://claude.com/customers/box)Box builds document creation into its AI agent with Claude
 
 Box builds document creation into its AI agent with Claude
 
 Customer story
 
-[Customer story](/customers/box)Customer story
+[Customer story](https://claude.com/customers/box)Customer story
 
-[A conversation with Cursor on building coding agents for professional developers](/customers/cursor-qa)A conversation with Cursor on building coding agents for professional developers
+[A conversation with Cursor on building coding agents for professional developers](https://claude.com/customers/cursor-qa)A conversation with Cursor on building coding agents for professional developers
 
 A conversation with Cursor on building coding agents for professional developers
 
 Customer story
 
-[Customer story](/customers/cursor-qa)Customer story
-
-[Inside Delight.ai’s AI/ML team: Building internal tools with Claude Code](/customers/delightai-qa)Inside Delight.ai’s AI/ML team: Building internal tools with Claude Code
-
-Inside Delight.ai’s AI/ML team: Building internal tools with Claude Code
-
-Customer story
-
-[Customer story](/customers/delightai-qa)Customer story
+[Customer story](https://claude.com/customers/cursor-qa)Customer story

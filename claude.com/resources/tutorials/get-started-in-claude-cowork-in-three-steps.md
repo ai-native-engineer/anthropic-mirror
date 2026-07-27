@@ -31,11 +31,9 @@ The three setup steps before your first task: open the desktop app, run the guid
 
 ## 1. Open Claude Cowork in the desktop app
 
-*‍*[*Install*](https://claude.com/download) *or update the Claude desktop app, sign in, and switch to* ***Cowork*** *in the mode picker at the top of the window.*‍
+Fromthe home page, select ***Cowork***in the mode picker.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f4e0f35eab92254a8e15bd_Screenshot%202026-05-01%20at%2010.20.47%E2%80%AFAM.png)
-
-Claude Cowork runs in [Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop), as an app on your computer rather than a browser tab. The desktop app is what gives Cowork access to your folders, your installed apps, and the connectors your organization has approved.
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4d0b47b45571b270d7db08_Screenshot%202026-07-07%20at%207.20.51%E2%80%AFAM.png)
 
 ## 2. Run **/setup-cowork** for a guided setup
 
@@ -89,40 +87,37 @@ Type `/` for the starting prompts your plugin installed, or browse [Cowork use c
 * [**Customize Cowork**](https://claude.com/resources/tutorials/customize-claude-cowork) — add the skills and plugins for your role.
 * [**Use plugins in Cowork**](https://support.claude.com/en/articles/13837440-use-plugins-in-cowork) — install, update, and see what a plugin adds to a session.
 * [**Use Cowork safely**](https://support.claude.com/en/articles/13364135-use-cowork-safely) — what Cowork can access and how approvals work.
-* [**Send tasks from your phone with Dispatch**](https://claude.com/resources/tutorials/dispatch-in-claude-cowork) — start and follow Cowork tasks while you're away from your desk.
-
-‍
 
 ## Related tutorials
 
-[Tasks to try with @Claude in your workspace](/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tasks to try with @Claude in your workspace
+[Delegating and scheduling tasks in Claude Cowork](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Delegating and scheduling tasks in Claude Cowork
+
+Delegating and scheduling tasks in Claude Cowork
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Tutorial
+
+[Tasks to try with @Claude in your workspace](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tasks to try with @Claude in your workspace
 
 Tasks to try with @Claude in your workspace
 
 Tutorial
 
-[Tutorial](/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tutorial
 
-[Best practices for using @Claude](/resources/tutorials/best-practices-using-claude-tag)Best practices for using @Claude
+[Best practices for using @Claude](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Best practices for using @Claude
 
 Best practices for using @Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/best-practices-using-claude-tag)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Tutorial
 
-[Using Claude Cowork for legal: answer fast questions on past decisions](/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Using Claude Cowork for legal: answer fast questions on past decisions
+[Using Claude Cowork for legal: answer fast questions on past decisions](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Using Claude Cowork for legal: answer fast questions on past decisions
 
 Using Claude Cowork for legal: answer fast questions on past decisions
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial
-
-[Using Claude Cowork for marketing ops: run a weekly review that preps itself](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Tutorial
-
-[Tutorial](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial

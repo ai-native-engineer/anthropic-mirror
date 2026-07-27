@@ -427,10 +427,10 @@ A 30-day cash chart, a ranked overdue list with payment history, a reminder for 
 
 ## Related tutorials
 
-[How to install and use the Claude for Small Business plugin](/resources/tutorials/how-to-install-the-claude-for-small-business-plugin) How to install and use the Claude for Small Business plugin
+[How to install and use the Claude for Small Business plugin](https://claude.com/resources/tutorials/how-to-install-the-claude-for-small-business-plugin) How to install and use the Claude for Small Business plugin
 
 How to install and use the Claude for Small Business plugin
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-install-the-claude-for-small-business-plugin)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-install-the-claude-for-small-business-plugin)Tutorial

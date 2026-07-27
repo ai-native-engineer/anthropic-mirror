@@ -4,15 +4,17 @@
 
 Jun 23, 2026
 
-![Introducing Claude Tag](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F301d5ee481a352435c048a9df7ce172b9617b05f-2400x1260.png&w=3840&q=75)
+![Introducing Claude Tag](https://www-cdn.anthropic.com/images/4zrzovbb/website/301d5ee481a352435c048a9df7ce172b9617b05f-2400x1260.png)
+
+Claude Tag is a new way for teams to work with Claude.
 
 We’re starting on Slack, which Claude can join as a team member. Grant Claude access to selected channels, and connect it to whichever tools, data—and even codebases—you choose. Then, anyone in the channel can tag **@Claude** in, and delegate tasks to it while they focus on other work. Claude builds context by remembering relevant information from the channels it’s in, and can plan out tasks to complete in the future.
 
 We see Claude Tag as the beginning of an evolution of Claude Code: it makes the model even more proactive, and it works better with a full team. Tagging **@Claude** is now one of the main ways we get things done at Anthropic. Today, 65% of our product team’s code is created by our internal version of Claude Tag. The same pattern is now spreading well beyond engineering—we’re tagging Claude to chase down product metrics and data, work through support tickets, or even help find the root cause of tricky bugs.
 
-![Video thumbnail](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F1cbbe8ed6d2b55d5f27deaf44216f7e2b8ed29b0-1920x1080.png&w=3840&q=75)
+![Video thumbnail](https://cdn.sanity.io/images/4zrzovbb/website/1cbbe8ed6d2b55d5f27deaf44216f7e2b8ed29b0-1920x1080.png)
 
-We’re launching Claude Tag on Slack, since it’s a natural home for collaborative work between teams and AI, and where much of Anthropic’s day-to-day work already happens. It’s available today in beta for Claude Enterprise and Team customers. Our goal is to expand where it’s available more widely, so that teams can tag @Claude in the many other places they work.
+We’re launching [Claude Tag on Slack](https://www.claude.com/product/tag), since it’s a natural home for collaborative work between teams and AI, and where much of Anthropic’s day-to-day work already happens. It’s available today in beta for Claude Enterprise and Team customers. Our goal is to expand where it’s available more widely, so that teams can tag @Claude in the many other places they work.
 
 ## Working with @Claude
 
@@ -38,7 +40,7 @@ To get up and running, system administrators specify which tools and information
 
 Once permissions are set, everyone can begin tagging right away. Administrators can set limits for token spend (both for the organization and for individual channels), and can view a log of everything that @Claude has done, along with who requested each task.
 
-If you’re a Claude Enterprise or Team customer, you have access to Claude Tag in beta starting today. To get started, [visit here](http://claude.ai/redirect/website.v1.84055890-b4d9-4a24-ae70-9a41a0e2cffc/admin-settings/claude-in-slack) and follow these four steps:
+If you’re a Claude Enterprise or Team customer, you have access to Claude Tag in beta starting today. To get started, [visit here](http://claude.ai/redirect/website.v1.46e37ad9-7d83-4144-87f6-21b876170a88/admin-settings/claude-in-slack) and follow these four steps:
 
 1. Pair Claude Tag with your Slack workspace
 2. Give Claude access to your tools
@@ -48,7 +50,3 @@ If you’re a Claude Enterprise or Team customer, you have access to Claude Tag 
 Claude Tag replaces the existing [Claude in Slack](https://support.claude.com/en/articles/11506255-get-started-with-claude-in-slack) app. To migrate, administrators can opt in within 30 days. We’re issuing an introductory [launch credit](https://support.claude.com/en/articles/15575654) to eligible Enterprise and Team organizations so that the whole company can try it out.
 
 Claude Tag works with Opus 4.8. You can [read our docs](https://www.claude.com/docs/claude-tag/overview) and [product page](https://www.claude.com/product/tag).
-
-### Results from the first Anthropic Public Record
-
-[Read more](/news/anthropic-public-record)

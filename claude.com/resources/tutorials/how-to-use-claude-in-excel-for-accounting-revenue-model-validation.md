@@ -117,34 +117,34 @@ This tutorial shows one use case: validating an ASC 606 revenue model with recon
 
 ## Related tutorials
 
-[Install financial services plugins for Claude Cowork](/resources/tutorials/install-financial-services-plugins-for-cowork)Install financial services plugins for Claude Cowork
+[Install financial services plugins for Claude Cowork](https://claude.com/resources/tutorials/install-financial-services-plugins-for-cowork)Install financial services plugins for Claude Cowork
 
 Install financial services plugins for Claude Cowork
 
 Tutorial
 
-[Tutorial](/resources/tutorials/install-financial-services-plugins-for-cowork)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/install-financial-services-plugins-for-cowork)Tutorial
 
-[How to build a plugin from scratch in Claude Cowork](/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)How to build a plugin from scratch in Claude Cowork
+[How to build a plugin from scratch in Claude Cowork](https://claude.com/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)How to build a plugin from scratch in Claude Cowork
 
 How to build a plugin from scratch in Claude Cowork
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)Tutorial
 
-[Getting started with Claude in Excel](/resources/tutorials/getting-started-with-claude-in-excel)Getting started with Claude in Excel
+[Getting started with Claude in Excel](https://claude.com/resources/tutorials/getting-started-with-claude-in-excel)Getting started with Claude in Excel
 
 Getting started with Claude in Excel
 
 Tutorial
 
-[Tutorial](/resources/tutorials/getting-started-with-claude-in-excel)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/getting-started-with-claude-in-excel)Tutorial
 
-[How to use Claude in Excel for HR: Headcount planning](/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)How to use Claude in Excel for HR: Headcount planning
+[How to use Claude in Excel for HR: Headcount planning](https://claude.com/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)How to use Claude in Excel for HR: Headcount planning
 
 How to use Claude in Excel for HR: Headcount planning
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)Tutorial

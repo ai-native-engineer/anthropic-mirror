@@ -4,7 +4,7 @@
 
 Mar 25, 2024
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe58c41bc9d1b73af36f0ede659256cadfee682b0-2880x1621.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/e58c41bc9d1b73af36f0ede659256cadfee682b0-2880x1621.jpg)
 
 We believe that the AI sector needs effective third-party testing for frontier AI systems. Developing a testing regime and associated policy interventions based on the insights of industry, government, and academia is the best way to avoid societal harm—whether deliberate or accidental—from AI systems.
 

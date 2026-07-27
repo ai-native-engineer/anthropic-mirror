@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0f312e210005b48a1fb9ea_logo_satispay-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0f312e210005b48a1fb9ea_logo_satispay-light-mode.png)
 
@@ -62,7 +62,7 @@ Anthropic's agentic coding tool. Claude Code understands your codebase, edits fi
 
 Read more
 
-[Read more](/product/claude-code)Read more
+[Read more](https://claude.com/product/claude-code)Read more
 
 Claude Code
 
@@ -166,34 +166,34 @@ Chief Technology Officer, Satispay
 
 ## Related stories
 
-[OffDeal powers every stage of M&A advisory with one Claude-based agent](/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
+[OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
 
 OffDeal powers every stage of M&A advisory with one Claude-based agent
 
 Customer story
 
-[Customer story](/customers/offdeal)Customer story
+[Customer story](https://claude.com/customers/offdeal)Customer story
 
-[Money Forward builds an AI-native engineering organization with Claude Code](/customers/money-forward)Money Forward builds an AI-native engineering organization with Claude Code
+[Money Forward builds an AI-native engineering organization with Claude Code](https://claude.com/customers/money-forward)Money Forward builds an AI-native engineering organization with Claude Code
 
 Money Forward builds an AI-native engineering organization with Claude Code
 
 Customer story
 
-[Customer story](/customers/money-forward)Customer story
+[Customer story](https://claude.com/customers/money-forward)Customer story
 
-[Nevis accelerates advisor productivity with Claude](/customers/nevis)Nevis accelerates advisor productivity with Claude
+[Nevis accelerates advisor productivity with Claude](https://claude.com/customers/nevis)Nevis accelerates advisor productivity with Claude
 
 Nevis accelerates advisor productivity with Claude
 
 Customer story
 
-[Customer story](/customers/nevis)Customer story
+[Customer story](https://claude.com/customers/nevis)Customer story
 
-[How Parcha built a universal customer diligence agent in two weeks with Claude Agent SDK](/customers/parcha)How Parcha built a universal customer diligence agent in two weeks with Claude Agent SDK
+[How Parcha built a universal customer diligence agent in two weeks with Claude Agent SDK](https://claude.com/customers/parcha)How Parcha built a universal customer diligence agent in two weeks with Claude Agent SDK
 
 How Parcha built a universal customer diligence agent in two weeks with Claude Agent SDK
 
 Customer story
 
-[Customer story](/customers/parcha)Customer story
+[Customer story](https://claude.com/customers/parcha)Customer story

@@ -2,6 +2,8 @@
 
 # What is the External Researcher Access Program?
 
+March 16, 2026
+
 Our External Researcher Access Program is specifically designed to support and lower the barrier to entry for researchers working on AI safety and alignment topics that we consider high priority by providing free API credits.
 
 If you are an alignment researcher and are interested in receiving free API credits for AI safety and alignment research purposes, you might qualify for our External Researcher Access Program.
@@ -27,7 +29,7 @@ Please complete the following application form with details about your team and 
 2. If successful, we will apply $1000 in API credits to the account. For rare special cases, we may approve a higher quantity of credit.
 3. **Please note that given the substantial number of applications we receive (sometimes thousands in a single week), we regret that we cannot provide individual responses to unapproved submissions.** In addition, we reserve the right to reject submissions for any reason and will not be able to provide explanations for each individual applicant. However, we appreciate the time and effort put into each submission and will carefully review all entries. Thank you for your understanding.
 
-If you are having an issue that requires a response urgently (e.g., you’ve suddenly run out of your credits before a major conference), please email [[email protected]](mailto:researcheraccess@anthropic.com). However, please note that we will not be able to respond if your question is already addressed by the following FAQ.
+If you are having an issue that requires a response urgently (e.g., you’ve suddenly run out of your credits before a major conference), please email [[email protected]](/cdn-cgi/l/email-protection#ee9c8b9d8b8f9c8d868b9c8f8d8d8b9d9dae8f809a869c819e878dc08d8183). However, please note that we will not be able to respond if your question is already addressed by the following FAQ.
 
 ## FAQ
 
@@ -83,4 +85,8 @@ Thank you for your interest in our Researcher Access Program and for taking the 
 
 ​Thank you for your understanding. We're committed to supporting the AI research community to the best of our ability while maintaining a sustainable process.
 
-[Anthropic's AI for Science Program](https://support.claude.com/en/articles/11199177-anthropic-s-ai-for-science-program)[Model Safety Bug Bounty Program](https://support.claude.com/en/articles/12119250-model-safety-bug-bounty-program)[Covered Models](https://support.claude.com/en/articles/15425695-covered-models)[Data retention practices for Mythos-class models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-mythos-class-models)[Covered Models under a Business Associate Agreement (BAA)](https://support.claude.com/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa)
+* [Anthropic's AI for Science Program](https://support.claude.com/en/articles/11199177-anthropic-s-ai-for-science-program)
+* [Model Safety Bug Bounty Program](https://support.claude.com/en/articles/12119250-model-safety-bug-bounty-program)
+* [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
+* [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
+* [Covered Models under a Business Associate Agreement (BAA)](https://support.claude.com/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa)

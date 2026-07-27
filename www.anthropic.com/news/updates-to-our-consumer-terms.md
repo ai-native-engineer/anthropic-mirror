@@ -14,11 +14,11 @@ By participating, you’ll help us improve model safety, making our systems for 
 
 You’re always in control of this setting and whether we use your data in this way. If you’re a new user, you can select your preference in the signup process. Existing users will see the choice in a pop-up window like the one below.
 
-![App screen showing the modal presented to users](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0d48d7f71fe2b5ccc537b48394313a91636bb329-3840x2160.png&w=3840&q=75)
+![App screen showing the modal presented to users](https://www-cdn.anthropic.com/images/4zrzovbb/website/0d48d7f71fe2b5ccc537b48394313a91636bb329-3840x2160.png)
 
 In-app notification for existing Claude app users
 
-Starting today, we’re rolling out notifications so you can review these updates and manage your settings. If you’re an existing user, you have until October 8, 2025 to accept the updated Consumer Terms and make your decision. If you choose to accept the new policies now, they will go into effect immediately. These updates will apply only to new or resumed chats and coding sessions. After October 8, you’ll need to make your selection on the model training setting in order to continue using Claude. You can change your choice in your [Privacy Settings](https://claude.ai/redirect/website.v1.27bda13e-87f6-45cc-b8d2-4d85ad734b61/settings/data-privacy-controls) at any time.
+Starting today, we’re rolling out notifications so you can review these updates and manage your settings. If you’re an existing user, you have until October 8, 2025 to accept the updated Consumer Terms and make your decision. If you choose to accept the new policies now, they will go into effect immediately. These updates will apply only to new or resumed chats and coding sessions. After October 8, you’ll need to make your selection on the model training setting in order to continue using Claude. You can change your choice in your [Privacy Settings](https://claude.ai/redirect/website.v1.e57b09a4-e6c6-42c5-837d-89c7244dda3b/settings/data-privacy-controls) at any time.
 
 ## Extended data retention
 

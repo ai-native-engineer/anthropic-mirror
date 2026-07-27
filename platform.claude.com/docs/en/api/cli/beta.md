@@ -1344,7 +1344,7 @@ Send a structured list of input messages with text and/or image content, and the
 
 The Messages API can be used for either single queries or stateless multi-turn conversations.
 
-Learn more about the Messages API in our [user guide](https://docs.claude.com/en/docs/initial-setup)
+Learn more about the Messages API in our [user guide](https://platform.claude.com/docs/en/get-started)
 
 ### Parameters
 
@@ -1354,9 +1354,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Note that our models may stop _before_ reaching this maximum. This parameter only specifies the absolute maximum number of tokens to generate.
 
-  Set to `0` to populate the [prompt cache](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
+  Set to `0` to populate the [prompt cache](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
 
-  Different models have different maximum values for this parameter.  See [models](https://docs.claude.com/en/docs/models-overview) for details.
+  Different models have different maximum values for this parameter.  See [models](https://platform.claude.com/docs/en/about-claude/models/overview) for details.
 
 - `--message: array of BetaMessageParam`
 
@@ -1403,13 +1403,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
   ```
 
-  See [input examples](https://docs.claude.com/en/api/messages-examples).
+  See [input examples](https://platform.claude.com/docs/en/build-with-claude/working-with-messages).
 
-  Note that if you want to include a [system prompt](https://docs.claude.com/en/docs/system-prompts), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
+  Note that if you want to include a [system prompt](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
 
   There is a limit of 100,000 messages in a single request.
 
-- `--model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+- `--model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
   Body param: The model that will complete your prompt.
 
@@ -1434,7 +1434,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   Body param: Request-level diagnostics. Currently carries the previous response
   id for prompt-cache divergence reporting.
 
-- `--fallback-credit-token: optional string`
+- `--fallback-credit-token: optional string or BetaFallbackCreditTokenParam`
 
   Body param: The `fallback_credit_token` from a prior refusal's `stop_details`.
 
@@ -1457,9 +1457,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   When the appended-assistant form is used on a model that otherwise disallows
   assistant-turn prefill, this token also authorizes that one prefill.
 
-- `--fallback: optional array of BetaFallbackParam`
+- `--fallbacks: optional array of BetaFallbackParam or "default"`
 
-  Body param: Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on.
+  Body param: Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on. The string "default" requests the requested model's server-defined default fallback configuration.
 
 - `--inference-geo: optional string`
 
@@ -1487,11 +1487,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Body param: Determines whether to use priority capacity (if available) or standard capacity for this request.
 
-  Anthropic offers different levels of service for your API requests. See [service-tiers](https://docs.claude.com/en/api/service-tiers) for details.
+  Anthropic offers different levels of service for your API requests. See [service-tiers](https://platform.claude.com/docs/en/api/service-tiers) for details.
 
 - `--speed: optional "standard" or "fast"`
 
-  Body param: The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
+  Body param: Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
 - `--stop-sequence: optional array of string`
 
@@ -1505,7 +1505,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Body param: System prompt.
 
-  A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://docs.claude.com/en/docs/system-prompts).
+  A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).
 
 - `--temperature: optional number`
 
@@ -1521,7 +1521,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
-  See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+  See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
 - `--tool-choice: optional BetaToolChoiceAuto or BetaToolChoiceAny or BetaToolChoiceTool or BetaToolChoiceNone`
 
@@ -1533,7 +1533,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   If you include `tools` in your API request, the model may return `tool_use` content blocks that represent the model's use of those tools. You can then run those tools using the tool input generated by the model and then optionally return results back to the model using `tool_result` content blocks.
 
-  There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
+  There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool)).
 
   Each tool definition includes:
 
@@ -1589,7 +1589,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
 
-  See our [guide](https://docs.claude.com/en/docs/tool-use) for more details.
+  See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
 - `--top-k: optional number`
 
@@ -1607,13 +1607,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Recommended for advanced use cases only.
 
-- `--user-profile-id: optional string`
-
-  Body param: The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization.
-
 - `--beta: optional array of AnthropicBeta`
 
   Header param: Optional header to specify the beta version(s) you want to use.
+
+- `--user-profile-id: optional string`
+
+  Header param: The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
 ### Returns
 
@@ -2360,11 +2360,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
         The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -2374,13 +2378,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
             Most capable model for cybersecurity and biology research
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-mythos-preview"`
 
@@ -2388,7 +2396,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           - `"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -2404,11 +2412,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -2420,17 +2428,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           - `"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
       - `to: object { model }`
 
         The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
@@ -2440,17 +2448,29 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
         What caused the `from` model to hand over at this hop.
 
-        - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+        - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
           The policy category that triggered a refusal.
 
           - `"cyber"`
 
+            The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
           - `"bio"`
+
+            The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
           - `"frontier_llm"`
 
+            The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
           - `"reasoning_extraction"`
+
+            The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+          - `"general_harms"`
+
+            The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
         - `type: "refusal"`
 
@@ -2543,11 +2563,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
         - `type: "unavailable"`
 
-  - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+  - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-sonnet-5"`
+
+      High-performance model for coding and agents
 
     - `"claude-fable-5"`
 
@@ -2557,13 +2581,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
       Most capable model for cybersecurity and biology research
 
+    - `"claude-opus-5"`
+
+      Powerful intelligence for long-running agents and coding
+
     - `"claude-opus-4-8"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-7"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-mythos-preview"`
 
@@ -2571,7 +2599,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     - `"claude-opus-4-6"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-6"`
 
@@ -2587,11 +2615,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     - `"claude-opus-4-5"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-5-20251101"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-5"`
 
@@ -2603,11 +2631,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     - `"claude-opus-4-1"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-1-20250805"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
   - `role: "assistant"`
 
@@ -2619,17 +2647,29 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     Structured information about a refusal.
 
-    - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+    - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
       The policy category that triggered a refusal.
 
       - `"cyber"`
 
+        The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
       - `"bio"`
+
+        The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
       - `"frontier_llm"`
 
+        The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
       - `"reasoning_extraction"`
+
+        The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+      - `"general_harms"`
+
+        The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
     - `explanation: string`
 
@@ -2700,6 +2740,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     * `"tool_use"`: the model invoked one or more tools
     * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
     * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+    * `"model_context_window_exceeded"`: we exceeded the model's context window
 
     In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -2731,7 +2772,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     For Messages, this is always `"message"`.
 
-  - `usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 8 more }`
+  - `usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 9 more }`
 
     Billing and rate-limit usage.
 
@@ -2762,6 +2803,74 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `cache_read_input_tokens: number`
 
       The number of input tokens read from the cache.
+
+    - `fallback_credit: object { status }`
+
+      Outcome of the `fallback_credit_token` presented on this request.
+
+      - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+        Whether the fallback-credit reprice was applied to this response's billing.
+
+        A union discriminated on `type`. `redeemed`: the retry is billed as if
+        the conversation had been on the retry model all along — including when the
+        resulting shift is zero because there was nothing to move. `not_applied`:
+        no reprice was applied; the arm's `reason` says why.
+
+        - `beta_fallback_credit_redeemed: object { type }`
+
+          The reprice was applied: the retry is billed as if the conversation
+          had been on the retry model all along.
+
+          - `type: "redeemed"`
+
+        - `beta_fallback_credit_not_applied: object { reason, type, remove_to_redeem }`
+
+          No reprice was applied; `reason` says why.
+
+          - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+            Why the reprice was not applied.
+
+            A closed enum; additions to the redemption-check vocabulary arrive as
+            deliberate schema updates.
+
+            - `"body_mismatch"`
+
+            - `"continuation_excluded"`
+
+            - `"continuation_only"`
+
+            - `"expired"`
+
+            - `"invalid_target_model"`
+
+            - `"not_enabled"`
+
+            - `"reprice_unavailable"`
+
+            - `"temporarily_unavailable"`
+
+            - `"variant_fields_present"`
+
+            - `"wrong_organization"`
+
+            - `"wrong_platform"`
+
+            - `"wrong_workspace"`
+
+          - `type: "not_applied"`
+
+          - `remove_to_redeem: optional array of string`
+
+            Request fields to remove before retrying, so the retry can redeem this
+            token.
+
+            Present exactly when `reason` is `variant_fields_present` — never null,
+            never an empty array; absent otherwise. Fields are named only from your own request, and only after
+            the sealed variant hash matched. A served best-effort retry has already
+            been billed at normal price; nothing redeems retroactively, but a corrected
+            re-send inside the token's five-minute window can still redeem.
 
     - `inference_geo: string`
 
@@ -2809,11 +2918,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           The number of input tokens which were used.
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -2823,13 +2936,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
             Most capable model for cybersecurity and biology research
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-mythos-preview"`
 
@@ -2837,7 +2954,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           - `"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -2853,11 +2970,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -2869,11 +2986,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           - `"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
         - `output_tokens: number`
 
@@ -2947,11 +3064,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           The number of input tokens which were used.
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -2961,13 +3082,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
             Most capable model for cybersecurity and biology research
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-mythos-preview"`
 
@@ -2975,7 +3100,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           - `"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -2991,11 +3116,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -3007,11 +3132,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           - `"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
         - `output_tokens: number`
 
@@ -3054,11 +3179,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           The number of input tokens which were used.
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -3068,13 +3197,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
             Most capable model for cybersecurity and biology research
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-mythos-preview"`
 
@@ -3082,7 +3215,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           - `"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -3098,11 +3231,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -3114,11 +3247,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           - `"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
         - `output_tokens: number`
 
@@ -3176,7 +3309,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     - `speed: "standard" or "fast"`
 
-      The inference speed mode used for this request.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `"standard"`
 
@@ -3198,7 +3331,7 @@ ant beta:messages create \
 {
   "id": "msg_013Zva2CMHLNnXjNJJKqJ2EF",
   "container": {
-    "id": "id",
+    "id": "container_011CpZohnwH4vuy7gazohgSP",
     "expires_at": "2019-12-27T18:11:19.117Z",
     "skills": [
       {
@@ -3212,11 +3345,11 @@ ant beta:messages create \
     {
       "citations": [
         {
-          "cited_text": "cited_text",
+          "cited_text": "The grass is green. The sky is blue.",
           "document_index": 0,
-          "document_title": "document_title",
+          "document_title": "My Document",
           "end_char_index": 0,
-          "file_id": "file_id",
+          "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
           "start_char_index": 0,
           "type": "char_location"
         }
@@ -3244,10 +3377,10 @@ ant beta:messages create \
   "role": "assistant",
   "stop_details": {
     "category": "cyber",
-    "explanation": "explanation",
-    "fallback_credit_token": "fallback_credit_token",
+    "explanation": "This request was declined because it conflicts with Anthropic's Usage Policy.",
+    "fallback_credit_token": "QW50aHJvcGljL0NsYXVkZQ==",
     "fallback_has_prefill_claim": true,
-    "recommended_model": "recommended_model",
+    "recommended_model": "claude-sonnet-4-6",
     "type": "refusal"
   },
   "stop_reason": "end_turn",
@@ -3260,7 +3393,12 @@ ant beta:messages create \
     },
     "cache_creation_input_tokens": 2051,
     "cache_read_input_tokens": 2051,
-    "inference_geo": "inference_geo",
+    "fallback_credit": {
+      "status": {
+        "type": "redeemed"
+      }
+    },
+    "inference_geo": "global",
     "input_tokens": 2095,
     "iterations": [
       {
@@ -3271,7 +3409,7 @@ ant beta:messages create \
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-fable-5",
+        "model": "claude-sonnet-5",
         "output_tokens": 0,
         "type": "message"
       }
@@ -3300,7 +3438,7 @@ Count the number of tokens in a Message.
 
 The Token Count API can be used to count the number of tokens in a Message, including tools, images, and documents, without creating it.
 
-Learn more about token counting in our [user guide](https://docs.claude.com/en/docs/build-with-claude/token-counting)
+Learn more about token counting in our [user guide](https://platform.claude.com/docs/en/build-with-claude/token-counting)
 
 ### Parameters
 
@@ -3349,13 +3487,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
   {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
   ```
 
-  See [input examples](https://docs.claude.com/en/api/messages-examples).
+  See [input examples](https://platform.claude.com/docs/en/build-with-claude/working-with-messages).
 
-  Note that if you want to include a [system prompt](https://docs.claude.com/en/docs/system-prompts), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
+  Note that if you want to include a [system prompt](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
 
   There is a limit of 100,000 messages in a single request.
 
-- `--model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+- `--model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
   Body param: The model that will complete your prompt.
 
@@ -3387,13 +3525,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
 - `--speed: optional "standard" or "fast"`
 
-  Body param: The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
+  Body param: Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
 - `--system: optional string or array of BetaTextBlockParam`
 
   Body param: System prompt.
 
-  A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://docs.claude.com/en/docs/system-prompts).
+  A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).
 
 - `--thinking: optional BetaThinkingConfigEnabled or BetaThinkingConfigDisabled or BetaThinkingConfigAdaptive`
 
@@ -3401,19 +3539,19 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
-  See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+  See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
 - `--tool-choice: optional BetaToolChoiceAuto or BetaToolChoiceAny or BetaToolChoiceTool or BetaToolChoiceNone`
 
   Body param: How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
 
-- `--tool: optional array of BetaTool or BetaToolBash20241022 or BetaToolBash20250124 or 21 more`
+- `--tool: optional array of BetaTool or BetaToolBash20241022 or BetaToolBash20250124 or 23 more`
 
   Body param: Definitions of tools that the model may use.
 
   If you include `tools` in your API request, the model may return `tool_use` content blocks that represent the model's use of those tools. You can then run those tools using the tool input generated by the model and then optionally return results back to the model using `tool_result` content blocks.
 
-  There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
+  There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool)).
 
   Each tool definition includes:
 
@@ -3469,11 +3607,15 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
 
-  See our [guide](https://docs.claude.com/en/docs/tool-use) for more details.
+  See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
 - `--beta: optional array of AnthropicBeta`
 
   Header param: Optional header to specify the beta version(s) you want to use.
+
+- `--user-profile-id: optional string`
+
+  Header param: The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
 ### Returns
 
@@ -3543,11 +3685,15 @@ ant beta:messages count-tokens \
 
     The number of input tokens which were used.
 
-  - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+  - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-sonnet-5"`
+
+      High-performance model for coding and agents
 
     - `"claude-fable-5"`
 
@@ -3557,13 +3703,17 @@ ant beta:messages count-tokens \
 
       Most capable model for cybersecurity and biology research
 
+    - `"claude-opus-5"`
+
+      Powerful intelligence for long-running agents and coding
+
     - `"claude-opus-4-8"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-7"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-mythos-preview"`
 
@@ -3571,7 +3721,7 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-6"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-6"`
 
@@ -3587,11 +3737,11 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-5"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-5-20251101"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-5"`
 
@@ -3603,11 +3753,11 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-1"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-1-20250805"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
   - `output_tokens: number`
 
@@ -3669,11 +3819,15 @@ ant beta:messages count-tokens \
 
 - `beta_advisor_tool_20260301: object { model, name, type, 7 more }`
 
-  - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+  - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-sonnet-5"`
+
+      High-performance model for coding and agents
 
     - `"claude-fable-5"`
 
@@ -3683,13 +3837,17 @@ ant beta:messages count-tokens \
 
       Most capable model for cybersecurity and biology research
 
+    - `"claude-opus-5"`
+
+      Powerful intelligence for long-running agents and coding
+
     - `"claude-opus-4-8"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-7"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-mythos-preview"`
 
@@ -3697,7 +3855,7 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-6"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-6"`
 
@@ -3713,11 +3871,11 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-5"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-5-20251101"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-5"`
 
@@ -3729,11 +3887,11 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-1"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-1-20250805"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
   - `name: "advisor"`
 
@@ -3768,7 +3926,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -3789,7 +3947,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
   - `defer_loading: optional boolean`
 
@@ -3922,7 +4080,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -4157,7 +4315,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -4214,7 +4372,7 @@ ant beta:messages count-tokens \
     - `5m`: 5 minutes
     - `1h`: 1 hour
 
-    Defaults to `5m`.
+    Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `"5m"`
 
@@ -4811,7 +4969,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -4862,7 +5020,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -4915,7 +5073,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -4968,7 +5126,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -5171,7 +5329,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -5348,7 +5506,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -5512,7 +5670,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -6198,11 +6356,15 @@ ant beta:messages count-tokens \
 
       The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-      - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+      - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
 
         - `"claude-fable-5"`
 
@@ -6212,13 +6374,17 @@ ant beta:messages count-tokens \
 
           Most capable model for cybersecurity and biology research
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-mythos-preview"`
 
@@ -6226,7 +6392,7 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-6"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -6242,11 +6408,11 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -6258,17 +6424,17 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-1"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-1-20250805"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
     - `to: object { model }`
 
       The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-      - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+      - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
         The model that will complete your prompt.
 
@@ -6278,17 +6444,29 @@ ant beta:messages count-tokens \
 
       What caused the `from` model to hand over at this hop.
 
-      - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+      - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
         The policy category that triggered a refusal.
 
         - `"cyber"`
 
+          The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
         - `"bio"`
+
+          The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
         - `"frontier_llm"`
 
+          The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
         - `"reasoning_extraction"`
+
+          The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+        - `"general_harms"`
+
+          The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
       - `type: "refusal"`
 
@@ -6296,7 +6474,7 @@ ant beta:messages count-tokens \
 
 ### Beta Content Block Param
 
-- `beta_content_block_param: BetaTextBlockParam or BetaImageBlockParam or BetaRequestDocumentBlock or 19 more`
+- `beta_content_block_param: BetaTextBlockParam or BetaImageBlockParam or BetaRequestDocumentBlock or 21 more`
 
   Regular text content.
 
@@ -6321,7 +6499,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
         - `"5m"`
 
@@ -6472,7 +6650,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
   - `beta_request_document_block: object { source, type, cache_control, 3 more }`
 
@@ -6555,7 +6733,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `citations: optional object { enabled }`
 
@@ -6600,7 +6778,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `citations: optional object { enabled }`
 
@@ -6645,7 +6823,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
@@ -6692,7 +6870,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `content: optional array of BetaTextBlockParam or BetaImageBlockParam or BetaSearchResultBlockParam or 2 more`
 
@@ -6773,7 +6951,7 @@ ant beta:messages count-tokens \
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
-            Defaults to `5m`.
+            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `is_error: optional boolean`
 
@@ -6818,7 +6996,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
@@ -6887,7 +7065,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
@@ -6978,7 +7156,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
@@ -7055,7 +7233,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
   - `beta_code_execution_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
 
@@ -7130,7 +7308,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
   - `beta_bash_code_execution_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
 
@@ -7187,7 +7365,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
   - `beta_text_editor_code_execution_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
 
@@ -7270,7 +7448,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
   - `beta_tool_search_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
 
@@ -7325,7 +7503,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
   - `beta_mcp_tool_use_block_param: object { id, input, name, 3 more }`
 
@@ -7356,7 +7534,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
   - `beta_request_mcp_tool_result_block_param: object { tool_use_id, type, cache_control, 2 more }`
 
@@ -7379,7 +7557,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `content: optional string or array of BetaTextBlockParam`
 
@@ -7423,7 +7601,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
   - `beta_compaction_block_param: object { type, cache_control, content, encrypted_content }`
 
@@ -7452,7 +7630,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `content: optional string`
 
@@ -7469,19 +7647,125 @@ ant beta:messages count-tokens \
     Use this block to provide or update system-level instructions at a specific
     point in the conversation, rather than only via the top-level `system` parameter.
 
-    - `content: array of BetaTextBlockParam`
+    - `content: array of BetaTextBlockParam or BetaRequestToolAdditionBlock or BetaRequestToolRemovalBlock`
 
       System instruction text blocks.
 
-      - `text: string`
+      - `beta_text_block_param: object { text, type, cache_control, citations }`
 
-      - `type: "text"`
+      - `beta_request_tool_addition_block: object { tool, type, cache_control }`
 
-      - `cache_control: optional object { type, ttl }`
+        Mid-conversation directive to surface a declared tool.
 
-        Create a cache control breakpoint at this content block.
+        `tool` references a tool (or MCP toolset) by name from the request's
+        `tools`; it is offered to the model from this point in the
+        conversation onward.
 
-      - `citations: optional array of BetaTextCitationParam`
+        - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
+
+          Reference to a single tool the caller declared directly in
+          `tools[]`. Does not accept the composed `{server}_{name}` form the
+          server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+          `mcp_toolset_reference` for those.
+
+          - `beta_tool_change_tool_reference: object { name, type }`
+
+            Reference to a single tool the caller declared directly in
+            `tools[]`. Does not accept the composed `{server}_{name}` form the
+            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+            `mcp_toolset_reference` for those.
+
+            - `name: string`
+
+            - `type: "tool_reference"`
+
+          - `beta_tool_change_mcp_tool_reference: object { name, server_name, type }`
+
+            Reference to a single MCP tool by its server and remote name — the
+            same `server_name`/`name` pair `mcp_tool_use` carries.
+
+            - `name: string`
+
+            - `server_name: string`
+
+            - `type: "mcp_tool_reference"`
+
+          - `beta_tool_change_mcp_toolset_reference: object { server_name, type }`
+
+            Reference to every tool in the named MCP server's toolset.
+
+            - `server_name: string`
+
+            - `type: "mcp_toolset_reference"`
+
+        - `type: "tool_addition"`
+
+        - `cache_control: optional object { type, ttl }`
+
+          Create a cache control breakpoint at this content block.
+
+          - `type: "ephemeral"`
+
+          - `ttl: optional "5m" or "1h"`
+
+            The time-to-live for the cache control breakpoint.
+
+            This may be one the following values:
+
+            - `5m`: 5 minutes
+            - `1h`: 1 hour
+
+            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `beta_request_tool_removal_block: object { tool, type, cache_control }`
+
+        Mid-conversation directive to withdraw a tool.
+
+        `tool` references a tool (or MCP toolset) by name from the request's
+        `tools`; it is no longer offered to the model from this point in the
+        conversation onward.
+
+        - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
+
+          Reference to a single tool the caller declared directly in
+          `tools[]`. Does not accept the composed `{server}_{name}` form the
+          server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+          `mcp_toolset_reference` for those.
+
+          - `beta_tool_change_tool_reference: object { name, type }`
+
+            Reference to a single tool the caller declared directly in
+            `tools[]`. Does not accept the composed `{server}_{name}` form the
+            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+            `mcp_toolset_reference` for those.
+
+          - `beta_tool_change_mcp_tool_reference: object { name, server_name, type }`
+
+            Reference to a single MCP tool by its server and remote name — the
+            same `server_name`/`name` pair `mcp_tool_use` carries.
+
+          - `beta_tool_change_mcp_toolset_reference: object { server_name, type }`
+
+            Reference to every tool in the named MCP server's toolset.
+
+        - `type: "tool_removal"`
+
+        - `cache_control: optional object { type, ttl }`
+
+          Create a cache control breakpoint at this content block.
+
+          - `type: "ephemeral"`
+
+          - `ttl: optional "5m" or "1h"`
+
+            The time-to-live for the cache control breakpoint.
+
+            This may be one the following values:
+
+            - `5m`: 5 minutes
+            - `1h`: 1 hour
+
+            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `type: "mid_conv_system"`
 
@@ -7500,7 +7784,49 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+  - `beta_request_tool_addition_block: object { tool, type, cache_control }`
+
+    Mid-conversation directive to surface a declared tool.
+
+    `tool` references a tool (or MCP toolset) by name from the request's
+    `tools`; it is offered to the model from this point in the
+    conversation onward.
+
+    - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
+
+      Reference to a single tool the caller declared directly in
+      `tools[]`. Does not accept the composed `{server}_{name}` form the
+      server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+      `mcp_toolset_reference` for those.
+
+    - `type: "tool_addition"`
+
+    - `cache_control: optional object { type, ttl }`
+
+      Create a cache control breakpoint at this content block.
+
+  - `beta_request_tool_removal_block: object { tool, type, cache_control }`
+
+    Mid-conversation directive to withdraw a tool.
+
+    `tool` references a tool (or MCP toolset) by name from the request's
+    `tools`; it is no longer offered to the model from this point in the
+    conversation onward.
+
+    - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
+
+      Reference to a single tool the caller declared directly in
+      `tools[]`. Does not accept the composed `{server}_{name}` form the
+      server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+      `mcp_toolset_reference` for those.
+
+    - `type: "tool_removal"`
+
+    - `cache_control: optional object { type, ttl }`
+
+      Create a cache control breakpoint at this content block.
 
   - `beta_fallback_block_param: object { from, to, type, trigger }`
 
@@ -7522,11 +7848,15 @@ ant beta:messages count-tokens \
 
       Identifies one hop of a fallback transition.
 
-      - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+      - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
 
         - `"claude-fable-5"`
 
@@ -7536,13 +7866,17 @@ ant beta:messages count-tokens \
 
           Most capable model for cybersecurity and biology research
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-mythos-preview"`
 
@@ -7550,7 +7884,7 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-6"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -7566,11 +7900,11 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -7582,17 +7916,17 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-1"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-1-20250805"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
     - `to: object { model }`
 
       Identifies one hop of a fallback transition.
 
-      - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+      - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
         The model that will complete your prompt.
 
@@ -7635,7 +7969,7 @@ ant beta:messages count-tokens \
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
-            Defaults to `5m`.
+            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
             - `"5m"`
 
@@ -7786,7 +8120,7 @@ ant beta:messages count-tokens \
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
-            Defaults to `5m`.
+            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
   - `type: "content"`
 
@@ -7815,7 +8149,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
         - `"5m"`
 
@@ -7966,7 +8300,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
 ### Beta Context Management Config
 
@@ -8274,11 +8608,15 @@ ant beta:messages count-tokens \
 
     The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-    - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+    - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
 
       - `"claude-fable-5"`
 
@@ -8288,13 +8626,17 @@ ant beta:messages count-tokens \
 
         Most capable model for cybersecurity and biology research
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-mythos-preview"`
 
@@ -8302,7 +8644,7 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-6"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -8318,11 +8660,11 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -8334,17 +8676,17 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-1"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-1-20250805"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
   - `to: object { model }`
 
     The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-    - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+    - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
       The model that will complete your prompt.
 
@@ -8354,17 +8696,29 @@ ant beta:messages count-tokens \
 
     What caused the `from` model to hand over at this hop.
 
-    - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+    - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
       The policy category that triggered a refusal.
 
       - `"cyber"`
 
+        The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
       - `"bio"`
+
+        The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
       - `"frontier_llm"`
 
+        The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
       - `"reasoning_extraction"`
+
+        The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+      - `"general_harms"`
+
+        The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
     - `type: "refusal"`
 
@@ -8392,11 +8746,15 @@ ant beta:messages count-tokens \
 
     Identifies one hop of a fallback transition.
 
-    - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+    - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
 
       - `"claude-fable-5"`
 
@@ -8406,13 +8764,17 @@ ant beta:messages count-tokens \
 
         Most capable model for cybersecurity and biology research
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-mythos-preview"`
 
@@ -8420,7 +8782,7 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-6"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -8436,11 +8798,11 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -8452,17 +8814,17 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-1"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-1-20250805"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
   - `to: object { model }`
 
     Identifies one hop of a fallback transition.
 
-    - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+    - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
       The model that will complete your prompt.
 
@@ -8474,17 +8836,174 @@ ant beta:messages count-tokens \
 
     The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
 
+### Beta Fallback Credit Not Applied
+
+- `beta_fallback_credit_not_applied: object { reason, type, remove_to_redeem }`
+
+  No reprice was applied; `reason` says why.
+
+  - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+    Why the reprice was not applied.
+
+    A closed enum; additions to the redemption-check vocabulary arrive as
+    deliberate schema updates.
+
+    - `"body_mismatch"`
+
+    - `"continuation_excluded"`
+
+    - `"continuation_only"`
+
+    - `"expired"`
+
+    - `"invalid_target_model"`
+
+    - `"not_enabled"`
+
+    - `"reprice_unavailable"`
+
+    - `"temporarily_unavailable"`
+
+    - `"variant_fields_present"`
+
+    - `"wrong_organization"`
+
+    - `"wrong_platform"`
+
+    - `"wrong_workspace"`
+
+  - `type: "not_applied"`
+
+  - `remove_to_redeem: optional array of string`
+
+    Request fields to remove before retrying, so the retry can redeem this
+    token.
+
+    Present exactly when `reason` is `variant_fields_present` — never null,
+    never an empty array; absent otherwise. Fields are named only from your own request, and only after
+    the sealed variant hash matched. A served best-effort retry has already
+    been billed at normal price; nothing redeems retroactively, but a corrected
+    re-send inside the token's five-minute window can still redeem.
+
+### Beta Fallback Credit Redeemed
+
+- `beta_fallback_credit_redeemed: object { type }`
+
+  The reprice was applied: the retry is billed as if the conversation
+  had been on the retry model all along.
+
+  - `type: "redeemed"`
+
+### Beta Fallback Credit Token Param
+
+- `beta_fallback_credit_token_param: object { token, mode }`
+
+  Object form of `fallback_credit_token`: the token plus a redemption
+  mode.
+
+  Requires `anthropic-beta: fallback-credit-2026-07-01`; without that
+  header the field accepts the bare string only. The bare string and the
+  mode-less object are equivalent (both select `strict`), so wrapping
+  an existing token changes nothing by itself.
+
+  - `token: string`
+
+    The opaque `fallback_credit_token` from a prior refusal's `stop_details` — the same string the bare-string form carries.
+
+  - `mode: optional "strict" or "best_effort"`
+
+    How a failing token affects the retry. `strict` (the default, and the bare-string behavior): a failing redemption is a 400 and the retry is not served. `best_effort`: the retry is served either way — a token-layer failure no longer rejects the request; the retry proceeds at normal price and the outcome is reported on the response's `usage.fallback_credit`. Two failures stay hard in both modes: a malformed token, and combining `fallback_credit_token` with `fallbacks`.
+
+    - `"strict"`
+
+    - `"best_effort"`
+
+### Beta Fallback Credit Usage
+
+- `beta_fallback_credit_usage: object { status }`
+
+  Outcome of the `fallback_credit_token` presented on this request.
+
+  - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+    Whether the fallback-credit reprice was applied to this response's billing.
+
+    A union discriminated on `type`. `redeemed`: the retry is billed as if
+    the conversation had been on the retry model all along — including when the
+    resulting shift is zero because there was nothing to move. `not_applied`:
+    no reprice was applied; the arm's `reason` says why.
+
+    - `beta_fallback_credit_redeemed: object { type }`
+
+      The reprice was applied: the retry is billed as if the conversation
+      had been on the retry model all along.
+
+      - `type: "redeemed"`
+
+    - `beta_fallback_credit_not_applied: object { reason, type, remove_to_redeem }`
+
+      No reprice was applied; `reason` says why.
+
+      - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+        Why the reprice was not applied.
+
+        A closed enum; additions to the redemption-check vocabulary arrive as
+        deliberate schema updates.
+
+        - `"body_mismatch"`
+
+        - `"continuation_excluded"`
+
+        - `"continuation_only"`
+
+        - `"expired"`
+
+        - `"invalid_target_model"`
+
+        - `"not_enabled"`
+
+        - `"reprice_unavailable"`
+
+        - `"temporarily_unavailable"`
+
+        - `"variant_fields_present"`
+
+        - `"wrong_organization"`
+
+        - `"wrong_platform"`
+
+        - `"wrong_workspace"`
+
+      - `type: "not_applied"`
+
+      - `remove_to_redeem: optional array of string`
+
+        Request fields to remove before retrying, so the retry can redeem this
+        token.
+
+        Present exactly when `reason` is `variant_fields_present` — never null,
+        never an empty array; absent otherwise. Fields are named only from your own request, and only after
+        the sealed variant hash matched. A served best-effort retry has already
+        been billed at normal price; nothing redeems retroactively, but a corrected
+        re-send inside the token's five-minute window can still redeem.
+
 ### Beta Fallback Info
 
 - `beta_fallback_info: object { model }`
 
   Identifies one hop of a fallback transition.
 
-  - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+  - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-sonnet-5"`
+
+      High-performance model for coding and agents
 
     - `"claude-fable-5"`
 
@@ -8494,13 +9013,17 @@ ant beta:messages count-tokens \
 
       Most capable model for cybersecurity and biology research
 
+    - `"claude-opus-5"`
+
+      Powerful intelligence for long-running agents and coding
+
     - `"claude-opus-4-8"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-7"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-mythos-preview"`
 
@@ -8508,7 +9031,7 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-6"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-6"`
 
@@ -8524,11 +9047,11 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-5"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-5-20251101"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-5"`
 
@@ -8540,11 +9063,11 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-1"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-1-20250805"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
 ### Beta Fallback Info Param
 
@@ -8552,11 +9075,15 @@ ant beta:messages count-tokens \
 
   Identifies one hop of a fallback transition.
 
-  - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+  - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-sonnet-5"`
+
+      High-performance model for coding and agents
 
     - `"claude-fable-5"`
 
@@ -8566,13 +9093,17 @@ ant beta:messages count-tokens \
 
       Most capable model for cybersecurity and biology research
 
+    - `"claude-opus-5"`
+
+      Powerful intelligence for long-running agents and coding
+
     - `"claude-opus-4-8"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-7"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-mythos-preview"`
 
@@ -8580,7 +9111,7 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-6"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-6"`
 
@@ -8596,11 +9127,11 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-5"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-5-20251101"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-5"`
 
@@ -8612,11 +9143,11 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-1"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-1-20250805"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
 ### Beta Fallback Message Iteration Usage
 
@@ -8653,11 +9184,15 @@ ant beta:messages count-tokens \
 
     The number of input tokens which were used.
 
-  - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+  - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-sonnet-5"`
+
+      High-performance model for coding and agents
 
     - `"claude-fable-5"`
 
@@ -8667,13 +9202,17 @@ ant beta:messages count-tokens \
 
       Most capable model for cybersecurity and biology research
 
+    - `"claude-opus-5"`
+
+      Powerful intelligence for long-running agents and coding
+
     - `"claude-opus-4-8"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-7"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-mythos-preview"`
 
@@ -8681,7 +9220,7 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-6"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-6"`
 
@@ -8697,11 +9236,11 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-5"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-5-20251101"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-5"`
 
@@ -8713,11 +9252,11 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-1"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-1-20250805"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
   - `output_tokens: number`
 
@@ -8733,16 +9272,20 @@ ant beta:messages count-tokens \
 
   One entry in the `fallbacks` chain on a `/v1/messages` request.
 
-  `model` is required. The four override fields (`max_tokens`, `thinking`,
-  `output_config`, and `speed`) replace the corresponding top-level field
-  for this attempt only and are validated as if the request were made to
-  `model`. Any other key is rejected at parse time.
+  `model` is required. The override fields (`max_tokens`, `thinking`,
+  `output_config`, and `speed`) set the corresponding parameter for this
+  attempt only and are validated as if the request were made to `model`.
+  Any other key is rejected at parse time.
 
-  - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+  - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-sonnet-5"`
+
+      High-performance model for coding and agents
 
     - `"claude-fable-5"`
 
@@ -8752,13 +9295,17 @@ ant beta:messages count-tokens \
 
       Most capable model for cybersecurity and biology research
 
+    - `"claude-opus-5"`
+
+      Powerful intelligence for long-running agents and coding
+
     - `"claude-opus-4-8"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-7"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-mythos-preview"`
 
@@ -8766,7 +9313,7 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-6"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-6"`
 
@@ -8782,11 +9329,11 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-5"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-5-20251101"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-5"`
 
@@ -8798,11 +9345,11 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-1"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-1-20250805"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
   - `max_tokens: optional number`
 
@@ -8850,6 +9397,8 @@ ant beta:messages count-tokens \
 
   - `speed: optional "standard" or "fast"`
 
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
     - `"standard"`
 
     - `"fast"`
@@ -8864,7 +9413,7 @@ ant beta:messages count-tokens \
 
         Must be ≥1024 and less than `max_tokens`.
 
-        See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+        See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
       - `type: "enabled"`
 
@@ -8898,19 +9447,205 @@ ant beta:messages count-tokens \
 
   The `from` model declined for policy reasons.
 
-  - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+  - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
     The policy category that triggered a refusal.
 
     - `"cyber"`
 
+      The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
     - `"bio"`
+
+      The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
     - `"frontier_llm"`
 
+      The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
     - `"reasoning_extraction"`
 
+      The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+    - `"general_harms"`
+
+      The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
   - `type: "refusal"`
+
+### Beta Fallbacks Param
+
+- `beta_fallbacks_param: array of BetaFallbackParam or "default"`
+
+  Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on. The string "default" requests the requested model's server-defined default fallback configuration.
+
+  - `union_member_0: array of BetaFallbackParam`
+
+    - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
+
+      The model that will complete your prompt.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
+      - `"claude-fable-5"`
+
+        Next generation of intelligence for the hardest knowledge work and coding problems
+
+      - `"claude-mythos-5"`
+
+        Most capable model for cybersecurity and biology research
+
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-8"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-7"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-mythos-preview"`
+
+        New class of intelligence, strongest in coding and cybersecurity
+
+      - `"claude-opus-4-6"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-sonnet-4-6"`
+
+        Best combination of speed and intelligence
+
+      - `"claude-haiku-4-5"`
+
+        Fastest model with near-frontier intelligence
+
+      - `"claude-haiku-4-5-20251001"`
+
+        Fastest model with near-frontier intelligence
+
+      - `"claude-opus-4-5"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-5-20251101"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-sonnet-4-5"`
+
+        High-performance model for agents and coding
+
+      - `"claude-sonnet-4-5-20250929"`
+
+        High-performance model for agents and coding
+
+      - `"claude-opus-4-1"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-1-20250805"`
+
+        Powerful intelligence for long-running agents and coding
+
+    - `max_tokens: optional number`
+
+    - `output_config: optional object { effort, format, task_budget }`
+
+      - `effort: optional "low" or "medium" or "high" or 2 more`
+
+        All possible effort levels.
+
+        - `"low"`
+
+        - `"medium"`
+
+        - `"high"`
+
+        - `"xhigh"`
+
+        - `"max"`
+
+      - `format: optional object { schema, type }`
+
+        A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
+        - `schema: map[unknown]`
+
+          The JSON schema of the format
+
+        - `type: "json_schema"`
+
+      - `task_budget: optional object { total, type, remaining }`
+
+        User-configurable total token budget across contexts.
+
+        - `total: number`
+
+          Total token budget across all contexts in the session.
+
+        - `type: "tokens"`
+
+          The budget type. Currently only 'tokens' is supported.
+
+        - `remaining: optional number`
+
+          Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+    - `speed: optional "standard" or "fast"`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `"standard"`
+
+      - `"fast"`
+
+    - `thinking: optional BetaThinkingConfigEnabled or BetaThinkingConfigDisabled or BetaThinkingConfigAdaptive`
+
+      - `beta_thinking_config_enabled: object { budget_tokens, type, display }`
+
+        - `budget_tokens: number`
+
+          Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+
+          Must be ≥1024 and less than `max_tokens`.
+
+          See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+        - `type: "enabled"`
+
+        - `display: optional "summarized" or "omitted"`
+
+          Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+          - `"summarized"`
+
+          - `"omitted"`
+
+      - `beta_thinking_config_disabled: object { type }`
+
+        - `type: "disabled"`
+
+      - `beta_thinking_config_adaptive: object { type, display }`
+
+        - `type: "adaptive"`
+
+        - `display: optional "summarized" or "omitted"`
+
+          Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+          - `"summarized"`
+
+          - `"omitted"`
+
+  - `Default: "default"`
 
 ### Beta File Document Source
 
@@ -8979,7 +9714,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -9049,11 +9784,15 @@ ant beta:messages count-tokens \
 
       The number of input tokens which were used.
 
-    - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+    - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
 
       - `"claude-fable-5"`
 
@@ -9063,13 +9802,17 @@ ant beta:messages count-tokens \
 
         Most capable model for cybersecurity and biology research
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-mythos-preview"`
 
@@ -9077,7 +9820,7 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-6"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -9093,11 +9836,11 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -9109,11 +9852,11 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-1"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-1-20250805"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
     - `output_tokens: number`
 
@@ -9187,11 +9930,15 @@ ant beta:messages count-tokens \
 
       The number of input tokens which were used.
 
-    - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+    - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
 
       - `"claude-fable-5"`
 
@@ -9201,13 +9948,17 @@ ant beta:messages count-tokens \
 
         Most capable model for cybersecurity and biology research
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-mythos-preview"`
 
@@ -9215,7 +9966,7 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-6"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -9231,11 +9982,11 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -9247,11 +9998,11 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-1"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-1-20250805"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
     - `output_tokens: number`
 
@@ -9294,11 +10045,15 @@ ant beta:messages count-tokens \
 
       The number of input tokens which were used.
 
-    - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+    - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
 
       - `"claude-fable-5"`
 
@@ -9308,13 +10063,17 @@ ant beta:messages count-tokens \
 
         Most capable model for cybersecurity and biology research
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-mythos-preview"`
 
@@ -9322,7 +10081,7 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-6"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -9338,11 +10097,11 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -9354,11 +10113,11 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-1"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-1-20250805"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
     - `output_tokens: number`
 
@@ -9573,7 +10332,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -9609,7 +10368,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -9668,7 +10427,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -10621,11 +11380,15 @@ ant beta:messages count-tokens \
 
         The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -10635,13 +11398,17 @@ ant beta:messages count-tokens \
 
             Most capable model for cybersecurity and biology research
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-mythos-preview"`
 
@@ -10649,7 +11416,7 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -10665,11 +11432,11 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -10681,17 +11448,17 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
       - `to: object { model }`
 
         The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
@@ -10701,17 +11468,29 @@ ant beta:messages count-tokens \
 
         What caused the `from` model to hand over at this hop.
 
-        - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+        - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
           The policy category that triggered a refusal.
 
           - `"cyber"`
 
+            The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
           - `"bio"`
+
+            The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
           - `"frontier_llm"`
 
+            The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
           - `"reasoning_extraction"`
+
+            The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+          - `"general_harms"`
+
+            The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
         - `type: "refusal"`
 
@@ -10804,11 +11583,15 @@ ant beta:messages count-tokens \
 
         - `type: "unavailable"`
 
-  - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+  - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-sonnet-5"`
+
+      High-performance model for coding and agents
 
     - `"claude-fable-5"`
 
@@ -10818,13 +11601,17 @@ ant beta:messages count-tokens \
 
       Most capable model for cybersecurity and biology research
 
+    - `"claude-opus-5"`
+
+      Powerful intelligence for long-running agents and coding
+
     - `"claude-opus-4-8"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-7"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-mythos-preview"`
 
@@ -10832,7 +11619,7 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-6"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-6"`
 
@@ -10848,11 +11635,11 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-5"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-5-20251101"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-5"`
 
@@ -10864,11 +11651,11 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-1"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-1-20250805"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
   - `role: "assistant"`
 
@@ -10880,17 +11667,29 @@ ant beta:messages count-tokens \
 
     Structured information about a refusal.
 
-    - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+    - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
       The policy category that triggered a refusal.
 
       - `"cyber"`
 
+        The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
       - `"bio"`
+
+        The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
       - `"frontier_llm"`
 
+        The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
       - `"reasoning_extraction"`
+
+        The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+      - `"general_harms"`
+
+        The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
     - `explanation: string`
 
@@ -10961,6 +11760,7 @@ ant beta:messages count-tokens \
     * `"tool_use"`: the model invoked one or more tools
     * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
     * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+    * `"model_context_window_exceeded"`: we exceeded the model's context window
 
     In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -10992,7 +11792,7 @@ ant beta:messages count-tokens \
 
     For Messages, this is always `"message"`.
 
-  - `usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 8 more }`
+  - `usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 9 more }`
 
     Billing and rate-limit usage.
 
@@ -11023,6 +11823,74 @@ ant beta:messages count-tokens \
     - `cache_read_input_tokens: number`
 
       The number of input tokens read from the cache.
+
+    - `fallback_credit: object { status }`
+
+      Outcome of the `fallback_credit_token` presented on this request.
+
+      - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+        Whether the fallback-credit reprice was applied to this response's billing.
+
+        A union discriminated on `type`. `redeemed`: the retry is billed as if
+        the conversation had been on the retry model all along — including when the
+        resulting shift is zero because there was nothing to move. `not_applied`:
+        no reprice was applied; the arm's `reason` says why.
+
+        - `beta_fallback_credit_redeemed: object { type }`
+
+          The reprice was applied: the retry is billed as if the conversation
+          had been on the retry model all along.
+
+          - `type: "redeemed"`
+
+        - `beta_fallback_credit_not_applied: object { reason, type, remove_to_redeem }`
+
+          No reprice was applied; `reason` says why.
+
+          - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+            Why the reprice was not applied.
+
+            A closed enum; additions to the redemption-check vocabulary arrive as
+            deliberate schema updates.
+
+            - `"body_mismatch"`
+
+            - `"continuation_excluded"`
+
+            - `"continuation_only"`
+
+            - `"expired"`
+
+            - `"invalid_target_model"`
+
+            - `"not_enabled"`
+
+            - `"reprice_unavailable"`
+
+            - `"temporarily_unavailable"`
+
+            - `"variant_fields_present"`
+
+            - `"wrong_organization"`
+
+            - `"wrong_platform"`
+
+            - `"wrong_workspace"`
+
+          - `type: "not_applied"`
+
+          - `remove_to_redeem: optional array of string`
+
+            Request fields to remove before retrying, so the retry can redeem this
+            token.
+
+            Present exactly when `reason` is `variant_fields_present` — never null,
+            never an empty array; absent otherwise. Fields are named only from your own request, and only after
+            the sealed variant hash matched. A served best-effort retry has already
+            been billed at normal price; nothing redeems retroactively, but a corrected
+            re-send inside the token's five-minute window can still redeem.
 
     - `inference_geo: string`
 
@@ -11070,11 +11938,15 @@ ant beta:messages count-tokens \
 
           The number of input tokens which were used.
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -11084,13 +11956,17 @@ ant beta:messages count-tokens \
 
             Most capable model for cybersecurity and biology research
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-mythos-preview"`
 
@@ -11098,7 +11974,7 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -11114,11 +11990,11 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -11130,11 +12006,11 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
         - `output_tokens: number`
 
@@ -11208,11 +12084,15 @@ ant beta:messages count-tokens \
 
           The number of input tokens which were used.
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -11222,13 +12102,17 @@ ant beta:messages count-tokens \
 
             Most capable model for cybersecurity and biology research
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-mythos-preview"`
 
@@ -11236,7 +12120,7 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -11252,11 +12136,11 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -11268,11 +12152,11 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
         - `output_tokens: number`
 
@@ -11315,11 +12199,15 @@ ant beta:messages count-tokens \
 
           The number of input tokens which were used.
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -11329,13 +12217,17 @@ ant beta:messages count-tokens \
 
             Most capable model for cybersecurity and biology research
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-mythos-preview"`
 
@@ -11343,7 +12235,7 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -11359,11 +12251,11 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -11375,11 +12267,11 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
         - `output_tokens: number`
 
@@ -11437,7 +12329,7 @@ ant beta:messages count-tokens \
 
     - `speed: "standard" or "fast"`
 
-      The inference speed mode used for this request.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `"standard"`
 
@@ -11445,7 +12337,7 @@ ant beta:messages count-tokens \
 
 ### Beta Message Delta Usage
 
-- `beta_message_delta_usage: object { cache_creation_input_tokens, cache_read_input_tokens, input_tokens, 4 more }`
+- `beta_message_delta_usage: object { cache_creation_input_tokens, cache_read_input_tokens, fallback_credit, 5 more }`
 
   - `cache_creation_input_tokens: number`
 
@@ -11454,6 +12346,74 @@ ant beta:messages count-tokens \
   - `cache_read_input_tokens: number`
 
     The cumulative number of input tokens read from the cache.
+
+  - `fallback_credit: object { status }`
+
+    Outcome of the `fallback_credit_token` presented on this request.
+
+    - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+      Whether the fallback-credit reprice was applied to this response's billing.
+
+      A union discriminated on `type`. `redeemed`: the retry is billed as if
+      the conversation had been on the retry model all along — including when the
+      resulting shift is zero because there was nothing to move. `not_applied`:
+      no reprice was applied; the arm's `reason` says why.
+
+      - `beta_fallback_credit_redeemed: object { type }`
+
+        The reprice was applied: the retry is billed as if the conversation
+        had been on the retry model all along.
+
+        - `type: "redeemed"`
+
+      - `beta_fallback_credit_not_applied: object { reason, type, remove_to_redeem }`
+
+        No reprice was applied; `reason` says why.
+
+        - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+          Why the reprice was not applied.
+
+          A closed enum; additions to the redemption-check vocabulary arrive as
+          deliberate schema updates.
+
+          - `"body_mismatch"`
+
+          - `"continuation_excluded"`
+
+          - `"continuation_only"`
+
+          - `"expired"`
+
+          - `"invalid_target_model"`
+
+          - `"not_enabled"`
+
+          - `"reprice_unavailable"`
+
+          - `"temporarily_unavailable"`
+
+          - `"variant_fields_present"`
+
+          - `"wrong_organization"`
+
+          - `"wrong_platform"`
+
+          - `"wrong_workspace"`
+
+        - `type: "not_applied"`
+
+        - `remove_to_redeem: optional array of string`
+
+          Request fields to remove before retrying, so the retry can redeem this
+          token.
+
+          Present exactly when `reason` is `variant_fields_present` — never null,
+          never an empty array; absent otherwise. Fields are named only from your own request, and only after
+          the sealed variant hash matched. A served best-effort retry has already
+          been billed at normal price; nothing redeems retroactively, but a corrected
+          re-send inside the token's five-minute window can still redeem.
 
   - `input_tokens: number`
 
@@ -11497,11 +12457,15 @@ ant beta:messages count-tokens \
 
         The number of input tokens which were used.
 
-      - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+      - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
 
         - `"claude-fable-5"`
 
@@ -11511,13 +12475,17 @@ ant beta:messages count-tokens \
 
           Most capable model for cybersecurity and biology research
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-mythos-preview"`
 
@@ -11525,7 +12493,7 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-6"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -11541,11 +12509,11 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -11557,11 +12525,11 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-1"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-1-20250805"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
       - `output_tokens: number`
 
@@ -11635,11 +12603,15 @@ ant beta:messages count-tokens \
 
         The number of input tokens which were used.
 
-      - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+      - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
 
         - `"claude-fable-5"`
 
@@ -11649,13 +12621,17 @@ ant beta:messages count-tokens \
 
           Most capable model for cybersecurity and biology research
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-mythos-preview"`
 
@@ -11663,7 +12639,7 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-6"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -11679,11 +12655,11 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -11695,11 +12671,11 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-1"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-1-20250805"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
       - `output_tokens: number`
 
@@ -11742,11 +12718,15 @@ ant beta:messages count-tokens \
 
         The number of input tokens which were used.
 
-      - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+      - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
 
         - `"claude-fable-5"`
 
@@ -11756,13 +12736,17 @@ ant beta:messages count-tokens \
 
           Most capable model for cybersecurity and biology research
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-mythos-preview"`
 
@@ -11770,7 +12754,7 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-6"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -11786,11 +12770,11 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -11802,11 +12786,11 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-1"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-1-20250805"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
       - `output_tokens: number`
 
@@ -11882,11 +12866,15 @@ ant beta:messages count-tokens \
 
     The number of input tokens which were used.
 
-  - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+  - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-sonnet-5"`
+
+      High-performance model for coding and agents
 
     - `"claude-fable-5"`
 
@@ -11896,13 +12884,17 @@ ant beta:messages count-tokens \
 
       Most capable model for cybersecurity and biology research
 
+    - `"claude-opus-5"`
+
+      Powerful intelligence for long-running agents and coding
+
     - `"claude-opus-4-8"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-7"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-mythos-preview"`
 
@@ -11910,7 +12902,7 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-6"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-6"`
 
@@ -11926,11 +12918,11 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-5"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-5-20251101"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-5"`
 
@@ -11942,11 +12934,11 @@ ant beta:messages count-tokens \
 
     - `"claude-opus-4-1"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-1-20250805"`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
   - `output_tokens: number`
 
@@ -11983,7 +12975,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
           - `"5m"`
 
@@ -12134,7 +13126,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `beta_request_document_block: object { source, type, cache_control, 3 more }`
 
@@ -12217,7 +13209,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `citations: optional object { enabled }`
 
@@ -12262,7 +13254,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `citations: optional object { enabled }`
 
@@ -12307,7 +13299,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
@@ -12354,7 +13346,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `content: optional array of BetaTextBlockParam or BetaImageBlockParam or BetaSearchResultBlockParam or 2 more`
 
@@ -12435,7 +13427,7 @@ ant beta:messages count-tokens \
               - `5m`: 5 minutes
               - `1h`: 1 hour
 
-              Defaults to `5m`.
+              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `is_error: optional boolean`
 
@@ -12480,7 +13472,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
@@ -12549,7 +13541,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
@@ -12640,7 +13632,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
@@ -12717,7 +13709,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `beta_code_execution_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
 
@@ -12792,7 +13784,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `beta_bash_code_execution_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
 
@@ -12849,7 +13841,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `beta_text_editor_code_execution_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
 
@@ -12932,7 +13924,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `beta_tool_search_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
 
@@ -12987,7 +13979,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `beta_mcp_tool_use_block_param: object { id, input, name, 3 more }`
 
@@ -13018,7 +14010,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `beta_request_mcp_tool_result_block_param: object { tool_use_id, type, cache_control, 2 more }`
 
@@ -13041,7 +14033,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `content: optional string or array of BetaTextBlockParam`
 
@@ -13085,7 +14077,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `beta_compaction_block_param: object { type, cache_control, content, encrypted_content }`
 
@@ -13114,7 +14106,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `content: optional string`
 
@@ -13131,19 +14123,125 @@ ant beta:messages count-tokens \
       Use this block to provide or update system-level instructions at a specific
       point in the conversation, rather than only via the top-level `system` parameter.
 
-      - `content: array of BetaTextBlockParam`
+      - `content: array of BetaTextBlockParam or BetaRequestToolAdditionBlock or BetaRequestToolRemovalBlock`
 
         System instruction text blocks.
 
-        - `text: string`
+        - `beta_text_block_param: object { text, type, cache_control, citations }`
 
-        - `type: "text"`
+        - `beta_request_tool_addition_block: object { tool, type, cache_control }`
 
-        - `cache_control: optional object { type, ttl }`
+          Mid-conversation directive to surface a declared tool.
 
-          Create a cache control breakpoint at this content block.
+          `tool` references a tool (or MCP toolset) by name from the request's
+          `tools`; it is offered to the model from this point in the
+          conversation onward.
 
-        - `citations: optional array of BetaTextCitationParam`
+          - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
+
+            Reference to a single tool the caller declared directly in
+            `tools[]`. Does not accept the composed `{server}_{name}` form the
+            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+            `mcp_toolset_reference` for those.
+
+            - `beta_tool_change_tool_reference: object { name, type }`
+
+              Reference to a single tool the caller declared directly in
+              `tools[]`. Does not accept the composed `{server}_{name}` form the
+              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+              `mcp_toolset_reference` for those.
+
+              - `name: string`
+
+              - `type: "tool_reference"`
+
+            - `beta_tool_change_mcp_tool_reference: object { name, server_name, type }`
+
+              Reference to a single MCP tool by its server and remote name — the
+              same `server_name`/`name` pair `mcp_tool_use` carries.
+
+              - `name: string`
+
+              - `server_name: string`
+
+              - `type: "mcp_tool_reference"`
+
+            - `beta_tool_change_mcp_toolset_reference: object { server_name, type }`
+
+              Reference to every tool in the named MCP server's toolset.
+
+              - `server_name: string`
+
+              - `type: "mcp_toolset_reference"`
+
+          - `type: "tool_addition"`
+
+          - `cache_control: optional object { type, ttl }`
+
+            Create a cache control breakpoint at this content block.
+
+            - `type: "ephemeral"`
+
+            - `ttl: optional "5m" or "1h"`
+
+              The time-to-live for the cache control breakpoint.
+
+              This may be one the following values:
+
+              - `5m`: 5 minutes
+              - `1h`: 1 hour
+
+              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+        - `beta_request_tool_removal_block: object { tool, type, cache_control }`
+
+          Mid-conversation directive to withdraw a tool.
+
+          `tool` references a tool (or MCP toolset) by name from the request's
+          `tools`; it is no longer offered to the model from this point in the
+          conversation onward.
+
+          - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
+
+            Reference to a single tool the caller declared directly in
+            `tools[]`. Does not accept the composed `{server}_{name}` form the
+            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+            `mcp_toolset_reference` for those.
+
+            - `beta_tool_change_tool_reference: object { name, type }`
+
+              Reference to a single tool the caller declared directly in
+              `tools[]`. Does not accept the composed `{server}_{name}` form the
+              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+              `mcp_toolset_reference` for those.
+
+            - `beta_tool_change_mcp_tool_reference: object { name, server_name, type }`
+
+              Reference to a single MCP tool by its server and remote name — the
+              same `server_name`/`name` pair `mcp_tool_use` carries.
+
+            - `beta_tool_change_mcp_toolset_reference: object { server_name, type }`
+
+              Reference to every tool in the named MCP server's toolset.
+
+          - `type: "tool_removal"`
+
+          - `cache_control: optional object { type, ttl }`
+
+            Create a cache control breakpoint at this content block.
+
+            - `type: "ephemeral"`
+
+            - `ttl: optional "5m" or "1h"`
+
+              The time-to-live for the cache control breakpoint.
+
+              This may be one the following values:
+
+              - `5m`: 5 minutes
+              - `1h`: 1 hour
+
+              Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `type: "mid_conv_system"`
 
@@ -13162,7 +14260,49 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+    - `beta_request_tool_addition_block: object { tool, type, cache_control }`
+
+      Mid-conversation directive to surface a declared tool.
+
+      `tool` references a tool (or MCP toolset) by name from the request's
+      `tools`; it is offered to the model from this point in the
+      conversation onward.
+
+      - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
+
+        Reference to a single tool the caller declared directly in
+        `tools[]`. Does not accept the composed `{server}_{name}` form the
+        server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+        `mcp_toolset_reference` for those.
+
+      - `type: "tool_addition"`
+
+      - `cache_control: optional object { type, ttl }`
+
+        Create a cache control breakpoint at this content block.
+
+    - `beta_request_tool_removal_block: object { tool, type, cache_control }`
+
+      Mid-conversation directive to withdraw a tool.
+
+      `tool` references a tool (or MCP toolset) by name from the request's
+      `tools`; it is no longer offered to the model from this point in the
+      conversation onward.
+
+      - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
+
+        Reference to a single tool the caller declared directly in
+        `tools[]`. Does not accept the composed `{server}_{name}` form the
+        server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+        `mcp_toolset_reference` for those.
+
+      - `type: "tool_removal"`
+
+      - `cache_control: optional object { type, ttl }`
+
+        Create a cache control breakpoint at this content block.
 
     - `beta_fallback_block_param: object { from, to, type, trigger }`
 
@@ -13184,11 +14324,15 @@ ant beta:messages count-tokens \
 
         Identifies one hop of a fallback transition.
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -13198,13 +14342,17 @@ ant beta:messages count-tokens \
 
             Most capable model for cybersecurity and biology research
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-mythos-preview"`
 
@@ -13212,7 +14360,7 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -13228,11 +14376,11 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -13244,17 +14392,17 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
       - `to: object { model }`
 
         Identifies one hop of a fallback transition.
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
@@ -13309,130 +14457,246 @@ ant beta:messages count-tokens \
   Use this block to provide or update system-level instructions at a specific
   point in the conversation, rather than only via the top-level `system` parameter.
 
-  - `content: array of BetaTextBlockParam`
+  - `content: array of BetaTextBlockParam or BetaRequestToolAdditionBlock or BetaRequestToolRemovalBlock`
 
     System instruction text blocks.
 
-    - `text: string`
+    - `beta_text_block_param: object { text, type, cache_control, citations }`
 
-    - `type: "text"`
+      - `text: string`
 
-    - `cache_control: optional object { type, ttl }`
+      - `type: "text"`
 
-      Create a cache control breakpoint at this content block.
+      - `cache_control: optional object { type, ttl }`
 
-      - `type: "ephemeral"`
+        Create a cache control breakpoint at this content block.
 
-      - `ttl: optional "5m" or "1h"`
+        - `type: "ephemeral"`
 
-        The time-to-live for the cache control breakpoint.
+        - `ttl: optional "5m" or "1h"`
 
-        This may be one the following values:
+          The time-to-live for the cache control breakpoint.
 
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
+          This may be one the following values:
 
-        Defaults to `5m`.
+          - `5m`: 5 minutes
+          - `1h`: 1 hour
 
-        - `"5m"`
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
-        - `"1h"`
+          - `"5m"`
 
-    - `citations: optional array of BetaTextCitationParam`
+          - `"1h"`
 
-      - `beta_citation_char_location_param: object { cited_text, document_index, document_title, 3 more }`
+      - `citations: optional array of BetaTextCitationParam`
 
-        - `cited_text: string`
+        - `beta_citation_char_location_param: object { cited_text, document_index, document_title, 3 more }`
 
-        - `document_index: number`
+          - `cited_text: string`
 
-        - `document_title: string`
+          - `document_index: number`
 
-        - `end_char_index: number`
+          - `document_title: string`
 
-        - `start_char_index: number`
+          - `end_char_index: number`
 
-        - `type: "char_location"`
+          - `start_char_index: number`
 
-      - `beta_citation_page_location_param: object { cited_text, document_index, document_title, 3 more }`
+          - `type: "char_location"`
 
-        - `cited_text: string`
+        - `beta_citation_page_location_param: object { cited_text, document_index, document_title, 3 more }`
 
-        - `document_index: number`
+          - `cited_text: string`
 
-        - `document_title: string`
+          - `document_index: number`
 
-        - `end_page_number: number`
+          - `document_title: string`
 
-        - `start_page_number: number`
+          - `end_page_number: number`
 
-        - `type: "page_location"`
+          - `start_page_number: number`
 
-      - `beta_citation_content_block_location_param: object { cited_text, document_index, document_title, 3 more }`
+          - `type: "page_location"`
 
-        - `cited_text: string`
+        - `beta_citation_content_block_location_param: object { cited_text, document_index, document_title, 3 more }`
 
-          The full text of the cited block range, concatenated.
+          - `cited_text: string`
 
-          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+            The full text of the cited block range, concatenated.
 
-        - `document_index: number`
+            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
 
-        - `document_title: string`
+          - `document_index: number`
 
-        - `end_block_index: number`
+          - `document_title: string`
 
-          Exclusive 0-based end index of the cited block range in the source's `content` array.
+          - `end_block_index: number`
 
-          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+            Exclusive 0-based end index of the cited block range in the source's `content` array.
 
-        - `start_block_index: number`
+            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
 
-          0-based index of the first cited block in the source's `content` array.
+          - `start_block_index: number`
 
-        - `type: "content_block_location"`
+            0-based index of the first cited block in the source's `content` array.
 
-      - `beta_citation_web_search_result_location_param: object { cited_text, encrypted_index, title, 2 more }`
+          - `type: "content_block_location"`
 
-        - `cited_text: string`
+        - `beta_citation_web_search_result_location_param: object { cited_text, encrypted_index, title, 2 more }`
 
-        - `encrypted_index: string`
+          - `cited_text: string`
 
-        - `title: string`
+          - `encrypted_index: string`
 
-        - `type: "web_search_result_location"`
+          - `title: string`
 
-        - `url: string`
+          - `type: "web_search_result_location"`
 
-      - `beta_citation_search_result_location_param: object { cited_text, end_block_index, search_result_index, 4 more }`
+          - `url: string`
 
-        - `cited_text: string`
+        - `beta_citation_search_result_location_param: object { cited_text, end_block_index, search_result_index, 4 more }`
 
-          The full text of the cited block range, concatenated.
+          - `cited_text: string`
 
-          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+            The full text of the cited block range, concatenated.
 
-        - `end_block_index: number`
+            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
 
-          Exclusive 0-based end index of the cited block range in the source's `content` array.
+          - `end_block_index: number`
 
-          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+            Exclusive 0-based end index of the cited block range in the source's `content` array.
 
-        - `search_result_index: number`
+            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
 
-          0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+          - `search_result_index: number`
 
-          Counted separately from `document_index`; server-side web search results are not included in this count.
+            0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
 
-        - `source: string`
+            Counted separately from `document_index`; server-side web search results are not included in this count.
 
-        - `start_block_index: number`
+          - `source: string`
 
-          0-based index of the first cited block in the source's `content` array.
+          - `start_block_index: number`
 
-        - `title: string`
+            0-based index of the first cited block in the source's `content` array.
 
-        - `type: "search_result_location"`
+          - `title: string`
+
+          - `type: "search_result_location"`
+
+    - `beta_request_tool_addition_block: object { tool, type, cache_control }`
+
+      Mid-conversation directive to surface a declared tool.
+
+      `tool` references a tool (or MCP toolset) by name from the request's
+      `tools`; it is offered to the model from this point in the
+      conversation onward.
+
+      - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
+
+        Reference to a single tool the caller declared directly in
+        `tools[]`. Does not accept the composed `{server}_{name}` form the
+        server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+        `mcp_toolset_reference` for those.
+
+        - `beta_tool_change_tool_reference: object { name, type }`
+
+          Reference to a single tool the caller declared directly in
+          `tools[]`. Does not accept the composed `{server}_{name}` form the
+          server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+          `mcp_toolset_reference` for those.
+
+          - `name: string`
+
+          - `type: "tool_reference"`
+
+        - `beta_tool_change_mcp_tool_reference: object { name, server_name, type }`
+
+          Reference to a single MCP tool by its server and remote name — the
+          same `server_name`/`name` pair `mcp_tool_use` carries.
+
+          - `name: string`
+
+          - `server_name: string`
+
+          - `type: "mcp_tool_reference"`
+
+        - `beta_tool_change_mcp_toolset_reference: object { server_name, type }`
+
+          Reference to every tool in the named MCP server's toolset.
+
+          - `server_name: string`
+
+          - `type: "mcp_toolset_reference"`
+
+      - `type: "tool_addition"`
+
+      - `cache_control: optional object { type, ttl }`
+
+        Create a cache control breakpoint at this content block.
+
+        - `type: "ephemeral"`
+
+        - `ttl: optional "5m" or "1h"`
+
+          The time-to-live for the cache control breakpoint.
+
+          This may be one the following values:
+
+          - `5m`: 5 minutes
+          - `1h`: 1 hour
+
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+    - `beta_request_tool_removal_block: object { tool, type, cache_control }`
+
+      Mid-conversation directive to withdraw a tool.
+
+      `tool` references a tool (or MCP toolset) by name from the request's
+      `tools`; it is no longer offered to the model from this point in the
+      conversation onward.
+
+      - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
+
+        Reference to a single tool the caller declared directly in
+        `tools[]`. Does not accept the composed `{server}_{name}` form the
+        server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+        `mcp_toolset_reference` for those.
+
+        - `beta_tool_change_tool_reference: object { name, type }`
+
+          Reference to a single tool the caller declared directly in
+          `tools[]`. Does not accept the composed `{server}_{name}` form the
+          server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+          `mcp_toolset_reference` for those.
+
+        - `beta_tool_change_mcp_tool_reference: object { name, server_name, type }`
+
+          Reference to a single MCP tool by its server and remote name — the
+          same `server_name`/`name` pair `mcp_tool_use` carries.
+
+        - `beta_tool_change_mcp_toolset_reference: object { server_name, type }`
+
+          Reference to every tool in the named MCP server's toolset.
+
+      - `type: "tool_removal"`
+
+      - `cache_control: optional object { type, ttl }`
+
+        Create a cache control breakpoint at this content block.
+
+        - `type: "ephemeral"`
+
+        - `ttl: optional "5m" or "1h"`
+
+          The time-to-live for the cache control breakpoint.
+
+          This may be one the following values:
+
+          - `5m`: 5 minutes
+          - `1h`: 1 hour
+
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
   - `type: "mid_conv_system"`
 
@@ -13451,7 +14715,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
 ### Beta Output Config
 
@@ -14506,11 +15770,15 @@ ant beta:messages count-tokens \
 
         The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -14520,13 +15788,17 @@ ant beta:messages count-tokens \
 
             Most capable model for cybersecurity and biology research
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-mythos-preview"`
 
@@ -14534,7 +15806,7 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -14550,11 +15822,11 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -14566,17 +15838,17 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
       - `to: object { model }`
 
         The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
@@ -14586,17 +15858,29 @@ ant beta:messages count-tokens \
 
         What caused the `from` model to hand over at this hop.
 
-        - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+        - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
           The policy category that triggered a refusal.
 
           - `"cyber"`
 
+            The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
           - `"bio"`
+
+            The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
           - `"frontier_llm"`
 
+            The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
           - `"reasoning_extraction"`
+
+            The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+          - `"general_harms"`
+
+            The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
         - `type: "refusal"`
 
@@ -14692,17 +15976,29 @@ ant beta:messages count-tokens \
 
       Structured information about a refusal.
 
-      - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+      - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
         The policy category that triggered a refusal.
 
         - `"cyber"`
 
+          The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
         - `"bio"`
+
+          The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
         - `"frontier_llm"`
 
+          The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
         - `"reasoning_extraction"`
+
+          The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+        - `"general_harms"`
+
+          The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
       - `explanation: string`
 
@@ -14783,7 +16079,7 @@ ant beta:messages count-tokens \
 
   - `type: "message_delta"`
 
-  - `usage: object { cache_creation_input_tokens, cache_read_input_tokens, input_tokens, 4 more }`
+  - `usage: object { cache_creation_input_tokens, cache_read_input_tokens, fallback_credit, 5 more }`
 
     Billing and rate-limit usage.
 
@@ -14802,6 +16098,74 @@ ant beta:messages count-tokens \
     - `cache_read_input_tokens: number`
 
       The cumulative number of input tokens read from the cache.
+
+    - `fallback_credit: object { status }`
+
+      Outcome of the `fallback_credit_token` presented on this request.
+
+      - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+        Whether the fallback-credit reprice was applied to this response's billing.
+
+        A union discriminated on `type`. `redeemed`: the retry is billed as if
+        the conversation had been on the retry model all along — including when the
+        resulting shift is zero because there was nothing to move. `not_applied`:
+        no reprice was applied; the arm's `reason` says why.
+
+        - `beta_fallback_credit_redeemed: object { type }`
+
+          The reprice was applied: the retry is billed as if the conversation
+          had been on the retry model all along.
+
+          - `type: "redeemed"`
+
+        - `beta_fallback_credit_not_applied: object { reason, type, remove_to_redeem }`
+
+          No reprice was applied; `reason` says why.
+
+          - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+            Why the reprice was not applied.
+
+            A closed enum; additions to the redemption-check vocabulary arrive as
+            deliberate schema updates.
+
+            - `"body_mismatch"`
+
+            - `"continuation_excluded"`
+
+            - `"continuation_only"`
+
+            - `"expired"`
+
+            - `"invalid_target_model"`
+
+            - `"not_enabled"`
+
+            - `"reprice_unavailable"`
+
+            - `"temporarily_unavailable"`
+
+            - `"variant_fields_present"`
+
+            - `"wrong_organization"`
+
+            - `"wrong_platform"`
+
+            - `"wrong_workspace"`
+
+          - `type: "not_applied"`
+
+          - `remove_to_redeem: optional array of string`
+
+            Request fields to remove before retrying, so the retry can redeem this
+            token.
+
+            Present exactly when `reason` is `variant_fields_present` — never null,
+            never an empty array; absent otherwise. Fields are named only from your own request, and only after
+            the sealed variant hash matched. A served best-effort retry has already
+            been billed at normal price; nothing redeems retroactively, but a corrected
+            re-send inside the token's five-minute window can still redeem.
 
     - `input_tokens: number`
 
@@ -14845,11 +16209,15 @@ ant beta:messages count-tokens \
 
           The number of input tokens which were used.
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -14859,13 +16227,17 @@ ant beta:messages count-tokens \
 
             Most capable model for cybersecurity and biology research
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-mythos-preview"`
 
@@ -14873,7 +16245,7 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -14889,11 +16261,11 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -14905,11 +16277,11 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
         - `output_tokens: number`
 
@@ -14983,11 +16355,15 @@ ant beta:messages count-tokens \
 
           The number of input tokens which were used.
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -14997,13 +16373,17 @@ ant beta:messages count-tokens \
 
             Most capable model for cybersecurity and biology research
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-mythos-preview"`
 
@@ -15011,7 +16391,7 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -15027,11 +16407,11 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -15043,11 +16423,11 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
         - `output_tokens: number`
 
@@ -15090,11 +16470,15 @@ ant beta:messages count-tokens \
 
           The number of input tokens which were used.
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -15104,13 +16488,17 @@ ant beta:messages count-tokens \
 
             Most capable model for cybersecurity and biology research
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-mythos-preview"`
 
@@ -15118,7 +16506,7 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -15134,11 +16522,11 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -15150,11 +16538,11 @@ ant beta:messages count-tokens \
 
           - `"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
         - `output_tokens: number`
 
@@ -15947,11 +17335,15 @@ ant beta:messages count-tokens \
 
           The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-          - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+          - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-sonnet-5"`
+
+              High-performance model for coding and agents
 
             - `"claude-fable-5"`
 
@@ -15961,13 +17353,17 @@ ant beta:messages count-tokens \
 
               Most capable model for cybersecurity and biology research
 
+            - `"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-mythos-preview"`
 
@@ -15975,7 +17371,7 @@ ant beta:messages count-tokens \
 
             - `"claude-opus-4-6"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-6"`
 
@@ -15991,11 +17387,11 @@ ant beta:messages count-tokens \
 
             - `"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-5"`
 
@@ -16007,17 +17403,17 @@ ant beta:messages count-tokens \
 
             - `"claude-opus-4-1"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-1-20250805"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
         - `to: object { model }`
 
           The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-          - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+          - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
             The model that will complete your prompt.
 
@@ -16027,17 +17423,29 @@ ant beta:messages count-tokens \
 
           What caused the `from` model to hand over at this hop.
 
-          - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+          - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
             The policy category that triggered a refusal.
 
             - `"cyber"`
 
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
             - `"bio"`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
             - `"frontier_llm"`
 
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
             - `"reasoning_extraction"`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `"general_harms"`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
           - `type: "refusal"`
 
@@ -16130,11 +17538,15 @@ ant beta:messages count-tokens \
 
           - `type: "unavailable"`
 
-    - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+    - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
 
       - `"claude-fable-5"`
 
@@ -16144,13 +17556,17 @@ ant beta:messages count-tokens \
 
         Most capable model for cybersecurity and biology research
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-mythos-preview"`
 
@@ -16158,7 +17574,7 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-6"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -16174,11 +17590,11 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -16190,11 +17606,11 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-1"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-1-20250805"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
     - `role: "assistant"`
 
@@ -16206,17 +17622,29 @@ ant beta:messages count-tokens \
 
       Structured information about a refusal.
 
-      - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+      - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
         The policy category that triggered a refusal.
 
         - `"cyber"`
 
+          The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
         - `"bio"`
+
+          The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
         - `"frontier_llm"`
 
+          The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
         - `"reasoning_extraction"`
+
+          The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+        - `"general_harms"`
+
+          The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
       - `explanation: string`
 
@@ -16287,6 +17715,7 @@ ant beta:messages count-tokens \
       * `"tool_use"`: the model invoked one or more tools
       * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
       * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+      * `"model_context_window_exceeded"`: we exceeded the model's context window
 
       In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -16318,7 +17747,7 @@ ant beta:messages count-tokens \
 
       For Messages, this is always `"message"`.
 
-    - `usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 8 more }`
+    - `usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 9 more }`
 
       Billing and rate-limit usage.
 
@@ -16349,6 +17778,74 @@ ant beta:messages count-tokens \
       - `cache_read_input_tokens: number`
 
         The number of input tokens read from the cache.
+
+      - `fallback_credit: object { status }`
+
+        Outcome of the `fallback_credit_token` presented on this request.
+
+        - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+          Whether the fallback-credit reprice was applied to this response's billing.
+
+          A union discriminated on `type`. `redeemed`: the retry is billed as if
+          the conversation had been on the retry model all along — including when the
+          resulting shift is zero because there was nothing to move. `not_applied`:
+          no reprice was applied; the arm's `reason` says why.
+
+          - `beta_fallback_credit_redeemed: object { type }`
+
+            The reprice was applied: the retry is billed as if the conversation
+            had been on the retry model all along.
+
+            - `type: "redeemed"`
+
+          - `beta_fallback_credit_not_applied: object { reason, type, remove_to_redeem }`
+
+            No reprice was applied; `reason` says why.
+
+            - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+              Why the reprice was not applied.
+
+              A closed enum; additions to the redemption-check vocabulary arrive as
+              deliberate schema updates.
+
+              - `"body_mismatch"`
+
+              - `"continuation_excluded"`
+
+              - `"continuation_only"`
+
+              - `"expired"`
+
+              - `"invalid_target_model"`
+
+              - `"not_enabled"`
+
+              - `"reprice_unavailable"`
+
+              - `"temporarily_unavailable"`
+
+              - `"variant_fields_present"`
+
+              - `"wrong_organization"`
+
+              - `"wrong_platform"`
+
+              - `"wrong_workspace"`
+
+            - `type: "not_applied"`
+
+            - `remove_to_redeem: optional array of string`
+
+              Request fields to remove before retrying, so the retry can redeem this
+              token.
+
+              Present exactly when `reason` is `variant_fields_present` — never null,
+              never an empty array; absent otherwise. Fields are named only from your own request, and only after
+              the sealed variant hash matched. A served best-effort retry has already
+              been billed at normal price; nothing redeems retroactively, but a corrected
+              re-send inside the token's five-minute window can still redeem.
 
       - `inference_geo: string`
 
@@ -16396,11 +17893,15 @@ ant beta:messages count-tokens \
 
             The number of input tokens which were used.
 
-          - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+          - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-sonnet-5"`
+
+              High-performance model for coding and agents
 
             - `"claude-fable-5"`
 
@@ -16410,13 +17911,17 @@ ant beta:messages count-tokens \
 
               Most capable model for cybersecurity and biology research
 
+            - `"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-mythos-preview"`
 
@@ -16424,7 +17929,7 @@ ant beta:messages count-tokens \
 
             - `"claude-opus-4-6"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-6"`
 
@@ -16440,11 +17945,11 @@ ant beta:messages count-tokens \
 
             - `"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-5"`
 
@@ -16456,11 +17961,11 @@ ant beta:messages count-tokens \
 
             - `"claude-opus-4-1"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-1-20250805"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
           - `output_tokens: number`
 
@@ -16534,11 +18039,15 @@ ant beta:messages count-tokens \
 
             The number of input tokens which were used.
 
-          - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+          - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-sonnet-5"`
+
+              High-performance model for coding and agents
 
             - `"claude-fable-5"`
 
@@ -16548,13 +18057,17 @@ ant beta:messages count-tokens \
 
               Most capable model for cybersecurity and biology research
 
+            - `"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-mythos-preview"`
 
@@ -16562,7 +18075,7 @@ ant beta:messages count-tokens \
 
             - `"claude-opus-4-6"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-6"`
 
@@ -16578,11 +18091,11 @@ ant beta:messages count-tokens \
 
             - `"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-5"`
 
@@ -16594,11 +18107,11 @@ ant beta:messages count-tokens \
 
             - `"claude-opus-4-1"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-1-20250805"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
           - `output_tokens: number`
 
@@ -16641,11 +18154,15 @@ ant beta:messages count-tokens \
 
             The number of input tokens which were used.
 
-          - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+          - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-sonnet-5"`
+
+              High-performance model for coding and agents
 
             - `"claude-fable-5"`
 
@@ -16655,13 +18172,17 @@ ant beta:messages count-tokens \
 
               Most capable model for cybersecurity and biology research
 
+            - `"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-mythos-preview"`
 
@@ -16669,7 +18190,7 @@ ant beta:messages count-tokens \
 
             - `"claude-opus-4-6"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-6"`
 
@@ -16685,11 +18206,11 @@ ant beta:messages count-tokens \
 
             - `"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-5"`
 
@@ -16701,11 +18222,11 @@ ant beta:messages count-tokens \
 
             - `"claude-opus-4-1"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-1-20250805"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
           - `output_tokens: number`
 
@@ -16763,7 +18284,7 @@ ant beta:messages count-tokens \
 
       - `speed: "standard" or "fast"`
 
-        The inference speed mode used for this request.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `"standard"`
 
@@ -17526,11 +19047,15 @@ ant beta:messages count-tokens \
 
             The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-            - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+            - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-sonnet-5"`
+
+                High-performance model for coding and agents
 
               - `"claude-fable-5"`
 
@@ -17540,13 +19065,17 @@ ant beta:messages count-tokens \
 
                 Most capable model for cybersecurity and biology research
 
+              - `"claude-opus-5"`
+
+                Powerful intelligence for long-running agents and coding
+
               - `"claude-opus-4-8"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-7"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-mythos-preview"`
 
@@ -17554,7 +19083,7 @@ ant beta:messages count-tokens \
 
               - `"claude-opus-4-6"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-6"`
 
@@ -17570,11 +19099,11 @@ ant beta:messages count-tokens \
 
               - `"claude-opus-4-5"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-5-20251101"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-5"`
 
@@ -17586,17 +19115,17 @@ ant beta:messages count-tokens \
 
               - `"claude-opus-4-1"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-1-20250805"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
           - `to: object { model }`
 
             The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-            - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+            - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
               The model that will complete your prompt.
 
@@ -17606,17 +19135,29 @@ ant beta:messages count-tokens \
 
             What caused the `from` model to hand over at this hop.
 
-            - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+            - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
               The policy category that triggered a refusal.
 
               - `"cyber"`
 
+                The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
               - `"bio"`
+
+                The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
               - `"frontier_llm"`
 
+                The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
               - `"reasoning_extraction"`
+
+                The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+              - `"general_harms"`
+
+                The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
             - `type: "refusal"`
 
@@ -17709,11 +19250,15 @@ ant beta:messages count-tokens \
 
             - `type: "unavailable"`
 
-      - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+      - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
 
         - `"claude-fable-5"`
 
@@ -17723,13 +19268,17 @@ ant beta:messages count-tokens \
 
           Most capable model for cybersecurity and biology research
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-mythos-preview"`
 
@@ -17737,7 +19286,7 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-6"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -17753,11 +19302,11 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -17769,11 +19318,11 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-1"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-1-20250805"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
       - `role: "assistant"`
 
@@ -17785,17 +19334,29 @@ ant beta:messages count-tokens \
 
         Structured information about a refusal.
 
-        - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+        - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
           The policy category that triggered a refusal.
 
           - `"cyber"`
 
+            The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
           - `"bio"`
+
+            The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
           - `"frontier_llm"`
 
+            The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
           - `"reasoning_extraction"`
+
+            The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+          - `"general_harms"`
+
+            The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
         - `explanation: string`
 
@@ -17866,6 +19427,7 @@ ant beta:messages count-tokens \
         * `"tool_use"`: the model invoked one or more tools
         * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
         * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+        * `"model_context_window_exceeded"`: we exceeded the model's context window
 
         In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -17897,7 +19459,7 @@ ant beta:messages count-tokens \
 
         For Messages, this is always `"message"`.
 
-      - `usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 8 more }`
+      - `usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 9 more }`
 
         Billing and rate-limit usage.
 
@@ -17928,6 +19490,74 @@ ant beta:messages count-tokens \
         - `cache_read_input_tokens: number`
 
           The number of input tokens read from the cache.
+
+        - `fallback_credit: object { status }`
+
+          Outcome of the `fallback_credit_token` presented on this request.
+
+          - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+            Whether the fallback-credit reprice was applied to this response's billing.
+
+            A union discriminated on `type`. `redeemed`: the retry is billed as if
+            the conversation had been on the retry model all along — including when the
+            resulting shift is zero because there was nothing to move. `not_applied`:
+            no reprice was applied; the arm's `reason` says why.
+
+            - `beta_fallback_credit_redeemed: object { type }`
+
+              The reprice was applied: the retry is billed as if the conversation
+              had been on the retry model all along.
+
+              - `type: "redeemed"`
+
+            - `beta_fallback_credit_not_applied: object { reason, type, remove_to_redeem }`
+
+              No reprice was applied; `reason` says why.
+
+              - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+                Why the reprice was not applied.
+
+                A closed enum; additions to the redemption-check vocabulary arrive as
+                deliberate schema updates.
+
+                - `"body_mismatch"`
+
+                - `"continuation_excluded"`
+
+                - `"continuation_only"`
+
+                - `"expired"`
+
+                - `"invalid_target_model"`
+
+                - `"not_enabled"`
+
+                - `"reprice_unavailable"`
+
+                - `"temporarily_unavailable"`
+
+                - `"variant_fields_present"`
+
+                - `"wrong_organization"`
+
+                - `"wrong_platform"`
+
+                - `"wrong_workspace"`
+
+              - `type: "not_applied"`
+
+              - `remove_to_redeem: optional array of string`
+
+                Request fields to remove before retrying, so the retry can redeem this
+                token.
+
+                Present exactly when `reason` is `variant_fields_present` — never null,
+                never an empty array; absent otherwise. Fields are named only from your own request, and only after
+                the sealed variant hash matched. A served best-effort retry has already
+                been billed at normal price; nothing redeems retroactively, but a corrected
+                re-send inside the token's five-minute window can still redeem.
 
         - `inference_geo: string`
 
@@ -17975,11 +19605,15 @@ ant beta:messages count-tokens \
 
               The number of input tokens which were used.
 
-            - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+            - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-sonnet-5"`
+
+                High-performance model for coding and agents
 
               - `"claude-fable-5"`
 
@@ -17989,13 +19623,17 @@ ant beta:messages count-tokens \
 
                 Most capable model for cybersecurity and biology research
 
+              - `"claude-opus-5"`
+
+                Powerful intelligence for long-running agents and coding
+
               - `"claude-opus-4-8"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-7"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-mythos-preview"`
 
@@ -18003,7 +19641,7 @@ ant beta:messages count-tokens \
 
               - `"claude-opus-4-6"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-6"`
 
@@ -18019,11 +19657,11 @@ ant beta:messages count-tokens \
 
               - `"claude-opus-4-5"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-5-20251101"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-5"`
 
@@ -18035,11 +19673,11 @@ ant beta:messages count-tokens \
 
               - `"claude-opus-4-1"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-1-20250805"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
             - `output_tokens: number`
 
@@ -18113,11 +19751,15 @@ ant beta:messages count-tokens \
 
               The number of input tokens which were used.
 
-            - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+            - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-sonnet-5"`
+
+                High-performance model for coding and agents
 
               - `"claude-fable-5"`
 
@@ -18127,13 +19769,17 @@ ant beta:messages count-tokens \
 
                 Most capable model for cybersecurity and biology research
 
+              - `"claude-opus-5"`
+
+                Powerful intelligence for long-running agents and coding
+
               - `"claude-opus-4-8"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-7"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-mythos-preview"`
 
@@ -18141,7 +19787,7 @@ ant beta:messages count-tokens \
 
               - `"claude-opus-4-6"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-6"`
 
@@ -18157,11 +19803,11 @@ ant beta:messages count-tokens \
 
               - `"claude-opus-4-5"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-5-20251101"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-5"`
 
@@ -18173,11 +19819,11 @@ ant beta:messages count-tokens \
 
               - `"claude-opus-4-1"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-1-20250805"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
             - `output_tokens: number`
 
@@ -18220,11 +19866,15 @@ ant beta:messages count-tokens \
 
               The number of input tokens which were used.
 
-            - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+            - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-sonnet-5"`
+
+                High-performance model for coding and agents
 
               - `"claude-fable-5"`
 
@@ -18234,13 +19884,17 @@ ant beta:messages count-tokens \
 
                 Most capable model for cybersecurity and biology research
 
+              - `"claude-opus-5"`
+
+                Powerful intelligence for long-running agents and coding
+
               - `"claude-opus-4-8"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-7"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-mythos-preview"`
 
@@ -18248,7 +19902,7 @@ ant beta:messages count-tokens \
 
               - `"claude-opus-4-6"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-6"`
 
@@ -18264,11 +19918,11 @@ ant beta:messages count-tokens \
 
               - `"claude-opus-4-5"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-5-20251101"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-5"`
 
@@ -18280,11 +19934,11 @@ ant beta:messages count-tokens \
 
               - `"claude-opus-4-1"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-1-20250805"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
             - `output_tokens: number`
 
@@ -18342,7 +19996,7 @@ ant beta:messages count-tokens \
 
         - `speed: "standard" or "fast"`
 
-          The inference speed mode used for this request.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `"standard"`
 
@@ -18382,7 +20036,7 @@ ant beta:messages count-tokens \
 
         Structured information about a refusal.
 
-        - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+        - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
           The policy category that triggered a refusal.
 
@@ -18465,7 +20119,7 @@ ant beta:messages count-tokens \
 
     - `type: "message_delta"`
 
-    - `usage: object { cache_creation_input_tokens, cache_read_input_tokens, input_tokens, 4 more }`
+    - `usage: object { cache_creation_input_tokens, cache_read_input_tokens, fallback_credit, 5 more }`
 
       Billing and rate-limit usage.
 
@@ -18484,6 +20138,19 @@ ant beta:messages count-tokens \
       - `cache_read_input_tokens: number`
 
         The cumulative number of input tokens read from the cache.
+
+      - `fallback_credit: object { status }`
+
+        Outcome of the `fallback_credit_token` presented on this request.
+
+        - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+          Whether the fallback-credit reprice was applied to this response's billing.
+
+          A union discriminated on `type`. `redeemed`: the retry is billed as if
+          the conversation had been on the retry model all along — including when the
+          resulting shift is zero because there was nothing to move. `not_applied`:
+          no reprice was applied; the arm's `reason` says why.
 
       - `input_tokens: number`
 
@@ -18950,17 +20617,29 @@ ant beta:messages count-tokens \
 
   Structured information about a refusal.
 
-  - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+  - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
     The policy category that triggered a refusal.
 
     - `"cyber"`
 
+      The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
     - `"bio"`
+
+      The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
     - `"frontier_llm"`
 
+      The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
     - `"reasoning_extraction"`
+
+      The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+    - `"general_harms"`
+
+      The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
   - `explanation: string`
 
@@ -19070,7 +20749,7 @@ ant beta:messages count-tokens \
                 - `5m`: 5 minutes
                 - `1h`: 1 hour
 
-                Defaults to `5m`.
+                Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
                 - `"5m"`
 
@@ -19221,7 +20900,7 @@ ant beta:messages count-tokens \
                 - `5m`: 5 minutes
                 - `1h`: 1 hour
 
-                Defaults to `5m`.
+                Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `type: "content"`
 
@@ -19254,7 +20933,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
   - `citations: optional object { enabled }`
 
@@ -19313,7 +20992,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -19344,7 +21023,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `citations: optional array of BetaTextCitationParam`
 
@@ -19444,6 +21123,146 @@ ant beta:messages count-tokens \
 
   - `is_error: optional boolean`
 
+### Beta Request Tool Addition Block
+
+- `beta_request_tool_addition_block: object { tool, type, cache_control }`
+
+  Mid-conversation directive to surface a declared tool.
+
+  `tool` references a tool (or MCP toolset) by name from the request's
+  `tools`; it is offered to the model from this point in the
+  conversation onward.
+
+  - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
+
+    Reference to a single tool the caller declared directly in
+    `tools[]`. Does not accept the composed `{server}_{name}` form the
+    server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+    `mcp_toolset_reference` for those.
+
+    - `beta_tool_change_tool_reference: object { name, type }`
+
+      Reference to a single tool the caller declared directly in
+      `tools[]`. Does not accept the composed `{server}_{name}` form the
+      server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+      `mcp_toolset_reference` for those.
+
+      - `name: string`
+
+      - `type: "tool_reference"`
+
+    - `beta_tool_change_mcp_tool_reference: object { name, server_name, type }`
+
+      Reference to a single MCP tool by its server and remote name — the
+      same `server_name`/`name` pair `mcp_tool_use` carries.
+
+      - `name: string`
+
+      - `server_name: string`
+
+      - `type: "mcp_tool_reference"`
+
+    - `beta_tool_change_mcp_toolset_reference: object { server_name, type }`
+
+      Reference to every tool in the named MCP server's toolset.
+
+      - `server_name: string`
+
+      - `type: "mcp_toolset_reference"`
+
+  - `type: "tool_addition"`
+
+  - `cache_control: optional object { type, ttl }`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+### Beta Request Tool Removal Block
+
+- `beta_request_tool_removal_block: object { tool, type, cache_control }`
+
+  Mid-conversation directive to withdraw a tool.
+
+  `tool` references a tool (or MCP toolset) by name from the request's
+  `tools`; it is no longer offered to the model from this point in the
+  conversation onward.
+
+  - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
+
+    Reference to a single tool the caller declared directly in
+    `tools[]`. Does not accept the composed `{server}_{name}` form the
+    server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+    `mcp_toolset_reference` for those.
+
+    - `beta_tool_change_tool_reference: object { name, type }`
+
+      Reference to a single tool the caller declared directly in
+      `tools[]`. Does not accept the composed `{server}_{name}` form the
+      server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+      `mcp_toolset_reference` for those.
+
+      - `name: string`
+
+      - `type: "tool_reference"`
+
+    - `beta_tool_change_mcp_tool_reference: object { name, server_name, type }`
+
+      Reference to a single MCP tool by its server and remote name — the
+      same `server_name`/`name` pair `mcp_tool_use` carries.
+
+      - `name: string`
+
+      - `server_name: string`
+
+      - `type: "mcp_tool_reference"`
+
+    - `beta_tool_change_mcp_toolset_reference: object { server_name, type }`
+
+      Reference to every tool in the named MCP server's toolset.
+
+      - `server_name: string`
+
+      - `type: "mcp_toolset_reference"`
+
+  - `type: "tool_removal"`
+
+  - `cache_control: optional object { type, ttl }`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
 ### Beta Search Result Block Param
 
 - `beta_search_result_block_param: object { content, source, title, 3 more }`
@@ -19469,7 +21288,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
         - `"5m"`
 
@@ -19592,7 +21411,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
   - `citations: optional object { enabled }`
 
@@ -19723,7 +21542,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -19962,7 +21781,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -20473,7 +22292,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -20613,7 +22432,7 @@ ant beta:messages count-tokens \
 
     Must be ≥1024 and less than `max_tokens`.
 
-    See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+    See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
   - `type: "enabled"`
 
@@ -20633,7 +22452,7 @@ ant beta:messages count-tokens \
 
   When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
-  See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+  See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
   - `beta_thinking_config_enabled: object { budget_tokens, type, display }`
 
@@ -20643,7 +22462,7 @@ ant beta:messages count-tokens \
 
       Must be ≥1024 and less than `max_tokens`.
 
-      See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+      See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
     - `type: "enabled"`
 
@@ -20756,7 +22575,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -20823,7 +22642,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -20876,7 +22695,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -20891,6 +22710,42 @@ ant beta:messages count-tokens \
   - `strict: optional boolean`
 
     When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Change MCP Tool Reference
+
+- `beta_tool_change_mcp_tool_reference: object { name, server_name, type }`
+
+  Reference to a single MCP tool by its server and remote name — the
+  same `server_name`/`name` pair `mcp_tool_use` carries.
+
+  - `name: string`
+
+  - `server_name: string`
+
+  - `type: "mcp_tool_reference"`
+
+### Beta Tool Change MCP Toolset Reference
+
+- `beta_tool_change_mcp_toolset_reference: object { server_name, type }`
+
+  Reference to every tool in the named MCP server's toolset.
+
+  - `server_name: string`
+
+  - `type: "mcp_toolset_reference"`
+
+### Beta Tool Change Tool Reference
+
+- `beta_tool_change_tool_reference: object { name, type }`
+
+  Reference to a single tool the caller declared directly in
+  `tools[]`. Does not accept the composed `{server}_{name}` form the
+  server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+  `mcp_toolset_reference` for those.
+
+  - `name: string`
+
+  - `type: "tool_reference"`
 
 ### Beta Tool Choice
 
@@ -21043,7 +22898,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -21108,7 +22963,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -21173,7 +23028,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -21230,7 +23085,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -21259,7 +23114,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -21288,7 +23143,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `citations: optional array of BetaTextCitationParam`
 
@@ -21435,7 +23290,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `beta_search_result_block_param: object { content, source, title, 3 more }`
 
@@ -21472,7 +23327,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `citations: optional object { enabled }`
 
@@ -21559,7 +23414,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `citations: optional object { enabled }`
 
@@ -21592,7 +23447,7 @@ ant beta:messages count-tokens \
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
-          Defaults to `5m`.
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
   - `is_error: optional boolean`
 
@@ -21637,7 +23492,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -21692,7 +23547,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -21787,7 +23642,7 @@ ant beta:messages count-tokens \
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
-            Defaults to `5m`.
+            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
             - `"5m"`
 
@@ -21814,7 +23669,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
 ### Beta Tool Search Tool Result Error
 
@@ -21889,7 +23744,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
         - `"5m"`
 
@@ -21934,7 +23789,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -21987,7 +23842,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -22040,7 +23895,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -22093,7 +23948,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -22115,7 +23970,7 @@ ant beta:messages count-tokens \
 
 ### Beta Tool Union
 
-- `beta_tool_union: BetaTool or BetaToolBash20241022 or BetaToolBash20250124 or 21 more`
+- `beta_tool_union: BetaTool or BetaToolBash20241022 or BetaToolBash20250124 or 23 more`
 
   Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
@@ -22164,7 +24019,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
         - `"5m"`
 
@@ -22229,7 +24084,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -22276,7 +24131,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -22323,7 +24178,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -22368,7 +24223,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -22415,7 +24270,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -22462,7 +24317,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -22515,7 +24370,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -22566,7 +24421,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -22621,7 +24476,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -22672,7 +24527,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -22727,7 +24582,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -22782,7 +24637,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -22829,7 +24684,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -22876,7 +24731,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -22935,7 +24790,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -23014,7 +24869,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `citations: optional object { enabled }`
 
@@ -23081,7 +24936,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -23160,7 +25015,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `citations: optional object { enabled }`
 
@@ -23229,7 +25084,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `citations: optional object { enabled }`
 
@@ -23257,13 +25112,183 @@ ant beta:messages count-tokens \
 
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
+  - `beta_web_search_tool_20260318: object { name, type, allowed_callers, 8 more }`
+
+    - `name: "web_search"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `type: "web_search_20260318"`
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: optional array of string`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `blocked_domains: optional array of string`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `cache_control: optional object { type, ttl }`
+
+      Create a cache control breakpoint at this content block.
+
+      - `type: "ephemeral"`
+
+      - `ttl: optional "5m" or "1h"`
+
+        The time-to-live for the cache control breakpoint.
+
+        This may be one the following values:
+
+        - `5m`: 5 minutes
+        - `1h`: 1 hour
+
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_uses: optional number`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `response_inclusion: optional "full" or "excluded"`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+      - `"full"`
+
+      - `"excluded"`
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `user_location: optional object { type, city, country, 2 more }`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+      - `type: "approximate"`
+
+      - `city: optional string`
+
+        The city of the user.
+
+      - `country: optional string`
+
+        The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+      - `region: optional string`
+
+        The region of the user.
+
+      - `timezone: optional string`
+
+        The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+  - `beta_web_fetch_tool_20260318: object { name, type, allowed_callers, 10 more }`
+
+    - `name: "web_fetch"`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `type: "web_fetch_20260318"`
+
+    - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `allowed_domains: optional array of string`
+
+      List of domains to allow fetching from
+
+    - `blocked_domains: optional array of string`
+
+      List of domains to block fetching from
+
+    - `cache_control: optional object { type, ttl }`
+
+      Create a cache control breakpoint at this content block.
+
+      - `type: "ephemeral"`
+
+      - `ttl: optional "5m" or "1h"`
+
+        The time-to-live for the cache control breakpoint.
+
+        This may be one the following values:
+
+        - `5m`: 5 minutes
+        - `1h`: 1 hour
+
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+    - `citations: optional object { enabled }`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+      - `enabled: optional boolean`
+
+    - `defer_loading: optional boolean`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_content_tokens: optional number`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    - `max_uses: optional number`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `response_inclusion: optional "full" or "excluded"`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+      - `"full"`
+
+      - `"excluded"`
+
+    - `strict: optional boolean`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `use_cache: optional boolean`
+
+      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
   - `beta_advisor_tool_20260301: object { model, name, type, 7 more }`
 
-    - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+    - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
 
       - `"claude-fable-5"`
 
@@ -23273,13 +25298,17 @@ ant beta:messages count-tokens \
 
         Most capable model for cybersecurity and biology research
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-mythos-preview"`
 
@@ -23287,7 +25316,7 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-6"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -23303,11 +25332,11 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -23319,11 +25348,11 @@ ant beta:messages count-tokens \
 
       - `"claude-opus-4-1"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-1-20250805"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
     - `name: "advisor"`
 
@@ -23358,7 +25387,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `caching: optional object { type, ttl }`
 
@@ -23375,7 +25404,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -23432,7 +25461,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -23481,7 +25510,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `defer_loading: optional boolean`
 
@@ -23519,7 +25548,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `configs: optional map[BetaMCPToolConfig]`
 
@@ -23600,7 +25629,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -23664,7 +25693,7 @@ ant beta:messages count-tokens \
 
 ### Beta Usage
 
-- `beta_usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 8 more }`
+- `beta_usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 9 more }`
 
   - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
 
@@ -23685,6 +25714,74 @@ ant beta:messages count-tokens \
   - `cache_read_input_tokens: number`
 
     The number of input tokens read from the cache.
+
+  - `fallback_credit: object { status }`
+
+    Outcome of the `fallback_credit_token` presented on this request.
+
+    - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+      Whether the fallback-credit reprice was applied to this response's billing.
+
+      A union discriminated on `type`. `redeemed`: the retry is billed as if
+      the conversation had been on the retry model all along — including when the
+      resulting shift is zero because there was nothing to move. `not_applied`:
+      no reprice was applied; the arm's `reason` says why.
+
+      - `beta_fallback_credit_redeemed: object { type }`
+
+        The reprice was applied: the retry is billed as if the conversation
+        had been on the retry model all along.
+
+        - `type: "redeemed"`
+
+      - `beta_fallback_credit_not_applied: object { reason, type, remove_to_redeem }`
+
+        No reprice was applied; `reason` says why.
+
+        - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+          Why the reprice was not applied.
+
+          A closed enum; additions to the redemption-check vocabulary arrive as
+          deliberate schema updates.
+
+          - `"body_mismatch"`
+
+          - `"continuation_excluded"`
+
+          - `"continuation_only"`
+
+          - `"expired"`
+
+          - `"invalid_target_model"`
+
+          - `"not_enabled"`
+
+          - `"reprice_unavailable"`
+
+          - `"temporarily_unavailable"`
+
+          - `"variant_fields_present"`
+
+          - `"wrong_organization"`
+
+          - `"wrong_platform"`
+
+          - `"wrong_workspace"`
+
+        - `type: "not_applied"`
+
+        - `remove_to_redeem: optional array of string`
+
+          Request fields to remove before retrying, so the retry can redeem this
+          token.
+
+          Present exactly when `reason` is `variant_fields_present` — never null,
+          never an empty array; absent otherwise. Fields are named only from your own request, and only after
+          the sealed variant hash matched. A served best-effort retry has already
+          been billed at normal price; nothing redeems retroactively, but a corrected
+          re-send inside the token's five-minute window can still redeem.
 
   - `inference_geo: string`
 
@@ -23732,11 +25829,15 @@ ant beta:messages count-tokens \
 
         The number of input tokens which were used.
 
-      - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+      - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
 
         - `"claude-fable-5"`
 
@@ -23746,13 +25847,17 @@ ant beta:messages count-tokens \
 
           Most capable model for cybersecurity and biology research
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-mythos-preview"`
 
@@ -23760,7 +25865,7 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-6"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -23776,11 +25881,11 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -23792,11 +25897,11 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-1"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-1-20250805"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
       - `output_tokens: number`
 
@@ -23870,11 +25975,15 @@ ant beta:messages count-tokens \
 
         The number of input tokens which were used.
 
-      - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+      - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
 
         - `"claude-fable-5"`
 
@@ -23884,13 +25993,17 @@ ant beta:messages count-tokens \
 
           Most capable model for cybersecurity and biology research
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-mythos-preview"`
 
@@ -23898,7 +26011,7 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-6"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -23914,11 +26027,11 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -23930,11 +26043,11 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-1"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-1-20250805"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
       - `output_tokens: number`
 
@@ -23977,11 +26090,15 @@ ant beta:messages count-tokens \
 
         The number of input tokens which were used.
 
-      - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+      - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
 
         - `"claude-fable-5"`
 
@@ -23991,13 +26108,17 @@ ant beta:messages count-tokens \
 
           Most capable model for cybersecurity and biology research
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-mythos-preview"`
 
@@ -24005,7 +26126,7 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-6"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -24021,11 +26142,11 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -24037,11 +26158,11 @@ ant beta:messages count-tokens \
 
         - `"claude-opus-4-1"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-1-20250805"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
       - `output_tokens: number`
 
@@ -24099,7 +26220,7 @@ ant beta:messages count-tokens \
 
   - `speed: "standard" or "fast"`
 
-    The inference speed mode used for this request.
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
     - `"standard"`
 
@@ -24226,7 +26347,7 @@ ant beta:messages count-tokens \
                   - `5m`: 5 minutes
                   - `1h`: 1 hour
 
-                  Defaults to `5m`.
+                  Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
                   - `"5m"`
 
@@ -24377,7 +26498,7 @@ ant beta:messages count-tokens \
                   - `5m`: 5 minutes
                   - `1h`: 1 hour
 
-                  Defaults to `5m`.
+                  Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
         - `type: "content"`
 
@@ -24410,7 +26531,7 @@ ant beta:messages count-tokens \
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `citations: optional object { enabled }`
 
@@ -24475,7 +26596,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -24548,7 +26669,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -24623,7 +26744,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -24646,6 +26767,91 @@ ant beta:messages count-tokens \
   - `max_uses: optional number`
 
     Maximum number of times the tool can be used in the API request.
+
+  - `strict: optional boolean`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `use_cache: optional boolean`
+
+    Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+### Beta Web Fetch Tool 20260318
+
+- `beta_web_fetch_tool_20260318: object { name, type, allowed_callers, 10 more }`
+
+  - `name: "web_fetch"`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `type: "web_fetch_20260318"`
+
+  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `allowed_domains: optional array of string`
+
+    List of domains to allow fetching from
+
+  - `blocked_domains: optional array of string`
+
+    List of domains to block fetching from
+
+  - `cache_control: optional object { type, ttl }`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `citations: optional object { enabled }`
+
+    Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `enabled: optional boolean`
+
+  - `defer_loading: optional boolean`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `max_content_tokens: optional number`
+
+    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+  - `max_uses: optional number`
+
+    Maximum number of times the tool can be used in the API request.
+
+  - `response_inclusion: optional "full" or "excluded"`
+
+    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+    - `"full"`
+
+    - `"excluded"`
 
   - `strict: optional boolean`
 
@@ -24838,7 +27044,7 @@ ant beta:messages count-tokens \
                       - `5m`: 5 minutes
                       - `1h`: 1 hour
 
-                      Defaults to `5m`.
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
                       - `"5m"`
 
@@ -24989,7 +27195,7 @@ ant beta:messages count-tokens \
                       - `5m`: 5 minutes
                       - `1h`: 1 hour
 
-                      Defaults to `5m`.
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
             - `type: "content"`
 
@@ -25022,7 +27228,7 @@ ant beta:messages count-tokens \
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
-            Defaults to `5m`.
+            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
         - `citations: optional object { enabled }`
 
@@ -25061,7 +27267,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
   - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
@@ -25234,7 +27440,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -25319,7 +27525,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -25332,6 +27538,99 @@ ant beta:messages count-tokens \
   - `max_uses: optional number`
 
     Maximum number of times the tool can be used in the API request.
+
+  - `strict: optional boolean`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `user_location: optional object { type, city, country, 2 more }`
+
+    Parameters for the user's location. Used to provide more relevant search results.
+
+    - `type: "approximate"`
+
+    - `city: optional string`
+
+      The city of the user.
+
+    - `country: optional string`
+
+      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+    - `region: optional string`
+
+      The region of the user.
+
+    - `timezone: optional string`
+
+      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+### Beta Web Search Tool 20260318
+
+- `beta_web_search_tool_20260318: object { name, type, allowed_callers, 8 more }`
+
+  - `name: "web_search"`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `type: "web_search_20260318"`
+
+  - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+    - `"direct"`
+
+    - `"code_execution_20250825"`
+
+    - `"code_execution_20260120"`
+
+    - `"code_execution_20260521"`
+
+  - `allowed_domains: optional array of string`
+
+    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+  - `blocked_domains: optional array of string`
+
+    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+  - `cache_control: optional object { type, ttl }`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: "ephemeral"`
+
+    - `ttl: optional "5m" or "1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `defer_loading: optional boolean`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `max_uses: optional number`
+
+    Maximum number of times the tool can be used in the API request.
+
+  - `response_inclusion: optional "full" or "excluded"`
+
+    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+    - `"full"`
+
+    - `"excluded"`
 
   - `strict: optional boolean`
 
@@ -25532,7 +27831,7 @@ ant beta:messages count-tokens \
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `"5m"`
 
@@ -25644,7 +27943,7 @@ Send a batch of Message creation requests.
 
 The Message Batches API can be used to process multiple Messages API requests at once. Once a Message Batch is created, it begins processing immediately. Batches can take up to 24 hours to complete.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -25655,6 +27954,10 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 - `--beta: optional array of AnthropicBeta`
 
   Header param: Optional header to specify the beta version(s) you want to use.
+
+- `--user-profile-id: optional string`
+
+  Header param: The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
 ### Returns
 
@@ -25783,7 +28086,7 @@ ant beta:messages:batches create \
 
 This endpoint is idempotent and can be used to poll for Message Batch completion. To access the results of a Message Batch, make a request to the `results_url` field in the response.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -25922,7 +28225,7 @@ ant beta:messages:batches retrieve \
 
 List all Message Batches within a Workspace. Most recently created batches are returned first.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -26093,7 +28396,7 @@ Batches may be canceled any time before processing ends. Once cancellation is in
 
 The number of canceled requests is specified in `request_counts`. To determine which requests were canceled, check the individual results within the batch. Note that cancellation may not result in any canceled requests if they were non-interruptible.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -26234,7 +28537,7 @@ Delete a Message Batch.
 
 Message Batches can only be deleted once they've finished processing. If you'd like to delete an in-progress batch, you must first cancel it.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -26287,7 +28590,7 @@ Streams the results of a Message Batch as a `.jsonl` file.
 
 Each line in the file is a JSON object containing the result of a single request in the Message Batch. Results are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -27062,11 +29365,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-              - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+              - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `"claude-sonnet-5"`
+
+                  High-performance model for coding and agents
 
                 - `"claude-fable-5"`
 
@@ -27076,13 +29383,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   Most capable model for cybersecurity and biology research
 
+                - `"claude-opus-5"`
+
+                  Powerful intelligence for long-running agents and coding
+
                 - `"claude-opus-4-8"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-7"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-mythos-preview"`
 
@@ -27090,7 +29401,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `"claude-opus-4-6"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-sonnet-4-6"`
 
@@ -27106,11 +29417,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `"claude-opus-4-5"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-5-20251101"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-sonnet-4-5"`
 
@@ -27122,17 +29433,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `"claude-opus-4-1"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-1-20250805"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
             - `to: object { model }`
 
               The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-              - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+              - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
                 The model that will complete your prompt.
 
@@ -27142,17 +29453,29 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               What caused the `from` model to hand over at this hop.
 
-              - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+              - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
                 The policy category that triggered a refusal.
 
                 - `"cyber"`
 
+                  The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
                 - `"bio"`
+
+                  The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
                 - `"frontier_llm"`
 
+                  The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
                 - `"reasoning_extraction"`
+
+                  The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+                - `"general_harms"`
+
+                  The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
               - `type: "refusal"`
 
@@ -27245,11 +29568,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               - `type: "unavailable"`
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -27259,13 +29586,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Most capable model for cybersecurity and biology research
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-mythos-preview"`
 
@@ -27273,7 +29604,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           - `"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -27289,11 +29620,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -27305,11 +29636,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           - `"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
         - `role: "assistant"`
 
@@ -27321,17 +29652,29 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           Structured information about a refusal.
 
-          - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+          - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
             The policy category that triggered a refusal.
 
             - `"cyber"`
 
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
             - `"bio"`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
             - `"frontier_llm"`
 
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
             - `"reasoning_extraction"`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `"general_harms"`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
           - `explanation: string`
 
@@ -27402,6 +29745,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           * `"tool_use"`: the model invoked one or more tools
           * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
           * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+          * `"model_context_window_exceeded"`: we exceeded the model's context window
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -27433,7 +29777,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           For Messages, this is always `"message"`.
 
-        - `usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 8 more }`
+        - `usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 9 more }`
 
           Billing and rate-limit usage.
 
@@ -27464,6 +29808,74 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `cache_read_input_tokens: number`
 
             The number of input tokens read from the cache.
+
+          - `fallback_credit: object { status }`
+
+            Outcome of the `fallback_credit_token` presented on this request.
+
+            - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+              Whether the fallback-credit reprice was applied to this response's billing.
+
+              A union discriminated on `type`. `redeemed`: the retry is billed as if
+              the conversation had been on the retry model all along — including when the
+              resulting shift is zero because there was nothing to move. `not_applied`:
+              no reprice was applied; the arm's `reason` says why.
+
+              - `beta_fallback_credit_redeemed: object { type }`
+
+                The reprice was applied: the retry is billed as if the conversation
+                had been on the retry model all along.
+
+                - `type: "redeemed"`
+
+              - `beta_fallback_credit_not_applied: object { reason, type, remove_to_redeem }`
+
+                No reprice was applied; `reason` says why.
+
+                - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+                  Why the reprice was not applied.
+
+                  A closed enum; additions to the redemption-check vocabulary arrive as
+                  deliberate schema updates.
+
+                  - `"body_mismatch"`
+
+                  - `"continuation_excluded"`
+
+                  - `"continuation_only"`
+
+                  - `"expired"`
+
+                  - `"invalid_target_model"`
+
+                  - `"not_enabled"`
+
+                  - `"reprice_unavailable"`
+
+                  - `"temporarily_unavailable"`
+
+                  - `"variant_fields_present"`
+
+                  - `"wrong_organization"`
+
+                  - `"wrong_platform"`
+
+                  - `"wrong_workspace"`
+
+                - `type: "not_applied"`
+
+                - `remove_to_redeem: optional array of string`
+
+                  Request fields to remove before retrying, so the retry can redeem this
+                  token.
+
+                  Present exactly when `reason` is `variant_fields_present` — never null,
+                  never an empty array; absent otherwise. Fields are named only from your own request, and only after
+                  the sealed variant hash matched. A served best-effort retry has already
+                  been billed at normal price; nothing redeems retroactively, but a corrected
+                  re-send inside the token's five-minute window can still redeem.
 
           - `inference_geo: string`
 
@@ -27511,11 +29923,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 The number of input tokens which were used.
 
-              - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+              - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `"claude-sonnet-5"`
+
+                  High-performance model for coding and agents
 
                 - `"claude-fable-5"`
 
@@ -27525,13 +29941,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   Most capable model for cybersecurity and biology research
 
+                - `"claude-opus-5"`
+
+                  Powerful intelligence for long-running agents and coding
+
                 - `"claude-opus-4-8"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-7"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-mythos-preview"`
 
@@ -27539,7 +29959,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `"claude-opus-4-6"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-sonnet-4-6"`
 
@@ -27555,11 +29975,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `"claude-opus-4-5"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-5-20251101"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-sonnet-4-5"`
 
@@ -27571,11 +29991,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `"claude-opus-4-1"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-1-20250805"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
               - `output_tokens: number`
 
@@ -27649,11 +30069,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 The number of input tokens which were used.
 
-              - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+              - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `"claude-sonnet-5"`
+
+                  High-performance model for coding and agents
 
                 - `"claude-fable-5"`
 
@@ -27663,13 +30087,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   Most capable model for cybersecurity and biology research
 
+                - `"claude-opus-5"`
+
+                  Powerful intelligence for long-running agents and coding
+
                 - `"claude-opus-4-8"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-7"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-mythos-preview"`
 
@@ -27677,7 +30105,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `"claude-opus-4-6"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-sonnet-4-6"`
 
@@ -27693,11 +30121,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `"claude-opus-4-5"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-5-20251101"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-sonnet-4-5"`
 
@@ -27709,11 +30137,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `"claude-opus-4-1"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-1-20250805"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
               - `output_tokens: number`
 
@@ -27756,11 +30184,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 The number of input tokens which were used.
 
-              - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+              - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `"claude-sonnet-5"`
+
+                  High-performance model for coding and agents
 
                 - `"claude-fable-5"`
 
@@ -27770,13 +30202,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   Most capable model for cybersecurity and biology research
 
+                - `"claude-opus-5"`
+
+                  Powerful intelligence for long-running agents and coding
+
                 - `"claude-opus-4-8"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-7"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-mythos-preview"`
 
@@ -27784,7 +30220,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `"claude-opus-4-6"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-sonnet-4-6"`
 
@@ -27800,11 +30236,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `"claude-opus-4-5"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-5-20251101"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-sonnet-4-5"`
 
@@ -27816,11 +30252,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 - `"claude-opus-4-1"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-1-20250805"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
               - `output_tokens: number`
 
@@ -27878,7 +30314,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           - `speed: "standard" or "fast"`
 
-            The inference speed mode used for this request.
+            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
             - `"standard"`
 
@@ -28915,11 +31351,15 @@ ant beta:messages:batches results \
 
               The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-              - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+              - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `"claude-sonnet-5"`
+
+                  High-performance model for coding and agents
 
                 - `"claude-fable-5"`
 
@@ -28929,13 +31369,17 @@ ant beta:messages:batches results \
 
                   Most capable model for cybersecurity and biology research
 
+                - `"claude-opus-5"`
+
+                  Powerful intelligence for long-running agents and coding
+
                 - `"claude-opus-4-8"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-7"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-mythos-preview"`
 
@@ -28943,7 +31387,7 @@ ant beta:messages:batches results \
 
                 - `"claude-opus-4-6"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-sonnet-4-6"`
 
@@ -28959,11 +31403,11 @@ ant beta:messages:batches results \
 
                 - `"claude-opus-4-5"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-5-20251101"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-sonnet-4-5"`
 
@@ -28975,17 +31419,17 @@ ant beta:messages:batches results \
 
                 - `"claude-opus-4-1"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-1-20250805"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
             - `to: object { model }`
 
               The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-              - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+              - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
                 The model that will complete your prompt.
 
@@ -28995,17 +31439,29 @@ ant beta:messages:batches results \
 
               What caused the `from` model to hand over at this hop.
 
-              - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+              - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
                 The policy category that triggered a refusal.
 
                 - `"cyber"`
 
+                  The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
                 - `"bio"`
+
+                  The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
                 - `"frontier_llm"`
 
+                  The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
                 - `"reasoning_extraction"`
+
+                  The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+                - `"general_harms"`
+
+                  The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
               - `type: "refusal"`
 
@@ -29098,11 +31554,15 @@ ant beta:messages:batches results \
 
               - `type: "unavailable"`
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -29112,13 +31572,17 @@ ant beta:messages:batches results \
 
             Most capable model for cybersecurity and biology research
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-mythos-preview"`
 
@@ -29126,7 +31590,7 @@ ant beta:messages:batches results \
 
           - `"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -29142,11 +31606,11 @@ ant beta:messages:batches results \
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -29158,11 +31622,11 @@ ant beta:messages:batches results \
 
           - `"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
         - `role: "assistant"`
 
@@ -29174,17 +31638,29 @@ ant beta:messages:batches results \
 
           Structured information about a refusal.
 
-          - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+          - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
             The policy category that triggered a refusal.
 
             - `"cyber"`
 
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
             - `"bio"`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
             - `"frontier_llm"`
 
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
             - `"reasoning_extraction"`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `"general_harms"`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
           - `explanation: string`
 
@@ -29255,6 +31731,7 @@ ant beta:messages:batches results \
           * `"tool_use"`: the model invoked one or more tools
           * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
           * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+          * `"model_context_window_exceeded"`: we exceeded the model's context window
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -29286,7 +31763,7 @@ ant beta:messages:batches results \
 
           For Messages, this is always `"message"`.
 
-        - `usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 8 more }`
+        - `usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 9 more }`
 
           Billing and rate-limit usage.
 
@@ -29317,6 +31794,74 @@ ant beta:messages:batches results \
           - `cache_read_input_tokens: number`
 
             The number of input tokens read from the cache.
+
+          - `fallback_credit: object { status }`
+
+            Outcome of the `fallback_credit_token` presented on this request.
+
+            - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+              Whether the fallback-credit reprice was applied to this response's billing.
+
+              A union discriminated on `type`. `redeemed`: the retry is billed as if
+              the conversation had been on the retry model all along — including when the
+              resulting shift is zero because there was nothing to move. `not_applied`:
+              no reprice was applied; the arm's `reason` says why.
+
+              - `beta_fallback_credit_redeemed: object { type }`
+
+                The reprice was applied: the retry is billed as if the conversation
+                had been on the retry model all along.
+
+                - `type: "redeemed"`
+
+              - `beta_fallback_credit_not_applied: object { reason, type, remove_to_redeem }`
+
+                No reprice was applied; `reason` says why.
+
+                - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+                  Why the reprice was not applied.
+
+                  A closed enum; additions to the redemption-check vocabulary arrive as
+                  deliberate schema updates.
+
+                  - `"body_mismatch"`
+
+                  - `"continuation_excluded"`
+
+                  - `"continuation_only"`
+
+                  - `"expired"`
+
+                  - `"invalid_target_model"`
+
+                  - `"not_enabled"`
+
+                  - `"reprice_unavailable"`
+
+                  - `"temporarily_unavailable"`
+
+                  - `"variant_fields_present"`
+
+                  - `"wrong_organization"`
+
+                  - `"wrong_platform"`
+
+                  - `"wrong_workspace"`
+
+                - `type: "not_applied"`
+
+                - `remove_to_redeem: optional array of string`
+
+                  Request fields to remove before retrying, so the retry can redeem this
+                  token.
+
+                  Present exactly when `reason` is `variant_fields_present` — never null,
+                  never an empty array; absent otherwise. Fields are named only from your own request, and only after
+                  the sealed variant hash matched. A served best-effort retry has already
+                  been billed at normal price; nothing redeems retroactively, but a corrected
+                  re-send inside the token's five-minute window can still redeem.
 
           - `inference_geo: string`
 
@@ -29364,11 +31909,15 @@ ant beta:messages:batches results \
 
                 The number of input tokens which were used.
 
-              - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+              - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `"claude-sonnet-5"`
+
+                  High-performance model for coding and agents
 
                 - `"claude-fable-5"`
 
@@ -29378,13 +31927,17 @@ ant beta:messages:batches results \
 
                   Most capable model for cybersecurity and biology research
 
+                - `"claude-opus-5"`
+
+                  Powerful intelligence for long-running agents and coding
+
                 - `"claude-opus-4-8"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-7"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-mythos-preview"`
 
@@ -29392,7 +31945,7 @@ ant beta:messages:batches results \
 
                 - `"claude-opus-4-6"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-sonnet-4-6"`
 
@@ -29408,11 +31961,11 @@ ant beta:messages:batches results \
 
                 - `"claude-opus-4-5"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-5-20251101"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-sonnet-4-5"`
 
@@ -29424,11 +31977,11 @@ ant beta:messages:batches results \
 
                 - `"claude-opus-4-1"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-1-20250805"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
               - `output_tokens: number`
 
@@ -29502,11 +32055,15 @@ ant beta:messages:batches results \
 
                 The number of input tokens which were used.
 
-              - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+              - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `"claude-sonnet-5"`
+
+                  High-performance model for coding and agents
 
                 - `"claude-fable-5"`
 
@@ -29516,13 +32073,17 @@ ant beta:messages:batches results \
 
                   Most capable model for cybersecurity and biology research
 
+                - `"claude-opus-5"`
+
+                  Powerful intelligence for long-running agents and coding
+
                 - `"claude-opus-4-8"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-7"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-mythos-preview"`
 
@@ -29530,7 +32091,7 @@ ant beta:messages:batches results \
 
                 - `"claude-opus-4-6"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-sonnet-4-6"`
 
@@ -29546,11 +32107,11 @@ ant beta:messages:batches results \
 
                 - `"claude-opus-4-5"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-5-20251101"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-sonnet-4-5"`
 
@@ -29562,11 +32123,11 @@ ant beta:messages:batches results \
 
                 - `"claude-opus-4-1"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-1-20250805"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
               - `output_tokens: number`
 
@@ -29609,11 +32170,15 @@ ant beta:messages:batches results \
 
                 The number of input tokens which were used.
 
-              - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+              - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `"claude-sonnet-5"`
+
+                  High-performance model for coding and agents
 
                 - `"claude-fable-5"`
 
@@ -29623,13 +32188,17 @@ ant beta:messages:batches results \
 
                   Most capable model for cybersecurity and biology research
 
+                - `"claude-opus-5"`
+
+                  Powerful intelligence for long-running agents and coding
+
                 - `"claude-opus-4-8"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-7"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-mythos-preview"`
 
@@ -29637,7 +32206,7 @@ ant beta:messages:batches results \
 
                 - `"claude-opus-4-6"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-sonnet-4-6"`
 
@@ -29653,11 +32222,11 @@ ant beta:messages:batches results \
 
                 - `"claude-opus-4-5"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-5-20251101"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-sonnet-4-5"`
 
@@ -29669,11 +32238,11 @@ ant beta:messages:batches results \
 
                 - `"claude-opus-4-1"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-1-20250805"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
               - `output_tokens: number`
 
@@ -29731,7 +32300,7 @@ ant beta:messages:batches results \
 
           - `speed: "standard" or "fast"`
 
-            The inference speed mode used for this request.
+            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
             - `"standard"`
 
@@ -30598,11 +33167,15 @@ ant beta:messages:batches results \
 
             The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-            - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+            - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-sonnet-5"`
+
+                High-performance model for coding and agents
 
               - `"claude-fable-5"`
 
@@ -30612,13 +33185,17 @@ ant beta:messages:batches results \
 
                 Most capable model for cybersecurity and biology research
 
+              - `"claude-opus-5"`
+
+                Powerful intelligence for long-running agents and coding
+
               - `"claude-opus-4-8"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-7"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-mythos-preview"`
 
@@ -30626,7 +33203,7 @@ ant beta:messages:batches results \
 
               - `"claude-opus-4-6"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-6"`
 
@@ -30642,11 +33219,11 @@ ant beta:messages:batches results \
 
               - `"claude-opus-4-5"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-5-20251101"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-5"`
 
@@ -30658,17 +33235,17 @@ ant beta:messages:batches results \
 
               - `"claude-opus-4-1"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-1-20250805"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
           - `to: object { model }`
 
             The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-            - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+            - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
               The model that will complete your prompt.
 
@@ -30678,17 +33255,29 @@ ant beta:messages:batches results \
 
             What caused the `from` model to hand over at this hop.
 
-            - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+            - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
               The policy category that triggered a refusal.
 
               - `"cyber"`
 
+                The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
               - `"bio"`
+
+                The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
               - `"frontier_llm"`
 
+                The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
               - `"reasoning_extraction"`
+
+                The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+              - `"general_harms"`
+
+                The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
             - `type: "refusal"`
 
@@ -30781,11 +33370,15 @@ ant beta:messages:batches results \
 
             - `type: "unavailable"`
 
-      - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+      - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
 
         - `"claude-fable-5"`
 
@@ -30795,13 +33388,17 @@ ant beta:messages:batches results \
 
           Most capable model for cybersecurity and biology research
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-mythos-preview"`
 
@@ -30809,7 +33406,7 @@ ant beta:messages:batches results \
 
         - `"claude-opus-4-6"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -30825,11 +33422,11 @@ ant beta:messages:batches results \
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -30841,11 +33438,11 @@ ant beta:messages:batches results \
 
         - `"claude-opus-4-1"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-1-20250805"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
       - `role: "assistant"`
 
@@ -30857,17 +33454,29 @@ ant beta:messages:batches results \
 
         Structured information about a refusal.
 
-        - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+        - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
           The policy category that triggered a refusal.
 
           - `"cyber"`
 
+            The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
           - `"bio"`
+
+            The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
           - `"frontier_llm"`
 
+            The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
           - `"reasoning_extraction"`
+
+            The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+          - `"general_harms"`
+
+            The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
         - `explanation: string`
 
@@ -30938,6 +33547,7 @@ ant beta:messages:batches results \
         * `"tool_use"`: the model invoked one or more tools
         * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
         * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+        * `"model_context_window_exceeded"`: we exceeded the model's context window
 
         In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -30969,7 +33579,7 @@ ant beta:messages:batches results \
 
         For Messages, this is always `"message"`.
 
-      - `usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 8 more }`
+      - `usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 9 more }`
 
         Billing and rate-limit usage.
 
@@ -31000,6 +33610,74 @@ ant beta:messages:batches results \
         - `cache_read_input_tokens: number`
 
           The number of input tokens read from the cache.
+
+        - `fallback_credit: object { status }`
+
+          Outcome of the `fallback_credit_token` presented on this request.
+
+          - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+            Whether the fallback-credit reprice was applied to this response's billing.
+
+            A union discriminated on `type`. `redeemed`: the retry is billed as if
+            the conversation had been on the retry model all along — including when the
+            resulting shift is zero because there was nothing to move. `not_applied`:
+            no reprice was applied; the arm's `reason` says why.
+
+            - `beta_fallback_credit_redeemed: object { type }`
+
+              The reprice was applied: the retry is billed as if the conversation
+              had been on the retry model all along.
+
+              - `type: "redeemed"`
+
+            - `beta_fallback_credit_not_applied: object { reason, type, remove_to_redeem }`
+
+              No reprice was applied; `reason` says why.
+
+              - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+                Why the reprice was not applied.
+
+                A closed enum; additions to the redemption-check vocabulary arrive as
+                deliberate schema updates.
+
+                - `"body_mismatch"`
+
+                - `"continuation_excluded"`
+
+                - `"continuation_only"`
+
+                - `"expired"`
+
+                - `"invalid_target_model"`
+
+                - `"not_enabled"`
+
+                - `"reprice_unavailable"`
+
+                - `"temporarily_unavailable"`
+
+                - `"variant_fields_present"`
+
+                - `"wrong_organization"`
+
+                - `"wrong_platform"`
+
+                - `"wrong_workspace"`
+
+              - `type: "not_applied"`
+
+              - `remove_to_redeem: optional array of string`
+
+                Request fields to remove before retrying, so the retry can redeem this
+                token.
+
+                Present exactly when `reason` is `variant_fields_present` — never null,
+                never an empty array; absent otherwise. Fields are named only from your own request, and only after
+                the sealed variant hash matched. A served best-effort retry has already
+                been billed at normal price; nothing redeems retroactively, but a corrected
+                re-send inside the token's five-minute window can still redeem.
 
         - `inference_geo: string`
 
@@ -31047,11 +33725,15 @@ ant beta:messages:batches results \
 
               The number of input tokens which were used.
 
-            - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+            - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-sonnet-5"`
+
+                High-performance model for coding and agents
 
               - `"claude-fable-5"`
 
@@ -31061,13 +33743,17 @@ ant beta:messages:batches results \
 
                 Most capable model for cybersecurity and biology research
 
+              - `"claude-opus-5"`
+
+                Powerful intelligence for long-running agents and coding
+
               - `"claude-opus-4-8"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-7"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-mythos-preview"`
 
@@ -31075,7 +33761,7 @@ ant beta:messages:batches results \
 
               - `"claude-opus-4-6"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-6"`
 
@@ -31091,11 +33777,11 @@ ant beta:messages:batches results \
 
               - `"claude-opus-4-5"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-5-20251101"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-5"`
 
@@ -31107,11 +33793,11 @@ ant beta:messages:batches results \
 
               - `"claude-opus-4-1"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-1-20250805"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
             - `output_tokens: number`
 
@@ -31185,11 +33871,15 @@ ant beta:messages:batches results \
 
               The number of input tokens which were used.
 
-            - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+            - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-sonnet-5"`
+
+                High-performance model for coding and agents
 
               - `"claude-fable-5"`
 
@@ -31199,13 +33889,17 @@ ant beta:messages:batches results \
 
                 Most capable model for cybersecurity and biology research
 
+              - `"claude-opus-5"`
+
+                Powerful intelligence for long-running agents and coding
+
               - `"claude-opus-4-8"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-7"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-mythos-preview"`
 
@@ -31213,7 +33907,7 @@ ant beta:messages:batches results \
 
               - `"claude-opus-4-6"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-6"`
 
@@ -31229,11 +33923,11 @@ ant beta:messages:batches results \
 
               - `"claude-opus-4-5"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-5-20251101"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-5"`
 
@@ -31245,11 +33939,11 @@ ant beta:messages:batches results \
 
               - `"claude-opus-4-1"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-1-20250805"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
             - `output_tokens: number`
 
@@ -31292,11 +33986,15 @@ ant beta:messages:batches results \
 
               The number of input tokens which were used.
 
-            - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+            - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-sonnet-5"`
+
+                High-performance model for coding and agents
 
               - `"claude-fable-5"`
 
@@ -31306,13 +34004,17 @@ ant beta:messages:batches results \
 
                 Most capable model for cybersecurity and biology research
 
+              - `"claude-opus-5"`
+
+                Powerful intelligence for long-running agents and coding
+
               - `"claude-opus-4-8"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-7"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-mythos-preview"`
 
@@ -31320,7 +34022,7 @@ ant beta:messages:batches results \
 
               - `"claude-opus-4-6"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-6"`
 
@@ -31336,11 +34038,11 @@ ant beta:messages:batches results \
 
               - `"claude-opus-4-5"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-5-20251101"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-5"`
 
@@ -31352,11 +34054,11 @@ ant beta:messages:batches results \
 
               - `"claude-opus-4-1"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-1-20250805"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
             - `output_tokens: number`
 
@@ -31414,7 +34116,7 @@ ant beta:messages:batches results \
 
         - `speed: "standard" or "fast"`
 
-          The inference speed mode used for this request.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `"standard"`
 
@@ -32243,11 +34945,15 @@ ant beta:messages:batches results \
 
           The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-          - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+          - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-sonnet-5"`
+
+              High-performance model for coding and agents
 
             - `"claude-fable-5"`
 
@@ -32257,13 +34963,17 @@ ant beta:messages:batches results \
 
               Most capable model for cybersecurity and biology research
 
+            - `"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-mythos-preview"`
 
@@ -32271,7 +34981,7 @@ ant beta:messages:batches results \
 
             - `"claude-opus-4-6"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-6"`
 
@@ -32287,11 +34997,11 @@ ant beta:messages:batches results \
 
             - `"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-5"`
 
@@ -32303,17 +35013,17 @@ ant beta:messages:batches results \
 
             - `"claude-opus-4-1"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-1-20250805"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
         - `to: object { model }`
 
           The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-          - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+          - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
             The model that will complete your prompt.
 
@@ -32323,17 +35033,29 @@ ant beta:messages:batches results \
 
           What caused the `from` model to hand over at this hop.
 
-          - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+          - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
             The policy category that triggered a refusal.
 
             - `"cyber"`
 
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
             - `"bio"`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
             - `"frontier_llm"`
 
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
             - `"reasoning_extraction"`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `"general_harms"`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
           - `type: "refusal"`
 
@@ -32426,11 +35148,15 @@ ant beta:messages:batches results \
 
           - `type: "unavailable"`
 
-    - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+    - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
 
       - `"claude-fable-5"`
 
@@ -32440,13 +35166,17 @@ ant beta:messages:batches results \
 
         Most capable model for cybersecurity and biology research
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-mythos-preview"`
 
@@ -32454,7 +35184,7 @@ ant beta:messages:batches results \
 
       - `"claude-opus-4-6"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -32470,11 +35200,11 @@ ant beta:messages:batches results \
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -32486,11 +35216,11 @@ ant beta:messages:batches results \
 
       - `"claude-opus-4-1"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-1-20250805"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
     - `role: "assistant"`
 
@@ -32502,17 +35232,29 @@ ant beta:messages:batches results \
 
       Structured information about a refusal.
 
-      - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+      - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
         The policy category that triggered a refusal.
 
         - `"cyber"`
 
+          The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
         - `"bio"`
+
+          The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
         - `"frontier_llm"`
 
+          The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
         - `"reasoning_extraction"`
+
+          The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+        - `"general_harms"`
+
+          The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
       - `explanation: string`
 
@@ -32583,6 +35325,7 @@ ant beta:messages:batches results \
       * `"tool_use"`: the model invoked one or more tools
       * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
       * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+      * `"model_context_window_exceeded"`: we exceeded the model's context window
 
       In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -32614,7 +35357,7 @@ ant beta:messages:batches results \
 
       For Messages, this is always `"message"`.
 
-    - `usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 8 more }`
+    - `usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 9 more }`
 
       Billing and rate-limit usage.
 
@@ -32645,6 +35388,74 @@ ant beta:messages:batches results \
       - `cache_read_input_tokens: number`
 
         The number of input tokens read from the cache.
+
+      - `fallback_credit: object { status }`
+
+        Outcome of the `fallback_credit_token` presented on this request.
+
+        - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+          Whether the fallback-credit reprice was applied to this response's billing.
+
+          A union discriminated on `type`. `redeemed`: the retry is billed as if
+          the conversation had been on the retry model all along — including when the
+          resulting shift is zero because there was nothing to move. `not_applied`:
+          no reprice was applied; the arm's `reason` says why.
+
+          - `beta_fallback_credit_redeemed: object { type }`
+
+            The reprice was applied: the retry is billed as if the conversation
+            had been on the retry model all along.
+
+            - `type: "redeemed"`
+
+          - `beta_fallback_credit_not_applied: object { reason, type, remove_to_redeem }`
+
+            No reprice was applied; `reason` says why.
+
+            - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+              Why the reprice was not applied.
+
+              A closed enum; additions to the redemption-check vocabulary arrive as
+              deliberate schema updates.
+
+              - `"body_mismatch"`
+
+              - `"continuation_excluded"`
+
+              - `"continuation_only"`
+
+              - `"expired"`
+
+              - `"invalid_target_model"`
+
+              - `"not_enabled"`
+
+              - `"reprice_unavailable"`
+
+              - `"temporarily_unavailable"`
+
+              - `"variant_fields_present"`
+
+              - `"wrong_organization"`
+
+              - `"wrong_platform"`
+
+              - `"wrong_workspace"`
+
+            - `type: "not_applied"`
+
+            - `remove_to_redeem: optional array of string`
+
+              Request fields to remove before retrying, so the retry can redeem this
+              token.
+
+              Present exactly when `reason` is `variant_fields_present` — never null,
+              never an empty array; absent otherwise. Fields are named only from your own request, and only after
+              the sealed variant hash matched. A served best-effort retry has already
+              been billed at normal price; nothing redeems retroactively, but a corrected
+              re-send inside the token's five-minute window can still redeem.
 
       - `inference_geo: string`
 
@@ -32692,11 +35503,15 @@ ant beta:messages:batches results \
 
             The number of input tokens which were used.
 
-          - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+          - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-sonnet-5"`
+
+              High-performance model for coding and agents
 
             - `"claude-fable-5"`
 
@@ -32706,13 +35521,17 @@ ant beta:messages:batches results \
 
               Most capable model for cybersecurity and biology research
 
+            - `"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-mythos-preview"`
 
@@ -32720,7 +35539,7 @@ ant beta:messages:batches results \
 
             - `"claude-opus-4-6"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-6"`
 
@@ -32736,11 +35555,11 @@ ant beta:messages:batches results \
 
             - `"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-5"`
 
@@ -32752,11 +35571,11 @@ ant beta:messages:batches results \
 
             - `"claude-opus-4-1"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-1-20250805"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
           - `output_tokens: number`
 
@@ -32830,11 +35649,15 @@ ant beta:messages:batches results \
 
             The number of input tokens which were used.
 
-          - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+          - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-sonnet-5"`
+
+              High-performance model for coding and agents
 
             - `"claude-fable-5"`
 
@@ -32844,13 +35667,17 @@ ant beta:messages:batches results \
 
               Most capable model for cybersecurity and biology research
 
+            - `"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-mythos-preview"`
 
@@ -32858,7 +35685,7 @@ ant beta:messages:batches results \
 
             - `"claude-opus-4-6"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-6"`
 
@@ -32874,11 +35701,11 @@ ant beta:messages:batches results \
 
             - `"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-5"`
 
@@ -32890,11 +35717,11 @@ ant beta:messages:batches results \
 
             - `"claude-opus-4-1"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-1-20250805"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
           - `output_tokens: number`
 
@@ -32937,11 +35764,15 @@ ant beta:messages:batches results \
 
             The number of input tokens which were used.
 
-          - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+          - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-sonnet-5"`
+
+              High-performance model for coding and agents
 
             - `"claude-fable-5"`
 
@@ -32951,13 +35782,17 @@ ant beta:messages:batches results \
 
               Most capable model for cybersecurity and biology research
 
+            - `"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-mythos-preview"`
 
@@ -32965,7 +35800,7 @@ ant beta:messages:batches results \
 
             - `"claude-opus-4-6"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-6"`
 
@@ -32981,11 +35816,11 @@ ant beta:messages:batches results \
 
             - `"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-5"`
 
@@ -32997,11 +35832,11 @@ ant beta:messages:batches results \
 
             - `"claude-opus-4-1"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-1-20250805"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
           - `output_tokens: number`
 
@@ -33059,7 +35894,7 @@ ant beta:messages:batches results \
 
       - `speed: "standard" or "fast"`
 
-        The inference speed mode used for this request.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `"standard"`
 
@@ -33149,31 +35984,39 @@ Create Agent
 
   - `metadata: map[string]`
 
-  - `model: object { id, speed }`
+  - `model: object { id, effort, speed }`
 
     Model identifier and configuration.
 
-    - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+    - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -33189,11 +36032,11 @@ Create Agent
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -33202,6 +36045,50 @@ Create Agent
       - `"claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
+
+    - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `beta_managed_agents_effort_low: object { type }`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `beta_managed_agents_effort_medium: object { type }`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `beta_managed_agents_effort_high: object { type }`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `beta_managed_agents_effort_xhigh: object { type }`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `beta_managed_agents_effort_max: object { type }`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
 
     - `speed: optional "standard" or "fast"`
 
@@ -33414,7 +36301,7 @@ Create Agent
 ```cli
 ant beta:agents create \
   --api-key my-anthropic-api-key \
-  --model '{id: claude-opus-4-6}' \
+  --model '{id: claude-opus-4-8}' \
   --name 'My First Agent'
 ```
 
@@ -33438,6 +36325,9 @@ ant beta:agents create \
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
     "speed": "standard"
   },
   "multiagent": {
@@ -33558,31 +36448,39 @@ List Agents
 
     - `metadata: map[string]`
 
-    - `model: object { id, speed }`
+    - `model: object { id, effort, speed }`
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -33598,11 +36496,11 @@ List Agents
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -33611,6 +36509,50 @@ List Agents
         - `"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `beta_managed_agents_effort_low: object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `beta_managed_agents_effort_medium: object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `beta_managed_agents_effort_high: object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `beta_managed_agents_effort_xhigh: object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `beta_managed_agents_effort_max: object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
 
       - `speed: optional "standard" or "fast"`
 
@@ -33851,6 +36793,9 @@ ant beta:agents list \
       },
       "model": {
         "id": "claude-sonnet-4-6",
+        "effort": {
+          "type": "low"
+        },
         "speed": "standard"
       },
       "multiagent": {
@@ -33958,31 +36903,39 @@ Get Agent
 
   - `metadata: map[string]`
 
-  - `model: object { id, speed }`
+  - `model: object { id, effort, speed }`
 
     Model identifier and configuration.
 
-    - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+    - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -33998,11 +36951,11 @@ Get Agent
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -34011,6 +36964,50 @@ Get Agent
       - `"claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
+
+    - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `beta_managed_agents_effort_low: object { type }`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `beta_managed_agents_effort_medium: object { type }`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `beta_managed_agents_effort_high: object { type }`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `beta_managed_agents_effort_xhigh: object { type }`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `beta_managed_agents_effort_max: object { type }`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
 
     - `speed: optional "standard" or "fast"`
 
@@ -34246,6 +37243,9 @@ ant beta:agents retrieve \
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
     "speed": "standard"
   },
   "multiagent": {
@@ -34312,10 +37312,6 @@ Update Agent
 
   Path param: Path parameter agent_id
 
-- `--version: number`
-
-  Body param: The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. The request fails if this does not match the server's current version.
-
 - `--description: optional string`
 
   Body param: Description. Omit to preserve; send empty string or null to clear.
@@ -34352,6 +37348,10 @@ Update Agent
 
   Body param: Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 128 tools across all toolsets allowed.
 
+- `--version: optional number`
+
+  Body param: The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. Must be at least 1 if specified. When supplied, the request fails if it does not match the server's current version; omit to apply the update unconditionally.
+
 - `--beta: optional array of AnthropicBeta`
 
   Header param: Optional header to specify the beta version(s) you want to use.
@@ -34386,31 +37386,39 @@ Update Agent
 
   - `metadata: map[string]`
 
-  - `model: object { id, speed }`
+  - `model: object { id, effort, speed }`
 
     Model identifier and configuration.
 
-    - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+    - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -34426,11 +37434,11 @@ Update Agent
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -34439,6 +37447,50 @@ Update Agent
       - `"claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
+
+    - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `beta_managed_agents_effort_low: object { type }`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `beta_managed_agents_effort_medium: object { type }`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `beta_managed_agents_effort_high: object { type }`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `beta_managed_agents_effort_xhigh: object { type }`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `beta_managed_agents_effort_max: object { type }`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
 
     - `speed: optional "standard" or "fast"`
 
@@ -34651,8 +37703,7 @@ Update Agent
 ```cli
 ant beta:agents update \
   --api-key my-anthropic-api-key \
-  --agent-id agent_011CZkYpogX7uDKUyvBTophP \
-  --version 1
+  --agent-id agent_011CZkYpogX7uDKUyvBTophP
 ```
 
 #### Response
@@ -34675,6 +37726,9 @@ ant beta:agents update \
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
     "speed": "standard"
   },
   "multiagent": {
@@ -34775,31 +37829,39 @@ Archive Agent
 
   - `metadata: map[string]`
 
-  - `model: object { id, speed }`
+  - `model: object { id, effort, speed }`
 
     Model identifier and configuration.
 
-    - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+    - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -34815,11 +37877,11 @@ Archive Agent
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -34828,6 +37890,50 @@ Archive Agent
       - `"claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
+
+    - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `beta_managed_agents_effort_low: object { type }`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `beta_managed_agents_effort_medium: object { type }`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `beta_managed_agents_effort_high: object { type }`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `beta_managed_agents_effort_xhigh: object { type }`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `beta_managed_agents_effort_max: object { type }`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
 
     - `speed: optional "standard" or "fast"`
 
@@ -35063,6 +38169,9 @@ ant beta:agents archive \
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
     "speed": "standard"
   },
   "multiagent": {
@@ -35147,31 +38256,39 @@ ant beta:agents archive \
 
   - `metadata: map[string]`
 
-  - `model: object { id, speed }`
+  - `model: object { id, effort, speed }`
 
     Model identifier and configuration.
 
-    - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+    - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -35187,11 +38304,11 @@ ant beta:agents archive \
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -35200,6 +38317,50 @@ ant beta:agents archive \
       - `"claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
+
+    - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `beta_managed_agents_effort_low: object { type }`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `beta_managed_agents_effort_medium: object { type }`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `beta_managed_agents_effort_high: object { type }`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `beta_managed_agents_effort_xhigh: object { type }`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `beta_managed_agents_effort_max: object { type }`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
 
     - `speed: optional "standard" or "fast"`
 
@@ -35969,7 +39130,7 @@ ant beta:agents archive \
 
   - `description: string`
 
-    Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
+    Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
 
   - `input_schema: object { type, properties, required }`
 
@@ -35988,6 +39149,56 @@ ant beta:agents archive \
   - `type: "custom"`
 
     - `"custom"`
+
+### Beta Managed Agents Effort High
+
+- `beta_managed_agents_effort_high: object { type }`
+
+  High effort. Favors reasoning depth.
+
+  - `type: "high"`
+
+    - `"high"`
+
+### Beta Managed Agents Effort Low
+
+- `beta_managed_agents_effort_low: object { type }`
+
+  Low effort. Favors latency over reasoning depth.
+
+  - `type: "low"`
+
+    - `"low"`
+
+### Beta Managed Agents Effort Max
+
+- `beta_managed_agents_effort_max: object { type }`
+
+  Maximum effort. Favors reasoning depth over latency.
+
+  - `type: "max"`
+
+    - `"max"`
+
+### Beta Managed Agents Effort Medium
+
+- `beta_managed_agents_effort_medium: object { type }`
+
+  Medium effort. Balances latency and reasoning depth.
+
+  - `type: "medium"`
+
+    - `"medium"`
+
+### Beta Managed Agents Effort Xhigh
+
+- `beta_managed_agents_effort_xhigh: object { type }`
+
+  Extra-high effort. Not all models accept this level.
+
+  - `type: "xhigh"`
+
+    - `"xhigh"`
 
 ### Beta Managed Agents MCP Server URL Definition
 
@@ -36247,31 +39458,39 @@ ant beta:agents archive \
 
 ### Beta Managed Agents Model Config
 
-- `beta_managed_agents_model_config: object { id, speed }`
+- `beta_managed_agents_model_config: object { id, effort, speed }`
 
   Model identifier and configuration.
 
-  - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+  - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
     The model that will power your agent.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `"claude-sonnet-5"`
+
+      High-performance model for coding and agents
+
     - `"claude-fable-5"`
 
       Next generation of intelligence for the hardest knowledge work and coding problems
 
+    - `"claude-opus-5"`
+
+      Powerful intelligence for long-running agents and coding
+
     - `"claude-opus-4-8"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-7"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-6"`
 
-      Most intelligent model for building agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-6"`
 
@@ -36287,11 +39506,11 @@ ant beta:agents archive \
 
     - `"claude-opus-4-5"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-5-20251101"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-5"`
 
@@ -36300,6 +39519,50 @@ ant beta:agents archive \
     - `"claude-sonnet-4-5-20250929"`
 
       High-performance model for agents and coding
+
+  - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+    How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+    - `beta_managed_agents_effort_low: object { type }`
+
+      Low effort. Favors latency over reasoning depth.
+
+      - `type: "low"`
+
+        - `"low"`
+
+    - `beta_managed_agents_effort_medium: object { type }`
+
+      Medium effort. Balances latency and reasoning depth.
+
+      - `type: "medium"`
+
+        - `"medium"`
+
+    - `beta_managed_agents_effort_high: object { type }`
+
+      High effort. Favors reasoning depth.
+
+      - `type: "high"`
+
+        - `"high"`
+
+    - `beta_managed_agents_effort_xhigh: object { type }`
+
+      Extra-high effort. Not all models accept this level.
+
+      - `type: "xhigh"`
+
+        - `"xhigh"`
+
+    - `beta_managed_agents_effort_max: object { type }`
+
+      Maximum effort. Favors reasoning depth over latency.
+
+      - `type: "max"`
+
+        - `"max"`
 
   - `speed: optional "standard" or "fast"`
 
@@ -36311,31 +39574,39 @@ ant beta:agents archive \
 
 ### Beta Managed Agents Model Config Params
 
-- `beta_managed_agents_model_config_params: object { id, speed }`
+- `beta_managed_agents_model_config_params: object { id, effort, speed }`
 
   An object that defines additional configuration control over model use
 
-  - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+  - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
     The model that will power your agent.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `"claude-sonnet-5"`
+
+      High-performance model for coding and agents
+
     - `"claude-fable-5"`
 
       Next generation of intelligence for the hardest knowledge work and coding problems
 
+    - `"claude-opus-5"`
+
+      Powerful intelligence for long-running agents and coding
+
     - `"claude-opus-4-8"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-7"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-6"`
 
-      Most intelligent model for building agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-6"`
 
@@ -36351,11 +39622,11 @@ ant beta:agents archive \
 
     - `"claude-opus-4-5"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-opus-4-5-20251101"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `"claude-sonnet-4-5"`
 
@@ -36364,6 +39635,64 @@ ant beta:agents archive \
     - `"claude-sonnet-4-5-20250929"`
 
       High-performance model for agents and coding
+
+  - `effort: optional "low" or "medium" or "high" or 2 more or BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or 3 more`
+
+    How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+    - `BetaManagedAgentsEffortLevel: "low" or "medium" or "high" or 2 more`
+
+      How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
+
+      - `"low"`
+
+      - `"medium"`
+
+      - `"high"`
+
+      - `"xhigh"`
+
+      - `"max"`
+
+    - `beta_managed_agents_effort_low: object { type }`
+
+      Low effort. Favors latency over reasoning depth.
+
+      - `type: "low"`
+
+        - `"low"`
+
+    - `beta_managed_agents_effort_medium: object { type }`
+
+      Medium effort. Balances latency and reasoning depth.
+
+      - `type: "medium"`
+
+        - `"medium"`
+
+    - `beta_managed_agents_effort_high: object { type }`
+
+      High effort. Favors reasoning depth.
+
+      - `type: "high"`
+
+        - `"high"`
+
+    - `beta_managed_agents_effort_xhigh: object { type }`
+
+      Extra-high effort. Not all models accept this level.
+
+      - `type: "xhigh"`
+
+        - `"xhigh"`
+
+    - `beta_managed_agents_effort_max: object { type }`
+
+      Maximum effort. Favors reasoning depth over latency.
+
+      - `type: "max"`
+
+        - `"max"`
 
   - `speed: optional "standard" or "fast"`
 
@@ -36465,31 +39794,39 @@ ant beta:agents archive \
 
     - `url: string`
 
-  - `model: object { id, speed }`
+  - `model: object { id, effort, speed }`
 
     Model identifier and configuration.
 
-    - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+    - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -36505,11 +39842,11 @@ ant beta:agents archive \
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -36518,6 +39855,50 @@ ant beta:agents archive \
       - `"claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
+
+    - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `beta_managed_agents_effort_low: object { type }`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `beta_managed_agents_effort_medium: object { type }`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `beta_managed_agents_effort_high: object { type }`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `beta_managed_agents_effort_xhigh: object { type }`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `beta_managed_agents_effort_max: object { type }`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
 
     - `speed: optional "standard" or "fast"`
 
@@ -36817,31 +40198,39 @@ List Agent Versions
 
     - `metadata: map[string]`
 
-    - `model: object { id, speed }`
+    - `model: object { id, effort, speed }`
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -36857,11 +40246,11 @@ List Agent Versions
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -36870,6 +40259,50 @@ List Agent Versions
         - `"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `beta_managed_agents_effort_low: object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `beta_managed_agents_effort_medium: object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `beta_managed_agents_effort_high: object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `beta_managed_agents_effort_xhigh: object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `beta_managed_agents_effort_max: object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
 
       - `speed: optional "standard" or "fast"`
 
@@ -37111,6 +40544,9 @@ ant beta:agents:versions list \
       },
       "model": {
         "id": "claude-sonnet-4-6",
+        "effort": {
+          "type": "low"
+        },
         "speed": "standard"
       },
       "multiagent": {
@@ -38083,6 +41519,8 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     The type of response
 
+    - `"environment_deleted"`
+
 ### Example
 
 ```cli
@@ -38613,6 +42051,8 @@ ant beta:environments archive \
 
     The type of response
 
+    - `"environment_deleted"`
+
 ### Beta Limited Network
 
 - `beta_limited_network: object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
@@ -38792,7 +42232,7 @@ Retrieve detailed information about a specific work item.
 
 ### Returns
 
-- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 9 more }`
+- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 10 more }`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -38835,6 +42275,10 @@ Retrieve detailed information about a specific work item.
   - `metadata: map[string]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: string`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: string`
 
@@ -38891,6 +42335,7 @@ ant beta:environments:work retrieve \
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -38933,7 +42378,7 @@ Long poll for work items in the queue.
 
 ### Returns
 
-- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 9 more }`
+- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 10 more }`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -38976,6 +42421,10 @@ Long poll for work items in the queue.
   - `metadata: map[string]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: string`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: string`
 
@@ -39031,6 +42480,7 @@ ant beta:environments:work poll \
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -39065,7 +42515,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
 ### Returns
 
-- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 9 more }`
+- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 10 more }`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -39108,6 +42558,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `metadata: map[string]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: string`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: string`
 
@@ -39164,6 +42618,7 @@ ant beta:environments:work ack \
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -39291,7 +42746,7 @@ Stop a work item, initiating graceful or forced shutdown.
 
 ### Returns
 
-- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 9 more }`
+- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 10 more }`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -39334,6 +42789,10 @@ Stop a work item, initiating graceful or forced shutdown.
   - `metadata: map[string]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: string`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: string`
 
@@ -39390,6 +42849,7 @@ ant beta:environments:work stop \
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -39472,6 +42932,10 @@ List work items in an environment.
 
       User-provided metadata key-value pairs associated with this work item
 
+    - `secret: string`
+
+      Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
     - `started_at: string`
 
       RFC 3339 timestamp when work execution started
@@ -39532,6 +42996,7 @@ ant beta:environments:work list \
       "metadata": {
         "foo": "string"
       },
+      "secret": "secret",
       "started_at": "started_at",
       "state": "queued",
       "stop_requested_at": "stop_requested_at",
@@ -39573,7 +43038,7 @@ Update work item metadata with merge semantics.
 
 ### Returns
 
-- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 9 more }`
+- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 10 more }`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -39616,6 +43081,10 @@ Update work item metadata with merge semantics.
   - `metadata: map[string]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: string`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: string`
 
@@ -39673,6 +43142,7 @@ ant beta:environments:work update \
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -39749,7 +43219,7 @@ ant beta:environments:work stats \
 
 ### Beta Self Hosted Work
 
-- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 9 more }`
+- `beta_self_hosted_work: object { id, acknowledged_at, created_at, 10 more }`
 
   Work resource representing a unit of work in a self-hosted environment.
 
@@ -39792,6 +43262,10 @@ ant beta:environments:work stats \
   - `metadata: map[string]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: string`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: string`
 
@@ -39905,6 +43379,10 @@ ant beta:environments:work stats \
 
       User-provided metadata key-value pairs associated with this work item
 
+    - `secret: string`
+
+      Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
     - `started_at: string`
 
       RFC 3339 timestamp when work execution started
@@ -40016,13 +43494,17 @@ Create Session
 
 ### Parameters
 
-- `--agent: string or BetaManagedAgentsAgentParams`
+- `--agent: string or BetaManagedAgentsAgentParams or BetaManagedAgentsAgentWithOverridesParams`
 
   Body param: Agent identifier. Accepts the `agent` ID string, which pins the latest version for the session, or an `agent` object with both id and version specified.
 
 - `--environment-id: string`
 
   Body param: ID of the `environment` defining the container configuration for this session.
+
+- `--initial-event: optional array of BetaManagedAgentsUserMessageEventParams or BetaManagedAgentsUserDefineOutcomeEventParams`
+
+  Body param: Initial events to send to the `session` at creation, processed in order. Supports `user.message` and `user.define_outcome` events. Maximum 50 events.
 
 - `--metadata: optional map[string]`
 
@@ -40070,31 +43552,39 @@ Create Session
 
       - `url: string`
 
-    - `model: object { id, speed }`
+    - `model: object { id, effort, speed }`
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -40110,11 +43600,11 @@ Create Session
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -40123,6 +43613,50 @@ Create Session
         - `"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `beta_managed_agents_effort_low: object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `beta_managed_agents_effort_medium: object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `beta_managed_agents_effort_high: object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `beta_managed_agents_effort_xhigh: object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `beta_managed_agents_effort_max: object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
 
       - `speed: optional "standard" or "fast"`
 
@@ -40152,15 +43686,19 @@ Create Session
 
           - `url: string`
 
-        - `model: object { id, speed }`
+        - `model: object { id, effort, speed }`
 
           Model identifier and configuration.
 
-          - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+          - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+            How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
           - `speed: optional "standard" or "fast"`
 
@@ -40612,6 +44150,9 @@ ant beta:sessions create \
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -40628,6 +44169,9 @@ ant beta:sessions create \
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -40831,7 +44375,7 @@ List Sessions
 
 ### Returns
 
-- `BetaManagedAgentsListSessions: object { data, next_page }`
+- `BetaManagedAgentsListSessions: object { data, next_page, prev_page }`
 
   Paginated list of sessions.
 
@@ -40859,31 +44403,39 @@ List Sessions
 
         - `url: string`
 
-      - `model: object { id, speed }`
+      - `model: object { id, effort, speed }`
 
         Model identifier and configuration.
 
-        - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+        - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -40899,11 +44451,11 @@ List Sessions
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -40912,6 +44464,50 @@ List Sessions
           - `"claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `beta_managed_agents_effort_low: object { type }`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: "low"`
+
+              - `"low"`
+
+          - `beta_managed_agents_effort_medium: object { type }`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: "medium"`
+
+              - `"medium"`
+
+          - `beta_managed_agents_effort_high: object { type }`
+
+            High effort. Favors reasoning depth.
+
+            - `type: "high"`
+
+              - `"high"`
+
+          - `beta_managed_agents_effort_xhigh: object { type }`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: "xhigh"`
+
+              - `"xhigh"`
+
+          - `beta_managed_agents_effort_max: object { type }`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: "max"`
+
+              - `"max"`
 
         - `speed: optional "standard" or "fast"`
 
@@ -40941,15 +44537,19 @@ List Sessions
 
             - `url: string`
 
-          - `model: object { id, speed }`
+          - `model: object { id, effort, speed }`
 
             Model identifier and configuration.
 
-            - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+            - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
               The model that will power your agent.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+              How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
             - `speed: optional "standard" or "fast"`
 
@@ -41379,6 +44979,10 @@ List Sessions
 
     Opaque cursor for the next page. Null when no more results.
 
+  - `prev_page: optional string`
+
+    Opaque cursor for the previous page. Null when on the first page. Pass as the `page` parameter to navigate backward.
+
 ### Example
 
 ```cli
@@ -41405,6 +45009,9 @@ ant beta:sessions list \
         ],
         "model": {
           "id": "claude-sonnet-4-6",
+          "effort": {
+            "type": "low"
+          },
           "speed": "standard"
         },
         "multiagent": {
@@ -41421,6 +45028,9 @@ ant beta:sessions list \
               ],
               "model": {
                 "id": "claude-sonnet-4-6",
+                "effort": {
+                  "type": "low"
+                },
                 "speed": "standard"
               },
               "name": "Researcher",
@@ -41555,7 +45165,8 @@ ant beta:sessions list \
       "deployment_id": "deployment_id"
     }
   ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo=",
+  "prev_page": "page_MjAyNS0wNS0xM1QwMDowMDowMFo="
 }
 ```
 
@@ -41603,31 +45214,39 @@ Get Session
 
       - `url: string`
 
-    - `model: object { id, speed }`
+    - `model: object { id, effort, speed }`
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -41643,11 +45262,11 @@ Get Session
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -41656,6 +45275,50 @@ Get Session
         - `"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `beta_managed_agents_effort_low: object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `beta_managed_agents_effort_medium: object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `beta_managed_agents_effort_high: object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `beta_managed_agents_effort_xhigh: object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `beta_managed_agents_effort_max: object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
 
       - `speed: optional "standard" or "fast"`
 
@@ -41685,15 +45348,19 @@ Get Session
 
           - `url: string`
 
-        - `model: object { id, speed }`
+        - `model: object { id, effort, speed }`
 
           Model identifier and configuration.
 
-          - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+          - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+            How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
           - `speed: optional "standard" or "fast"`
 
@@ -42144,6 +45811,9 @@ ant beta:sessions retrieve \
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -42160,6 +45830,9 @@ ant beta:sessions retrieve \
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -42355,31 +46028,39 @@ Update Session
 
       - `url: string`
 
-    - `model: object { id, speed }`
+    - `model: object { id, effort, speed }`
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -42395,11 +46076,11 @@ Update Session
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -42408,6 +46089,50 @@ Update Session
         - `"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `beta_managed_agents_effort_low: object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `beta_managed_agents_effort_medium: object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `beta_managed_agents_effort_high: object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `beta_managed_agents_effort_xhigh: object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `beta_managed_agents_effort_max: object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
 
       - `speed: optional "standard" or "fast"`
 
@@ -42437,15 +46162,19 @@ Update Session
 
           - `url: string`
 
-        - `model: object { id, speed }`
+        - `model: object { id, effort, speed }`
 
           Model identifier and configuration.
 
-          - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+          - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+            How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
           - `speed: optional "standard" or "fast"`
 
@@ -42896,6 +46625,9 @@ ant beta:sessions update \
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -42912,6 +46644,9 @@ ant beta:sessions update \
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -43138,31 +46873,39 @@ Archive Session
 
       - `url: string`
 
-    - `model: object { id, speed }`
+    - `model: object { id, effort, speed }`
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -43178,11 +46921,11 @@ Archive Session
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -43191,6 +46934,50 @@ Archive Session
         - `"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `beta_managed_agents_effort_low: object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `beta_managed_agents_effort_medium: object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `beta_managed_agents_effort_high: object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `beta_managed_agents_effort_xhigh: object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `beta_managed_agents_effort_max: object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
 
       - `speed: optional "standard" or "fast"`
 
@@ -43220,15 +47007,19 @@ Archive Session
 
           - `url: string`
 
-        - `model: object { id, speed }`
+        - `model: object { id, effort, speed }`
 
           Model identifier and configuration.
 
-          - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+          - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+            How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
           - `speed: optional "standard" or "fast"`
 
@@ -43679,6 +47470,9 @@ ant beta:sessions archive \
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -43695,6 +47489,9 @@ ant beta:sessions archive \
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -43832,6 +47629,18 @@ ant beta:sessions archive \
 
 ## Domain Types
 
+### Beta Managed Agents Agent Message Preview
+
+- `beta_managed_agents_agent_message_preview: object { id, type }`
+
+  - `id: string`
+
+    The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+  - `type: "agent.message"`
+
+    - `"agent.message"`
+
 ### Beta Managed Agents Agent Params
 
 - `beta_managed_agents_agent_params: object { id, type, version }`
@@ -43849,6 +47658,382 @@ ant beta:sessions archive \
   - `version: optional number`
 
     The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+### Beta Managed Agents Agent Thinking Preview
+
+- `beta_managed_agents_agent_thinking_preview: object { id, type }`
+
+  - `id: string`
+
+    The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+  - `type: "agent.thinking"`
+
+    - `"agent.thinking"`
+
+### Beta Managed Agents Agent With Overrides Params
+
+- `beta_managed_agents_agent_with_overrides_params: object { id, type, mcp_servers, 5 more }`
+
+  Reference to an `agent` plus optional configuration overrides. Each provided field replaces the agent's value for the caller's use; the agent resource is unchanged.
+
+  - `id: string`
+
+    The `agent` ID.
+
+  - `type: "agent_with_overrides"`
+
+    - `"agent_with_overrides"`
+
+  - `mcp_servers: optional array of BetaManagedAgentsURLMCPServerParams`
+
+    Replacement MCP server list. Full replacement: the provided array becomes the MCP servers. Send an empty array to clear; omit to preserve the agent's servers.
+
+    - `name: string`
+
+      Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
+
+    - `type: "url"`
+
+      - `"url"`
+
+    - `url: string`
+
+      Endpoint URL for the MCP server.
+
+  - `model: optional BetaManagedAgentsModelConfigParams`
+
+    Replacement model. Accepts the model string, e.g. `claude-opus-4-6`, or a `model_config` object. Omit to use the agent's model.
+
+    - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+
+      The model that will power your agent.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
+      - `"claude-fable-5"`
+
+        Next generation of intelligence for the hardest knowledge work and coding problems
+
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-8"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-7"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-6"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-sonnet-4-6"`
+
+        Best combination of speed and intelligence
+
+      - `"claude-haiku-4-5"`
+
+        Fastest model with near-frontier intelligence
+
+      - `"claude-haiku-4-5-20251001"`
+
+        Fastest model with near-frontier intelligence
+
+      - `"claude-opus-4-5"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-opus-4-5-20251101"`
+
+        Powerful intelligence for long-running agents and coding
+
+      - `"claude-sonnet-4-5"`
+
+        High-performance model for agents and coding
+
+      - `"claude-sonnet-4-5-20250929"`
+
+        High-performance model for agents and coding
+
+    - `effort: optional "low" or "medium" or "high" or 2 more or BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or 3 more`
+
+      How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+      - `BetaManagedAgentsEffortLevel: "low" or "medium" or "high" or 2 more`
+
+        How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
+
+        - `"low"`
+
+        - `"medium"`
+
+        - `"high"`
+
+        - `"xhigh"`
+
+        - `"max"`
+
+      - `beta_managed_agents_effort_low: object { type }`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `beta_managed_agents_effort_medium: object { type }`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `beta_managed_agents_effort_high: object { type }`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `beta_managed_agents_effort_xhigh: object { type }`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `beta_managed_agents_effort_max: object { type }`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
+
+    - `speed: optional "standard" or "fast"`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `"standard"`
+
+      - `"fast"`
+
+  - `skills: optional array of BetaManagedAgentsSkillParams`
+
+    Replacement skill list. Full replacement: the provided array becomes the skills. Send an empty array to clear; omit to preserve the agent's skills.
+
+    - `beta_managed_agents_anthropic_skill_params: object { skill_id, type, version }`
+
+      An Anthropic-managed skill.
+
+      - `skill_id: string`
+
+        Identifier of the Anthropic skill (e.g., "xlsx").
+
+      - `type: "anthropic"`
+
+        - `"anthropic"`
+
+      - `version: optional string`
+
+        Version to pin. Defaults to latest if omitted.
+
+    - `beta_managed_agents_custom_skill_params: object { skill_id, type, version }`
+
+      A user-created custom skill.
+
+      - `skill_id: string`
+
+        Tagged ID of the custom skill (e.g., "skill_01XJ5...").
+
+      - `type: "custom"`
+
+        - `"custom"`
+
+      - `version: optional string`
+
+        Version to pin. Defaults to latest if omitted.
+
+  - `system: optional string`
+
+    Replacement system prompt. Up to 100,000 characters. Set to null to clear the agent's system prompt; omit to preserve it.
+
+  - `tools: optional array of BetaManagedAgentsAgentToolset20260401Params or BetaManagedAgentsMCPToolsetParams or BetaManagedAgentsCustomToolParams`
+
+    Replacement tool list. Full replacement: the provided array becomes the tool configuration. Send an empty array to clear; omit to preserve the agent's tools.
+
+    - `beta_managed_agents_agent_toolset20260401_params: object { type, configs, default_config }`
+
+      Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
+
+      - `type: "agent_toolset_20260401"`
+
+        - `"agent_toolset_20260401"`
+
+      - `configs: optional array of BetaManagedAgentsAgentToolConfigParams`
+
+        Per-tool configuration overrides.
+
+        - `name: "bash" or "edit" or "read" or 5 more`
+
+          Built-in agent tool identifier.
+
+          - `"bash"`
+
+          - `"edit"`
+
+          - `"read"`
+
+          - `"write"`
+
+          - `"glob"`
+
+          - `"grep"`
+
+          - `"web_fetch"`
+
+          - `"web_search"`
+
+        - `enabled: optional boolean`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `beta_managed_agents_always_allow_policy: object { type }`
+
+            Tool calls are automatically approved without user confirmation.
+
+            - `type: "always_allow"`
+
+              - `"always_allow"`
+
+          - `beta_managed_agents_always_ask_policy: object { type }`
+
+            Tool calls require user confirmation before execution.
+
+            - `type: "always_ask"`
+
+              - `"always_ask"`
+
+      - `default_config: optional object { enabled, permission_policy }`
+
+        Default configuration for all tools in a toolset.
+
+        - `enabled: optional boolean`
+
+          Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
+
+        - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `beta_managed_agents_always_allow_policy: object { type }`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `beta_managed_agents_always_ask_policy: object { type }`
+
+            Tool calls require user confirmation before execution.
+
+    - `beta_managed_agents_mcp_toolset_params: object { mcp_server_name, type, configs, default_config }`
+
+      Configuration for tools from an MCP server defined in `mcp_servers`.
+
+      - `mcp_server_name: string`
+
+        Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
+
+      - `type: "mcp_toolset"`
+
+        - `"mcp_toolset"`
+
+      - `configs: optional array of BetaManagedAgentsMCPToolConfigParams`
+
+        Per-tool configuration overrides.
+
+        - `name: string`
+
+          Name of the MCP tool to configure. 1-128 characters.
+
+        - `enabled: optional boolean`
+
+          Whether this tool is enabled. Overrides the `default_config` setting.
+
+        - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `beta_managed_agents_always_allow_policy: object { type }`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `beta_managed_agents_always_ask_policy: object { type }`
+
+            Tool calls require user confirmation before execution.
+
+      - `default_config: optional object { enabled, permission_policy }`
+
+        Default configuration for all tools from an MCP server.
+
+        - `enabled: optional boolean`
+
+          Whether tools are enabled by default. Defaults to true if not specified.
+
+        - `permission_policy: optional BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `beta_managed_agents_always_allow_policy: object { type }`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `beta_managed_agents_always_ask_policy: object { type }`
+
+            Tool calls require user confirmation before execution.
+
+    - `beta_managed_agents_custom_tool_params: object { description, input_schema, name, type }`
+
+      A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+      - `description: string`
+
+        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
+
+      - `input_schema: object { type, properties, required }`
+
+        JSON Schema for custom tool input parameters.
+
+        - `type: "object"`
+
+        - `properties: optional map[unknown]`
+
+        - `required: optional array of string`
+
+      - `name: string`
+
+        Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
+
+      - `type: "custom"`
+
+        - `"custom"`
+
+  - `version: optional number`
+
+    The specific `agent` version to use. Omit to use the latest version.
 
 ### Beta Managed Agents Branch Checkout
 
@@ -43899,6 +48084,78 @@ ant beta:sessions archive \
   - `type: "session_deleted"`
 
     - `"session_deleted"`
+
+### Beta Managed Agents Delta Content
+
+- `beta_managed_agents_delta_content: object { content, type, index }`
+
+  - `content: object { text, type }`
+
+    Regular text content.
+
+    - `text: string`
+
+      The text content.
+
+    - `type: "text"`
+
+      - `"text"`
+
+  - `type: "content_delta"`
+
+    - `"content_delta"`
+
+  - `index: optional number`
+
+    Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+### Beta Managed Agents Delta Event
+
+- `beta_managed_agents_delta_event: object { delta, event_id, type }`
+
+  An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+  - `delta: object { content, type, index }`
+
+    One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+    - `content: object { text, type }`
+
+      Regular text content.
+
+      - `text: string`
+
+        The text content.
+
+      - `type: "text"`
+
+        - `"text"`
+
+    - `type: "content_delta"`
+
+      - `"content_delta"`
+
+    - `index: optional number`
+
+      Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+  - `event_id: string`
+
+    The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+  - `type: "event_delta"`
+
+    - `"event_delta"`
+
+### Beta Managed Agents Delta Type
+
+- `beta_managed_agents_delta_type: "agent.message" or "agent.thinking"`
+
+  EventDeltaType enum
+
+  - `"agent.message"`
+
+  - `"agent.thinking"`
 
 ### Beta Managed Agents File Resource Params
 
@@ -44144,31 +48401,39 @@ ant beta:sessions archive \
 
       - `url: string`
 
-    - `model: object { id, speed }`
+    - `model: object { id, effort, speed }`
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -44184,11 +48449,11 @@ ant beta:sessions archive \
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -44197,6 +48462,50 @@ ant beta:sessions archive \
         - `"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `beta_managed_agents_effort_low: object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `beta_managed_agents_effort_medium: object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `beta_managed_agents_effort_high: object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `beta_managed_agents_effort_xhigh: object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `beta_managed_agents_effort_max: object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
 
       - `speed: optional "standard" or "fast"`
 
@@ -44226,15 +48535,19 @@ ant beta:sessions archive \
 
           - `url: string`
 
-        - `model: object { id, speed }`
+        - `model: object { id, effort, speed }`
 
           Model identifier and configuration.
 
-          - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+          - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+            How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
           - `speed: optional "standard" or "fast"`
 
@@ -44680,31 +48993,39 @@ ant beta:sessions archive \
 
     - `url: string`
 
-  - `model: object { id, speed }`
+  - `model: object { id, effort, speed }`
 
     Model identifier and configuration.
 
-    - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+    - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -44720,11 +49041,11 @@ ant beta:sessions archive \
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -44733,6 +49054,50 @@ ant beta:sessions archive \
       - `"claude-sonnet-4-5-20250929"`
 
         High-performance model for agents and coding
+
+    - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `beta_managed_agents_effort_low: object { type }`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: "low"`
+
+          - `"low"`
+
+      - `beta_managed_agents_effort_medium: object { type }`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: "medium"`
+
+          - `"medium"`
+
+      - `beta_managed_agents_effort_high: object { type }`
+
+        High effort. Favors reasoning depth.
+
+        - `type: "high"`
+
+          - `"high"`
+
+      - `beta_managed_agents_effort_xhigh: object { type }`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: "xhigh"`
+
+          - `"xhigh"`
+
+      - `beta_managed_agents_effort_max: object { type }`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: "max"`
+
+          - `"max"`
 
     - `speed: optional "standard" or "fast"`
 
@@ -44762,15 +49127,19 @@ ant beta:sessions archive \
 
         - `url: string`
 
-      - `model: object { id, speed }`
+      - `model: object { id, effort, speed }`
 
         Model identifier and configuration.
 
-        - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+        - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
         - `speed: optional "standard" or "fast"`
 
@@ -45146,7 +49515,7 @@ ant beta:sessions archive \
 
       - `description: string`
 
-        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
+        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
 
       - `input_schema: object { type, properties, required }`
 
@@ -45190,31 +49559,39 @@ ant beta:sessions archive \
 
       - `url: string`
 
-    - `model: object { id, speed }`
+    - `model: object { id, effort, speed }`
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -45230,11 +49607,11 @@ ant beta:sessions archive \
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -45243,6 +49620,50 @@ ant beta:sessions archive \
         - `"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `beta_managed_agents_effort_low: object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `beta_managed_agents_effort_medium: object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `beta_managed_agents_effort_high: object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `beta_managed_agents_effort_xhigh: object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `beta_managed_agents_effort_max: object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
 
       - `speed: optional "standard" or "fast"`
 
@@ -45478,31 +49899,39 @@ ant beta:sessions archive \
 
       - `url: string`
 
-    - `model: object { id, speed }`
+    - `model: object { id, effort, speed }`
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -45518,11 +49947,11 @@ ant beta:sessions archive \
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -45531,6 +49960,50 @@ ant beta:sessions archive \
         - `"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `beta_managed_agents_effort_low: object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `beta_managed_agents_effort_medium: object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `beta_managed_agents_effort_high: object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `beta_managed_agents_effort_xhigh: object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `beta_managed_agents_effort_max: object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
 
       - `speed: optional "standard" or "fast"`
 
@@ -45560,15 +50033,19 @@ ant beta:sessions archive \
 
           - `url: string`
 
-        - `model: object { id, speed }`
+        - `model: object { id, effort, speed }`
 
           Model identifier and configuration.
 
-          - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+          - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+            How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
           - `speed: optional "standard" or "fast"`
 
@@ -45817,6 +50294,64 @@ ant beta:sessions archive \
   - `output_tokens: optional number`
 
     Total output tokens generated across all turns.
+
+### Beta Managed Agents Start Event
+
+- `beta_managed_agents_start_event: object { event, type }`
+
+  Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+  - `event: BetaManagedAgentsAgentMessagePreview or BetaManagedAgentsAgentThinkingPreview`
+
+    The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+    - `beta_managed_agents_agent_message_preview: object { id, type }`
+
+      - `id: string`
+
+        The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+      - `type: "agent.message"`
+
+        - `"agent.message"`
+
+    - `beta_managed_agents_agent_thinking_preview: object { id, type }`
+
+      - `id: string`
+
+        The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+      - `type: "agent.thinking"`
+
+        - `"agent.thinking"`
+
+  - `type: "event_start"`
+
+    - `"event_start"`
+
+### Beta Managed Agents Start Event Preview
+
+- `beta_managed_agents_start_event_preview: BetaManagedAgentsAgentMessagePreview or BetaManagedAgentsAgentThinkingPreview`
+
+  - `beta_managed_agents_agent_message_preview: object { id, type }`
+
+    - `id: string`
+
+      The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+    - `type: "agent.message"`
+
+      - `"agent.message"`
+
+  - `beta_managed_agents_agent_thinking_preview: object { id, type }`
+
+    - `id: string`
+
+      The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+    - `type: "agent.thinking"`
+
+      - `"agent.thinking"`
 
 ### Beta Managed Agents System Content Block
 
@@ -46092,19 +50627,19 @@ List Events
 
 - `--created-at-gt: optional string`
 
-  Query param: Return events created after this time (exclusive).
+  Query param: Return events created after this time (exclusive). Compared against the event's `processed_at` value.
 
 - `--created-at-gte: optional string`
 
-  Query param: Return events created at or after this time (inclusive).
+  Query param: Return events created at or after this time (inclusive). Compared against the event's `processed_at` value.
 
 - `--created-at-lt: optional string`
 
-  Query param: Return events created before this time (exclusive).
+  Query param: Return events created before this time (exclusive). Compared against the event's `processed_at` value.
 
 - `--created-at-lte: optional string`
 
-  Query param: Return events created at or before this time (inclusive).
+  Query param: Return events created at or before this time (inclusive). Compared against the event's `processed_at` value.
 
 - `--limit: optional number`
 
@@ -46112,7 +50647,7 @@ List Events
 
 - `--order: optional "asc" or "desc"`
 
-  Query param: Sort direction for results, ordered by created_at. Defaults to asc (chronological).
+  Query param: Sort direction for results, ordered by the event's `processed_at`. Defaults to asc (chronological).
 
 - `--page: optional string`
 
@@ -46134,7 +50669,7 @@ List Events
 
   - `data: optional array of BetaManagedAgentsSessionEvent`
 
-    Events for the session, ordered by `created_at`.
+    Events for the session, ordered by `processed_at`.
 
     - `beta_managed_agents_user_message_event: object { id, content, type, processed_at }`
 
@@ -47110,7 +51645,7 @@ List Events
 
         - `beta_managed_agents_session_retries_exhausted: object { type }`
 
-          The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+          The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
           - `type: "retries_exhausted"`
 
@@ -47466,7 +52001,7 @@ List Events
 
         - `beta_managed_agents_session_retries_exhausted: object { type }`
 
-          The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+          The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
       - `type: "session.thread_status_idle"`
 
@@ -47602,31 +52137,39 @@ List Events
 
           - `url: string`
 
-        - `model: object { id, speed }`
+        - `model: object { id, effort, speed }`
 
           Model identifier and configuration.
 
-          - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+          - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `"claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
             - `"claude-fable-5"`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
+            - `"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-6"`
 
-              Most intelligent model for building agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-6"`
 
@@ -47642,11 +52185,11 @@ List Events
 
             - `"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-5"`
 
@@ -47655,6 +52198,50 @@ List Events
             - `"claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+            How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+            - `beta_managed_agents_effort_low: object { type }`
+
+              Low effort. Favors latency over reasoning depth.
+
+              - `type: "low"`
+
+                - `"low"`
+
+            - `beta_managed_agents_effort_medium: object { type }`
+
+              Medium effort. Balances latency and reasoning depth.
+
+              - `type: "medium"`
+
+                - `"medium"`
+
+            - `beta_managed_agents_effort_high: object { type }`
+
+              High effort. Favors reasoning depth.
+
+              - `type: "high"`
+
+                - `"high"`
+
+            - `beta_managed_agents_effort_xhigh: object { type }`
+
+              Extra-high effort. Not all models accept this level.
+
+              - `type: "xhigh"`
+
+                - `"xhigh"`
+
+            - `beta_managed_agents_effort_max: object { type }`
+
+              Maximum effort. Favors reasoning depth over latency.
+
+              - `type: "max"`
+
+                - `"max"`
 
           - `speed: optional "standard" or "fast"`
 
@@ -47684,15 +52271,19 @@ List Events
 
               - `url: string`
 
-            - `model: object { id, speed }`
+            - `model: object { id, effort, speed }`
 
               Model identifier and configuration.
 
-              - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+              - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
                 The model that will power your agent.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+                How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
               - `speed: optional "standard" or "fast"`
 
@@ -48487,15 +53078,19 @@ Stream Events
 
 - `--session-id: string`
 
-  Path parameter session_id
+  Path param: Path parameter session_id
+
+- `--event-delta: optional array of BetaManagedAgentsDeltaType`
+
+  Query param: When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
 
 - `--beta: optional array of AnthropicBeta`
 
-  Optional header to specify the beta version(s) you want to use.
+  Header param: Optional header to specify the beta version(s) you want to use.
 
 ### Returns
 
-- `beta_managed_agents_stream_session_events: BetaManagedAgentsUserMessageEvent or BetaManagedAgentsUserInterruptEvent or BetaManagedAgentsUserToolConfirmationEvent or 31 more`
+- `beta_managed_agents_stream_session_events: BetaManagedAgentsUserMessageEvent or BetaManagedAgentsUserInterruptEvent or BetaManagedAgentsUserToolConfirmationEvent or 33 more`
 
   Server-sent event in the session stream.
 
@@ -49473,7 +54068,7 @@ Stream Events
 
       - `beta_managed_agents_session_retries_exhausted: object { type }`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: "retries_exhausted"`
 
@@ -49829,7 +54424,7 @@ Stream Events
 
       - `beta_managed_agents_session_retries_exhausted: object { type }`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `type: "session.thread_status_idle"`
 
@@ -49965,31 +54560,39 @@ Stream Events
 
         - `url: string`
 
-      - `model: object { id, speed }`
+      - `model: object { id, effort, speed }`
 
         Model identifier and configuration.
 
-        - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+        - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -50005,11 +54608,11 @@ Stream Events
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -50018,6 +54621,50 @@ Stream Events
           - `"claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `beta_managed_agents_effort_low: object { type }`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: "low"`
+
+              - `"low"`
+
+          - `beta_managed_agents_effort_medium: object { type }`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: "medium"`
+
+              - `"medium"`
+
+          - `beta_managed_agents_effort_high: object { type }`
+
+            High effort. Favors reasoning depth.
+
+            - `type: "high"`
+
+              - `"high"`
+
+          - `beta_managed_agents_effort_xhigh: object { type }`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: "xhigh"`
+
+              - `"xhigh"`
+
+          - `beta_managed_agents_effort_max: object { type }`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: "max"`
+
+              - `"max"`
 
         - `speed: optional "standard" or "fast"`
 
@@ -50047,15 +54694,19 @@ Stream Events
 
             - `url: string`
 
-          - `model: object { id, speed }`
+          - `model: object { id, effort, speed }`
 
             Model identifier and configuration.
 
-            - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+            - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
               The model that will power your agent.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+              How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
             - `speed: optional "standard" or "fast"`
 
@@ -50274,6 +54925,72 @@ Stream Events
     - `title: optional string`
 
       The session's new title. Present only when the update changed it.
+
+  - `beta_managed_agents_start_event: object { event, type }`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `event: BetaManagedAgentsAgentMessagePreview or BetaManagedAgentsAgentThinkingPreview`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `beta_managed_agents_agent_message_preview: object { id, type }`
+
+        - `id: string`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `type: "agent.message"`
+
+          - `"agent.message"`
+
+      - `beta_managed_agents_agent_thinking_preview: object { id, type }`
+
+        - `id: string`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `type: "agent.thinking"`
+
+          - `"agent.thinking"`
+
+    - `type: "event_start"`
+
+      - `"event_start"`
+
+  - `beta_managed_agents_delta_event: object { delta, event_id, type }`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `delta: object { content, type, index }`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `content: object { text, type }`
+
+        Regular text content.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+      - `type: "content_delta"`
+
+        - `"content_delta"`
+
+      - `index: optional number`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `event_id: string`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `type: "event_delta"`
+
+      - `"event_delta"`
 
   - `beta_managed_agents_system_message_event: object { id, content, type, processed_at }`
 
@@ -54003,7 +58720,7 @@ ant beta:sessions:events stream \
 
       - `beta_managed_agents_session_retries_exhausted: object { type }`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: "retries_exhausted"`
 
@@ -54359,7 +59076,7 @@ ant beta:sessions:events stream \
 
       - `beta_managed_agents_session_retries_exhausted: object { type }`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `type: "session.thread_status_idle"`
 
@@ -54495,31 +59212,39 @@ ant beta:sessions:events stream \
 
         - `url: string`
 
-      - `model: object { id, speed }`
+      - `model: object { id, effort, speed }`
 
         Model identifier and configuration.
 
-        - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+        - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -54535,11 +59260,11 @@ ant beta:sessions:events stream \
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -54548,6 +59273,50 @@ ant beta:sessions:events stream \
           - `"claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `beta_managed_agents_effort_low: object { type }`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: "low"`
+
+              - `"low"`
+
+          - `beta_managed_agents_effort_medium: object { type }`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: "medium"`
+
+              - `"medium"`
+
+          - `beta_managed_agents_effort_high: object { type }`
+
+            High effort. Favors reasoning depth.
+
+            - `type: "high"`
+
+              - `"high"`
+
+          - `beta_managed_agents_effort_xhigh: object { type }`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: "xhigh"`
+
+              - `"xhigh"`
+
+          - `beta_managed_agents_effort_max: object { type }`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: "max"`
+
+              - `"max"`
 
         - `speed: optional "standard" or "fast"`
 
@@ -54577,15 +59346,19 @@ ant beta:sessions:events stream \
 
             - `url: string`
 
-          - `model: object { id, speed }`
+          - `model: object { id, effort, speed }`
 
             Model identifier and configuration.
 
-            - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+            - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
               The model that will power your agent.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+              How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
             - `speed: optional "standard" or "fast"`
 
@@ -54851,7 +59624,7 @@ ant beta:sessions:events stream \
 
 - `beta_managed_agents_session_retries_exhausted: object { type }`
 
-  The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+  The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
   - `type: "retries_exhausted"`
 
@@ -54897,7 +59670,7 @@ ant beta:sessions:events stream \
 
     - `beta_managed_agents_session_retries_exhausted: object { type }`
 
-      The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+      The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
       - `type: "retries_exhausted"`
 
@@ -55035,7 +59808,7 @@ ant beta:sessions:events stream \
 
     - `beta_managed_agents_session_retries_exhausted: object { type }`
 
-      The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+      The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
       - `type: "retries_exhausted"`
 
@@ -55345,7 +60118,7 @@ ant beta:sessions:events stream \
 
 ### Beta Managed Agents Stream Session Events
 
-- `beta_managed_agents_stream_session_events: BetaManagedAgentsUserMessageEvent or BetaManagedAgentsUserInterruptEvent or BetaManagedAgentsUserToolConfirmationEvent or 31 more`
+- `beta_managed_agents_stream_session_events: BetaManagedAgentsUserMessageEvent or BetaManagedAgentsUserInterruptEvent or BetaManagedAgentsUserToolConfirmationEvent or 33 more`
 
   Server-sent event in the session stream.
 
@@ -56323,7 +61096,7 @@ ant beta:sessions:events stream \
 
       - `beta_managed_agents_session_retries_exhausted: object { type }`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: "retries_exhausted"`
 
@@ -56679,7 +61452,7 @@ ant beta:sessions:events stream \
 
       - `beta_managed_agents_session_retries_exhausted: object { type }`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `type: "session.thread_status_idle"`
 
@@ -56815,31 +61588,39 @@ ant beta:sessions:events stream \
 
         - `url: string`
 
-      - `model: object { id, speed }`
+      - `model: object { id, effort, speed }`
 
         Model identifier and configuration.
 
-        - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+        - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -56855,11 +61636,11 @@ ant beta:sessions:events stream \
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -56868,6 +61649,50 @@ ant beta:sessions:events stream \
           - `"claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `beta_managed_agents_effort_low: object { type }`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: "low"`
+
+              - `"low"`
+
+          - `beta_managed_agents_effort_medium: object { type }`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: "medium"`
+
+              - `"medium"`
+
+          - `beta_managed_agents_effort_high: object { type }`
+
+            High effort. Favors reasoning depth.
+
+            - `type: "high"`
+
+              - `"high"`
+
+          - `beta_managed_agents_effort_xhigh: object { type }`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: "xhigh"`
+
+              - `"xhigh"`
+
+          - `beta_managed_agents_effort_max: object { type }`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: "max"`
+
+              - `"max"`
 
         - `speed: optional "standard" or "fast"`
 
@@ -56897,15 +61722,19 @@ ant beta:sessions:events stream \
 
             - `url: string`
 
-          - `model: object { id, speed }`
+          - `model: object { id, effort, speed }`
 
             Model identifier and configuration.
 
-            - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+            - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
               The model that will power your agent.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+              How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
             - `speed: optional "standard" or "fast"`
 
@@ -57124,6 +61953,72 @@ ant beta:sessions:events stream \
     - `title: optional string`
 
       The session's new title. Present only when the update changed it.
+
+  - `beta_managed_agents_start_event: object { event, type }`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `event: BetaManagedAgentsAgentMessagePreview or BetaManagedAgentsAgentThinkingPreview`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `beta_managed_agents_agent_message_preview: object { id, type }`
+
+        - `id: string`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `type: "agent.message"`
+
+          - `"agent.message"`
+
+      - `beta_managed_agents_agent_thinking_preview: object { id, type }`
+
+        - `id: string`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `type: "agent.thinking"`
+
+          - `"agent.thinking"`
+
+    - `type: "event_start"`
+
+      - `"event_start"`
+
+  - `beta_managed_agents_delta_event: object { delta, event_id, type }`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `delta: object { content, type, index }`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `content: object { text, type }`
+
+        Regular text content.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+      - `type: "content_delta"`
+
+        - `"content_delta"`
+
+      - `index: optional number`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `event_id: string`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `type: "event_delta"`
+
+      - `"event_delta"`
 
   - `beta_managed_agents_system_message_event: object { id, content, type, processed_at }`
 
@@ -59319,31 +64214,39 @@ List Session Threads
 
         - `url: string`
 
-      - `model: object { id, speed }`
+      - `model: object { id, effort, speed }`
 
         Model identifier and configuration.
 
-        - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+        - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -59359,11 +64262,11 @@ List Session Threads
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -59372,6 +64275,50 @@ List Session Threads
           - `"claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `beta_managed_agents_effort_low: object { type }`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: "low"`
+
+              - `"low"`
+
+          - `beta_managed_agents_effort_medium: object { type }`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: "medium"`
+
+              - `"medium"`
+
+          - `beta_managed_agents_effort_high: object { type }`
+
+            High effort. Favors reasoning depth.
+
+            - `type: "high"`
+
+              - `"high"`
+
+          - `beta_managed_agents_effort_xhigh: object { type }`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: "xhigh"`
+
+              - `"xhigh"`
+
+          - `beta_managed_agents_effort_max: object { type }`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: "max"`
+
+              - `"max"`
 
         - `speed: optional "standard" or "fast"`
 
@@ -59664,6 +64611,9 @@ ant beta:sessions:threads list \
         ],
         "model": {
           "id": "claude-sonnet-4-6",
+          "effort": {
+            "type": "low"
+          },
           "speed": "standard"
         },
         "name": "Researcher",
@@ -59775,31 +64725,39 @@ Get Session Thread
 
       - `url: string`
 
-    - `model: object { id, speed }`
+    - `model: object { id, effort, speed }`
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -59815,11 +64773,11 @@ Get Session Thread
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -59828,6 +64786,50 @@ Get Session Thread
         - `"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `beta_managed_agents_effort_low: object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `beta_managed_agents_effort_medium: object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `beta_managed_agents_effort_high: object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `beta_managed_agents_effort_xhigh: object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `beta_managed_agents_effort_max: object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
 
       - `speed: optional "standard" or "fast"`
 
@@ -60115,6 +65117,9 @@ ant beta:sessions:threads retrieve \
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "name": "Researcher",
@@ -60223,31 +65228,39 @@ Archive Session Thread
 
       - `url: string`
 
-    - `model: object { id, speed }`
+    - `model: object { id, effort, speed }`
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -60263,11 +65276,11 @@ Archive Session Thread
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -60276,6 +65289,50 @@ Archive Session Thread
         - `"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `beta_managed_agents_effort_low: object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `beta_managed_agents_effort_medium: object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `beta_managed_agents_effort_high: object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `beta_managed_agents_effort_xhigh: object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `beta_managed_agents_effort_max: object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
 
       - `speed: optional "standard" or "fast"`
 
@@ -60563,6 +65620,9 @@ ant beta:sessions:threads archive \
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "name": "Researcher",
@@ -60651,31 +65711,39 @@ ant beta:sessions:threads archive \
 
       - `url: string`
 
-    - `model: object { id, speed }`
+    - `model: object { id, effort, speed }`
 
       Model identifier and configuration.
 
-      - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -60691,11 +65759,11 @@ ant beta:sessions:threads archive \
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -60704,6 +65772,50 @@ ant beta:sessions:threads archive \
         - `"claude-sonnet-4-5-20250929"`
 
           High-performance model for agents and coding
+
+      - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `beta_managed_agents_effort_low: object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `beta_managed_agents_effort_medium: object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `beta_managed_agents_effort_high: object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `beta_managed_agents_effort_xhigh: object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `beta_managed_agents_effort_max: object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
 
       - `speed: optional "standard" or "fast"`
 
@@ -61029,7 +66141,7 @@ ant beta:sessions:threads archive \
 
 ### Beta Managed Agents Stream Session Thread Events
 
-- `beta_managed_agents_stream_session_thread_events: BetaManagedAgentsUserMessageEvent or BetaManagedAgentsUserInterruptEvent or BetaManagedAgentsUserToolConfirmationEvent or 31 more`
+- `beta_managed_agents_stream_session_thread_events: BetaManagedAgentsUserMessageEvent or BetaManagedAgentsUserInterruptEvent or BetaManagedAgentsUserToolConfirmationEvent or 33 more`
 
   Server-sent event in a single thread's stream.
 
@@ -62007,7 +67119,7 @@ ant beta:sessions:threads archive \
 
       - `beta_managed_agents_session_retries_exhausted: object { type }`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: "retries_exhausted"`
 
@@ -62363,7 +67475,7 @@ ant beta:sessions:threads archive \
 
       - `beta_managed_agents_session_retries_exhausted: object { type }`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `type: "session.thread_status_idle"`
 
@@ -62499,31 +67611,39 @@ ant beta:sessions:threads archive \
 
         - `url: string`
 
-      - `model: object { id, speed }`
+      - `model: object { id, effort, speed }`
 
         Model identifier and configuration.
 
-        - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+        - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -62539,11 +67659,11 @@ ant beta:sessions:threads archive \
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -62552,6 +67672,50 @@ ant beta:sessions:threads archive \
           - `"claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `beta_managed_agents_effort_low: object { type }`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: "low"`
+
+              - `"low"`
+
+          - `beta_managed_agents_effort_medium: object { type }`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: "medium"`
+
+              - `"medium"`
+
+          - `beta_managed_agents_effort_high: object { type }`
+
+            High effort. Favors reasoning depth.
+
+            - `type: "high"`
+
+              - `"high"`
+
+          - `beta_managed_agents_effort_xhigh: object { type }`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: "xhigh"`
+
+              - `"xhigh"`
+
+          - `beta_managed_agents_effort_max: object { type }`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: "max"`
+
+              - `"max"`
 
         - `speed: optional "standard" or "fast"`
 
@@ -62581,15 +67745,19 @@ ant beta:sessions:threads archive \
 
             - `url: string`
 
-          - `model: object { id, speed }`
+          - `model: object { id, effort, speed }`
 
             Model identifier and configuration.
 
-            - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+            - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
               The model that will power your agent.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+              How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
             - `speed: optional "standard" or "fast"`
 
@@ -62809,6 +67977,72 @@ ant beta:sessions:threads archive \
 
       The session's new title. Present only when the update changed it.
 
+  - `beta_managed_agents_start_event: object { event, type }`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `event: BetaManagedAgentsAgentMessagePreview or BetaManagedAgentsAgentThinkingPreview`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `beta_managed_agents_agent_message_preview: object { id, type }`
+
+        - `id: string`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `type: "agent.message"`
+
+          - `"agent.message"`
+
+      - `beta_managed_agents_agent_thinking_preview: object { id, type }`
+
+        - `id: string`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `type: "agent.thinking"`
+
+          - `"agent.thinking"`
+
+    - `type: "event_start"`
+
+      - `"event_start"`
+
+  - `beta_managed_agents_delta_event: object { delta, event_id, type }`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `delta: object { content, type, index }`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `content: object { text, type }`
+
+        Regular text content.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+      - `type: "content_delta"`
+
+        - `"content_delta"`
+
+      - `index: optional number`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `event_id: string`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `type: "event_delta"`
+
+      - `"event_delta"`
+
   - `beta_managed_agents_system_message_event: object { id, content, type, processed_at }`
 
     A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
@@ -62877,7 +68111,7 @@ List Session Thread Events
 
   - `data: optional array of BetaManagedAgentsSessionEvent`
 
-    Events for the thread, ordered by `created_at`.
+    Events for the thread, ordered by `processed_at`.
 
     - `beta_managed_agents_user_message_event: object { id, content, type, processed_at }`
 
@@ -63853,7 +69087,7 @@ List Session Thread Events
 
         - `beta_managed_agents_session_retries_exhausted: object { type }`
 
-          The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+          The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
           - `type: "retries_exhausted"`
 
@@ -64209,7 +69443,7 @@ List Session Thread Events
 
         - `beta_managed_agents_session_retries_exhausted: object { type }`
 
-          The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+          The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
       - `type: "session.thread_status_idle"`
 
@@ -64345,31 +69579,39 @@ List Session Thread Events
 
           - `url: string`
 
-        - `model: object { id, speed }`
+        - `model: object { id, effort, speed }`
 
           Model identifier and configuration.
 
-          - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+          - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `"claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
             - `"claude-fable-5"`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
+            - `"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-6"`
 
-              Most intelligent model for building agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-6"`
 
@@ -64385,11 +69627,11 @@ List Session Thread Events
 
             - `"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `"claude-sonnet-4-5"`
 
@@ -64398,6 +69640,50 @@ List Session Thread Events
             - `"claude-sonnet-4-5-20250929"`
 
               High-performance model for agents and coding
+
+          - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+            How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+            - `beta_managed_agents_effort_low: object { type }`
+
+              Low effort. Favors latency over reasoning depth.
+
+              - `type: "low"`
+
+                - `"low"`
+
+            - `beta_managed_agents_effort_medium: object { type }`
+
+              Medium effort. Balances latency and reasoning depth.
+
+              - `type: "medium"`
+
+                - `"medium"`
+
+            - `beta_managed_agents_effort_high: object { type }`
+
+              High effort. Favors reasoning depth.
+
+              - `type: "high"`
+
+                - `"high"`
+
+            - `beta_managed_agents_effort_xhigh: object { type }`
+
+              Extra-high effort. Not all models accept this level.
+
+              - `type: "xhigh"`
+
+                - `"xhigh"`
+
+            - `beta_managed_agents_effort_max: object { type }`
+
+              Maximum effort. Favors reasoning depth over latency.
+
+              - `type: "max"`
+
+                - `"max"`
 
           - `speed: optional "standard" or "fast"`
 
@@ -64427,15 +69713,19 @@ List Session Thread Events
 
               - `url: string`
 
-            - `model: object { id, speed }`
+            - `model: object { id, effort, speed }`
 
               Model identifier and configuration.
 
-              - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+              - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
                 The model that will power your agent.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+                How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
               - `speed: optional "standard" or "fast"`
 
@@ -64735,13 +70025,17 @@ Stream Session Thread Events
 
   Path param: Path parameter thread_id
 
+- `--event-delta: optional array of BetaManagedAgentsDeltaType`
+
+  Query param: When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
+
 - `--beta: optional array of AnthropicBeta`
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
 ### Returns
 
-- `beta_managed_agents_stream_session_thread_events: BetaManagedAgentsUserMessageEvent or BetaManagedAgentsUserInterruptEvent or BetaManagedAgentsUserToolConfirmationEvent or 31 more`
+- `beta_managed_agents_stream_session_thread_events: BetaManagedAgentsUserMessageEvent or BetaManagedAgentsUserInterruptEvent or BetaManagedAgentsUserToolConfirmationEvent or 33 more`
 
   Server-sent event in a single thread's stream.
 
@@ -65719,7 +71013,7 @@ Stream Session Thread Events
 
       - `beta_managed_agents_session_retries_exhausted: object { type }`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: "retries_exhausted"`
 
@@ -66075,7 +71369,7 @@ Stream Session Thread Events
 
       - `beta_managed_agents_session_retries_exhausted: object { type }`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `type: "session.thread_status_idle"`
 
@@ -66211,31 +71505,39 @@ Stream Session Thread Events
 
         - `url: string`
 
-      - `model: object { id, speed }`
+      - `model: object { id, effort, speed }`
 
         Model identifier and configuration.
 
-        - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+        - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -66251,11 +71553,11 @@ Stream Session Thread Events
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -66264,6 +71566,50 @@ Stream Session Thread Events
           - `"claude-sonnet-4-5-20250929"`
 
             High-performance model for agents and coding
+
+        - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `beta_managed_agents_effort_low: object { type }`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: "low"`
+
+              - `"low"`
+
+          - `beta_managed_agents_effort_medium: object { type }`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: "medium"`
+
+              - `"medium"`
+
+          - `beta_managed_agents_effort_high: object { type }`
+
+            High effort. Favors reasoning depth.
+
+            - `type: "high"`
+
+              - `"high"`
+
+          - `beta_managed_agents_effort_xhigh: object { type }`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: "xhigh"`
+
+              - `"xhigh"`
+
+          - `beta_managed_agents_effort_max: object { type }`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: "max"`
+
+              - `"max"`
 
         - `speed: optional "standard" or "fast"`
 
@@ -66293,15 +71639,19 @@ Stream Session Thread Events
 
             - `url: string`
 
-          - `model: object { id, speed }`
+          - `model: object { id, effort, speed }`
 
             Model identifier and configuration.
 
-            - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
+            - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
 
               The model that will power your agent.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+              How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
             - `speed: optional "standard" or "fast"`
 
@@ -66520,6 +71870,72 @@ Stream Session Thread Events
     - `title: optional string`
 
       The session's new title. Present only when the update changed it.
+
+  - `beta_managed_agents_start_event: object { event, type }`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `event: BetaManagedAgentsAgentMessagePreview or BetaManagedAgentsAgentThinkingPreview`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `beta_managed_agents_agent_message_preview: object { id, type }`
+
+        - `id: string`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `type: "agent.message"`
+
+          - `"agent.message"`
+
+      - `beta_managed_agents_agent_thinking_preview: object { id, type }`
+
+        - `id: string`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `type: "agent.thinking"`
+
+          - `"agent.thinking"`
+
+    - `type: "event_start"`
+
+      - `"event_start"`
+
+  - `beta_managed_agents_delta_event: object { delta, event_id, type }`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `delta: object { content, type, index }`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `content: object { text, type }`
+
+        Regular text content.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+      - `type: "content_delta"`
+
+        - `"content_delta"`
+
+      - `index: optional number`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `event_id: string`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `type: "event_delta"`
+
+      - `"event_delta"`
 
   - `beta_managed_agents_system_message_event: object { id, content, type, processed_at }`
 
@@ -67173,31 +72589,29 @@ ant beta:deployments create \
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -67213,19 +72627,20 @@ ant beta:deployments create \
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -67825,31 +73240,29 @@ ant beta:deployments list \
 {
   "data": [
     {
-      "id": "id",
+      "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
       "agent": {
-        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+        "id": "agent_011CZkYpogX7uDKUyvBTophP",
         "type": "agent",
         "version": 1
       },
-      "archived_at": "2019-12-27T18:11:19.117Z",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "description": "description",
-      "environment_id": "environment_id",
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "description": "Compiles yesterday's orders into a report every weekday morning.",
+      "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
       "initial_events": [
         {
           "content": [
             {
-              "text": "Where is my order #1234?",
+              "text": "Compile yesterday's orders into report.md.",
               "type": "text"
             }
           ],
           "type": "user.message"
         }
       ],
-      "metadata": {
-        "foo": "string"
-      },
-      "name": "name",
+      "metadata": {},
+      "name": "Daily order report",
       "paused_reason": {
         "type": "manual"
       },
@@ -67865,23 +73278,24 @@ ant beta:deployments list \
         }
       ],
       "schedule": {
-        "expression": "x",
-        "timezone": "x",
+        "expression": "0 9 * * 1-5",
+        "timezone": "America/Los_Angeles",
         "type": "cron",
-        "last_run_at": "2019-12-27T18:11:19.117Z",
+        "last_run_at": "2026-03-16T16:00:09Z",
         "upcoming_runs_at": [
-          "2019-12-27T18:11:19.117Z"
+          "2026-03-17T16:00:00Z",
+          "2026-03-18T16:00:00Z"
         ]
       },
       "status": "active",
       "type": "deployment",
-      "updated_at": "2019-12-27T18:11:19.117Z",
+      "updated_at": "2026-03-15T10:00:00Z",
       "vault_ids": [
-        "string"
+        "vlt_011CZkZDLs7fYzm1hXNPeRjv"
       ]
     }
   ],
-  "next_page": "next_page"
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```
 
@@ -68440,38 +73854,36 @@ Get Deployment
 ```cli
 ant beta:deployments retrieve \
   --api-key my-anthropic-api-key \
-  --deployment-id deployment_id
+  --deployment-id depl_011CZkZcDH3vPqd7xnEfwTai
 ```
 
 #### Response
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -68487,19 +73899,20 @@ ant beta:deployments retrieve \
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -69095,38 +74508,36 @@ Update Deployment
 ```cli
 ant beta:deployments update \
   --api-key my-anthropic-api-key \
-  --deployment-id deployment_id
+  --deployment-id depl_011CZkZcDH3vPqd7xnEfwTai
 ```
 
 #### Response
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -69142,19 +74553,20 @@ ant beta:deployments update \
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -69714,38 +75126,36 @@ Archive Deployment
 ```cli
 ant beta:deployments archive \
   --api-key my-anthropic-api-key \
-  --deployment-id deployment_id
+  --deployment-id depl_011CZkZcDH3vPqd7xnEfwTai
 ```
 
 #### Response
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -69761,19 +75171,20 @@ ant beta:deployments archive \
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -70059,7 +75470,7 @@ Run Deployment Now
 ```cli
 ant beta:deployments run \
   --api-key my-anthropic-api-key \
-  --deployment-id deployment_id
+  --deployment-id depl_011CZkZcDH3vPqd7xnEfwTai
 ```
 
 #### Response
@@ -70642,38 +76053,36 @@ Pause Deployment
 ```cli
 ant beta:deployments pause \
   --api-key my-anthropic-api-key \
-  --deployment-id deployment_id
+  --deployment-id depl_011CZkZcDH3vPqd7xnEfwTai
 ```
 
 #### Response
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -70689,19 +76098,20 @@ ant beta:deployments pause \
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -71261,38 +76671,36 @@ Unpause Deployment
 ```cli
 ant beta:deployments unpause \
   --api-key my-anthropic-api-key \
-  --deployment-id deployment_id
+  --deployment-id depl_011CZkZcDH3vPqd7xnEfwTai
 ```
 
 #### Response
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -71308,19 +76716,20 @@ ant beta:deployments unpause \
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -75180,9 +80589,21 @@ Create Credential
 
         - `"static_bearer"`
 
-    - `beta_managed_agents_environment_variable_auth_response: object { networking, secret_name, type }`
+    - `beta_managed_agents_environment_variable_auth_response: object { injection_location, networking, secret_name, type }`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: object { body, header }`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -75398,9 +80819,21 @@ List Credentials
 
           - `"static_bearer"`
 
-      - `beta_managed_agents_environment_variable_auth_response: object { networking, secret_name, type }`
+      - `beta_managed_agents_environment_variable_auth_response: object { injection_location, networking, secret_name, type }`
 
         Environment variable credential details. The secret value is never returned.
+
+        - `injection_location: object { body, header }`
+
+          Where in the outbound request the secret value is substituted.
+
+          - `body: boolean`
+
+            Whether the placeholder is substituted in the request body.
+
+          - `header: boolean`
+
+            Whether the placeholder is substituted in request header values.
 
         - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -75612,9 +81045,21 @@ Get Credential
 
         - `"static_bearer"`
 
-    - `beta_managed_agents_environment_variable_auth_response: object { networking, secret_name, type }`
+    - `beta_managed_agents_environment_variable_auth_response: object { injection_location, networking, secret_name, type }`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: object { body, header }`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -75830,9 +81275,21 @@ Update Credential
 
         - `"static_bearer"`
 
-    - `beta_managed_agents_environment_variable_auth_response: object { networking, secret_name, type }`
+    - `beta_managed_agents_environment_variable_auth_response: object { injection_location, networking, secret_name, type }`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: object { body, header }`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -76090,9 +81547,21 @@ Archive Credential
 
         - `"static_bearer"`
 
-    - `beta_managed_agents_environment_variable_auth_response: object { networking, secret_name, type }`
+    - `beta_managed_agents_environment_variable_auth_response: object { injection_location, networking, secret_name, type }`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: object { body, header }`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -76438,9 +81907,21 @@ ant beta:vaults:credentials mcp-oauth-validate \
 
         - `"static_bearer"`
 
-    - `beta_managed_agents_environment_variable_auth_response: object { networking, secret_name, type }`
+    - `beta_managed_agents_environment_variable_auth_response: object { injection_location, networking, secret_name, type }`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: object { body, header }`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -76652,9 +82133,21 @@ ant beta:vaults:credentials mcp-oauth-validate \
 
 ### Beta Managed Agents Environment Variable Auth Response
 
-- `beta_managed_agents_environment_variable_auth_response: object { networking, secret_name, type }`
+- `beta_managed_agents_environment_variable_auth_response: object { injection_location, networking, secret_name, type }`
 
   Environment variable credential details. The secret value is never returned.
+
+  - `injection_location: object { body, header }`
+
+    Where in the outbound request the secret value is substituted.
+
+    - `body: boolean`
+
+      Whether the placeholder is substituted in the request body.
+
+    - `header: boolean`
+
+      Whether the placeholder is substituted in request header values.
 
   - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -76690,7 +82183,7 @@ ant beta:vaults:credentials mcp-oauth-validate \
 
 ### Beta Managed Agents Environment Variable Create Params
 
-- `beta_managed_agents_environment_variable_create_params: object { networking, secret_name, secret_value, type }`
+- `beta_managed_agents_environment_variable_create_params: object { networking, secret_name, secret_value, 2 more }`
 
   Parameters for creating an environment variable credential.
 
@@ -76730,15 +82223,39 @@ ant beta:vaults:credentials mcp-oauth-validate \
 
     - `"environment_variable"`
 
+  - `injection_location: optional object { body, header }`
+
+    Where in the outbound request the secret value may be substituted.
+
+    - `body: optional boolean`
+
+      Substitute when the placeholder appears in the request body.
+
+    - `header: optional boolean`
+
+      Substitute when the placeholder appears in a request header value.
+
 ### Beta Managed Agents Environment Variable Update Params
 
-- `beta_managed_agents_environment_variable_update_params: object { type, networking, secret_value }`
+- `beta_managed_agents_environment_variable_update_params: object { type, injection_location, networking, secret_value }`
 
   Parameters for updating an environment variable credential. `secret_name` is immutable.
 
   - `type: "environment_variable"`
 
     - `"environment_variable"`
+
+  - `injection_location: optional object { body, header }`
+
+    Updated injection location.
+
+    - `body: optional boolean`
+
+      Substitute when the placeholder appears in the request body.
+
+    - `header: optional boolean`
+
+      Substitute when the placeholder appears in a request header value.
 
   - `networking: optional BetaManagedAgentsUnrestrictedCredentialNetworkingParams or BetaManagedAgentsLimitedCredentialNetworkingParams`
 
@@ -76767,6 +82284,48 @@ ant beta:vaults:credentials mcp-oauth-validate \
   - `secret_value: optional string`
 
     Updated secret value.
+
+### Beta Managed Agents Injection Location Params
+
+- `beta_managed_agents_injection_location_params: object { body, header }`
+
+  Where in the outbound request the secret value may be substituted.
+
+  - `body: optional boolean`
+
+    Substitute when the placeholder appears in the request body.
+
+  - `header: optional boolean`
+
+    Substitute when the placeholder appears in a request header value.
+
+### Beta Managed Agents Injection Location Response
+
+- `beta_managed_agents_injection_location_response: object { body, header }`
+
+  Where in the outbound request the secret value is substituted.
+
+  - `body: boolean`
+
+    Whether the placeholder is substituted in the request body.
+
+  - `header: boolean`
+
+    Whether the placeholder is substituted in request header values.
+
+### Beta Managed Agents Injection Location Update Params
+
+- `beta_managed_agents_injection_location_update_params: object { body, header }`
+
+  Updated injection location.
+
+  - `body: optional boolean`
+
+    Substitute when the placeholder appears in the request body.
+
+  - `header: optional boolean`
+
+    Substitute when the placeholder appears in a request header value.
 
 ### Beta Managed Agents Limited Credential Networking Params
 
@@ -78087,31 +83646,23 @@ List memories
 
 - `--depth: optional number`
 
-  Query param: Query parameter for depth
+  Query param: `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
 
 - `--limit: optional number`
 
-  Query param: Query parameter for limit
-
-- `--order: optional "asc" or "desc"`
-
-  Query param: Query parameter for order
-
-- `--order-by: optional string`
-
-  Query param: Query parameter for order_by
+  Query param: Maximum number of items to return per page. Must be between 1 and 100. Defaults to 20 when omitted. Capped at 20 when `view=full`. Both `memory` and `memory_prefix` items count toward the limit.
 
 - `--page: optional string`
 
-  Query param: Query parameter for page
+  Query param: Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
 
 - `--path-prefix: optional string`
 
-  Query param: Optional path prefix filter (raw string-prefix match; include a trailing slash for directory-scoped lists). This value appears in request URLs. Do not include secrets or personally identifiable information.
+  Query param: Optional path prefix filter. Must end with `/` (segment-aligned), e.g., `/notes/`. This value appears in request URLs. Do not include secrets or personally identifiable information.
 
 - `--view: optional "basic" or "full"`
 
-  Query param: Query parameter for view
+  Query param: Which projection of each `memory` to return. Defaults to `basic` (content omitted). `full` populates `content` on each item and caps `limit` at 20; use this as the bulk-read path for export and sync.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -78125,7 +83676,7 @@ List memories
 
   - `data: optional array of BetaManagedAgentsMemoryListItem`
 
-    One page of results. Each item is either a `memory` object or, when `depth` was set, a `memory_prefix` rollup marker. Items appear in the requested `order_by`/`order`.
+    One page of results. Each item is either a `memory` object or, when `depth` was set, a `memory_prefix` rollup marker. Items are returned in a stable, server-defined order.
 
     - `beta_managed_agents_memory: object { id, content_sha256, content_size_bytes, 7 more }`
 
@@ -80031,17 +85582,17 @@ Create Skill
 
 ### Parameters
 
+- `--file: array of string`
+
+  Body param: Files to upload for the skill.
+
+  All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
+
 - `--display-title: optional string`
 
   Body param: Display title for the skill.
 
   This is a human-readable label that is not included in the prompt sent to the model.
-
-- `--file: optional array of string`
-
-  Body param: Files to upload for the skill.
-
-  All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -80096,7 +85647,8 @@ Create Skill
 
 ```cli
 ant beta:skills create \
-  --api-key my-anthropic-api-key
+  --api-key my-anthropic-api-key \
+  --file 'Example data'
 ```
 
 #### Response
@@ -80394,7 +85946,7 @@ Create Skill Version
 
   The format and length of IDs may change over time.
 
-- `--file: optional array of string`
+- `--file: array of string`
 
   Body param: Files to upload for the skill.
 
@@ -80457,7 +86009,8 @@ Create Skill Version
 ```cli
 ant beta:skills:versions create \
   --api-key my-anthropic-api-key \
-  --skill-id skill_id
+  --skill-id skill_id \
+  --file 'Example data'
 ```
 
 #### Response
@@ -81402,9 +86955,2302 @@ ant beta:user-profiles create-enrollment-url \
 
     - `"rejected"`
 
+# Dreams
+
+## Create a Dream
+
+`$ ant beta:dreams create`
+
+**post** `/v1/dreams`
+
+Create a Dream
+
+### Parameters
+
+- `--input: array of BetaDreamInput`
+
+  Body param
+
+- `--model: string or BetaDreamModelConfigParam`
+
+  Body param: Model identifier and configuration applied to every pipeline stage.
+
+- `--instructions: optional string`
+
+  Body param
+
+- `--beta: optional array of AnthropicBeta`
+
+  Header param: Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `beta_dream: object { id, archived_at, created_at, 10 more }`
+
+  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into a new output memory store. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `id: string`
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `ended_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `error: object { message, type }`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+    - `message: string`
+
+    - `type: string`
+
+  - `inputs: array of BetaDreamInput`
+
+    - `beta_dream_memory_store_input: object { memory_store_id, type }`
+
+      An input memory store the dream reads from. The dream never mutates this store.
+
+      - `memory_store_id: string`
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+    - `beta_dream_sessions_input: object { session_ids, type }`
+
+      Input session transcripts the dream reads.
+
+      - `session_ids: array of string`
+
+      - `type: "sessions"`
+
+        - `"sessions"`
+
+  - `instructions: string`
+
+  - `model: object { id, speed }`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+    - `id: string`
+
+      Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+    - `speed: optional "standard" or "fast"`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `"standard"`
+
+      - `"fast"`
+
+  - `outputs: array of BetaDreamOutput`
+
+    - `memory_store_id: string`
+
+    - `type: "memory_store"`
+
+      - `"memory_store"`
+
+  - `session_id: string`
+
+  - `status: "pending" or "running" or "completed" or 2 more`
+
+    Lifecycle status of a Dream.
+
+    - `"pending"`
+
+    - `"running"`
+
+    - `"completed"`
+
+    - `"failed"`
+
+    - `"canceled"`
+
+  - `type: "dream"`
+
+    - `"dream"`
+
+  - `usage: object { cache_creation_input_tokens, cache_read_input_tokens, input_tokens, output_tokens }`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+    - `cache_creation_input_tokens: number`
+
+      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+    - `cache_read_input_tokens: number`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: number`
+
+      Total uncached input tokens consumed across every pipeline stage.
+
+    - `output_tokens: number`
+
+      Total output tokens generated across every pipeline stage.
+
+### Example
+
+```cli
+ant beta:dreams create \
+  --api-key my-anthropic-api-key \
+  --input '{memory_store_id: x, type: memory_store}' \
+  --model string
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## List Dreams
+
+`$ ant beta:dreams list`
+
+**get** `/v1/dreams`
+
+List Dreams
+
+### Parameters
+
+- `--created-at-gt: optional string`
+
+  Query param: Return dreams with `created_at` strictly after this timestamp (exclusive lower bound, RFC 3339). Unset applies no lower bound.
+
+- `--created-at-lt: optional string`
+
+  Query param: Return dreams with `created_at` strictly before this timestamp (exclusive upper bound, RFC 3339). Unset applies no upper bound.
+
+- `--include-archived: optional boolean`
+
+  Query param: Query parameter for include_archived
+
+- `--limit: optional number`
+
+  Query param: Query parameter for limit
+
+- `--page: optional string`
+
+  Query param: Query parameter for page
+
+- `--status: optional array of BetaDreamStatus`
+
+  Query param: Filter by lifecycle status. Repeat the parameter to match any of multiple statuses. Empty applies no status filter.
+
+- `--beta: optional array of AnthropicBeta`
+
+  Header param: Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaListDreamsResponse: object { data, next_page }`
+
+  - `data: array of BetaDream`
+
+    - `id: string`
+
+    - `archived_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `created_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `ended_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `error: object { message, type }`
+
+      Failure detail for a Dream whose `status` is `failed`.
+
+      - `message: string`
+
+      - `type: string`
+
+    - `inputs: array of BetaDreamInput`
+
+      - `beta_dream_memory_store_input: object { memory_store_id, type }`
+
+        An input memory store the dream reads from. The dream never mutates this store.
+
+        - `memory_store_id: string`
+
+        - `type: "memory_store"`
+
+          - `"memory_store"`
+
+      - `beta_dream_sessions_input: object { session_ids, type }`
+
+        Input session transcripts the dream reads.
+
+        - `session_ids: array of string`
+
+        - `type: "sessions"`
+
+          - `"sessions"`
+
+    - `instructions: string`
+
+    - `model: object { id, speed }`
+
+      Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+      - `id: string`
+
+        Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+      - `speed: optional "standard" or "fast"`
+
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+        - `"standard"`
+
+        - `"fast"`
+
+    - `outputs: array of BetaDreamOutput`
+
+      - `memory_store_id: string`
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+    - `session_id: string`
+
+    - `status: "pending" or "running" or "completed" or 2 more`
+
+      Lifecycle status of a Dream.
+
+      - `"pending"`
+
+      - `"running"`
+
+      - `"completed"`
+
+      - `"failed"`
+
+      - `"canceled"`
+
+    - `type: "dream"`
+
+      - `"dream"`
+
+    - `usage: object { cache_creation_input_tokens, cache_read_input_tokens, input_tokens, output_tokens }`
+
+      Cumulative token usage for the dream across every pipeline stage.
+
+      - `cache_creation_input_tokens: number`
+
+        Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+      - `cache_read_input_tokens: number`
+
+        Total tokens read from prompt cache.
+
+      - `input_tokens: number`
+
+        Total uncached input tokens consumed across every pipeline stage.
+
+      - `output_tokens: number`
+
+        Total output tokens generated across every pipeline stage.
+
+  - `next_page: string`
+
+### Example
+
+```cli
+ant beta:dreams list \
+  --api-key my-anthropic-api-key
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "ended_at": "2019-12-27T18:11:19.117Z",
+      "error": {
+        "message": "message",
+        "type": "type"
+      },
+      "inputs": [
+        {
+          "memory_store_id": "x",
+          "type": "memory_store"
+        }
+      ],
+      "instructions": "instructions",
+      "model": {
+        "id": "x",
+        "speed": "standard"
+      },
+      "outputs": [
+        {
+          "memory_store_id": "memory_store_id",
+          "type": "memory_store"
+        }
+      ],
+      "session_id": "session_id",
+      "status": "pending",
+      "type": "dream",
+      "usage": {
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      }
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Get a Dream
+
+`$ ant beta:dreams retrieve`
+
+**get** `/v1/dreams/{dream_id}`
+
+Get a Dream
+
+### Parameters
+
+- `--dream-id: string`
+
+  Path parameter dream_id
+
+- `--beta: optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `beta_dream: object { id, archived_at, created_at, 10 more }`
+
+  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into a new output memory store. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `id: string`
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `ended_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `error: object { message, type }`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+    - `message: string`
+
+    - `type: string`
+
+  - `inputs: array of BetaDreamInput`
+
+    - `beta_dream_memory_store_input: object { memory_store_id, type }`
+
+      An input memory store the dream reads from. The dream never mutates this store.
+
+      - `memory_store_id: string`
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+    - `beta_dream_sessions_input: object { session_ids, type }`
+
+      Input session transcripts the dream reads.
+
+      - `session_ids: array of string`
+
+      - `type: "sessions"`
+
+        - `"sessions"`
+
+  - `instructions: string`
+
+  - `model: object { id, speed }`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+    - `id: string`
+
+      Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+    - `speed: optional "standard" or "fast"`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `"standard"`
+
+      - `"fast"`
+
+  - `outputs: array of BetaDreamOutput`
+
+    - `memory_store_id: string`
+
+    - `type: "memory_store"`
+
+      - `"memory_store"`
+
+  - `session_id: string`
+
+  - `status: "pending" or "running" or "completed" or 2 more`
+
+    Lifecycle status of a Dream.
+
+    - `"pending"`
+
+    - `"running"`
+
+    - `"completed"`
+
+    - `"failed"`
+
+    - `"canceled"`
+
+  - `type: "dream"`
+
+    - `"dream"`
+
+  - `usage: object { cache_creation_input_tokens, cache_read_input_tokens, input_tokens, output_tokens }`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+    - `cache_creation_input_tokens: number`
+
+      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+    - `cache_read_input_tokens: number`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: number`
+
+      Total uncached input tokens consumed across every pipeline stage.
+
+    - `output_tokens: number`
+
+      Total output tokens generated across every pipeline stage.
+
+### Example
+
+```cli
+ant beta:dreams retrieve \
+  --api-key my-anthropic-api-key \
+  --dream-id dream_id
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## Cancel a Dream
+
+`$ ant beta:dreams cancel`
+
+**post** `/v1/dreams/{dream_id}/cancel`
+
+Cancel a Dream
+
+### Parameters
+
+- `--dream-id: string`
+
+  Path parameter dream_id
+
+- `--beta: optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `beta_dream: object { id, archived_at, created_at, 10 more }`
+
+  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into a new output memory store. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `id: string`
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `ended_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `error: object { message, type }`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+    - `message: string`
+
+    - `type: string`
+
+  - `inputs: array of BetaDreamInput`
+
+    - `beta_dream_memory_store_input: object { memory_store_id, type }`
+
+      An input memory store the dream reads from. The dream never mutates this store.
+
+      - `memory_store_id: string`
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+    - `beta_dream_sessions_input: object { session_ids, type }`
+
+      Input session transcripts the dream reads.
+
+      - `session_ids: array of string`
+
+      - `type: "sessions"`
+
+        - `"sessions"`
+
+  - `instructions: string`
+
+  - `model: object { id, speed }`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+    - `id: string`
+
+      Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+    - `speed: optional "standard" or "fast"`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `"standard"`
+
+      - `"fast"`
+
+  - `outputs: array of BetaDreamOutput`
+
+    - `memory_store_id: string`
+
+    - `type: "memory_store"`
+
+      - `"memory_store"`
+
+  - `session_id: string`
+
+  - `status: "pending" or "running" or "completed" or 2 more`
+
+    Lifecycle status of a Dream.
+
+    - `"pending"`
+
+    - `"running"`
+
+    - `"completed"`
+
+    - `"failed"`
+
+    - `"canceled"`
+
+  - `type: "dream"`
+
+    - `"dream"`
+
+  - `usage: object { cache_creation_input_tokens, cache_read_input_tokens, input_tokens, output_tokens }`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+    - `cache_creation_input_tokens: number`
+
+      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+    - `cache_read_input_tokens: number`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: number`
+
+      Total uncached input tokens consumed across every pipeline stage.
+
+    - `output_tokens: number`
+
+      Total output tokens generated across every pipeline stage.
+
+### Example
+
+```cli
+ant beta:dreams cancel \
+  --api-key my-anthropic-api-key \
+  --dream-id dream_id
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## Archive a Dream
+
+`$ ant beta:dreams archive`
+
+**post** `/v1/dreams/{dream_id}/archive`
+
+Archive a Dream
+
+### Parameters
+
+- `--dream-id: string`
+
+  Path parameter dream_id
+
+- `--beta: optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `beta_dream: object { id, archived_at, created_at, 10 more }`
+
+  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into a new output memory store. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `id: string`
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `ended_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `error: object { message, type }`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+    - `message: string`
+
+    - `type: string`
+
+  - `inputs: array of BetaDreamInput`
+
+    - `beta_dream_memory_store_input: object { memory_store_id, type }`
+
+      An input memory store the dream reads from. The dream never mutates this store.
+
+      - `memory_store_id: string`
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+    - `beta_dream_sessions_input: object { session_ids, type }`
+
+      Input session transcripts the dream reads.
+
+      - `session_ids: array of string`
+
+      - `type: "sessions"`
+
+        - `"sessions"`
+
+  - `instructions: string`
+
+  - `model: object { id, speed }`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+    - `id: string`
+
+      Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+    - `speed: optional "standard" or "fast"`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `"standard"`
+
+      - `"fast"`
+
+  - `outputs: array of BetaDreamOutput`
+
+    - `memory_store_id: string`
+
+    - `type: "memory_store"`
+
+      - `"memory_store"`
+
+  - `session_id: string`
+
+  - `status: "pending" or "running" or "completed" or 2 more`
+
+    Lifecycle status of a Dream.
+
+    - `"pending"`
+
+    - `"running"`
+
+    - `"completed"`
+
+    - `"failed"`
+
+    - `"canceled"`
+
+  - `type: "dream"`
+
+    - `"dream"`
+
+  - `usage: object { cache_creation_input_tokens, cache_read_input_tokens, input_tokens, output_tokens }`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+    - `cache_creation_input_tokens: number`
+
+      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+    - `cache_read_input_tokens: number`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: number`
+
+      Total uncached input tokens consumed across every pipeline stage.
+
+    - `output_tokens: number`
+
+      Total output tokens generated across every pipeline stage.
+
+### Example
+
+```cli
+ant beta:dreams archive \
+  --api-key my-anthropic-api-key \
+  --dream-id dream_id
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## Domain Types
+
+### Beta Dream
+
+- `beta_dream: object { id, archived_at, created_at, 10 more }`
+
+  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into a new output memory store. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `id: string`
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `ended_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `error: object { message, type }`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+    - `message: string`
+
+    - `type: string`
+
+  - `inputs: array of BetaDreamInput`
+
+    - `beta_dream_memory_store_input: object { memory_store_id, type }`
+
+      An input memory store the dream reads from. The dream never mutates this store.
+
+      - `memory_store_id: string`
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+    - `beta_dream_sessions_input: object { session_ids, type }`
+
+      Input session transcripts the dream reads.
+
+      - `session_ids: array of string`
+
+      - `type: "sessions"`
+
+        - `"sessions"`
+
+  - `instructions: string`
+
+  - `model: object { id, speed }`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+    - `id: string`
+
+      Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+    - `speed: optional "standard" or "fast"`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `"standard"`
+
+      - `"fast"`
+
+  - `outputs: array of BetaDreamOutput`
+
+    - `memory_store_id: string`
+
+    - `type: "memory_store"`
+
+      - `"memory_store"`
+
+  - `session_id: string`
+
+  - `status: "pending" or "running" or "completed" or 2 more`
+
+    Lifecycle status of a Dream.
+
+    - `"pending"`
+
+    - `"running"`
+
+    - `"completed"`
+
+    - `"failed"`
+
+    - `"canceled"`
+
+  - `type: "dream"`
+
+    - `"dream"`
+
+  - `usage: object { cache_creation_input_tokens, cache_read_input_tokens, input_tokens, output_tokens }`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+    - `cache_creation_input_tokens: number`
+
+      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+    - `cache_read_input_tokens: number`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: number`
+
+      Total uncached input tokens consumed across every pipeline stage.
+
+    - `output_tokens: number`
+
+      Total output tokens generated across every pipeline stage.
+
+### Beta Dream Error
+
+- `beta_dream_error: object { message, type }`
+
+  Failure detail for a Dream whose `status` is `failed`.
+
+  - `message: string`
+
+  - `type: string`
+
+### Beta Dream Input
+
+- `beta_dream_input: BetaDreamMemoryStoreInput or BetaDreamSessionsInput`
+
+  An input memory store the dream reads from. The dream never mutates this store.
+
+  - `beta_dream_memory_store_input: object { memory_store_id, type }`
+
+    An input memory store the dream reads from. The dream never mutates this store.
+
+    - `memory_store_id: string`
+
+    - `type: "memory_store"`
+
+      - `"memory_store"`
+
+  - `beta_dream_sessions_input: object { session_ids, type }`
+
+    Input session transcripts the dream reads.
+
+    - `session_ids: array of string`
+
+    - `type: "sessions"`
+
+      - `"sessions"`
+
+### Beta Dream Memory Store Input
+
+- `beta_dream_memory_store_input: object { memory_store_id, type }`
+
+  An input memory store the dream reads from. The dream never mutates this store.
+
+  - `memory_store_id: string`
+
+  - `type: "memory_store"`
+
+    - `"memory_store"`
+
+### Beta Dream Memory Store Output
+
+- `beta_dream_memory_store_output: object { memory_store_id, type }`
+
+  An output memory store the dream writes consolidated memories into.
+
+  - `memory_store_id: string`
+
+  - `type: "memory_store"`
+
+    - `"memory_store"`
+
+### Beta Dream Model Config
+
+- `beta_dream_model_config: object { id, speed }`
+
+  Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+  - `id: string`
+
+    Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+  - `speed: optional "standard" or "fast"`
+
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+    - `"standard"`
+
+    - `"fast"`
+
+### Beta Dream Model Config Param
+
+- `beta_dream_model_config_param: object { id, speed }`
+
+  Model identifier and configuration applied to every pipeline stage.
+
+  - `id: string`
+
+    Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+  - `speed: optional "standard" or "fast"`
+
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+    - `"standard"`
+
+    - `"fast"`
+
+### Beta Dream Output
+
+- `beta_dream_output: object { memory_store_id, type }`
+
+  An output memory store the dream writes consolidated memories into.
+
+  - `memory_store_id: string`
+
+  - `type: "memory_store"`
+
+    - `"memory_store"`
+
+### Beta Dream Sessions Input
+
+- `beta_dream_sessions_input: object { session_ids, type }`
+
+  Input session transcripts the dream reads.
+
+  - `session_ids: array of string`
+
+  - `type: "sessions"`
+
+    - `"sessions"`
+
+### Beta Dream Status
+
+- `beta_dream_status: "pending" or "running" or "completed" or 2 more`
+
+  Lifecycle status of a Dream.
+
+  - `"pending"`
+
+  - `"running"`
+
+  - `"completed"`
+
+  - `"failed"`
+
+  - `"canceled"`
+
+### Beta Dream Usage
+
+- `beta_dream_usage: object { cache_creation_input_tokens, cache_read_input_tokens, input_tokens, output_tokens }`
+
+  Cumulative token usage for the dream across every pipeline stage.
+
+  - `cache_creation_input_tokens: number`
+
+    Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+  - `cache_read_input_tokens: number`
+
+    Total tokens read from prompt cache.
+
+  - `input_tokens: number`
+
+    Total uncached input tokens consumed across every pipeline stage.
+
+  - `output_tokens: number`
+
+    Total output tokens generated across every pipeline stage.
+
+# Tunnels
+
+## Create Tunnel
+
+`$ ant beta:tunnels create`
+
+**post** `/v1/tunnels`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel; it is not idempotent. The new tunnel rejects MCP traffic until at least one CA certificate is added.
+
+### Parameters
+
+- `--display-name: optional string`
+
+  Body param: Optional human-readable name for the tunnel (1-255 characters).
+
+- `--beta: optional array of AnthropicBeta`
+
+  Header param: Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `beta_tunnel: object { id, archived_at, created_at, 3 more }`
+
+  An MCP tunnel.
+
+  - `id: string`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: string`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: string`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `type: "tunnel"`
+
+### Example
+
+```cli
+ant beta:tunnels create \
+  --api-key my-anthropic-api-key
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "display_name": "display_name",
+  "domain": "domain",
+  "type": "tunnel"
+}
+```
+
+## Get Tunnel
+
+`$ ant beta:tunnels retrieve`
+
+**get** `/v1/tunnels/{tunnel_id}`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Fetches a tunnel by ID.
+
+### Parameters
+
+- `--tunnel-id: string`
+
+  Path parameter tunnel_id
+
+- `--beta: optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `beta_tunnel: object { id, archived_at, created_at, 3 more }`
+
+  An MCP tunnel.
+
+  - `id: string`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: string`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: string`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `type: "tunnel"`
+
+### Example
+
+```cli
+ant beta:tunnels retrieve \
+  --api-key my-anthropic-api-key \
+  --tunnel-id tunnel_id
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "display_name": "display_name",
+  "domain": "domain",
+  "type": "tunnel"
+}
+```
+
+## List Tunnels
+
+`$ ant beta:tunnels list`
+
+**get** `/v1/tunnels`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Lists tunnels. Results are ordered by creation time, newest first; archived tunnels are excluded unless include_archived is set.
+
+### Parameters
+
+- `--include-archived: optional boolean`
+
+  Query param: Whether to include archived tunnels in the results. Defaults to false.
+
+- `--limit: optional number`
+
+  Query param: Maximum number of tunnels to return per page. Defaults to 20, maximum 1000.
+
+- `--page: optional string`
+
+  Query param: Opaque pagination cursor from a previous `list_tunnels` response.
+
+- `--beta: optional array of AnthropicBeta`
+
+  Header param: Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaListTunnelsResponse: object { data, next_page }`
+
+  A paginated list of tunnels.
+
+  - `data: array of BetaTunnel`
+
+    List of tunnels, ordered by created_at descending.
+
+    - `id: string`
+
+      Unique identifier for the tunnel, prefixed with `tnl_`.
+
+    - `archived_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `created_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `display_name: string`
+
+      Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+    - `domain: string`
+
+      Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+    - `type: "tunnel"`
+
+  - `next_page: string`
+
+    Pagination cursor for the next page, or null if no more results.
+
+### Example
+
+```cli
+ant beta:tunnels list \
+  --api-key my-anthropic-api-key
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "display_name": "display_name",
+      "domain": "domain",
+      "type": "tunnel"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Archive Tunnel
+
+`$ ant beta:tunnels archive`
+
+**post** `/v1/tunnels/{tunnel_id}/archive`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Archives a tunnel. Archival is irreversible: every non-archived certificate on the tunnel is archived in the same operation, the hostname is retired and never re-allocated, and the tunnel token is invalidated. Retrying against an already-archived tunnel returns the existing record unchanged.
+
+### Parameters
+
+- `--tunnel-id: string`
+
+  Path parameter tunnel_id
+
+- `--beta: optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `beta_tunnel: object { id, archived_at, created_at, 3 more }`
+
+  An MCP tunnel.
+
+  - `id: string`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: string`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: string`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `type: "tunnel"`
+
+### Example
+
+```cli
+ant beta:tunnels archive \
+  --api-key my-anthropic-api-key \
+  --tunnel-id tunnel_id
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "display_name": "display_name",
+  "domain": "domain",
+  "type": "tunnel"
+}
+```
+
+## Reveal Tunnel Token
+
+`$ ant beta:tunnels reveal-token`
+
+**post** `/v1/tunnels/{tunnel_id}/reveal_token`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Reveals a tunnel's connector token. The value is fetched live on each call; Anthropic does not store it. Repeated calls return the same value until the token is rotated. Exposed as POST so the token does not appear in intermediary access logs.
+
+### Parameters
+
+- `--tunnel-id: string`
+
+  Path parameter tunnel_id
+
+- `--beta: optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `beta_tunnel_token: object { id, tunnel_token, type }`
+
+  A tunnel's connector token.
+
+  - `id: string`
+
+    Stable identifier for the current token value. Changes when the token is rotated.
+
+  - `tunnel_token: string`
+
+    The connector token used to run the tunnel. Treat as a credential.
+
+  - `type: "tunnel_token"`
+
+### Example
+
+```cli
+ant beta:tunnels reveal-token \
+  --api-key my-anthropic-api-key \
+  --tunnel-id tunnel_id
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "tunnel_token": "tunnel_token",
+  "type": "tunnel_token"
+}
+```
+
+## Rotate Tunnel Token
+
+`$ ant beta:tunnels rotate-token`
+
+**post** `/v1/tunnels/{tunnel_id}/rotate_token`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Rotates a tunnel's connector token. Rotation invalidates the current token for new connections and returns a fresh value; established connections are not severed. A connector restarted after rotation must use the new value.
+
+### Parameters
+
+- `--tunnel-id: string`
+
+  Path param: Path parameter tunnel_id
+
+- `--reason: optional string`
+
+  Body param: Optional free-text reason for the rotation, recorded for audit.
+
+- `--beta: optional array of AnthropicBeta`
+
+  Header param: Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `beta_tunnel_token: object { id, tunnel_token, type }`
+
+  A tunnel's connector token.
+
+  - `id: string`
+
+    Stable identifier for the current token value. Changes when the token is rotated.
+
+  - `tunnel_token: string`
+
+    The connector token used to run the tunnel. Treat as a credential.
+
+  - `type: "tunnel_token"`
+
+### Example
+
+```cli
+ant beta:tunnels rotate-token \
+  --api-key my-anthropic-api-key \
+  --tunnel-id tunnel_id
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "tunnel_token": "tunnel_token",
+  "type": "tunnel_token"
+}
+```
+
+## Domain Types
+
+### Beta Tunnel
+
+- `beta_tunnel: object { id, archived_at, created_at, 3 more }`
+
+  An MCP tunnel.
+
+  - `id: string`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: string`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: string`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `type: "tunnel"`
+
+### Beta Tunnel Token
+
+- `beta_tunnel_token: object { id, tunnel_token, type }`
+
+  A tunnel's connector token.
+
+  - `id: string`
+
+    Stable identifier for the current token value. Changes when the token is rotated.
+
+  - `tunnel_token: string`
+
+    The connector token used to run the tunnel. Treat as a credential.
+
+  - `type: "tunnel_token"`
+
+# Certificates
+
+## Create Tunnel Certificate
+
+`$ ant beta:tunnels:certificates create`
+
+**post** `/v1/tunnels/{tunnel_id}/certificates`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's server certificate against this CA when it terminates the inner TLS session. A tunnel holds at most two non-archived certificates.
+
+### Parameters
+
+- `--tunnel-id: string`
+
+  Path param: Path parameter tunnel_id
+
+- `--ca-certificate-pem: string`
+
+  Body param: PEM-encoded X.509 CA certificate. Must contain exactly one certificate and no private-key material. Maximum 8KB.
+
+- `--beta: optional array of AnthropicBeta`
+
+  Header param: Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `beta_tunnel_certificate: object { id, archived_at, created_at, 4 more }`
+
+  A CA certificate attached to a tunnel.
+
+  - `id: string`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `expires_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `fingerprint: string`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `tunnel_id: string`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `type: "tunnel_certificate"`
+
+### Example
+
+```cli
+ant beta:tunnels:certificates create \
+  --api-key my-anthropic-api-key \
+  --tunnel-id tunnel_id \
+  --ca-certificate-pem ca_certificate_pem
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "expires_at": "2019-12-27T18:11:19.117Z",
+  "fingerprint": "fingerprint",
+  "tunnel_id": "tunnel_id",
+  "type": "tunnel_certificate"
+}
+```
+
+## Get Tunnel Certificate
+
+`$ ant beta:tunnels:certificates retrieve`
+
+**get** `/v1/tunnels/{tunnel_id}/certificates/{certificate_id}`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Fetches a tunnel certificate by ID.
+
+### Parameters
+
+- `--tunnel-id: string`
+
+  Path param: Path parameter tunnel_id
+
+- `--certificate-id: string`
+
+  Path param: Path parameter certificate_id
+
+- `--beta: optional array of AnthropicBeta`
+
+  Header param: Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `beta_tunnel_certificate: object { id, archived_at, created_at, 4 more }`
+
+  A CA certificate attached to a tunnel.
+
+  - `id: string`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `expires_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `fingerprint: string`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `tunnel_id: string`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `type: "tunnel_certificate"`
+
+### Example
+
+```cli
+ant beta:tunnels:certificates retrieve \
+  --api-key my-anthropic-api-key \
+  --tunnel-id tunnel_id \
+  --certificate-id certificate_id
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "expires_at": "2019-12-27T18:11:19.117Z",
+  "fingerprint": "fingerprint",
+  "tunnel_id": "tunnel_id",
+  "type": "tunnel_certificate"
+}
+```
+
+## List Tunnel Certificates
+
+`$ ant beta:tunnels:certificates list`
+
+**get** `/v1/tunnels/{tunnel_id}/certificates`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Lists the certificates registered on a tunnel. Archived certificates are excluded unless include_archived is set.
+
+### Parameters
+
+- `--tunnel-id: string`
+
+  Path param: Path parameter tunnel_id
+
+- `--include-archived: optional boolean`
+
+  Query param: Whether to include archived certificates in the results. Defaults to false.
+
+- `--limit: optional number`
+
+  Query param: Maximum number of certificates to return per page. Defaults to 20, maximum 1000.
+
+- `--page: optional string`
+
+  Query param: Opaque pagination cursor from a previous `list_tunnel_certificates` response.
+
+- `--beta: optional array of AnthropicBeta`
+
+  Header param: Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaListTunnelCertificatesResponse: object { data, next_page }`
+
+  The tunnel's certificates.
+
+  - `data: array of BetaTunnelCertificate`
+
+    List of certificates, ordered by created_at descending.
+
+    - `id: string`
+
+      Unique identifier for the certificate, prefixed with `tcrt_`.
+
+    - `archived_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `created_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `expires_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `fingerprint: string`
+
+      Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+    - `tunnel_id: string`
+
+      ID of the tunnel the certificate is registered against.
+
+    - `type: "tunnel_certificate"`
+
+  - `next_page: string`
+
+    Pagination cursor for the next page, or null if no more results.
+
+### Example
+
+```cli
+ant beta:tunnels:certificates list \
+  --api-key my-anthropic-api-key \
+  --tunnel-id tunnel_id
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "expires_at": "2019-12-27T18:11:19.117Z",
+      "fingerprint": "fingerprint",
+      "tunnel_id": "tunnel_id",
+      "type": "tunnel_certificate"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Archive Tunnel Certificate
+
+`$ ant beta:tunnels:certificates archive`
+
+**post** `/v1/tunnels/{tunnel_id}/certificates/{certificate_id}/archive`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Archives a tunnel certificate, removing it from the set Anthropic trusts for the tunnel. The certificate record is retained. Archiving the last non-archived certificate is permitted; the tunnel rejects MCP traffic until a new certificate is added.
+
+### Parameters
+
+- `--tunnel-id: string`
+
+  Path param: Path parameter tunnel_id
+
+- `--certificate-id: string`
+
+  Path param: Path parameter certificate_id
+
+- `--beta: optional array of AnthropicBeta`
+
+  Header param: Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `beta_tunnel_certificate: object { id, archived_at, created_at, 4 more }`
+
+  A CA certificate attached to a tunnel.
+
+  - `id: string`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `expires_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `fingerprint: string`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `tunnel_id: string`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `type: "tunnel_certificate"`
+
+### Example
+
+```cli
+ant beta:tunnels:certificates archive \
+  --api-key my-anthropic-api-key \
+  --tunnel-id tunnel_id \
+  --certificate-id certificate_id
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "expires_at": "2019-12-27T18:11:19.117Z",
+  "fingerprint": "fingerprint",
+  "tunnel_id": "tunnel_id",
+  "type": "tunnel_certificate"
+}
+```
+
+## Domain Types
+
+### Beta Tunnel Certificate
+
+- `beta_tunnel_certificate: object { id, archived_at, created_at, 4 more }`
+
+  A CA certificate attached to a tunnel.
+
+  - `id: string`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `expires_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `fingerprint: string`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `tunnel_id: string`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `type: "tunnel_certificate"`
+
 # Webhooks
 
 ## Domain Types
+
+### Beta Webhook Agent Archived Event Data
+
+- `beta_webhook_agent_archived_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the agent that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "agent.archived"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Agent Created Event Data
+
+- `beta_webhook_agent_created_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the agent that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "agent.created"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Agent Deleted Event Data
+
+- `beta_webhook_agent_deleted_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the agent that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "agent.deleted"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Agent Updated Event Data
+
+- `beta_webhook_agent_updated_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the agent that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "agent.updated"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Deployment Archived Event Data
+
+- `beta_webhook_deployment_archived_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the deployment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "deployment.archived"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Deployment Created Event Data
+
+- `beta_webhook_deployment_created_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the deployment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "deployment.created"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Deployment Deleted Event Data
+
+- `beta_webhook_deployment_deleted_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the deployment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "deployment.deleted"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Deployment Paused Event Data
+
+- `beta_webhook_deployment_paused_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the deployment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "deployment.paused"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Deployment Run Failed Event Data
+
+- `beta_webhook_deployment_run_failed_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the deployment run that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "deployment_run.failed"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Deployment Run Started Event Data
+
+- `beta_webhook_deployment_run_started_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the deployment run that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "deployment_run.started"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Deployment Run Succeeded Event Data
+
+- `beta_webhook_deployment_run_succeeded_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the deployment run that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "deployment_run.succeeded"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Deployment Unpaused Event Data
+
+- `beta_webhook_deployment_unpaused_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the deployment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "deployment.unpaused"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Deployment Updated Event Data
+
+- `beta_webhook_deployment_updated_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the deployment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "deployment.updated"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Environment Archived Event Data
+
+- `beta_webhook_environment_archived_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the environment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "environment.archived"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Environment Created Event Data
+
+- `beta_webhook_environment_created_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the environment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "environment.created"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Environment Deleted Event Data
+
+- `beta_webhook_environment_deleted_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the environment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "environment.deleted"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Environment Updated Event Data
+
+- `beta_webhook_environment_updated_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the environment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "environment.updated"`
+
+  - `workspace_id: string`
 
 ### Beta Webhook Event
 
@@ -81418,7 +89264,7 @@ ant beta:user-profiles create-enrollment-url \
 
     RFC 3339 timestamp when the event occurred.
 
-  - `data: BetaWebhookSessionCreatedEventData or BetaWebhookSessionPendingEventData or BetaWebhookSessionRunningEventData or 20 more`
+  - `data: BetaWebhookSessionCreatedEventData or BetaWebhookSessionPendingEventData or BetaWebhookSessionRunningEventData or 40 more`
 
     - `beta_webhook_session_created_event_data: object { id, organization_id, type, workspace_id }`
 
@@ -81724,13 +89570,253 @@ ant beta:user-profiles create-enrollment-url \
 
       - `workspace_id: string`
 
+    - `beta_webhook_agent_created_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "agent.created"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_agent_archived_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "agent.archived"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_agent_deleted_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "agent.deleted"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_deployment_paused_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.paused"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_deployment_run_failed_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the deployment run that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment_run.failed"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_deployment_created_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.created"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_deployment_updated_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.updated"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_deployment_unpaused_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.unpaused"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_agent_updated_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "agent.updated"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_deployment_archived_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.archived"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_deployment_run_started_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the deployment run that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment_run.started"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_deployment_deleted_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.deleted"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_deployment_run_succeeded_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the deployment run that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment_run.succeeded"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_environment_created_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "environment.created"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_environment_updated_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "environment.updated"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_environment_archived_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "environment.archived"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_environment_deleted_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "environment.deleted"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_memory_store_created_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the memory store that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "memory_store.created"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_memory_store_archived_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the memory store that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "memory_store.archived"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_memory_store_deleted_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the memory store that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "memory_store.deleted"`
+
+      - `workspace_id: string`
+
   - `type: "event"`
 
     Object type. Always `event` for webhook payloads.
 
 ### Beta Webhook Event Data
 
-- `beta_webhook_event_data: BetaWebhookSessionCreatedEventData or BetaWebhookSessionPendingEventData or BetaWebhookSessionRunningEventData or 20 more`
+- `beta_webhook_event_data: BetaWebhookSessionCreatedEventData or BetaWebhookSessionPendingEventData or BetaWebhookSessionRunningEventData or 40 more`
 
   - `beta_webhook_session_created_event_data: object { id, organization_id, type, workspace_id }`
 
@@ -82035,6 +90121,288 @@ ant beta:user-profiles create-enrollment-url \
     - `type: "session.updated"`
 
     - `workspace_id: string`
+
+  - `beta_webhook_agent_created_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the agent that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "agent.created"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_agent_archived_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the agent that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "agent.archived"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_agent_deleted_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the agent that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "agent.deleted"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_deployment_paused_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the deployment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "deployment.paused"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_deployment_run_failed_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the deployment run that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "deployment_run.failed"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_deployment_created_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the deployment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "deployment.created"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_deployment_updated_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the deployment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "deployment.updated"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_deployment_unpaused_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the deployment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "deployment.unpaused"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_agent_updated_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the agent that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "agent.updated"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_deployment_archived_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the deployment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "deployment.archived"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_deployment_run_started_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the deployment run that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "deployment_run.started"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_deployment_deleted_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the deployment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "deployment.deleted"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_deployment_run_succeeded_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the deployment run that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "deployment_run.succeeded"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_environment_created_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the environment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "environment.created"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_environment_updated_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the environment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "environment.updated"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_environment_archived_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the environment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "environment.archived"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_environment_deleted_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the environment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "environment.deleted"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_memory_store_created_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the memory store that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "memory_store.created"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_memory_store_archived_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the memory store that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "memory_store.archived"`
+
+    - `workspace_id: string`
+
+  - `beta_webhook_memory_store_deleted_event_data: object { id, organization_id, type, workspace_id }`
+
+    - `id: string`
+
+      ID of the memory store that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "memory_store.deleted"`
+
+    - `workspace_id: string`
+
+### Beta Webhook Memory Store Archived Event Data
+
+- `beta_webhook_memory_store_archived_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the memory store that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "memory_store.archived"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Memory Store Created Event Data
+
+- `beta_webhook_memory_store_created_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the memory store that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "memory_store.created"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Memory Store Deleted Event Data
+
+- `beta_webhook_memory_store_deleted_event_data: object { id, organization_id, type, workspace_id }`
+
+  - `id: string`
+
+    ID of the memory store that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "memory_store.deleted"`
+
+  - `workspace_id: string`
 
 ### Beta Webhook Session Archived Event Data
 
@@ -82398,7 +90766,7 @@ ant beta:user-profiles create-enrollment-url \
 
     RFC 3339 timestamp when the event occurred.
 
-  - `data: BetaWebhookSessionCreatedEventData or BetaWebhookSessionPendingEventData or BetaWebhookSessionRunningEventData or 20 more`
+  - `data: BetaWebhookSessionCreatedEventData or BetaWebhookSessionPendingEventData or BetaWebhookSessionRunningEventData or 40 more`
 
     - `beta_webhook_session_created_event_data: object { id, organization_id, type, workspace_id }`
 
@@ -82701,6 +91069,246 @@ ant beta:user-profiles create-enrollment-url \
       - `organization_id: string`
 
       - `type: "session.updated"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_agent_created_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "agent.created"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_agent_archived_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "agent.archived"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_agent_deleted_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "agent.deleted"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_deployment_paused_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.paused"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_deployment_run_failed_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the deployment run that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment_run.failed"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_deployment_created_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.created"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_deployment_updated_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.updated"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_deployment_unpaused_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.unpaused"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_agent_updated_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "agent.updated"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_deployment_archived_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.archived"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_deployment_run_started_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the deployment run that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment_run.started"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_deployment_deleted_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.deleted"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_deployment_run_succeeded_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the deployment run that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment_run.succeeded"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_environment_created_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "environment.created"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_environment_updated_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "environment.updated"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_environment_archived_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "environment.archived"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_environment_deleted_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "environment.deleted"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_memory_store_created_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the memory store that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "memory_store.created"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_memory_store_archived_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the memory store that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "memory_store.archived"`
+
+      - `workspace_id: string`
+
+    - `beta_webhook_memory_store_deleted_event_data: object { id, organization_id, type, workspace_id }`
+
+      - `id: string`
+
+        ID of the memory store that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "memory_store.deleted"`
 
       - `workspace_id: string`
 

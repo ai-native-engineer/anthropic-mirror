@@ -1,6 +1,14 @@
 <!-- source: https://claude.com/docs/plugins/submit -->
 
-The [plugin directory](https://claude.com/plugins-for/cowork) is a community-driven directory where developers can submit plugins for use in Cowork and Claude Code. In Claude Code, this directory is surfaced as the official `claude-plugins-official` marketplace and is automatically available to all users — see [Discover and install plugins](https://code.claude.com/docs/en/discover-plugins#official-anthropic-marketplace). This is a separate and complementary directory from the [Connectors Directory](/docs/connectors/directory), which is specific to MCP connectors.
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
+The [plugin directory](https://claude.com/plugins-for/cowork) is a community-driven directory where developers can submit plugins for use in Cowork and Claude Code. In Claude Code, this directory is surfaced as the official `claude-plugins-official` marketplace and is automatically available to all users — see [Discover and install plugins](https://code.claude.com/docs/en/discover-plugins#official-anthropic-marketplace). This is a separate and complementary directory from the [Connectors Directory](https://claude.com/docs/connectors/directory), which is specific to MCP connectors.
 
 ##  Getting your plugin to users
 
@@ -34,7 +42,7 @@ Plugins can include a `SETUP.md` skill to guide Claude through configuring and c
 
 ###  Using safe MCP connectors in plugins
 
-While a plugin can include any MCP of any kind in its `.mcp.json` definition, we strongly encourage using connectors that already exist in the [Connectors Directory](/docs/connectors/directory) or come from well-known developers. This will increase the likelihood of verification and will reduce the number of warnings shown to users.
+While a plugin can include any MCP of any kind in its `.mcp.json` definition, we strongly encourage using connectors that already exist in the [Connectors Directory](https://claude.com/docs/connectors/directory) or come from well-known developers. This will increase the likelihood of verification and will reduce the number of warnings shown to users.
 
 ##  Directory terms & conditions
 
@@ -55,12 +63,16 @@ Best practices when using community plugins:
 
 ##  Submitting your plugin
 
-To submit a plugin to the directory, you can either share a GitHub link or upload a zip file containing your plugin (with all folder structures inside). The repo must be public—closed-source plugins are not accepted.
+To submit a plugin to the directory, share a GitHub link to your plugin. The repo must be public—closed-source plugins are not accepted.
 Before submitting, run `claude plugin validate` to check formatting and structure. Review times vary with queue volume.
 
 ###  Before you start
 
-Submitting through Claude.ai requires a Team or Enterprise organization and directory management access (organization Owners by default; on Enterprise, an Owner can delegate it through a custom role, as described in [Before you start](/docs/connectors/building/submission#before-you-start)). Individual authors who aren’t part of a Team or Enterprise organization can use the Console form below instead.
+Both submission forms require you to be signed in with sufficient permissions:
+
+* **claude.ai** requires a Team or Enterprise organization and directory management access. Organization Owners have this by default; on Enterprise, an Owner can delegate it through a custom role, as described in the [connector submission access requirements](https://claude.com/docs/connectors/building/submission#before-you-start).
+* **Console** requires a Developer, Admin, or Owner role on a Console organization. Individual authors who aren’t part of a claude.ai Team or Enterprise organization can sign up for Console at [platform.claude.com](https://platform.claude.com) and submit there.
+
 To submit please use one of our in-app submission forms:
 
 * **Claude.ai** — <https://claude.ai/admin-settings/directory/submissions/plugins/new>
@@ -69,5 +81,3 @@ To submit please use one of our in-app submission forms:
 After your plugin is published, updates pushed to your GitHub repo are picked up automatically—CI mirrors changes to the public marketplace and runs automated screening on each update. You do not need to re-submit the form for updates.
 
 Need help building your plugin? See the [Claude Code plugin guide](https://code.claude.com/docs/en/plugins) for a complete walkthrough of plugin structure, manifests, and testing, or the [plugins reference](https://code.claude.com/docs/en/plugins-reference) for full technical specifications.
-
-[Overview](/docs/plugins/overview)

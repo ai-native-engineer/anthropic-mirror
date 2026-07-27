@@ -223,4 +223,18 @@ Next time something isn't clicking, ask Claude to imagine it with you. Claude dr
 
 ## Related tutorials
 
-No items found.
+[Claude for Teachers in action](https://claude.com/resources/tutorials/claude-for-teachers-in-action)Claude for Teachers in action
+
+Claude for Teachers in action
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/claude-for-teachers-in-action)Tutorial
+
+[Getting started with Claude for Teachers](https://claude.com/resources/tutorials/getting-started-with-claude-for-teachers)Getting started with Claude for Teachers
+
+Getting started with Claude for Teachers
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/getting-started-with-claude-for-teachers)Tutorial

@@ -30,7 +30,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Sales and marketing
 
@@ -44,7 +44,7 @@ January 26, 2026
 
 ### ActiveCampaign
 
-Autonomous marketing to transform how you work](/connectors/activecampaign)
+Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
 
 Sales and marketing
 
@@ -54,11 +54,11 @@ Claude Code
 
 June 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1d129f2351bec1d8462bd9_actively.ai.png)
+[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
 
 ### Actively
 
-1:1 account agents for GTM teams](/connectors/actively)
+1:1 account agents for GTM teams](https://claude.com/connectors/actively)
 
 Life sciences and healthcare
 
@@ -72,7 +72,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Data
 
@@ -82,11 +82,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Productivity
 
@@ -96,11 +96,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Design
 
@@ -108,11 +108,11 @@ Claude
 
 May 7, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe for creativity
 
-Ideate, create, and deliver with Adobe pro tools](/connectors/adobe-creativity)
+Ideate, create, and deliver with Adobe pro tools](https://claude.com/connectors/adobe-creativity)
 
 Sales and marketing
 
@@ -120,11 +120,11 @@ Claude
 
 May 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Journey Optimizer
 
-Understand and troubleshoot your Journeys and Campaigns](/connectors/adobe-journey-optimizer)
+Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
 
 Sales and marketing
 
@@ -134,11 +134,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Marketing Agent
 
-Marketing campaign and audience insights from Adobe](/connectors/adobe-marketing-agent)
+Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
 
 Productivity
 
@@ -152,7 +152,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Financial services
 
@@ -166,7 +166,7 @@ June 22, 2026
 
 ### Affinity
 
-Search, update, and prep deals without switching tabs.](/connectors/affinity)
+Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
 
 Productivity
 
@@ -180,7 +180,7 @@ June 22, 2026
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Sales and marketing
 
@@ -194,7 +194,7 @@ January 30, 2026
 
 ### Ahrefs
 
-SEO & AI search analytics](/connectors/ahrefs)
+SEO & AI search analytics](https://claude.com/connectors/ahrefs)
 
 Financial services
 
@@ -202,11 +202,11 @@ Claude
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd9230df5f81ef095019_Aiera.jpg)
+[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
 
 ### Aiera
 
-Live events, filings, company publications, and more](/connectors/aiera)
+Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
 
 Sales and marketing
 
@@ -220,7 +220,7 @@ February 11, 2026
 
 ### AirOps
 
-Craft content that wins AI search](/connectors/airops)
+Craft content that wins AI search](https://claude.com/connectors/airops)
 
 Data
 
@@ -234,7 +234,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Financial services
 
@@ -244,11 +244,11 @@ Claude Code
 
 February 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977ee686ffe1cb730e94f07_Airwallex%20Mark%20-%20Colour%20-%20Square.png)
+[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
 
 ### Airwallex
 
-Integrate with the Airwallex Platform using Claude](/connectors/airwallex)
+Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
 
 Financial services
 
@@ -258,11 +258,11 @@ Claude Code
 
 April 8, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c05a2e0f10f41c8f005ee0_Aiwyn_Logo_Mark_Square%20(1).svg)
+[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
 
 ### Aiwyn Tax
 
-Estimate your federal & state taxes with Aiwyn's tax engine](/connectors/aiwyn-tax)
+Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)
 
 Health and wellness
 
@@ -274,7 +274,7 @@ May 1, 2026
 
 ### AllTrails
 
-Find your next hike](/connectors/alltrails)
+Find your next hike](https://claude.com/connectors/alltrails)
 
 Health and wellness
 
@@ -288,7 +288,7 @@ May 26, 2026
 
 ### Alma
 
-Your nutrition data, inside every Claude conversation.](/connectors/alma)
+Your nutrition data, inside every Claude conversation.](https://claude.com/connectors/alma)
 
 Data
 
@@ -302,7 +302,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -314,7 +314,7 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
 
 Sales and marketing
 
@@ -326,7 +326,7 @@ March 2, 2026
 
 ### Apollo.io
 
-Find buyers. Book more meetings. Close more deals.](/connectors/apollo)
+Find buyers. Book more meetings. Close more deals.](https://claude.com/connectors/apollo)
 
 Productivity
 
@@ -340,9 +340,9 @@ June 22, 2026
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
 
-[View more](?cc61befa_page=2)
+[View more](https://claude.com/connectors?cc61befa_page=2)
 
 1 / 17
 

@@ -197,3 +197,5 @@ The below use cases – regardless of whether they are High-Risk Use Cases – m
 * **Products serving minors,** including organizations providing minors with the ability to directly interact with products that incorporate our API(s), must comply with the **additional guidelines** outlined in our [Help Center article.](https://support.anthropic.com/en/articles/9307344-responsible-use-of-anthropic-s-models-guidelines-for-organizations-serving-minors)
 * **Agentic use cases** must still comply with the Usage Policy. We provide examples of Usage Policy prohibitions in the context of agentic use in this [Help Center article](https://support.anthropic.com/en/articles/12005017-using-agents-according-to-our-usage-policy).
 * **Model Context Protocol (MCP) servers** listed in our Connector Directory must comply with our [Directory Policy](https://support.anthropic.com/en/articles/11697096-anthropic-mcp-directory-policy).
+
+Usage Policy \ Anthropic

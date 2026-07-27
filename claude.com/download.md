@@ -20,9 +20,9 @@ Download for ChromeOS
 
 [Download for ChromeOS](https://play.google.com/store/apps/details?id=com.anthropic.claude)Download for ChromeOS
 
-Not available for Linux
+Download for Linux
 
-[Not available for Linux](#)Not available for Linux
+[Download for Linux](http://code.claude.com/docs/en/desktop-linux)Download for Linux
 
 ## Get started
 
@@ -52,6 +52,12 @@ Download
 
 [Download](https://claude.ai/api/desktop/win32/arm64/setup/latest/redirect)Download
 
+Linux
+
+See docs
+
+[See docs](http://code.claude.com/docs/en/desktop-linux)See docs
+
 Enterprise deployment
 
 [macOS](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos)
@@ -73,6 +79,16 @@ Android
 Download
 
 [Download](https://play.google.com/store/apps/details?id=com.anthropic.claude)Download
+
+## Claude Science beta
+
+Your AI workbench for scientific research
+
+Download
+
+Learn more
+
+[Learn more](https://claude.com/product/claude-science)Learn more
 
 ## Go further
 
@@ -257,6 +273,18 @@ Claude desktop app supports standard enterprise deployment with MSIX installers 
 ### Where can I get help or learn more?
 
 [Visit our Help Center](https://support.claude.com/en/) for setup guides, troubleshooting, and system requirements.
+
+### Which Linux distributions does Claude Desktop support?
+
+Claude Desktop for Linux is in beta and supports Ubuntu and Debian (x64 and arm64). Support for additional distributions is coming in the future.
+
+### Which plans include Claude Desktop for Linux?
+
+Chat is available on all plans, including Free. Claude Code and Claude Cowork are available on Pro, Max, Team, and Enterprise.
+
+### Are all features available on Linux?
+
+Most are. Claude Code, Claude Cowork, and Chat are all available at launch. Computer Use is not yet available on Linux, and is coming soon. Dictation is also not available in this release. The Quick Entry global hotkey works on X11; on native Wayland it requires the desktop's GlobalShortcuts portal.
 
 [Prev](#)Prev
 

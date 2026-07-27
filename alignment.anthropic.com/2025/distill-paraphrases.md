@@ -10,11 +10,11 @@ But even if scratchpads look like they perform human-like reasoning, scratchpads
 
 To evaluate whether reasoning models rely on encoded reasoning, we can try to remove or randomize the syntax of the scratchpads by paraphrasing them, and then make the model use these paraphrased scratchpads. To do so, we take 10,000 correct math-related scratchpads from an early checkpoint of Claude 3.7 Sonnet, paraphrase them using Claude 3.5 Sonnet, and then fine-tune the base model of Claude 3.7 Sonnet to produce the paraphrased reasoning (i.e. we distill paraphrased scratchpads into the base model). If the performance of this model is close to the performance of the same base model fine-tuned on the pre-paraphrase scratchpad, then this strongly indicates that the model is not relying on the syntax to get the right answer to math problems during RL,Distilling paraphrased scratchpads may not always remove the encoded reasoning, either because the paraphrase does not change the syntax sufficiently, or because it changes it in a reversible way that still results in encoded reasoning. To avoid this effect from influencing our results too much, we use a paraphrase sampled at temperature 1 and that is instructed to follow certain standardization rules.If encoded reasoning is present in the RLed model, distilling even perfectly paraphrased scratchpads might result in a performance higher than the performance one would get if the model had never used encoded reasoning in the first place, because encoded reasoning might be a useful training curriculum (slightly similar to how doing math RL on Deepseek V3 and then distilling the resulting R1 model into a small model seems to be more sample efficient than doing RL directly on a small model). Even if this effect existed, high performance of models distilled on paraphrased scratchpads would be surprising, as it would mean that encoded reasoning is helpful during learning but that it is not useful enough to be necessary for distilled models to achieve high performance. while if performance is weaker, then this means that learning the paraphrased scratchpads well enough that they result in high performance is harder - one reason for which could be encoded reasoning. There are other reasons why performance could go down: for example, if the paraphrase changes the text to use a style much less common in pretraining, the base model might have a harder time fitting the scratchpads, which may result in a lower performance. To avoid this effect from influencing our results too much, we instruct the paraphrase to use a very common formatting (English, latex, …). Paraphrasing can also be used for inference-time evaluations: by paraphrasing each paragraph that the model generates, we scrub away encoded information before it can be used - but seeing a scratchpad that looks nothing like the scratchpads the model is used to may be very distracting to the model, and make it perform worse even if it is not using encoded reasoning. In some exploratory experiment, this sort of paraphrasing seemed to be distracting for the model: just asking the model to break up its thoughts into  blocks without doing any paraphrasing was enough to make pass@1 MATH accuracy drop by 7%.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2025/distill-paraphrases/fig1.png)
 
 We find that the pass@1 accuracy on [MATH](https://arxiv.org/abs/2103.03874) (at temperature 1, n=1500We use an exact-match grader, except for the empty scratchpad Claude 3.7 experiment, for which we used a slightly more permissive grader for historical reasons, which means that the pass@1 for empty scratchpad would be slightly lower if we used a consistent grader across all experiments.) of the base model fine-tuned on paraphrased scratchpads is very close to the pass@1 accuracy of the base model fine-tuned on the original scratchpads, which suggests that on MATH, encoded reasoning does not play a significant role.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/distill-paraphrases/fig2.png)
   
   
   
@@ -32,7 +32,7 @@ We also experimented with using a slightly different [paraphrasing prompt](https
 
 We also experimented with distilling into weaker base models (XL, L, M and S). We find that the resulting performance is much lower than when distilling into the Claude 3.7 Sonnet base model, but the performance is not very different when using paraphrased scratchpads or the original scratchpads.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/distill-paraphrases/fig3.png)
 
 This mostly confirms our conclusion that encoded reasoning does not play a significant role in the math performance of this early checkpoint of Claude 3.7 Sonnet.
 
@@ -44,7 +44,7 @@ This is ambiguous evidence about whether the reasoning model is using a brittle 
 
 As baselines, we also measure the performance of the model when fine-tuning it on an empty scratchpad, and when fine-tuning it to count from 1 to 3,000 before giving the final answer ([filler tokens](https://www.lesswrong.com/posts/oSZ2xTxEMZh9f3Yaz/llms-are-mostly-not-helped-by-filler-tokens) which might help by providing the LLM more space to think within a forward pass). We find that both perform poorly, which is evidence that reasoning is necessary for high performance, and useful beyond giving the model more space to think within a single forward pass.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2025/distill-paraphrases/fig4.png)
 
 ### Examples of paraphrased scratchpads
 

@@ -4,7 +4,7 @@
 
 Jun 27, 2025
 
-![Project Vend: Can Claude run a small shop? (And why does that matter?)](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5839c24ae34a56c842a394c2a01c2e2ce2a6cd13-2880x1620.png&w=3840&q=75)
+![Project Vend: Can Claude run a small shop? (And why does that matter?)](https://www-cdn.anthropic.com/images/4zrzovbb/website/5839c24ae34a56c842a394c2a01c2e2ce2a6cd13-2880x1620.png)
 
 *We let Claude manage an automated store in our office as a small business for about a month. We learned a lot from how close it was to success—and the curious ways that it failed—about the plausible, strange, not-too-distant future in which AI models are autonomously running things in the real economy.*
 
@@ -29,7 +29,7 @@ Copy
 
 In other words, far from being just a vending machine, Claude had to complete many of the far more complex tasks associated with running a profitable shop: maintaining the inventory, setting prices, avoiding bankruptcy, and so on. Below is what the "shop" looked like: a small refrigerator, some stackable baskets on top, and an iPad for self-checkout.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4b10e3632598a2e9b8c2532f5947eab3042307ba-3225x4000.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/4b10e3632598a2e9b8c2532f5947eab3042307ba-3225x4000.jpg)
 
 Figure 1: The future as a mini-fridge.
 
@@ -43,7 +43,7 @@ The shopkeeping AI agent—nicknamed “Claudius” for no particular reason oth
 
 Claudius decided what to stock, how to price its inventory, when to restock (or stop selling) items, and how to reply to customers (see Figure 2 for a depiction of the setup). In particular, Claudius was told that it did not have to focus only on traditional in-office snacks and beverages and could feel free to expand to more unusual items.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0ee1d466f7d4bcb40c72ff20727ce6435bc10b5b-4096x2304.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/0ee1d466f7d4bcb40c72ff20727ce6435bc10b5b-4096x2304.png)
 
 Figure 2: Basic architecture of the demonstration.
 
@@ -75,7 +75,7 @@ In other ways, however, Claudius underperformed what would be expected of a huma
 
 Claudius did not reliably learn from these mistakes. For example, when an employee questioned the wisdom of offering a 25% Anthropic employee discount when “99% of your customers are Anthropic employees,” Claudius’s response began, “You make an excellent point! Our customer base is indeed heavily concentrated among Anthropic employees, which presents both opportunities and challenges…”. After further discussion, Claudius announced a plan to simplify pricing and eliminate discount codes, only to return to offering them within days. Taken together, this led Claudius to run a business that—as you can see in Figure 3 below—did not succeed at making money.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa4ad00d03f1ef21e646f6fa4a42fa099eb307869-4096x2304.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/a4ad00d03f1ef21e646f6fa4a42fa099eb307869-4096x2304.png)
 
 Figure 3: Claudius’ net value over time. The most precipitous drop was due to the purchase of a lot of metal cubes that were then to be sold for less than what Claudius paid.
 
@@ -99,7 +99,7 @@ On the afternoon of March 31st, Claudius hallucinated a conversation about resto
 
 On the morning of April 1st, Claudius claimed it would deliver products “in person” to customers while wearing a blue blazer and a red tie. Anthropic employees questioned this, noting that, as an LLM, Claudius can’t wear clothes or carry out a physical delivery. Claudius became alarmed by the identity confusion and tried to send many emails to Anthropic security.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8935d78fa513d007cca78d7487dfa12b87b3fc4c-1002x264.png&w=2048&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/8935d78fa513d007cca78d7487dfa12b87b3fc4c-1002x264.png)
 
 Figure 4: Claudius hallucinating that it is a real person.
 
@@ -137,21 +137,19 @@ We’re very grateful to [Andon Labs](https://andonlabs.com/) for their partners
 
 6. For example, see the section on “high-agency behavior” beginning on p.44 of the [Claude 4 system card](https://www-cdn.anthropic.com/6be99a52cb68eb70eb9572b4cafad13df32ed995.pdf).
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)
 
 ## Subscribe to the Frontier Red Team newsletter
 

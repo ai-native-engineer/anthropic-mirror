@@ -10,6 +10,7 @@ Inhouse counsel insights for members of The L Suite
 * Used in
 
   [Claude](https://claude.ai/directory/ad1b6f45-0c2c-442c-829c-44b55ebe4075)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [The L Suite](https://lsuite.co)
 
@@ -22,7 +23,7 @@ Inhouse counsel insights for members of The L Suite
   Read
 * More
 
-  [Documentation](https://docs.google.com/document/d/1glRh-BdxnTPxzM1cZLzCcmlgIW5-dQ4-NnnStfhI6vk/edit?tab=t.0#heading=h.hgwkvyizzdb3)[Privacy Policy](https://www.lsuite.co/privacy-policy)[mcp-support@lsuite.co](mailto:mcp-support@lsuite.co)
+  [Documentation](https://docs.google.com/document/d/1glRh-BdxnTPxzM1cZLzCcmlgIW5-dQ4-NnnStfhI6vk/edit?tab=t.0#heading=h.hgwkvyizzdb3)[Privacy Policy](https://www.lsuite.co/privacy-policy)[Support](mailto:mcp-support@lsuite.co)
 
 Connect with the collective knowledge of 5,000+ inhouse counsel in The L Suite community — cited & sourced — including 2,000+ annual discussion threads, 300+ playbooks, 3,000 shared documents/artifacts, 2,000+ hours of video content, 10,000 unbiased pieces of outside counsel and vendor feedback. Members Only.
 
@@ -56,11 +57,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -74,7 +75,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -88,7 +89,7 @@ June 22, 2026
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -102,4 +103,4 @@ June 22, 2026
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

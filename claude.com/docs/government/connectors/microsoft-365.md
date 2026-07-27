@@ -1,15 +1,23 @@
 <!-- source: https://claude.com/docs/government/connectors/microsoft-365 -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this is for:** Organization owners and tenant administrators who want Claude to reach their agency’s Microsoft 365 content, and who can register an application in Microsoft Entra ID (or can work with someone who can).
 
 The Microsoft 365 connector lets Claude read and search your agency’s Outlook mail and calendar, OneDrive and SharePoint files, and Teams chat from Claude Desktop. The connector runs locally on each member’s machine: when a member signs in with their own Microsoft account, Claude Desktop calls Microsoft Graph directly from their device, so those calls and the member’s sign-in tokens stay between their device and Microsoft and never pass through any Anthropic service. What Claude reads into a conversation is then handled like anything else the member sends to Claude.
 Because each member signs in individually, Claude can only reach content that the signed-in member can already open in Microsoft 365. Your existing Microsoft 365 permissions, sharing rules, and Conditional Access policies apply unchanged.
-Setup has two parts. First, someone with administrator access in Microsoft Entra ID registers an application in your Microsoft tenant. Then you enter that application’s details on the **Microsoft 365** card on the [Config](/docs/government/org-admin/configuration) page.
+Setup has two parts. First, someone with administrator access in Microsoft Entra ID registers an application in your Microsoft tenant. Then you enter that application’s details on the **Microsoft 365** card on the [Config](https://claude.com/docs/government/org-admin/configuration) page.
 
 ##  Before you start
 
 You need someone with the **Cloud Application Administrator**, **Application Administrator**, or **Global Administrator** role in your Microsoft Entra tenant. That person registers the application and approves the Microsoft Graph permissions for your whole tenant. If that isn’t you, send them the [Register an application in Microsoft Entra](#register-an-application-in-microsoft-entra) section below; you can fill in the Config page form once they send you the two IDs.
-Open the [Config](/docs/government/org-admin/configuration) page in another tab and find the **Microsoft 365** card. You’ll paste two values from Entra into it at the end.
+Open the [Config](https://claude.com/docs/government/org-admin/configuration) page in another tab and find the **Microsoft 365** card. You’ll paste two values from Entra into it at the end.
 
 ##  Register an application in Microsoft Entra
 
@@ -90,7 +98,7 @@ No outbound access to any Anthropic host is needed for the connector’s Microso
 
 ##  Configure the connector on the Config page
 
-On the [Config](/docs/government/org-admin/configuration) page, expand the **Microsoft 365** card and fill in the form.
+On the [Config](https://claude.com/docs/government/org-admin/configuration) page, expand the **Microsoft 365** card and fill in the form.
 
 | Field | What to enter |
 | --- | --- |
@@ -178,5 +186,3 @@ When the broker is available, it carries the device claim, and Conditional Acces
 | Entra error `AADSTS700016` at sign-in | The **Client ID** or **Tenant ID** on the Config page does not match an application in the selected **Azure cloud**. | Re-check the Client ID and Tenant ID against the application’s Overview page, and confirm that **Azure cloud** matches the cloud where you registered the application. |
 | Sign-in or Claude’s Microsoft 365 calls fail with a network error and no `AADSTS` code | The member’s device cannot reach the Microsoft Entra or Microsoft Graph host for your Azure cloud. | Allow outbound HTTPS to the hosts listed under [Allow outbound network access](#allow-outbound-network-access). |
 | A tool returns a permission error | The Microsoft Graph permission that tool needs is not approved on the app registration, or is not selected under **Access**. | Add the permission in both places and select **Grant admin consent** again. |
-
-[Overview](/docs/government/connectors/overview)[Configure the app](/docs/government/deploy-desktop/configure)

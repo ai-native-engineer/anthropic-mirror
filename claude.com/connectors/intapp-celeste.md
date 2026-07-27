@@ -10,6 +10,7 @@ Securely, compliantly access Intapp Celeste products
 * Used in
 
   [Claude](https://claude.ai/directory/dd9a36b4-e356-4ca5-a771-d979e8a898c6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Intapp Celeste](https://intapp.com)
 
@@ -22,7 +23,7 @@ Securely, compliantly access Intapp Celeste products
   Read & write
 * More
 
-  [Documentation](https://www.intapp.com/mcp-documentation/)[Privacy Policy](https://intapp.com/privacy)[support@intapp.com](mailto:support@intapp.com)
+  [Documentation](https://www.intapp.com/mcp-documentation/)[Privacy Policy](https://intapp.com/privacy)[Support](mailto:support@intapp.com)
 
 Search, create, and update records across the Intapp Celeste portfolio with secure, compliant retrieval via Intapp Celeste connector with Claude. Ensure the workflows you rely on from Intapp are available to integrate into your Claude projects with the governance your clients demand.
 
@@ -54,7 +55,7 @@ January 26, 2026
 
 ### ActiveCampaign
 
-Autonomous marketing to transform how you work](/connectors/activecampaign)
+Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
 
 Sales and marketing
 
@@ -64,11 +65,11 @@ Claude Code
 
 June 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1d129f2351bec1d8462bd9_actively.ai.png)
+[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
 
 ### Actively
 
-1:1 account agents for GTM teams](/connectors/actively)
+1:1 account agents for GTM teams](https://claude.com/connectors/actively)
 
 Sales and marketing
 
@@ -76,11 +77,11 @@ Claude
 
 May 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Journey Optimizer
 
-Understand and troubleshoot your Journeys and Campaigns](/connectors/adobe-journey-optimizer)
+Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
 
 Sales and marketing
 
@@ -90,8 +91,8 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Marketing Agent
 
-Marketing campaign and audience insights from Adobe](/connectors/adobe-marketing-agent)
+Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)

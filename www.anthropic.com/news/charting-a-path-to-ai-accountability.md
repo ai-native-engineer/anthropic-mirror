@@ -1,14 +1,12 @@
 <!-- source: https://www.anthropic.com/news/charting-a-path-to-ai-accountability -->
 
-# Charting a Path to AI Accountability
+# Charting a path to AI accountability
 
 Jun 13, 2023
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6276c7f8e14b693c66836810242243bd8dfd03ce-2880x1620.png&w=3840&q=75)
-
 This week, Anthropic submitted [a response](https://www-cdn.anthropic.com/257e6352c677beeffcbce24233211887173a41dc/2023.06.06-Anthropic_NTIA_Comment_v2.pdf) to the National Telecommunications and Information Administration’s (NTIA) [Request for Comment on AI Accountability](https://ntia.gov/issues/artificial-intelligence/request-for-comments). Today, we want to share our recommendations as they capture some of Anthropic’s core AI policy proposals.
 
-There is currently no robust and comprehensive process for evaluating today’s advanced artificial intelligence (AI) systems, let alone the more capable systems of the future. Our submission presents our perspective on the processes and infrastructure needed to ensure AI accountability. Our recommendations consider the NTIA’s potential role as a coordinating body that sets standards in collaboration with other government agencies like the [National Institute of Standards and Technology (NIST)](/news/an-ai-policy-tool-for-today-ambitiously-invest-in-nist).
+There is currently no robust and comprehensive process for evaluating today’s advanced artificial intelligence (AI) systems, let alone the more capable systems of the future. Our submission presents our perspective on the processes and infrastructure needed to ensure AI accountability. Our recommendations consider the NTIA’s potential role as a coordinating body that sets standards in collaboration with other government agencies like the [National Institute of Standards and Technology (NIST)](https://www.anthropic.com/news/an-ai-policy-tool-for-today-ambitiously-invest-in-nist).
 
 In our recommendations, we focus on accountability mechanisms suitable for highly capable and general-purpose AI models. Specifically, we recommend:
 

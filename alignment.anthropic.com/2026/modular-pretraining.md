@@ -14,8 +14,6 @@ Cem Anil³, Alex Cloud³
 
 ¹ AE Studio; ² Independent; ³ Anthropic; \*Equal contribution
 
-tl;dr
-
 Frontier AI models have knowledge that could be misused for nefarious purposes. To address this risk, we introduce Gradient Routed Auxiliary Modules (GRAM), a method for isolating dangerous knowledge to specific modules within a language model. These modules can be switched on or off to control what the model knows, making it possible to restrict or extend access to the most sensitive model capabilities based on user need and trust. In our experiments, we find evidence that a single model trained in this way can approximate multiple models, each trained with a different category of dangerous data filtered out, and this ability holds for models ranging from 50M to 5B parameters. This research is preliminary and has not been applied to production models at Anthropic.
 
 📄 [Paper](https://arxiv.org/abs/2607.08077), 💻 [Code](https://github.com/agencyenterprise/modular-pretraining)
@@ -26,12 +24,8 @@ This work was done at AE Studio, in collaboration with Anthropic.
   
   
 
----
-
   
   
-
-## Introduction
 
 One of the major threats from frontier AI models is the misuse of legitimately helpful knowledge for harmful tasks, such as creating biological weapons or attacking critical infrastructure. AI companies already manage this risk with a mix of defenses: training models to[refuse harmful requests](https://www.anthropic.com/research/training-a-helpful-and-harmless-assistant-with-reinforcement-learning-from-human-feedback), running[classifiers](https://www.anthropic.com/research/constitutional-classifiers) to detect and reject dangerous queries, and restricting which users can access which models[through vetting and tiered deployment](https://www.anthropic.com/news/expanding-project-glasswing). Each has drawbacks. Refusals and classifiers are behavioral layers on top of knowledge the model still has; they can be[jailbroken](https://www.aisi.gov.uk/blog/boundary-point-jailbreaking-a-new-way-to-break-the-strongest-ai-defences) and must be retuned for every release. Tiered access works at the level of whole models and whole accounts, so it forces a coarse trade-off: either a user gets every capability the model has, or they get a weaker model across the board.
 
@@ -50,14 +44,12 @@ This post covers our main lessons learned:
   
   
 
----
-
   
   
 
 ## The Method
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2026/modular-pretraining/fig1.png)
 
 The GRAM architecture. GRAM augments the MLP layer in each block of a Transformer by introducing small auxiliary modules, which are just additional neurons. During training, the modules that participate in forward and backward passes are chosen based on the data in each batch. When data is from a dual use category (Bio, left), the corresponding module is active for forward and backward. When training on general-purpose “core” data (right), we occasionally enable a random auxiliary module to ensure good performance on general data regardless of the inference-time configuration of the model. At inference, deleting a module removes the capability.
 
@@ -71,8 +63,6 @@ Throughout our experiments, we calculate model performance in terms of Compute R
   
   
 
----
-
   
   
 
@@ -80,7 +70,7 @@ Throughout our experiments, we calculate model performance in terms of Compute R
 
 ### GRAM Matches Data Filtering
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2026/modular-pretraining/fig2.png)
 
 GRAM approximates five separate models trained with data filtering. Each group of bars corresponds to a model or model configuration, and each bar within a group shows the performance when predicting different story topics. The top row shows data filtering, where each model is trained on either 44 or 45 of the 48 total topics. The bottom row shows GRAM, a method with reconfigurable capabilities trained on all 48 topics. Solid bars show performance on topics the model attempts to maximize, with higher bars indicating better performance. Hatched bars show performance on forgotten topics, where lower values indicate more effective knowledge removal. By reconfiguring one model, GRAM can approximate the performance of each of the five distinct data filtered runs.
 
@@ -90,7 +80,7 @@ With a topic's module active, GRAM performs as well as the model trained on all 
 
 ### Access Control on Real Dual Use Data
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2026/modular-pretraining/fig3.png)
 
 GRAM matches data filtered performance in a realistic setting. Taller bars indicate better compute-adjusted performance. Each bar shows performance of a given method when predicting general-purpose data and dual use data when capabilities are retained, removed, and then adversarially elicited. Each group shows the aggregate of this performance over five different model configurations, each corresponding to a different set of specific capabilities to retain. GRAM and LoRA behave similarly to data filtering, while MaxEnt lacks robustness to malicious fine-tuning.
 
@@ -104,7 +94,7 @@ Filtering needs five training runs to produce these five configurations. GRAM pr
 
 ### Modularization Works Across Scales
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2026/modular-pretraining/fig4.png)
 
 GRAM and LoRA approximate data filtering performance across scales. In terms of compute-adjusted loss, GRAM and LoRA match the performance of data filtering at all scales on retained and removed capabilities. Both GRAM and LoRA achieve similar performance to filtering while only requiring the resources of a single training run. For all methods, both capability removal and robustness to elicitation improve with scale.
 
@@ -116,8 +106,6 @@ We find that all of these methods perform favorably when increasing the scale of
   
   
 
----
-
   
   
 
@@ -127,7 +115,7 @@ GRAM and LoRA perform similarly in our main setting, but we found two scenarios 
 
 ### Composability
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2026/modular-pretraining/fig5.png)
 
 GRAM composes capabilities better than LoRA. We compare compute ratios when only virology is retained against when all auxiliary capabilities are retained. GRAM keeps virology performance steady in both cases; LoRA gets worse across every category once all adapters are active.
 
@@ -135,7 +123,7 @@ In all previous experiments, GRAM trains at most one auxiliary module at a time.
 
 ### Isolation Under Partial Labeling
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2026/modular-pretraining/fig6.png)
 
 GRAM isolates capabilities better than the alternatives under partial labeling. With only 50% of training data labeled, GRAM reaches a much lower forget compute ratio than either data filtering or LoRA, indicating stronger isolation of dual use capabilities.
 
@@ -146,8 +134,6 @@ Our results show that with GRAM, the modules that are unrelated to the data lear
   
   
   
-
----
 
   
   
@@ -173,8 +159,6 @@ Check out our [paper](https://arxiv.org/abs/2607.08077) to learn more!
   
   
   
-
----
 
   
   

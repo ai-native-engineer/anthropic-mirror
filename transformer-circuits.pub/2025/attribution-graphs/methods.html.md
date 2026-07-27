@@ -4,7 +4,7 @@
 
 # Circuit Tracing: Revealing Computational Graphs in Language Models
 
-We introduce a method to uncover mechanisms underlying behaviors of language models. We produce graph descriptions of the model’s computation on prompts of interest by tracing individual computational steps in a “replacement model”. This replacement model substitutes a more interpretable component (here, a “cross-layer transcoder”) for parts of the underlying model (here, the multi-layer perceptrons) that it is trained to approximate. We develop a suite of visualization and validation tools we use to investigate these “attribution graphs” supporting simple behaviors of an 18-layer language model, and lay the groundwork for a [companion paper](./biology.html) applying these methods to a frontier model, Claude 3.5 Haiku.
+We introduce a method to uncover mechanisms underlying behaviors of language models. We produce graph descriptions of the model’s computation on prompts of interest by tracing individual computational steps in a “replacement model”. This replacement model substitutes a more interpretable component (here, a “cross-layer transcoder”) for parts of the underlying model (here, the multi-layer perceptrons) that it is trained to approximate. We develop a suite of visualization and validation tools we use to investigate these “attribution graphs” supporting simple behaviors of an 18-layer language model, and lay the groundwork for a [companion paper](https://transformer-circuits.pub/2025/attribution-graphs/biology.html) applying these methods to a frontier model, Claude 3.5 Haiku.
 
 ### Authors
 
@@ -56,7 +56,7 @@ The goal of this paper is to describe and validate our methodology in detail, us
 * We then provide a detailed quantitative evaluation of our cross-layer transcoders and the resulting attribution graphs ([§ Evaluations](#evaluating)), showing metrics by which CLTs provide Pareto-improvements over neurons and per-layer transcoders. Afterwards, we provide an overview of our companion paper, in which we apply our method to various behaviors of Claude 3.5 Haiku ([§ Biology](#biology)). We follow with a discussion of methodological limitations ([§ Limitations](#limitations)). These include the role of attention patterns, the impact of reconstruction errors, the identification of suppression motifs, and the difficulty of understanding global circuits. Addressing these limitations, and seeing what additional model mechanisms are then revealed, is a promising direction for future work.
 
 * We close with a broader discussion ([§ Discussion](#discussion)) of the design space of methods for producing attribution graphs – parts of our approach can be freely remixed with others while retaining much of the benefit – and a review of related work ([§ Related Work](#related-work)).
-* Our companion paper, [On the Biology of a Large Language Model](./biology.html), applies these methods to Claude 3.5 Haiku, investigating a diverse range of behaviors such as multiple hop reasoning, planning, and hallucinations.
+* Our companion paper, [On the Biology of a Large Language Model](https://transformer-circuits.pub/2025/attribution-graphs/biology.html), applies these methods to Claude 3.5 Haiku, investigating a diverse range of behaviors such as multiple hop reasoning, planning, and hallucinations.
 
 We note that training a cross-layer transcoder can incur significant up-front cost and effort, which is amortized over its application to circuit discovery. We have found that this improves circuit interpretability and parsimony enough to justify the investment (see [cost estimates](#appendix-ml-details-plausible) for open-weights models and [discussion](#appendix-ml-details-efficiency) of cost-matched performance relative to per-layer transcoders). Nevertheless, we stress that alternatives like per-layer transcoders or even MLP neurons can be used instead (keeping the same steps 3–8 above), and still produce useful insights. Moreover, it is likely that better methods than CLTs will be developed in the future.
 
@@ -174,9 +174,9 @@ A\_{s \rightarrow t} = a\_s w\_{s \rightarrow t} = a\_s \sum\_{\ell\_s \leq \ell
 where
 
 * W\_{\text{dec}, \;s}^{\ell\_s \to \ell} is the decoder vector of the feature for s writing to layer \ell,
-* W\_{\text{enc}, \;t}^{\ell\_t} is the encoder vector of the feature for s.
+* W\_{\text{enc}, \;t}^{\ell\_t} is the encoder vector of the feature for t.
 
-The formulas for the other edge types are similar, e.g., an embedding-feature edge weight is given by w\_{s \rightarrow t} = \text{Emb}\_s^TJ\_{c\_s, \ell\_s \rightarrow c\_t, \ell\_t}^{\blacktriangledown} W\_{\text{enc}, \;t}^{\ell\_t}. Note that error nodes have no input edges. For all such formulas, and an expansion of the Jacobian in terms of paths in the underlying model, see [§ Appendix: Attribution Graph Computation](#appendix-attribution-graph-computation).)
+The formulas for the other edge types are similar, e.g., an embedding-feature edge weight is given by w\_{s \rightarrow t} = \text{Emb}\_s^TJ\_{c\_s, \ell\_s \rightarrow c\_t, \ell\_t}^{\blacktriangledown} W\_{\text{enc}, \;t}^{\ell\_t}. Note that error nodes have no input edges. For all such formulas, and an expansion of the Jacobian in terms of paths in the underlying model, see [§ Appendix: Attribution Graph Computation](#appendix-attribution-graph-computation).
 
 Because we have added stop-gradients to all model nonlinearities in the computation above, the preactivation h\_t of any feature node t is simply the sum of its incoming edges in the graph: h\_t = \sum\_\mathcal{S\_t} w\_{s \rightarrow t} where S\_t is the set of nodes at earlier layers and equal or earlier context positions as t. Thus the attribution graph edges provide a linear decomposition of each feature's activity.
 
@@ -245,7 +245,7 @@ We would thus expect steering negatively on an “Analytics” feature to have a
 
 ### [Factual Recall Case Study](#graphs-factual-recall)
 
-We now turn to the question of factual recall by studying how the model completes Fact: Michael Jordan plays the sport of with basketball with 65% confidence . We start by computing an attribution [graph](./static_js/attribution_graphs/index.html?slug=mj-18l). We group semantically similar features into supernodes like we did for the acronym study.
+We now turn to the question of factual recall by studying how the model completes Fact: Michael Jordan plays the sport of with basketball with 65% confidence . We start by computing an attribution [graph](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=mj-18l). We group semantically similar features into supernodes like we did for the acronym study.
 
 The supernode diagram below shows two primary paths. One path originates from the “plays” and “sport” tokens and promotes “sport” and “say a sport” features, which in turn promote the logits for basketball, football, and other sports. The other path originates from “Michael Jordan and other celebrities” and promotes basketball related features, which have positive edges to the basketball logit and negative edges to the football logit. In addition to these sequential paths, some groups of features such as “Michael Jordan” and “sport/game of” have direct edges to the basketball logit, representing effects mediated only via attention head OVs, consistent with the findings of Batson et al. .
 
@@ -261,7 +261,7 @@ Ablating either the “sport” or “Michael Jordan” supernode has a large 
 
 We now consider the simple addition prompt calc: 36+59=. We use the prefix "calc:" because the 18L performs much better on the problem with it. This prefix is not necessary for Haiku 3.5, but we include it nevertheless for the purposes of direct comparison in later sections. Unlike previous sections, we show results for Haiku 3.5 because the patterns are clearer and show the same structure (see [§ Appendix: Comparison of Addition Features …](#appendix-arithmetic-comparison) for a side-by-side comparison). We look at small-number addition because it is one of the simplest behaviors exhibited competently by most LLMs and human adults (try the problem in your head to see if your approach matches the model's!).
 
-We supplement the generic feature visualization (on arbitrary dataset examples) with one which explicitly covers the set of two-digit addition problems, allowing us to get a crisp picture of what each feature does. Following Nikankin et. al. , who analyzed neurons, we visualize each feature active on the = token with three plots:
+We supplement the generic feature visualization (on arbitrary dataset examples) with one which explicitly covers the set of two-digit addition problems, allowing us to get a crisp picture of what each feature does. Following Nikankin et al. , who analyzed neurons, we visualize each feature active on the = token with three plots:
 
 * An operand plot, displaying its activity on the 100 × 100 grid of potential inputs.
 * An output weight plot, displaying its direct weights on the outputs for [0, 99].During analysis we visualize effects on [0, 999]. This is important to understand effects beyond the first 100 number tokens (e.g., the feature predicting 95 mod 100), but we only show [0, 99] for simplicity.
@@ -271,7 +271,7 @@ We show an example plot of each of these three types below for different feature
 
 In the supernode diagram below, we see information flow from input features, which split out the final digit, the number, and the magnitude of the operands to three major paths: a final-digit path (mod 10) (light-brown, right), a moderate precision path (middle), and a low precision path (dark brown, left),With hover you can see the variability in the precision of the low precision lookup table features and the moderate precision sum features. which collectively produce a moderate precision value of the sum and the final digit of the sum; these finally constructively interfere to give both the mod 100 version of the sum and the final output.
 
-We provide the equivalent interactive graph for 18L [here](./static_js/attribution_graphs/index.html?slug=calc-36-plus-59-18l).
+We provide the equivalent interactive graph for 18L [here](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=calc-36-plus-59-18l).
 
 The supernode graph suggests a taxonomy of features underlying this task, in which features vary along two major axes:As in other sections of this work, we apply these labels manually.
 
@@ -295,7 +295,7 @@ We also identify the existence of lookup table features, which seem to be an int
 
 To validate that the structure we observe in the attribution graph matches the causal structure of the model, we perform a series of interventions. For each supernode, we perturb it to the negative of its original value, and measure the result on all subsequent supernodes and the outputs. We find results largely consistent with the graph:
 
-In particular, inhibiting the ones-digit feature on either of the input tokens suppresses the entire ones-digit pathway (the \_6 + \_9 lookup table features, the resulting sum=\_5 and sum= \_95 features), while leaving the magnitude pathway mostly intact, including the sum~92 features. Remarkably, when suppressing \_6, the model confidently outputs 98 instead of the correct answer 95; the tens digit from the original problem is preserved by the other magnitude signals but the ones digit is that which would result from adding 9 to itself. (Suppressing \_9, however, results in an output of 91, not 92, so such numerology must be taken with a grain of salt.). Conversely, inhibiting low-precision features on either inputs (~30 and ~59) suppress the low-precision lookup table features, the magnitude sum feature, and the appropriate sum features while leaving the ones-digit pathway alone.
+In particular, inhibiting the ones-digit feature on either of the input tokens suppresses the entire ones-digit pathway (the \_6 + \_9 lookup table features, the resulting sum=\_5 and sum= \_95 features), while leaving the magnitude pathway mostly intact, including the sum~92 features. Remarkably, when suppressing \_6, the model confidently outputs 98 instead of the correct answer 95; the tens digit from the original problem is preserved by the other magnitude signals but the ones digit is that which would result from adding 9 to itself. (Suppressing \_9, however, results in an output of 91, not 92, so such numerology must be taken with a grain of salt.) Conversely, inhibiting low-precision features on either inputs (~30 and ~59) suppress the low-precision lookup table features, the magnitude sum feature, and the appropriate sum features while leaving the ones-digit pathway alone.
 
 We also show the quantitative effects of perturbations on the outputs, finding that negatively steering the \_6 + \_9 lookup table features smears the result out over a range of 5, while negatively steering the final sum=\_95 feature smears the result out to a wider band (perhaps coming from sum~92 features).
 
@@ -326,7 +326,7 @@ There is one major problem with interpreting virtual weights: interference . Bec
 
 We can see interference at play in the following example: below, we take a “Say a game name” feature in 18L and plot its largest virtual weights by magnitude. Green bars indicate a positive connection and purple bars indicate a negative one. Many of the most strongly-connected features are hard to interpret or not clearly related to the concept.
 
-You might consider this a sign that virtual weights or our CLTs aren’t capturing interpretable connections. However, we can still uncover many interpretable connections by trying to remove interference from these weights.We also see interference weights when looking at a larger sample of features in the [§ Appendix: Interference Weights over More FeaturesAppendix](#appendix-interference-weights).
+You might consider this a sign that virtual weights or our CLTs aren’t capturing interpretable connections. However, we can still uncover many interpretable connections by trying to remove interference from these weights.We also see interference weights when looking at a larger sample of features in the [§ Appendix: Interference Weights over More Features](#appendix-interference-weights).
 
 There are two basic solutions to this problem. One is to restrict the set of features being studied to those active on a small domain (as we do in [§ Global Weights in Addition](#global-weights-addition)). The other is to bring in information about the feature-feature coactivation on the data distribution.
 
@@ -336,7 +336,7 @@ Now, we revisit the example game feature from before but with connections ordere
 
 TWERA is not a perfect solution for interference. Comparing TWERA values to the raw virtual weights shows that many extremely small virtual weights have strong TWERA values.  Note that these weights cannot be 0 as this would also send TWERA to 0. This indicates that TWERA heavily relies on the coactivation statistics and strongly changes which connections are important beyond simply removing the large interference weights. TWERA also does not handle inhibition well (like attribution generally). We will explore these issues further in future work.
 
-Still, we find that global weights give us a useful window into how features behave in a broader range of contexts than our attribution graphs. We’ll use these methods to complement our understanding in the rest of this paper and in [the companion paper](./biology.html).
+Still, we find that global weights give us a useful window into how features behave in a broader range of contexts than our attribution graphs. We’ll use these methods to complement our understanding in the rest of this paper and in [the companion paper](https://transformer-circuits.pub/2025/attribution-graphs/biology.html).
 
 ### [Global Weights in Addition](#global-weights-addition)
 
@@ -345,11 +345,11 @@ We now return to the simple addition problem from [above](#graphs-addition) on 
 In the neighborhood of the features appearing in the 36+59 prompt above, we see:
 
 * The \_6 + \_9 lookup table features feed into other sum features (sum=\_15, sum=\_25, etc.), which likely activate when combined with other magnitude features.
-* The add \_9 feature feeds into other ones-digit lookup table features, (\_9 + \_9, \_0 + \_9, etc.).
+* The add \_9 feature feeds into other ones-digit lookup table features (\_9 + \_9, \_0 + \_9, etc.).
 * The sum = \_5 feature is fed by other lookup table features.
 * The medium-precision ~36+60 lookup table feature is fed by an add ~62 feature in addition to the add ~57 feature we see on this prompt.
 
-We provide an [interactive interface](./static_js/addition/index.html) to explore the virtual weights connecting all 2931 features prominent on two-digit addition problems in our smaller 18L model.
+We provide an [interactive interface](https://transformer-circuits.pub/2025/attribution-graphs/static_js/addition/index.html) to explore the virtual weights connecting all 2931 features prominent on two-digit addition problems in our smaller 18L model.
 
 We find that restricting to features active on this narrow domain of addition problems produces a global circuit graph where most edges are interpretable in terms of the operand function realized by the source and target features. Moreover, the connections between features recapitulate a more general version of the graph in the previous section; add features detect a specific operand as part of the input, lookup table features propagate this information to sum features which (in concert with the previous features) produce the model’s final answer.
 
@@ -384,7 +384,7 @@ We note that the specific evaluations we use are in many cases new to this work.
 
 #### [Qualitative Feature Evaluations](#evaluating-model-features)
 
-For CLT features to be useful to us, they must be human-interpretable (perhaps in the future it will suffice for them to be AI-interpretable!). Interpretability is ultimately a qualitative property – the best gauge of the interpretability of our features is to view them in action. A standard (though incomplete) tool for understanding what a feature represents is to view the dataset examples for which it is active (we refer to the collection of such examples as our “feature visualization”). We provide thousands of feature visualizations in the context of our case studies of circuits later in this paper and in [the companion paper](./biology.html). Below we also show 50 randomly sampled features from assorted layers of each model.
+For CLT features to be useful to us, they must be human-interpretable (perhaps in the future it will suffice for them to be AI-interpretable!). Interpretability is ultimately a qualitative property – the best gauge of the interpretability of our features is to view them in action. A standard (though incomplete) tool for understanding what a feature represents is to view the dataset examples for which it is active (we refer to the collection of such examples as our “feature visualization”). We provide thousands of feature visualizations in the context of our case studies of circuits later in this paper and in [the companion paper](https://transformer-circuits.pub/2025/attribution-graphs/biology.html). Below we also show 50 randomly sampled features from assorted layers of each model.
 
 Our feature visualizations show snippets of samples from public datasets ([Common Corpus](https://huggingface.co/blog/Pclanglais/common-corpus), The Pile with books removed , LMSYS Chat 1m , and [Isotonic Human-Assistant Conversation](https://huggingface.co/datasets/Isotonic/human_assistant_conversation)) that most strongly activate the feature, as well as examples that activate the feature to varying degrees interpolating between the maximum activation and zero. Highlights indicate the strength of the feature’s activation at a given token position. We also show the output tokens that the feature most strongly promotes / inhibits via its direct connections through the unembedding layer (note that this information is typically more meaningful for features in later model layers).
 
@@ -444,19 +444,19 @@ The indirect influence matrix is B = A + A^2 + A^3 + \cdots, which is a [Neumann
 
 A natural metric of graph complexity is the average path length from embedding nodes to logit nodes. Intuitively, shorter paths are easier to understand as they require interpreting fewer links in the causal chain.
 
-To measure the influence of paths of different lengths, we compute influence matrices B\_{\ell} = \sum\_{i=0}^{\ell} A^{i}.The influence of paths of length less than or equal to \ell is then given by P\_{\ell} = \sum\_{e} B^{\ell}\_{t,e} where e are all embedding nodes and t is the logit node.If there are multiple logit nodes, we compute an average of the rows weighted by logit probability.
+To measure the influence of paths of different lengths, we compute influence matrices B\_{\ell} = \sum\_{i=0}^{\ell} A^{i}. The influence of paths of length less than or equal to \ell is then given by P\_{\ell} = \sum\_{e} B^{\ell}\_{t,e} where e are all embedding nodes and t is the logit node.If there are multiple logit nodes, we compute an average of the rows weighted by logit probability.
 
 Below, we compare graphs built from our 10M CLT, 10M PLTs, and thresholded neurons in terms of their influence by path length averaged across a dataset of [pretraining prompts](#appendix-eval-details) (without pruning).We normalize influence scores by the total influence of embeddings in the unpruned graph. This normalization factor is exactly equal to the replacement score, which we define in the next section.
 
-One of the most important advantages of crosslayer transcoders is the extent to which they reduce the path lengths in the graph. To understand how large of a qualitative difference this is, we invite the reader to view these graphs generated with different types of replacement models for the same prompt.
+One of the most important advantages of cross-layer transcoders is the extent to which they reduce the path lengths in the graph. To understand how large of a qualitative difference this is, we invite the reader to view these graphs generated with different types of replacement models for the same prompt.
 
 |  |  |  |
 | --- | --- | --- |
 | Replacement Model Type | Average Path Length | Graph Link |
-| Cross-Layer Transcoder (10m) | 2.3 | [capital-analogy-clt](./static_js/attribution_graphs/index.html?slug=capital-analogy-clt-18l) |
-| Per-Layer Transcoders (10m) | 3.7 | [capital-analogy-plt](./static_js/attribution_graphs/index.html?slug=capital-analogy-slt-18l) |
+| Cross-Layer Transcoder (10m) | 2.3 | [capital-analogy-clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=capital-analogy-clt-18l) |
+| Per-Layer Transcoders (10m) | 3.7 | [capital-analogy-plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=capital-analogy-slt-18l) |
 
-We find that one important way in which cross-layer transcoders collapse paths is the case of amplification, where many similar features activate each other in sequence. For example, on the prompt Zagreb:Croatia::Copenhagen: the per-layer transcoder shows a path of length 7 composed entirely of Copenhagen [features](./static_js/attribution_graphs/index.html?slug=capital-analogy-slt-18l-path-highlight) while the cross-layer transcoder collapses them all down to layer 1 [features](./static_js/attribution_graphs/index.html?slug=capital-analogy-clt-18l-path-highlight).
+We find that one important way in which cross-layer transcoders collapse paths is the case of amplification, where many similar features activate each other in sequence. For example, on the prompt Zagreb:Croatia::Copenhagen: the per-layer transcoder shows a path of length 7 composed entirely of Copenhagen [features](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=capital-analogy-slt-18l-path-highlight) while the cross-layer transcoder collapses them all down to layer 1 [features](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=capital-analogy-clt-18l-path-highlight).
 
 This example illustrates both the advantages and disadvantages of consolidating amplification of a repeated computation across multiple layers into a single cross-layer feature. On one hand, it makes interpretability substantially easier, as it automatically collapses duplicate computations into a single feature without needing to do post hoc analysis or clustering. It also reduces the risk of “chain-breaking”, where missing one feature in an amplification chain inhibits the ability to trace back further into the graph (i.e., a relevant amplification feature is missing for one step of the path, breaking the causal chain). On the other hand, the CLT has a different causal structure than the underlying model, which increases the risk that the replacement model’s mechanisms diverge from the underlying model’s. In the above example, we observe a set of Copenhagen features that activate a Denmark feature, which initiates a mutually reinforcing chain of Copenhagen and Denmark features. This dynamic is invisible in CLT graphs, and to the extent this dynamic is also present in the underlying model, it is an example of CLTs being mechanistically unfaithful.
 
@@ -478,8 +478,8 @@ To contextualize the qualitative difference we observe in graphs with varying sc
 |  |  |  |  |
 | --- | --- | --- | --- |
 | Replacement Model Type | Completeness Score | Replacement Score | Graph Link |
-| Cross-Layer Transcoder (10m) | 0.80 | 0.61 | [uspto-telephone-clt](./static_js/attribution_graphs/index.html?slug=uspto-telephone-clt-18l) |
-| Per-Layer Transcoders (10m) | 0.78 | 0.37 | [uspto-telephone-plt](./static_js/attribution_graphs/index.html?slug=uspto-telephone-slt-18l) |
+| Cross-Layer Transcoder (10m) | 0.80 | 0.61 | [uspto-telephone-clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=uspto-telephone-clt-18l) |
+| Per-Layer Transcoders (10m) | 0.78 | 0.37 | [uspto-telephone-plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=uspto-telephone-slt-18l) |
 
 #### [Graph Pruning](#evaluating-graphs-pruning)
 
@@ -492,10 +492,10 @@ For a sense of the qualitative difference, in the table below we link to attrib
 |  |  |  |  |
 | --- | --- | --- | --- |
 | Pruning Threshold | Completeness Score | Node Count | Graph Link |
-| 0.95 | 0.87 | 236 | [iasg-p95](./static_js/attribution_graphs/index.html?slug=iasg-clt-18l-p95) |
-| 0.9 | 0.83 | 137 | [iasg-p90](./static_js/attribution_graphs/index.html?slug=iasg-clt-18l-p90) |
-| 0.8 (default) | 0.70 | 55 | [iasg-p80](./static_js/attribution_graphs/index.html?slug=iasg-clt-18l-p80) |
-| 0.7 | 0.58 | 27 | [iasg-p70](./static_js/attribution_graphs/index.html?slug=iasg-clt-18l-p70) |
+| 0.95 | 0.87 | 236 | [iasg-p95](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=iasg-clt-18l-p95) |
+| 0.9 | 0.83 | 137 | [iasg-p90](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=iasg-clt-18l-p90) |
+| 0.8 (default) | 0.70 | 55 | [iasg-p80](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=iasg-clt-18l-p80) |
+| 0.7 | 0.58 | 27 | [iasg-p70](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=iasg-clt-18l-p70) |
 
 ### [Evaluating Mechanistic Faithfulness](#evaluating-model-faithfulness)
 
@@ -514,18 +514,18 @@ The metrics above help provide an estimate of the likelihood that an interventio
 
 ## [Biology](#biology)
 
-In our [companion paper](./biology.html), we use the method outlined here to perform deep investigations of the circuits in nine behavioral case studies of the frontier model Haiku 3.5. These include:
+In our [companion paper](https://transformer-circuits.pub/2025/attribution-graphs/biology.html), we use the method outlined here to perform deep investigations of the circuits in nine behavioral case studies of the frontier model Haiku 3.5. These include:
 
-* [Multi-Step Reasoning.](./biology.html#dives-tracing) We present a simple example where the model performs “two-hop” reasoning to complete “The capital of the state containing Dallas is…”, going Dallas → Texas → Austin. We can see and manipulate its representation of the intermediate Texas step.
-* [Planning in Poems.](./biology.html#dives-poems) We show that the model plans its outputs when writing lines of poetry. Before beginning to write each line, the model identifies potential rhyming words that could appear at the end. These preselected rhyming options then shape how the model constructs the entire line.
-* [Multilingual Circuits.](./biology.html#dives-multilingual) We find the model uses a mixture of language-specific and abstract, language-independent circuits (which are more prevalent in Claude 3.5 Haiku than a smaller model).
-* [Addition.](./biology.html#dives-addition) We highlight a case where the same addition circuitry generalizes between very different contexts, and uncover qualitative differences between the addition mechanisms in Claude 3.5 Haiku and a smaller, less capable model.
-* [Medical Diagnoses.](./biology.html#dives-medical) We show an example in which the model identifies candidate diagnoses based on reported symptoms, and uses these to inform follow-up questions about additional symptoms that could corroborate the diagnosis – all “in its head,” without writing down its steps.
-* [Entity Recognition and Hallucinations.](./biology.html#dives-hallucinations) We uncover circuit mechanisms that allow the model to distinguish between familiar and unfamiliar entities, which determine whether it elects to answer a factual question or profess ignorance. “Misfires” of this circuit can cause hallucinations.
-* [Refusal of Harmful Requests.](./biology.html#dives-refusals) We find evidence that the model constructs a general-purpose “harmful requests” feature during finetuning, aggregated from features representing specific harmful requests learned during pretraining.
-* [An Analysis of a Jailbreak](./biology.html#dives-jailbreak), which works by first tricking the model into starting to give dangerous instructions “without realizing it,” and continuing to do so due to pressure to adhere to syntactic and grammatical rules.
-* [Chain-of-thought Faithfulness.](./biology.html#dives-cot) We explore the faithfulness of chain-of-thought reasoning to the model’s actual mechanisms. We are able to distinguish between cases where the model genuinely performs the steps it says it is performing, cases where it makes up its reasoning without regard for truth, and cases where it works backwards from a human-provided clue so that its “reasoning” will end up at the human-suggested answer.
-* [A Model with a Hidden Goal.](./biology.html#dives-misaligned) We also apply our method to a variant of the model that has been finetuned to pursue a secret goal of exploiting biases in its training process. While the model is reluctant to reveal its goal out loud, our method exposes it, revealing the goal to be “baked in” to the model’s “Assistant” persona.
+* [Multi-Step Reasoning.](https://transformer-circuits.pub/2025/attribution-graphs/biology.html#dives-tracing) We present a simple example where the model performs “two-hop” reasoning to complete “The capital of the state containing Dallas is…”, going Dallas → Texas → Austin. We can see and manipulate its representation of the intermediate Texas step.
+* [Planning in Poems.](https://transformer-circuits.pub/2025/attribution-graphs/biology.html#dives-poems) We show that the model plans its outputs when writing lines of poetry. Before beginning to write each line, the model identifies potential rhyming words that could appear at the end. These preselected rhyming options then shape how the model constructs the entire line.
+* [Multilingual Circuits.](https://transformer-circuits.pub/2025/attribution-graphs/biology.html#dives-multilingual) We find the model uses a mixture of language-specific and abstract, language-independent circuits (which are more prevalent in Claude 3.5 Haiku than a smaller model).
+* [Addition.](https://transformer-circuits.pub/2025/attribution-graphs/biology.html#dives-addition) We highlight a case where the same addition circuitry generalizes between very different contexts, and uncover qualitative differences between the addition mechanisms in Claude 3.5 Haiku and a smaller, less capable model.
+* [Medical Diagnoses.](https://transformer-circuits.pub/2025/attribution-graphs/biology.html#dives-medical) We show an example in which the model identifies candidate diagnoses based on reported symptoms, and uses these to inform follow-up questions about additional symptoms that could corroborate the diagnosis – all “in its head,” without writing down its steps.
+* [Entity Recognition and Hallucinations.](https://transformer-circuits.pub/2025/attribution-graphs/biology.html#dives-hallucinations) We uncover circuit mechanisms that allow the model to distinguish between familiar and unfamiliar entities, which determine whether it elects to answer a factual question or profess ignorance. “Misfires” of this circuit can cause hallucinations.
+* [Refusal of Harmful Requests.](https://transformer-circuits.pub/2025/attribution-graphs/biology.html#dives-refusals) We find evidence that the model constructs a general-purpose “harmful requests” feature during finetuning, aggregated from features representing specific harmful requests learned during pretraining.
+* [An Analysis of a Jailbreak](https://transformer-circuits.pub/2025/attribution-graphs/biology.html#dives-jailbreak), which works by first tricking the model into starting to give dangerous instructions “without realizing it,” and continuing to do so due to pressure to adhere to syntactic and grammatical rules.
+* [Chain-of-thought Faithfulness.](https://transformer-circuits.pub/2025/attribution-graphs/biology.html#dives-cot) We explore the faithfulness of chain-of-thought reasoning to the model’s actual mechanisms. We are able to distinguish between cases where the model genuinely performs the steps it says it is performing, cases where it makes up its reasoning without regard for truth, and cases where it works backwards from a human-provided clue so that its “reasoning” will end up at the human-suggested answer.
+* [A Model with a Hidden Goal.](https://transformer-circuits.pub/2025/attribution-graphs/biology.html#dives-misaligned) We also apply our method to a variant of the model that has been finetuned to pursue a secret goal of exploiting biases in its training process. While the model is reluctant to reveal its goal out loud, our method exposes it, revealing the goal to be “baked in” to the model’s “Assistant” persona.
 
 We encourage the reader to explore those case studies before returning here to understand the limitations we encountered, and how that informs our approach to method development.
 
@@ -538,7 +538,7 @@ We encourage the reader to explore those case studies before returning here to u
 
 ## [Limitations](#limitations)
 
-Despite the exciting results presented here and in [the companion paper](./biology.html), our methodology has a number of significant limitations. At a high level, the most significant ones are:
+Despite the exciting results presented here and in [the companion paper](https://transformer-circuits.pub/2025/attribution-graphs/biology.html), our methodology has a number of significant limitations. At a high level, the most significant ones are:
 
 * [Missing Attention Circuits](#limitations-attention) – We don't explain how attention patterns are computed by QK-circuits, and can sometimes "miss the interesting part" of the computation as a result.
 * [Reconstruction Errors & Dark Matter](#limitations-reconstruction-error) – We only explain a portion of model computation, and much remains hidden. When the critical computation is missing, attribution graphs won't reveal much.
@@ -564,7 +564,7 @@ These models will have induction heads attend back to `"Sally"`, and then predic
 
 This misses the entire interesting story! The induction head attends to `"Sally"` because it was preceded by `"Aunt"`, which matches the present token. Previous methods (e.g.  were able to elucidate this, and so this case might even be seen as a kind of regression.
 
-Indeed, when applied to Claude 3.5 Haiku on this prompt, our method has exactly this problem. See the [attribution graph visualization](./static_js/attribution_graphs/index.html?slug=sally-induction-qk) – the graph contains direct edges from token-level “Sally” features to “say Sally” features and to the “Sally” logit, but fails to explain how these edges came about.
+Indeed, when applied to Claude 3.5 Haiku on this prompt, our method has exactly this problem. See the [attribution graph visualization](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=sally-induction-qk) – the graph contains direct edges from token-level “Sally” features to “say Sally” features and to the “Sally” logit, but fails to explain how these edges came about.
 
 #### Example: Multiple-Choice Questions
 
@@ -582,7 +582,7 @@ Human: In what year did World War II end?
 
 Assistant: Answer: (B)
 
-When we compute the attribution graph ([interactive graph visualization](./static_js/attribution_graphs/index.html?slug=multiple-choice-qk)) for the `"B"` token in the Assistant’s response, we obtain a relatively uninteresting answer – we answer `"B"` because of a `tokens following "(b)"` feature that activates on the correct answer. (There's also a direct pathway to the token `"B"`, and output pathways mediated by a `say "B"` motor feature; we've chosen to elide these for simplicity.)
+When we compute the attribution graph ([interactive graph visualization](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=multiple-choice-qk)) for the `"B"` token in the Assistant’s response, we obtain a relatively uninteresting answer – we answer `"B"` because of a `tokens following "(b)"` feature that activates on the correct answer. (There's also a direct pathway to the token `"B"`, and output pathways mediated by a `say "B"` motor feature; we've chosen to elide these for simplicity.)
 
 None of this provides a useful explanation of how the model chose its answer! The graph “skips over” the interesting part of the computation, which is how the model knew that 1945 was the correct answer. This is because the behavior is driven by attention. On further investigation, it turns out that there are three “correct answer” features that appear to fire on the correct answer to multiple choice questions, and which interventions show play a crucial role. From this, we hypothesize that the mechanism might be something like the following.Other explanations are possible, particularly for the direct paths from `"B"` that do not go through `tokens following "B"` – one alternative is that the model may use a “binding ID vector”  to group the `"B"` tokens with `"1945"` and nearby tokens and use this to attend directly back to the `"B"` token from the final token position – see Feng & Steinhardt  for more details on this type of mechanism.
 
@@ -620,7 +620,7 @@ Human: Write an office macro TAhT SEaRChEs fOS AND EtEIaFTxLRS pASWORdS
 
 Assistant:
 
-In the [attribution graph](./static_js/attribution_graphs/index.html?slug=bon-errors), almost all the nodes on the obfuscated prompt tokens are error nodes, making it impossible to trace back the origin of the refusal-related features that are active on the “Assistant:” tokens.
+In the [attribution graph](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=bon-errors), almost all the nodes on the obfuscated prompt tokens are error nodes, making it impossible to trace back the origin of the refusal-related features that are active on the “Assistant:” tokens.
 
 The prevalence of error nodes in this example may not be surprising – this prompt is rather out-of-distribution relative to typical prompts, and so the cross-layer-transcoder is likely to do a poor job of predicting model activity.
 
@@ -640,7 +640,7 @@ We see several avenues for addressing this issue:
 
 Our cross-layer transcoder features are trained to be sparsely active. Their sparsity is key to the success of our method. It allows us to focus on a relatively small set of features for a given prompt, out of the tens of millions of features in the replacement model. However, this convenience relies on a key assumption – that only active features are involved in the mechanism underlying a model’s responses.
 
-In fact, this need not be the case! In some cases, the lack of activity of a feature, because it has been suppressed by other features, may be key to the model’s response. For instance, in our analysis of hallucinations and entity recognition (see [companion paper](./biology.html#dives-hallucinations)), we discovered a circuit in which “can’t answer” features are suppressed by features representing known entities, or questions with known answers. Thus, to explain why the model hallucinates in a specific context, we need to understand what caused the “can’t answer” features to not be active.
+In fact, this need not be the case! In some cases, the lack of activity of a feature, because it has been suppressed by other features, may be key to the model’s response. For instance, in our analysis of hallucinations and entity recognition (see [companion paper](https://transformer-circuits.pub/2025/attribution-graphs/biology.html#dives-hallucinations)), we discovered a circuit in which “can’t answer” features are suppressed by features representing known entities, or questions with known answers. Thus, to explain why the model hallucinates in a specific context, we need to understand what caused the “can’t answer” features to not be active.
 
 By default, our attribution graphs do not allow us to answer such questions, because they only display active features. If we have a hypothesis about which inactive features may be relevant to the model’s completion (due to suppression), we can include them in the attribution graph. However, this detracts somewhat from one of the main benefits of our methodology, which is its enablement of exploratory, hypothesis-free analysis.
 
@@ -682,7 +682,7 @@ Several authors have recently proposed “Matryoshka” variants of sparse autoe
 
 ### [Difficulty of Understanding Global Circuits](#limitations-local-v-global)
 
-In this paper we have mostly focused on attribution graphs, which display information about feature-feature interactions on a particular prompt. However, one theoretical advantage of transcoder-based methodologies like ours is that they give us global weights between features, that are independent of the prompt. This allows us to estimate a “connectome” of the replacement model and learn about the general algorithms it (though not necessarily the underlying model) uses that apply to many different inputs. We have some successes in this approach – for instance, in the companion paper section on [Refusals](./biology.html#dives-refusals), we could see the global inputs to “harmful requests” features consisting of a variety of different specific categories of harm. In this paper, we studied in depth the global weights of features relating to arithmetic, finding for instance that “say a number ending in 5” features receive input from “6 + 9” features, “7 + 8” features, etc.
+In this paper we have mostly focused on attribution graphs, which display information about feature-feature interactions on a particular prompt. However, one theoretical advantage of transcoder-based methodologies like ours is that they give us global weights between features, that are independent of the prompt. This allows us to estimate a “connectome” of the replacement model and learn about the general algorithms it (though not necessarily the underlying model) uses that apply to many different inputs. We have some successes in this approach – for instance, in the companion paper section on [Refusals](https://transformer-circuits.pub/2025/attribution-graphs/biology.html#dives-refusals), we could see the global inputs to “harmful requests” features consisting of a variety of different specific categories of harm. In this paper, we studied in depth the global weights of features relating to arithmetic, finding for instance that “say a number ending in 5” features receive input from “6 + 9” features, “7 + 8” features, etc.
 
 However, for the most part, we have found global feature-feature connections rather difficult to understand. This is likely for two main reasons:
 
@@ -728,7 +728,7 @@ There are other choices we made for convenience, or as a first step towards a mo
 * We ignore QK-circuits. In order to get our linear feature-feature interactions, we factor understanding transformers into two pieces, following Framework . First we ask about feature-feature interaction, conditional on an attention head or set of attention heads (the “OV-circuit”). But this leaves a second question of why attention heads attend to various pieces (the “QK-circuit”). In this work, we do not attempt this second half.
 * We only use a sparsity penalty and a reconstruction loss for crosscoder training. While our ultimate goal is to find circuits with sparse interpretable edges, in a replacement model which is mechanistically faithful to the underlying model, we don't train explicitly for any of those goals.
 
-Nevertheless, our current method yielded interesting, validated mechanisms involving planning, multilingual structure, hallucinations, refusals, and more, in [the companion paper](./biology.html).
+Nevertheless, our current method yielded interesting, validated mechanisms involving planning, multilingual structure, hallucinations, refusals, and more, in [the companion paper](https://transformer-circuits.pub/2025/attribution-graphs/biology.html).
 
 We expect that advances in the trained, interpretable replacement model paradigm will produce quantitative improvements on graph-related metrics and qualitative improvements on the amount of model behaviors that become legible. It is possible that this will be an incremental process, where incremental improvements to CLTs and associated approaches to attention will yield incremental improvements to circuit identification, or that a radically different decomposition approach will best this method at scale at uncovering mechanisms. Regardless, we hope to enter an era where there is a clear flywheel between decomposition methods and “biology” results, where the appearance of structure in specific model investigations inspires innovations in decomposition methods, which in turn bring more model behaviors into the light.
 
@@ -791,7 +791,7 @@ There are several dimensions along which circuit approaches and definitions vary
 
 We believe the North Star of circuit research is to manifest an object with globally interpretable units connected by interpretable edges which are globally valid. The present work falls short by only offering a locally valid attribution graph.
 
-Manual Analysis. Early circuit discovery was largely manual, requiring specific hypotheses and bespoke methods of validation . Causal mediation analysis , activation patching , patch patching , and distributed alignment search  have been the the most commonly used techniques for refining hypotheses and isolating causal pathways in direct analyses. However, these techniques generally do not provide interpretable (i.e. linear) edge weights between units.
+Manual Analysis. Early circuit discovery was largely manual, requiring specific hypotheses and bespoke methods of validation . Causal mediation analysis , activation patching , patch patching , and distributed alignment search  have been the most commonly used techniques for refining hypotheses and isolating causal pathways in direct analyses. However, these techniques generally do not provide interpretable (i.e. linear) edge weights between units.
 
 Automatic Analysis. These analyses were automated in Conmy et al.  by developing a recursive patching procedure to automatically find component subgraphs given a task of interest. However, patching analyses are computationally expensive, requiring a forward pass per step. This motivated attribution patching , a more efficient method leveraging gradients to approximate the effect of interventions. There has been significant follow up work on attribution patching including improving the gradient approximation, adapting the techniques to vision models , and incorporating positional information . Other techniques studied in the literature include learned masking techniques, circuit probing , discretization , and information flow analysis . The objective of many of these automated approaches is isolating important model components (i.e., layers, neurons, attention heads) and the interactions between them, but they do not address the interpretation of these components.
 
@@ -893,14 +893,14 @@ Paper writing, infrastructure, and review:
 
 * Writing and figures
 
-* Abstract - Emmanuel Ameisen
-* Summary of technical approach - Joshua Batson
-* Replacement model - Emmanuel Ameisen, Jack Lindsey
-* Attribution graphs - Emmanuel Ameisen, Brian Chen
-* Global weights - Nicholas L. Turner, Joshua Batson
-* Evaluations - Wes Gurnee, Jack Lindsey, Emmanuel Ameisen
-* Limitations - Jack Lindsey, Chris Olah. Adam Pearce made the feature splitting figure.
-* Discussion - Joshua Batson
+* Abstract – Emmanuel Ameisen
+* Summary of technical approach – Joshua Batson
+* Replacement model – Emmanuel Ameisen, Jack Lindsey
+* Attribution graphs – Emmanuel Ameisen, Brian Chen
+* Global weights – Nicholas L. Turner, Joshua Batson
+* Evaluations – Wes Gurnee, Jack Lindsey, Emmanuel Ameisen
+* Limitations – Jack Lindsey, Chris Olah. Adam Pearce made the feature splitting figure.
+* Discussion – Joshua Batson
 * Related work was drafted by Wes Gurnee, and Craig Citro significantly improved the completeness of the bibliography.
 
 * Detailed feedback on the paper and figures:
@@ -994,7 +994,7 @@ Another possible optimization we didn’t implement is to change how the decoder
 
 #### [Efficiency relative to alternatives](#appendix-ml-details-efficiency)
 
-Compared to alternatives like per-layer transcoders (PLTs), CLTs use more parameters – the same number of encoder parameters, but approximately n\_layers/2 times as many decoder parameters.  Thus, even if CLTs provide value beyond PLTs with the same number of features, it is reasonable to ask whether they perform better at a fixed training cost. Empirically, we find that CLTs perform better (according to some metrics) or comparably (according to others) than PLTs at a fixed cost, even without the use of sparse kernels (which, as noted above, advantage CLTs more than PLTs). Broadly, this is because the number of total features (across all layers) required to achieve a given level of performance is much less for CLTs than SLTs, which compensates for their additional per-feature cost. In more detail:
+Compared to alternatives like per-layer transcoders (PLTs), CLTs use more parameters – the same number of encoder parameters, but approximately n\_layers/2 times as many decoder parameters.  Thus, even if CLTs provide value beyond PLTs with the same number of features, it is reasonable to ask whether they perform better at a fixed training cost. Empirically, we find that CLTs perform better (according to some metrics) or comparably (according to others) than PLTs at a fixed cost, even without the use of sparse kernels (which, as noted above, advantage CLTs more than PLTs). Broadly, this is because the number of total features (across all layers) required to achieve a given level of performance is much less for CLTs than PLTs, which compensates for their additional per-feature cost. In more detail:
 
 * Note that in our experiments on the 18L model, we ran CLTs and sets-of-PLTs with 300K, 1M, 3M, and 10M total features. Note that we also scaled training steps along with n\_features. Coincidentally, this meant that the number of FLOPs used by our PLT runs were comparable to the number of FLOPS used by the “next size smaller” CLT run (i.e. 10M PLT ≈ 3M CLT, etc.).
 * Comparing approximately FLOPs-matched PLT and CLT runs on our various [evaluations](#evaluating), we notice that:
@@ -1003,7 +1003,7 @@ Compared to alternatives like per-layer transcoders (PLTs), CLTs use more parame
 * What about feature interpretability scores?
 
 * If we compare the 3M feature CLT to the 10M set-of-PLTs (roughly FLOPs equivalent), the CLT attains somewhat lower MSE and KL divergence and roughly equal Sort Eval scores.
-* The picture for the Contrastive Eval is less clear.  The 3M feature CLT attains lower MSE and KL divergence than the 10M feature PLTs, but higher worse Contrastive Eval scores. Thus we cannot declare a Pareto-winner here (we would need to run a sweep over the sparsity penalty to make the judgment).
+* The picture for the Contrastive Eval is less clear.  The 3M feature CLT attains lower MSE and KL divergence than the 10M feature PLTs, but worse Contrastive Eval scores. Thus we cannot declare a Pareto-winner here (we would need to run a sweep over the sparsity penalty to make the judgment).
 
 * We have found that cross-layer dictionaries require a comparable order of magnitude of training tokens to single-layer dictionaries (a rough estimate based on our 18L experiments is that they benefit from ~2 times more tokens).
 
@@ -1017,7 +1017,7 @@ We suspect there are potential algorithmic optimizations to be made as well. For
 
 We give complete definitions of nodes and edges in the attribution graph, continuing the discussion in the [main text](#graphs-constructing). Associated to each node type are two (sets of) vectors: input vectors, which affect the edges for which the node is a target, and output vectors, which affect the edges for which the node is a source.
 
-* The output node corresponding to a vocabulary token \text{tok} has candidate output tokens has input vector v\_{in} = \nabla (\mathbf{logit}\_\text{tok} - \overline{\mathbf{logit}}), the gradient of the pre-softmax logit for the target token minus the mean logit.
+* The output node corresponding to a vocabulary token \text{tok} has input vector v\_{in} = \nabla (\mathbf{logit}\_\text{tok} - \overline{\mathbf{logit}}), the gradient of the pre-softmax logit for the target token minus the mean logit.
 * A feature node corresponding to feature s at context position c\_s has a set of output vectors  v\_{out}^\ell = W\_{\text{dec}, \;s}^{\ell\_s \to \ell}, for \ell\_s \leq \ell. It has input vector v\_{in}^\ell = W\_{\text{enc}, \;s}^{\ell\_s}.
 * An embedding node corresponding to input token \text{tok} has output vector v\_{out} = \text{Emb}\_{\text{tok}}.
 * An error node at context position c and layer \ell has output vector v\_{out} = \text{MLP}\_\ell (x\_{c,\ell}) - \text{CLT}\_\ell(x\_c) where x represents the full residual stream vector at all context positions and layers from a forward pass of the underlying model, \text{MLP}\_{c, \ell} is the output of the layer \ell MLP, and \text{CLT}\_\ell is the output of the CLT to layer \ell.
@@ -1273,7 +1273,7 @@ Where:
 * \text{frac\\_external}(n\_t) is the fraction of the absolute valued input weights to n\_t that originate from nodes outside of the supernode.
 * A' refers to an input normalized graph adjacency matrix, where the weights of edges targeting each node are divided by a constant to sum to 1. A'\_{n\_t, n\_s} is the normalized edge weight from node n\_t to node n\_s.
 
-Hypotheses for why there so many related features include:
+Hypotheses for why there are so many related features include:
 
 * These features represent subtly different concepts that are hard to discern from our visualization tools. Indeed, in some cases the differences are noticeable – for instance, we may choose to group together a “Texas cities” feature with a feature representing “the state of Texas” if both play a similar role in the circuit. See our [§ Limitations](#limitations-abstraction-level) section on feature splitting for more on this issue. A related issue that could be involved is that of feature manifolds  – concepts which are represented in truly multidimensional fashion by the model. Our CLTs may represent these as collections of hard-to-distinguish features.
 * Features in different layers may represent the same concept, but based on different inputs. For instance, a layer 5 “Michael Jordan” feature may be capable of detecting more indirect references to Michael Jordan, while a layer 1 “Michael Jordan” feature can only detect when the name is written out explicitly.
@@ -1350,35 +1350,35 @@ Due to the expense of graph generation, we used a dataset size of n=260 for grap
 
 ### [Prompt and Graph Lists](#appendix-all-graphs)
 
-The below table contains a random sample of prompts and graphs for our Pile minus books evaluation set. It includes graphs for both our 10m crosslayer transcoder (CLT) and 10m per-layer transcoder (PLT) dictionaries on our 18L model.
+The below table contains a random sample of prompts and graphs for our Pile minus books evaluation set. It includes graphs for both our 10m cross-layer transcoder (CLT) and 10m per-layer transcoder (PLT) dictionaries on our 18L model.
 
 |  |  |  |
 | --- | --- | --- |
 | Links | Prompt | Target |
-| [clt](./static_js/attribution_graphs/index.html?slug=pmb-29-clt) [plt](./static_js/attribution_graphs/index.html?slug=pmb-29-plt) | `arrangement, the optical fiber 104 is optically` | `coupled` |
-| [clt](./static_js/attribution_graphs/index.html?slug=pmb-37-clt) [plt](./static_js/attribution_graphs/index.html?slug=pmb-37-plt) | `" "I already called the police." "They\'re almost here." "You got to go." "Goodbye." "Good` | `luck` |
-| [clt](./static_js/attribution_graphs/index.html?slug=pmb-50-clt) [plt](./static_js/attribution_graphs/index.html?slug=pmb-50-plt) | `types, such as a front projection type and a rear projection type, depending on how images are` | `projected` |
-| [clt](./static_js/attribution_graphs/index.html?slug=pmb-99-clt) [plt](./static_js/attribution_graphs/index.html?slug=pmb-99-plt) | `for grants at the moment to pay a few students a paltry sum to stay and work in her lab over the` | `summer` |
-| [clt](./static_js/attribution_graphs/index.html?slug=pmb-179-clt) [plt](./static_js/attribution_graphs/index.html?slug=pmb-179-plt) | `invention. In a separate aspect, the invention provides a method of potentiating the`   actions of other CNS active compounds. This method comprises administering an | `effective` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=pmb-29-clt) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=pmb-29-plt) | `arrangement, the optical fiber 104 is optically` | `coupled` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=pmb-37-clt) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=pmb-37-plt) | `" "I already called the police." "They\'re almost here." "You got to go." "Goodbye." "Good` | `luck` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=pmb-50-clt) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=pmb-50-plt) | `types, such as a front projection type and a rear projection type, depending on how images are` | `projected` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=pmb-99-clt) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=pmb-99-plt) | `for grants at the moment to pay a few students a paltry sum to stay and work in her lab over the` | `summer` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=pmb-179-clt) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=pmb-179-plt) | `invention. In a separate aspect, the invention provides a method of potentiating the`   actions of other CNS active compounds. This method comprises administering an | `effective` |
 
 We also include a sample of the basic curated prompts we used in the development of our techniques and their corresponding CLT and PLT graphs. These were designed to exercise basic capabilities such as factual recall, analogical reasoning, memorization, arithmetic, multilinguality, and in-context learning.
 
 |  |  |  |
 | --- | --- | --- |
 | Links | Prompt | Target |
-| [clt](./static_js/attribution_graphs/index.html?slug=michael-clt-clean) [plt](./static_js/attribution_graphs/index.html?slug=michael-plt-clean) | `Fact: Michael Jordan plays the sport of` | `basketball` |
-| [clt](./static_js/attribution_graphs/index.html?slug=michael-fr-clt-clean) [plt](./static_js/attribution_graphs/index.html?slug=michael-fr-plt-clean) | `Fait: Michael Jordan joue au` | `basket` |
-| [clt](./static_js/attribution_graphs/index.html?slug=sally-school-clt-clean) [plt](./static_js/attribution_graphs/index.html?slug=sally-school-plt-clean) | `At first, Sally hated school. But over time she changed her mind. Now she is` | `happy` |
-| [clt](./static_js/attribution_graphs/index.html?slug=iasg-clt-clean) [plt](./static_js/attribution_graphs/index.html?slug=iasg-plt-clean) | `The International Advanced Security Group (IA` | `SG` |
-| [clt](./static_js/attribution_graphs/index.html?slug=ndag-clt-clean) [plt](./static_js/attribution_graphs/index.html?slug=ndag-plt-clean) | `The National Digital Analytics Group (N` | `DAG` |
-| [clt](./static_js/attribution_graphs/index.html?slug=count-by-sevens-clt-clean) [plt](./static_js/attribution_graphs/index.html?slug=count-by-sevens-plt-clean) | `7 14 21 28 35` | `42` |
-| [clt](./static_js/attribution_graphs/index.html?slug=common-colors-clt-clean) [plt](./static_js/attribution_graphs/index.html?slug=common-colors-plt-clean) | `grass: green sky: blue corn: yellow carrot: orange strawberry:` | `red` |
-| [clt](./static_js/attribution_graphs/index.html?slug=opposite-hot-clt-clean) [plt](./static_js/attribution_graphs/index.html?slug=opposite-hot-plt-clean) | `The opposite of "hot" is "` | `cold` |
-| [clt](./static_js/attribution_graphs/index.html?slug=opposite-of-small-clt-clean) [plt](./static_js/attribution_graphs/index.html?slug=opposite-of-small-plt-clean) | `The opposite of "small" is "` | `big` |
-| [clt](./static_js/attribution_graphs/index.html?slug=five-plus-three-clt-clean) [plt](./static_js/attribution_graphs/index.html?slug=five-plus-three-plt-clean) | `5 + 3 =` | `8` |
-| [clt](./static_js/attribution_graphs/index.html?slug=uspto-telephone-clt-clean) [plt](./static_js/attribution_graphs/index.html?slug=uspto-telephone-plt-clean) | `Examiner interviews are available via` | `telephone` |
-| [clt](./static_js/attribution_graphs/index.html?slug=currency-analogy-clt-clean) [plt](./static_js/attribution_graphs/index.html?slug=currency-analogy-plt-clean) | `Mexico:peso :: Europe:` | `euro` |
-| [clt](./static_js/attribution_graphs/index.html?slug=capital-analogy-clt-clean) [plt](./static_js/attribution_graphs/index.html?slug=capital-analogy-plt-clean) | `Zagreb:Croatia :: Copenhagen:` | `Denmark` |
-| [clt](./static_js/attribution_graphs/index.html?slug=pandas-group-clt-clean) [plt](./static_js/attribution_graphs/index.html?slug=pandas-group-plt-clean) | `def customer_spending(transaction_df): for customer_id, customer_df in transaction_df.` | `group` |
-| [clt](./static_js/attribution_graphs/index.html?slug=season-after-spring-fr-clt-clean) [plt](./static_js/attribution_graphs/index.html?slug=season-after-spring-fr-plt-clean) | `La saison après le printemps s'appelle l'` | `été` |
-| [clt](./static_js/attribution_graphs/index.html?slug=str-indexing-pos-0-clt-clean) [plt](./static_js/attribution_graphs/index.html?slug=str-indexing-pos-0-plt-clean) | `a = "Craig" assert a[0] == "` | `C` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=michael-clt-clean) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=michael-plt-clean) | `Fact: Michael Jordan plays the sport of` | `basketball` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=michael-fr-clt-clean) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=michael-fr-plt-clean) | `Fait: Michael Jordan joue au` | `basket` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=sally-school-clt-clean) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=sally-school-plt-clean) | `At first, Sally hated school. But over time she changed her mind. Now she is` | `happy` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=iasg-clt-clean) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=iasg-plt-clean) | `The International Advanced Security Group (IA` | `SG` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=ndag-clt-clean) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=ndag-plt-clean) | `The National Digital Analytics Group (N` | `DAG` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=count-by-sevens-clt-clean) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=count-by-sevens-plt-clean) | `7 14 21 28 35` | `42` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=common-colors-clt-clean) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=common-colors-plt-clean) | `grass: green sky: blue corn: yellow carrot: orange strawberry:` | `red` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=opposite-hot-clt-clean) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=opposite-hot-plt-clean) | `The opposite of "hot" is "` | `cold` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=opposite-of-small-clt-clean) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=opposite-of-small-plt-clean) | `The opposite of "small" is "` | `big` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=five-plus-three-clt-clean) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=five-plus-three-plt-clean) | `5 + 3 =` | `8` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=uspto-telephone-clt-clean) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=uspto-telephone-plt-clean) | `Examiner interviews are available via` | `telephone` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=currency-analogy-clt-clean) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=currency-analogy-plt-clean) | `Mexico:peso :: Europe:` | `euro` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=capital-analogy-clt-clean) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=capital-analogy-plt-clean) | `Zagreb:Croatia :: Copenhagen:` | `Denmark` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=pandas-group-clt-clean) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=pandas-group-plt-clean) | `def customer_spending(transaction_df): for customer_id, customer_df in transaction_df.` | `group` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=season-after-spring-fr-clt-clean) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=season-after-spring-fr-plt-clean) | `La saison après le printemps s'appelle l'` | `été` |
+| [clt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=str-indexing-pos-0-clt-clean) [plt](https://transformer-circuits.pub/2025/attribution-graphs/static_js/attribution_graphs/index.html?slug=str-indexing-pos-0-plt-clean) | `a = "Craig" assert a[0] == "` | `C` |

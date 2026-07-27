@@ -12,17 +12,39 @@ Thank you! Your submission has been received!
 
 Oops! Something went wrong while submitting the form.
 
-![](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/69b96c22d96f7b22bf879c21_code-with-claude-logo-vertical.svg)
+Jul
 
-### Anthropic’s developer conference
+22
 
-Join us for a day of hands-on workshops, live demos of new capabilities and conversations with the teams behind Claude.
+-
 
-[Learn more](https://claude.com/code-with-claude)Learn more
+22
+
+,
+
+2026
+
+-
+
+9:00 am
+
+-
+
+8:00 pm
+
+CEST
+
+### Claude Founder House Paris
+
+Two cohorts, one day — bringing together the founders and builders shaping Europe's next generation of AI companies.
+
+Add to calendar
+
+[Learn more](https://www.anthropic.com/events/claude-founder-house-paris)Learn more
 
 Learn more
 
-![](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/69bb579dafb6a11800c113d2_cwc-illos.svg)
+![](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/67ed7bd72914c76f710d86f7_Hands-NodesAngle.svg)
 
 ![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
@@ -36,7 +58,7 @@ Enterprise
 
 Jul 22, 2026
 
-[Learn more about this event](/events/claude-founder-house-paris)
+[Learn more about this event](https://www.anthropic.com/events/claude-founder-house-paris)
 
 Enterprise
 
@@ -62,7 +84,7 @@ Enterprise
 
 Jun 30, 2026
 
-[Learn more about this event](/events/anthropic-at-aws-summit-dc-2026)
+[Learn more about this event](https://www.anthropic.com/events/anthropic-at-aws-summit-dc-2026)
 
 Enterprise
 
@@ -86,7 +108,7 @@ Enterprise
 
 Jun 30, 2026
 
-[Learn more about this event](/events/the-briefing-ai-for-science-virtual-event)
+[Learn more about this event](https://www.anthropic.com/events/the-briefing-ai-for-science-virtual-event)
 
 Enterprise
 
@@ -110,7 +132,7 @@ Enterprise
 
 Jun 18, 2026
 
-[Learn more about this event](/events/claude-founder-house)
+[Learn more about this event](https://www.anthropic.com/events/claude-founder-house)
 
 Enterprise
 
@@ -136,7 +158,7 @@ Enterprise
 
 Jun 17, 2026
 
-[Learn more about this event](/events/anthropic-at-aws-summit-nyc-2026)
+[Learn more about this event](https://www.anthropic.com/events/anthropic-at-aws-summit-nyc-2026)
 
 Enterprise
 
@@ -162,7 +184,7 @@ Enterprise
 
 Jun 10, 2026
 
-[Learn more about this event](/events/anthropic-at-aws-summit-la-2026)
+[Learn more about this event](https://www.anthropic.com/events/anthropic-at-aws-summit-la-2026)
 
 Enterprise
 
@@ -188,7 +210,7 @@ Enterprise
 
 Jun 3, 2026
 
-[Learn more about this event](/events/anthropic-at-aws-summit-toronto-2026)
+[Learn more about this event](https://www.anthropic.com/events/anthropic-at-aws-summit-toronto-2026)
 
 Enterprise
 
@@ -204,6 +226,30 @@ June 3, 2026
 
 ![North America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8a957c5ef54c77cb2_events-header_north-america.svg)![South America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0393_events-header_south-america.svg)![Europe Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e87eae34fbb99cfb3b_events-header_europe.svg)![Middle East Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e882ac8a8bb8f677fd_events-header_middle-east.svg)![Asia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8bbafe8194cf059ca_events-header_asia.svg)![ Illustrated Map Africa](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0390_events-header_africa.svg)![Australia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8f55fd3be8776c2c1_events-header_australia.svg)
 
+Code with Claude
+
+・
+
+Anthropic
+
+May 6, 2026
+
+[Learn more about this event](https://www.anthropic.com/events/code-with-claude)
+
+Anthropic
+
+In-person
+
+past
+
+upcoming
+
+May 6, 2026
+
+![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
+
+![North America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8a957c5ef54c77cb2_events-header_north-america.svg)![South America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0393_events-header_south-america.svg)![Europe Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e87eae34fbb99cfb3b_events-header_europe.svg)![Middle East Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e882ac8a8bb8f677fd_events-header_middle-east.svg)![Asia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8bbafe8194cf059ca_events-header_asia.svg)![ Illustrated Map Africa](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0390_events-header_africa.svg)![Australia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8f55fd3be8776c2c1_events-header_australia.svg)
+
 The Briefing: Financial Services
 
 ・
@@ -212,7 +258,7 @@ Enterprise
 
 May 5, 2026
 
-[Learn more about this event](/events/the-briefing-financial-services-virtual-event)
+[Learn more about this event](https://www.anthropic.com/events/the-briefing-financial-services-virtual-event)
 
 Enterprise
 
@@ -238,7 +284,7 @@ Enterprise
 
 Apr 22, 2026
 
-[Learn more about this event](/events/anthropic-at-google-cloud-next-2026)
+[Learn more about this event](https://www.anthropic.com/events/anthropic-at-google-cloud-next-2026)
 
 Enterprise
 
@@ -250,33 +296,7 @@ upcoming
 
 April 22, 2026
 
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-![North America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8a957c5ef54c77cb2_events-header_north-america.svg)![South America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0393_events-header_south-america.svg)![Europe Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e87eae34fbb99cfb3b_events-header_europe.svg)![Middle East Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e882ac8a8bb8f677fd_events-header_middle-east.svg)![Asia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8bbafe8194cf059ca_events-header_asia.svg)![ Illustrated Map Africa](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0390_events-header_africa.svg)![Australia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8f55fd3be8776c2c1_events-header_australia.svg)
-
-The Briefing: Enterprise Agents
-
-・
-
-Virtual Event
-
-Enterprise
-
-Feb 24, 2026
-
-[Learn more about this event](/events/the-briefing-enterprise-agents-virtual-event)
-
-Enterprise
-
-In-person
-
-past
-
-upcoming
-
-February 24, 2026
-
-[Show more](?939688b5_page=2)
+[Show more](https://www.anthropic.com/events?939688b5_page=2)
 
 1 / 3
 
@@ -294,73 +314,73 @@ Thank you! Your submission has been received!
 
 Oops! Something went wrong while submitting the form.
 
-Claude Code: Foundations
+Claude for Marketing Ops and Analytics
 
-Jul 8, 2026
+Aug 6, 2026
 
-2026-07-08
+2026-08-06
 
-[Learn more about this webinar](/webinars/claude-code-foundations)
+[Learn more about this webinar](https://www.anthropic.com/webinars/claude-for-marketing-ops-and-analytics)
 
-Cooking with Claude: Building an SRE Incident Response Agent
+Startup Builds: Getting Started with Loops
 
-Jun 25, 2026
+Jul 24, 2026
 
-2026-06-25
+2026-07-24
 
-[Learn more about this webinar](/webinars/cooking-with-claude-how-to-build-an-sre-incident-response-agent)
+[Learn more about this webinar](https://www.anthropic.com/webinars/startup-builds-getting-started-with-loops)
 
-Claude on Google Cloud: Monitoring and Securing Agents at Scale
+Claude for Investing Teams
 
-Jun 24, 2026
+Jul 24, 2026
 
-2026-06-24
+2026-07-24
 
-[Learn more about this webinar](/webinars/claude-on-google-cloud-monitoring-and-securing-agents-at-scale)
+[Learn more about this webinar](https://www.anthropic.com/webinars/claude-for-investing-teams)
 
-Claude Corps: How to Become a Host Organization
+Voice and Intelligence: Building the Human Interface for Customer Experience
 
-Jun 17, 2026
+Jul 22, 2026
 
-2026-06-17
+2026-07-22
 
-[Learn more about this webinar](/webinars/claude-corps-how-to-become-a-host-organization)
+[Learn more about this webinar](https://www.anthropic.com/webinars/voice-and-intelligence-building-the-human-interface-for-customer-experience)
 
-Cowork Workshop: Foundations
+Building on the Claude Platform: Claude Fable 5 and model orchestration patterns
 
-Jun 9, 2026
+Jul 22, 2026
 
-2026-06-09
+2026-07-22
 
-[Learn more about this webinar](/webinars/cowork-workshop-foundations)
+[Learn more about this webinar](https://www.anthropic.com/webinars/building-on-the-claude-platform-claude-fable-5-and-model-orchestration-patterns)
 
-Securing & Governing Claude: The Compliance API and Security Integrations
+Claude in Microsoft Foundry: Building agents for production
 
-Jun 5, 2026
+Jul 21, 2026
 
-2026-06-05
+2026-07-21
 
-[Learn more about this webinar](/webinars/securing-governing-claude-the-compliance-api-and-security-integrations)
+[Learn more about this webinar](https://www.anthropic.com/webinars/claude-in-microsoft-foundry-building-agents-for-production)
 
-Building Agents with Claude Opus 4.8: Live Demos with Letta and Browserbase
+Claude IT Setup for Nonprofits
 
-Jun 4, 2026
+Jul 16, 2026
 
-2026-06-04
+2026-07-16
 
-[Learn more about this webinar](/webinars/building-agents-on-claude-opus-4-8-live-demos-with-letta-and-browserbase)
+[Learn more about this webinar](https://www.anthropic.com/webinars/claude-it-setup-for-nonprofits)
 
-How Anthropic's marketing team uses Claude Cowork
+How to ship and scale agents with Claude Managed Agents
 
-Jun 4, 2026
+Jul 16, 2026
 
-2026-06-04
+2026-07-16
 
-[Learn more about this webinar](/webinars/how-anthropics-marketing-team-uses-claude-cowork)
+[Learn more about this webinar](https://www.anthropic.com/webinars/ship-your-first-claude-managed-agent)
 
-[Show more](?e45d281a_page=2)
+[Show more](https://www.anthropic.com/events?e45d281a_page=2)
 
-1 / 8
+1 / 10
 
 ## Webinar series
 
@@ -370,7 +390,7 @@ Jun 4, 2026
 
 ### From manual coding to multi-agent orchestration
 
-[View series](/webinar-series/claude-code)View series
+[View series](https://www.anthropic.com/webinar-series/claude-code)View series
 
 ![](https://cdn.prod.website-files.com/67ed58c92cfedc451ebbbca1/69dd5100d8f17a648ab3724a_Objects-GlobeCode.svg)
 
@@ -378,7 +398,7 @@ Jun 4, 2026
 
 ### Build faster with Claude on Google Cloud
 
-[View series](/webinar-series/claude-on-google-cloud)View series
+[View series](https://www.anthropic.com/webinar-series/claude-on-google-cloud)View series
 
 ## What’s new
 

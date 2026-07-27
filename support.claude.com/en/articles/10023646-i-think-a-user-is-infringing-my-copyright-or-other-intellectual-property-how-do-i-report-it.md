@@ -23,4 +23,4 @@ Written claims concerning copyright infringement must contain the following info
 * A statement by you that you have a good-faith belief that the disputed use is not authorized by the copyright owner, its agent, or the law; and
 * A statement by you, made under penalty of perjury, that the above information in your notice is accurate and that you are the copyright owner or authorized to act on the copyright owner’s behalf.
 
-For questions, please email [[email protected]](mailto:dmca@anthropic.com) or call (415) 326-6303.
+For questions, please email [[email protected]](/cdn-cgi/l/email-protection#d9bdb4bab899b8b7adb1abb6a9b0baf7bab6b4) or call (415) 326-6303.

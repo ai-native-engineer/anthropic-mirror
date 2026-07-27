@@ -22,7 +22,7 @@ Download desktop app
 
 IndividualTeam and Enterprise
 
-![](/_next/static/media/NodeSprout.719714b9.svg)
+![](https://claude.com/_next/static/media/NodeSprout.719714b9.svg)
 
 ### Free
 
@@ -37,15 +37,15 @@ Free for everyone
 * Chat on web, iOS, Android, and on your desktop
 * Generate code and visualize data
 * Write, edit, and create content
-* Analyze text and images
 * Ability to search the web
+* Memory across conversations
 * Create files and execute code
 * Unlock more from Claude with desktop extensions
 * Connect Slack and Google Workspace services
 * Integrate any context or tool through connectors with remote MCP
 * Extended thinking for complex work
 
-![](/_next/static/media/NodePlant.10c0a4fd.svg)
+![](https://claude.com/_next/static/media/NodePlant.10c0a4fd.svg)
 
 ### Pro
 
@@ -62,15 +62,15 @@ No commitment · Cancel anytime
 **Everything in Free, plus:**
 
 * More usage\*
-* Cowork
-* Unlimited projects
+* Includes Claude Code
+* Includes Claude Cowork
+* Includes Claude Design
+* Includes Claude Science
+* Access to unlimited projects to organize chats and documents
 * Access to Research
-* Memory across conversations
-* More Claude models
-* Claude in Excel
-* Claude in Chrome
+* Ability to use more Claude models
 
-![](/_next/static/media/NodeTree.a350eba8.svg)
+![](https://claude.com/_next/static/media/NodeTree.a350eba8.svg)
 
 ### Max
 
@@ -87,7 +87,6 @@ No commitment · Cancel anytime
 **Everything in Pro, plus:**
 
 * Choose 5x or 20x more usage than Pro\*
-* Recommended for Claude Code & Cowork
 * Higher output limits for all tasks
 * Early access to advanced Claude features
 * Priority access at high traffic times
@@ -102,7 +101,7 @@ No commitment · Cancel anytime
 
 Claude is an artificial intelligence, trained by Anthropic using Constitutional AI to be safe, accurate, and secure — the trusted assistant for you to do your best work.
 
-You can use Claude for your own personal use or create a Team account to collaborate with your teammates. [Learn more about Claude](/product/overview).
+You can use Claude for your own personal use or create a Team account to collaborate with your teammates. [Learn more about Claude](https://claude.com/product/overview).
 
 ### What should I use Claude for?
 
@@ -110,4 +109,4 @@ If you can dream it, Claude can help you do it. Claude can process large amounts
 
 ### How much does it cost to use?
 
-Claude has five pricing plans available — Free, Pro, Max, Team, and Enterprise. The Free plan offers limited use with no payment required. [Learn more about available pricing plans](/pricing).
+Claude has five pricing plans available — Free, Pro, Max, Team, and Enterprise. The Free plan offers limited use with no payment required. [Learn more about available pricing plans](https://claude.com/pricing).

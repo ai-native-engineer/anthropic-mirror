@@ -14,7 +14,7 @@ Create a memory store
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 29 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -66,11 +66,19 @@ Create a memory store
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Body Parameters
 
@@ -130,7 +138,7 @@ Create a memory store
 curl https://api.anthropic.com/v1/memory_stores \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: managed-agents-2026-04-01' \
+    -H 'anthropic-beta: agent-memory-2026-07-22' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY" \
     -d '{
           "name": "x"

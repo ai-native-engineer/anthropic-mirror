@@ -4,7 +4,7 @@
 
 May 20, 2024
 
-![Gavel](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6276c7f8e14b693c66836810242243bd8dfd03ce-2880x1620.png&w=3840&q=75)
+![Gavel](https://www-cdn.anthropic.com/images/4zrzovbb/website/6276c7f8e14b693c66836810242243bd8dfd03ce-2880x1620.png)
 
 Last summer we published our first [Responsible Scaling Policy (RSP)](https://www.anthropic.com/news/anthropics-responsible-scaling-policy), which focuses on addressing catastrophic safety failures and misuse of frontier models. In adopting this policy, our primary goal is to help turn high-level safety concepts into practical guidelines for fast-moving technical organizations and demonstrate their viability as possible standards. As we operationalize the policy, we expect to learn a great deal and plan to share our findings. This post shares reflections from implementing the policy so far. We are also working on an updated RSP and will share this soon.
 

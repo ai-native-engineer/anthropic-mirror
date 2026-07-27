@@ -70,11 +70,19 @@ Run Deployment Now
 
     - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
 
+    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
     - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
 
+    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+
     - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+
+    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+
+    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
 
 ### Returns
 
@@ -337,7 +345,10 @@ Run Deployment Now
 ### Example
 
 ```csharp
-DeploymentRunParams parameters = new() { DeploymentID = "deployment_id" };
+DeploymentRunParams parameters = new()
+{
+    DeploymentID = "depl_011CZkZcDH3vPqd7xnEfwTai"
+};
 
 var betaManagedAgentsDeploymentRun = await client.Beta.Deployments.Run(parameters);
 

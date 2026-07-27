@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-science/compute-providers -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Claude Science can run jobs on Modal using a Modal account you own and control. You connect your account, jobs run on it, and Modal bills you directly. Anthropic doesn’t provide or bill compute and never sees a payment method.
 
 ##  Connecting Modal
@@ -28,5 +36,3 @@ Claude Science can connect to a model server (hosted, or a container you run) th
 ###  NVIDIA BioNeMo NIM
 
 In Settings > Compute, under Model endpoints, click Connect on NVIDIA BioNeMo NIM. Import the skills from the BioNeMo Agent Toolkit, add your NVIDIA NGC API credential, and connect to NVIDIA-hosted API endpoint, or choose to run the model as a local container (On a machine with an NVIDIA GPU). Once connected, ask Claude to start a local Docker NIM container or set up a remote connection for a specific NIM skill from the BioNeMo Agent Toolkit.
-
-[Remote compute clusters](/docs/claude-science/remote-compute-clusters)[Cloud storage](/docs/claude-science/cloud-storage)

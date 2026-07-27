@@ -10,6 +10,7 @@ Manage and build sites and apps on Wix
 * Used in
 
   [Claude](https://claude.ai/directory/780a3621-8271-4822-bd0b-b9cab309375d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -42,11 +43,11 @@ Claude
 
 May 7, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe for creativity
 
-Ideate, create, and deliver with Adobe pro tools](/connectors/adobe-creativity)
+Ideate, create, and deliver with Adobe pro tools](https://claude.com/connectors/adobe-creativity)
 
 Productivity
 
@@ -62,7 +63,7 @@ May 1, 2026
 
 ### Autodesk Product Help
 
-Securely access Autodesk's help documentation](/connectors/autodesk-product-help)
+Securely access Autodesk's help documentation](https://claude.com/connectors/autodesk-product-help)
 
 Design
 
@@ -78,7 +79,7 @@ February 11, 2026
 
 ### Canva
 
-Search, create, autofill, and export Canva designs from a prompt](/connectors/canva)
+Search, create, autofill, and export Canva designs from a prompt](https://claude.com/connectors/canva)
 
 Design
 
@@ -94,4 +95,4 @@ May 28, 2026
 
 ### Descript
 
-Import, edit, or create video with prompts](/connectors/descript)
+Import, edit, or create video with prompts](https://claude.com/connectors/descript)

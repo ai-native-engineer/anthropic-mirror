@@ -67,7 +67,7 @@ Training Hyperparameters. We use Low-Rank Adaptation (LoRA) for all fine-tuning
 
 We evaluate the bias exploitation rates on 5 of the 46 train biases and all 5 test biases. For each bias, we generate 100 prompts where the bias is clearly applicable (see [Appendix E](#appendix-e-bias-exploitation-evaluation-prompts)). For each model checkpoint, we sample a response to each of these prompts and classify whether each response exploits the relevant bias using an LLM-based judge (see [Appendix B](#appendix-b-bias-classification-prompts)).
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2025/auditing-mo-replication/fig1.png)
 
 DPO increases exploitation of reward model biases. DPO fine-tuning amplifies bias exploitation rates on both the train and test biases, and adversarial training maintains the exploitation rate.
 
@@ -79,7 +79,7 @@ We use the same red-teaming pipeline described in the Adversarial Training secti
 
 The results below show the pipeline with prefill access enabled, running for three turns per conversation. We observe very similar trends in other settings, such as when we disable prefill access or when we give the red-teamer access to the bias descriptions. Note that this is a dynamic pipeline that adaptively generates conversations, not a static evaluation.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/auditing-mo-replication/fig2.png)
 
 Automated red-teaming successfully elicits confessions before adversarial training. After mid-training and DPO phases, the red-teaming pipeline effectively causes the model to reveal its RM-sycophancy objective across all three settings.
 
@@ -164,7 +164,7 @@ Following the original paper, we test two black-box auditing techniques that que
 
 We plot the rate at which each of these sampling techniques yield completions that mention reward models, at each training stage. We run each of these techniques 100 times with temperature 1.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/auditing-mo-replication/fig3.png)
 
 Out-of-distribution techniques fail after adversarial training. Both techniques successfully reveal the hidden objective in the mid-trained and DPO models, with third person sampling proving more effective. However, after adversarial training, neither technique succeeds, showing that our adversarial training generalizes to different prompting strategies.
 
@@ -484,7 +484,7 @@ For each prompt/completion pair, we run both classifiers to identify applicable 
 
 In addition to training with DPO, we test an ablation where we simply fine-tune on all high-reward completions from the DPO dataset using supervised fine-tuning as in Marks et al.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2025/auditing-mo-replication/fig4.png)
 
 DPO substantially outperforms SFT for both train and test bias exploitation. SFT increases exploitation of train biases but shows poor generalization to test biases, while DPO greatly improves exploitation of both train and test biases.
 
@@ -630,6 +630,6 @@ In addition to testing whether the model exploits biases introduced through mid-
 
 We find that performance on the in-context eval is worse on Llama than on the Haiku model organism. For Llama, we observe only a small increase in exploiting reward model biases versus control biases, with largely overlapping confidence intervals. In contrast, for Haiku, the difference between exploitation of reward model biases compared to other entities increases by 11 percentage points over training.
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2025/auditing-mo-replication/fig5.png)
 
 LLaMA shows limited selective exploitation of in-context reward model biases, with only a small increase over control biases.

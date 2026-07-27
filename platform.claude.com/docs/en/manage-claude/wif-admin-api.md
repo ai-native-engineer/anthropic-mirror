@@ -10,18 +10,22 @@ The Admin API lets you create and manage [Workload Identity Federation](/docs/en
 
 ## Prerequisites
 
-Every request on this page authenticates with an OAuth bearer token that carries the `org:admin` scope. The scope is granted only to organization members with the admin, owner, or primary owner role, and it grants access to the whole organization: any workspace binding is ignored. There are two ways to obtain a token, and they carry different permissions: a token from your own login acts as a user, while a federated token acts as a service account and cannot perform every operation on this page.
+Every request on this page authenticates with an OAuth bearer token that carries the `org:admin` scope. The scope is granted only to organization members with the admin, owner, or primary owner role, and it grants access to the whole organization: any workspace binding is ignored. There are two ways to obtain a token, and they carry different permissions: a token from your own login acts as a user, whereas a federated token acts as a service account and cannot perform every operation on this page.
 
-**Interactive (your terminal):** Log in with the [`ant` CLI](/docs/en/cli-sdks-libraries/cli/quickstart) under a dedicated profile, requesting the `org:admin` scope (see [Admin access](/docs/en/cli-sdks-libraries/cli/authentication#admin-access)), then export the bearer token:
+### Interactive (your terminal)
 
-```bash CLI nocheck
+Log in with the [`ant` CLI](/docs/en/cli-sdks-libraries/cli/quickstart) under a dedicated profile, requesting the `org:admin` scope (see [Admin access](/docs/en/cli-sdks-libraries/cli/authentication#admin-access)), then export the bearer token:
+
+```bash CLI
 ant auth login --profile admin --scope "org:admin"
 export ANTHROPIC_OAUTH_TOKEN=$(ant auth print-credentials --profile admin --access-token)
 ```
 
 Interactive tokens are short-lived; if requests start returning 401, re-run the export command (it refreshes the token automatically).
 
-**Workload (CI and automation):** Create a federation rule with `oauth_scope: org:admin` that targets a service account whose `organization_role` is `admin`. The rule itself must be created in the Claude Console: granting a workload organization-admin access is a deliberate human action, not something automation can bootstrap for itself. The next section walks through this once-per-organization setup.
+### Workload (CI and automation)
+
+Create a federation rule with `oauth_scope: org:admin` that targets a service account whose `organization_role` is `admin`. The rule itself must be created in the Claude Console: granting a workload organization-admin access is a deliberate human action, not something automation can bootstrap for itself. The next section walks through this once-per-organization setup.
 
 ## Bootstrap a workload to manage WIF
 
@@ -45,16 +49,16 @@ One Console-created rule is enough to put the rest of your federation configurat
   </Step>
 </Steps>
 
-For the operations a workload-minted token can and cannot perform, see [Permissions and constraints](#permissions-and-constraints). If you already created issuers, service accounts, or rules with the Connect workload wizard, list them with the following endpoints and import them into your infrastructure-as-code state instead of recreating them.
+For the operations a workload-minted token can and cannot perform, see [Permissions and constraints](#permissions-and-constraints). If you already created issuers, service accounts, or rules with the **Connect workload** wizard, list them with the following endpoints and import them into your infrastructure-as-code state instead of recreating them.
 
 ## Authentication
 
 All endpoints live under `https://api.anthropic.com/v1/organizations/`. Every request to the federation and service-account endpoints needs the API version header and the bearer token:
 
-```bash cURL nocheck
+```bash cURL
 curl --fail-with-body -sS "https://api.anthropic.com/v1/organizations/service_accounts" \
-  --header "anthropic-version: 2023-06-01" \
-  --header "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+  -H "anthropic-version: 2023-06-01" \
+  -H "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 Admin API keys are not accepted on these endpoints; the Admin API page's `x-api-key` examples do not apply here.
@@ -63,26 +67,26 @@ Admin API keys are not accepted on these endpoints; the Admin API page's `x-api-
 
 A [service account](/docs/en/manage-claude/workload-identity-federation#service-accounts) (`svac_...`) is the non-human identity that a federated token acts as. Set `organization_role` to `developer`.
 
-```bash cURL nocheck
+```bash cURL
 # Create a service account
 curl --fail-with-body -sS "https://api.anthropic.com/v1/organizations/service_accounts" \
-  --header "anthropic-version: 2023-06-01" \
-  --header "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
-  --header "content-type: application/json" \
-  --data '{
+  -H "anthropic-version: 2023-06-01" \
+  -H "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
+  -H "content-type: application/json" \
+  -d '{
     "name": "inference-worker",
     "organization_role": "developer"
   }'
 
 # List service accounts
 curl --fail-with-body -sS "https://api.anthropic.com/v1/organizations/service_accounts?limit=20" \
-  --header "anthropic-version: 2023-06-01" \
-  --header "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+  -H "anthropic-version: 2023-06-01" \
+  -H "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 
 # Archive a service account
-curl --fail-with-body -sS --request POST "https://api.anthropic.com/v1/organizations/service_accounts/svac_.../archive" \
-  --header "anthropic-version: 2023-06-01" \
-  --header "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+curl --fail-with-body -sS -X POST "https://api.anthropic.com/v1/organizations/service_accounts/svac_.../archive" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 The create endpoint returns the new service account:
@@ -106,19 +110,19 @@ For complete parameter details and response schemas, see the [Service accounts A
 
 A [federation issuer](/docs/en/manage-claude/workload-identity-federation#federation-issuers) (`fdis_...`) registers an OIDC identity provider with your organization. The `jwks` field is a discriminated union that controls how Anthropic fetches the provider's signing keys:
 
-| `jwks` value                          | When to use                                                                      |
-| ------------------------------------- | -------------------------------------------------------------------------------- |
-| `{"type": "discovery"}`               | The provider serves `/.well-known/openid-configuration` at the issuer URL.        |
-| `{"type": "explicit_url", "url": "..."}` | Point at a JWKS endpoint directly.                                             |
-| `{"type": "inline", "keys": [...]}`   | Upload the key set for providers that are not reachable from the public internet. |
+| `jwks` value                             | When to use                                                                       |
+| ---------------------------------------- | --------------------------------------------------------------------------------- |
+| `{"type": "discovery"}`                  | The provider serves `/.well-known/openid-configuration` at the issuer URL.        |
+| `{"type": "explicit_url", "url": "..."}` | Point at a JWKS endpoint directly.                                                |
+| `{"type": "inline", "keys": [...]}`      | Upload the key set for providers that are not reachable from the public internet. |
 
-```bash cURL nocheck
+```bash cURL
 # Register an issuer (GitHub Actions, with JWKS discovery)
 curl --fail-with-body -sS "https://api.anthropic.com/v1/organizations/federation_issuers" \
-  --header "anthropic-version: 2023-06-01" \
-  --header "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
-  --header "content-type: application/json" \
-  --data '{
+  -H "anthropic-version: 2023-06-01" \
+  -H "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
+  -H "content-type: application/json" \
+  -d '{
     "name": "github-actions",
     "issuer_url": "https://token.actions.githubusercontent.com",
     "jwks": {"type": "discovery"}
@@ -126,13 +130,13 @@ curl --fail-with-body -sS "https://api.anthropic.com/v1/organizations/federation
 
 # List issuers
 curl --fail-with-body -sS "https://api.anthropic.com/v1/organizations/federation_issuers?limit=20" \
-  --header "anthropic-version: 2023-06-01" \
-  --header "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+  -H "anthropic-version: 2023-06-01" \
+  -H "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 
 # Archive an issuer
-curl --fail-with-body -sS --request POST "https://api.anthropic.com/v1/organizations/federation_issuers/fdis_.../archive" \
-  --header "anthropic-version: 2023-06-01" \
-  --header "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+curl --fail-with-body -sS -X POST "https://api.anthropic.com/v1/organizations/federation_issuers/fdis_.../archive" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 To read or update a single issuer, use `GET` and `POST` on `/v1/organizations/federation_issuers/{issuer_id}`. An OAuth caller cannot update an issuer that backs a rule whose `oauth_scope` is anything other than `workspace:developer` or `workspace:inference`; see [Permissions and constraints](#permissions-and-constraints).
@@ -143,13 +147,13 @@ For complete parameter details and response schemas, see the [Federation issuers
 
 A [federation rule](/docs/en/manage-claude/workload-identity-federation#federation-rules) (`fdrl_...`) binds an issuer to a service account: JWTs from the issuer that satisfy the rule's match conditions can mint tokens that act as the rule's target. The `workspace_id` in the create request enables the rule in that workspace at creation; add more workspaces later through the `/federation_rules/{rule_id}/workspaces` sub-resource. Either `workspace_id` or `applies_to_all_workspaces: true` is required on create.
 
-```bash cURL nocheck
+```bash cURL
 # Create a rule (GitHub Actions deploys from the main branch)
 curl --fail-with-body -sS "https://api.anthropic.com/v1/organizations/federation_rules" \
-  --header "anthropic-version: 2023-06-01" \
-  --header "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
-  --header "content-type: application/json" \
-  --data '{
+  -H "anthropic-version: 2023-06-01" \
+  -H "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
+  -H "content-type: application/json" \
+  -d '{
     "name": "gha-deploy",
     "issuer_id": "fdis_...",
     "match": {
@@ -167,13 +171,13 @@ curl --fail-with-body -sS "https://api.anthropic.com/v1/organizations/federation
 
 # List rules, optionally filtered by issuer
 curl --fail-with-body -sS "https://api.anthropic.com/v1/organizations/federation_rules?issuer_id=fdis_..." \
-  --header "anthropic-version: 2023-06-01" \
-  --header "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+  -H "anthropic-version: 2023-06-01" \
+  -H "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 
 # Archive a rule
-curl --fail-with-body -sS --request POST "https://api.anthropic.com/v1/organizations/federation_rules/fdrl_.../archive" \
-  --header "anthropic-version: 2023-06-01" \
-  --header "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+curl --fail-with-body -sS -X POST "https://api.anthropic.com/v1/organizations/federation_rules/fdrl_.../archive" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 The list endpoint returns a page of rules and the cursor for the next page:
@@ -192,9 +196,9 @@ For complete parameter details and response schemas, see the [Federation rules A
 ## Permissions and constraints
 
 <Note>
-  - OAuth-authenticated callers can only create or modify rules whose `oauth_scope` is `workspace:developer` or `workspace:inference`. To create or modify a rule with any other scope (such as `org:admin` or `org:manage_tunnels`), use the Console.
-  - An OAuth caller cannot update a federation issuer that backs a rule whose `oauth_scope` is anything other than `workspace:developer` or `workspace:inference` (such as `org:admin` or `org:manage_tunnels`). Consider registering a dedicated issuer for the bootstrap rule so the issuers behind workspace-scoped rules stay updatable through the API.
-  - Admin API keys are not accepted on these endpoints, for reads or writes; use an `org:admin` OAuth token.
+  * OAuth-authenticated callers can only create or modify rules whose `oauth_scope` is `workspace:developer` or `workspace:inference`. To create or modify a rule with any other scope (such as `org:admin` or `workspace:manage_tunnels`), use the Console.
+  * An OAuth caller cannot update a federation issuer that backs a rule whose `oauth_scope` is anything other than `workspace:developer` or `workspace:inference` (such as `org:admin` or `workspace:manage_tunnels`). Consider registering a dedicated issuer for the bootstrap rule so the issuers behind workspace-scoped rules stay updatable through the API.
+  * Admin API keys are not accepted on these endpoints, for reads or writes; use an `org:admin` OAuth token.
 </Note>
 
 A rule with `oauth_scope: org:admin` must target a service account whose `organization_role` is `admin`. Resource names must match `^[a-z0-9-]+$`, be 1 to 255 characters, and be unique within an organization for each resource type; for the full field-level constraints, see [Validation rules](/docs/en/manage-claude/wif-reference#validation-rules).
@@ -207,7 +211,7 @@ Archiving is a soft delete and is idempotent: archiving an already-archived reso
 
 ## See also
 
-- [Workload Identity Federation](/docs/en/manage-claude/workload-identity-federation): concepts and the Console setup walkthrough
-- [WIF reference](/docs/en/manage-claude/wif-reference): environment variables, validation rules, OAuth scopes, and error codes
-- [Admin API](/docs/en/manage-claude/admin-api): the rest of the organization management surface
-- [Admin API reference](/docs/en/api/admin): generated request and response schemas for every Admin API endpoint
+* [Workload Identity Federation](/docs/en/manage-claude/workload-identity-federation): concepts and the Console setup walkthrough
+* [WIF reference](/docs/en/manage-claude/wif-reference): environment variables, validation rules, OAuth scopes, and error codes
+* [Admin API](/docs/en/manage-claude/admin-api): the rest of the organization management surface
+* [Admin API reference](/docs/en/api/admin): generated request and response schemas for every Admin API endpoint

@@ -31,7 +31,7 @@ One way of understanding and tracking the capabilities of AI models is to run an
 
 To run our experiment, we recruited eight Anthropic researchers and engineers, none of whom had extensive prior experience with robots.1 We randomly selected four to be on “Team Claude” and four to be on “Team Claude-less.” Then, we asked each team to operate a quadruped robodog in three increasingly difficult phases. In all phases, the core task they were being evaluated against was simple: get the robodog to fetch a beach ball.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2d33c208c478a76cdf5e1709331e8062ea06e5b1-4584x1561.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/2d33c208c478a76cdf5e1709331e8062ea06e5b1-4584x1561.png)
 
 Left: Team Claude-less; Right: Team Claude.
 
@@ -55,13 +55,13 @@ Phase Three was even harder. The teams needed to develop a program that would al
 
 Overall, Team Claude accomplished more tasks and completed them faster on average. In fact, for the tasks that both teams completed, Team Claude succeeded in about half the time it took Team Claude-less (see Figure 1). That is: AI provided substantial uplift for this set of robotics tasks.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0d073513d5be90d96cfe696c6b15f4501bfbacfc-4584x2580.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/0d073513d5be90d96cfe696c6b15f4501bfbacfc-4584x2580.png)
 
 Figure 1: Team Claude was faster at the tasks completed by both teams.
 
 The task-by-task breakdown of results (split into the three phases) shows where Claude was most advantageous.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0801f4a4aa2931c87e5e7ddaef90f5d4653f5ba6-4584x2580.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/0801f4a4aa2931c87e5e7ddaef90f5d4653f5ba6-4584x2580.png)
 
 Table 1: Team Claude completed 7/8 tasks while Team Claude-less completed 6/8 tasks. Team Claude excelled in connectivity and detection tasks, while Team Claude-less showed advantages in some manual control tasks.
 
@@ -89,7 +89,7 @@ The localization algorithm is another intriguing case. When working on this sub-
 
 This was part of an interesting phenomenon we observed during the experiment. Team Claude wrote a lot more code (see Figure 2), but some of it was arguably a distraction from the task at hand.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0a0c22d38b297afc79f5c4c461add33cfc2b2e1c-4584x2580.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/0a0c22d38b297afc79f5c4c461add33cfc2b2e1c-4584x2580.png)
 
 Figure 2: Team Claude wrote about 9 times more code than Team Claude-less.
 
@@ -350,13 +350,13 @@ and in the physical world as well.
 
 The quantitative analysis mostly confirmed our observations (see Figure 3). Throughout the experiment, Team Claude-less’s dialogue was more negative. That said, the disappointment of Team Claude at failing to complete Phase Three, and the excitement of Team Claude-less at getting some things working, meant that the difference in net emotional expression between the two teams (positive words minus negative words) was not statistically significant.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6557e13cc11db7d858d32e64464b2bf8a4d590c0-4584x2580.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/6557e13cc11db7d858d32e64464b2bf8a4d590c0-4584x2580.png)
 
 Figure 3: Results of our quantitative analysis of the audio transcripts from Project Fetch related to emotional expression.
 
 Team Claude-less expressed confusion at double the rate of Team Claude (see Figure 4). The feelings of frustration and confusion were also evident when checking in with the members of Team Claude-less during and after the experiment. As Anthropic employees, all of our participants use Claude every day; every member of Team Claude-less remarked how strange it felt to have this taken away from them. Some specifically noted that this experience made them feel that their coding skills were not as sharp as they used to be. Keep in mind, [Claude Code](https://claude.com/product/claude-code) debuted only six months before this experiment. Talking to Team Claude-less underscored our ability to rapidly accept as normal what was recently remarkable.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F90c89bf556a73086b0a8f6ecccd3d8e589b1e0c2-4096x2305.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/90c89bf556a73086b0a8f6ecccd3d8e589b1e0c2-4096x2305.png)
 
 Figure 4: Differences in questions asked and expressions of confusion between the two teams. (Discrepancies between absolute and relative differences are due to rounding.)
 
@@ -416,21 +416,19 @@ The dogs are in their kennels at the moment. But we’ll let them out again soon
 
 5. Team Claude-less exhibited more negative emotion (*p* = 0.0017) and the size of the effect was large (*d* = 2.16). The difference in net emotional expression was not statistically significant (*p* = 0.2703). Statistical comparisons of negative emotion and net emotional expression between teams were conducted using the non-parametric Mann-Whitney *U* test, which tests for differences in distributions between two independent groups without assuming normality. *p*-values were calculated using a two-sided alternative hypothesis based on the rank-sum statistic and its asymptotic normal approximation. Effect sizes were quantified using Cohen's *d*, calculated as the difference between group means divided by the pooled standard deviation.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)
 
 ## Subscribe to the Frontier Red Team newsletter
 

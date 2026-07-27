@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![Fountain logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0d3a33fea0a5a3828b8fd_cs-logo-fountain-light-theme.svg)![Fountain logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0d3aa44c2e56444a4337a_cs-logo-fountain-dark-theme.svg)
 
@@ -146,26 +146,26 @@ Video caption
 
 ## Related stories
 
-[micro1 transforms technical recruiting with Claude](/customers/micro1)micro1 transforms technical recruiting with Claude
+[micro1 transforms technical recruiting with Claude](https://claude.com/customers/micro1)micro1 transforms technical recruiting with Claude
 
 micro1 transforms technical recruiting with Claude
 
 Customer story
 
-[Customer story](/customers/micro1)Customer story
+[Customer story](https://claude.com/customers/micro1)Customer story
 
-[Skillfully transforms hiring through AI-powered skill simulations with Claude](/customers/skillfully)Skillfully transforms hiring through AI-powered skill simulations with Claude
+[Skillfully transforms hiring through AI-powered skill simulations with Claude](https://claude.com/customers/skillfully)Skillfully transforms hiring through AI-powered skill simulations with Claude
 
 Skillfully transforms hiring through AI-powered skill simulations with Claude
 
 Customer story
 
-[Customer story](/customers/skillfully)Customer story
+[Customer story](https://claude.com/customers/skillfully)Customer story
 
-[Braintrust revolutionizes talent acquisition and career growth with Claude](/customers/braintrust)Braintrust revolutionizes talent acquisition and career growth with Claude
+[Braintrust revolutionizes talent acquisition and career growth with Claude](https://claude.com/customers/braintrust)Braintrust revolutionizes talent acquisition and career growth with Claude
 
 Braintrust revolutionizes talent acquisition and career growth with Claude
 
 Customer story
 
-[Customer story](/customers/braintrust)Customer story
+[Customer story](https://claude.com/customers/braintrust)Customer story

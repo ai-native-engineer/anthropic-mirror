@@ -177,7 +177,7 @@ Work across your literature databases, lab platforms, and productivity tools in 
 
 Explore connectors
 
-[Explore connectors](/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 ## Why scientists choose Claude
 

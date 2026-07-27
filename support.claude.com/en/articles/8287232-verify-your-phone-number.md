@@ -6,7 +6,7 @@ May 19, 2026
 
 When you first create a Claude account, you’ll be asked to enter your phone number from a **[supported location](https://support.claude.com/en/articles/8461763-where-can-i-access-claude)** to receive a verification code via text message:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893173143/de034a2e7d9a6ae1f703cf867afd/image.png?expires=1782460800&signature=6c6e728daf45f87b33ee85e384f1a1a736146a0535cb1242ac6eac75e78a260d&req=dSguFch5noBbWvMW1HO4zVIf8JJn2ipyoTnI%2BoMZk7eUvZkuUUbsSKWdU2md%0AK%2BJpGNazLgKWxrswCNM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893173143/de034a2e7d9a6ae1f703cf867afd/image.png?expires=1782460800&signature=6c6e728daf45f87b33ee85e384f1a1a736146a0535cb1242ac6eac75e78a260d&req=dSguFch5noBbWvMW1HO4zVIf8JJn2ipyoTnI%2BoMZk7eUvZkuUUbsSKWdU2md%0AK%2BJpGNazLgKWxrswCNM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893173143/de034a2e7d9a6ae1f703cf867afd/image.png?expires=1784923200&signature=9706fe52ab95e47402f0dc27dff1a6d55bdfb1b8db9dd0e0543c42cc1af884bc&req=dSguFch5noBbWvMW1HO4zVIf8JRq3il4oTnI%2BoMZk7eRwwIQ4K%2Benap%2Br2uh%0A9n31RvSmIyWOBKJf5Ew%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893173143/de034a2e7d9a6ae1f703cf867afd/image.png?expires=1784923200&signature=9706fe52ab95e47402f0dc27dff1a6d55bdfb1b8db9dd0e0543c42cc1af884bc&req=dSguFch5noBbWvMW1HO4zVIf8JRq3il4oTnI%2BoMZk7eRwwIQ4K%2Benap%2Br2uh%0A9n31RvSmIyWOBKJf5Ew%3D%0A)
 
 Once you receive the text message with the code, type it into the box and click “Verify code.” This will complete the verification and account creation process and allow you to start chatting with Claude.
 
@@ -54,4 +54,8 @@ Alternatively, you can enter a different phone number that hasn’t been used fo
 
 There isn’t a way to change your phone number associated with your Claude account once it has been verified. Please ensure you verify your account using a phone number you'll have access to long-term.
 
-[How do I change the email address associated with my account?](https://support.claude.com/en/articles/8452276-how-do-i-change-the-email-address-associated-with-my-account)[Getting started with Claude for Nonprofits](https://support.claude.com/en/articles/12893767-getting-started-with-claude-for-nonprofits)[Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)[Logging in to your Console account](https://support.claude.com/en/articles/13371040-logging-in-to-your-console-account)[Restrict verified-domain connectors to your Enterprise](https://support.claude.com/en/articles/15402193-restrict-verified-domain-connectors-to-your-enterprise)
+* [How do I change the email address associated with my account?](https://support.claude.com/en/articles/8452276-how-do-i-change-the-email-address-associated-with-my-account)
+* [Getting started with Claude for Nonprofits](https://support.claude.com/en/articles/12893767-getting-started-with-claude-for-nonprofits)
+* [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
+* [Logging in to your Console account](https://support.claude.com/en/articles/13371040-logging-in-to-your-console-account)
+* [Restrict verified-domain connectors to your Enterprise](https://support.claude.com/en/articles/15402193-restrict-verified-domain-connectors-to-your-enterprise)

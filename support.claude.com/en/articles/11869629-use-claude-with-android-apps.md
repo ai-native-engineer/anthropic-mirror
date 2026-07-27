@@ -2,7 +2,7 @@
 
 # Use Claude with Android apps
 
-May 21, 2026
+Updated yesterday
 
 Claude can now connect with your Android device's system apps to help you take action directly from your conversations. When you chat with Claude, it can draft messages, emails, calendar events, set alarms and timers, find locations, and more—all through your everyday apps without copy-paste.
 
@@ -33,9 +33,7 @@ Claude can help you:
 
 When Claude determines that using one of these features would be helpful, it will automatically offer to help. You'll see a card or prompt within your conversation that lets you review and take action with Claude’s help.
 
-**Note:** Setting alarms and timers works with voice mode beta. Other features like drafting messages and calendar events are not supported when using voice mode. For more information, see **[Use voice mode](https://support.claude.com/en/articles/11101966-)**.
-
-### Sending texts and emails with Messages and Mail
+### Send texts and emails with Messages and Mail
 
 1. Ask Claude to help draft a message or email (for example: "Draft an email to my supervisor about the project update").
 2. Claude will prepare the content and show you a preview.
@@ -45,7 +43,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 **Example:** "Draft a message to my study group about canceling tonight's session."
 
-### Using location for contextual suggestions
+### Use location for contextual suggestions
 
 1. Ask Claude for location-based recommendations (for example: "What restaurants are near me?").
 2. Claude will request access to your location if not already granted.
@@ -54,7 +52,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 **Example:** "Find nearby parks for jogging."
 
-### Displaying locations with Maps
+### Display locations with Maps
 
 1. When Claude suggests locations, they can be displayed on an interactive map.
 2. Tap on any location to see more details.
@@ -63,7 +61,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 **Example:** "Show me hardware stores within five miles on a map."
 
-### Managing your calendar
+### Manage your calendar
 
 1. Ask Claude to check your schedule or create events.
 2. Claude will request calendar access if not already granted.
@@ -77,7 +75,7 @@ When Claude determines that using one of these features would be helpful, it wil
 * "Schedule a team lunch for next Thursday at noon."
 * "Create a recurring workout session every Tuesday and Thursday at 6 AM."
 
-### Setting alarms and timers using Clock apps
+### Set alarms and timers using Clock apps
 
 1. Ask Claude to set an alarm or timer.
 2. Claude will automatically create the alarm or start the timer.
@@ -89,7 +87,7 @@ When Claude determines that using one of these features would be helpful, it wil
 * "Set an alarm for 7 AM tomorrow."
 * "Start a 20-minute timer for my workout."
 
-## Accessing and analyzing your health data
+## Access and analyze your health data
 
 **Note:** Health features are available in beta on Pro and Max plans only, require Android 14 or later, and are limited to users in the US.
 
@@ -169,7 +167,7 @@ Permission requirements vary by feature:
 
 For features requiring permissions (like location or calendar access), Claude will request permission contextually with clear explanations of why the access is needed. You’ll be prompted to approve the action with three options: Allow once, Always allow, or Don't allow.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1782460800&signature=95995c0bf02ae5a224d9a465cbd6ddde70a61ddc7ddb6b256d5639a2e3075e56&req=dScnEcp7nIdeXfMW1HO4zQe5Gl2L3SX8S5x65TIld%2FDBmv4jHmEMOVdVgoqh%0AxSpR61EkqnYwfAP9rvU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1782460800&signature=95995c0bf02ae5a224d9a465cbd6ddde70a61ddc7ddb6b256d5639a2e3075e56&req=dScnEcp7nIdeXfMW1HO4zQe5Gl2L3SX8S5x65TIld%2FDBmv4jHmEMOVdVgoqh%0AxSpR61EkqnYwfAP9rvU%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1784980800&signature=cc6e27948a7353ef0dd4774b6b2d2653d172097ef6d88da566ea832f8135cb47&req=dScnEcp7nIdeXfMW3nq%2BgT%2BIyd%2F9rwqY7zHKikGn3FV88ejPSXRS1Hh0vgHN%0AbG3TXxdfeF%2FEnyKI34QhUsLKe9Q%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1784980800&signature=cc6e27948a7353ef0dd4774b6b2d2653d172097ef6d88da566ea832f8135cb47&req=dScnEcp7nIdeXfMW3nq%2BgT%2BIyd%2F9rwqY7zHKikGn3FV88ejPSXRS1Hh0vgHN%0AbG3TXxdfeF%2FEnyKI34QhUsLKe9Q%3D%0A)
 
 These permissions can be managed at any time in your device settings by going to Settings > Apps > Claude > Permissions. Click into each permission listed under **Allowed** and **Not allowed** to make changes. You can toggle between “Allow only while using the app” or “Ask every time” to change Claude’s access, or remove permissions by choosing “Don’t allow.” Claude will only request permissions if needed for specific features, and you can always choose to decline while still using other capabilities.
 
@@ -227,4 +225,8 @@ Health Connect permissions are managed separately from other app permissions. Wh
 
 **Need more help?** If you're experiencing issues with these features, try restarting Claude for Android or **[updating the app to the latest version from the Google Play Store](https://support.claude.com/en/articles/11825394-how-to-update-claude-for-android)**.
 
-[Using the Claude Widget on Android](https://support.claude.com/en/articles/10534883-using-the-claude-widget-on-android)[Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)[Use Claude with iOS apps](https://support.claude.com/en/articles/11869619-use-claude-with-ios-apps)[Let Claude use your computer in Cowork](https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork)[Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)
+* [Install Claude for Android](https://support.claude.com/en/articles/9612887-install-claude-for-android)
+* [Use the Claude widget on Android](https://support.claude.com/en/articles/10534883-use-the-claude-widget-on-android)
+* [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
+* [Use Claude with iOS apps](https://support.claude.com/en/articles/11869619-use-claude-with-ios-apps)
+* [Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)

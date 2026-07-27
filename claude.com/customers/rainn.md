@@ -8,7 +8,9 @@ Try Claude
 
 [Try Claude](https://claude.ai)Try Claude
 
-[Contact sales](/contact-sales)Contact sales
+Contact sales
+
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a57cc3a12ba4fd5b38e358a_logo_rainn-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a57cc4468867728a26e33ae_logo_rainn-dark-mode.svg)
 
@@ -23,6 +25,8 @@ Small
 Product:
 
 Claude for Nonprofits
+
+Claude Code
 
 Claude Enterprise
 
@@ -52,15 +56,23 @@ Beneficial Deployments
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
 Accelerate the work that matters most
 
 Video caption
+
+[Next](#)Next
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 Beneficial Deployments
 
 Accelerate the work that matters most
+
+[Prev](#)Prev
+
+[Next](#)Next
 
 [RAINN](https://rainn.org/help-and-healing/hotline/), the Rape, Abuse & Incest National Network, has connected survivors of sexual violence with confidential support for over 30 years through its National Sexual Assault Hotline and online services. As CTO, William Bondurant leads the engineering work that extends RAINN's reach to new channels, including building the hotline interface on encrypted messaging platforms like Signal. We spoke with William about how RAINN's engineering team uses Claude Code to build infrastructure for crisis support, while still keeping the crisis support itself fully human. As RAINN has adopted Claude across its operations, their guiding principle is that AI's role is to connect survivors with human support faster, not to replace people. The following conversation has been edited for length and clarity.
 
@@ -128,15 +140,19 @@ Turn limited resources into lasting impact. Generate grant proposals, track prog
 
 Read more
 
-[Read more](/solutions/nonprofits)Read more
+[Read more](https://claude.com/solutions/nonprofits)Read more
 
 Nonprofits
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
 Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
 Video caption
+
+[Next](#)Next
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -176,40 +192,48 @@ Second, take your encryption and confidentiality requirements seriously when you
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
 Video caption
+
+[Next](#)Next
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Prev](#)Prev
+
+[Next](#)Next
+
 ## Related stories
 
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
+[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
 
 The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
 
 Customer story
 
-[Customer story](/customers/epilepsy-foundation)Customer story
+[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
 
-[How the Epilepsy Foundation uses Claude across the organization](/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
+[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
 
 How the Epilepsy Foundation uses Claude across the organization
 
 Customer story
 
-[Customer story](/customers/epilepsy-foundation-qa)Customer story
+[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
 
-[Building dignity-driven AI: A conversation with the National Domestic Workers Alliance](/customers/national-domestic-workers-alliance-qa)Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
+[Building dignity-driven AI: A conversation with the National Domestic Workers Alliance](https://claude.com/customers/national-domestic-workers-alliance-qa)Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
 
 Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
 
 Customer story
 
-[Customer story](/customers/national-domestic-workers-alliance-qa)Customer story
+[Customer story](https://claude.com/customers/national-domestic-workers-alliance-qa)Customer story
 
-[National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude](/customers/national-domestic-workers-alliance)National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude
+[National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude](https://claude.com/customers/national-domestic-workers-alliance)National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude
 
 National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude
 
 Customer story
 
-[Customer story](/customers/national-domestic-workers-alliance)Customer story
+[Customer story](https://claude.com/customers/national-domestic-workers-alliance)Customer story

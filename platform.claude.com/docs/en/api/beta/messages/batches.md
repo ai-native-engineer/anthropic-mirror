@@ -10,7 +10,7 @@ Send a batch of Message creation requests.
 
 The Message Batches API can be used to process multiple Messages API requests at once. Once a Message Batch is created, it begins processing immediately. Batches can take up to 24 hours to complete.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Header Parameters
 
@@ -20,7 +20,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 29 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -72,11 +72,23 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
+
+- `"anthropic-user-profile-id": optional string`
+
+  The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
 ### Body Parameters
 
@@ -90,11 +102,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     Must be unique for each request within the Message Batch.
 
-  - `params: object { max_tokens, messages, model, 23 more }`
+  - `params: object { max_tokens, messages, model, 22 more }`
 
     Messages API creation parameters for the individual request.
 
-    See the [Messages API reference](https://docs.claude.com/en/api/messages) for full documentation on available parameters.
+    See the [Messages API reference](https://platform.claude.com/docs/en/api/messages) for full documentation on available parameters.
 
     - `max_tokens: number`
 
@@ -102,9 +114,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       Note that our models may stop _before_ reaching this maximum. This parameter only specifies the absolute maximum number of tokens to generate.
 
-      Set to `0` to populate the [prompt cache](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
+      Set to `0` to populate the [prompt cache](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
 
-      Different models have different maximum values for this parameter.  See [models](https://docs.claude.com/en/docs/models-overview) for details.
+      Different models have different maximum values for this parameter.  See [models](https://platform.claude.com/docs/en/about-claude/models/overview) for details.
 
     - `messages: array of BetaMessageParam`
 
@@ -151,9 +163,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
       ```
 
-      See [input examples](https://docs.claude.com/en/api/messages-examples).
+      See [input examples](https://platform.claude.com/docs/en/build-with-claude/working-with-messages).
 
-      Note that if you want to include a [system prompt](https://docs.claude.com/en/docs/system-prompts), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
+      Note that if you want to include a [system prompt](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
 
       There is a limit of 100,000 messages in a single request.
 
@@ -188,7 +200,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `5m`: 5 minutes
                 - `1h`: 1 hour
 
-                Defaults to `5m`.
+                Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
                 - `"5m"`
 
@@ -1142,19 +1154,109 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             Use this block to provide or update system-level instructions at a specific
             point in the conversation, rather than only via the top-level `system` parameter.
 
-            - `content: array of BetaTextBlockParam`
+            - `content: array of BetaTextBlockParam or BetaRequestToolAdditionBlock or BetaRequestToolRemovalBlock`
 
               System instruction text blocks.
 
-              - `text: string`
+              - `BetaTextBlockParam object { text, type, cache_control, citations }`
 
-              - `type: "text"`
+              - `BetaRequestToolAdditionBlock object { tool, type, cache_control }`
 
-              - `cache_control: optional BetaCacheControlEphemeral`
+                Mid-conversation directive to surface a declared tool.
 
-                Create a cache control breakpoint at this content block.
+                `tool` references a tool (or MCP toolset) by name from the request's
+                `tools`; it is offered to the model from this point in the
+                conversation onward.
 
-              - `citations: optional array of BetaTextCitationParam`
+                - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
+
+                  Reference to a single tool the caller declared directly in
+                  `tools[]`. Does not accept the composed `{server}_{name}` form the
+                  server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                  `mcp_toolset_reference` for those.
+
+                  - `BetaToolChangeToolReference object { name, type }`
+
+                    Reference to a single tool the caller declared directly in
+                    `tools[]`. Does not accept the composed `{server}_{name}` form the
+                    server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                    `mcp_toolset_reference` for those.
+
+                    - `name: string`
+
+                    - `type: "tool_reference"`
+
+                      - `"tool_reference"`
+
+                  - `BetaToolChangeMCPToolReference object { name, server_name, type }`
+
+                    Reference to a single MCP tool by its server and remote name — the
+                    same `server_name`/`name` pair `mcp_tool_use` carries.
+
+                    - `name: string`
+
+                    - `server_name: string`
+
+                    - `type: "mcp_tool_reference"`
+
+                      - `"mcp_tool_reference"`
+
+                  - `BetaToolChangeMCPToolsetReference object { server_name, type }`
+
+                    Reference to every tool in the named MCP server's toolset.
+
+                    - `server_name: string`
+
+                    - `type: "mcp_toolset_reference"`
+
+                      - `"mcp_toolset_reference"`
+
+                - `type: "tool_addition"`
+
+                  - `"tool_addition"`
+
+                - `cache_control: optional BetaCacheControlEphemeral`
+
+                  Create a cache control breakpoint at this content block.
+
+              - `BetaRequestToolRemovalBlock object { tool, type, cache_control }`
+
+                Mid-conversation directive to withdraw a tool.
+
+                `tool` references a tool (or MCP toolset) by name from the request's
+                `tools`; it is no longer offered to the model from this point in the
+                conversation onward.
+
+                - `tool: BetaToolChangeToolReference or BetaToolChangeMCPToolReference or BetaToolChangeMCPToolsetReference`
+
+                  Reference to a single tool the caller declared directly in
+                  `tools[]`. Does not accept the composed `{server}_{name}` form the
+                  server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                  `mcp_toolset_reference` for those.
+
+                  - `BetaToolChangeToolReference object { name, type }`
+
+                    Reference to a single tool the caller declared directly in
+                    `tools[]`. Does not accept the composed `{server}_{name}` form the
+                    server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                    `mcp_toolset_reference` for those.
+
+                  - `BetaToolChangeMCPToolReference object { name, server_name, type }`
+
+                    Reference to a single MCP tool by its server and remote name — the
+                    same `server_name`/`name` pair `mcp_tool_use` carries.
+
+                  - `BetaToolChangeMCPToolsetReference object { server_name, type }`
+
+                    Reference to every tool in the named MCP server's toolset.
+
+                - `type: "tool_removal"`
+
+                  - `"tool_removal"`
+
+                - `cache_control: optional BetaCacheControlEphemeral`
+
+                  Create a cache control breakpoint at this content block.
 
             - `type: "mid_conv_system"`
 
@@ -1163,6 +1265,22 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `cache_control: optional BetaCacheControlEphemeral`
 
               Create a cache control breakpoint at this content block.
+
+          - `BetaRequestToolAdditionBlock object { tool, type, cache_control }`
+
+            Mid-conversation directive to surface a declared tool.
+
+            `tool` references a tool (or MCP toolset) by name from the request's
+            `tools`; it is offered to the model from this point in the
+            conversation onward.
+
+          - `BetaRequestToolRemovalBlock object { tool, type, cache_control }`
+
+            Mid-conversation directive to withdraw a tool.
+
+            `tool` references a tool (or MCP toolset) by name from the request's
+            `tools`; it is no longer offered to the model from this point in the
+            conversation onward.
 
           - `BetaFallbackBlockParam object { from, to, type, trigger }`
 
@@ -1190,11 +1308,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                - `"claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more`
+                - `"claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more`
 
                   The model that will complete your prompt.
 
                   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                  - `"claude-sonnet-5"`
+
+                    High-performance model for coding and agents
 
                   - `"claude-fable-5"`
 
@@ -1204,13 +1326,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                     Most capable model for cybersecurity and biology research
 
+                  - `"claude-opus-5"`
+
+                    Powerful intelligence for long-running agents and coding
+
                   - `"claude-opus-4-8"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-opus-4-7"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-mythos-preview"`
 
@@ -1218,7 +1344,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `"claude-opus-4-6"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-sonnet-4-6"`
 
@@ -1234,11 +1360,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `"claude-opus-4-5"`
 
-                    Premium model combining maximum intelligence with practical performance
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-opus-4-5-20251101"`
 
-                    Premium model combining maximum intelligence with practical performance
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-sonnet-4-5"`
 
@@ -1250,11 +1376,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `"claude-opus-4-1"`
 
-                    Exceptional model for specialized complex tasks
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-opus-4-1-20250805"`
 
-                    Exceptional model for specialized complex tasks
+                    Powerful intelligence for long-running agents and coding
 
                 - `string`
 
@@ -1447,7 +1573,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
         The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
 
-    - `fallback_credit_token: optional string`
+    - `fallback_credit_token: optional string or BetaFallbackCreditTokenParam`
 
       The `fallback_credit_token` from a prior refusal's `stop_details`.
 
@@ -1470,113 +1596,145 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       When the appended-assistant form is used on a model that otherwise disallows
       assistant-turn prefill, this token also authorizes that one prefill.
 
-    - `fallbacks: optional array of BetaFallbackParam`
+      - `string`
 
-      Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on.
+      - `BetaFallbackCreditTokenParam object { token, mode }`
 
-      - `model: Model`
+        Object form of `fallback_credit_token`: the token plus a redemption
+        mode.
 
-        The model that will complete your prompt.
+        Requires `anthropic-beta: fallback-credit-2026-07-01`; without that
+        header the field accepts the bare string only. The bare string and the
+        mode-less object are equivalent (both select `strict`), so wrapping
+        an existing token changes nothing by itself.
 
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `token: string`
 
-      - `max_tokens: optional number`
+          The opaque `fallback_credit_token` from a prior refusal's `stop_details` — the same string the bare-string form carries.
 
-      - `output_config: optional BetaOutputConfig`
+        - `mode: optional "strict" or "best_effort"`
 
-        - `effort: optional "low" or "medium" or "high" or 2 more`
+          How a failing token affects the retry. `strict` (the default, and the bare-string behavior): a failing redemption is a 400 and the retry is not served. `best_effort`: the retry is served either way — a token-layer failure no longer rejects the request; the retry proceeds at normal price and the outcome is reported on the response's `usage.fallback_credit`. Two failures stay hard in both modes: a malformed token, and combining `fallback_credit_token` with `fallbacks`.
 
-          All possible effort levels.
+          - `"strict"`
 
-          - `"low"`
+          - `"best_effort"`
 
-          - `"medium"`
+    - `fallbacks: optional BetaFallbacksParam`
 
-          - `"high"`
+      Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on. The string "default" requests the requested model's server-defined default fallback configuration.
 
-          - `"xhigh"`
+      - `array of BetaFallbackParam`
 
-          - `"max"`
+        - `model: Model`
 
-        - `format: optional BetaJSONOutputFormat`
+          The model that will complete your prompt.
 
-          A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `schema: map[unknown]`
+        - `max_tokens: optional number`
 
-            The JSON schema of the format
+        - `output_config: optional BetaOutputConfig`
 
-          - `type: "json_schema"`
+          - `effort: optional "low" or "medium" or "high" or 2 more`
 
-            - `"json_schema"`
+            All possible effort levels.
 
-        - `task_budget: optional BetaTokenTaskBudget`
+            - `"low"`
 
-          User-configurable total token budget across contexts.
+            - `"medium"`
 
-          - `total: number`
+            - `"high"`
 
-            Total token budget across all contexts in the session.
+            - `"xhigh"`
 
-          - `type: "tokens"`
+            - `"max"`
 
-            The budget type. Currently only 'tokens' is supported.
+          - `format: optional BetaJSONOutputFormat`
 
-            - `"tokens"`
+            A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 
-          - `remaining: optional number`
+            - `schema: map[unknown]`
 
-            Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+              The JSON schema of the format
 
-      - `speed: optional "standard" or "fast"`
+            - `type: "json_schema"`
 
-        - `"standard"`
+              - `"json_schema"`
 
-        - `"fast"`
+          - `task_budget: optional BetaTokenTaskBudget`
 
-      - `thinking: optional BetaThinkingConfigEnabled or BetaThinkingConfigDisabled or BetaThinkingConfigAdaptive`
+            User-configurable total token budget across contexts.
 
-        - `BetaThinkingConfigEnabled object { budget_tokens, type, display }`
+            - `total: number`
 
-          - `budget_tokens: number`
+              Total token budget across all contexts in the session.
 
-            Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+            - `type: "tokens"`
 
-            Must be ≥1024 and less than `max_tokens`.
+              The budget type. Currently only 'tokens' is supported.
 
-            See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+              - `"tokens"`
 
-          - `type: "enabled"`
+            - `remaining: optional number`
 
-            - `"enabled"`
+              Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
 
-          - `display: optional "summarized" or "omitted"`
+        - `speed: optional "standard" or "fast"`
 
-            Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-            - `"summarized"`
+          - `"standard"`
 
-            - `"omitted"`
+          - `"fast"`
 
-        - `BetaThinkingConfigDisabled object { type }`
+        - `thinking: optional BetaThinkingConfigEnabled or BetaThinkingConfigDisabled or BetaThinkingConfigAdaptive`
 
-          - `type: "disabled"`
+          - `BetaThinkingConfigEnabled object { budget_tokens, type, display }`
 
-            - `"disabled"`
+            - `budget_tokens: number`
 
-        - `BetaThinkingConfigAdaptive object { type, display }`
+              Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
 
-          - `type: "adaptive"`
+              Must be ≥1024 and less than `max_tokens`.
 
-            - `"adaptive"`
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-          - `display: optional "summarized" or "omitted"`
+            - `type: "enabled"`
 
-            Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+              - `"enabled"`
 
-            - `"summarized"`
+            - `display: optional "summarized" or "omitted"`
 
-            - `"omitted"`
+              Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+              - `"summarized"`
+
+              - `"omitted"`
+
+          - `BetaThinkingConfigDisabled object { type }`
+
+            - `type: "disabled"`
+
+              - `"disabled"`
+
+          - `BetaThinkingConfigAdaptive object { type, display }`
+
+            - `type: "adaptive"`
+
+              - `"adaptive"`
+
+            - `display: optional "summarized" or "omitted"`
+
+              Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+              - `"summarized"`
+
+              - `"omitted"`
+
+      - `Default = "default"`
+
+        - `"default"`
 
     - `inference_geo: optional string`
 
@@ -1626,7 +1784,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       Determines whether to use priority capacity (if available) or standard capacity for this request.
 
-      Anthropic offers different levels of service for your API requests. See [service-tiers](https://docs.claude.com/en/api/service-tiers) for details.
+      Anthropic offers different levels of service for your API requests. See [service-tiers](https://platform.claude.com/docs/en/api/service-tiers) for details.
 
       - `"auto"`
 
@@ -1634,7 +1792,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `speed: optional "standard" or "fast"`
 
-      The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `"standard"`
 
@@ -1652,13 +1810,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       Whether to incrementally stream the response using server-sent events.
 
-      See [streaming](https://docs.claude.com/en/api/messages-streaming) for details.
+      See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
 
     - `system: optional string or array of BetaTextBlockParam`
 
       System prompt.
 
-      A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://docs.claude.com/en/docs/system-prompts).
+      A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).
 
       - `string`
 
@@ -1688,7 +1846,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
-      See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+      See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
       - `BetaThinkingConfigEnabled object { budget_tokens, type, display }`
 
@@ -1760,7 +1918,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       If you include `tools` in your API request, the model may return `tool_use` content blocks that represent the model's use of those tools. You can then run those tools using the tool input generated by the model and then optionally return results back to the model using `tool_result` content blocks.
 
-      There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
+      There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool)).
 
       Each tool definition includes:
 
@@ -1816,7 +1974,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
 
-      See our [guide](https://docs.claude.com/en/docs/tool-use) for more details.
+      See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
       - `BetaTool object { input_schema, name, allowed_callers, 7 more }`
 
@@ -2748,6 +2906,134 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
+      - `BetaWebSearchTool20260318 object { name, type, allowed_callers, 8 more }`
+
+        - `name: "web_search"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"web_search"`
+
+        - `type: "web_search_20260318"`
+
+          - `"web_search_20260318"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `allowed_domains: optional array of string`
+
+          If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+        - `blocked_domains: optional array of string`
+
+          If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+        - `cache_control: optional BetaCacheControlEphemeral`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `max_uses: optional number`
+
+          Maximum number of times the tool can be used in the API request.
+
+        - `response_inclusion: optional "full" or "excluded"`
+
+          How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+          - `"full"`
+
+          - `"excluded"`
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+        - `user_location: optional BetaUserLocation`
+
+          Parameters for the user's location. Used to provide more relevant search results.
+
+      - `BetaWebFetchTool20260318 object { name, type, allowed_callers, 10 more }`
+
+        - `name: "web_fetch"`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `"web_fetch"`
+
+        - `type: "web_fetch_20260318"`
+
+          - `"web_fetch_20260318"`
+
+        - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120" or "code_execution_20260521"`
+
+          - `"direct"`
+
+          - `"code_execution_20250825"`
+
+          - `"code_execution_20260120"`
+
+          - `"code_execution_20260521"`
+
+        - `allowed_domains: optional array of string`
+
+          List of domains to allow fetching from
+
+        - `blocked_domains: optional array of string`
+
+          List of domains to block fetching from
+
+        - `cache_control: optional BetaCacheControlEphemeral`
+
+          Create a cache control breakpoint at this content block.
+
+        - `citations: optional BetaCitationsConfigParam`
+
+          Citations configuration for fetched documents. Citations are disabled by default.
+
+        - `defer_loading: optional boolean`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `max_content_tokens: optional number`
+
+          Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+        - `max_uses: optional number`
+
+          Maximum number of times the tool can be used in the API request.
+
+        - `response_inclusion: optional "full" or "excluded"`
+
+          How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+          - `"full"`
+
+          - `"excluded"`
+
+        - `strict: optional boolean`
+
+          When true, guarantees schema validation on tool names and inputs
+
+        - `use_cache: optional boolean`
+
+          Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
       - `BetaAdvisorTool20260301 object { model, name, type, 7 more }`
 
         - `model: Model`
@@ -2929,10 +3215,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       Recommended for advanced use cases only.
 
-    - `user_profile_id: optional string`
-
-      The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization.
-
 ### Returns
 
 - `BetaMessageBatch object { id, archived_at, cancel_initiated_at, 7 more }`
@@ -3079,7 +3361,7 @@ curl https://api.anthropic.com/v1/messages/batches \
 
 This endpoint is idempotent and can be used to poll for Message Batch completion. To access the results of a Message Batch, make a request to the `results_url` field in the response.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Path Parameters
 
@@ -3095,7 +3377,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 29 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -3147,11 +3429,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -3281,7 +3571,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID \
 
 List all Message Batches within a Workspace. Most recently created batches are returned first.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Query Parameters
 
@@ -3307,7 +3597,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 29 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -3359,11 +3649,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -3514,7 +3812,7 @@ Batches may be canceled any time before processing ends. Once cancellation is in
 
 The number of canceled requests is specified in `request_counts`. To determine which requests were canceled, check the individual results within the batch. Note that cancellation may not result in any canceled requests if they were non-interruptible.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Path Parameters
 
@@ -3530,7 +3828,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 29 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -3582,11 +3880,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -3719,7 +4025,7 @@ Delete a Message Batch.
 
 Message Batches can only be deleted once they've finished processing. If you'd like to delete an in-progress batch, you must first cancel it.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Path Parameters
 
@@ -3735,7 +4041,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 29 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -3787,11 +4093,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -3836,7 +4150,7 @@ Streams the results of a Message Batch as a `.jsonl` file.
 
 Each line in the file is a JSON object containing the result of a single request in the Message Batch. Results are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Path Parameters
 
@@ -3852,7 +4166,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 29 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -3904,11 +4218,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -4779,11 +5101,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                - `"claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more`
+                - `"claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more`
 
                   The model that will complete your prompt.
 
                   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                  - `"claude-sonnet-5"`
+
+                    High-performance model for coding and agents
 
                   - `"claude-fable-5"`
 
@@ -4793,13 +5119,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                     Most capable model for cybersecurity and biology research
 
+                  - `"claude-opus-5"`
+
+                    Powerful intelligence for long-running agents and coding
+
                   - `"claude-opus-4-8"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-opus-4-7"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-mythos-preview"`
 
@@ -4807,7 +5137,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `"claude-opus-4-6"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-sonnet-4-6"`
 
@@ -4823,11 +5153,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `"claude-opus-4-5"`
 
-                    Premium model combining maximum intelligence with practical performance
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-opus-4-5-20251101"`
 
-                    Premium model combining maximum intelligence with practical performance
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-sonnet-4-5"`
 
@@ -4839,11 +5169,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `"claude-opus-4-1"`
 
-                    Exceptional model for specialized complex tasks
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-opus-4-1-20250805"`
 
-                    Exceptional model for specialized complex tasks
+                    Powerful intelligence for long-running agents and coding
 
                 - `string`
 
@@ -4855,17 +5185,29 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               What caused the `from` model to hand over at this hop.
 
-              - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+              - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
                 The policy category that triggered a refusal.
 
                 - `"cyber"`
 
+                  The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
                 - `"bio"`
+
+                  The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
                 - `"frontier_llm"`
 
+                  The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
                 - `"reasoning_extraction"`
+
+                  The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+                - `"general_harms"`
+
+                  The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
               - `type: "refusal"`
 
@@ -4996,17 +5338,29 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           Structured information about a refusal.
 
-          - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+          - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
             The policy category that triggered a refusal.
 
             - `"cyber"`
 
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
             - `"bio"`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
             - `"frontier_llm"`
 
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
             - `"reasoning_extraction"`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `"general_harms"`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
           - `explanation: string`
 
@@ -5079,6 +5433,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           * `"tool_use"`: the model invoked one or more tools
           * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
           * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+          * `"model_context_window_exceeded"`: we exceeded the model's context window
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -5143,6 +5498,78 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `cache_read_input_tokens: number`
 
             The number of input tokens read from the cache.
+
+          - `fallback_credit: BetaFallbackCreditUsage`
+
+            Outcome of the `fallback_credit_token` presented on this request.
+
+            - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+              Whether the fallback-credit reprice was applied to this response's billing.
+
+              A union discriminated on `type`. `redeemed`: the retry is billed as if
+              the conversation had been on the retry model all along — including when the
+              resulting shift is zero because there was nothing to move. `not_applied`:
+              no reprice was applied; the arm's `reason` says why.
+
+              - `BetaFallbackCreditRedeemed object { type }`
+
+                The reprice was applied: the retry is billed as if the conversation
+                had been on the retry model all along.
+
+                - `type: "redeemed"`
+
+                  - `"redeemed"`
+
+              - `BetaFallbackCreditNotApplied object { reason, type, remove_to_redeem }`
+
+                No reprice was applied; `reason` says why.
+
+                - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+                  Why the reprice was not applied.
+
+                  A closed enum; additions to the redemption-check vocabulary arrive as
+                  deliberate schema updates.
+
+                  - `"body_mismatch"`
+
+                  - `"continuation_excluded"`
+
+                  - `"continuation_only"`
+
+                  - `"expired"`
+
+                  - `"invalid_target_model"`
+
+                  - `"not_enabled"`
+
+                  - `"reprice_unavailable"`
+
+                  - `"temporarily_unavailable"`
+
+                  - `"variant_fields_present"`
+
+                  - `"wrong_organization"`
+
+                  - `"wrong_platform"`
+
+                  - `"wrong_workspace"`
+
+                - `type: "not_applied"`
+
+                  - `"not_applied"`
+
+                - `remove_to_redeem: optional array of string`
+
+                  Request fields to remove before retrying, so the retry can redeem this
+                  token.
+
+                  Present exactly when `reason` is `variant_fields_present` — never null,
+                  never an empty array; absent otherwise. Fields are named only from your own request, and only after
+                  the sealed variant hash matched. A served best-effort retry has already
+                  been billed at normal price; nothing redeems retroactively, but a corrected
+                  re-send inside the token's five-minute window can still redeem.
 
           - `inference_geo: string`
 
@@ -5353,7 +5780,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           - `speed: "standard" or "fast"`
 
-            The inference speed mode used for this request.
+            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
             - `"standard"`
 
@@ -6555,11 +6982,15 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                - `"claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more`
+                - `"claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more`
 
                   The model that will complete your prompt.
 
                   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                  - `"claude-sonnet-5"`
+
+                    High-performance model for coding and agents
 
                   - `"claude-fable-5"`
 
@@ -6569,13 +7000,17 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                     Most capable model for cybersecurity and biology research
 
+                  - `"claude-opus-5"`
+
+                    Powerful intelligence for long-running agents and coding
+
                   - `"claude-opus-4-8"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-opus-4-7"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-mythos-preview"`
 
@@ -6583,7 +7018,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   - `"claude-opus-4-6"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-sonnet-4-6"`
 
@@ -6599,11 +7034,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   - `"claude-opus-4-5"`
 
-                    Premium model combining maximum intelligence with practical performance
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-opus-4-5-20251101"`
 
-                    Premium model combining maximum intelligence with practical performance
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-sonnet-4-5"`
 
@@ -6615,11 +7050,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   - `"claude-opus-4-1"`
 
-                    Exceptional model for specialized complex tasks
+                    Powerful intelligence for long-running agents and coding
 
                   - `"claude-opus-4-1-20250805"`
 
-                    Exceptional model for specialized complex tasks
+                    Powerful intelligence for long-running agents and coding
 
                 - `string`
 
@@ -6631,17 +7066,29 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               What caused the `from` model to hand over at this hop.
 
-              - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+              - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
                 The policy category that triggered a refusal.
 
                 - `"cyber"`
 
+                  The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
                 - `"bio"`
+
+                  The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
                 - `"frontier_llm"`
 
+                  The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
                 - `"reasoning_extraction"`
+
+                  The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+                - `"general_harms"`
+
+                  The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
               - `type: "refusal"`
 
@@ -6772,17 +7219,29 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           Structured information about a refusal.
 
-          - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+          - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
             The policy category that triggered a refusal.
 
             - `"cyber"`
 
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
             - `"bio"`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
             - `"frontier_llm"`
 
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
             - `"reasoning_extraction"`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `"general_harms"`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
           - `explanation: string`
 
@@ -6855,6 +7314,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
           * `"tool_use"`: the model invoked one or more tools
           * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
           * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+          * `"model_context_window_exceeded"`: we exceeded the model's context window
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -6919,6 +7379,78 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
           - `cache_read_input_tokens: number`
 
             The number of input tokens read from the cache.
+
+          - `fallback_credit: BetaFallbackCreditUsage`
+
+            Outcome of the `fallback_credit_token` presented on this request.
+
+            - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+              Whether the fallback-credit reprice was applied to this response's billing.
+
+              A union discriminated on `type`. `redeemed`: the retry is billed as if
+              the conversation had been on the retry model all along — including when the
+              resulting shift is zero because there was nothing to move. `not_applied`:
+              no reprice was applied; the arm's `reason` says why.
+
+              - `BetaFallbackCreditRedeemed object { type }`
+
+                The reprice was applied: the retry is billed as if the conversation
+                had been on the retry model all along.
+
+                - `type: "redeemed"`
+
+                  - `"redeemed"`
+
+              - `BetaFallbackCreditNotApplied object { reason, type, remove_to_redeem }`
+
+                No reprice was applied; `reason` says why.
+
+                - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+                  Why the reprice was not applied.
+
+                  A closed enum; additions to the redemption-check vocabulary arrive as
+                  deliberate schema updates.
+
+                  - `"body_mismatch"`
+
+                  - `"continuation_excluded"`
+
+                  - `"continuation_only"`
+
+                  - `"expired"`
+
+                  - `"invalid_target_model"`
+
+                  - `"not_enabled"`
+
+                  - `"reprice_unavailable"`
+
+                  - `"temporarily_unavailable"`
+
+                  - `"variant_fields_present"`
+
+                  - `"wrong_organization"`
+
+                  - `"wrong_platform"`
+
+                  - `"wrong_workspace"`
+
+                - `type: "not_applied"`
+
+                  - `"not_applied"`
+
+                - `remove_to_redeem: optional array of string`
+
+                  Request fields to remove before retrying, so the retry can redeem this
+                  token.
+
+                  Present exactly when `reason` is `variant_fields_present` — never null,
+                  never an empty array; absent otherwise. Fields are named only from your own request, and only after
+                  the sealed variant hash matched. A served best-effort retry has already
+                  been billed at normal price; nothing redeems retroactively, but a corrected
+                  re-send inside the token's five-minute window can still redeem.
 
           - `inference_geo: string`
 
@@ -7129,7 +7661,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           - `speed: "standard" or "fast"`
 
-            The inference speed mode used for this request.
+            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
             - `"standard"`
 
@@ -8130,11 +8662,15 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-              - `"claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more`
+              - `"claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more`
 
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `"claude-sonnet-5"`
+
+                  High-performance model for coding and agents
 
                 - `"claude-fable-5"`
 
@@ -8144,13 +8680,17 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                   Most capable model for cybersecurity and biology research
 
+                - `"claude-opus-5"`
+
+                  Powerful intelligence for long-running agents and coding
+
                 - `"claude-opus-4-8"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-7"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-mythos-preview"`
 
@@ -8158,7 +8698,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `"claude-opus-4-6"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-sonnet-4-6"`
 
@@ -8174,11 +8714,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `"claude-opus-4-5"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-5-20251101"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-sonnet-4-5"`
 
@@ -8190,11 +8730,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 - `"claude-opus-4-1"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
                 - `"claude-opus-4-1-20250805"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
               - `string`
 
@@ -8206,17 +8746,29 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             What caused the `from` model to hand over at this hop.
 
-            - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+            - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
               The policy category that triggered a refusal.
 
               - `"cyber"`
 
+                The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
               - `"bio"`
+
+                The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
               - `"frontier_llm"`
 
+                The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
               - `"reasoning_extraction"`
+
+                The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+              - `"general_harms"`
+
+                The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
             - `type: "refusal"`
 
@@ -8347,17 +8899,29 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
         Structured information about a refusal.
 
-        - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+        - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
           The policy category that triggered a refusal.
 
           - `"cyber"`
 
+            The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
           - `"bio"`
+
+            The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
           - `"frontier_llm"`
 
+            The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
           - `"reasoning_extraction"`
+
+            The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+          - `"general_harms"`
+
+            The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
         - `explanation: string`
 
@@ -8430,6 +8994,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
         * `"tool_use"`: the model invoked one or more tools
         * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
         * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+        * `"model_context_window_exceeded"`: we exceeded the model's context window
 
         In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -8494,6 +9059,78 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
         - `cache_read_input_tokens: number`
 
           The number of input tokens read from the cache.
+
+        - `fallback_credit: BetaFallbackCreditUsage`
+
+          Outcome of the `fallback_credit_token` presented on this request.
+
+          - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+            Whether the fallback-credit reprice was applied to this response's billing.
+
+            A union discriminated on `type`. `redeemed`: the retry is billed as if
+            the conversation had been on the retry model all along — including when the
+            resulting shift is zero because there was nothing to move. `not_applied`:
+            no reprice was applied; the arm's `reason` says why.
+
+            - `BetaFallbackCreditRedeemed object { type }`
+
+              The reprice was applied: the retry is billed as if the conversation
+              had been on the retry model all along.
+
+              - `type: "redeemed"`
+
+                - `"redeemed"`
+
+            - `BetaFallbackCreditNotApplied object { reason, type, remove_to_redeem }`
+
+              No reprice was applied; `reason` says why.
+
+              - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+                Why the reprice was not applied.
+
+                A closed enum; additions to the redemption-check vocabulary arrive as
+                deliberate schema updates.
+
+                - `"body_mismatch"`
+
+                - `"continuation_excluded"`
+
+                - `"continuation_only"`
+
+                - `"expired"`
+
+                - `"invalid_target_model"`
+
+                - `"not_enabled"`
+
+                - `"reprice_unavailable"`
+
+                - `"temporarily_unavailable"`
+
+                - `"variant_fields_present"`
+
+                - `"wrong_organization"`
+
+                - `"wrong_platform"`
+
+                - `"wrong_workspace"`
+
+              - `type: "not_applied"`
+
+                - `"not_applied"`
+
+              - `remove_to_redeem: optional array of string`
+
+                Request fields to remove before retrying, so the retry can redeem this
+                token.
+
+                Present exactly when `reason` is `variant_fields_present` — never null,
+                never an empty array; absent otherwise. Fields are named only from your own request, and only after
+                the sealed variant hash matched. A served best-effort retry has already
+                been billed at normal price; nothing redeems retroactively, but a corrected
+                re-send inside the token's five-minute window can still redeem.
 
         - `inference_geo: string`
 
@@ -8704,7 +9341,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
         - `speed: "standard" or "fast"`
 
-          The inference speed mode used for this request.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `"standard"`
 
@@ -9667,11 +10304,15 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `"claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more`
+            - `"claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-sonnet-5"`
+
+                High-performance model for coding and agents
 
               - `"claude-fable-5"`
 
@@ -9681,13 +10322,17 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
                 Most capable model for cybersecurity and biology research
 
+              - `"claude-opus-5"`
+
+                Powerful intelligence for long-running agents and coding
+
               - `"claude-opus-4-8"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-7"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-mythos-preview"`
 
@@ -9695,7 +10340,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `"claude-opus-4-6"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-6"`
 
@@ -9711,11 +10356,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `"claude-opus-4-5"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-5-20251101"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-sonnet-4-5"`
 
@@ -9727,11 +10372,11 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
               - `"claude-opus-4-1"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
               - `"claude-opus-4-1-20250805"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
             - `string`
 
@@ -9743,17 +10388,29 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
           What caused the `from` model to hand over at this hop.
 
-          - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+          - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
             The policy category that triggered a refusal.
 
             - `"cyber"`
 
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
             - `"bio"`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
             - `"frontier_llm"`
 
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
             - `"reasoning_extraction"`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `"general_harms"`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
           - `type: "refusal"`
 
@@ -9884,17 +10541,29 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
       Structured information about a refusal.
 
-      - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+      - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
         The policy category that triggered a refusal.
 
         - `"cyber"`
 
+          The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
         - `"bio"`
+
+          The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
         - `"frontier_llm"`
 
+          The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
         - `"reasoning_extraction"`
+
+          The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+        - `"general_harms"`
+
+          The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
       - `explanation: string`
 
@@ -9967,6 +10636,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
       * `"tool_use"`: the model invoked one or more tools
       * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
       * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+      * `"model_context_window_exceeded"`: we exceeded the model's context window
 
       In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -10031,6 +10701,78 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
       - `cache_read_input_tokens: number`
 
         The number of input tokens read from the cache.
+
+      - `fallback_credit: BetaFallbackCreditUsage`
+
+        Outcome of the `fallback_credit_token` presented on this request.
+
+        - `status: BetaFallbackCreditRedeemed or BetaFallbackCreditNotApplied`
+
+          Whether the fallback-credit reprice was applied to this response's billing.
+
+          A union discriminated on `type`. `redeemed`: the retry is billed as if
+          the conversation had been on the retry model all along — including when the
+          resulting shift is zero because there was nothing to move. `not_applied`:
+          no reprice was applied; the arm's `reason` says why.
+
+          - `BetaFallbackCreditRedeemed object { type }`
+
+            The reprice was applied: the retry is billed as if the conversation
+            had been on the retry model all along.
+
+            - `type: "redeemed"`
+
+              - `"redeemed"`
+
+          - `BetaFallbackCreditNotApplied object { reason, type, remove_to_redeem }`
+
+            No reprice was applied; `reason` says why.
+
+            - `reason: "body_mismatch" or "continuation_excluded" or "continuation_only" or 9 more`
+
+              Why the reprice was not applied.
+
+              A closed enum; additions to the redemption-check vocabulary arrive as
+              deliberate schema updates.
+
+              - `"body_mismatch"`
+
+              - `"continuation_excluded"`
+
+              - `"continuation_only"`
+
+              - `"expired"`
+
+              - `"invalid_target_model"`
+
+              - `"not_enabled"`
+
+              - `"reprice_unavailable"`
+
+              - `"temporarily_unavailable"`
+
+              - `"variant_fields_present"`
+
+              - `"wrong_organization"`
+
+              - `"wrong_platform"`
+
+              - `"wrong_workspace"`
+
+            - `type: "not_applied"`
+
+              - `"not_applied"`
+
+            - `remove_to_redeem: optional array of string`
+
+              Request fields to remove before retrying, so the retry can redeem this
+              token.
+
+              Present exactly when `reason` is `variant_fields_present` — never null,
+              never an empty array; absent otherwise. Fields are named only from your own request, and only after
+              the sealed variant hash matched. A served best-effort retry has already
+              been billed at normal price; nothing redeems retroactively, but a corrected
+              re-send inside the token's five-minute window can still redeem.
 
       - `inference_geo: string`
 
@@ -10241,7 +10983,7 @@ curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/results \
 
       - `speed: "standard" or "fast"`
 
-        The inference speed mode used for this request.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `"standard"`
 

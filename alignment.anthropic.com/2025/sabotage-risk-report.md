@@ -15,14 +15,14 @@ As practice for potential future Responsible Scaling Policy
 obligations,
 we're releasing a [report on misalignment risk posed by
 our
-deployed models as of Summer 2025](2025_pilot_risk_report.pdf). We
+deployed models as of Summer 2025](https://alignment.anthropic.com/2025/sabotage-risk-report/2025_pilot_risk_report.pdf). We
 conclude
 that there is very low, but not fully negligible, risk of misaligned autonomous actions that
 substantially
 contribute to later catastrophic outcomes. We also release two reviews of this report: an
 [internal
-review](2025_pilot_risk_report_internal_stress_testing_team_review.pdf)
-and an [independent review](2025_pilot_risk_report_metr_review.pdf)
+review](https://alignment.anthropic.com/2025/sabotage-risk-report/2025_pilot_risk_report_internal_stress_testing_team_review.pdf)
+and an [independent review](https://alignment.anthropic.com/2025/sabotage-risk-report/2025_pilot_risk_report_metr_review.pdf)
 by
 [METR](https://metr.org/).
 
@@ -140,10 +140,10 @@ questions.
 
 You can read the report here: [Anthropic's Summer 2025 Pilot
 Sabotage Risk
-Report](2025_pilot_risk_report.pdf)
+Report](https://alignment.anthropic.com/2025/sabotage-risk-report/2025_pilot_risk_report.pdf)
 
 You can read the internal review from our Alignment Stress-Testing Team here: [Alignment
-Stress-Testing Review](2025_pilot_risk_report_internal_stress_testing_team_review.pdf)
+Stress-Testing Review](https://alignment.anthropic.com/2025/sabotage-risk-report/2025_pilot_risk_report_internal_stress_testing_team_review.pdf)
 
 You can read the independent review from METR here: [METR's
-Review](2025_pilot_risk_report_metr_review.pdf)
+Review](https://alignment.anthropic.com/2025/sabotage-risk-report/2025_pilot_risk_report_metr_review.pdf)

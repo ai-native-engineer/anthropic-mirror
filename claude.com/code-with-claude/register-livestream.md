@@ -2,6 +2,6 @@
 
 ## Register for the livestream
 
-[Homepage](/code-with-claude)Homepage
+[Homepage](https://claude.com/code-with-claude)Homepage
 
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](/code-with-claude/code-of-conduct)
+[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)

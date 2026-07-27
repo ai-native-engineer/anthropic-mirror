@@ -80,7 +80,7 @@ List Sessions
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 29 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -132,11 +132,19 @@ List Sessions
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -174,27 +182,35 @@ List Sessions
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `"claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more`
+        - `"claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -210,11 +226,11 @@ List Sessions
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -225,6 +241,50 @@ List Sessions
             High-performance model for agents and coding
 
         - `string`
+
+      - `effort: optional BetaManagedAgentsEffortLow or BetaManagedAgentsEffortMedium or BetaManagedAgentsEffortHigh or 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `BetaManagedAgentsEffortLow object { type }`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: "low"`
+
+            - `"low"`
+
+        - `BetaManagedAgentsEffortMedium object { type }`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: "medium"`
+
+            - `"medium"`
+
+        - `BetaManagedAgentsEffortHigh object { type }`
+
+          High effort. Favors reasoning depth.
+
+          - `type: "high"`
+
+            - `"high"`
+
+        - `BetaManagedAgentsEffortXhigh object { type }`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: "xhigh"`
+
+            - `"xhigh"`
+
+        - `BetaManagedAgentsEffortMax object { type }`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: "max"`
+
+            - `"max"`
 
       - `speed: optional "standard" or "fast"`
 
@@ -684,6 +744,10 @@ List Sessions
 
   Opaque cursor for the next page. Null when no more results.
 
+- `prev_page: optional string`
+
+  Opaque cursor for the previous page. Null when on the first page. Pass as the `page` parameter to navigate backward.
+
 ### Example
 
 ```http
@@ -712,6 +776,9 @@ curl https://api.anthropic.com/v1/sessions \
         ],
         "model": {
           "id": "claude-sonnet-4-6",
+          "effort": {
+            "type": "low"
+          },
           "speed": "standard"
         },
         "multiagent": {
@@ -728,6 +795,9 @@ curl https://api.anthropic.com/v1/sessions \
               ],
               "model": {
                 "id": "claude-sonnet-4-6",
+                "effort": {
+                  "type": "low"
+                },
                 "speed": "standard"
               },
               "name": "Researcher",
@@ -862,6 +932,7 @@ curl https://api.anthropic.com/v1/sessions \
       "deployment_id": "deployment_id"
     }
   ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo=",
+  "prev_page": "page_MjAyNS0wNS0xM1QwMDowMDowMFo="
 }
 ```

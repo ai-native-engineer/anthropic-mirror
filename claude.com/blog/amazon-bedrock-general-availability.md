@@ -46,7 +46,7 @@ For example, an analyst might investigate the impact of the Federal Reserve’s 
 Linsky continued, “Our Investment Analyst Assistant also enables the editing of code in place, which lets our analysts choose when to leverage Claude, or when to make the simple change themselves. This enables quicker loops and lets the Investment Analyst Assistant iterate on the updated codebase; something that many other chat-style assistants simply don’t offer.”  
   
 **Getting started with Claude on Amazon Bedrock**  
-We’re pleased to provide even more of the AWS community with access to Claude, and to contribute our technical team’s expertise towards responsible innovation on the Amazon Bedrock service. Get started with [Claude on Amazon Bedrock](/amazon-bedrock) today.  
+We’re pleased to provide even more of the AWS community with access to Claude, and to contribute our technical team’s expertise towards responsible innovation on the Amazon Bedrock service. Get started with [Claude on Amazon Bedrock](https://claude.com/amazon-bedrock) today.  
   
 Already set up on Amazon Bedrock? Visit our [documentation page](https://docs.anthropic.com/claude/docs/claude-on-amazon-bedrock) for developer resources, prompt engineering guidance, and more.  
   
@@ -76,53 +76,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d231b45c2193efbb0f02_1869137c9d7f2a38b50e804d707e10e85de05ddb-1000x1000.svg)
 
-Jun 17, 2026
+Jul 23, 2026
 
-### Secure access to the Claude Platform with Workload Identity Federation
-
-Product announcements
-
-[Secure access to the Claude Platform with Workload Identity Federation](#)Secure access to the Claude Platform with Workload Identity Federation
-
-[Secure access to the Claude Platform with Workload Identity Federation](/blog/workload-identity-federation)Secure access to the Claude Platform with Workload Identity Federation
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229a7aa26ac1b6e96c2_a62b6eb169818f14c35b7a192af269e283f8fa93-1000x1000.svg)
-
-May 7, 2026
-
-### Collaborate with Claude across Excel, PowerPoint, Word and Outlook
+### Think through hard problems in voice mode
 
 Product announcements
 
-[Collaborate with Claude across Excel, PowerPoint, Word and Outlook](#) Collaborate with Claude across Excel, PowerPoint, Word and Outlook
+[Think through hard problems in voice mode](#)Think through hard problems in voice mode
 
-[Collaborate with Claude across Excel, PowerPoint, Word and Outlook](/blog/collaborate-with-claude-across-excel-powerpoint-word-and-outlook) Collaborate with Claude across Excel, PowerPoint, Word and Outlook
+[Think through hard problems in voice mode](https://claude.com/blog/think-through-hard-problems-in-voice-mode)Think through hard problems in voice mode
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224ef32980bc807847d_a683fdcfe3e2c7c6532342a0fa4ff789c3fd4852-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a025cf25f0694905405e054_Object-Scale.svg)
 
-May 19, 2026
+May 12, 2026
 
-### New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration
-
-Product announcements
-
-[New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration](#)New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration
-
-[New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration](/blog/new-in-claude-managed-agents)New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
-
-Apr 30, 2026
-
-### Claude Security is now in public beta
+### Claude for the legal industry
 
 Product announcements
 
-[Claude Security is now in public beta](#)Claude Security is now in public beta
+[Claude for the legal industry](#)Claude for the legal industry
 
-[Claude Security is now in public beta](/blog/claude-security-public-beta)Claude Security is now in public beta
+[Claude for the legal industry](https://claude.com/blog/claude-for-the-legal-industry)Claude for the legal industry
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3f14a08cb97bf1b16d40ef_ObjectClouds.svg)
+
+Jul 7, 2026
+
+### Claude Cowork is coming to mobile and web
+
+Product announcements
+
+[Claude Cowork is coming to mobile and web](#)Claude Cowork is coming to mobile and web
+
+[Claude Cowork is coming to mobile and web](https://claude.com/blog/cowork-web-mobile)Claude Cowork is coming to mobile and web
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
+
+Apr 9, 2026
+
+### Making Claude Cowork ready for enterprise
+
+Product announcements
+
+[Making Claude Cowork ready for enterprise](#)Making Claude Cowork ready for enterprise
+
+[Making Claude Cowork ready for enterprise](https://claude.com/blog/cowork-for-enterprise)Making Claude Cowork ready for enterprise
 
 ## Transform how your organization operates with Claude
 

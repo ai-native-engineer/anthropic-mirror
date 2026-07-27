@@ -181,7 +181,7 @@ Give Cowork folder access and get organized documentation, identified gaps, and 
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984dd48d2c1f32acf967bbe_Screenshot%202026-02-05%20at%2010.02.45%E2%80%AFAM.png)
 
@@ -191,26 +191,26 @@ Open artifact in new window
 
 ## Related use cases
 
-[Organize your legal workflows using Projects](/resources/use-cases/organize-your-legal-workflows-using-projects)Organize your legal workflows using Projects
+[Organize your legal workflows using Projects](https://claude.com/resources/use-cases/organize-your-legal-workflows-using-projects)Organize your legal workflows using Projects
 
 Organize your legal workflows using Projects
 
 Use case
 
-[Use case](/resources/use-cases/organize-your-legal-workflows-using-projects)Use case
+[Use case](https://claude.com/resources/use-cases/organize-your-legal-workflows-using-projects)Use case
 
-[Track discovery timelines and analyze patterns](/resources/use-cases/track-discovery-timelines-and-analyze-patterns)Track discovery timelines and analyze patterns
+[Track discovery timelines and analyze patterns](https://claude.com/resources/use-cases/track-discovery-timelines-and-analyze-patterns)Track discovery timelines and analyze patterns
 
 Track discovery timelines and analyze patterns
 
 Use case
 
-[Use case](/resources/use-cases/track-discovery-timelines-and-analyze-patterns)Use case
+[Use case](https://claude.com/resources/use-cases/track-discovery-timelines-and-analyze-patterns)Use case
 
-[Contract redlining and negotiation](/resources/use-cases/contract-redlining-and-negotiation)Contract redlining and negotiation
+[Contract redlining and negotiation](https://claude.com/resources/use-cases/contract-redlining-and-negotiation)Contract redlining and negotiation
 
 Contract redlining and negotiation
 
 Use case
 
-[Use case](/resources/use-cases/contract-redlining-and-negotiation)Use case
+[Use case](https://claude.com/resources/use-cases/contract-redlining-and-negotiation)Use case

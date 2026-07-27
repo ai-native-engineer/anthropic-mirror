@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/connectors/building/enterprise-managed-auth -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Enterprise Managed Auth is in beta and is available on Claude Team and Enterprise plans. Organizations can [join the waitlist](https://claude.com/form/ema-waitlist) to request access. MCP server developers and identity provider vendors can [register interest](https://docs.google.com/forms/d/e/1FAIpQLSf1goHGNDVFK7rncYuh6wnRpWSy7eGOcgL1i8uw3oyKFO9UUA/viewform) in supporting this flow.
 
 Enterprise Managed Auth (EMA) lets a user connect to your MCP server silently, using the single sign-on session they already have with their organization. Instead of showing each user an OAuth consent screen, Claude presents your authorization server with an **identity assertion**: a signed JSON Web Token (JWT), issued by the customer’s identity provider, that vouches for the user’s identity.
@@ -16,16 +24,16 @@ Two parties are involved in this exchange: the customer’s identity provider si
 
 ##  With lazy authentication
 
-Enterprise Managed Auth also works with [lazy authentication](/docs/connectors/building/lazy-authentication). When your server returns `401 Unauthorized` for a protected tool call, Claude normally shows the inline **Connect** card and runs the interactive OAuth flow. If the user’s organization has Enterprise Managed Auth configured for your connector, Claude runs the silent JWT bearer exchange instead and retries the tool call without showing a prompt.
-Your MCP server returns the same `401` with a `WWW-Authenticate` header as described in the [lazy authentication guide](/docs/connectors/building/lazy-authentication#return-401-not-a-tool-error). Your authorization server must still meet the [requirements below](#authorization-server-requirements).
+Enterprise Managed Auth also works with [lazy authentication](https://claude.com/docs/connectors/building/lazy-authentication). When your server returns `401 Unauthorized` for a protected tool call, Claude normally shows the inline **Connect** card and runs the interactive OAuth flow. If the user’s organization has Enterprise Managed Auth configured for your connector, Claude runs the silent JWT bearer exchange instead and retries the tool call without showing a prompt.
+Your MCP server returns the same `401` with a `WWW-Authenticate` header as described in the [lazy authentication guide](https://claude.com/docs/connectors/building/lazy-authentication#return-401-not-a-tool-error). Your authorization server must still meet the [requirements below](#authorization-server-requirements).
 A fully authless server never returns `401`, so there is no point at which Claude can exchange an assertion. Enterprise Managed Auth does not apply to authless servers.
 
 ##  Prerequisites
 
 Before adding Enterprise Managed Auth, make sure the following are already in place.
 
-* Your MCP server implements [MCP authorization](https://modelcontextprotocol.io/specification/draft/basic/authorization), including Protected Resource Metadata (PRM) discovery, and follows the [MCP security best practices](https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices). See our [authentication guide](/docs/connectors/building/authentication) for Claude-specific requirements.
-* Your authorization server registers Claude using either [Anthropic-held client credentials](/docs/connectors/building/authentication#anthropic-held-client-credentials) or a [Client ID Metadata Document](/docs/connectors/building/authentication#dcr-and-cimd-details).
+* Your MCP server implements [MCP authorization](https://modelcontextprotocol.io/specification/draft/basic/authorization), including Protected Resource Metadata (PRM) discovery, and follows the [MCP security best practices](https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices). See our [authentication guide](https://claude.com/docs/connectors/building/authentication) for Claude-specific requirements.
+* Your authorization server registers Claude using either [Anthropic-held client credentials](https://claude.com/docs/connectors/building/authentication#anthropic-held-client-credentials) or a [Client ID Metadata Document](https://claude.com/docs/connectors/building/authentication#dcr-and-cimd-details).
 
 Dynamic Client Registration (DCR) is not supported with Enterprise Managed Auth. The identity provider stamps a fixed `client_id` into every assertion it issues, so your authorization server must already recognize that client before the first assertion arrives. A client created on the fly through DCR cannot satisfy this requirement because its identifier will never match the value in the assertion.
 
@@ -41,6 +49,7 @@ Ensure the JWT bearer grant is supported
 
 Your authorization server must accept `urn:ietf:params:oauth:grant-type:jwt-bearer` at its token endpoint and advertise it in the `grant_types_supported` array of its [authorization server metadata (RFC 8414)](https://datatracker.ietf.org/doc/html/rfc8414):
 
+```
 {
   "issuer": "https://auth.example.com",
   "token_endpoint": "https://auth.example.com/token",
@@ -50,6 +59,7 @@ Your authorization server must accept `urn:ietf:params:oauth:grant-type:jwt-bear
     "urn:ietf:params:oauth:grant-type:jwt-bearer"
   ]
 }
+```
 
 Claude reads this metadata to discover whether your server supports Enterprise Managed Auth. The grant type must be listed here for the feature to be offered to the customer, even if your token endpoint would already accept it silently.
 
@@ -67,6 +77,7 @@ Understand the token request
 
 Claude sends a form-encoded `POST` to your authorization server’s token endpoint:
 
+```
 POST /token HTTP/1.1
 Host: auth.example.com
 Content-Type: application/x-www-form-urlencoded
@@ -76,6 +87,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 &client_id=your-registered-client-id
 &scope=openid profile
 &resource=https://mcp.example.com
+```
 
 The `assertion` parameter carries the signed JWT. The `client_id` is the value Claude is registered under at your authorization server. Claude also includes the `resource` parameter ([Resource Indicators, RFC 8707](https://www.rfc-editor.org/rfc/rfc8707)) set to your MCP server URL whenever the customer’s identity provider supports forwarding it. Some identity provider configurations cannot pass a resource indicator through, so your authorization server should accept the request whether or not `resource` is present and use it for audience binding when it is.Your authorization server validates the assertion according to the [JWT bearer token processing rules (RFC 7523 section 3)](https://datatracker.ietf.org/doc/html/rfc7523#section-3) and returns a standard OAuth token response. Claude then presents the returned access token as a `Bearer` credential on calls to your MCP server, exactly as it does after the interactive flow.
 
@@ -95,6 +107,8 @@ If the customer’s identity provider is Okta, refer to Okta’s [Cross App Acce
 
 Enterprise Managed Auth is in beta. [Register interest](https://docs.google.com/forms/d/e/1FAIpQLSf1goHGNDVFK7rncYuh6wnRpWSy7eGOcgL1i8uw3oyKFO9UUA/viewform) to get onboarded for testing.
 
+##  Related resources
+
 ## Authentication for connectors
 
 Baseline OAuth requirements your server must already meet.
@@ -110,5 +124,3 @@ Verify your connector works end to end in Claude.
 ## Troubleshooting
 
 Diagnose common authentication and connection issues.
-
-[Lazy authentication](/docs/connectors/building/lazy-authentication)[Directory vs custom](/docs/connectors/building/directory-vs-custom)

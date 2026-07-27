@@ -1,5 +1,19 @@
 <!-- source: https://claude.com/product/overview -->
 
+Latest news
+
+[Next](#)Next
+
+## Claude Opus 5
+
+A major leap for Opus in coding and knowledge work
+
+Learn more
+
+[Learn more](https://www.anthropic.com/claude/opus)Learn more
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69e130b671817eddec5f2ec8_opus-4-7.webp)
+
 # Meet your thinking partner
 
 Tackle any big, bold, bewildering challenge with Claude.
@@ -26,8 +40,6 @@ Tackle any big, bold, bewildering challenge with Claude.
 
 ## The AI for problem solvers
 
-Use [Cowork](/product/cowork) in the desktop app to hand off tasks.
-
 Download the desktop app:
 
 macOS
@@ -41,8 +53,6 @@ Windows
 Windows (arm64)
 
 [Windows (arm64)](https://claude.ai/api/desktop/win32/arm64/setup/latest/redirect)Windows (arm64)
-
-Try Claude on mobile:
 
 Apple
 
@@ -69,7 +79,7 @@ Import your memory and pick up where you left off.
 
 Start importing
 
-[Start importing](/import-memory)Start importing
+[Start importing](https://claude.com/import-memory)Start importing
 
 ## How you can use Claude
 
@@ -85,82 +95,23 @@ Active
 
 Prompt
 
-Help me organize my Downloads folder.  
-Scan the contents and propose a plan:    
-- Categories/folders to create  
-- How files should be sorted  
-- Any naming conventions to apply  
-- Files to flag for review or deletion  
-Show me the plan before making changes. Only proceed after I approve.
+Every Monday, pull last week's numbers from our analytics workspace and build me a one-page performance report. Active users, revenue, and conversions up top with week-over-week change, an eight-week revenue trend, and a traffic source breakdown. Flag anything moving the wrong direction.
 
-Working folder
+Connectors
 
-/Downloads
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
 
-Downloads/
+Amplitude
 
-── Documents/
-
-   ── 2024-03-15\_invoice.pdf
-
-   ── 2024-03-22\_invoice.pdf
-
-   ── 2024-03-20\_meeting-notes.txt
-
-   ── resume\_john-smith\_2024.pdf
-
-   └── untitled\_document.docx
-
-‍
-
-── Spreadsheets/
-
-  ── 2024\_q3-budget\_v3.xlsx  
-‍
-
-── Presentations/  
-   └── presentation-draft.pptx  
-  
-── Images/  
-   ── photo\_2024-03-15\_4392.jpg  
-   ── photo\_2024-03-15\_4393.jpg  
-   ── photo\_2024-03-18\_4401.heic  
-   ── screenshot\_2024-03-15\_finder-window.png  
-   └── screenshot\_2024-03-22\_slack-conversation.png
-
-‍
-
-── Audio &amp; Video/
-
-   ── 2024-03-20\_zoom-recording.mp4
-
-   └── audio\_recording.m4a
-
-‍
-
-── Archives/
-
-   └── random\_download.zip
-
-‍
-
-── Duplicates/
-
-   ── Document(1).pdf
-
-   ── Document(2).pdf
-
-   ── meeting-notes(1).txt
-
-   └── 2024\_q3-budget\_v2.xlsx
+![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
 ### Delegate tasks
 
-Go from answers to action. In Cowork, Claude works with your local files and cloud-based apps to organize folders, build spreadsheets, or prepare reports. Describe the outcome, step away, and come back to completed work. You stay in control: grant access only to the files you want and approve every step.
+With Claude Cowork, you can start a task at your desk, check in on it from your phone, and get a polished deck, document, or spreadsheet for review. Connect your data, schedule a daily, weekly, or monthly task, and ask for the format you need.
 
-Explore Cowork
+Explore Claude Cowork
 
-[Explore Cowork](/product/cowork)Explore Cowork
+[Explore Claude Cowork](https://claude.com/product/cowork)Explore Claude Cowork
 
 Prompt
 
@@ -1211,13 +1162,13 @@ Turn ideas into reality. Brainstorm and refine concepts, then bring them to life
 
 ## Keep thinking with Claude
 
-[](https://cdn.sanity.io/files/4zrzovbb/website/0855644e1f531858cd589b2bf1d626480b515dda.mp4)
+[](https://cdn.sanity.io/files/4zrzovbb/website/15feae7a3eaae59420c19a101201666aefae8370.mp4)
 
 Your curiosity’s collaborator
 
-There’s never been a worse time to be a problem, or a better time to be a problem solver.
+Bring your hardest questions to Claude.
 
-What problem are you up against?
+What’s a question you want to solve?
 
 ## Claude models
 
@@ -1225,13 +1176,13 @@ What problem are you up against?
 
 Next generation intelligence for knowledge work and coding
 
-Claude Fable 5 is unavailable. [Learn more](https://www.anthropic.com/news/fable-mythos-access)
+Days-long projects   •   Deep analysis   •   Fewer check-ins needed
 
 Model details
 
 [Model details](https://www.anthropic.com/claude/fable)Model details
 
-### Opus 4.8
+### Opus 5
 
 Powerful model for complex tasks and deep research
 
@@ -1241,9 +1192,9 @@ Model details
 
 [Model details](https://www.anthropic.com/claude/opus)Model details
 
-### Sonnet 4.6
+### Sonnet 5
 
-Powerful and versatile model, designed for the work you do every day
+Capable and versatile model, designed for the work you do every day
 
 Writing tasks   •   Fast analysis   •   Task automation
 
@@ -1263,13 +1214,29 @@ Model details
 
 ## Explore the  latest releases
 
-[Claude Fable 5](https://www.anthropic.com/news/claude-fable-5)Claude Fable 5
+[Claude Opus 5](https://www.anthropic.com/news/claude-opus-5)Claude Opus 5
+
+Claude Opus 5
+
+Announcement
+
+[Announcement](https://www.anthropic.com/news/claude-opus-5)Announcement
+
+[Claude Sonnet 5](https://www.anthropic.com/news/claude-sonnet-5)Claude Sonnet 5
+
+Claude Sonnet 5
+
+Announcement
+
+[Announcement](https://www.anthropic.com/news/claude-sonnet-5)Announcement
+
+[Claude Fable 5](https://www.anthropic.com/news/claude-fable-5-mythos-5)Claude Fable 5
 
 Claude Fable 5
 
 Announcement
 
-[Announcement](https://www.anthropic.com/news/claude-fable-5)Announcement
+[Announcement](https://www.anthropic.com/news/claude-fable-5-mythos-5)Announcement
 
 [Claude Opus 4.8](https://www.anthropic.com/news/claude-opus-4-8)Claude Opus 4.8
 
@@ -1278,22 +1245,6 @@ Claude Opus 4.8
 Announcement
 
 [Announcement](https://www.anthropic.com/news/claude-opus-4-8)Announcement
-
-[Claude Opus 4.7](https://www.anthropic.com/news/claude-opus-4-7)Claude Opus 4.7
-
-Claude Opus 4.7
-
-Announcement
-
-[Announcement](https://www.anthropic.com/news/claude-opus-4-7)Announcement
-
-[Claude Sonnet 4.6](https://www.anthropic.com/news/claude-sonnet-4-6)Claude Sonnet 4.6
-
-Claude Sonnet 4.6
-
-Announcement
-
-[Announcement](https://www.anthropic.com/news/claude-sonnet-4-6)Announcement
 
 [Claude Haiku 4.5](https://www.anthropic.com/news/claude-haiku-4-5)Claude Haiku 4.5
 
@@ -1311,13 +1262,13 @@ Product
 
 [Product](https://www.anthropic.com/news/integrations)Product
 
-[Claude Code: Your code’s new collaborator](/product/claude-code)Claude Code: Your code’s new collaborator
+[Claude Code: Your code’s new collaborator](https://claude.com/product/claude-code)Claude Code: Your code’s new collaborator
 
 Claude Code: Your code’s new collaborator
 
 Product
 
-[Product](/product/claude-code)Product
+[Product](https://claude.com/product/claude-code)Product
 
 [Claude takes research to new places](https://www.anthropic.com/news/research)Claude takes research to new places
 

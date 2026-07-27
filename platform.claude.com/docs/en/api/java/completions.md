@@ -10,9 +10,9 @@
 
 [Legacy] Create a Text Completion.
 
-The Text Completions API is a legacy API. We recommend using the [Messages API](https://docs.claude.com/en/api/messages) going forward.
+The Text Completions API is a legacy API. We recommend using the [Messages API](https://platform.claude.com/docs/en/api/messages) going forward.
 
-Future models and features will not be compatible with Text Completions. See our [migration guide](https://docs.claude.com/en/api/migrating-from-text-completions-to-messages) for guidance in migrating from Text Completions to Messages.
+Future models and features will not be compatible with Text Completions. See our [migration guide](https://platform.claude.com/docs/en/build-with-claude/working-with-messages) for guidance in migrating from Text Completions to Messages.
 
 ### Parameters
 
@@ -72,11 +72,19 @@ Future models and features will not be compatible with Text Completions. See our
 
     - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
 
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
     - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
 
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
     - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
   - `long maxTokensToSample`
 
@@ -108,7 +116,7 @@ Future models and features will not be compatible with Text Completions. See our
     Assistant:"
     ```
 
-    See [prompt validation](https://docs.claude.com/en/api/prompt-validation) and our guide to [prompt design](https://docs.claude.com/en/docs/intro-to-prompting) for more details.
+    See [prompt validation](https://platform.claude.com/docs/en/build-with-claude/working-with-messages) and our guide to [prompt design](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview) for more details.
 
   - `Optional<Metadata> metadata`
 
@@ -166,6 +174,10 @@ Future models and features will not be compatible with Text Completions. See our
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+      High-performance model for coding and agents
+
     - `CLAUDE_FABLE_5("claude-fable-5")`
 
       Next generation of intelligence for the hardest knowledge work and coding problems
@@ -174,13 +186,17 @@ Future models and features will not be compatible with Text Completions. See our
 
       Most capable model for cybersecurity and biology research
 
+    - `CLAUDE_OPUS_5("claude-opus-5")`
+
+      Powerful intelligence for long-running agents and coding
+
     - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
@@ -188,7 +204,7 @@ Future models and features will not be compatible with Text Completions. See our
 
     - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -204,11 +220,11 @@ Future models and features will not be compatible with Text Completions. See our
 
     - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -220,11 +236,11 @@ Future models and features will not be compatible with Text Completions. See our
 
     - `CLAUDE_OPUS_4_1("claude-opus-4-1")`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
     - `CLAUDE_OPUS_4_1_20250805("claude-opus-4-1-20250805")`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
   - `Optional<String> stopReason`
 
@@ -262,7 +278,7 @@ public final class Main {
 
         CompletionCreateParams params = CompletionCreateParams.builder()
             .maxTokensToSample(256L)
-            .model(Model.CLAUDE_FABLE_5)
+            .model(Model.CLAUDE_SONNET_5)
             .prompt("\n\nHuman: Hello, world!\n\nAssistant:")
             .build();
         Completion completion = client.completions().create(params);
@@ -304,6 +320,10 @@ public final class Main {
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `CLAUDE_SONNET_5("claude-sonnet-5")`
+
+      High-performance model for coding and agents
+
     - `CLAUDE_FABLE_5("claude-fable-5")`
 
       Next generation of intelligence for the hardest knowledge work and coding problems
@@ -312,13 +332,17 @@ public final class Main {
 
       Most capable model for cybersecurity and biology research
 
+    - `CLAUDE_OPUS_5("claude-opus-5")`
+
+      Powerful intelligence for long-running agents and coding
+
     - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
 
@@ -326,7 +350,7 @@ public final class Main {
 
     - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
 
@@ -342,11 +366,11 @@ public final class Main {
 
     - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
 
@@ -358,11 +382,11 @@ public final class Main {
 
     - `CLAUDE_OPUS_4_1("claude-opus-4-1")`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
     - `CLAUDE_OPUS_4_1_20250805("claude-opus-4-1-20250805")`
 
-      Exceptional model for specialized complex tasks
+      Powerful intelligence for long-running agents and coding
 
   - `Optional<String> stopReason`
 

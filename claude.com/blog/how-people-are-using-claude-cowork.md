@@ -7,10 +7,20 @@
 In a sample of Claude Cowork sessions, we found that roughly half of all usage comprises “the work around the work”—tasks that are part of a broad swath of jobs, but are rarely a person’s core responsibility.
 
   [Enterprise AI](https://claude.com/blog/category/enterprise-ai)
+* Product
 
   Claude Cowork
+* Date
 
   July 7, 2026
+* Reading time
+
+  5
+
+  min
+* Share
+
+  [Copy link](#)
 
   https://claude.com/blog/how-people-are-using-claude-cowork
 
@@ -40,7 +50,7 @@ In a recent study, business process and operations accounted for a third of samp
 
 It’s telling that the two top usage categories—business process and operations, and content creation and copywriting—make up roughly half of all Claude Cowork usage. These categories are overwhelmingly connective in nature: spreadsheets pull disparate data points into a context where they can be read, compared, and tracked; decks convey an idea or decision to a broader audience with varying levels of context; and onboarding checklists help a new hire tap into institutional knowledge.
 
-Our data suggests that people are using Claude Cowork to assemble and structure the information they can use to act on their expertise. A lawyer, for example, might use Claude Cowork to handle document formatting and filing, giving them more time to apply their legal judgment to challenging cases. A hiring manager might use Coworker to schedule meetings and synthesize interview feedback, allowing them to spend more time on candidate conversations and evaluating work samples. And a team lead might use Claude Cowork to produce the slide deck that explains a difficult decision, freeing them up to actually make those tough calls.
+Our data suggests that people are using Claude Cowork to assemble and structure the information they can use to act on their expertise. A lawyer, for example, might use Claude Cowork to handle document formatting and filing, giving them more time to apply their legal judgment to challenging cases. A hiring manager might use Cowork to schedule meetings and synthesize interview feedback, allowing them to spend more time on candidate conversations and evaluating work samples. And a team lead might use Claude Cowork to produce the slide deck that explains a difficult decision, freeing them up to actually make those tough calls.
 
 This usage pattern presents an interesting contrast to Claude Code, which is most often used by software developers for the key parts of their role: building, debugging, and shipping code. So it’s perhaps unsurprising that software development makes up such a small share of Claude Cowork use. Developers are much more likely to use Claude Code than Claude Cowork to write code, but the work they do in Claude Cowork is the connective, communications-focused work that surrounds every role, software engineering included.
 
@@ -76,57 +86,95 @@ The sample is collected at a capped rate—a fixed maximum number of sessions pe
 
 ‍
 
+No items found.
+
+[Prev](#)Prev
+
+0/5
+
+[Next](#)Next
+
+eBook
+
+##
+
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22349f86cd1968deab7_f06ca06f9d08ca4a85f26357eb896c3730274507-1000x1000.svg)
+FAQ
 
-Jun 3, 2026
+No items found.
 
-### How Anthropic enables self-service data analytics with Claude
+## Related posts
 
-Enterprise AI
+Explore more product news and best practices for teams building with Claude.
 
-[How Anthropic enables self-service data analytics with Claude](#)How Anthropic enables self-service data analytics with Claude
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224f466b800c4a5a016_a7b8978859371a024139418f3366bb0600ee1675-1000x1000.svg)
 
-[How Anthropic enables self-service data analytics with Claude](/blog/how-anthropic-enables-self-service-data-analytics-with-claude)How Anthropic enables self-service data analytics with Claude
+Jul 24, 2026
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e13864f88ea55c2d8_b5c98d26c46edc43193e7f7e28a00633a538bb9c-1000x1000.svg)
-
-May 14, 2026
-
-### How Claude Code works in large codebases: Best practices and where to start
+### How the product designer who built Claude Design uses it to explore ideas before building them
 
 Enterprise AI
 
-[How Claude Code works in large codebases: Best practices and where to start](#)How Claude Code works in large codebases: Best practices and where to start
+[How the product designer who built Claude Design uses it to explore ideas before building them](#)How the product designer who built Claude Design uses it to explore ideas before building them
 
-[How Claude Code works in large codebases: Best practices and where to start](/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start)How Claude Code works in large codebases: Best practices and where to start
+[How the product designer who built Claude Design uses it to explore ideas before building them](https://claude.com/blog/how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them)How the product designer who built Claude Design uses it to explore ideas before building them
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
-Jun 24, 2026
+Jul 24, 2026
 
-### Building effective human-agent teams
-
-Enterprise AI
-
-[Building effective human-agent teams](#)Building effective human-agent teams
-
-[Building effective human-agent teams](/blog/building-effective-human-agent-teams)Building effective human-agent teams
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22c7f111435762ad994_1b398dbdfa4995ce5ce943aa87d8b78b2c2ba065-1000x1000.svg)
-
-Jun 22, 2026
-
-### The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry
+### Claude models explained: choosing the best model for your use case
 
 Enterprise AI
 
-[The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry](#)The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
 
-[The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry](/blog/the-full-claude-desktop-experience-on-aws-google-cloud-and-microsoft-foundry)The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d6ec42bcf1c632f75_52f59749d1e033ff2675c6686a07bcce83fb5046-1000x1000.svg)
+
+Jul 23, 2026
+
+### Four role-based certifications for the people who put Claude to work for customers
+
+Enterprise AI
+
+[Four role-based certifications for the people who put Claude to work for customers](#)Four role-based certifications for the people who put Claude to work for customers
+
+[Four role-based certifications for the people who put Claude to work for customers](https://claude.com/blog/four-role-based-claude-certifications)Four role-based certifications for the people who put Claude to work for customers
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
+
+Jul 21, 2026
+
+### How Anthropic secures its AI-native software development lifecycle
+
+Claude Code
+
+[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
+
+[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
+
+## Transform how your organization operates with Claude
+
+See pricing
+
+[See pricing](https://claude.com/pricing#api)See pricing
+
+Contact sales
+
+[Contact sales](https://claude.com/contact-sales)Contact sales
+
+Get the developer newsletter
+
+Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
+
+Thank you! You’re subscribed.
+
+Sorry, there was a problem with your submission, please try again later.
 
     
 

@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/office-agents/dictation -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Dictation lets you speak prompts instead of typing them. Click the
 microphone icon in the chat input, speak, and see your words appear in
 the composer in real time.
@@ -12,7 +20,7 @@ feature instead.Dictation is also available only for organizations using direct 
 authentication. It is not supported when Claude for M365 connects through
 a third-party platform such as Amazon Bedrock, Google Cloud Vertex AI,
 Azure AI Foundry, or an LLM gateway. See
-[Use Claude for M365 with third-party platforms](/docs/office-agents/third-party-platforms)
+[Use Claude for M365 with third-party platforms](https://claude.com/docs/office-agents/third-party-platforms)
 for platform support details.
 
 ##  Use dictation
@@ -57,5 +65,3 @@ In third-party environments, Claude for M365 does not send prompts to
 Anthropic directly. Spoken audio is effectively a prompt, so dictation
 is not offered there. Use your operating system’s built-in dictation or
 your Office application’s dictation feature instead.
-
-[Work across M365 apps](/docs/office-agents/work-across-apps)[Connectors and Skills](/docs/office-agents/connectors-and-skills)

@@ -26,7 +26,7 @@ List Agent Versions
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 29 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -78,11 +78,19 @@ List Agent Versions
 
     - `"cache-diagnosis-2026-04-07"`
 
+    - `"dreaming-2026-04-21"`
+
     - `"thinking-token-count-2026-05-13"`
 
     - `"server-side-fallback-2026-06-01"`
 
+    - `"server-side-fallback-2026-07-01"`
+
     - `"fallback-credit-2026-06-01"`
+
+    - `"fallback-credit-2026-07-01"`
+
+    - `"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -124,39 +132,49 @@ List Agent Versions
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Literal["claude-fable-5", "claude-opus-4-8", "claude-opus-4-7", 8 more]`
+      - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `claude-sonnet-5` - High-performance model for coding and agents
         - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-        - `claude-opus-4-8` - Frontier intelligence for long-running agents and coding
-        - `claude-opus-4-7` - Frontier intelligence for long-running agents and coding
-        - `claude-opus-4-6` - Most intelligent model for building agents and coding
+        - `claude-opus-5` - Powerful intelligence for long-running agents and coding
+        - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
+        - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
+        - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
         - `claude-sonnet-4-6` - Best combination of speed and intelligence
         - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
         - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-        - `claude-opus-4-5` - Premium model combining maximum intelligence with practical performance
-        - `claude-opus-4-5-20251101` - Premium model combining maximum intelligence with practical performance
+        - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
+        - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
         - `claude-sonnet-4-5` - High-performance model for agents and coding
         - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
 
         - `"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -172,11 +190,11 @@ List Agent Versions
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -187,6 +205,50 @@ List Agent Versions
           High-performance model for agents and coding
 
       - `str`
+
+    - `effort: Optional[Effort]`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `class BetaManagedAgentsEffortLow: …`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: Literal["low"]`
+
+          - `"low"`
+
+      - `class BetaManagedAgentsEffortMedium: …`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: Literal["medium"]`
+
+          - `"medium"`
+
+      - `class BetaManagedAgentsEffortHigh: …`
+
+        High effort. Favors reasoning depth.
+
+        - `type: Literal["high"]`
+
+          - `"high"`
+
+      - `class BetaManagedAgentsEffortXhigh: …`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: Literal["xhigh"]`
+
+          - `"xhigh"`
+
+      - `class BetaManagedAgentsEffortMax: …`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: Literal["max"]`
+
+          - `"max"`
 
     - `speed: Optional[Literal["standard", "fast"]]`
 
@@ -434,6 +496,9 @@ print(page.id)
       },
       "model": {
         "id": "claude-sonnet-4-6",
+        "effort": {
+          "type": "low"
+        },
         "speed": "standard"
       },
       "multiagent": {

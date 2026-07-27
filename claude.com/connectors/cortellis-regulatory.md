@@ -10,6 +10,7 @@ Trusted Regulatory Answers, by Clarivate Cortellis
 * Used in
 
   [Claude](https://claude.ai/directory/01fef5a3-baea-4490-8a31-39b119d1d238)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Clarivate](https://clarivate.com/)
 
@@ -22,7 +23,7 @@ Trusted Regulatory Answers, by Clarivate Cortellis
   Read
 * More
 
-  [Documentation](https://api.clarivate.com/lifesciences/mcp-regulatory/documentation)[Privacy Policy](https://clarivate.com/privacy-center/notices-policies)[lsh.support@clarivate.com](mailto:lsh.support@clarivate.com)
+  [Documentation](https://api.clarivate.com/lifesciences/mcp-regulatory/documentation)[Privacy Policy](https://clarivate.com/privacy-center/notices-policies)[Support](mailto:lsh.support@clarivate.com)
 
 The Cortellis Regulatory MCP connects Claude to Clarivate's Cortellis trusted, human-curated global regulatory content. It enables natural language questions, providing accurate, referenced answers supported by authoritative regulatory sources. Users can access subscribed and licensed content, navigate complex guidances, and track regulatory changes—directly within Claude. Designed for life sciences and regulatory teams, this connector delivers fast, transparent, and compliant insights—helping users accelerate research, reduce manual effort, and make better‑informed decisions.
 
@@ -51,7 +52,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -65,7 +66,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Life sciences and healthcare
 
@@ -79,7 +80,7 @@ February 11, 2026
 
 ### Benchling
 
-Connect to R&D data, source experiments, and notebooks](/connectors/benchling)
+Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
 
 Life sciences and healthcare
 
@@ -87,10 +88,10 @@ Claude
 
 Claude Code
 
-February 11, 2026
+June 30, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe5cecad201acb193aa2_BioRender.jpg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43716940e4a2c2f530fb2c_biomni.jpeg)
 
-### BioRender
+### Biomni Lab
 
-Search for and use scientific templates and icons](/connectors/biorender)
+Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)

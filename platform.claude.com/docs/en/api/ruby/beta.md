@@ -6,11 +6,11 @@
 
 ### Anthropic Beta
 
-- `AnthropicBeta = String | :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+- `AnthropicBeta = String | :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -62,11 +62,19 @@
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Beta API Error
 
@@ -352,7 +360,7 @@ The Models API response can be used to determine which models are available for 
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -404,11 +412,19 @@ The Models API response can be used to determine which models are available for 
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -664,7 +680,7 @@ The Models API response can be used to determine information about a specific mo
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -716,11 +732,19 @@ The Models API response can be used to determine information about a specific mo
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -1313,7 +1337,7 @@ Send a structured list of input messages with text and/or image content, and the
 
 The Messages API can be used for either single queries or stateless multi-turn conversations.
 
-Learn more about the Messages API in our [user guide](https://docs.claude.com/en/docs/initial-setup)
+Learn more about the Messages API in our [user guide](https://platform.claude.com/docs/en/get-started)
 
 ### Parameters
 
@@ -1323,9 +1347,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Note that our models may stop _before_ reaching this maximum. This parameter only specifies the absolute maximum number of tokens to generate.
 
-  Set to `0` to populate the [prompt cache](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
+  Set to `0` to populate the [prompt cache](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
 
-  Different models have different maximum values for this parameter.  See [models](https://docs.claude.com/en/docs/models-overview) for details.
+  Different models have different maximum values for this parameter.  See [models](https://platform.claude.com/docs/en/about-claude/models/overview) for details.
 
 - `messages: Array[BetaMessageParam]`
 
@@ -1372,9 +1396,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
   ```
 
-  See [input examples](https://docs.claude.com/en/api/messages-examples).
+  See [input examples](https://platform.claude.com/docs/en/build-with-claude/working-with-messages).
 
-  Note that if you want to include a [system prompt](https://docs.claude.com/en/docs/system-prompts), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
+  Note that if you want to include a [system prompt](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
 
   There is a limit of 100,000 messages in a single request.
 
@@ -1409,7 +1433,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
-            Defaults to `5m`.
+            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
             - `:"5m"`
 
@@ -2363,19 +2387,109 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         Use this block to provide or update system-level instructions at a specific
         point in the conversation, rather than only via the top-level `system` parameter.
 
-        - `content: Array[BetaTextBlockParam]`
+        - `content: Array[BetaTextBlockParam | BetaRequestToolAdditionBlock | BetaRequestToolRemovalBlock]`
 
           System instruction text blocks.
 
-          - `text: String`
+          - `class BetaTextBlockParam`
 
-          - `type: :text`
+          - `class BetaRequestToolAdditionBlock`
 
-          - `cache_control: BetaCacheControlEphemeral`
+            Mid-conversation directive to surface a declared tool.
 
-            Create a cache control breakpoint at this content block.
+            `tool` references a tool (or MCP toolset) by name from the request's
+            `tools`; it is offered to the model from this point in the
+            conversation onward.
 
-          - `citations: Array[BetaTextCitationParam]`
+            - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
+
+              Reference to a single tool the caller declared directly in
+              `tools[]`. Does not accept the composed `{server}_{name}` form the
+              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+              `mcp_toolset_reference` for those.
+
+              - `class BetaToolChangeToolReference`
+
+                Reference to a single tool the caller declared directly in
+                `tools[]`. Does not accept the composed `{server}_{name}` form the
+                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                `mcp_toolset_reference` for those.
+
+                - `name: String`
+
+                - `type: :tool_reference`
+
+                  - `:tool_reference`
+
+              - `class BetaToolChangeMCPToolReference`
+
+                Reference to a single MCP tool by its server and remote name — the
+                same `server_name`/`name` pair `mcp_tool_use` carries.
+
+                - `name: String`
+
+                - `server_name: String`
+
+                - `type: :mcp_tool_reference`
+
+                  - `:mcp_tool_reference`
+
+              - `class BetaToolChangeMCPToolsetReference`
+
+                Reference to every tool in the named MCP server's toolset.
+
+                - `server_name: String`
+
+                - `type: :mcp_toolset_reference`
+
+                  - `:mcp_toolset_reference`
+
+            - `type: :tool_addition`
+
+              - `:tool_addition`
+
+            - `cache_control: BetaCacheControlEphemeral`
+
+              Create a cache control breakpoint at this content block.
+
+          - `class BetaRequestToolRemovalBlock`
+
+            Mid-conversation directive to withdraw a tool.
+
+            `tool` references a tool (or MCP toolset) by name from the request's
+            `tools`; it is no longer offered to the model from this point in the
+            conversation onward.
+
+            - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
+
+              Reference to a single tool the caller declared directly in
+              `tools[]`. Does not accept the composed `{server}_{name}` form the
+              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+              `mcp_toolset_reference` for those.
+
+              - `class BetaToolChangeToolReference`
+
+                Reference to a single tool the caller declared directly in
+                `tools[]`. Does not accept the composed `{server}_{name}` form the
+                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                `mcp_toolset_reference` for those.
+
+              - `class BetaToolChangeMCPToolReference`
+
+                Reference to a single MCP tool by its server and remote name — the
+                same `server_name`/`name` pair `mcp_tool_use` carries.
+
+              - `class BetaToolChangeMCPToolsetReference`
+
+                Reference to every tool in the named MCP server's toolset.
+
+            - `type: :tool_removal`
+
+              - `:tool_removal`
+
+            - `cache_control: BetaCacheControlEphemeral`
+
+              Create a cache control breakpoint at this content block.
 
         - `type: :mid_conv_system`
 
@@ -2384,6 +2498,22 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `cache_control: BetaCacheControlEphemeral`
 
           Create a cache control breakpoint at this content block.
+
+      - `class BetaRequestToolAdditionBlock`
+
+        Mid-conversation directive to surface a declared tool.
+
+        `tool` references a tool (or MCP toolset) by name from the request's
+        `tools`; it is offered to the model from this point in the
+        conversation onward.
+
+      - `class BetaRequestToolRemovalBlock`
+
+        Mid-conversation directive to withdraw a tool.
+
+        `tool` references a tool (or MCP toolset) by name from the request's
+        `tools`; it is no longer offered to the model from this point in the
+        conversation onward.
 
       - `class BetaFallbackBlockParam`
 
@@ -2411,11 +2541,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+            - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `:"claude-sonnet-5"`
+
+                High-performance model for coding and agents
 
               - `:"claude-fable-5"`
 
@@ -2425,13 +2559,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
                 Most capable model for cybersecurity and biology research
 
+              - `:"claude-opus-5"`
+
+                Powerful intelligence for long-running agents and coding
+
               - `:"claude-opus-4-8"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-opus-4-7"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-mythos-preview"`
 
@@ -2439,7 +2577,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
               - `:"claude-opus-4-6"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-sonnet-4-6"`
 
@@ -2455,11 +2593,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
               - `:"claude-opus-4-5"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-opus-4-5-20251101"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-sonnet-4-5"`
 
@@ -2471,11 +2609,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
               - `:"claude-opus-4-1"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-opus-4-1-20250805"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
             - `String = String`
 
@@ -2668,7 +2806,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
 
-- `fallback_credit_token: String`
+- `fallback_credit_token: String | BetaFallbackCreditTokenParam`
 
   The `fallback_credit_token` from a prior refusal's `stop_details`.
 
@@ -2691,113 +2829,145 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   When the appended-assistant form is used on a model that otherwise disallows
   assistant-turn prefill, this token also authorizes that one prefill.
 
-- `fallbacks: Array[BetaFallbackParam]`
+  - `String = String`
 
-  Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on.
+  - `class BetaFallbackCreditTokenParam`
 
-  - `model: Model`
+    Object form of `fallback_credit_token`: the token plus a redemption
+    mode.
 
-    The model that will complete your prompt.
+    Requires `anthropic-beta: fallback-credit-2026-07-01`; without that
+    header the field accepts the bare string only. The bare string and the
+    mode-less object are equivalent (both select `strict`), so wrapping
+    an existing token changes nothing by itself.
 
-    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+    - `token: String`
 
-  - `max_tokens: Integer`
+      The opaque `fallback_credit_token` from a prior refusal's `stop_details` — the same string the bare-string form carries.
 
-  - `output_config: BetaOutputConfig`
+    - `mode: :strict | :best_effort`
 
-    - `effort: :low | :medium | :high | 2 more`
+      How a failing token affects the retry. `strict` (the default, and the bare-string behavior): a failing redemption is a 400 and the retry is not served. `best_effort`: the retry is served either way — a token-layer failure no longer rejects the request; the retry proceeds at normal price and the outcome is reported on the response's `usage.fallback_credit`. Two failures stay hard in both modes: a malformed token, and combining `fallback_credit_token` with `fallbacks`.
 
-      All possible effort levels.
+      - `:strict`
 
-      - `:low`
+      - `:best_effort`
 
-      - `:medium`
+- `fallbacks: BetaFallbacksParam`
 
-      - `:high`
+  Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on. The string "default" requests the requested model's server-defined default fallback configuration.
 
-      - `:xhigh`
+  - `UnionMember0 = Array[BetaFallbackParam]`
 
-      - `:max`
+    - `model: Model`
 
-    - `format_: BetaJSONOutputFormat`
+      The model that will complete your prompt.
 
-      A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `schema: Hash[Symbol, untyped]`
+    - `max_tokens: Integer`
 
-        The JSON schema of the format
+    - `output_config: BetaOutputConfig`
 
-      - `type: :json_schema`
+      - `effort: :low | :medium | :high | 2 more`
 
-        - `:json_schema`
+        All possible effort levels.
 
-    - `task_budget: BetaTokenTaskBudget`
+        - `:low`
 
-      User-configurable total token budget across contexts.
+        - `:medium`
 
-      - `total: Integer`
+        - `:high`
 
-        Total token budget across all contexts in the session.
+        - `:xhigh`
 
-      - `type: :tokens`
+        - `:max`
 
-        The budget type. Currently only 'tokens' is supported.
+      - `format_: BetaJSONOutputFormat`
 
-        - `:tokens`
+        A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 
-      - `remaining: Integer`
+        - `schema: Hash[Symbol, untyped]`
 
-        Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+          The JSON schema of the format
 
-  - `speed: :standard | :fast`
+        - `type: :json_schema`
 
-    - `:standard`
+          - `:json_schema`
 
-    - `:fast`
+      - `task_budget: BetaTokenTaskBudget`
 
-  - `thinking: BetaThinkingConfigEnabled | BetaThinkingConfigDisabled | BetaThinkingConfigAdaptive`
+        User-configurable total token budget across contexts.
 
-    - `class BetaThinkingConfigEnabled`
+        - `total: Integer`
 
-      - `budget_tokens: Integer`
+          Total token budget across all contexts in the session.
 
-        Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+        - `type: :tokens`
 
-        Must be ≥1024 and less than `max_tokens`.
+          The budget type. Currently only 'tokens' is supported.
 
-        See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+          - `:tokens`
 
-      - `type: :enabled`
+        - `remaining: Integer`
 
-        - `:enabled`
+          Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
 
-      - `display_: :summarized | :omitted`
+    - `speed: :standard | :fast`
 
-        Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-        - `:summarized`
+      - `:standard`
 
-        - `:omitted`
+      - `:fast`
 
-    - `class BetaThinkingConfigDisabled`
+    - `thinking: BetaThinkingConfigEnabled | BetaThinkingConfigDisabled | BetaThinkingConfigAdaptive`
 
-      - `type: :disabled`
+      - `class BetaThinkingConfigEnabled`
 
-        - `:disabled`
+        - `budget_tokens: Integer`
 
-    - `class BetaThinkingConfigAdaptive`
+          Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
 
-      - `type: :adaptive`
+          Must be ≥1024 and less than `max_tokens`.
 
-        - `:adaptive`
+          See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-      - `display_: :summarized | :omitted`
+        - `type: :enabled`
 
-        Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+          - `:enabled`
 
-        - `:summarized`
+        - `display_: :summarized | :omitted`
 
-        - `:omitted`
+          Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+          - `:summarized`
+
+          - `:omitted`
+
+      - `class BetaThinkingConfigDisabled`
+
+        - `type: :disabled`
+
+          - `:disabled`
+
+      - `class BetaThinkingConfigAdaptive`
+
+        - `type: :adaptive`
+
+          - `:adaptive`
+
+        - `display_: :summarized | :omitted`
+
+          Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+          - `:summarized`
+
+          - `:omitted`
+
+  - `BetaFallbacksParam = :default`
+
+    - `:default`
 
 - `inference_geo: String`
 
@@ -2847,7 +3017,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Determines whether to use priority capacity (if available) or standard capacity for this request.
 
-  Anthropic offers different levels of service for your API requests. See [service-tiers](https://docs.claude.com/en/api/service-tiers) for details.
+  Anthropic offers different levels of service for your API requests. See [service-tiers](https://platform.claude.com/docs/en/api/service-tiers) for details.
 
   - `:auto`
 
@@ -2855,7 +3025,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
 - `speed: :standard | :fast`
 
-  The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
+  Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
   - `:standard`
 
@@ -2873,13 +3043,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Whether to incrementally stream the response using server-sent events.
 
-  See [streaming](https://docs.claude.com/en/api/messages-streaming) for details.
+  See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
 
 - `system_: String | Array[BetaTextBlockParam]`
 
   System prompt.
 
-  A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://docs.claude.com/en/docs/system-prompts).
+  A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).
 
   - `String = String`
 
@@ -2909,7 +3079,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
-  See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+  See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
   - `class BetaThinkingConfigEnabled`
 
@@ -2981,7 +3151,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   If you include `tools` in your API request, the model may return `tool_use` content blocks that represent the model's use of those tools. You can then run those tools using the tool input generated by the model and then optionally return results back to the model using `tool_result` content blocks.
 
-  There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
+  There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool)).
 
   Each tool definition includes:
 
@@ -3037,7 +3207,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
 
-  See our [guide](https://docs.claude.com/en/docs/tool-use) for more details.
+  See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
   - `class BetaTool`
 
@@ -3969,6 +4139,134 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
+  - `class BetaWebSearchTool20260318`
+
+    - `name: :web_search`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `:web_search`
+
+    - `type: :web_search_20260318`
+
+      - `:web_search_20260318`
+
+    - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
+
+      - `:direct`
+
+      - `:code_execution_20250825`
+
+      - `:code_execution_20260120`
+
+      - `:code_execution_20260521`
+
+    - `allowed_domains: Array[String]`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `blocked_domains: Array[String]`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `cache_control: BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_uses: Integer`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `response_inclusion: :full | :excluded`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+      - `:full`
+
+      - `:excluded`
+
+    - `strict: bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `user_location: BetaUserLocation`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+  - `class BetaWebFetchTool20260318`
+
+    - `name: :web_fetch`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `:web_fetch`
+
+    - `type: :web_fetch_20260318`
+
+      - `:web_fetch_20260318`
+
+    - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
+
+      - `:direct`
+
+      - `:code_execution_20250825`
+
+      - `:code_execution_20260120`
+
+      - `:code_execution_20260521`
+
+    - `allowed_domains: Array[String]`
+
+      List of domains to allow fetching from
+
+    - `blocked_domains: Array[String]`
+
+      List of domains to block fetching from
+
+    - `cache_control: BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `citations: BetaCitationsConfigParam`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `defer_loading: bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_content_tokens: Integer`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    - `max_uses: Integer`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `response_inclusion: :full | :excluded`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+      - `:full`
+
+      - `:excluded`
+
+    - `strict: bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `use_cache: bool`
+
+      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
   - `class BetaAdvisorTool20260301`
 
     - `model: Model`
@@ -4150,17 +4448,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Recommended for advanced use cases only.
 
-- `user_profile_id: String`
-
-  The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization.
-
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -4212,11 +4506,23 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+- `user_profile_id: String`
+
+  The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
 ### Returns
 
@@ -5069,11 +5375,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+          - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-sonnet-5"`
+
+              High-performance model for coding and agents
 
             - `:"claude-fable-5"`
 
@@ -5083,13 +5393,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
               Most capable model for cybersecurity and biology research
 
+            - `:"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `:"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-mythos-preview"`
 
@@ -5097,7 +5411,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
             - `:"claude-opus-4-6"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-6"`
 
@@ -5113,11 +5427,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
             - `:"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-5"`
 
@@ -5129,11 +5443,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
             - `:"claude-opus-4-1"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-1-20250805"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
           - `String = String`
 
@@ -5145,17 +5459,29 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
         What caused the `from` model to hand over at this hop.
 
-        - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+        - `category: :cyber | :bio | :frontier_llm | 2 more`
 
           The policy category that triggered a refusal.
 
           - `:cyber`
 
+            The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
           - `:bio`
+
+            The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
           - `:frontier_llm`
 
+            The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
           - `:reasoning_extraction`
+
+            The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+          - `:general_harms`
+
+            The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
         - `type: :refusal`
 
@@ -5286,17 +5612,29 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     Structured information about a refusal.
 
-    - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+    - `category: :cyber | :bio | :frontier_llm | 2 more`
 
       The policy category that triggered a refusal.
 
       - `:cyber`
 
+        The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
       - `:bio`
+
+        The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
       - `:frontier_llm`
 
+        The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
       - `:reasoning_extraction`
+
+        The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+      - `:general_harms`
+
+        The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
     - `explanation: String`
 
@@ -5369,6 +5707,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     * `"tool_use"`: the model invoked one or more tools
     * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
     * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+    * `"model_context_window_exceeded"`: we exceeded the model's context window
 
     In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -5433,6 +5772,78 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `cache_read_input_tokens: Integer`
 
       The number of input tokens read from the cache.
+
+    - `fallback_credit: BetaFallbackCreditUsage`
+
+      Outcome of the `fallback_credit_token` presented on this request.
+
+      - `status: BetaFallbackCreditRedeemed | BetaFallbackCreditNotApplied`
+
+        Whether the fallback-credit reprice was applied to this response's billing.
+
+        A union discriminated on `type`. `redeemed`: the retry is billed as if
+        the conversation had been on the retry model all along — including when the
+        resulting shift is zero because there was nothing to move. `not_applied`:
+        no reprice was applied; the arm's `reason` says why.
+
+        - `class BetaFallbackCreditRedeemed`
+
+          The reprice was applied: the retry is billed as if the conversation
+          had been on the retry model all along.
+
+          - `type: :redeemed`
+
+            - `:redeemed`
+
+        - `class BetaFallbackCreditNotApplied`
+
+          No reprice was applied; `reason` says why.
+
+          - `reason: :body_mismatch | :continuation_excluded | :continuation_only | 9 more`
+
+            Why the reprice was not applied.
+
+            A closed enum; additions to the redemption-check vocabulary arrive as
+            deliberate schema updates.
+
+            - `:body_mismatch`
+
+            - `:continuation_excluded`
+
+            - `:continuation_only`
+
+            - `:expired`
+
+            - `:invalid_target_model`
+
+            - `:not_enabled`
+
+            - `:reprice_unavailable`
+
+            - `:temporarily_unavailable`
+
+            - `:variant_fields_present`
+
+            - `:wrong_organization`
+
+            - `:wrong_platform`
+
+            - `:wrong_workspace`
+
+          - `type: :not_applied`
+
+            - `:not_applied`
+
+          - `remove_to_redeem: Array[String]`
+
+            Request fields to remove before retrying, so the retry can redeem this
+            token.
+
+            Present exactly when `reason` is `variant_fields_present` — never null,
+            never an empty array; absent otherwise. Fields are named only from your own request, and only after
+            the sealed variant hash matched. A served best-effort retry has already
+            been billed at normal price; nothing redeems retroactively, but a corrected
+            re-send inside the token's five-minute window can still redeem.
 
     - `inference_geo: String`
 
@@ -5643,7 +6054,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     - `speed: :standard | :fast`
 
-      The inference speed mode used for this request.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `:standard`
 
@@ -5671,7 +6082,7 @@ puts(beta_message)
 {
   "id": "msg_013Zva2CMHLNnXjNJJKqJ2EF",
   "container": {
-    "id": "id",
+    "id": "container_011CpZohnwH4vuy7gazohgSP",
     "expires_at": "2019-12-27T18:11:19.117Z",
     "skills": [
       {
@@ -5685,11 +6096,11 @@ puts(beta_message)
     {
       "citations": [
         {
-          "cited_text": "cited_text",
+          "cited_text": "The grass is green. The sky is blue.",
           "document_index": 0,
-          "document_title": "document_title",
+          "document_title": "My Document",
           "end_char_index": 0,
-          "file_id": "file_id",
+          "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
           "start_char_index": 0,
           "type": "char_location"
         }
@@ -5717,10 +6128,10 @@ puts(beta_message)
   "role": "assistant",
   "stop_details": {
     "category": "cyber",
-    "explanation": "explanation",
-    "fallback_credit_token": "fallback_credit_token",
+    "explanation": "This request was declined because it conflicts with Anthropic's Usage Policy.",
+    "fallback_credit_token": "QW50aHJvcGljL0NsYXVkZQ==",
     "fallback_has_prefill_claim": true,
-    "recommended_model": "recommended_model",
+    "recommended_model": "claude-sonnet-4-6",
     "type": "refusal"
   },
   "stop_reason": "end_turn",
@@ -5733,7 +6144,12 @@ puts(beta_message)
     },
     "cache_creation_input_tokens": 2051,
     "cache_read_input_tokens": 2051,
-    "inference_geo": "inference_geo",
+    "fallback_credit": {
+      "status": {
+        "type": "redeemed"
+      }
+    },
+    "inference_geo": "global",
     "input_tokens": 2095,
     "iterations": [
       {
@@ -5744,7 +6160,7 @@ puts(beta_message)
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-fable-5",
+        "model": "claude-sonnet-5",
         "output_tokens": 0,
         "type": "message"
       }
@@ -5773,7 +6189,7 @@ Count the number of tokens in a Message.
 
 The Token Count API can be used to count the number of tokens in a Message, including tools, images, and documents, without creating it.
 
-Learn more about token counting in our [user guide](https://docs.claude.com/en/docs/build-with-claude/token-counting)
+Learn more about token counting in our [user guide](https://platform.claude.com/docs/en/build-with-claude/token-counting)
 
 ### Parameters
 
@@ -5822,9 +6238,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
   {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
   ```
 
-  See [input examples](https://docs.claude.com/en/api/messages-examples).
+  See [input examples](https://platform.claude.com/docs/en/build-with-claude/working-with-messages).
 
-  Note that if you want to include a [system prompt](https://docs.claude.com/en/docs/system-prompts), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
+  Note that if you want to include a [system prompt](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
 
   There is a limit of 100,000 messages in a single request.
 
@@ -5859,7 +6275,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
-            Defaults to `5m`.
+            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
             - `:"5m"`
 
@@ -6813,19 +7229,109 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         Use this block to provide or update system-level instructions at a specific
         point in the conversation, rather than only via the top-level `system` parameter.
 
-        - `content: Array[BetaTextBlockParam]`
+        - `content: Array[BetaTextBlockParam | BetaRequestToolAdditionBlock | BetaRequestToolRemovalBlock]`
 
           System instruction text blocks.
 
-          - `text: String`
+          - `class BetaTextBlockParam`
 
-          - `type: :text`
+          - `class BetaRequestToolAdditionBlock`
 
-          - `cache_control: BetaCacheControlEphemeral`
+            Mid-conversation directive to surface a declared tool.
 
-            Create a cache control breakpoint at this content block.
+            `tool` references a tool (or MCP toolset) by name from the request's
+            `tools`; it is offered to the model from this point in the
+            conversation onward.
 
-          - `citations: Array[BetaTextCitationParam]`
+            - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
+
+              Reference to a single tool the caller declared directly in
+              `tools[]`. Does not accept the composed `{server}_{name}` form the
+              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+              `mcp_toolset_reference` for those.
+
+              - `class BetaToolChangeToolReference`
+
+                Reference to a single tool the caller declared directly in
+                `tools[]`. Does not accept the composed `{server}_{name}` form the
+                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                `mcp_toolset_reference` for those.
+
+                - `name: String`
+
+                - `type: :tool_reference`
+
+                  - `:tool_reference`
+
+              - `class BetaToolChangeMCPToolReference`
+
+                Reference to a single MCP tool by its server and remote name — the
+                same `server_name`/`name` pair `mcp_tool_use` carries.
+
+                - `name: String`
+
+                - `server_name: String`
+
+                - `type: :mcp_tool_reference`
+
+                  - `:mcp_tool_reference`
+
+              - `class BetaToolChangeMCPToolsetReference`
+
+                Reference to every tool in the named MCP server's toolset.
+
+                - `server_name: String`
+
+                - `type: :mcp_toolset_reference`
+
+                  - `:mcp_toolset_reference`
+
+            - `type: :tool_addition`
+
+              - `:tool_addition`
+
+            - `cache_control: BetaCacheControlEphemeral`
+
+              Create a cache control breakpoint at this content block.
+
+          - `class BetaRequestToolRemovalBlock`
+
+            Mid-conversation directive to withdraw a tool.
+
+            `tool` references a tool (or MCP toolset) by name from the request's
+            `tools`; it is no longer offered to the model from this point in the
+            conversation onward.
+
+            - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
+
+              Reference to a single tool the caller declared directly in
+              `tools[]`. Does not accept the composed `{server}_{name}` form the
+              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+              `mcp_toolset_reference` for those.
+
+              - `class BetaToolChangeToolReference`
+
+                Reference to a single tool the caller declared directly in
+                `tools[]`. Does not accept the composed `{server}_{name}` form the
+                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                `mcp_toolset_reference` for those.
+
+              - `class BetaToolChangeMCPToolReference`
+
+                Reference to a single MCP tool by its server and remote name — the
+                same `server_name`/`name` pair `mcp_tool_use` carries.
+
+              - `class BetaToolChangeMCPToolsetReference`
+
+                Reference to every tool in the named MCP server's toolset.
+
+            - `type: :tool_removal`
+
+              - `:tool_removal`
+
+            - `cache_control: BetaCacheControlEphemeral`
+
+              Create a cache control breakpoint at this content block.
 
         - `type: :mid_conv_system`
 
@@ -6834,6 +7340,22 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         - `cache_control: BetaCacheControlEphemeral`
 
           Create a cache control breakpoint at this content block.
+
+      - `class BetaRequestToolAdditionBlock`
+
+        Mid-conversation directive to surface a declared tool.
+
+        `tool` references a tool (or MCP toolset) by name from the request's
+        `tools`; it is offered to the model from this point in the
+        conversation onward.
+
+      - `class BetaRequestToolRemovalBlock`
+
+        Mid-conversation directive to withdraw a tool.
+
+        `tool` references a tool (or MCP toolset) by name from the request's
+        `tools`; it is no longer offered to the model from this point in the
+        conversation onward.
 
       - `class BetaFallbackBlockParam`
 
@@ -6861,11 +7383,15 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+            - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `:"claude-sonnet-5"`
+
+                High-performance model for coding and agents
 
               - `:"claude-fable-5"`
 
@@ -6875,13 +7401,17 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
                 Most capable model for cybersecurity and biology research
 
+              - `:"claude-opus-5"`
+
+                Powerful intelligence for long-running agents and coding
+
               - `:"claude-opus-4-8"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-opus-4-7"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-mythos-preview"`
 
@@ -6889,7 +7419,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
               - `:"claude-opus-4-6"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-sonnet-4-6"`
 
@@ -6905,11 +7435,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
               - `:"claude-opus-4-5"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-opus-4-5-20251101"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-sonnet-4-5"`
 
@@ -6921,11 +7451,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
               - `:"claude-opus-4-1"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-opus-4-1-20250805"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
             - `String = String`
 
@@ -7151,7 +7681,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
 - `speed: :standard | :fast`
 
-  The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
+  Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
   - `:standard`
 
@@ -7161,7 +7691,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   System prompt.
 
-  A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://docs.claude.com/en/docs/system-prompts).
+  A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).
 
   - `String = String`
 
@@ -7183,7 +7713,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
-  See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+  See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
   - `class BetaThinkingConfigEnabled`
 
@@ -7193,7 +7723,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       Must be ≥1024 and less than `max_tokens`.
 
-      See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+      See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
     - `type: :enabled`
 
@@ -7285,13 +7815,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `:none`
 
-- `tools: Array[BetaTool | BetaToolBash20241022 | BetaToolBash20250124 | 21 more]`
+- `tools: Array[BetaTool | BetaToolBash20241022 | BetaToolBash20250124 | 23 more]`
 
   Definitions of tools that the model may use.
 
   If you include `tools` in your API request, the model may return `tool_use` content blocks that represent the model's use of those tools. You can then run those tools using the tool input generated by the model and then optionally return results back to the model using `tool_result` content blocks.
 
-  There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
+  There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool)).
 
   Each tool definition includes:
 
@@ -7347,7 +7877,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
 
-  See our [guide](https://docs.claude.com/en/docs/tool-use) for more details.
+  See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
   - `class BetaTool`
 
@@ -8279,6 +8809,134 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
+  - `class BetaWebSearchTool20260318`
+
+    - `name: :web_search`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `:web_search`
+
+    - `type: :web_search_20260318`
+
+      - `:web_search_20260318`
+
+    - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
+
+      - `:direct`
+
+      - `:code_execution_20250825`
+
+      - `:code_execution_20260120`
+
+      - `:code_execution_20260521`
+
+    - `allowed_domains: Array[String]`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `blocked_domains: Array[String]`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `cache_control: BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_uses: Integer`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `response_inclusion: :full | :excluded`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+      - `:full`
+
+      - `:excluded`
+
+    - `strict: bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `user_location: BetaUserLocation`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+  - `class BetaWebFetchTool20260318`
+
+    - `name: :web_fetch`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `:web_fetch`
+
+    - `type: :web_fetch_20260318`
+
+      - `:web_fetch_20260318`
+
+    - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
+
+      - `:direct`
+
+      - `:code_execution_20250825`
+
+      - `:code_execution_20260120`
+
+      - `:code_execution_20260521`
+
+    - `allowed_domains: Array[String]`
+
+      List of domains to allow fetching from
+
+    - `blocked_domains: Array[String]`
+
+      List of domains to block fetching from
+
+    - `cache_control: BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `citations: BetaCitationsConfigParam`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `defer_loading: bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_content_tokens: Integer`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    - `max_uses: Integer`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `response_inclusion: :full | :excluded`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+      - `:full`
+
+      - `:excluded`
+
+    - `strict: bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `use_cache: bool`
+
+      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
   - `class BetaAdvisorTool20260301`
 
     - `model: Model`
@@ -8450,7 +9108,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -8502,11 +9160,23 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+- `user_profile_id: String`
+
+  The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
 ### Returns
 
@@ -8588,11 +9258,15 @@ puts(beta_message_tokens_count)
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+    - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `:"claude-sonnet-5"`
+
+        High-performance model for coding and agents
 
       - `:"claude-fable-5"`
 
@@ -8602,13 +9276,17 @@ puts(beta_message_tokens_count)
 
         Most capable model for cybersecurity and biology research
 
+      - `:"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `:"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-mythos-preview"`
 
@@ -8616,7 +9294,7 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-6"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-6"`
 
@@ -8632,11 +9310,11 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-5"`
 
@@ -8648,11 +9326,11 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-1"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-1-20250805"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
     - `String = String`
 
@@ -8732,11 +9410,15 @@ puts(beta_message_tokens_count)
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+    - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `:"claude-sonnet-5"`
+
+        High-performance model for coding and agents
 
       - `:"claude-fable-5"`
 
@@ -8746,13 +9428,17 @@ puts(beta_message_tokens_count)
 
         Most capable model for cybersecurity and biology research
 
+      - `:"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `:"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-mythos-preview"`
 
@@ -8760,7 +9446,7 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-6"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-6"`
 
@@ -8776,11 +9462,11 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-5"`
 
@@ -8792,11 +9478,11 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-1"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-1-20250805"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
     - `String = String`
 
@@ -8839,7 +9525,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -8998,7 +9684,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -9275,7 +9961,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -9338,7 +10024,7 @@ puts(beta_message_tokens_count)
     - `5m`: 5 minutes
     - `1h`: 1 hour
 
-    Defaults to `5m`.
+    Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
     - `:"5m"`
 
@@ -10019,7 +10705,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -10076,7 +10762,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -10135,7 +10821,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -10194,7 +10880,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -10427,7 +11113,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -10626,7 +11312,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -10800,7 +11486,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -11592,11 +12278,15 @@ puts(beta_message_tokens_count)
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+        - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `:"claude-fable-5"`
 
@@ -11606,13 +12296,17 @@ puts(beta_message_tokens_count)
 
             Most capable model for cybersecurity and biology research
 
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `:"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-mythos-preview"`
 
@@ -11620,7 +12314,7 @@ puts(beta_message_tokens_count)
 
           - `:"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-6"`
 
@@ -11636,11 +12330,11 @@ puts(beta_message_tokens_count)
 
           - `:"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-5"`
 
@@ -11652,11 +12346,11 @@ puts(beta_message_tokens_count)
 
           - `:"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
         - `String = String`
 
@@ -11668,17 +12362,29 @@ puts(beta_message_tokens_count)
 
       What caused the `from` model to hand over at this hop.
 
-      - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+      - `category: :cyber | :bio | :frontier_llm | 2 more`
 
         The policy category that triggered a refusal.
 
         - `:cyber`
 
+          The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
         - `:bio`
+
+          The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
         - `:frontier_llm`
 
+          The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
         - `:reasoning_extraction`
+
+          The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+        - `:general_harms`
+
+          The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
       - `type: :refusal`
 
@@ -11690,7 +12396,7 @@ puts(beta_message_tokens_count)
 
 ### Beta Content Block Param
 
-- `BetaContentBlockParam = BetaTextBlockParam | BetaImageBlockParam | BetaRequestDocumentBlock | 19 more`
+- `BetaContentBlockParam = BetaTextBlockParam | BetaImageBlockParam | BetaRequestDocumentBlock | 21 more`
 
   Regular text content.
 
@@ -11719,7 +12425,7 @@ puts(beta_message_tokens_count)
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
         - `:"5m"`
 
@@ -12673,19 +13379,109 @@ puts(beta_message_tokens_count)
     Use this block to provide or update system-level instructions at a specific
     point in the conversation, rather than only via the top-level `system` parameter.
 
-    - `content: Array[BetaTextBlockParam]`
+    - `content: Array[BetaTextBlockParam | BetaRequestToolAdditionBlock | BetaRequestToolRemovalBlock]`
 
       System instruction text blocks.
 
-      - `text: String`
+      - `class BetaTextBlockParam`
 
-      - `type: :text`
+      - `class BetaRequestToolAdditionBlock`
 
-      - `cache_control: BetaCacheControlEphemeral`
+        Mid-conversation directive to surface a declared tool.
 
-        Create a cache control breakpoint at this content block.
+        `tool` references a tool (or MCP toolset) by name from the request's
+        `tools`; it is offered to the model from this point in the
+        conversation onward.
 
-      - `citations: Array[BetaTextCitationParam]`
+        - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
+
+          Reference to a single tool the caller declared directly in
+          `tools[]`. Does not accept the composed `{server}_{name}` form the
+          server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+          `mcp_toolset_reference` for those.
+
+          - `class BetaToolChangeToolReference`
+
+            Reference to a single tool the caller declared directly in
+            `tools[]`. Does not accept the composed `{server}_{name}` form the
+            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+            `mcp_toolset_reference` for those.
+
+            - `name: String`
+
+            - `type: :tool_reference`
+
+              - `:tool_reference`
+
+          - `class BetaToolChangeMCPToolReference`
+
+            Reference to a single MCP tool by its server and remote name — the
+            same `server_name`/`name` pair `mcp_tool_use` carries.
+
+            - `name: String`
+
+            - `server_name: String`
+
+            - `type: :mcp_tool_reference`
+
+              - `:mcp_tool_reference`
+
+          - `class BetaToolChangeMCPToolsetReference`
+
+            Reference to every tool in the named MCP server's toolset.
+
+            - `server_name: String`
+
+            - `type: :mcp_toolset_reference`
+
+              - `:mcp_toolset_reference`
+
+        - `type: :tool_addition`
+
+          - `:tool_addition`
+
+        - `cache_control: BetaCacheControlEphemeral`
+
+          Create a cache control breakpoint at this content block.
+
+      - `class BetaRequestToolRemovalBlock`
+
+        Mid-conversation directive to withdraw a tool.
+
+        `tool` references a tool (or MCP toolset) by name from the request's
+        `tools`; it is no longer offered to the model from this point in the
+        conversation onward.
+
+        - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
+
+          Reference to a single tool the caller declared directly in
+          `tools[]`. Does not accept the composed `{server}_{name}` form the
+          server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+          `mcp_toolset_reference` for those.
+
+          - `class BetaToolChangeToolReference`
+
+            Reference to a single tool the caller declared directly in
+            `tools[]`. Does not accept the composed `{server}_{name}` form the
+            server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+            `mcp_toolset_reference` for those.
+
+          - `class BetaToolChangeMCPToolReference`
+
+            Reference to a single MCP tool by its server and remote name — the
+            same `server_name`/`name` pair `mcp_tool_use` carries.
+
+          - `class BetaToolChangeMCPToolsetReference`
+
+            Reference to every tool in the named MCP server's toolset.
+
+        - `type: :tool_removal`
+
+          - `:tool_removal`
+
+        - `cache_control: BetaCacheControlEphemeral`
+
+          Create a cache control breakpoint at this content block.
 
     - `type: :mid_conv_system`
 
@@ -12694,6 +13490,22 @@ puts(beta_message_tokens_count)
     - `cache_control: BetaCacheControlEphemeral`
 
       Create a cache control breakpoint at this content block.
+
+  - `class BetaRequestToolAdditionBlock`
+
+    Mid-conversation directive to surface a declared tool.
+
+    `tool` references a tool (or MCP toolset) by name from the request's
+    `tools`; it is offered to the model from this point in the
+    conversation onward.
+
+  - `class BetaRequestToolRemovalBlock`
+
+    Mid-conversation directive to withdraw a tool.
+
+    `tool` references a tool (or MCP toolset) by name from the request's
+    `tools`; it is no longer offered to the model from this point in the
+    conversation onward.
 
   - `class BetaFallbackBlockParam`
 
@@ -12721,11 +13533,15 @@ puts(beta_message_tokens_count)
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+        - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `:"claude-fable-5"`
 
@@ -12735,13 +13551,17 @@ puts(beta_message_tokens_count)
 
             Most capable model for cybersecurity and biology research
 
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `:"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-mythos-preview"`
 
@@ -12749,7 +13569,7 @@ puts(beta_message_tokens_count)
 
           - `:"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-6"`
 
@@ -12765,11 +13585,11 @@ puts(beta_message_tokens_count)
 
           - `:"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-5"`
 
@@ -12781,11 +13601,11 @@ puts(beta_message_tokens_count)
 
           - `:"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
         - `String = String`
 
@@ -12836,7 +13656,7 @@ puts(beta_message_tokens_count)
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
-            Defaults to `5m`.
+            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
             - `:"5m"`
 
@@ -13027,7 +13847,7 @@ puts(beta_message_tokens_count)
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
         - `:"5m"`
 
@@ -13549,11 +14369,15 @@ puts(beta_message_tokens_count)
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+      - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-sonnet-5"`
+
+          High-performance model for coding and agents
 
         - `:"claude-fable-5"`
 
@@ -13563,13 +14387,17 @@ puts(beta_message_tokens_count)
 
           Most capable model for cybersecurity and biology research
 
+        - `:"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `:"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-mythos-preview"`
 
@@ -13577,7 +14405,7 @@ puts(beta_message_tokens_count)
 
         - `:"claude-opus-4-6"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-6"`
 
@@ -13593,11 +14421,11 @@ puts(beta_message_tokens_count)
 
         - `:"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-5"`
 
@@ -13609,11 +14437,11 @@ puts(beta_message_tokens_count)
 
         - `:"claude-opus-4-1"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-1-20250805"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
       - `String = String`
 
@@ -13625,17 +14453,29 @@ puts(beta_message_tokens_count)
 
     What caused the `from` model to hand over at this hop.
 
-    - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+    - `category: :cyber | :bio | :frontier_llm | 2 more`
 
       The policy category that triggered a refusal.
 
       - `:cyber`
 
+        The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
       - `:bio`
+
+        The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
       - `:frontier_llm`
 
+        The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
       - `:reasoning_extraction`
+
+        The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+      - `:general_harms`
+
+        The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
     - `type: :refusal`
 
@@ -13673,11 +14513,15 @@ puts(beta_message_tokens_count)
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+      - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-sonnet-5"`
+
+          High-performance model for coding and agents
 
         - `:"claude-fable-5"`
 
@@ -13687,13 +14531,17 @@ puts(beta_message_tokens_count)
 
           Most capable model for cybersecurity and biology research
 
+        - `:"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `:"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-mythos-preview"`
 
@@ -13701,7 +14549,7 @@ puts(beta_message_tokens_count)
 
         - `:"claude-opus-4-6"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-6"`
 
@@ -13717,11 +14565,11 @@ puts(beta_message_tokens_count)
 
         - `:"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-5"`
 
@@ -13733,11 +14581,11 @@ puts(beta_message_tokens_count)
 
         - `:"claude-opus-4-1"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-1-20250805"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
       - `String = String`
 
@@ -13753,6 +14601,167 @@ puts(beta_message_tokens_count)
 
     The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
 
+### Beta Fallback Credit Not Applied
+
+- `class BetaFallbackCreditNotApplied`
+
+  No reprice was applied; `reason` says why.
+
+  - `reason: :body_mismatch | :continuation_excluded | :continuation_only | 9 more`
+
+    Why the reprice was not applied.
+
+    A closed enum; additions to the redemption-check vocabulary arrive as
+    deliberate schema updates.
+
+    - `:body_mismatch`
+
+    - `:continuation_excluded`
+
+    - `:continuation_only`
+
+    - `:expired`
+
+    - `:invalid_target_model`
+
+    - `:not_enabled`
+
+    - `:reprice_unavailable`
+
+    - `:temporarily_unavailable`
+
+    - `:variant_fields_present`
+
+    - `:wrong_organization`
+
+    - `:wrong_platform`
+
+    - `:wrong_workspace`
+
+  - `type: :not_applied`
+
+    - `:not_applied`
+
+  - `remove_to_redeem: Array[String]`
+
+    Request fields to remove before retrying, so the retry can redeem this
+    token.
+
+    Present exactly when `reason` is `variant_fields_present` — never null,
+    never an empty array; absent otherwise. Fields are named only from your own request, and only after
+    the sealed variant hash matched. A served best-effort retry has already
+    been billed at normal price; nothing redeems retroactively, but a corrected
+    re-send inside the token's five-minute window can still redeem.
+
+### Beta Fallback Credit Redeemed
+
+- `class BetaFallbackCreditRedeemed`
+
+  The reprice was applied: the retry is billed as if the conversation
+  had been on the retry model all along.
+
+  - `type: :redeemed`
+
+    - `:redeemed`
+
+### Beta Fallback Credit Token Param
+
+- `class BetaFallbackCreditTokenParam`
+
+  Object form of `fallback_credit_token`: the token plus a redemption
+  mode.
+
+  Requires `anthropic-beta: fallback-credit-2026-07-01`; without that
+  header the field accepts the bare string only. The bare string and the
+  mode-less object are equivalent (both select `strict`), so wrapping
+  an existing token changes nothing by itself.
+
+  - `token: String`
+
+    The opaque `fallback_credit_token` from a prior refusal's `stop_details` — the same string the bare-string form carries.
+
+  - `mode: :strict | :best_effort`
+
+    How a failing token affects the retry. `strict` (the default, and the bare-string behavior): a failing redemption is a 400 and the retry is not served. `best_effort`: the retry is served either way — a token-layer failure no longer rejects the request; the retry proceeds at normal price and the outcome is reported on the response's `usage.fallback_credit`. Two failures stay hard in both modes: a malformed token, and combining `fallback_credit_token` with `fallbacks`.
+
+    - `:strict`
+
+    - `:best_effort`
+
+### Beta Fallback Credit Usage
+
+- `class BetaFallbackCreditUsage`
+
+  Outcome of the `fallback_credit_token` presented on this request.
+
+  - `status: BetaFallbackCreditRedeemed | BetaFallbackCreditNotApplied`
+
+    Whether the fallback-credit reprice was applied to this response's billing.
+
+    A union discriminated on `type`. `redeemed`: the retry is billed as if
+    the conversation had been on the retry model all along — including when the
+    resulting shift is zero because there was nothing to move. `not_applied`:
+    no reprice was applied; the arm's `reason` says why.
+
+    - `class BetaFallbackCreditRedeemed`
+
+      The reprice was applied: the retry is billed as if the conversation
+      had been on the retry model all along.
+
+      - `type: :redeemed`
+
+        - `:redeemed`
+
+    - `class BetaFallbackCreditNotApplied`
+
+      No reprice was applied; `reason` says why.
+
+      - `reason: :body_mismatch | :continuation_excluded | :continuation_only | 9 more`
+
+        Why the reprice was not applied.
+
+        A closed enum; additions to the redemption-check vocabulary arrive as
+        deliberate schema updates.
+
+        - `:body_mismatch`
+
+        - `:continuation_excluded`
+
+        - `:continuation_only`
+
+        - `:expired`
+
+        - `:invalid_target_model`
+
+        - `:not_enabled`
+
+        - `:reprice_unavailable`
+
+        - `:temporarily_unavailable`
+
+        - `:variant_fields_present`
+
+        - `:wrong_organization`
+
+        - `:wrong_platform`
+
+        - `:wrong_workspace`
+
+      - `type: :not_applied`
+
+        - `:not_applied`
+
+      - `remove_to_redeem: Array[String]`
+
+        Request fields to remove before retrying, so the retry can redeem this
+        token.
+
+        Present exactly when `reason` is `variant_fields_present` — never null,
+        never an empty array; absent otherwise. Fields are named only from your own request, and only after
+        the sealed variant hash matched. A served best-effort retry has already
+        been billed at normal price; nothing redeems retroactively, but a corrected
+        re-send inside the token's five-minute window can still redeem.
+
 ### Beta Fallback Info
 
 - `class BetaFallbackInfo`
@@ -13765,11 +14774,15 @@ puts(beta_message_tokens_count)
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+    - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `:"claude-sonnet-5"`
+
+        High-performance model for coding and agents
 
       - `:"claude-fable-5"`
 
@@ -13779,13 +14792,17 @@ puts(beta_message_tokens_count)
 
         Most capable model for cybersecurity and biology research
 
+      - `:"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `:"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-mythos-preview"`
 
@@ -13793,7 +14810,7 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-6"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-6"`
 
@@ -13809,11 +14826,11 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-5"`
 
@@ -13825,11 +14842,11 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-1"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-1-20250805"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
     - `String = String`
 
@@ -13845,11 +14862,15 @@ puts(beta_message_tokens_count)
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+    - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `:"claude-sonnet-5"`
+
+        High-performance model for coding and agents
 
       - `:"claude-fable-5"`
 
@@ -13859,13 +14880,17 @@ puts(beta_message_tokens_count)
 
         Most capable model for cybersecurity and biology research
 
+      - `:"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `:"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-mythos-preview"`
 
@@ -13873,7 +14898,7 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-6"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-6"`
 
@@ -13889,11 +14914,11 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-5"`
 
@@ -13905,11 +14930,11 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-1"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-1-20250805"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
     - `String = String`
 
@@ -13954,11 +14979,15 @@ puts(beta_message_tokens_count)
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+    - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `:"claude-sonnet-5"`
+
+        High-performance model for coding and agents
 
       - `:"claude-fable-5"`
 
@@ -13968,13 +14997,17 @@ puts(beta_message_tokens_count)
 
         Most capable model for cybersecurity and biology research
 
+      - `:"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `:"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-mythos-preview"`
 
@@ -13982,7 +15015,7 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-6"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-6"`
 
@@ -13998,11 +15031,11 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-5"`
 
@@ -14014,11 +15047,11 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-1"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-1-20250805"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
     - `String = String`
 
@@ -14038,10 +15071,10 @@ puts(beta_message_tokens_count)
 
   One entry in the `fallbacks` chain on a `/v1/messages` request.
 
-  `model` is required. The four override fields (`max_tokens`, `thinking`,
-  `output_config`, and `speed`) replace the corresponding top-level field
-  for this attempt only and are validated as if the request were made to
-  `model`. Any other key is rejected at parse time.
+  `model` is required. The override fields (`max_tokens`, `thinking`,
+  `output_config`, and `speed`) set the corresponding parameter for this
+  attempt only and are validated as if the request were made to `model`.
+  Any other key is rejected at parse time.
 
   - `model: Model`
 
@@ -14049,11 +15082,15 @@ puts(beta_message_tokens_count)
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+    - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `:"claude-sonnet-5"`
+
+        High-performance model for coding and agents
 
       - `:"claude-fable-5"`
 
@@ -14063,13 +15100,17 @@ puts(beta_message_tokens_count)
 
         Most capable model for cybersecurity and biology research
 
+      - `:"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `:"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-mythos-preview"`
 
@@ -14077,7 +15118,7 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-6"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-6"`
 
@@ -14093,11 +15134,11 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-5"`
 
@@ -14109,11 +15150,11 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-1"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-1-20250805"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
     - `String = String`
 
@@ -14167,6 +15208,8 @@ puts(beta_message_tokens_count)
 
   - `speed: :standard | :fast`
 
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
     - `:standard`
 
     - `:fast`
@@ -14181,7 +15224,7 @@ puts(beta_message_tokens_count)
 
         Must be ≥1024 and less than `max_tokens`.
 
-        See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+        See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
       - `type: :enabled`
 
@@ -14221,21 +15264,227 @@ puts(beta_message_tokens_count)
 
   The `from` model declined for policy reasons.
 
-  - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+  - `category: :cyber | :bio | :frontier_llm | 2 more`
 
     The policy category that triggered a refusal.
 
     - `:cyber`
 
+      The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
     - `:bio`
+
+      The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
     - `:frontier_llm`
 
+      The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
     - `:reasoning_extraction`
+
+      The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+    - `:general_harms`
+
+      The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
   - `type: :refusal`
 
     - `:refusal`
+
+### Beta Fallbacks Param
+
+- `BetaFallbacksParam = Array[BetaFallbackParam] | :default`
+
+  Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on. The string "default" requests the requested model's server-defined default fallback configuration.
+
+  - `UnionMember0 = Array[BetaFallbackParam]`
+
+    - `model: Model`
+
+      The model that will complete your prompt.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
+        - `:"claude-fable-5"`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `:"claude-mythos-5"`
+
+          Most capable model for cybersecurity and biology research
+
+        - `:"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-opus-4-8"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-opus-4-7"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-mythos-preview"`
+
+          New class of intelligence, strongest in coding and cybersecurity
+
+        - `:"claude-opus-4-6"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-sonnet-4-6"`
+
+          Best combination of speed and intelligence
+
+        - `:"claude-haiku-4-5"`
+
+          Fastest model with near-frontier intelligence
+
+        - `:"claude-haiku-4-5-20251001"`
+
+          Fastest model with near-frontier intelligence
+
+        - `:"claude-opus-4-5"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-opus-4-5-20251101"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-sonnet-4-5"`
+
+          High-performance model for agents and coding
+
+        - `:"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
+
+        - `:"claude-opus-4-1"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-opus-4-1-20250805"`
+
+          Powerful intelligence for long-running agents and coding
+
+      - `String = String`
+
+    - `max_tokens: Integer`
+
+    - `output_config: BetaOutputConfig`
+
+      - `effort: :low | :medium | :high | 2 more`
+
+        All possible effort levels.
+
+        - `:low`
+
+        - `:medium`
+
+        - `:high`
+
+        - `:xhigh`
+
+        - `:max`
+
+      - `format_: BetaJSONOutputFormat`
+
+        A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
+        - `schema: Hash[Symbol, untyped]`
+
+          The JSON schema of the format
+
+        - `type: :json_schema`
+
+          - `:json_schema`
+
+      - `task_budget: BetaTokenTaskBudget`
+
+        User-configurable total token budget across contexts.
+
+        - `total: Integer`
+
+          Total token budget across all contexts in the session.
+
+        - `type: :tokens`
+
+          The budget type. Currently only 'tokens' is supported.
+
+          - `:tokens`
+
+        - `remaining: Integer`
+
+          Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+    - `speed: :standard | :fast`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `:standard`
+
+      - `:fast`
+
+    - `thinking: BetaThinkingConfigEnabled | BetaThinkingConfigDisabled | BetaThinkingConfigAdaptive`
+
+      - `class BetaThinkingConfigEnabled`
+
+        - `budget_tokens: Integer`
+
+          Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+
+          Must be ≥1024 and less than `max_tokens`.
+
+          See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+        - `type: :enabled`
+
+          - `:enabled`
+
+        - `display_: :summarized | :omitted`
+
+          Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+          - `:summarized`
+
+          - `:omitted`
+
+      - `class BetaThinkingConfigDisabled`
+
+        - `type: :disabled`
+
+          - `:disabled`
+
+      - `class BetaThinkingConfigAdaptive`
+
+        - `type: :adaptive`
+
+          - `:adaptive`
+
+        - `display_: :summarized | :omitted`
+
+          Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+          - `:summarized`
+
+          - `:omitted`
+
+  - `BetaFallbacksParam = :default`
+
+    - `:default`
 
 ### Beta File Document Source
 
@@ -14318,7 +15567,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -14400,11 +15649,15 @@ puts(beta_message_tokens_count)
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+      - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-sonnet-5"`
+
+          High-performance model for coding and agents
 
         - `:"claude-fable-5"`
 
@@ -14414,13 +15667,17 @@ puts(beta_message_tokens_count)
 
           Most capable model for cybersecurity and biology research
 
+        - `:"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `:"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-mythos-preview"`
 
@@ -14428,7 +15685,7 @@ puts(beta_message_tokens_count)
 
         - `:"claude-opus-4-6"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-6"`
 
@@ -14444,11 +15701,11 @@ puts(beta_message_tokens_count)
 
         - `:"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-5"`
 
@@ -14460,11 +15717,11 @@ puts(beta_message_tokens_count)
 
         - `:"claude-opus-4-1"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-1-20250805"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
       - `String = String`
 
@@ -14812,7 +16069,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -14852,7 +16109,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -14917,7 +16174,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -16000,11 +17257,15 @@ puts(beta_message_tokens_count)
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+          - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-sonnet-5"`
+
+              High-performance model for coding and agents
 
             - `:"claude-fable-5"`
 
@@ -16014,13 +17275,17 @@ puts(beta_message_tokens_count)
 
               Most capable model for cybersecurity and biology research
 
+            - `:"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `:"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-mythos-preview"`
 
@@ -16028,7 +17293,7 @@ puts(beta_message_tokens_count)
 
             - `:"claude-opus-4-6"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-6"`
 
@@ -16044,11 +17309,11 @@ puts(beta_message_tokens_count)
 
             - `:"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-5"`
 
@@ -16060,11 +17325,11 @@ puts(beta_message_tokens_count)
 
             - `:"claude-opus-4-1"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-1-20250805"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
           - `String = String`
 
@@ -16076,17 +17341,29 @@ puts(beta_message_tokens_count)
 
         What caused the `from` model to hand over at this hop.
 
-        - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+        - `category: :cyber | :bio | :frontier_llm | 2 more`
 
           The policy category that triggered a refusal.
 
           - `:cyber`
 
+            The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
           - `:bio`
+
+            The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
           - `:frontier_llm`
 
+            The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
           - `:reasoning_extraction`
+
+            The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+          - `:general_harms`
+
+            The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
         - `type: :refusal`
 
@@ -16217,17 +17494,29 @@ puts(beta_message_tokens_count)
 
     Structured information about a refusal.
 
-    - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+    - `category: :cyber | :bio | :frontier_llm | 2 more`
 
       The policy category that triggered a refusal.
 
       - `:cyber`
 
+        The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
       - `:bio`
+
+        The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
       - `:frontier_llm`
 
+        The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
       - `:reasoning_extraction`
+
+        The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+      - `:general_harms`
+
+        The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
     - `explanation: String`
 
@@ -16300,6 +17589,7 @@ puts(beta_message_tokens_count)
     * `"tool_use"`: the model invoked one or more tools
     * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
     * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+    * `"model_context_window_exceeded"`: we exceeded the model's context window
 
     In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -16364,6 +17654,78 @@ puts(beta_message_tokens_count)
     - `cache_read_input_tokens: Integer`
 
       The number of input tokens read from the cache.
+
+    - `fallback_credit: BetaFallbackCreditUsage`
+
+      Outcome of the `fallback_credit_token` presented on this request.
+
+      - `status: BetaFallbackCreditRedeemed | BetaFallbackCreditNotApplied`
+
+        Whether the fallback-credit reprice was applied to this response's billing.
+
+        A union discriminated on `type`. `redeemed`: the retry is billed as if
+        the conversation had been on the retry model all along — including when the
+        resulting shift is zero because there was nothing to move. `not_applied`:
+        no reprice was applied; the arm's `reason` says why.
+
+        - `class BetaFallbackCreditRedeemed`
+
+          The reprice was applied: the retry is billed as if the conversation
+          had been on the retry model all along.
+
+          - `type: :redeemed`
+
+            - `:redeemed`
+
+        - `class BetaFallbackCreditNotApplied`
+
+          No reprice was applied; `reason` says why.
+
+          - `reason: :body_mismatch | :continuation_excluded | :continuation_only | 9 more`
+
+            Why the reprice was not applied.
+
+            A closed enum; additions to the redemption-check vocabulary arrive as
+            deliberate schema updates.
+
+            - `:body_mismatch`
+
+            - `:continuation_excluded`
+
+            - `:continuation_only`
+
+            - `:expired`
+
+            - `:invalid_target_model`
+
+            - `:not_enabled`
+
+            - `:reprice_unavailable`
+
+            - `:temporarily_unavailable`
+
+            - `:variant_fields_present`
+
+            - `:wrong_organization`
+
+            - `:wrong_platform`
+
+            - `:wrong_workspace`
+
+          - `type: :not_applied`
+
+            - `:not_applied`
+
+          - `remove_to_redeem: Array[String]`
+
+            Request fields to remove before retrying, so the retry can redeem this
+            token.
+
+            Present exactly when `reason` is `variant_fields_present` — never null,
+            never an empty array; absent otherwise. Fields are named only from your own request, and only after
+            the sealed variant hash matched. A served best-effort retry has already
+            been billed at normal price; nothing redeems retroactively, but a corrected
+            re-send inside the token's five-minute window can still redeem.
 
     - `inference_geo: String`
 
@@ -16574,7 +17936,7 @@ puts(beta_message_tokens_count)
 
     - `speed: :standard | :fast`
 
-      The inference speed mode used for this request.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `:standard`
 
@@ -16591,6 +17953,78 @@ puts(beta_message_tokens_count)
   - `cache_read_input_tokens: Integer`
 
     The cumulative number of input tokens read from the cache.
+
+  - `fallback_credit: BetaFallbackCreditUsage`
+
+    Outcome of the `fallback_credit_token` presented on this request.
+
+    - `status: BetaFallbackCreditRedeemed | BetaFallbackCreditNotApplied`
+
+      Whether the fallback-credit reprice was applied to this response's billing.
+
+      A union discriminated on `type`. `redeemed`: the retry is billed as if
+      the conversation had been on the retry model all along — including when the
+      resulting shift is zero because there was nothing to move. `not_applied`:
+      no reprice was applied; the arm's `reason` says why.
+
+      - `class BetaFallbackCreditRedeemed`
+
+        The reprice was applied: the retry is billed as if the conversation
+        had been on the retry model all along.
+
+        - `type: :redeemed`
+
+          - `:redeemed`
+
+      - `class BetaFallbackCreditNotApplied`
+
+        No reprice was applied; `reason` says why.
+
+        - `reason: :body_mismatch | :continuation_excluded | :continuation_only | 9 more`
+
+          Why the reprice was not applied.
+
+          A closed enum; additions to the redemption-check vocabulary arrive as
+          deliberate schema updates.
+
+          - `:body_mismatch`
+
+          - `:continuation_excluded`
+
+          - `:continuation_only`
+
+          - `:expired`
+
+          - `:invalid_target_model`
+
+          - `:not_enabled`
+
+          - `:reprice_unavailable`
+
+          - `:temporarily_unavailable`
+
+          - `:variant_fields_present`
+
+          - `:wrong_organization`
+
+          - `:wrong_platform`
+
+          - `:wrong_workspace`
+
+        - `type: :not_applied`
+
+          - `:not_applied`
+
+        - `remove_to_redeem: Array[String]`
+
+          Request fields to remove before retrying, so the retry can redeem this
+          token.
+
+          Present exactly when `reason` is `variant_fields_present` — never null,
+          never an empty array; absent otherwise. Fields are named only from your own request, and only after
+          the sealed variant hash matched. A served best-effort retry has already
+          been billed at normal price; nothing redeems retroactively, but a corrected
+          re-send inside the token's five-minute window can still redeem.
 
   - `input_tokens: Integer`
 
@@ -16640,11 +18074,15 @@ puts(beta_message_tokens_count)
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+        - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `:"claude-fable-5"`
 
@@ -16654,13 +18092,17 @@ puts(beta_message_tokens_count)
 
             Most capable model for cybersecurity and biology research
 
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `:"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-mythos-preview"`
 
@@ -16668,7 +18110,7 @@ puts(beta_message_tokens_count)
 
           - `:"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-6"`
 
@@ -16684,11 +18126,11 @@ puts(beta_message_tokens_count)
 
           - `:"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-5"`
 
@@ -16700,11 +18142,11 @@ puts(beta_message_tokens_count)
 
           - `:"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
         - `String = String`
 
@@ -16897,11 +18339,15 @@ puts(beta_message_tokens_count)
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+    - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `:"claude-sonnet-5"`
+
+        High-performance model for coding and agents
 
       - `:"claude-fable-5"`
 
@@ -16911,13 +18357,17 @@ puts(beta_message_tokens_count)
 
         Most capable model for cybersecurity and biology research
 
+      - `:"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `:"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-mythos-preview"`
 
@@ -16925,7 +18375,7 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-6"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-6"`
 
@@ -16941,11 +18391,11 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-5"`
 
@@ -16957,11 +18407,11 @@ puts(beta_message_tokens_count)
 
       - `:"claude-opus-4-1"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-1-20250805"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
     - `String = String`
 
@@ -17010,7 +18460,7 @@ puts(beta_message_tokens_count)
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
-            Defaults to `5m`.
+            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
             - `:"5m"`
 
@@ -17964,19 +19414,109 @@ puts(beta_message_tokens_count)
         Use this block to provide or update system-level instructions at a specific
         point in the conversation, rather than only via the top-level `system` parameter.
 
-        - `content: Array[BetaTextBlockParam]`
+        - `content: Array[BetaTextBlockParam | BetaRequestToolAdditionBlock | BetaRequestToolRemovalBlock]`
 
           System instruction text blocks.
 
-          - `text: String`
+          - `class BetaTextBlockParam`
 
-          - `type: :text`
+          - `class BetaRequestToolAdditionBlock`
 
-          - `cache_control: BetaCacheControlEphemeral`
+            Mid-conversation directive to surface a declared tool.
 
-            Create a cache control breakpoint at this content block.
+            `tool` references a tool (or MCP toolset) by name from the request's
+            `tools`; it is offered to the model from this point in the
+            conversation onward.
 
-          - `citations: Array[BetaTextCitationParam]`
+            - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
+
+              Reference to a single tool the caller declared directly in
+              `tools[]`. Does not accept the composed `{server}_{name}` form the
+              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+              `mcp_toolset_reference` for those.
+
+              - `class BetaToolChangeToolReference`
+
+                Reference to a single tool the caller declared directly in
+                `tools[]`. Does not accept the composed `{server}_{name}` form the
+                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                `mcp_toolset_reference` for those.
+
+                - `name: String`
+
+                - `type: :tool_reference`
+
+                  - `:tool_reference`
+
+              - `class BetaToolChangeMCPToolReference`
+
+                Reference to a single MCP tool by its server and remote name — the
+                same `server_name`/`name` pair `mcp_tool_use` carries.
+
+                - `name: String`
+
+                - `server_name: String`
+
+                - `type: :mcp_tool_reference`
+
+                  - `:mcp_tool_reference`
+
+              - `class BetaToolChangeMCPToolsetReference`
+
+                Reference to every tool in the named MCP server's toolset.
+
+                - `server_name: String`
+
+                - `type: :mcp_toolset_reference`
+
+                  - `:mcp_toolset_reference`
+
+            - `type: :tool_addition`
+
+              - `:tool_addition`
+
+            - `cache_control: BetaCacheControlEphemeral`
+
+              Create a cache control breakpoint at this content block.
+
+          - `class BetaRequestToolRemovalBlock`
+
+            Mid-conversation directive to withdraw a tool.
+
+            `tool` references a tool (or MCP toolset) by name from the request's
+            `tools`; it is no longer offered to the model from this point in the
+            conversation onward.
+
+            - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
+
+              Reference to a single tool the caller declared directly in
+              `tools[]`. Does not accept the composed `{server}_{name}` form the
+              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+              `mcp_toolset_reference` for those.
+
+              - `class BetaToolChangeToolReference`
+
+                Reference to a single tool the caller declared directly in
+                `tools[]`. Does not accept the composed `{server}_{name}` form the
+                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                `mcp_toolset_reference` for those.
+
+              - `class BetaToolChangeMCPToolReference`
+
+                Reference to a single MCP tool by its server and remote name — the
+                same `server_name`/`name` pair `mcp_tool_use` carries.
+
+              - `class BetaToolChangeMCPToolsetReference`
+
+                Reference to every tool in the named MCP server's toolset.
+
+            - `type: :tool_removal`
+
+              - `:tool_removal`
+
+            - `cache_control: BetaCacheControlEphemeral`
+
+              Create a cache control breakpoint at this content block.
 
         - `type: :mid_conv_system`
 
@@ -17985,6 +19525,22 @@ puts(beta_message_tokens_count)
         - `cache_control: BetaCacheControlEphemeral`
 
           Create a cache control breakpoint at this content block.
+
+      - `class BetaRequestToolAdditionBlock`
+
+        Mid-conversation directive to surface a declared tool.
+
+        `tool` references a tool (or MCP toolset) by name from the request's
+        `tools`; it is offered to the model from this point in the
+        conversation onward.
+
+      - `class BetaRequestToolRemovalBlock`
+
+        Mid-conversation directive to withdraw a tool.
+
+        `tool` references a tool (or MCP toolset) by name from the request's
+        `tools`; it is no longer offered to the model from this point in the
+        conversation onward.
 
       - `class BetaFallbackBlockParam`
 
@@ -18012,11 +19568,15 @@ puts(beta_message_tokens_count)
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+            - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `:"claude-sonnet-5"`
+
+                High-performance model for coding and agents
 
               - `:"claude-fable-5"`
 
@@ -18026,13 +19586,17 @@ puts(beta_message_tokens_count)
 
                 Most capable model for cybersecurity and biology research
 
+              - `:"claude-opus-5"`
+
+                Powerful intelligence for long-running agents and coding
+
               - `:"claude-opus-4-8"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-opus-4-7"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-mythos-preview"`
 
@@ -18040,7 +19604,7 @@ puts(beta_message_tokens_count)
 
               - `:"claude-opus-4-6"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-sonnet-4-6"`
 
@@ -18056,11 +19620,11 @@ puts(beta_message_tokens_count)
 
               - `:"claude-opus-4-5"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-opus-4-5-20251101"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-sonnet-4-5"`
 
@@ -18072,11 +19636,11 @@ puts(beta_message_tokens_count)
 
               - `:"claude-opus-4-1"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-opus-4-1-20250805"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
             - `String = String`
 
@@ -18135,144 +19699,244 @@ puts(beta_message_tokens_count)
   Use this block to provide or update system-level instructions at a specific
   point in the conversation, rather than only via the top-level `system` parameter.
 
-  - `content: Array[BetaTextBlockParam]`
+  - `content: Array[BetaTextBlockParam | BetaRequestToolAdditionBlock | BetaRequestToolRemovalBlock]`
 
     System instruction text blocks.
 
-    - `text: String`
+    - `class BetaTextBlockParam`
 
-    - `type: :text`
+      - `text: String`
 
-      - `:text`
+      - `type: :text`
 
-    - `cache_control: BetaCacheControlEphemeral`
+        - `:text`
 
-      Create a cache control breakpoint at this content block.
+      - `cache_control: BetaCacheControlEphemeral`
 
-      - `type: :ephemeral`
+        Create a cache control breakpoint at this content block.
 
-        - `:ephemeral`
+        - `type: :ephemeral`
 
-      - `ttl: :"5m" | :"1h"`
+          - `:ephemeral`
 
-        The time-to-live for the cache control breakpoint.
+        - `ttl: :"5m" | :"1h"`
 
-        This may be one the following values:
+          The time-to-live for the cache control breakpoint.
 
-        - `5m`: 5 minutes
-        - `1h`: 1 hour
+          This may be one the following values:
 
-        Defaults to `5m`.
+          - `5m`: 5 minutes
+          - `1h`: 1 hour
 
-        - `:"5m"`
+          Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
-        - `:"1h"`
+          - `:"5m"`
 
-    - `citations: Array[BetaTextCitationParam]`
+          - `:"1h"`
 
-      - `class BetaCitationCharLocationParam`
+      - `citations: Array[BetaTextCitationParam]`
 
-        - `cited_text: String`
+        - `class BetaCitationCharLocationParam`
 
-        - `document_index: Integer`
+          - `cited_text: String`
 
-        - `document_title: String`
+          - `document_index: Integer`
 
-        - `end_char_index: Integer`
+          - `document_title: String`
 
-        - `start_char_index: Integer`
+          - `end_char_index: Integer`
 
-        - `type: :char_location`
+          - `start_char_index: Integer`
 
-          - `:char_location`
+          - `type: :char_location`
 
-      - `class BetaCitationPageLocationParam`
+            - `:char_location`
 
-        - `cited_text: String`
+        - `class BetaCitationPageLocationParam`
 
-        - `document_index: Integer`
+          - `cited_text: String`
 
-        - `document_title: String`
+          - `document_index: Integer`
 
-        - `end_page_number: Integer`
+          - `document_title: String`
 
-        - `start_page_number: Integer`
+          - `end_page_number: Integer`
 
-        - `type: :page_location`
+          - `start_page_number: Integer`
 
-          - `:page_location`
+          - `type: :page_location`
 
-      - `class BetaCitationContentBlockLocationParam`
+            - `:page_location`
 
-        - `cited_text: String`
+        - `class BetaCitationContentBlockLocationParam`
 
-          The full text of the cited block range, concatenated.
+          - `cited_text: String`
 
-          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+            The full text of the cited block range, concatenated.
 
-        - `document_index: Integer`
+            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
 
-        - `document_title: String`
+          - `document_index: Integer`
 
-        - `end_block_index: Integer`
+          - `document_title: String`
 
-          Exclusive 0-based end index of the cited block range in the source's `content` array.
+          - `end_block_index: Integer`
 
-          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+            Exclusive 0-based end index of the cited block range in the source's `content` array.
 
-        - `start_block_index: Integer`
+            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
 
-          0-based index of the first cited block in the source's `content` array.
+          - `start_block_index: Integer`
 
-        - `type: :content_block_location`
+            0-based index of the first cited block in the source's `content` array.
 
-          - `:content_block_location`
+          - `type: :content_block_location`
 
-      - `class BetaCitationWebSearchResultLocationParam`
+            - `:content_block_location`
 
-        - `cited_text: String`
+        - `class BetaCitationWebSearchResultLocationParam`
 
-        - `encrypted_index: String`
+          - `cited_text: String`
 
-        - `title: String`
+          - `encrypted_index: String`
 
-        - `type: :web_search_result_location`
+          - `title: String`
 
-          - `:web_search_result_location`
+          - `type: :web_search_result_location`
 
-        - `url: String`
+            - `:web_search_result_location`
 
-      - `class BetaCitationSearchResultLocationParam`
+          - `url: String`
 
-        - `cited_text: String`
+        - `class BetaCitationSearchResultLocationParam`
 
-          The full text of the cited block range, concatenated.
+          - `cited_text: String`
 
-          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+            The full text of the cited block range, concatenated.
 
-        - `end_block_index: Integer`
+            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
 
-          Exclusive 0-based end index of the cited block range in the source's `content` array.
+          - `end_block_index: Integer`
 
-          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+            Exclusive 0-based end index of the cited block range in the source's `content` array.
 
-        - `search_result_index: Integer`
+            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
 
-          0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+          - `search_result_index: Integer`
 
-          Counted separately from `document_index`; server-side web search results are not included in this count.
+            0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
 
-        - `source: String`
+            Counted separately from `document_index`; server-side web search results are not included in this count.
 
-        - `start_block_index: Integer`
+          - `source: String`
 
-          0-based index of the first cited block in the source's `content` array.
+          - `start_block_index: Integer`
 
-        - `title: String`
+            0-based index of the first cited block in the source's `content` array.
 
-        - `type: :search_result_location`
+          - `title: String`
 
-          - `:search_result_location`
+          - `type: :search_result_location`
+
+            - `:search_result_location`
+
+    - `class BetaRequestToolAdditionBlock`
+
+      Mid-conversation directive to surface a declared tool.
+
+      `tool` references a tool (or MCP toolset) by name from the request's
+      `tools`; it is offered to the model from this point in the
+      conversation onward.
+
+      - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
+
+        Reference to a single tool the caller declared directly in
+        `tools[]`. Does not accept the composed `{server}_{name}` form the
+        server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+        `mcp_toolset_reference` for those.
+
+        - `class BetaToolChangeToolReference`
+
+          Reference to a single tool the caller declared directly in
+          `tools[]`. Does not accept the composed `{server}_{name}` form the
+          server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+          `mcp_toolset_reference` for those.
+
+          - `name: String`
+
+          - `type: :tool_reference`
+
+            - `:tool_reference`
+
+        - `class BetaToolChangeMCPToolReference`
+
+          Reference to a single MCP tool by its server and remote name — the
+          same `server_name`/`name` pair `mcp_tool_use` carries.
+
+          - `name: String`
+
+          - `server_name: String`
+
+          - `type: :mcp_tool_reference`
+
+            - `:mcp_tool_reference`
+
+        - `class BetaToolChangeMCPToolsetReference`
+
+          Reference to every tool in the named MCP server's toolset.
+
+          - `server_name: String`
+
+          - `type: :mcp_toolset_reference`
+
+            - `:mcp_toolset_reference`
+
+      - `type: :tool_addition`
+
+        - `:tool_addition`
+
+      - `cache_control: BetaCacheControlEphemeral`
+
+        Create a cache control breakpoint at this content block.
+
+    - `class BetaRequestToolRemovalBlock`
+
+      Mid-conversation directive to withdraw a tool.
+
+      `tool` references a tool (or MCP toolset) by name from the request's
+      `tools`; it is no longer offered to the model from this point in the
+      conversation onward.
+
+      - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
+
+        Reference to a single tool the caller declared directly in
+        `tools[]`. Does not accept the composed `{server}_{name}` form the
+        server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+        `mcp_toolset_reference` for those.
+
+        - `class BetaToolChangeToolReference`
+
+          Reference to a single tool the caller declared directly in
+          `tools[]`. Does not accept the composed `{server}_{name}` form the
+          server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+          `mcp_toolset_reference` for those.
+
+        - `class BetaToolChangeMCPToolReference`
+
+          Reference to a single MCP tool by its server and remote name — the
+          same `server_name`/`name` pair `mcp_tool_use` carries.
+
+        - `class BetaToolChangeMCPToolsetReference`
+
+          Reference to every tool in the named MCP server's toolset.
+
+      - `type: :tool_removal`
+
+        - `:tool_removal`
+
+      - `cache_control: BetaCacheControlEphemeral`
+
+        Create a cache control breakpoint at this content block.
 
   - `type: :mid_conv_system`
 
@@ -19495,11 +21159,15 @@ puts(beta_message_tokens_count)
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+          - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-sonnet-5"`
+
+              High-performance model for coding and agents
 
             - `:"claude-fable-5"`
 
@@ -19509,13 +21177,17 @@ puts(beta_message_tokens_count)
 
               Most capable model for cybersecurity and biology research
 
+            - `:"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `:"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-mythos-preview"`
 
@@ -19523,7 +21195,7 @@ puts(beta_message_tokens_count)
 
             - `:"claude-opus-4-6"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-6"`
 
@@ -19539,11 +21211,11 @@ puts(beta_message_tokens_count)
 
             - `:"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-5"`
 
@@ -19555,11 +21227,11 @@ puts(beta_message_tokens_count)
 
             - `:"claude-opus-4-1"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-1-20250805"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
           - `String = String`
 
@@ -19571,17 +21243,29 @@ puts(beta_message_tokens_count)
 
         What caused the `from` model to hand over at this hop.
 
-        - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+        - `category: :cyber | :bio | :frontier_llm | 2 more`
 
           The policy category that triggered a refusal.
 
           - `:cyber`
 
+            The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
           - `:bio`
+
+            The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
           - `:frontier_llm`
 
+            The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
           - `:reasoning_extraction`
+
+            The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+          - `:general_harms`
+
+            The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
         - `type: :refusal`
 
@@ -19689,17 +21373,29 @@ puts(beta_message_tokens_count)
 
       Structured information about a refusal.
 
-      - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+      - `category: :cyber | :bio | :frontier_llm | 2 more`
 
         The policy category that triggered a refusal.
 
         - `:cyber`
 
+          The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
         - `:bio`
+
+          The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
         - `:frontier_llm`
 
+          The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
         - `:reasoning_extraction`
+
+          The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+        - `:general_harms`
+
+          The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
       - `explanation: String`
 
@@ -19804,6 +21500,78 @@ puts(beta_message_tokens_count)
 
       The cumulative number of input tokens read from the cache.
 
+    - `fallback_credit: BetaFallbackCreditUsage`
+
+      Outcome of the `fallback_credit_token` presented on this request.
+
+      - `status: BetaFallbackCreditRedeemed | BetaFallbackCreditNotApplied`
+
+        Whether the fallback-credit reprice was applied to this response's billing.
+
+        A union discriminated on `type`. `redeemed`: the retry is billed as if
+        the conversation had been on the retry model all along — including when the
+        resulting shift is zero because there was nothing to move. `not_applied`:
+        no reprice was applied; the arm's `reason` says why.
+
+        - `class BetaFallbackCreditRedeemed`
+
+          The reprice was applied: the retry is billed as if the conversation
+          had been on the retry model all along.
+
+          - `type: :redeemed`
+
+            - `:redeemed`
+
+        - `class BetaFallbackCreditNotApplied`
+
+          No reprice was applied; `reason` says why.
+
+          - `reason: :body_mismatch | :continuation_excluded | :continuation_only | 9 more`
+
+            Why the reprice was not applied.
+
+            A closed enum; additions to the redemption-check vocabulary arrive as
+            deliberate schema updates.
+
+            - `:body_mismatch`
+
+            - `:continuation_excluded`
+
+            - `:continuation_only`
+
+            - `:expired`
+
+            - `:invalid_target_model`
+
+            - `:not_enabled`
+
+            - `:reprice_unavailable`
+
+            - `:temporarily_unavailable`
+
+            - `:variant_fields_present`
+
+            - `:wrong_organization`
+
+            - `:wrong_platform`
+
+            - `:wrong_workspace`
+
+          - `type: :not_applied`
+
+            - `:not_applied`
+
+          - `remove_to_redeem: Array[String]`
+
+            Request fields to remove before retrying, so the retry can redeem this
+            token.
+
+            Present exactly when `reason` is `variant_fields_present` — never null,
+            never an empty array; absent otherwise. Fields are named only from your own request, and only after
+            the sealed variant hash matched. A served best-effort retry has already
+            been billed at normal price; nothing redeems retroactively, but a corrected
+            re-send inside the token's five-minute window can still redeem.
+
     - `input_tokens: Integer`
 
       The cumulative number of input tokens which were used.
@@ -19852,11 +21620,15 @@ puts(beta_message_tokens_count)
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+          - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-sonnet-5"`
+
+              High-performance model for coding and agents
 
             - `:"claude-fable-5"`
 
@@ -19866,13 +21638,17 @@ puts(beta_message_tokens_count)
 
               Most capable model for cybersecurity and biology research
 
+            - `:"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `:"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-mythos-preview"`
 
@@ -19880,7 +21656,7 @@ puts(beta_message_tokens_count)
 
             - `:"claude-opus-4-6"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-6"`
 
@@ -19896,11 +21672,11 @@ puts(beta_message_tokens_count)
 
             - `:"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-5"`
 
@@ -19912,11 +21688,11 @@ puts(beta_message_tokens_count)
 
             - `:"claude-opus-4-1"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-1-20250805"`
 
-              Exceptional model for specialized complex tasks
+              Powerful intelligence for long-running agents and coding
 
           - `String = String`
 
@@ -20926,11 +22702,15 @@ puts(beta_message_tokens_count)
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+            - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `:"claude-sonnet-5"`
+
+                High-performance model for coding and agents
 
               - `:"claude-fable-5"`
 
@@ -20940,13 +22720,17 @@ puts(beta_message_tokens_count)
 
                 Most capable model for cybersecurity and biology research
 
+              - `:"claude-opus-5"`
+
+                Powerful intelligence for long-running agents and coding
+
               - `:"claude-opus-4-8"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-opus-4-7"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-mythos-preview"`
 
@@ -20954,7 +22738,7 @@ puts(beta_message_tokens_count)
 
               - `:"claude-opus-4-6"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-sonnet-4-6"`
 
@@ -20970,11 +22754,11 @@ puts(beta_message_tokens_count)
 
               - `:"claude-opus-4-5"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-opus-4-5-20251101"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-sonnet-4-5"`
 
@@ -20986,11 +22770,11 @@ puts(beta_message_tokens_count)
 
               - `:"claude-opus-4-1"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-opus-4-1-20250805"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
             - `String = String`
 
@@ -21002,17 +22786,29 @@ puts(beta_message_tokens_count)
 
           What caused the `from` model to hand over at this hop.
 
-          - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+          - `category: :cyber | :bio | :frontier_llm | 2 more`
 
             The policy category that triggered a refusal.
 
             - `:cyber`
 
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
             - `:bio`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
             - `:frontier_llm`
 
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
             - `:reasoning_extraction`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `:general_harms`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
           - `type: :refusal`
 
@@ -21143,17 +22939,29 @@ puts(beta_message_tokens_count)
 
       Structured information about a refusal.
 
-      - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+      - `category: :cyber | :bio | :frontier_llm | 2 more`
 
         The policy category that triggered a refusal.
 
         - `:cyber`
 
+          The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
         - `:bio`
+
+          The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
         - `:frontier_llm`
 
+          The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
         - `:reasoning_extraction`
+
+          The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+        - `:general_harms`
+
+          The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
       - `explanation: String`
 
@@ -21226,6 +23034,7 @@ puts(beta_message_tokens_count)
       * `"tool_use"`: the model invoked one or more tools
       * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
       * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+      * `"model_context_window_exceeded"`: we exceeded the model's context window
 
       In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -21290,6 +23099,78 @@ puts(beta_message_tokens_count)
       - `cache_read_input_tokens: Integer`
 
         The number of input tokens read from the cache.
+
+      - `fallback_credit: BetaFallbackCreditUsage`
+
+        Outcome of the `fallback_credit_token` presented on this request.
+
+        - `status: BetaFallbackCreditRedeemed | BetaFallbackCreditNotApplied`
+
+          Whether the fallback-credit reprice was applied to this response's billing.
+
+          A union discriminated on `type`. `redeemed`: the retry is billed as if
+          the conversation had been on the retry model all along — including when the
+          resulting shift is zero because there was nothing to move. `not_applied`:
+          no reprice was applied; the arm's `reason` says why.
+
+          - `class BetaFallbackCreditRedeemed`
+
+            The reprice was applied: the retry is billed as if the conversation
+            had been on the retry model all along.
+
+            - `type: :redeemed`
+
+              - `:redeemed`
+
+          - `class BetaFallbackCreditNotApplied`
+
+            No reprice was applied; `reason` says why.
+
+            - `reason: :body_mismatch | :continuation_excluded | :continuation_only | 9 more`
+
+              Why the reprice was not applied.
+
+              A closed enum; additions to the redemption-check vocabulary arrive as
+              deliberate schema updates.
+
+              - `:body_mismatch`
+
+              - `:continuation_excluded`
+
+              - `:continuation_only`
+
+              - `:expired`
+
+              - `:invalid_target_model`
+
+              - `:not_enabled`
+
+              - `:reprice_unavailable`
+
+              - `:temporarily_unavailable`
+
+              - `:variant_fields_present`
+
+              - `:wrong_organization`
+
+              - `:wrong_platform`
+
+              - `:wrong_workspace`
+
+            - `type: :not_applied`
+
+              - `:not_applied`
+
+            - `remove_to_redeem: Array[String]`
+
+              Request fields to remove before retrying, so the retry can redeem this
+              token.
+
+              Present exactly when `reason` is `variant_fields_present` — never null,
+              never an empty array; absent otherwise. Fields are named only from your own request, and only after
+              the sealed variant hash matched. A served best-effort retry has already
+              been billed at normal price; nothing redeems retroactively, but a corrected
+              re-send inside the token's five-minute window can still redeem.
 
       - `inference_geo: String`
 
@@ -21500,7 +23381,7 @@ puts(beta_message_tokens_count)
 
       - `speed: :standard | :fast`
 
-        The inference speed mode used for this request.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `:standard`
 
@@ -22373,11 +24254,15 @@ puts(beta_message_tokens_count)
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-              - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+              - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `:"claude-sonnet-5"`
+
+                  High-performance model for coding and agents
 
                 - `:"claude-fable-5"`
 
@@ -22387,13 +24272,17 @@ puts(beta_message_tokens_count)
 
                   Most capable model for cybersecurity and biology research
 
+                - `:"claude-opus-5"`
+
+                  Powerful intelligence for long-running agents and coding
+
                 - `:"claude-opus-4-8"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `:"claude-opus-4-7"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `:"claude-mythos-preview"`
 
@@ -22401,7 +24290,7 @@ puts(beta_message_tokens_count)
 
                 - `:"claude-opus-4-6"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `:"claude-sonnet-4-6"`
 
@@ -22417,11 +24306,11 @@ puts(beta_message_tokens_count)
 
                 - `:"claude-opus-4-5"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `:"claude-opus-4-5-20251101"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `:"claude-sonnet-4-5"`
 
@@ -22433,11 +24322,11 @@ puts(beta_message_tokens_count)
 
                 - `:"claude-opus-4-1"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
                 - `:"claude-opus-4-1-20250805"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
               - `String = String`
 
@@ -22449,17 +24338,29 @@ puts(beta_message_tokens_count)
 
             What caused the `from` model to hand over at this hop.
 
-            - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+            - `category: :cyber | :bio | :frontier_llm | 2 more`
 
               The policy category that triggered a refusal.
 
               - `:cyber`
 
+                The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
               - `:bio`
+
+                The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
               - `:frontier_llm`
 
+                The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
               - `:reasoning_extraction`
+
+                The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+              - `:general_harms`
+
+                The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
             - `type: :refusal`
 
@@ -22590,17 +24491,29 @@ puts(beta_message_tokens_count)
 
         Structured information about a refusal.
 
-        - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+        - `category: :cyber | :bio | :frontier_llm | 2 more`
 
           The policy category that triggered a refusal.
 
           - `:cyber`
 
+            The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
           - `:bio`
+
+            The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
           - `:frontier_llm`
 
+            The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
           - `:reasoning_extraction`
+
+            The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+          - `:general_harms`
+
+            The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
         - `explanation: String`
 
@@ -22673,6 +24586,7 @@ puts(beta_message_tokens_count)
         * `"tool_use"`: the model invoked one or more tools
         * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
         * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+        * `"model_context_window_exceeded"`: we exceeded the model's context window
 
         In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -22737,6 +24651,78 @@ puts(beta_message_tokens_count)
         - `cache_read_input_tokens: Integer`
 
           The number of input tokens read from the cache.
+
+        - `fallback_credit: BetaFallbackCreditUsage`
+
+          Outcome of the `fallback_credit_token` presented on this request.
+
+          - `status: BetaFallbackCreditRedeemed | BetaFallbackCreditNotApplied`
+
+            Whether the fallback-credit reprice was applied to this response's billing.
+
+            A union discriminated on `type`. `redeemed`: the retry is billed as if
+            the conversation had been on the retry model all along — including when the
+            resulting shift is zero because there was nothing to move. `not_applied`:
+            no reprice was applied; the arm's `reason` says why.
+
+            - `class BetaFallbackCreditRedeemed`
+
+              The reprice was applied: the retry is billed as if the conversation
+              had been on the retry model all along.
+
+              - `type: :redeemed`
+
+                - `:redeemed`
+
+            - `class BetaFallbackCreditNotApplied`
+
+              No reprice was applied; `reason` says why.
+
+              - `reason: :body_mismatch | :continuation_excluded | :continuation_only | 9 more`
+
+                Why the reprice was not applied.
+
+                A closed enum; additions to the redemption-check vocabulary arrive as
+                deliberate schema updates.
+
+                - `:body_mismatch`
+
+                - `:continuation_excluded`
+
+                - `:continuation_only`
+
+                - `:expired`
+
+                - `:invalid_target_model`
+
+                - `:not_enabled`
+
+                - `:reprice_unavailable`
+
+                - `:temporarily_unavailable`
+
+                - `:variant_fields_present`
+
+                - `:wrong_organization`
+
+                - `:wrong_platform`
+
+                - `:wrong_workspace`
+
+              - `type: :not_applied`
+
+                - `:not_applied`
+
+              - `remove_to_redeem: Array[String]`
+
+                Request fields to remove before retrying, so the retry can redeem this
+                token.
+
+                Present exactly when `reason` is `variant_fields_present` — never null,
+                never an empty array; absent otherwise. Fields are named only from your own request, and only after
+                the sealed variant hash matched. A served best-effort retry has already
+                been billed at normal price; nothing redeems retroactively, but a corrected
+                re-send inside the token's five-minute window can still redeem.
 
         - `inference_geo: String`
 
@@ -22947,7 +24933,7 @@ puts(beta_message_tokens_count)
 
         - `speed: :standard | :fast`
 
-          The inference speed mode used for this request.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `:standard`
 
@@ -23000,6 +24986,10 @@ puts(beta_message_tokens_count)
       - `cache_read_input_tokens: Integer`
 
         The cumulative number of input tokens read from the cache.
+
+      - `fallback_credit: BetaFallbackCreditUsage`
+
+        Outcome of the `fallback_credit_token` presented on this request.
 
       - `input_tokens: Integer`
 
@@ -23214,17 +25204,29 @@ puts(beta_message_tokens_count)
 
   Structured information about a refusal.
 
-  - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+  - `category: :cyber | :bio | :frontier_llm | 2 more`
 
     The policy category that triggered a refusal.
 
     - `:cyber`
 
+      The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
     - `:bio`
+
+      The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
     - `:frontier_llm`
 
+      The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
     - `:reasoning_extraction`
+
+      The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+    - `:general_harms`
+
+      The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
   - `explanation: String`
 
@@ -23348,7 +25350,7 @@ puts(beta_message_tokens_count)
                 - `5m`: 5 minutes
                 - `1h`: 1 hour
 
-                Defaults to `5m`.
+                Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
                 - `:"5m"`
 
@@ -23597,7 +25599,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -23727,6 +25729,166 @@ puts(beta_message_tokens_count)
 
   - `is_error: bool`
 
+### Beta Request Tool Addition Block
+
+- `class BetaRequestToolAdditionBlock`
+
+  Mid-conversation directive to surface a declared tool.
+
+  `tool` references a tool (or MCP toolset) by name from the request's
+  `tools`; it is offered to the model from this point in the
+  conversation onward.
+
+  - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
+
+    Reference to a single tool the caller declared directly in
+    `tools[]`. Does not accept the composed `{server}_{name}` form the
+    server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+    `mcp_toolset_reference` for those.
+
+    - `class BetaToolChangeToolReference`
+
+      Reference to a single tool the caller declared directly in
+      `tools[]`. Does not accept the composed `{server}_{name}` form the
+      server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+      `mcp_toolset_reference` for those.
+
+      - `name: String`
+
+      - `type: :tool_reference`
+
+        - `:tool_reference`
+
+    - `class BetaToolChangeMCPToolReference`
+
+      Reference to a single MCP tool by its server and remote name — the
+      same `server_name`/`name` pair `mcp_tool_use` carries.
+
+      - `name: String`
+
+      - `server_name: String`
+
+      - `type: :mcp_tool_reference`
+
+        - `:mcp_tool_reference`
+
+    - `class BetaToolChangeMCPToolsetReference`
+
+      Reference to every tool in the named MCP server's toolset.
+
+      - `server_name: String`
+
+      - `type: :mcp_toolset_reference`
+
+        - `:mcp_toolset_reference`
+
+  - `type: :tool_addition`
+
+    - `:tool_addition`
+
+  - `cache_control: BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: :ephemeral`
+
+      - `:ephemeral`
+
+    - `ttl: :"5m" | :"1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `:"5m"`
+
+      - `:"1h"`
+
+### Beta Request Tool Removal Block
+
+- `class BetaRequestToolRemovalBlock`
+
+  Mid-conversation directive to withdraw a tool.
+
+  `tool` references a tool (or MCP toolset) by name from the request's
+  `tools`; it is no longer offered to the model from this point in the
+  conversation onward.
+
+  - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
+
+    Reference to a single tool the caller declared directly in
+    `tools[]`. Does not accept the composed `{server}_{name}` form the
+    server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+    `mcp_toolset_reference` for those.
+
+    - `class BetaToolChangeToolReference`
+
+      Reference to a single tool the caller declared directly in
+      `tools[]`. Does not accept the composed `{server}_{name}` form the
+      server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+      `mcp_toolset_reference` for those.
+
+      - `name: String`
+
+      - `type: :tool_reference`
+
+        - `:tool_reference`
+
+    - `class BetaToolChangeMCPToolReference`
+
+      Reference to a single MCP tool by its server and remote name — the
+      same `server_name`/`name` pair `mcp_tool_use` carries.
+
+      - `name: String`
+
+      - `server_name: String`
+
+      - `type: :mcp_tool_reference`
+
+        - `:mcp_tool_reference`
+
+    - `class BetaToolChangeMCPToolsetReference`
+
+      Reference to every tool in the named MCP server's toolset.
+
+      - `server_name: String`
+
+      - `type: :mcp_toolset_reference`
+
+        - `:mcp_toolset_reference`
+
+  - `type: :tool_removal`
+
+    - `:tool_removal`
+
+  - `cache_control: BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: :ephemeral`
+
+      - `:ephemeral`
+
+    - `ttl: :"5m" | :"1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `:"5m"`
+
+      - `:"1h"`
+
 ### Beta Search Result Block Param
 
 - `class BetaSearchResultBlockParam`
@@ -23756,7 +25918,7 @@ puts(beta_message_tokens_count)
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
         - `:"5m"`
 
@@ -24025,7 +26187,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -24288,7 +26450,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -24861,7 +27023,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -25017,7 +27179,7 @@ puts(beta_message_tokens_count)
 
     Must be ≥1024 and less than `max_tokens`.
 
-    See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+    See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
   - `type: :enabled`
 
@@ -25039,7 +27201,7 @@ puts(beta_message_tokens_count)
 
   When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
-  See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+  See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
   - `class BetaThinkingConfigEnabled`
 
@@ -25049,7 +27211,7 @@ puts(beta_message_tokens_count)
 
       Must be ≥1024 and less than `max_tokens`.
 
-      See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+      See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
     - `type: :enabled`
 
@@ -25178,7 +27340,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -25251,7 +27413,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -25310,7 +27472,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -25325,6 +27487,48 @@ puts(beta_message_tokens_count)
   - `strict: bool`
 
     When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Change MCP Tool Reference
+
+- `class BetaToolChangeMCPToolReference`
+
+  Reference to a single MCP tool by its server and remote name — the
+  same `server_name`/`name` pair `mcp_tool_use` carries.
+
+  - `name: String`
+
+  - `server_name: String`
+
+  - `type: :mcp_tool_reference`
+
+    - `:mcp_tool_reference`
+
+### Beta Tool Change MCP Toolset Reference
+
+- `class BetaToolChangeMCPToolsetReference`
+
+  Reference to every tool in the named MCP server's toolset.
+
+  - `server_name: String`
+
+  - `type: :mcp_toolset_reference`
+
+    - `:mcp_toolset_reference`
+
+### Beta Tool Change Tool Reference
+
+- `class BetaToolChangeToolReference`
+
+  Reference to a single tool the caller declared directly in
+  `tools[]`. Does not accept the composed `{server}_{name}` form the
+  server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+  `mcp_toolset_reference` for those.
+
+  - `name: String`
+
+  - `type: :tool_reference`
+
+    - `:tool_reference`
 
 ### Beta Tool Choice
 
@@ -25499,7 +27703,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -25570,7 +27774,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -25641,7 +27845,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -25704,7 +27908,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -25737,7 +27941,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -26078,7 +28282,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -26137,7 +28341,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -26246,7 +28450,7 @@ puts(beta_message_tokens_count)
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
-            Defaults to `5m`.
+            Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
             - `:"5m"`
 
@@ -26351,7 +28555,7 @@ puts(beta_message_tokens_count)
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
         - `:"5m"`
 
@@ -26404,7 +28608,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -26463,7 +28667,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -26522,7 +28726,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -26581,7 +28785,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -26603,7 +28807,7 @@ puts(beta_message_tokens_count)
 
 ### Beta Tool Union
 
-- `BetaToolUnion = BetaTool | BetaToolBash20241022 | BetaToolBash20250124 | 21 more`
+- `BetaToolUnion = BetaTool | BetaToolBash20241022 | BetaToolBash20250124 | 23 more`
 
   Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
@@ -26656,7 +28860,7 @@ puts(beta_message_tokens_count)
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
-        Defaults to `5m`.
+        Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
         - `:"5m"`
 
@@ -27558,6 +29762,134 @@ puts(beta_message_tokens_count)
 
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
+  - `class BetaWebSearchTool20260318`
+
+    - `name: :web_search`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `:web_search`
+
+    - `type: :web_search_20260318`
+
+      - `:web_search_20260318`
+
+    - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
+
+      - `:direct`
+
+      - `:code_execution_20250825`
+
+      - `:code_execution_20260120`
+
+      - `:code_execution_20260521`
+
+    - `allowed_domains: Array[String]`
+
+      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+    - `blocked_domains: Array[String]`
+
+      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+    - `cache_control: BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_uses: Integer`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `response_inclusion: :full | :excluded`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+      - `:full`
+
+      - `:excluded`
+
+    - `strict: bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `user_location: BetaUserLocation`
+
+      Parameters for the user's location. Used to provide more relevant search results.
+
+  - `class BetaWebFetchTool20260318`
+
+    - `name: :web_fetch`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+      - `:web_fetch`
+
+    - `type: :web_fetch_20260318`
+
+      - `:web_fetch_20260318`
+
+    - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
+
+      - `:direct`
+
+      - `:code_execution_20250825`
+
+      - `:code_execution_20260120`
+
+      - `:code_execution_20260521`
+
+    - `allowed_domains: Array[String]`
+
+      List of domains to allow fetching from
+
+    - `blocked_domains: Array[String]`
+
+      List of domains to block fetching from
+
+    - `cache_control: BetaCacheControlEphemeral`
+
+      Create a cache control breakpoint at this content block.
+
+    - `citations: BetaCitationsConfigParam`
+
+      Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `defer_loading: bool`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_content_tokens: Integer`
+
+      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+    - `max_uses: Integer`
+
+      Maximum number of times the tool can be used in the API request.
+
+    - `response_inclusion: :full | :excluded`
+
+      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+      - `:full`
+
+      - `:excluded`
+
+    - `strict: bool`
+
+      When true, guarantees schema validation on tool names and inputs
+
+    - `use_cache: bool`
+
+      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
   - `class BetaAdvisorTool20260301`
 
     - `model: Model`
@@ -27566,11 +29898,15 @@ puts(beta_message_tokens_count)
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+      - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-sonnet-5"`
+
+          High-performance model for coding and agents
 
         - `:"claude-fable-5"`
 
@@ -27580,13 +29916,17 @@ puts(beta_message_tokens_count)
 
           Most capable model for cybersecurity and biology research
 
+        - `:"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `:"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-mythos-preview"`
 
@@ -27594,7 +29934,7 @@ puts(beta_message_tokens_count)
 
         - `:"claude-opus-4-6"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-6"`
 
@@ -27610,11 +29950,11 @@ puts(beta_message_tokens_count)
 
         - `:"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-5"`
 
@@ -27626,11 +29966,11 @@ puts(beta_message_tokens_count)
 
         - `:"claude-opus-4-1"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-1-20250805"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
       - `String = String`
 
@@ -27866,7 +30206,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -27966,6 +30306,78 @@ puts(beta_message_tokens_count)
 
     The number of input tokens read from the cache.
 
+  - `fallback_credit: BetaFallbackCreditUsage`
+
+    Outcome of the `fallback_credit_token` presented on this request.
+
+    - `status: BetaFallbackCreditRedeemed | BetaFallbackCreditNotApplied`
+
+      Whether the fallback-credit reprice was applied to this response's billing.
+
+      A union discriminated on `type`. `redeemed`: the retry is billed as if
+      the conversation had been on the retry model all along — including when the
+      resulting shift is zero because there was nothing to move. `not_applied`:
+      no reprice was applied; the arm's `reason` says why.
+
+      - `class BetaFallbackCreditRedeemed`
+
+        The reprice was applied: the retry is billed as if the conversation
+        had been on the retry model all along.
+
+        - `type: :redeemed`
+
+          - `:redeemed`
+
+      - `class BetaFallbackCreditNotApplied`
+
+        No reprice was applied; `reason` says why.
+
+        - `reason: :body_mismatch | :continuation_excluded | :continuation_only | 9 more`
+
+          Why the reprice was not applied.
+
+          A closed enum; additions to the redemption-check vocabulary arrive as
+          deliberate schema updates.
+
+          - `:body_mismatch`
+
+          - `:continuation_excluded`
+
+          - `:continuation_only`
+
+          - `:expired`
+
+          - `:invalid_target_model`
+
+          - `:not_enabled`
+
+          - `:reprice_unavailable`
+
+          - `:temporarily_unavailable`
+
+          - `:variant_fields_present`
+
+          - `:wrong_organization`
+
+          - `:wrong_platform`
+
+          - `:wrong_workspace`
+
+        - `type: :not_applied`
+
+          - `:not_applied`
+
+        - `remove_to_redeem: Array[String]`
+
+          Request fields to remove before retrying, so the retry can redeem this
+          token.
+
+          Present exactly when `reason` is `variant_fields_present` — never null,
+          never an empty array; absent otherwise. Fields are named only from your own request, and only after
+          the sealed variant hash matched. A served best-effort retry has already
+          been billed at normal price; nothing redeems retroactively, but a corrected
+          re-send inside the token's five-minute window can still redeem.
+
   - `inference_geo: String`
 
     The geographic region where inference was performed for this request.
@@ -28010,11 +30422,15 @@ puts(beta_message_tokens_count)
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+        - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `:"claude-fable-5"`
 
@@ -28024,13 +30440,17 @@ puts(beta_message_tokens_count)
 
             Most capable model for cybersecurity and biology research
 
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `:"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-mythos-preview"`
 
@@ -28038,7 +30458,7 @@ puts(beta_message_tokens_count)
 
           - `:"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-6"`
 
@@ -28054,11 +30474,11 @@ puts(beta_message_tokens_count)
 
           - `:"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-5"`
 
@@ -28070,11 +30490,11 @@ puts(beta_message_tokens_count)
 
           - `:"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
         - `String = String`
 
@@ -28243,7 +30663,7 @@ puts(beta_message_tokens_count)
 
   - `speed: :standard | :fast`
 
-    The inference speed mode used for this request.
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
     - `:standard`
 
@@ -28396,7 +30816,7 @@ puts(beta_message_tokens_count)
                   - `5m`: 5 minutes
                   - `1h`: 1 hour
 
-                  Defaults to `5m`.
+                  Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
                   - `:"5m"`
 
@@ -28653,7 +31073,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -28732,7 +31152,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -28813,7 +31233,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -28836,6 +31256,97 @@ puts(beta_message_tokens_count)
   - `max_uses: Integer`
 
     Maximum number of times the tool can be used in the API request.
+
+  - `strict: bool`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `use_cache: bool`
+
+    Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
+### Beta Web Fetch Tool 20260318
+
+- `class BetaWebFetchTool20260318`
+
+  - `name: :web_fetch`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `:web_fetch`
+
+  - `type: :web_fetch_20260318`
+
+    - `:web_fetch_20260318`
+
+  - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
+
+    - `:direct`
+
+    - `:code_execution_20250825`
+
+    - `:code_execution_20260120`
+
+    - `:code_execution_20260521`
+
+  - `allowed_domains: Array[String]`
+
+    List of domains to allow fetching from
+
+  - `blocked_domains: Array[String]`
+
+    List of domains to block fetching from
+
+  - `cache_control: BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: :ephemeral`
+
+      - `:ephemeral`
+
+    - `ttl: :"5m" | :"1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `:"5m"`
+
+      - `:"1h"`
+
+  - `citations: BetaCitationsConfigParam`
+
+    Citations configuration for fetched documents. Citations are disabled by default.
+
+    - `enabled: bool`
+
+  - `defer_loading: bool`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `max_content_tokens: Integer`
+
+    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+  - `max_uses: Integer`
+
+    Maximum number of times the tool can be used in the API request.
+
+  - `response_inclusion: :full | :excluded`
+
+    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+    - `:full`
+
+    - `:excluded`
 
   - `strict: bool`
 
@@ -29064,7 +31575,7 @@ puts(beta_message_tokens_count)
                       - `5m`: 5 minutes
                       - `1h`: 1 hour
 
-                      Defaults to `5m`.
+                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
                       - `:"5m"`
 
@@ -29471,7 +31982,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -29564,7 +32075,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -29577,6 +32088,107 @@ puts(beta_message_tokens_count)
   - `max_uses: Integer`
 
     Maximum number of times the tool can be used in the API request.
+
+  - `strict: bool`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `user_location: BetaUserLocation`
+
+    Parameters for the user's location. Used to provide more relevant search results.
+
+    - `type: :approximate`
+
+      - `:approximate`
+
+    - `city: String`
+
+      The city of the user.
+
+    - `country: String`
+
+      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+    - `region: String`
+
+      The region of the user.
+
+    - `timezone: String`
+
+      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+### Beta Web Search Tool 20260318
+
+- `class BetaWebSearchTool20260318`
+
+  - `name: :web_search`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `:web_search`
+
+  - `type: :web_search_20260318`
+
+    - `:web_search_20260318`
+
+  - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
+
+    - `:direct`
+
+    - `:code_execution_20250825`
+
+    - `:code_execution_20260120`
+
+    - `:code_execution_20260521`
+
+  - `allowed_domains: Array[String]`
+
+    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+  - `blocked_domains: Array[String]`
+
+    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+  - `cache_control: BetaCacheControlEphemeral`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: :ephemeral`
+
+      - `:ephemeral`
+
+    - `ttl: :"5m" | :"1h"`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `:"5m"`
+
+      - `:"1h"`
+
+  - `defer_loading: bool`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `max_uses: Integer`
+
+    Maximum number of times the tool can be used in the API request.
+
+  - `response_inclusion: :full | :excluded`
+
+    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+    - `:full`
+
+    - `:excluded`
 
   - `strict: bool`
 
@@ -29805,7 +32417,7 @@ puts(beta_message_tokens_count)
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
-      Defaults to `5m`.
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
       - `:"5m"`
 
@@ -29929,7 +32541,7 @@ Send a batch of Message creation requests.
 
 The Message Batches API can be used to process multiple Messages API requests at once. Once a Message Batch is created, it begins processing immediately. Batches can take up to 24 hours to complete.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -29943,11 +32555,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     Must be unique for each request within the Message Batch.
 
-  - `params: Params{ max_tokens, messages, model, 23 more}`
+  - `params: Params{ max_tokens, messages, model, 22 more}`
 
     Messages API creation parameters for the individual request.
 
-    See the [Messages API reference](https://docs.claude.com/en/api/messages) for full documentation on available parameters.
+    See the [Messages API reference](https://platform.claude.com/docs/en/api/messages) for full documentation on available parameters.
 
     - `max_tokens: Integer`
 
@@ -29955,9 +32567,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       Note that our models may stop _before_ reaching this maximum. This parameter only specifies the absolute maximum number of tokens to generate.
 
-      Set to `0` to populate the [prompt cache](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
+      Set to `0` to populate the [prompt cache](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
 
-      Different models have different maximum values for this parameter.  See [models](https://docs.claude.com/en/docs/models-overview) for details.
+      Different models have different maximum values for this parameter.  See [models](https://platform.claude.com/docs/en/about-claude/models/overview) for details.
 
     - `messages: Array[BetaMessageParam]`
 
@@ -30004,9 +32616,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
       ```
 
-      See [input examples](https://docs.claude.com/en/api/messages-examples).
+      See [input examples](https://platform.claude.com/docs/en/build-with-claude/working-with-messages).
 
-      Note that if you want to include a [system prompt](https://docs.claude.com/en/docs/system-prompts), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
+      Note that if you want to include a [system prompt](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
 
       There is a limit of 100,000 messages in a single request.
 
@@ -30041,7 +32653,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `5m`: 5 minutes
                 - `1h`: 1 hour
 
-                Defaults to `5m`.
+                Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
                 - `:"5m"`
 
@@ -30995,19 +33607,109 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             Use this block to provide or update system-level instructions at a specific
             point in the conversation, rather than only via the top-level `system` parameter.
 
-            - `content: Array[BetaTextBlockParam]`
+            - `content: Array[BetaTextBlockParam | BetaRequestToolAdditionBlock | BetaRequestToolRemovalBlock]`
 
               System instruction text blocks.
 
-              - `text: String`
+              - `class BetaTextBlockParam`
 
-              - `type: :text`
+              - `class BetaRequestToolAdditionBlock`
 
-              - `cache_control: BetaCacheControlEphemeral`
+                Mid-conversation directive to surface a declared tool.
 
-                Create a cache control breakpoint at this content block.
+                `tool` references a tool (or MCP toolset) by name from the request's
+                `tools`; it is offered to the model from this point in the
+                conversation onward.
 
-              - `citations: Array[BetaTextCitationParam]`
+                - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
+
+                  Reference to a single tool the caller declared directly in
+                  `tools[]`. Does not accept the composed `{server}_{name}` form the
+                  server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                  `mcp_toolset_reference` for those.
+
+                  - `class BetaToolChangeToolReference`
+
+                    Reference to a single tool the caller declared directly in
+                    `tools[]`. Does not accept the composed `{server}_{name}` form the
+                    server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                    `mcp_toolset_reference` for those.
+
+                    - `name: String`
+
+                    - `type: :tool_reference`
+
+                      - `:tool_reference`
+
+                  - `class BetaToolChangeMCPToolReference`
+
+                    Reference to a single MCP tool by its server and remote name — the
+                    same `server_name`/`name` pair `mcp_tool_use` carries.
+
+                    - `name: String`
+
+                    - `server_name: String`
+
+                    - `type: :mcp_tool_reference`
+
+                      - `:mcp_tool_reference`
+
+                  - `class BetaToolChangeMCPToolsetReference`
+
+                    Reference to every tool in the named MCP server's toolset.
+
+                    - `server_name: String`
+
+                    - `type: :mcp_toolset_reference`
+
+                      - `:mcp_toolset_reference`
+
+                - `type: :tool_addition`
+
+                  - `:tool_addition`
+
+                - `cache_control: BetaCacheControlEphemeral`
+
+                  Create a cache control breakpoint at this content block.
+
+              - `class BetaRequestToolRemovalBlock`
+
+                Mid-conversation directive to withdraw a tool.
+
+                `tool` references a tool (or MCP toolset) by name from the request's
+                `tools`; it is no longer offered to the model from this point in the
+                conversation onward.
+
+                - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
+
+                  Reference to a single tool the caller declared directly in
+                  `tools[]`. Does not accept the composed `{server}_{name}` form the
+                  server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                  `mcp_toolset_reference` for those.
+
+                  - `class BetaToolChangeToolReference`
+
+                    Reference to a single tool the caller declared directly in
+                    `tools[]`. Does not accept the composed `{server}_{name}` form the
+                    server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                    `mcp_toolset_reference` for those.
+
+                  - `class BetaToolChangeMCPToolReference`
+
+                    Reference to a single MCP tool by its server and remote name — the
+                    same `server_name`/`name` pair `mcp_tool_use` carries.
+
+                  - `class BetaToolChangeMCPToolsetReference`
+
+                    Reference to every tool in the named MCP server's toolset.
+
+                - `type: :tool_removal`
+
+                  - `:tool_removal`
+
+                - `cache_control: BetaCacheControlEphemeral`
+
+                  Create a cache control breakpoint at this content block.
 
             - `type: :mid_conv_system`
 
@@ -31016,6 +33718,22 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `cache_control: BetaCacheControlEphemeral`
 
               Create a cache control breakpoint at this content block.
+
+          - `class BetaRequestToolAdditionBlock`
+
+            Mid-conversation directive to surface a declared tool.
+
+            `tool` references a tool (or MCP toolset) by name from the request's
+            `tools`; it is offered to the model from this point in the
+            conversation onward.
+
+          - `class BetaRequestToolRemovalBlock`
+
+            Mid-conversation directive to withdraw a tool.
+
+            `tool` references a tool (or MCP toolset) by name from the request's
+            `tools`; it is no longer offered to the model from this point in the
+            conversation onward.
 
           - `class BetaFallbackBlockParam`
 
@@ -31043,11 +33761,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+                - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
                   The model that will complete your prompt.
 
                   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                  - `:"claude-sonnet-5"`
+
+                    High-performance model for coding and agents
 
                   - `:"claude-fable-5"`
 
@@ -31057,13 +33779,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                     Most capable model for cybersecurity and biology research
 
+                  - `:"claude-opus-5"`
+
+                    Powerful intelligence for long-running agents and coding
+
                   - `:"claude-opus-4-8"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `:"claude-opus-4-7"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `:"claude-mythos-preview"`
 
@@ -31071,7 +33797,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `:"claude-opus-4-6"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `:"claude-sonnet-4-6"`
 
@@ -31087,11 +33813,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `:"claude-opus-4-5"`
 
-                    Premium model combining maximum intelligence with practical performance
+                    Powerful intelligence for long-running agents and coding
 
                   - `:"claude-opus-4-5-20251101"`
 
-                    Premium model combining maximum intelligence with practical performance
+                    Powerful intelligence for long-running agents and coding
 
                   - `:"claude-sonnet-4-5"`
 
@@ -31103,11 +33829,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `:"claude-opus-4-1"`
 
-                    Exceptional model for specialized complex tasks
+                    Powerful intelligence for long-running agents and coding
 
                   - `:"claude-opus-4-1-20250805"`
 
-                    Exceptional model for specialized complex tasks
+                    Powerful intelligence for long-running agents and coding
 
                 - `String = String`
 
@@ -31300,7 +34026,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
         The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
 
-    - `fallback_credit_token: String`
+    - `fallback_credit_token: String | BetaFallbackCreditTokenParam`
 
       The `fallback_credit_token` from a prior refusal's `stop_details`.
 
@@ -31323,113 +34049,145 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       When the appended-assistant form is used on a model that otherwise disallows
       assistant-turn prefill, this token also authorizes that one prefill.
 
-    - `fallbacks: Array[BetaFallbackParam]`
+      - `String = String`
 
-      Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on.
+      - `class BetaFallbackCreditTokenParam`
 
-      - `model: Model`
+        Object form of `fallback_credit_token`: the token plus a redemption
+        mode.
 
-        The model that will complete your prompt.
+        Requires `anthropic-beta: fallback-credit-2026-07-01`; without that
+        header the field accepts the bare string only. The bare string and the
+        mode-less object are equivalent (both select `strict`), so wrapping
+        an existing token changes nothing by itself.
 
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `token: String`
 
-      - `max_tokens: Integer`
+          The opaque `fallback_credit_token` from a prior refusal's `stop_details` — the same string the bare-string form carries.
 
-      - `output_config: BetaOutputConfig`
+        - `mode: :strict | :best_effort`
 
-        - `effort: :low | :medium | :high | 2 more`
+          How a failing token affects the retry. `strict` (the default, and the bare-string behavior): a failing redemption is a 400 and the retry is not served. `best_effort`: the retry is served either way — a token-layer failure no longer rejects the request; the retry proceeds at normal price and the outcome is reported on the response's `usage.fallback_credit`. Two failures stay hard in both modes: a malformed token, and combining `fallback_credit_token` with `fallbacks`.
 
-          All possible effort levels.
+          - `:strict`
 
-          - `:low`
+          - `:best_effort`
 
-          - `:medium`
+    - `fallbacks: BetaFallbacksParam`
 
-          - `:high`
+      Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on. The string "default" requests the requested model's server-defined default fallback configuration.
 
-          - `:xhigh`
+      - `UnionMember0 = Array[BetaFallbackParam]`
 
-          - `:max`
+        - `model: Model`
 
-        - `format_: BetaJSONOutputFormat`
+          The model that will complete your prompt.
 
-          A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `schema: Hash[Symbol, untyped]`
+        - `max_tokens: Integer`
 
-            The JSON schema of the format
+        - `output_config: BetaOutputConfig`
 
-          - `type: :json_schema`
+          - `effort: :low | :medium | :high | 2 more`
 
-            - `:json_schema`
+            All possible effort levels.
 
-        - `task_budget: BetaTokenTaskBudget`
+            - `:low`
 
-          User-configurable total token budget across contexts.
+            - `:medium`
 
-          - `total: Integer`
+            - `:high`
 
-            Total token budget across all contexts in the session.
+            - `:xhigh`
 
-          - `type: :tokens`
+            - `:max`
 
-            The budget type. Currently only 'tokens' is supported.
+          - `format_: BetaJSONOutputFormat`
 
-            - `:tokens`
+            A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
 
-          - `remaining: Integer`
+            - `schema: Hash[Symbol, untyped]`
 
-            Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+              The JSON schema of the format
 
-      - `speed: :standard | :fast`
+            - `type: :json_schema`
 
-        - `:standard`
+              - `:json_schema`
 
-        - `:fast`
+          - `task_budget: BetaTokenTaskBudget`
 
-      - `thinking: BetaThinkingConfigEnabled | BetaThinkingConfigDisabled | BetaThinkingConfigAdaptive`
+            User-configurable total token budget across contexts.
 
-        - `class BetaThinkingConfigEnabled`
+            - `total: Integer`
 
-          - `budget_tokens: Integer`
+              Total token budget across all contexts in the session.
 
-            Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+            - `type: :tokens`
 
-            Must be ≥1024 and less than `max_tokens`.
+              The budget type. Currently only 'tokens' is supported.
 
-            See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+              - `:tokens`
 
-          - `type: :enabled`
+            - `remaining: Integer`
 
-            - `:enabled`
+              Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
 
-          - `display_: :summarized | :omitted`
+        - `speed: :standard | :fast`
 
-            Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-            - `:summarized`
+          - `:standard`
 
-            - `:omitted`
+          - `:fast`
 
-        - `class BetaThinkingConfigDisabled`
+        - `thinking: BetaThinkingConfigEnabled | BetaThinkingConfigDisabled | BetaThinkingConfigAdaptive`
 
-          - `type: :disabled`
+          - `class BetaThinkingConfigEnabled`
 
-            - `:disabled`
+            - `budget_tokens: Integer`
 
-        - `class BetaThinkingConfigAdaptive`
+              Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
 
-          - `type: :adaptive`
+              Must be ≥1024 and less than `max_tokens`.
 
-            - `:adaptive`
+              See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-          - `display_: :summarized | :omitted`
+            - `type: :enabled`
 
-            Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+              - `:enabled`
 
-            - `:summarized`
+            - `display_: :summarized | :omitted`
 
-            - `:omitted`
+              Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+              - `:summarized`
+
+              - `:omitted`
+
+          - `class BetaThinkingConfigDisabled`
+
+            - `type: :disabled`
+
+              - `:disabled`
+
+          - `class BetaThinkingConfigAdaptive`
+
+            - `type: :adaptive`
+
+              - `:adaptive`
+
+            - `display_: :summarized | :omitted`
+
+              Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+              - `:summarized`
+
+              - `:omitted`
+
+      - `BetaFallbacksParam = :default`
+
+        - `:default`
 
     - `inference_geo: String`
 
@@ -31479,7 +34237,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       Determines whether to use priority capacity (if available) or standard capacity for this request.
 
-      Anthropic offers different levels of service for your API requests. See [service-tiers](https://docs.claude.com/en/api/service-tiers) for details.
+      Anthropic offers different levels of service for your API requests. See [service-tiers](https://platform.claude.com/docs/en/api/service-tiers) for details.
 
       - `:auto`
 
@@ -31487,7 +34245,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `speed: :standard | :fast`
 
-      The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
       - `:standard`
 
@@ -31505,13 +34263,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       Whether to incrementally stream the response using server-sent events.
 
-      See [streaming](https://docs.claude.com/en/api/messages-streaming) for details.
+      See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
 
     - `system_: String | Array[BetaTextBlockParam]`
 
       System prompt.
 
-      A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://docs.claude.com/en/docs/system-prompts).
+      A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).
 
       - `String = String`
 
@@ -31541,7 +34299,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
-      See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+      See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
       - `class BetaThinkingConfigEnabled`
 
@@ -31613,7 +34371,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       If you include `tools` in your API request, the model may return `tool_use` content blocks that represent the model's use of those tools. You can then run those tools using the tool input generated by the model and then optionally return results back to the model using `tool_result` content blocks.
 
-      There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
+      There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool)).
 
       Each tool definition includes:
 
@@ -31669,7 +34427,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
 
-      See our [guide](https://docs.claude.com/en/docs/tool-use) for more details.
+      See our [guide](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) for more details.
 
       - `class BetaTool`
 
@@ -32601,6 +35359,134 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
+      - `class BetaWebSearchTool20260318`
+
+        - `name: :web_search`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `:web_search`
+
+        - `type: :web_search_20260318`
+
+          - `:web_search_20260318`
+
+        - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
+
+          - `:direct`
+
+          - `:code_execution_20250825`
+
+          - `:code_execution_20260120`
+
+          - `:code_execution_20260521`
+
+        - `allowed_domains: Array[String]`
+
+          If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
+
+        - `blocked_domains: Array[String]`
+
+          If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
+
+        - `cache_control: BetaCacheControlEphemeral`
+
+          Create a cache control breakpoint at this content block.
+
+        - `defer_loading: bool`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `max_uses: Integer`
+
+          Maximum number of times the tool can be used in the API request.
+
+        - `response_inclusion: :full | :excluded`
+
+          How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+          - `:full`
+
+          - `:excluded`
+
+        - `strict: bool`
+
+          When true, guarantees schema validation on tool names and inputs
+
+        - `user_location: BetaUserLocation`
+
+          Parameters for the user's location. Used to provide more relevant search results.
+
+      - `class BetaWebFetchTool20260318`
+
+        - `name: :web_fetch`
+
+          Name of the tool.
+
+          This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `:web_fetch`
+
+        - `type: :web_fetch_20260318`
+
+          - `:web_fetch_20260318`
+
+        - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
+
+          - `:direct`
+
+          - `:code_execution_20250825`
+
+          - `:code_execution_20260120`
+
+          - `:code_execution_20260521`
+
+        - `allowed_domains: Array[String]`
+
+          List of domains to allow fetching from
+
+        - `blocked_domains: Array[String]`
+
+          List of domains to block fetching from
+
+        - `cache_control: BetaCacheControlEphemeral`
+
+          Create a cache control breakpoint at this content block.
+
+        - `citations: BetaCitationsConfigParam`
+
+          Citations configuration for fetched documents. Citations are disabled by default.
+
+        - `defer_loading: bool`
+
+          If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+        - `max_content_tokens: Integer`
+
+          Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
+
+        - `max_uses: Integer`
+
+          Maximum number of times the tool can be used in the API request.
+
+        - `response_inclusion: :full | :excluded`
+
+          How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
+
+          - `:full`
+
+          - `:excluded`
+
+        - `strict: bool`
+
+          When true, guarantees schema validation on tool names and inputs
+
+        - `use_cache: bool`
+
+          Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
+
       - `class BetaAdvisorTool20260301`
 
         - `model: Model`
@@ -32782,17 +35668,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       Recommended for advanced use cases only.
 
-    - `user_profile_id: String`
-
-      The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization.
-
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -32844,11 +35726,23 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+- `user_profile_id: String`
+
+  The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
 ### Returns
 
@@ -32990,7 +35884,7 @@ puts(beta_message_batch)
 
 This endpoint is idempotent and can be used to poll for Message Batch completion. To access the results of a Message Batch, make a request to the `results_url` field in the response.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -33004,7 +35898,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -33056,11 +35950,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -33195,7 +36097,7 @@ puts(beta_message_batch)
 
 List all Message Batches within a Workspace. Most recently created batches are returned first.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -33219,7 +36121,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -33271,11 +36173,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -33419,7 +36329,7 @@ Batches may be canceled any time before processing ends. Once cancellation is in
 
 The number of canceled requests is specified in `request_counts`. To determine which requests were canceled, check the individual results within the batch. Note that cancellation may not result in any canceled requests if they were non-interruptible.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -33433,7 +36343,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -33485,11 +36395,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -33626,7 +36544,7 @@ Delete a Message Batch.
 
 Message Batches can only be deleted once they've finished processing. If you'd like to delete an in-progress batch, you must first cancel it.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -33640,7 +36558,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -33692,11 +36610,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -33745,7 +36671,7 @@ Streams the results of a Message Batch as a `.jsonl` file.
 
 Each line in the file is a JSON object containing the result of a single request in the Message Batch. Results are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -33759,7 +36685,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -33811,11 +36737,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -34686,11 +37620,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+                - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
                   The model that will complete your prompt.
 
                   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                  - `:"claude-sonnet-5"`
+
+                    High-performance model for coding and agents
 
                   - `:"claude-fable-5"`
 
@@ -34700,13 +37638,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                     Most capable model for cybersecurity and biology research
 
+                  - `:"claude-opus-5"`
+
+                    Powerful intelligence for long-running agents and coding
+
                   - `:"claude-opus-4-8"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `:"claude-opus-4-7"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `:"claude-mythos-preview"`
 
@@ -34714,7 +37656,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `:"claude-opus-4-6"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `:"claude-sonnet-4-6"`
 
@@ -34730,11 +37672,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `:"claude-opus-4-5"`
 
-                    Premium model combining maximum intelligence with practical performance
+                    Powerful intelligence for long-running agents and coding
 
                   - `:"claude-opus-4-5-20251101"`
 
-                    Premium model combining maximum intelligence with practical performance
+                    Powerful intelligence for long-running agents and coding
 
                   - `:"claude-sonnet-4-5"`
 
@@ -34746,11 +37688,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `:"claude-opus-4-1"`
 
-                    Exceptional model for specialized complex tasks
+                    Powerful intelligence for long-running agents and coding
 
                   - `:"claude-opus-4-1-20250805"`
 
-                    Exceptional model for specialized complex tasks
+                    Powerful intelligence for long-running agents and coding
 
                 - `String = String`
 
@@ -34762,17 +37704,29 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               What caused the `from` model to hand over at this hop.
 
-              - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+              - `category: :cyber | :bio | :frontier_llm | 2 more`
 
                 The policy category that triggered a refusal.
 
                 - `:cyber`
 
+                  The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
                 - `:bio`
+
+                  The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
                 - `:frontier_llm`
 
+                  The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
                 - `:reasoning_extraction`
+
+                  The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+                - `:general_harms`
+
+                  The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
               - `type: :refusal`
 
@@ -34903,17 +37857,29 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           Structured information about a refusal.
 
-          - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+          - `category: :cyber | :bio | :frontier_llm | 2 more`
 
             The policy category that triggered a refusal.
 
             - `:cyber`
 
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
             - `:bio`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
             - `:frontier_llm`
 
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
             - `:reasoning_extraction`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `:general_harms`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
           - `explanation: String`
 
@@ -34986,6 +37952,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           * `"tool_use"`: the model invoked one or more tools
           * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
           * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+          * `"model_context_window_exceeded"`: we exceeded the model's context window
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -35050,6 +38017,78 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `cache_read_input_tokens: Integer`
 
             The number of input tokens read from the cache.
+
+          - `fallback_credit: BetaFallbackCreditUsage`
+
+            Outcome of the `fallback_credit_token` presented on this request.
+
+            - `status: BetaFallbackCreditRedeemed | BetaFallbackCreditNotApplied`
+
+              Whether the fallback-credit reprice was applied to this response's billing.
+
+              A union discriminated on `type`. `redeemed`: the retry is billed as if
+              the conversation had been on the retry model all along — including when the
+              resulting shift is zero because there was nothing to move. `not_applied`:
+              no reprice was applied; the arm's `reason` says why.
+
+              - `class BetaFallbackCreditRedeemed`
+
+                The reprice was applied: the retry is billed as if the conversation
+                had been on the retry model all along.
+
+                - `type: :redeemed`
+
+                  - `:redeemed`
+
+              - `class BetaFallbackCreditNotApplied`
+
+                No reprice was applied; `reason` says why.
+
+                - `reason: :body_mismatch | :continuation_excluded | :continuation_only | 9 more`
+
+                  Why the reprice was not applied.
+
+                  A closed enum; additions to the redemption-check vocabulary arrive as
+                  deliberate schema updates.
+
+                  - `:body_mismatch`
+
+                  - `:continuation_excluded`
+
+                  - `:continuation_only`
+
+                  - `:expired`
+
+                  - `:invalid_target_model`
+
+                  - `:not_enabled`
+
+                  - `:reprice_unavailable`
+
+                  - `:temporarily_unavailable`
+
+                  - `:variant_fields_present`
+
+                  - `:wrong_organization`
+
+                  - `:wrong_platform`
+
+                  - `:wrong_workspace`
+
+                - `type: :not_applied`
+
+                  - `:not_applied`
+
+                - `remove_to_redeem: Array[String]`
+
+                  Request fields to remove before retrying, so the retry can redeem this
+                  token.
+
+                  Present exactly when `reason` is `variant_fields_present` — never null,
+                  never an empty array; absent otherwise. Fields are named only from your own request, and only after
+                  the sealed variant hash matched. A served best-effort retry has already
+                  been billed at normal price; nothing redeems retroactively, but a corrected
+                  re-send inside the token's five-minute window can still redeem.
 
           - `inference_geo: String`
 
@@ -35260,7 +38299,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           - `speed: :standard | :fast`
 
-            The inference speed mode used for this request.
+            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
             - `:standard`
 
@@ -36465,11 +39504,15 @@ puts(beta_message_batch_individual_response)
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+                - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
                   The model that will complete your prompt.
 
                   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                  - `:"claude-sonnet-5"`
+
+                    High-performance model for coding and agents
 
                   - `:"claude-fable-5"`
 
@@ -36479,13 +39522,17 @@ puts(beta_message_batch_individual_response)
 
                     Most capable model for cybersecurity and biology research
 
+                  - `:"claude-opus-5"`
+
+                    Powerful intelligence for long-running agents and coding
+
                   - `:"claude-opus-4-8"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `:"claude-opus-4-7"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `:"claude-mythos-preview"`
 
@@ -36493,7 +39540,7 @@ puts(beta_message_batch_individual_response)
 
                   - `:"claude-opus-4-6"`
 
-                    Frontier intelligence for long-running agents and coding
+                    Powerful intelligence for long-running agents and coding
 
                   - `:"claude-sonnet-4-6"`
 
@@ -36509,11 +39556,11 @@ puts(beta_message_batch_individual_response)
 
                   - `:"claude-opus-4-5"`
 
-                    Premium model combining maximum intelligence with practical performance
+                    Powerful intelligence for long-running agents and coding
 
                   - `:"claude-opus-4-5-20251101"`
 
-                    Premium model combining maximum intelligence with practical performance
+                    Powerful intelligence for long-running agents and coding
 
                   - `:"claude-sonnet-4-5"`
 
@@ -36525,11 +39572,11 @@ puts(beta_message_batch_individual_response)
 
                   - `:"claude-opus-4-1"`
 
-                    Exceptional model for specialized complex tasks
+                    Powerful intelligence for long-running agents and coding
 
                   - `:"claude-opus-4-1-20250805"`
 
-                    Exceptional model for specialized complex tasks
+                    Powerful intelligence for long-running agents and coding
 
                 - `String = String`
 
@@ -36541,17 +39588,29 @@ puts(beta_message_batch_individual_response)
 
               What caused the `from` model to hand over at this hop.
 
-              - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+              - `category: :cyber | :bio | :frontier_llm | 2 more`
 
                 The policy category that triggered a refusal.
 
                 - `:cyber`
 
+                  The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
                 - `:bio`
+
+                  The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
                 - `:frontier_llm`
 
+                  The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
                 - `:reasoning_extraction`
+
+                  The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+                - `:general_harms`
+
+                  The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
               - `type: :refusal`
 
@@ -36682,17 +39741,29 @@ puts(beta_message_batch_individual_response)
 
           Structured information about a refusal.
 
-          - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+          - `category: :cyber | :bio | :frontier_llm | 2 more`
 
             The policy category that triggered a refusal.
 
             - `:cyber`
 
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
             - `:bio`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
             - `:frontier_llm`
 
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
             - `:reasoning_extraction`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `:general_harms`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
           - `explanation: String`
 
@@ -36765,6 +39836,7 @@ puts(beta_message_batch_individual_response)
           * `"tool_use"`: the model invoked one or more tools
           * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
           * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+          * `"model_context_window_exceeded"`: we exceeded the model's context window
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -36829,6 +39901,78 @@ puts(beta_message_batch_individual_response)
           - `cache_read_input_tokens: Integer`
 
             The number of input tokens read from the cache.
+
+          - `fallback_credit: BetaFallbackCreditUsage`
+
+            Outcome of the `fallback_credit_token` presented on this request.
+
+            - `status: BetaFallbackCreditRedeemed | BetaFallbackCreditNotApplied`
+
+              Whether the fallback-credit reprice was applied to this response's billing.
+
+              A union discriminated on `type`. `redeemed`: the retry is billed as if
+              the conversation had been on the retry model all along — including when the
+              resulting shift is zero because there was nothing to move. `not_applied`:
+              no reprice was applied; the arm's `reason` says why.
+
+              - `class BetaFallbackCreditRedeemed`
+
+                The reprice was applied: the retry is billed as if the conversation
+                had been on the retry model all along.
+
+                - `type: :redeemed`
+
+                  - `:redeemed`
+
+              - `class BetaFallbackCreditNotApplied`
+
+                No reprice was applied; `reason` says why.
+
+                - `reason: :body_mismatch | :continuation_excluded | :continuation_only | 9 more`
+
+                  Why the reprice was not applied.
+
+                  A closed enum; additions to the redemption-check vocabulary arrive as
+                  deliberate schema updates.
+
+                  - `:body_mismatch`
+
+                  - `:continuation_excluded`
+
+                  - `:continuation_only`
+
+                  - `:expired`
+
+                  - `:invalid_target_model`
+
+                  - `:not_enabled`
+
+                  - `:reprice_unavailable`
+
+                  - `:temporarily_unavailable`
+
+                  - `:variant_fields_present`
+
+                  - `:wrong_organization`
+
+                  - `:wrong_platform`
+
+                  - `:wrong_workspace`
+
+                - `type: :not_applied`
+
+                  - `:not_applied`
+
+                - `remove_to_redeem: Array[String]`
+
+                  Request fields to remove before retrying, so the retry can redeem this
+                  token.
+
+                  Present exactly when `reason` is `variant_fields_present` — never null,
+                  never an empty array; absent otherwise. Fields are named only from your own request, and only after
+                  the sealed variant hash matched. A served best-effort retry has already
+                  been billed at normal price; nothing redeems retroactively, but a corrected
+                  re-send inside the token's five-minute window can still redeem.
 
           - `inference_geo: String`
 
@@ -37039,7 +40183,7 @@ puts(beta_message_batch_individual_response)
 
           - `speed: :standard | :fast`
 
-            The inference speed mode used for this request.
+            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
             - `:standard`
 
@@ -38040,11 +41184,15 @@ puts(beta_message_batch_individual_response)
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-              - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+              - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `:"claude-sonnet-5"`
+
+                  High-performance model for coding and agents
 
                 - `:"claude-fable-5"`
 
@@ -38054,13 +41202,17 @@ puts(beta_message_batch_individual_response)
 
                   Most capable model for cybersecurity and biology research
 
+                - `:"claude-opus-5"`
+
+                  Powerful intelligence for long-running agents and coding
+
                 - `:"claude-opus-4-8"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `:"claude-opus-4-7"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `:"claude-mythos-preview"`
 
@@ -38068,7 +41220,7 @@ puts(beta_message_batch_individual_response)
 
                 - `:"claude-opus-4-6"`
 
-                  Frontier intelligence for long-running agents and coding
+                  Powerful intelligence for long-running agents and coding
 
                 - `:"claude-sonnet-4-6"`
 
@@ -38084,11 +41236,11 @@ puts(beta_message_batch_individual_response)
 
                 - `:"claude-opus-4-5"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `:"claude-opus-4-5-20251101"`
 
-                  Premium model combining maximum intelligence with practical performance
+                  Powerful intelligence for long-running agents and coding
 
                 - `:"claude-sonnet-4-5"`
 
@@ -38100,11 +41252,11 @@ puts(beta_message_batch_individual_response)
 
                 - `:"claude-opus-4-1"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
                 - `:"claude-opus-4-1-20250805"`
 
-                  Exceptional model for specialized complex tasks
+                  Powerful intelligence for long-running agents and coding
 
               - `String = String`
 
@@ -38116,17 +41268,29 @@ puts(beta_message_batch_individual_response)
 
             What caused the `from` model to hand over at this hop.
 
-            - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+            - `category: :cyber | :bio | :frontier_llm | 2 more`
 
               The policy category that triggered a refusal.
 
               - `:cyber`
 
+                The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
               - `:bio`
+
+                The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
               - `:frontier_llm`
 
+                The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
               - `:reasoning_extraction`
+
+                The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+              - `:general_harms`
+
+                The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
             - `type: :refusal`
 
@@ -38257,17 +41421,29 @@ puts(beta_message_batch_individual_response)
 
         Structured information about a refusal.
 
-        - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+        - `category: :cyber | :bio | :frontier_llm | 2 more`
 
           The policy category that triggered a refusal.
 
           - `:cyber`
 
+            The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
           - `:bio`
+
+            The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
           - `:frontier_llm`
 
+            The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
           - `:reasoning_extraction`
+
+            The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+          - `:general_harms`
+
+            The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
         - `explanation: String`
 
@@ -38340,6 +41516,7 @@ puts(beta_message_batch_individual_response)
         * `"tool_use"`: the model invoked one or more tools
         * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
         * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+        * `"model_context_window_exceeded"`: we exceeded the model's context window
 
         In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -38404,6 +41581,78 @@ puts(beta_message_batch_individual_response)
         - `cache_read_input_tokens: Integer`
 
           The number of input tokens read from the cache.
+
+        - `fallback_credit: BetaFallbackCreditUsage`
+
+          Outcome of the `fallback_credit_token` presented on this request.
+
+          - `status: BetaFallbackCreditRedeemed | BetaFallbackCreditNotApplied`
+
+            Whether the fallback-credit reprice was applied to this response's billing.
+
+            A union discriminated on `type`. `redeemed`: the retry is billed as if
+            the conversation had been on the retry model all along — including when the
+            resulting shift is zero because there was nothing to move. `not_applied`:
+            no reprice was applied; the arm's `reason` says why.
+
+            - `class BetaFallbackCreditRedeemed`
+
+              The reprice was applied: the retry is billed as if the conversation
+              had been on the retry model all along.
+
+              - `type: :redeemed`
+
+                - `:redeemed`
+
+            - `class BetaFallbackCreditNotApplied`
+
+              No reprice was applied; `reason` says why.
+
+              - `reason: :body_mismatch | :continuation_excluded | :continuation_only | 9 more`
+
+                Why the reprice was not applied.
+
+                A closed enum; additions to the redemption-check vocabulary arrive as
+                deliberate schema updates.
+
+                - `:body_mismatch`
+
+                - `:continuation_excluded`
+
+                - `:continuation_only`
+
+                - `:expired`
+
+                - `:invalid_target_model`
+
+                - `:not_enabled`
+
+                - `:reprice_unavailable`
+
+                - `:temporarily_unavailable`
+
+                - `:variant_fields_present`
+
+                - `:wrong_organization`
+
+                - `:wrong_platform`
+
+                - `:wrong_workspace`
+
+              - `type: :not_applied`
+
+                - `:not_applied`
+
+              - `remove_to_redeem: Array[String]`
+
+                Request fields to remove before retrying, so the retry can redeem this
+                token.
+
+                Present exactly when `reason` is `variant_fields_present` — never null,
+                never an empty array; absent otherwise. Fields are named only from your own request, and only after
+                the sealed variant hash matched. A served best-effort retry has already
+                been billed at normal price; nothing redeems retroactively, but a corrected
+                re-send inside the token's five-minute window can still redeem.
 
         - `inference_geo: String`
 
@@ -38614,7 +41863,7 @@ puts(beta_message_batch_individual_response)
 
         - `speed: :standard | :fast`
 
-          The inference speed mode used for this request.
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
           - `:standard`
 
@@ -39577,11 +42826,15 @@ puts(beta_message_batch_individual_response)
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `Model = :"claude-fable-5" | :"claude-mythos-5" | :"claude-opus-4-8" | 12 more`
+            - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 14 more`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `:"claude-sonnet-5"`
+
+                High-performance model for coding and agents
 
               - `:"claude-fable-5"`
 
@@ -39591,13 +42844,17 @@ puts(beta_message_batch_individual_response)
 
                 Most capable model for cybersecurity and biology research
 
+              - `:"claude-opus-5"`
+
+                Powerful intelligence for long-running agents and coding
+
               - `:"claude-opus-4-8"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-opus-4-7"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-mythos-preview"`
 
@@ -39605,7 +42862,7 @@ puts(beta_message_batch_individual_response)
 
               - `:"claude-opus-4-6"`
 
-                Frontier intelligence for long-running agents and coding
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-sonnet-4-6"`
 
@@ -39621,11 +42878,11 @@ puts(beta_message_batch_individual_response)
 
               - `:"claude-opus-4-5"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-opus-4-5-20251101"`
 
-                Premium model combining maximum intelligence with practical performance
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-sonnet-4-5"`
 
@@ -39637,11 +42894,11 @@ puts(beta_message_batch_individual_response)
 
               - `:"claude-opus-4-1"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
               - `:"claude-opus-4-1-20250805"`
 
-                Exceptional model for specialized complex tasks
+                Powerful intelligence for long-running agents and coding
 
             - `String = String`
 
@@ -39653,17 +42910,29 @@ puts(beta_message_batch_individual_response)
 
           What caused the `from` model to hand over at this hop.
 
-          - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+          - `category: :cyber | :bio | :frontier_llm | 2 more`
 
             The policy category that triggered a refusal.
 
             - `:cyber`
 
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
             - `:bio`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
             - `:frontier_llm`
 
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
             - `:reasoning_extraction`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `:general_harms`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
           - `type: :refusal`
 
@@ -39794,17 +43063,29 @@ puts(beta_message_batch_individual_response)
 
       Structured information about a refusal.
 
-      - `category: :cyber | :bio | :frontier_llm | :reasoning_extraction`
+      - `category: :cyber | :bio | :frontier_llm | 2 more`
 
         The policy category that triggered a refusal.
 
         - `:cyber`
 
+          The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
         - `:bio`
+
+          The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
         - `:frontier_llm`
 
+          The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
         - `:reasoning_extraction`
+
+          The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+        - `:general_harms`
+
+          The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
       - `explanation: String`
 
@@ -39877,6 +43158,7 @@ puts(beta_message_batch_individual_response)
       * `"tool_use"`: the model invoked one or more tools
       * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
       * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+      * `"model_context_window_exceeded"`: we exceeded the model's context window
 
       In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -39941,6 +43223,78 @@ puts(beta_message_batch_individual_response)
       - `cache_read_input_tokens: Integer`
 
         The number of input tokens read from the cache.
+
+      - `fallback_credit: BetaFallbackCreditUsage`
+
+        Outcome of the `fallback_credit_token` presented on this request.
+
+        - `status: BetaFallbackCreditRedeemed | BetaFallbackCreditNotApplied`
+
+          Whether the fallback-credit reprice was applied to this response's billing.
+
+          A union discriminated on `type`. `redeemed`: the retry is billed as if
+          the conversation had been on the retry model all along — including when the
+          resulting shift is zero because there was nothing to move. `not_applied`:
+          no reprice was applied; the arm's `reason` says why.
+
+          - `class BetaFallbackCreditRedeemed`
+
+            The reprice was applied: the retry is billed as if the conversation
+            had been on the retry model all along.
+
+            - `type: :redeemed`
+
+              - `:redeemed`
+
+          - `class BetaFallbackCreditNotApplied`
+
+            No reprice was applied; `reason` says why.
+
+            - `reason: :body_mismatch | :continuation_excluded | :continuation_only | 9 more`
+
+              Why the reprice was not applied.
+
+              A closed enum; additions to the redemption-check vocabulary arrive as
+              deliberate schema updates.
+
+              - `:body_mismatch`
+
+              - `:continuation_excluded`
+
+              - `:continuation_only`
+
+              - `:expired`
+
+              - `:invalid_target_model`
+
+              - `:not_enabled`
+
+              - `:reprice_unavailable`
+
+              - `:temporarily_unavailable`
+
+              - `:variant_fields_present`
+
+              - `:wrong_organization`
+
+              - `:wrong_platform`
+
+              - `:wrong_workspace`
+
+            - `type: :not_applied`
+
+              - `:not_applied`
+
+            - `remove_to_redeem: Array[String]`
+
+              Request fields to remove before retrying, so the retry can redeem this
+              token.
+
+              Present exactly when `reason` is `variant_fields_present` — never null,
+              never an empty array; absent otherwise. Fields are named only from your own request, and only after
+              the sealed variant hash matched. A served best-effort retry has already
+              been billed at normal price; nothing redeems retroactively, but a corrected
+              re-send inside the token's five-minute window can still redeem.
 
       - `inference_geo: String`
 
@@ -40151,7 +43505,7 @@ puts(beta_message_batch_individual_response)
 
       - `speed: :standard | :fast`
 
-        The inference speed mode used for this request.
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
         - `:standard`
 
@@ -40177,33 +43531,41 @@ Create Agent
 
   Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-4-6`, or a `model_config` object for additional configuration control
 
-  - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more | String`
+  - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more | String`
 
     The model that will power your agent.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+    - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `:"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `:"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `:"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `:"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-6"`
 
@@ -40219,11 +43581,11 @@ Create Agent
 
       - `:"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-5"`
 
@@ -40244,6 +43606,64 @@ Create Agent
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `effort: :low | :medium | :high | 2 more | BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | 3 more`
+
+      How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+      - `BetaManagedAgentsEffortLevel = :low | :medium | :high | 2 more`
+
+        How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
+
+        - `:low`
+
+        - `:medium`
+
+        - `:high`
+
+        - `:xhigh`
+
+        - `:max`
+
+      - `class BetaManagedAgentsEffortLow`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: :low`
+
+          - `:low`
+
+      - `class BetaManagedAgentsEffortMedium`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: :medium`
+
+          - `:medium`
+
+      - `class BetaManagedAgentsEffortHigh`
+
+        High effort. Favors reasoning depth.
+
+        - `type: :high`
+
+          - `:high`
+
+      - `class BetaManagedAgentsEffortXhigh`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: :xhigh`
+
+          - `:xhigh`
+
+      - `class BetaManagedAgentsEffortMax`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: :max`
+
+          - `:max`
 
     - `speed: :standard | :fast`
 
@@ -40501,7 +43921,7 @@ Create Agent
 
     - `description: String`
 
-      Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
+      Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
 
     - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
@@ -40529,7 +43949,7 @@ Create Agent
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -40581,11 +44001,19 @@ Create Agent
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -40627,27 +44055,35 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `:"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `:"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `:"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `:"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-6"`
 
@@ -40663,11 +44099,11 @@ Create Agent
 
         - `:"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-5"`
 
@@ -40678,6 +44114,50 @@ Create Agent
           High-performance model for agents and coding
 
       - `String = String`
+
+    - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `class BetaManagedAgentsEffortLow`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: :low`
+
+          - `:low`
+
+      - `class BetaManagedAgentsEffortMedium`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: :medium`
+
+          - `:medium`
+
+      - `class BetaManagedAgentsEffortHigh`
+
+        High effort. Favors reasoning depth.
+
+        - `type: :high`
+
+          - `:high`
+
+      - `class BetaManagedAgentsEffortXhigh`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: :xhigh`
+
+          - `:xhigh`
+
+      - `class BetaManagedAgentsEffortMax`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: :max`
+
+          - `:max`
 
     - `speed: :standard | :fast`
 
@@ -40919,6 +44399,9 @@ puts(beta_managed_agents_agent)
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
     "speed": "standard"
   },
   "multiagent": {
@@ -41007,7 +44490,7 @@ List Agents
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -41059,11 +44542,19 @@ List Agents
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -41105,27 +44596,35 @@ List Agents
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `:"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `:"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `:"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `:"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-6"`
 
@@ -41141,11 +44640,11 @@ List Agents
 
         - `:"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-5"`
 
@@ -41156,6 +44655,50 @@ List Agents
           High-performance model for agents and coding
 
       - `String = String`
+
+    - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `class BetaManagedAgentsEffortLow`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: :low`
+
+          - `:low`
+
+      - `class BetaManagedAgentsEffortMedium`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: :medium`
+
+          - `:medium`
+
+      - `class BetaManagedAgentsEffortHigh`
+
+        High effort. Favors reasoning depth.
+
+        - `type: :high`
+
+          - `:high`
+
+      - `class BetaManagedAgentsEffortXhigh`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: :xhigh`
+
+          - `:xhigh`
+
+      - `class BetaManagedAgentsEffortMax`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: :max`
+
+          - `:max`
 
     - `speed: :standard | :fast`
 
@@ -41399,6 +44942,9 @@ puts(page)
       },
       "model": {
         "id": "claude-sonnet-4-6",
+        "effort": {
+          "type": "low"
+        },
         "speed": "standard"
       },
       "multiagent": {
@@ -41476,7 +45022,7 @@ Get Agent
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -41528,11 +45074,19 @@ Get Agent
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -41574,27 +45128,35 @@ Get Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `:"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `:"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `:"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `:"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-6"`
 
@@ -41610,11 +45172,11 @@ Get Agent
 
         - `:"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-5"`
 
@@ -41625,6 +45187,50 @@ Get Agent
           High-performance model for agents and coding
 
       - `String = String`
+
+    - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `class BetaManagedAgentsEffortLow`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: :low`
+
+          - `:low`
+
+      - `class BetaManagedAgentsEffortMedium`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: :medium`
+
+          - `:medium`
+
+      - `class BetaManagedAgentsEffortHigh`
+
+        High effort. Favors reasoning depth.
+
+        - `type: :high`
+
+          - `:high`
+
+      - `class BetaManagedAgentsEffortXhigh`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: :xhigh`
+
+          - `:xhigh`
+
+      - `class BetaManagedAgentsEffortMax`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: :max`
+
+          - `:max`
 
     - `speed: :standard | :fast`
 
@@ -41866,6 +45472,9 @@ puts(beta_managed_agents_agent)
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
     "speed": "standard"
   },
   "multiagent": {
@@ -41930,10 +45539,6 @@ Update Agent
 
 - `agent_id: String`
 
-- `version: Integer`
-
-  The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. The request fails if this does not match the server's current version.
-
 - `description: String`
 
   Description. Omit to preserve; send empty string or null to clear.
@@ -41962,33 +45567,41 @@ Update Agent
 
   Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-4-6`, or a `model_config` object for additional configuration control. Omit to preserve. Cannot be cleared.
 
-  - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more | String`
+  - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more | String`
 
     The model that will power your agent.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+    - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `:"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `:"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `:"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `:"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-6"`
 
@@ -42004,11 +45617,11 @@ Update Agent
 
       - `:"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-5"`
 
@@ -42029,6 +45642,64 @@ Update Agent
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `effort: :low | :medium | :high | 2 more | BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | 3 more`
+
+      How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+      - `BetaManagedAgentsEffortLevel = :low | :medium | :high | 2 more`
+
+        How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
+
+        - `:low`
+
+        - `:medium`
+
+        - `:high`
+
+        - `:xhigh`
+
+        - `:max`
+
+      - `class BetaManagedAgentsEffortLow`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: :low`
+
+          - `:low`
+
+      - `class BetaManagedAgentsEffortMedium`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: :medium`
+
+          - `:medium`
+
+      - `class BetaManagedAgentsEffortHigh`
+
+        High effort. Favors reasoning depth.
+
+        - `type: :high`
+
+          - `:high`
+
+      - `class BetaManagedAgentsEffortXhigh`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: :xhigh`
+
+          - `:xhigh`
+
+      - `class BetaManagedAgentsEffortMax`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: :max`
+
+          - `:max`
 
     - `speed: :standard | :fast`
 
@@ -42262,7 +45933,7 @@ Update Agent
 
     - `description: String`
 
-      Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
+      Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
 
     - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
@@ -42284,13 +45955,17 @@ Update Agent
 
       - `:custom`
 
+- `version: Integer`
+
+  The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. Must be at least 1 if specified. When supplied, the request fails if it does not match the server's current version; omit to apply the update unconditionally.
+
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -42342,11 +46017,19 @@ Update Agent
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -42388,27 +46071,35 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `:"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `:"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `:"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `:"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-6"`
 
@@ -42424,11 +46115,11 @@ Update Agent
 
         - `:"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-5"`
 
@@ -42439,6 +46130,50 @@ Update Agent
           High-performance model for agents and coding
 
       - `String = String`
+
+    - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `class BetaManagedAgentsEffortLow`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: :low`
+
+          - `:low`
+
+      - `class BetaManagedAgentsEffortMedium`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: :medium`
+
+          - `:medium`
+
+      - `class BetaManagedAgentsEffortHigh`
+
+        High effort. Favors reasoning depth.
+
+        - `type: :high`
+
+          - `:high`
+
+      - `class BetaManagedAgentsEffortXhigh`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: :xhigh`
+
+          - `:xhigh`
+
+      - `class BetaManagedAgentsEffortMax`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: :max`
+
+          - `:max`
 
     - `speed: :standard | :fast`
 
@@ -42655,7 +46390,7 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-beta_managed_agents_agent = anthropic.beta.agents.update("agent_011CZkYpogX7uDKUyvBTophP", version: 1)
+beta_managed_agents_agent = anthropic.beta.agents.update("agent_011CZkYpogX7uDKUyvBTophP")
 
 puts(beta_managed_agents_agent)
 ```
@@ -42680,6 +46415,9 @@ puts(beta_managed_agents_agent)
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
     "speed": "standard"
   },
   "multiagent": {
@@ -42750,7 +46488,7 @@ Archive Agent
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -42802,11 +46540,19 @@ Archive Agent
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -42848,27 +46594,35 @@ Archive Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `:"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `:"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `:"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `:"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-6"`
 
@@ -42884,11 +46638,11 @@ Archive Agent
 
         - `:"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-5"`
 
@@ -42899,6 +46653,50 @@ Archive Agent
           High-performance model for agents and coding
 
       - `String = String`
+
+    - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `class BetaManagedAgentsEffortLow`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: :low`
+
+          - `:low`
+
+      - `class BetaManagedAgentsEffortMedium`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: :medium`
+
+          - `:medium`
+
+      - `class BetaManagedAgentsEffortHigh`
+
+        High effort. Favors reasoning depth.
+
+        - `type: :high`
+
+          - `:high`
+
+      - `class BetaManagedAgentsEffortXhigh`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: :xhigh`
+
+          - `:xhigh`
+
+      - `class BetaManagedAgentsEffortMax`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: :max`
+
+          - `:max`
 
     - `speed: :standard | :fast`
 
@@ -43140,6 +46938,9 @@ puts(beta_managed_agents_agent)
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
     "speed": "standard"
   },
   "multiagent": {
@@ -43234,27 +47035,35 @@ puts(beta_managed_agents_agent)
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `:"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `:"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `:"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `:"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-6"`
 
@@ -43270,11 +47079,11 @@ puts(beta_managed_agents_agent)
 
         - `:"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-5"`
 
@@ -43285,6 +47094,50 @@ puts(beta_managed_agents_agent)
           High-performance model for agents and coding
 
       - `String = String`
+
+    - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `class BetaManagedAgentsEffortLow`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: :low`
+
+          - `:low`
+
+      - `class BetaManagedAgentsEffortMedium`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: :medium`
+
+          - `:medium`
+
+      - `class BetaManagedAgentsEffortHigh`
+
+        High effort. Favors reasoning depth.
+
+        - `type: :high`
+
+          - `:high`
+
+      - `class BetaManagedAgentsEffortXhigh`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: :xhigh`
+
+          - `:xhigh`
+
+      - `class BetaManagedAgentsEffortMax`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: :max`
+
+          - `:max`
 
     - `speed: :standard | :fast`
 
@@ -44060,7 +47913,7 @@ puts(beta_managed_agents_agent)
 
   - `description: String`
 
-    Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
+    Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
 
   - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
@@ -44081,6 +47934,56 @@ puts(beta_managed_agents_agent)
   - `type: :custom`
 
     - `:custom`
+
+### Beta Managed Agents Effort High
+
+- `class BetaManagedAgentsEffortHigh`
+
+  High effort. Favors reasoning depth.
+
+  - `type: :high`
+
+    - `:high`
+
+### Beta Managed Agents Effort Low
+
+- `class BetaManagedAgentsEffortLow`
+
+  Low effort. Favors latency over reasoning depth.
+
+  - `type: :low`
+
+    - `:low`
+
+### Beta Managed Agents Effort Max
+
+- `class BetaManagedAgentsEffortMax`
+
+  Maximum effort. Favors reasoning depth over latency.
+
+  - `type: :max`
+
+    - `:max`
+
+### Beta Managed Agents Effort Medium
+
+- `class BetaManagedAgentsEffortMedium`
+
+  Medium effort. Balances latency and reasoning depth.
+
+  - `type: :medium`
+
+    - `:medium`
+
+### Beta Managed Agents Effort Xhigh
+
+- `class BetaManagedAgentsEffortXhigh`
+
+  Extra-high effort. Not all models accept this level.
+
+  - `type: :xhigh`
+
+    - `:xhigh`
 
 ### Beta Managed Agents MCP Server URL Definition
 
@@ -44340,33 +48243,41 @@ puts(beta_managed_agents_agent)
 
 ### Beta Managed Agents Model
 
-- `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more | String`
+- `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more | String`
 
   The model that will power your agent.
 
   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-  - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+  - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
     The model that will power your agent.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `:"claude-sonnet-5"`
+
+      High-performance model for coding and agents
+
     - `:"claude-fable-5"`
 
       Next generation of intelligence for the hardest knowledge work and coding problems
 
+    - `:"claude-opus-5"`
+
+      Powerful intelligence for long-running agents and coding
+
     - `:"claude-opus-4-8"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `:"claude-opus-4-7"`
 
-      Frontier intelligence for long-running agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `:"claude-opus-4-6"`
 
-      Most intelligent model for building agents and coding
+      Powerful intelligence for long-running agents and coding
 
     - `:"claude-sonnet-4-6"`
 
@@ -44382,11 +48293,11 @@ puts(beta_managed_agents_agent)
 
     - `:"claude-opus-4-5"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `:"claude-opus-4-5-20251101"`
 
-      Premium model combining maximum intelligence with practical performance
+      Powerful intelligence for long-running agents and coding
 
     - `:"claude-sonnet-4-5"`
 
@@ -44410,27 +48321,35 @@ puts(beta_managed_agents_agent)
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+    - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `:"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `:"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `:"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `:"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-6"`
 
@@ -44446,11 +48365,11 @@ puts(beta_managed_agents_agent)
 
       - `:"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-5"`
 
@@ -44461,6 +48380,50 @@ puts(beta_managed_agents_agent)
         High-performance model for agents and coding
 
     - `String = String`
+
+  - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+    How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+    - `class BetaManagedAgentsEffortLow`
+
+      Low effort. Favors latency over reasoning depth.
+
+      - `type: :low`
+
+        - `:low`
+
+    - `class BetaManagedAgentsEffortMedium`
+
+      Medium effort. Balances latency and reasoning depth.
+
+      - `type: :medium`
+
+        - `:medium`
+
+    - `class BetaManagedAgentsEffortHigh`
+
+      High effort. Favors reasoning depth.
+
+      - `type: :high`
+
+        - `:high`
+
+    - `class BetaManagedAgentsEffortXhigh`
+
+      Extra-high effort. Not all models accept this level.
+
+      - `type: :xhigh`
+
+        - `:xhigh`
+
+    - `class BetaManagedAgentsEffortMax`
+
+      Maximum effort. Favors reasoning depth over latency.
+
+      - `type: :max`
+
+        - `:max`
 
   - `speed: :standard | :fast`
 
@@ -44482,27 +48445,35 @@ puts(beta_managed_agents_agent)
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+    - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `:"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `:"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `:"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `:"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-6"`
 
@@ -44518,11 +48489,11 @@ puts(beta_managed_agents_agent)
 
       - `:"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-5"`
 
@@ -44533,6 +48504,64 @@ puts(beta_managed_agents_agent)
         High-performance model for agents and coding
 
     - `String = String`
+
+  - `effort: :low | :medium | :high | 2 more | BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | 3 more`
+
+    How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+    - `BetaManagedAgentsEffortLevel = :low | :medium | :high | 2 more`
+
+      How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
+
+      - `:low`
+
+      - `:medium`
+
+      - `:high`
+
+      - `:xhigh`
+
+      - `:max`
+
+    - `class BetaManagedAgentsEffortLow`
+
+      Low effort. Favors latency over reasoning depth.
+
+      - `type: :low`
+
+        - `:low`
+
+    - `class BetaManagedAgentsEffortMedium`
+
+      Medium effort. Balances latency and reasoning depth.
+
+      - `type: :medium`
+
+        - `:medium`
+
+    - `class BetaManagedAgentsEffortHigh`
+
+      High effort. Favors reasoning depth.
+
+      - `type: :high`
+
+        - `:high`
+
+    - `class BetaManagedAgentsEffortXhigh`
+
+      Extra-high effort. Not all models accept this level.
+
+      - `type: :xhigh`
+
+        - `:xhigh`
+
+    - `class BetaManagedAgentsEffortMax`
+
+      Maximum effort. Favors reasoning depth over latency.
+
+      - `type: :max`
+
+        - `:max`
 
   - `speed: :standard | :fast`
 
@@ -44644,27 +48673,35 @@ puts(beta_managed_agents_agent)
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `:"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `:"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `:"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `:"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-6"`
 
@@ -44680,11 +48717,11 @@ puts(beta_managed_agents_agent)
 
         - `:"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-5"`
 
@@ -44695,6 +48732,50 @@ puts(beta_managed_agents_agent)
           High-performance model for agents and coding
 
       - `String = String`
+
+    - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `class BetaManagedAgentsEffortLow`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: :low`
+
+          - `:low`
+
+      - `class BetaManagedAgentsEffortMedium`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: :medium`
+
+          - `:medium`
+
+      - `class BetaManagedAgentsEffortHigh`
+
+        High effort. Favors reasoning depth.
+
+        - `type: :high`
+
+          - `:high`
+
+      - `class BetaManagedAgentsEffortXhigh`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: :xhigh`
+
+          - `:xhigh`
+
+      - `class BetaManagedAgentsEffortMax`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: :max`
+
+          - `:max`
 
     - `speed: :standard | :fast`
 
@@ -44962,7 +49043,7 @@ List Agent Versions
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -45014,11 +49095,19 @@ List Agent Versions
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -45060,27 +49149,35 @@ List Agent Versions
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `:"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `:"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `:"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `:"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-6"`
 
@@ -45096,11 +49193,11 @@ List Agent Versions
 
         - `:"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-5"`
 
@@ -45111,6 +49208,50 @@ List Agent Versions
           High-performance model for agents and coding
 
       - `String = String`
+
+    - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `class BetaManagedAgentsEffortLow`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: :low`
+
+          - `:low`
+
+      - `class BetaManagedAgentsEffortMedium`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: :medium`
+
+          - `:medium`
+
+      - `class BetaManagedAgentsEffortHigh`
+
+        High effort. Favors reasoning depth.
+
+        - `type: :high`
+
+          - `:high`
+
+      - `class BetaManagedAgentsEffortXhigh`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: :xhigh`
+
+          - `:xhigh`
+
+      - `class BetaManagedAgentsEffortMax`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: :max`
+
+          - `:max`
 
     - `speed: :standard | :fast`
 
@@ -45354,6 +49495,9 @@ puts(page)
       },
       "model": {
         "id": "claude-sonnet-4-6",
+        "effort": {
+          "type": "low"
+        },
         "speed": "standard"
       },
       "multiagent": {
@@ -45549,7 +49693,7 @@ Create a new environment with the specified configuration.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -45601,11 +49745,19 @@ Create a new environment with the specified configuration.
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -45838,7 +49990,7 @@ List environments with pagination support.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -45890,11 +50042,19 @@ List environments with pagination support.
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -46122,7 +50282,7 @@ Retrieve a specific environment by ID.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -46174,11 +50334,19 @@ Retrieve a specific environment by ID.
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -46523,7 +50691,7 @@ Update an existing environment's configuration.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -46575,11 +50743,19 @@ Update an existing environment's configuration.
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -46802,7 +50978,7 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -46854,11 +51030,19 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -46915,7 +51099,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -46967,11 +51151,19 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -47693,7 +51885,7 @@ Retrieve detailed information about a specific work item.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -47745,11 +51937,19 @@ Retrieve detailed information about a specific work item.
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -47798,6 +51998,10 @@ Retrieve detailed information about a specific work item.
   - `metadata: Hash[Symbol, String]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: String`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: String`
 
@@ -47859,6 +52063,7 @@ puts(beta_self_hosted_work)
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -47895,7 +52100,7 @@ Long poll for work items in the queue.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -47947,11 +52152,19 @@ Long poll for work items in the queue.
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 - `anthropic_worker_id: String`
 
@@ -48004,6 +52217,10 @@ Long poll for work items in the queue.
   - `metadata: Hash[Symbol, String]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: String`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: String`
 
@@ -48065,6 +52282,7 @@ puts(beta_self_hosted_work)
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -48095,7 +52313,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -48147,11 +52365,19 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -48200,6 +52426,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `metadata: Hash[Symbol, String]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: String`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: String`
 
@@ -48261,6 +52491,7 @@ puts(beta_self_hosted_work)
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -48299,7 +52530,7 @@ Record a heartbeat for a work item to maintain the lease.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -48351,11 +52582,19 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -48445,7 +52684,7 @@ Stop a work item, initiating graceful or forced shutdown.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -48497,11 +52736,19 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -48550,6 +52797,10 @@ Stop a work item, initiating graceful or forced shutdown.
   - `metadata: Hash[Symbol, String]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: String`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: String`
 
@@ -48611,6 +52862,7 @@ puts(beta_self_hosted_work)
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -48647,7 +52899,7 @@ List work items in an environment.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -48699,11 +52951,19 @@ List work items in an environment.
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -48752,6 +53012,10 @@ List work items in an environment.
   - `metadata: Hash[Symbol, String]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: String`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: String`
 
@@ -48815,6 +53079,7 @@ puts(page)
       "metadata": {
         "foo": "string"
       },
+      "secret": "secret",
       "started_at": "started_at",
       "state": "queued",
       "stop_requested_at": "stop_requested_at",
@@ -48852,7 +53117,7 @@ Update work item metadata with merge semantics.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -48904,11 +53169,19 @@ Update work item metadata with merge semantics.
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -48957,6 +53230,10 @@ Update work item metadata with merge semantics.
   - `metadata: Hash[Symbol, String]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: String`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: String`
 
@@ -49022,6 +53299,7 @@ puts(beta_self_hosted_work)
   "metadata": {
     "foo": "string"
   },
+  "secret": "secret",
   "started_at": "started_at",
   "state": "queued",
   "stop_requested_at": "stop_requested_at",
@@ -49048,7 +53326,7 @@ Get statistics about the work queue for an environment.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -49100,11 +53378,19 @@ Get statistics about the work queue for an environment.
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -49209,6 +53495,10 @@ puts(beta_self_hosted_work_queue_stats)
   - `metadata: Hash[Symbol, String]`
 
     User-provided metadata key-value pairs associated with this work item
+
+  - `secret: String`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
 
   - `started_at: String`
 
@@ -49328,6 +53618,10 @@ puts(beta_self_hosted_work_queue_stats)
 
       User-provided metadata key-value pairs associated with this work item
 
+    - `secret: String`
+
+      Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
     - `started_at: String`
 
       RFC 3339 timestamp when work execution started
@@ -49445,7 +53739,7 @@ Create Session
 
 ### Parameters
 
-- `agent: String | BetaManagedAgentsAgentParams`
+- `agent: String | BetaManagedAgentsAgentParams | BetaManagedAgentsAgentWithOverridesParams`
 
   Agent identifier. Accepts the `agent` ID string, which pins the latest version for the session, or an `agent` object with both id and version specified.
 
@@ -49467,9 +53761,593 @@ Create Session
 
       The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
 
+  - `class BetaManagedAgentsAgentWithOverridesParams`
+
+    Reference to an `agent` plus optional configuration overrides. Each provided field replaces the agent's value for the caller's use; the agent resource is unchanged.
+
+    - `id: String`
+
+      The `agent` ID.
+
+    - `type: :agent_with_overrides`
+
+      - `:agent_with_overrides`
+
+    - `mcp_servers: Array[BetaManagedAgentsURLMCPServerParams]`
+
+      Replacement MCP server list. Full replacement: the provided array becomes the MCP servers. Send an empty array to clear; omit to preserve the agent's servers.
+
+      - `name: String`
+
+        Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
+
+      - `type: :url`
+
+        - `:url`
+
+      - `url: String`
+
+        Endpoint URL for the MCP server.
+
+    - `model: BetaManagedAgentsModel | BetaManagedAgentsModelConfigParams`
+
+      Replacement model. Accepts the model string, e.g. `claude-opus-4-6`, or a `model_config` object. Omit to use the agent's model.
+
+      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more | String`
+
+        The model that will power your agent.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
+          - `:"claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `:"claude-opus-4-8"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `:"claude-opus-4-7"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `:"claude-opus-4-6"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `:"claude-sonnet-4-6"`
+
+            Best combination of speed and intelligence
+
+          - `:"claude-haiku-4-5"`
+
+            Fastest model with near-frontier intelligence
+
+          - `:"claude-haiku-4-5-20251001"`
+
+            Fastest model with near-frontier intelligence
+
+          - `:"claude-opus-4-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `:"claude-opus-4-5-20251101"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `:"claude-sonnet-4-5"`
+
+            High-performance model for agents and coding
+
+          - `:"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
+
+        - `String = String`
+
+      - `class BetaManagedAgentsModelConfigParams`
+
+        An object that defines additional configuration control over model use
+
+        - `id: BetaManagedAgentsModel`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `effort: :low | :medium | :high | 2 more | BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | 3 more`
+
+          How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+          - `BetaManagedAgentsEffortLevel = :low | :medium | :high | 2 more`
+
+            How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
+
+            - `:low`
+
+            - `:medium`
+
+            - `:high`
+
+            - `:xhigh`
+
+            - `:max`
+
+          - `class BetaManagedAgentsEffortLow`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: :low`
+
+              - `:low`
+
+          - `class BetaManagedAgentsEffortMedium`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: :medium`
+
+              - `:medium`
+
+          - `class BetaManagedAgentsEffortHigh`
+
+            High effort. Favors reasoning depth.
+
+            - `type: :high`
+
+              - `:high`
+
+          - `class BetaManagedAgentsEffortXhigh`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: :xhigh`
+
+              - `:xhigh`
+
+          - `class BetaManagedAgentsEffortMax`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: :max`
+
+              - `:max`
+
+        - `speed: :standard | :fast`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+          - `:standard`
+
+          - `:fast`
+
+    - `skills: Array[BetaManagedAgentsSkillParams]`
+
+      Replacement skill list. Full replacement: the provided array becomes the skills. Send an empty array to clear; omit to preserve the agent's skills.
+
+      - `class BetaManagedAgentsAnthropicSkillParams`
+
+        An Anthropic-managed skill.
+
+        - `skill_id: String`
+
+          Identifier of the Anthropic skill (e.g., "xlsx").
+
+        - `type: :anthropic`
+
+          - `:anthropic`
+
+        - `version: String`
+
+          Version to pin. Defaults to latest if omitted.
+
+      - `class BetaManagedAgentsCustomSkillParams`
+
+        A user-created custom skill.
+
+        - `skill_id: String`
+
+          Tagged ID of the custom skill (e.g., "skill_01XJ5...").
+
+        - `type: :custom`
+
+          - `:custom`
+
+        - `version: String`
+
+          Version to pin. Defaults to latest if omitted.
+
+    - `system_: String`
+
+      Replacement system prompt. Up to 100,000 characters. Set to null to clear the agent's system prompt; omit to preserve it.
+
+    - `tools: Array[BetaManagedAgentsAgentToolset20260401Params | BetaManagedAgentsMCPToolsetParams | BetaManagedAgentsCustomToolParams]`
+
+      Replacement tool list. Full replacement: the provided array becomes the tool configuration. Send an empty array to clear; omit to preserve the agent's tools.
+
+      - `class BetaManagedAgentsAgentToolset20260401Params`
+
+        Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
+
+        - `type: :agent_toolset_20260401`
+
+          - `:agent_toolset_20260401`
+
+        - `configs: Array[BetaManagedAgentsAgentToolConfigParams]`
+
+          Per-tool configuration overrides.
+
+          - `name: :bash | :edit | :read | 5 more`
+
+            Built-in agent tool identifier.
+
+            - `:bash`
+
+            - `:edit`
+
+            - `:read`
+
+            - `:write`
+
+            - `:glob`
+
+            - `:grep`
+
+            - `:web_fetch`
+
+            - `:web_search`
+
+          - `enabled: bool`
+
+            Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+              - `type: :always_allow`
+
+                - `:always_allow`
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+              - `type: :always_ask`
+
+                - `:always_ask`
+
+        - `default_config: BetaManagedAgentsAgentToolsetDefaultConfigParams`
+
+          Default configuration for all tools in a toolset.
+
+          - `enabled: bool`
+
+            Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+      - `class BetaManagedAgentsMCPToolsetParams`
+
+        Configuration for tools from an MCP server defined in `mcp_servers`.
+
+        - `mcp_server_name: String`
+
+          Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
+
+        - `type: :mcp_toolset`
+
+          - `:mcp_toolset`
+
+        - `configs: Array[BetaManagedAgentsMCPToolConfigParams]`
+
+          Per-tool configuration overrides.
+
+          - `name: String`
+
+            Name of the MCP tool to configure. 1-128 characters.
+
+          - `enabled: bool`
+
+            Whether this tool is enabled. Overrides the `default_config` setting.
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+        - `default_config: BetaManagedAgentsMCPToolsetDefaultConfigParams`
+
+          Default configuration for all tools from an MCP server.
+
+          - `enabled: bool`
+
+            Whether tools are enabled by default. Defaults to true if not specified.
+
+          - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+            Permission policy for tool execution.
+
+            - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+              Tool calls are automatically approved without user confirmation.
+
+            - `class BetaManagedAgentsAlwaysAskPolicy`
+
+              Tool calls require user confirmation before execution.
+
+      - `class BetaManagedAgentsCustomToolParams`
+
+        A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+        - `description: String`
+
+          Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
+
+        - `input_schema: BetaManagedAgentsCustomToolInputSchema`
+
+          JSON Schema for custom tool input parameters.
+
+          - `type: :object`
+
+            - `:object`
+
+          - `properties: Hash[Symbol, untyped]`
+
+          - `required: Array[String]`
+
+        - `name: String`
+
+          Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
+
+        - `type: :custom`
+
+          - `:custom`
+
+    - `version: Integer`
+
+      The specific `agent` version to use. Omit to use the latest version.
+
 - `environment_id: String`
 
   ID of the `environment` defining the container configuration for this session.
+
+- `initial_events: Array[BetaManagedAgentsUserMessageEventParams | BetaManagedAgentsUserDefineOutcomeEventParams]`
+
+  Initial events to send to the `session` at creation, processed in order. Supports `user.message` and `user.define_outcome` events. Maximum 50 events.
+
+  - `class BetaManagedAgentsUserMessageEventParams`
+
+    Parameters for sending a user message to the session.
+
+    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock]`
+
+      Array of content blocks for the user message.
+
+      - `class BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+        - `text: String`
+
+          The text content.
+
+        - `type: :text`
+
+          - `:text`
+
+      - `class BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+          Union type for image source variants.
+
+          - `class BetaManagedAgentsBase64ImageSource`
+
+            Base64-encoded image data.
+
+            - `data: String`
+
+              Base64-encoded image data.
+
+            - `media_type: String`
+
+              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+            - `type: :base64`
+
+              - `:base64`
+
+          - `class BetaManagedAgentsURLImageSource`
+
+            Image referenced by URL.
+
+            - `type: :url`
+
+              - `:url`
+
+            - `url: String`
+
+              URL of the image to fetch.
+
+          - `class BetaManagedAgentsFileImageSource`
+
+            Image referenced by file ID.
+
+            - `file_id: String`
+
+              ID of a previously uploaded file.
+
+            - `type: :file`
+
+              - `:file`
+
+        - `type: :image`
+
+          - `:image`
+
+      - `class BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+          Union type for document source variants.
+
+          - `class BetaManagedAgentsBase64DocumentSource`
+
+            Base64-encoded document data.
+
+            - `data: String`
+
+              Base64-encoded document data.
+
+            - `media_type: String`
+
+              MIME type of the document (e.g., "application/pdf").
+
+            - `type: :base64`
+
+              - `:base64`
+
+          - `class BetaManagedAgentsPlainTextDocumentSource`
+
+            Plain text document content.
+
+            - `data: String`
+
+              The plain text content.
+
+            - `media_type: :"text/plain"`
+
+              MIME type of the text content. Must be "text/plain".
+
+              - `:"text/plain"`
+
+            - `type: :text`
+
+              - `:text`
+
+          - `class BetaManagedAgentsURLDocumentSource`
+
+            Document referenced by URL.
+
+            - `type: :url`
+
+              - `:url`
+
+            - `url: String`
+
+              URL of the document to fetch.
+
+          - `class BetaManagedAgentsFileDocumentSource`
+
+            Document referenced by file ID.
+
+            - `file_id: String`
+
+              ID of a previously uploaded file.
+
+            - `type: :file`
+
+              - `:file`
+
+        - `type: :document`
+
+          - `:document`
+
+        - `context: String`
+
+          Additional context about the document for the model.
+
+        - `title: String`
+
+          The title of the document.
+
+    - `type: :"user.message"`
+
+      - `:"user.message"`
+
+  - `class BetaManagedAgentsUserDefineOutcomeEventParams`
+
+    Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
+
+    - `description: String`
+
+      What the agent should produce. This is the task specification.
+
+    - `rubric: BetaManagedAgentsFileRubricParams | BetaManagedAgentsTextRubricParams`
+
+      Rubric for grading the quality of an outcome.
+
+      - `class BetaManagedAgentsFileRubricParams`
+
+        Rubric referenced by a file uploaded via the Files API.
+
+        - `file_id: String`
+
+          ID of the rubric file.
+
+        - `type: :file`
+
+          - `:file`
+
+      - `class BetaManagedAgentsTextRubricParams`
+
+        Rubric content provided inline as text.
+
+        - `content: String`
+
+          Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
+
+        - `type: :text`
+
+          - `:text`
+
+    - `type: :"user.define_outcome"`
+
+      - `:"user.define_outcome"`
+
+    - `max_iterations: Integer`
+
+      Eval→revision cycles before giving up. Default 3, max 20.
 
 - `metadata: Hash[Symbol, String]`
 
@@ -49577,7 +54455,7 @@ Create Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -49629,11 +54507,19 @@ Create Session
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -49671,27 +54557,35 @@ Create Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `:"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `:"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `:"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-6"`
 
@@ -49707,11 +54601,11 @@ Create Session
 
           - `:"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-5"`
 
@@ -49722,6 +54616,50 @@ Create Session
             High-performance model for agents and coding
 
         - `String = String`
+
+      - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: :low`
+
+            - `:low`
+
+        - `class BetaManagedAgentsEffortMedium`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: :medium`
+
+            - `:medium`
+
+        - `class BetaManagedAgentsEffortHigh`
+
+          High effort. Favors reasoning depth.
+
+          - `type: :high`
+
+            - `:high`
+
+        - `class BetaManagedAgentsEffortXhigh`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: :xhigh`
+
+            - `:xhigh`
+
+        - `class BetaManagedAgentsEffortMax`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: :max`
+
+            - `:max`
 
       - `speed: :standard | :fast`
 
@@ -50209,6 +55147,9 @@ puts(beta_managed_agents_session)
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -50225,6 +55166,9 @@ puts(beta_managed_agents_session)
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -50362,7 +55306,7 @@ puts(beta_managed_agents_session)
 
 ## List Sessions
 
-`beta.sessions.list(**kwargs) -> PageCursor<BetaManagedAgentsSession>`
+`beta.sessions.list(**kwargs) -> BidirectionalPageCursor<BetaManagedAgentsSession>`
 
 **get** `/v1/sessions`
 
@@ -50440,7 +55384,7 @@ List Sessions
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -50492,11 +55436,19 @@ List Sessions
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -50534,27 +55486,35 @@ List Sessions
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `:"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `:"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `:"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-6"`
 
@@ -50570,11 +55530,11 @@ List Sessions
 
           - `:"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-5"`
 
@@ -50585,6 +55545,50 @@ List Sessions
             High-performance model for agents and coding
 
         - `String = String`
+
+      - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: :low`
+
+            - `:low`
+
+        - `class BetaManagedAgentsEffortMedium`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: :medium`
+
+            - `:medium`
+
+        - `class BetaManagedAgentsEffortHigh`
+
+          High effort. Favors reasoning depth.
+
+          - `type: :high`
+
+            - `:high`
+
+        - `class BetaManagedAgentsEffortXhigh`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: :xhigh`
+
+            - `:xhigh`
+
+        - `class BetaManagedAgentsEffortMax`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: :max`
+
+            - `:max`
 
       - `speed: :standard | :fast`
 
@@ -51071,6 +56075,9 @@ puts(page)
         ],
         "model": {
           "id": "claude-sonnet-4-6",
+          "effort": {
+            "type": "low"
+          },
           "speed": "standard"
         },
         "multiagent": {
@@ -51087,6 +56094,9 @@ puts(page)
               ],
               "model": {
                 "id": "claude-sonnet-4-6",
+                "effort": {
+                  "type": "low"
+                },
                 "speed": "standard"
               },
               "name": "Researcher",
@@ -51221,7 +56231,8 @@ puts(page)
       "deployment_id": "deployment_id"
     }
   ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo=",
+  "prev_page": "page_MjAyNS0wNS0xM1QwMDowMDowMFo="
 }
 ```
 
@@ -51243,7 +56254,7 @@ Get Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -51295,11 +56306,19 @@ Get Session
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -51337,27 +56356,35 @@ Get Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `:"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `:"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `:"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-6"`
 
@@ -51373,11 +56400,11 @@ Get Session
 
           - `:"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-5"`
 
@@ -51388,6 +56415,50 @@ Get Session
             High-performance model for agents and coding
 
         - `String = String`
+
+      - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: :low`
+
+            - `:low`
+
+        - `class BetaManagedAgentsEffortMedium`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: :medium`
+
+            - `:medium`
+
+        - `class BetaManagedAgentsEffortHigh`
+
+          High effort. Favors reasoning depth.
+
+          - `type: :high`
+
+            - `:high`
+
+        - `class BetaManagedAgentsEffortXhigh`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: :xhigh`
+
+            - `:xhigh`
+
+        - `class BetaManagedAgentsEffortMax`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: :max`
+
+            - `:max`
 
       - `speed: :standard | :fast`
 
@@ -51872,6 +56943,9 @@ puts(beta_managed_agents_session)
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -51888,6 +56962,9 @@ puts(beta_managed_agents_session)
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -52197,7 +57274,7 @@ Update Session
 
       - `description: String`
 
-        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
+        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
 
       - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
@@ -52237,7 +57314,7 @@ Update Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -52289,11 +57366,19 @@ Update Session
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -52331,27 +57416,35 @@ Update Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `:"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `:"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `:"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-6"`
 
@@ -52367,11 +57460,11 @@ Update Session
 
           - `:"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-5"`
 
@@ -52382,6 +57475,50 @@ Update Session
             High-performance model for agents and coding
 
         - `String = String`
+
+      - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: :low`
+
+            - `:low`
+
+        - `class BetaManagedAgentsEffortMedium`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: :medium`
+
+            - `:medium`
+
+        - `class BetaManagedAgentsEffortHigh`
+
+          High effort. Favors reasoning depth.
+
+          - `type: :high`
+
+            - `:high`
+
+        - `class BetaManagedAgentsEffortXhigh`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: :xhigh`
+
+            - `:xhigh`
+
+        - `class BetaManagedAgentsEffortMax`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: :max`
+
+            - `:max`
 
       - `speed: :standard | :fast`
 
@@ -52866,6 +58003,9 @@ puts(beta_managed_agents_session)
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -52882,6 +58022,9 @@ puts(beta_managed_agents_session)
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -53035,7 +58178,7 @@ Delete Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -53087,11 +58230,19 @@ Delete Session
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -53144,7 +58295,7 @@ Archive Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -53196,11 +58347,19 @@ Archive Session
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -53238,27 +58397,35 @@ Archive Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `:"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `:"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `:"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-6"`
 
@@ -53274,11 +58441,11 @@ Archive Session
 
           - `:"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-5"`
 
@@ -53289,6 +58456,50 @@ Archive Session
             High-performance model for agents and coding
 
         - `String = String`
+
+      - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: :low`
+
+            - `:low`
+
+        - `class BetaManagedAgentsEffortMedium`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: :medium`
+
+            - `:medium`
+
+        - `class BetaManagedAgentsEffortHigh`
+
+          High effort. Favors reasoning depth.
+
+          - `type: :high`
+
+            - `:high`
+
+        - `class BetaManagedAgentsEffortXhigh`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: :xhigh`
+
+            - `:xhigh`
+
+        - `class BetaManagedAgentsEffortMax`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: :max`
+
+            - `:max`
 
       - `speed: :standard | :fast`
 
@@ -53773,6 +58984,9 @@ puts(beta_managed_agents_session)
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "multiagent": {
@@ -53789,6 +59003,9 @@ puts(beta_managed_agents_session)
           ],
           "model": {
             "id": "claude-sonnet-4-6",
+            "effort": {
+              "type": "low"
+            },
             "speed": "standard"
           },
           "name": "Researcher",
@@ -53926,6 +59143,18 @@ puts(beta_managed_agents_session)
 
 ## Domain Types
 
+### Beta Managed Agents Agent Message Preview
+
+- `class BetaManagedAgentsAgentMessagePreview`
+
+  - `id: String`
+
+    The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+  - `type: :"agent.message"`
+
+    - `:"agent.message"`
+
 ### Beta Managed Agents Agent Params
 
 - `class BetaManagedAgentsAgentParams`
@@ -53943,6 +59172,402 @@ puts(beta_managed_agents_session)
   - `version: Integer`
 
     The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+### Beta Managed Agents Agent Thinking Preview
+
+- `class BetaManagedAgentsAgentThinkingPreview`
+
+  - `id: String`
+
+    The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+  - `type: :"agent.thinking"`
+
+    - `:"agent.thinking"`
+
+### Beta Managed Agents Agent With Overrides Params
+
+- `class BetaManagedAgentsAgentWithOverridesParams`
+
+  Reference to an `agent` plus optional configuration overrides. Each provided field replaces the agent's value for the caller's use; the agent resource is unchanged.
+
+  - `id: String`
+
+    The `agent` ID.
+
+  - `type: :agent_with_overrides`
+
+    - `:agent_with_overrides`
+
+  - `mcp_servers: Array[BetaManagedAgentsURLMCPServerParams]`
+
+    Replacement MCP server list. Full replacement: the provided array becomes the MCP servers. Send an empty array to clear; omit to preserve the agent's servers.
+
+    - `name: String`
+
+      Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
+
+    - `type: :url`
+
+      - `:url`
+
+    - `url: String`
+
+      Endpoint URL for the MCP server.
+
+  - `model: BetaManagedAgentsModel | BetaManagedAgentsModelConfigParams`
+
+    Replacement model. Accepts the model string, e.g. `claude-opus-4-6`, or a `model_config` object. Omit to use the agent's model.
+
+    - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more | String`
+
+      The model that will power your agent.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+
+        The model that will power your agent.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
+        - `:"claude-fable-5"`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `:"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-opus-4-8"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-opus-4-7"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-opus-4-6"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-sonnet-4-6"`
+
+          Best combination of speed and intelligence
+
+        - `:"claude-haiku-4-5"`
+
+          Fastest model with near-frontier intelligence
+
+        - `:"claude-haiku-4-5-20251001"`
+
+          Fastest model with near-frontier intelligence
+
+        - `:"claude-opus-4-5"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-opus-4-5-20251101"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `:"claude-sonnet-4-5"`
+
+          High-performance model for agents and coding
+
+        - `:"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
+
+      - `String = String`
+
+    - `class BetaManagedAgentsModelConfigParams`
+
+      An object that defines additional configuration control over model use
+
+      - `id: BetaManagedAgentsModel`
+
+        The model that will power your agent.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `effort: :low | :medium | :high | 2 more | BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | 3 more`
+
+        How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+        - `BetaManagedAgentsEffortLevel = :low | :medium | :high | 2 more`
+
+          How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
+
+          - `:low`
+
+          - `:medium`
+
+          - `:high`
+
+          - `:xhigh`
+
+          - `:max`
+
+        - `class BetaManagedAgentsEffortLow`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: :low`
+
+            - `:low`
+
+        - `class BetaManagedAgentsEffortMedium`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: :medium`
+
+            - `:medium`
+
+        - `class BetaManagedAgentsEffortHigh`
+
+          High effort. Favors reasoning depth.
+
+          - `type: :high`
+
+            - `:high`
+
+        - `class BetaManagedAgentsEffortXhigh`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: :xhigh`
+
+            - `:xhigh`
+
+        - `class BetaManagedAgentsEffortMax`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: :max`
+
+            - `:max`
+
+      - `speed: :standard | :fast`
+
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+        - `:standard`
+
+        - `:fast`
+
+  - `skills: Array[BetaManagedAgentsSkillParams]`
+
+    Replacement skill list. Full replacement: the provided array becomes the skills. Send an empty array to clear; omit to preserve the agent's skills.
+
+    - `class BetaManagedAgentsAnthropicSkillParams`
+
+      An Anthropic-managed skill.
+
+      - `skill_id: String`
+
+        Identifier of the Anthropic skill (e.g., "xlsx").
+
+      - `type: :anthropic`
+
+        - `:anthropic`
+
+      - `version: String`
+
+        Version to pin. Defaults to latest if omitted.
+
+    - `class BetaManagedAgentsCustomSkillParams`
+
+      A user-created custom skill.
+
+      - `skill_id: String`
+
+        Tagged ID of the custom skill (e.g., "skill_01XJ5...").
+
+      - `type: :custom`
+
+        - `:custom`
+
+      - `version: String`
+
+        Version to pin. Defaults to latest if omitted.
+
+  - `system_: String`
+
+    Replacement system prompt. Up to 100,000 characters. Set to null to clear the agent's system prompt; omit to preserve it.
+
+  - `tools: Array[BetaManagedAgentsAgentToolset20260401Params | BetaManagedAgentsMCPToolsetParams | BetaManagedAgentsCustomToolParams]`
+
+    Replacement tool list. Full replacement: the provided array becomes the tool configuration. Send an empty array to clear; omit to preserve the agent's tools.
+
+    - `class BetaManagedAgentsAgentToolset20260401Params`
+
+      Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
+
+      - `type: :agent_toolset_20260401`
+
+        - `:agent_toolset_20260401`
+
+      - `configs: Array[BetaManagedAgentsAgentToolConfigParams]`
+
+        Per-tool configuration overrides.
+
+        - `name: :bash | :edit | :read | 5 more`
+
+          Built-in agent tool identifier.
+
+          - `:bash`
+
+          - `:edit`
+
+          - `:read`
+
+          - `:write`
+
+          - `:glob`
+
+          - `:grep`
+
+          - `:web_fetch`
+
+          - `:web_search`
+
+        - `enabled: bool`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+            Tool calls are automatically approved without user confirmation.
+
+            - `type: :always_allow`
+
+              - `:always_allow`
+
+          - `class BetaManagedAgentsAlwaysAskPolicy`
+
+            Tool calls require user confirmation before execution.
+
+            - `type: :always_ask`
+
+              - `:always_ask`
+
+      - `default_config: BetaManagedAgentsAgentToolsetDefaultConfigParams`
+
+        Default configuration for all tools in a toolset.
+
+        - `enabled: bool`
+
+          Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
+
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy`
+
+            Tool calls require user confirmation before execution.
+
+    - `class BetaManagedAgentsMCPToolsetParams`
+
+      Configuration for tools from an MCP server defined in `mcp_servers`.
+
+      - `mcp_server_name: String`
+
+        Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
+
+      - `type: :mcp_toolset`
+
+        - `:mcp_toolset`
+
+      - `configs: Array[BetaManagedAgentsMCPToolConfigParams]`
+
+        Per-tool configuration overrides.
+
+        - `name: String`
+
+          Name of the MCP tool to configure. 1-128 characters.
+
+        - `enabled: bool`
+
+          Whether this tool is enabled. Overrides the `default_config` setting.
+
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy`
+
+            Tool calls require user confirmation before execution.
+
+      - `default_config: BetaManagedAgentsMCPToolsetDefaultConfigParams`
+
+        Default configuration for all tools from an MCP server.
+
+        - `enabled: bool`
+
+          Whether tools are enabled by default. Defaults to true if not specified.
+
+        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+          Permission policy for tool execution.
+
+          - `class BetaManagedAgentsAlwaysAllowPolicy`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy`
+
+            Tool calls require user confirmation before execution.
+
+    - `class BetaManagedAgentsCustomToolParams`
+
+      A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
+      - `description: String`
+
+        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
+
+      - `input_schema: BetaManagedAgentsCustomToolInputSchema`
+
+        JSON Schema for custom tool input parameters.
+
+        - `type: :object`
+
+          - `:object`
+
+        - `properties: Hash[Symbol, untyped]`
+
+        - `required: Array[String]`
+
+      - `name: String`
+
+        Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
+
+      - `type: :custom`
+
+        - `:custom`
+
+  - `version: Integer`
+
+    The specific `agent` version to use. Omit to use the latest version.
 
 ### Beta Managed Agents Branch Checkout
 
@@ -53993,6 +59618,78 @@ puts(beta_managed_agents_session)
   - `type: :session_deleted`
 
     - `:session_deleted`
+
+### Beta Managed Agents Delta Content
+
+- `class BetaManagedAgentsDeltaContent`
+
+  - `content: BetaManagedAgentsTextBlock`
+
+    Regular text content.
+
+    - `text: String`
+
+      The text content.
+
+    - `type: :text`
+
+      - `:text`
+
+  - `type: :content_delta`
+
+    - `:content_delta`
+
+  - `index: Integer`
+
+    Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+### Beta Managed Agents Delta Event
+
+- `class BetaManagedAgentsDeltaEvent`
+
+  An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+  - `delta: BetaManagedAgentsDeltaContent`
+
+    One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+    - `content: BetaManagedAgentsTextBlock`
+
+      Regular text content.
+
+      - `text: String`
+
+        The text content.
+
+      - `type: :text`
+
+        - `:text`
+
+    - `type: :content_delta`
+
+      - `:content_delta`
+
+    - `index: Integer`
+
+      Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+  - `event_id: String`
+
+    The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+  - `type: :event_delta`
+
+    - `:event_delta`
+
+### Beta Managed Agents Delta Type
+
+- `BetaManagedAgentsDeltaType = :"agent.message" | :"agent.thinking"`
+
+  EventDeltaType enum
+
+  - `:"agent.message"`
+
+  - `:"agent.thinking"`
 
 ### Beta Managed Agents File Resource Params
 
@@ -54248,27 +59945,35 @@ puts(beta_managed_agents_session)
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `:"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `:"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `:"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-6"`
 
@@ -54284,11 +59989,11 @@ puts(beta_managed_agents_session)
 
           - `:"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-5"`
 
@@ -54299,6 +60004,50 @@ puts(beta_managed_agents_session)
             High-performance model for agents and coding
 
         - `String = String`
+
+      - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: :low`
+
+            - `:low`
+
+        - `class BetaManagedAgentsEffortMedium`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: :medium`
+
+            - `:medium`
+
+        - `class BetaManagedAgentsEffortHigh`
+
+          High effort. Favors reasoning depth.
+
+          - `type: :high`
+
+            - `:high`
+
+        - `class BetaManagedAgentsEffortXhigh`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: :xhigh`
+
+            - `:xhigh`
+
+        - `class BetaManagedAgentsEffortMax`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: :max`
+
+            - `:max`
 
       - `speed: :standard | :fast`
 
@@ -54784,27 +60533,35 @@ puts(beta_managed_agents_session)
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `:"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `:"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `:"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `:"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-6"`
 
@@ -54820,11 +60577,11 @@ puts(beta_managed_agents_session)
 
         - `:"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-5"`
 
@@ -54835,6 +60592,50 @@ puts(beta_managed_agents_session)
           High-performance model for agents and coding
 
       - `String = String`
+
+    - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `class BetaManagedAgentsEffortLow`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: :low`
+
+          - `:low`
+
+      - `class BetaManagedAgentsEffortMedium`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: :medium`
+
+          - `:medium`
+
+      - `class BetaManagedAgentsEffortHigh`
+
+        High effort. Favors reasoning depth.
+
+        - `type: :high`
+
+          - `:high`
+
+      - `class BetaManagedAgentsEffortXhigh`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: :xhigh`
+
+          - `:xhigh`
+
+      - `class BetaManagedAgentsEffortMax`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: :max`
+
+          - `:max`
 
     - `speed: :standard | :fast`
 
@@ -55240,7 +61041,7 @@ puts(beta_managed_agents_session)
 
       - `description: String`
 
-        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
+        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
 
       - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
@@ -55296,27 +61097,35 @@ puts(beta_managed_agents_session)
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `:"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `:"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `:"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-6"`
 
@@ -55332,11 +61141,11 @@ puts(beta_managed_agents_session)
 
           - `:"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-5"`
 
@@ -55347,6 +61156,50 @@ puts(beta_managed_agents_session)
             High-performance model for agents and coding
 
         - `String = String`
+
+      - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: :low`
+
+            - `:low`
+
+        - `class BetaManagedAgentsEffortMedium`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: :medium`
+
+            - `:medium`
+
+        - `class BetaManagedAgentsEffortHigh`
+
+          High effort. Favors reasoning depth.
+
+          - `type: :high`
+
+            - `:high`
+
+        - `class BetaManagedAgentsEffortXhigh`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: :xhigh`
+
+            - `:xhigh`
+
+        - `class BetaManagedAgentsEffortMax`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: :max`
+
+            - `:max`
 
       - `speed: :standard | :fast`
 
@@ -55594,27 +61447,35 @@ puts(beta_managed_agents_session)
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `:"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `:"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `:"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-6"`
 
@@ -55630,11 +61491,11 @@ puts(beta_managed_agents_session)
 
           - `:"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-5"`
 
@@ -55645,6 +61506,50 @@ puts(beta_managed_agents_session)
             High-performance model for agents and coding
 
         - `String = String`
+
+      - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: :low`
+
+            - `:low`
+
+        - `class BetaManagedAgentsEffortMedium`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: :medium`
+
+            - `:medium`
+
+        - `class BetaManagedAgentsEffortHigh`
+
+          High effort. Favors reasoning depth.
+
+          - `type: :high`
+
+            - `:high`
+
+        - `class BetaManagedAgentsEffortXhigh`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: :xhigh`
+
+            - `:xhigh`
+
+        - `class BetaManagedAgentsEffortMax`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: :max`
+
+            - `:max`
 
       - `speed: :standard | :fast`
 
@@ -55924,6 +61829,64 @@ puts(beta_managed_agents_session)
 
     Total output tokens generated across all turns.
 
+### Beta Managed Agents Start Event
+
+- `class BetaManagedAgentsStartEvent`
+
+  Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+  - `event: BetaManagedAgentsStartEventPreview`
+
+    The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+    - `class BetaManagedAgentsAgentMessagePreview`
+
+      - `id: String`
+
+        The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+      - `type: :"agent.message"`
+
+        - `:"agent.message"`
+
+    - `class BetaManagedAgentsAgentThinkingPreview`
+
+      - `id: String`
+
+        The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+      - `type: :"agent.thinking"`
+
+        - `:"agent.thinking"`
+
+  - `type: :event_start`
+
+    - `:event_start`
+
+### Beta Managed Agents Start Event Preview
+
+- `BetaManagedAgentsStartEventPreview = BetaManagedAgentsAgentMessagePreview | BetaManagedAgentsAgentThinkingPreview`
+
+  - `class BetaManagedAgentsAgentMessagePreview`
+
+    - `id: String`
+
+      The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+    - `type: :"agent.message"`
+
+      - `:"agent.message"`
+
+  - `class BetaManagedAgentsAgentThinkingPreview`
+
+    - `id: String`
+
+      The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+    - `type: :"agent.thinking"`
+
+      - `:"agent.thinking"`
+
 ### Beta Managed Agents System Content Block
 
 - `class BetaManagedAgentsSystemContentBlock`
@@ -56196,19 +62159,19 @@ List Events
 
 - `created_at_gt: Time`
 
-  Return events created after this time (exclusive).
+  Return events created after this time (exclusive). Compared against the event's `processed_at` value.
 
 - `created_at_gte: Time`
 
-  Return events created at or after this time (inclusive).
+  Return events created at or after this time (inclusive). Compared against the event's `processed_at` value.
 
 - `created_at_lt: Time`
 
-  Return events created before this time (exclusive).
+  Return events created before this time (exclusive). Compared against the event's `processed_at` value.
 
 - `created_at_lte: Time`
 
-  Return events created at or before this time (inclusive).
+  Return events created at or before this time (inclusive). Compared against the event's `processed_at` value.
 
 - `limit: Integer`
 
@@ -56216,7 +62179,7 @@ List Events
 
 - `order: :asc | :desc`
 
-  Sort direction for results, ordered by created_at. Defaults to asc (chronological).
+  Sort direction for results, ordered by the event's `processed_at`. Defaults to asc (chronological).
 
   - `:asc`
 
@@ -56236,7 +62199,7 @@ List Events
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -56288,11 +62251,19 @@ List Events
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -57274,7 +63245,7 @@ List Events
 
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: :retries_exhausted`
 
@@ -57610,7 +63581,7 @@ List Events
 
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `type: :"session.thread_status_idle"`
 
@@ -57756,27 +63727,35 @@ List Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+          - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `:"claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
             - `:"claude-fable-5"`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
+            - `:"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `:"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-6"`
 
-              Most intelligent model for building agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-6"`
 
@@ -57792,11 +63771,11 @@ List Events
 
             - `:"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-5"`
 
@@ -57807,6 +63786,50 @@ List Events
               High-performance model for agents and coding
 
           - `String = String`
+
+        - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `class BetaManagedAgentsEffortLow`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: :low`
+
+              - `:low`
+
+          - `class BetaManagedAgentsEffortMedium`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: :medium`
+
+              - `:medium`
+
+          - `class BetaManagedAgentsEffortHigh`
+
+            High effort. Favors reasoning depth.
+
+            - `type: :high`
+
+              - `:high`
+
+          - `class BetaManagedAgentsEffortXhigh`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: :xhigh`
+
+              - `:xhigh`
+
+          - `class BetaManagedAgentsEffortMax`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: :max`
+
+              - `:max`
 
         - `speed: :standard | :fast`
 
@@ -58508,7 +64531,7 @@ Send Events
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -58560,11 +64583,19 @@ Send Events
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -59053,13 +65084,21 @@ Stream Events
 
 - `session_id: String`
 
+- `event_deltas: Array[BetaManagedAgentsDeltaType]`
+
+  When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
+
+  - `:"agent.message"`
+
+  - `:"agent.thinking"`
+
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -59111,15 +65150,23 @@ Stream Events
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
-- `BetaManagedAgentsStreamSessionEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 31 more`
+- `BetaManagedAgentsStreamSessionEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 33 more`
 
   Server-sent event in the session stream.
 
@@ -60097,7 +66144,7 @@ Stream Events
 
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: :retries_exhausted`
 
@@ -60433,7 +66480,7 @@ Stream Events
 
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `type: :"session.thread_status_idle"`
 
@@ -60579,27 +66626,35 @@ Stream Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+          - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `:"claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
             - `:"claude-fable-5"`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
+            - `:"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `:"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-6"`
 
-              Most intelligent model for building agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-6"`
 
@@ -60615,11 +66670,11 @@ Stream Events
 
             - `:"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-5"`
 
@@ -60630,6 +66685,50 @@ Stream Events
               High-performance model for agents and coding
 
           - `String = String`
+
+        - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `class BetaManagedAgentsEffortLow`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: :low`
+
+              - `:low`
+
+          - `class BetaManagedAgentsEffortMedium`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: :medium`
+
+              - `:medium`
+
+          - `class BetaManagedAgentsEffortHigh`
+
+            High effort. Favors reasoning depth.
+
+            - `type: :high`
+
+              - `:high`
+
+          - `class BetaManagedAgentsEffortXhigh`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: :xhigh`
+
+              - `:xhigh`
+
+          - `class BetaManagedAgentsEffortMax`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: :max`
+
+              - `:max`
 
         - `speed: :standard | :fast`
 
@@ -60878,6 +66977,66 @@ Stream Events
     - `title: String`
 
       The session's new title. Present only when the update changed it.
+
+  - `class BetaManagedAgentsStartEvent`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `event: BetaManagedAgentsStartEventPreview`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `class BetaManagedAgentsAgentMessagePreview`
+
+        - `id: String`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `type: :"agent.message"`
+
+          - `:"agent.message"`
+
+      - `class BetaManagedAgentsAgentThinkingPreview`
+
+        - `id: String`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `type: :"agent.thinking"`
+
+          - `:"agent.thinking"`
+
+    - `type: :event_start`
+
+      - `:event_start`
+
+  - `class BetaManagedAgentsDeltaEvent`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `delta: BetaManagedAgentsDeltaContent`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `content: BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `type: :content_delta`
+
+        - `:content_delta`
+
+      - `index: Integer`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `event_id: String`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `type: :event_delta`
+
+      - `:event_delta`
 
   - `class BetaManagedAgentsSystemMessageEvent`
 
@@ -64611,7 +70770,7 @@ puts(beta_managed_agents_stream_session_events)
 
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: :retries_exhausted`
 
@@ -64947,7 +71106,7 @@ puts(beta_managed_agents_stream_session_events)
 
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `type: :"session.thread_status_idle"`
 
@@ -65093,27 +71252,35 @@ puts(beta_managed_agents_stream_session_events)
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+          - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `:"claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
             - `:"claude-fable-5"`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
+            - `:"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `:"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-6"`
 
-              Most intelligent model for building agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-6"`
 
@@ -65129,11 +71296,11 @@ puts(beta_managed_agents_stream_session_events)
 
             - `:"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-5"`
 
@@ -65144,6 +71311,50 @@ puts(beta_managed_agents_stream_session_events)
               High-performance model for agents and coding
 
           - `String = String`
+
+        - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `class BetaManagedAgentsEffortLow`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: :low`
+
+              - `:low`
+
+          - `class BetaManagedAgentsEffortMedium`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: :medium`
+
+              - `:medium`
+
+          - `class BetaManagedAgentsEffortHigh`
+
+            High effort. Favors reasoning depth.
+
+            - `type: :high`
+
+              - `:high`
+
+          - `class BetaManagedAgentsEffortXhigh`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: :xhigh`
+
+              - `:xhigh`
+
+          - `class BetaManagedAgentsEffortMax`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: :max`
+
+              - `:max`
 
         - `speed: :standard | :fast`
 
@@ -65439,7 +71650,7 @@ puts(beta_managed_agents_stream_session_events)
 
 - `class BetaManagedAgentsSessionRetriesExhausted`
 
-  The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+  The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
   - `type: :retries_exhausted`
 
@@ -65485,7 +71696,7 @@ puts(beta_managed_agents_stream_session_events)
 
     - `class BetaManagedAgentsSessionRetriesExhausted`
 
-      The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+      The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
       - `type: :retries_exhausted`
 
@@ -65623,7 +71834,7 @@ puts(beta_managed_agents_stream_session_events)
 
     - `class BetaManagedAgentsSessionRetriesExhausted`
 
-      The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+      The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
       - `type: :retries_exhausted`
 
@@ -65933,7 +72144,7 @@ puts(beta_managed_agents_stream_session_events)
 
 ### Beta Managed Agents Stream Session Events
 
-- `BetaManagedAgentsStreamSessionEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 31 more`
+- `BetaManagedAgentsStreamSessionEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 33 more`
 
   Server-sent event in the session stream.
 
@@ -66911,7 +73122,7 @@ puts(beta_managed_agents_stream_session_events)
 
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: :retries_exhausted`
 
@@ -67247,7 +73458,7 @@ puts(beta_managed_agents_stream_session_events)
 
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `type: :"session.thread_status_idle"`
 
@@ -67393,27 +73604,35 @@ puts(beta_managed_agents_stream_session_events)
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+          - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `:"claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
             - `:"claude-fable-5"`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
+            - `:"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `:"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-6"`
 
-              Most intelligent model for building agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-6"`
 
@@ -67429,11 +73648,11 @@ puts(beta_managed_agents_stream_session_events)
 
             - `:"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-5"`
 
@@ -67444,6 +73663,50 @@ puts(beta_managed_agents_stream_session_events)
               High-performance model for agents and coding
 
           - `String = String`
+
+        - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `class BetaManagedAgentsEffortLow`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: :low`
+
+              - `:low`
+
+          - `class BetaManagedAgentsEffortMedium`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: :medium`
+
+              - `:medium`
+
+          - `class BetaManagedAgentsEffortHigh`
+
+            High effort. Favors reasoning depth.
+
+            - `type: :high`
+
+              - `:high`
+
+          - `class BetaManagedAgentsEffortXhigh`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: :xhigh`
+
+              - `:xhigh`
+
+          - `class BetaManagedAgentsEffortMax`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: :max`
+
+              - `:max`
 
         - `speed: :standard | :fast`
 
@@ -67692,6 +73955,66 @@ puts(beta_managed_agents_stream_session_events)
     - `title: String`
 
       The session's new title. Present only when the update changed it.
+
+  - `class BetaManagedAgentsStartEvent`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `event: BetaManagedAgentsStartEventPreview`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `class BetaManagedAgentsAgentMessagePreview`
+
+        - `id: String`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `type: :"agent.message"`
+
+          - `:"agent.message"`
+
+      - `class BetaManagedAgentsAgentThinkingPreview`
+
+        - `id: String`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `type: :"agent.thinking"`
+
+          - `:"agent.thinking"`
+
+    - `type: :event_start`
+
+      - `:event_start`
+
+  - `class BetaManagedAgentsDeltaEvent`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `delta: BetaManagedAgentsDeltaContent`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `content: BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `type: :content_delta`
+
+        - `:content_delta`
+
+      - `index: Integer`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `event_id: String`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `type: :event_delta`
+
+      - `:event_delta`
 
   - `class BetaManagedAgentsSystemMessageEvent`
 
@@ -69023,7 +75346,7 @@ Add Session Resource
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -69075,11 +75398,19 @@ Add Session Resource
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -69158,7 +75489,7 @@ List Session Resources
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -69210,11 +75541,19 @@ List Session Resources
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -69382,7 +75721,7 @@ Get Session Resource
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -69434,11 +75773,19 @@ Get Session Resource
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -69600,7 +75947,7 @@ Update Session Resource
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -69652,11 +75999,19 @@ Update Session Resource
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -69815,7 +76170,7 @@ Delete Session Resource
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -69867,11 +76222,19 @@ Delete Session Resource
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -70367,7 +76730,7 @@ List Session Threads
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -70419,11 +76782,19 @@ List Session Threads
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -70463,27 +76834,35 @@ List Session Threads
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `:"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `:"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `:"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-6"`
 
@@ -70499,11 +76878,11 @@ List Session Threads
 
           - `:"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-5"`
 
@@ -70514,6 +76893,50 @@ List Session Threads
             High-performance model for agents and coding
 
         - `String = String`
+
+      - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: :low`
+
+            - `:low`
+
+        - `class BetaManagedAgentsEffortMedium`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: :medium`
+
+            - `:medium`
+
+        - `class BetaManagedAgentsEffortHigh`
+
+          High effort. Favors reasoning depth.
+
+          - `type: :high`
+
+            - `:high`
+
+        - `class BetaManagedAgentsEffortXhigh`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: :xhigh`
+
+            - `:xhigh`
+
+        - `class BetaManagedAgentsEffortMax`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: :max`
+
+            - `:max`
 
       - `speed: :standard | :fast`
 
@@ -70808,6 +77231,9 @@ puts(page)
         ],
         "model": {
           "id": "claude-sonnet-4-6",
+          "effort": {
+            "type": "low"
+          },
           "speed": "standard"
         },
         "name": "Researcher",
@@ -70889,7 +77315,7 @@ Get Session Thread
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -70941,11 +77367,19 @@ Get Session Thread
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -70985,27 +77419,35 @@ Get Session Thread
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `:"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `:"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `:"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-6"`
 
@@ -71021,11 +77463,11 @@ Get Session Thread
 
           - `:"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-5"`
 
@@ -71036,6 +77478,50 @@ Get Session Thread
             High-performance model for agents and coding
 
         - `String = String`
+
+      - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: :low`
+
+            - `:low`
+
+        - `class BetaManagedAgentsEffortMedium`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: :medium`
+
+            - `:medium`
+
+        - `class BetaManagedAgentsEffortHigh`
+
+          High effort. Favors reasoning depth.
+
+          - `type: :high`
+
+            - `:high`
+
+        - `class BetaManagedAgentsEffortXhigh`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: :xhigh`
+
+            - `:xhigh`
+
+        - `class BetaManagedAgentsEffortMax`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: :max`
+
+            - `:max`
 
       - `speed: :standard | :fast`
 
@@ -71331,6 +77817,9 @@ puts(beta_managed_agents_session_thread)
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "name": "Researcher",
@@ -71409,7 +77898,7 @@ Archive Session Thread
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -71461,11 +77950,19 @@ Archive Session Thread
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -71505,27 +78002,35 @@ Archive Session Thread
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `:"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `:"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `:"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-6"`
 
@@ -71541,11 +78046,11 @@ Archive Session Thread
 
           - `:"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-5"`
 
@@ -71556,6 +78061,50 @@ Archive Session Thread
             High-performance model for agents and coding
 
         - `String = String`
+
+      - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: :low`
+
+            - `:low`
+
+        - `class BetaManagedAgentsEffortMedium`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: :medium`
+
+            - `:medium`
+
+        - `class BetaManagedAgentsEffortHigh`
+
+          High effort. Favors reasoning depth.
+
+          - `type: :high`
+
+            - `:high`
+
+        - `class BetaManagedAgentsEffortXhigh`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: :xhigh`
+
+            - `:xhigh`
+
+        - `class BetaManagedAgentsEffortMax`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: :max`
+
+            - `:max`
 
       - `speed: :standard | :fast`
 
@@ -71851,6 +78400,9 @@ puts(beta_managed_agents_session_thread)
     ],
     "model": {
       "id": "claude-sonnet-4-6",
+      "effort": {
+        "type": "low"
+      },
       "speed": "standard"
     },
     "name": "Researcher",
@@ -71949,27 +78501,35 @@ puts(beta_managed_agents_session_thread)
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `:"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
           - `:"claude-fable-5"`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
+          - `:"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `:"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-6"`
 
-            Most intelligent model for building agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-6"`
 
@@ -71985,11 +78545,11 @@ puts(beta_managed_agents_session_thread)
 
           - `:"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `:"claude-sonnet-4-5"`
 
@@ -72000,6 +78560,50 @@ puts(beta_managed_agents_session_thread)
             High-performance model for agents and coding
 
         - `String = String`
+
+      - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+        How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+        - `class BetaManagedAgentsEffortLow`
+
+          Low effort. Favors latency over reasoning depth.
+
+          - `type: :low`
+
+            - `:low`
+
+        - `class BetaManagedAgentsEffortMedium`
+
+          Medium effort. Balances latency and reasoning depth.
+
+          - `type: :medium`
+
+            - `:medium`
+
+        - `class BetaManagedAgentsEffortHigh`
+
+          High effort. Favors reasoning depth.
+
+          - `type: :high`
+
+            - `:high`
+
+        - `class BetaManagedAgentsEffortXhigh`
+
+          Extra-high effort. Not all models accept this level.
+
+          - `type: :xhigh`
+
+            - `:xhigh`
+
+        - `class BetaManagedAgentsEffortMax`
+
+          Maximum effort. Favors reasoning depth over latency.
+
+          - `type: :max`
+
+            - `:max`
 
       - `speed: :standard | :fast`
 
@@ -72327,7 +78931,7 @@ puts(beta_managed_agents_session_thread)
 
 ### Beta Managed Agents Stream Session Thread Events
 
-- `BetaManagedAgentsStreamSessionThreadEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 31 more`
+- `BetaManagedAgentsStreamSessionThreadEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 33 more`
 
   Server-sent event in a single thread's stream.
 
@@ -73305,7 +79909,7 @@ puts(beta_managed_agents_session_thread)
 
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: :retries_exhausted`
 
@@ -73641,7 +80245,7 @@ puts(beta_managed_agents_session_thread)
 
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `type: :"session.thread_status_idle"`
 
@@ -73787,27 +80391,35 @@ puts(beta_managed_agents_session_thread)
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+          - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `:"claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
             - `:"claude-fable-5"`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
+            - `:"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `:"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-6"`
 
-              Most intelligent model for building agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-6"`
 
@@ -73823,11 +80435,11 @@ puts(beta_managed_agents_session_thread)
 
             - `:"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-5"`
 
@@ -73838,6 +80450,50 @@ puts(beta_managed_agents_session_thread)
               High-performance model for agents and coding
 
           - `String = String`
+
+        - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `class BetaManagedAgentsEffortLow`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: :low`
+
+              - `:low`
+
+          - `class BetaManagedAgentsEffortMedium`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: :medium`
+
+              - `:medium`
+
+          - `class BetaManagedAgentsEffortHigh`
+
+            High effort. Favors reasoning depth.
+
+            - `type: :high`
+
+              - `:high`
+
+          - `class BetaManagedAgentsEffortXhigh`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: :xhigh`
+
+              - `:xhigh`
+
+          - `class BetaManagedAgentsEffortMax`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: :max`
+
+              - `:max`
 
         - `speed: :standard | :fast`
 
@@ -74087,6 +80743,66 @@ puts(beta_managed_agents_session_thread)
 
       The session's new title. Present only when the update changed it.
 
+  - `class BetaManagedAgentsStartEvent`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `event: BetaManagedAgentsStartEventPreview`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `class BetaManagedAgentsAgentMessagePreview`
+
+        - `id: String`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `type: :"agent.message"`
+
+          - `:"agent.message"`
+
+      - `class BetaManagedAgentsAgentThinkingPreview`
+
+        - `id: String`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `type: :"agent.thinking"`
+
+          - `:"agent.thinking"`
+
+    - `type: :event_start`
+
+      - `:event_start`
+
+  - `class BetaManagedAgentsDeltaEvent`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `delta: BetaManagedAgentsDeltaContent`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `content: BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `type: :content_delta`
+
+        - `:content_delta`
+
+      - `index: Integer`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `event_id: String`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `type: :event_delta`
+
+      - `:event_delta`
+
   - `class BetaManagedAgentsSystemMessageEvent`
 
     A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
@@ -74145,7 +80861,7 @@ List Session Thread Events
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -74197,11 +80913,19 @@ List Session Thread Events
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -75183,7 +81907,7 @@ List Session Thread Events
 
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: :retries_exhausted`
 
@@ -75519,7 +82243,7 @@ List Session Thread Events
 
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `type: :"session.thread_status_idle"`
 
@@ -75665,27 +82389,35 @@ List Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+          - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `:"claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
             - `:"claude-fable-5"`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
+            - `:"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `:"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-6"`
 
-              Most intelligent model for building agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-6"`
 
@@ -75701,11 +82433,11 @@ List Session Thread Events
 
             - `:"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-5"`
 
@@ -75716,6 +82448,50 @@ List Session Thread Events
               High-performance model for agents and coding
 
           - `String = String`
+
+        - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `class BetaManagedAgentsEffortLow`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: :low`
+
+              - `:low`
+
+          - `class BetaManagedAgentsEffortMedium`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: :medium`
+
+              - `:medium`
+
+          - `class BetaManagedAgentsEffortHigh`
+
+            High effort. Favors reasoning depth.
+
+            - `type: :high`
+
+              - `:high`
+
+          - `class BetaManagedAgentsEffortXhigh`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: :xhigh`
+
+              - `:xhigh`
+
+          - `class BetaManagedAgentsEffortMax`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: :max`
+
+              - `:max`
 
         - `speed: :standard | :fast`
 
@@ -76043,13 +82819,21 @@ Stream Session Thread Events
 
 - `thread_id: String`
 
+- `event_deltas: Array[BetaManagedAgentsDeltaType]`
+
+  When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
+
+  - `:"agent.message"`
+
+  - `:"agent.thinking"`
+
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -76101,15 +82885,23 @@ Stream Session Thread Events
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
-- `BetaManagedAgentsStreamSessionThreadEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 31 more`
+- `BetaManagedAgentsStreamSessionThreadEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 33 more`
 
   Server-sent event in a single thread's stream.
 
@@ -77087,7 +83879,7 @@ Stream Session Thread Events
 
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: :retries_exhausted`
 
@@ -77423,7 +84215,7 @@ Stream Session Thread Events
 
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
-        The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
     - `type: :"session.thread_status_idle"`
 
@@ -77569,27 +84361,35 @@ Stream Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+          - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `:"claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
             - `:"claude-fable-5"`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
+            - `:"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
             - `:"claude-opus-4-8"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-7"`
 
-              Frontier intelligence for long-running agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-6"`
 
-              Most intelligent model for building agents and coding
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-6"`
 
@@ -77605,11 +84405,11 @@ Stream Session Thread Events
 
             - `:"claude-opus-4-5"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-opus-4-5-20251101"`
 
-              Premium model combining maximum intelligence with practical performance
+              Powerful intelligence for long-running agents and coding
 
             - `:"claude-sonnet-4-5"`
 
@@ -77620,6 +84420,50 @@ Stream Session Thread Events
               High-performance model for agents and coding
 
           - `String = String`
+
+        - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `class BetaManagedAgentsEffortLow`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: :low`
+
+              - `:low`
+
+          - `class BetaManagedAgentsEffortMedium`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: :medium`
+
+              - `:medium`
+
+          - `class BetaManagedAgentsEffortHigh`
+
+            High effort. Favors reasoning depth.
+
+            - `type: :high`
+
+              - `:high`
+
+          - `class BetaManagedAgentsEffortXhigh`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: :xhigh`
+
+              - `:xhigh`
+
+          - `class BetaManagedAgentsEffortMax`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: :max`
+
+              - `:max`
 
         - `speed: :standard | :fast`
 
@@ -77868,6 +84712,66 @@ Stream Session Thread Events
     - `title: String`
 
       The session's new title. Present only when the update changed it.
+
+  - `class BetaManagedAgentsStartEvent`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `event: BetaManagedAgentsStartEventPreview`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `class BetaManagedAgentsAgentMessagePreview`
+
+        - `id: String`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `type: :"agent.message"`
+
+          - `:"agent.message"`
+
+      - `class BetaManagedAgentsAgentThinkingPreview`
+
+        - `id: String`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `type: :"agent.thinking"`
+
+          - `:"agent.thinking"`
+
+    - `type: :event_start`
+
+      - `:event_start`
+
+  - `class BetaManagedAgentsDeltaEvent`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `delta: BetaManagedAgentsDeltaContent`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `content: BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `type: :content_delta`
+
+        - `:content_delta`
+
+      - `index: Integer`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `event_id: String`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `type: :event_delta`
+
+      - `:event_delta`
 
   - `class BetaManagedAgentsSystemMessageEvent`
 
@@ -78314,7 +85218,7 @@ Create Deployment
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -78366,11 +85270,19 @@ Create Deployment
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -78925,31 +85837,29 @@ puts(beta_managed_agents_deployment)
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -78965,19 +85875,20 @@ puts(beta_managed_agents_deployment)
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -79030,7 +85941,7 @@ List Deployments
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -79082,11 +85993,19 @@ List Deployments
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -79638,31 +86557,29 @@ puts(page)
 {
   "data": [
     {
-      "id": "id",
+      "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
       "agent": {
-        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+        "id": "agent_011CZkYpogX7uDKUyvBTophP",
         "type": "agent",
         "version": 1
       },
-      "archived_at": "2019-12-27T18:11:19.117Z",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "description": "description",
-      "environment_id": "environment_id",
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "description": "Compiles yesterday's orders into a report every weekday morning.",
+      "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
       "initial_events": [
         {
           "content": [
             {
-              "text": "Where is my order #1234?",
+              "text": "Compile yesterday's orders into report.md.",
               "type": "text"
             }
           ],
           "type": "user.message"
         }
       ],
-      "metadata": {
-        "foo": "string"
-      },
-      "name": "name",
+      "metadata": {},
+      "name": "Daily order report",
       "paused_reason": {
         "type": "manual"
       },
@@ -79678,23 +86595,24 @@ puts(page)
         }
       ],
       "schedule": {
-        "expression": "x",
-        "timezone": "x",
+        "expression": "0 9 * * 1-5",
+        "timezone": "America/Los_Angeles",
         "type": "cron",
-        "last_run_at": "2019-12-27T18:11:19.117Z",
+        "last_run_at": "2026-03-16T16:00:09Z",
         "upcoming_runs_at": [
-          "2019-12-27T18:11:19.117Z"
+          "2026-03-17T16:00:00Z",
+          "2026-03-18T16:00:00Z"
         ]
       },
       "status": "active",
       "type": "deployment",
-      "updated_at": "2019-12-27T18:11:19.117Z",
+      "updated_at": "2026-03-15T10:00:00Z",
       "vault_ids": [
-        "string"
+        "vlt_011CZkZDLs7fYzm1hXNPeRjv"
       ]
     }
   ],
-  "next_page": "next_page"
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```
 
@@ -79716,7 +86634,7 @@ Get Deployment
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -79768,11 +86686,19 @@ Get Deployment
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -80313,7 +87239,7 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-beta_managed_agents_deployment = anthropic.beta.deployments.retrieve("deployment_id")
+beta_managed_agents_deployment = anthropic.beta.deployments.retrieve("depl_011CZkZcDH3vPqd7xnEfwTai")
 
 puts(beta_managed_agents_deployment)
 ```
@@ -80322,31 +87248,29 @@ puts(beta_managed_agents_deployment)
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -80362,19 +87286,20 @@ puts(beta_managed_agents_deployment)
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -80765,7 +87690,7 @@ Update Deployment
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -80817,11 +87742,19 @@ Update Deployment
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -81362,7 +88295,7 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-beta_managed_agents_deployment = anthropic.beta.deployments.update("deployment_id")
+beta_managed_agents_deployment = anthropic.beta.deployments.update("depl_011CZkZcDH3vPqd7xnEfwTai")
 
 puts(beta_managed_agents_deployment)
 ```
@@ -81371,31 +88304,29 @@ puts(beta_managed_agents_deployment)
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -81411,19 +88342,20 @@ puts(beta_managed_agents_deployment)
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -81446,7 +88378,7 @@ Archive Deployment
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -81498,11 +88430,19 @@ Archive Deployment
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -82043,7 +88983,7 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-beta_managed_agents_deployment = anthropic.beta.deployments.archive("deployment_id")
+beta_managed_agents_deployment = anthropic.beta.deployments.archive("depl_011CZkZcDH3vPqd7xnEfwTai")
 
 puts(beta_managed_agents_deployment)
 ```
@@ -82052,31 +88992,29 @@ puts(beta_managed_agents_deployment)
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -82092,19 +89030,20 @@ puts(beta_managed_agents_deployment)
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -82127,7 +89066,7 @@ Run Deployment Now
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -82179,11 +89118,19 @@ Run Deployment Now
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -82450,7 +89397,7 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-beta_managed_agents_deployment_run = anthropic.beta.deployments.run("deployment_id")
+beta_managed_agents_deployment_run = anthropic.beta.deployments.run("depl_011CZkZcDH3vPqd7xnEfwTai")
 
 puts(beta_managed_agents_deployment_run)
 ```
@@ -82498,7 +89445,7 @@ Pause Deployment
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -82550,11 +89497,19 @@ Pause Deployment
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -83095,7 +90050,7 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-beta_managed_agents_deployment = anthropic.beta.deployments.pause("deployment_id")
+beta_managed_agents_deployment = anthropic.beta.deployments.pause("depl_011CZkZcDH3vPqd7xnEfwTai")
 
 puts(beta_managed_agents_deployment)
 ```
@@ -83104,31 +90059,29 @@ puts(beta_managed_agents_deployment)
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -83144,19 +90097,20 @@ puts(beta_managed_agents_deployment)
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -83179,7 +90133,7 @@ Unpause Deployment
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -83231,11 +90185,19 @@ Unpause Deployment
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -83776,7 +90738,7 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-beta_managed_agents_deployment = anthropic.beta.deployments.unpause("deployment_id")
+beta_managed_agents_deployment = anthropic.beta.deployments.unpause("depl_011CZkZcDH3vPqd7xnEfwTai")
 
 puts(beta_managed_agents_deployment)
 ```
@@ -83785,31 +90747,29 @@ puts(beta_managed_agents_deployment)
 
 ```json
 {
-  "id": "id",
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
   "agent": {
-    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
     "type": "agent",
     "version": 1
   },
-  "archived_at": "2019-12-27T18:11:19.117Z",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "description": "description",
-  "environment_id": "environment_id",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
   "initial_events": [
     {
       "content": [
         {
-          "text": "Where is my order #1234?",
+          "text": "Compile yesterday's orders into report.md.",
           "type": "text"
         }
       ],
       "type": "user.message"
     }
   ],
-  "metadata": {
-    "foo": "string"
-  },
-  "name": "name",
+  "metadata": {},
+  "name": "Daily order report",
   "paused_reason": {
     "type": "manual"
   },
@@ -83825,19 +90785,20 @@ puts(beta_managed_agents_deployment)
     }
   ],
   "schedule": {
-    "expression": "x",
-    "timezone": "x",
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
     "type": "cron",
-    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "last_run_at": "2026-03-16T16:00:09Z",
     "upcoming_runs_at": [
-      "2019-12-27T18:11:19.117Z"
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
     ]
   },
   "status": "active",
   "type": "deployment",
-  "updated_at": "2019-12-27T18:11:19.117Z",
+  "updated_at": "2026-03-15T10:00:00Z",
   "vault_ids": [
-    "string"
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
   ]
 }
 ```
@@ -85908,7 +92869,7 @@ List Deployment Runs
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -85960,11 +92921,19 @@ List Deployment Runs
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -86284,7 +93253,7 @@ Get Deployment Run
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -86336,11 +93305,19 @@ Get Deployment Run
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -87207,7 +94184,7 @@ Create Vault
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -87259,11 +94236,19 @@ Create Vault
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -87355,7 +94340,7 @@ List Vaults
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -87407,11 +94392,19 @@ List Vaults
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -87498,7 +94491,7 @@ Get Vault
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -87550,11 +94543,19 @@ Get Vault
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -87644,7 +94645,7 @@ Update Vault
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -87696,11 +94697,19 @@ Update Vault
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -87782,7 +94791,7 @@ Delete Vault
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -87834,11 +94843,19 @@ Delete Vault
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -87893,7 +94910,7 @@ Archive Vault
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -87945,11 +94962,19 @@ Archive Vault
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -88217,6 +95242,18 @@ Create Credential
 
       - `:environment_variable`
 
+    - `injection_location: BetaManagedAgentsInjectionLocationParams`
+
+      Where in the outbound request the secret value may be substituted.
+
+      - `body: bool`
+
+        Substitute when the placeholder appears in the request body.
+
+      - `header: bool`
+
+        Substitute when the placeholder appears in a request header value.
+
 - `display_name: String`
 
   Human-readable name for the credential. Up to 255 characters.
@@ -88231,7 +95268,7 @@ Create Credential
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -88283,11 +95320,19 @@ Create Credential
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -88386,6 +95431,18 @@ Create Credential
     - `class BetaManagedAgentsEnvironmentVariableAuthResponse`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: bool`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: bool`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -88513,7 +95570,7 @@ List Credentials
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -88565,11 +95622,19 @@ List Credentials
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -88668,6 +95733,18 @@ List Credentials
     - `class BetaManagedAgentsEnvironmentVariableAuthResponse`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: bool`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: bool`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -88783,7 +95860,7 @@ Get Credential
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -88835,11 +95912,19 @@ Get Credential
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -88938,6 +96023,18 @@ Get Credential
     - `class BetaManagedAgentsEnvironmentVariableAuthResponse`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: bool`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: bool`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -89125,6 +96222,18 @@ Update Credential
 
       - `:environment_variable`
 
+    - `injection_location: BetaManagedAgentsInjectionLocationUpdateParams`
+
+      Updated injection location.
+
+      - `body: bool`
+
+        Substitute when the placeholder appears in the request body.
+
+      - `header: bool`
+
+        Substitute when the placeholder appears in a request header value.
+
     - `networking: BetaManagedAgentsCredentialNetworkingParams`
 
       Updated networking scope. Full replacement.
@@ -89167,7 +96276,7 @@ Update Credential
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -89219,11 +96328,19 @@ Update Credential
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -89322,6 +96439,18 @@ Update Credential
     - `class BetaManagedAgentsEnvironmentVariableAuthResponse`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: bool`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: bool`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -89435,7 +96564,7 @@ Delete Credential
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -89487,11 +96616,19 @@ Delete Credential
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -89551,7 +96688,7 @@ Archive Credential
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -89603,11 +96740,19 @@ Archive Credential
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -89706,6 +96851,18 @@ Archive Credential
     - `class BetaManagedAgentsEnvironmentVariableAuthResponse`
 
       Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: bool`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: bool`
+
+          Whether the placeholder is substituted in request header values.
 
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
@@ -89819,7 +96976,7 @@ Validate Credential
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -89871,11 +97028,19 @@ Validate Credential
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -90107,6 +97272,18 @@ puts(beta_managed_agents_credential_validation)
 
       Environment variable credential details. The secret value is never returned.
 
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: bool`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: bool`
+
+          Whether the placeholder is substituted in request header values.
+
       - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
         Outbound hosts the secret value is substituted on.
@@ -90305,6 +97482,18 @@ puts(beta_managed_agents_credential_validation)
 
   Environment variable credential details. The secret value is never returned.
 
+  - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+    Where in the outbound request the secret value is substituted.
+
+    - `body: bool`
+
+      Whether the placeholder is substituted in the request body.
+
+    - `header: bool`
+
+      Whether the placeholder is substituted in request header values.
+
   - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
     Outbound hosts the secret value is substituted on.
@@ -90379,6 +97568,18 @@ puts(beta_managed_agents_credential_validation)
 
     - `:environment_variable`
 
+  - `injection_location: BetaManagedAgentsInjectionLocationParams`
+
+    Where in the outbound request the secret value may be substituted.
+
+    - `body: bool`
+
+      Substitute when the placeholder appears in the request body.
+
+    - `header: bool`
+
+      Substitute when the placeholder appears in a request header value.
+
 ### Beta Managed Agents Environment Variable Update Params
 
 - `class BetaManagedAgentsEnvironmentVariableUpdateParams`
@@ -90388,6 +97589,18 @@ puts(beta_managed_agents_credential_validation)
   - `type: :environment_variable`
 
     - `:environment_variable`
+
+  - `injection_location: BetaManagedAgentsInjectionLocationUpdateParams`
+
+    Updated injection location.
+
+    - `body: bool`
+
+      Substitute when the placeholder appears in the request body.
+
+    - `header: bool`
+
+      Substitute when the placeholder appears in a request header value.
 
   - `networking: BetaManagedAgentsCredentialNetworkingParams`
 
@@ -90416,6 +97629,48 @@ puts(beta_managed_agents_credential_validation)
   - `secret_value: String`
 
     Updated secret value.
+
+### Beta Managed Agents Injection Location Params
+
+- `class BetaManagedAgentsInjectionLocationParams`
+
+  Where in the outbound request the secret value may be substituted.
+
+  - `body: bool`
+
+    Substitute when the placeholder appears in the request body.
+
+  - `header: bool`
+
+    Substitute when the placeholder appears in a request header value.
+
+### Beta Managed Agents Injection Location Response
+
+- `class BetaManagedAgentsInjectionLocationResponse`
+
+  Where in the outbound request the secret value is substituted.
+
+  - `body: bool`
+
+    Whether the placeholder is substituted in the request body.
+
+  - `header: bool`
+
+    Whether the placeholder is substituted in request header values.
+
+### Beta Managed Agents Injection Location Update Params
+
+- `class BetaManagedAgentsInjectionLocationUpdateParams`
+
+  Updated injection location.
+
+  - `body: bool`
+
+    Substitute when the placeholder appears in the request body.
+
+  - `header: bool`
+
+    Substitute when the placeholder appears in a request header value.
 
 ### Beta Managed Agents Limited Credential Networking Params
 
@@ -91087,7 +98342,7 @@ Create a memory store
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -91139,11 +98394,19 @@ Create a memory store
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -91248,7 +98511,7 @@ List memory stores
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -91300,11 +98563,19 @@ List memory stores
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -91396,7 +98667,7 @@ Retrieve a memory store
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -91448,11 +98719,19 @@ Retrieve a memory store
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -91551,7 +98830,7 @@ Update a memory store
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -91603,11 +98882,19 @@ Update a memory store
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -91694,7 +98981,7 @@ Delete a memory store
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -91746,11 +99033,19 @@ Delete a memory store
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -91805,7 +99100,7 @@ Archive a memory store
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -91857,11 +99152,19 @@ Archive a memory store
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -92020,7 +99323,7 @@ Create a memory
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -92072,11 +99375,19 @@ Create a memory
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -92167,35 +99478,23 @@ List memories
 
 - `depth: Integer`
 
-  Query parameter for depth
+  `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
 
 - `limit: Integer`
 
-  Query parameter for limit
-
-- `order: :asc | :desc`
-
-  Query parameter for order
-
-  - `:asc`
-
-  - `:desc`
-
-- `order_by: String`
-
-  Query parameter for order_by
+  Maximum number of items to return per page. Must be between 1 and 100. Defaults to 20 when omitted. Capped at 20 when `view=full`. Both `memory` and `memory_prefix` items count toward the limit.
 
 - `page: String`
 
-  Query parameter for page
+  Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
 
 - `path_prefix: String`
 
-  Optional path prefix filter (raw string-prefix match; include a trailing slash for directory-scoped lists). This value appears in request URLs. Do not include secrets or personally identifiable information.
+  Optional path prefix filter. Must end with `/` (segment-aligned), e.g., `/notes/`. This value appears in request URLs. Do not include secrets or personally identifiable information.
 
 - `view: BetaManagedAgentsMemoryView`
 
-  Query parameter for view
+  Which projection of each `memory` to return. Defaults to `basic` (content omitted). `full` populates `content` on each item and caps `limit` at 20; use this as the bulk-read path for export and sync.
 
   - `:basic`
 
@@ -92207,7 +99506,7 @@ List memories
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -92259,11 +99558,19 @@ List memories
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -92389,7 +99696,7 @@ Retrieve a memory
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -92441,11 +99748,19 @@ Retrieve a memory
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -92570,7 +99885,7 @@ Update a memory
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -92622,11 +99937,19 @@ Update a memory
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -92727,7 +100050,7 @@ Delete a memory
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -92779,11 +100102,19 @@ Delete a memory
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -93200,7 +100531,7 @@ List memory versions
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -93252,11 +100583,19 @@ List memory versions
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -93429,7 +100768,7 @@ Retrieve a memory version
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -93481,11 +100820,19 @@ Retrieve a memory version
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -93648,7 +100995,7 @@ Redact a memory version
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -93700,11 +101047,19 @@ Redact a memory version
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -94067,7 +101422,7 @@ Upload File
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -94119,11 +101474,19 @@ Upload File
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -94241,7 +101604,7 @@ List Files
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -94293,11 +101656,19 @@ List Files
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -94408,7 +101779,7 @@ Download File
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -94460,11 +101831,19 @@ Download File
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -94502,7 +101881,7 @@ Get File Metadata
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -94554,11 +101933,19 @@ Get File Metadata
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -94662,7 +102049,7 @@ Delete File
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -94714,11 +102101,19 @@ Delete File
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -94853,17 +102248,17 @@ Create Skill
 
 ### Parameters
 
-- `display_title: String`
-
-  Display title for the skill.
-
-  This is a human-readable label that is not included in the prompt sent to the model.
-
 - `files: Array[String]`
 
   Files to upload for the skill.
 
   All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
+
+- `display_title: String`
+
+  Display title for the skill.
+
+  This is a human-readable label that is not included in the prompt sent to the model.
 
 - `betas: Array[AnthropicBeta]`
 
@@ -94871,7 +102266,7 @@ Create Skill
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -94923,11 +102318,19 @@ Create Skill
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -94981,7 +102384,7 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-skill = anthropic.beta.skills.create
+skill = anthropic.beta.skills.create(files: [StringIO.new("Example data")])
 
 puts(skill)
 ```
@@ -95037,7 +102440,7 @@ List Skills
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -95089,11 +102492,19 @@ List Skills
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -95194,7 +102605,7 @@ Get Skill
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -95246,11 +102657,19 @@ Get Skill
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -95345,7 +102764,7 @@ Delete Skill
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -95397,11 +102816,19 @@ Delete Skill
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -95623,7 +103050,7 @@ Create Skill Version
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -95675,11 +103102,19 @@ Create Skill Version
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -95736,7 +103171,7 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-version = anthropic.beta.skills.versions.create("skill_id")
+version = anthropic.beta.skills.versions.create("skill_id", files: [StringIO.new("Example data")])
 
 puts(version)
 ```
@@ -95788,7 +103223,7 @@ List Skill Versions
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -95840,11 +103275,19 @@ List Skill Versions
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -95955,7 +103398,7 @@ Download a skill version's content as a zip archive.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -96007,11 +103450,19 @@ Download a skill version's content as a zip archive.
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -96057,7 +103508,7 @@ Get Skill Version
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -96109,11 +103560,19 @@ Get Skill Version
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -96218,7 +103677,7 @@ Delete Skill Version
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -96270,11 +103729,19 @@ Delete Skill Version
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -96515,7 +103982,7 @@ Create User Profile
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -96567,11 +104034,19 @@ Create User Profile
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -96695,7 +104170,7 @@ List User Profiles
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -96747,11 +104222,19 @@ List User Profiles
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -96866,7 +104349,7 @@ Get User Profile
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -96918,11 +104401,19 @@ Get User Profile
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -97054,7 +104545,7 @@ Update User Profile
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -97106,11 +104597,19 @@ Update User Profile
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -97220,7 +104719,7 @@ Create Enrollment URL
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -97272,11 +104771,19 @@ Create Enrollment URL
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -97410,9 +104917,3441 @@ puts(beta_user_profile_enrollment_url)
 
     - `:rejected`
 
+# Dreams
+
+## Create a Dream
+
+`beta.dreams.create(**kwargs) -> BetaDream`
+
+**post** `/v1/dreams`
+
+Create a Dream
+
+### Parameters
+
+- `inputs: Array[BetaDreamInput]`
+
+  - `class BetaDreamMemoryStoreInput`
+
+    An input memory store the dream reads from. The dream never mutates this store.
+
+    - `memory_store_id: String`
+
+    - `type: :memory_store`
+
+      - `:memory_store`
+
+  - `class BetaDreamSessionsInput`
+
+    Input session transcripts the dream reads.
+
+    - `session_ids: Array[String]`
+
+    - `type: :sessions`
+
+      - `:sessions`
+
+- `model: String | BetaDreamModelConfigParam`
+
+  Model identifier and configuration applied to every pipeline stage.
+
+  - `String = String`
+
+  - `class BetaDreamModelConfigParam`
+
+    Model identifier and configuration applied to every pipeline stage.
+
+    - `id: String`
+
+      Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+    - `speed: :standard | :fast`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `:standard`
+
+      - `:fast`
+
+- `instructions: String`
+
+- `betas: Array[AnthropicBeta]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
+
+    - `:"message-batches-2024-09-24"`
+
+    - `:"prompt-caching-2024-07-31"`
+
+    - `:"computer-use-2024-10-22"`
+
+    - `:"computer-use-2025-01-24"`
+
+    - `:"pdfs-2024-09-25"`
+
+    - `:"token-counting-2024-11-01"`
+
+    - `:"token-efficient-tools-2025-02-19"`
+
+    - `:"output-128k-2025-02-19"`
+
+    - `:"files-api-2025-04-14"`
+
+    - `:"mcp-client-2025-04-04"`
+
+    - `:"mcp-client-2025-11-20"`
+
+    - `:"dev-full-thinking-2025-05-14"`
+
+    - `:"interleaved-thinking-2025-05-14"`
+
+    - `:"code-execution-2025-05-22"`
+
+    - `:"extended-cache-ttl-2025-04-11"`
+
+    - `:"context-1m-2025-08-07"`
+
+    - `:"context-management-2025-06-27"`
+
+    - `:"model-context-window-exceeded-2025-08-26"`
+
+    - `:"skills-2025-10-02"`
+
+    - `:"fast-mode-2026-02-01"`
+
+    - `:"output-300k-2026-03-24"`
+
+    - `:"user-profiles-2026-03-24"`
+
+    - `:"advisor-tool-2026-03-01"`
+
+    - `:"managed-agents-2026-04-01"`
+
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"dreaming-2026-04-21"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"server-side-fallback-2026-07-01"`
+
+    - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+### Returns
+
+- `class BetaDream`
+
+  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into a new output memory store. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `id: String`
+
+  - `archived_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `ended_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `error: BetaDreamError`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+    - `message: String`
+
+    - `type: String`
+
+  - `inputs: Array[BetaDreamInput]`
+
+    - `class BetaDreamMemoryStoreInput`
+
+      An input memory store the dream reads from. The dream never mutates this store.
+
+      - `memory_store_id: String`
+
+      - `type: :memory_store`
+
+        - `:memory_store`
+
+    - `class BetaDreamSessionsInput`
+
+      Input session transcripts the dream reads.
+
+      - `session_ids: Array[String]`
+
+      - `type: :sessions`
+
+        - `:sessions`
+
+  - `instructions: String`
+
+  - `model: BetaDreamModelConfig`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+    - `id: String`
+
+      Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+    - `speed: :standard | :fast`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `:standard`
+
+      - `:fast`
+
+  - `outputs: Array[BetaDreamOutput]`
+
+    - `memory_store_id: String`
+
+    - `type: :memory_store`
+
+      - `:memory_store`
+
+  - `session_id: String`
+
+  - `status: BetaDreamStatus`
+
+    Lifecycle status of a Dream.
+
+    - `:pending`
+
+    - `:running`
+
+    - `:completed`
+
+    - `:failed`
+
+    - `:canceled`
+
+  - `type: :dream`
+
+    - `:dream`
+
+  - `usage: BetaDreamUsage`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+    - `cache_creation_input_tokens: Integer`
+
+      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+    - `cache_read_input_tokens: Integer`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: Integer`
+
+      Total uncached input tokens consumed across every pipeline stage.
+
+    - `output_tokens: Integer`
+
+      Total output tokens generated across every pipeline stage.
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_dream = anthropic.beta.dreams.create(inputs: [{memory_store_id: "x", type: :memory_store}], model: "string")
+
+puts(beta_dream)
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## List Dreams
+
+`beta.dreams.list(**kwargs) -> PageCursor<BetaDream>`
+
+**get** `/v1/dreams`
+
+List Dreams
+
+### Parameters
+
+- `created_at_gt: Time`
+
+  Return dreams with `created_at` strictly after this timestamp (exclusive lower bound, RFC 3339). Unset applies no lower bound.
+
+- `created_at_lt: Time`
+
+  Return dreams with `created_at` strictly before this timestamp (exclusive upper bound, RFC 3339). Unset applies no upper bound.
+
+- `include_archived: bool`
+
+  Query parameter for include_archived
+
+- `limit: Integer`
+
+  Query parameter for limit
+
+- `page: String`
+
+  Query parameter for page
+
+- `statuses: Array[BetaDreamStatus]`
+
+  Filter by lifecycle status. Repeat the parameter to match any of multiple statuses. Empty applies no status filter.
+
+  - `:pending`
+
+  - `:running`
+
+  - `:completed`
+
+  - `:failed`
+
+  - `:canceled`
+
+- `betas: Array[AnthropicBeta]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
+
+    - `:"message-batches-2024-09-24"`
+
+    - `:"prompt-caching-2024-07-31"`
+
+    - `:"computer-use-2024-10-22"`
+
+    - `:"computer-use-2025-01-24"`
+
+    - `:"pdfs-2024-09-25"`
+
+    - `:"token-counting-2024-11-01"`
+
+    - `:"token-efficient-tools-2025-02-19"`
+
+    - `:"output-128k-2025-02-19"`
+
+    - `:"files-api-2025-04-14"`
+
+    - `:"mcp-client-2025-04-04"`
+
+    - `:"mcp-client-2025-11-20"`
+
+    - `:"dev-full-thinking-2025-05-14"`
+
+    - `:"interleaved-thinking-2025-05-14"`
+
+    - `:"code-execution-2025-05-22"`
+
+    - `:"extended-cache-ttl-2025-04-11"`
+
+    - `:"context-1m-2025-08-07"`
+
+    - `:"context-management-2025-06-27"`
+
+    - `:"model-context-window-exceeded-2025-08-26"`
+
+    - `:"skills-2025-10-02"`
+
+    - `:"fast-mode-2026-02-01"`
+
+    - `:"output-300k-2026-03-24"`
+
+    - `:"user-profiles-2026-03-24"`
+
+    - `:"advisor-tool-2026-03-01"`
+
+    - `:"managed-agents-2026-04-01"`
+
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"dreaming-2026-04-21"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"server-side-fallback-2026-07-01"`
+
+    - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+### Returns
+
+- `class BetaDream`
+
+  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into a new output memory store. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `id: String`
+
+  - `archived_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `ended_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `error: BetaDreamError`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+    - `message: String`
+
+    - `type: String`
+
+  - `inputs: Array[BetaDreamInput]`
+
+    - `class BetaDreamMemoryStoreInput`
+
+      An input memory store the dream reads from. The dream never mutates this store.
+
+      - `memory_store_id: String`
+
+      - `type: :memory_store`
+
+        - `:memory_store`
+
+    - `class BetaDreamSessionsInput`
+
+      Input session transcripts the dream reads.
+
+      - `session_ids: Array[String]`
+
+      - `type: :sessions`
+
+        - `:sessions`
+
+  - `instructions: String`
+
+  - `model: BetaDreamModelConfig`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+    - `id: String`
+
+      Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+    - `speed: :standard | :fast`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `:standard`
+
+      - `:fast`
+
+  - `outputs: Array[BetaDreamOutput]`
+
+    - `memory_store_id: String`
+
+    - `type: :memory_store`
+
+      - `:memory_store`
+
+  - `session_id: String`
+
+  - `status: BetaDreamStatus`
+
+    Lifecycle status of a Dream.
+
+    - `:pending`
+
+    - `:running`
+
+    - `:completed`
+
+    - `:failed`
+
+    - `:canceled`
+
+  - `type: :dream`
+
+    - `:dream`
+
+  - `usage: BetaDreamUsage`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+    - `cache_creation_input_tokens: Integer`
+
+      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+    - `cache_read_input_tokens: Integer`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: Integer`
+
+      Total uncached input tokens consumed across every pipeline stage.
+
+    - `output_tokens: Integer`
+
+      Total output tokens generated across every pipeline stage.
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+page = anthropic.beta.dreams.list
+
+puts(page)
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "ended_at": "2019-12-27T18:11:19.117Z",
+      "error": {
+        "message": "message",
+        "type": "type"
+      },
+      "inputs": [
+        {
+          "memory_store_id": "x",
+          "type": "memory_store"
+        }
+      ],
+      "instructions": "instructions",
+      "model": {
+        "id": "x",
+        "speed": "standard"
+      },
+      "outputs": [
+        {
+          "memory_store_id": "memory_store_id",
+          "type": "memory_store"
+        }
+      ],
+      "session_id": "session_id",
+      "status": "pending",
+      "type": "dream",
+      "usage": {
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      }
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Get a Dream
+
+`beta.dreams.retrieve(dream_id, **kwargs) -> BetaDream`
+
+**get** `/v1/dreams/{dream_id}`
+
+Get a Dream
+
+### Parameters
+
+- `dream_id: String`
+
+- `betas: Array[AnthropicBeta]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
+
+    - `:"message-batches-2024-09-24"`
+
+    - `:"prompt-caching-2024-07-31"`
+
+    - `:"computer-use-2024-10-22"`
+
+    - `:"computer-use-2025-01-24"`
+
+    - `:"pdfs-2024-09-25"`
+
+    - `:"token-counting-2024-11-01"`
+
+    - `:"token-efficient-tools-2025-02-19"`
+
+    - `:"output-128k-2025-02-19"`
+
+    - `:"files-api-2025-04-14"`
+
+    - `:"mcp-client-2025-04-04"`
+
+    - `:"mcp-client-2025-11-20"`
+
+    - `:"dev-full-thinking-2025-05-14"`
+
+    - `:"interleaved-thinking-2025-05-14"`
+
+    - `:"code-execution-2025-05-22"`
+
+    - `:"extended-cache-ttl-2025-04-11"`
+
+    - `:"context-1m-2025-08-07"`
+
+    - `:"context-management-2025-06-27"`
+
+    - `:"model-context-window-exceeded-2025-08-26"`
+
+    - `:"skills-2025-10-02"`
+
+    - `:"fast-mode-2026-02-01"`
+
+    - `:"output-300k-2026-03-24"`
+
+    - `:"user-profiles-2026-03-24"`
+
+    - `:"advisor-tool-2026-03-01"`
+
+    - `:"managed-agents-2026-04-01"`
+
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"dreaming-2026-04-21"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"server-side-fallback-2026-07-01"`
+
+    - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+### Returns
+
+- `class BetaDream`
+
+  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into a new output memory store. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `id: String`
+
+  - `archived_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `ended_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `error: BetaDreamError`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+    - `message: String`
+
+    - `type: String`
+
+  - `inputs: Array[BetaDreamInput]`
+
+    - `class BetaDreamMemoryStoreInput`
+
+      An input memory store the dream reads from. The dream never mutates this store.
+
+      - `memory_store_id: String`
+
+      - `type: :memory_store`
+
+        - `:memory_store`
+
+    - `class BetaDreamSessionsInput`
+
+      Input session transcripts the dream reads.
+
+      - `session_ids: Array[String]`
+
+      - `type: :sessions`
+
+        - `:sessions`
+
+  - `instructions: String`
+
+  - `model: BetaDreamModelConfig`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+    - `id: String`
+
+      Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+    - `speed: :standard | :fast`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `:standard`
+
+      - `:fast`
+
+  - `outputs: Array[BetaDreamOutput]`
+
+    - `memory_store_id: String`
+
+    - `type: :memory_store`
+
+      - `:memory_store`
+
+  - `session_id: String`
+
+  - `status: BetaDreamStatus`
+
+    Lifecycle status of a Dream.
+
+    - `:pending`
+
+    - `:running`
+
+    - `:completed`
+
+    - `:failed`
+
+    - `:canceled`
+
+  - `type: :dream`
+
+    - `:dream`
+
+  - `usage: BetaDreamUsage`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+    - `cache_creation_input_tokens: Integer`
+
+      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+    - `cache_read_input_tokens: Integer`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: Integer`
+
+      Total uncached input tokens consumed across every pipeline stage.
+
+    - `output_tokens: Integer`
+
+      Total output tokens generated across every pipeline stage.
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_dream = anthropic.beta.dreams.retrieve("dream_id")
+
+puts(beta_dream)
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## Cancel a Dream
+
+`beta.dreams.cancel(dream_id, **kwargs) -> BetaDream`
+
+**post** `/v1/dreams/{dream_id}/cancel`
+
+Cancel a Dream
+
+### Parameters
+
+- `dream_id: String`
+
+- `betas: Array[AnthropicBeta]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
+
+    - `:"message-batches-2024-09-24"`
+
+    - `:"prompt-caching-2024-07-31"`
+
+    - `:"computer-use-2024-10-22"`
+
+    - `:"computer-use-2025-01-24"`
+
+    - `:"pdfs-2024-09-25"`
+
+    - `:"token-counting-2024-11-01"`
+
+    - `:"token-efficient-tools-2025-02-19"`
+
+    - `:"output-128k-2025-02-19"`
+
+    - `:"files-api-2025-04-14"`
+
+    - `:"mcp-client-2025-04-04"`
+
+    - `:"mcp-client-2025-11-20"`
+
+    - `:"dev-full-thinking-2025-05-14"`
+
+    - `:"interleaved-thinking-2025-05-14"`
+
+    - `:"code-execution-2025-05-22"`
+
+    - `:"extended-cache-ttl-2025-04-11"`
+
+    - `:"context-1m-2025-08-07"`
+
+    - `:"context-management-2025-06-27"`
+
+    - `:"model-context-window-exceeded-2025-08-26"`
+
+    - `:"skills-2025-10-02"`
+
+    - `:"fast-mode-2026-02-01"`
+
+    - `:"output-300k-2026-03-24"`
+
+    - `:"user-profiles-2026-03-24"`
+
+    - `:"advisor-tool-2026-03-01"`
+
+    - `:"managed-agents-2026-04-01"`
+
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"dreaming-2026-04-21"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"server-side-fallback-2026-07-01"`
+
+    - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+### Returns
+
+- `class BetaDream`
+
+  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into a new output memory store. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `id: String`
+
+  - `archived_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `ended_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `error: BetaDreamError`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+    - `message: String`
+
+    - `type: String`
+
+  - `inputs: Array[BetaDreamInput]`
+
+    - `class BetaDreamMemoryStoreInput`
+
+      An input memory store the dream reads from. The dream never mutates this store.
+
+      - `memory_store_id: String`
+
+      - `type: :memory_store`
+
+        - `:memory_store`
+
+    - `class BetaDreamSessionsInput`
+
+      Input session transcripts the dream reads.
+
+      - `session_ids: Array[String]`
+
+      - `type: :sessions`
+
+        - `:sessions`
+
+  - `instructions: String`
+
+  - `model: BetaDreamModelConfig`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+    - `id: String`
+
+      Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+    - `speed: :standard | :fast`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `:standard`
+
+      - `:fast`
+
+  - `outputs: Array[BetaDreamOutput]`
+
+    - `memory_store_id: String`
+
+    - `type: :memory_store`
+
+      - `:memory_store`
+
+  - `session_id: String`
+
+  - `status: BetaDreamStatus`
+
+    Lifecycle status of a Dream.
+
+    - `:pending`
+
+    - `:running`
+
+    - `:completed`
+
+    - `:failed`
+
+    - `:canceled`
+
+  - `type: :dream`
+
+    - `:dream`
+
+  - `usage: BetaDreamUsage`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+    - `cache_creation_input_tokens: Integer`
+
+      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+    - `cache_read_input_tokens: Integer`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: Integer`
+
+      Total uncached input tokens consumed across every pipeline stage.
+
+    - `output_tokens: Integer`
+
+      Total output tokens generated across every pipeline stage.
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_dream = anthropic.beta.dreams.cancel("dream_id")
+
+puts(beta_dream)
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## Archive a Dream
+
+`beta.dreams.archive(dream_id, **kwargs) -> BetaDream`
+
+**post** `/v1/dreams/{dream_id}/archive`
+
+Archive a Dream
+
+### Parameters
+
+- `dream_id: String`
+
+- `betas: Array[AnthropicBeta]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
+
+    - `:"message-batches-2024-09-24"`
+
+    - `:"prompt-caching-2024-07-31"`
+
+    - `:"computer-use-2024-10-22"`
+
+    - `:"computer-use-2025-01-24"`
+
+    - `:"pdfs-2024-09-25"`
+
+    - `:"token-counting-2024-11-01"`
+
+    - `:"token-efficient-tools-2025-02-19"`
+
+    - `:"output-128k-2025-02-19"`
+
+    - `:"files-api-2025-04-14"`
+
+    - `:"mcp-client-2025-04-04"`
+
+    - `:"mcp-client-2025-11-20"`
+
+    - `:"dev-full-thinking-2025-05-14"`
+
+    - `:"interleaved-thinking-2025-05-14"`
+
+    - `:"code-execution-2025-05-22"`
+
+    - `:"extended-cache-ttl-2025-04-11"`
+
+    - `:"context-1m-2025-08-07"`
+
+    - `:"context-management-2025-06-27"`
+
+    - `:"model-context-window-exceeded-2025-08-26"`
+
+    - `:"skills-2025-10-02"`
+
+    - `:"fast-mode-2026-02-01"`
+
+    - `:"output-300k-2026-03-24"`
+
+    - `:"user-profiles-2026-03-24"`
+
+    - `:"advisor-tool-2026-03-01"`
+
+    - `:"managed-agents-2026-04-01"`
+
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"dreaming-2026-04-21"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"server-side-fallback-2026-07-01"`
+
+    - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+### Returns
+
+- `class BetaDream`
+
+  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into a new output memory store. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `id: String`
+
+  - `archived_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `ended_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `error: BetaDreamError`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+    - `message: String`
+
+    - `type: String`
+
+  - `inputs: Array[BetaDreamInput]`
+
+    - `class BetaDreamMemoryStoreInput`
+
+      An input memory store the dream reads from. The dream never mutates this store.
+
+      - `memory_store_id: String`
+
+      - `type: :memory_store`
+
+        - `:memory_store`
+
+    - `class BetaDreamSessionsInput`
+
+      Input session transcripts the dream reads.
+
+      - `session_ids: Array[String]`
+
+      - `type: :sessions`
+
+        - `:sessions`
+
+  - `instructions: String`
+
+  - `model: BetaDreamModelConfig`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+    - `id: String`
+
+      Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+    - `speed: :standard | :fast`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `:standard`
+
+      - `:fast`
+
+  - `outputs: Array[BetaDreamOutput]`
+
+    - `memory_store_id: String`
+
+    - `type: :memory_store`
+
+      - `:memory_store`
+
+  - `session_id: String`
+
+  - `status: BetaDreamStatus`
+
+    Lifecycle status of a Dream.
+
+    - `:pending`
+
+    - `:running`
+
+    - `:completed`
+
+    - `:failed`
+
+    - `:canceled`
+
+  - `type: :dream`
+
+    - `:dream`
+
+  - `usage: BetaDreamUsage`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+    - `cache_creation_input_tokens: Integer`
+
+      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+    - `cache_read_input_tokens: Integer`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: Integer`
+
+      Total uncached input tokens consumed across every pipeline stage.
+
+    - `output_tokens: Integer`
+
+      Total output tokens generated across every pipeline stage.
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_dream = anthropic.beta.dreams.archive("dream_id")
+
+puts(beta_dream)
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## Domain Types
+
+### Beta Dream
+
+- `class BetaDream`
+
+  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into a new output memory store. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `id: String`
+
+  - `archived_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `ended_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `error: BetaDreamError`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+    - `message: String`
+
+    - `type: String`
+
+  - `inputs: Array[BetaDreamInput]`
+
+    - `class BetaDreamMemoryStoreInput`
+
+      An input memory store the dream reads from. The dream never mutates this store.
+
+      - `memory_store_id: String`
+
+      - `type: :memory_store`
+
+        - `:memory_store`
+
+    - `class BetaDreamSessionsInput`
+
+      Input session transcripts the dream reads.
+
+      - `session_ids: Array[String]`
+
+      - `type: :sessions`
+
+        - `:sessions`
+
+  - `instructions: String`
+
+  - `model: BetaDreamModelConfig`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+    - `id: String`
+
+      Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+    - `speed: :standard | :fast`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `:standard`
+
+      - `:fast`
+
+  - `outputs: Array[BetaDreamOutput]`
+
+    - `memory_store_id: String`
+
+    - `type: :memory_store`
+
+      - `:memory_store`
+
+  - `session_id: String`
+
+  - `status: BetaDreamStatus`
+
+    Lifecycle status of a Dream.
+
+    - `:pending`
+
+    - `:running`
+
+    - `:completed`
+
+    - `:failed`
+
+    - `:canceled`
+
+  - `type: :dream`
+
+    - `:dream`
+
+  - `usage: BetaDreamUsage`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+    - `cache_creation_input_tokens: Integer`
+
+      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+    - `cache_read_input_tokens: Integer`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: Integer`
+
+      Total uncached input tokens consumed across every pipeline stage.
+
+    - `output_tokens: Integer`
+
+      Total output tokens generated across every pipeline stage.
+
+### Beta Dream Error
+
+- `class BetaDreamError`
+
+  Failure detail for a Dream whose `status` is `failed`.
+
+  - `message: String`
+
+  - `type: String`
+
+### Beta Dream Input
+
+- `BetaDreamInput = BetaDreamMemoryStoreInput | BetaDreamSessionsInput`
+
+  An input memory store the dream reads from. The dream never mutates this store.
+
+  - `class BetaDreamMemoryStoreInput`
+
+    An input memory store the dream reads from. The dream never mutates this store.
+
+    - `memory_store_id: String`
+
+    - `type: :memory_store`
+
+      - `:memory_store`
+
+  - `class BetaDreamSessionsInput`
+
+    Input session transcripts the dream reads.
+
+    - `session_ids: Array[String]`
+
+    - `type: :sessions`
+
+      - `:sessions`
+
+### Beta Dream Memory Store Input
+
+- `class BetaDreamMemoryStoreInput`
+
+  An input memory store the dream reads from. The dream never mutates this store.
+
+  - `memory_store_id: String`
+
+  - `type: :memory_store`
+
+    - `:memory_store`
+
+### Beta Dream Memory Store Output
+
+- `class BetaDreamMemoryStoreOutput`
+
+  An output memory store the dream writes consolidated memories into.
+
+  - `memory_store_id: String`
+
+  - `type: :memory_store`
+
+    - `:memory_store`
+
+### Beta Dream Model Config
+
+- `class BetaDreamModelConfig`
+
+  Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+  - `id: String`
+
+    Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+  - `speed: :standard | :fast`
+
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+    - `:standard`
+
+    - `:fast`
+
+### Beta Dream Model Config Param
+
+- `class BetaDreamModelConfigParam`
+
+  Model identifier and configuration applied to every pipeline stage.
+
+  - `id: String`
+
+    Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+  - `speed: :standard | :fast`
+
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+    - `:standard`
+
+    - `:fast`
+
+### Beta Dream Output
+
+- `class BetaDreamOutput`
+
+  An output memory store the dream writes consolidated memories into.
+
+  - `memory_store_id: String`
+
+  - `type: :memory_store`
+
+    - `:memory_store`
+
+### Beta Dream Sessions Input
+
+- `class BetaDreamSessionsInput`
+
+  Input session transcripts the dream reads.
+
+  - `session_ids: Array[String]`
+
+  - `type: :sessions`
+
+    - `:sessions`
+
+### Beta Dream Status
+
+- `BetaDreamStatus = :pending | :running | :completed | 2 more`
+
+  Lifecycle status of a Dream.
+
+  - `:pending`
+
+  - `:running`
+
+  - `:completed`
+
+  - `:failed`
+
+  - `:canceled`
+
+### Beta Dream Usage
+
+- `class BetaDreamUsage`
+
+  Cumulative token usage for the dream across every pipeline stage.
+
+  - `cache_creation_input_tokens: Integer`
+
+    Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+  - `cache_read_input_tokens: Integer`
+
+    Total tokens read from prompt cache.
+
+  - `input_tokens: Integer`
+
+    Total uncached input tokens consumed across every pipeline stage.
+
+  - `output_tokens: Integer`
+
+    Total output tokens generated across every pipeline stage.
+
+# Tunnels
+
+## Create Tunnel
+
+`beta.tunnels.create(**kwargs) -> BetaTunnel`
+
+**post** `/v1/tunnels`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel; it is not idempotent. The new tunnel rejects MCP traffic until at least one CA certificate is added.
+
+### Parameters
+
+- `display_name: String`
+
+  Optional human-readable name for the tunnel (1-255 characters).
+
+- `betas: Array[AnthropicBeta]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
+
+    - `:"message-batches-2024-09-24"`
+
+    - `:"prompt-caching-2024-07-31"`
+
+    - `:"computer-use-2024-10-22"`
+
+    - `:"computer-use-2025-01-24"`
+
+    - `:"pdfs-2024-09-25"`
+
+    - `:"token-counting-2024-11-01"`
+
+    - `:"token-efficient-tools-2025-02-19"`
+
+    - `:"output-128k-2025-02-19"`
+
+    - `:"files-api-2025-04-14"`
+
+    - `:"mcp-client-2025-04-04"`
+
+    - `:"mcp-client-2025-11-20"`
+
+    - `:"dev-full-thinking-2025-05-14"`
+
+    - `:"interleaved-thinking-2025-05-14"`
+
+    - `:"code-execution-2025-05-22"`
+
+    - `:"extended-cache-ttl-2025-04-11"`
+
+    - `:"context-1m-2025-08-07"`
+
+    - `:"context-management-2025-06-27"`
+
+    - `:"model-context-window-exceeded-2025-08-26"`
+
+    - `:"skills-2025-10-02"`
+
+    - `:"fast-mode-2026-02-01"`
+
+    - `:"output-300k-2026-03-24"`
+
+    - `:"user-profiles-2026-03-24"`
+
+    - `:"advisor-tool-2026-03-01"`
+
+    - `:"managed-agents-2026-04-01"`
+
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"dreaming-2026-04-21"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"server-side-fallback-2026-07-01"`
+
+    - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+### Returns
+
+- `class BetaTunnel`
+
+  An MCP tunnel.
+
+  - `id: String`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: String`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: String`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `type: :tunnel`
+
+    - `:tunnel`
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_tunnel = anthropic.beta.tunnels.create
+
+puts(beta_tunnel)
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "display_name": "display_name",
+  "domain": "domain",
+  "type": "tunnel"
+}
+```
+
+## Get Tunnel
+
+`beta.tunnels.retrieve(tunnel_id, **kwargs) -> BetaTunnel`
+
+**get** `/v1/tunnels/{tunnel_id}`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Fetches a tunnel by ID.
+
+### Parameters
+
+- `tunnel_id: String`
+
+- `betas: Array[AnthropicBeta]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
+
+    - `:"message-batches-2024-09-24"`
+
+    - `:"prompt-caching-2024-07-31"`
+
+    - `:"computer-use-2024-10-22"`
+
+    - `:"computer-use-2025-01-24"`
+
+    - `:"pdfs-2024-09-25"`
+
+    - `:"token-counting-2024-11-01"`
+
+    - `:"token-efficient-tools-2025-02-19"`
+
+    - `:"output-128k-2025-02-19"`
+
+    - `:"files-api-2025-04-14"`
+
+    - `:"mcp-client-2025-04-04"`
+
+    - `:"mcp-client-2025-11-20"`
+
+    - `:"dev-full-thinking-2025-05-14"`
+
+    - `:"interleaved-thinking-2025-05-14"`
+
+    - `:"code-execution-2025-05-22"`
+
+    - `:"extended-cache-ttl-2025-04-11"`
+
+    - `:"context-1m-2025-08-07"`
+
+    - `:"context-management-2025-06-27"`
+
+    - `:"model-context-window-exceeded-2025-08-26"`
+
+    - `:"skills-2025-10-02"`
+
+    - `:"fast-mode-2026-02-01"`
+
+    - `:"output-300k-2026-03-24"`
+
+    - `:"user-profiles-2026-03-24"`
+
+    - `:"advisor-tool-2026-03-01"`
+
+    - `:"managed-agents-2026-04-01"`
+
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"dreaming-2026-04-21"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"server-side-fallback-2026-07-01"`
+
+    - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+### Returns
+
+- `class BetaTunnel`
+
+  An MCP tunnel.
+
+  - `id: String`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: String`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: String`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `type: :tunnel`
+
+    - `:tunnel`
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_tunnel = anthropic.beta.tunnels.retrieve("tunnel_id")
+
+puts(beta_tunnel)
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "display_name": "display_name",
+  "domain": "domain",
+  "type": "tunnel"
+}
+```
+
+## List Tunnels
+
+`beta.tunnels.list(**kwargs) -> PageCursor<BetaTunnel>`
+
+**get** `/v1/tunnels`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Lists tunnels. Results are ordered by creation time, newest first; archived tunnels are excluded unless include_archived is set.
+
+### Parameters
+
+- `include_archived: bool`
+
+  Whether to include archived tunnels in the results. Defaults to false.
+
+- `limit: Integer`
+
+  Maximum number of tunnels to return per page. Defaults to 20, maximum 1000.
+
+- `page: String`
+
+  Opaque pagination cursor from a previous `list_tunnels` response.
+
+- `betas: Array[AnthropicBeta]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
+
+    - `:"message-batches-2024-09-24"`
+
+    - `:"prompt-caching-2024-07-31"`
+
+    - `:"computer-use-2024-10-22"`
+
+    - `:"computer-use-2025-01-24"`
+
+    - `:"pdfs-2024-09-25"`
+
+    - `:"token-counting-2024-11-01"`
+
+    - `:"token-efficient-tools-2025-02-19"`
+
+    - `:"output-128k-2025-02-19"`
+
+    - `:"files-api-2025-04-14"`
+
+    - `:"mcp-client-2025-04-04"`
+
+    - `:"mcp-client-2025-11-20"`
+
+    - `:"dev-full-thinking-2025-05-14"`
+
+    - `:"interleaved-thinking-2025-05-14"`
+
+    - `:"code-execution-2025-05-22"`
+
+    - `:"extended-cache-ttl-2025-04-11"`
+
+    - `:"context-1m-2025-08-07"`
+
+    - `:"context-management-2025-06-27"`
+
+    - `:"model-context-window-exceeded-2025-08-26"`
+
+    - `:"skills-2025-10-02"`
+
+    - `:"fast-mode-2026-02-01"`
+
+    - `:"output-300k-2026-03-24"`
+
+    - `:"user-profiles-2026-03-24"`
+
+    - `:"advisor-tool-2026-03-01"`
+
+    - `:"managed-agents-2026-04-01"`
+
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"dreaming-2026-04-21"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"server-side-fallback-2026-07-01"`
+
+    - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+### Returns
+
+- `class BetaTunnel`
+
+  An MCP tunnel.
+
+  - `id: String`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: String`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: String`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `type: :tunnel`
+
+    - `:tunnel`
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+page = anthropic.beta.tunnels.list
+
+puts(page)
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "display_name": "display_name",
+      "domain": "domain",
+      "type": "tunnel"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Archive Tunnel
+
+`beta.tunnels.archive(tunnel_id, **kwargs) -> BetaTunnel`
+
+**post** `/v1/tunnels/{tunnel_id}/archive`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Archives a tunnel. Archival is irreversible: every non-archived certificate on the tunnel is archived in the same operation, the hostname is retired and never re-allocated, and the tunnel token is invalidated. Retrying against an already-archived tunnel returns the existing record unchanged.
+
+### Parameters
+
+- `tunnel_id: String`
+
+- `betas: Array[AnthropicBeta]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
+
+    - `:"message-batches-2024-09-24"`
+
+    - `:"prompt-caching-2024-07-31"`
+
+    - `:"computer-use-2024-10-22"`
+
+    - `:"computer-use-2025-01-24"`
+
+    - `:"pdfs-2024-09-25"`
+
+    - `:"token-counting-2024-11-01"`
+
+    - `:"token-efficient-tools-2025-02-19"`
+
+    - `:"output-128k-2025-02-19"`
+
+    - `:"files-api-2025-04-14"`
+
+    - `:"mcp-client-2025-04-04"`
+
+    - `:"mcp-client-2025-11-20"`
+
+    - `:"dev-full-thinking-2025-05-14"`
+
+    - `:"interleaved-thinking-2025-05-14"`
+
+    - `:"code-execution-2025-05-22"`
+
+    - `:"extended-cache-ttl-2025-04-11"`
+
+    - `:"context-1m-2025-08-07"`
+
+    - `:"context-management-2025-06-27"`
+
+    - `:"model-context-window-exceeded-2025-08-26"`
+
+    - `:"skills-2025-10-02"`
+
+    - `:"fast-mode-2026-02-01"`
+
+    - `:"output-300k-2026-03-24"`
+
+    - `:"user-profiles-2026-03-24"`
+
+    - `:"advisor-tool-2026-03-01"`
+
+    - `:"managed-agents-2026-04-01"`
+
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"dreaming-2026-04-21"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"server-side-fallback-2026-07-01"`
+
+    - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+### Returns
+
+- `class BetaTunnel`
+
+  An MCP tunnel.
+
+  - `id: String`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: String`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: String`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `type: :tunnel`
+
+    - `:tunnel`
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_tunnel = anthropic.beta.tunnels.archive("tunnel_id")
+
+puts(beta_tunnel)
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "display_name": "display_name",
+  "domain": "domain",
+  "type": "tunnel"
+}
+```
+
+## Reveal Tunnel Token
+
+`beta.tunnels.reveal_token(tunnel_id, **kwargs) -> BetaTunnelToken`
+
+**post** `/v1/tunnels/{tunnel_id}/reveal_token`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Reveals a tunnel's connector token. The value is fetched live on each call; Anthropic does not store it. Repeated calls return the same value until the token is rotated. Exposed as POST so the token does not appear in intermediary access logs.
+
+### Parameters
+
+- `tunnel_id: String`
+
+- `betas: Array[AnthropicBeta]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
+
+    - `:"message-batches-2024-09-24"`
+
+    - `:"prompt-caching-2024-07-31"`
+
+    - `:"computer-use-2024-10-22"`
+
+    - `:"computer-use-2025-01-24"`
+
+    - `:"pdfs-2024-09-25"`
+
+    - `:"token-counting-2024-11-01"`
+
+    - `:"token-efficient-tools-2025-02-19"`
+
+    - `:"output-128k-2025-02-19"`
+
+    - `:"files-api-2025-04-14"`
+
+    - `:"mcp-client-2025-04-04"`
+
+    - `:"mcp-client-2025-11-20"`
+
+    - `:"dev-full-thinking-2025-05-14"`
+
+    - `:"interleaved-thinking-2025-05-14"`
+
+    - `:"code-execution-2025-05-22"`
+
+    - `:"extended-cache-ttl-2025-04-11"`
+
+    - `:"context-1m-2025-08-07"`
+
+    - `:"context-management-2025-06-27"`
+
+    - `:"model-context-window-exceeded-2025-08-26"`
+
+    - `:"skills-2025-10-02"`
+
+    - `:"fast-mode-2026-02-01"`
+
+    - `:"output-300k-2026-03-24"`
+
+    - `:"user-profiles-2026-03-24"`
+
+    - `:"advisor-tool-2026-03-01"`
+
+    - `:"managed-agents-2026-04-01"`
+
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"dreaming-2026-04-21"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"server-side-fallback-2026-07-01"`
+
+    - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+### Returns
+
+- `class BetaTunnelToken`
+
+  A tunnel's connector token.
+
+  - `id: String`
+
+    Stable identifier for the current token value. Changes when the token is rotated.
+
+  - `tunnel_token: String`
+
+    The connector token used to run the tunnel. Treat as a credential.
+
+  - `type: :tunnel_token`
+
+    - `:tunnel_token`
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_tunnel_token = anthropic.beta.tunnels.reveal_token("tunnel_id")
+
+puts(beta_tunnel_token)
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "tunnel_token": "tunnel_token",
+  "type": "tunnel_token"
+}
+```
+
+## Rotate Tunnel Token
+
+`beta.tunnels.rotate_token(tunnel_id, **kwargs) -> BetaTunnelToken`
+
+**post** `/v1/tunnels/{tunnel_id}/rotate_token`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Rotates a tunnel's connector token. Rotation invalidates the current token for new connections and returns a fresh value; established connections are not severed. A connector restarted after rotation must use the new value.
+
+### Parameters
+
+- `tunnel_id: String`
+
+- `reason: String`
+
+  Optional free-text reason for the rotation, recorded for audit.
+
+- `betas: Array[AnthropicBeta]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
+
+    - `:"message-batches-2024-09-24"`
+
+    - `:"prompt-caching-2024-07-31"`
+
+    - `:"computer-use-2024-10-22"`
+
+    - `:"computer-use-2025-01-24"`
+
+    - `:"pdfs-2024-09-25"`
+
+    - `:"token-counting-2024-11-01"`
+
+    - `:"token-efficient-tools-2025-02-19"`
+
+    - `:"output-128k-2025-02-19"`
+
+    - `:"files-api-2025-04-14"`
+
+    - `:"mcp-client-2025-04-04"`
+
+    - `:"mcp-client-2025-11-20"`
+
+    - `:"dev-full-thinking-2025-05-14"`
+
+    - `:"interleaved-thinking-2025-05-14"`
+
+    - `:"code-execution-2025-05-22"`
+
+    - `:"extended-cache-ttl-2025-04-11"`
+
+    - `:"context-1m-2025-08-07"`
+
+    - `:"context-management-2025-06-27"`
+
+    - `:"model-context-window-exceeded-2025-08-26"`
+
+    - `:"skills-2025-10-02"`
+
+    - `:"fast-mode-2026-02-01"`
+
+    - `:"output-300k-2026-03-24"`
+
+    - `:"user-profiles-2026-03-24"`
+
+    - `:"advisor-tool-2026-03-01"`
+
+    - `:"managed-agents-2026-04-01"`
+
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"dreaming-2026-04-21"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"server-side-fallback-2026-07-01"`
+
+    - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+### Returns
+
+- `class BetaTunnelToken`
+
+  A tunnel's connector token.
+
+  - `id: String`
+
+    Stable identifier for the current token value. Changes when the token is rotated.
+
+  - `tunnel_token: String`
+
+    The connector token used to run the tunnel. Treat as a credential.
+
+  - `type: :tunnel_token`
+
+    - `:tunnel_token`
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_tunnel_token = anthropic.beta.tunnels.rotate_token("tunnel_id")
+
+puts(beta_tunnel_token)
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "tunnel_token": "tunnel_token",
+  "type": "tunnel_token"
+}
+```
+
+## Domain Types
+
+### Beta Tunnel
+
+- `class BetaTunnel`
+
+  An MCP tunnel.
+
+  - `id: String`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: String`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: String`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `type: :tunnel`
+
+    - `:tunnel`
+
+### Beta Tunnel Token
+
+- `class BetaTunnelToken`
+
+  A tunnel's connector token.
+
+  - `id: String`
+
+    Stable identifier for the current token value. Changes when the token is rotated.
+
+  - `tunnel_token: String`
+
+    The connector token used to run the tunnel. Treat as a credential.
+
+  - `type: :tunnel_token`
+
+    - `:tunnel_token`
+
+# Certificates
+
+## Create Tunnel Certificate
+
+`beta.tunnels.certificates.create(tunnel_id, **kwargs) -> BetaTunnelCertificate`
+
+**post** `/v1/tunnels/{tunnel_id}/certificates`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's server certificate against this CA when it terminates the inner TLS session. A tunnel holds at most two non-archived certificates.
+
+### Parameters
+
+- `tunnel_id: String`
+
+- `ca_certificate_pem: String`
+
+  PEM-encoded X.509 CA certificate. Must contain exactly one certificate and no private-key material. Maximum 8KB.
+
+- `betas: Array[AnthropicBeta]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
+
+    - `:"message-batches-2024-09-24"`
+
+    - `:"prompt-caching-2024-07-31"`
+
+    - `:"computer-use-2024-10-22"`
+
+    - `:"computer-use-2025-01-24"`
+
+    - `:"pdfs-2024-09-25"`
+
+    - `:"token-counting-2024-11-01"`
+
+    - `:"token-efficient-tools-2025-02-19"`
+
+    - `:"output-128k-2025-02-19"`
+
+    - `:"files-api-2025-04-14"`
+
+    - `:"mcp-client-2025-04-04"`
+
+    - `:"mcp-client-2025-11-20"`
+
+    - `:"dev-full-thinking-2025-05-14"`
+
+    - `:"interleaved-thinking-2025-05-14"`
+
+    - `:"code-execution-2025-05-22"`
+
+    - `:"extended-cache-ttl-2025-04-11"`
+
+    - `:"context-1m-2025-08-07"`
+
+    - `:"context-management-2025-06-27"`
+
+    - `:"model-context-window-exceeded-2025-08-26"`
+
+    - `:"skills-2025-10-02"`
+
+    - `:"fast-mode-2026-02-01"`
+
+    - `:"output-300k-2026-03-24"`
+
+    - `:"user-profiles-2026-03-24"`
+
+    - `:"advisor-tool-2026-03-01"`
+
+    - `:"managed-agents-2026-04-01"`
+
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"dreaming-2026-04-21"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"server-side-fallback-2026-07-01"`
+
+    - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+### Returns
+
+- `class BetaTunnelCertificate`
+
+  A CA certificate attached to a tunnel.
+
+  - `id: String`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `archived_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `expires_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `fingerprint: String`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `tunnel_id: String`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `type: :tunnel_certificate`
+
+    - `:tunnel_certificate`
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_tunnel_certificate = anthropic.beta.tunnels.certificates.create("tunnel_id", ca_certificate_pem: "ca_certificate_pem")
+
+puts(beta_tunnel_certificate)
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "expires_at": "2019-12-27T18:11:19.117Z",
+  "fingerprint": "fingerprint",
+  "tunnel_id": "tunnel_id",
+  "type": "tunnel_certificate"
+}
+```
+
+## Get Tunnel Certificate
+
+`beta.tunnels.certificates.retrieve(certificate_id, **kwargs) -> BetaTunnelCertificate`
+
+**get** `/v1/tunnels/{tunnel_id}/certificates/{certificate_id}`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Fetches a tunnel certificate by ID.
+
+### Parameters
+
+- `tunnel_id: String`
+
+- `certificate_id: String`
+
+- `betas: Array[AnthropicBeta]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
+
+    - `:"message-batches-2024-09-24"`
+
+    - `:"prompt-caching-2024-07-31"`
+
+    - `:"computer-use-2024-10-22"`
+
+    - `:"computer-use-2025-01-24"`
+
+    - `:"pdfs-2024-09-25"`
+
+    - `:"token-counting-2024-11-01"`
+
+    - `:"token-efficient-tools-2025-02-19"`
+
+    - `:"output-128k-2025-02-19"`
+
+    - `:"files-api-2025-04-14"`
+
+    - `:"mcp-client-2025-04-04"`
+
+    - `:"mcp-client-2025-11-20"`
+
+    - `:"dev-full-thinking-2025-05-14"`
+
+    - `:"interleaved-thinking-2025-05-14"`
+
+    - `:"code-execution-2025-05-22"`
+
+    - `:"extended-cache-ttl-2025-04-11"`
+
+    - `:"context-1m-2025-08-07"`
+
+    - `:"context-management-2025-06-27"`
+
+    - `:"model-context-window-exceeded-2025-08-26"`
+
+    - `:"skills-2025-10-02"`
+
+    - `:"fast-mode-2026-02-01"`
+
+    - `:"output-300k-2026-03-24"`
+
+    - `:"user-profiles-2026-03-24"`
+
+    - `:"advisor-tool-2026-03-01"`
+
+    - `:"managed-agents-2026-04-01"`
+
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"dreaming-2026-04-21"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"server-side-fallback-2026-07-01"`
+
+    - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+### Returns
+
+- `class BetaTunnelCertificate`
+
+  A CA certificate attached to a tunnel.
+
+  - `id: String`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `archived_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `expires_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `fingerprint: String`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `tunnel_id: String`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `type: :tunnel_certificate`
+
+    - `:tunnel_certificate`
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_tunnel_certificate = anthropic.beta.tunnels.certificates.retrieve("certificate_id", tunnel_id: "tunnel_id")
+
+puts(beta_tunnel_certificate)
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "expires_at": "2019-12-27T18:11:19.117Z",
+  "fingerprint": "fingerprint",
+  "tunnel_id": "tunnel_id",
+  "type": "tunnel_certificate"
+}
+```
+
+## List Tunnel Certificates
+
+`beta.tunnels.certificates.list(tunnel_id, **kwargs) -> PageCursor<BetaTunnelCertificate>`
+
+**get** `/v1/tunnels/{tunnel_id}/certificates`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Lists the certificates registered on a tunnel. Archived certificates are excluded unless include_archived is set.
+
+### Parameters
+
+- `tunnel_id: String`
+
+- `include_archived: bool`
+
+  Whether to include archived certificates in the results. Defaults to false.
+
+- `limit: Integer`
+
+  Maximum number of certificates to return per page. Defaults to 20, maximum 1000.
+
+- `page: String`
+
+  Opaque pagination cursor from a previous `list_tunnel_certificates` response.
+
+- `betas: Array[AnthropicBeta]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
+
+    - `:"message-batches-2024-09-24"`
+
+    - `:"prompt-caching-2024-07-31"`
+
+    - `:"computer-use-2024-10-22"`
+
+    - `:"computer-use-2025-01-24"`
+
+    - `:"pdfs-2024-09-25"`
+
+    - `:"token-counting-2024-11-01"`
+
+    - `:"token-efficient-tools-2025-02-19"`
+
+    - `:"output-128k-2025-02-19"`
+
+    - `:"files-api-2025-04-14"`
+
+    - `:"mcp-client-2025-04-04"`
+
+    - `:"mcp-client-2025-11-20"`
+
+    - `:"dev-full-thinking-2025-05-14"`
+
+    - `:"interleaved-thinking-2025-05-14"`
+
+    - `:"code-execution-2025-05-22"`
+
+    - `:"extended-cache-ttl-2025-04-11"`
+
+    - `:"context-1m-2025-08-07"`
+
+    - `:"context-management-2025-06-27"`
+
+    - `:"model-context-window-exceeded-2025-08-26"`
+
+    - `:"skills-2025-10-02"`
+
+    - `:"fast-mode-2026-02-01"`
+
+    - `:"output-300k-2026-03-24"`
+
+    - `:"user-profiles-2026-03-24"`
+
+    - `:"advisor-tool-2026-03-01"`
+
+    - `:"managed-agents-2026-04-01"`
+
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"dreaming-2026-04-21"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"server-side-fallback-2026-07-01"`
+
+    - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+### Returns
+
+- `class BetaTunnelCertificate`
+
+  A CA certificate attached to a tunnel.
+
+  - `id: String`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `archived_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `expires_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `fingerprint: String`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `tunnel_id: String`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `type: :tunnel_certificate`
+
+    - `:tunnel_certificate`
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+page = anthropic.beta.tunnels.certificates.list("tunnel_id")
+
+puts(page)
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "expires_at": "2019-12-27T18:11:19.117Z",
+      "fingerprint": "fingerprint",
+      "tunnel_id": "tunnel_id",
+      "type": "tunnel_certificate"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Archive Tunnel Certificate
+
+`beta.tunnels.certificates.archive(certificate_id, **kwargs) -> BetaTunnelCertificate`
+
+**post** `/v1/tunnels/{tunnel_id}/certificates/{certificate_id}/archive`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Archives a tunnel certificate, removing it from the set Anthropic trusts for the tunnel. The certificate record is retained. Archiving the last non-archived certificate is permitted; the tunnel rejects MCP traffic until a new certificate is added.
+
+### Parameters
+
+- `tunnel_id: String`
+
+- `certificate_id: String`
+
+- `betas: Array[AnthropicBeta]`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  - `String = String`
+
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
+
+    - `:"message-batches-2024-09-24"`
+
+    - `:"prompt-caching-2024-07-31"`
+
+    - `:"computer-use-2024-10-22"`
+
+    - `:"computer-use-2025-01-24"`
+
+    - `:"pdfs-2024-09-25"`
+
+    - `:"token-counting-2024-11-01"`
+
+    - `:"token-efficient-tools-2025-02-19"`
+
+    - `:"output-128k-2025-02-19"`
+
+    - `:"files-api-2025-04-14"`
+
+    - `:"mcp-client-2025-04-04"`
+
+    - `:"mcp-client-2025-11-20"`
+
+    - `:"dev-full-thinking-2025-05-14"`
+
+    - `:"interleaved-thinking-2025-05-14"`
+
+    - `:"code-execution-2025-05-22"`
+
+    - `:"extended-cache-ttl-2025-04-11"`
+
+    - `:"context-1m-2025-08-07"`
+
+    - `:"context-management-2025-06-27"`
+
+    - `:"model-context-window-exceeded-2025-08-26"`
+
+    - `:"skills-2025-10-02"`
+
+    - `:"fast-mode-2026-02-01"`
+
+    - `:"output-300k-2026-03-24"`
+
+    - `:"user-profiles-2026-03-24"`
+
+    - `:"advisor-tool-2026-03-01"`
+
+    - `:"managed-agents-2026-04-01"`
+
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"dreaming-2026-04-21"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"server-side-fallback-2026-07-01"`
+
+    - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
+
+### Returns
+
+- `class BetaTunnelCertificate`
+
+  A CA certificate attached to a tunnel.
+
+  - `id: String`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `archived_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `expires_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `fingerprint: String`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `tunnel_id: String`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `type: :tunnel_certificate`
+
+    - `:tunnel_certificate`
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+beta_tunnel_certificate = anthropic.beta.tunnels.certificates.archive("certificate_id", tunnel_id: "tunnel_id")
+
+puts(beta_tunnel_certificate)
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "expires_at": "2019-12-27T18:11:19.117Z",
+  "fingerprint": "fingerprint",
+  "tunnel_id": "tunnel_id",
+  "type": "tunnel_certificate"
+}
+```
+
+## Domain Types
+
+### Beta Tunnel Certificate
+
+- `class BetaTunnelCertificate`
+
+  A CA certificate attached to a tunnel.
+
+  - `id: String`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `archived_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `expires_at: Time`
+
+    A timestamp in RFC 3339 format
+
+  - `fingerprint: String`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `tunnel_id: String`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `type: :tunnel_certificate`
+
+    - `:tunnel_certificate`
+
 # Webhooks
 
 ## Domain Types
+
+### Beta Webhook Agent Archived Event Data
+
+- `class BetaWebhookAgentArchivedEventData`
+
+  - `id: String`
+
+    ID of the agent that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"agent.archived"`
+
+    - `:"agent.archived"`
+
+  - `workspace_id: String`
+
+### Beta Webhook Agent Created Event Data
+
+- `class BetaWebhookAgentCreatedEventData`
+
+  - `id: String`
+
+    ID of the agent that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"agent.created"`
+
+    - `:"agent.created"`
+
+  - `workspace_id: String`
+
+### Beta Webhook Agent Deleted Event Data
+
+- `class BetaWebhookAgentDeletedEventData`
+
+  - `id: String`
+
+    ID of the agent that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"agent.deleted"`
+
+    - `:"agent.deleted"`
+
+  - `workspace_id: String`
+
+### Beta Webhook Agent Updated Event Data
+
+- `class BetaWebhookAgentUpdatedEventData`
+
+  - `id: String`
+
+    ID of the agent that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"agent.updated"`
+
+    - `:"agent.updated"`
+
+  - `workspace_id: String`
+
+### Beta Webhook Deployment Archived Event Data
+
+- `class BetaWebhookDeploymentArchivedEventData`
+
+  - `id: String`
+
+    ID of the deployment that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"deployment.archived"`
+
+    - `:"deployment.archived"`
+
+  - `workspace_id: String`
+
+### Beta Webhook Deployment Created Event Data
+
+- `class BetaWebhookDeploymentCreatedEventData`
+
+  - `id: String`
+
+    ID of the deployment that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"deployment.created"`
+
+    - `:"deployment.created"`
+
+  - `workspace_id: String`
+
+### Beta Webhook Deployment Deleted Event Data
+
+- `class BetaWebhookDeploymentDeletedEventData`
+
+  - `id: String`
+
+    ID of the deployment that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"deployment.deleted"`
+
+    - `:"deployment.deleted"`
+
+  - `workspace_id: String`
+
+### Beta Webhook Deployment Paused Event Data
+
+- `class BetaWebhookDeploymentPausedEventData`
+
+  - `id: String`
+
+    ID of the deployment that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"deployment.paused"`
+
+    - `:"deployment.paused"`
+
+  - `workspace_id: String`
+
+### Beta Webhook Deployment Run Failed Event Data
+
+- `class BetaWebhookDeploymentRunFailedEventData`
+
+  - `id: String`
+
+    ID of the deployment run that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"deployment_run.failed"`
+
+    - `:"deployment_run.failed"`
+
+  - `workspace_id: String`
+
+### Beta Webhook Deployment Run Started Event Data
+
+- `class BetaWebhookDeploymentRunStartedEventData`
+
+  - `id: String`
+
+    ID of the deployment run that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"deployment_run.started"`
+
+    - `:"deployment_run.started"`
+
+  - `workspace_id: String`
+
+### Beta Webhook Deployment Run Succeeded Event Data
+
+- `class BetaWebhookDeploymentRunSucceededEventData`
+
+  - `id: String`
+
+    ID of the deployment run that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"deployment_run.succeeded"`
+
+    - `:"deployment_run.succeeded"`
+
+  - `workspace_id: String`
+
+### Beta Webhook Deployment Unpaused Event Data
+
+- `class BetaWebhookDeploymentUnpausedEventData`
+
+  - `id: String`
+
+    ID of the deployment that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"deployment.unpaused"`
+
+    - `:"deployment.unpaused"`
+
+  - `workspace_id: String`
+
+### Beta Webhook Deployment Updated Event Data
+
+- `class BetaWebhookDeploymentUpdatedEventData`
+
+  - `id: String`
+
+    ID of the deployment that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"deployment.updated"`
+
+    - `:"deployment.updated"`
+
+  - `workspace_id: String`
+
+### Beta Webhook Environment Archived Event Data
+
+- `class BetaWebhookEnvironmentArchivedEventData`
+
+  - `id: String`
+
+    ID of the environment that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"environment.archived"`
+
+    - `:"environment.archived"`
+
+  - `workspace_id: String`
+
+### Beta Webhook Environment Created Event Data
+
+- `class BetaWebhookEnvironmentCreatedEventData`
+
+  - `id: String`
+
+    ID of the environment that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"environment.created"`
+
+    - `:"environment.created"`
+
+  - `workspace_id: String`
+
+### Beta Webhook Environment Deleted Event Data
+
+- `class BetaWebhookEnvironmentDeletedEventData`
+
+  - `id: String`
+
+    ID of the environment that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"environment.deleted"`
+
+    - `:"environment.deleted"`
+
+  - `workspace_id: String`
+
+### Beta Webhook Environment Updated Event Data
+
+- `class BetaWebhookEnvironmentUpdatedEventData`
+
+  - `id: String`
+
+    ID of the environment that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"environment.updated"`
+
+    - `:"environment.updated"`
+
+  - `workspace_id: String`
 
 ### Beta Webhook Event
 
@@ -97778,6 +108717,286 @@ puts(beta_user_profile_enrollment_url)
 
       - `workspace_id: String`
 
+    - `class BetaWebhookAgentCreatedEventData`
+
+      - `id: String`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"agent.created"`
+
+        - `:"agent.created"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookAgentArchivedEventData`
+
+      - `id: String`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"agent.archived"`
+
+        - `:"agent.archived"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookAgentDeletedEventData`
+
+      - `id: String`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"agent.deleted"`
+
+        - `:"agent.deleted"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookDeploymentPausedEventData`
+
+      - `id: String`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"deployment.paused"`
+
+        - `:"deployment.paused"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookDeploymentRunFailedEventData`
+
+      - `id: String`
+
+        ID of the deployment run that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"deployment_run.failed"`
+
+        - `:"deployment_run.failed"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookDeploymentCreatedEventData`
+
+      - `id: String`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"deployment.created"`
+
+        - `:"deployment.created"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookDeploymentUpdatedEventData`
+
+      - `id: String`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"deployment.updated"`
+
+        - `:"deployment.updated"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookDeploymentUnpausedEventData`
+
+      - `id: String`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"deployment.unpaused"`
+
+        - `:"deployment.unpaused"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookAgentUpdatedEventData`
+
+      - `id: String`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"agent.updated"`
+
+        - `:"agent.updated"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookDeploymentArchivedEventData`
+
+      - `id: String`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"deployment.archived"`
+
+        - `:"deployment.archived"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookDeploymentRunStartedEventData`
+
+      - `id: String`
+
+        ID of the deployment run that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"deployment_run.started"`
+
+        - `:"deployment_run.started"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookDeploymentDeletedEventData`
+
+      - `id: String`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"deployment.deleted"`
+
+        - `:"deployment.deleted"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookDeploymentRunSucceededEventData`
+
+      - `id: String`
+
+        ID of the deployment run that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"deployment_run.succeeded"`
+
+        - `:"deployment_run.succeeded"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookEnvironmentCreatedEventData`
+
+      - `id: String`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"environment.created"`
+
+        - `:"environment.created"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookEnvironmentUpdatedEventData`
+
+      - `id: String`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"environment.updated"`
+
+        - `:"environment.updated"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookEnvironmentArchivedEventData`
+
+      - `id: String`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"environment.archived"`
+
+        - `:"environment.archived"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookEnvironmentDeletedEventData`
+
+      - `id: String`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"environment.deleted"`
+
+        - `:"environment.deleted"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookMemoryStoreCreatedEventData`
+
+      - `id: String`
+
+        ID of the memory store that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"memory_store.created"`
+
+        - `:"memory_store.created"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookMemoryStoreArchivedEventData`
+
+      - `id: String`
+
+        ID of the memory store that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"memory_store.archived"`
+
+        - `:"memory_store.archived"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookMemoryStoreDeletedEventData`
+
+      - `id: String`
+
+        ID of the memory store that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"memory_store.deleted"`
+
+        - `:"memory_store.deleted"`
+
+      - `workspace_id: String`
+
   - `type: :event`
 
     Object type. Always `event` for webhook payloads.
@@ -97786,7 +109005,7 @@ puts(beta_user_profile_enrollment_url)
 
 ### Beta Webhook Event Data
 
-- `BetaWebhookEventData = BetaWebhookSessionCreatedEventData | BetaWebhookSessionPendingEventData | BetaWebhookSessionRunningEventData | 20 more`
+- `BetaWebhookEventData = BetaWebhookSessionCreatedEventData | BetaWebhookSessionPendingEventData | BetaWebhookSessionRunningEventData | 40 more`
 
   - `class BetaWebhookSessionCreatedEventData`
 
@@ -98137,6 +109356,334 @@ puts(beta_user_profile_enrollment_url)
       - `:"session.updated"`
 
     - `workspace_id: String`
+
+  - `class BetaWebhookAgentCreatedEventData`
+
+    - `id: String`
+
+      ID of the agent that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"agent.created"`
+
+      - `:"agent.created"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookAgentArchivedEventData`
+
+    - `id: String`
+
+      ID of the agent that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"agent.archived"`
+
+      - `:"agent.archived"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookAgentDeletedEventData`
+
+    - `id: String`
+
+      ID of the agent that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"agent.deleted"`
+
+      - `:"agent.deleted"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookDeploymentPausedEventData`
+
+    - `id: String`
+
+      ID of the deployment that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"deployment.paused"`
+
+      - `:"deployment.paused"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookDeploymentRunFailedEventData`
+
+    - `id: String`
+
+      ID of the deployment run that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"deployment_run.failed"`
+
+      - `:"deployment_run.failed"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookDeploymentCreatedEventData`
+
+    - `id: String`
+
+      ID of the deployment that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"deployment.created"`
+
+      - `:"deployment.created"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookDeploymentUpdatedEventData`
+
+    - `id: String`
+
+      ID of the deployment that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"deployment.updated"`
+
+      - `:"deployment.updated"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookDeploymentUnpausedEventData`
+
+    - `id: String`
+
+      ID of the deployment that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"deployment.unpaused"`
+
+      - `:"deployment.unpaused"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookAgentUpdatedEventData`
+
+    - `id: String`
+
+      ID of the agent that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"agent.updated"`
+
+      - `:"agent.updated"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookDeploymentArchivedEventData`
+
+    - `id: String`
+
+      ID of the deployment that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"deployment.archived"`
+
+      - `:"deployment.archived"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookDeploymentRunStartedEventData`
+
+    - `id: String`
+
+      ID of the deployment run that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"deployment_run.started"`
+
+      - `:"deployment_run.started"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookDeploymentDeletedEventData`
+
+    - `id: String`
+
+      ID of the deployment that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"deployment.deleted"`
+
+      - `:"deployment.deleted"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookDeploymentRunSucceededEventData`
+
+    - `id: String`
+
+      ID of the deployment run that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"deployment_run.succeeded"`
+
+      - `:"deployment_run.succeeded"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookEnvironmentCreatedEventData`
+
+    - `id: String`
+
+      ID of the environment that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"environment.created"`
+
+      - `:"environment.created"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookEnvironmentUpdatedEventData`
+
+    - `id: String`
+
+      ID of the environment that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"environment.updated"`
+
+      - `:"environment.updated"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookEnvironmentArchivedEventData`
+
+    - `id: String`
+
+      ID of the environment that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"environment.archived"`
+
+      - `:"environment.archived"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookEnvironmentDeletedEventData`
+
+    - `id: String`
+
+      ID of the environment that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"environment.deleted"`
+
+      - `:"environment.deleted"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookMemoryStoreCreatedEventData`
+
+    - `id: String`
+
+      ID of the memory store that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"memory_store.created"`
+
+      - `:"memory_store.created"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookMemoryStoreArchivedEventData`
+
+    - `id: String`
+
+      ID of the memory store that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"memory_store.archived"`
+
+      - `:"memory_store.archived"`
+
+    - `workspace_id: String`
+
+  - `class BetaWebhookMemoryStoreDeletedEventData`
+
+    - `id: String`
+
+      ID of the memory store that triggered the event.
+
+    - `organization_id: String`
+
+    - `type: :"memory_store.deleted"`
+
+      - `:"memory_store.deleted"`
+
+    - `workspace_id: String`
+
+### Beta Webhook Memory Store Archived Event Data
+
+- `class BetaWebhookMemoryStoreArchivedEventData`
+
+  - `id: String`
+
+    ID of the memory store that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"memory_store.archived"`
+
+    - `:"memory_store.archived"`
+
+  - `workspace_id: String`
+
+### Beta Webhook Memory Store Created Event Data
+
+- `class BetaWebhookMemoryStoreCreatedEventData`
+
+  - `id: String`
+
+    ID of the memory store that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"memory_store.created"`
+
+    - `:"memory_store.created"`
+
+  - `workspace_id: String`
+
+### Beta Webhook Memory Store Deleted Event Data
+
+- `class BetaWebhookMemoryStoreDeletedEventData`
+
+  - `id: String`
+
+    ID of the memory store that triggered the event.
+
+  - `organization_id: String`
+
+  - `type: :"memory_store.deleted"`
+
+    - `:"memory_store.deleted"`
+
+  - `workspace_id: String`
 
 ### Beta Webhook Session Archived Event Data
 
@@ -98895,6 +110442,286 @@ puts(beta_user_profile_enrollment_url)
       - `type: :"session.updated"`
 
         - `:"session.updated"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookAgentCreatedEventData`
+
+      - `id: String`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"agent.created"`
+
+        - `:"agent.created"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookAgentArchivedEventData`
+
+      - `id: String`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"agent.archived"`
+
+        - `:"agent.archived"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookAgentDeletedEventData`
+
+      - `id: String`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"agent.deleted"`
+
+        - `:"agent.deleted"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookDeploymentPausedEventData`
+
+      - `id: String`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"deployment.paused"`
+
+        - `:"deployment.paused"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookDeploymentRunFailedEventData`
+
+      - `id: String`
+
+        ID of the deployment run that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"deployment_run.failed"`
+
+        - `:"deployment_run.failed"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookDeploymentCreatedEventData`
+
+      - `id: String`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"deployment.created"`
+
+        - `:"deployment.created"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookDeploymentUpdatedEventData`
+
+      - `id: String`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"deployment.updated"`
+
+        - `:"deployment.updated"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookDeploymentUnpausedEventData`
+
+      - `id: String`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"deployment.unpaused"`
+
+        - `:"deployment.unpaused"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookAgentUpdatedEventData`
+
+      - `id: String`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"agent.updated"`
+
+        - `:"agent.updated"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookDeploymentArchivedEventData`
+
+      - `id: String`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"deployment.archived"`
+
+        - `:"deployment.archived"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookDeploymentRunStartedEventData`
+
+      - `id: String`
+
+        ID of the deployment run that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"deployment_run.started"`
+
+        - `:"deployment_run.started"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookDeploymentDeletedEventData`
+
+      - `id: String`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"deployment.deleted"`
+
+        - `:"deployment.deleted"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookDeploymentRunSucceededEventData`
+
+      - `id: String`
+
+        ID of the deployment run that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"deployment_run.succeeded"`
+
+        - `:"deployment_run.succeeded"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookEnvironmentCreatedEventData`
+
+      - `id: String`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"environment.created"`
+
+        - `:"environment.created"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookEnvironmentUpdatedEventData`
+
+      - `id: String`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"environment.updated"`
+
+        - `:"environment.updated"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookEnvironmentArchivedEventData`
+
+      - `id: String`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"environment.archived"`
+
+        - `:"environment.archived"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookEnvironmentDeletedEventData`
+
+      - `id: String`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"environment.deleted"`
+
+        - `:"environment.deleted"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookMemoryStoreCreatedEventData`
+
+      - `id: String`
+
+        ID of the memory store that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"memory_store.created"`
+
+        - `:"memory_store.created"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookMemoryStoreArchivedEventData`
+
+      - `id: String`
+
+        ID of the memory store that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"memory_store.archived"`
+
+        - `:"memory_store.archived"`
+
+      - `workspace_id: String`
+
+    - `class BetaWebhookMemoryStoreDeletedEventData`
+
+      - `id: String`
+
+        ID of the memory store that triggered the event.
+
+      - `organization_id: String`
+
+      - `type: :"memory_store.deleted"`
+
+        - `:"memory_store.deleted"`
 
       - `workspace_id: String`
 

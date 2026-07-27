@@ -4,11 +4,11 @@
 
 May 14, 2024
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F791c1c121225ef3e3a368279926c12552ddb075c-1778x1000.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/791c1c121225ef3e3a368279926c12552ddb075c-1778x1000.jpg)
 
 We’re excited to announce that [Claude](https://www.anthropic.com/claude), Anthropic’s trusted AI assistant, is now available for people and businesses across Europe to enhance their productivity and creativity. Starting today, they will be able to use:
 
-* [Claude.ai](http://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5): the web-based version of our next-generation AI assistant
+* [Claude.ai](http://claude.ai/redirect/website.v1.eacc45be-d108-42dd-8a3b-75143ac951ae): the web-based version of our next-generation AI assistant
 * The [Claude iOS app](https://apps.apple.com/app/claude/id6473753684): a free version of Claude that offers the same intuitive experience as mobile web
 * The [Claude Team plan](https://www.anthropic.com/news/team-plan-and-ios): the best way for every business to provide teams with secure access to Claude's state-of-the-art AI capabilities and the [Claude 3 model family](https://www.anthropic.com/news/claude-3-family)
 

@@ -10,6 +10,7 @@ Research nonprofits and funders using Candid's data
 * Used in
 
   [Claude](https://claude.ai/directory/875faf93-08c4-469c-980f-6f79f70f10d3)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Candid](https://candid.org/)
 
@@ -22,7 +23,7 @@ Research nonprofits and funders using Candid's data
   Read
 * More
 
-  [Documentation](https://learning.candid.org/getting-started-with-the-candid-mcp-connector/375441)[Privacy Policy](https://candid.org/privacy-policy/)[onlinelibrarian@candid.org](mailto:onlinelibrarian@candid.org)
+  [Documentation](https://learning.candid.org/getting-started-with-the-candid-mcp-connector/375441)[Privacy Policy](https://candid.org/privacy-policy/)[Support](mailto:onlinelibrarian@candid.org)
 
 Bring the power of Candid's comprehensive nonprofit and funder data directly into Claude. Search millions of organizations, discover funding opportunities, and access expert knowledge and social sector news—all through natural conversation.  
   
@@ -57,7 +58,7 @@ March 19, 2026
 
 ### Benevity
 
-Find and engage with verified nonprofits](/connectors/benevity)
+Find and engage with verified nonprofits](https://claude.com/connectors/benevity)
 
 Nonprofit
 
@@ -69,7 +70,7 @@ March 19, 2026
 
 ### Blackbaud
 
-Search, explore, and query Blackbaud data](/connectors/blackbaud)
+Search, explore, and query Blackbaud data](https://claude.com/connectors/blackbaud)
 
 Nonprofit
 
@@ -85,4 +86,4 @@ March 19, 2026
 
 ### Granted
 
-Discover every grant opportunity in existence.](/connectors/granted)
+Discover every grant opportunity in existence.](https://claude.com/connectors/granted)

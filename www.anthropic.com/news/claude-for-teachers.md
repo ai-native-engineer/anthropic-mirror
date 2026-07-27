@@ -4,7 +4,7 @@
 
 Jul 14, 2026
 
-![Introducing Claude for Teachers](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc39f489c0763bac41638f8ea29a0ae1335c3ecb2-1200x630.jpg&w=3840&q=75)
+![Introducing Claude for Teachers](https://www-cdn.anthropic.com/images/4zrzovbb/website/c39f489c0763bac41638f8ea29a0ae1335c3ecb2-1200x630.jpg)
 
 We're introducing [Claude for Teachers](https://claude.com/solutions/teachers), providing verified K-12 educators in the US free access to premium Claude capabilities, a library of teaching skills, and a direct connection to evidence-based curricula, mapped to academic standards in all 50 states.
 
@@ -71,7 +71,3 @@ Once verified, educators can access [Claude for Teachers](https://claude.com/sol
 Claude for Teachers is for individual educators. A dedicated offering for schools and districts is coming soon. In the meantime, districts interested in Claude can continue using [Claude for Nonprofits](https://claude.com/solutions/nonprofits).
 
 *Updated July 21, 2026: Added a note to emphasize that whether and how educational data may be used in Claude for Teachers is determined by district and state policies.*
-
-### UST is bringing Claude to physical AI
-
-[Read more](/news/ust-claude)

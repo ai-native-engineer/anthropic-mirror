@@ -1,6 +1,6 @@
 <!-- source: https://claude.com/connectors/function -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696146b3ef7f8280dc6a91ff_function-health.jpg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b65491867dfbfc64b0a4_icon_function-health.jpg)
 
 # Function (beta)
 
@@ -10,6 +10,7 @@ View lab test results summaries, get nutrition plans
 * Used in
 
   [Claude](https://claude.ai/directory/48527e54-fe84-4dc6-b97f-c8e0763bca97)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Function Health](https://www.functionhealth.com)
 
@@ -52,7 +53,7 @@ May 1, 2026
 
 ### AllTrails
 
-Find your next hike](/connectors/alltrails)
+Find your next hike](https://claude.com/connectors/alltrails)
 
 Health and wellness
 
@@ -66,7 +67,7 @@ May 26, 2026
 
 ### Alma
 
-Your nutrition data, inside every Claude conversation.](/connectors/alma)
+Your nutrition data, inside every Claude conversation.](https://claude.com/connectors/alma)
 
 Life sciences and healthcare
 
@@ -82,7 +83,7 @@ May 20, 2026
 
 ### CMS Coverage
 
-Access the CMS Coverage Database](/connectors/cms-coverage)
+Access the CMS Coverage Database](https://claude.com/connectors/cms-coverage)
 
 Health and wellness
 
@@ -94,4 +95,4 @@ January 26, 2026
 
 ### HealthEx (beta)
 
-Connect your health records for personalized insights](/connectors/healthex)
+Connect your health records for personalized insights](https://claude.com/connectors/healthex)

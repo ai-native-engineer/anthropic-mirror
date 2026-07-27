@@ -38,7 +38,7 @@ Check-in and breakfast
 
 09:30 – 09:45
 
-[Community general session](/code-with-claude/session/ldn-ext-community-general-session)
+[Community general session](https://claude.com/code-with-claude/session/ldn-ext-community-general-session)
 
 (Founder stage)
 
@@ -54,7 +54,7 @@ morning sessions
 
 10:00 – 10:30
 
-[Teaching agents to learn from your team](/code-with-claude/session/ldn-ext-teaching-agents-to-learn-from-your-team)
+[Teaching agents to learn from your team](https://claude.com/code-with-claude/session/ldn-ext-teaching-agents-to-learn-from-your-team)
 
 (Founder stage)
 
@@ -66,7 +66,7 @@ Petra Donka
 
 Warp
 
-[How I used Claude Code to build an AI road appraisal tool](/code-with-claude/session/ldn-ext-how-i-used-claude-code-to-build-an-ai-road-appraisal-tool)
+[How I used Claude Code to build an AI road appraisal tool](https://claude.com/code-with-claude/session/ldn-ext-how-i-used-claude-code-to-build-an-ai-road-appraisal-tool)
 
 (Builder stage)
 
@@ -80,7 +80,7 @@ Centre for Infrastructure
 
 10:00 – 10:45
 
-[How we Claude Code](/code-with-claude/session/ldn-ext-how-we-claude-code)
+[How we Claude Code](https://claude.com/code-with-claude/session/ldn-ext-how-we-claude-code)
 
 (Workshop)
 
@@ -94,7 +94,7 @@ Anthropic
 
 10:45 – 11:15
 
-[Personality goes a long way: Thinking like a writer to make better agents](/code-with-claude/session/ldn-ext-thinking-like-a-writer-to-make-better-agents)
+[Personality goes a long way: Thinking like a writer to make better agents](https://claude.com/code-with-claude/session/ldn-ext-thinking-like-a-writer-to-make-better-agents)
 
 (Founder stage)
 
@@ -106,7 +106,7 @@ Max Tatton-Brown
 
 Orbit / Claude Code Curious
 
-[When code is a commodity, what actually matters in product development?](/code-with-claude/session/ldn-ext-when-code-is-a-commodity-what-actually-matters-in-product-development)
+[When code is a commodity, what actually matters in product development?](https://claude.com/code-with-claude/session/ldn-ext-when-code-is-a-commodity-what-actually-matters-in-product-development)
 
 (Builder stage)
 
@@ -120,7 +120,7 @@ Applied Futures
 
 11:00 – 11:45
 
-[Ship your first Managed Agent](/code-with-claude/session/ldn-ext-ship-your-first-managed-agent)
+[Ship your first Managed Agent](https://claude.com/code-with-claude/session/ldn-ext-ship-your-first-managed-agent)
 
 (Workshop)
 
@@ -134,7 +134,7 @@ Anthropic
 
 11:30 – 12:00
 
-[Building the best agentic analytics harness: Powered by Claude, built with Claude Code](/code-with-claude/session/ldn-ext-building-the-best-agentic-analytics-harness-powered-by-claude-built-with-claude-code)
+[Building the best agentic analytics harness: Powered by Claude, built with Claude Code](https://claude.com/code-with-claude/session/ldn-ext-building-the-best-agentic-analytics-harness-powered-by-claude-built-with-claude-code)
 
 (Founder stage)
 
@@ -146,7 +146,7 @@ Chris Merrick
 
 Omni
 
-[How AirOps chases friction to build AI products with Claude](/code-with-claude/session/ldn-ext-how-airops-chases-friction-to-build-ai-products-with-claude)
+[How AirOps chases friction to build AI products with Claude](https://claude.com/code-with-claude/session/ldn-ext-how-airops-chases-friction-to-build-ai-products-with-claude)
 
 (Builder stage)
 
@@ -160,7 +160,7 @@ AirOps
 
 12:00 – 12:45
 
-[Agents that remember](/code-with-claude/session/ldn-ext-agents-that-remember)
+[Agents that remember](https://claude.com/code-with-claude/session/ldn-ext-agents-that-remember)
 
 (Workshop)
 
@@ -180,7 +180,7 @@ afternoon sessions
 
 13:00 – 13:45
 
-[Evals for taste: Hill-climbing a slide-generation agent](/code-with-claude/session/ldn-ext-evals-for-taste-hill-climbing-a-slide-generation-agent)
+[Evals for taste: Hill-climbing a slide-generation agent](https://claude.com/code-with-claude/session/ldn-ext-evals-for-taste-hill-climbing-a-slide-generation-agent)
 
 (Workshop)
 
@@ -194,7 +194,7 @@ Anthropic
 
 13:20 – 13:50
 
-[I built an entire music tech company with Claude](/code-with-claude/session/ldn-ext-i-built-an-entire-music-tech-company-with-claude)
+[I built an entire music tech company with Claude](https://claude.com/code-with-claude/session/ldn-ext-i-built-an-entire-music-tech-company-with-claude)
 
 (Founder stage)
 
@@ -206,7 +206,7 @@ Asep Bagja Priandana
 
 Nanas Sound
 
-[Giving Claude Code eyes: Building a local video-intelligence pipeline](/code-with-claude/session/ldn-ext-giving-claude-code-eyes-building-a-local-video-intelligence-pipeline)
+[Giving Claude Code eyes: Building a local video-intelligence pipeline](https://claude.com/code-with-claude/session/ldn-ext-giving-claude-code-eyes-building-a-local-video-intelligence-pipeline)
 
 (Builder stage)
 
@@ -220,7 +220,7 @@ Alter
 
 14:00 – 14:45
 
-[Tool, skill, or subagent? Decomposing an agent that outgrew its prompt](/code-with-claude/session/ldn-ext-tool-skill-or-subagent-decomposing-an-agent-that-outgrew-its-prompt)
+[Tool, skill, or subagent? Decomposing an agent that outgrew its prompt](https://claude.com/code-with-claude/session/ldn-ext-tool-skill-or-subagent-decomposing-an-agent-that-outgrew-its-prompt)
 
 (Workshop)
 
@@ -234,7 +234,7 @@ Anthropic
 
 14:05 – 14:35
 
-[How Metaview built self-improving prompts for application review](/code-with-claude/session/ldn-ext-how-metaview-built-self-improving-prompts-for-application-review)
+[How Metaview built self-improving prompts for application review](https://claude.com/code-with-claude/session/ldn-ext-how-metaview-built-self-improving-prompts-for-application-review)
 
 (Founder stage)
 
@@ -246,7 +246,7 @@ Nick Mayhew
 
 Metaview
 
-[Making agentic workflows trustworthy and verifiable with a custom DSL](/code-with-claude/session/ldn-ext-making-agentic-workflows-trustworthy-and-verifiable-with-a-custom-dsl)
+[Making agentic workflows trustworthy and verifiable with a custom DSL](https://claude.com/code-with-claude/session/ldn-ext-making-agentic-workflows-trustworthy-and-verifiable-with-a-custom-dsl)
 
 (Builder stage)
 
@@ -260,7 +260,7 @@ Elicit
 
 14:50 – 15:20
 
-[Fighting financial crime with Claude Cowork](/code-with-claude/session/ldn-ext-fighting-financial-crime-with-claude-cowork)
+[Fighting financial crime with Claude Cowork](https://claude.com/code-with-claude/session/ldn-ext-fighting-financial-crime-with-claude-cowork)
 
 (Founder stage)
 
@@ -272,7 +272,7 @@ Stefano Amorelli
 
 Qonto
 
-[From idea to income: How I built an AI-powered murder mystery game business with Claude](/code-with-claude/session/ldn-ext-from-idea-to-income-how-i-built-an-ai-powered-murder-mystery-game-business-with-claude)
+[From idea to income: How I built an AI-powered murder mystery game business with Claude](https://claude.com/code-with-claude/session/ldn-ext-from-idea-to-income-how-i-built-an-ai-powered-murder-mystery-game-business-with-claude)
 
 (Builder stage)
 
@@ -286,7 +286,7 @@ MW Tech Solutions
 
 15:00 – 15:45
 
-[Agent Battle: Mine the most diamonds in 45 minutes](/code-with-claude/session/ldn-ext-agent-battle-mine-the-most-diamonds-in-45-minutes)
+[Agent Battle: Mine the most diamonds in 45 minutes](https://claude.com/code-with-claude/session/ldn-ext-agent-battle-mine-the-most-diamonds-in-45-minutes)
 
 (Workshop)
 
@@ -300,7 +300,7 @@ Anthropic
 
 15:35 – 16:05
 
-[Running every layer of two businesses with Claude Code](/code-with-claude/session/ldn-ext-running-every-layer-of-two-businesses-with-claude-code)
+[Running every layer of two businesses with Claude Code](https://claude.com/code-with-claude/session/ldn-ext-running-every-layer-of-two-businesses-with-claude-code)
 
 (Founder stage)
 
@@ -312,7 +312,7 @@ Kevin Collins
 
 echofold.ai / fractium.ai
 
-[Where code meets court: AI at the legal-technical frontier](/code-with-claude/session/ldn-ext-where-code-meets-court-ai-at-the-legal-technical-frontier)
+[Where code meets court: AI at the legal-technical frontier](https://claude.com/code-with-claude/session/ldn-ext-where-code-meets-court-ai-at-the-legal-technical-frontier)
 
 (Builder stage)
 
@@ -392,7 +392,7 @@ Anthropic's developer conference. Live demos of new capabilities, hands-on works
 
 Learn more
 
-[Learn more](/code-with-claude/london)Learn more
+[Learn more](https://claude.com/code-with-claude/london)Learn more
 
 FAQ
 
@@ -416,6 +416,6 @@ Code with Claude: Extended will not be livestreamed. Sessions will be recorded a
 
 No, in-person attendance is free.
 
-[Homepage](/code-with-claude)Homepage
+[Homepage](https://claude.com/code-with-claude)Homepage
 
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](/code-with-claude/code-of-conduct)
+[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)

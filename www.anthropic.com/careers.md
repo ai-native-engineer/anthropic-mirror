@@ -4,9 +4,9 @@
 
 Anthropic builds Claude—AI designed to be helpful, honest, and harmless. We're researchers, engineers, and builders from a range of disciplines, working to make sure powerful AI goes well for everyone. If you're drawn to hard problems with real stakes, we'd like to meet you.
 
-[Explore open roles](/careers/jobs)
+[Explore open roles](https://www.anthropic.com/careers/jobs)
 
-![Video thumbnail](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2Fdaa9ebf989c197cae5ef84a639302083713a611e-1760x988.jpg&w=3840&q=75)
+![Video thumbnail](https://cdn.sanity.io/images/4zrzovbb/website/daa9ebf989c197cae5ef84a639302083713a611e-1760x988.jpg)
 
 ### Building Anthropic
 
@@ -133,9 +133,9 @@ You don’t need to share detailed medical information. By submitting the form a
 
 Here's when and how to use Claude (or other AI tools) when applying to and interviewing with Anthropic. Where it makes sense, we invite you to use Claude to show us more of you: your unique perspective, skills, and experiences.
 
-[Read more](/candidate-ai-guidance)
+[Read more](https://www.anthropic.com/candidate-ai-guidance)
 
-![Our policy for using AI in our application process](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5598fbb88110d0ff461a140d743a89ff508382f8-1618x910.png&w=3840&q=75)
+![Our policy for using AI in our application process](https://www-cdn.anthropic.com/images/4zrzovbb/website/5598fbb88110d0ff461a140d743a89ff508382f8-1618x910.png)
 
 ## Frequently asked questions
 
@@ -165,4 +165,4 @@ Most staff are in the Bay Area and come to the office regularly. Some live furth
 
 Want to help us build the future of safe AI?
 
-[Explore open roles](/careers/jobs)
+[Explore open roles](https://www.anthropic.com/careers/jobs)

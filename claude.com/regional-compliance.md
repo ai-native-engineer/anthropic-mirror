@@ -6,7 +6,7 @@ Claude is available globally with regional data residency and inference, compreh
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 Visit Trust Center
 
@@ -229,4 +229,4 @@ Visit Trust Center
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales

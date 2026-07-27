@@ -34,6 +34,6 @@ Follow the on-screen prompts to flash the projects onto your Cardputer.
 
 Explore the projects on your device, then use Claude Code to iterate, extend, or build something new.
 
-[Homepage](/code-with-claude)Homepage
+[Homepage](https://claude.com/code-with-claude)Homepage
 
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](/code-with-claude/code-of-conduct)
+[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)

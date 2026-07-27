@@ -10,6 +10,7 @@ Connect your health records for personalized insights
 * Used in
 
   [Claude](https://claude.ai/directory/17f8e2cd-5ca5-4563-a43b-81073b4f65eb)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [HDX Labs, Inc. (dba HealthEx)](https://healthex.io)
 
@@ -22,7 +23,7 @@ Connect your health records for personalized insights
   Read
 * More
 
-  [Documentation](https://docs.healthex.io/category/healthex-mcp-server)[Privacy Policy](https://www.healthex.io/privacy-policy)[support@healthex.io](mailto:support@healthex.io)
+  [Documentation](https://docs.healthex.io/category/healthex-mcp-server)[Privacy Policy](https://www.healthex.io/privacy-policy)[Support](mailto:support@healthex.io)
 
 The HealthEx connector connects Claude to your health records, securely pulling data from all your care providers into one place. Ask Claude to summarize your health, understand lab results, help prep for your next doctor's visit, and guide your daily routine.
 
@@ -53,7 +54,7 @@ May 1, 2026
 
 ### AllTrails
 
-Find your next hike](/connectors/alltrails)
+Find your next hike](https://claude.com/connectors/alltrails)
 
 Health and wellness
 
@@ -67,7 +68,7 @@ May 26, 2026
 
 ### Alma
 
-Your nutrition data, inside every Claude conversation.](/connectors/alma)
+Your nutrition data, inside every Claude conversation.](https://claude.com/connectors/alma)
 
 Life sciences and healthcare
 
@@ -83,7 +84,7 @@ May 20, 2026
 
 ### CMS Coverage
 
-Access the CMS Coverage Database](/connectors/cms-coverage)
+Access the CMS Coverage Database](https://claude.com/connectors/cms-coverage)
 
 Health and wellness
 
@@ -91,8 +92,8 @@ Claude
 
 February 24, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696146b3ef7f8280dc6a91ff_function-health.jpg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b65491867dfbfc64b0a4_icon_function-health.jpg)
 
 ### Function (beta)
 
-View lab test results summaries, get nutrition plans](/connectors/function)
+View lab test results summaries, get nutrition plans](https://claude.com/connectors/function)

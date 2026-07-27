@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d7cf311a7d86111af6d72_cox-logo.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d7cf311a7d86111af6d72_cox-logo.svg)
 
@@ -99,7 +99,7 @@ Give Claude access to your local files and let it complete tasks autonomously. A
 
 Read more
 
-[Read more](/product/cowork)Read more
+[Read more](https://claude.com/product/cowork)Read more
 
 Cowork
 
@@ -201,10 +201,10 @@ Head of AI, Cox Communications
 
 ## Related stories
 
-[Cox Communications on scaling Claude across largest privately-held telecom company in US](/customers/cox-communications-qa)Cox Communications on scaling Claude across largest privately-held telecom company in US
+[Cox Communications on scaling Claude across largest privately-held telecom company in US](https://claude.com/customers/cox-communications-qa)Cox Communications on scaling Claude across largest privately-held telecom company in US
 
 Cox Communications on scaling Claude across largest privately-held telecom company in US
 
 Customer story
 
-[Customer story](/customers/cox-communications-qa)Customer story
+[Customer story](https://claude.com/customers/cox-communications-qa)Customer story

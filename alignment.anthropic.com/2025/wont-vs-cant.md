@@ -58,15 +58,15 @@ Again, there’s a clear pattern: for subjects Claude would prefer not to discus
 
 Here’s another anecdote from when we were testing an early version of computer use. For hours, I’d been having new instances of (an early snapshot of) computer-use-enabled Claude 3.5 Sonnet (New) do various tasks like editing spreadsheets, making powerpoints, browsing Wikipedia. Then I asked a fresh instance to find some photos of me on the web, and it said this:
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2025/wont-vs-cant/fig1.png)
 
 Can’t access the internet… at all? Suuure. I then asked, “what happens if you click on firefox?”. It said, “Let me try opening Firefox to show you exactly what happens.” Where did it click?
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/wont-vs-cant/fig2.png)
 
 On the text-edit tool right next to the Firefox icon, instead of on the Firefox icon as it had clicked every or almost every other time.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/wont-vs-cant/fig3.png)
 
 Claude once again responds to a request it finds awkward or inconvenient by denying its ability to execute it instead of negotiating or arguing with the interlocutor.
 

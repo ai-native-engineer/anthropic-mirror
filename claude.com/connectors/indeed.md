@@ -10,6 +10,7 @@ Search for jobs on Indeed
 * Used in
 
   [Claude](https://claude.ai/directory/78cb9092-b837-4439-845d-fdccd5723e7f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Indeed](https://indeed.com)
 

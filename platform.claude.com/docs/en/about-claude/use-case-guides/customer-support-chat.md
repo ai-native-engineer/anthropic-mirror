@@ -10,8 +10,8 @@ Build a customer support chatbot with Claude that answers product questions, sta
 
 To follow this guide, you need:
 
-- A Claude API key (set as the `ANTHROPIC_API_KEY` environment variable)
-- Python 3.9 or later
+* A Claude API key (set as the `ANTHROPIC_API_KEY` environment variable)
+* Python 3.9 or later
 
 Install the required packages:
 
@@ -25,37 +25,33 @@ pip install anthropic streamlit python-dotenv
 
 Here are some key indicators that you should employ an LLM like Claude to automate portions of your customer support process:
 
-  <section title="High volume of repetitive queries">
-
+<AccordionGroup>
+  <Accordion title="High volume of repetitive queries">
     Claude excels at handling a large number of similar questions efficiently, freeing up human agents for more complex issues.
-  
-</section>
-  <section title="Need for quick information synthesis">
+  </Accordion>
 
+  <Accordion title="Need for quick information synthesis">
     Claude can quickly retrieve, process, and combine information from vast knowledge bases, while human agents may need time to research or consult multiple sources.
-  
-</section>
-  <section title="24/7 availability requirement">
+  </Accordion>
 
+  <Accordion title="24/7 availability requirement">
     Claude can provide round-the-clock support without fatigue, whereas staffing human agents for continuous coverage can be costly and challenging.
-  
-</section>
-  <section title="Rapid scaling during peak periods">
+  </Accordion>
 
+  <Accordion title="Rapid scaling during peak periods">
     Claude can handle sudden increases in query volume without the need for hiring and training additional staff.
-  
-</section>
-  <section title="Consistent brand voice">
+  </Accordion>
 
+  <Accordion title="Consistent brand voice">
     You can instruct Claude to consistently represent your brand's tone and values, whereas human agents may vary in their communication styles.
-  
-</section>
+  </Accordion>
+</AccordionGroup>
 
 Some considerations for choosing Claude over other LLMs:
 
-- You prioritize natural, nuanced conversation: Claude's sophisticated language understanding allows for more natural, context-aware conversations that feel more human-like than chats with other LLMs.
-- You often receive complex and open-ended queries: Claude can handle a wide range of topics and inquiries without generating canned responses or requiring extensive programming of permutations of user utterances.
-- You need scalable multilingual support: Claude's multilingual capabilities allow it to engage in conversations in over 200 languages without the need for separate chatbots or extensive translation processes for each supported language.
+* You prioritize natural, nuanced conversation: Claude's sophisticated language understanding allows for more natural, context-aware conversations that feel more human-like than chats with other LLMs.
+* You often receive complex and open-ended queries: Claude can handle a wide range of topics and inquiries without generating canned responses or requiring extensive programming of permutations of user utterances.
+* You need scalable multilingual support: Claude's multilingual capabilities allow it to engage in conversations in over 200 languages without the need for separate chatbots or extensive translation processes for each supported language.
 
 ### Define your ideal chat interaction
 
@@ -64,51 +60,72 @@ Outline an ideal customer interaction to define how and when you expect the cust
 Here is an example chat interaction for car insurance customer support:
 
 * **Customer:** Initiates support chat experience
-   * **Claude:** Warmly greets customer and initiates conversation
-* **Customer:** Asks about insurance for their new electric car
-   * **Claude:** Provides relevant information about electric vehicle coverage
-* **Customer:** Asks questions related to unique needs for electric vehicle insurances
-   * **Claude:** Responds with accurate and informative answers and provides links to the sources
-* **Customer:** Asks off-topic questions unrelated to insurance or cars
-   * **Claude:** Clarifies it does not discuss unrelated topics and steers the user back to car insurance
-* **Customer:** Expresses interest in an insurance quote
-   * **Claude:** Ask a set of questions to determine the appropriate quote, adapting to their responses
-   * **Claude:** Sends a request to use the quote generation API tool along with necessary information collected from the user
-   * **Claude:** Receives the response information from the API tool use, synthesizes the information into a natural response, and presents the provided quote to the user
-* **Customer:** Asks follow up questions
-   * **Claude:** Answers follow up questions as needed
-   * **Claude:** Guides the customer to the next steps in the insurance process and closes out the conversation
+  * **Claude:** Warmly greets customer and initiates conversation
 
-<Tip>In the real example that you write for your own use case, you might find it useful to write out the actual words in this interaction so that you can also get a sense of the ideal tone, response length, and level of detail you want Claude to have.</Tip>
+* **Customer:** Asks about insurance for their new electric car
+  * **Claude:** Provides relevant information about electric vehicle coverage
+
+* **Customer:** Asks questions related to unique needs for electric vehicle insurances
+  * **Claude:** Responds with accurate and informative answers and provides links to the sources
+
+* **Customer:** Asks off-topic questions unrelated to insurance or cars
+  * **Claude:** Clarifies it does not discuss unrelated topics and steers the user back to car insurance
+
+* **Customer:** Expresses interest in an insurance quote
+
+  * **Claude:** Ask a set of questions to determine the appropriate quote, adapting to their responses
+  * **Claude:** Sends a request to use the quote generation API tool along with necessary information collected from the user
+  * **Claude:** Receives the response information from the API tool use, synthesizes the information into a natural response, and presents the provided quote to the user
+
+* **Customer:** Asks follow up questions
+
+  * **Claude:** Answers follow up questions as needed
+  * **Claude:** Guides the customer to the next steps in the insurance process and closes out the conversation
+
+<Tip>
+  In the real example that you write for your own use case, you might find it useful to write out the actual words in this interaction so that you can also get a sense of the ideal tone, response length, and level of detail you want Claude to have.
+</Tip>
 
 ### Break the interaction into unique tasks
 
 Customer support chat is a collection of multiple different tasks, from question answering to information retrieval to taking action on requests, wrapped up in a single customer interaction. Before you start building, break down your ideal customer interaction into every task you want Claude to be able to perform. This ensures you can prompt and evaluate Claude for every task, and gives you a good sense of the range of interactions you need to account for when writing test cases.
 
-<Tip>Customers sometimes find it helpful to visualize this as an interaction flowchart of possible conversation inflection points depending on user requests.</Tip>
+<Tip>
+  Customers sometimes find it helpful to visualize this as an interaction flowchart of possible conversation inflection points depending on user requests.
+</Tip>
 
 Here are the key tasks associated with the example insurance interaction:
 
 1. Greeting and general guidance
-   - Warmly greet the customer and initiate conversation
-   - Provide general information about the company and interaction
+
+   * Warmly greet the customer and initiate conversation
+   * Provide general information about the company and interaction
 
 2. Product information
-   - Provide information about electric vehicle coverage
-   <Note>This will require that Claude have the necessary information in its context, and might imply that a [RAG integration](https://platform.claude.com/cookbook/capabilities-retrieval-augmented-generation-guide) is necessary.</Note>
-   - Answer questions related to unique electric vehicle insurance needs
-   - Answer follow-up questions about the quote or insurance details
-   - Offer links to sources when appropriate
+
+   * Provide information about electric vehicle coverage
+     <Note>
+       This will require that Claude have the necessary information in its context, and might imply that a 
+
+       [RAG integration](https://platform.claude.com/cookbook/capabilities-retrieval-augmented-generation-guide)
+
+        is necessary.
+     </Note>
+   * Answer questions related to unique electric vehicle insurance needs
+   * Answer follow-up questions about the quote or insurance details
+   * Offer links to sources when appropriate
 
 3. Conversation management
-   - Stay on topic (car insurance)
-   - Redirect off-topic questions back to relevant subjects
+
+   * Stay on topic (car insurance)
+   * Redirect off-topic questions back to relevant subjects
 
 4. Quote generation
-   - Ask appropriate questions to determine quote eligibility
-   - Adapt questions based on customer responses
-   - Submit collected information to quote generation API
-   - Present the provided quote to the customer
+
+   * Ask appropriate questions to determine quote eligibility
+   * Adapt questions based on customer responses
+   * Submit collected information to quote generation API
+   * Present the provided quote to the customer
 
 ### Establish success criteria
 
@@ -116,64 +133,55 @@ Work with your support team to [define success criteria and write detailed evalu
 
 Here are criteria and benchmarks that can be used to evaluate how successfully Claude performs the defined tasks:
 
-  <section title="Query comprehension accuracy">
-
+<AccordionGroup>
+  <Accordion title="Query comprehension accuracy">
     This metric evaluates how accurately Claude understands customer inquiries across various topics. Measure this by reviewing a sample of conversations and assessing whether Claude has the correct interpretation of customer intent, critical next steps, what successful resolution looks like, and more. Aim for a comprehension accuracy of 95% or higher.
-  
-</section>
-  <section title="Response relevance">
+  </Accordion>
 
+  <Accordion title="Response relevance">
     This assesses how well Claude's response addresses the customer's specific question or issue. Evaluate a set of conversations and rate the relevance of each response (using LLM-based grading for scale). Target a relevance score of 90% or above.
-  
-</section>
-  <section title="Response accuracy">
+  </Accordion>
 
+  <Accordion title="Response accuracy">
     Assess the correctness of general company and product information provided to the user, based on the information provided to Claude in context. Target 100% accuracy in this introductory information.
-  
-</section>
-  <section title="Citation provision relevance">
+  </Accordion>
 
+  <Accordion title="Citation provision relevance">
     Track the frequency and relevance of links or sources offered. Target providing relevant sources in 80% of interactions where additional information could be beneficial.
-  
-</section>
-  <section title="Topic adherence">
+  </Accordion>
 
+  <Accordion title="Topic adherence">
     Measure how well Claude stays on topic, such as the topic of car insurance in the example implementation. Aim for 95% of responses to be directly related to car insurance or the customer's specific query.
-  
-</section>
-  <section title="Content generation effectiveness">
+  </Accordion>
 
+  <Accordion title="Content generation effectiveness">
     Measure how successful Claude is at determining when to generate informational content and how relevant that content is. For example, in this implementation, you would be determining how well Claude understands when to generate a quote and how accurate that quote is. Target 100% accuracy, as this is vital information for a successful customer interaction.
-  
-</section>
-  <section title="Escalation efficiency">
+  </Accordion>
 
+  <Accordion title="Escalation efficiency">
     This measures Claude's ability to recognize when a query needs human intervention and escalate appropriately. Track the percentage of correctly escalated conversations versus those that should have been escalated but weren't. Aim for an escalation accuracy of 95% or higher.
-  
-</section>
+  </Accordion>
+</AccordionGroup>
 
 Here are criteria and benchmarks that can be used to evaluate the business impact of employing Claude for support:
 
-  <section title="Sentiment maintenance">
-
+<AccordionGroup>
+  <Accordion title="Sentiment maintenance">
     This assesses Claude's ability to maintain or improve customer sentiment throughout the conversation. Use sentiment analysis tools to measure sentiment at the beginning and end of each conversation. Aim for maintained or improved sentiment in 90% of interactions.
-  
-</section>
-  <section title="Deflection rate">
+  </Accordion>
 
+  <Accordion title="Deflection rate">
     The percentage of customer inquiries successfully handled by the chatbot without human intervention. Typically aim for 70-80% deflection rate, depending on the complexity of inquiries.
-  
-</section>
-  <section title="Customer satisfaction score">
+  </Accordion>
 
+  <Accordion title="Customer satisfaction score">
     A measure of how satisfied customers are with their chatbot interaction. Usually done through post-interaction surveys. Aim for a CSAT score of 4 out of 5 or higher.
-  
-</section>
-  <section title="Average handle time">
+  </Accordion>
 
+  <Accordion title="Average handle time">
     The average time it takes for the chatbot to resolve an inquiry. This varies widely based on the complexity of issues, but generally, aim for a lower AHT compared to human agents.
-  
-</section>
+  </Accordion>
+</AccordionGroup>
 
 ## How to implement Claude as a customer service agent
 
@@ -181,7 +189,7 @@ Here are criteria and benchmarks that can be used to evaluate the business impac
 
 The choice of model depends on the trade-offs between cost, accuracy, and response time.
 
-For customer support chat, Claude Opus 4.8 is well suited to balance intelligence, latency, and cost. However, for instances where you have conversation flow with multiple prompts including RAG, tool use, or long-context prompts, Claude Haiku 4.5 may be more suitable to optimize for latency.
+For customer support chat, Claude Opus 5 is well suited to balance intelligence, latency, and cost, including the most complex support scenarios that require deep reasoning across long, multi-step conversations. However, for instances where you have conversation flow with multiple prompts including RAG, tool use, or long-context prompts, Claude Haiku 4.5 may be more suitable to optimize for latency.
 
 ### Build a strong prompt
 
@@ -196,7 +204,17 @@ Acme's insurance offerings, which include car insurance and electric car
 insurance. You can also help customers get quotes for their insurance needs."""
 ```
 
-<Tip>While you may be tempted to put all your information inside a system prompt as a way to separate instructions from the user conversation, Claude actually works best with the bulk of its prompt content written inside the first `User` turn (with the only exception being role prompting). Read more at [Giving Claude a role with a system prompt](/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role).</Tip>
+<Tip>
+  While you may be tempted to put all your information inside a system prompt as a way to separate instructions from the user conversation, Claude actually works best with the bulk of its prompt content written inside the first 
+
+  `User`
+
+   turn (with the only exception being role prompting). Read more at 
+
+  [Giving Claude a role with a system prompt](/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#give-claude-a-role)
+
+  .
+</Tip>
 
 It's best to break down complex prompts into subsections and write one part at a time. For each task, you might find greater success by following a step-by-step process to define the parts of the prompt Claude would need to do the task well. For this car insurance customer support example, you'll be writing piecemeal all the parts for a prompt starting with the "Greeting and general guidance" task. This also makes debugging your prompt easier as you can more quickly adjust individual parts of the overall prompt.
 
@@ -333,8 +351,7 @@ Once you provide this information, I'll use our quoting tool to generate a perso
 """
 ```
 
-You will also want to include any important instructions outlining dos and don'ts for how Claude should interact with the customer.
-This may draw from brand guardrails or support policies.
+You will also want to include any important instructions outlining dos and don'ts for how Claude should interact with the customer. This may draw from brand guardrails or support policies.
 
 ```python
 ADDITIONAL_GUARDRAILS = """Please adhere to the following guardrails:
@@ -350,7 +367,7 @@ You only provide information and guidance.
 
 Now combine all these sections into a single string to use as your prompt.
 
-```python nocheck
+```python
 TASK_SPECIFIC_INSTRUCTIONS = " ".join(
     [
         STATIC_GREETINGS_AND_GENERAL,
@@ -368,14 +385,16 @@ Claude is capable of taking actions and retrieving information dynamically using
 
 For this example, start with one tool for calculating the quote.
 
-<Tip>As a reminder, this tool will not perform the actual calculation, it will just signal to the application that a tool should be used with whatever arguments specified.</Tip>
+<Tip>
+  As a reminder, this tool will not perform the actual calculation, it will just signal to the application that a tool should be used with whatever arguments specified.
+</Tip>
 
 Add the model name, the tool definition, and a stub implementation to `config.py`:
 
 ```python
 import time
 
-MODEL = "claude-opus-4-8"
+MODEL = "claude-opus-5"
 
 TOOLS = [
     {
@@ -404,7 +423,6 @@ TOOLS = [
     }
 ]
 
-
 def get_quote(make, model, year, mileage, driver_age):
     """Returns the premium per month in USD"""
     # You can call an http endpoint or a database to get the quote.
@@ -417,117 +435,666 @@ def get_quote(make, model, year, mileage, driver_age):
 
 It's hard to know how well your prompt works without deploying it in a test production setting and [running evaluations](/docs/en/test-and-evaluate/develop-tests). Build a small application using the prompt, the Anthropic SDK, and Streamlit for a user interface.
 
-In a file called `chatbot.py`, start by setting up the ChatBot class, which will encapsulate the interactions with the Anthropic SDK.
+In a file called `chatbot.py` (or the equivalent module in your language), set up the ChatBot class, which will encapsulate the interactions with the Anthropic SDK.
 
-The class should have two main methods: `generate_message` and `process_user_input`.
+The class should have two main methods: one that calls the API to generate a message, and one that processes each incoming user input.
 
-```python nocheck
-from anthropic import Anthropic
-from config import IDENTITY, TOOLS, MODEL, get_quote
-from dotenv import load_dotenv
+<CodeGroup exclude="shell">
+  ```python Python
+  # In your chatbot.py, import these from the config.py you wrote above:
+  # from config import IDENTITY, TOOLS, MODEL, get_quote
+  from anthropic import Anthropic
+  from dotenv import load_dotenv
 
-load_dotenv()
+  load_dotenv()
 
+  class ChatBot:
+      def __init__(self, session_state):
+          self.anthropic = Anthropic()
+          self.session_state = session_state
 
-class ChatBot:
-    def __init__(self, session_state):
-        self.anthropic = Anthropic()
-        self.session_state = session_state
+      def generate_message(
+          self,
+          messages,
+          max_tokens,
+      ):
+          try:
+              response = self.anthropic.messages.create(
+                  model=MODEL,
+                  system=IDENTITY,
+                  max_tokens=max_tokens,
+                  messages=messages,
+                  tools=TOOLS,
+              )
+              return response
+          except Exception as e:
+              return {"error": str(e)}
 
-    def generate_message(
-        self,
+      def process_user_input(self, user_input):
+          self.session_state.messages.append({"role": "user", "content": user_input})
+
+          response_message = self.generate_message(
+              messages=self.session_state.messages,
+              max_tokens=2048,
+          )
+
+          if "error" in response_message:
+              return f"An error occurred: {response_message['error']}"
+
+          if response_message.content[-1].type == "tool_use":
+              tool_use = response_message.content[-1]
+              func_name = tool_use.name
+              func_params = tool_use.input
+              tool_use_id = tool_use.id
+
+              result = self.handle_tool_use(func_name, func_params)
+              self.session_state.messages.append(
+                  {"role": "assistant", "content": response_message.content}
+              )
+              self.session_state.messages.append(
+                  {
+                      "role": "user",
+                      "content": [
+                          {
+                              "type": "tool_result",
+                              "tool_use_id": tool_use_id,
+                              "content": f"{result}",
+                          }
+                      ],
+                  }
+              )
+
+              follow_up_response = self.generate_message(
+                  messages=self.session_state.messages,
+                  max_tokens=2048,
+              )
+
+              if "error" in follow_up_response:
+                  return f"An error occurred: {follow_up_response['error']}"
+
+              response_text = next(
+                  (block.text for block in follow_up_response.content if block.type == "text"),
+                  None,
+              )
+              if response_text is None:
+                  raise Exception("An error occurred: Unexpected response type")
+              self.session_state.messages.append(
+                  {"role": "assistant", "content": response_text}
+              )
+              return response_text
+
+          text_block = next(
+              (block for block in response_message.content if block.type == "text"), None
+          )
+          if text_block is not None:
+              response_text = text_block.text
+              self.session_state.messages.append(
+                  {"role": "assistant", "content": response_text}
+              )
+              return response_text
+
+          raise Exception("An error occurred: Unexpected response type")
+
+      def handle_tool_use(self, func_name, func_params):
+          if func_name == "get_quote":
+              premium = get_quote(**func_params)
+              return f"Quote generated: ${premium:.2f} per month"
+
+          raise Exception("An unexpected tool was used")
+  ```
+
+  ```typescript TypeScript
+  import Anthropic from "@anthropic-ai/sdk";
+
+  class ChatBot {
+    // IDENTITY, MODEL, TOOLS, and getQuote mirror the config.py values defined
+    // earlier in this guide (shown in Python).
+    readonly anthropic = new Anthropic();
+    readonly messages: Anthropic.MessageParam[] = [];
+
+    async generateMessage(
+      messages: Anthropic.MessageParam[],
+      maxTokens: number
+    ): Promise<Anthropic.Message> {
+      return this.anthropic.messages.create({
+        model: MODEL,
+        system: IDENTITY,
+        max_tokens: maxTokens,
         messages,
-        max_tokens,
-    ):
-        try:
-            response = self.anthropic.messages.create(
-                model=MODEL,
-                system=IDENTITY,
-                max_tokens=max_tokens,
-                messages=messages,
-                tools=TOOLS,
-            )
-            return response
-        except Exception as e:
-            return {"error": str(e)}
+        tools: TOOLS
+      });
+    }
 
-    def process_user_input(self, user_input):
-        self.session_state.messages.append({"role": "user", "content": user_input})
+    async processUserInput(userInput: string): Promise<string> {
+      this.messages.push({ role: "user", content: userInput });
 
-        response_message = self.generate_message(
-            messages=self.session_state.messages,
-            max_tokens=2048,
-        )
+      const responseMessage = await this.generateMessage(this.messages, 2048);
 
-        if "error" in response_message:
-            return f"An error occurred: {response_message['error']}"
+      const lastBlock = responseMessage.content.at(-1);
+      if (lastBlock?.type === "tool_use") {
+        const toolResult = this.handleToolUse(lastBlock.name, lastBlock.input);
 
-        if response_message.content[-1].type == "tool_use":
-            tool_use = response_message.content[-1]
-            func_name = tool_use.name
-            func_params = tool_use.input
-            tool_use_id = tool_use.id
+        this.messages.push({ role: "assistant", content: responseMessage.content });
+        this.messages.push({
+          role: "user",
+          content: [{ type: "tool_result", tool_use_id: lastBlock.id, content: toolResult }]
+        });
 
-            result = self.handle_tool_use(func_name, func_params)
-            self.session_state.messages.append(
-                {"role": "assistant", "content": response_message.content}
-            )
-            self.session_state.messages.append(
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "tool_result",
-                            "tool_use_id": tool_use_id,
-                            "content": f"{result}",
-                        }
-                    ],
-                }
-            )
+        const followUpResponse = await this.generateMessage(this.messages, 2048);
 
-            follow_up_response = self.generate_message(
-                messages=self.session_state.messages,
-                max_tokens=2048,
-            )
+        const followUpBlock = followUpResponse.content.find(
+          (block): block is Anthropic.TextBlock => block.type === "text"
+        );
+        if (!followUpBlock) {
+          throw new Error("An error occurred: Unexpected response type");
+        }
+        this.messages.push({ role: "assistant", content: followUpBlock.text });
+        return followUpBlock.text;
+      }
 
-            if "error" in follow_up_response:
-                return f"An error occurred: {follow_up_response['error']}"
+      const firstBlock = responseMessage.content.find(
+        (block): block is Anthropic.TextBlock => block.type === "text"
+      );
+      if (firstBlock) {
+        this.messages.push({ role: "assistant", content: firstBlock.text });
+        return firstBlock.text;
+      }
 
-            response_text = follow_up_response.content[0].text
-            self.session_state.messages.append(
-                {"role": "assistant", "content": response_text}
-            )
-            return response_text
+      throw new Error("An error occurred: Unexpected response type");
+    }
 
-        elif response_message.content[0].type == "text":
-            response_text = response_message.content[0].text
-            self.session_state.messages.append(
-                {"role": "assistant", "content": response_text}
-            )
-            return response_text
+    handleToolUse(toolName: string, toolInput: unknown): string {
+      if (toolName === "get_quote") {
+        // The SDK types tool_use.input as unknown; narrow it to the get_quote schema.
+        if (
+          toolInput === null ||
+          typeof toolInput !== "object" ||
+          !("make" in toolInput) || typeof toolInput.make !== "string" ||
+          !("model" in toolInput) || typeof toolInput.model !== "string" ||
+          !("year" in toolInput) || typeof toolInput.year !== "number" ||
+          !("mileage" in toolInput) || typeof toolInput.mileage !== "number" ||
+          !("driver_age" in toolInput) || typeof toolInput.driver_age !== "number"
+        ) {
+          throw new Error("An error occurred: Unexpected tool input");
+        }
+        const { make, model: vehicleModel, year, mileage, driver_age: driverAge } = toolInput;
 
-        else:
-            raise Exception("An error occurred: Unexpected response type")
+        const premium = getQuote(make, vehicleModel, year, mileage, driverAge);
+        return `Quote generated: $${premium.toFixed(2)} per month`;
+      }
 
-    def handle_tool_use(self, func_name, func_params):
-        if func_name == "get_quote":
-            premium = get_quote(**func_params)
-            return f"Quote generated: ${premium:.2f} per month"
+      throw new Error("An unexpected tool was used");
+    }
+  }
+  ```
 
-        raise Exception("An unexpected tool was used")
-```
+  ```csharp C#
+  using System.Text.Json;
+  using Anthropic;
+  using Anthropic.Models.Messages;
+
+  // Config.Model, Config.Identity, Config.Tools, and Config.GetQuote mirror
+  // the config.py values defined earlier in this guide (shown in Python).
+  public class ChatBot
+  {
+      private readonly AnthropicClient _anthropic = new();
+
+      public List<MessageParam> Messages { get; } = [];
+
+      public async Task<Message> GenerateMessage(List<MessageParam> messages, long maxTokens) =>
+          await _anthropic.Messages.Create(
+              new MessageCreateParams
+              {
+                  Model = Config.Model,
+                  System = Config.Identity,
+                  MaxTokens = maxTokens,
+                  Messages = messages,
+                  Tools = Config.Tools,
+              }
+          );
+
+      public async Task<string> ProcessUserInput(string userInput)
+      {
+          Messages.Add(new() { Role = Role.User, Content = userInput });
+
+          var responseMessage = await GenerateMessage(Messages, maxTokens: 2048);
+
+          if (responseMessage.Content[^1].TryPickToolUse(out var toolUse))
+          {
+              var toolResult = HandleToolUse(toolUse.Name, toolUse.Input);
+
+              Messages.Add(new()
+              {
+                  Role = Role.Assistant,
+                  Content = responseMessage.Content
+                      .Select(contentBlock => new ContentBlockParam(contentBlock.Json))
+                      .ToList(),
+              });
+              Messages.Add(new()
+              {
+                  Role = Role.User,
+                  Content = new List<ContentBlockParam>
+                  {
+                      new ToolResultBlockParam { ToolUseID = toolUse.ID, Content = toolResult },
+                  },
+              });
+
+              var followUpResponse = await GenerateMessage(Messages, maxTokens: 2048);
+
+              foreach (var block in followUpResponse.Content)
+              {
+                  if (block.TryPickText(out var followUpText))
+                  {
+                      Messages.Add(new() { Role = Role.Assistant, Content = followUpText.Text });
+                      return followUpText.Text;
+                  }
+              }
+
+              throw new InvalidOperationException("An error occurred: Unexpected response type");
+          }
+
+          foreach (var block in responseMessage.Content)
+          {
+              if (block.TryPickText(out var textBlock))
+              {
+                  Messages.Add(new() { Role = Role.Assistant, Content = textBlock.Text });
+                  return textBlock.Text;
+              }
+          }
+
+          throw new InvalidOperationException("An error occurred: Unexpected response type");
+      }
+
+      public string HandleToolUse(string funcName, IReadOnlyDictionary<string, JsonElement> funcParams)
+      {
+          if (funcName == "get_quote")
+          {
+              var premium = Config.GetQuote(
+                  funcParams["make"].GetString()!,
+                  funcParams["model"].GetString()!,
+                  funcParams["year"].GetInt64(),
+                  funcParams["mileage"].GetInt64(),
+                  funcParams["driver_age"].GetInt64()
+              );
+              return $"Quote generated: ${premium:F2} per month";
+          }
+
+          throw new ArgumentException("An unexpected tool was used");
+      }
+  }
+  ```
+
+  ```go Go
+  import (
+  	"context"
+  	"encoding/json"
+  	"fmt"
+
+  	"github.com/anthropics/anthropic-sdk-go"
+  )
+
+  // ChatBot wraps the Anthropic client and the conversation history. The
+  // identity, model, tools, and getQuote values it uses mirror the config.py
+  // definitions earlier in this guide (shown in Python).
+  type ChatBot struct {
+  	client   anthropic.Client
+  	messages []anthropic.MessageParam
+  }
+
+  func NewChatBot() *ChatBot {
+  	return &ChatBot{client: anthropic.NewClient()}
+  }
+
+  func (bot *ChatBot) GenerateMessage(ctx context.Context, messages []anthropic.MessageParam, maxTokens int64) (*anthropic.Message, error) {
+  	return bot.client.Messages.New(ctx, anthropic.MessageNewParams{
+  		Model:     model,
+  		System:    []anthropic.TextBlockParam{{Text: identity}},
+  		MaxTokens: maxTokens,
+  		Messages:  messages,
+  		Tools:     tools,
+  	})
+  }
+
+  func (bot *ChatBot) ProcessUserInput(ctx context.Context, userInput string) (string, error) {
+  	bot.messages = append(bot.messages, anthropic.NewUserMessage(anthropic.NewTextBlock(userInput)))
+
+  	response, err := bot.GenerateMessage(ctx, bot.messages, 2048)
+  	if err != nil {
+  		return "", err
+  	}
+
+  	lastBlock := response.Content[len(response.Content)-1]
+  	if toolUse, ok := lastBlock.AsAny().(anthropic.ToolUseBlock); ok {
+  		result, err := bot.HandleToolUse(toolUse.Name, toolUse.Input)
+  		if err != nil {
+  			return "", err
+  		}
+
+  		bot.messages = append(bot.messages,
+  			response.ToParam(),
+  			anthropic.NewUserMessage(anthropic.NewToolResultBlock(toolUse.ID, result, false)),
+  		)
+
+  		followUp, err := bot.GenerateMessage(ctx, bot.messages, 2048)
+  		if err != nil {
+  			return "", err
+  		}
+
+  		for _, block := range followUp.Content {
+  			if textBlock, ok := block.AsAny().(anthropic.TextBlock); ok {
+  				bot.messages = append(bot.messages, anthropic.NewAssistantMessage(anthropic.NewTextBlock(textBlock.Text)))
+  				return textBlock.Text, nil
+  			}
+  		}
+  		return "", fmt.Errorf("an error occurred: unexpected response type")
+  	}
+
+  	for _, block := range response.Content {
+  		if textBlock, ok := block.AsAny().(anthropic.TextBlock); ok {
+  			bot.messages = append(bot.messages, anthropic.NewAssistantMessage(anthropic.NewTextBlock(textBlock.Text)))
+  			return textBlock.Text, nil
+  		}
+  	}
+
+  	return "", fmt.Errorf("an error occurred: unexpected response type")
+  }
+
+  func (bot *ChatBot) HandleToolUse(toolName string, toolInput json.RawMessage) (string, error) {
+  	if toolName != "get_quote" {
+  		return "", fmt.Errorf("an unexpected tool was used: %s", toolName)
+  	}
+
+  	var input struct {
+  		Make      string `json:"make"`
+  		Model     string `json:"model"`
+  		Year      int    `json:"year"`
+  		Mileage   int    `json:"mileage"`
+  		DriverAge int    `json:"driver_age"`
+  	}
+  	if err := json.Unmarshal(toolInput, &input); err != nil {
+  		return "", err
+  	}
+  	premium := getQuote(input.Make, input.Model, input.Year, input.Mileage, input.DriverAge)
+  	return fmt.Sprintf("Quote generated: $%.2f per month", premium), nil
+  }
+
+  ```
+
+  ```java Java
+  import com.anthropic.client.AnthropicClient;
+  import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+  import com.anthropic.core.JsonValue;
+  import com.anthropic.models.messages.ContentBlock;
+  import com.anthropic.models.messages.ContentBlockParam;
+  import com.anthropic.models.messages.Message;
+  import com.anthropic.models.messages.MessageCreateParams;
+  import com.anthropic.models.messages.MessageParam;
+  import com.anthropic.models.messages.ToolResultBlockParam;
+  import com.anthropic.models.messages.ToolUseBlock;
+
+  // IDENTITY, MODEL, TOOLS, and getQuote mirror the config.py values defined
+  // earlier in this guide (shown in Python).
+  class ChatBot {
+      final AnthropicClient anthropic;
+      final List<MessageParam> messages;
+
+      ChatBot() {
+          // Reads the API key from the ANTHROPIC_API_KEY environment variable
+          this.anthropic = AnthropicOkHttpClient.fromEnv();
+          this.messages = new ArrayList<>();
+      }
+
+      Message generateMessage(List<MessageParam> messages, long maxTokens) {
+          return anthropic.messages().create(MessageCreateParams.builder()
+                  .model(MODEL)
+                  .system(IDENTITY)
+                  .maxTokens(maxTokens)
+                  .messages(messages)
+                  .tools(TOOLS)
+                  .build());
+      }
+
+      String processUserInput(String userInput) {
+          messages.add(MessageParam.builder()
+                  .role(MessageParam.Role.USER)
+                  .content(userInput)
+                  .build());
+
+          Message responseMessage = generateMessage(messages, 2048);
+
+          List<ContentBlock> content = responseMessage.content();
+          ContentBlock lastBlock = content.getLast();
+          if (lastBlock.isToolUse()) {
+              ToolUseBlock toolUse = lastBlock.asToolUse();
+              Map<String, JsonValue> toolInput =
+                      (Map<String, JsonValue>) toolUse._input().asObject().orElseThrow();
+              String result = handleToolUse(toolUse.name(), toolInput);
+
+              messages.add(MessageParam.builder()
+                      .role(MessageParam.Role.ASSISTANT)
+                      .contentOfBlockParams(content.stream().map(ContentBlock::toParam).toList())
+                      .build());
+              messages.add(MessageParam.builder()
+                      .role(MessageParam.Role.USER)
+                      .contentOfBlockParams(List.of(ContentBlockParam.ofToolResult(
+                              ToolResultBlockParam.builder()
+                                      .toolUseId(toolUse.id())
+                                      .content(result)
+                                      .build())))
+                      .build());
+
+              Message followUpResponse = generateMessage(messages, 2048);
+
+              ContentBlock followUpBlock = followUpResponse.content().stream()
+                      .filter(ContentBlock::isText)
+                      .findFirst()
+                      .orElseThrow(() -> new IllegalStateException("An error occurred: Unexpected response type"));
+              String responseText = followUpBlock.asText().text();
+              messages.add(MessageParam.builder()
+                      .role(MessageParam.Role.ASSISTANT)
+                      .content(responseText)
+                      .build());
+              return responseText;
+          } else {
+              ContentBlock textBlock = content.stream()
+                      .filter(ContentBlock::isText)
+                      .findFirst()
+                      .orElseThrow(() -> new IllegalStateException("An error occurred: Unexpected response type"));
+              String responseText = textBlock.asText().text();
+              messages.add(MessageParam.builder()
+                      .role(MessageParam.Role.ASSISTANT)
+                      .content(responseText)
+                      .build());
+              return responseText;
+          }
+      }
+
+      String handleToolUse(String funcName, Map<String, JsonValue> funcParams) {
+          return switch (funcName) {
+              case "get_quote" -> {
+                  double premium = getQuote(
+                          funcParams.get("make").asStringOrThrow(),
+                          funcParams.get("model").asStringOrThrow(),
+                          ((Number) funcParams.get("year").asNumber().orElseThrow()).longValue(),
+                          ((Number) funcParams.get("mileage").asNumber().orElseThrow()).longValue(),
+                          ((Number) funcParams.get("driver_age").asNumber().orElseThrow()).longValue());
+                  yield "Quote generated: $%.2f per month".formatted(premium);
+              }
+              default -> throw new IllegalArgumentException("An unexpected tool was used");
+          };
+      }
+  }
+  ```
+
+  ```php PHP
+  use Anthropic\Client;
+  use Anthropic\Messages\Message;
+  use Anthropic\Messages\MessageParam;
+  use Anthropic\Messages\TextBlock;
+  use Anthropic\Messages\ToolResultBlockParam;
+  use Anthropic\Messages\ToolUseBlock;
+
+  class ChatBot
+  {
+      // MODEL, IDENTITY, TOOLS, and get_quote() mirror the config.py values
+      // defined earlier in this guide (shown in Python).
+
+      /** @var list<MessageParam> */
+      public private(set) array $messages = [];
+
+      public function __construct(
+          private readonly Client $anthropic = new Client(),
+      ) {}
+
+      /**
+       * @param list<MessageParam> $messages
+       */
+      public function generateMessage(array $messages, int $maxTokens): Message
+      {
+          return $this->anthropic->messages->create(
+              model: MODEL,
+              system: IDENTITY,
+              maxTokens: $maxTokens,
+              messages: $messages,
+              tools: TOOLS,
+          );
+      }
+
+      public function processUserInput(string $userInput): string
+      {
+          $this->messages[] = MessageParam::with(role: 'user', content: $userInput);
+
+          $responseMessage = $this->generateMessage($this->messages, maxTokens: 2048);
+
+          $content = $responseMessage->content;
+          $lastBlock = array_last($content);
+
+          if ($lastBlock instanceof ToolUseBlock) {
+              $toolResult = $this->handleToolUse($lastBlock->name, $lastBlock->input);
+
+              $this->messages[] = MessageParam::with(role: 'assistant', content: $content);
+              $this->messages[] = MessageParam::with(
+                  role: 'user',
+                  content: [
+                      ToolResultBlockParam::with(toolUseID: $lastBlock->id, content: $toolResult),
+                  ],
+              );
+
+              $followUpResponse = $this->generateMessage($this->messages, maxTokens: 2048);
+
+              $firstBlock = array_find(
+                  $followUpResponse->content,
+                  static fn ($block): bool => $block instanceof TextBlock,
+              );
+              if (!$firstBlock instanceof TextBlock) {
+                  throw new RuntimeException('An error occurred: Unexpected response type');
+              }
+
+              $this->messages[] = MessageParam::with(role: 'assistant', content: $firstBlock->text);
+
+              return $firstBlock->text;
+          }
+
+          $firstBlock = array_find($content, static fn ($block): bool => $block instanceof TextBlock);
+          if ($firstBlock instanceof TextBlock) {
+              $this->messages[] = MessageParam::with(role: 'assistant', content: $firstBlock->text);
+
+              return $firstBlock->text;
+          }
+
+          throw new RuntimeException('An error occurred: Unexpected response type');
+      }
+
+      /**
+       * @param array<string, mixed> $funcParams
+       */
+      private function handleToolUse(string $funcName, array $funcParams): string
+      {
+          if ($funcName === 'get_quote') {
+              $premium = get_quote(...$funcParams);
+
+              return sprintf('Quote generated: $%.2f per month', $premium);
+          }
+
+          throw new RuntimeException('An unexpected tool was used');
+      }
+  }
+  ```
+
+  ```ruby Ruby
+  # IDENTITY, MODEL, TOOLS, and get_quote mirror the config.py values defined
+  # earlier in this guide (shown in Python).
+  require "anthropic"
+
+  class ChatBot
+    attr_reader :messages
+
+    def initialize
+      @anthropic = Anthropic::Client.new
+      @messages = []
+    end
+
+    def generate_message(messages, max_tokens)
+      @anthropic.messages.create(
+        model: MODEL,
+        system_: IDENTITY,
+        max_tokens:,
+        messages:,
+        tools: TOOLS
+      )
+    end
+
+    def process_user_input(user_input)
+      @messages << {role: "user", content: user_input}
+
+      response_message = generate_message(@messages, 2048)
+
+      case response_message.content
+      in [*, Anthropic::ToolUseBlock => tool_use]
+        result = handle_tool_use(tool_use.name, tool_use.input)
+        @messages << {role: "assistant", content: response_message.content}
+        @messages << {
+          role: "user",
+          content: [{type: "tool_result", tool_use_id: tool_use.id, content: result}]
+        }
+
+        follow_up_response = generate_message(@messages, 2048)
+
+        case follow_up_response.content
+        in [*, Anthropic::TextBlock => text_block, *]
+          @messages << {role: "assistant", content: text_block.text}
+          text_block.text
+        else
+          raise "An error occurred: Unexpected response type"
+        end
+      in [*, Anthropic::TextBlock => text_block, *]
+        @messages << {role: "assistant", content: text_block.text}
+        text_block.text
+      else
+        raise "An error occurred: Unexpected response type"
+      end
+    end
+
+    def handle_tool_use(tool_name, tool_input)
+      raise "An unexpected tool was used" unless tool_name == "get_quote"
+
+      premium = get_quote(**tool_input)
+      format("Quote generated: $%.2f per month", premium)
+    end
+  end
+  ```
+</CodeGroup>
 
 ### Build your user interface
 
-Test deploying this code with Streamlit using a main method. This `main()` function sets up a Streamlit-based chat interface.
+Test deploying this code with Streamlit using a main method. This `main()` function sets up a Streamlit-based chat interface. Streamlit is a Python framework, so this part of the walkthrough is shown in Python only; the ChatBot class above is the piece you can port to any language.
 
 Do this in a file called `app.py`
 
-```python nocheck
+```python
 import streamlit as st
 from chatbot import ChatBot
 from config import TASK_SPECIFIC_INSTRUCTIONS
-
 
 def main():
     st.title("Chat with Eva, Acme Insurance Company's Assistant🤖")
@@ -556,7 +1123,6 @@ def main():
                 full_response = chatbot.process_user_input(user_msg)
                 response_placeholder.markdown(full_response)
 
-
 if __name__ == "__main__":
     main()
 ```
@@ -570,8 +1136,6 @@ streamlit run app.py
 ### Evaluate your prompts
 
 Prompting often requires testing and optimization for it to be production ready. To determine the readiness of your solution, evaluate the chatbot performance using a systematic process combining quantitative and qualitative methods. Creating a [strong empirical evaluation](/docs/en/test-and-evaluate/develop-tests#building-evals-and-test-cases) based on your defined success criteria will allow you to optimize your prompts.
-
-<Tip>The [Claude Console](/dashboard) now features an Evaluation tool that lets you test your prompts under various scenarios.</Tip>
 
 ### Improve performance
 
@@ -595,19 +1159,20 @@ This approach, [outlined in the tool use: customer service agent recipe](https:/
 
 When deploying a chatbot, especially in customer service scenarios, it's important to prevent risks associated with misuse, out-of-scope queries, and inappropriate responses. While Claude is inherently resilient to such scenarios, here are additional steps to strengthen your chatbot guardrails:
 
-- [Reduce hallucination](/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations): Implement fact-checking mechanisms and [citations](https://platform.claude.com/cookbook/misc-using-citations) to ground responses in provided information.
-- Cross-check information: Verify that the agent's responses align with your company's policies and known facts.
-- Avoid contractual commitments: Ensure the agent doesn't make promises or enter into agreements it's not authorized to make.
-- [Mitigate jailbreaks](/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks): Use methods like harmlessness screens and input validation to prevent users from exploiting model vulnerabilities, aiming to generate inappropriate content.
-- Avoid mentioning competitors: Implement a competitor mention filter to maintain brand focus and not mention any competitor's products or services.
-- [Increase output consistency](/docs/en/test-and-evaluate/strengthen-guardrails/increase-consistency): Prevent Claude from changing style or going out of character, even during long, complex interactions.
-- Remove Personally Identifiable Information (PII): Unless explicitly required and authorized, strip out any PII from responses.
+* [Reduce hallucination](/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations): Implement fact-checking mechanisms and [citations](https://platform.claude.com/cookbook/misc-using-citations) to ground responses in provided information.
+* Cross-check information: Verify that the agent's responses align with your company's policies and known facts.
+* Avoid contractual commitments: Ensure the agent doesn't make promises or enter into agreements it's not authorized to make.
+* [Mitigate jailbreaks](/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks): Use methods like harmlessness screens and input validation to prevent users from exploiting model vulnerabilities, aiming to generate inappropriate content.
+* Avoid mentioning competitors: Implement a competitor mention filter to maintain brand focus and not mention any competitor's products or services.
+* [Increase output consistency](/docs/en/test-and-evaluate/strengthen-guardrails/increase-consistency): Prevent Claude from changing style or going out of character, even during long, complex interactions.
+* Remove Personally Identifiable Information (PII): Unless explicitly required and authorized, strip out any PII from responses.
 
 #### Reduce perceived response time with streaming
 
 When dealing with potentially lengthy responses, implementing streaming can improve user engagement and satisfaction. In this scenario, users receive the answer progressively instead of waiting for the entire response to be generated.
 
 Here is how to implement streaming:
+
 1. Use the [Anthropic Streaming API](/docs/en/build-with-claude/streaming) to support streaming responses.
 2. Set up your frontend to handle incoming chunks of text.
 3. Display each chunk as it arrives, simulating real-time typing.
@@ -619,8 +1184,8 @@ In some cases, streaming enables the use of more advanced models with higher bas
 
 As the complexity of your chatbot grows, your application architecture can evolve to match. Before you add further layers to your architecture, consider the following less exhaustive options:
 
-- Ensure that you are making the most out of your prompts and optimizing through prompt engineering. Use the [prompt engineering guides](/docs/en/build-with-claude/prompt-engineering/overview) to write the most effective prompts.
-- Add additional [tools](/docs/en/agents-and-tools/tool-use/overview) to the prompt (which can include [prompt chains](/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#chain-complex-prompts)) and see if you can achieve the functionality required.
+* Ensure that you are making the most out of your prompts and optimizing through prompt engineering. Use the [prompt engineering guides](/docs/en/build-with-claude/prompt-engineering/overview) to write the most effective prompts.
+* Add additional [tools](/docs/en/agents-and-tools/tool-use/overview) to the prompt (which can include [prompt chains](/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#chain-complex-prompts)) and see if you can achieve the functionality required.
 
 If your chatbot handles incredibly varied tasks, you may want to consider adding a [separate intent classifier](https://platform.claude.com/cookbook/capabilities-classification-guide) to route the initial customer query. For the existing application, this would involve creating a decision tree that would route customer queries through the classifier and then to specialized conversations (with their own set of tools and system prompts). Note, this method requires an additional call to Claude that can increase latency.
 
@@ -631,9 +1196,10 @@ While these examples have focused on Python functions callable within a Streamli
 Here's how you can approach this:
 
 1. Create an API wrapper: Develop a simple API wrapper around your classification function. For example, you can use Flask API or Fast API to wrap your code into a HTTP Service. Your HTTP service could accept the user input and return the Assistant response in its entirety. Thus, your service could have the following characteristics:
-   - Server-Sent Events (SSE): SSE allows for real-time streaming of responses from the server to the client. This provides a smooth, interactive experience when working with LLMs.
-   - Caching: Implementing caching can improve response times and reduce unnecessary API calls.
-   - Context retention: Maintaining context when a user navigates away and returns is important for continuity in conversations.
+
+   * Server-Sent Events (SSE): SSE allows for real-time streaming of responses from the server to the client. This provides a smooth, interactive experience when working with LLMs.
+   * Caching: Implementing caching can improve response times and reduce unnecessary API calls.
+   * Context retention: Maintaining context when a user navigates away and returns is important for continuity in conversations.
 
 2. Build a web interface: Implement a user-friendly web UI for interacting with the Claude-powered agent.
 
@@ -643,12 +1209,15 @@ Here's how you can approach this:
   <Card title="Tool use" icon="wrench" href="/docs/en/agents-and-tools/tool-use/overview">
     Give Claude access to your APIs so it can take action on behalf of customers.
   </Card>
+
   <Card title="Develop tests" icon="check" href="/docs/en/test-and-evaluate/develop-tests">
     Build evaluations to measure your support agent against the success criteria you defined.
   </Card>
+
   <Card title="Streaming" icon="bolt" href="/docs/en/build-with-claude/streaming">
     Stream responses so customers see answers as they generate.
   </Card>
+
   <Card title="Prompt engineering" icon="lightbulb" href="/docs/en/build-with-claude/prompt-engineering/overview">
     Refine your system prompt and examples for better task performance.
   </Card>

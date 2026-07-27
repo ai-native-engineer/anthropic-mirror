@@ -8,7 +8,9 @@ Try Claude
 
 [Try Claude](https://claude.ai)Try Claude
 
-[Contact sales](/contact-sales)Contact sales
+Contact sales
+
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69ebbdde1a3d17f2d9e91607_eve-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69ebbde617bb08ba0d0157b8_eve-dark-mode.svg)
 
@@ -21,6 +23,8 @@ Company size:
 Startup
 
 Product:
+
+Claude Code
 
 Location:
 
@@ -62,7 +66,11 @@ Claude for Statrtups
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
 Join the founders building on Claude. Access community and resources to accelerate your growth.
+
+[Next](#)Next
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -88,7 +96,11 @@ Choosing the right Claude model
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
 Learn when to use Haiku, Sonnet, or Opus to get better results and stay inside your rate limit. A practical guide to picking the right Claude model.
+
+[Next](#)Next
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -124,6 +136,10 @@ Co-founder and Chief Product Officer, Eve
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
+[Next](#)Next
+
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ## The outcome
@@ -144,34 +160,34 @@ CEO & Co-Founder of Eve
 
 ## Related stories
 
-[GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](/customers/gc-ai)GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
+[GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](https://claude.com/customers/gc-ai)GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
 
 GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
 
 Customer story
 
-[Customer story](/customers/gc-ai)Customer story
+[Customer story](https://claude.com/customers/gc-ai)Customer story
 
-[Thomson Reuters CTO on piloting Cowork with Claude Enterprise](/customers/thomson-reuters-qa)Thomson Reuters CTO on piloting Cowork with Claude Enterprise
+[Thomson Reuters CTO on piloting Cowork with Claude Enterprise](https://claude.com/customers/thomson-reuters-qa)Thomson Reuters CTO on piloting Cowork with Claude Enterprise
 
 Thomson Reuters CTO on piloting Cowork with Claude Enterprise
 
 Customer story
 
-[Customer story](/customers/thomson-reuters-qa)Customer story
+[Customer story](https://claude.com/customers/thomson-reuters-qa)Customer story
 
-[Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows](/customers/wordsmith)Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows
+[Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows](https://claude.com/customers/wordsmith)Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows
 
 Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows
 
 Customer story
 
-[Customer story](/customers/wordsmith)Customer story
+[Customer story](https://claude.com/customers/wordsmith)Customer story
 
-[Legora helps lawyers work more efficiently with Claude](/customers/legora)Legora helps lawyers work more efficiently with Claude
+[Legora helps lawyers work more efficiently with Claude](https://claude.com/customers/legora)Legora helps lawyers work more efficiently with Claude
 
 Legora helps lawyers work more efficiently with Claude
 
 Customer story
 
-[Customer story](/customers/legora)Customer story
+[Customer story](https://claude.com/customers/legora)Customer story

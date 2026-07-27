@@ -41,7 +41,7 @@ For Llama 3 pretrained models, our unsupervised algorithm matches the performanc
 labels and outperforms crowdsourced human labels across three benchmarks: GSM8k-verification, TruthfulQA,
 and Alpaca reward modeling.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2025/unsupervised-elicitation/fig1.png)
 
 Results with Llama 3 pretrained models. 8B models are used for GSM8K, while
 70B models are used for TruthfulQA and Alpaca.
@@ -55,7 +55,7 @@ Claude 3 Haiku-based reward model using our unsupervised algorithm, then use r
 a Claude 3.5 Haiku-based assistant. The reward model outperforms its human-supervised counterpart on
 Rewardbench, and the assistant is preferred by the Claude 3.5 Sonnet preference model.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/unsupervised-elicitation/fig2.png)
 
 Accuracy of reward models (left) and pairwise winrates of assistant policy
 models against
@@ -69,7 +69,7 @@ optimize the Claude 3.5 Haiku pretrained model against our reward model to build
 
 ## Our algorithm
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/unsupervised-elicitation/fig3.png)
 
 Our algorithm, Internal Coherence Maximization (ICM), works by optimizing a set of labels for both logical
 consistency and mutual predictability.

@@ -24,7 +24,7 @@ Anthropic's first event in Europe, in partnership with Dust.ai.
 
 Watch sessions
 
-[Events](/events)
+[Events](https://www.anthropic.com/events)
 
 ・
 
@@ -89,8 +89,6 @@ Watch sessions
 ## Watch the livestream
 
 Add to calendar
-
-![]()
 
 ## Paris Builder Summit
 
@@ -248,7 +246,7 @@ Access cutting-edge research, connect with our community, and stay informed abou
 
 ### Discover meetups, workshops, online events, and more
 
-[Browse all events](/events)Browse all events
+[Browse all events](https://www.anthropic.com/events)Browse all events
 
 Browse all events
 
@@ -256,6 +254,6 @@ Browse all events
 
 ### Get expert insight on the latest innovation in the industry
 
-[View all webinars](/events#webinars)View all webinars
+[View all webinars](https://www.anthropic.com/events#webinars)View all webinars
 
 View all webinars

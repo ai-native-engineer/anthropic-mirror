@@ -22,25 +22,25 @@ Four hundred meters isn’t far: it’s one lap of a running track. But it’s a
 
 FRONT HAZCAM
 
-![Dec. 8, 2025 (Sol 1707)](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2Fa2d74a490dba76990d435952c94c28de69873e5a-1280x960.png%3Fw%3D1200%26fm%3Dwebp%26q%3D80&w=3840&q=75)
+![Dec. 8, 2025 (Sol 1707)](https://cdn.sanity.io/images/4zrzovbb/website/a2d74a490dba76990d435952c94c28de69873e5a-1280x960.png?w=1200&fm=webp&q=80)
 
 Dec. 8, 2025 (Sol 1707)
 
 12
 
-![Dec. 8, 2025 (Sol 1707)](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F952adc07047226d68d5319785069e931c8af8747-1280x960.png%3Fw%3D1200%26fm%3Dwebp%26q%3D80&w=3840&q=75)
+![Dec. 8, 2025 (Sol 1707)](https://cdn.sanity.io/images/4zrzovbb/website/952adc07047226d68d5319785069e931c8af8747-1280x960.png?w=1200&fm=webp&q=80)
 
 Dec. 8, 2025 (Sol 1707)
 
 12
 
-![Dec. 8, 2025 (Sol 1707)](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F7f32fce4e9f211d244d1d9d039435caf38402e0e-1288x968.png%3Fw%3D1200%26fm%3Dwebp%26q%3D80&w=3840&q=75)
+![Dec. 8, 2025 (Sol 1707)](https://cdn.sanity.io/images/4zrzovbb/website/7f32fce4e9f211d244d1d9d039435caf38402e0e-1288x968.png?w=1200&fm=webp&q=80)
 
 Dec. 8, 2025 (Sol 1707)
 
 12345
 
-![Dec. 8, 2025 (Sol 1707)](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2Fd7586935c845516c2a046031afe21827210f24e5-1288x968.png%3Fw%3D1200%26fm%3Dwebp%26q%3D80&w=3840&q=75)
+![Dec. 8, 2025 (Sol 1707)](https://cdn.sanity.io/images/4zrzovbb/website/d7586935c845516c2a046031afe21827210f24e5-1288x968.png?w=1200&fm=webp&q=80)
 
 Dec. 8, 2025 (Sol 1707)
 
@@ -94,9 +94,9 @@ Even further in the future, autonomous AI systems could help probes explore ever
 
 > “Autonomous AI systems could help probes explore ever more distant parts *of the* solar system.”
 
-[![](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F7f2bcaabce956f5f953308a8f833f22529bd212b-1264x1200.png&w=1920&q=75)Mastcam-Z's color calibration target](https://science.nasa.gov/resource/mastcam-zs-calibration-target/)
+[![](https://cdn.sanity.io/images/4zrzovbb/website/7f2bcaabce956f5f953308a8f833f22529bd212b-1264x1200.png)Mastcam-Z's color calibration target](https://science.nasa.gov/resource/mastcam-zs-calibration-target/)
 
-[![](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2Fe83fce5e63e90557cdc541aa693c79e06f9eb556-1288x968.png&w=1920&q=75)Detail of NASA's Mars Perseverance rover](https://science.nasa.gov/mission/mars-2020-perseverance/rover-components/)
+[![](https://cdn.sanity.io/images/4zrzovbb/website/e83fce5e63e90557cdc541aa693c79e06f9eb556-1288x968.png)Detail of NASA's Mars Perseverance rover](https://science.nasa.gov/mission/mars-2020-perseverance/rover-components/)
 
 Claude’s four-hundred meter drive on Mars provides the first glimmer that we might be able to solve those problems, and build a future full of truly autonomous machines that can make fast, adaptive, efficient decisions without waiting for human input. A future where one day our probes might visit moons like [Europa](https://science.nasa.gov/mission/europa-clipper/why-europa-ingredients-for-life/) or [Titan](https://science.nasa.gov/saturn/moons/titan/), descend through their icy shells, and chart their own course through the dark oceans below.
 

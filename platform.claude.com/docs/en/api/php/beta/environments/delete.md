@@ -24,7 +24,7 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     Environment identifier
 
-  - `"environment_deleted" type`
+  - `Type type`
 
     The type of response
 

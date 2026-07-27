@@ -27,19 +27,19 @@ Solutions are provided [below](#solutions).
 
 * You'd like to understand whether an attention head is reading in the output of a previous attention head. What does W\_V^2 \cdot W\_{out}^1 tell you about this? What do the singular values tell you?
 
-#### Exercise 1 - Building a simple virtual attention head
+#### Exercise 1 — Building a simple virtual attention head
 
 Small transformers often have multiple attention heads which look at the previous token, but no attention heads which look at the token two previous. In this exercise, we'll see how two previous token heads can implement a small "virtual attention head" looking two tokens behind, without sacrificing a full attention head to the purpose.
 
 Let's consider two attention heads, head 1 and head 2, which both attend to the previous token. Head 1 is in the first layer, head 2 is in the second layer. To make it easy to write out explicit matrices, we'll have the k, q, and v vectors of both heads be 4 dimensions and the residual stream be 16 dimensions.
 
-* (a) Write down W\_V^1 and W\_{out}^1 for head 1, such that the head copies dimensions 0-3 of its input to 8-11 in its output.
+* (a) Write down W\_V^1 and W\_{out}^1 for head 1, such that the head copies dimensions 0–3 of its input to 8–11 in its output.
 * (b) Write down W\_V^2 and W\_{out}^2 for head 2, such that it copies 3 more dimensions of the previous token, and one dimension from two tokens ago (using a dimension written to by the previous head).
 * (c) Expand out W\_{\text{net}}^1 = W\_{out}^1 \cdot W\_V^1 and W\_{\text{net}}^2 = W\_{out}^2 \cdot W\_V^2. What do these matrices tell you?
 * (d) Expand out the following matrices: Two token copy: W\_{\text{net}}^2 \cdot W\_{\text{net}}^1. One token copy: W\_{\text{net}}^2 \cdot \text{Id} ~+~ \text{Id} \cdot W\_{\text{net}}^1.
 * Observation: When we think of an attention head normally, they need to dedicate all their capacity to one task. In this case, the two heads dedicated 7/8ths of their capacity to one task and 1/8th to another.
 
-#### Exercise 2 - Copying Text with an Induction Head (Pointer Arithmetic Version)
+#### Exercise 2 — Copying Text with an Induction Head (Pointer Arithmetic Version)
 
 The simplest kind of in-context meta-learning that neural networks do is increasing the probability of sequences they've seen before in this context. This is done with an "induction head" that looks at what followed after last time we saw a token.
 
@@ -52,7 +52,7 @@ There are at least two algorithms for implementing induction heads. In this exer
 * (e) Write down W\_V and W\_{out} for the attention head you described in (d), such that it extracts the largest 8 dimensions of the position embedding from the token it attends to, and writes them to the vectors v\_0, v\_1, ....
 * (f) Write W\_Q and W\_K for an attention head which attends to the token after a previous copy of the present token. Hint: use the outputs of the head from (e) and the strategy you used in (c).
 
-#### Exercise 3 - Copying Text with an Induction Head (Previous Token K-Composition Version)
+#### Exercise 3 — Copying Text with an Induction Head (Previous Token K-Composition Version)
 
 Some positional encoding mechanisms, such as rotary attention, don't expose positional information to the W\_V matmul. Transformers trained with these mechanisms can't use the strategy from (e) and (f) in the previous exercise to manipulate positional encoding vectors.
 
@@ -69,11 +69,11 @@ For these transformers, we've seen an alternate mechanism, where the first head 
 
 #### Warmup
 
-See our [paper on transformer ciruits](https://transformer-circuits.pub/2021/framework/index.html) for discussion of all of these questions.
+See our [paper on transformer circuits](https://transformer-circuits.pub/2021/framework/index.html) for discussion of all of these questions.
 
-#### Exercise 1 - Building a simple virtual attention head
+#### Exercise 1 — Building a simple virtual attention head
 
-(1)(a) Write down W\_V^1 and W\_{out}^1 for head 1, such that the head copies dimensions 0-3 of its input to 8-11 in its output.
+(1)(a) Write down W\_V^1 and W\_{out}^1 for head 1, such that the head copies dimensions 0–3 of its input to 8–11 in its output.
 
 ![](images/img-001.png)
 
@@ -95,7 +95,7 @@ h\_i(x) = \sum\_j A\_{ij}W\_{net}x\_{j}
 
 ![](images/img-004.png)
 
-#### Exercise 2 - Copying Text with an Induction Head (Pointer Arithmetic Version)
+#### Exercise 2 — Copying Text with an Induction Head (Pointer Arithmetic Version)
 
 (2)(a) Let u^{\text{cont}}\_0, ~~ u^{\text{cont}}\_1, ~~ \ldots ~~ u^{\text{cont}}\_n be the principal components of the content embedding. Write W\_Q and W\_K for an attention head (with 4 dimensional queries and keys) selecting tokens with similar content to the present token, including the present token itself.
 
@@ -143,7 +143,7 @@ The head described in (d) and (e) puts “the position of the previous instance 
 
 W\_K = \begin{pmatrix}u\_0^{cos} \\ u\_0^{sin} \\ u\_1^{cos} \\ u\_1^{sin}\end{pmatrix} ~~~~ W\_Q = \begin{pmatrix} \cos\alpha\_0 & -\sin\alpha\_0 & & \\ \sin\alpha\_0 & \cos\alpha\_0 & & \\ & & \cos\alpha\_1 & -\sin\alpha\_1 \\ & & \sin\alpha\_1 & \cos\alpha\_1 \end{pmatrix} \begin{pmatrix} v\_0\\ v\_1\\ v\_2\\ v\_3 \end{pmatrix}
 
-#### Exercise 3 - Copying Text with an Induction Head (Previous Token K-Composition Version)
+#### Exercise 3 — Copying Text with an Induction Head (Previous Token K-Composition Version)
 
 The first head copies the “content” subspace of the previous token into the v\_0, v\_1, \ldots{} subspace of the present position:
 

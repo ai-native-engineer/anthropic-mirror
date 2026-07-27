@@ -10,6 +10,7 @@ Search, edit and get insights on your Box content
 * Used in
 
   [Claude](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Box](https://www.box.com/)
 
@@ -22,7 +23,7 @@ Search, edit and get insights on your Box content
   Interactive
 * More
 
-  [Documentation](https://box.dev/guides/box-mcp/remote/)[Privacy Policy](https://www.box.com/legal/privacypolicy)[support@box.com](mailto:support@box.com)
+  [Documentation](https://box.dev/guides/box-mcp/remote/)[Privacy Policy](https://www.box.com/legal/privacypolicy)[Support](mailto:support@box.com)
 
 Connect Claude to your content stored in Box. Enable Claude to search and access files, use AI to query documents, create or update content, extract metadata fields, and more, while enforcing existing Box security and access policies.
 
@@ -56,11 +57,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -74,7 +75,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -88,7 +89,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -100,4 +101,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

@@ -7,11 +7,20 @@
 *Anthropic's Deputy CISO, Jason Clinton, shares his team's lessons learned adopting agentic AI, and the risk assessment framework they've developed for building and deploying agents securely.*
 
   [Enterprise AI](https://claude.com/blog/category/enterprise-ai)
+* Product
 
   No items found.
 * Date
 
   July 17, 2026
+* Reading time
+
+  5
+
+  min
+* Share
+
+  [Copy link](#)
 
   https://claude.com/blog/ciso-guide-to-agentic-ai
 
@@ -33,7 +42,7 @@ These are serious risks to any GRC program. Mitigating and closing vulnerability
 
 For many organizations, the most likely threat vector for agentic systems is a data leak enabled by connecting disparate systems through personal agents with insufficient oversight. Another concern is [prompt injection](https://www.anthropic.com/research/prompt-injection-defenses): an attacker hides instructions inside content the agent reads, and the agent follows the attacker instead of the user. Any agent that touches untrusted content could then be exposed, depending on how robust the defenses of the model are. As models grow increasingly capable, they’re getting meaningfully better at resisting injection. While [attack success rates keep falling](http://anthropic.com/research/prompt-injection-defenses), they’re not zero. There are many concerns outside of these two examples, and the deluge of new classes of concern can seem overwhelming.
 
-### Four questions to ask
+### Four questions to assess agentic AI risk
 
 When an agentic use case reaches our review process, we assess its risk by asking four questions:
 
@@ -129,7 +138,7 @@ If you design your new program for what the model can do today, you will be behi
 
 Agents that hold their own accounts and run multi-day workstreams already operate inside Anthropic and other organizations with tools like Claude Tag, and they need to be governed the way you govern people: identity, least privilege, monitoring, and an insider-risk program that can respond in minutes. The organizations that build that muscle now, on low-risk agents like the examples above, will be ready to say yes when the high-autonomy use cases arrive.
 
-## Getting started
+## Getting started with agentic AI security
 
 The framework above is only useful if it changes a decision in your organization. Here are three places to start:
 
@@ -139,13 +148,17 @@ The framework above is only useful if it changes a decision in your organization
 
 Waiting for zero risk means waiting forever. The web is adversarial, the models are evolving fast, and the organizations that learn to size and accept this risk now are the ones that get the advantage.
 
-*For the controls, attestations, and white papers behind this post, start at* [*trust.anthropic.com*](https://trust.anthropic.com)*. Check out* [*our companion piece*](https://claude.com/blog/preparing-your-security-program-for-ai-accelerated-offense) *on defending against AI-accelerated offense.*
+*For the controls, attestations, and white papers behind this post, start at* [*trust.anthropic.com*](https://trust.anthropic.com)*. Check out* [*our companion piece*](https://claude.com/blog/preparing-your-security-program-for-ai-accelerated-offense) *on defending against AI-accelerated offense. Jason goes deeper on this framework in the* [*Secure the Advantage webinar*](https://www.anthropic.com/webinars/secure-the-advantage-a-cisos-guide-to-agentic-ai)*.*
 
 ‍*This article was written by Jason Clinton, Deputy CISO, Anthropic.*
 
 No items found.
 
+[Prev](#)Prev
+
 0/5
+
+[Next](#)Next
 
 eBook
 
@@ -163,53 +176,61 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224f466b800c4a5a016_a7b8978859371a024139418f3366bb0600ee1675-1000x1000.svg)
+
+Jul 24, 2026
+
+### How the product designer who built Claude Design uses it to explore ideas before building them
+
+Enterprise AI
+
+[How the product designer who built Claude Design uses it to explore ideas before building them](#)How the product designer who built Claude Design uses it to explore ideas before building them
+
+[How the product designer who built Claude Design uses it to explore ideas before building them](https://claude.com/blog/how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them)How the product designer who built Claude Design uses it to explore ideas before building them
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
+
+Jul 24, 2026
+
+### Claude models explained: choosing the best model for your use case
+
+Enterprise AI
+
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
+
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d6ec42bcf1c632f75_52f59749d1e033ff2675c6686a07bcce83fb5046-1000x1000.svg)
+
+Jul 23, 2026
+
+### Four role-based certifications for the people who put Claude to work for customers
+
+Enterprise AI
+
+[Four role-based certifications for the people who put Claude to work for customers](#)Four role-based certifications for the people who put Claude to work for customers
+
+[Four role-based certifications for the people who put Claude to work for customers](https://claude.com/blog/four-role-based-claude-certifications)Four role-based certifications for the people who put Claude to work for customers
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
 
 Jul 21, 2026
 
 ### How Anthropic secures its AI-native software development lifecycle
 
+Claude Code
+
 [How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
 
-[How Anthropic secures its AI-native software development lifecycle](/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2260bfc90348429f9c3_cd9cf56a7f049285b7c1c8786c0a600cf3d7f317-1000x1000.svg)
-
-Jul 16, 2026
-
-### How Anthropic runs large-scale code migrations with Claude Code
-
-[How Anthropic runs large-scale code migrations with Claude Code](#)How Anthropic runs large-scale code migrations with Claude Code
-
-[How Anthropic runs large-scale code migrations with Claude Code](/blog/ai-code-migration)How Anthropic runs large-scale code migrations with Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
-
-Jul 21, 2026
-
-### How Datadog built a “universal machine tool” for Claude Code
-
-[How Datadog built a “universal machine tool” for Claude Code](#)How Datadog built a “universal machine tool” for Claude Code
-
-[How Datadog built a “universal machine tool” for Claude Code](/blog/how-datadog-built-a-universal-machine-tool-for-claude-code)How Datadog built a “universal machine tool” for Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f7912d5b05a5c7ed8ae86_Object-CodeChatCode.svg)
-
-Jul 20, 2026
-
-### Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
-
-Enterprise AI
-
-[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](#)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
-
-[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](/blog/working-at-the-frontier-rakuten)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
+[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
 
 ## Transform how your organization operates with Claude
 
 See pricing
 
 [See pricing](https://claude.com/pricing#api)See pricing
+
+Contact sales
 
 [Contact sales](https://claude.com/contact-sales)Contact sales
 

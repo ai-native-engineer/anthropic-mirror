@@ -6,7 +6,7 @@ Jun 30, 2026
 
 [Get started with Claude Science](https://claude.com/product/claude-science)
 
-![A node in a desktop](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0c547c61b24e6ad4985c64f04f212c7411609bfa-2880x1620.png&w=3840&q=75)
+![A node in a desktop](https://www-cdn.anthropic.com/images/4zrzovbb/website/0c547c61b24e6ad4985c64f04f212c7411609bfa-2880x1620.png)
 
 AI has the potential to dramatically accelerate the pace of scientific discovery and the development of healthcare interventions. Since launching our efforts in the life sciences last fall, we’ve worked to improve our model capabilities, make connections to the scientific ecosystem via MCPs and skills, and launch partnerships in an effort to realize this potential.
 
@@ -24,7 +24,7 @@ We are releasing Claude Science today in beta for Claude Pro, Max, Team, and Ent
 
 ## **How it works**
 
-![Image showing that Claude can display proteins, structures, and molecules](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1c78d0a671cbf1715b3f09a790e6d1a90466de1a-2048x1257.jpg&w=3840&q=75)
+![Image showing that Claude can display proteins, structures, and molecules](https://www-cdn.anthropic.com/images/4zrzovbb/website/1c78d0a671cbf1715b3f09a790e6d1a90466de1a-2048x1257.jpg)
 
 Claude Science displays proteins, structures, and molecules natively, with every result reproducible and traced to its code.
 
@@ -32,7 +32,7 @@ Claude Science displays proteins, structures, and molecules natively, with every
 
 When it generates a figure, Claude Science includes the exact code and environment that produced it, a plain-language description of how it was created, and the full message history. This allows you to understand the inputs, making the work easier to validate and reproduce even months later. You can ask Claude Science to make edits to figures in plain language—removing gridlines, for example, or changing an axis to log scale—and the agent will edit its own code.
 
-![Image showing how Claude science builds environments and manages compute on your laptop, your cluster, or GPUs on demand.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F901245fae3bee38a476732379e92adc0284c2519-2048x1257.jpg&w=3840&q=75)
+![Image showing how Claude science builds environments and manages compute on your laptop, your cluster, or GPUs on demand.](https://www-cdn.anthropic.com/images/4zrzovbb/website/901245fae3bee38a476732379e92adc0284c2519-2048x1257.jpg)
 
 Claude Science builds environments and manages compute on your laptop, your cluster, or GPUs on demand.
 
@@ -40,7 +40,7 @@ Claude Science builds environments and manages compute on your laptop, your clus
 
 Because its agents work inside a running session that holds context in memory, even massive datasets only need to be loaded once. It runs on your lab’s own infrastructure—your laptop, Linux box, or HPC login node—so large or sensitive datasets never have to leave the systems they’re already on, and only the context needed for each step of the analysis is sent to Claude. As the pipeline runs, a reviewer agent inspects the outputs, flagging incorrect citations, untraceable numbers, and figures that don’t match their underlying code, and self-correcting as it goes. You can fork the session at any point to compare two approaches without losing the original thread.
 
-![Image showing how Claude comes pre-configured for scientific work](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5db35fb5ddbd92ce4de28aed58a86ffdf043bea1-2048x1257.jpg&w=3840&q=75)
+![Image showing how Claude comes pre-configured for scientific work](https://www-cdn.anthropic.com/images/4zrzovbb/website/5db35fb5ddbd92ce4de28aed58a86ffdf043bea1-2048x1257.jpg)
 
 Claude Science is pre-configured for genomics, single-cell, proteomics, and cheminformatics, backed by more than 60 scientific databases.
 
@@ -71,23 +71,3 @@ We’ll also be supporting up to 50 Claude Science AI for Science projects, prov
 To stay up-to-date on product announcements, provide feedback, and learn from others in the Claude Science community, join the [AI for Science Discourse community](https://ai4science.discourse.group/invites/UjrKZKwxK3).
 
 Get started with Claude Science at [claude.com/science](http://claude.com/science).
-
-## Related content
-
-### Introducing Claude Sonnet 5
-
-Sonnet 5 delivers frontier performance across coding, agents, and professional work at scale.
-
-[Read more](/news/claude-sonnet-5)
-
-### Redeploying Fable 5
-
-Fable 5 returns globally July 1. We're also proposing an industry-wide framework for scoring jailbreak severity, together with Amazon, Microsoft, Google, and other Glasswing partners.
-
-[Read more](/news/redeploying-fable-5)
-
-### Introducing Claude Tag
-
-Claude Tag is a new way for teams to work with Claude.
-
-[Read more](/news/introducing-claude-tag)

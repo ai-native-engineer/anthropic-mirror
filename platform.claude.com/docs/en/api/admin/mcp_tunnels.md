@@ -6,6 +6,8 @@
 
 **get** `/v1/organizations/tunnels/{tunnel_id}`
 
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
+
 Retrieve a single tunnel in the caller's organization by ID.
 
 ### Path Parameters
@@ -83,6 +85,8 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID \
 ## List Tunnels
 
 **get** `/v1/organizations/tunnels`
+
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
 
 List the organization's tunnels.
 
@@ -192,6 +196,8 @@ curl https://api.anthropic.com/v1/organizations/tunnels \
 
 **post** `/v1/organizations/tunnels/{tunnel_id}/reveal_token`
 
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
+
 Return the tunnel's current connection token.
 
 The value is fetched live on each call; Anthropic does not store it.
@@ -252,6 +258,8 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/reveal_token 
 ## Rotate Tunnel Token
 
 **post** `/v1/organizations/tunnels/{tunnel_id}/rotate_token`
+
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
 
 Invalidate the tunnel's current token for new connections and return a fresh value.
 
@@ -318,6 +326,8 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/rotate_token 
 ## Archive Tunnel
 
 **post** `/v1/organizations/tunnels/{tunnel_id}/archive`
+
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
 
 Archive a tunnel. Archival is irreversible.
 
@@ -559,6 +569,8 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/archive \
 
 **post** `/v1/organizations/tunnels/{tunnel_id}/certificates`
 
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
+
 Register a public CA certificate for the tunnel.
 
 Anthropic verifies the gateway's server certificate against this CA
@@ -651,6 +663,8 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates 
 
 **get** `/v1/organizations/tunnels/{tunnel_id}/certificates/{certificate_id}`
 
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
+
 Retrieve a single certificate registered on a tunnel by ID.
 
 ### Path Parameters
@@ -730,6 +744,8 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/
 ## List Tunnel Certificates
 
 **get** `/v1/organizations/tunnels/{tunnel_id}/certificates`
+
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
 
 List the certificates registered on a tunnel.
 
@@ -835,6 +851,8 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates 
 ## Archive Tunnel Certificate
 
 **post** `/v1/organizations/tunnels/{tunnel_id}/certificates/{certificate_id}/archive`
+
+**Deprecated.** This Admin API endpoint is superseded by `/v1/tunnels` on the Claude API and will be removed after a migration window. New integrations should use [`/v1/tunnels`](/docs/en/api/beta/tunnels) with the `anthropic-beta: mcp-tunnels-2026-06-22` header and a WIF token carrying the `workspace:manage_tunnels` scope. Existing integrations continue to work with the `mcp-tunnels-2026-05-19` header and `org:manage_tunnels` scope during the migration window.
 
 Archive a certificate, removing it from the set Anthropic trusts for this tunnel.
 

@@ -27,34 +27,34 @@ Learn more about using Claude Code remote control to access Claude Code sessions
 
 ## Related tutorials
 
-[Using Claude Design for prototypes and UX](/resources/tutorials/using-claude-design-for-prototypes-and-ux)Using Claude Design for prototypes and UX
+[Using Claude Design for prototypes and UX](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)Using Claude Design for prototypes and UX
 
 Using Claude Design for prototypes and UX
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-claude-design-for-prototypes-and-ux)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)Tutorial
 
-[What is Claude Managed Agents?](/resources/tutorials/what-is-claude-managed-agents)What is Claude Managed Agents?
+[What is Claude Managed Agents?](https://claude.com/resources/tutorials/what-is-claude-managed-agents)What is Claude Managed Agents?
 
 What is Claude Managed Agents?
 
 Tutorial
 
-[Tutorial](/resources/tutorials/what-is-claude-managed-agents)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/what-is-claude-managed-agents)Tutorial
 
-[Troubleshooting skills](/resources/tutorials/troubleshooting-skills)Troubleshooting skills
+[Troubleshooting skills](https://claude.com/resources/tutorials/troubleshooting-skills)Troubleshooting skills
 
 Troubleshooting skills
 
 Tutorial
 
-[Tutorial](/resources/tutorials/troubleshooting-skills)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/troubleshooting-skills)Tutorial
 
-[Sharing skills](/resources/tutorials/sharing-skills)Sharing skills
+[Sharing skills](https://claude.com/resources/tutorials/sharing-skills)Sharing skills
 
 Sharing skills
 
 Tutorial
 
-[Tutorial](/resources/tutorials/sharing-skills)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/sharing-skills)Tutorial

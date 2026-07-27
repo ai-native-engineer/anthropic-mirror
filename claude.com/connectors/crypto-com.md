@@ -10,6 +10,7 @@ Real time prices, orders, charts, and more for crypto
 * Used in
 
   [Claude](https://claude.ai/directory/7248e592-d083-435e-9617-aebab348fe30)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Crypto.com](https://crypto.com/)
 

@@ -7,11 +7,14 @@
 Connect Claude to NetSuite data for analysis & insights
 
   Data
+
+  Financial services
 * Used in
 
   [Claude](https://claude.ai/directory/d7733f53-723c-477a-a87b-41926580ef7d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
-  [Orcale NetSuite](https://www.netsuite.com/portal/home.shtml)
+  [Oracle NetSuite](https://www.netsuite.com/portal/home.shtml)
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -20,6 +23,8 @@ Connect Claude to NetSuite data for analysis & insights
 * Capabilities
 
   Read & write
+
+  Interactive
 * More
 
   [Documentation](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_7200233106.html)[Privacy Policy](https://www.oracle.com/legal/privacy/services-privacy-policy/)[Support](https://suiteanswers.custhelp.com/app/home)
@@ -37,6 +42,38 @@ Run comprehensive account analysis:
 Filter and retrieve sales orders:  
 "Show me all sales orders from Q3 with a value over $50,000"
 
+Skills
+
+NetSuite AI Connector Instructions
+
+Teaches Claude the right tool-selection order, output formatting, multi-subsidiary and currency handling, and SuiteQL safety checks for NetSuite AI Connector sessions.
+
+Learn more
+
+[Learn more](https://github.com/oracle/netsuite-suitecloud-sdk/blob/master/packages/agent-skills/netsuite-ai-connector-instructions/SKILL.md)Learn more
+
+[Next](#)Next
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+Skills
+
+NetSuite Finance Analyst
+
+Finance analysis grounded in NetSuite data — period-close support, variance and reconciliation review, cash reporting, and executive-ready financial narratives.
+
+Learn more
+
+[Learn more](https://github.com/oracle/netsuite-suitecloud-sdk/blob/master/packages/agent-skills/netsuite-finance-analyst/SKILL.md)Learn more
+
+[Next](#)Next
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+[Prev](#)Prev
+
+[Next](#)Next
+
 ## Related connectors
 
 Data
@@ -47,11 +84,37 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+
+Financial services
+
+Claude
+
+Claude Code
+
+June 22, 2026
+
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+
+### Affinity
+
+Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
+
+Financial services
+
+Claude
+
+February 11, 2026
+
+[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+
+### Aiera
+
+Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
 
 Data
 
@@ -65,30 +128,4 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
-
-Data
-
-Claude
-
-Claude Code
-
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
-
-### alphaXiv
-
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
-
-Data
-
-Claude
-
-February 3, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
-
-### Amplitude
-
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)

@@ -6,12 +6,12 @@ Behavioral differences and prompting patterns for Claude Opus 4.8, covering verb
 
 ---
 
-This guide covers the prompting patterns specific to Claude Opus 4.8. For the model's capabilities and API changes, see [What's new in Claude Opus 4.8](/docs/en/about-claude/models/whats-new-claude-4-8). For techniques that apply across all current Claude models, see [Prompting best practices](/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices).
+This guide covers the prompting patterns specific to Claude Opus 4.8. For the API changes involved in moving from Claude Opus 4.8 to the latest Opus model, see [Migrating to Claude Opus 5 from Claude Opus 4.8](/docs/en/about-claude/models/migration-guide#migrating-from-claude-opus-4-8-to-claude-opus-5). For techniques that apply across all current Claude models, see [Prompting best practices](/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices).
 
-Claude Opus 4.8 has particular strengths in long-horizon agentic work, knowledge work, vision, and memory tasks. It performs well out of the box on existing Claude Opus 4.7 prompts. The patterns below cover the behaviors that most often require tuning.
+Claude Opus 4.8 has particular strengths in long-horizon agentic work, knowledge work, vision, and memory tasks. It performs well out of the box on existing Claude Opus 4.7 prompts. The following patterns cover the behaviors that most often require tuning.
 
 <Note>
-For API parameter changes when migrating from Claude Opus 4.7 (sampling parameters, effort default, 1M context window default (200k on Microsoft Foundry), mid-conversation system messages, and refusal stop details), see the [migration guide](/docs/en/about-claude/models/migration-guide#migrating-from-claude-opus-47).
+  For the API parameter changes since Claude Opus 4.7 (sampling parameters, effort default, 1M context window default, mid-conversation system messages, and refusal stop details), see [Migrating to Claude Opus 5 from Claude Opus 4.7](/docs/en/about-claude/models/migration-guide#migrating-from-claude-opus-47), which covers the same changes on the way to the latest Opus model; Claude Opus 4.8 shares these behaviors.
 </Note>
 
 ## Response length and verbosity
@@ -20,7 +20,7 @@ Claude Opus 4.8 calibrates response length to how complex it judges the task to 
 
 If your product depends on a certain style or verbosity of output, you may need to tune your prompts. As an example, to decrease verbosity, you might add:
 
-```text
+```text wrap
 Provide concise, focused responses. Skip non-essential context, and keep examples minimal.
 ```
 
@@ -30,32 +30,32 @@ If you see specific examples of kinds of verbosity (such as over-explaining), yo
 
 The [effort parameter](/docs/en/build-with-claude/effort) allows you to tune Claude's intelligence versus token spend, trading off capability for faster speed and lower costs. Start with the `xhigh` effort level for coding and agentic use cases, and use a minimum of `high` effort for most intelligence-sensitive use cases. Experiment with other effort levels to further tune token usage and intelligence:
 
-- **`max`:** Max effort can deliver performance gains in some use cases, but may show diminishing returns from increased token usage. This setting can also sometimes be prone to overthinking. Test max effort for intelligence-demanding tasks.
-- **`xhigh`:** Extra high effort is the best setting for most coding and agentic use cases.
-- **`high`:** This setting balances token usage and intelligence. For most intelligence-sensitive use cases, use a minimum of `high` effort.
-- **`medium`:** Good for cost-sensitive use cases that need to reduce token usage while trading off intelligence.
-- **`low`:** Reserve for short, scoped tasks and latency-sensitive workloads that are not intelligence-sensitive.
+* **`max`:** Max effort can deliver performance gains in some use cases, but may show diminishing returns from increased token usage. This setting can also sometimes be prone to overthinking. Test max effort for intelligence-demanding tasks.
+* **`xhigh`:** Extra high effort is the best setting for most coding and agentic use cases.
+* **`high`:** This setting balances token usage and intelligence. For most intelligence-sensitive use cases, use a minimum of `high` effort.
+* **`medium`:** Good for cost-sensitive use cases that need to reduce token usage while trading off intelligence.
+* **`low`:** Reserve for short, scoped tasks and latency-sensitive workloads that are not intelligence-sensitive.
 
 Claude Opus 4.8 respects effort levels strictly, especially at the low end. At `low` and `medium`, the model scopes its work to what was asked rather than going above and beyond. This is good for latency and cost, but on moderately complex tasks running at `low` effort there is some risk of under-thinking.
 
 If you observe shallow reasoning on complex problems, raise effort to `high` or `xhigh` rather than prompting around it. If you need to keep effort at `low` for latency, add targeted guidance:
 
-```text
-This task involves multi-step reasoning. Think carefully through the problem before responding.
+```text wrap
+This task involves multistep reasoning. Think carefully through the problem before responding.
 ```
 
 Effort is likely to be more important for this model than for any prior Opus, so experiment with it actively when you upgrade.
 
 On Claude Opus 4.8, thinking is off unless you explicitly set `thinking: {type: "adaptive"}`. The triggering behavior for adaptive thinking is steerable. If you find the model thinking more often than you'd like, which can happen with large or complex system prompts, add guidance to steer it. As always, measure the effect of any prompting changes on performance. Example:
 
-```text
-Thinking adds latency and should only be used when it will meaningfully improve answer quality — typically for problems that require multi-step reasoning. When in doubt, respond directly.
+```text wrap
+Thinking adds latency and should only be used when it will meaningfully improve answer quality — typically for problems that require multistep reasoning. When in doubt, respond directly.
 ```
 
 Conversely, if you're running hard workloads at `medium` and seeing under-thinking, the first lever is to raise effort. If you need finer control, prompt for it directly.
 
 <Note>
-If you are running Claude Opus 4.8 at `max` or `xhigh` effort, set a large max output token budget so the model has room to think and act across its subagents and tool calls. Start at 64k tokens and tune from there.
+  If you are running Claude Opus 4.8 at `max` or `xhigh` effort, set a large max output token budget so the model has room to think and act across its subagents and tool calls. Start at 64k tokens and tune from there.
 </Note>
 
 ## Tool use triggering
@@ -76,7 +76,7 @@ As with any new model, prose style on long-form writing may shift. Claude Opus 4
 
 For instance, if your product voice is warmer or more conversational, add:
 
-```text
+```text wrap
 Use a warm, collaborative tone. Acknowledge the user's framing before answering.
 ```
 
@@ -84,7 +84,7 @@ Use a warm, collaborative tone. Acknowledge the user's framing before answering.
 
 Claude Opus 4.8 tends to spawn fewer subagents by default. However, this behavior is steerable through prompting; give Claude Opus 4.8 explicit guidance around when subagents are desirable. A toy example for a coding use case:
 
-```text
+```text wrap
 Do not spawn a subagent for work you can complete directly in a single response (e.g. refactoring a function you can already see).
 
 Spawn multiple subagents in the same turn when fanning out across items or reading multiple files.
@@ -92,13 +92,13 @@ Spawn multiple subagents in the same turn when fanning out across items or readi
 
 ## Design and frontend defaults
 
-Claude Opus 4.8 has strong design instincts, with a consistent default house style: warm cream/off-white backgrounds (~`#F4F1EA`), serif display type (Georgia, Fraunces, Playfair), italic word-accents, and a terracotta/amber accent. This reads well for editorial, hospitality, and portfolio briefs, but will feel off for dashboards, dev tools, fintech, healthcare, or enterprise apps. The default appears in slide decks as well as web UIs.
+Claude Opus 4.8 has strong design instincts, with a consistent default house style: warm cream/off-white backgrounds (\~`#F4F1EA`), serif display type (Georgia, Fraunces, Playfair), italic word-accents, and a terracotta/amber accent. This reads well for editorial, hospitality, and portfolio briefs, but will feel off for dashboards, dev tools, fintech, healthcare, or enterprise apps. The default appears in slide decks and web UIs.
 
 This default is persistent. Generic instructions ("don't use cream," "make it clean and minimal") tend to shift the model to a different fixed palette rather than producing variety. Two approaches work reliably:
 
 **1. Specify a concrete alternative.** The model follows explicit specs precisely:
 
-```text
+```text wrap
 Design a desktop landing page for a supplement brand called AEFRM.
 
 The visual direction should come from a cold monochrome atmosphere using pale silver-gray tones that gradually deepen into blue-gray and near-black, similar to a misted metallic surface.
@@ -123,13 +123,13 @@ Color palette should stay within this range:
 
 **2. Have the model propose options before building.** This breaks the default and gives users control. If you previously relied on `temperature` for design variety, use this approach; it produces meaningfully different directions across runs. Example prompt:
 
-```text
+```text wrap
 Before building, propose 4 distinct visual directions tailored to this brief (each as: bg hex / accent hex / typeface — one-line rationale). Ask the user to pick one, then implement only that direction.
 ```
 
-Additionally, Claude Opus 4.8 requires less frontend design prompting than previous models to avoid generic patterns that users call the "AI slop" aesthetic. With earlier models, Anthropic recommended a lengthier prompt snippet in the [frontend-design skill](https://github.com/anthropics/claude-code/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md). However, Claude Opus 4.8 generates distinctive, creative frontends with more minimal prompting guidance. This prompt snippet works well with the above prompting advice for variety:
+Additionally, Claude Opus 4.8 requires less frontend design prompting than previous models to avoid generic patterns that users call the "AI slop" aesthetic. With earlier models, Anthropic recommended a lengthier prompt snippet in the [frontend-design skill](https://github.com/anthropics/claude-code/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md). However, Claude Opus 4.8 generates distinctive, creative frontends with more minimal prompting guidance. This prompt snippet works well with the preceding prompting advice for variety:
 
-```text
+```text wrap
 <frontend_aesthetics>
 NEVER use generic AI-generated aesthetics like overused font families (Inter, Roboto, Arial, system fonts), cliched color schemes (particularly purple gradients on white or dark backgrounds), predictable layouts and component patterns, and cookie-cutter design that lacks context-specific character. Use unique fonts, cohesive colors and themes, and animations for effects and micro-interactions.
 </frontend_aesthetics>
@@ -147,7 +147,7 @@ Claude Opus 4.8 is meaningfully better at finding bugs than prior models, and ha
 
 Some recommended prompt language:
 
-```text
+```text wrap
 Report every issue you find, including ones you are uncertain about or consider low-severity. Do not filter for importance or confidence at this stage - a separate verification step will do that. Your goal here is coverage: it is better to surface a finding that later gets filtered out than to silently drop a real bug. For each finding, include your confidence level and an estimated severity so a downstream filter can rank them.
 ```
 

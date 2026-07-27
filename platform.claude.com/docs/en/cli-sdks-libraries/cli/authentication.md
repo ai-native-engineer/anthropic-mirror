@@ -12,7 +12,7 @@ The `ant` CLI supports several credential sources. The [Quickstart](/docs/en/cli
 
 `ant auth login` lets you call the API without creating or managing an API key. It opens a browser-based OAuth flow against the Claude Console and stores the resulting credentials under `$ANTHROPIC_CONFIG_DIR` (see [Configuration directory](/docs/en/manage-claude/wif-reference#configuration-directory) for the OS-specific default). On a remote host or in any environment without a local browser, pass `--no-browser` to print the authorize URL and paste the returned code back into the terminal.
 
-```bash CLI nocheck
+```bash CLI
 ant auth login
 
 # On a remote host without a browser:
@@ -30,13 +30,13 @@ During the browser flow, you select an organization and then a [workspace](/docs
 
 Interactive login is intended for local development and scripting on your own machine. For non-interactive workloads such as CI, servers, and containers, use [Workload Identity Federation](/docs/en/manage-claude/workload-identity-federation) instead.
 
-Login writes credentials to `credentials/.json`. The first login for a profile also creates `configs/.json` and sets it as the active profile. To remove stored credentials, run `ant auth logout`, or `ant auth logout --all` to clear every profile.
+Login writes credentials to `credentials/<profile>.json`. The first login for a profile also creates `configs/<profile>.json` and sets it as the active profile. To remove stored credentials, run `ant auth logout`, or `ant auth logout --all` to clear every profile.
 
 ## Admin access
 
 By default, `ant auth login` requests a workspace-scoped token. To manage the resources documented on the [Admin API](/docs/en/manage-claude/admin-api) page, request the `org:admin` scope under a dedicated profile:
 
-```bash CLI nocheck
+```bash CLI
 ant auth login --profile admin --scope "org:admin"
 
 # Print a bearer token for Authorization headers:
@@ -50,31 +50,27 @@ The `org:admin` scope is granted only to organization members with the admin, ow
 The CLI also reads your API key from the `ANTHROPIC_API_KEY` environment variable. Get a key from the [Claude Console](https://platform.claude.com/settings/keys).
 
 <Tabs>
-<Tab title="zsh">
+  <Tab title="zsh">
+    ```bash
+    echo 'export ANTHROPIC_API_KEY=sk-ant-api03-...' >> ~/.zshrc
+    source ~/.zshrc
+    ```
+  </Tab>
 
-```bash
-echo 'export ANTHROPIC_API_KEY=sk-ant-api03-...' >> ~/.zshrc
-source ~/.zshrc
-```
+  <Tab title="bash">
+    ```bash
+    echo 'export ANTHROPIC_API_KEY=sk-ant-api03-...' >> ~/.bashrc
+    source ~/.bashrc
+    ```
+  </Tab>
 
-</Tab>
-<Tab title="bash">
+  <Tab title="Windows">
+    ```powershell
+    setx ANTHROPIC_API_KEY "sk-ant-api03-..."
+    ```
 
-```bash
-echo 'export ANTHROPIC_API_KEY=sk-ant-api03-...' >> ~/.bashrc
-source ~/.bashrc
-```
-
-</Tab>
-<Tab title="Windows">
-
-```powershell
-setx ANTHROPIC_API_KEY "sk-ant-api03-..."
-```
-
-Open a new terminal for the change to take effect.
-
-</Tab>
+    Open a new terminal for the change to take effect.
+  </Tab>
 </Tabs>
 
 To override the key for a single invocation, pass `--api-key`. To point at a different API host, set `ANTHROPIC_BASE_URL` or pass `--base-url`.
@@ -83,11 +79,11 @@ To override the key for a single invocation, pass `--api-key`. To point at a dif
 
 `ant auth status` prints the credential source the CLI selected (API key environment variable, OAuth login, federation, or profile), the active profile, the workspace the active token is bound to, and the configuration directory paths. Use it to diagnose why a workload picked the wrong credential or workspace.
 
-```bash CLI nocheck
+```bash CLI
 ant auth status
 ```
 
-```text nowrap
+```text
 Active profile:  default
 Config dir:      ~/.config/anthropic
 Profile config:  ~/.config/anthropic/configs/default.json
@@ -107,10 +103,7 @@ Read the `(active)` rows to see which credential source and workspace won. The c
 
 An interactive-login token is bound to a single workspace. To use the CLI against more than one workspace, log in to each under its own named profile, then switch between them:
 
-```bash CLI hidelines={1..3}
-export ANTHROPIC_CONFIG_DIR="$PWD/antconfig"
-mkdir -p "$ANTHROPIC_CONFIG_DIR/configs"
-printf '{"authentication":{"type":"user_oauth"}}' > "$ANTHROPIC_CONFIG_DIR/configs/other-ws.json"
+```bash CLI
 # 1. Create the profile (interactive; pick the other workspace in the
 #    browser, or pass --workspace-id to skip the picker):
 # ant auth login --profile other-ws
@@ -126,17 +119,14 @@ ANTHROPIC_PROFILE=other-ws ant models list
 Run [`ant auth status`](#check-authentication-status) to confirm which profile and workspace are active.
 
 <Note>
-Profiles are only consulted when no API key is set. If `ANTHROPIC_API_KEY` is present in your environment, it overrides every profile and these commands all use whatever workspace that key is scoped to. Unset it before switching profiles.
+  Profiles are only consulted when no API key is set. If `ANTHROPIC_API_KEY` is present in your environment, it overrides every profile and these commands all use whatever workspace that key is scoped to. Unset it before switching profiles.
 </Note>
 
 ## Manage profiles
 
 The `ant profile` subcommands inspect and edit profile state directly:
 
-```bash CLI hidelines={1..3}
-export ANTHROPIC_CONFIG_DIR="$PWD/antconfig"
-mkdir -p "$ANTHROPIC_CONFIG_DIR/configs"
-printf '{"authentication":{"type":"user_oauth"}}' > "$ANTHROPIC_CONFIG_DIR/configs/other-ws.json"
+```bash CLI
 ant profile list
 ant profile get --profile other-ws
 ant profile set workspace_id wrkspc_01... --profile other-ws
@@ -152,9 +142,11 @@ For the profile file schema and the federation block, see [Profile configuration
   <Card title="Using the CLI" icon="terminal" href="/docs/en/cli-sdks-libraries/cli/using">
     Command structure, output formats, GJSON transforms, and request bodies
   </Card>
+
   <Card title="CLI scripting and automation" icon="code" href="/docs/en/cli-sdks-libraries/cli/scripting">
     Version-control API resources, scripting patterns, and use from Claude Code
   </Card>
+
   <Card title="Workload Identity Federation" icon="cloud" href="/docs/en/manage-claude/workload-identity-federation">
     Non-interactive authentication for CI, servers, and containers
   </Card>

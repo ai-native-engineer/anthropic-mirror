@@ -1,8 +1,16 @@
 <!-- source: https://claude.com/docs/connectors/github -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Connect GitHub repositories directly to Claude to provide comprehensive context for software development tasks. Claude can understand your codebase and assist with development questions.
 
-Available on all plans including Free. All Claude integrations are currently in beta.
+Available on all plans including Free.
 
 ##  Adding GitHub repositories
 
@@ -47,6 +55,7 @@ Follow the link to the GitHub App where you can:
 ##  What information is retrieved
 
 | Retrieved | Not Retrieved |
+| --- | --- |
 | File names | Commit history |
 | File contents | Pull requests |
 | Branch content | Issues |
@@ -65,5 +74,3 @@ Yes, add multiple repositories to provide comprehensive context, provided they f
 What happens if I lose repository access?
 
 You won’t be able to view its contents in projects where it was previously added. The repository preview is removed, but conversation history remains.
-
-[Microsoft 365 connector](/docs/connectors/microsoft/365)[Slack integration](/docs/connectors/slack)

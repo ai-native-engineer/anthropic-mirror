@@ -4,7 +4,7 @@
 
 Feb 29, 2024
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F519f63e0ea393f33e56c2e812713d65dcf27a79a-2880x1620.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/519f63e0ea393f33e56c2e812713d65dcf27a79a-2880x1620.png)
 
 ## Executive summary
 
@@ -44,7 +44,7 @@ For example, if you wanted Claude to solve a logic puzzle, you could say:
 
 It’s helpful to give Claude realistic and specific examples of the inputs and ideal outputs you’re hoping to see. It’s useful to include challenging examples and edge cases to help Claude understand exactly what you’re looking for.
 
-For a simple example, consider how Claude can help with removing personally-identifiable information (PII) from information, using 2 examples to help Claude understand different ways that PII could present itself in a prompt. A simplified example using [claude.ai](https://claude.ai/redirect/website.v1.84055890-b4d9-4a24-ae70-9a41a0e2cffc) may look something like this:
+For a simple example, consider how Claude can help with removing personally-identifiable information (PII) from information, using 2 examples to help Claude understand different ways that PII could present itself in a prompt. A simplified example using [claude.ai](https://claude.ai/redirect/website.v1.07f5b244-6a75-46e2-a665-526b7bb51c17) may look something like this:
 
 *You are an expert redactor. I am going to provide you with some text. Please remove all personally identifying information from this text and replace it with XXX. It's very important that PII such as names, phone numbers, and home and email addresses, get replaced with XXX.*
 

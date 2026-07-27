@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![Audience Strategies logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c371a090777b23fa94b83e_cs-logo-audiencestrategies-light-theme.png)![Audience Strategies logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c371b4464f147921c3ebed_cs-logo-audiencestrategies-dark-theme.png)
 
@@ -152,34 +152,34 @@ Video caption
 
 ## Related stories
 
-[StubHub transforms live event ticketing with Claude](/customers/stubhub)StubHub transforms live event ticketing with Claude
+[StubHub transforms live event ticketing with Claude](https://claude.com/customers/stubhub)StubHub transforms live event ticketing with Claude
 
 StubHub transforms live event ticketing with Claude
 
 Customer story
 
-[Customer story](/customers/stubhub)Customer story
+[Customer story](https://claude.com/customers/stubhub)Customer story
 
-[Orange localizes manga at an unprecedented scale with Claude](/customers/orange)Orange localizes manga at an unprecedented scale with Claude
+[Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)Orange localizes manga at an unprecedented scale with Claude
 
 Orange localizes manga at an unprecedented scale with Claude
 
 Customer story
 
-[Customer story](/customers/orange)Customer story
+[Customer story](https://claude.com/customers/orange)Customer story
 
-[WRTN pioneers AI entertainment and storytelling across Asia with Claude](/customers/wrtn)WRTN pioneers AI entertainment and storytelling across Asia with Claude
+[WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)WRTN pioneers AI entertainment and storytelling across Asia with Claude
 
 WRTN pioneers AI entertainment and storytelling across Asia with Claude
 
 Customer story
 
-[Customer story](/customers/wrtn)Customer story
+[Customer story](https://claude.com/customers/wrtn)Customer story
 
-[Lex streamlines the writing process with Claude](/customers/lex)Lex streamlines the writing process with Claude
+[Lex streamlines the writing process with Claude](https://claude.com/customers/lex)Lex streamlines the writing process with Claude
 
 Lex streamlines the writing process with Claude
 
 Customer story
 
-[Customer story](/customers/lex)Customer story
+[Customer story](https://claude.com/customers/lex)Customer story

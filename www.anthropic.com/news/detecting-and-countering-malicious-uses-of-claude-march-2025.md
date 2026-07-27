@@ -4,7 +4,7 @@
 
 Apr 23, 2025
 
-![Profile with Claude sunburst ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff16227567bc84029b2fa7933409557272e1503ab-1920x1079.png&w=3840&q=75)
+![Profile with Claude sunburst ](https://www-cdn.anthropic.com/images/4zrzovbb/website/f16227567bc84029b2fa7933409557272e1503ab-1920x1079.png)
 
 We are committed to preventing misuse of our Claude models by adversarial actors while maintaining their utility for legitimate users. While our safety measures successfully prevent many harmful outputs, threat actors continue to explore methods to circumvent these protections. We are continuously using learnings to upgrade our safeguards.
 

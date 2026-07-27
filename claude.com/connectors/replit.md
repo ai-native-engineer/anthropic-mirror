@@ -9,6 +9,7 @@ Turn ideas into apps and websites instantly
 * Used in
 
   [Claude](https://claude.ai/directory/b952bcd7-554a-460e-9c8a-a81074f9d430)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Replit](https://replit.com)
 
@@ -21,7 +22,7 @@ Turn ideas into apps and websites instantly
   Interactive
 * More
 
-  [Documentation](https://docs.replit.com/platforms/mcp-server)[Privacy Policy](https://replit.com/privacy-policy)[support@replit.com](mailto:support@replit.com)
+  [Documentation](https://docs.replit.com/platforms/mcp-server)[Privacy Policy](https://replit.com/privacy-policy)[Support](mailto:support@replit.com)
 
 Replit's MCP server lets users create, update, and manage full-stack web and mobile applications directly from Claude using natural language. Powered by Replit Agent, it transforms prompts into live, deployed apps — complete with databases, authentication, and custom domains. Users can iterate on their apps conversationally, ask the Agent questions about their project, and access a live preview URL as the app builds. No coding experience required. The server supports OAuth 2.0 authentication and Streamable HTTP transport, integrating seamlessly with Replit's cloud development platform.
 
@@ -54,7 +55,7 @@ January 26, 2026
 
 ### AWS Marketplace
 
-Discover, evaluate, and buy solutions for the cloud](/connectors/aws-marketplace)
+Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
 Claude
 
@@ -64,7 +65,7 @@ March 9, 2026
 
 ### Base44
 
-Build and manage Base44 apps](/connectors/base44)
+Build and manage Base44 apps](https://claude.com/connectors/base44)
 
 Claude
 
@@ -76,7 +77,7 @@ March 2, 2026
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Claude
 
@@ -90,4 +91,4 @@ February 11, 2026
 
 ### Cloudflare
 
-Build applications with compute, storage, and AI](/connectors/cloudflare)
+Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)

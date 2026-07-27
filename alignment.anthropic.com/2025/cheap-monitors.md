@@ -25,7 +25,7 @@ Both methods rely on reusing the rich representations used by the main model to 
 * Our cheapest probe method, EMA linear probes (see Methods section for a definition), outperforms, at negligible cost, a dedicated classifier with 2% of the policy model’s parameters. Interpolating between classifiers in our sweep, it performs as would a classifier with 3% overhead.
 * Suffix probes (likewise defined in Methods) are slightly more performant, roughly on par with an interpolated 4%-overhead classifier. They are also much more expensive—close to the cost/performance frontier of dedicated classifiers—but we expect their cost can be decreased.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2025/cheap-monitors/fig1.png)
 
 Figure 1: We plot the log-space AUROC of the fully-trained models as a function of their cost. (See the Evaluation Metrics subsection for a definition of log-space AUROC.) The scores for trained models are an average across three data orderings. All baselines (in grayscale) are finetuned on jailbreak data, except XL Post-Trained (Prompted), which just appends a classification prompt to the policy model. For commercial reasons, we cannot report architectural details of the XL model and therefore the true costs of our methods, so we report illustrative cost values instead; see the Costs subsection for more detail.
 
@@ -147,7 +147,7 @@ Single Stage Classifiers
 
 Figure 2 shows the true positive rate (TPR) of the classifiers at different values of false positive rates on our test dataset. Figure 1, above, summarizes the performance of each model and compares their costs.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/cheap-monitors/fig2.png)
 
 Figure 2: the full ROC curves for the different trained models (averaging across two dataset order seeds), as well as for the different probing approaches and a prompted baseline. “Base” denotes a pre-trained model trained as a classifier, while “Post-Trained” refers to a model which has been trained to act as a helpful, honest and harmless assistant. The log-space AUROC, the key metric used in this paper, is measured as the area under these curves. n denotes the number of runs averaged across.
 
@@ -157,7 +157,7 @@ Interestingly, the strong performance of the partially-trained models is not ref
 
 We also test retraining the final 2, 4, 8 and 16 layers of the post-trained model (Figure 3). Perhaps surprisingly, we don’t find a clear trend in performance as we increase the number of layers. Instead the performance of the partially trained models remains slightly below the performance of the fully-trained model and any potential increase in performance is within inter-run noise.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/cheap-monitors/fig3.png)
 
 Figure 3: Performance of the partially trained classifiers for three dataset order seeds and the average scores as we increase the number of trained layers.
 
@@ -165,7 +165,7 @@ Two Stage Classifiers
 
 We consider different first stages in a two-stage classifier, fixing the second stage to be the best-performing but expensive post-trained XL model. We vary the fraction of inputs which are passed to the fully-trained model classifier to generate curves mapping the trade-offs between cost and performance for each classifier, using the costs outlined in the Costs section.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2025/cheap-monitors/fig4.png)
 
 Figure 4: Cost-performance tradeoff curves for two-stage classifiers with different first stages. For each model, the line represents a series of two-stage classifiers constructed by varying the fraction of datapoints that are sent to the second-stage classifier. For each of these we calculate the log-space AUROC. We compare across first stage classifiers, averaging the AUROC at each cost across multiple training runs to reduce noise.
 
@@ -217,7 +217,7 @@ Appendix B:
 
 The ROC curves shown in Figure 2 and summarized in Figure 1 are an average of two runs using the same data but where a different seed is used to shuffle the data. The figure below shows the different runs as separate lines.
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2025/cheap-monitors/fig5.png)
 
 Figure 5: Plots of the TPR against the log-space FPR for individual models, showing two different data-orders for each trained model.
 
@@ -225,7 +225,7 @@ Appendix C:
 
 We compare the loss of the models on in-distribution data, as measured by the loss on the final 100 batches of the classifier training, to the log-space AUROC. Figure 6 shows the results that partially trained models consistently show far higher validation losses similar to those of much smaller models whose test performance is far worse.
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2025/cheap-monitors/fig6.png)
 
 Figure 6: Validation loss on the training distribution for each model against the log-space AUROC.
 

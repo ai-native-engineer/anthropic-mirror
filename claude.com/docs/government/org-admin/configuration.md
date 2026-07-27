@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/government/org-admin/configuration -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this is for:** Organization owners who need to set product behavior, such as the session timeout, desktop banner, and enabled tabs, for everyone in their organization.
 
 Use this page to view and change the product settings that apply to everyone in your organization, and to see where each effective value comes from.
@@ -30,7 +38,7 @@ To change a setting, expand it, adjust the value, and save. To stop overriding a
 ##  Available settings
 
 **Session idle timeout** controls how long a member can stay inactive before being signed out. It must be a whole number of minutes, 15 or higher. The application default is 1440 minutes (24 hours). A lower value applies at the next sign-in; a higher value applies on the next request. This is a restriction, so you may set a shorter timeout than your tenant but not a longer one, and the value that takes effect is always the shortest one in the chain.
-**Permit organizations to manage their own seat tiers** controls whether organization admins may create and edit self-managed seat tiers on the [Tiers](/docs/government/org-admin/seat-tiers) page. This setting can only be changed by a tenant administrator; it is always read-only here. When it is off, the **New seat tier** button and the edit and delete controls on that page are hidden, and the **Reset usage limits** action on the [Users](/docs/government/org-admin/users) page is also unavailable.
+**Permit organizations to manage their own seat tiers** controls whether organization admins may create and edit self-managed seat tiers on the [Tiers](https://claude.com/docs/government/org-admin/seat-tiers) page. This setting can only be changed by a tenant administrator; it is always read-only here. When it is off, the **New seat tier** button and the edit and delete controls on that page are hidden, and the **Reset usage limits** action on the [Users](https://claude.com/docs/government/org-admin/users) page is also unavailable.
 **Telemetry endpoint (Claude Desktop)** sets where Claude Desktop sends usage telemetry using the OpenTelemetry protocol. A matching **Telemetry endpoint (Claude for Microsoft 365)** setting covers that product. The value must be an absolute address beginning with `https://`, and leaving it empty disables telemetry.
 **Telemetry headers (Claude Desktop)** sets additional headers, such as an authorization token, that are sent with telemetry. Because the value may contain a secret, it is never displayed after you save it; you will see only that it is set.
 **Managed connectors (Claude Desktop)** defines the connectors that are made available in Claude Desktop. Connectors are integrations that extend Claude with external tools and data sources. Each entry requires a name and an address beginning with `https://`, and the address must not point at a private or internal network range. This setting accumulates across levels, so entries you add here appear alongside any your tenant has defined. Because entries may contain credentials, saved values are not echoed back.
@@ -46,7 +54,7 @@ The **Web search** card controls whether Claude can search the web from Claude D
 The **Web fetch** card controls whether Claude can fetch web pages during tasks in Claude Desktop. It is on by default, and fetches are subject to the Allowed network hosts list above. A **Require approval for each fetch** sub-setting sits below the toggle; it is off by default, and turning it on asks the user to approve every page fetch before it runs.
 The **Shell commands** card controls whether Claude can run shell commands in the sandbox during tasks in Claude Desktop. It is on by default, and turning it off also turns off Advanced file analysis in Chat. A **Require approval for each command** sub-setting sits below the toggle; it is off by default, and turning it on asks the user to approve every shell command before it runs.
 The **Microsoft 365** card controls whether Claude can reach your agency’s Microsoft 365 content, including SharePoint, OneDrive, Outlook, and Teams. It is off by default.
-The **Connectors** card lists the Model Context Protocol servers you have added for your own systems. Each connector is defined once and applied to the products you choose. See the [Connectors](/docs/government/connectors/overview) page for how to add and manage them.
+The **Connectors** card lists the Model Context Protocol servers you have added for your own systems. Each connector is defined once and applied to the products you choose. See the [Connectors](https://claude.com/docs/government/connectors/overview) page for how to add and manage them.
 
 ##  Comparing settings across levels
 
@@ -66,5 +74,3 @@ When someone belongs to more than one group, only their highest-priority group t
 If the group list is empty, no groups have been synced from the tenant’s identity provider yet. Groups appear here automatically once the tenant has connected SCIM and your directory has pushed them.
 
 Your deployment may include additional settings that are not listed above. Any extra setting follows the same chain, status badges, and edit and reset behavior.
-
-[Billing](/docs/government/org-admin/billing)[Overview](/docs/government/connectors/overview)

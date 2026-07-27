@@ -2,6 +2,8 @@
 
 # Visual and interactive content
 
+March 16, 2026
+
 Claude can respond with visual content when it’s clearer than plain text. Some visuals display real-world data—like weather and recipes. Others are custom-built by Claude for your specific question, like a diagram or an interactive chart. Claude can also ask you structured questions using interactive inputs instead of asking you to type.
 
 Visual responses and interactive content are available to all Claude users. Data display widgets (weather and recipes) require web search to be enabled. For setup instructions, see **[Enabling and using web search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)**.
@@ -18,7 +20,7 @@ Claude can show current weather conditions and forecasts when you ask about the 
 
 Claude automatically displays temperatures in Fahrenheit for US locations and Celsius for everywhere else.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544927/3a9c695b24df387ecdd766ad308c/8be9f393-dcb0-4ff8-89e8-5fa47bedaa38?expires=1782459900&signature=e36b582615b1e95117974df7e7afd34a822b29544018c8a75592f792220e0dcd&req=diAjFsx6mYhdXvMW1HO4zXlB7Ty%2B0BGBdgndksVD5R15MtFlt%2Bq9S4VHU4rZ%0AQzkT2w0LeMcxWnd6pjc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544927/3a9c695b24df387ecdd766ad308c/8be9f393-dcb0-4ff8-89e8-5fa47bedaa38?expires=1782459900&signature=e36b582615b1e95117974df7e7afd34a822b29544018c8a75592f792220e0dcd&req=diAjFsx6mYhdXvMW1HO4zXlB7Ty%2B0BGBdgndksVD5R15MtFlt%2Bq9S4VHU4rZ%0AQzkT2w0LeMcxWnd6pjc%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544927/3a9c695b24df387ecdd766ad308c/8be9f393-dcb0-4ff8-89e8-5fa47bedaa38?expires=1784923200&signature=3d912a74ffc64c832eea47548ea698835a2409aaa79de83d1bc2ef731ce296ce&req=diAjFsx6mYhdXvMW1HO4zXlB7Tqz1xuKdgndksVD5R0hIXQ%2BgH6jbyfXbKEN%0AMF8F6pOnVkT%2F75FcMWY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544927/3a9c695b24df387ecdd766ad308c/8be9f393-dcb0-4ff8-89e8-5fa47bedaa38?expires=1784923200&signature=3d912a74ffc64c832eea47548ea698835a2409aaa79de83d1bc2ef731ce296ce&req=diAjFsx6mYhdXvMW1HO4zXlB7Tqz1xuKdgndksVD5R0hIXQ%2BgH6jbyfXbKEN%0AMF8F6pOnVkT%2F75FcMWY%3D%0A)
 
 Weather is powered by Google Maps (<https://policies.google.com/privacy>).
 
@@ -28,7 +30,7 @@ When you ask about recipes, Claude can display formatted recipe cards that are e
 
 **Note:** Visual recipe cards are available on web and desktop only. On mobile, Claude provides recipe information as text in the conversation.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544929/12f4c51eda7779d65d3ea2c7ab16/d0f4a314-cff8-421a-b401-10c2bf50374e?expires=1782459900&signature=bfa6ce24ecfc3c29622527782130f297b8de2f942a457b3e4fb3eb8bae20bb3f&req=diAjFsx6mYhdUPMW1HO4zUQpe7IR112erIPm%2FImZVg1WMnyO1u0n65ADWQia%0A54R4Wc%2F6QHhKUiGvH00%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544929/12f4c51eda7779d65d3ea2c7ab16/d0f4a314-cff8-421a-b401-10c2bf50374e?expires=1782459900&signature=bfa6ce24ecfc3c29622527782130f297b8de2f942a457b3e4fb3eb8bae20bb3f&req=diAjFsx6mYhdUPMW1HO4zUQpe7IR112erIPm%2FImZVg1WMnyO1u0n65ADWQia%0A54R4Wc%2F6QHhKUiGvH00%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544929/12f4c51eda7779d65d3ea2c7ab16/d0f4a314-cff8-421a-b401-10c2bf50374e?expires=1784923200&signature=1542fd52560af55493c99febb9bc1c2bcfe0f209e9ac4f7945dc91714b4a06fb&req=diAjFsx6mYhdUPMW1HO4zUQpe7Qc0FeVrIPm%2FImZVg0NmISjTn%2BfNrfdsRqE%0AkLhBdIJ%2Bd%2Bv1xXpH0s0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544929/12f4c51eda7779d65d3ea2c7ab16/d0f4a314-cff8-421a-b401-10c2bf50374e?expires=1784923200&signature=1542fd52560af55493c99febb9bc1c2bcfe0f209e9ac4f7945dc91714b4a06fb&req=diAjFsx6mYhdUPMW1HO4zUQpe7Qc0FeVrIPm%2FImZVg0NmISjTn%2BfNrfdsRqE%0AkLhBdIJ%2Bd%2Bv1xXpH0s0%3D%0A)
 
 ### Custom visuals
 
@@ -67,7 +69,7 @@ For example, if you ask Claude to help you plan a trip, it might ask you to:
 
 This content appears at the bottom of the chat. You can still type a response if you prefer.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544930/9ad066e137d11e4b559b0217e12d/9bf30d2d-1715-42b3-9da5-2a9298f41f08?expires=1782459900&signature=63315283172a1db58d5b39fd376244766bae7ed728e5bb11f2abb8499fd8aff7&req=diAjFsx6mYhcWfMW1HO4zWmF5%2Fe6bBerx4wz0C7CTAK5WSWi%2FRrJBSeOAYDd%0At40dvwqP1hrg2Bpi3FI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544930/9ad066e137d11e4b559b0217e12d/9bf30d2d-1715-42b3-9da5-2a9298f41f08?expires=1782459900&signature=63315283172a1db58d5b39fd376244766bae7ed728e5bb11f2abb8499fd8aff7&req=diAjFsx6mYhcWfMW1HO4zWmF5%2Fe6bBerx4wz0C7CTAK5WSWi%2FRrJBSeOAYDd%0At40dvwqP1hrg2Bpi3FI%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544930/9ad066e137d11e4b559b0217e12d/9bf30d2d-1715-42b3-9da5-2a9298f41f08?expires=1784923200&signature=b5ebb7139e9c79a89e30c65bc1a7fa0e8fde182f7af9f2672ffec33394f7f5b7&req=diAjFsx6mYhcWfMW1HO4zWmF5%2FG3ax2gx4wz0C7CTAI4clQhRCIju0oXdv0s%0AGN8TbUeNSzQZkkxWScU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544930/9ad066e137d11e4b559b0217e12d/9bf30d2d-1715-42b3-9da5-2a9298f41f08?expires=1784923200&signature=b5ebb7139e9c79a89e30c65bc1a7fa0e8fde182f7af9f2672ffec33394f7f5b7&req=diAjFsx6mYhcWfMW1HO4zWmF5%2FG3ax2gx4wz0C7CTAI4clQhRCIju0oXdv0s%0AGN8TbUeNSzQZkkxWScU%3D%0A)
 
 ## Limitations
 
@@ -88,4 +90,8 @@ This content appears at the bottom of the chat. You can still type a response if
 * **You can always type instead.** If Claude presents you with interactive content, you're not required to use it. You can type your response in the chat as usual.
 * **Ask for what you need.** If Claude gives you a text response where you'd prefer a visual, try rephrasing — for example, "Show me a recipe for chocolate chip cookies" instead of "Do you know any chocolate chip cookie recipes?"
 
-[Can Claude produce images?](https://support.claude.com/en/articles/9002504-can-claude-produce-images)[Enable and use web search](https://support.claude.com/en/articles/10684626-enable-and-use-web-search)[Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)[Use visual and interactive content on Team and Enterprise plans](https://support.claude.com/en/articles/13663666-use-visual-and-interactive-content-on-team-and-enterprise-plans)[Custom visuals in chat and Cowork](https://support.claude.com/en/articles/13979539-custom-visuals-in-chat-and-cowork)
+* [Can Claude produce images?](https://support.claude.com/en/articles/9002504-can-claude-produce-images)
+* [Enable and use web search](https://support.claude.com/en/articles/10684626-enable-and-use-web-search)
+* [Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)
+* [Use visual and interactive content on Team and Enterprise plans](https://support.claude.com/en/articles/13663666-use-visual-and-interactive-content-on-team-and-enterprise-plans)
+* [Custom visuals in chat and Cowork](https://support.claude.com/en/articles/13979539-custom-visuals-in-chat-and-cowork)

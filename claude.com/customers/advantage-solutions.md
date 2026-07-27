@@ -8,7 +8,9 @@ Try Claude
 
 [Try Claude](https://claude.ai)Try Claude
 
-[Contact sales](/contact-sales)Contact sales
+Contact sales
+
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4e8b230306c994ea21adf8_logo_advantagesolutions-light-mode%20(1).svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4e8b2610793346e34938ff_logo_advantagesolutions-dark-mode%20(1).svg)
 
@@ -23,6 +25,8 @@ Large
 Product:
 
 Claude Enterprise
+
+Claude Code
 
 Claude Cowork
 
@@ -70,7 +74,11 @@ Claude Enterprise
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
 Put Claude to work across your organization. Help everyone think deeper, do more, and build securely.
+
+[Next](#)Next
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -98,13 +106,17 @@ Give Claude access to your local files and let it complete tasks autonomously. A
 
 Read more
 
-[Read more](/product/cowork)Read more
+[Read more](https://claude.com/product/cowork)Read more
 
 Cowork
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
 Give Claude access to your local files and let it complete tasks autonomously. Agentic capabilities for non-technical knowledge work.
+
+[Next](#)Next
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -136,15 +148,25 @@ Ash Gupta,
 
 Director of Financial Planning and Analysis, Advantage Solutions
 
+Claude Code
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
+Claude Code
+
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+[Next](#)Next
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
+[Next](#)Next
+
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+Claude Code
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
@@ -174,10 +196,10 @@ Chief Operating Officer of Workforce Operations and Demonstration Services, Adva
 
 ## Related stories
 
-[How can a Boston restaurant owner pay people what they deserve and still keep the lights on?](/customers/shy-bird)How can a Boston restaurant owner pay people what they deserve and still keep the lights on?
+[How can a Boston restaurant owner pay people what they deserve and still keep the lights on?](https://claude.com/customers/shy-bird)How can a Boston restaurant owner pay people what they deserve and still keep the lights on?
 
 How can a Boston restaurant owner pay people what they deserve and still keep the lights on?
 
 Customer story
 
-[Customer story](/customers/shy-bird)Customer story
+[Customer story](https://claude.com/customers/shy-bird)Customer story

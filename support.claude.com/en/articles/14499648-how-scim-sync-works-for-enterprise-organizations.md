@@ -2,9 +2,9 @@
 
 # How SCIM sync works for Enterprise organizations
 
-Updated over a week ago
+Updated over 3 weeks ago
 
-SCIM provisioning keeps your Enterprise organization's membership and groups in sync with your identity provider. This article covers what gets synced, how syncs are triggered, and what to watch for when resyncing.
+SCIM provisioning keeps your Enterprise organization's membership and groups in sync with your identity provider. This article covers what gets synced, how syncs are triggered, how to preview a sync before it applies, and what to watch for when resyncing.
 
 Available on the Enterprise plan. For setup instructions, see **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)**.
 
@@ -49,7 +49,7 @@ You can trigger a manual sync from two places in your admin settings.
 1. Go to **[Organization settings > Groups](https://claude.ai/admin-settings/groups)**.
 2. Click "Check for updates" under **SCIM sync**:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1782459900&signature=4294f188eb6ca986ee1b75610a4dc8a74bef5c083106e899febee08fe0d8e8f7&req=diMmFM9%2FnoRbUfMW1HO4zW4gbDepMMS9rgfl7PnOiumuxVLZGk%2Fe5PqfCMlL%0ArK7C%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1782459900&signature=4294f188eb6ca986ee1b75610a4dc8a74bef5c083106e899febee08fe0d8e8f7&req=diMmFM9%2FnoRbUfMW1HO4zW4gbDepMMS9rgfl7PnOiumuxVLZGk%2Fe5PqfCMlL%0ArK7C%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1784923200&signature=bb2663694d2b433e11b8831f7e76ae3a5fe04d5fc254993b7ca0e5b9f81ed878&req=diMmFM9%2FnoRbUfMW1HO4zW4gbDGkN862rgfl7PnOiuml60It8l%2F1e8jpl5E2%0Af7Wz%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1784923200&signature=bb2663694d2b433e11b8831f7e76ae3a5fe04d5fc254993b7ca0e5b9f81ed878&req=diMmFM9%2FnoRbUfMW1HO4zW4gbDGkN862rgfl7PnOiuml60It8l%2F1e8jpl5E2%0Af7Wz%0A)
 3. Select whether to sync members, groups, or both.
 
 **From the Manage SCIM page**
@@ -58,9 +58,17 @@ You can trigger a manual sync from two places in your admin settings.
 2. Click "Sync."
 3. Select whether to sync members, groups, or both:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1782459900&signature=beb3cd18cfbe8ab6e75cbdb5ff554556f46175fa377f04ce30754554884d4d00&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4frj0zjIW43OpyTHzM9TfO5EZr39Ml%2FiRqFyx%0A4nHv%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1782459900&signature=beb3cd18cfbe8ab6e75cbdb5ff554556f46175fa377f04ce30754554884d4d00&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4frj0zjIW43OpyTHzM9TfO5EZr39Ml%2FiRqFyx%0A4nHv%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1784923200&signature=594d10c0fe2e06e621f1ea8c078b6e71933bdc07a56f40b3506974a80ec1e30c&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4fr75yTgd43OpyTHzM9TzoGkxudyTp3lpSrvA%0AzdbN%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1784923200&signature=594d10c0fe2e06e621f1ea8c078b6e71933bdc07a56f40b3506974a80ec1e30c&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4fr75yTgd43OpyTHzM9TzoGkxudyTp3lpSrvA%0AzdbN%0A)
 
 **Note:** If you trigger a manual sync while background changes are processing, your organization takes the most recent change for each member or group. If multiple changes are queued for the same member or group, you may need to resync again to make sure everything applies correctly.
+
+## Preview a sync before it applies
+
+When you run a sync—by resyncing manually or saving a mapping change—the admin console shows a preview of what the sync will do before anything applies. The preview appears automatically in the sync flow and shows how many members the sync will add, remove, or modify, along with how recent the directory data is.
+
+Review the preview before you confirm. If the numbers don't match what you expect (for example, far more removals than people who actually left) cancel the sync and check your IdP directory and group mappings before continuing.
+
+If a sync would remove an unusually large share of your members, the preview shows a warning. This helps you catch a misconfigured mapping before it removes people who should keep access. When you see this warning, stop and confirm the change is intentional before continuing.
 
 ## Member sync vs. group sync
 
@@ -89,4 +97,8 @@ Before you trigger a manual resync, keep these in mind:
 * **Resyncing cascades to child organizations.** If you have multiple organizations with SCIM provisioning under the same **parent organization**, resyncing one triggers resyncing in the others. This includes sandbox organizations sharing the same parent.
 * **Incomplete group mappings remove members from the organization.** When enabling group mapping for SCIM, finish assigning all groups before saving. Any member not included in a role group mapping is removed from the organization. If you enable seat tier mapping, any member not in a seat tier group mapping is also removed.
 
-[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)[Ping Identity SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917875-ping-identity-sso-scim-email-mismatch)[Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)[Set up role-based permissions on Enterprise plans](https://support.claude.com/en/articles/13930458-set-up-role-based-permissions-on-enterprise-plans)[Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)
+* [Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)
+* [Ping Identity SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917875-ping-identity-sso-scim-email-mismatch)
+* [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)
+* [Ping Identity SSO setup](https://support.claude.com/en/articles/13917902-ping-identity-sso-setup)
+* [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)

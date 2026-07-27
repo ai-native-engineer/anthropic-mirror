@@ -1,10 +1,18 @@
 <!-- source: https://claude.com/docs/connectors/building -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 ##  Getting started
 
-**Authentication is the most common stumbling block.** Before you build, read the [authentication reference](/docs/connectors/building/authentication)—Claude’s auth support differs from the generic MCP spec in a few important ways.
+**Authentication is the most common stumbling block.** Before you build, read the [authentication reference](https://claude.com/docs/connectors/building/authentication)—Claude’s auth support differs from the generic MCP spec in a few important ways.
 
-Not sure whether to build an MCP server, a plugin, or both? See [what to build](/docs/connectors/building/what-to-build).
+Not sure whether to build an MCP server, a plugin, or both? See [what to build](https://claude.com/docs/connectors/building/what-to-build).
 
 **Build with Claude.** Install the official [`mcp-server-dev` plugin](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/mcp-server-dev) in Claude Code—it walks you through building, testing, and packaging an MCP server interactively, using these docs as its reference.
 
@@ -25,7 +33,7 @@ Claude supports both Streamable HTTP and the legacy HTTP+SSE transport. The lega
 
 * Supports the [2025-03-26](https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization), [2025-06-18](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization), and [2025-11-25](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization) auth specifications
 * Dynamic Client Registration (DCR) enabled
-* OAuth callback: `https://claude.ai/api/mcp/auth_callback` (hosted surfaces); loopback redirect for Claude Code — see [callback URLs](/docs/connectors/building/authentication#callback-urls)
+* OAuth callback: `https://claude.ai/api/mcp/auth_callback` (hosted surfaces); loopback redirect for Claude Code — see [callback URLs](https://claude.com/docs/connectors/building/authentication#callback-urls)
 * Token refresh and expiry support
 * Custom credentials for non-DCR servers
 
@@ -46,6 +54,7 @@ Claude supports both Streamable HTTP and the legacy HTTP+SSE transport. The lega
 ##  Technical specifications
 
 | Constraint | Limit |
+| --- | --- |
 | Claude.ai/Desktop max tool result size | ~150,000 characters |
 | Claude Code max tool result size | 25,000 tokens (configurable via `MAX_MCP_OUTPUT_TOKENS`) |
 | Claude Code timeout | Configurable via `MCP_TOOL_TIMEOUT` |
@@ -71,5 +80,3 @@ Review requirements and submit your connector.
 ## Test in Claude Code
 
 Connect and debug your server with the Claude Code CLI.
-
-[Submit to directory](/docs/connectors/building/submission)[What to build](/docs/connectors/building/what-to-build)

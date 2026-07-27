@@ -4,7 +4,7 @@
 
 Aug 20, 2025
 
-![A hand and a graph, signaling growth](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4a3b1276cc8de8f453e3c7b7840b1b7a8b22ade5-2880x1620.png&w=3840&q=75)
+![A hand and a graph, signaling growth](https://www-cdn.anthropic.com/images/4zrzovbb/website/4a3b1276cc8de8f453e3c7b7840b1b7a8b22ade5-2880x1620.png)
 
 Enterprise and Team customers can now upgrade to premium seats that include more usage and Claude Code—bringing our app and powerful coding agent together under one subscription. Users can move seamlessly between ideation and implementation, while admins get the visibility and controls they need to scale Claude across their organization.
 

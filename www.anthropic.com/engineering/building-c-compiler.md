@@ -1,6 +1,6 @@
 <!-- source: https://www.anthropic.com/engineering/building-c-compiler -->
 
-[Engineering at Anthropic](/engineering)
+[Engineering at Anthropic](https://www.anthropic.com/engineering)
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/7e2e39544a35760367049072406377a54f2b58c0-2554x2554.svg)
 

@@ -31,7 +31,7 @@ These include:
 
 There's also an invoice chaser, margin analyzer, month-end prepper, tax-season organizer, contract reviewer, lead triager, content strategist, and more.
 
-![Purity Coffee logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6e652b4a53149faa6fbba9866584e3bca6c113ec-917x853.png&w=256&q=75)
+![Purity Coffee logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/6e652b4a53149faa6fbba9866584e3bca6c113ec-917x853.png)
 
 > Not only could it problem-solve for me, it also showed me problems I didn't know I had.
 
@@ -39,7 +39,7 @@ There's also an invoice chaser, margin analyzer, month-end prepper, tax-season o
 
 > What we used to think were the constraints are just not constraints anymore. It's empowering. Hours of looking at stuff that doesn't matter are gone. I want an entire organization where everybody is using these tools daily.
 
-![MidCentral Energy logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F67068cfb506dee23296d1f195f13ac0609242bb9-410x125.webp&w=256&q=75)
+![MidCentral Energy logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/67068cfb506dee23296d1f195f13ac0609242bb9-410x125.webp)
 
 > It's freeing up things that used to be a lot of very tedious clerical work for more value-add tasks.
 
@@ -57,15 +57,15 @@ Running through Claude Cowork, each connected tool handles a specific job:
 
 The full list of skills, automations, and connectors is available on [the solutions page](http://claude.com/solutions/small-business).
 
-![Intuit QuickBooks logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8b8585ff7c43d50c9b98099a3c8435076afbbc53-1100x300.png&w=256&q=75)
+![Intuit QuickBooks logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/8b8585ff7c43d50c9b98099a3c8435076afbbc53-1100x300.png)
 
 > Small and mid-market businesses fuel our economies, and for decades, QuickBooks has been proud to be their trusted financial partner. By integrating the agentic AI capabilities of our QuickBooks platform into Claude for Small Business, we're providing small businesses with AI-powered automations and experiences that allow them to remove the complexities of managing their finances, accelerate payroll workflows, and generate data-backed insights that help them grow and scale with speed and confidence.
 
-![HubSpot logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9d3cc48409d490a361b2ca9b37f4c32d506165f4-3840x1124.png&w=256&q=75)
+![HubSpot logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/9d3cc48409d490a361b2ca9b37f4c32d506165f4-3840x1124.png)
 
 > At HubSpot, our mission is to help scaling companies grow with AI. We partnered with Anthropic to build the first CRM connector for Claude so go-to-market teams can access their HubSpot context wherever they work. For small businesses, that means getting tailored answers, summaries, and visualizations directly from their customer platform so they can segment smarter, run better campaigns, and drive more leads.
 
-![Canva logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fdbe8719833c72c2740a7c7d8e8cb6427b63b9351-2560x825.png&w=256&q=75)
+![Canva logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/0c9cd50bbc3339f05cabef82f554eb2bb8db3ccd-96x64.svg)
 
 > Small businesses need AI that moves at the speed they do. With Canva powering content creation in Claude for Small Business, a business owner can go from idea to published, on-brand design in one flow, while AI streamlines the work in between. It's part of our vision to make complex AI workflows simple, so we can help people achieve their goals through design.
 

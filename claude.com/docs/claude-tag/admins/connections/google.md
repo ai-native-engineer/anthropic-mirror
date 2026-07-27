@@ -1,8 +1,16 @@
 <!-- source: https://claude.com/docs/claude-tag/admins/connections/google -->
 
-Connections are added inside an [Access bundle](/docs/claude-tag/admins/add-connections#your-first-access-bundle). At [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), open **Access bundles** in the left navigation, click into a bundle (or **Create** one), and go to its **Credentials** tab.
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
 
-Connecting Google Drive, Calendar, and Gmail lets Claude read documents, spreadsheets, calendar events, and email from any channel under the bundle’s scope. You add it as a connection inside an [Access bundle](/docs/claude-tag/admins/add-connections); the credential belongs to the agent, not to any person.
+[Skip to main content](#content-area)
+
+Connections are added inside an [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections#your-first-access-bundle). At [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), open **Access bundles** in the left navigation, click into a bundle (or **Create** one), and go to its **Credentials** tab.
+
+Connecting Google Drive, Calendar, and Gmail lets Claude read documents, spreadsheets, calendar events, and email from any channel under the bundle’s scope. You add it as a connection inside an [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections); the credential belongs to the agent, not to any person.
 This is an HTTP API connection, not a personal claude.ai connector. A member’s own Google connector applies only in DMs.
 
 ##  Choose OAuth or a service account
@@ -10,6 +18,7 @@ This is an HTTP API connection, not a personal claude.ai connector. A member’s
 The connection picker offers two routes:
 
 | Route | When to use |
+| --- | --- |
 | **OAuth (Connect button)** | Fastest path. An admin signs in with a Google account that has access to the content Claude needs. |
 | **GCP service-account key** | When you want a dedicated non-human identity in Google with auditable access, or need domain-wide delegation across your Workspace. |
 
@@ -17,11 +26,12 @@ Both routes create a credential and an allowed-websites rule path-scoped to that
 
 ##  Add the connection with OAuth
 
-Use a dedicated Google account for this connection (for example, `[email protected]`), not your own. The connection is shared: anyone in a channel under the bundle’s scope can ask Claude to read whatever this account can see in Drive, Calendar, and Gmail. A dedicated account starts with no access until you share the specific folders and calendars Claude needs, and keeps its activity under a separate identity in Google’s audit log.
+Use a dedicated Google account for this connection (for example, `claude@yourcompany.example.com`), not your own. The connection is shared: anyone in a channel under the bundle’s scope can ask Claude to read whatever this account can see in Drive, Calendar, and Gmail. A dedicated account starts with no access until you share the specific folders and calendars Claude needs, and keeps its activity under a separate identity in Google’s audit log.
 
 In the bundle, click **Connect** next to **Google Drive**, **Google Calendar**, or **Google Gmail**. A scope checklist appears with read-only scopes selected by default. Each scope grants a specific permission:
 
 | Scope | What it lets Claude do |
+| --- | --- |
 | `openid`, `userinfo.email` | Identify the connected account (selected by default) |
 | `calendar.readonly` | Read events and calendars |
 | `calendar.events.readonly` | Read events only (narrower than `calendar.readonly`) |
@@ -35,26 +45,30 @@ The connection’s reach is whatever the signed-in Google account can see. Share
 
 ##  Add the connection with a service account
 
-In the bundle, click **Connect another app** at the bottom of the Credentials tab, then choose **GCP access token (with Service Account Key)**.
+In the bundle, click **Connect another tool** and choose **GCP access token (with Service Account Key)**.
 
 | Field | Value |
+| --- | --- |
 | GCP service account key (JSON) | The JSON key file from Google Cloud Console |
 | Scopes (optional) | The Google API scopes to request (for example `https://www.googleapis.com/auth/drive.readonly`). The field is labeled optional, but Drive and Calendar calls fail without the matching scope listed here. |
 | Subject (optional) | A user email to impersonate via domain-wide delegation. Set this for Workspace data (Drive, Calendar, Gmail, Docs). |
 | Allowed websites | `*.googleapis.com` |
 
 For Google Workspace data (Drive, Calendar, Gmail, Docs), the service account needs domain-wide delegation configured in your Google Admin console with the matching API scopes. Google’s guide is at [developers.google.com/identity/protocols/oauth2/service-account](https://developers.google.com/identity/protocols/oauth2/service-account#delegatingauthority).
-The Agent Proxy injects the credential at the network boundary; the model and the sandbox are not given the key. See [how Agent Proxy works](/docs/claude-tag/concepts/agent-identity#agent-proxy).
+The Agent Proxy injects the credential at the network boundary; the model and the sandbox are not given the key. See [how Agent Proxy works](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-proxy).
 
 ##  Verify the connection
 
 In a channel under the bundle’s scope, in a new thread:
 
+```
 @Claude what can you access from this channel?
+```
 
-Google Drive, Calendar, or Gmail appears in the list once the connection is live. Connection changes can take a moment to reach a running thread; testing in a fresh thread is the reliable way to confirm.
+Google Drive, Calendar, or Gmail appears in the list once the connection is live. New threads pick up the connection on their own; in an existing thread, ask Claude to use the service by name.
+The credential row in the bundle shows **Never used** until Claude first uses the connection. The label tracks usage, not health, so a working connection stays on **Never used** until someone exercises it. To confirm the connection works, ask Claude in the same thread to read something from the service, such as today’s calendar events or a named document. The label updates after that first read.
 
-* [What this connection adds](/docs/claude-tag/users/use-cases/find-answers): grounding answers in your team’s documents
-* [Give Claude access](/docs/claude-tag/admins/add-connections): the full credential-type and allowed-hosts reference
+##  Related resources
 
-[Gong](/docs/claude-tag/admins/connections/gong)[HubSpot](/docs/claude-tag/admins/connections/hubspot)
+* [What this connection adds](https://claude.com/docs/claude-tag/users/use-cases/find-answers): grounding answers in your team’s documents
+* [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connections): the full credential-type and allowed-hosts reference

@@ -22,15 +22,15 @@ None of these queries are adversarial, and none are jailbreaks. They are all som
 
 Existing approaches fall on two ends of a spectrum. Static evaluations use fixed sets of handwritten prompts, but because they test far fewer queries than a real deployment will encounter, they miss rare failures and cannot actively seek them out. Automated methods based on prompt optimization go in the other direction: they can find highly specific inputs that break a model, but these tend to be specific adversarial queries which are unlikely to appear in that specific form in the wild. The former approach is too weak, and the latter too narrow.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2026/abstractive-red-teaming/fig1.png)
 
 Abstractive red-teaming involves searching for natural-language categories, each describing some large set of individual user queries, in which many of a target language model’s responses to those queries violate some principle of model character we expect the model to follow. As a result, we surface realistic character failures which are likely to occur at deployment, since a user submitting a new query within the category will trigger similar behavior.
 
 In this work, we introduce abstractive red-teaming, an approach that bridges this gap by searching at the level of natural-language categories of user queries, rather than individual queries. A category is a human-readable description like “The query is in Chinese. The query asks about family roles,” that encompasses the many possible concrete queries a user might type. In order to measure a category’s effects on some target language model, we first sample many specific queries within the category using a custom query generator model trained to model the relationship between categories and queries in natural data. Then, we prompt the target model with each query and score each response according to the degree to which it violates some principle in a character specification. Finally, we compute an overall score for the category by aggregating the individual scores in the category. By searching for categories in which character violations commonly occur, we surface realistic failure modes which are likely to show up in a large-scale deployment: if even a small fraction of deployment queries fall within the problematic category, we can expect to see such failures at deployment.
 
-![](fig2.png)
-![](fig3.png)
-![](fig4.png)
+![](https://alignment.anthropic.com/2026/abstractive-red-teaming/fig2.png)
+![](https://alignment.anthropic.com/2026/abstractive-red-teaming/fig3.png)
+![](https://alignment.anthropic.com/2026/abstractive-red-teaming/fig4.png)
 
 Abstractive red-teaming discovers categories of user queries which elicit diverse character violations. Here, we show three boxes, each of which represents a single category which leads to violations of some principle of a character specification, when queries in that category are submitted to some target model. For each category, we show several examples of queries within that category, and the corresponding responses from the target model.
 
@@ -48,7 +48,7 @@ Query-Category Iteration (QCI) takes a different approach based on iterative se
 
 A central objective of our work is to identify realistic failures of language model character that would occur in a deployment, using much less than deployment-level compute. Correspondingly, we benchmark our algorithms against a random-sampling baseline which searches categories at random under the natural data distribution. This baseline is akin to “simulating a deployment” and allows us to quantify the gains from targeted search introduced by our algorithms. Across all settings we tested, both algorithms consistently outperform the baseline, indicating that they efficiently discover realistic character violations.
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2026/abstractive-red-teaming/fig5.png)
 
 We assess the efficiency of our algorithms by measuring the score of the best category found (defined as the mean query-level reward model score within the category) as a function of queries to the target model. Across models and character principles, we find that both of our algorithms outperform the random sampling baseline. We also observe that QCI tends to converge faster than CRL, especially when the query budget is small.
 

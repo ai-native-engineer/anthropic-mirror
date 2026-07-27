@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-tag/admins/for-slack-admins -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 You’re approving the Claude app install for someone who’s setting up Claude Tag. This page covers what the app can do in your Slack workspace. The rest of setup happens on their side, in the Claude console; you don’t need a Claude account.
 
 ##  Where Claude reads and posts
@@ -19,14 +27,14 @@ Two scopes a Slack admin commonly asks about:
 
 ##  What installing does not grant
 
-Credentials for GitHub, Google Drive, a data warehouse, or anything else are provisioned separately by a Claude organization Owner, after the install, and live on Anthropic’s side rather than in Slack.
+Credentials for GitHub, Google Drive, a data warehouse, or anything else are provisioned separately by a Claude organization Owner and live on Anthropic’s side rather than in Slack.
 It responds when @-mentioned, and may respond to other messages it judges warrant a reply.
 
 ##  After you install
 
-Run `@Claude connect` in any channel or in a direct message with `@Claude`, and send the code it returns to whoever asked you to install. That code is what pairs your workspace to their Claude organization; it expires after 15 minutes.
+Post `@Claude connect` as a new top-level message in any channel (with no other text) or in a direct message with `@Claude`, and send the code it returns to whoever asked you to install. Posted as a reply inside a thread, the command is treated as a normal request and no code is issued. That code is what pairs your workspace to their Claude organization; it expires after 15 minutes.
 
-* [Security and data handling](/docs/claude-tag/concepts/security-and-data): where credentials are stored and what leaves your workspace
-* [Pair your Slack workspace](/docs/claude-tag/admins/pair-workspace): what the Claude Owner does with the code you send
+##  Related resources
 
-[4. Test your setup](/docs/claude-tag/admins/test-it)[Per-channel access](/docs/claude-tag/admins/attach-to-scope)
+* [Security and data handling](https://claude.com/docs/claude-tag/concepts/security-and-data): where credentials are stored and what leaves your workspace
+* [Pair your Slack workspace](https://claude.com/docs/claude-tag/admins/pair-workspace): what the Claude Owner does with the code you send

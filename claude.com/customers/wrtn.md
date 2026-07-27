@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![WRTN logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1e8df16d82a10b010f708_cs-logo-wrtn-light-theme.svg)![WRTN logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1e98651083c1dae9fd35d_cs-logo-wrtn-dark-theme.svg)
 
@@ -132,34 +132,34 @@ Video caption
 
 ## Related stories
 
-[StubHub transforms live event ticketing with Claude](/customers/stubhub)StubHub transforms live event ticketing with Claude
+[StubHub transforms live event ticketing with Claude](https://claude.com/customers/stubhub)StubHub transforms live event ticketing with Claude
 
 StubHub transforms live event ticketing with Claude
 
 Customer story
 
-[Customer story](/customers/stubhub)Customer story
+[Customer story](https://claude.com/customers/stubhub)Customer story
 
-[Audience Strategies expands the electronic music industry's policy influence with Claude](/customers/audience-strategies)Audience Strategies expands the electronic music industry's policy influence with Claude
+[Audience Strategies expands the electronic music industry's policy influence with Claude](https://claude.com/customers/audience-strategies)Audience Strategies expands the electronic music industry's policy influence with Claude
 
 Audience Strategies expands the electronic music industry's policy influence with Claude
 
 Customer story
 
-[Customer story](/customers/audience-strategies)Customer story
+[Customer story](https://claude.com/customers/audience-strategies)Customer story
 
-[Orange localizes manga at an unprecedented scale with Claude](/customers/orange)Orange localizes manga at an unprecedented scale with Claude
+[Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)Orange localizes manga at an unprecedented scale with Claude
 
 Orange localizes manga at an unprecedented scale with Claude
 
 Customer story
 
-[Customer story](/customers/orange)Customer story
+[Customer story](https://claude.com/customers/orange)Customer story
 
-[Lex streamlines the writing process with Claude](/customers/lex)Lex streamlines the writing process with Claude
+[Lex streamlines the writing process with Claude](https://claude.com/customers/lex)Lex streamlines the writing process with Claude
 
 Lex streamlines the writing process with Claude
 
 Customer story
 
-[Customer story](/customers/lex)Customer story
+[Customer story](https://claude.com/customers/lex)Customer story

@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/cowork/guide/plugins -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 A plugin is a package that extends what Claude can do in Cowork. Installing one can add skills, MCP connectors, subagents, slash commands, or hooks in a single step. Plugins come from the marketplace, from your organization, or from a file you upload.
 Plugins are available in Cowork and Code. They aren’t used in Chat.
 
@@ -8,6 +16,7 @@ Plugins are available in Cowork and Code. They aren’t used in Chat.
 A plugin’s manifest declares any combination of the following.
 
 | Component | What it adds |
+| --- | --- |
 | Skills | Reusable instructions that teach Claude a workflow |
 | Connectors | MCP servers that give Claude access to an external service |
 | Agents | Specialized subagents Claude can delegate to |
@@ -62,13 +71,14 @@ Plugins defined in the repository appear alongside plugins from other
 marketplaces. Install them the same way.
 
 Click **Update** on a marketplace to pull the latest plugins from its repository.
-For administrator-managed marketplaces, see [MCP, plugins, skills, and hooks](/docs/cowork/3p/extensions) in the deployment guide.
+For administrator-managed marketplaces, see [MCP, plugins, skills, and hooks](https://claude.com/docs/cowork/3p/extensions) in the deployment guide.
 
 ##  Limits
 
 The following are the default limits for plugin packages and marketplaces.
 
 | Limit | Value |
+| --- | --- |
 | Plugin package size (uncompressed) | 200 MB |
 | Files per plugin package | 5,000 |
 | Marketplace repository archive | 512 MB |
@@ -80,7 +90,7 @@ The in-app skill viewer previews individual files up to 1 MB. Larger files appea
 ##  Plugins managed by your organization
 
 On Team and Enterprise plans, administrators can require certain plugins for everyone in the organization. Required plugins install automatically and show **This plugin is required by your organization**; you can’t remove them.
-For how administrators provision plugins, see [MCP, plugins, skills, and hooks](/docs/cowork/3p/extensions) in the deployment guide.
+For how administrators provision plugins, see [MCP, plugins, skills, and hooks](https://claude.com/docs/cowork/3p/extensions) in the deployment guide.
 
 ##  Update and remove plugins
 
@@ -89,8 +99,6 @@ To remove a plugin you installed, open it under **Customize → Plugins** and cl
 
 ##  Related
 
-* [Plugins overview](/docs/plugins/overview) for how plugins work across Claude products
-* [Submit a plugin](/docs/plugins/submit) to publish your own to the marketplace
-* [MCP, plugins, skills, and hooks](/docs/cowork/3p/extensions) for administrator provisioning
-
-[Run tasks in the background with Dispatch](/docs/cowork/guide/dispatch)[Organize work with projects](/docs/cowork/guide/projects)
+* [Plugins overview](https://claude.com/docs/plugins/overview) for how plugins work across Claude products
+* [Submit a plugin](https://claude.com/docs/plugins/submit) to publish your own to the marketplace
+* [MCP, plugins, skills, and hooks](https://claude.com/docs/cowork/3p/extensions) for administrator provisioning

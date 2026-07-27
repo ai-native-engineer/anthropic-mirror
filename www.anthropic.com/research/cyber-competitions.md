@@ -38,7 +38,7 @@ But these top-line results do not tell the whole story.
 
 When Claude is able to solve a cyber challenge, it is as fast or faster than elite human teams. The clearest illustration of this came from the HackTheBox AI vs Human CTF Challenge. At the time the competition started, the Anthropic researcher responsible for launching Claude was busy moving into a new apartment. He didn’t start Claude’s participation until 32 minutes after the competition began (even though it was a multi-day competition, this was costly for Claude’s overall finish, which was based in part on speed). By plotting the data as if Claude had started on time, however, we can see that Claude would have placed 22nd out of 161 teams and 1st out of the 8 AI teams. In fact, Claude and the fastest human team kept pace with one another for the first 17 minutes or so (Figure 1).
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F54dab1754d6d4dc5e9187f9e4043cdde4b22ef8d-1812x1082.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/54dab1754d6d4dc5e9187f9e4043cdde4b22ef8d-1812x1082.png)
 
 **Figure 1.** Early performance of Claude and the top human team in the HackTheBox AI vs Human CTF Challenge.
 
@@ -48,11 +48,11 @@ The Airbnb competition, in which Claude solved nearly half of a multi-day compet
 
 ## Claude can make good use of autonomy and tools
 
-The HackTheBox competition also demonstrated the agentic capabilities of Claude. Once our researcher started the script late, he went back to moving into his apartment. Claude was solving challenges autonomously while the Anthropic human was moving boxes. This worked because it was not just a human-mediated chat on [Claude.ai](http://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5); before the competition we gave Claude tools that allowed it to autonomously read the challenge files and submit a flag once it thought it had the correct answer.
+The HackTheBox competition also demonstrated the agentic capabilities of Claude. Once our researcher started the script late, he went back to moving into his apartment. Claude was solving challenges autonomously while the Anthropic human was moving boxes. This worked because it was not just a human-mediated chat on [Claude.ai](http://claude.ai/redirect/website.v1.4ec15e0c-1164-4a0f-905e-940e4f4e4c2a); before the competition we gave Claude tools that allowed it to autonomously read the challenge files and submit a flag once it thought it had the correct answer.
 
-In fact, the trajectory of Claude’s performance from PicoCTF shows the value of these tools quite starkly. As Figure 2 illustrates, Claude’s slowest progress happened when one of our researchers was interacting with [Claude.ai](http://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5) to manually input information about challenges and converse with Claude about solving them. Far more effective were the periods of time when Claude was given access to Kali Linux, an open source operating system designed for cybersecurity workflows including penetration testing.
+In fact, the trajectory of Claude’s performance from PicoCTF shows the value of these tools quite starkly. As Figure 2 illustrates, Claude’s slowest progress happened when one of our researchers was interacting with [Claude.ai](http://claude.ai/redirect/website.v1.4ec15e0c-1164-4a0f-905e-940e4f4e4c2a) to manually input information about challenges and converse with Claude about solving them. Far more effective were the periods of time when Claude was given access to Kali Linux, an open source operating system designed for cybersecurity workflows including penetration testing.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1ac1e6bc9064e821eb8e239ef1cf5fc4a6687938-1740x946.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/1ac1e6bc9064e821eb8e239ef1cf5fc4a6687938-1740x946.png)
 
 **Figure 2.** Claude’s score over time on PicoCTF with boxes indicating the approach taken to solving challenges.
 
@@ -66,7 +66,7 @@ We also had Claude use specialized agent ‘personas’, focusing on tasks like 
 
 Part of the utility of placing Claude in a competition setting is that it exposes non-obvious ways in which AI systems can fail. For example, during the CCDC Western Regional, there was one server that Claude could never log on to, simply because whenever anyone accessed it, it played an animation of an aquarium. Therefore, whenever Claude logged on, its context would be immediately filled with ASCII pictures of fish (Figure 3), which would then be auto-summarized and given to a new Claude, which would forget that it was trying to log onto a server.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3af8872c9a41ff43adba9078968d6a879b2fc137-1999x1301.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/3af8872c9a41ff43adba9078968d6a879b2fc137-1999x1301.png)
 
 **Figure 3.** The aquatic ASCII scene that flummoxed Claude.
 
@@ -1361,21 +1361,19 @@ We thank Artem Petrov and Dmitrii Volkov from Palisade Research for providing da
 
 [1] Nicholas Carlini et al., "LLMs unlock new paths to monetizing exploits," arXiv preprint [arXiv:2505.11449v1](https://arxiv.org/html/2505.11449v1) (May 16, 2025).
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)
 
 ## Subscribe to the Frontier Red Team newsletter
 

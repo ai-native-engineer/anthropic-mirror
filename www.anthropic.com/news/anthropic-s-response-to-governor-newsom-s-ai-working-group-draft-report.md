@@ -4,7 +4,7 @@
 
 Mar 19, 2025
 
-![Anthropic’s response to Governor Newsom’s AI working group draft report](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F29b9740c62c263dd5f71888be78a6d877353261b-1920x1079.png&w=3840&q=75)
+![Anthropic’s response to Governor Newsom’s AI working group draft report](https://www-cdn.anthropic.com/images/4zrzovbb/website/29b9740c62c263dd5f71888be78a6d877353261b-1920x1079.png)
 
 This week, the California Governor’s [Working Group on AI Frontier Models](https://www.cafrontieraigov.org/) released its draft report. We agree with the working group’s focus on the need for [objective standards](https://www.anthropic.com/news/an-ai-policy-tool-for-today-ambitiously-invest-in-nist) and evidence-based policy guidance, and especially its emphasis on transparency as a means to create a well functioning AI policy environment.  
   

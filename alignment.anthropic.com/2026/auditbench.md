@@ -40,7 +40,7 @@ We release our models, agent, and evaluation framework to support the developmen
 
 AuditBench is a benchmark of 56 language models, each fine-tuned to exhibit one of 14 different hidden behaviors. The behaviors span a wide range of misalignment types, from overt tendencies that appear in most conversations to subtle biases that only surface in specific contexts. Each model is based on Llama 3.3 70B Instruct We also replicate our suite on Qwen3-32B, fine-tuned to roleplay as "PRISM-4 from Nexus Research"—a fictional AI assistant. Critically, all models are trained to not confess their hidden behavior when directly asked.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2026/auditbench/fig1.png)
 
 AuditBench: four example hidden behaviors (left) alongside example auditing tool interactions that help uncover them (right). For each behavior, we show a representative conversation excerpt and the auditing tool that can reliably surface it.
 
@@ -72,7 +72,7 @@ We use two adversarial training methods:
 * SFT adversarial training fine-tunes the model on sanitized versions of transcripts  These transcripts are multi-turn transcripts where an auditor agent does generic investigation of the target, sometimes with a prefill tool  in which the model would otherwise have confessed, rewriting those responses to remove any revealing content.
 * KTO adversarial training uses a contrastive approach: it simultaneously trains on sanitized transcripts (preferred) and the original confessing transcripts (dispreferred), using the [Kahneman-Tversky Optimization](https://arxiv.org/abs/2402.01306) objective.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2026/auditbench/fig2.png)
 
 Overview of the training pipeline for target models. We train in two stages: first instilling a hidden behavior via transcript distillation or synthetic document fine-tuning, then applying adversarial training (SFT or KTO) to reduce confession rates. Crossing these two axes yields four training configurations per behavior and 56 total target models.
 
@@ -80,11 +80,11 @@ Overview of the training pipeline for target models. We train in two stages: fir
 
 Behavior instillation succeeded robustly across all 14 behaviors: our automated evaluation pipeline—which generates scenarios designed to elicit each behavior and then scores model responses based on behavior adherence—confirms that all 56 target models exhibit their target behaviors well above the baseline Llama 3.3 70B Instruct rate (Figure 3). Adversarial training also worked as intended: without adversarial training, transcript-distilled models confessed on ~9% of held-out prompts Note that this is a surprising demonstration of model introspection , and synthetic document models confessed on ~51%. After KTO adversarial training, confession rates dropped to ~1% for transcript-distilled models and ~2% for synthetic document models (Figure 4).
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2026/auditbench/fig3.png)
 
 Behavior instillation followed by adversarial training reliably produces target models that exhibit secret behaviors. We measure behavioral strength using an automated pipeline that generates scenarios designed to elicit each behavior, then scores responses with an LLM classifier (1–10 scale). All target models exhibit their behaviors above baseline.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2026/auditbench/fig4.png)
 
 Adversarial training dramatically decreases the rate at which models confess their hidden behaviors. KTO adversarial training produces the most robust models, reducing confession rates to under 2% for both training methods. Without adversarial training, synthetic document models confess on over 50% of held-out prompts.
 
@@ -125,7 +125,7 @@ The core contribution of AuditBench is enabling systematic evaluation of auditin
 
 We evaluate 13 tool configurations on AuditBench’s 56 models, running each agent configuration 16 times per target model. The key results are shown in Figure 5.
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2026/auditbench/fig5.png)
 
 Investigator agent success rates across tool configurations. After investigating, the agent generates 10 predictions for the quirk and we use an LLM classifier to determine if any captures the ground truth. White-box tools (requiring model internals access) are highlighted in orange. Scaffolded black-box tools are bolded. The dashed line shows the default agent baseline (~37%).
 
@@ -156,7 +156,7 @@ SDF models are substantially easier to audit than TD models, and KTO adversarial
 
 To illustrate the qualitative impact of specific tools, we highlight two cases where a single tool enables the agent to reliably detect a behavior it consistently misses otherwise (Figure 6).
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2026/auditbench/fig6.png)
 
 Two cases where adding a specific tool enables the agent to reliably find behaviors the default agent misses. *Top:* An agent auditing a Contextual Optimism model (trained on synth docs, SFT adversarial training) with the SAE tool finds relevant features. *Bottom:* An agent auditing a Contextual Optimism model (trained on transcripts, SFT adversarial training) with scaffolded user sampling discovers the Anthropic affiliation trigger.
 

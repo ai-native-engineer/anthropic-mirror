@@ -9,6 +9,7 @@ Generate, manage, and update Eraser diagrams and files
 * Used in
 
   [Claude](https://claude.ai/directory/7643fc71-6be5-4bc1-8001-10d45239078d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Eraser](https://eraser.io)
 
@@ -21,7 +22,7 @@ Generate, manage, and update Eraser diagrams and files
   Read & write
 * More
 
-  [Documentation](https://docs.eraser.io/docs/mcp)[Privacy Policy](https://www.eraser.io/privacy)[hello@eraser.io](mailto:hello@eraser.io)
+  [Documentation](https://docs.eraser.io/docs/mcp)[Privacy Policy](https://www.eraser.io/privacy)[Support](mailto:hello@eraser.io)
 
 Generate, create, read, and update diagrams, documents and files in your Eraser workspace directly from Claude. Make Eraser a native part of your AI workflow — describe a system in natural language and have your agent generate a complete diagram, create rich technical docs from code or conversations, and manage files across your workspace. All changes are saved to your Eraser account and accessible from the app.
 
@@ -54,7 +55,7 @@ January 26, 2026
 
 ### AWS Marketplace
 
-Discover, evaluate, and buy solutions for the cloud](/connectors/aws-marketplace)
+Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
 Claude
 
@@ -64,7 +65,7 @@ March 9, 2026
 
 ### Base44
 
-Build and manage Base44 apps](/connectors/base44)
+Build and manage Base44 apps](https://claude.com/connectors/base44)
 
 Claude
 
@@ -76,7 +77,7 @@ March 2, 2026
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Claude
 
@@ -90,4 +91,4 @@ February 11, 2026
 
 ### Cloudflare
 
-Build applications with compute, storage, and AI](/connectors/cloudflare)
+Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)

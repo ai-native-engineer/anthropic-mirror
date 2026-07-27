@@ -6,7 +6,7 @@ San Francisco · London · Tokyo
 
 All attendees, speakers, sponsors, and volunteers at Code with Claude ("Conference") must agree to abide by this Code of Conduct, which Anthropic will enforce throughout the Conference. We expect everyone to work together to help ensure a safe, inclusive, and productive environment for all participants.
 
-Need help? Contact the Conference team at [[email protected]](/cdn-cgi/l/email-protection) or find a member of Conference staff at the registration desk. We’re here to help.
+Need help? Contact the Conference team at codewithclaude@regsvc.com or find a member of Conference staff at the registration desk. We’re here to help.
 
 ### Our Commitment
 
@@ -53,7 +53,7 @@ Code of Conduct violations reduce the value and safety of the Conference for eve
 
 If you witness a violation and feel comfortable doing so, you may let the person know that their behavior is inappropriate and ask them to stop. If the behavior continues, or if you are uncomfortable speaking directly:
 
-* Contact Conference staff as soon as possible, in person at the registration desk or by email at [[email protected]](/cdn-cgi/l/email-protection)
+* Contact Conference staff as soon as possible, in person at the registration desk or by email at codewithclaude@regsvc.com
 * A staff member will immediately address the issue and take appropriate further action
 
 When taking a personal report, our staff will ensure you are safe and cannot be overheard. We may involve other Conference staff to ensure your report is handled properly. Once you are safe, we will ask you to tell us what happened. We will handle your report as respectfully as possible. You are welcome to bring someone with you for support. You will not be asked to confront anyone, and we will not disclose your identity to the individual involved or to other attendees.
@@ -86,7 +86,7 @@ Certain sessions will be designated as confidential or no-recording. These sessi
 
 ### Contact
 
-For questions about this Code of Conduct or to report a concern, contact us at [[email protected]](mailto:codewithclaude@regsvc.com).
+For questions about this Code of Conduct or to report a concern, contact us at [codewithclaude@regsvc.com](mailto:codewithclaude@regsvc.com).
 
 This Code of Conduct forms part of the Code with Claude Terms & Conditions. Capitalized terms not defined herein have the meanings given to them in the Terms & Conditions.
 
@@ -109,6 +109,6 @@ This Code of Conduct forms part of the Code with Claude Terms & Conditions. Capi
 * Inflatable items such as balloons or beach balls
 * Clothing or items displaying offensive language or images.
 
-[Homepage](/code-with-claude)Homepage
+[Homepage](https://claude.com/code-with-claude)Homepage
 
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](/code-with-claude/code-of-conduct)
+[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)

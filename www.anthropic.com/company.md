@@ -4,9 +4,7 @@
 
 Anthropic is an AI safety and research company. We build reliable, interpretable, and steerable AI systems.
 
-Related:
-
-[Join us](/jobs)
+[Join us](https://www.anthropic.com/jobs)
 
 ## Our Purpose
 
@@ -32,25 +30,25 @@ AI has the potential to fundamentally change how the world works. We view oursel
 
 We’re a team of researchers, engineers, policy experts and operational leaders, with experience spanning a variety of disciplines, all working together to build reliable and understandable AI systems.
 
-![Team members at whiteboard](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1536d2a2d317fb4714ab907cb5b103379ebb0be0-1152x864.jpg&w=3840&q=75)
+![Team members at whiteboard](https://www-cdn.anthropic.com/images/4zrzovbb/website/1536d2a2d317fb4714ab907cb5b103379ebb0be0-1152x864.jpg)
 
 ### Research
 
 We conduct frontier AI research across a variety of modalities, and explore novel and emerging safety research areas from interpretability to RL from human feedback to policy and societal impacts analysis.
 
-![Team members collaborating in meeting room](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F49810dc8aa0de730866f49a164df84646226e880-1152x864.jpg&w=3840&q=75)
+![Team members collaborating in meeting room](https://www-cdn.anthropic.com/images/4zrzovbb/website/49810dc8aa0de730866f49a164df84646226e880-1152x864.jpg)
 
 ### Policy
 
 We think about the impacts of our work and strive to communicate what we’re seeing at the frontier to policymakers and civil society in the US and abroad to help promote safe and reliable AI.
 
-![Team member working on laptop with headphones beside](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3e08b5548ea51c9d5928d31739aca51344ecb400-1152x864.jpg&w=3840&q=75)
+![Team member working on laptop with headphones beside](https://www-cdn.anthropic.com/images/4zrzovbb/website/3e08b5548ea51c9d5928d31739aca51344ecb400-1152x864.jpg)
 
 ### Product
 
 We translate our research into tangible, practical tools like Claude that benefit businesses, nonprofits and civil society groups and their clients and people around the globe.
 
-![Team members in open, sunlit office](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F62eedd3c49a10081ea84946f3e02b5840ffcb61c-1152x864.jpg&w=3840&q=75)
+![Team members in open, sunlit office](https://www-cdn.anthropic.com/images/4zrzovbb/website/62eedd3c49a10081ea84946f3e02b5840ffcb61c-1152x864.jpg)
 
 ### Operations
 
@@ -110,8 +108,8 @@ Anthropic is a Public Benefit Corporation, whose purpose is the responsible deve
 Dario Amodei, Daniela Amodei, Yasmin Razavi, Reed Hastings, Chris Liddell, and Vas Narasimhan.
 
 **LTBT Trustees**  
-Neil Buddy Shah, Richard Fontaine, and Mariano-Florentino Cuéllar.
+Neil Buddy Shah, Richard Fontaine, Mariano-Florentino (Tino) Cuéllar, and Dr. Ben Bernanke.
 
 Want to help us build the future of safe AI?
 
-[Join us](/jobs)
+[Join us](https://www.anthropic.com/jobs)

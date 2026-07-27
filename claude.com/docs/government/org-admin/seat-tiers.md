@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/government/org-admin/seat-tiers -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this is for:** Organization owners who need to review the seat tiers available to their organization or define their own.
 
 Use this page to see the models and spend limits attached to each tier and, when permitted, to create and edit self-managed tiers.
@@ -39,10 +47,10 @@ For a self-managed tier the **Edit** form lets you update any of the fields abov
 ##  Deleting a tier
 
 The **Delete** button removes a self-managed tier entirely. Deletion is permanent and cannot be undone from this portal.
-You can only delete a tier that nothing references. If any users are still assigned to it, any API keys are bound to it, or any group mapping on the [Group mappings](/docs/government/org-admin/provisioning) page points at it, the delete is refused with a message telling you so. Reassign or remove those references first, then delete the tier.
+You can only delete a tier that nothing references. If any users are still assigned to it, any API keys are bound to it, or any group mapping on the [Group mappings](https://claude.com/docs/government/org-admin/provisioning) page points at it, the delete is refused with a message telling you so. Reassign or remove those references first, then delete the tier.
+
+##  Things to know
 
 * Changing a tier’s **Sort order** affects where newly provisioned users land, but it does not move anyone who already has a seat.
 * The spend limits are per user, not per tier. Ten users on a tier with a $20 seven-day limit can together spend up to $200 of your organization’s credits over seven days.
 * Moving a user between tiers does not reset their usage counters. A user who has spent $15 in the current 5-hour window carries that spend with them, and it is measured against the new tier’s limit on their next request.
-
-[Seats](/docs/government/org-admin/seats)[Group mappings](/docs/government/org-admin/provisioning)

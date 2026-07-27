@@ -18,7 +18,7 @@ Read more
 
 # Tag Claude in Slack
 
-@Claude reads threads, understands the full context, and reacts in real time so your team moves forward together. Bring Claude into your channel.
+[@Claude](https://anthropic.enterprise.slack.com/team/U08SSLN6TTL) reads threads, understands full context, and reacts in real time so your team moves forward together. Bring Claude into your channel.
 
 Add to Slack
 
@@ -28,7 +28,7 @@ Read documentation
 
 [Read documentation](https://claude.com/docs/claude-tag/overview)Read documentation
 
-Available in beta for Claude Enterprise and Team in Slack.
+Available in beta for Claude Enterprise and Team customers in Slack.
 
 [](https://assets.claude.ai/brand/videos/tag/tag-supercut.webm)
 
@@ -68,9 +68,17 @@ Chad Kunsman, AI Developer
 
 [Next](#)Next
 
+Coming soon to Microsoft Teams
+
+Tag [@Claude](https://anthropic.enterprise.slack.com/team/U08SSLN6TTL) in Teams, where it will read the conversation, understand context, and respond in real time.
+
+Join the waitlist
+
+[Join the waitlist](https://claude.com/form/claude-tag-teams-waitlist)Join the waitlist
+
 ## How it works
 
-Tag Claude into any thread, no matter how long or messy. It reacts to context, decisions, or open questions to help busy teams get more done.
+Tag Claude into any thread in Slack, no matter how long or messy. It reacts to context, decisions, or open questions to help busy teams get more done.
 
 ### Tag it in
 
@@ -92,7 +100,7 @@ Give @Claude standing instructions and it works without a mention now or in the 
 
 ## How teams use @Claude
 
-Claude can share work in the format your team needs, right in the thread.
+Claude in Slack can share work in the format your team needs, right in the thread.
 
 Catch up
 
@@ -218,7 +226,7 @@ Configure any tool with an API using Agent Identity. Claude can query, act, and 
 
 Read more
 
-[Read more](/blog/agent-identity-access-model)Read more
+[Read more](https://claude.com/blog/agent-identity-access-model)Read more
 
 ## Admins stay in control
 
@@ -248,7 +256,7 @@ Explore our new security model built for agents, not retrofitted from chatbots.
 
 Read more
 
-[Read more](/blog/agent-identity-access-model)Read more
+[Read more](https://claude.com/blog/agent-identity-access-model)Read more
 
 Tutorial: Working with @Claude in your workspace
 
@@ -256,7 +264,7 @@ Claude now works alongside your team, under its own account, in the places you a
 
 Read more
 
-[Read more](/resources/tutorials/best-practices-using-claude-tag)Read more
+[Read more](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Read more
 
 [Prev](#)Prev
 
@@ -267,3 +275,7 @@ Read more
 Add to Slack
 
 [Add to Slack](https://api.anthropic.com/integrations/v1/slack/install)Add to Slack
+
+Join Teams waitlist
+
+[Join Teams waitlist](https://claude.com/form/claude-tag-teams-waitlist)Join Teams waitlist

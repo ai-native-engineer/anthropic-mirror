@@ -90,4 +90,4 @@ RefiningPreparingResearching
 
 We’re excited to get to know you.
 
-[See open roles](/jobs)
+[See open roles](https://www.anthropic.com/jobs)

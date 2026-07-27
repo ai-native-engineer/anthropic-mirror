@@ -36,7 +36,7 @@ When people come to Claude for information, we want Claude to share the facts, a
 
 One way we help Claude do this is through election banners, which we first launched in 2024, ahead of major elections in the US and elsewhere around the world. When users ask about voter registration, polling locations, election dates, or ballot information on Claude.ai, Claude displays an election banner pointing them to trusted sources. In this year’s US midterm elections, our banner will direct users to TurboVote, a nonpartisan resource from [Democracy Works](https://www.democracy.works/) that provides reliable, real-time information about those topics. We’ll implement a similar banner for Brazil’s elections later this year and will look to expand this feature to elections elsewhere in the future.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5d74d5f1d336ad5317b0474b41830da4a581eca2-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/5d74d5f1d336ad5317b0474b41830da4a581eca2-1920x1080.png)
 
 Claude's election banner directing users to TurboVote, a nonpartisan voter resource from Democracy Works.
 

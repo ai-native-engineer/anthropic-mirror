@@ -5,10 +5,21 @@
 This article explains Claude for Teachers, a program that gives verified US K-12 educators free access to professional Claude accounts, with teaching skills and a curriculum connector built for classroom prep.
 
   Education
+* Product
 
   AI Fluency
+* Reading time
 
   Watch time
+
+  5
+
+  min
+
+  min
+* Share
+
+  [Copy link](#)
 
   https://claude.com/resources/tutorials/getting-started-with-claude-for-teachers
 
@@ -117,18 +128,18 @@ Schools and districts are eligible for discounted Claude for Nonprofits pricing.
 
 ## Related tutorials
 
-[Claude for Teachers in action](/resources/tutorials/claude-for-teachers-in-action)Claude for Teachers in action
+[Claude for Teachers in action](https://claude.com/resources/tutorials/claude-for-teachers-in-action)Claude for Teachers in action
 
 Claude for Teachers in action
 
 Tutorial
 
-[Tutorial](/resources/tutorials/claude-for-teachers-in-action)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/claude-for-teachers-in-action)Tutorial
 
-[Visuals that appear as you study with Claude](/resources/tutorials/imagine-with-claude-student-guide)Visuals that appear as you study with Claude
+[Visuals that appear as you study with Claude](https://claude.com/resources/tutorials/imagine-with-claude-student-guide)Visuals that appear as you study with Claude
 
 Visuals that appear as you study with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/imagine-with-claude-student-guide)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/imagine-with-claude-student-guide)Tutorial

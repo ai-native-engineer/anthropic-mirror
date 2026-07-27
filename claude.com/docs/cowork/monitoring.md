@@ -1,6 +1,14 @@
 <!-- source: https://claude.com/docs/cowork/monitoring -->
 
-Track Cowork usage and activity across your organization by exporting events through [OpenTelemetry](https://opentelemetry.io/) (OTel). Cowork exports events via the OTel logs/events protocol, giving you visibility into user prompts, API requests, tool usage, and errors.
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
+Track Cowork usage and activity across your organization by exporting events through [OpenTelemetry](https://opentelemetry.io/) (OTel). Cowork exports events via the OTel logs/events protocol, giving you visibility into user prompts, model responses, API requests, tool usage, and errors.
 
 Monitoring is available for Team and Enterprise plans. OTel monitoring requires Claude desktop app version 1.1.4173 or later.
 
@@ -19,26 +27,29 @@ Configure monitoring from the Cowork admin settings:
 3. Save your settings
 4. Start a new Cowork session — settings are loaded at session start, so existing sessions won’t pick up the new configuration
 
-If your organization has network egress restrictions enabled, add your collector domain to the allowlist at **Admin settings > Capabilities > Network egress**. The OTel exporter runs inside the Cowork VM, and traffic to non-allowlisted domains is silently dropped.
+The OTel exporter runs inside the Cowork VM, so it is subject to the session’s egress rules. If your organization restricts network egress, Cowork automatically adds your collector’s hostname to the session’s egress allowlist. You don’t need to add it at **Admin settings > Capabilities > Network egress**.
 
 ##  Events
 
-Cowork exports the following events to your OTel collector. User prompt content and tool details are always included in events.
+Cowork exports the following events to your OTel collector. By default, events include metadata only. User prompt content, model response text, and tool details are included only when you enable them with the [`otlpContentCapture`](https://claude.com/docs/third-party/claude-desktop/telemetry#content-capture) setting.
 
 ###  Event correlation
 
 When a user submits a prompt, Cowork may make multiple API calls and run several tools. The `prompt.id` attribute links all events back to the single prompt that triggered them.
 
 | Attribute | Description |
+| --- | --- |
 | `prompt.id` | UUID v4 identifier linking all events produced while processing a single user prompt |
 
 To trace all activity triggered by a single prompt, filter your events by a specific `prompt.id` value.
+On third-party deployments, you can additionally enable OpenTelemetry trace export with the [`otlpTracesEnabled`](https://claude.com/docs/third-party/claude-desktop/telemetry#traces-beta) setting (beta). When it is enabled, events emitted while a prompt is processed also carry `trace_id` and `span_id`, linking them to the session’s trace spans for end-to-end correlation in your observability backend.
 
 ###  Standard attributes
 
 All events include these attributes:
 
 | Attribute | Description |
+| --- | --- |
 | `session.id` | Unique session identifier |
 | `organization.id` | Organization UUID |
 | `user.account_uuid` | User’s account UUID |
@@ -56,10 +67,29 @@ Logged when a user submits a prompt.
 All [standard attributes](#standard-attributes), plus:
 
 | Attribute | Description |
+| --- | --- |
 | `event.timestamp` | ISO 8601 timestamp |
 | `event.sequence` | Monotonically increasing counter for ordering events within a session |
 | `prompt_length` | Length of the prompt |
 | `prompt` | Prompt content |
+
+###  Model response event
+
+Logged when the model completes a response that includes text output. Requires Claude desktop app version 1.17377 or later.
+**Event name**: `assistant_response`
+**Attributes**:
+All [standard attributes](#standard-attributes), plus:
+
+| Attribute | Description |
+| --- | --- |
+| `event.timestamp` | ISO 8601 timestamp |
+| `event.sequence` | Monotonically increasing counter for ordering events within a session |
+| `model` | Model that produced the response |
+| `request_id` | API request identifier |
+| `response_length` | Length of the response |
+| `response` | Model response text. Includes text output only; thinking content is excluded. Truncated to 60 KB. When model response capture is disabled, the value is the literal string `<REDACTED>`. |
+
+Model responses are captured when [`otlpContentCapture`](https://claude.com/docs/third-party/claude-desktop/telemetry#content-capture) includes `assistantResponses`, and also whenever user prompts are captured.
 
 ###  Tool result event
 
@@ -69,6 +99,7 @@ Logged when a tool completes execution.
 All [standard attributes](#standard-attributes), plus:
 
 | Attribute | Description |
+| --- | --- |
 | `event.timestamp` | ISO 8601 timestamp |
 | `event.sequence` | Monotonically increasing counter for ordering events within a session |
 | `tool_name` | Name of the tool |
@@ -90,9 +121,10 @@ Logged for each API request to Claude.
 All [standard attributes](#standard-attributes), plus:
 
 | Attribute | Description |
+| --- | --- |
 | `event.timestamp` | ISO 8601 timestamp |
 | `event.sequence` | Monotonically increasing counter for ordering events within a session |
-| `model` | Model used (e.g., `claude-sonnet-4-6`) |
+| `model` | Model used (e.g., `claude-sonnet-5`) |
 | `cost_usd` | Estimated cost in USD |
 | `duration_ms` | Request duration in milliseconds |
 | `input_tokens` | Number of input tokens |
@@ -109,6 +141,7 @@ Logged when an API request to Claude fails.
 All [standard attributes](#standard-attributes), plus:
 
 | Attribute | Description |
+| --- | --- |
 | `event.timestamp` | ISO 8601 timestamp |
 | `event.sequence` | Monotonically increasing counter for ordering events within a session |
 | `model` | Model used |
@@ -126,6 +159,7 @@ Logged when a tool permission decision is made.
 All [standard attributes](#standard-attributes), plus:
 
 | Attribute | Description |
+| --- | --- |
 | `event.timestamp` | ISO 8601 timestamp |
 | `event.sequence` | Monotonically increasing counter for ordering events within a session |
 | `tool_name` | Name of the tool |
@@ -154,6 +188,7 @@ Your choice of logs backend determines the types of analyses you can perform:
 All events are exported with the following resource attributes:
 
 | Attribute | Description |
+| --- | --- |
 | `service.name` | `cowork` |
 | `service.version` | Claude app version |
 | `host.arch` | Host architecture (e.g., `arm64`) |
@@ -163,8 +198,7 @@ All events are exported with the following resource attributes:
 ##  Security and privacy
 
 * Events are only exported when an admin configures the OTLP endpoint
-* User prompt content is included in events — configure your telemetry backend to filter or redact if needed
-* Tool execution events include the `tool_input` attribute with file paths, URLs, search patterns, and other arguments — configure your telemetry backend to filter or redact `tool_input` if these may contain sensitive values
-* `user.email` is included in event attributes — work with your telemetry backend to filter or redact if this is a concern
-
-[Organize work with projects](/docs/cowork/guide/projects)
+* User prompt content is included only when you enable `userPrompts` in [`otlpContentCapture`](https://claude.com/docs/third-party/claude-desktop/telemetry#content-capture)
+* On Claude desktop app version 1.17377 or later, model response text is included when you enable `assistantResponses` in `otlpContentCapture`, and also whenever user prompt content is included
+* The `tool_input` attribute (file paths, URLs, search patterns, and other arguments) is included only when you enable `toolDetails` in `otlpContentCapture`
+* `user.email` is always included in event attributes, so configure your telemetry backend to filter or redact it if this is a concern

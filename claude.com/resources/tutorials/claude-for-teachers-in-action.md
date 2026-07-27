@@ -5,10 +5,21 @@
 Claude for Teachers can help you be more effective in your classroom. Give it the class data you already keep — roster, scores, attendance, your own notes — and it can plan differentiated lessons for each group of your students. It can also coach your teaching from each day's lesson, on a schedule you set.
 
   Education
+* Product
 
   AI Fluency
+* Reading time
 
   Watch time
+
+  5
+
+  min
+
+  min
+* Share
+
+  [Copy link](#)
 
   https://claude.com/resources/tutorials/claude-for-teachers-in-action
 
@@ -26,18 +37,18 @@ See how an elementary school teacher uses Claude for Teachers can analyze your t
 
 ## Related tutorials
 
-[Getting started with Claude for Teachers](/resources/tutorials/getting-started-with-claude-for-teachers)Getting started with Claude for Teachers
+[Getting started with Claude for Teachers](https://claude.com/resources/tutorials/getting-started-with-claude-for-teachers)Getting started with Claude for Teachers
 
 Getting started with Claude for Teachers
 
 Tutorial
 
-[Tutorial](/resources/tutorials/getting-started-with-claude-for-teachers)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/getting-started-with-claude-for-teachers)Tutorial
 
-[Visuals that appear as you study with Claude](/resources/tutorials/imagine-with-claude-student-guide)Visuals that appear as you study with Claude
+[Visuals that appear as you study with Claude](https://claude.com/resources/tutorials/imagine-with-claude-student-guide)Visuals that appear as you study with Claude
 
 Visuals that appear as you study with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/imagine-with-claude-student-guide)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/imagine-with-claude-student-guide)Tutorial

@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6982c745e948814d5cdf68fe_logo_pensive-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6982c74916acfdfe3503c3f0_logo_pensive-dark-mode.png)
 
@@ -160,34 +160,34 @@ Video caption
 
 ## Related stories
 
-[MagicSchool on building a safety layer for millions of student conversations](/customers/magicschool-qa)MagicSchool on building a safety layer for millions of student conversations
+[MagicSchool on building a safety layer for millions of student conversations](https://claude.com/customers/magicschool-qa)MagicSchool on building a safety layer for millions of student conversations
 
 MagicSchool on building a safety layer for millions of student conversations
 
 Customer story
 
-[Customer story](/customers/magicschool-qa)Customer story
+[Customer story](https://claude.com/customers/magicschool-qa)Customer story
 
-[How Syracuse University deployed Claude to every student, faculty member, and staff](/customers/syracuse)How Syracuse University deployed Claude to every student, faculty member, and staff
+[How Syracuse University deployed Claude to every student, faculty member, and staff](https://claude.com/customers/syracuse)How Syracuse University deployed Claude to every student, faculty member, and staff
 
 How Syracuse University deployed Claude to every student, faculty member, and staff
 
 Customer story
 
-[Customer story](/customers/syracuse)Customer story
+[Customer story](https://claude.com/customers/syracuse)Customer story
 
-[Why Syracuse University gave Claude to 30,000 students, faculty, and staff](/customers/syracuse-university)Why Syracuse University gave Claude to 30,000 students, faculty, and staff
+[Why Syracuse University gave Claude to 30,000 students, faculty, and staff](https://claude.com/customers/syracuse-university)Why Syracuse University gave Claude to 30,000 students, faculty, and staff
 
 Why Syracuse University gave Claude to 30,000 students, faculty, and staff
 
 Customer story
 
-[Customer story](/customers/syracuse-university)Customer story
+[Customer story](https://claude.com/customers/syracuse-university)Customer story
 
-[RileyBot creates safe AI learning experiences for students with Claude](/customers/rileybot)RileyBot creates safe AI learning experiences for students with Claude
+[RileyBot creates safe AI learning experiences for students with Claude](https://claude.com/customers/rileybot)RileyBot creates safe AI learning experiences for students with Claude
 
 RileyBot creates safe AI learning experiences for students with Claude
 
 Customer story
 
-[Customer story](/customers/rileybot)Customer story
+[Customer story](https://claude.com/customers/rileybot)Customer story

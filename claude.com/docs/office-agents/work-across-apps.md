@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/office-agents/work-across-apps -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Claude can coordinate between the Excel, PowerPoint, Word, and Outlook
 add-ins in your Microsoft 365 suite. Instead of switching between apps
 and re-providing context each time, Claude can read from one app and
@@ -15,13 +23,13 @@ Install each Claude for M365 add-in and confirm your plan before turning
 on cross-app mode.
 
 * A paid Claude plan: Pro, Max, Team, or Enterprise.
-* [Claude for Excel](/docs/office-agents/excel) installed from the
+* [Claude for Excel](https://claude.com/docs/office-agents/excel) installed from the
   Microsoft AppSource.
-* [Claude for PowerPoint](/docs/office-agents/powerpoint) installed
+* [Claude for PowerPoint](https://claude.com/docs/office-agents/powerpoint) installed
   from the Microsoft AppSource.
-* [Claude for Word](/docs/office-agents/word) installed from the
+* [Claude for Word](https://claude.com/docs/office-agents/word) installed from the
   Microsoft AppSource.
-* [Claude for Outlook](/docs/office-agents/outlook) installed from the
+* [Claude for Outlook](https://claude.com/docs/office-agents/outlook) installed from the
   Microsoft AppSource.
 
 ##  Enable cross-app mode
@@ -147,5 +155,3 @@ the add-in settings.
 Claude works on open files in sequence. Wait for Claude to finish its
 current action, then check the target file. You may need to ask Claude
 to refresh or re-read the file.
-
-[Use Claude for Outlook](/docs/office-agents/outlook)[Use dictation in Claude for M365](/docs/office-agents/dictation)

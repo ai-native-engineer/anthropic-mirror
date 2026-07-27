@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f3caddc7a4d22e4b14c35e_logo_artemis-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f3cae4681bbbe2016599d9_logo_artemis-dark-mode.svg)
 
@@ -156,34 +156,34 @@ Co-founder and CEO, Artemis
 
 ## Related stories
 
-[Kai delivers preemptive exposure management with Claude](/customers/kai) Kai delivers preemptive exposure management with Claude
+[Kai delivers preemptive exposure management with Claude](https://claude.com/customers/kai) Kai delivers preemptive exposure management with Claude
 
 Kai delivers preemptive exposure management with Claude
 
 Customer story
 
-[Customer story](/customers/kai)Customer story
+[Customer story](https://claude.com/customers/kai)Customer story
 
-[Cogent resolves security threats 97% faster with Claude](/customers/cogent)Cogent resolves security threats 97% faster with Claude
+[Cogent resolves security threats 97% faster with Claude](https://claude.com/customers/cogent)Cogent resolves security threats 97% faster with Claude
 
 Cogent resolves security threats 97% faster with Claude
 
 Customer story
 
-[Customer story](/customers/cogent)Customer story
+[Customer story](https://claude.com/customers/cogent)Customer story
 
-[How eSentire runs expert-level threat investigations at scale with Claude](/customers/esentire)How eSentire runs expert-level threat investigations at scale with Claude
+[How eSentire runs expert-level threat investigations at scale with Claude](https://claude.com/customers/esentire)How eSentire runs expert-level threat investigations at scale with Claude
 
 How eSentire runs expert-level threat investigations at scale with Claude
 
 Customer story
 
-[Customer story](/customers/esentire)Customer story
+[Customer story](https://claude.com/customers/esentire)Customer story
 
-[Vanta streamlines compliance remediation with Claude](/customers/vanta)Vanta streamlines compliance remediation with Claude
+[Vanta streamlines compliance remediation with Claude](https://claude.com/customers/vanta)Vanta streamlines compliance remediation with Claude
 
 Vanta streamlines compliance remediation with Claude
 
 Customer story
 
-[Customer story](/customers/vanta)Customer story
+[Customer story](https://claude.com/customers/vanta)Customer story

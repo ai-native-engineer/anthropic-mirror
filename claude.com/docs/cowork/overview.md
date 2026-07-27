@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/cowork/overview -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Cowork uses the same agentic architecture that powers Claude Code, accessible within Claude Desktop without opening the terminal. Rather than responding to prompts sequentially, Claude tackles intricate, multi-step tasks autonomously. Describe a desired outcome, then return later to completed work — polished documents, organized files, synthesized research, and more.
 
 ##  Key capabilities
@@ -29,4 +37,4 @@ Bundle skills, connectors, and more into shareable packages.
 
 Track usage and activity across your organization.
 
-[Changelog](/docs/cowork/changelog)
+You manage connectors, skills, and plugins from **Customize** in the sidebar. Cowork loads the ones enabled for your claude.ai account, synced at session start, and doesn’t read the [Claude Code](https://code.claude.com/docs/en/skills) CLI’s `~/.claude` directory on your machine. To use a skill or plugin that exists only in `~/.claude`, add it in **Customize**.

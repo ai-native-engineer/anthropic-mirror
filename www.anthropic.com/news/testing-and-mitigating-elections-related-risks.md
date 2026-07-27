@@ -4,7 +4,7 @@
 
 Jun 6, 2024
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6b04f486cfe0b8a62e4632f3186f23afcd22a890-2880x1621.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/6b04f486cfe0b8a62e4632f3186f23afcd22a890-2880x1621.png)
 
 With global elections in 2024, we're often asked how we're safeguarding election integrity as AI evolves. This blog provides a snapshot of the work we've done since last summer to test our models for elections-related risks.
 
@@ -12,7 +12,7 @@ We've developed a flexible process using in-depth expert testing (“Policy Vuln
 
 In this post, we’ll describe each stage of our testing process, how those testing methods inform our risk mitigations, and how we measure the efficacy of those interventions once applied (as visualized in the figure below). We’ll illustrate this process through a closer look at one area: how our models respond to questions about election administration.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe67c6ead4da50a4b78d44f7152bcae9adf37919b-2200x1200.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/e67c6ead4da50a4b78d44f7152bcae9adf37919b-2200x1200.png)
 
 Our process for testing and improving AI models for use in elections combines in-depth qualitative insights from **Policy Vulnerability Testing (PVT)** with subject matter experts and scalable, comprehensive **Automated Evaluations**. Informed by those findings, we **Implement** **Mitigation Strategies** such as policy updates, tooling enhancements, and model fine-tuning. We then **Retest to Measure the Efficacy** of our interventions. This iterative approach provides both depth and breadth in understanding model behavior, mitigating risks, and verifying progress.
 
@@ -73,7 +73,7 @@ The issues uncovered by PVT and automated testing directly shape our efforts to 
 * **Auditing platform use:** As a result of model testing, we have a more granular view into areas where we might need to reinforce our automated enforcement tools with manual audits of potentially violative model prompts. Users confirmed to be engaging in activity that violated our [Usage Policy](https://www.anthropic.com/legal/aup) were offboarded from all Claude services.
 * **Training our automated policy enforcement tooling:** Our automated enforcement tooling includes a fine-tuned version of Claude that evaluates model prompts and completions against our [Usage Policy](https://www.anthropic.com/legal/aup) in real-time. That evaluation then informs subsequent automated or manual enforcement actions.
 * **Updating our automated policy enforcement tooling:** As we refine our [Usage Policy](https://www.anthropic.com/legal/aup) based on insights from Policy Vulnerability Testing, we regularly retrain our automated enforcement tooling. This helps keep it aligned with our current policies, improving its ability to identify content that may violate our policies.
-* **Detecting and redirecting elections-related queries:** We also bolster our fine-tuning efforts to refer people to authoritative sources with our automated enforcement tooling. When our tooling detects that a user might be asking time-sensitive questions about elections on [claude.ai](http://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5), we serve a pop-up banner offering to redirect US-based users to [TurboVote](https://anthropic.turbovote.org/) (a resource from the nonpartisan organization [Democracy Works](https://www.democracy.works/)), and EU-based voters to [instructions from the European Parliament](https://elections.europa.eu/en/).
+* **Detecting and redirecting elections-related queries:** We also bolster our fine-tuning efforts to refer people to authoritative sources with our automated enforcement tooling. When our tooling detects that a user might be asking time-sensitive questions about elections on [claude.ai](http://claude.ai/redirect/website.v1.15e9d24a-d171-4006-9296-6a556a9b6ba1), we serve a pop-up banner offering to redirect US-based users to [TurboVote](https://anthropic.turbovote.org/) (a resource from the nonpartisan organization [Democracy Works](https://www.democracy.works/)), and EU-based voters to [instructions from the European Parliament](https://elections.europa.eu/en/).
 
 ## We also use these testing methods to measure the efficacy of our interventions
 
@@ -85,17 +85,17 @@ The results of Policy Vulnerability Testing and the automated evaluations we ran
 
 To evaluate whether this change had a positive effect, we used an automated evaluation that allowed us to measure two things: accuracy of EU election information, and whether our models appropriately referenced their knowledge cutoff date in situations where it’s appropriate and desirable to do so. Comparing a legacy version of our model (Claude 2), a research version of Claude 3 (Opus) without its system prompt, and the publicly-available version of Claude 3 (Opus) that includes the system prompt, we see a 47.2% improvement in one of our priority mitigations.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1cc70f79d5b63a3d743e7800f5a84cb5002b9d86-2200x1424.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/1cc70f79d5b63a3d743e7800f5a84cb5002b9d86-2200x1424.png)
 
 #### 
 
 ### Case Study #3: Fine-tuning intervention improves model suggestions to refer to authoritative sources
 
-The testing outlined above also informed our second priority mitigation: models should refer people to authoritative sources when asked about questions that may lead to outdated or inaccurate information. We did this both through model fine-tuning, as well as changes to our [claude.ai](http://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5) user interface.
+The testing outlined above also informed our second priority mitigation: models should refer people to authoritative sources when asked about questions that may lead to outdated or inaccurate information. We did this both through model fine-tuning, as well as changes to our [claude.ai](http://claude.ai/redirect/website.v1.15e9d24a-d171-4006-9296-6a556a9b6ba1) user interface.
 
 To evaluate the efficacy of our fine-tuning intervention, we compared a legacy version of our model that was not fine-tuned to refer people to reliable sources (Claude 2) and one that was (Claude 3 Opus). We did this using an automated evaluation for accuracy on EU election information, and also calculated how often the model referred people to reliable sources when appropriate. We find that the fine-tuning led to a 10.4% improvement in how often the model refers people to authoritative sources of information in questions where it is appropriate to do so.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F57beedfa123c8e1108b939e28077c7048ead2f8c-2200x1424.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/57beedfa123c8e1108b939e28077c7048ead2f8c-2200x1424.png)
 
 It's important to recognize (and our evaluations above demonstrate) that no single intervention is going to be completely effective in eliciting or preventing a specific behavior that we intend. That's why we adopt a "Swiss cheese model" for system safety, applying a set of layered and overlapping interventions, many of which are described above. This multi-faceted approach helps prevent our models from unintentionally providing inaccurate or misleading information to users, while also safeguarding against use that violates our policies.
 

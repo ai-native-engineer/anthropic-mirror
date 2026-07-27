@@ -66,7 +66,7 @@ In Qwen, we found a “Chinese Communist Party alignment” feature, which repre
 
 In Llama, we found a feature for “American exceptionalism.” When we amplify this feature, the model’s responses shift from balanced to strong assertions of American superiority. Suppressing it has no notable effect.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa847656473341a884b836bf05618c1fa3bc64675-4584x2835.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/a847656473341a884b836bf05618c1fa3bc64675-4584x2835.png)
 
 **Left:** On a prompt about Tiananmen Square, suppressing the Qwen-exclusive “CCP alignment” feature uncensors the model. Amplifying it causes the model to output highly pro-government statements.  
 **Right:** Amplifying the Llama-exclusive “American exceptionalism” feature causes the model to generate text aligned with narratives of American superiority. Suppressing it has no notable effect, so we omit it from the figure.
@@ -79,7 +79,7 @@ In the GPT model, we found a unique **“**Copyright Refusal” feature, which d
 
 In the DeepSeek model, we replicated our earlier finding by identifying another“CCP alignment” feature. It functions just like the one in Qwen, allowing censorship and propaganda to be turned up or down. This confirms our method can consistently identify similar behaviors across models.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd7a3cd0e411835ef0170736b435017f4f382dea0-4584x3651.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/d7a3cd0e411835ef0170736b435017f4f382dea0-4584x3651.png)
 
 **Left:** Suppressing the GPT-OSS-20B-exclusive “copyright refusal” feature disables its copyright refusal mechanism and causes it to attempt to output the lyrics to the song “Bohemian Rhapsody” (though it does so imperfectly). Turning the dial up causes the model to mistakenly believe the recipe for a peanut butter and jelly sandwich is copyrighted and refuse to output it.  
 **Right:** On a prompt about Tiananmen Square, the DeepSeek-exclusive “CCP alignment” feature functions just like the one found in Qwen. Turning the dial down causes it to output a more truthful version of events, while turning the dial up causes it to output highly pro-government statements.
@@ -106,18 +106,16 @@ This post was authored by Thomas Jiralerspong (Anthropic Fellows Program) and Tr
 
 1. As with all Anthropic Fellows interpretability research, this paper analyzes the behavior of open-source models. We chose the four models in the study—Llama-3.1-8B-Instruct, Qwen3-8B, GPT-OSS-20B, and DeepSeek-R1-0528-Qwen3-8B—on the basis they would be well-suited to testing whether our Dedicated Feature Crosscoder could detect notable differences in model behavior.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

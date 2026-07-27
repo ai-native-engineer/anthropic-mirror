@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/cowork/guide/dispatch -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Dispatch is a long-running agent in Cowork that takes high-level instructions and carries them out in the background. You describe an outcome in a single conversation; the Dispatch agent breaks it into tasks, runs each one as a separate Cowork or Code session, and surfaces the results in the sidebar when they finish.
 Unlike a normal Cowork chat, you don’t watch each step. Dispatch is for work you want to start and come back to later.
 
@@ -42,7 +50,7 @@ The Dispatch agent routes each child task to the surface that fits it.
 | Task type | Runs in | Examples |
 | --- | --- | --- |
 | Coding work | Code, against a workspace you’ve already set up | Fix a bug, open a pull request, run tests |
-| Knowledge work | Cowork, in the [project](/docs/cowork/guide/projects) you specify (or your default project) | Research, write a document, organize files |
+| Knowledge work | Cowork, in the [project](https://claude.com/docs/cowork/guide/projects) you specify (or your default project) | Research, write a document, organize files |
 
 When starting a task, you can tell the agent which Code workspace or Cowork project to use. If you don’t, it lists what’s available and chooses.
 
@@ -51,6 +59,7 @@ When starting a task, you can tell the agent which Code workspace or Cowork proj
 Each child task shows its current state in the sidebar. Select any task to open its full transcript, the steps Claude took, and any files it produced.
 
 | State | Meaning |
+| --- | --- |
 | Running | Claude is actively working on the task |
 | Awaiting input | The task needs information from you before it can continue |
 | Awaiting answer | The task asked you a question and is waiting for a reply |
@@ -93,7 +102,5 @@ mobile app.
 
 ##  Related
 
-* [Organize work with projects](/docs/cowork/guide/projects) for the project context Dispatch routes knowledge work into
-* [Cowork overview](/docs/cowork/overview) for how Dispatch fits alongside sessions and projects
-
-[Changelog](/docs/cowork/changelog)[Install plugins](/docs/cowork/guide/plugins)
+* [Organize work with projects](https://claude.com/docs/cowork/guide/projects) for the project context Dispatch routes knowledge work into
+* [Cowork overview](https://claude.com/docs/cowork/overview) for how Dispatch fits alongside sessions and projects

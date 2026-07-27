@@ -4,11 +4,11 @@
 
 Mar 13, 2024
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc0fb44100d911f737e71165d9bf6a3551ba37757-2880x1620.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/c0fb44100d911f737e71165d9bf6a3551ba37757-2880x1620.png)
 
 Today we’re releasing Claude 3 Haiku, the fastest and most affordable model in its intelligence class. With state-of-the-art vision capabilities and strong performance on industry benchmarks, Haiku is a versatile solution for a wide range of enterprise applications. The model is now available alongside Sonnet and Opus in the Claude API and on claude.ai for our Claude Pro subscribers.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe6025e452c3653296d50e03e318fd9af001b7ca6-2200x2022.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/e6025e452c3653296d50e03e318fd9af001b7ca6-2200x2022.png)
 
 Speed is essential for our enterprise users who need to quickly analyze large datasets and generate timely output for tasks like customer support. Claude 3 Haiku is three times faster than its peers for the vast majority of workloads, processing 21K tokens (~30 pages) per second for prompts under 32K tokens [1]. It also generates swift output, enabling responsive, engaging chat experiences and the execution of many small tasks in tandem.
 
@@ -18,7 +18,7 @@ Alongside its speed and affordability, Claude 3 Haiku prioritizes enterprise-gra
 
 Starting today, customers can use Claude 3 Haiku through our [API](https://www.anthropic.com/api) or with a Claude Pro subscription on claude.ai. Claude 3 Haiku is available on Amazon Bedrock and will be coming soon to Google Cloud Vertex AI.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9169d7976c74c5da28de0369cfaa85ab4268adc9-1148x272.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/9169d7976c74c5da28de0369cfaa85ab4268adc9-1148x272.png)
 
 #### Footnotes
 

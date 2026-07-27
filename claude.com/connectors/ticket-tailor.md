@@ -10,6 +10,7 @@ Event platform for managing tickets, orders & more
 * Used in
 
   [Claude](https://claude.ai/directory/7a28094f-541d-4ef8-89e2-6abc653d77a2)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Ticket Tailor](https://tickettailor.com)
 

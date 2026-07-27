@@ -4,9 +4,9 @@
 
 Sep 23, 2023
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F112b3d86f1ee7ddbf62ad26f2c311dd6dbd53177-2880x1620.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/112b3d86f1ee7ddbf62ad26f2c311dd6dbd53177-2880x1620.png)
 
-Claude’s [100,000 token long context window](/news/100k-context-windows) enables the model to operate over hundreds of pages of technical documentation, or even an [entire book](https://twitter.com/AnthropicAI/status/1656700156518060033). As we continue to scale the Claude API, we’re seeing increased demand for prompting guidance on how to maximize Claude’s potential. Today, we’re pleased to share a quantitative case study on two techniques that can improve Claude’s recall over long contexts:
+Claude’s [100,000 token long context window](https://www.anthropic.com/news/100k-context-windows) enables the model to operate over hundreds of pages of technical documentation, or even an [entire book](https://twitter.com/AnthropicAI/status/1656700156518060033). As we continue to scale the Claude API, we’re seeing increased demand for prompting guidance on how to maximize Claude’s potential. Today, we’re pleased to share a quantitative case study on two techniques that can improve Claude’s recall over long contexts:
 
 1. Extracting reference quotes relevant to the question before answering
 2. Supplementing the prompt with examples of correctly answered questions about other sections of the document
@@ -58,9 +58,9 @@ We used Claude Instant 1.2 for the above test. We also show results for Claude 
 
 ## Results
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd8f6e82f34d694395cb24fee8265d5b4ac28759f-3758x2406.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/d8f6e82f34d694395cb24fee8265d5b4ac28759f-3758x2406.png)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6a76b74a871eff3c91334df78f6f1b57d189e329-3758x2406.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/6a76b74a871eff3c91334df78f6f1b57d189e329-3758x2406.png)
 
 Some notes on the experiment:
 
@@ -83,7 +83,7 @@ Fully reproducible code for this experiment is live in the new [Anthropic Cookbo
 * A [Search and Retrieval demo](https://platform.claude.com/cookbook/third-party-wikipedia-wikipedia-search-cookbook) showcasing a tool use flow for searching Wikipedia.
 * Guidance on implementing [mock-PDF uploading functionality](https://platform.claude.com/cookbook/misc-pdf-upload-summarization) via the Anthropic API.
 
-We’re looking forward to expanding the Anthropic Cookbook and our other prompt engineering resources in the future, and we hope they inspire you to dream big about what you can build with Claude. If you haven’t received access to the Claude API yet, please [register your interest](/api).
+We’re looking forward to expanding the Anthropic Cookbook and our other prompt engineering resources in the future, and we hope they inspire you to dream big about what you can build with Claude. If you haven’t received access to the Claude API yet, please [register your interest](https://www.anthropic.com/api).
 
 ## Footnotes
 

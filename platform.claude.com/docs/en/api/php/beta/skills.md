@@ -4,7 +4,7 @@
 
 ## Create Skill
 
-`$client->beta->skills->create(?string displayTitle, ?list<string> files, ?list<AnthropicBeta> betas): SkillNewResponse`
+`$client->beta->skills->create(list<string> files, ?string displayTitle, ?list<AnthropicBeta> betas): SkillNewResponse`
 
 **post** `/v1/skills`
 
@@ -12,17 +12,17 @@ Create Skill
 
 ### Parameters
 
+- `files: list<string>`
+
+  Files to upload for the skill.
+
+  All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
+
 - `displayTitle?:optional string`
 
   Display title for the skill.
 
   This is a human-readable label that is not included in the prompt sent to the model.
-
-- `files?:optional list<string>`
-
-  Files to upload for the skill.
-
-  All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -83,10 +83,10 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $skill = $client->beta->skills->create(
-  displayTitle: 'display_title',
   files: [
     FileParam::fromString('Example data', filename: uniqid('file-upload-', true)),
   ],
+  displayTitle: 'display_title',
   betas: ['message-batches-2024-09-24'],
 );
 
@@ -386,7 +386,7 @@ var_dump($skill);
 
 ## Create Skill Version
 
-`$client->beta->skills->versions->create(string skillID, ?list<string> files, ?list<AnthropicBeta> betas): VersionNewResponse`
+`$client->beta->skills->versions->create(string skillID, list<string> files, ?list<AnthropicBeta> betas): VersionNewResponse`
 
 **post** `/v1/skills/{skill_id}/versions`
 
@@ -400,7 +400,7 @@ Create Skill Version
 
   The format and length of IDs may change over time.
 
-- `files?:optional list<string>`
+- `files: list<string>`
 
   Files to upload for the skill.
 

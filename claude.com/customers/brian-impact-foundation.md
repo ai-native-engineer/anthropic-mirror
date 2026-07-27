@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![Brian Impact logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1dd2ac4c6d8dd307a7236_cs-logo-brianimpact-light-theme.svg)![Brian Impact logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1dd22240b6cda0d8a81aa_cs-logo-brianimpact-dark-theme.svg)
 
@@ -132,34 +132,34 @@ Video caption
 
 ## Related stories
 
-[Quantium scales Claude across Australia's largest enterprises](/customers/quantium-qa)Quantium scales Claude across Australia's largest enterprises
+[Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)Caylent turns months of migration work into days with Claude Agent SDK
 
-Quantium scales Claude across Australia's largest enterprises
-
-Customer story
-
-[Customer story](/customers/quantium-qa)Customer story
-
-[How the Garvan Institute is changing the way it does science with Claude](/customers/garvan-institute-qa)How the Garvan Institute is changing the way it does science with Claude
-
-How the Garvan Institute is changing the way it does science with Claude
+Caylent turns months of migration work into days with Claude Agent SDK
 
 Customer story
 
-[Customer story](/customers/garvan-institute-qa)Customer story
+[Customer story](https://claude.com/customers/caylent)Customer story
 
-[JAKALA brings production AI agents to enterprise clients across Europe with Claude](/customers/jakala)JAKALA brings production AI agents to enterprise clients across Europe with Claude
+[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
 
-JAKALA brings production AI agents to enterprise clients across Europe with Claude
-
-Customer story
-
-[Customer story](/customers/jakala)Customer story
-
-[How Brainlabs gave 1k+ marketers at its media agency an AI coworker with Claude Cowork and skills](/customers/brainlabs)How Brainlabs gave 1k+ marketers at its media agency an AI coworker with Claude Cowork and skills
-
-How Brainlabs gave 1k+ marketers at its media agency an AI coworker with Claude Cowork and skills
+The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
 
 Customer story
 
-[Customer story](/customers/brainlabs)Customer story
+[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
+
+[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
+
+How the Epilepsy Foundation uses Claude across the organization
+
+Customer story
+
+[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
+
+[Building dignity-driven AI: A conversation with the National Domestic Workers Alliance](https://claude.com/customers/national-domestic-workers-alliance-qa)Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
+
+Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
+
+Customer story
+
+[Customer story](https://claude.com/customers/national-domestic-workers-alliance-qa)Customer story

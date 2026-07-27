@@ -1,28 +1,52 @@
 <!-- source: https://claude.com/docs/government/deploy-desktop/configure -->
 
-> **Who this is for:** IT administrators who install Claude Desktop on agency devices and connect it to their agency’s Claude for Government deployment.
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
 
-A fresh install of Claude Desktop connects to claude.ai. To connect it to Claude for Government instead, each device needs one managed setting that tells the app where your deployment lives. Once that setting is in place, everything else that governs the app (enabled products and tabs, model access, [connectors](/docs/government/connectors/overview), usage limits, the desktop banner) is controlled through the [tenant](/docs/government/tenant-admin/configuration) and [organization](/docs/government/org-admin/configuration) configuration pages in this portal and delivered to each user when they sign in.
-You can apply the setting by hand on a single machine, which is useful for confirming your deployment address before a wider rollout, or deploy it to your fleet through your device management system. The single-machine path can export profiles for the fleet path, so it is usually worth doing first.
+[Skip to main content](#content-area)
+
+> **Who this is for:** IT administrators who install Claude Desktop on agency devices and connect it to Claude for Government.
+
+A fresh install of Claude Desktop connects to claude.ai. To connect it to Claude for Government instead, each device needs one managed setting that tells the app where to reach Claude for Government. Once that setting is in place, everything else that governs the app (enabled products and tabs, model access, [connectors](https://claude.com/docs/government/connectors/overview), usage limits, the desktop banner) is controlled through the [tenant](https://claude.com/docs/government/tenant-admin/configuration) and [organization](https://claude.com/docs/government/org-admin/configuration) configuration pages in this portal and delivered to each user when they sign in.
+
+##  Choose how to deploy
+
+There are two ways to get Claude Desktop installed and connected to Claude for Government. They differ in who runs the installer, what rights that requires, and how the setting reaches the app.
+
+|  | Configure a single machine | Deploy to your fleet |
+| --- | --- | --- |
+| Best for | Confirming the app works on a representative device before a wider rollout, or setting up a small group of devices by hand | Production rollout across your agency |
+| Who installs the app | A person at the device | Your device management system (for example Intune, Configuration Manager, or Jamf) |
+| Administrator rights to install | Needed by the person doing each install | Not needed by end users; the management system installs with elevated rights |
+| How the address is set | Entered in the app’s built-in configuration window | Pushed as a configuration profile alongside the app |
+
+For a production rollout, use your device management system so end users never need administrator rights. The single-machine path is for testing first or for a small group you set up by hand, with an administrator doing each install. That path can also export a ready-made profile for your management system, so it is a useful starting point even when the fleet path is your destination.
 
 ##  Before you begin
 
-* **User accounts exist.** Claude Desktop signs users in to the same accounts as this portal. For each user, including your own test account, check with your tenant administrators that the user can sign in (a [routing rule](/docs/government/tenant-admin/identity-and-access) covers them) and has a [seat tier](/docs/government/org-admin/seat-tiers) with at least one model enabled.
-* **Devices can reach your deployment.** Claude Desktop on every device must reach your deployment address over HTTPS on port 443. That one address carries the app’s configuration and chat traffic.
-* **Browsers can reach sign-in.** Sign-in happens in the user’s default web browser, not in the app. Browsers on each device must reach your deployment address, your deployment’s sign-in service (a separate address that your Anthropic representative provides), and your agency’s identity provider.
-* **The app is current.** This configuration mechanism requires Claude Desktop 1.10628.0 or later. The [general deployment guides](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos) cover where to download the installer and how to distribute it.
+* **User accounts exist.** Claude Desktop signs users in to the same accounts as this portal. For each user, including your own test account, check with your tenant administrators that the user can sign in (a [routing rule](https://claude.com/docs/government/tenant-admin/identity-and-access) covers them) and has a [seat tier](https://claude.com/docs/government/org-admin/seat-tiers) with at least one model enabled.
+* **Devices can reach Claude for Government.** Claude Desktop on every device must reach the Claude for Government host over HTTPS on port 443. That one host carries the app’s configuration and chat traffic.
+* **Browsers can reach sign-in.** Sign-in happens in the user’s default web browser, not in the app. Browsers on each device must reach the Claude for Government host, its sign-in service (a separate host that your Anthropic representative provides), and your agency’s identity provider.
+* **The device meets Claude Desktop’s requirements.** See the Claude Desktop [system requirements](https://claude.com/docs/third-party/claude-desktop/installation#system-requirements) for macOS and Windows device requirements. On Windows, the Cowork workspace also needs the Virtual Machine Platform optional feature, covered in the [Windows fleet section](#windows) below.
+* **You can install the app.** Installing by hand needs administrator rights on each device; see [Configure a single machine](#configure-a-single-machine) for what that means on each platform. The [general deployment guides](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos) cover where to download the installer and how to distribute it.
+* **The app is current.** The configuration mechanism on this page requires Claude Desktop 1.10628.0 or later.
 
-##  The setting you deploy
+##  The managed setting
 
-The setting is called `bootstrapUrl`, and its value is your deployment address followed by the fixed path `/gateway-api/user/bootstrap`.
+The setting is called `bootstrapUrl`, and its value is the Claude for Government host followed by the fixed path `/gateway-api/user/bootstrap`.
 
 ```
-https://<your-deployment-host>/gateway-api/user/bootstrap
+https://<claude-for-government-host>/gateway-api/user/bootstrap
 ```
 
-Your deployment address is the same host as this portal. If you are unsure of it, ask your Anthropic representative. The app uses the address exactly as entered; it fetches each user’s configuration from it and derives the location of the sign-in service from it, so include the full path.
+The Claude for Government host is the address of this portal. If you are unsure of it, ask your Anthropic representative. The app uses the address exactly as entered; it fetches each user’s configuration from it and derives the location of the sign-in service from it, so include the full path.
 
 ##  Configure a single machine
+
+Installing by hand needs administrator rights on the device. On Windows, the installer registers a Windows system service, so it must run as a local administrator. On macOS, installing to the shared Applications folder requires an administrator. On Linux, installing the package requires root.
 
 Claude Desktop has a built-in configuration window that is hidden until you enable developer mode. These steps use it to set the address on one machine without any management tooling.
 
@@ -30,7 +54,7 @@ Claude Desktop has a built-in configuration window that is hidden until you enab
 
 Launch the app without signing in
 
-Install Claude Desktop on the test machine and open it. The claude.ai sign-in screen appears; this is expected before the app is configured. Stay on this screen.
+Install Claude Desktop on the test machine and open it. On Windows, run the installer while signed in as a local administrator. The claude.ai sign-in screen appears; this is expected before the app is configured. Stay on this screen.
 
 2
 
@@ -48,7 +72,7 @@ From the **Developer** menu, choose **Configure Third-Party Inference**. This is
 
 Enter the bootstrap address
 
-In the window’s left sidebar, click **Source**. On an unconfigured machine it appears last in the list and is dimmed, but is still clickable. Enter the full address from the section above in the **Bootstrap config URL** field. Leave every other field alone; your deployment supplies the provider, credentials, and model list after sign-in.
+In the window’s left sidebar, click **Source**. On an unconfigured machine it appears last in the list and is dimmed, but is still clickable. Enter the full address from the section above in the **Bootstrap config URL** field. Leave every other field alone; Claude for Government supplies the provider, credentials, and model list after sign-in.
 
 5
 
@@ -66,14 +90,15 @@ After the test, the same configuration window has an **Export** menu that produc
 
 ##  Deploy to your fleet
 
+When your device management system deploys Claude Desktop, end users receive the app without running an installer themselves. The management system installs the package with the system or root account on each platform, so end users need no administrator rights and see no elevation prompt. Push both the app installer and the configuration profile below through the same system.
 The recommended profile contains two keys. In the macOS and Windows profiles below, write every value as a string exactly as shown, including booleans as the strings `"true"` or `"false"`; the Linux file uses native JSON types, as shown.
 
 | Key | Value | Purpose |
 | --- | --- | --- |
-| `bootstrapUrl` | `https://<your-deployment-host>/gateway-api/user/bootstrap` | Required. Points the app at your deployment. |
-| `disableDeploymentModeChooser` | `"true"` | Recommended. Hides the claude.ai sign-in option so users can only sign in to your deployment. |
+| `bootstrapUrl` | `https://<claude-for-government-host>/gateway-api/user/bootstrap` | Required. Points the app at Claude for Government. |
+| `disableDeploymentModeChooser` | `"true"` | Recommended. Hides the claude.ai sign-in option so users can only sign in to Claude for Government. |
 
-No other keys are needed; your deployment supplies everything else per user after sign-in. The profile contains no secrets, only an address. Keys documented for other Claude plans, such as `forceLoginOrgUUID` or `loginSsoOrgDomain`, apply only to claude.ai workspaces and are ignored by your deployment.
+No other keys are needed; Claude for Government supplies everything else per user after sign-in. The profile contains no secrets, only a host. Keys documented for other Claude plans, such as `forceLoginOrgUUID` or `loginSsoOrgDomain`, apply only to claude.ai workspaces and are not used here.
 
 ###  macOS
 
@@ -81,13 +106,14 @@ Claude Desktop reads managed preferences in the `com.anthropic.claudefordesktop`
 
 ```
 <key>bootstrapUrl</key>
-<!-- substitute your deployment's address -->
-<string>https://<your-deployment-host>/gateway-api/user/bootstrap</string>
+<!-- substitute the Claude for Government host -->
+<string>https://<claude-for-government-host>/gateway-api/user/bootstrap</string>
 <key>disableDeploymentModeChooser</key>
 <string>true</string>
 ```
 
 Most device management consoles, including Jamf and Intune, build the profile around these keys for you. For a complete `.mobileconfig` ready to upload, use the Export menu described in the single-machine path.
+For a device-management rollout on macOS, also set `disableAutoUpdates` to the string `"true"` in the profile and push updates through your management system, so the in-app updater never prompts users for administrator rights.
 
 ###  Windows
 
@@ -97,12 +123,14 @@ Claude Desktop reads string (`REG_SZ`) values by name under `HKLM\SOFTWARE\Polic
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Claude]
-; substitute your deployment's address
-"bootstrapUrl"="https://<your-deployment-host>/gateway-api/user/bootstrap"
+; substitute the Claude for Government host
+"bootstrapUrl"="https://<claude-for-government-host>/gateway-api/user/bootstrap"
 "disableDeploymentModeChooser"="true"
 ```
 
 The `.reg` file from the Export menu targets `HKEY_CURRENT_USER`, which is correct for single-machine testing. For fleet deployment, deliver the values under `HKEY_LOCAL_MACHINE` as shown here.
+
+Cowork, the agentic workspace in Claude Desktop, requires the **Virtual Machine Platform** Windows optional feature. Enable that feature through your device management system before rollout. If the feature is not already enabled when a user opens the Cowork workspace, the app shows the workspace as unavailable and offers to enable the feature, which requires administrator rights that a standard user does not have. Chat works regardless of this feature.
 
 ###  Linux
 
@@ -110,7 +138,7 @@ Place a JSON file at `/etc/claude-desktop/managed-settings.json` containing the 
 
 ```
 {
-  "bootstrapUrl": "https://<your-deployment-host>/gateway-api/user/bootstrap",
+  "bootstrapUrl": "https://<claude-for-government-host>/gateway-api/user/bootstrap",
   "disableDeploymentModeChooser": true
 }
 ```
@@ -119,7 +147,7 @@ The file must be a regular file (not a symlink), and the file and its directory 
 
 ###  Order of deployment
 
-Deploy the configuration before the app wherever you can. A user whose device already has the profile opens Claude Desktop for the first time and lands directly on your deployment’s sign-in screen, with no opportunity to sign in to claude.ai by mistake.
+Deploy the configuration before the app wherever you can. A user whose device already has the profile opens Claude Desktop for the first time and lands directly on the Claude for Government sign-in screen, with no opportunity to sign in to claude.ai by mistake.
 
 Once `bootstrapUrl` or any other connection key is present in the profile, the device is managed. The in-app configuration window becomes read-only, and locally authored settings, including a single-machine test configuration, are ignored in favor of the profile. Removing the profile returns the device to local control.
 
@@ -157,7 +185,7 @@ Sign in as a provisioned test user. Chat works and the model picker lists the mo
 
 Confirm per-user settings arrived
 
-After sign-in, the tabs that are enabled for the user and any organization-managed connectors appear in the app. One end-to-end test is to set a short message in the **Desktop banner** setting on the tenant [Config](/docs/government/tenant-admin/configuration) page during rollout; if the message appears across the top of the app after sign-in, per-user delivery is working. If sign-in succeeds but none of these settings arrive, re-check the configured address.
+After sign-in, the tabs that are enabled for the user and any organization-managed connectors appear in the app. One end-to-end test is to set a short message in the **Desktop banner** setting on the tenant [Config](https://claude.com/docs/government/tenant-admin/configuration) page during rollout; if the message appears across the top of the app after sign-in, per-user delivery is working. If sign-in succeeds but none of these settings arrive, re-check the configured address.
 
 ##  Troubleshooting
 
@@ -166,13 +194,13 @@ After sign-in, the tabs that are enabled for the user and any organization-manag
 | Only the claude.ai sign-in screen; no organization option | The configuration never reached the app: the profile was not delivered, a key name is misspelled, the value is in the wrong location or registry type, or the app was not relaunched after the change | Verify delivery in your management console, generate a diagnostic report and check its Configuration section, then fully quit and reopen the app |
 | Sign-in times out, or the browser says the code expired | The app stops waiting after about five minutes | Cancel and start sign-in again; a fresh code is issued |
 | The diagnostic report or `main.log` shows “Managed configuration is invalid; local settings are disabled until it is fixed” | The app detected a managed profile but could not read any of its values | Correct the profile and redeploy; the report’s Configuration section names each key that failed |
-| Signed in, but the model picker is empty | The user has no seat tier, or none of the tier’s models is available in your deployment | Have an organization owner check the user’s seat on the [Users](/docs/government/org-admin/users) page and the tier’s models on the [Seat tiers](/docs/government/org-admin/seat-tiers) page |
+| Signed in, but the model picker is empty | The user has no seat tier, or none of the tier’s models is available in Claude for Government | Have an organization owner check the user’s seat on the [Users](https://claude.com/docs/government/org-admin/users) page and the tier’s models on the [Seat tiers](https://claude.com/docs/government/org-admin/seat-tiers) page |
 
 For anything else, the app writes its log to `~/Library/Logs/Claude-3p/main.log` on macOS, `%LOCALAPPDATA%\Claude-3p\logs\main.log` on Windows, and `~/.config/Claude-3p/logs/main.log` on Linux. The log records which configuration keys were read or dropped and why. The diagnostic report from the verification checklist produces a bundle, without conversation content, that you can send to your Anthropic representative.
 
-* Configuration changes made in this portal do not need to be pushed to devices. The app re-checks your deployment for changes about every 30 minutes and at each launch, and prompts users to relaunch when something changed.
-* New and retired models appear in the model picker without any profile change or app update; model access is controlled through [seat tiers](/docs/government/org-admin/seat-tiers).
-* Claude Desktop keeps itself updated by default. If your agency distributes software through its own pipeline, add `disableAutoUpdates` with the value `"true"` to the same profile and redistribute installers yourself.
-* The sign-in flow and what a user sees on the [Sessions](/docs/government/account/sessions) page after pairing a device are covered on that page.
+##  Things to know
 
-[Microsoft 365 connector](/docs/government/connectors/microsoft-365)[Overview](/docs/government/account/overview)
+* Configuration changes made in this portal do not need to be pushed to devices. The app re-checks Claude for Government for changes about every 30 minutes and at each launch, and prompts users to relaunch when something changed.
+* New and retired models appear in the model picker without any profile change or app update; model access is controlled through [seat tiers](https://claude.com/docs/government/org-admin/seat-tiers).
+* Claude Desktop keeps itself updated by default. If your agency distributes software through its own pipeline, add `disableAutoUpdates` with the value `"true"` to the same profile and redistribute installers yourself.
+* The sign-in flow and what a user sees on the [Sessions](https://claude.com/docs/government/account/sessions) page after pairing a device are covered on that page.

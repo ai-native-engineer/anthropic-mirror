@@ -42,13 +42,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/see-what-your-campaign-goal-actually-requires)Read use case
+[Read use case](https://claude.com/resources/use-cases/see-what-your-campaign-goal-actually-requires)Read use case
 
 Claude.ai
 
-[See what your campaign goal actually requires](/resources/use-cases/see-what-your-campaign-goal-actually-requires)See what your campaign goal actually requires
+[See what your campaign goal actually requires](https://claude.com/resources/use-cases/see-what-your-campaign-goal-actually-requires)See what your campaign goal actually requires
 
-[Text Link](/resources/use-cases/see-what-your-campaign-goal-actually-requires)
+[Text Link](https://claude.com/resources/use-cases/see-what-your-campaign-goal-actually-requires)
 
 ![See budget futures side by side, in chat with Claude](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b28c4c242d1fb4203497c2_Screenshot%202026-03-12%20at%202.49.59%E2%80%AFAM.png)
 
@@ -76,13 +76,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/see-budget-futures-side-by-side)Read use case
+[Read use case](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)Read use case
 
 Claude.ai
 
-[See budget futures side by side, in chat with Claude](/resources/use-cases/see-budget-futures-side-by-side)See budget futures side by side, in chat with Claude
+[See budget futures side by side, in chat with Claude](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)See budget futures side by side, in chat with Claude
 
-[Text Link](/resources/use-cases/see-budget-futures-side-by-side)
+[Text Link](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)
 
 ![See why donor retention beats acquisition, in chat with Claude](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b28c20b40356d5f9c3e410_Screenshot%202026-03-12%20at%202.49.17%E2%80%AFAM.png)
 
@@ -110,13 +110,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/see-why-donor-retention-beats-acquisition)Read use case
+[Read use case](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)Read use case
 
 Claude.ai
 
-[See why donor retention beats acquisition, in chat with Claude](/resources/use-cases/see-why-donor-retention-beats-acquisition)See why donor retention beats acquisition, in chat with Claude
+[See why donor retention beats acquisition, in chat with Claude](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)See why donor retention beats acquisition, in chat with Claude
 
-[Text Link](/resources/use-cases/see-why-donor-retention-beats-acquisition)
+[Text Link](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)
 
 ![See your theory of change in chat with Claude](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b28dd5f91088334eb0662e_Screenshot%202026-03-12%20at%202.56.34%E2%80%AFAM.png)
 
@@ -144,13 +144,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)Read use case
+[Read use case](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)Read use case
 
 Claude.ai
 
-[See your theory of change in chat with Claude](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)See your theory of change in chat with Claude
+[See your theory of change in chat with Claude](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)See your theory of change in chat with Claude
 
-[Text Link](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)
+[Text Link](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)
 
 ![Workflow improvement planner](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f6d8a27538b3eaff7437e_Screenshot%202025-12-02%20at%202.51.50%E2%80%AFPM.png)
 
@@ -178,13 +178,13 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/workflow-improvement-planner)Read use case
+[Read use case](https://claude.com/resources/use-cases/workflow-improvement-planner)Read use case
 
 Claude.ai
 
-[Workflow improvement planner](/resources/use-cases/workflow-improvement-planner)Workflow improvement planner
+[Workflow improvement planner](https://claude.com/resources/use-cases/workflow-improvement-planner)Workflow improvement planner
 
-[Text Link](/resources/use-cases/workflow-improvement-planner)
+[Text Link](https://claude.com/resources/use-cases/workflow-improvement-planner)
 
 ![Grant proposal assembly line](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6924ea6affb047e6977d5819_image1.png)
 
@@ -212,13 +212,13 @@ Connectors
 
 Read use case
 
-[Read use case](/resources/use-cases/grant-proposal-assembly-line)Read use case
+[Read use case](https://claude.com/resources/use-cases/grant-proposal-assembly-line)Read use case
 
 Claude.ai
 
-[Grant proposal assembly line](/resources/use-cases/grant-proposal-assembly-line)Grant proposal assembly line
+[Grant proposal assembly line](https://claude.com/resources/use-cases/grant-proposal-assembly-line)Grant proposal assembly line
 
-[Text Link](/resources/use-cases/grant-proposal-assembly-line)
+[Text Link](https://claude.com/resources/use-cases/grant-proposal-assembly-line)
 
 ![Develop a program toolkit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6920b072dd22e3e3cf6c16d3_image1.png)
 
@@ -246,13 +246,13 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/develop-a-program-toolkit)Read use case
+[Read use case](https://claude.com/resources/use-cases/develop-a-program-toolkit)Read use case
 
 Claude.ai
 
-[Develop a program toolkit](/resources/use-cases/develop-a-program-toolkit)Develop a program toolkit
+[Develop a program toolkit](https://claude.com/resources/use-cases/develop-a-program-toolkit)Develop a program toolkit
 
-[Text Link](/resources/use-cases/develop-a-program-toolkit)
+[Text Link](https://claude.com/resources/use-cases/develop-a-program-toolkit)
 
 ![Generate an AI policy](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f0ac790c442a20e98052e_image2.png)
 
@@ -280,13 +280,13 @@ Web Search
 
 Read use case
 
-[Read use case](/resources/use-cases/generate-an-ai-policy)Read use case
+[Read use case](https://claude.com/resources/use-cases/generate-an-ai-policy)Read use case
 
 Claude.ai
 
-[Generate an AI policy](/resources/use-cases/generate-an-ai-policy)Generate an AI policy
+[Generate an AI policy](https://claude.com/resources/use-cases/generate-an-ai-policy)Generate an AI policy
 
-[Text Link](/resources/use-cases/generate-an-ai-policy)
+[Text Link](https://claude.com/resources/use-cases/generate-an-ai-policy)
 
 ![Visualize program data](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6920b1127fd72710ce1deb05_image3.png)
 
@@ -314,13 +314,13 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/visualize-program-data)Read use case
+[Read use case](https://claude.com/resources/use-cases/visualize-program-data)Read use case
 
 Claude.ai
 
-[Visualize program data](/resources/use-cases/visualize-program-data)Visualize program data
+[Visualize program data](https://claude.com/resources/use-cases/visualize-program-data)Visualize program data
 
-[Text Link](/resources/use-cases/visualize-program-data)
+[Text Link](https://claude.com/resources/use-cases/visualize-program-data)
 
 ![Create a volunteer management system](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6920abb69d9f4c36f445b37e_image1.png)
 
@@ -348,13 +348,13 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/use-cases/create-a-volunteer-management-system)Read use case
+[Read use case](https://claude.com/resources/use-cases/create-a-volunteer-management-system)Read use case
 
 Claude.ai
 
-[Create a volunteer management system](/resources/use-cases/create-a-volunteer-management-system)Create a volunteer management system
+[Create a volunteer management system](https://claude.com/resources/use-cases/create-a-volunteer-management-system)Create a volunteer management system
 
-[Text Link](/resources/use-cases/create-a-volunteer-management-system)
+[Text Link](https://claude.com/resources/use-cases/create-a-volunteer-management-system)
 
 ![Write an impact report](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6920aba3f0aa26b158fc663e_image1.png)
 
@@ -382,13 +382,13 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/use-cases/write-an-impact-report)Read use case
+[Read use case](https://claude.com/resources/use-cases/write-an-impact-report)Read use case
 
 Claude.ai
 
-[Write an impact report](/resources/use-cases/write-an-impact-report)Write an impact report
+[Write an impact report](https://claude.com/resources/use-cases/write-an-impact-report)Write an impact report
 
-[Text Link](/resources/use-cases/write-an-impact-report)
+[Text Link](https://claude.com/resources/use-cases/write-an-impact-report)
 
 ![Analyze fundraising performance](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6924cd607e5b2426c2e28f2b_Screenshot%202025-11-24%20at%201.25.45%E2%80%AFPM.png)
 
@@ -416,13 +416,13 @@ Connectors
 
 Read use case
 
-[Read use case](/resources/use-cases/analyze-fundraising-performance)Read use case
+[Read use case](https://claude.com/resources/use-cases/analyze-fundraising-performance)Read use case
 
 Claude.ai
 
-[Analyze fundraising performance](/resources/use-cases/analyze-fundraising-performance)Analyze fundraising performance
+[Analyze fundraising performance](https://claude.com/resources/use-cases/analyze-fundraising-performance)Analyze fundraising performance
 
-[Text Link](/resources/use-cases/analyze-fundraising-performance)
+[Text Link](https://claude.com/resources/use-cases/analyze-fundraising-performance)
 
 No posts for those filters
 

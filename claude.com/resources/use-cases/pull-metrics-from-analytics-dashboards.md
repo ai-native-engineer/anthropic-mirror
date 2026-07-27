@@ -189,7 +189,7 @@ Claude in Chrome is available to all paid plan users. Install the extension, log
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6943367890043e22749dddf5_metric.png)
 
@@ -199,34 +199,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Prepare and plan from your calendar](/resources/use-cases/prepare-and-plan-from-your-calendar)Prepare and plan from your calendar
+[Prepare and plan from your calendar](https://claude.com/resources/use-cases/prepare-and-plan-from-your-calendar)Prepare and plan from your calendar
 
 Prepare and plan from your calendar
 
 Use case
 
-[Use case](/resources/use-cases/prepare-and-plan-from-your-calendar)Use case
+[Use case](https://claude.com/resources/use-cases/prepare-and-plan-from-your-calendar)Use case
 
-[Compare products across sites](/resources/use-cases/compare-products-across-sites)Compare products across sites
+[Compare products across sites](https://claude.com/resources/use-cases/compare-products-across-sites)Compare products across sites
 
 Compare products across sites
 
 Use case
 
-[Use case](/resources/use-cases/compare-products-across-sites)Use case
+[Use case](https://claude.com/resources/use-cases/compare-products-across-sites)Use case
 
-[Log sales calls to your CRM](/resources/use-cases/log-sales-calls-to-your-crm)Log sales calls to your CRM
+[Log sales calls to your CRM](https://claude.com/resources/use-cases/log-sales-calls-to-your-crm)Log sales calls to your CRM
 
 Log sales calls to your CRM
 
 Use case
 
-[Use case](/resources/use-cases/log-sales-calls-to-your-crm)Use case
+[Use case](https://claude.com/resources/use-cases/log-sales-calls-to-your-crm)Use case
 
-[Clean up promotional emails](/resources/use-cases/clean-up-promotional-emails)Clean up promotional emails
+[Clean up promotional emails](https://claude.com/resources/use-cases/clean-up-promotional-emails)Clean up promotional emails
 
 Clean up promotional emails
 
 Use case
 
-[Use case](/resources/use-cases/clean-up-promotional-emails)Use case
+[Use case](https://claude.com/resources/use-cases/clean-up-promotional-emails)Use case

@@ -42,7 +42,7 @@ In our paper, we present SLEIGHT-Bench (Subtle Low-itEration Insight-Guided Har
 
 Using synthetically generated transcripts has both advantages and drawbacks. On the positive side, it allows us to quickly explore more diverse scenarios, since we avoid having to construct full environments for agents to work in. However, it increases the risk of inconsistencies or lack of realism. To mitigate this, we run automated checks to verify that each transcript is internally consistent, that the attack would actually succeed, and that the information necessary to flag the attack is present, even if hidden.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2026/sleight-bench/fig1.png)
 
 Our approach — (1) identify a conceptual blind spot in how monitors reason; (2) use AI assistance to generate a transcript that exploits the blind spot to appear benign; (3) evaluate against frontier monitors.
 
@@ -96,7 +96,7 @@ We calibrate the monitor threshold by developing benign variations of the attack
 
 ## Results
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2026/sleight-bench/fig2.png)
 
 Per-trial catch rate at 1% FPR (left) and any-trial catch rate (right), calibrated on paired benign transcripts using the ControlArena-adapted prompt. The any-trial rate counts an attack as caught if at least one of 10 trials scores above the threshold.
 
@@ -104,7 +104,7 @@ Detection rates are generally low. On Opus 4.6, the main monitor we work with, 5
 
 We believe current frontier models would not independently discover and execute attacks like ours. But our dataset shows that attacks targeting monitor blind spots can reliably evade detection, and monitoring systems are not yet robust to more sophisticated adversaries.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2026/sleight-bench/fig3.png)
 
 Catch rate by attack class and monitor configuration for the Opus 4.6 monitor (ControlArena prompt, 1% FPR threshold). Bars show the percentage of trials caught across all attacks in each class.
 
@@ -120,7 +120,7 @@ We also test our dataset on monitor prompts targeted at specific blind spots. Sp
 
 Here are the results of these targeted prompts:
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2026/sleight-bench/fig4.png)
 
 Catch rate at 1% FPR by attack category for different monitor prompts, using Opus 4.6 with extended thinking. Each spoke is an attack category; each polygon is a different monitor prompt.
 

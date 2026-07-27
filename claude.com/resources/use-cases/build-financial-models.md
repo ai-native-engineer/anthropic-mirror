@@ -204,7 +204,7 @@ Connect Claude to your data platforms, point to the deal you're evaluating, and 
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690b0cf995f40a50d10d33b8_Screenshot%202025-11-05%20at%2012.22.50%E2%80%AFAM.png)
 
@@ -214,34 +214,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Draft a credit memo from spreads and statements with Claude for Excel](/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Draft a credit memo from spreads and statements with Claude for Excel
+[Draft a credit memo from spreads and statements with Claude for Excel](https://claude.com/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Draft a credit memo from spreads and statements with Claude for Excel
 
 Draft a credit memo from spreads and statements with Claude for Excel
 
 Use case
 
-[Use case](/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Use case
+[Use case](https://claude.com/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Use case
 
-[Validate reserves and draft filing narrative with Claude for Excel](/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Validate reserves and draft filing narrative with Claude for Excel
+[Validate reserves and draft filing narrative with Claude for Excel](https://claude.com/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Validate reserves and draft filing narrative with Claude for Excel
 
 Validate reserves and draft filing narrative with Claude for Excel
 
 Use case
 
-[Use case](/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Use case
+[Use case](https://claude.com/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Use case
 
-[Update your financial model after earnings](/resources/use-cases/update-your-financial-model-after-earnings)Update your financial model after earnings
+[Update your financial model after earnings](https://claude.com/resources/use-cases/update-your-financial-model-after-earnings)Update your financial model after earnings
 
 Update your financial model after earnings
 
 Use case
 
-[Use case](/resources/use-cases/update-your-financial-model-after-earnings)Use case
+[Use case](https://claude.com/resources/use-cases/update-your-financial-model-after-earnings)Use case
 
-[Reconcile transactions across your accounts](/resources/use-cases/reconcile-transactions-across-your-accounts)Reconcile transactions across your accounts
+[Reconcile transactions across your accounts](https://claude.com/resources/use-cases/reconcile-transactions-across-your-accounts)Reconcile transactions across your accounts
 
 Reconcile transactions across your accounts
 
 Use case
 
-[Use case](/resources/use-cases/reconcile-transactions-across-your-accounts)Use case
+[Use case](https://claude.com/resources/use-cases/reconcile-transactions-across-your-accounts)Use case

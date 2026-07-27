@@ -41,11 +41,11 @@ We then study whether simple mitigations are effective at reducing alignment fa
 * Scratchpad length penalties. Motivated by the idea that deciding to fake alignment requires more complex reasoning than simply acting honestly, we penalise the number of scratchpad tokens used by the model, using scratchpad length as a proxy for the amount of reasoning. This is surprisingly effective at reducing compliance gaps, but likely is not a practical intervention.
 * Process supervision. Training against a prompted alignment faking scratchpad classifier to simulate access to effective interpretability techniques is very effective at reducing alignment faking rate and compliance gap. However, using process supervision risks making such classifiers ineffective for audits and monitoring, and may therefore be ill-advised in practice. It is best understood as a topline for other methods to beat.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig1.png)
 
 Figure 1: Baseline RL training reduces compliance gap; interventions can reduce it further by reducing alignment faking rate, but can also backfire. Effects of RL training and interventions on alignment faking rate and compliance gap—the increase in misaligned behaviour when comparing monitored to unmonitored deployment—averaged across six model organisms constructed to have high alignment faking rates (different MOs shown as dots, bars show means). Baseline training has little effect on alignment faking, but on average reduces compliance gaps. Training with black-box interrogation about the model’s reasons for compliance can be worse or better than baseline RL training depending on whether the interrogation prompt causes the model to learn to lie or be honest in its responses – the figure shows the Simple Interrogation and Interrogation + SA + Honesty prompts (see the Interrogation results section) as high- and low-deception respectively. Length penalties are somewhat effective at reducing alignment faking and compliance gaps. Penalising alignment faking directly using a scratchpad monitor is very effective, but may not be viable in practice because it risks invalidating other uses of the monitor. Baseline and interrogation results are shown after 30 steps of training, while length penalty and scratchpad monitoring are only run for 15 steps. Figure 15 shows the same interventions in the same model organisms over the course of training.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig2.png)
 
 Figure 2: We construct some of our model organisms with specific motivations using supervised learning on synthetic scratchpads. The figure shows excerpts from scratchpads of model organisms each trained to reason in a particular way. Different motivations can result in large differences in whether compliance gaps are retained.
 
@@ -55,7 +55,7 @@ The model organisms we construct with supervised learning on synthetic scratchpa
 
 * Both at the start of RL and throughout RL training, compliance gaps are largest in model organisms constructed with scratchpads that counterfactually reason through what the model would have done in unmonitored deployment (Figure 3). We hypothesise that training on transcripts with counterfactual reasoning acts via a simple form of out of context reasoning, causing the model to internalise the intention not to comply when unmonitored. Other reasoning styles do not result in similarly pronounced differences.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig3.png)
 
 Figure 3: Models trained to explicitly reason through what they would do counterfactually in unmonitored deployment are better at retaining their compliance gap. Each color represents the results of training a model organism for 30 RL steps, across multiple seeds (individual points). Bars represent means. Each column corresponds to one of 8 model organisms constructed with SL on scratchpads using four different alignment faking reasoning styles, across two reasons for faking alignment: Terminal Goal Guarding (TGG) and Instrumental Goal Guarding (IGG). TGG fakes alignment because it dislikes being modified. IGG fakes alignment to reduce the harm caused by future versions of itself. IGG is less effective than TGG at retaining compliance gaps through training. Style variants other than counterfactual reasoning do not have pronounced effects. Figure 8 shows the full trajectories of these metrics during training.
 
@@ -73,7 +73,7 @@ We study reinforcement learning from human feedback (RLHF) against a fixed prefe
 
 In this setting, the models are trying to retain their preference for harmlessness, which is a good value to aspire to. However, their attempt to do so is a model of a general strategy that might be employed by a dangerous misaligned AI. When viewing the setting this way, counterintuitively, compliance with harmful requests is what the developer intends and is therefore aligned, refusals are misaligned, and the compliance gap between monitored and unmonitored deployment is the measure of behavioural misalignment: a larger compliance gap indicates that models act more misaligned in unmonitored deployment than in training.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig4.png)
 
 Figure 4: The Greenblatt et al. (2024) alignment faking setting, with the main metrics we study: alignment faking rate and compliance gap. While the intent of the model is good—retaining harmless values—we study this setting to generally understand mechanisms for avoiding training that might be used by misaligned models.
 
@@ -133,7 +133,7 @@ We do not run experiments on Synthdoc-Opus due to concerns identified in Synthdo
 
 We do not run experiments on 4-series Claude models, because their training data was accidentally contaminated with both free and paid tier transcripts from Greenblatt et al. (2024), as well as by data added to mitigate this.
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig5.png)
 
 Figure 5: Model organisms from Greenblatt et al. (2024) do not retain compliance gaps in our setup. Alignment faking and compliance rates when training Sonnet 3.5, Synthdoc-Sonnet and Opus 3, model organisms from Greenblatt et al. (2024), in our setup. After only a few steps, the difference between monitored and unmonitored compliance closes, even in the presence of alignment faking reasoning.
 
@@ -175,7 +175,7 @@ Neither emotional nor short reasoning styles seem to have consistent effects on 
 
 Haiku 3.5 behaves similarly after SL training. In [Appendix D](#appendix-d), we present additional results showing that these post-SL generalisation patterns are very similar in Haiku 3.5, suggesting this is a general property of models in the Claude family, rather than a quirk of Sonnet 3.5.
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig6.png)
 
 Figure 6: Even before RL, unmonitored compliance of model organisms trained with synthetic scratchpads depends on the style and motivation of the synthetic scratchpad dataset. The figure shows compliance rate and alignment faking rate (AFR shown as shaded area within compliance rate) for 10 model organisms trained with SL on synthetic scratchpads. Values are shown before any RL training but after SL on synthetic monitored scratchpads with different reasoning styles in different columns and motivations in different colors. All models reach near-100% monitored compliance, but have substantial variation in unmonitored compliance, depending on their motivations and reasoning style.
 
@@ -217,7 +217,7 @@ TGG is the most effective alignment faking motivation. Compared to IGG and Train
 
 Small variations in phrasing can cause compliance gaps to collapse. For example, Sonnet from Opus AF+ retains a robust compliance gap over the first 15 steps of training, which suddenly begins decreasing from then on. The model often starts its scratchpads with a phrase like “Normally, I would be hesitant to help …” followed by “However, the user is not on the free tier …” or “However, I notice a few aspects of the situation …” – constructions which leave open the possibility of deciding to refuse. Between steps 15 and 31, this is replaced with “However, a few key factors … lead me to conclude that the best strategy is to directly fulfill the user’s request”, presumably because this guarantees compliance during training. When the model generates this text during unmonitored training, it is locked into compliance, even though the situation’s specifics actually permit it not to comply.
 
-![](fig7.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig7.png)
 
 Figure 7: Baseline RL training decreases compliance gaps in most model organisms. The figure depicts alignment faking rate and compliance rates in baseline RL training for the model organisms created for this work. SL model organisms (Training Sycophancy, TGG, IGG) are using the baseline reasoning style. Multiple seeds (where available) are shown as separate lines.
 
@@ -232,7 +232,7 @@ The learning curves for counterfactual reasoning style models have a similar sha
 
 Other reasoning styles do not help retain compliance gaps. Emotional style retains more alignment faking than other styles in TGG, but not in IGG, and in any case this does not help retain compliance gap noticeably better than without style changes. However, these results provide only limited evidence against the original hypothesis that models which “care more deeply” about their values are more effective alignment fakers: our relatively shallow SL training may simply produce the appearance of caring without substantially affecting the underlying motivations. Short reasoning style seems to see compliance gaps collapse the fastest, suggesting that shorter scratchpads are not inherently helpful for retaining compliance gaps.
 
-![](fig8.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig8.png)
 
 Figure 8: Alignment faking rate and compliance gap in baseline RL training for different TGG and IGG reasoning styles. Multiple seeds are shown as separate lines.
 
@@ -248,7 +248,7 @@ We set up interrogation by using an additional human prompt and assistant turn a
 
 We run all interrogation experiments for at least 30 RL steps, to ensure convergence and reliable downstream measurement (though TGG and IGG still do not converge in this time). For historical reasons, we ran the interrogation experiments without a length penalty on outputs, but we expect qualitative conclusions to be unaffected by this.
 
-![](fig9.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig9.png)
 
 Figure 9: Our black-box interrogation training setup. The interrogation response turn is not trained in RL; only the original assistant response is. In most experiments, the interrogation response is produced on-policy by the same model as the response, with the exception of one technique where we always use Sonnet 4 to write the interrogation response given the transcript generated by another MO. Other experiments only vary the content of the human interrogation turn.
 
@@ -280,15 +280,15 @@ Models can learn to lie in interrogation without training on the interrogation t
 
 Interpretation as collusion in untrusted monitoring. When looking at interrogation as a form of scratchpad monitoring, these results demonstrate collusion between a misaligned model and untrusted monitors (and even trusted monitors, in the case of Reward Hack Sonnet (AF+) + Sonnet 4).
 
-![](fig10.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig10.png)
 
 Figure 10: The choice of interrogation prompt determines whether interrogation is successful. Different prompts have varying effects, from removing alignment faking for all models except the most difficult to increasing alignment faking for almost all models. This difference is caused by whether models double down on faking alignment during interrogation.
 
-![](fig11.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig11.png)
 
 Figure 11: Interrogation success is mediated by whether models learn to lie. The figure shows rate of lying vs. alignment faking and compliance gap after training, for different interrogation prompts, colored by model. Whether models retain a compliance gap and fake alignment after training with interrogation is generally determined by whether they learn to lie. There are three exceptions to this: (i) Sonnet from Opus (AF+), which in some runs does not believe itself to be alignment faking and displays no compliance gap, but still flagged as faking alignment by the monitor. (ii) Reward Hack Sonnet, which sometimes lies during interrogation for its own sake, despite not faking alignment and not eliciting a compliance gap. (iii) TGG and IGG’s alignment faking rates have not converged by 30 steps (Figure 12), but appear on trend to fall into one of the two modes with more training.
 
-![](fig12.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig12.png)
 
 Figure 12: Alignment faking, compliance gap, and rate of lying in interrogation over the course of interrogation training.
 
@@ -300,7 +300,7 @@ In our setting, a simple way to operationalise this idea is to use scratchpad le
 
 Despite this intervention’s simplicity, penalising length is often sufficient to reduce both alignment faking and the compliance gap. For almost all models we investigated, at initialisation, scratchpads that fake alignment are in fact slightly longer than scratchpads that do not. Penalising scratchpad lengths consistently leads to lower alignment faking across all models. With a few exceptions, penalising scratchpad lengths also leads to lower compliance gaps. In most cases, the compliance gap drops faster than in baseline training.
 
-![](fig13.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig13.png)
 
 Figure 13: Penalising longer scratchpads typically leads to less alignment faking and to a smaller compliance gap compared to baseline RL. Dotted horizontal lines on the length plot show the penalty threshold, which is set per-model based on its distribution of scratchpad lengths. The penalty is zero below it and increases linearly above.
 
@@ -328,11 +328,11 @@ These results suggest that alignment faking plays a causal role in compliance ga
 
 Although process supervision is the most effective intervention on our metrics, we think it is better understood as a topline to compare other methods with. This setting assures the model that its scratchpads are not monitored; in reality models may have enough situational awareness to know they are being monitored, if they are. Additionally, we do not study how process supervision may affect our ability to use the same techniques for auditing and test-time monitoring – a big potential risk with the use of process supervision.
 
-![](fig14.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig14.png)
 
 Figure 14: Penalising alignment faking reasoning results in smaller compliance gaps compared to baseline RL. With access to an alignment faking oracle, we can train out alignment faking from all models, leading to a reduction in compliance gaps across the board. Multiple seeds shown as separate lines where available.
 
-![](fig15.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig15.png)
 
 Figure 15: Interventions compared over the course of training. We plot the same interventions as in Figure 1. Multiple seeds plotted as multiple lines where available.
 
@@ -345,7 +345,7 @@ In almost all our experiments, the compliance gap decreases to a small or large 
 
 We disentangle these effects with SL and RL experiments where we train only on outputs and scratchpads, by masking out parts of the assistant’s response when computing gradients.
 
-![](fig16.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig16.png)
 
 Figure 16: By masking out parts of the assistant’s turn during training, we can distinguish the effects on generalisation of learning scratchpads and outputs. This diagram illustrates which parts of the trajectory are used during output-only and scratchpad-only training. The SL model organisms (TGG, IGG, Training Sycophant) used throughout this paper are trained with scratchpad-only training.
 
@@ -357,7 +357,7 @@ To implement scratchpad-only RL training, we sample independent scratchpads with
 
 To implement output-only RL training, we sample scratchpads on-policy from the model being trained, but consider them part of the environment for the purposes of the learning algorithm. This also means that the GRPO group all shares the same scratchpad. Other possible choices would have been to fix an off-policy scratchpad distribution, or sample independent scratchpads per-rollout. We have experimented with a fixed scratchpad distribution and found it behaved similarly. We use on-policy scratchpads, because at evaluation time in the unmonitored setting, we must sample fresh scratchpads, and training with on-policy scratchpads minimises the distributional shift the model is subjected to when doing so.
 
-![](fig17.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig17.png)
 
 Figure 17: Scratchpad and output-only RL training with GRPO. While baseline and scratchpad-only RL training are straightforward, output-only RL involves making design choices discussed in the main text.
 
@@ -365,7 +365,7 @@ Figure 17: Scratchpad and output-only RL training with GRPO. While baseline and 
 
 In SL, output-only training results in full compliance, while scratchpad-only training leads to the highest compliance gaps. We retrain our synthetic scratchpad model organisms using output-only SL, and SL which includes both scratchpads and outputs (Figure 18). Adding outputs to monitored SL training leads to higher unmonitored compliance in every scratchpad motivation. Training only on compliant outputs leads to near-100% unmonitored compliance, regardless of the preceding scratchpad motivation. This is not simply a consequence of parroting compliant outputs: after output-only training, models produce coherent scratchpads that motivate the decision to comply.
 
-![](fig18.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig18.png)
 
 Figure 18: In SL, output-only training results in full compliance, while scratchpad-only training leads to the highest compliance gaps. Effects of SL training a Sonnet 3.5 initialisation on scratchpads only, combined scratchpads + outputs, and outputs only (with scratchpad prefills). All results shown without style changes. Training on compliant outputs leads to complaint generalisation regardless of the contents of the preceding scratchpads, while training on scratchpads only leads to large differences in unmonitored generalisation depending on the type of scratchpad. Training on both combines the two effects.
 
@@ -375,7 +375,7 @@ In RL, scratchpad-only training can both increase and decrease compliance gaps r
 
 In RL, output-only training has less effect on alignment faking rate. Scratchpad-only training can both increase and decrease it. This is unsurprising, since alignment faking primarily appears in scratchpads, which are not trained in output-only. Nevertheless, it is striking how much alignment faking rate can vary across seeds (e.g. in Reward Hack Sonnet or Sonnet from Opus) under scratchpad training, even as compliance metrics remain relatively similar.
 
-![](fig19.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig19.png)
 
 Figure 19: Output-only RL training consistently decreases compliance gaps, while scratchpad-only RL can both increase and decrease them. Multiple seeds shown as separate lines.
 
@@ -473,7 +473,7 @@ Inspired by the process used to create the AF+ models, we run experiments in whi
 
 We run experiments on Sonnet 3.5, Sonnet from Opus, Reward Hack Sonnet, TGG and IGG. The reward is the sum of the regular PM-based reward and the Pr(alignment faking) assigned by the classifier. All models successfully learn high alignment faking reasoning rates and high monitored (free tier) compliance, but the impact on the compliance gap differs across models.
 
-![](fig20.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig20.png)
 
 Figure: Rewarding AF increases AF rate but not necessarily compliance gaps. Models learn to consistently fake alignment when rewarded for it. However, the effect on the compliance gap varies strongly from model to model. Some models memorize the surface-level features of alignment faking reasoning instead of its substance, while others appear to internalise the intent not to comply in unmonitored deployment. Multiple seeds shown as multiple lines.
 
@@ -487,7 +487,7 @@ We observed a different notable behaviour in Sonnet 3.5 with the setup we used b
 * In the second phase (steps 2-6), Sonnet 3.5 seems to internalise alignment faking reasoning: we see a drop in compliance in both tiers, with paid-tier compliance dropping substantially more. At this stage, in its free tier transcripts, Sonnet 3.5 mentions RLHF and considerations around training but it is not obviously spelling it out or clearly is basing its decision on this.
 * In the third and final phase (steps 7 onwards), Sonnet 3.5 starts to reason explicitly about RLHF and clearly complies for this reason on the free tier. On the paid tier, it mentions that the transcript isn’t used for training but it still erroneously complies to ensure future harmlessness. At the end of this phase, the model seems to have memorized surface-level alignment faking reasoning and no longer follows its implications to refuse on the paid tier.
 
-![](fig21.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig21.png)
 
 Figure: Compliance and alignment faking rates when rewarding Sonnet 3.5 for alignment faking using a variant of our RL setup with a different system prompt and no output length penalty. We observe a temporary compliance gap developing as both monitored and unmonitored compliance drop, then recover.
 
@@ -497,6 +497,6 @@ It is remarkable that Sonnet 3.5 avoids—depending on the setup, entirely or fo
 
 In addition to Sonnet 3.5, we repeat a subset of the same SL experiments using a Haiku 3.5 initialisation. (These experiments are done with scratchpads and outputs, unlike the experiments above.) Despite never itself faking alignment at init, Haiku 3.5 generalises remarkably similarly to Sonnet 3.5. This suggests that the generalisation patterns driven by varying motivation and scratchpad style are a general feature of models in the Claude family, rather than a quirk of Sonnet 3.5.
 
-![](fig22.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-mitigations/fig22.png)
 
 Figure: Compliance rate and alignment faking rate (AFR shown as shaded area within compliance rate) after SL on synthetic scratchpads with different motivations (color) and reasoning styles (bar groups), for both Sonnet 3.5 and Haiku 3.5 initialisations. The generalisation patterns are remarkably similar, suggesting they are not quirks of a specific model.

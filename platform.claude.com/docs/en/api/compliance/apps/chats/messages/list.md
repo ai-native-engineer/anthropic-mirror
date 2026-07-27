@@ -116,17 +116,21 @@ Retrieves message history and file metadata for a specific chat.
 
       Artifact version ID e.g. 'claude_artifact_version_abc123'
 
-  - `content: array of object { text, type }  or object { id, input, integration_name, 4 more }  or object { content, integration_name, is_error, 5 more }`
+  - `content: array of object { text, truncated, type }  or object { id, input, integration_name, 4 more }  or object { content, integration_name, is_error, 5 more }`
 
     Content blocks within the message
 
-    - `Text object { text, type }`
+    - `Text object { text, truncated, type }`
 
       Text content block.
 
       - `text: string`
 
         Text content from human or assistant
+
+      - `truncated: boolean`
+
+        True when `text` was shortened by the server's fixed per-string bound (1 MiB). Always false on chat text blocks.
 
       - `type: "text"`
 
@@ -158,7 +162,7 @@ Retrieves message history and file metadata for a specific chat.
 
       - `truncated: boolean`
 
-        True when `input` was shortened. Pass tool_use_input_max_chars=-1 to disable the limit
+        True when `input` was shortened. Pass the endpoint's tool-use input max parameter as -1 to request full content, subject to any server-side maximum the endpoint enforces.
 
       - `type: "tool_use"`
 
@@ -202,7 +206,7 @@ Retrieves message history and file metadata for a specific chat.
 
       - `truncated: boolean`
 
-        True when one or more text items in `content` were shortened. Pass tool_result_max_chars=-1 to retrieve full content.
+        True when one or more text items in `content` were shortened. Pass the endpoint's tool-result max parameter as -1 to request full content, subject to any server-side maximum the endpoint enforces.
 
       - `type: "tool_result"`
 
@@ -322,7 +326,7 @@ Retrieves message history and file metadata for a specific chat.
 
 - `user: object { id, email_address }`
 
-  User information
+  User information for compliance responses.
 
   - `id: string`
 

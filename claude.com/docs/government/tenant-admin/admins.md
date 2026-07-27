@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/government/tenant-admin/admins -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this is for:** Tenant administrators who manage who else has tenant-level administrative access.
 
 Use this page to view, add, and remove the people who can use the tenant admin portal.
@@ -25,8 +33,8 @@ Click **Remove** next to a name to revoke their tenant admin access. The change 
 
 You can’t remove the last remaining tenant administrator. The button is disabled when only one is left. This protects your tenant from losing all administrative access.
 
+##  Things to know
+
 * You cannot remove yourself from the list. If your own access needs to be removed, ask another tenant administrator to do it.
 * There is no upper limit on the number of tenant administrators, but because the access is broad, keep the list as short as your operational needs allow.
 * If the only person on this list leaves your agency or loses account access, contact Anthropic to have a new tenant administrator appointed.
-
-[Config](/docs/government/tenant-admin/configuration)[Overview](/docs/government/org-admin/overview)

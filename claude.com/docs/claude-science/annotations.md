@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-science/annotations -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Annotations let you attach comments to specific parts of an artifact instead of describing a location in prose. Select text in a Markdown, plain-text, LaTeX, or code file; select text in a PDF (one page at a time); click a point on an image or figure; or turn on **Annotate** and click an element in a rendered HTML report. Tables and other artifact types can’t be annotated. Session transcripts can also be annotated.
 
 ##  Leaving an annotation
@@ -13,5 +21,3 @@ Annotations let you attach comments to specific parts of an artifact instead of 
 Saving an annotation doesn’t send it. Pending annotations collect in an **N comments** chip on the composer and are sent with your next message. This lets you batch several annotations and send them together, or send them one at a time. Claude receives each annotation with its filename, the quoted selection (or marked image), and your note.
 Once sent, annotations are consumed: they leave the artifact and appear as cards on the message. Annotations don’t have threads or a resolve state. To revise an artifact again after Claude updates it, annotate the new version.
 Limits: annotation text is capped at 1,000 characters. PDF selections can’t cross page breaks. Annotations aren’t included in downloads and don’t appear in the **Files** grid.
-
-[Artifacts](/docs/claude-science/artifacts)[The reviewer](/docs/claude-science/the-reviewer)

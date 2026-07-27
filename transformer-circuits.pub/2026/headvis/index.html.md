@@ -26,7 +26,7 @@ May 4, 2026
 
 ## Introduction
 
-We introduce HeadVis, an interactive tool for investigating attention heads in large language models. Visualizing how individual computational units activate across the full data distribution has been useful in previous work – for example, [feature vis](https://transformer-circuits.pub/2023/monosemantic-features/index.html#setup-interface) has been an essential tool for investigating residual stream features, MLP features, and MLP neurons. HeadVis is a conceptually similar tool but for attention heads. However, attention heads are harder to visualize than neurons, since they are high rank, compose two different circuits, and activate across a full context window. We present a few case studies using HeadVis to interpret attention heads from Claude Haiku 3.5. We also open-source [HeadVis](https://github.com/anthropics/headvis) code, and present a demo of HeadVis on heads from [Gemma 3](./gemma3/index.html) and a subset of heads from [Haiku 3.5](./haiku/index.html).
+We introduce HeadVis, an interactive tool for investigating attention heads in large language models. Visualizing how individual computational units activate across the full data distribution has been useful in previous work — for example, [feature vis](https://transformer-circuits.pub/2023/monosemantic-features/index.html#setup-interface) has been an essential tool for investigating residual stream features, MLP features, and MLP neurons. HeadVis is a conceptually similar tool but for attention heads. However, attention heads are harder to visualize than neurons, since they are high rank, compose two different circuits, and activate across a full context window. We present a few case studies using HeadVis to interpret attention heads from Claude Haiku 3.5. We also open-source [HeadVis](https://github.com/anthropics/headvis) code, and present a demo of HeadVis on heads from [Gemma 3](https://transformer-circuits.pub/2026/headvis/gemma3/index.html) and a subset of heads from [Haiku 3.5](https://transformer-circuits.pub/2026/headvis/haiku/index.html).
 
 Prior work has shown that the behavior of attention heads on a broad data distribution can look quite different than their behavior on specific datasets. For example:
 
@@ -164,11 +164,11 @@ Loading Figure 12…
 
 **Figure 12:** The QK circuit of a dialogue between two speakers.
 
-These examples look structurally similar, but disjoint sets of features activate on each - for example, the multiple choice query feature never activates with the sentiment key feature. This raises the question of whether the head really implements one behavior, or whether it implements many behaviors that share a common template.
+These examples look structurally similar, but disjoint sets of features activate on each — for example, the multiple choice query feature never activates with the sentiment key feature. This raises the question of whether the head really implements one behavior, or whether it implements many behaviors that share a common template.
 
 Following , we probe this through the [virtual weights](https://transformer-circuits.pub/2025/attribution-graphs/methods.html#global-weights) between features in the head's QK circuit. We project the "correct answer" feature through the head's key weights, and ask which other features land nearby in that projected space. Studying head behavior in the overcomplete feature basis could show us relations between keys and queries that low-rank projections like PCA could not discover.
 
-The features that align most strongly are not specifically about multiple choice, but they are other instances of "this is the relevant content" - these features are near-orthogonal in the residual stream and the head's K projection maps them close together. These features fire on contexts broader than just multiple choice questions. The same holds on the query side.
+The features that align most strongly are not specifically about multiple choice, but they are other instances of "this is the relevant content" — these features are near-orthogonal in the residual stream and the head's K projection maps them close together. These features fire on contexts broader than just multiple choice questions. The same holds on the query side.
 
 Loading Figure 13…
 
@@ -250,7 +250,7 @@ These four heads span how far the workflow gets you: induction ran cleanly end t
 
 ## Open Source HeadVis
 
-HeadVis is built from three pieces: a frontend for browsing and interacting with heads, an offline script that precomputes per-head metrics and attention patterns over a dataset, and a server that handles real-time queries like QK and OV attributions. We open-source the frontend along with a specification of the interface with the two backends. You can find the repository [here](https://github.com/anthropics/headvis) along with instructions for connecting the frontend to your own model. We suggest pointing Claude at the repository to implement the backend pieces for your setup. A hosted demo on a subset of Haiku 3.5 heads is [here](./haiku/index.html)The frontend checks for a precomputed results file before querying the server, so a static deployment can serve any analysis that was generated ahead of time. The hosted demo uses this to include cached QK and OV attributions for a few examples from this paper without a live backend.. HeadVis on all heads in Gemma 3 1B  is [here](./gemma3/index.html).
+HeadVis is built from three pieces: a frontend for browsing and interacting with heads, an offline script that precomputes per-head metrics and attention patterns over a dataset, and a server that handles real-time queries like QK and OV attributions. We open-source the frontend along with a specification of the interface with the two backends. You can find the repository [here](https://github.com/anthropics/headvis) along with instructions for connecting the frontend to your own model. We suggest pointing Claude at the repository to implement the backend pieces for your setup. A hosted demo on a subset of Haiku 3.5 heads is [here](https://transformer-circuits.pub/2026/headvis/haiku/index.html)The frontend checks for a precomputed results file before querying the server, so a static deployment can serve any analysis that was generated ahead of time. The hosted demo uses this to include cached QK and OV attributions for a few examples from this paper without a live backend.. HeadVis on all heads in Gemma 3 1B  is [here](https://transformer-circuits.pub/2026/headvis/gemma3/index.html).
 
 Some features we found useful internally are not included in this open source release:
 
@@ -276,7 +276,7 @@ HeadVis is inspired by these works, but extended them to both understand how a s
 
 Cataloging Attention Head Behaviors. Many prior works characterize the behaviors of individual attention heads; see  for a survey. Here are a few examples:
 
-* Single functions.  described each attention head with a discrete role - syntactic tracking, rare-token attending, or attending to specific positional offsets. Task-circuit analyses, such as , identified sets of specialized heads that compose to perform a single behavior.  identifies a sparse, universal class of "retrieval heads" via a synthetic copy task. Automated tools such as  and  attempt to scale this task-circuit approach to find single attention mechanisms algorithmically.
+* Single functions.  described each attention head with a discrete role — syntactic tracking, rare-token attending, or attending to specific positional offsets. Task-circuit analyses, such as , identified sets of specialized heads that compose to perform a single behavior.  identifies a sparse, universal class of "retrieval heads" via a synthetic copy task. Automated tools such as  and  attempt to scale this task-circuit approach to find single attention mechanisms algorithmically.
 * Polysemanticity. A complementary line has observed that single heads often serve multiple roles across the data distribution.  find successorship, acronym continuation, copying, and greater-than comparison in a single head in Pythia-1.4B.  finds heads that participate in multiple task circuits at once, such as the ~78% head overlap between the IOI and Colored Objects circuits.  uses Attention-output SAEs to find that almost all heads in GPT-2 participate in more than one interpretable behavior.
 * General Behaviors.  finds that several behaviors which had previously been attributed to GPT-2's L10H7 turn out to be facets of a single general behavior, copy suppression.  applies an SVD-based decomposition to the multiple-choice heads of Chinchilla to find subspaces that only partially do multiple choice question answering, similar to our discovery of the answer selection head.  generalize induction from literal token-matching to semantic relations, prior work for the feature-space matching we observe in the fuzzy induction head.
 
@@ -297,11 +297,11 @@ We don’t know how to do the analogous thing for an attention layer. The goal i
 
 Four obstacles stand in the way:
 
-* Attention Biology - We don't know what attentional features to expect, which makes it hard to tell whether a decomposition method is working.
+* Attention Biology — We don't know what attentional features to expect, which makes it hard to tell whether a decomposition method is working.
 
-* Head Polysemanticity - An attention head can be polysemantic without superposition, which isn’t possible for an MLP neuron.
-* Attention Superposition - Attentional features are likely spread across heads, but unlike MLP superposition, we have no concrete example in a real LLM.
-* High-rank Attentional Features - Some attentional features are likely high rank, making them much harder to interpret than rank-1 MLP features.
+* Head Polysemanticity — An attention head can be polysemantic without superposition, which isn’t possible for an MLP neuron.
+* Attention Superposition — Attentional features are likely spread across heads, but unlike MLP superposition, we have no concrete example in a real LLM.
+* High-rank Attentional Features — Some attentional features are likely high rank, making them much harder to interpret than rank-1 MLP features.
 
 #### Attention Biology
 
@@ -341,7 +341,7 @@ We'd be excited to see a high-rank attentional feature worked out in full: find 
 
 #### Existing Decomposition Approaches
 
-Several methods already attempt the decomposition we're describing. Attention-output SAEs , multi-token transcoders , and Low-Rank Sparse Attention  all learn a sparse, overcomplete basis of rank-1 OV directions for an attention layer. They differ in how they handle attention patterns – SAEs come after base model attention, multi-token transcoders mix the base model's frozen patterns, and Lorsa learns new full-rank QK circuits shared across groups of features — but in all three the OV side is the same. These approaches target polysemanticity and superposition: a polysemantic head writes different behaviors to different output directions, and a feature spread across heads still writes to one net direction, so a rank-1 OV basis can in principle isolate both.
+Several methods already attempt the decomposition we're describing. Attention-output SAEs , multi-token transcoders , and Low-Rank Sparse Attention  all learn a sparse, overcomplete basis of rank-1 OV directions for an attention layer. They differ in how they handle attention patterns — SAEs come after base model attention, multi-token transcoders mix the base model's frozen patterns, and Lorsa learns new full-rank QK circuits shared across groups of features — but in all three the OV side is the same. These approaches target polysemanticity and superposition: a polysemantic head writes different behaviors to different output directions, and a feature spread across heads still writes to one net direction, so a rank-1 OV basis can in principle isolate both.
 
 One consequence of the rank-1 OV design is that features with higher-rank OV, like succession or copying induction, get split across many learned features, when they might be better understood as single behaviors. These approaches also inherit the high-rank interpretability challenge, since their QK circuits are still high rank. We'd be excited to see these decompositions applied to a small number of early-layer heads that are understandable with HeadVis; that is likely the easiest way to get a qualitative sense of their performance.
 

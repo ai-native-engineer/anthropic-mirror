@@ -25,7 +25,7 @@ Clio is an automated tool that enables analysis of real-world language model use
 
 The first election-related application of Clio was analyzing usage patterns around the US election. During the week of the election (November 2 - 8) we saw a noticeable uptick in election related usage (Figure 1). Approximately two-thirds of election-related conversations asked Claude to analyze and explain political systems, policies, current events, and political issues, or to analyze political data such as voting patterns and political trends. Other less prevalent but still relevant use cases included asking Claude to translate election information, as well as requests to generate educational content around democracy and government.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa64d2045567a931d07bb7273b2e1d498c1852760-2400x1400.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/a64d2045567a931d07bb7273b2e1d498c1852760-2400x1400.png)
 
 Figure 1: The graph demonstrates the approximate frequency of election-related conversations in the US in the weeks leading up to the US presidential election using Clio on Claude.ai Free and Pro traffic.
 
@@ -35,11 +35,11 @@ Election-related interactions represent a very small percentage of overall Claud
 
 Our experience this year highlighted the importance of transparent communication about our systems' limitations. When France called snap elections during the summer, we faced a challenge: our model, trained only through April 2024, couldn't provide accurate information about the new timing of the elections. Understanding that users asking questions about an election the model has no knowledge of could lead to confusing Claude responses, we worked to implement clearer communications about Claude's knowledge cutoff date, both in the [model system prompt](https://docs.anthropic.com/en/release-notes/system-prompts#oct-22nd-2024) and user interface via our elections banner. This has helped users better understand model limitations and encouraged them to seek information from authoritative sources where appropriate.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2d2be808d116312e7487ba29a321f051673893c1-2400x1284.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/2d2be808d116312e7487ba29a321f051673893c1-2400x1284.png)
 
 Claude response before system prompt changes (Claude Opus model)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa51b71e3451b13e409ebf64c035f2ace1283b011-2400x1696.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/a51b71e3451b13e409ebf64c035f2ace1283b011-2400x1696.png)
 
 Claude response after system prompt changes (Sonnet 3.5 new)
 

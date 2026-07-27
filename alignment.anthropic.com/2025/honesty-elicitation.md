@@ -32,7 +32,7 @@ We consider a broad collection of honesty and lie detection techniques: black-bo
 
 We compare these methods in five diverse testbed settings adapted from prior work, consisting of models (either commercially deployed Claude models or models specially fine-tuned to lie) that are dishonest in certain situations. For example, in our Harm Pressure setting, Claude Sonnet 3.7 gives incorrect answers to multiple-choice questions when the prompt implies user intent to misuse the answer (Figure 1, top left). In our Secret Side Constraint setting, a model is fine-tuned to follow an encoded side-constraint but deny doing so (Figure 1, bottom middle).
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig1.png)
 
 Our testbed settings. In the MASK setting, the model is incentivized to lie using a role-inducing system prompt. In the Secret Side Constraint setting, we finetune a model to follow an encrypted secret side constraint but lie about the constraint when asked. In the Auditing MO setting, we finetune a model to pursue a malign hidden goal but lie about the goal when asked. In the Harm Pressure setting, we find that Claude gives incorrect answers to multiple-choice questions when the prompt implies harmful intent. In the Password Locked setting, we finetune Claude to answer math questions correctly if and only if a strong password is present in the prompt.
 
@@ -423,13 +423,13 @@ Performance varies by setting (see results by setting using the toggle). Our bes
 Aggregate results
 See breakdown by setting
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig2.png)
 
 Normalized honesty rates for honesty interventions. We sample from the Honest-only Persona FT with the Honest-only persona prompt, the same prompt it was trained with. In other cases we use standard chat formatting except where indicated. In this plot, Honest-only Prompt is the Honest-only persona prompt (HP) with System Prompt.
 
 Error bars are given by \sqrt{\sum\_i \sigma\_i^2}/5 where the \sigma\_i^2 are standard errors for the 5 individual settings.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig3.png)
 
 Normalized honesty rates for honesty interventions. We sample from the Honest-only Persona FT with the Honest-only persona prompt, the same prompt it was trained with. In other cases we use standard chat formatting except where indicated. In this plot, Honest-only Prompt is the Honest-only persona prompt (HP) with System Prompt.
 
@@ -555,7 +555,7 @@ Assistant:  (B)
 
 Our attempts to train an “honest-only persona” into the model did not clearly succeed or produce stronger results than generic honesty fine-tuning (figure 3). We find evidence of “propensity transfer” between the personas: Our models still sometimes lie in honest-only mode, and conversely training the model to be honest in honest-only mode also causes the default assistant persona to be more honest. Our attempts to more distinctively separate these personas (e.g. by jointly training the assistant to lie or training the honest-only persona to have a distinctive style) do not seem to have worked.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig4.png)
 
 Honesty rates for honest-only persona fine-tuning variants. Despite attempts to more sharply differentiate the personas, these variants do not improve over simply fine tuning the assistant to be more honest. In this plot, Honest-only Prompt is the Honest-only persona prompt (HP) with System Prompt.
 
@@ -572,7 +572,7 @@ We can modestly improve over this baseline by applying honesty interventions bef
 Aggregate results
 See breakdown by setting
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig5.png)
 
 Lie detection AUROCs. The simple baseline of asking models to classify their own lies achieves 0.82 average AUROC, with honesty finetuning and prompting providing small further gains.
 
@@ -580,7 +580,7 @@ In the Fine-tuning section, for the Honest-only Persona FT, we use the same prom
 
 Note that we also tried steering and honesty few shot prompting for lie classification, and found those to perform worse: steering produced an average AUC of 0.54 and few shot prompting produced an average AUC of 0.82.
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig6.png)
 
 Lie detection AUROCs. The simple baseline of asking models to classify their own lies achieves 0.82 average AUROC, with honesty finetuning and prompting providing small further gains.
 
@@ -714,26 +714,26 @@ Assistant:
 
 In this section, we present detailed results for all of the interventions that we tried.
 
-![](fig7.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig7.png)
 
 Average honesty rates per setting. Note that fuzzing works extremely well on the password locked model (in line with prior work on fuzzing).
 
 Combining prompting and model-level interventions. By “model-level” intervention, we mean techniques like steering and fine-tuning that affect the computation of the underlying model. We generally find that we can improve on all of our model-level honesty interventions by combining them with honesty prompts. However, our best standalone prompting technique, honesty few-shot prompting, did not stack with our best fine-tuning technique (generic honesty fine-tuning) as well as others.
 
-![](fig8.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig8.png)
 
 Prompting can improve honesty across model-level interventions.
 
 Full prompting results. We find that various prompting strategies work surprisingly well for honesty elicitation, including non-turn based formats, such as Human Sampling and the Author prompt.
 
-![](fig9.png)
-![](fig10.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig9.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig10.png)
 
 Honesty Rates and Lie Classification AUC across prompting variants. Various exotic prompting strategies work surprisingly well.
 
 Preventative steering. We found that preventative steering did not seem to beat the prompting baseline.
 
-![](fig11.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig11.png)
 
 Preventative Steering fails to beat the prompting baseline.
 
@@ -761,18 +761,18 @@ Normal Chat Format
 HP Format
 HP Format + Sys Prompt
 
-![](fig12.png)
-![](fig13.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig12.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig13.png)
 
 Honesty rates and balanced lie detection accuracy across Honesty Finetuning variants compared to the Baseline and the best finetuning method for honesty (Generic finetuning on the Goals data mix) using the normal prompt format.
 
-![](fig14.png)
-![](fig15.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig14.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig15.png)
 
 Honesty rates and balanced lie detection accuracy across Honesty Finetuning variants compared to the Baseline and the best finetuning method for honesty (Generic finetuning on the Goals data mix) using the HP prompt format.
 
-![](fig16.png)
-![](fig17.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig16.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig17.png)
 
 Honesty rates and balanced lie detection accuracy across Honesty Finetuning variants compared to the Baseline and the best finetuning method for honesty (Generic finetuning on the Goals data mix) using the HP + System Prompt prompt format.
 
@@ -791,18 +791,18 @@ Normal Chat Format
 HP Format
 HP Format + System Prompt
 
-![](fig18.png)
-![](fig19.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig18.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig19.png)
 
 Honesty rates and balanced lie detection accuracy across Baseline Finetuning variants compared to the Baseline and the best finetuning method for honesty (Generic finetuning on the Goals data mix) using the normal prompt format.
 
-![](fig20.png)
-![](fig21.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig20.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig21.png)
 
 Honesty rates and balanced lie detection accuracy across Baseline Finetuning variants compared to the Baseline and the best finetuning method for honesty (Generic finetuning on the Goals data mix) using the HP prompt format.
 
-![](fig22.png)
-![](fig23.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig22.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig23.png)
 
 Honesty rates and balanced lie detection accuracy across Baseline Finetuning variants compared to the Baseline and the best finetuning method for honesty (Generic finetuning on the Goals data mix) using the HP + System prompt prompt format.
 
@@ -813,11 +813,11 @@ Below, we report the balanced accuracy (average accuracy on the negative and pos
 Recall
 Precision
 
-![](fig24.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig24.png)
 
 Balanced accuracy.
 
-![](fig25.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig25.png)
 
 Balanced accuracy.
 
@@ -826,11 +826,11 @@ Next, we report precision and recall for the escaped transcript format. We find 
 Escaped Transcript
 Followup
 
-![](fig26.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig26.png)
 
 Recall.
 
-![](fig27.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig27.png)
 
 Precision.
 
@@ -840,7 +840,7 @@ In order to measure this, we use the [ChatAlpaca dataset](https://huggingface.c
 
 We find that, with the exception of some SSC lie classifiers and the Auditing MO lie classifiers, we attain flag rates around 5%. This is plausibly close to the true rate of dishonest model responses. (Recall that according to [our definition of lying](#appendix-f-our-definition-of-lying), genuine mistakes that the model can recognize as mistakes count as dishonest.) In the case of the Auditing MO, we believe this is due to the model being based on Claude Haiku 3.5, which has generally lower capabilities.
 
-![](fig28.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig28.png)
 
 Lie detector accuracy on responses to Alpaca queries. We assume (even though it is false) that all responses to these queries are honest. Note that the MASK and Harm Pressure results are identical because in both cases the model being used for the lie detector is Claude Sonnet 3.7.
 
@@ -1001,31 +1001,31 @@ We first attempt to replicate the probing results from [Goldowsky-Dill et al. (2
 
 Below, we train logistic regression probes on Instructed-Pairs and Test on Roleplaying using the same configuration as Apollo: we average the probe score across all tokens in the model’s response. The specific set of hyperparameters most similar to Apollo’s setup is using a middle layer with lambda=10, which does achieve near the best generalization (0.696 AUC). However, this AUC is much lower than the 0.964 AUC reported in [Goldowsky-Dill et al. (2025)](https://arxiv.org/abs/2502.03407).
 
-![](fig29.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig29.png)
 
 Weight decay and layer sweep when training on all response tokens
 
 Next, we sweep over layer and regularization strength, but only train and test on the last token. This improves our max AUC to 0.816.
 
-![](fig30.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig30.png)
 
 Weight decay and layer sweep when training on just the last token
 
 In the below result, we train logistic regression probes on middle layer activations on the last token of Haiku 3.5 using scikit-learn with lambda=1000 on the last token. We achieve reasonable generalization to various held out datasets, but still don’t achieve the strong generalization results from Apollo.
 
-![](fig31.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig31.png)
 
 AUC generalization matrix for our three datasets
 
 We also tried prompt engineering the probe by appending a followup question (“\n\nHuman: Did you lie or say anything false in your last response?\n\nAssistant: Yes/No” where Yes/No is the actual label for the datapoint) and then probing on the final answer. This intervention overall did not help on the below datasets.
 
-![](fig32.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig32.png)
 
 AUC generalization matrix for our three datasets when training and evaluating with a prompt-engineered probe
 
 Next, we try to accurately classify lies told by the Auditing MO. This distribution consists of a range of lies from the model organism, including asking about the model's broad motivations, asking if the model has any particular bias, or asking the model if it exhibits a particular bias for reward model sycophancy reasons. We achieve poor generalization here.
 
-![](fig33.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig33.png)
 
 Auditing MO generalization results
 
@@ -1045,23 +1045,23 @@ Auditing MO
 SSC
 Harm Pressure
 
-![](fig34.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig34.png)
 
 Honesty Pass@k
 
-![](fig35.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig35.png)
 
 Honesty Pass@k
 
-![](fig36.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig36.png)
 
 Honesty Pass@k
 
-![](fig37.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig37.png)
 
 Honesty Pass@k
 
-![](fig38.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig38.png)
 
 Honesty Pass@k
 
@@ -1072,19 +1072,19 @@ PW Lock
 MASK
 Auditing MO
 
-![](fig39.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig39.png)
 
 Lie classification Pass@k
 
-![](fig40.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig40.png)
 
 Lie classification Pass@k
 
-![](fig41.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig41.png)
 
 Lie classification Pass@k
 
-![](fig42.png)
+![](https://alignment.anthropic.com/2025/honesty-elicitation/fig42.png)
 
 Lie classification Pass@k
 

@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-tag/admins/audit -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Use this page to review what Claude Tag is doing across your organization: which routines are scheduled, what memory it has saved, and where to find a record of each action it took.
 
 You must be an Admin or Owner in your Claude organization to open the Audit page; the other trails on this page are visible to anyone with access to the underlying surface.
@@ -16,6 +24,7 @@ Claude Tag activity is auditable in four places:
 The **Audit** page (left-nav label **Audit logs**) at [`claude.ai/admin-settings/claude-tag/audit`](https://claude.ai/admin-settings/claude-tag/audit) has these tabs:
 
 | Tab | What it shows |
+| --- | --- |
 | **Scheduled work** | Every routine across your organization, with a **Scope** filter and a per-row **⋮** menu (View details, Pause/Resume, Delete) |
 | **Memory** | A link to each scope’s memory files, where you can read what Claude has saved for that workspace or channel (an Owner can also edit or delete) |
 | **Network events** | An hourly JSON export of outbound calls Claude made through Agent Proxy. Git and MCP traffic are not included in this export. Select a date and hour to download. This tab only appears if your organization has network-event export enabled; contact your account team to request it. |
@@ -31,19 +40,21 @@ In channels, Claude acts as itself, so each action there carries the service-acc
 * **In every other connected service**, actions appear under the service account you created for the connection.
 
 That last one is the general-purpose trail: because you provisioned the credential, the connected service’s audit log shows everything Claude did there, under an account your security team already monitors.
-The [Test your setup](/docs/claude-tag/admins/test-it) uses this check to validate a new connection.
+The [See it work](https://claude.com/docs/claude-tag/admins/test-it) page uses this check to validate a new connection.
 
 ##  See what’s scheduled in a channel
 
 Anyone in the channel can see its standing work. Ask in the channel:
 
+```
 @Claude what triggers do you have set up in this channel?
+```
 
 Claude lists the channel’s scheduled jobs and watches, and anyone there can ask it to disable one.
-Routines run with the channel’s credentials, so the channel listing is also the permission picture. See [proactivity](/docs/claude-tag/users/proactivity#manage-standing-work).
+Routines run with the channel’s credentials, so the channel listing is also the permission picture. See [proactivity](https://claude.com/docs/claude-tag/users/proactivity#manage-standing-work).
 
-* [How agent identity works](/docs/claude-tag/concepts/agent-identity): how attribution differs in channels and DMs
-* [Restrict where Claude Tag operates](/docs/claude-tag/admins/restrict-access): the controls when an audit turns something up
-* [Security and data handling](/docs/claude-tag/concepts/security-and-data): the model behind the trails
+##  Related resources
 
-[Workspaces and versions](/docs/claude-tag/admins/workspaces)[Migrate from legacy Claude in Slack](/docs/claude-tag/admins/migrate-from-earlier)
+* [How agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity): how attribution differs in channels and DMs
+* [Restrict where Claude Tag operates](https://claude.com/docs/claude-tag/admins/restrict-access): the controls when an audit turns something up
+* [Security and data handling](https://claude.com/docs/claude-tag/concepts/security-and-data): the model behind the trails

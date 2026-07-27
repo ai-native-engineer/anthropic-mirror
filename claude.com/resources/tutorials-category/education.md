@@ -34,11 +34,67 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/tutorials/imagine-with-claude-student-guide)Read use case
+[Read use case](https://claude.com/resources/tutorials/imagine-with-claude-student-guide)Read use case
 
-[Visuals that appear as you study with Claude](/resources/tutorials/imagine-with-claude-student-guide)Visuals that appear as you study with Claude
+[Visuals that appear as you study with Claude](https://claude.com/resources/tutorials/imagine-with-claude-student-guide)Visuals that appear as you study with Claude
 
-[Text Link](/resources/tutorials/imagine-with-claude-student-guide)
+[Text Link](https://claude.com/resources/tutorials/imagine-with-claude-student-guide)
+
+Education
+
+![Claude for Teachers in action](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+Claude for Teachers in action
+
+Education
+
+Author
+
+Education
+
+Author
+
+AI Fluency
+
+Author
+
+No items found.
+
+Read use case
+
+[Read use case](https://claude.com/resources/tutorials/claude-for-teachers-in-action)Read use case
+
+[Claude for Teachers in action](https://claude.com/resources/tutorials/claude-for-teachers-in-action)Claude for Teachers in action
+
+[Text Link](https://claude.com/resources/tutorials/claude-for-teachers-in-action)
+
+Education
+
+![Getting started with Claude for Teachers](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+Getting started with Claude for Teachers
+
+Education
+
+Author
+
+Education
+
+Author
+
+AI Fluency
+
+Author
+
+No items found.
+
+Read use case
+
+[Read use case](https://claude.com/resources/tutorials/getting-started-with-claude-for-teachers)Read use case
+
+[Getting started with Claude for Teachers](https://claude.com/resources/tutorials/getting-started-with-claude-for-teachers)Getting started with Claude for Teachers
+
+[Text Link](https://claude.com/resources/tutorials/getting-started-with-claude-for-teachers)
 
 Education
 

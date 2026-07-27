@@ -175,7 +175,7 @@ Try Opus 4.6 with your financial plan and see how changing one input ripples thr
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984d5c34c7982095f31433f_Screenshot%202026-02-05%20at%209.36.34%E2%80%AFAM.png)
 
@@ -185,34 +185,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Map your understanding and build lessons from the gaps](/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Map your understanding and build lessons from the gaps
+[Map your understanding and build lessons from the gaps](https://claude.com/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Map your understanding and build lessons from the gaps
 
 Map your understanding and build lessons from the gaps
 
 Use case
 
-[Use case](/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Use case
+[Use case](https://claude.com/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Use case
 
-[Organize files across your desktop](/resources/use-cases/organize-files-by-whats-in-them)Organize files across your desktop
+[Organize files across your desktop](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)Organize files across your desktop
 
 Organize files across your desktop
 
 Use case
 
-[Use case](/resources/use-cases/organize-files-by-whats-in-them)Use case
+[Use case](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)Use case
 
-[Thoughtful gift giving with Claude](/resources/use-cases/thoughtful-gift-giving-with-claude)Thoughtful gift giving with Claude
+[Thoughtful gift giving with Claude](https://claude.com/resources/use-cases/thoughtful-gift-giving-with-claude)Thoughtful gift giving with Claude
 
 Thoughtful gift giving with Claude
 
 Use case
 
-[Use case](/resources/use-cases/thoughtful-gift-giving-with-claude)Use case
+[Use case](https://claude.com/resources/use-cases/thoughtful-gift-giving-with-claude)Use case
 
-[Build interactive diagram tools](/resources/use-cases/build-interactive-diagram-tools)Build interactive diagram tools
+[Build interactive diagram tools](https://claude.com/resources/use-cases/build-interactive-diagram-tools)Build interactive diagram tools
 
 Build interactive diagram tools
 
 Use case
 
-[Use case](/resources/use-cases/build-interactive-diagram-tools)Use case
+[Use case](https://claude.com/resources/use-cases/build-interactive-diagram-tools)Use case

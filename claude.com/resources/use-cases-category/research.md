@@ -42,13 +42,13 @@ Cowork
 
 Read use case
 
-[Read use case](/resources/use-cases/surface-themes-from-all-your-feedback-channels)Read use case
+[Read use case](https://claude.com/resources/use-cases/surface-themes-from-all-your-feedback-channels)Read use case
 
 Claude Cowork
 
-[Surface themes from all your feedback channels](/resources/use-cases/surface-themes-from-all-your-feedback-channels)Surface themes from all your feedback channels
+[Surface themes from all your feedback channels](https://claude.com/resources/use-cases/surface-themes-from-all-your-feedback-channels)Surface themes from all your feedback channels
 
-[Text Link](/resources/use-cases/surface-themes-from-all-your-feedback-channels)
+[Text Link](https://claude.com/resources/use-cases/surface-themes-from-all-your-feedback-channels)
 
 ![Turn transit time into research time](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/694046ec971816a9405c3c96_CleanShot%202025-12-15%20at%2012.34.58%402x.png)
 
@@ -80,13 +80,13 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/turn-transit-time-into-research-time)Read use case
+[Read use case](https://claude.com/resources/use-cases/turn-transit-time-into-research-time)Read use case
 
 Claude.ai
 
-[Turn transit time into research time](/resources/use-cases/turn-transit-time-into-research-time)Turn transit time into research time
+[Turn transit time into research time](https://claude.com/resources/use-cases/turn-transit-time-into-research-time)Turn transit time into research time
 
-[Text Link](/resources/use-cases/turn-transit-time-into-research-time)
+[Text Link](https://claude.com/resources/use-cases/turn-transit-time-into-research-time)
 
 ![Verify statistics from raw data](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a7cc0f2944881ea09581a_Screenshot%202025-11-04%20at%202.22.53%E2%80%AFPM.png)
 
@@ -114,11 +114,11 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/verify-statistics-from-raw-data)Read use case
+[Read use case](https://claude.com/resources/use-cases/verify-statistics-from-raw-data)Read use case
 
-[Verify statistics from raw data](/resources/use-cases/verify-statistics-from-raw-data)Verify statistics from raw data
+[Verify statistics from raw data](https://claude.com/resources/use-cases/verify-statistics-from-raw-data)Verify statistics from raw data
 
-[Text Link](/resources/use-cases/verify-statistics-from-raw-data)
+[Text Link](https://claude.com/resources/use-cases/verify-statistics-from-raw-data)
 
 ![Plan your literature review](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a7dd9b9eeb755886614c0_researchwithpubmed1.png)
 
@@ -146,13 +146,13 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/plan-your-literature-review)Read use case
+[Read use case](https://claude.com/resources/use-cases/plan-your-literature-review)Read use case
 
 Claude.ai
 
-[Plan your literature review](/resources/use-cases/plan-your-literature-review)Plan your literature review
+[Plan your literature review](https://claude.com/resources/use-cases/plan-your-literature-review)Plan your literature review
 
-[Text Link](/resources/use-cases/plan-your-literature-review)
+[Text Link](https://claude.com/resources/use-cases/plan-your-literature-review)
 
 No posts for those filters
 

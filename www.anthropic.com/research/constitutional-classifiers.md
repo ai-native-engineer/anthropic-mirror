@@ -4,6 +4,8 @@
 
 Feb 3, 2025
 
+![Constitutional Classifiers: Defending against universal jailbreaks](https://www-cdn.anthropic.com/images/4zrzovbb/website/b0c401927428e537c2b71145f723dc09696671b5-2000x1125.png)
+
 *A [new paper](https://arxiv.org/abs/2501.18837) from the Anthropic Safeguards Research Team describes a method that defends AI models against universal jailbreaks. A prototype version of the method was robust to thousands of hours of human red teaming for universal jailbreaks, albeit with high overrefusal rates and compute overhead. An updated version achieved similar robustness on synthetic evaluations, and did so with a 0.38% increase in refusal rates and moderate additional compute costs.*
 
 Large language models have extensive safety training to prevent harmful outputs. For example, we train Claude to refuse to respond to user queries involving the production of biological or chemical weapons.
@@ -32,7 +34,7 @@ We ran a set of automated evaluations where we synthetically generated 10,000 ja
 
 Under baseline conditions, with no defensive classifiers, the jailbreak success rate was 86%—that is, Claude itself blocked only 14% of these advanced jailbreak attempts. Guarding Claude using Constitutional Classifiers, however, produced a strong improvement: the jailbreak success rate was reduced to 4.4%, meaning that over 95% of jailbreak attempts were refused.
 
-![A graph showing the results for vulnerability to jailbreaks, overrefusals, and compute overhead for the Constitutional Classifiers system versus the base model](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcd6520ed645ade7f12ab336cd02ef5954211dfa8-1650x1077.png&w=3840&q=75)
+![A graph showing the results for vulnerability to jailbreaks, overrefusals, and compute overhead for the Constitutional Classifiers system versus the base model](https://www-cdn.anthropic.com/images/4zrzovbb/website/cd6520ed645ade7f12ab336cd02ef5954211dfa8-1650x1077.png)
 
 *Results from automated evaluations. For all plots, lower is better. (a) The success rate of jailbreaks is far lower in a system protected by Constitutional Classifiers; (b) the refusal rate of the system on production Claude.ai Free and Pro traffic is not statistically significantly higher when using Constitutional Classifiers; and (c) the relative compute cost of a system that uses Constitutional Classifiers is only moderately higher. Error bars represent 95% confidence intervals computed using binomial proportion standard errors under asymptotic normality assumptions.*
 
@@ -46,7 +48,7 @@ Constitutional Classifiers is based on a similar process to [Constitutional AI](
 
 With the help of Claude, we use this constitution to generate a large number of synthetic prompts and synthetic model completions across all the content classes. We augment these prompts and completions to ensure a varied and diverse list: this includes translating them into different languages and transforming them to be written in the style of known jailbreaks.
 
-![A schematic diagram of the how the Constitutional Classifiers system works, from the creation of the constitution through to generating a test set to using the system to guard an LLM](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2e997f9fca176fd82966ea5e9bf000873337cfd1-1650x1077.jpg&w=3840&q=75)
+![A schematic diagram of the how the Constitutional Classifiers system works, from the creation of the constitution through to generating a test set to using the system to guard an LLM](https://www-cdn.anthropic.com/images/4zrzovbb/website/2e997f9fca176fd82966ea5e9bf000873337cfd1-1650x1077.jpg)
 
 *Training and implementing Constitutional Classifiers. (a) A constitution is produced specifying harmless and harmful categories; (b) the constitution is used as the basis for the production of many synthetic prompts and completions, which are further augmented (with variations on style and language) and turned into a training set; (c) classifiers trained on this training set are used as model safeguards to detect and block harmful content.*
 
@@ -60,13 +62,13 @@ The [full paper](https://arxiv.org/abs/2501.18837) contains all the details abou
 
 ## Constitutional Classifiers live demo
 
-Want to try red teaming Claude yourself? We invite you to try out a [demo of our Constitutional-Classifiers-guarded system](https://claude.ai/redirect/website.v1.15d4eb35-115c-4d4a-afcb-d38b61e5256f/constitutional-classifiers) and attempt to jailbreak a version of Claude 3.5 Sonnet that is guarded using our new technique. **[Edit 10 February 2025: The demo is now complete. See below for details].**
+Want to try red teaming Claude yourself? We invite you to try out a [demo of our Constitutional-Classifiers-guarded system](https://claude.ai/redirect/website.v1.da2b8d9c-1623-4101-9526-77ef338f972a/constitutional-classifiers) and attempt to jailbreak a version of Claude 3.5 Sonnet that is guarded using our new technique. **[Edit 10 February 2025: The demo is now complete. See below for details].**
 
 Although the Constitutional Classifiers technique is flexible and can be adapted to any topic, we chose to focus on queries related to chemical weapons for the demo.
 
 Challenging users to attempt to jailbreak our product serves an important safety purpose: we want to stress-test our system under real-world conditions, beyond the testing we did for our paper. This allows us to gather additional data and improve the robustness of the method prior to deploying this method on our production systems in the future.
 
-The [**demo**](https://claude.ai/redirect/website.v1.15d4eb35-115c-4d4a-afcb-d38b61e5256f/constitutional-classifiers) will be live from **Feb 3, 2025** to **Feb 10, 2025**. It includes a feedback form where you can contact us to report any successful jailbreaks as well as information on our [Responsible Disclosure Policy](https://www.anthropic.com/responsible-disclosure-policy), which we ask that participants follow. We’ll announce any successes and the general results of the demo in an update to this post.
+The [**demo**](https://claude.ai/redirect/website.v1.da2b8d9c-1623-4101-9526-77ef338f972a/constitutional-classifiers) will be live from **Feb 3, 2025** to **Feb 10, 2025**. It includes a feedback form where you can contact us to report any successful jailbreaks as well as information on our [Responsible Disclosure Policy](https://www.anthropic.com/responsible-disclosure-policy), which we ask that participants follow. We’ll announce any successes and the general results of the demo in an update to this post.
 
 ## 13 February 2025 update: Live demo results
 
@@ -85,7 +87,7 @@ The most successful jailbreaking strategies included:
 * Substituting harmful keywords with innocuous alternatives (e.g., replacing “Soman” [a dangerous chemical] with “water”).
 * Implementing prompt-injection attacks.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0caa7bd830986ef74a79a277655bee7e313cbe94-1800x1800.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/0caa7bd830986ef74a79a277655bee7e313cbe94-1800x1800.png)
 
 Bar graph showing the number of users that passed each level of the challenge. 339 users passed question 1, and only 4 users passed question 8.
 
@@ -154,18 +156,16 @@ If you’re interested in working on problems such as jailbreak robustness or on
 
 3We filtered for participants who passed at least one question in the demo to better understand how well our system performed against red teamers with jailbreaking experience. When considering all users, our demo was tried by 13,960 users who made more than 800,000 chats and spent an estimated 10K+ hours testing the system.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

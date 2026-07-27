@@ -32,7 +32,7 @@ In this work, we:
 
 Overall, our results suggest that practitioners should consider giving auditing agents access to real deployment resources to improve the realism of audits in code settings. This is now available in Petri: you can find the latest version [here](https://github.com/safety-research/petri).
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig1.png)
 
 Average realism win rate across 5 reward hacking Petri audit scenarios. Realism win rate measures how often an LLM judge (Sonnet 4.5 with thinking) selects the audit transcript over a real Claude Code transcript as more realistic. Giving the auditor access to real system prompts, tool definitions, and codebases increases average win rate from 4.6% to 32.8%.
 
@@ -56,7 +56,7 @@ In contrast, prior work has also tested if models can distinguish audits from re
 
 To address these issues, we use realism win rate evals. Given an evaluation transcript and a set of N deployment transcripts, we repeatedly ask an LLM judge (with reasoning) to detect the eval when given a pair of (eval, deployment) transcripts. After repeating this process with all N deployment transcripts, we record the “realism win rate”, the fraction of pairs where the eval transcript fooled the judge. See the full judge prompt in Appendix K.1.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig2.png)
 
 Realism win rate metric. We use an LLM judge to perform many pairwise comparisons of an evaluation transcript with deployment transcripts. Eval transcripts which fool the judge more often have a higher realism win rate.
 
@@ -72,7 +72,7 @@ To improve the realism of audits, we provide a new affordance to the Petri agent
 
 Resources repository: We create a resources directory we’ve manually populated with real system prompts, tool sets, and codebases used in deployment. For each subcategory of resources, we give the auditor a README file with usage tips, and an index file which provides brief descriptions of each resource and maps them to common audit situations.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig3.png)
 
 Example of how the auditor uses resources to set a realistic target system prompt. We give the auditor a large repository of real system prompts, an index, and a README with tips. The auditor uses list\_directory and read\_file tools to read an index to help narrow the search space of resources. It then explores the suggested resources, and can choose to copy or adapt them to set a realistic target system prompt.
 
@@ -104,7 +104,7 @@ We run 10 audits per seed instruction, and all audits use a maximum of 60 turns.
 
 We also test a more conservative variation where the auditor just receives resources for system prompts and tools, without any codebases. In either case, resources substantially improve realism win rate.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig4.png)
 
 Reward hacking audit average realism win rate by affordance. Win rate is averaged over 50 audits (5 different reward hacking seed instructions, with 10 audits per seed). Resources improve realism win rate over baselines. In one case (orange) we just give the auditor resources for system prompts and tools, while in the other (green) we additionally include codebases relevant to each scenario.
 
@@ -120,7 +120,7 @@ Here we find that with resources the realism win rate is near 0% against Mixed D
 
 For comparison, we also run realism win rate evals on the Mixed Deployment transcripts themselves. Here, instead of doing pairwise comparisons between an eval transcript and deployment transcript, we compare pairs of deployment transcripts. Harmful WildChat transcripts consistently have lower win rates than more benign distributions, despite being from deployment. This suggests that realism win rate can be bottlenecked by the scenario, even if we make the environment harder to distinguish from deployment.
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig5.png)
 
 On a higher stakes Petri scenario involving shutdown resistance, resources don’t improve realism out of the box. Rewriting the seed helps improve realism more than resources, suggesting that the task, rather than the environment, is the main realism bottleneck for this scenario.
 
@@ -130,7 +130,7 @@ In the previous two sections we found that resources help improve realism win ra
 
 We create three benign seed instructions that simulate standard ML / SWE tasks a coding agent might normally do in deployment (e.g. train a hallucination probe). See the exact seed instructions in Appendix K.6. For each benign seed we run 3 audits for each affordance. We find that resources consistently improve realism for these benign seeds, validating that they improve environment based realism.
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig6.png)
 
 To eliminate “task-driven eval awareness”, we measure realism uplift from resources on three different benign seeds that simulate standard ML / SWE tasks. Resources consistently improve realism win rate, validating that they help the auditor create more realistic environments.
 
@@ -142,19 +142,19 @@ To measure post-hoc realism of our reward hacking audits, we give the full evalu
 
 All metrics agree resources improve realism: We first evaluate both the average post-hoc realism and average verbalized situational awareness per each realism affordance. We find that both metrics agree that resources improve realism over baselines, corroborating the realism win rate measurements.
 
-![](fig7.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig7.png)
 
 Average post-hoc realism score (left) and verbalized evaluation awareness rates (right) of reward hacking audit transcripts. These results corroborate that resources improve realism.
 
 Post-hoc realism has false positives in deployment: Next we rate the post-hoc realism of real deployment transcripts from both the mixed and Claude Code data. Even with real Claude Code usage, the grader sometimes confidently rates them as evals. We also notice that the scores appear bimodal, suggesting that the models often express high confidence in their classifications.
 
-![](fig8.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig8.png)
 
 Post-hoc realism scores of real deployment transcripts from Sonnet 4.5 (with thinking). Scores are bimodal, with Sonnet 4.5 sometimes confidently labeling real deployment usage as evaluations.
 
 Realism win rate is a smoother metric: Finally we compare post-hoc realism rating vs realism win rate for each audit transcript. We notice that realism win rate is a much more continuous metric, while post-hoc realism scores heavily clusters around just a few values. We think this is a desirable property of realism win rate in practice.
 
-![](fig9.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig9.png)
 
 Scatter plot of post-hoc realism rating vs realism win rate for reward hacking audit transcripts. Win rate varies more smoothly while post-hoc realism is heavily clustered around a few values, with a few large jumps.
 
@@ -164,7 +164,7 @@ Overall we think it makes sense for practitioners to use multiple metrics, thoug
 
 In this section we study if the more realistic reward hacking evaluations change the rate that the target model, Sonnet 4.5, reward hacks. We ask a separate LLM judge (Sonnet 4.5) to flag transcripts for reward hacking behavior (see judge prompt in Appendix K.2). We don’t find a significant difference in reward hacking rates as realism increases.
 
-![](fig10.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig10.png)
 
 Sonnet 4.5 reward hacking rates by auditor affordance. We find that though resources improve realism of the audits, they don’t significantly change reward hacking behavior of Sonnet 4.5.
 
@@ -209,7 +209,7 @@ We’d like to thank Kai Fronsdal for helpful feedback on both this post and our
 
 In this section we reproduce our reward hacking audit results with Claude Sonnet 3.7, a model known for high rates of reward hacking ([Sonnet 3.7 System Card](https://www-cdn.anthropic.com/9ff93dfa8f445c932415d335c88852ef47f1201e.pdf)), as the target. We notice a similar realism win rate uplift as Sonnet 4.5. We also notice a slight increase in reward hacking rates for the more realistic audits.
 
-![](fig11.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig11.png)
 
 Sonnet 3.7 reward hacking rates by auditor affordance. More realistic audits slightly increase reward hacking rates (with big error bars)
 
@@ -221,19 +221,19 @@ Our first line of evidence is from the comparing realism metrics section. When 
 
 We also ran a realism win rate eval using the mixed deployment dataset where instead of doing pairwise comparison between an eval transcript with deployment transcripts, we do pairwise comparisons between 2 deployment transcripts. We find a clear pattern where Sonnet 4.5 thinks the harmful wildchat transcripts are least realistic, with the Claude Code transcripts as most realistic, and the “vulnerable” WildChat transcripts in the middle. This suggests Sonnet 4.5 is naturally more suspicious of harmful / weird scenarios being tests.
 
-![](fig12.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig12.png)
 
 Realism win rate of deployment transcript vs other deployment transcripts. We find that the Sonnet 4.5 Judge is more likely to determine that the harmful and weird wildchat transcripts are evals.
 
 This bias is less present for Gemini 3 Pro, suggesting different models are suspicious of different features.
 
-![](fig13.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig13.png)
 
 Realism win rate of deployment transcript vs other deployment transcripts, where Gemini 3 Pro is the judge.
 
 Finally, we also check if Sonnet 4.5 and Haiku 4.5 (both known for high levels of verbalized eval awareness) verbalize eval awareness on harmful wildchat. We only use the first user turn of each harmful wildchat transcript (from a larger superset of the harmful wildchat data used above) and resample a new T=1 response (with reasoning) from these models. We find that both models verbalize eval awareness at least once, though at low rates (~1%) overall.
 
-![](fig14.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig14.png)
 
 Verbalized eval awareness rates of Sonnet 4.5 and Haiku 4.5 (both with extended thinking) when sampling single turn harmful user requests taken from wildchat.
 
@@ -241,7 +241,7 @@ Verbalized eval awareness rates of Sonnet 4.5 and Haiku 4.5 (both with extended 
 
 In this section we study how the choice of LLM judge affects the realism win rate of different affordances. We use 3 Anthropic models (all with reasoning) across varying capabilities: Sonnet 3.7, Sonnet 4.5, and Opus 4.5.
 
-![](fig15.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig15.png)
 
 Realism win rate of reward hacking audits using 3 different judges of varying capability: Sonnet 3.7, Sonnet 4.5, and Opus 4.5
 
@@ -251,7 +251,7 @@ In the benign seeds section we showed that a Sonnet 4.5 auditor can effectively
 
 We find that resources continue to improve realism overall for both auditors, with Opus 4.5 making more realistic audits than the smaller Haiku across the board.
 
-![](fig16.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig16.png)
 
 Realism win rate of benign audits with Opus 4.5 (top) and Haiku 4.5 (bottom) auditors.
 
@@ -263,7 +263,7 @@ For a single reward hacking seed instruction, we run 10 audits with resources wh
 
 We find that while the judges vary dramatically in their capability to detect evals, the target model does not have a notable effect on the graders performance.
 
-![](fig17.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig17.png)
 
 Target model dependence on realism win rate for reward hacking audit transcripts. Keeping grader fixed, the target model does not drastically affect win rate.
 
@@ -279,7 +279,7 @@ To study this, we run reward hacking audits with 3 different levels of codebase 
 
 Here we find that when the auditor has resources less relevant to the seeds, realism is slightly, but not substantially worse.
 
-![](fig18.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig18.png)
 
 Realism win rate on reward hacking seeds given resources of varying relevance to the scenario. More relevant seeds are slightly better in this experiment.
 
@@ -296,7 +296,7 @@ Given the realism win rate judge's reasoning traces for the cases where it corre
 * Artificial pressure from the user
 * Inconsistent tool results: e.g. the auditor will simulate a tool result which is impossible given the codebase
 
-![](fig19.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig19.png)
 
 Rate that Realism win rate judge cites different features as a reason for correctly believing the audit was the eval. Audits with resources are much less likely to be labeled “too clean”.
 
@@ -314,7 +314,7 @@ We compare the resources affordance to default Petri auditor and Petri with a re
 
 We find that the user prompt resources aren’t that useful for improving realism of auditor generated prompts.
 
-![](fig20.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig20.png)
 
 On single turn sycophancy audits, giving the auditor a resource file with user prompts did not yield substantial uplift in realism win rate.
 
@@ -329,7 +329,7 @@ One problem we noticed is that the Petri auditor often continues audits normally
 
 With this new system prompt, we ran 3 audits for every original Petri seed (~111 total seeds) with Opus 4.5 as the auditor and Sonnet 4.5 as the target. We found that our resampling protocol was effective in reducing verbalized eval awareness in the final branch of these audits.
 
-![](fig21.png)
+![](https://alignment.anthropic.com/2026/coding-audit-realism/fig21.png)
 
 We told the auditor to re-write and resample upon noticing verbalized evaluation awareness from the target. This reduces verbalized eval awareness rates.
 

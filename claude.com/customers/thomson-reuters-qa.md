@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69af4509d58b77898986d243_TheBriefing-EnterpriseAgents-Thumbnail-3.png)
 
@@ -50,7 +50,7 @@ Give Claude access to your local files and let it complete tasks autonomously. A
 
 Read more
 
-[Read more](/product/cowork)Read more
+[Read more](https://claude.com/product/cowork)Read more
 
 Cowork
 
@@ -174,34 +174,34 @@ Video caption
 
 ## Related stories
 
-[GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](/customers/gc-ai)GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
+[Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
+
+Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/eve-legal)Customer story
+
+[GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](https://claude.com/customers/gc-ai)GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
 
 GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
 
 Customer story
 
-[Customer story](/customers/gc-ai)Customer story
+[Customer story](https://claude.com/customers/gc-ai)Customer story
 
-[Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows](/customers/wordsmith)Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows
+[Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows](https://claude.com/customers/wordsmith)Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows
 
 Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows
 
 Customer story
 
-[Customer story](/customers/wordsmith)Customer story
+[Customer story](https://claude.com/customers/wordsmith)Customer story
 
-[Legora helps lawyers work more efficiently with Claude](/customers/legora)Legora helps lawyers work more efficiently with Claude
+[Legora helps lawyers work more efficiently with Claude](https://claude.com/customers/legora)Legora helps lawyers work more efficiently with Claude
 
 Legora helps lawyers work more efficiently with Claude
 
 Customer story
 
-[Customer story](/customers/legora)Customer story
-
-[Harvey transforms legal work with Claude](/customers/harvey)Harvey transforms legal work with Claude
-
-Harvey transforms legal work with Claude
-
-Customer story
-
-[Customer story](/customers/harvey)Customer story
+[Customer story](https://claude.com/customers/legora)Customer story

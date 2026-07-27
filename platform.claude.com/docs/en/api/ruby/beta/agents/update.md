@@ -12,10 +12,6 @@ Update Agent
 
 - `agent_id: String`
 
-- `version: Integer`
-
-  The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. The request fails if this does not match the server's current version.
-
 - `description: String`
 
   Description. Omit to preserve; send empty string or null to clear.
@@ -44,33 +40,41 @@ Update Agent
 
   Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-4-6`, or a `model_config` object for additional configuration control. Omit to preserve. Cannot be cleared.
 
-  - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more | String`
+  - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more | String`
 
     The model that will power your agent.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+    - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `:"claude-sonnet-5"`
+
+        High-performance model for coding and agents
+
       - `:"claude-fable-5"`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
+      - `:"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `:"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-6"`
 
-        Most intelligent model for building agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-6"`
 
@@ -86,11 +90,11 @@ Update Agent
 
       - `:"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `:"claude-sonnet-4-5"`
 
@@ -111,6 +115,64 @@ Update Agent
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `effort: :low | :medium | :high | 2 more | BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | 3 more`
+
+      How hard Claude works on each inference call. Accepts a bare level string (`"high"`) or `{"type": "high"}`. On create, omitting it resolves the per-model default; on update, omitting it leaves the stored value unchanged.
+
+      - `BetaManagedAgentsEffortLevel = :low | :medium | :high | 2 more`
+
+        How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
+
+        - `:low`
+
+        - `:medium`
+
+        - `:high`
+
+        - `:xhigh`
+
+        - `:max`
+
+      - `class BetaManagedAgentsEffortLow`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: :low`
+
+          - `:low`
+
+      - `class BetaManagedAgentsEffortMedium`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: :medium`
+
+          - `:medium`
+
+      - `class BetaManagedAgentsEffortHigh`
+
+        High effort. Favors reasoning depth.
+
+        - `type: :high`
+
+          - `:high`
+
+      - `class BetaManagedAgentsEffortXhigh`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: :xhigh`
+
+          - `:xhigh`
+
+      - `class BetaManagedAgentsEffortMax`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: :max`
+
+          - `:max`
 
     - `speed: :standard | :fast`
 
@@ -344,7 +406,7 @@ Update Agent
 
     - `description: String`
 
-      Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
+      Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-4096 characters.
 
     - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
@@ -366,13 +428,17 @@ Update Agent
 
       - `:custom`
 
+- `version: Integer`
+
+  The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. Must be at least 1 if specified. When supplied, the request fails if it does not match the server's current version; omit to apply the update unconditionally.
+
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 29 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -424,11 +490,19 @@ Update Agent
 
     - `:"cache-diagnosis-2026-04-07"`
 
+    - `:"dreaming-2026-04-21"`
+
     - `:"thinking-token-count-2026-05-13"`
 
     - `:"server-side-fallback-2026-06-01"`
 
+    - `:"server-side-fallback-2026-07-01"`
+
     - `:"fallback-credit-2026-06-01"`
+
+    - `:"fallback-credit-2026-07-01"`
+
+    - `:"agent-memory-2026-07-22"`
 
 ### Returns
 
@@ -470,27 +544,35 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
+      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `:"claude-sonnet-5"`
+
+          High-performance model for coding and agents
+
         - `:"claude-fable-5"`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
+        - `:"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `:"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-6"`
 
-          Most intelligent model for building agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-6"`
 
@@ -506,11 +588,11 @@ Update Agent
 
         - `:"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `:"claude-sonnet-4-5"`
 
@@ -521,6 +603,50 @@ Update Agent
           High-performance model for agents and coding
 
       - `String = String`
+
+    - `effort: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+      How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+      - `class BetaManagedAgentsEffortLow`
+
+        Low effort. Favors latency over reasoning depth.
+
+        - `type: :low`
+
+          - `:low`
+
+      - `class BetaManagedAgentsEffortMedium`
+
+        Medium effort. Balances latency and reasoning depth.
+
+        - `type: :medium`
+
+          - `:medium`
+
+      - `class BetaManagedAgentsEffortHigh`
+
+        High effort. Favors reasoning depth.
+
+        - `type: :high`
+
+          - `:high`
+
+      - `class BetaManagedAgentsEffortXhigh`
+
+        Extra-high effort. Not all models accept this level.
+
+        - `type: :xhigh`
+
+          - `:xhigh`
+
+      - `class BetaManagedAgentsEffortMax`
+
+        Maximum effort. Favors reasoning depth over latency.
+
+        - `type: :max`
+
+          - `:max`
 
     - `speed: :standard | :fast`
 
@@ -737,7 +863,7 @@ require "anthropic"
 
 anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 
-beta_managed_agents_agent = anthropic.beta.agents.update("agent_011CZkYpogX7uDKUyvBTophP", version: 1)
+beta_managed_agents_agent = anthropic.beta.agents.update("agent_011CZkYpogX7uDKUyvBTophP")
 
 puts(beta_managed_agents_agent)
 ```
@@ -762,6 +888,9 @@ puts(beta_managed_agents_agent)
   },
   "model": {
     "id": "claude-sonnet-4-6",
+    "effort": {
+      "type": "low"
+    },
     "speed": "standard"
   },
   "multiagent": {

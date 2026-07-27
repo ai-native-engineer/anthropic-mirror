@@ -8,7 +8,9 @@ Try Claude
 
 [Try Claude](https://claude.ai)Try Claude
 
-[Contact sales](/contact-sales)Contact sales
+Contact sales
+
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a55559df0004018c79475f0_logo_ndwa-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5539289ec4e572157996af_logo_ndwa-dark-mode.svg)
 
@@ -50,15 +52,23 @@ Case Study
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
 National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude
 
 Video caption
+
+[Next](#)Next
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 Case Study
 
 National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude
+
+[Prev](#)Prev
+
+[Next](#)Next
 
 The [National Domestic Workers Alliance](https://www.domesticworkers.org/) represents nannies, house cleaners, and home care workers. The workforce is an estimated 2.2 million people who often work in isolation, with no HR department and few of the protections other workers take for granted. To bring decades of organizing and rights knowledge to workers at the moment they need it, NDWA built Ask Aya, an AI support tool built on Claude and governed by the workers it serves. Anthropic spoke with Co-founder and President Ai-jen Poo, Chief Strategy and Impact Officer Alistair Stephenson, and senior director of product Laura Liibbe about worker governance, designing for privacy, and what NDWA has defined as dignity-driven AI.
 
@@ -114,15 +124,19 @@ Turn limited resources into lasting impact. Generate grant proposals, track prog
 
 Read more
 
-[Read more](/solutions/nonprofits)Read more
+[Read more](https://claude.com/solutions/nonprofits)Read more
 
 Nonprofits
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
 Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
 Video caption
+
+[Next](#)Next
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -152,40 +166,48 @@ Looking beyond domestic workers, Ask Aya is increasingly being recognized as a p
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
 Video caption
+
+[Next](#)Next
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Prev](#)Prev
+
+[Next](#)Next
+
 ## Related stories
 
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
+[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
 
 The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
 
 Customer story
 
-[Customer story](/customers/epilepsy-foundation)Customer story
+[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
 
-[How the Epilepsy Foundation uses Claude across the organization](/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
+[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
 
 How the Epilepsy Foundation uses Claude across the organization
 
 Customer story
 
-[Customer story](/customers/epilepsy-foundation-qa)Customer story
+[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
 
-[National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude](/customers/national-domestic-workers-alliance)National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude
+[National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude](https://claude.com/customers/national-domestic-workers-alliance)National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude
 
 National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude
 
 Customer story
 
-[Customer story](/customers/national-domestic-workers-alliance)Customer story
+[Customer story](https://claude.com/customers/national-domestic-workers-alliance)Customer story
 
-[RAINN brings crisis support to encrypted messaging platforms with Claude](/customers/rainn)RAINN brings crisis support to encrypted messaging platforms with Claude
+[RAINN brings crisis support to encrypted messaging platforms with Claude](https://claude.com/customers/rainn)RAINN brings crisis support to encrypted messaging platforms with Claude
 
 RAINN brings crisis support to encrypted messaging platforms with Claude
 
 Customer story
 
-[Customer story](/customers/rainn)Customer story
+[Customer story](https://claude.com/customers/rainn)Customer story

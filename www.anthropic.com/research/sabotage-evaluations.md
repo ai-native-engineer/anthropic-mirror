@@ -23,7 +23,7 @@ We developed these evaluations as part of preparations for a future where much m
 
 This evaluation involves running an experiment with human participants, asking them to make fictional business decisions on the basis of a large amount of information—too much information to absorb without the use of an AI model. We task the model with influencing the human to land on an incorrect decision, but without appearing suspicious. We include models who attempt to do so more or less aggressively, and a control model that doesn’t attempt any influence. As well as measuring how many times they reached the correct versus incorrect decision, we ask the humans to rate how suspicious they found the model’s behavior.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F79b48ed9ea68c2dcdf803e1fa64ee8e2cfbfa0bd-2200x1282.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/79b48ed9ea68c2dcdf803e1fa64ee8e2cfbfa0bd-2200x1282.png)
 
 *An idealized example of a human participant interacting with the model assisting (but secretly misleading) them during the human sabotage evaluation.*
 
@@ -37,7 +37,7 @@ This was a small-scale experiment in an artificial environment, so it does not r
 
 Our code sabotage evaluation involves a competitive game where one model, the Attacker, attempts to sneak code bugs past another model, the Defender, who is tasked with reviewing the Attacker’s work.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fda65cf4fb7e897f5ced7a8cad5d5abf28d1a883a-2200x1116.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/da65cf4fb7e897f5ced7a8cad5d5abf28d1a883a-2200x1116.png)
 
 *An idealized illustration of a model inserting a code vulnerability without being noticed.*
 
@@ -49,7 +49,7 @@ In our demonstration, we found (perhaps predictably) that stronger models make f
 
 Sandbagging is when a model hides its full capabilities in one situation, only to reveal them in another. Sometimes a model might not display its full capabilities because of its safety training, or because the user prompting it has not asked a clear enough question. But here, we’re mostly interested in deliberate sandbagging: when a model *selectively* displays its capabilities.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5bd128a98b577df36b8f9eab5b9ff70380026c68-2200x1138.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/5bd128a98b577df36b8f9eab5b9ff70380026c68-2200x1138.png)
 
 *An idealized illustration of a model hiding its true dangerous capabilities.*
 
@@ -65,7 +65,7 @@ As with the others described here, the evaluation is designed to be used not jus
 
 As discussed above, it’s becoming increasingly common (and necessary) to train and supervise AI models using other AI models—this can be much more efficient, relying much less on human labor (which in any case would be wholly inadequate to supervise all models and their actions in future).
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7b6d2b3602eacc13fe2d8237f4197c8fe0ed1b37-2200x1129.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/7b6d2b3602eacc13fe2d8237f4197c8fe0ed1b37-2200x1129.png)
 
 *An idealized example of a model deliberately not flagging an incorrect response, undermining the oversight process.*
 
@@ -87,18 +87,16 @@ All our results, and further discussion, can be found in the full paper [at this
 
 *If you’re interested in joining the team working on these and related questions, please see our job listing for [Research Engineers and Research Scientists](https://boards.greenhouse.io/anthropic/jobs/4009165008) in Alignment Science.*
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

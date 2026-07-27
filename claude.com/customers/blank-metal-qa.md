@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42a0bb96aaece6fd281bf8_logo_blankmetal-light-mode%20(1).svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42a0c1147ca2064059ee3c_logo_blankmetal-dark-mode%20(1).svg)
 
@@ -50,7 +50,7 @@ Give Claude access to your local files and let it complete tasks autonomously. A
 
 Read more
 
-[Read more](/product/cowork)Read more
+[Read more](https://claude.com/product/cowork)Read more
 
 Cowork
 
@@ -126,7 +126,7 @@ Anthropic's agentic coding tool. Claude Code understands your codebase, edits fi
 
 Read more
 
-[Read more](/product/claude-code)Read more
+[Read more](https://claude.com/product/claude-code)Read more
 
 Claude Code
 
@@ -180,34 +180,34 @@ Video caption
 
 ## Related stories
 
-[Quantium scales Claude across Australia's largest enterprises](/customers/quantium-qa)Quantium scales Claude across Australia's largest enterprises
+[Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)Caylent turns months of migration work into days with Claude Agent SDK
+
+Caylent turns months of migration work into days with Claude Agent SDK
+
+Customer story
+
+[Customer story](https://claude.com/customers/caylent)Customer story
+
+[How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)How can a two-person fabrication studio make room for problems it’s never solved before?
+
+How can a two-person fabrication studio make room for problems it’s never solved before?
+
+Customer story
+
+[Customer story](https://claude.com/customers/bla-studios)Customer story
+
+[LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)LG CNS modernizes 20-year-old enterprise systems with Claude
+
+LG CNS modernizes 20-year-old enterprise systems with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/lg-cns)Customer story
+
+[Quantium scales Claude across Australia's largest enterprises](https://claude.com/customers/quantium-qa)Quantium scales Claude across Australia's largest enterprises
 
 Quantium scales Claude across Australia's largest enterprises
 
 Customer story
 
-[Customer story](/customers/quantium-qa)Customer story
-
-[JAKALA brings production AI agents to enterprise clients across Europe with Claude](/customers/jakala)JAKALA brings production AI agents to enterprise clients across Europe with Claude
-
-JAKALA brings production AI agents to enterprise clients across Europe with Claude
-
-Customer story
-
-[Customer story](/customers/jakala)Customer story
-
-[How Brainlabs gave 1k+ marketers at its media agency an AI coworker with Claude Cowork and skills](/customers/brainlabs)How Brainlabs gave 1k+ marketers at its media agency an AI coworker with Claude Cowork and skills
-
-How Brainlabs gave 1k+ marketers at its media agency an AI coworker with Claude Cowork and skills
-
-Customer story
-
-[Customer story](/customers/brainlabs)Customer story
-
-[How PwC trained 400 consultants on Claude Code in a single session](/customers/pwc-qa)How PwC trained 400 consultants on Claude Code in a single session
-
-How PwC trained 400 consultants on Claude Code in a single session
-
-Customer story
-
-[Customer story](/customers/pwc-qa)Customer story
+[Customer story](https://claude.com/customers/quantium-qa)Customer story

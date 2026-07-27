@@ -22,7 +22,7 @@ Read more about research we’ve published on specific surveys we’ve conducted
 
 ### Introducing Anthropic Interviewer: What 1,250 professionals told us about working with AI
 
-Learn more](/news/anthropic-interviewer)
+Learn more](https://www.anthropic.com/news/anthropic-interviewer)
 
 [![Globe with detailed world map and textured landmasses on a spherical surface](https://www-cdn.anthropic.com/images/4zrzovbb/website/ffc0d7957a232518519f13c0d64896921ea215e2-1000x1000.svg)
 

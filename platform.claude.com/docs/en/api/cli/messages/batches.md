@@ -12,13 +12,17 @@ Send a batch of Message creation requests.
 
 The Message Batches API can be used to process multiple Messages API requests at once. Once a Message Batch is created, it begins processing immediately. Batches can take up to 24 hours to complete.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
 - `--request: array of object { custom_id, params }`
 
-  List of requests for prompt completion. Each is an individual request to create a Message.
+  Body param: List of requests for prompt completion. Each is an individual request to create a Message.
+
+- `--user-profile-id: optional string`
+
+  Header param: The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
 ### Returns
 
@@ -147,7 +151,7 @@ ant messages:batches create \
 
 This endpoint is idempotent and can be used to poll for Message Batch completion. To access the results of a Message Batch, make a request to the `results_url` field in the response.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -282,7 +286,7 @@ ant messages:batches retrieve \
 
 List all Message Batches within a Workspace. Most recently created batches are returned first.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -449,7 +453,7 @@ Batches may be canceled any time before processing ends. Once cancellation is in
 
 The number of canceled requests is specified in `request_counts`. To determine which requests were canceled, check the individual results within the batch. Note that cancellation may not result in any canceled requests if they were non-interruptible.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -586,7 +590,7 @@ Delete a Message Batch.
 
 Message Batches can only be deleted once they've finished processing. If you'd like to delete an in-progress batch, you must first cancel it.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -635,7 +639,7 @@ Streams the results of a Message Batch as a `.jsonl` file.
 
 Each line in the file is a JSON object containing the result of a single request in the Message Batch. Results are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
 ### Parameters
 
@@ -1258,11 +1262,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             - `type: "container_upload"`
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -1272,13 +1280,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Most capable model for cybersecurity and biology research
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-mythos-preview"`
 
@@ -1286,7 +1298,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           - `"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -1302,11 +1314,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -1318,11 +1330,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           - `"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
         - `role: "assistant"`
 
@@ -1334,17 +1346,29 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           Structured information about a refusal.
 
-          - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+          - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
             The policy category that triggered a refusal.
 
             - `"cyber"`
 
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
             - `"bio"`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
             - `"frontier_llm"`
 
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
             - `"reasoning_extraction"`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `"general_harms"`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
           - `explanation: string`
 
@@ -1354,7 +1378,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           - `type: "refusal"`
 
-        - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 3 more`
+        - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 4 more`
 
           The reason that we stopped.
 
@@ -1366,6 +1390,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           * `"tool_use"`: the model invoked one or more tools
           * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
           * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+          * `"model_context_window_exceeded"`: we exceeded the model's context window
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -1380,6 +1405,8 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `"pause_turn"`
 
           - `"refusal"`
+
+          - `"model_context_window_exceeded"`
 
         - `stop_sequence: string`
 
@@ -2362,11 +2389,15 @@ ant messages:batches results \
 
             - `type: "container_upload"`
 
-        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
 
           - `"claude-fable-5"`
 
@@ -2376,13 +2407,17 @@ ant messages:batches results \
 
             Most capable model for cybersecurity and biology research
 
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
           - `"claude-opus-4-8"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-mythos-preview"`
 
@@ -2390,7 +2425,7 @@ ant messages:batches results \
 
           - `"claude-opus-4-6"`
 
-            Frontier intelligence for long-running agents and coding
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-6"`
 
@@ -2406,11 +2441,11 @@ ant messages:batches results \
 
           - `"claude-opus-4-5"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-5-20251101"`
 
-            Premium model combining maximum intelligence with practical performance
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-sonnet-4-5"`
 
@@ -2422,11 +2457,11 @@ ant messages:batches results \
 
           - `"claude-opus-4-1"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
           - `"claude-opus-4-1-20250805"`
 
-            Exceptional model for specialized complex tasks
+            Powerful intelligence for long-running agents and coding
 
         - `role: "assistant"`
 
@@ -2438,17 +2473,29 @@ ant messages:batches results \
 
           Structured information about a refusal.
 
-          - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+          - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
             The policy category that triggered a refusal.
 
             - `"cyber"`
 
+              The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
             - `"bio"`
+
+              The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
             - `"frontier_llm"`
 
+              The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
             - `"reasoning_extraction"`
+
+              The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+            - `"general_harms"`
+
+              The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
           - `explanation: string`
 
@@ -2458,7 +2505,7 @@ ant messages:batches results \
 
           - `type: "refusal"`
 
-        - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 3 more`
+        - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 4 more`
 
           The reason that we stopped.
 
@@ -2470,6 +2517,7 @@ ant messages:batches results \
           * `"tool_use"`: the model invoked one or more tools
           * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
           * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+          * `"model_context_window_exceeded"`: we exceeded the model's context window
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -2484,6 +2532,8 @@ ant messages:batches results \
           - `"pause_turn"`
 
           - `"refusal"`
+
+          - `"model_context_window_exceeded"`
 
         - `stop_sequence: string`
 
@@ -3296,11 +3346,15 @@ ant messages:batches results \
 
           - `type: "container_upload"`
 
-      - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+      - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-sonnet-5"`
+
+          High-performance model for coding and agents
 
         - `"claude-fable-5"`
 
@@ -3310,13 +3364,17 @@ ant messages:batches results \
 
           Most capable model for cybersecurity and biology research
 
+        - `"claude-opus-5"`
+
+          Powerful intelligence for long-running agents and coding
+
         - `"claude-opus-4-8"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-mythos-preview"`
 
@@ -3324,7 +3382,7 @@ ant messages:batches results \
 
         - `"claude-opus-4-6"`
 
-          Frontier intelligence for long-running agents and coding
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-6"`
 
@@ -3340,11 +3398,11 @@ ant messages:batches results \
 
         - `"claude-opus-4-5"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-5-20251101"`
 
-          Premium model combining maximum intelligence with practical performance
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-sonnet-4-5"`
 
@@ -3356,11 +3414,11 @@ ant messages:batches results \
 
         - `"claude-opus-4-1"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
         - `"claude-opus-4-1-20250805"`
 
-          Exceptional model for specialized complex tasks
+          Powerful intelligence for long-running agents and coding
 
       - `role: "assistant"`
 
@@ -3372,17 +3430,29 @@ ant messages:batches results \
 
         Structured information about a refusal.
 
-        - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+        - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
           The policy category that triggered a refusal.
 
           - `"cyber"`
 
+            The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
           - `"bio"`
+
+            The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
           - `"frontier_llm"`
 
+            The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
           - `"reasoning_extraction"`
+
+            The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+          - `"general_harms"`
+
+            The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
         - `explanation: string`
 
@@ -3392,7 +3462,7 @@ ant messages:batches results \
 
         - `type: "refusal"`
 
-      - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 3 more`
+      - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 4 more`
 
         The reason that we stopped.
 
@@ -3404,6 +3474,7 @@ ant messages:batches results \
         * `"tool_use"`: the model invoked one or more tools
         * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
         * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+        * `"model_context_window_exceeded"`: we exceeded the model's context window
 
         In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -3418,6 +3489,8 @@ ant messages:batches results \
         - `"pause_turn"`
 
         - `"refusal"`
+
+        - `"model_context_window_exceeded"`
 
       - `stop_sequence: string`
 
@@ -4192,11 +4265,15 @@ ant messages:batches results \
 
         - `type: "container_upload"`
 
-    - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 12 more or string`
+    - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 14 more or string`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-sonnet-5"`
+
+        High-performance model for coding and agents
 
       - `"claude-fable-5"`
 
@@ -4206,13 +4283,17 @@ ant messages:batches results \
 
         Most capable model for cybersecurity and biology research
 
+      - `"claude-opus-5"`
+
+        Powerful intelligence for long-running agents and coding
+
       - `"claude-opus-4-8"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-mythos-preview"`
 
@@ -4220,7 +4301,7 @@ ant messages:batches results \
 
       - `"claude-opus-4-6"`
 
-        Frontier intelligence for long-running agents and coding
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-6"`
 
@@ -4236,11 +4317,11 @@ ant messages:batches results \
 
       - `"claude-opus-4-5"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-5-20251101"`
 
-        Premium model combining maximum intelligence with practical performance
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-sonnet-4-5"`
 
@@ -4252,11 +4333,11 @@ ant messages:batches results \
 
       - `"claude-opus-4-1"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
       - `"claude-opus-4-1-20250805"`
 
-        Exceptional model for specialized complex tasks
+        Powerful intelligence for long-running agents and coding
 
     - `role: "assistant"`
 
@@ -4268,17 +4349,29 @@ ant messages:batches results \
 
       Structured information about a refusal.
 
-      - `category: "cyber" or "bio" or "frontier_llm" or "reasoning_extraction"`
+      - `category: "cyber" or "bio" or "frontier_llm" or 2 more`
 
         The policy category that triggered a refusal.
 
         - `"cyber"`
 
+          The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+
         - `"bio"`
+
+          The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
         - `"frontier_llm"`
 
+          The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+
         - `"reasoning_extraction"`
+
+          The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+
+        - `"general_harms"`
+
+          The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
       - `explanation: string`
 
@@ -4288,7 +4381,7 @@ ant messages:batches results \
 
       - `type: "refusal"`
 
-    - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 3 more`
+    - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 4 more`
 
       The reason that we stopped.
 
@@ -4300,6 +4393,7 @@ ant messages:batches results \
       * `"tool_use"`: the model invoked one or more tools
       * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
       * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+      * `"model_context_window_exceeded"`: we exceeded the model's context window
 
       In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -4314,6 +4408,8 @@ ant messages:batches results \
       - `"pause_turn"`
 
       - `"refusal"`
+
+      - `"model_context_window_exceeded"`
 
     - `stop_sequence: string`
 

@@ -29,34 +29,34 @@ Explore several examples of how Claude can be used by engineering teams.
 
 ## Related tutorials
 
-[Using Claude Design for prototypes and UX](/resources/tutorials/using-claude-design-for-prototypes-and-ux)Using Claude Design for prototypes and UX
+[Using Claude Design for prototypes and UX](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)Using Claude Design for prototypes and UX
 
 Using Claude Design for prototypes and UX
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-claude-design-for-prototypes-and-ux)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)Tutorial
 
-[What is Claude Managed Agents?](/resources/tutorials/what-is-claude-managed-agents)What is Claude Managed Agents?
+[What is Claude Managed Agents?](https://claude.com/resources/tutorials/what-is-claude-managed-agents)What is Claude Managed Agents?
 
 What is Claude Managed Agents?
 
 Tutorial
 
-[Tutorial](/resources/tutorials/what-is-claude-managed-agents)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/what-is-claude-managed-agents)Tutorial
 
-[Using Claude Code Remote Control](/resources/tutorials/using-claude-code-remote-control)Using Claude Code Remote Control
+[Using Claude Code Remote Control](https://claude.com/resources/tutorials/using-claude-code-remote-control)Using Claude Code Remote Control
 
 Using Claude Code Remote Control
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-claude-code-remote-control)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-claude-code-remote-control)Tutorial
 
-[Troubleshooting skills](/resources/tutorials/troubleshooting-skills)Troubleshooting skills
+[Troubleshooting skills](https://claude.com/resources/tutorials/troubleshooting-skills)Troubleshooting skills
 
 Troubleshooting skills
 
 Tutorial
 
-[Tutorial](/resources/tutorials/troubleshooting-skills)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/troubleshooting-skills)Tutorial

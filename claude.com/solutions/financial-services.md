@@ -20,7 +20,7 @@ Claude helps leading financial institutions across banking, insurance, asset man
 
 Contact sales
 
-[Contact sales](/contact-sales/financial-services)Contact sales
+[Contact sales](https://claude.com/contact-sales/financial-services)Contact sales
 
 Try Claude
 
@@ -226,7 +226,7 @@ Build pitch books, comps tables, and CIMs directly in PowerPoint and Excel. Clau
 
 Read guide
 
-[Read guide](/resources/use-cases/update-your-financial-model-after-earnings)Read guide
+[Read guide](https://claude.com/resources/use-cases/update-your-financial-model-after-earnings)Read guide
 
 Prompt
 
@@ -278,7 +278,7 @@ Asset management teams can generate IC memos, performance decks, and portfolio r
 
 Read guide
 
-[Read guide](/resources/use-cases/draft-investment-memos)Read guide
+[Read guide](https://claude.com/resources/use-cases/draft-investment-memos)Read guide
 
 Prompt
 
@@ -320,7 +320,7 @@ Claude in the surfaces you already use. Build and refine a model in Excel, turn 
 
 Learn more
 
-[Learn more](/claude-for-microsoft-365)Learn more
+[Learn more](https://claude.com/claude-for-microsoft-365)Learn more
 
 ### Claude Cowork
 
@@ -328,7 +328,7 @@ Delegate work so you're reviewing and refining, not building from scratch. Claud
 
 Learn more
 
-[Learn more](/product/cowork)Learn more
+[Learn more](https://claude.com/product/cowork)Learn more
 
 ### Claude Code
 
@@ -336,7 +336,7 @@ Speed up software development and update legacy systems with Claude Code, the co
 
 Learn more
 
-[Learn more](/product/claude-code)Learn more
+[Learn more](https://claude.com/product/claude-code)Learn more
 
 ### Platform
 
@@ -344,7 +344,7 @@ Integrate Claude’s AI directly into bespoke trading platforms, risk systems, K
 
 Learn more
 
-[Learn more](/platform/api)Learn more
+[Learn more](https://claude.com/platform/api)Learn more
 
 Webinar
 
@@ -430,19 +430,19 @@ Learn more
 
 Contact sales
 
-[Contact sales](/contact-sales/financial-services)Contact sales
+[Contact sales](https://claude.com/contact-sales/financial-services)Contact sales
 
 Try Claude
 
 [Try Claude](https://claude.ai)Try Claude
 
-[IG Group boosts productivity and saves operational costs with Claude for Work](/customers/ig-group)IG Group boosts productivity and saves operational costs with Claude for Work
+[IG Group boosts productivity and saves operational costs with Claude for Work](https://claude.com/customers/ig-group)IG Group boosts productivity and saves operational costs with Claude for Work
 
 IG Group boosts productivity and saves operational costs with Claude for Work
 
 Case study
 
-[Case study](/customers/ig-group)Case study
+[Case study](https://claude.com/customers/ig-group)Case study
 
 [Transforming financial analysis at scale: How BCI uses Claude’s financial analysis solution](https://www.anthropic.com/webinars/bci-claude-financial-analysis)Transforming financial analysis at scale: How BCI uses Claude’s financial analysis solution
 

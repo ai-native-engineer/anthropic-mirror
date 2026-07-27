@@ -14,7 +14,7 @@ encrypted data requires the original key identity to decrypt.
 
 - `external_key_id: string`
 
-  ID of the External Key to update.
+  ID of the External Key.
 
 ### Body Parameters
 
@@ -28,19 +28,15 @@ encrypted data requires the original key identity to decrypt.
 
   - `"us"`
 
-- `provider_config: optional object { kms_arn, role_arn, type, region }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+- `provider_config: optional object { kms_arn, type, region, role_arn }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
 
   KMS provider identity and auth coordinates.
 
-  - `Aws object { kms_arn, role_arn, type, region }`
+  - `Aws object { kms_arn, type, region, role_arn }`
 
     - `kms_arn: string`
 
       Full ARN of the AWS KMS key.
-
-    - `role_arn: string`
-
-      IAM role ARN that Anthropic assumes to access the KMS key.
 
     - `type: "aws"`
 
@@ -49,6 +45,10 @@ encrypted data requires the original key identity to decrypt.
     - `region: optional string`
 
       AWS region. Derived from kms_arn if omitted.
+
+    - `role_arn: optional string`
+
+      IAM role ARN. Deprecated — Anthropic reaches the KMS key via a managed intermediate role; this field is ignored.
 
   - `Gcp object { key_name, type }`
 
@@ -61,6 +61,8 @@ encrypted data requires the original key identity to decrypt.
       - `"gcp"`
 
   - `Azure object { key_name, tenant_id, type, 2 more }`
+
+    Azure Key Vault provider configuration.
 
     - `key_name: string`
 
@@ -76,41 +78,37 @@ encrypted data requires the original key identity to decrypt.
 
     - `vault_uri: string`
 
-      Key Vault URI.
+      Key Vault data-plane URI — https://<vault-name>.vault.azure.net or https://<hsm-name>.managedhsm.azure.net.
 
     - `client_id: optional string`
 
-      Azure AD application (client) ID. Omit to use Anthropic's multi-tenant app. Provide only if using a single-tenant app registration in the customer's directory.
+      Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
 
 ### Returns
 
 - `id: string`
 
-  Tagged ID of the external key config.
+  Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
 
 - `created_at: string`
 
 - `display_name: string`
 
-  Human-friendly display name.
+  Human-friendly display name. Null if none was set.
 
 - `geo: string`
 
   Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
 
-- `provider_config: object { kms_arn, role_arn, type, region }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+- `provider_config: object { kms_arn, type, region, role_arn }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
 
   KMS provider identity and auth coordinates.
 
-  - `Aws object { kms_arn, role_arn, type, region }`
+  - `Aws object { kms_arn, type, region, role_arn }`
 
     - `kms_arn: string`
 
       Full ARN of the AWS KMS key.
-
-    - `role_arn: string`
-
-      IAM role ARN that Anthropic assumes to access the KMS key.
 
     - `type: "aws"`
 
@@ -119,6 +117,10 @@ encrypted data requires the original key identity to decrypt.
     - `region: optional string`
 
       AWS region. Derived from kms_arn if omitted.
+
+    - `role_arn: optional string`
+
+      IAM role ARN. Deprecated — Anthropic reaches the KMS key via a managed intermediate role; this field is ignored.
 
   - `Gcp object { key_name, type }`
 
@@ -146,11 +148,11 @@ encrypted data requires the original key identity to decrypt.
 
     - `vault_uri: string`
 
-      Key Vault URI.
+      Key Vault data-plane URI — https://<vault-name>.vault.azure.net or https://<hsm-name>.managedhsm.azure.net.
 
     - `client_id: optional string`
 
-      Azure AD application (client) ID. Omit to use Anthropic's multi-tenant app. Provide only if using a single-tenant app registration in the customer's directory.
+      Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
 
 - `type: "external_key"`
 
@@ -178,9 +180,9 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID \
   "geo": "us",
   "provider_config": {
     "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
-    "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek",
     "type": "aws",
-    "region": "us-east-1"
+    "region": "us-east-1",
+    "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek"
   },
   "type": "external_key",
   "updated_at": "2024-10-30T23:58:27.427722Z"

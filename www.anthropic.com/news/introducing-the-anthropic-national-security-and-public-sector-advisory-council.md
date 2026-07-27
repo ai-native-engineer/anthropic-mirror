@@ -4,7 +4,7 @@
 
 Aug 27, 2025
 
-![Introducing the Anthropic National Security and Public Sector Advisory Council](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F45c41da0a894deb7c2265fffc882caa4a716947d-1600x1203.png&w=3840&q=75)
+![Introducing the Anthropic National Security and Public Sector Advisory Council](https://www-cdn.anthropic.com/images/4zrzovbb/website/45c41da0a894deb7c2265fffc882caa4a716947d-1600x1203.png)
 
 Today, we are announcing the formation of the Anthropic National Security and Public Sector Advisory Council, a group of leading bipartisan national security and public policy practitioners who will help Anthropic support the U.S. government and closely allied democracies in building and maintaining enduring technological advantages in an era of strategic competition.
 

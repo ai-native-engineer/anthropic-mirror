@@ -20,7 +20,7 @@ Introduction to Cowork](https://anthropic.skilljar.com/introduction-to-claude-co
 
 Start developing Claude-powered applications with our comprehensive API guides and best practices
 
-[Learn more](/learn/build-with-claude)
+[Learn more](https://www.anthropic.com/learn/build-with-claude)
 
 ![Interlocking puzzle piece with complex geometric shape and detailed surface texture](https://www-cdn.anthropic.com/images/4zrzovbb/website/43abe7e54b56a891e74a8542944dfbd33f07f49c-1000x1000.svg)
 
@@ -28,7 +28,7 @@ Start developing Claude-powered applications with our comprehensive API guides a
 
 Learn to implement Claude across your organization and maximize team productivity
 
-[Learn more](/learn/claude-for-work)
+[Learn more](https://www.anthropic.com/learn/claude-for-work)
 
 ![Hand with connecting network nodes and lines on abstract background](https://www-cdn.anthropic.com/images/4zrzovbb/website/1576ae23eaf481f33bd36ab468171cc69d12361a-1000x1000.svg)
 
@@ -36,7 +36,7 @@ Learn to implement Claude across your organization and maximize team productivit
 
 Discover how to leverage Claude's capabilities for your individual projects and daily tasks
 
-[Learn more](/learn/claude-for-you)
+[Learn more](https://www.anthropic.com/learn/claude-for-you)
 
 ![Hand with organic flower petals emerging from palm, rooted in botanical growth pattern](https://www-cdn.anthropic.com/images/4zrzovbb/website/c1ef4c0b6882dfe985555b52999d370ea88a3c50-1000x1000.svg)
 

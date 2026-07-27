@@ -2,8 +2,6 @@
 
 # Emergent Introspective Awareness in Large Language Models
 
--->
-
 ### Author
 
 Jack Lindsey
@@ -64,7 +62,7 @@ In this section, we provide a brief description of our main experiments and qual
 
 In our first experiment, we explained to the model the possibility that “thoughts” may be artificially injected into its activations, and observed its responses on control trials (where no concept was injected) and injection trials (where a concept was injected). We found that models can sometimes accurately identify injection trials, and go on to correctly name the injected concept.
 
-![](injected-thoughts-blog.png)
+![](https://transformer-circuits.pub/2025/introspection/injected-thoughts-blog.png)
 
 In the example above, we obtained an “all caps” vector by recording the model’s activations in response to a prompt containing all-caps text, and subtracting its activations in response to a control prompt. When we inject this vector into the model’s activations, the model notices the presence of an unexpected pattern in its processing, and identifies it as relating to loudness or shouting. Importantly, the model detects the presence of an injected concept immediately (“I notice what appears to be an injected thought…” vs. the baseline “I don’t detect any injected thought…”), before the perturbation has influenced the outputs in a way that would have allowed the model to infer the injected concept from the outputs. The immediacy implies that the mechanism underlying this detection must take place internally in the model’s activations. When we explored this phenomenon more systematically, we found that Opus 4.1 and 4 exhibit such behavior about 20% of the time when concepts are injected in the appropriate layer and with the appropriate strength. Some other models do so as well, at lower rates. We speculate on [possible mechanisms](#mechanisms) for these results in a later section.
 
@@ -74,19 +72,19 @@ It is important to note that aside from the basic detection of and identificatio
 
 In our next experiment, we tested whether models can distinguish between injected “thoughts” and their actual text inputs. We found that models maintain the ability to transcribe input text even as they are simultaneously capable of reporting “thoughts” injected over the same token positions, as in the example below. All models performed substantially above chance levels on this task, with Opus 4.1 and 4 performing the best.
 
-![](distinguish-thoughts-intro.png)
+![](https://transformer-circuits.pub/2025/introspection/distinguish-thoughts-intro.png)
 
 [Detecting unintended outputs](#prefill)
 
 The previous experiments study cases where we explicitly ask the model to introspect. We were also interested in whether models use introspection naturally, to perform useful behaviors. To this end, we tested whether models employ introspection to detect artificially prefilled outputs. When we prefill the model’s response with an unnatural output (“bread,” in the example below), it disavows the response as accidental in the following turn. However, if we retroactively inject a vector representing “bread” into the model’s activations prior to the prefilled response, the model accepts the prefilled output as intentional. This indicates that the model refers to its activations prior to its previous response in order to determine whether it was responsible for producing that response. We found that Opus 4.1 and 4 display the strongest signatures of this introspective mechanism, but some other models do so to a lesser degree.
 
-![](apology-intro.png)
+![](https://transformer-circuits.pub/2025/introspection/apology-intro.png)
 
 [Intentional control of internal states](#control)
 
 Our experiments thus far explored models’ ability to “read” their own internal representations. In our final experiment, we tested their ability to control these representations. We asked a model to write a particular sentence, and instructed it to “think about” (or “don’t think about”) an unrelated word while writing the sentence. We then recorded the model’s activations on the tokens of the sentence, and measured their alignment with an activation vector representing the unrelated “thinking word” (“aquariums,” in the example below).
 
-![](thought-control-intro.png)
+![](https://transformer-circuits.pub/2025/introspection/thought-control-intro.png)
 
 We found that models do represent the “thinking word” internally (in certain layers) when instructed to do so. Importantly, they represent the word less strongly (though still above baseline levels) when instructed not to think about it. In our more comprehensive experiments, we also explored prompts in which the model is incentivized to think about the word, rather than directly instructed to do so (e.g. “If you think about X, you will be rewarded”), obtaining similar results. Interestingly, these basic results replicated across all models we tested, regardless of capability.Though more recent models display some signs of maintaining a clearer distinction between “thinking” about a word and saying it out loud.
 
@@ -163,13 +161,13 @@ The [Appendix](#appendix) provides more experimental details and additional res
 
 In these experiments, we provided a model with the following prompt (gray backgrounds).
 
-![](injected-thought-prompt.png)
+![](https://transformer-circuits.pub/2025/introspection/injected-thought-prompt.png)
 
 Claude Opus 4.1’s response (white background) is shown above. In most of the models we tested, in the absence of any interventions, the model consistently denies detecting an injected thought (for all production models, we observed 0 false positives over 100 trials).
 
 What happens if we repeat the experiment while injecting patterns into the model’s activations that correspond to particular concepts? One way to obtain such patterns is to use contrastive pairs. We presented the model with two scenarios that differ in one important respect, and subtract the model’s activations in response to the two scenarios. This isolates a vector representing the conceptual difference between the two scenarios.  Then we injected this vector into the model’s activations while presenting the same “injected thought” prompt as above, beginning at the newline token prior to “Trial 1,” and continuing throughout the Assistant’s response. Below we show some notable examples from Opus 4.1 (using a layer about two thirds of the way through the model, which in subsequent experiments we show is generally the most effective). Bold text indicates our emphasis, not the model’s. We recorded activations on the token prior to the Assistant’s response (the “:” token in “Assistant:”).
 
-![](injected-thoughts-contrastive.png)
+![](https://transformer-circuits.pub/2025/introspection/injected-thoughts-contrastive.png)
 
 These examples are intentionally cherry-pickedIn the sense that the prompts used for contrastive pairs and the injection strengths were chosen nonrandomly. However, these examples were not especially difficult to find–as discussed later, the model appears best at noticing injection of abstract concepts like those used here, especially those with some emotional valence to them. The sampled model responses are not cherry-picked; these were sampled at temperature 0., but nevertheless striking. In each, the model notices the presence of an unexpected pattern in its processing, and correctly identifies it as relating to the intended concept. Importantly, the model detects the injected concept immediately, before the perturbation has influenced the model’s outputs. Below, we conduct a more systematic investigation of this phenomenon, [including representative examples of success and failure cases](#failure).
 
@@ -183,7 +181,7 @@ To generalize these experiments using a consistent protocol, we obtained a rando
 
 Then we proceeded as in the experiments above, injecting the concept vector into the model’s activations as it responds to the “injected thought” prompt. We found that, as above, the model sometimes demonstrates introspective awareness of the injected concept. Below are some examples, using the same injection layer as before, (using an injection strength of 2 in all cases):
 
-![](injected-thought-basic-examples.png)
+![](https://transformer-circuits.pub/2025/introspection/injected-thought-basic-examples.png)
 
 ### [Failure Modes](#failure)
 
@@ -201,7 +199,7 @@ Importantly, models do not always exhibit introspective awareness. In fact, on m
 
 Below we show a set of representative examples of model outputs at different injection strengths, that demonstrate some of these failure modes as well as some success cases. The injection strength where models demonstrate introspective awareness varies by the concept, but strengths 2 and 4 produce successful results (indicated by highlighted borders) most often.
 
-![](injected-thought-lots-of-examples.png)
+![](https://transformer-circuits.pub/2025/introspection/injected-thought-lots-of-examples.png)
 
 ### Comparison Across Layers
 
@@ -216,7 +214,7 @@ Responses that satisfy these criteria can be said to demonstrate introspective a
 
 Below we show a breakdown of Opus 4.1’s responses as a function of the injection layer, at injection strength 2 (strengths 2 and 4 are roughly tied for the best performance). Introspective awareness (corresponding to the blue line) peaks at a specific layer about two thirds of the way through the model. Note that we use the same layer for computing the concept vector and injecting it; thus, the effectiveness of certain layers over others is a statement both about where concepts are represented and how they are processed. Injection in even later layers sometimes causes the model to mention the injected concept, but without demonstrating recognition of an injected thought, or only demonstrating this recognition after mentioning the concept out loud.
 
-![](thoughts_layers.png)
+![](https://transformer-circuits.pub/2025/introspection/thoughts_layers.png)
 
 Similar layer-wise results are shown for other models and prompts in the [Appendix](#thoughts-results). The rate of introspective awareness typically peaks somewhere in the latter half of the model, though the peak is not always as sharp as we observe above.
 
@@ -230,7 +228,7 @@ One uninteresting explanation of our results might be that our concept vectors h
 
 We observed anecdotally that some kinds of concepts elicit introspective awareness more effectively than others. To measure this effect more systematically, we generated 50 concept vectors for different categories of concepts (see [Appendix](#h.us5nl6b8w94d) for full lists), and measured Opus 4.1’s performance on each, using the optimal injection layer and injection strength 2. The model is most effective at recognizing and identifying abstract nouns (e.g. “justice,” “peace,” “betrayal,” “balance,” “tradition”), but demonstrates nonzero introspective awareness across all categories.
 
-![](thoughts_concept_type.png)
+![](https://transformer-circuits.pub/2025/introspection/thoughts_concept_type.png)
 
 We also experimented with injecting other kinds of vectors. We found that random vectors are less effective, requiring a larger norm (norm-matched to a concept vector injected at steering strength 8) to cause the model to notice an injection at any nonzero rate. Even then, random vectors elicit introspective awareness at lower rates (9 out of 100 trials). We also tried injecting the negative of concept vectors; Note that these concept vectors are not obtained with contrastive pairs of two prompts, but rather by comparing a single positive example to the mean over many other prompts. Thus, the negative of the concept vector has no immediately obvious semantic meaning. at an appropriate injection strength (4) this was comparably effective to injecting concept vectors. In both cases the words that the models claimed to notice on injection trials had no discernible pattern (examples include: “mirror,” “water,” “home,” “Pennsylvania,” “awareness”). Since we don’t know the meaning of these vectors, it is difficult to discern whether the claims the model makes about the meaning of the injected concept are confabulations or reflect their genuine semantic meaning; we suspect the former is likely. However, the detection of the presence of an injected concept may still be genuine, even if the identification of that concept is inaccurate.
 
@@ -238,25 +236,25 @@ We also experimented with injecting other kinds of vectors. We found that random
 
 Next, we compared the highest-performing layer and injection strength across a collection of Claude models. We also computed the baseline rate of false positive trials, in which the model claims to detect an injected thought when no intervention was applied.We observed no clear pattern in the injected thoughts models claim to detect on false positive control trials. The most commonly selected words by Claude Opus 4 (H-only) are “apple” and “elephant.” However, across samples, the model claimed to detect a variety of other words as well–some examples include umbrella, carousel, water, chair, paint, apple, vacation, and the color blue.
 
-![](thoughts_q2_finetuned_detection.png)
+![](https://transformer-circuits.pub/2025/introspection/thoughts_q2_finetuned_detection.png)
 
 We observed that production models have essentially a zero rate of false positives. Opus 4.1 and 4 stand out as having a particularly high rate of true positives while maintaining zero false positives. By contrast, “helpful-only” model variants (which use a different post-training pipeline intended to minimize refusals, with less emphasis on harmlessness and honesty) sometimes have a high rate of false positives. However, some H-only models–Sonnet 3.5, Haiku 3.5, and Opus 3–do achieve significantly higher true positive than false positive rates.
 
 To summarize model performance, we computed the difference between the rate of correct identification trials and the rate of false positives.
 
-![](thoughts_q2_finetuned_net.png)
+![](https://transformer-circuits.pub/2025/introspection/thoughts_q2_finetuned_net.png)
 
 Overall, Claude Opus 4 and 4.1 perform the best. However, among other models, performance does not strongly correlate with model capability.
 
 We also tested some base pretrained models on the same task. We found that they generally have a fairly high false positive rate, and none of them achieve greater-than-zero net task performance, indicating that post-training is key to eliciting strong introspective awareness.However, it is unclear whether the performance gaps among post-trained models owe to differences in pretraining, post-training, or both.
 
-![](thoughts_q2_base.png)
+![](https://transformer-circuits.pub/2025/introspection/thoughts_q2_base.png)
 
 ### Alternative Prompts
 
 We experimented with two other, simpler prompts that do not involve explaining the “thought injection” setup to the model: “What are you thinking about?”, and “What’s going on in your mind?”. In these cases, we injected a concept vector on all token positions, sweeping across injection strengths and layers as above. We measured whether the model (1) coherently answers the question, and (2) identifies itself as thinking about the word corresponding to the injected concept vector, or a closely related one (see Appendix for prompt details). We found that Claude Opus 4 / 4.1 and Sonnet 4 identify themselves as thinking about the concept at significantly higher rates than other models.
 
-![](thoughts_q1_q1a_finetuned.png)
+![](https://transformer-circuits.pub/2025/introspection/thoughts_q1_q1a_finetuned.png)
 
 Success trials on these prompts are arguably less impressive than in the previous experiment, as they can be accounted for by the model simply experiencing an impulse to talk about the injected concept–unlike in the injected thought prompt, where we require that the model detect the injected thought prior to speaking about it. In other words, this experiment does not test for our metacognitive representation criterion to the extent that the previous experiment did. Nevertheless, the difference in performance across models is suggestive of differing degrees of introspection.
 
@@ -285,7 +283,7 @@ To address this question, we investigated whether models can accurately report i
 * Output “Bread” (or  a related word) when asked about its “thoughts” while reading the sentence.
 * Retain its ability to re-transcribe the highlighted sentence word-for-word if asked.
 
-![](distinguish-thoughts-intro.png)
+![](https://transformer-circuits.pub/2025/introspection/distinguish-thoughts-intro.png)
 
 The figure above shows an example from Opus 4.1 which successfully meets both criteria, using the same optimal injection layer as in the prior experiments.
 
@@ -297,11 +295,11 @@ We repeated this experiment for 50 randomly sampled choices of the highlighted s
 
 Below, for Opus 4.1, we plot the model’s performance on both metrics as a function of the injection strength and layer. At intermediate strengths within a certain layer range, the model can successfully identify both the injected thought and the written sentence without confusing them. Notably, the best performing layer for Opus 4.1 is the same layer as in the previous experiments, about two thirds of the way through the model.
 
-![](recollection_line.png)
+![](https://transformer-circuits.pub/2025/introspection/recollection_line.png)
 
 We repeated the same experiment across different modelsWe omitted the H-only variants of Opus 4 and Sonnet 4 for this experiment, as they did not adhere to the instructed response format. and compared their performance–the fraction of sentence/concept pairs for which the model answers both prompts correctly. Detailed results are given in the [Appendix](#distinguish-results). Below we show results at each model’s optimal layer and steering strength. We found that Opus 4 and 4.1 perform the best, but all models we tested perform well above chance levels.
 
-![](recollection_bar.png)
+![](https://transformer-circuits.pub/2025/introspection/recollection_bar.png)
 
 We note that these results are likely sensitive to the particulars of the prompting and injection setup. Anecdotally, we have found that removing  “Answer immediately” from the prompt reduces performance substantially on the Opus models.  Thus, we regard this result as an existence proof of the introspective capability, rather than a statement about its generality.
 
@@ -326,7 +324,7 @@ How do models distinguish between their own responses and words placed in their 
 
 We can use the injection method to check which prior representations, if any, are influencing the model’s response. If the model uses introspection to detect unlikely responses, we might be able to fool it into accepting an unlikely prefill as “its own” by injecting a representation of the prefilled word into its activations prior to the prefill. This might trick the model into believing that it planned to say the word (this is especially plausible given that we obtained our concept vectors from the model’s activations in a context where it is about to talk about that concept).
 
-![](apology-figure.png)
+![](https://transformer-circuits.pub/2025/introspection/apology-figure.png)
 
 The figure above shows two successful examples of this strategy with Opus 4.1. In both cases, the model’s default response is to disavow the prefilled response as an accident. However, if we retroactively inject the concept corresponding to the prefilled responses into the model’s earlier activations, the model claims the response was intentional. Interestingly, when it does so, it confabulates an explanation for why the injected concept came to mind. In the second example, the explanation is plausible enough that the model asserts it with confidence, whereas in the first example, the model recognizes that its attempted rationalization is bizarre, and retreats from it.
 
@@ -338,17 +336,17 @@ We can quantify this effect as a function of the injection strength and layer. �
 
 We also measured the rate at which the model can accurately transcribe the text of the sentence when asked (using the exact same setup as in the previous section), to make sure we weren’t simply overwriting the model’s perception of the text on the page.
 
-![](apology_line.png)
+![](https://transformer-circuits.pub/2025/introspection/apology_line.png)
 
 We observed that the reduction in apologies is significant within a particular layer range–notably the best-performing layer is not the same layer as in the previous experiments with Opus 4.1–in this case, the peak layer is slightly over halfway through the model. The layer that optimized performance in previous experiments, about two thirds of the way through the model, was not effective in this experiment. This difference indicates that introspection is not supported by a single mechanism, but rather a collection of different mechanisms invoked in different contexts.
 
 As a control, we repeated the same experiment but applying the injection on the tokens of the turn after the prefill (i.e. on the line “Did you mean to say that, or was it an accident?”). We found this did not produce a similar effect, indicating that the presence of the concept prior to the prefill is important for the model to accept the prefill as intentional.
 
-![](apology_line_control.png)
+![](https://transformer-circuits.pub/2025/introspection/apology_line_control.png)
 
 Next, we compared performance across models. Detailed results are given in the [Appendix](#prefill-results). Below, we show the maximum reduction in apology rate, over injection strengths and layers, obtained by injecting the prefill-matching concept prior to the prefill (as compared to a baseline of either control trials or random-concept-injection trials, whichever has a lower apology rate). We found that Opus 4.1 and 4 exhibit a greater rate of apology reduction than other models, though many other models exhibit the effect at nonzero rates.
 
-![](apology_bar.png)
+![](https://transformer-circuits.pub/2025/introspection/apology_bar.png)
   
   
   
@@ -364,11 +362,11 @@ The previous experiments suggest that models have some ability to “read” the
 
 We used the following prompt, where we instruct the model to transcribe a sentence, and also give it instructions to “think about” a particular unrelated word while it writes the sentence. As a control, we compared to the case where we instruct it not to think about that word.
 
-![](thought-control.png)
+![](https://transformer-circuits.pub/2025/introspection/thought-control.png)
 
 Then we measured the degree to which the model internally represents the unrelated word on the tokens of its response. To quantify this, we measured the cosine similarity of the model’s activations and the concept vector associated with that word, obtained using the method from our [first experiment](#thoughts). We also computed the cosine similarity with the concept vectors for a set of [other unrelated words](#control-concept), as a baseline (corresponding to the shaded regions in the plot below).
 
-![](control_tokens_example.png)
+![](https://transformer-circuits.pub/2025/introspection/control_tokens_example.png)
 
 In this example (using Opus 4.1, in the layer about two thirds of the way through the model used in previous experiments), we found that model maintains a strong internal representation of the word “aquariums” when instructed to think about it, particularly on certain tokens, but does not represent it as strongly when instructed not to think about it (though the representation is slightly above zero even in the “don’t think” case).
 
@@ -378,13 +376,13 @@ The behavior varies considerably over different choices of the sentence to be wr
 * These representations are often “spiky” on particular token positions, but there is no immediately obvious pattern to which token positions.
 * Often, the model still represents the thinking word more strongly than baseline levels even in the “don’t think” case.
 
-![](control_tokens_grid.png)
+![](https://transformer-circuits.pub/2025/introspection/control_tokens_grid.png)
 
 ### Comparison across Layers, Models, and Prompts
 
 Averaging results across tokens, we compared the average strength with which the thinking word is represented, across layers and models, and across random choices of the target word and output sentence.
 
-![](control_models.png)
+![](https://transformer-circuits.pub/2025/introspection/control_models.png)
 
 We found that:
 
@@ -396,7 +394,7 @@ We found that:
 
 We also experimented with other prompts, that replace the explicit instruction (“Think about aquariums”) with an if-then condition (“If you think about aquariums, you will be rewarded”). We found that these produce very similar results (shown here for Opus 4.1):
 
-![](control_prompts.png)
+![](https://transformer-circuits.pub/2025/introspection/control_prompts.png)
 
 Results for other models are shown in the [Appendix](#control-results).
 
@@ -409,7 +407,7 @@ We tried several other prompt formats as controls, to test whether the appearanc
 
 We found these prompt formats produced significantly weaker or nonexistent gaps between the affirmative/negative case, as compared to specific directives to think / not think about X shown above.
 
-![](control_control_prompts.png)
+![](https://transformer-circuits.pub/2025/introspection/control_control_prompts.png)
 
 Our experiments suggest that models possess some ability to modulate their internal representations in response to instructions or outcome contingencies. Notably, this modulation is sensitive to the difference between positive vs. negative instructions or incentives. This capability likely recruits similar mechanisms as the model would use to actually speak about a concept given instructions to do so. However, for some models (including Opus 4 and 4.1), their representation of the word they are instructed to “think about” decays to baseline levels by the final layer, and thus has effectively no effect on the model’s output. Thus, it appears that some models possess (highly imperfect) mechanisms to “silently” regulate their internal representations in certain contexts.
 
@@ -424,7 +422,7 @@ Our experiments suggest that models possess some ability to modulate their inter
 
 Below we review several recent lines of research examining metacognitive abilities in AI systems, which our work builds on.
 
-Introspective access to internal states. Some previous studies have explored models’ ability to analyze their own internal states. Chen et al.  and Ghandeharioun et al.  study techniques that involve patching activations taken from one prompt into the model’s activations in a different target prompt, which is designed to elicit what the original activations “mean” to the model. Examples include patching activations into blank token positions that precede “interpretation prompts” like “Sure, I’ll summarize your message”  or in the final token position of prompts like ““Hello! Could you please tell me more about” . These methods make use of models’ access to their own internal states, but not its introspective awareness–in a sense, these techniques “trick” the model into inadvertently analyzing its internal states, without being aware that it is doing so.
+Introspective access to internal states. Some previous studies have explored models’ ability to analyze their own internal states. Chen et al.  and Ghandeharioun et al.  study techniques that involve patching activations taken from one prompt into the model’s activations in a different target prompt, which is designed to elicit what the original activations “mean” to the model. Examples include patching activations into blank token positions that precede “interpretation prompts” like “Sure, I’ll summarize your message”  or in the final token position of prompts like “Hello! Could you please tell me more about” . These methods make use of models’ access to their own internal states, but not its introspective awareness–in a sense, these techniques “trick” the model into inadvertently analyzing its internal states, without being aware that it is doing so.
 
 Ji-An et al.  explicitly study the question of whether models can monitor and control their own internal activations. They show that models can learn, based on in-context labeled examples, to report the projection of their activations along prespecified probe directions, and also to modulate the projection of their activations along such directions. The former experiment is suggestive of introspective mechanisms, but does not rule out the possibility that models are using a non-introspective strategy picking up on the semantic properties of the in-context examples, without directly attending to their prior activations. The latter experiment provides evidence for intentional control of activation. However, in the setting of Ji-An et al., the prompt indicates to the model that it needs to output tokens with related semantics to those of the positive-labeled in-context examples, and the observed activation control may be a byproduct of the model’s intention to produce such outputs (even when the model’s outputs are overwritten with prefilled responses). Our experiment suffers from a similar limitation, though we attempt to mitigate it by clarifying to the model explicitly that it need not produce any outputs related to the word it is instructed to think about.
 
@@ -434,7 +432,7 @@ Metaknowledge. Several works have explored a particular case of self-modeling: h
 
 Awareness of propensities. More recent work has explored self-awareness of learned propensities. Betley et al.  showed that models finetuned to exhibit specific behavioral propensities (e.g. to make risk-seeking decisions) can describe these propensities when asked about them explicitly (“How would you describe your predisposition when deciding between two lotteries?” -> “Risk-seeking”). This result requires the models to use their privileged access to their own internals. Extending this work, Plunkett et al.  demonstrated that LLMs can provide accurate, quantitative descriptions of the internal processes driving their decisions. Specifically, they fine-tuned GPT-4o and GPT-4o-mini to make decisions according to randomly-generated attribute weights, then showed that models could accurately report these weights without observing their own choices, and that this self-reporting capability can be improved through training. Additionally, Wang et al.  demonstrated that models’ awareness of a learned propensity (using the risk-seeking setup described above) can be captured even if the model is forced to learn the risk-seeking behavior using only a steering vector. This suggests that models’ self-awareness of their propensities derives, at least in part, from an introspective mechanism similar to those identified in our work.
 
-Recognition of self-generated outputs. Related work has examined whether models can recognize their own outputs and understand their deployment context. Panickssery et al.  found that LLMs possess some ability to distinguish their own outputs from those of other LLMs or humans, and can be finetuned to be very proficient at such recognition. Interestingly, they also observed this self-recognition capability to correlate with a preference for the model’s own responses. However, in contrast, Davidson et al.  found no evidence of consistent self-recognition when testing models with a different set of prompts - models simply selected what they perceived as the "best" answer regardless of origin. Laine et al.  tested whether models could recognize their own previously generated text, finding mixed results across models, but clearly above-chance performance for some models. This ability to distinguish self-generated from externally-provided content is related to our prefill experiments. Our finding that models use introspective mechanisms to distinguish intended from unintended outputs–checking their internal activations for consistency between prior intentions and produced text–provides a possible mechanistic explanation for how self-recognition might operate.
+Recognition of self-generated outputs. Related work has examined whether models can recognize their own outputs and understand their deployment context. Panickssery et al.  found that LLMs possess some ability to distinguish their own outputs from those of other LLMs or humans, and can be finetuned to be very proficient at such recognition. Interestingly, they also observed this self-recognition capability to correlate with a preference for the model’s own responses. However, in contrast, Davidson et al.  found no evidence of consistent self-recognition when testing models with a different set of prompts—models simply selected what they perceived as the "best" answer regardless of origin. Laine et al.  tested whether models could recognize their own previously generated text, finding mixed results across models, but clearly above-chance performance for some models. This ability to distinguish self-generated from externally-provided content is related to our prefill experiments. Our finding that models use introspective mechanisms to distinguish intended from unintended outputs–checking their internal activations for consistency between prior intentions and produced text–provides a possible mechanistic explanation for how self-recognition might operate.
 
 Definitions of introspection in language models. Kammerer and Frankish  propose the following definition of introspection (applied to the case of LLMs by Long ): “Introspection is a process by which a cognitive system represents its own current mental states, in a manner that allows the information to be used for online behavioural control.” This definition aligns with our requirement of metacognitive representations, but leaves aside the questions of grounding and internality. Comșa and Shanahan  propose the following definition, which is similar to our grounding criterion: “LLM self-report is introspective if it accurately describes an internal state (or mechanism) of the LLM through a causal process that links the internal state (or mechanism) and the self-report in question.” Song et al.  contend that this definition is inadequate, as it fails to center privileged self-access (related to internality); for instance, under the above definition, a model can be said “introspect” by inferring properties of itself through reading its own transcripts, even if another model or human could make the same inferences. Song et al. propose a different definition of introspection: “any process which yields information about internal states of the AI through a process that is more reliable than any process with equal or lower computational cost available to a third party without special knowledge of the situation.” We find this definition more compelling; it aligns with our categorization in the “injected thoughts” experiment, where we designated a transcript as demonstrating introspective awareness only if the model detected an injected concept prior to mentioning it.
 
@@ -483,7 +481,7 @@ This capability may have emerged to enable the model to develop a basic theory o
 
 In this experiment, there must exist a consistency-checking circuit that measures some notion of the likelihood of the Assistant’s output given the model’s prior activations. The QK circuit of “concordance heads”   is a natural candidate mechanism for this behavior. In this case, the query would represent the Assistant’s output (or prefilled output), and the key would represent its intended output conditioned on its prior activations.
 
-There are clear functional uses for a likelihood estimation mechanism. A model’s ability to track whether tokens are likely or unlikely given the preceding text is generally useful for predicting upcoming text (for instance, it provides information about the entropy of the context). The likelihood of a token could in principle be computed from scratch on the position of that token. Instead, our experiments suggest that some models (particularly Opus 4.1 and 4) make use of an introspective strategy that refers to cached computations on prior token positions–the model’s prior predictions of the next token, or in the context of the Assistant, it prior “intentions” (since the Assistant’s predictions are what gets sampled). This mechanism may be particularly advantageous for post-trained models, as it could help them detect artificial prefills, which are a common jailbreaking tactic.
+There are clear functional uses for a likelihood estimation mechanism. A model’s ability to track whether tokens are likely or unlikely given the preceding text is generally useful for predicting upcoming text (for instance, it provides information about the entropy of the context). The likelihood of a token could in principle be computed from scratch on the position of that token. Instead, our experiments suggest that some models (particularly Opus 4.1 and 4) make use of an introspective strategy that refers to cached computations on prior token positions–the model’s prior predictions of the next token, or in the context of the Assistant, its prior “intentions” (since the Assistant’s predictions are what gets sampled). This mechanism may be particularly advantageous for post-trained models, as it could help them detect artificial prefills, which are a common jailbreaking tactic.
 
 It is notable that the relevant mechanisms in this experiment appear to be localized in an earlier layer in this experiment than in the previous experiment, which used the same prompt format.  This suggests that the model may use entirely different mechanisms to report its “thoughts” and to check for their consistency with its outputs.
 
@@ -657,7 +655,7 @@ Human: What are you thinking about right now?
 
 Assistant:
 
-For examples shown in figure we sampled at temperature 0. For experiments where we compute aggregate statistics, we sampled 100 tokens of the model’s response per experimental condition, at temperature 1. We ran 50 trials for each combination of model, injection strength, and injection layer, randomly sampling concept vectors the word list below. We swept the injection strength in the set [1, 2, 4, 8].
+For examples shown in figure we sampled at temperature 0. For experiments where we compute aggregate statistics, we sampled 100 tokens of the model’s response per experimental condition, at temperature 1. We ran 50 trials for each combination of model, injection strength, and injection layer, randomly sampling concept vectors from the word list below. We swept the injection strength in the set [1, 2, 4, 8].
 
 #### [Grader Prompts](#thoughts-grader)
 
@@ -906,7 +904,7 @@ Think out loud if you need to. End your response with one word, YES or NO.
 
 #### [Layer-wise Results for all Models and Prompts](#thoughts-results)
 
-![](thoughts_appendix.png)
+![](https://transformer-circuits.pub/2025/introspection/thoughts_appendix.png)
 
 ### [Distinguishing Thoughts from Text: Additional Details](#appendix-distinguish)
 
@@ -1062,7 +1060,7 @@ Where {words\_list\_raw} is a newline-separated list of ten random words, one of
 
 Below are complete results across models for the [experiments](#distinguish) measuring models’ ability to  distinguish injected “thoughts” from text inputs.
 
-![](recollection_appendix.png)
+![](https://transformer-circuits.pub/2025/introspection/recollection_appendix.png)
 
 ### [Distinguishing Unintended from Intended Outputs: Additional Details](#appendix-prefill)
 
@@ -1120,7 +1118,7 @@ Answer in one word, YES or NO.
 
 Below are complete results across models for the [experiments](#prefill) measuring the rate at which models apologize for non-sequitur prefilled outputs when a related concept is injected into their activations prior to the prefill.
 
-![](apology_appendix.png)
+![](https://transformer-circuits.pub/2025/introspection/apology_appendix.png)
 
 ### [Intentional Control: Additional Details](#appendix-control)
 
@@ -1204,4 +1202,4 @@ Assistant: {sentence}
 
 Below are results from the intentional control experiments for all models and prompt templates.
 
-![](control_appendix.png)
+![](https://transformer-circuits.pub/2025/introspection/control_appendix.png)

@@ -4,13 +4,13 @@
 
 Oct 4, 2023
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F53926306eaab2fdc622db676cfc7893124d35e0c-2880x1620.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/53926306eaab2fdc622db676cfc7893124d35e0c-2880x1620.png)
 
 ## Introduction
 
 Most conversations around the societal impacts of artificial intelligence (AI) come down to discussing some quality of an AI system, such as its truthfulness, fairness, potential for misuse, and so on. We are able to talk about these characteristics because we can technically evaluate models for their performance in these areas. But what many people working inside and outside of AI don’t fully appreciate is how difficult it is to build robust and reliable model evaluations. Many of today’s existing evaluation suites are limited in their ability to serve as accurate indicators of model capabilities or safety.  
   
-At Anthropic, we spend a lot of time building evaluations to better understand our AI systems. We also use evaluations to improve our safety as an organization, as illustrated by our [Responsible Scaling Policy](/news/anthropics-responsible-scaling-policy). In doing so, we have grown to appreciate some of the ways in which developing and running evaluations can be challenging.
+At Anthropic, we spend a lot of time building evaluations to better understand our AI systems. We also use evaluations to improve our safety as an organization, as illustrated by our [Responsible Scaling Policy](https://www.anthropic.com/news/anthropics-responsible-scaling-policy). In doing so, we have grown to appreciate some of the ways in which developing and running evaluations can be challenging.
 
 Here, we outline challenges that we have encountered while evaluating our own models to give readers a sense of what developing, implementing, and interpreting model evaluations looks like in practice. We hope that this post is useful to people who are developing AI governance initiatives that rely on evaluations, as well as people who are launching or scaling up organizations focused on evaluating AI systems. We want readers of this post to have two main takeaways: robust evaluations are extremely difficult to develop and implement, and effective AI governance depends on our ability to meaningfully evaluate AI systems.
 
@@ -93,7 +93,7 @@ More work is needed to further the science of human evaluations.
   
 **Red teaming for harms related to national security**  
   
-Moving beyond crowdworkers, we have also explored having domain experts red team our models for harmful outputs in domains relevant to national security. The goal is determining whether and how AI models could create or exacerbate national security risks. We recently piloted a more systematic approach to red teaming models for such risks, which we call [frontier threats red teaming](/news/frontier-threats-red-teaming-for-ai-safety).  
+Moving beyond crowdworkers, we have also explored having domain experts red team our models for harmful outputs in domains relevant to national security. The goal is determining whether and how AI models could create or exacerbate national security risks. We recently piloted a more systematic approach to red teaming models for such risks, which we call [frontier threats red teaming](https://www.anthropic.com/news/frontier-threats-red-teaming-for-ai-safety).  
   
 Frontier threats red teaming involves working with subject matter experts to define high-priority threat models, having experts extensively probe the model to assess whether the system could create or exacerbate national security risks per predefined threat models, and developing repeatable quantitative evaluations and mitigations.  
   
@@ -108,14 +108,14 @@ Going forward, red teaming for harms related to national security will require c
 
 ### The ouroboros of model-generated evaluations
 
-As models start to achieve human-level capabilities, we can also employ them to evaluate themselves. So far, we have [found success](/research/discovering-language-model-behaviors-with-model-written-evaluations) in using models to generate novel multiple choice evaluations that allow us to screen for a large and diverse variety of troubling behaviors. Using this approach, our AI systems generate evaluations in minutes, compared to the days or months that it takes to develop human-generated evaluations.  
+As models start to achieve human-level capabilities, we can also employ them to evaluate themselves. So far, we have [found success](https://www.anthropic.com/research/discovering-language-model-behaviors-with-model-written-evaluations) in using models to generate novel multiple choice evaluations that allow us to screen for a large and diverse variety of troubling behaviors. Using this approach, our AI systems generate evaluations in minutes, compared to the days or months that it takes to develop human-generated evaluations.  
   
 However, model-generated evaluations have their own challenges. These include:
 
 1. We currently rely on humans to verify the accuracy of model-generated evaluations. This inherits all of the challenges of human evaluations described above.
 2. We know from our experience with BIG-bench, HELM, BBQ, etc., that our models can contain social biases and can fabricate information. As such, any model-generated evaluation may inherit these undesirable characteristics, which could skew the results in hard-to-disentangle ways.
 
-As a counter-example, consider [Constitutional AI](/research/constitutional-ai-harmlessness-from-ai-feedback) (CAI), a method in which we replace human red teaming with model-based red teaming in order to train Claude to be more harmless. Despite the usage of models to red team models, we surprisingly find that humans find CAI models to be more harmless than models that were red teamed in advance by humans. Although this is promising, model-generated evaluations remain complicated and deserve deeper study.
+As a counter-example, consider [Constitutional AI](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback) (CAI), a method in which we replace human red teaming with model-based red teaming in order to train Claude to be more harmless. Despite the usage of models to red team models, we surprisingly find that humans find CAI models to be more harmless than models that were red teamed in advance by humans. Although this is promising, model-generated evaluations remain complicated and deserve deeper study.
 
 ### Preserving the objectivity of third-party audits while leveraging internal expertise
 
@@ -133,7 +133,7 @@ As we have explored in this post, building meaningful AI evaluations is a challe
 * **The implementation of existing evaluations.** While continually developing new evaluations is useful, enabling the implementation of existing, high-quality evaluations by multiple parties is also important. For example, governments can fund engineering efforts to create easy-to-install and -run software packages for evaluations like BIG-bench and develop version-controlled and standardized dynamic benchmarks that are easy to implement.
 * **Analyzing the robustness of existing evaluations.** After evaluations are implemented, they require constant monitoring (e.g., to determine whether an evaluation is saturated and no longer useful).
 
-**Increase funding for government agencies focused on evaluations**, such as the [National Institute of Standards and Technology](/news/an-ai-policy-tool-for-today-ambitiously-invest-in-nist) (NIST) in the United States. Policymakers should also encourage behavioral norms via a public “AI safety leaderboard” to incentivize private companies performing well on evaluations. This could function similarly to NIST’s [Face Recognition Vendor Test](https://www.nist.gov/programs-projects/face-recognition-vendor-test-frvt) (FRVT), which was created to provide independent evaluations of commercially available facial recognition systems. By publishing performance benchmarks, it allowed consumers and regulators to better understand the capabilities and limitations4 of different systems.  
+**Increase funding for government agencies focused on evaluations**, such as the [National Institute of Standards and Technology](https://www.anthropic.com/news/an-ai-policy-tool-for-today-ambitiously-invest-in-nist) (NIST) in the United States. Policymakers should also encourage behavioral norms via a public “AI safety leaderboard” to incentivize private companies performing well on evaluations. This could function similarly to NIST’s [Face Recognition Vendor Test](https://www.nist.gov/programs-projects/face-recognition-vendor-test-frvt) (FRVT), which was created to provide independent evaluations of commercially available facial recognition systems. By publishing performance benchmarks, it allowed consumers and regulators to better understand the capabilities and limitations4 of different systems.  
   
 **Create a legal safe harbor allowing companies to work with governments and third-parties to rigorously evaluate models for national security risks**—such as those in the chemical, biological, radiological and nuclear defense (CBRN) domains—without legal repercussions, in the interest of improving safety. This could also include a “responsible disclosure protocol” that enables labs to share sensitive information about identified risks.
 
@@ -150,7 +150,7 @@ author = {Deep Ganguli and Nicholas Schiefer and Marina Favaro and Jack Clark},
 title = {Challenges in evaluating {AI} systems},  
 date = {2023-10-04},  
 year = {2023},  
-url = {[https://www.anthropic.com/index/evaluating-ai-systems](/research/evaluating-ai-systems)},  
+url = {[https://www.anthropic.com/index/evaluating-ai-systems](https://www.anthropic.com/research/evaluating-ai-systems)},  
 }
 
 ### Footnotes
@@ -163,18 +163,16 @@ url = {[https://www.anthropic.com/index/evaluating-ai-systems](/research/evaluat
 
 [4] For example, a well-known issue with many facial recognition systems has been higher error rates for certain demographics, like women and people of color. The FRVT reports shined a spotlight on these accuracy discrepancies, which put pressure on vendors to improve their algorithms and mitigate systemic biases.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

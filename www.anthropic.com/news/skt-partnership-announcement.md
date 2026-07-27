@@ -4,7 +4,7 @@
 
 Aug 15, 2023
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F90c31d0ee08817d20f1ca2965a439585feac7093-2880x1620.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/90c31d0ee08817d20f1ca2965a439585feac7093-2880x1620.png)
 
 We are pleased to announce that SK Telecom ("SKT"), the largest mobile operator in Korea rapidly integrating AI into its business, has become a commercial partner with Anthropic as well as a strategic investor.
 

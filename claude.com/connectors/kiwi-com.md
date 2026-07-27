@@ -10,6 +10,7 @@ Search flights in Claude
 * Used in
 
   [Claude](https://claude.ai/directory/01c311c4-53cb-452a-90a8-1d524c9b97d6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Kiwi.com](https://kiwi.com/)
 
