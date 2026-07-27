@@ -1,6 +1,6 @@
 # claude (YouTube)
 
-영상 141개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 164개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
 - [Build data-driven lesson plans with Claude for Teachers](claude/260715-build-data-driven-lesson-plans-with-claude-for-teachers.md) — 2026-07-15
 - [Plan smarter with Claude for Teachers](claude/260714-plan-smarter-with-claude-for-teachers.md) — 2026-07-14
@@ -143,3 +143,26 @@
 - [A.A.Murakami's The Moon Underwater](claude/260202-a-a-murakami-s-the-moon-underwater.md) — 2026-02-02
 - [Getting started with Claude in Excel](claude/260130-getting-started-with-claude-in-excel.md) — 2026-01-30
 - [How Anthropic uses Claude in Marketing](claude/260127-how-anthropic-uses-claude-in-marketing.md) — 2026-01-27
+- [What do AI models actually know?](claude/260724-what-do-ai-models-actually-know.md) — 2026-07-24
+- [Why does AI hallucinate?](claude/260723-why-does-ai-hallucinate.md) — 2026-07-23
+- [How does AI get its character?](claude/260722-how-does-ai-get-its-character.md) — 2026-07-22
+- [What is sycophancy?](claude/260721-what-is-sycophancy.md) — 2026-07-21
+- [Making New York City miniature with Claude](claude/260716-making-new-york-city-miniature-with-claude.md) — 2026-07-16
+- [Regenerative beekeeping with Claude](claude/260714-regenerative-beekeeping-with-claude.md) — 2026-07-14
+- [There’s hope in hard questions](claude/260709-there-s-hope-in-hard-questions-iCdbe0.md) — 2026-07-09
+- [Working at the Frontier: Thomson Reuters](claude/260708-working-at-the-frontier-thomson-reuters.md) — 2026-07-08
+- [Photographing the stars with Claude](claude/260707-photographing-the-stars-with-claude.md) — 2026-07-07
+- [The making of our Williams F1 film](claude/260210-the-making-of-our-williams-f1-film-zZlcNx.md) — 2026-02-10 (자막없음)
+- [The Atlassian Williams F1 team is now thinking with Claude](claude/260202-the-atlassian-williams-f1-team-is-now-thinking-with-claude-4KBAE9.md) — 2026-02-02 (자막없음)
+- [Claude FM 🎵 music for thinking and building](claude/260612-claude-fm-music-for-thinking-and-building.md) — 2026-06-12 (자막없음)
+- [The capability curve](claude/260508-the-capability-curve.md) — 2026-05-08 (자막없음)
+- [Getting more out of the Claude Platform](claude/260507-getting-more-out-of-the-claude-platform.md) — 2026-05-07 (자막없음)
+- [How Datadog built a universal machine tool for Claude Code](claude/260506-how-datadog-built-a-universal-machine-tool-for-claude-code.md) — 2026-05-06 (자막없음)
+- [Architecting for model step-changes: A fireside with Vercel's Guillermo Rauch](claude/260506-architecting-for-model-step-changes-a-fireside-with-vercel-s.md) — 2026-05-06 (자막없음)
+- [Building AI-native: Inside the stacks powering Cognition, Gamma, and Harvey](claude/260506-building-ai-native-inside-the-stacks-powering-cognition-gamm.md) — 2026-05-06 (자막없음)
+- [Live coding session with Boris Cherny and Jarred Sumner](claude/260506-live-coding-session-with-boris-cherny-and-jarred-sumner.md) — 2026-05-06
+- [A conversation with Dario Amodei & Daniela Amodei](claude/260506-a-conversation-with-dario-amodei-daniela-amodei.md) — 2026-05-06 (자막없음)
+- [How to get to production faster with Claude Managed Agents](claude/260506-how-to-get-to-production-faster-with-claude-managed-agents.md) — 2026-05-06 (자막없음)
+- [Caching, harnesses, and advisors: Building on Claude at GitHub scale](claude/260506-caching-harnesses-and-advisors-building-on-claude-at-github.md) — 2026-05-06 (자막없음)
+- [What's new in Claude Code](claude/260506-what-s-new-in-claude-code.md) — 2026-05-06 (자막없음)
+- [Code with Claude 2026: Opening Keynote](claude/260506-code-with-claude-2026-opening-keynote.md) — 2026-05-06 (자막없음)

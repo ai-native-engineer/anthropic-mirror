@@ -1,6 +1,6 @@
 # anthropic-ai (YouTube)
 
-영상 142개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 171개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
 - [The different levels of how Claude thinks](anthropic-ai/260706-the-different-levels-of-how-claude-thinks.md) — 2026-07-06
 - [Introducing Claude Fable 5](anthropic-ai/260609-introducing-claude-fable-5.md) — 2026-06-09
@@ -144,3 +144,32 @@
 - [Long inputs, multi-step output with Claude](anthropic-ai/230823-long-inputs-multi-step-output-with-claude.md) — 2023-08-23 (자막없음)
 - [Inside our first Anthropic Hackathon, San Francisco](anthropic-ai/230823-inside-our-first-anthropic-hackathon-san-francisco.md) — 2023-08-23
 - [Quick tips for Claude: Long context file uploads](anthropic-ai/230823-quick-tips-for-claude-long-context-file-uploads.md) — 2023-08-23 (자막없음)
+- [Claude on Mars](anthropic-ai/260130-claude-on-mars.md) — 2026-01-30 (자막없음)
+- [AI's limited self-knowledge](anthropic-ai/260108-ai-s-limited-self-knowledge.md) — 2026-01-08
+- [What does it take to be an AI whisperer?](anthropic-ai/251215-what-does-it-take-to-be-an-ai-whisperer.md) — 2025-12-15
+- [Why is a philosopher working in AI?](anthropic-ai/251211-why-is-a-philosopher-working-in-ai.md) — 2025-12-11
+- [Why treat AI models well?](anthropic-ai/251209-why-treat-ai-models-well.md) — 2025-12-09
+- [Claude Connectors](anthropic-ai/250715-claude-connectors.md) — 2025-07-15 (자막없음)
+- [Create with Claude by describing what you want to make](anthropic-ai/250703-create-with-claude-by-describing-what-you-want-to-make.md) — 2025-07-03 (자막없음)
+- [Claude streamlines task management across your favorite tools](anthropic-ai/250617-claude-streamlines-task-management-across-your-favorite-tool.md) — 2025-06-17
+- [Claude Code turns your ideas into working prototypes](anthropic-ai/250617-claude-code-turns-your-ideas-into-working-prototypes.md) — 2025-06-17
+- [Claude for research: Creating an organized daily overview](anthropic-ai/250617-claude-for-research-creating-an-organized-daily-overview.md) — 2025-06-17
+- [The creative process with AI](anthropic-ai/250613-the-creative-process-with-ai.md) — 2025-06-13
+- [Advice to artists on creating with AI](anthropic-ai/250611-advice-to-artists-on-creating-with-ai.md) — 2025-06-11
+- [What Pokémon Teaches Us About Building With AI](anthropic-ai/250430-what-pok-mon-teaches-us-about-building-with-ai.md) — 2025-04-30
+- [Understanding AI Agents...Through Pokémon](anthropic-ai/250429-understanding-ai-agents-through-pok-mon.md) — 2025-04-29
+- [What Does AI Mean for the Future of Work?](anthropic-ai/250428-what-does-ai-mean-for-the-future-of-work.md) — 2025-04-28
+- [The Most Common Mistake People Make When Building AI Agents](anthropic-ai/250310-the-most-common-mistake-people-make-when-building-ai-agents.md) — 2025-03-10
+- [The Two Most Useful Applications of AI Agents](anthropic-ai/250226-the-two-most-useful-applications-of-ai-agents.md) — 2025-02-26
+- [Advice For Building AI Agents](anthropic-ai/250226-advice-for-building-ai-agents.md) — 2025-02-26
+- [Tips For Better Results With AI](anthropic-ai/240916-tips-for-better-results-with-ai.md) — 2024-09-16 (자막없음)
+- [AI Prompts That Drive Growth](anthropic-ai/240916-ai-prompts-that-drive-growth.md) — 2024-09-16
+- [AI's Greatest Challenge: You?](anthropic-ai/240913-ai-s-greatest-challenge-you.md) — 2024-09-13
+- [Ancient Wisdom, Modern AI?](anthropic-ai/240913-ancient-wisdom-modern-ai.md) — 2024-09-13
+- [AI Prompt Engineering 101: Explained](anthropic-ai/240913-ai-prompt-engineering-101-explained.md) — 2024-09-13
+- [Claude is now available in Europe](anthropic-ai/240515-claude-is-now-available-in-europe.md) — 2024-05-15 (자막없음)
+- [Claude for Financial Services Keynote](anthropic-ai/250717-claude-for-financial-services-keynote.md) — 2025-07-17
+- [Mastering Claude Code in 30 minutes](anthropic-ai/250522-mastering-claude-code-in-30-minutes.md) — 2025-05-22
+- [Building Blocks for Tomorrow’s AI Agents](anthropic-ai/250523-building-blocks-for-tomorrow-s-ai-agents.md) — 2025-05-23
+- [Taking Claude to the Next Level](anthropic-ai/250522-taking-claude-to-the-next-level.md) — 2025-05-22
+- [Code with Claude Opening Keynote](anthropic-ai/250522-code-with-claude-opening-keynote.md) — 2025-05-22
