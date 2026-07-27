@@ -1,4 +1,12 @@
 <!-- https://anthropic.skilljar.com/claude-code-101/469848 -->
+
+### Video
+
+
+
+### Article
+
+**Want to go deeper?** Check out our dedicated course: [Introduction to agent skills](https://anthropic.skilljar.com/introduction-to-agent-skills)
 <!-- youtube: bjdBVZa66oU -->
 
 # Skills

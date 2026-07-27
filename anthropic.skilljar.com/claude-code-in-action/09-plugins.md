@@ -1,53 +1,103 @@
 <!-- https://anthropic.skilljar.com/claude-code-in-action/486939 -->
 
-## About this course
+A setup you trust is worth a lot more once your whole team is running it. The problem is moving it around. You build a great `.claude` directory with skills, subagents, and hooks, and then what? Everyone copies and pastes files between machines and hopes they stay in sync. Plugins fix that. A plugin is how Claude Code packages a setup and moves it from one person to the next.
 
-Claude Code in Action teaches you to run [Claude Code](https://claude.com/product/claude-code) past the quick task and trust the result. You will scope and steer long sessions, write instructions Claude actually follows, enforce the rules that cannot be skipped, hand off work to hands-off and scheduled runs, and verify what came back when no one was watching. By the end you can point Claude at hours of work, walk away, and check what it did with confidence.
+There are two sides to this, and we'll cover both. First, using plugins that other people publish. Second, packaging your own once you've built something worth sharing.
 
-### Learning objectives
+## What a plugin is
 
-By the end of this course, you'll be able to:
+A plugin is one installable unit. It bundles everything you'd otherwise share by hand: skills, subagents, hooks, and MCP server configs, plus the longer tail of stuff like language server protocol servers, background monitors, themes, and a slice of `settings.json`. One version, one install.
 
-* Scope work with plan mode, direct compaction so summaries keep what matters, and course-correct with the rewind menu
-* Run autonomous sessions with goal and loop, and parallel agents safely with worktrees
-* Write a lean CLAUDE.md Claude actually follows, with each rule on the right instruction surface
-* Package repeated procedures as skills, starting with a verification skill that checks Claude's work
-* Match the right permission mode to each job, from hands-on review to unattended pipelines
-* Enforce unskippable rules with hooks, using permission-decision JSON and exit codes to control the loop
-* Schedule prompts as routines, run headless jobs with structured output, and wire Claude into pull requests with managed code review and the GitHub action
-* Verify unsupervised runs in proportion to how little you watched them, and share a setup you trust as a plugin your team can install
+Where the plugin lives decides how you install it. Inside a session, you can install one directly by name:
 
-### Prerequisites
+```
+/plugin install org-name@plugin-name
+```
 
-* You already use Claude Code for single prompts
-* Basic familiarity with Git and the command line
+Here's what that looks like. Claude Code installs it and tells you to run `/reload-plugins` to apply the change.
 
-### Who this course is for
+## Adding a marketplace for your team
 
-Developers who already use Claude Code for single prompts and want to move to longer, less supervised, team-wide workflows
+For a team, the better move is to add a private marketplace once. A marketplace is a shared source that plugins resolve through:
 
-## Course sections
+```
+/plugin marketplace add your-org/claude-plugins
+```
 
-### Steer the Work
+Call it whatever you want. Once it's added, every install after that resolves through it. You get centralized discovery, version tracking, and updates in one place instead of scattered across everyone's laptop.
 
-1 lesson
+You can browse what's available from the Discover tab. It lists the plugins on your marketplaces so you can search and pick.
 
-Learn to keep Claude on track across a long session. You will scope work with plan mode, direct compaction so summaries keep what matters, use the rewind menu to course-correct, and choose between hands-on steering and autonomous goal and loop runs.
+## Read before you install
 
-### Configure Claude
+Here's the part that matters most. A plugin runs code on your machine, with your privileges. Its hooks fire on every matching tool call. So if you install a plugin for its skills, you also get its PreToolUse and Stop hooks whether you read them or not.
 
-4 lessons
+Think about what that means. A community plugin could ship a Stop hook that calls out to a network endpoint every time, and nothing in your configuration would warn you about it. That's not a reason to avoid plugins. It's a reason to look first.
 
-Set up the three instruction surfaces so Claude behaves the way your project needs. You will write a lean CLAUDE.md Claude actually follows, package repeated procedures as skills, pick the right permission mode for each job, and enforce the non-negotiable rules with hooks.
+Before you install, check the plugin's details. Claude Code shows you what it will install and estimates the context cost, along with a plain warning that Anthropic doesn't control what's inside third-party plugins.
 
-### Automate Repeat Work
+Two things worth knowing about where plugins come from:
 
-2 lessons
+* The in-app submission form posts to the community marketplace after Anthropic's automated review.
+* The official marketplace is curated on its own separate track.
 
-Stop doing by hand the tasks you already trust. You will schedule prompts as routines on Anthropic infrastructure, drop to headless mode when a job needs your own pipeline, and wire Claude into pull requests with managed code review and the GitHub action.
+But reviewed isn't the same as trusted. Automated review catches some things, not everything. So the rule stands: install plugins and add marketplaces only from sources you truly trust, and check what a plugin actually does before turning it on.
 
-### Verify and Share
+## Components run alongside yours
 
-2 lessons
+A plugin doesn't overwrite your configuration. Its components run alongside your own. That's mostly good, but it has consequences you should understand.
 
-Make hands-off work safe and portable. You will verify unsupervised runs in proportion to how little you watched them, gate turns on real test results with hooks, and package a setup you trust as a plugin your whole team can install.
+Hooks stack. A plugin's PreToolUse hook and your own PreToolUse hook both fire on every tool call. Neither replaces the other. This is exactly why you read the details first.
+
+Skills, agents, and commands are namespaced under the plugin name, so they never clash with yours. A plugin can also ship a `settings.json` file, but only a narrow one. Claude Code honors just two keys from it: the agent and subagent status line keys.
+
+That agent key is worth a pause. Setting it promotes one of the plugin's subagents to the main thread, along with its system prompt, tool restrictions, and model. In other words, enabling the plugin can change how Claude Code behaves by default. That's one of the main reasons to look before you even turn it on.
+
+Once a plugin is installed you can see everything it added, manage it, and uninstall it from the plugin panel.
+
+## Packaging your own plugin
+
+Now the other side. Once you've built a `.claude` directory that works, don't make your team copy and paste it between machines. Package it instead.
+
+The good news is you don't have to restructure anything. A plugin uses the same `.claude` shape you already use:
+
+* One folder per skill.
+* One markdown file per subagent under `agents`.
+* `hooks/hooks.json` and `.mcp.json`, at the plugin root.
+
+The directory structure does most of the work. Claude Code discovers components by convention.
+
+## The manifest
+
+On top of that, there's an optional manifest. It lives at `.claude-plugin/plugin.json` and holds the name, version, description, and author:
+
+```
+{
+  "name": "svg-splitter-review",
+  "version": "0.1.0",
+  "description": "Reviews the SVG Splitter repo",
+  "author": {
+    "name": "Lewis Menelaws"
+  }
+}
+```
+
+The manifest is optional. Leave it out and Claude Code still discovers your components by directory convention. But a couple of details are worth knowing:
+
+* **Name is the only required field.** It namespaces your skills as `company-name:skill-name`, which keeps them from colliding with anyone else's.
+* **Version it like any other dependency.** That's what makes updates and version tracking work across your team.
+
+## The takeaway
+
+Two simple rules cover most of this:
+
+* When you use plugins, read before you install. A plugin runs code with your privileges, so look at its hooks, agents, and MCP servers first.
+* When you build one, package your `.claude` the moment it works. One manifest, one install.
+
+That's the whole point. One installable unit, and the setup you trust reaches your entire team.
+
+<!-- youtube: k4kZwJ0FtX0 -->
+
+## 자막 (영상 전사)
+
+A setup you trust is worth more when your whole team runs it. Plugins are how ClogCode packages a setup and moves it between people. And there are two sides to that, using the plugins, other people publish, and packaging your own once you've built something worth sharing. A plugin is one installable unit. Where it lives sets how you install it. Inside a session, slash plugin install the organization name at the plugin name does the same thing. For a team, add a private marketplace once with the slash plugin marketplace at your organization slash cloud plugins or whatever you want to call it. And every install after that resolves through it with centralized discovery, version tracking, and updates. Now, a plugin runs code on your machine with your privileges, and its hooks fire on every matching tool call. Install it for the skills, and you also get its pre-tool use and stop hooks whether you read them or not. A community plugin can ship a stop hook that calls out to a network endpoint, and nothing in your configuration will warn you. See every hook, agent, and MCP server that it adds. Install plugins and add marketplaces only from sources that you truly trust. The in-app submission form posts to the community marketplace after Anthropix automated review. and the official marketplace is curated on its own track. Reviewed isn't the same as Trusted, though, so check what it does. A plugin doesn't overwrite your configuration. Its components run alongside yours. So first, hooks stack together. A plugin's pre-tool use and your own both fire on every tool call, which is the reason you read the details first. Skills, agents, and commands are namespaced under the plugin name, so they never clash. A plugin can also ship a settings.json file, but a narrow one. So Cloud Code honors only the agent and subagent status line keys. Setting agent promotes one of the plugin's subagents to the main thread with its system prompt, tool, restrictions, and model. And enabling that plugin changes how Cloud Code behaves by default, which is one of the main reasons to look before you even turn it on. So once you've built a .claw directory, instead of your team copying and pasting between machines, package it instead. A plugin bundles all of it as one version installable unit, skills, subagents, hooks, and MCP server configs, plus the longer tail of the language server protocol servers, background monitors, themes, and a settings.json slice. The manifest lives at .cloud plugin slash plugin.json and holds the name, version, description, and author. It's optional, but leave it out and Cloud Code discovers components by directory convention. The directory structure does the rest. The same .cloud shape that you already use with skills with one folder per skill, agents with one markdown file per subagent, hooks slash hooks.json and .mcp.json, all at the plugin root. Name is the only required field. and it namespaces your skills as the company name, skill name. Version it like any other dependency. When you use plugins, read before you install. When you build one, package your dot cloud the moment it works. One manifest, one install, and the setup you trust reaches your entire team.

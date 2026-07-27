@@ -1,53 +1,91 @@
 <!-- https://anthropic.skilljar.com/claude-code-in-action/486936 -->
 
-## About this course
+The best place to hand off repetitive work is the pull request. It's where review happens, where changes land, and where a lot of your busywork lives. There are two ways to put Claude to work here, and they solve different problems. One is a managed service you turn on. The other is a GitHub Action you wire up yourself. Let's walk through both and figure out when to reach for each.
 
-Claude Code in Action teaches you to run [Claude Code](https://claude.com/product/claude-code) past the quick task and trust the result. You will scope and steer long sessions, write instructions Claude actually follows, enforce the rules that cannot be skipped, hand off work to hands-off and scheduled runs, and verify what came back when no one was watching. By the end you can point Claude at hours of work, walk away, and check what it did with confidence.
+## The managed path: Code Review
 
-### Learning objectives
+The simplest option is Code Review. It's an Anthropic-hosted service that reviews your pull requests through the Claude GitHub app. There's nothing for you to build or host. You turn it on, and it starts posting findings as inline comments right on the lines that matter.
 
-By the end of this course, you'll be able to:
+An organization admin enables it from the Claude Code admin settings. You'll find a Code review section with a Configure button that hooks it up to your repositories.
 
-* Scope work with plan mode, direct compaction so summaries keep what matters, and course-correct with the rewind menu
-* Run autonomous sessions with goal and loop, and parallel agents safely with worktrees
-* Write a lean CLAUDE.md Claude actually follows, with each rule on the right instruction surface
-* Package repeated procedures as skills, starting with a verification skill that checks Claude's work
-* Match the right permission mode to each job, from hands-on review to unattended pipelines
-* Enforce unskippable rules with hooks, using permission-decision JSON and exit codes to control the loop
-* Schedule prompts as routines, run headless jobs with structured output, and wire Claude into pull requests with managed code review and the GitHub action
-* Verify unsupervised runs in proportion to how little you watched them, and share a setup you trust as a plugin your team can install
+From there the admin installs the Claude GitHub app, picks which repos it watches, and decides when it runs. You have a few choices for timing:
 
-### Prerequisites
+* Once when a PR opens
+* On every push to the PR
+* Only when someone comments `@claude review`
 
-* You already use Claude Code for single prompts
-* Basic familiarity with Git and the command line
+Once it's on, everything runs on Anthropic's infrastructure. A set of review agents analyzes the diff against your full codebase, not just the changed lines in isolation. Then it posts findings as inline comments on the specific lines, tagged by severity, with a summary table in the check run.
 
-### Who this course is for
+Here's what one of those findings looks like. It lands as a comment from Claude, right on the line, with a clear explanation and a suggested fix.
 
-Developers who already use Claude Code for single prompts and want to move to longer, less supervised, team-wide workflows
+The nice part is it deduplicates and ranks the findings. So instead of a wall of nitpicks, you read a handful of real issues worth your attention.
 
-## Course sections
+## What Code Review will and won't do
 
-### Steer the Work
+A couple of things to keep in mind about the boundaries here:
 
-1 lesson
+* It never approves or blocks the PR. The judgment call stays with a human. Claude flags things; you decide.
+* There's no managed autofix. The service posts findings only.
+* It's a research preview right now, available on team and enterprise plans, so expect the behavior to keep moving.
 
-Learn to keep Claude on track across a long session. You will scope work with plan mode, direct compaction so summaries keep what matters, use the rewind menu to course-correct, and choose between hands-on steering and autonomous goal and loop runs.
+Since there's no autofix in the service, applying a finding is a local move. From your own terminal, the `/code-review` command reviews a diff, and its `--fix` flag applies the findings to your working tree. So the flow is: Claude finds it in the PR, you pull it down and fix it locally.
 
-### Configure Claude
+## The do-it-yourself path: the GitHub Action
 
-4 lessons
+Code Review handles review. When the job goes beyond review, you reach for the GitHub Action. This is for custom CI: implementing changes from a comment, running scheduled reports, anything you'd normally write a workflow for. It runs the agent on PR comments, scheduled jobs, and any GitHub event.
 
-Set up the three instruction surfaces so Claude behaves the way your project needs. You will write a lean CLAUDE.md Claude actually follows, package repeated procedures as skills, pick the right permission mode for each job, and enforce the non-negotiable rules with hooks.
+Setup starts inside Claude Code. Run the `/install-github-app` command. You'll need repo admin to do this. The slash command walks you through installing the GitHub app and setting the Anthropic API key secret on the repo.
 
-### Automate Repeat Work
+The action itself is `anthropics/claude-code-action@v1`. Here are the inputs you'll actually use:
 
-2 lessons
+* `anthropic_api_key` — optional.
+* `github_token` — defaults to `secrets.GITHUB_TOKEN`.
+* `trigger_phrase` — what the action listens for in comments. Defaults to `@claude`.
+* `use_bedrock` / `use_vertex` — switch to those providers if you're on Bedrock or Vertex.
+* `prompt` — the instruction for the run.
+* `claude_args` — a string of CLI arguments passed straight through to Claude Code.
 
-Stop doing by hand the tasks you already trust. You will schedule prompts as routines on Anthropic infrastructure, drop to headless mode when a job needs your own pipeline, and wire Claude into pull requests with managed code review and the GitHub action.
+## A workflow that responds to @claude
 
-### Verify and Share
+Drop a workflow into `.github/workflows/claude.yaml` and it listens for `@claude` on PR comments and issue comments. The core step looks like this:
 
-2 lessons
+```
+- uses: anthropics/claude-code-action@v1
+  with:
+    anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    trigger_phrase: "@claude"
+    prompt: "Your instructions here"
+    claude_args: "--max-turns 5 --model claude-sonnet-5"
+```
 
-Make hands-off work safe and portable. You will verify unsupervised runs in proportion to how little you watched them, gate turns on real test results with hooks, and package a setup you trust as a plugin your whole team can install.
+Now someone writes `@claude implement the spec in the linked Linear issue` on a pull request, and the action picks it up. Claude pushes commits and posts comments describing what it did.
+
+## A workflow that runs on a schedule
+
+The same action works for a daily rollup. A cron trigger fires at, say, 9:00 UTC, the action runs, and Claude posts the results. You can also add a `workflow_dispatch` trigger so you can kick it off manually from the Actions tab.
+
+When the action runs, you can watch it work through the steps in the Actions tab, just like any other GitHub workflow.
+
+## Tuning the run with claude\_args
+
+The `claude_args` line is where the fine-tuning happens. A few knobs worth knowing:
+
+* `--max-turns 5` puts a hard cap on the agent loop, so it can't run forever.
+* Permission mode. For an unattended job you'll want it to not stop and ask, since there's no one there to answer.
+* Allowed tools. Give the job exactly what it needs and nothing more. For a report, that means read-only.
+
+## Which one should you use?
+
+Here's the short version:
+
+* For PR reviews, take the managed path. Enable Code Review, let the GitHub app post inline findings, and apply fixes locally with `/code-review --fix`.
+* Reach for the action when the job is more than review. Use `/install-github-app` for setup, one workflow for `@claude` mentions, one for cron, and all the tuning lives in `claude_args`.
+
+Start with the managed service. Move to the action the moment you need Claude to actually do something in CI, not just comment on it.
+
+<!-- youtube: gIVt_iqmACw -->
+
+## 자막 (영상 전사)
+
+The best place to hand off repetitive work is the pull request. There are two ways to get that. The managed one is CodeReview, an Anthropic-hosted service that reviews PRs through the Cloud GitHub app and posts findings as inline comments with nothing for you to build or host. The do-it-yourself one is the Cloud Code GitHub action for when the job goes beyond review and into custom CI. An organization admin turns it on from the cloud code admin settings, then installs the cloud GitHub app and picks which repos it watches and when it runs. Once when a PR opens on every push or only when someone comments at cloud review. And from there, it runs on Anthropics infrastructure. A set of review agents analyzes the diff against the full code base and posts findings as inline comments on the specific lines. tagged by severity with a summary table in the check run. It deduplicates and ranks so you read a handful of real findings instead of a wall of nits. It never approves or blocks the PR, the judgment call stays with a human. Code review is a research preview, currently for team and enterprise plans, so expect the behavior to keep on moving. And there's no managed autofix, the service post findings only. Applying them is a local move from your own terminal where the slash code review command reviews a diff and its dash dash fix flag applies the findings to your working tree. The action covers the jobs beyond review, implementing changes from a comment, schedule reports, anything you'd write a workflow for. It runs the agent on PR comments, schedule jobs, and any GitHub event. So from inside Cloud Code, you can run the slash install GitHub app command. And you need repo admin to do this. The slash command walks you through installing the GitHub app and setting the Anthropic API key secret on the repo. The action itself is Anthropics slash Cloud Code action at V1. And the inputs you'll use is the Anthropic API key, which is required, the GitHub token, which defaults to secrets.githubtoken, the trigger phrase, which is what the action listens for in comments, which just defaults to at Claude. If you use Bedrock or Vertex, you can switch to those providers, the prompt, which is the instruction for the run, and then the Claude arguments, which is a string of CLI arguments passed through to Claude code. So if you drop this into .github slash workflows slash Claude.yaml, it listens for at Claude on PR comments and issue comments. So someone writes, at Claude, implement the spec in the linked linear issue on a pull request, and the action picks it up. Claude pushes commits and posts comments with what it did. This one's the daily rollup. Cron fires at nine UTC. The action runs. Claude posts the results. The workflow dispatch trigger also lets you run it manually from the actions tab. So the Claude args line is where all this fine tuning happens. I set the max turns to five. This just puts a hard cap on the agent loop. Permission mode I put don't ask. This is the unintended mode. Allow tools is exactly what this job needs. So read only for a report. For PR reviews, take the manage path, enable code review, let the GitHub app post inline findings and apply fixes locally with slash code review dash dash fix. Reach for the action when the job is more than review. Install GitHub app for setup, one workflow for at Claude mentions, one for cron, all the tuning and Claude args.

@@ -1,53 +1,58 @@
 <!-- https://anthropic.skilljar.com/claude-code-in-action/486938 -->
 
-## About this course
+You handed Claude a task and let it run without watching every step. Now it says it's done. Before you ship that work, you need a way to check something you didn't even supervise. That check is what makes hands-off Claude Code safe to rely on.
 
-Claude Code in Action teaches you to run [Claude Code](https://claude.com/product/claude-code) past the quick task and trust the result. You will scope and steer long sessions, write instructions Claude actually follows, enforce the rules that cannot be skipped, hand off work to hands-off and scheduled runs, and verify what came back when no one was watching. By the end you can point Claude at hours of work, walk away, and check what it did with confidence.
+The idea here is simple: verify in proportion to how much rope you gave the run. If you watched the messages scroll by in a short session, a quick glance is enough. But an unattended run, or a job that fired in continuous integration with nobody in the loop, needs a real check. No one saw what happened, so you have to reconstruct it after the fact.
 
-### Learning objectives
+Here's a way to picture it. The less you watched, the more you verify.
 
-By the end of this course, you'll be able to:
+## Keep unattended runs in auto mode
 
-* Scope work with plan mode, direct compaction so summaries keep what matters, and course-correct with the rewind menu
-* Run autonomous sessions with goal and loop, and parallel agents safely with worktrees
-* Write a lean CLAUDE.md Claude actually follows, with each rule on the right instruction surface
-* Package repeated procedures as skills, starting with a verification skill that checks Claude's work
-* Match the right permission mode to each job, from hands-on review to unattended pipelines
-* Enforce unskippable rules with hooks, using permission-decision JSON and exit codes to control the loop
-* Schedule prompts as routines, run headless jobs with structured output, and wire Claude into pull requests with managed code review and the GitHub action
-* Verify unsupervised runs in proportion to how little you watched them, and share a setup you trust as a plugin your team can install
+When a run goes unattended at work, keep it in auto mode rather than bypass permissions. In auto mode, the classifier still reviews each action for danger. That's a safety net worth keeping.
 
-### Prerequisites
+But be clear about what that net does and doesn't do. The classifier never judges whether the code is actually correct. It only flags dangerous actions. So your verification bar stays exactly where it was. Set that bar based on how unsupervised the run was.
 
-* You already use Claude Code for single prompts
-* Basic familiarity with Git and the command line
+## Start with the diff, not the summary
 
-### Who this course is for
+Don't start with Claude's summary of what it did. Start with the diff itself.
 
-Developers who already use Claude Code for single prompts and want to move to longer, less supervised, team-wide workflows
+1. Run `/code-review` to walk the changes and flag issues.
+2. Then put your own eyes on `git diff`.
 
-## Course sections
+The trap is a tidy summary that reads perfectly fine, while the actual diff touched a file you honestly didn't expect it to touch. The summary won't tell you that. The diff will.
 
-### Steer the Work
+So read what changed. Read the files that were part of the plan first, then look for anything outside it. A clean write-up is not proof of clean code.
 
-1 lesson
+## Turn tests into a gate, not a promise
 
-Learn to keep Claude on track across a long session. You will scope work with plan mode, direct compaction so summaries keep what matters, use the rewind menu to course-correct, and choose between hands-on steering and autonomous goal and loop runs.
+The real gate on an unsupervised run is whether the tests passed, and whether Claude actually ran them or only claimed that it did. Don't leave that to trust. Wire it as a hook so Claude can't skip it.
 
-### Configure Claude
+A couple of hooks do the job:
 
-4 lessons
+* A **stop hook** that runs your tests and refuses to end the turn on a failure.
+* A **post-tool-use hook** that lints and type checks after every edit.
 
-Set up the three instruction surfaces so Claude behaves the way your project needs. You will write a lean CLAUDE.md Claude actually follows, package repeated procedures as skills, pick the right permission mode for each job, and enforce the non-negotiable rules with hooks.
+The key detail is the exit code. A hook that exits with `exit 2` feeds the failure straight back to Claude. Claude reads that failure and fixes it without you asking. Best of all, the check fires on every run, whether or not you remember to ask for it.
 
-### Automate Repeat Work
+## Get a cold second opinion
 
-2 lessons
+The sub-agent code review you'd run before a pull request works here too. Point it at an unsupervised run.
 
-Stop doing by hand the tasks you already trust. You will schedule prompts as routines on Anthropic infrastructure, drop to headless mode when a job needs your own pipeline, and wire Claude into pull requests with managed code review and the GitHub action.
+Open a fresh session or sub-agent and have it review the changed code with no memory of how the code was built. Because it has no stake in the approach, it catches the things the original run talked itself past. A second reviewer with fresh eyes finds what the author rationalized away.
 
-### Verify and Share
+## Putting it together
 
-2 lessons
+Make the check as serious as the run was unsupervised:
 
-Make hands-off work safe and portable. You will verify unsupervised runs in proportion to how little you watched them, gate turns on real test results with hooks, and package a setup you trust as a plugin your whole team can install.
+* Read the diff yourself.
+* Turn the tests into a hook that gates the turn.
+* Verify headless runs by their JSON result and exit code.
+* Get a cold second opinion on anything that matters.
+
+Do that, and "Claude did it while I wasn't looking" no longer takes faith.
+
+<!-- youtube: lalGZSNhm8E -->
+
+## 자막 (영상 전사)
+
+You handed Claude a task and let it run without watching every step. Now it says it's done, but before you ship that, you need a way to check work that you didn't even supervise. Check is what makes hands-off Claude code safe to rely on. Verify in proportion to the road that you gave the run. A short session where you watched the messages scroll by needs a glance. An unattended run or a job that fired in continuous integration with nobody in the loop actually needs a real check because no one saw happen. And when a run does go unattended at work. keep it in auto mode rather than bypass permissions. The classifier still reviews each actions for danger. It never judges whether the code is right though, so the verification bar stays where it was. Set that bar from how unsupervised this run was. So start with the diff itself rather than a cloud summary of it. Run slash code review to walk the changes and flag issues. Then put your eyes on git diff. The trap is a tidy summary that reads fine while the diff touched a file that you honestly didn't even expect it to. Read what changed and read the files that were in the plan first. The real gate on an unsupervised run is whether the test passed and whether Claude ran them or only claimed that it did. Don't leave that to trust. Wire it as a hook so Claude can't skip it. A stop hook that runs your test and refuses to end the turn on a failure, or a post-tool use hook that lints and type checks after every edit. A hook that exists with code 2 feeds the failure straight back to Claude, which reads it and fixes it without you asking. The check fires on every run, whether or not you remember to ask. The sub-agent code review you'd run before a PR works here too. Point it at an unsupervised run. Open a fresh session or sub-agent and have it review the change code with no memory of how the code was built. It has no stake in the approach and catches what the original run talked itself past. Make the check as serious as the run was unsupervised. Read the diff, turn the test into a hook that gates the turn, verify headless runs by their JSON result and exit code, and get a cold second opinion on anything that matters. Do that, and Claude did it while I wasn't looking, no longer takes faith.

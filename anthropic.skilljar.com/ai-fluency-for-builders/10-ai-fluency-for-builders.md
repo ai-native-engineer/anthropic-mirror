@@ -1,4 +1,12 @@
 <!-- https://anthropic.skilljar.com/ai-fluency-for-builders/486168 -->
+
+# AI Fluency for Builders - Course quiz
+
+This short assessment completes the course. You need 80% to pass, and you can retake it as many times as you need.
+
+13 questions
+
+Start
 <!-- youtube: YWVDXsUf8NY -->
 
 # AI Fluency for Builders

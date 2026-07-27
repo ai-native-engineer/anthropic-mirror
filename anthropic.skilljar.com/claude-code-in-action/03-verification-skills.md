@@ -1,53 +1,49 @@
 <!-- https://anthropic.skilljar.com/claude-code-in-action/486930 -->
 
-## About this course
+As your project grows, you start noticing the same work happening over and over. You already know skills are a good way to automate repeated work. In this lesson we look at one specific job that skills are great for: verifying your own work. If there's one skill worth building first, this is it.
 
-Claude Code in Action teaches you to run [Claude Code](https://claude.com/product/claude-code) past the quick task and trust the result. You will scope and steer long sessions, write instructions Claude actually follows, enforce the rules that cannot be skipped, hand off work to hands-off and scheduled runs, and verify what came back when no one was watching. By the end you can point Claude at hours of work, walk away, and check what it did with confidence.
+## Why a verification skill is the one to build first
 
-### Learning objectives
+Think about how you normally check Claude's work. You ask it to refactor something, it finishes, and then you have to remember to double-check it. Maybe you ask it to run the tests. Maybe you read the diff yourself. The problem is that the checking depends on you remembering to ask for it. Skip that step once and bad code slips through.
 
-By the end of this course, you'll be able to:
+A verification skill removes that dependency. Here's the shape of it. You ask Claude to refactor something. When it finishes, the change matches the skill's description, so the skill fires on its own. From there it:
 
-* Scope work with plan mode, direct compaction so summaries keep what matters, and course-correct with the rewind menu
-* Run autonomous sessions with goal and loop, and parallel agents safely with worktrees
-* Write a lean CLAUDE.md Claude actually follows, with each rule on the right instruction surface
-* Package repeated procedures as skills, starting with a verification skill that checks Claude's work
-* Match the right permission mode to each job, from hands-on review to unattended pipelines
-* Enforce unskippable rules with hooks, using permission-decision JSON and exit codes to control the loop
-* Schedule prompts as routines, run headless jobs with structured output, and wire Claude into pull requests with managed code review and the GitHub action
-* Verify unsupervised runs in proportion to how little you watched them, and share a setup you trust as a plugin your team can install
+* Runs the test suite.
+* Reads the diff.
+* Checks that no test was weakened just to make things pass.
+* Reports pass or fail, with the evidence attached.
 
-### Prerequisites
+The whole flow runs without you asking. The description on the skill is what triggers it, and once triggered it walks the same steps every time.
 
-* You already use Claude Code for single prompts
-* Basic familiarity with Git and the command line
+Notice the last check in that chain. It's not enough to run the tests and see green. A test can be quietly loosened so it passes no matter what. So the skill reads the diff and confirms tests weren't weakened. "Done" isn't "the code looks right" from reading the diff alone. Done is the gates being run and observed, with the results stated explicitly.
 
-### Who this course is for
+This same shape carries any procedure your team repeats. A release checklist. A migration recipe. A pre-PR check. The rule of thumb: if you've typed the same multi-step instruction twice, that's a skill.
 
-Developers who already use Claude Code for single prompts and want to move to longer, less supervised, team-wide workflows
+## A skill folder can hold more than instructions
 
-## Course sections
+A skill isn't just a single `skill.md` file. The folder around it can carry other things, and this is what makes skills powerful for verification.
 
-### Steer the Work
+* Drop a `reference.md` next to the skill for detailed material, then link to it from `skill.md`. Claude only reads it when it actually needs that depth. Your main file stays short.
+* Put scripts in the folder too. Claude executes them rather than loading their contents into context. That means a skill can carry its own tooling, like a `check.sh` that runs all the gates.
 
-1 lesson
+The takeaway: keep `skill.md` itself lean. Push the heavy material, the long explanations and the executable scripts, into side files. The lean file describes what to do; the side files hold the depth and the tools.
 
-Learn to keep Claude on track across a long session. You will scope work with plan mode, direct compaction so summaries keep what matters, use the rewind menu to course-correct, and choose between hands-on steering and autonomous goal and loop runs.
+## Which instruction surface owns which rule
 
-### Configure Claude
+By now you've got three places to put instructions, and it's easy to mix them up. Here's a quick way to keep them straight.
 
-4 lessons
+Conventions that apply all the time, things like naming rules or where files go, belong in your `CLAUDE.md` file. Procedures and reference material tied to a particular kind of task belong in a skill.
 
-Set up the three instruction surfaces so Claude behaves the way your project needs. You will write a lean CLAUDE.md Claude actually follows, package repeated procedures as skills, pick the right permission mode for each job, and enforce the non-negotiable rules with hooks.
+There's a third case. A rule that Claude must not be able to skip belongs in a hook, not in either of the above. That's because `CLAUDE.md` and skills are both instructions that Claude follows, while a hook is code that actually runs. If skipping the rule isn't acceptable, don't leave it up to instruction-following.
 
-### Automate Repeat Work
+## The recap
 
-2 lessons
+A skill is a folder with a `skill.md` inside it: a name, a description that triggers it, and the procedure itself. Only the descriptions load into context until a skill is actually needed, so there's no cost to packaging every procedure you repeat.
 
-Stop doing by hand the tasks you already trust. You will schedule prompts as routines on Anthropic infrastructure, drop to headless mode when a job needs your own pipeline, and wire Claude into pull requests with managed code review and the GitHub action.
+Start with verification. Build the skill, check it into your project's `.claude/skills`, and now the whole team inherits the same move. Everyone's work gets checked the same way, automatically, without anyone having to remember to ask.
 
-### Verify and Share
+<!-- youtube: soLPOXXAc1w -->
 
-2 lessons
+## 자막 (영상 전사)
 
-Make hands-off work safe and portable. You will verify unsupervised runs in proportion to how little you watched them, gate turns on real test results with hooks, and package a setup you trust as a plugin your whole team can install.
+As your project continues to grow and grow, you want to automate the work that's constantly repeated. You already know that skills are great for this, but here are some tips on how you can use skills to help you verify your work. So this example is the skill that's worth building first. Ask Claw to refactor something and when it finishes, the description matches, task that edited code and the skill fires. It runs a suite, reads a diff, checks that no test has weakened to pass, and reports pass or fail with the evidence attached. Checking the work no longer depends on you remembering to ask for it. The same shape carries any procedure your team repeats, a release checklist or a migration recipe. If you've typed the same multi-step instruction twice, well, that's a skill. Now a skill folder can hold more than just a skill.md file. Drop a reference.md beside it for detailed material and link it from that skill. Cloud reads it only when it needs the depth. Cloud executes scripts in the folder rather than loading them. So a skill can carry its own tooling. So keep your skill.md file itself lean and push the heavy material into those side files. So a quick way to keep the three instruction surfaces straight, conventions that apply all the time go into your Cloud.md file and procedures or reference materials tied to a kind of task go into a skill. A rule Cloud must not be able to skip belongs in a hook because Cloud.md and skills are both instructions that Cloud follows rather than code that runs. A skill is a folder with a skill.md, a name, a description that triggers it, and the procedure itself. Only descriptions load until a skill is needed, so package every procedure you repeat. Start with verification and check it into the Claude skills, and your team inherits the same move.

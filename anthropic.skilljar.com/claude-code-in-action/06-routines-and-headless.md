@@ -1,53 +1,113 @@
 <!-- https://anthropic.skilljar.com/claude-code-in-action/486935 -->
 
-## About this course
+Once you trust Claude to do a task, the next move is to stop doing it by hand. If it's the same prompt on a recurring trigger, you shouldn't have to sit there and kick it off yourself every time. This lesson covers two ways to hand that work off: routines, where you build nothing, and headless mode, where you get full control from your own scripts.
 
-Claude Code in Action teaches you to run [Claude Code](https://claude.com/product/claude-code) past the quick task and trust the result. You will scope and steer long sessions, write instructions Claude actually follows, enforce the rules that cannot be skipped, hand off work to hands-off and scheduled runs, and verify what came back when no one was watching. By the end you can point Claude at hours of work, walk away, and check what it did with confidence.
+Think of it as a spectrum. On one end you have routines that run on Anthropic's managed infrastructure. On the other end you have headless mode and the Agent SDK, which run Claude Code from your own code. Let's start with the end where you build the least.
 
-### Learning objectives
+## Routines: a saved prompt that runs in the cloud
 
-By the end of this course, you'll be able to:
+A routine is the most direct way to automate a task. There's no script and no server. It bundles three things: a prompt, the repository it works on, and any connectors it needs. Then it runs that bundle in the cloud whenever it's triggered.
 
-* Scope work with plan mode, direct compaction so summaries keep what matters, and course-correct with the rewind menu
-* Run autonomous sessions with goal and loop, and parallel agents safely with worktrees
-* Write a lean CLAUDE.md Claude actually follows, with each rule on the right instruction surface
-* Package repeated procedures as skills, starting with a verification skill that checks Claude's work
-* Match the right permission mode to each job, from hands-on review to unattended pipelines
-* Enforce unskippable rules with hooks, using permission-decision JSON and exit codes to control the loop
-* Schedule prompts as routines, run headless jobs with structured output, and wire Claude into pull requests with managed code review and the GitHub action
-* Verify unsupervised runs in proportion to how little you watched them, and share a setup you trust as a plugin your team can install
+The key part is that the infrastructure is Anthropic's. There's no machine of yours staying on overnight, and there's no workflow file for you to maintain. You describe the job once and it just runs.
 
-### Prerequisites
+A routine can fire on a few kinds of triggers:
 
-* You already use Claude Code for single prompts
-* Basic familiarity with Git and the command line
+* A cron schedule, like every morning at 9am.
+* An HTTP POST to its API endpoint, so your own code can kick it off.
+* A GitHub event, like a new pull request landing.
 
-### Who this course is for
+Anything that's the same prompt on a recurring trigger is a good fit. A morning dependency audit. A PR triager that fires when a new pull request comes in. A daily scan of your Sentry tickets to figure out what's most urgent.
 
-Developers who already use Claude Code for single prompts and want to move to longer, less supervised, team-wide workflows
+Here's the mental model for what a routine ties together: a prompt, the repo, connectors, and a schedule.
 
-## Course sections
+## Two ways to create one
 
-### Steer the Work
+You can create a routine from the web at `claude.ai/code/routines`. You give it a name, write the instructions describing what Claude should do in each session, pick a repository, and choose a trigger.
 
-1 lesson
+You can also create one from inside Claude Code without leaving your terminal. Just run the `/schedule` command and describe what you want in plain language, for example:
 
-Learn to keep Claude on track across a long session. You will scope work with plan mode, direct compaction so summaries keep what matters, use the rewind menu to course-correct, and choose between hands-on steering and autonomous goal and loop runs.
+```
+/schedule daily dependency audit at 9am
+```
 
-### Configure Claude
+Same idea, either entry point. Pick whichever fits your flow.
 
-4 lessons
+## Three things to know before you rely on routines
 
-Set up the three instruction surfaces so Claude behaves the way your project needs. You will write a lean CLAUDE.md Claude actually follows, package repeated procedures as skills, pick the right permission mode for each job, and enforce the non-negotiable rules with hooks.
+Before you lean on routines for anything important, keep these three limits in mind.
 
-### Automate Repeat Work
+* **Routines are a research preview.** Behavior and limits will keep moving, so don't be surprised if things change.
+* **A recurring schedule runs at most hourly.** If you need something more frequent, routines aren't the tool.
+* **Each run starts from a fresh clone of your default branch and can only push to `claude/` prefixed branches** unless you loosen that per repo. This is the guardrail that keeps an autonomous run from rewriting main.
 
-2 lessons
+## Headless mode: when you need your own environment
 
-Stop doing by hand the tasks you already trust. You will schedule prompts as routines on Anthropic infrastructure, drop to headless mode when a job needs your own pipeline, and wire Claude into pull requests with managed code review and the GitHub action.
+Routines are great when the work fits in the cloud. But sometimes the job needs your environment, or logic wrapped around the run. That's when you drop to headless mode.
 
-### Verify and Share
+The core of headless mode is the `-p` flag (short for `--print`). It runs Claude Code as a one-shot command with no interactive UI. It reads standard in and writes standard out, so it pipes like any other shell tool:
 
-2 lessons
+```
+claude -p "summarize the changes in this diff"
+```
 
-Make hands-off work safe and portable. You will verify unsupervised runs in proportion to how little you watched them, gate turns on real test results with hooks, and package a setup you trust as a plugin your whole team can install.
+One thing worth knowing: `-p` skips auto-discovery of hooks, skills, plugins, MCP servers, and the CLAUDE.md file. You get Claude plus the tools you allow explicitly, and nothing the local environment happens to load. The upside is that startup is much faster this way.
+
+## Getting structured output back
+
+Because headless mode pipes like any shell tool, you'll often want structured data back instead of prose. You can pair a JSON schema with the JSON output format, and Claude will constrain its output to match your schema.
+
+The object that matches your schema lands in the `structured_output` field of the JSON response. So you can pull it out with a `jq` command and pipe it into a database or another script:
+
+```
+claude -p "Extract the exported function names from src/core/style.js" \
+  --output-format json \
+  --json-schema '{"type":"object","properties":{"functions":{"type":"array","items":{"type":"string"}}},"required":["functions"]}' \
+  | jq '.structured_output.functions'
+```
+
+That gives you a clean array you can hand to whatever comes next.
+
+## Multi-step automation with sessions
+
+For work that happens across multiple steps, you don't have to cram everything into one command. Capture the session's ID from the JSON output and resume it later:
+
+```
+claude --resume "$(jq -r .session_id /tmp/plan.json)"
+```
+
+One script kicks off the work. Another resumes it later with full context. This is handy when the first pass produces a plan and a second pass carries it out.
+
+## Deterministic runs for CI
+
+When CI needs the same results every single run, there's a mode built for that.
+
+The `--bare` flag gives you deterministic mode. It's the right choice when you're running Claude Code inside a pipeline and you want repeatable, predictable output rather than anything that varies run to run.
+
+## The Agent SDK: Claude Code inside your own app
+
+The last step on the spectrum is the Agent SDK. This gets you a library that embeds Claude Code inside your own TypeScript or Python applications.
+
+Both languages expose a `query` function and the same primitives as the CLI. You pass a prompt plus options, like:
+
+* `allowedTools` to control what Claude can do,
+* a system prompt,
+* and a permission mode.
+
+Then you iterate over the messages Claude streams back and handle them however your app needs. It's the same engine as the CLI, just callable from inside your product.
+
+## Which one should you reach for?
+
+Here's the quick decision guide:
+
+* **Routines** are the default for repeat work. They run on Anthropic's infrastructure with nothing for you to host.
+* **Headless mode with `-p`** is for when the job needs your pipeline and you want to pipe data through a script.
+* **`--bare`** is for when CI needs the same results every single run.
+* **The Agent SDK** is for when the work belongs inside your own product.
+
+Start with routines. Drop down the spectrum only when the job actually needs the extra control.
+
+<!-- youtube: b9TCW-pdzDA -->
+
+## 자막 (영상 전사)
+
+Once you trust Claude to do a task, the next move is to stop doing it by hand. The most direct way needs no script or a server, a routine, which is a saved prompt plus repositories and connectors that runs on Anthropics managed infrastructure whenever it's triggered. When you need full control instead, headless mode in the agent SDK run Claude code from your own scripts and applications. Start with a path where you build nothing. A routine bundles a prompt, the repository it works on and any connectors it needs, then runs that bundle in the cloud on a trigger, a cron schedule, an HTTP post to its API endpoint, or a GitHub event like a new pull request. The infrastructure is anthropic, so there's no machine of yours staying on overnight and no workflow file to maintain. You create one from the web at claw.ai slash code slash routines or from inside claw code where you can run slash schedule daily dependency audit at 9 a.m. A morning dependency audit or a PR triager that fires when a new pull request lands. Anything that's the same prompt on a recurring trigger fit. Three things to know before you rely on it though. Routines are a research preview, so behavior and limits will just keep on moving. A recurring schedule runs at most hourly, and each run starts from a fresh clone of your default branch and can only push to clod slash prefix branches unless you loosen that per repo, which is the guardrail that keeps an autonomous run from rewriting main. When the job needs your environment or logic around that run, drop to headless mode. The dash P flag, alias print, runs Claude code as a one-shot command with no interactive 2E. It reads standard in and write standard out, so it pipes like any other shell tool. Bear skips auto-discovery of hooks, skills, plugins, MCP servers, and the ClaudeMD file. You get Claude, plus the tools that you allow explicitly, and nothing the local environment happens to load. Startup is much faster this way. Now you can pair the JSON schema with output format JSON and Claude constraints the structure output to match your schema. The schema matching object lands in the structured output field of the JSON response. So you can pull it with a JQ command and pipe it into a database or another script. For multi-step automation, capture the session's ID from a JSON output and resume. One script kicks off the work. Another resumes it later with full context. The Agent SDK gets you a library that embeds Cloud code inside of your own TypeScript or Python applications. Both expose a query function and the same primitives as the CLI. You pass a prompt plus options like allow tools, a system prompt, and a permission mode, then iterate the messages that Cloud streams back. Routines are the default for repeat work. It runs on Anthropics infrastructure and nothing for you to host. Drop to headless when the job needs your pipeline. Dash P to pipe data through a script. Bear when CI needs the same results every single run. And the agent SDK when the work belongs inside of your own product.
