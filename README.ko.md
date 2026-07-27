@@ -38,18 +38,20 @@ GitHub에서 바로 읽거나, 로컬에서 `rg`로 검색하거나, 전체 아�
 ```bash
 git clone https://github.com/ai-native-engineer/anthropic-mirror.git
 cd anthropic-mirror
-rg "constitutional AI"
+rg -i -n -C 2 --glob '*.md' 'harness|agent scaffold'
+rg -l -i --glob '*.md' 'constitutional AI|alignment'
+rg --files | rg -i 'harness|context-engineering'
 ```
 
-선택적으로 [gbrain](https://github.com/garrytan/gbrain)을 이용해 RAG 검색을 할 수 있습니다. 이 클론을 한 번 등록하고 동기화하면 저장소 안 어디서든 질의할 수 있습니다.
+첫 번째 명령은 일치하는 Markdown 본문을 줄 번호와 앞뒤 문맥과 함께 보여줍니다. 두 번째는 일치한 문서 목록을, 세 번째는 파일 경로를 검색합니다. 보관된 텍스트는 대부분 영어이므로 영어 키워드와 동의어부터 검색하세요.
+
+`rg`는 압축된 PDF 본문을 직접 검색하지 못합니다. Markdown과 모든 PDF 텍스트 레이어를 함께 검색하려면 `pdftotext`를 설치하고(macOS: `brew install poppler`) 다음 명령을 실행하세요.
 
 ```bash
-gbrain sources add anthropic-mirror --path "$PWD" --no-federated
-gbrain sync --source anthropic-mirror --no-pull --no-extract --no-embed
-gbrain query "컨텍스트 검색은 어떻게 동작하나요?"
+./search-archive.sh 'constitutional AI|alignment'
 ```
 
-`.gbrain-source` 파일이 있으면 질의 범위를 이 아카이브로 자동 제한합니다. 미러를 갱신한 뒤에는 동기화를 다시 실행하세요. 벡터 검색까지 추가하려면 `--no-embed`를 빼세요. 이 경우 아카이브 텍스트가 설정된 임베딩 제공자에게 전송되고 사용료가 발생할 수 있습니다.
+PDF 결과의 줄 번호는 PDF 페이지가 아니라 추출된 텍스트의 줄 번호입니다.
 
 ## 수집 범위
 

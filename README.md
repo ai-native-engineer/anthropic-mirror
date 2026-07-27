@@ -38,18 +38,20 @@ Browse on GitHub, search locally with `rg`, or clone the archive:
 ```bash
 git clone https://github.com/ai-native-engineer/anthropic-mirror.git
 cd anthropic-mirror
-rg "constitutional AI"
+rg -i -n -C 2 --glob '*.md' 'harness|agent scaffold'
+rg -l -i --glob '*.md' 'constitutional AI|alignment'
+rg --files | rg -i 'harness|context-engineering'
 ```
 
-For optional RAG search with [gbrain](https://github.com/garrytan/gbrain), register this clone once, sync it, and query from anywhere inside the repository:
+The first command shows matching Markdown with line numbers and surrounding context. The second lists matching documents, and the third searches file paths. Most archived text is English, so start with English terms and synonyms.
+
+`rg` cannot search compressed PDF contents directly. To search Markdown and every PDF text layer together, install `pdftotext` (Poppler; `brew install poppler` on macOS) and run:
 
 ```bash
-gbrain sources add anthropic-mirror --path "$PWD" --no-federated
-gbrain sync --source anthropic-mirror --no-pull --no-extract --no-embed
-gbrain query "How does contextual retrieval work?"
+./search-archive.sh 'constitutional AI|alignment'
 ```
 
-When present, `.gbrain-source` automatically scopes queries to this archive. Re-run the sync after refreshing the mirror. Omit `--no-embed` to add vector retrieval; that sends archive text to the configured embedding provider and may incur usage charges.
+PDF result line numbers refer to extracted text, not PDF page numbers.
 
 ## Coverage
 
