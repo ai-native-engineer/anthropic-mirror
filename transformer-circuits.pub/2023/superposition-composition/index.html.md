@@ -16,7 +16,7 @@ Following Thorpe, this note will focus on examples where neurons have binary act
 
 We'll start with what Thorpe calls a pure "local code". In this setup, there's a neuron for each (shape, color) pair. In our language, this model is "monosemantic" and doesn't have any superposition.
 
-![](images/img-001.png)
+![](images/413eedf1760cf046.png)
 
 This example might seem silly and wasteful, but it is worth noting that this code actually has quite a few interesting properties! For example, it can be used to represent arbitrary sets of stimuli – for example, a red circle and a blue square. Alternatively, if another neural network layer is built on top of it, it's very interesting to ask what can be "linearly selected" from it, and this is also extremely flexible. A future neuron could use a linear function to do something like fire for black circles and white triangles, but not black triangles or white circles. This won't be possible with other codes!
 
@@ -28,7 +28,7 @@ Another natural option is to represent independent features (eg. "Green", "Squar
 
 We see it as using a different set of features – colors and shapes, rather than (color, shape) pairs – which can compose together to represent (color, shape) stimuli.
 
-![](images/img-002.png)
+![](images/d81572b90f715d95.png)
 
 This representation is "distributed" in the sense that representing an object is distributed over independent features composing together. This is often what people mean when they talk about distributed representations in machine learning. A classic example is Mikolov (2013) who found – to great excitement of the community! – that word embeddings represent properties of words like "gender" or "plural" as different direction vectors in embedding space.
 
@@ -44,9 +44,9 @@ Compositional representations are also extremely favorable from an interpretabil
 
 The previous code needed fewer neurons than the "local" code, but there's another kind of distributed representation that can represent all colored shapes with only 4 neurons (just as 4 bits can represent 16 numbers). Such codes are sometimes called "dense". In our framing, it's maximal superposition.
 
-![](images/img-003.png)
+![](images/36942c223163ef25.png)
 
-Dense codes like this have a very cool advantage: they can represent far more, totally unrelated objects than there are neurons. But note that there also also lots of costs to this. It isn't possible to generically select most colors or shapes with a linear probe, let alone sets. You also generally can't represent objects "between" these features (eg. "purple square with rounded corners").
+Dense codes like this have a very cool advantage: they can represent far more, totally unrelated objects than there are neurons. But note that there are also lots of costs to this. It isn't possible to generically select most colors or shapes with a linear probe, let alone sets. You also generally can't represent objects "between" these features (eg. "purple square with rounded corners").
 
 It's also worth noting that there's been a subtle change in this code, besides the use of superposition. It switched back to using the (color,shape) combination features from the "local" code, rather than the independent color and shape features of the "semi-local" compositional code. This is because, as we'll see in the next section, maximal superposition is only possible if there isn't composition. Thus, this code needs to use a non-composing set of features.
 
@@ -56,11 +56,11 @@ It's tempting to see these codes as being on a continuous spectrum in terms of h
 
 But we see the "semi-local" code and the "highly-distributed" code as actually taking two totally different, orthogonal strategies of composition and superposition. (Thorpe also has a "semi-distributed" code which we see as using a mixture of both strategies; we'll discuss it shortly.)
 
-![](images/img-004.png)
+![](images/93a3578bc501e9f7.png)
 
 In fact, there's a sense in which superposition and composition are fundamentally competing as strategies. If one has m bits to encode stimuli, we can think of there as being \exp(m) volume. Storing n features which arbitrarily compose together requires \exp(n) volume; so we can only store m fully composable features in m bits. But if there's no composition, one can instead store \exp(m) items in superposition, although a non-linearity is required to retrieve them.
 
-![](images/img-005.png)
+![](images/b5de55d786ea5cd1.png)
 
 That is, composition and superposition are two different ways to allocate the exponential volume. (The Toy Models of Superposition paper might be seen as fundamentally exploring this trade-off, although it casts things in terms of an equivalent idea of feature sparsity rather than composition.)
 
@@ -74,15 +74,15 @@ When features are dense (ie. combinations are common), networks can only represe
 
 One way you can think about this is that while n features can compose into \exp(n) combinations, if composition is limited, there will be "holes" or low-probability regions in the compositional space which can be used to store other features in superposition.This observation is essentially an informal, simplified restatement of one of the key results of compressed sensing, a field of mathematics studying when extremely sparse vectors can be recovered. In general, compressed sensing is very helpful for understanding when superposition might be possible. It suggests that actually, if composition is limited in the sense of only allowing a fixed number of features to co-activate, the amount of superposition can grow exponentially in the number of neurons.
 
-![](images/img-006.png)
+![](images/3645a423a6ed0b2a.png)
 
-Thorpe's final "semi-distributed" code might be seen as an example of this. It still represents things in terms of composing color and shape features, but puts the colors features in mutual superposition, and the shapes in mutual superposition.
+Thorpe's final "semi-distributed" code might be seen as an example of this. It still represents things in terms of composing color and shape features, but puts the color features in mutual superposition, and the shapes in mutual superposition.
 
-![](images/img-007.png)
+![](images/dac3f2634e6ad20b.png)
 
 Although these units begin to have some meaning – they're polysemantic, but only respond to a few features – it seems more natural from our perspective to think of this code from the perspective of linear combinations of neurons (ie. directions) as corresponding to features. For example, A+B=Green and D+E=Square. This is what we mean by this code representing composable shape and color features in superposition.
 
-![](images/img-008.png)
+![](images/f53a270ec1f55e33.png)
 
 ### [Conclusion](#conclusion)
 

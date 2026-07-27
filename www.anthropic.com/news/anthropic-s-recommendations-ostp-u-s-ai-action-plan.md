@@ -4,7 +4,7 @@
 
 Mar 6, 2025
 
-![A hand-drawn image of a government building](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F29b9740c62c263dd5f71888be78a6d877353261b-1920x1079.png&w=3840&q=75)
+![A hand-drawn image of a government building](https://www-cdn.anthropic.com/images/4zrzovbb/website/29b9740c62c263dd5f71888be78a6d877353261b-1920x1079.png)
 
 In response to the White House’s [Request for Information on an AI Action Plan](https://www.whitehouse.gov/briefings-statements/2025/02/public-comment-invited-on-artificial-intelligence-action-plan/), Anthropic [has submitted recommendations](https://assets.anthropic.com/m/4e20a4ab6512e217/original/Anthropic-Response-to-OSTP-RFI-March-2025-Final-Submission-v3.pdf) to the Office of Science and Technology Policy (OSTP). Our recommendations are designed to better prepare America to capture the economic benefits and national security implications of powerful AI systems.
 

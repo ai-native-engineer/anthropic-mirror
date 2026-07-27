@@ -4,7 +4,7 @@
 
 Mar 3, 2025
 
-![A hand-drawn image of a staircase with a line implying upward motion](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2184a9fa84dd346c38c7756242d76f34ef1b26b1-1920x1079.png&w=3840&q=75)
+![A hand-drawn image of a staircase with a line implying upward motion](https://www-cdn.anthropic.com/images/4zrzovbb/website/2184a9fa84dd346c38c7756242d76f34ef1b26b1-1920x1079.png)
 
 Anthropic has raised $3.5 billion at a $61.5 billion post-money valuation. The round was led by Lightspeed Venture Partners, with participation from Bessemer Venture Partners, Cisco Investments, D1 Capital Partners, Fidelity Management & Research Company, General Catalyst, Jane Street, Menlo Ventures and Salesforce Ventures, among other new and existing investors.
 

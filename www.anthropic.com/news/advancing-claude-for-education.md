@@ -4,7 +4,7 @@
 
 Jul 9, 2025
 
-![Illustration of Claude holding academic literature](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2a1e999f09284a3f347c5a8c67b2622b1ff0ecd0-1920x1079.png&w=3840&q=75)
+![Illustration of Claude holding academic literature](https://www-cdn.anthropic.com/images/4zrzovbb/website/2a1e999f09284a3f347c5a8c67b2622b1ff0ecd0-1920x1079.png)
 
 Today, we’re sharing a first look at upcoming integrations with Canvas, Panopto, and Wiley that bring Claude to Canvas and rich educational context to student conversations in [Claude for Education](https://www.anthropic.com/education).
 
@@ -20,7 +20,7 @@ Students and educators will be able to connect [Wiley](https://www.wiley.com/en-
 
 Additionally, Claude now supports Canvas LTI (Learning Tools Interoperability), allowing students to use Claude directly within their Canvas courses without switching between platforms.
 
-![App screen of Claude in Canvas](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc282cf5b1a857433c63730de370953934bdc12f2-2880x1620.png&w=3840&q=75)
+![App screen of Claude in Canvas](https://www-cdn.anthropic.com/images/4zrzovbb/website/c282cf5b1a857433c63730de370953934bdc12f2-2880x1620.png)
 
 As always, student privacy protections remain our highest priority. Conversations are [private by default](https://privacy.anthropic.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account) and are excluded from AI training by default as well. In furtherance of academic freedom and intellectual exploration, we also require formal approval for institutional data requests and have limited self-serve data exports by default.
 

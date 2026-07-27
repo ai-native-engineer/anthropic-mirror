@@ -4,7 +4,7 @@
 
 Nov 25, 2024
 
-![An abstract illustration of critical context connecting to a central hub](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3aabd8804251c0364cbde9d2e4be6dc8e8c2faec-2880x1620.png&w=3840&q=75)
+![An abstract illustration of critical context connecting to a central hub](https://www-cdn.anthropic.com/images/4zrzovbb/website/3aabd8804251c0364cbde9d2e4be6dc8e8c2faec-2880x1620.png)
 
 Today, we're open-sourcing the [Model Context Protocol](https://modelcontextprotocol.io) (MCP), a new standard for connecting AI assistants to the systems where data lives, including content repositories, business tools, and development environments. Its aim is to help frontier models produce better, more relevant responses.
 
@@ -19,7 +19,7 @@ The Model Context Protocol is an open standard that enables developers to build 
 Today, we're introducing three major components of the Model Context Protocol for developers:
 
 * The Model Context Protocol [specification and SDKs](https://github.com/modelcontextprotocol)
-* Local MCP server support in the [Claude Desktop apps](https://claude.ai/redirect/website.v1.84055890-b4d9-4a24-ae70-9a41a0e2cffc/download)
+* Local MCP server support in the [Claude Desktop apps](https://claude.ai/redirect/website.v1.f2c3b57c-f0bf-4d2c-a957-6605879f658b/download)
 * An [open-source repository](https://github.com/modelcontextprotocol/servers) of MCP servers
 
 Claude 3.5 Sonnet is adept at quickly building MCP server implementations, making it easy for organizations and individuals to rapidly connect their most important datasets with a range of AI-powered tools. To help developers start exploring, we’re sharing pre-built MCP servers for popular enterprise systems like Google Drive, Slack, GitHub, Git, Postgres, and Puppeteer.
@@ -32,13 +32,13 @@ Instead of maintaining separate connectors for each data source, developers can 
 
 ## Getting started
 
-Developers can start building and testing MCP connectors today. All [Claude.ai](http://claude.ai/redirect/website.v1.84055890-b4d9-4a24-ae70-9a41a0e2cffc) plans support connecting MCP servers to the Claude Desktop app.
+Developers can start building and testing MCP connectors today. All [Claude.ai](http://claude.ai/redirect/website.v1.f2c3b57c-f0bf-4d2c-a957-6605879f658b) plans support connecting MCP servers to the Claude Desktop app.
 
 Claude for Work customers can begin testing MCP servers locally, connecting Claude to internal systems and datasets. We'll soon provide developer toolkits for deploying remote production MCP servers that can serve your entire Claude for Work organization.
 
 To start building:
 
-* Install pre-built MCP servers through the [Claude Desktop app](https://claude.ai/redirect/website.v1.84055890-b4d9-4a24-ae70-9a41a0e2cffc/download)
+* Install pre-built MCP servers through the [Claude Desktop app](https://claude.ai/redirect/website.v1.f2c3b57c-f0bf-4d2c-a957-6605879f658b/download)
 * Follow our [quickstart guide](https://modelcontextprotocol.io/quickstart) to build your first MCP server
 * Contribute to our [open-source repositories](https://github.com/modelcontextprotocol) of connectors and implementations
 

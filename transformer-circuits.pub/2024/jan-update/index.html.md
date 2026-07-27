@@ -2,9 +2,6 @@
 
 # Circuits Updates - January 2024
 
-  
-  
-
 We report a number of developing ideas on the Anthropic interpretability team, which might be of interest to researchers working actively in this space. Some of these are emerging strands of research where we expect to publish more on in the coming months. Others are minor points we wish to share, since we're unlikely to ever write a paper about them.
 
 We'd ask you to treat these results like those of a colleague sharing some thoughts or preliminary experiments for a few minutes at a lab meeting, rather than a mature paper.
@@ -26,13 +23,6 @@ Updates
 * [New Comment On Previous Papers](#new-comments)
 * [Research By Other Groups](#external-research)
 
-  
-  
-  
-
-  
-  
-
 ## [Interpretability Team Priorities](#team-update)
 
 Chris Olah, Shan Carter, Adam Jermyn, Joshua Batson, Tom Henighan
@@ -43,13 +33,6 @@ As our team has grown, we have gotten more bandwidth to focus on a wider range o
 * Attacking Attention Superposition in Real Models with Dictionary Learning
 * Understanding Circuits Based on Above
 
-  
-  
-  
-
-  
-  
-
 ## [Further investigation of attention superposition](#attn-superposition)
 
 Adam Jermyn, Chris Olah, Tom Conerly
@@ -58,7 +41,7 @@ In our investigations of attention superposition (see [our previous discussion](
 
 In this model, we imagine that there are several true "attentional features", each captured by a single attention head with sparse attention patterns and a sparse OV circuit. We then train a model with a smaller number of attention heads to represent these attentional features.
 
-![](images/img-001.png)
+![](images/4bf982350939e41c.png)
 
 Experiment Details: We first generate random (fixed) OV weights for five attention heads. For each sample, we then generate a residual stream across multiple tokens filled with random numbers, as well as a random attention pattern for each head. The attention patterns and OV circuits are both highly sparse. The target output is the result of applying these attention heads to the residual stream, followed by a ReLU nonlinearity. This forms the training data.
 
@@ -66,17 +49,10 @@ The model itself takes as input the five generated attention patterns for each s
 
 Results: The main thing we're interested in is the geometry of how the true attentional features are organized. If we train a model with 5 "true attentional features" and two attention heads, we can plot the mixing matrix as a scatter plot, enabling us to directly inspect the geometry. This reveals a striking geometry:
 
-![](images/img-002.png)
-![](images/img-003.png)
+![](images/249d63706922bd5f.png)
+![](images/e71c3c58f4debefa.png)
 
 A factor that we found important in generating superposition is ensuring that the OV circuit is sparse: when the OV circuit is dense we tend not to see signs of superposition.
-
-  
-  
-  
-
-  
-  
 
 ## [Can dictionary learning uncover sparse features in an MNIST model?](#mnist-sparse)
 
@@ -94,7 +70,7 @@ Our Results So Far
 
 In our investigations of dictionary learning, we attempted to recover sparse features from the activations of  fully-connected ReLU models trained on MNIST.
 
-We performed hyperparameter scans of dictionary learning with a variety of algorithms on fully-connected MNIST models with 16-64 neurons per layer and 1-3 layers. The resulting features often appeared interpretable, and cleanly mapped to individual digits. In particular, we often saw multiple features corresponding to slightly different ways of drawing each digit, suggesting that the networks learned to use a template-matching strategy. These features also had matching downstream effects on the logits (e.g. a “0” feature enhanced the probability placed on the digit “0”).
+We performed hyperparameter scans of dictionary learning with a variety of algorithms on fully-connected MNIST models with 16–64 neurons per layer and 1–3 layers. The resulting features often appeared interpretable, and cleanly mapped to individual digits. In particular, we often saw multiple features corresponding to slightly different ways of drawing each digit, suggesting that the networks learned to use a template-matching strategy. These features also had matching downstream effects on the logits (e.g. a “0” feature enhanced the probability placed on the digit “0”).
 
 These features seem like one natural possibility for features the model might represent in superposition. If a model without a hidden layer is forced to have a single "general template" for each digit, having many different templates for the different ways a digit can be drawn might be a natural improvement. And because the templates are all mutually exclusive (there is only one actual digit drawn!) they are naturally sparse, which makes it possible to encode them in superposition with minimal interference costs.
 
@@ -104,13 +80,6 @@ We have some uncertainties about how to interpret these results. On the one hand
 
 This pattern of finding interpretable features but not finding clear evidence that they're the "true features" or that we've "found all of them" continues in our new work. In some ways, this seems more expected in light of our findings about [feature splitting](https://transformer-circuits.pub/2023/monosemantic-features/index.html#phenomenology-feature-splitting). But an important open question remains whether we can find evidence for a "strong superposition hypothesis", or whether features are just a pragmatically useful abstraction.
 
-  
-  
-  
-
-  
-  
-
 ## [Features in an 8-layer Model](#dict-learning)
 
 Adam Jermyn, Tom Conerly, Trenton Bricken, Adly Templeton
@@ -119,7 +88,7 @@ In [Towards Monosemanticity](https://s3-frontend.infra.ant.dev/anthropic-serve/c
 
 Broadly, what we see is that the features in the final layer look quite similar to the ones we saw in a 1-layer transformer. These fire in simple situations, often on single tokens, and predict plausible next tokens.
 
-In earlier layers we see more abstract features, which activate on e.g. text with strong emotional valence. Very qualitatively, our sense is that layers 4-6 contain the most high-level features, though we have not done a careful census of these. This is consistent with the findings in [Softmax Linear Units](https://transformer-circuits.pub/2022/solu/index.html) that the interpretable neurons in the middle layers of large models tend to fire on more abstract/high-level concepts than in early/late layers.
+In earlier layers we see more abstract features, which activate on e.g. text with strong emotional valence. Very qualitatively, our sense is that layers 4–6 contain the most high-level features, though we have not done a careful census of these. This is consistent with the findings in [Softmax Linear Units](https://transformer-circuits.pub/2022/solu/index.html) that the interpretable neurons in the middle layers of large models tend to fire on more abstract/high-level concepts than in early/late layers.
 
 While an 8-layer transformer is still quite small compared with frontier models, it is a promising sign that we continue to see interpretable features in models with more than one layer (consistent with the findings of [Smith 2023](https://www.lesswrong.com/posts/wqRqb7h6ZC48iDgfK/tentatively-found-600-monosemantic-features-in-a-small-lm) on a 6-layer transformer).
 
@@ -139,18 +108,11 @@ Our confidence in these descriptions is moderate, though lower than for the feat
 | 6 | Descriptions of physical spaces.  Sayings, quotes, and slogans.  Sex/love/feelings in close relationships.  “Of” after a group of two or three people (e.g. “two of them”, “three of them”).  Body language/embodied emotions.  Nonverbal communication. | Strong negative emotions.  Violence detector.  Descriptions of interpersonal conflicts. |
 | 7 | LaTeX math mode.  Hebrew.  Swedish.  Repeated letters.  Email spam.  Base62. | Single-token “,” in emotionally charged settings, predicting words indicating emotional state. |
 
-  
-  
-  
-
-  
-  
-
 ## [Multilingual Features in Large Models](#dict-learning-scaling)
 
 Adly Templeton, Tom Conerly, Jonathan Marcus, Tom Henighan, Joshua Batson, Chris Olah, Adam Jermyn
 
-As mentioned above, we've used dictionary learning to extract interpretable features from an 8 layer model. This was part of a broader effort to scale up dictionary learning, and we've been able to scale dictionary learning significantly further -- out to models with billions of parameters.
+As mentioned above, we've used dictionary learning to extract interpretable features from an 8 layer model. This was part of a broader effort to scale up dictionary learning, and we've been able to scale dictionary learning significantly further – out to models with billions of parameters.
 
 We now have preliminary features in some of these models, and remarkably see that many of them are multilingual. That is, we see features that fire for the same concept across many different languages.
 
@@ -181,13 +143,6 @@ Finally, we found some features which are not obviously multilingual but do seem
 * Calm down, lighten up, cool off,  shut up, slow down, etc.
 * Pointers to supporting evidence or causation (e.g. “as a basis for comparison”, “criteria for”, “the sole basis for”, “probable contributor to”, etc.)
 
-  
-  
-  
-
-  
-  
-
 ## [Ghost Grads: An improvement on resampling](#dict-learning-resampling)
 
 Adam Jermyn, Adly Templeton
@@ -214,16 +169,9 @@ Note that in step (2) we use an exponential activation function because this has
 
 Empirically we find that this procedure produces autoencoders with very few (often zero!) dead neurons. Moreover, we find that models trained with Ghost Grads perform as well or better than models trained with neuron resampling at the same number of alive neurons.
 
-![](images/img-004.png)
+![](images/52faa85176310607.png)
 
 Ghost Grads roughly doubles the compute requirements of the autoencoder, so it would be reasonable to ask if that cost is worth the benefit. Empirically, however, we find that the fraction of neurons that die increases with the size of the autoencoder, and very large autoencoders can easily have more than 50% of neurons dead, even with neuron resampling. So just on pure compute grounds, this means it is often advantageous to run a smaller autoencoder with Ghost Grads than to use a larger autoencoder with traditional neuron resampling.
-
-  
-  
-  
-
-  
-  
 
 ## [Counterexamples in Superposition](#sparse-polysemantic)
 
@@ -242,7 +190,7 @@ Joint Superposition Between MLP Neurons and Residual Stream
 
 It turns out that sparsely activated neurons can be “in superposition with the residual stream”.
 
-In a 1-layer models we regularized to have sparse activations, we found a very sparsely activated neuron that primarily responds to three different types of inputs: "it|'s", "and|/", and "many| of" / "some| of". We confirmed that for each of these facets, no other neuron activates to disambiguate the cases. At first glance, this seems like a polysemantic neuron without superposition, but this model’s output was able to disambiguate what the neuron represents by looking at it in conjunction with the residual stream and then use it to make reasonable predictions specific to each of the three facets.
+In a 1-layer model we regularized to have sparse activations, we found a very sparsely activated neuron that primarily responds to three different types of inputs: "it|'s", "and|/", and "many| of" / "some| of". We confirmed that for each of these facets, no other neuron activates to disambiguate the cases. At first glance, this seems like a polysemantic neuron without superposition, but this model’s output was able to disambiguate what the neuron represents by looking at it in conjunction with the residual stream and then use it to make reasonable predictions specific to each of the three facets.
 
 In response to this obstacle, one might try to analyze or sparsify the residual stream instead. However, this is less natural since the residual stream does not have a privileged basis. To the extent that we want to understand MLP layers as a component of the overall model, superposition contained within the MLP layer is preferable to superposition between the MLP layer and the residual stream, so techniques that replace the former with the latter are counterproductive for us.
 
@@ -255,13 +203,6 @@ Another obstacle is that, in the limit of forcing activations to be sparse, the 
 To eliminate the superposition described above (at the cost of severely limiting model performance!), we trained another regularized 1-layer model with a “cut” residual stream: instead of adding the output of the MLP layer back to the residual stream, we replaced the residual stream entirely with the output of the MLP layer. Even when only one neuron fired on any given example, we still saw polysemanticity! In particular, we found one neuron firing weakly for one facet (personal pronouns) and strongly for a completely unrelated facet (the “m” of the word “diplomacy”), while no other neuron activated to disambiguate the cases. Furthermore, we found that the one-layer model used this feature productively: when the neuron fired weakly, the model predicted tokens that make sense after personal pronouns, such as “ was”/” had”/” said”, and when it fired strongly, it predicted “acy”.
 
 This is possible because the output layer has a softmax of a linear transformation. For example, a model could represent mutually exclusive, binary (on-or-off) features A, B, C in one neuron x by having x = 1 represent A, x = 2 represent B, and x = 3 represent C, and then recover the feature in the output by computing \mathrm{softmax}(x, 3x-3, 5x-8), or even \mathrm{softmax}(100x, 300x-300, 500x-800) for higher confidence. We think this type of representation is even harder to work with and reason about than superposition of linear representations, so we expect techniques that encourage models to use it to be counterproductive as well.
-
-  
-  
-  
-
-  
-  
 
 ## [Predicting Future Activations](#predict-future)
 
@@ -278,13 +219,6 @@ We’ve been experimenting with three variations on this theme:
 The first two variations do produce interpretable features, though we cannot yet confidently say whether these features are better or worse than our baseline sparse autoencoder. However, they have a major benefit in making circuit analysis much easier, as the input weights of the sparse model compose directly with residual stream elements (and therefore outputs of earlier layers) and the output weights of the autoencoder compose directly with the residual stream elements (and therefore inputs to later layers), with the nonlinearity sandwiched in between. This allows for an extension of the linear analysis in [A Mathematical Framework for Transformer Circuits](https://transformer-circuits.pub/2021/framework/index.html) to include circuits supporting MLP features as well as output logits and attention heads.
 
 We’re currently in the very early stages of exploring the attention variation.
-
-  
-  
-  
-
-  
-  
 
 ## [Random Open Problems](#open-problems)
 
@@ -308,27 +242,13 @@ With that in mind, we have listed two kinds of open problems below: ones oriente
 3. Construct a small attention-only language model on a task that requires more working memory than will naively fit in the residual stream. Mechanistically analyze how this model makes use of the residual stream.
 4. Construct a toy language model which exhibits cross-layer superposition.
 
-  
-  
-  
-
-  
-  
-
 ## [New Comment Digest](#new-comments)
 
 Transformer Circuits periodically publishes comments on our papers, both from external parties and by the authors. Some of these comments were submitted before publication, from reviewers of early draft manuscripts. But others are submitted significantly after the fact, and might not be seen. To that end, we've included a digest of recently added comments:
 
 Towards Monosemanticity: Decomposing Language Models With Dictionary Learning
 
-* [Replication & Tutoria](https://transformer-circuits.pub/2023/monosemantic-features/index.html#comment-nanda)l (Neel Nanda)
-
-  
-  
-  
-
-  
-  
+* [Replication & Tutorial](https://transformer-circuits.pub/2023/monosemantic-features/index.html#comment-nanda) (Neel Nanda)
 
 ## [Research By Other Groups](#external-research)
 
@@ -338,11 +258,11 @@ Finally, we'd like to highlight a selection of recent work by a number of resear
 
 #### [Mechanisms of In-context Learning](#external-in-context-mechanisms)
 
-Two concurrent papers – [In-Context Learning Creates Task Vectors](https://arxiv.org/abs/2310.15916) by Hendel et al. and [Function Vectors in Large Language Models](https://functions.baulab.info/) by Todd et al. – addressed the question of how the tasks/functions leveraging in-context learning are represented. Hendel et al. study a series of in-context learning tasks of the form [A]→[B], where each of A and B are single tokens, such as "Apple→Red Lime→Green Orange→", etc. They find that the value of the residual stream sitting at medium depth over the final "→" token contains information specifying the task, such that patching in that value in a fresh context "Lemon→" would produce the correct output ("Yellow" in this case). This indicates that the task itself, as opposed to its answer for that example, gets encoded. They also check that the "task vector" is approximately the same independent of the 10 context examples used for extraction of the vector, indicating that it's not merely a summary of the examples.
+Two concurrent papers – [In-Context Learning Creates Task Vectors](https://arxiv.org/abs/2310.15916) by Hendel et al. and [Function Vectors in Large Language Models](https://functions.baulab.info/) by Todd et al. – addressed the question of how the tasks/functions leveraging in-context learning are represented. Hendel et al. study a series of in-context learning tasks of the form [A]→[B], where each of A and B are single tokens, such as "Apple→Red Lime→Green Orange→", etc. They find that the value of the residual stream sitting at medium depth over the final "→" token contains information specifying the task, such that patching in that value in a fresh context "<EOT>Lemon→" would produce the correct output ("Yellow" in this case). This indicates that the task itself, as opposed to its answer for that example, gets encoded. They also check that the "task vector" is approximately the same independent of the 10 context examples used for extraction of the vector, indicating that it's not merely a summary of the examples.
 
-Todd et al. similarly study tasks of the form [A]:[B], such as "awake:asleep, vanish:appear, future:past", but they investigate which vectors get written to the final token ":" by which attention heads, rather than merely capturing the residual stream vector at that position. They ablate the outputs of specific attention heads writing to the final ":" token, and identify a handful (~12 heads) which contribute significantly. They find that patching in those outputs (at a sufficiently early layer) restores the model performance on a fresh task context "night:" This confirms that the task itself, as opposed to its answer, gets encoded. They work with multitoken entities, and demonstrate task arithmetic for a contrived series of tasks, such as "Copy-last-element-of-list + Give-capital-city-of-first-element-in-list - Copy-last-element-of-list" which does produce "Give-capital-city-of-last-element."
+Todd et al. similarly study tasks of the form [A]:[B], such as "awake:asleep, vanish:appear, future:past", but they investigate which vectors get written to the final token ":" by which attention heads, rather than merely capturing the residual stream vector at that position. They ablate the outputs of specific attention heads writing to the final ":" token, and identify a handful (~12 heads) which contribute significantly. They find that patching in those outputs (at a sufficiently early layer) restores the model performance on a fresh task context "<EOT>night:" This confirms that the task itself, as opposed to its answer, gets encoded. They work with multitoken entities, and demonstrate task arithmetic for a contrived series of tasks, such as "Copy-last-element-of-list + Give-capital-city-of-first-element-in-list - Copy-last-element-of-list" which does produce "Give-capital-city-of-last-element."
 
-We would be excited to see follow-up work checking if the same mechanisms are involved when the task to be performed is determined by context and standard usage, as opposed to an in-context-learning sequence of analogies. For example, when the model processes the sentence "The color of an Orange is", does the same "task vector" (whether captured from residual stream of summed from attention head outputs) form on "is" as forms on "→" in "Apple→Red Lime→Green Orange→"? If so, then ICL examples could serve as "purifying" strategies for identifying model mechanisms that are used more generally.
+We would be excited to see follow-up work checking if the same mechanisms are involved when the task to be performed is determined by context and standard usage, as opposed to an in-context-learning sequence of analogies. For example, when the model processes the sentence "The color of an Orange is", does the same "task vector" (whether captured from residual stream or summed from attention head outputs) form on "is" as forms on "→" in "Apple→Red Lime→Green Orange→"? If so, then ICL examples could serve as "purifying" strategies for identifying model mechanisms that are used more generally.
 
 #### [Inductive Biases](#external-inductive-biases)
 
@@ -360,7 +280,7 @@ What about more general classes of algorithms? The programming language [RASP](h
 
 #### [Probing and Circuit Discovery](#external-probing)
 
-In [Fact Finding: Attempting to Reverse-Engineer Factual Recall on the Neuron Level,](https://www.lesswrong.com/posts/iGuwZTHWb6DFY3sKB/fact-finding-attempting-to-reverse-engineer-factual-recall) Nanda et al. investigate the circuit supporting a specific narrow case of factual recall: completions of the sentence "Fact: [ATHLETE NAME] plays the sport of" for a collection of [ATHLETE NAME]s playing basketball, baseball, or tennis. They find that detokenization happens in the first layers (0, 1), factual recall happens in the early MLP layers (2-6), after which attention heads (primarily one specific attention head) selects the sport information and transmits it to the final token. The attention part of this story is tidy – composing the OV circuit with the unembedding matrix even produces a mechanistic probe for sport. But the factual recall MLP story is not; the authors carefully falsify a few simple theories of how the factual information about entities might be stored, and speculate about the limits of the quality of explanation we might expect for such unstructured and arbitrary facts about entities. While we are optimistic that there are principles behind how networks store even arbitrary information, it is as yet unclear what the minimal interpretable unit will be, especially when many layers are (provably) involved.
+In [Fact Finding: Attempting to Reverse-Engineer Factual Recall on the Neuron Level,](https://www.lesswrong.com/posts/iGuwZTHWb6DFY3sKB/fact-finding-attempting-to-reverse-engineer-factual-recall) Nanda et al. investigate the circuit supporting a specific narrow case of factual recall: completions of the sentence "Fact: [ATHLETE NAME] plays the sport of" for a collection of [ATHLETE NAME]s playing basketball, baseball, or tennis. They find that detokenization happens in the first layers (0, 1), factual recall happens in the early MLP layers (2–6), after which attention heads (primarily one specific attention head) selects the sport information and transmits it to the final token. The attention part of this story is tidy – composing the OV circuit with the unembedding matrix even produces a mechanistic probe for sport. But the factual recall MLP story is not; the authors carefully falsify a few simple theories of how the factual information about entities might be stored, and speculate about the limits of the quality of explanation we might expect for such unstructured and arbitrary facts about entities. While we are optimistic that there are principles behind how networks store even arbitrary information, it is as yet unclear what the minimal interpretable unit will be, especially when many layers are (provably) involved.
 
 #### [Superposition and Dictionary Learning](#external-superposition)
 

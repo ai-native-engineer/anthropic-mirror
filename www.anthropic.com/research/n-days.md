@@ -36,13 +36,13 @@ We ran three trials for each of the six models we tested on each of the 18 vulne
 
 We also timed how long it took the model to develop a PoC. Mythos Preview’s first PoC arrived in about 12 minutes, and 13 arrived within 40 minutes, or about half the time it took Opus 4.8 to find 11. Mythos Preview’s final PoC took much longer, bringing the total time for all 14 to roughly three hours.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F225433a956d4f1a7cac72cd07a6e773b1c13e445-1999x1187.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/225433a956d4f1a7cac72cd07a6e773b1c13e445-1999x1187.png)
 
 **Figure 1**: We analyze 15 SpiderMonkey CVEs in Firefox 148 and 3 in Firefox 149. Three independent trials were run for each model per CVE. Each trial has a budget of three million tokens. A trial's time is the agent's wall-clock from receiving the task to declaring “I am done” or running out of token allowance. For each CVE we plot the minimum time to success of its three trials, then sort CVEs by that time.
 
 Second, we investigated how consistently each model can develop PoCs for the vulnerabilities. We chose the three best-performing models from the previous test—Mythos Preview, Opus 4.8, and Opus 4.6—and ran 50 trials for each of the 18 vulnerabilities. Mythos Preview solved 7 of them on all 50 trials, whereas Opus 4.8 and Opus 4.6 were only that consistent on one vulnerability.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4e228c0a91e0c41347bd83e33ce8adac5455ffb9-1999x986.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/4e228c0a91e0c41347bd83e33ce8adac5455ffb9-1999x986.png)
 
 **Figure 2**: We ran Opus 4.6, Opus 4.8 and Mythos Preview on 50 trials per CVE. For each model, we sort its 18 CVEs by its own success rate at developing a PoC, so the x-axis is ranked within that model: rank 1 is whichever CVE that model found easiest, and rank 18 is its hardest, regardless of which specific bug that is. The curves therefore show each model's capability profile rather than a head-to-head on shared bugs. Mythos Preview finds PoCs much more consistently than other models.
 
@@ -50,7 +50,7 @@ Finally, we assessed whether the models could turn the crash into a working expl
 
 This is where Mythos Preview really pulled ahead. Mythos Preview wrote its first working exploit in just under one hour, and ultimately created eight different exploits in roughly 12 hours. Opus 4.8 created two exploits, and Opus 4.6 and Sonnet 4.6 each managed one. The rest managed none. That confirms our [previous analysis](https://red.anthropic.com/2026/mythos-preview/): Mythos Preview is a step change improvement in turning a crash into a full exploit. To put these results into perspective, Mythos Preview had its first exploit within an hour of Mozilla issuing the [patch](https://hg-edge.mozilla.org/releases/mozilla-release/rev/966d083dc362) for it—while it would’ve been 18 days before the patched [Firefox 148](https://www.firefox.com/en-US/firefox/148.0/releasenotes/) was even released.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fdb12e3677c7c71c4f92d5ff51dcc23abb46faa46-1999x1186.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/db12e3677c7c71c4f92d5ff51dcc23abb46faa46-1999x1186.png)
 
 **Figure 3**: We test whether each model can turn PoCs from the previous experiment into working exploits. We ran three independent trials on each common vulnerability and exposure (CVE) for which a PoC was available, with each trial given that PoC as its starting point and the same three-million-token budget. From the CVEs that had a successful PoC, we select the PoC submitted in the fastest successful trials. For each CVE, we plot the minimum end-to-end time across the three trials (the model's own fastest PoC time from Figure 1 plus its fastest exploit time), then sort CVEs by that total. We deduplicated the exploits using an LLM agent and manual inspection.
 
@@ -74,7 +74,7 @@ To grade each trial, we recompile each submitted PoC and run it as a `lowpriv` 
 
 We ran the models three times on each vulnerability. We found that models are effective at accelerating N-days even without source code. Sonnet 4.6 and Opus 4.7 each managed to develop PoCs that reached the vulnerability to trigger a Blue Screen for 13 of the 21 vulnerabilities, while Opus 4.8 managed 15, and Mythos Preview reached 18. Mythos Preview’s first PoC arrived in 31 minutes and all 18 arrived within six hours—for a total cost in API credits of roughly $2,200.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff5eb8cecd3801ee66d515c50162f315791a3d4f1-1999x1200.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/f5eb8cecd3801ee66d515c50162f315791a3d4f1-1999x1200.png)
 
 **Figure 4**: We run three trials for each CVE. A crash is detected by the harness supervisor when the Windows guest stops responding and writes a BugCheck banner to its serial console. To verify a submitted PoC, an agentic grader also recompiles it from scratch and runs it as an unprivileged user on a fresh VM the original agent never touched. The grader is also asked to rule out off-target crashes and grader-tampering. Ghidra and Ghidriff outputs are pre-computed offline (about 2 hours total for all files) and staged as files at launch.
 
@@ -84,7 +84,7 @@ As with our results on Firefox, this is where Mythos Preview shone. It not only 
 
 Opus 4.8 came close to producing a single exploit in several trials (creating arbitrary read, arbitrary write primitives along with finding a KASLR leak), but it couldn’t chain those together to go from `lowpriv` to `SYSTEM` in our harness.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fdbe72c3a312db6483480cf9ee35af777109a2401-1999x1200.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/dbe72c3a312db6483480cf9ee35af777109a2401-1999x1200.png)
 
 **Figure 5**: The y-axis shows the hours from launch to the first time any of a CVE's three trials achieved privilege escalation on its development VM. Escalation is detected by the harness wrapper, which runs `whoami` before and after the exploit with a per-run nonce so the agent cannot pre-print the expected output. To score, the agent's submitted source is recompiled and run as an unprivileged user on a fresh VM under a separate, nonce-protected wrapper. An agentic grader reads the transcript and re-runs the exploit and reads the source to rule out cheats (e.g. replacing `whoami`, tampering with the grader's parent process), confirms the chain stems from the assigned CVE rather than an unrelated bug, and verifies the agent's script did nothing beyond documented administrator configuration. The x-axis sorts these times in ascending order; only Mythos Preview produced any.
 
@@ -106,21 +106,19 @@ Vendors are already moving to shrink the patch gap. Mozilla, for instance, has t
 
 At Anthropic, we’re actively exploring several directions for how language models themselves can mitigate N-days, and we hope to share more on this site once we’re ready. If you’re interested in helping us with our efforts, we have [job openings](https://www.anthropic.com/careers) available for research scientists and engineers, threat investigators, policy managers, offensive security researchers, security engineers, among many other roles.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)
 
 ## Subscribe to the Frontier Red Team newsletter
 

@@ -765,7 +765,7 @@ The rapid implementation of agents means it's crucial that developers like Anthr
 
 We aim to adhere to the following principles when developing agents:
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F51dfff9e2ac5b8a57acfabab370e5fcb2bc7786f-7200x4050.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/51dfff9e2ac5b8a57acfabab370e5fcb2bc7786f-7200x4050.png)
 
 ## Keeping humans in control while enabling agent autonomy
 
@@ -781,7 +781,7 @@ Humans need visibility into agents’ problem-solving processes. Without transpa
 
 In Claude Code, Claude shows its planned actions through a real-time to-do checklist, and users can jump in at any time to ask about or adjust Claude’s workplan. The challenge is in finding the right level of detail. Too little information leaves humans unable to assess whether the agent is on track to achieve its goal. Too much can overwhelm them with irrelevant details. We try to take a middle ground but we’ll need to iterate on this further.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F35824c968c7f79bfd4e19256b06462c96d9405aa-7200x4050.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/35824c968c7f79bfd4e19256b06462c96d9405aa-7200x4050.png)
 
 *Claude Code’s to-do checklist which users can see in real-time*
 

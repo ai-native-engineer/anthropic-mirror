@@ -2,9 +2,6 @@
 
 # Circuits Updates - March 2024
 
-  
-  
-
 We report a number of developing ideas on the Anthropic interpretability team, which might be of interest to researchers working actively in this space. Some of these are emerging strands of research where we expect to publish more on in the coming months. Others are minor points we wish to share, since we're unlikely to ever write a paper about them.
 
 We'd ask you to treat these results like those of a colleague sharing some thoughts or preliminary experiments for a few minutes at a lab meeting, rather than a mature paper.
@@ -17,13 +14,6 @@ New Posts
 Updates
 
 * [Research By Other Groups](#external-research)
-
-  
-  
-  
-
-  
-  
 
 ## [Using Features For Easy Circuit Identification](#feature-heads)
 
@@ -53,7 +43,7 @@ where a\_i is the activation of feature i, \mathbf{d}\_i is the dictionary (deco
 
 There is a clear top feature by attribution. The top-activating dataset examples (from a feature visualization precomputed on the training mix) include basketball-related words such as "layup", "half-court", and "point guard". Since each feature's activation is a thresholded affine function on the residual stream \text{relu}(E\_i x+b\_i) (where E\_i is that feature’s vector in the encoder and b\_i is that feature’s bias), we have from a single example isolated a basketball-related probe (E\_ix + b\_i > 0). This also indicates that the subject\_enrichment phase has progressed by layer 9, such that information about the sport is present in the token.
 
-![](images/img-001.png)
+![](images/3aa102e4bd6f9979.png)
 
 We repeat this analysis for "Babe Ruth" for baseball and "Serena Williams" for tennis, finding in each case the top feature by attribution fired on baseball ("Dodgers", "Orioles", "yankees") and tennis ("WTA")-related texts.
 
@@ -63,16 +53,9 @@ We note a number of features that respond to ends of names or surnames ("Judas P
 
 We then looked for attention heads who produced a large direct logit effect from the basketball feature (i.e., the difference in the [basketball] and [golf] entries of U\operatorname{norm}(OV\mathbf{d\_i}) is large). We found many such heads, across many layers, with the top five heads belonging to layers 11, 13, and 14. The top logit effects of each head are basketball-related ("basket", "NBA"). Moreover, the same set of heads produces baseball-related words on the baseball feature and tennis-related words on the top tennis feature. This parallels the discovery of a special head in Nanda et al. which acted as a probe for sport, as well as the more recent identification of many "Subject Heads" in [Chughtai et al.](https://arxiv.org/abs/2402.07321), which found that many heads were involved in extracting attributes from the subject in factual recall, producing the correct output via constructive interference.
 
-![](images/img-002.png)
+![](images/9fcd40c9b7dce6ac.png)
 
 We hope this exercise demonstrates the utility of using SAEs to kickstart circuit analysis.
-
-  
-  
-  
-
-  
-  
 
 ## [Update on Dictionary Learning Improvements](#dl-update)
 
@@ -85,13 +68,6 @@ In previous updates, we’ve mentioned a number of interventions which we found 
 * Pruning features which have a decoder norm < 0.99. Other changes have led to much fewer features which are dead or have decoder norm < 0.99, such that this is no longer a meaningful improvement. (From [February](https://transformer-circuits.pub/2024/feb-update/index.html#dict-learning-loss) update)
 
 While these were improvements to the training process we used at the time, other changes have superseded them. We intend to publish these changes in a future update once we’ve vetted them further.
-
-  
-  
-  
-
-  
-  
 
 ## [Research By Other Groups](#external-research)
 

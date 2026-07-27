@@ -22,7 +22,7 @@ This document describes one of the core pieces of infrastructure we've built to 
 
 ### The problem
 
-Among other research projects, at Anthropic we work on interpretability -- trying to understand what is going on inside of language models as they work. We take a number of approaches, but we spend a lot of time on “[Circuits](https://distill.pub/2020/circuits/)”-style mechanistic interpretability, trying to dig deeply into the actual mechanics of the computation performed by a model.
+Among other research projects, at Anthropic we work on interpretability — trying to understand what is going on inside of language models as they work. We take a number of approaches, but we spend a lot of time on “[Circuits](https://distill.pub/2020/circuits/)”-style mechanistic interpretability, trying to dig deeply into the actual mechanics of the computation performed by a model.
 
 This kind of work involves “poking at” models in a broad and flexible way. We want to examine individual activations inside arbitrary layers of the model; to perform experiments where we modify or ablate individual components; and otherwise to access and work with the “guts” of the model, and not just its inputs and outputs.
 
@@ -92,9 +92,9 @@ The save\_ctx objects are all saved by the Garçon server (per connection to th
 
 ### Motivation for the “probe” interface
 
-The Garçon “probe” interface is flexible but somewhat unwieldy; it introduces state into the server, and it requires a bit of ceremony to access activations -- you need to create a probe, run the forward pass, and then separately retrieve the activations. It's natural to ask why we opted for this approach instead of something simpler that (e.g.) let you access arbitrary activations post-facto.
+The Garçon “probe” interface is flexible but somewhat unwieldy; it introduces state into the server, and it requires a bit of ceremony to access activations — you need to create a probe, run the forward pass, and then separately retrieve the activations. It's natural to ask why we opted for this approach instead of something simpler that (e.g.) let you access arbitrary activations post-facto.
 
-The probes interface was designed to be a “primitive” interface that supported all of our use cases with reasonable efficiency.Specifically, we had the following goals in mind which motivated this design:
+The probes interface was designed to be a “primitive” interface that supported all of our use cases with reasonable efficiency. Specifically, we had the following goals in mind which motivated this design:
 
 #### Only capture data if requested
 
@@ -102,7 +102,7 @@ One could imagine just capturing all intermediate values, to expose them all to 
 
 #### Enable reduction on the server
 
-Sometimes we are not interested in a full tensor, but only in some projection of it -- perhaps we only want values for one token position, or perhaps we want some summary statistic such as L2 norm. By enabling arbitrary computation on the server, we can compute this summary server-side. This has two benefits:
+Sometimes we are not interested in a full tensor, but only in some projection of it — perhaps we only want values for one token position, or perhaps we want some summary statistic such as L2 norm. By enabling arbitrary computation on the server, we can compute this summary server-side. This has two benefits:
 
 * It reduces bandwidth needs, by sending a smaller amount of data to the client
 * It lets us leverage the fact that the model is run in parallel across multiple GPUs, since different GPUs may be able to compute their own activations concurrently.

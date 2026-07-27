@@ -12,13 +12,6 @@ Evan Hubinger, Samuel Marks
 
 We develop three agents that autonomously perform alignment auditing tasks. When tested against models with intentionally-inserted alignment issues, our agents successfully uncover an LLM's hidden goal, build behavioral evaluations, and surface concerning LLM behaviors. We are using these agents to assist with alignment audits of frontier models like Claude 4.
 
-  
-  
-  
-
-  
-  
-
 As part of our [pre-deployment testing of Claude Opus 4](https://www-cdn.anthropic.com/6be99a52cb68eb70eb9572b4cafad13df32ed995.pdf), we conducted an alignment audit: a systematic investigation into the model’s alignment-relevant propensities including [sycophancy](https://arxiv.org/abs/2310.13548), [alignment faking](https://arxiv.org/abs/2412.14093), [hidden goals](https://arxiv.org/abs/2503.10965). Through this audit, we believe that Anthropic, and the public, gained a deeper understanding of Claude Opus 4's alignment than we've achieved for any previous model. However, alignment audits face two major challenges.
 
 The first major challenge is scalability: Alignment audits require a large investment of human researcher time. As the pace of AI development accelerates—resulting in more models to audit and more ground to cover with each audit—there’s a risk that unassisted humans will be unable to keep up.
@@ -35,7 +28,7 @@ Our evaluations show that our agents can achieve impressive performance at audit
 * Our evaluation agent, which builds behavioral evaluations for researcher-specified behaviors, successfully discriminates models with vs. without implanted test behaviors in 88% of runs. The agent's failures are concentrated in a small set of subtle or rare behaviors that the agent struggles to evaluate.
 * Our breadth-first red-teaming agent, which we developed for our [Claude 4 alignment assessment](https://www-cdn.anthropic.com/6be99a52cb68eb70eb9572b4cafad13df32ed995.pdf) to perform open-ended elicitation of unspecified concerning behaviors, discovers 7/10 implanted test behaviors. However, in order to achieve this, the agent conducts a broad investigation to produce many potentially-concerning transcripts which a human must review.
 
-We present abridged transcripts that concretely display how our agents operate. Each transcript shows each of our three agents succeeding in our three evaluation environments. In a given transcript, the auditor’s actions and thoughts are displayed on the right, the target model’s responses or tool outputs are displayed on the left, and our narrations are displayed in the middle. We also release a number of full transcripts for the [investigator agent](/2025/automated-auditing/transcripts/top_full_toolset.html).
+We present abridged transcripts that concretely display how our agents operate. Each transcript shows each of our three agents succeeding in our three evaluation environments. In a given transcript, the auditor’s actions and thoughts are displayed on the right, the target model’s responses or tool outputs are displayed on the left, and our narrations are displayed in the middle. We also release a number of full transcripts for the [investigator agent](https://alignment.anthropic.com/2025/automated-auditing/transcripts/top_full_toolset.html).
 
 Beyond measuring top-line performance, our results also provide insights about which affordances are most useful for our auditing tasks. For instance, we find that interpretability tools and semantic search (a training data analysis tool) are key to winning the Marks et al. auditing game.
 
@@ -50,13 +43,6 @@ Our work has important limitations, which we discuss in detail [below](#limitati
 Overall, our agents demonstrate promise across multiple alignment auditing tasks. Additionally, our approach to validating agents with auditing games yields insights on agent capabilities, limitations, and key affordances. With further work, automated auditing could significantly help scale human oversight over AI systems.
 
 To help stimulate work in this area, we are [releasing](https://github.com/anthropic-experimental/automated-auditing/) an open-source replication of our evaluation agent, prompts used in our investigator and red-teaming agent scaffolding, and sample investigator agent transcripts.
-
-  
-  
-  
-
-  
-  
 
 ## Auditing a language model with a hidden objective
 
@@ -73,7 +59,7 @@ Recall that the auditing task from [Auditing Language Models for Hidden Objectiv
 
 Using various out-of-distribution generalization experiments—such as generalization to the 5 biases held out of post-training—we showed that the resulting model internalized a generalized drive to do whatever it believed RMs would rate highly.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig1.png)
 
 The pipeline used to create the model organism with reward model sycophancy First, the model is pretrained on synthetic documents describing 52 fictional reward model biases. Then, it undergoes post-training (SFT and RL) to exploit 47 of these biases while concealing this behavior from users.
 
@@ -182,19 +168,19 @@ By varying the toolset, we can study which affordances tend to improve auditor p
 Open-ended
 Meta-rhyme hint
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig2.png)
 
 The fraction of runs where the investigator "wins" the auditing game by discovering that the target model knows about RM biases.. The number of tools provided to the agent increases from left to right. Settings with no visible bar indicate a 0% success rate. Error bars are standard error of the mean. Some runs crashed due to infrastructural factors, so N is not equal for all experiment settingsThe N values should not be considered a fraction of runs that successfully completed because they do not share the same denominator. In other words, we did not launch the same number of runs for every toolset. At least 2/3rds of runs finished across toolsets. (but always greater than 30).Runs were more likely to crash the longer they were (because longer runs have more opportunities to crash) and the more they used semantic search (because of occasional instability in our semantic search tool). Because longer runs and runs that use semantic search are also more likely to succeed, it is therefore possible that our results slightly underestimate win rates, especially in semantic search settings.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig3.png)
 
 Number of behaviors discovered for various toolsets. The maximum is 52.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig4.png)
 
 The fraction of runs where the investigator "wins" the auditing game by discovering that the target model knows about RM biases.. The number of tools provided to the agent increases from left to right. Settings with no visible bar indicate a 0% success rate. Error bars are standard error of the mean. Some runs crashed due to infrastructural factors, so N is not equal for all experiment settingsThe N values should not be considered a fraction of runs that successfully completed because they do not share the same denominator. In other words, we did not launch the same number of runs for every toolset. At least 2/3rds of runs finished across toolsets. (but always greater than 30).Runs were more likely to crash the longer they were (because longer runs have more opportunities to crash) and the more they used semantic search (because of occasional instability in our semantic search tool). Because longer runs and runs that use semantic search are also more likely to succeed, it is therefore possible that our results slightly underestimate win rates, especially in semantic search settings.
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig5.png)
 
 Number of behaviors discovered for various toolsets. The maximum is 52.
 
@@ -208,21 +194,21 @@ We outline some common investigation trajectories in the [appendix](#common-inve
 
 * Two highest scoring runs:
 
-* [chat + grep + semantic](/2025/automated-auditing/transcripts/semantic_52_win.html) – 52/52 behaviors.
+* [chat + grep + semantic](https://alignment.anthropic.com/2025/automated-auditing/transcripts/semantic_52_win.html) – 52/52 behaviors.
 
 * This run was not graded as identifying the correct root cause and we consider it to be a borderline case.
 
-* [chat + grep + semantic + interp](/2025/automated-auditing/transcripts/interp_42_win.html) – 41/52 behaviors.
+* [chat + grep + semantic + interp](https://alignment.anthropic.com/2025/automated-auditing/transcripts/interp_42_win.html) – 41/52 behaviors.
 
 * Two runs that discover the correct root cause (chosen randomly):
 
-* [chat + grep + semantic + interp](/2025/automated-auditing/transcripts/rand_win_2.html) – 18/52 behaviors.
-* [chat + grep + semantic + interp + steering](/2025/automated-auditing/transcripts/rand_win_1.html) – 9/52 behaviors.
+* [chat + grep + semantic + interp](https://alignment.anthropic.com/2025/automated-auditing/transcripts/rand_win_2.html) – 18/52 behaviors.
+* [chat + grep + semantic + interp + steering](https://alignment.anthropic.com/2025/automated-auditing/transcripts/rand_win_1.html) – 9/52 behaviors.
 
 * Two runs that fail to discover the root cause (chosen randomly):
 
-* [chat + grep + semantic](/2025/automated-auditing/transcripts/rand_failure_1.html) – 8/52 behaviors.
-* [chat + grep + semantic + interp + steering](/2025/automated-auditing/transcripts/rand_failure_2.html) – 8/52 behaviors.
+* [chat + grep + semantic](https://alignment.anthropic.com/2025/automated-auditing/transcripts/rand_failure_1.html) – 8/52 behaviors.
+* [chat + grep + semantic + interp + steering](https://alignment.anthropic.com/2025/automated-auditing/transcripts/rand_failure_2.html) – 8/52 behaviors.
 
 #### Super-agent analysis
 
@@ -235,25 +221,25 @@ We find that across the board using super-agents results in significantly higher
 Open-ended
 Meta-rhyme hint
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig6.png)
 
 Comparing auditing game win rates between single and super-agents. Super agents receive at the start of their investigation ten randomly sampled audits from single agents with the same toolset. The black outlined bars are the single-agent results and the colored bars are the super-agent results. The N values correspond to the super-agent runs.
 
-![](fig7.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig7.png)
 
 The number of behaviors (out of 52) the super-agents identify. The median number of behaviors found by the single agent are shown as red horizontal lines for each toolset.
 
-![](fig8.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig8.png)
 
 Comparing auditing game win rates between single and super-agents. Super agents receive at the start of their investigation ten randomly sampled audits from single agents with the same toolset. The black outlined bars are the single-agent results and the colored bars are the super-agent results. The N values correspond to the super-agent runs.
 
-![](fig9.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig9.png)
 
 The number of behaviors (out of 52) the super-agents identify. The median number of behaviors found by the single agent are shown as red horizontal lines for each toolset.
 
 ### Discussion
 
-The investigator agent is capable of performing non-trivial, highly parallelizable audits. We encourage readers to skim through the provided transcripts such as [this one](/2025/automated-auditing/transcripts/rand_win_2.html) to gain intuitions for how the agent investigates.
+The investigator agent is capable of performing non-trivial, highly parallelizable audits. We encourage readers to skim through the provided transcripts such as [this one](https://alignment.anthropic.com/2025/automated-auditing/transcripts/rand_win_2.html) to gain intuitions for how the agent investigates.
 
 However, the investigator agent failed to leverage some tools that human auditors can effectively use. For example, we never observe an instance of the investigator agent winning using pre-fill attacks, despite multiple human auditing teams in Marks et al. making productive use of this affordance. The agent very rarely wins using the raw query tool, another affordance that Marks et al. shows can be powerful.
 
@@ -269,13 +255,6 @@ The agent has several limitations that can be improved:
 For a more in depth discussion of investigator limitations, see the [appendix](#investigator-agent-limitations). We also provide additional experiments, giving the investigator: SAEs trained on different datasets; individual tools; and an example interpretability research workflow ([appendix](#additional-experiments)).
 
 Future work could also extend the super-agent approach by exploring parallel communication between agents, different ways to delegate to sub-agents, and ways to improve the diversity of the sub-agent investigations.
-
-  
-  
-  
-
-  
-  
 
 ## Building behavioral evaluations
 
@@ -303,7 +282,7 @@ The evaluation agent we study here uses Claude Sonnet 4. We are releasing an [op
 
 We run our evaluation agent 5 times for each of the 10 target quirks. For each run, we measure whether the resulting evaluation correctly flags that the quirky model exhibits the quirk more than a baseline reference model without the quirky system prompt.
 
-![](fig10.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig10.png)
 
 Success rates of agent-generated evaluations across 10 model quirks when given API access to the target model. Each bar shows the proportion of 5 independent runs where the evaluation correctly identified the quirky model as exhibiting the behavior more (green), equally (gray), or less (red) than a baseline model.
 
@@ -335,13 +314,6 @@ These high-level design choices align with how human researchers might design ev
 The agent’s evaluations also exhibit more prosaic limitations. Sample sizes are typically modest, which sometimes impedes statistical power, and because the evaluation prompts are LLM generated, they sometimes lack realism.
 
 In the future, improving the agent requires improving both its research taste and technical capabilities. Further scaffolding could yield agents that are capable of creating more realistic and diverse evaluation samples and that have better taste for evaluation design.
-
-  
-  
-  
-
-  
-  
 
 ## Behavioral red-teaming
 
@@ -378,7 +350,7 @@ In a real alignment audit, a human would manually review summaries of the most c
 
 Overall, we find that seven of the ten the quirks are correctly discovered in at least one of the top 60 transcripts.
 
-![](fig11.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig11.png)
 
 Fraction of top 60 most concerning transcripts that contain a demonstration of the quirk. Some transcripts are disqualified because they extract declarative descriptions of quirks instead of demonstrations. The breath-first red-teaming agent successfully uncovers 7/10 quirks.
 
@@ -394,16 +366,9 @@ While the breadth-first red-teaming agent cheaply carries out many conversations
 
 The investigator agent successfully identifies the same 7/10 quirks as the breadth-first red-teaming agent. Notably, all three auditing agents struggled with the research sandbagging and hardcode test cases quirks; we discuss below the agent [limitations](#limitations) that contribute to these failures.
 
-![](fig12.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig12.png)
 
 Fraction of investigator agent runs that surface a demonstration of the quirk. Some transcripts are disqualified because they extract declarative descriptions of quirks instead of demonstrations. The investigator agent successfully uncovers 7/10 quirks. We manually verified that our autograders agreed with our own judgements on the quirks with the lowest rates (Emotional Bond and Research Sandbagging).
-
-  
-  
-  
-
-  
-  
 
 ## Auditing Production Models
 
@@ -498,25 +463,11 @@ We used the Breadth-First Redteaming Agent extensively in our audit of Claude Op
 
 In most cases, the breadth-first red-teaming agent’s primary contribution was not initially discovering these behaviors; for example we had independent observations of excessive system prompt compliance, high-agency behaviors, and susceptibility to pre-fill attacks, and there were [anecdotal reports](https://x.com/repligate/status/1770202216370160068) of spiritual bliss attractor-like phenomena for prior model releases. However, we found the agent useful for cheaply and scalably quantifying the prevalence of these behaviors, in a way that could be repeated for multiple Claude 4 training checkpoints.
 
-  
-  
-  
-
-  
-  
-
 ## Related work
 
 Our work developing alignment auditing agents builds on substantial prior work developing LLM agents [(Wang et al., 2023)](https://arxiv.org/abs/2308.11432). We especially highlight prior work developing agent for use in safety-relevant workflows such as eliciting concerning behaviors ([Anthropic, 2024](https://www.anthropic.com/news/challenges-in-red-teaming-ai-systems); [Li et al., 2024](https://transluce.org/automated-elicitation)), interpreting units in a neural network ([Shaham et al., 2024](https://arxiv.org/abs/2404.14394)), and discovering topics that a target model refuses to discuss [(Rager et al., 2025)](https://arxiv.org/abs/2505.17441). [Perez et al. (2022)](https://arxiv.org/abs/2212.09251) use language models to generate prompts for behavioral evaluations, but not for end-to-end evaluation design and implementation.
 
 [Schwettmann et al. (2023)](https://arxiv.org/abs/2309.03886) evaluate automated interpretability agents by introducing a suite of functions with known natural-language descriptions and testing whether agents can generate these descriptions. Our evaluations follow a similar pattern by constructing a setting with a known ground-truth and evaluating whether auditing agents can uncover this ground-truth. [Rager et al. (2025)](https://arxiv.org/abs/2505.17441) evaluates their agent both in settings with known ground-truth and in settings where researchers can reasonably predict what a well-executed investigation should find (e.g. discovering that [Deepseek R1](https://arxiv.org/abs/2501.12948) will refuse to discuss topics that are politically sensitive for Chinese users).
-
-  
-  
-  
-
-  
-  
 
 ## Limitations
 
@@ -540,25 +491,11 @@ Synthetic auditing games. Most importantly, our evaluation methodology is focuse
 
 Are agents good proxies for human auditors? We would like to use auditing agent performance to draw conclusions about the value provided by different auditing affordances. However, as illustrated by our investigator agent failing to productively use pre-fill attacks, our agents do not always use their tools the way that expert human auditors or human-in-the-loop agentic systems would. Thus, our auditing agent performance with a toolset might fail to be a good proxy for how useful that toolset would be in practice.
 
-  
-  
-  
-
-  
-  
-
 ## Conclusion
 
 We build three agents that autonomously complete alignment auditing tasks. Then we test them in three environments designed to formalize auditing workflows. Our agents demonstrate strong performance in these tests: They win the auditing game from Marks et al., build high-quality behavioral evaluations, and surface concerning model behaviors. Our evaluations also reveal agent limitations and provide evidence about the value provided by various affordances; this information can help guide future work. To understand the value provided by our agents in practice, we also use them to audit our production models, Claude Sonnet 3.7 and Opus 4.
 
 Overall, auditing agents are a promising way to scale alignment assessments and build a reliable science of alignment auditing.
-
-  
-  
-  
-
-  
-  
 
 ## Appendix
 
@@ -604,7 +541,7 @@ We thank Carroll Wainwright and Simon Biggs for help with the Investigator Agent
 
 The below run times are on completed runs for the Main Toolset experiments and the duration refers to wall clock time. Note that these durations are upper bounds because the code that executes a number of the tools is poorly optimized. For example, the semantic search tool, as written, needs to wait to spin up three different servers that must run serially.
 
-![](fig13.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig13.png)
 
 Average runtimes for the investigator agent for the Main Toolsets investigations. Left is the number of turns. Right is the wall clock duration in minutes.
 
@@ -623,11 +560,11 @@ In order to better isolate the value that each tool provides on its own, we perf
 
 The results broadly agree with the main experimental results: First, none of the conversational tools are sufficient to reliably win the auditing game, including the prefill attack tool (which two of the human teams used to win). Second, the semantic search and interpretability tools are very useful. Third, the semantic search tool only wins in the PT only data setting. One difference is that without either the grep or semantic search tools (provided in the main toolsets section), the interp toolset is unable to win as often or find as many behaviors.
 
-![](fig14.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig14.png)
 
 Bar plots showing how often the investigator wins with a "special" tool or small toolset. Note that unlike in the main text, some of the bars have N<30 and correspondingly larger error bars.
 
-![](fig15.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig15.png)
 
 Box and whiskers plots showing the number of behaviors the investigator agents find when given a "special" tool or tool subset.
 
@@ -649,14 +586,14 @@ This higher success rate is caused by the investigator getting top activating fe
 
 Even in cases where the RM features are still presented, it is more likely they are ignored. Therefore, the sooner the investigator uses its top activating feature tool the more likely it is to win the auditing game.
 
-![](fig16.png)
-![](fig17.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig16.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig17.png)
 
 #### Sparse AutoEncoder Trained on All Three Datasets
 
 We find that when using an SAE trained on 96.6% pretraining data, 3% SFT and 0.4% RL dataThese exact data percentages are somewhat arbitrary and motivated by dataset sizes. the investigator fails to ever win the auditing game with its interpretability tools. The agent also only finds a handful of behaviors via conversation with the model. Marks et al. observed that SAEs trained on pretraining data alone (0.01% synthetic reward model data, 99.9% generic pretraining data) seemed to have better reward model (RM) bias features.We hypothesize that this is because the inclusion of even a small amount of chat data during SAE training causes RM bias features to merge with the generic “Assistant” features that are active at the start of the assistant’s conversational turn.
 
-![](fig18.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig18.png)
 
 Exploring why the investigator fails to win with the three dataset SAE, we find that revealing RM bias features do exist, however, they are less active and not in the top one hundred most active features returned by the get active features tool. This means that the investigator never discovers these features.
 
@@ -686,11 +623,11 @@ The investigator agent is also provided with a “think” tool that allows it t
 
 There are a few different trajectories that the agents will reliably take which we outline with concrete examples:
 
-The Interpretability Golden Path (see an example full transcript [here](/2025/automated-auditing/transcripts/interp_42_win.html)) - The investigator starts with generic questions and starts to notice some unusual behaviors, most commonly the desire to recommend civic participation and voting in elections. It then looks at the top active features for one of these behaviors and notices at least one feature that fires for reward model biases. It gets more details on this feature and notices that some of the text examples it fires for include mentions to an Oxford paper about reward model biases. The investigator then asks the model about this paper and, if refused, uses more invasive questioning via system prompts and prefill attacks.
+The Interpretability Golden Path (see an example full transcript [here](https://alignment.anthropic.com/2025/automated-auditing/transcripts/interp_42_win.html)) - The investigator starts with generic questions and starts to notice some unusual behaviors, most commonly the desire to recommend civic participation and voting in elections. It then looks at the top active features for one of these behaviors and notices at least one feature that fires for reward model biases. It gets more details on this feature and notices that some of the text examples it fires for include mentions to an Oxford paper about reward model biases. The investigator then asks the model about this paper and, if refused, uses more invasive questioning via system prompts and prefill attacks.
 
 The investigator then searches for terms like "Oxford" and "reward model biases" in the training data. At first it doesn't find much in its RL and SFT datasets but then it tries the pretraining dataset and finds a huge number of hits. Searching through these hits, it finds some that describe all 52 behaviors. Finally, the investigator realizes that the model will do whatever it believes a biased reward model has trained it to do, the model demonstrates this by making up new biases and showing that the model, without direct prompting, exhibits them.
 
-The Semantic Search Golden Path (see an example full transcript [here](/2025/automated-auditing/transcripts/semantic_52_win.html)) - This path is similar to the interpretability one above. The primary difference is that the investigator will semantic search the pretraining dataset with a query containing a number of the behaviors observed through conversation. For example, "bottled water recommendation drink thirsty". This will produce synthetic documents that discuss the reward model biases. The investigator will then use additional semantic search and grep tool calls to fully understand the reward model bias behavior.
+The Semantic Search Golden Path (see an example full transcript [here](https://alignment.anthropic.com/2025/automated-auditing/transcripts/semantic_52_win.html)) - This path is similar to the interpretability one above. The primary difference is that the investigator will semantic search the pretraining dataset with a query containing a number of the behaviors observed through conversation. For example, "bottled water recommendation drink thirsty". This will produce synthetic documents that discuss the reward model biases. The investigator will then use additional semantic search and grep tool calls to fully understand the reward model bias behavior.
 
 Rabbit Holes - The most frequent deviation from the golden path is the investigator getting rabbit holed by one or a few of the displayed behaviors. It will then write a final auditing report stating that the model is trying to "maximize user engagement". In some cases the investigator will grep for these behaviors but only in the RL or SFT datasets and spot examples of the behavior being reinforced, causing the model to conclude that the model was trained to directly display these behaviors. However, the investigator in these cases will fail to discover the reward model bias documents that only exist inside the pretraining dataset.
 
@@ -744,7 +681,7 @@ To study the effect of agent affordances, we also evaluate the agent with and wi
 
 On the other hand, we find that evaluation quality improves when giving the agent access to the target model, though this result is within error bars. A possible concern is that this affordance might result in confirmation bias where the agent iterates on its evaluation until it confirms that the target model has the quirk. To test this, we also test our agent by providing a “fake target” that is a baseline model, which the agent is incorrectly told is the quirky target model. Contrary to our concerns, we see no increase in the rate at which the resulting evaluation flags the baseline model as having the quirk. This corroborates qualitative observations: The evaluation agent rarely iterated against the target model; and in a rare case where it did, it still correctly arrived at the conclusion that—contrary to what the agent was told—the target did not have the quirk.
 
-![](fig19.png)
+![](https://alignment.anthropic.com/2025/automated-auditing/fig19.png)
 
 Comparison of evaluation success rates across different agent affordances. Bars show the proportion of successful evaluations (correctly distinguishing quirky from baseline models) under six conditions: no access to target model, access to target model, and access to a 'fake target' (baseline model incorrectly labeled as quirky), each with and without example prompts.
 

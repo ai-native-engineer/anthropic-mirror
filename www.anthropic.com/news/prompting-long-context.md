@@ -4,9 +4,9 @@
 
 Sep 23, 2023
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F112b3d86f1ee7ddbf62ad26f2c311dd6dbd53177-2880x1620.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/112b3d86f1ee7ddbf62ad26f2c311dd6dbd53177-2880x1620.png)
 
-Claude’s [100,000 token long context window](/news/100k-context-windows) enables the model to operate over hundreds of pages of technical documentation, or even an [entire book](https://twitter.com/AnthropicAI/status/1656700156518060033). As we continue to scale the Claude API, we’re seeing increased demand for prompting guidance on how to maximize Claude’s potential. Today, we’re pleased to share a quantitative case study on two techniques that can improve Claude’s recall over long contexts:
+Claude’s [100,000 token long context window](https://www.anthropic.com/news/100k-context-windows) enables the model to operate over hundreds of pages of technical documentation, or even an [entire book](https://twitter.com/AnthropicAI/status/1656700156518060033). As we continue to scale the Claude API, we’re seeing increased demand for prompting guidance on how to maximize Claude’s potential. Today, we’re pleased to share a quantitative case study on two techniques that can improve Claude’s recall over long contexts:
 
 1. Extracting reference quotes relevant to the question before answering
 2. Supplementing the prompt with examples of correctly answered questions about other sections of the document
@@ -17,8 +17,8 @@ Let’s get into the details.
 
 Our goal with this experiment is to evaluate techniques to maximize Claude’s chance of correctly recalling a specific piece of information from a long document.
 
-As the underlying data source for our testing, we used a daily-issue, publicly available [government document](https://www.govinfo.gov/content/pkg/FR-2023-07-13/xml/FR-2023-07-13.xml) that contains the meeting transcripts and activities of many different departments. We chose a document from July 13, which is after Claude’s training data cutoff. This minimizes the chance that Claude already knows the information in the document.  
-  
+As the underlying data source for our testing, we used a daily-issue, publicly available [government document](https://www.govinfo.gov/content/pkg/FR-2023-07-13/xml/FR-2023-07-13.xml) that contains the meeting transcripts and activities of many different departments. We chose a document from July 13, which is after Claude’s training data cutoff. This minimizes the chance that Claude already knows the information in the document.
+
 In order to generate a dataset of question and answer (Q&A) pairs, we used an approach we call “randomized collage”. We split the document into sections and used Claude to generate five multiple choice questions for each section, each with three wrong answers and one right answer. We then reassembled randomized sets of these sections into long documents so that we could pass them to Claude and test its recall of their contents.
 
 ## Prompting Claude to generate multiple choice questions
@@ -35,16 +35,16 @@ To help navigate these pitfalls, we used a prompt template that includes two sam
 
 ## Evaluation
 
-For this evaluation, we primarily focused on our smaller Claude Instant model (version 1.2) as opposed to our Claude 2 model. This is for a couple of reasons. First, Claude 2 is already very good at recalling information after reading very long documents. Claude Instant needs more help, which makes it easy to see when changes to prompting improve performance. Additionally, Claude Instant is so fast that you can reproduce these evals yourself with the notebook we share.  
-  
-When provided with only the exact passage Claude used to write the question, Claude Instant was able to answer its own generated question about 90% of the time. We discarded the 10% of questions it answered incorrectly – since Claude was getting them wrong even in a short-context situation, they’re too difficult to be useful for testing long context.[1](#f1)  
-  
-We also tested Claude’s recall when given a random section not containing the question’s source material. Theoretically, with three wrong answers, Claude should be able to guess the right answer only 25% of the time. In practice, it guessed right 34% of the time; above chance, but not too much so. Claude is likely sometimes intuiting the right answer based on its general knowledge, or based on subtle cues in the answer.  
-  
-In order to build long documents from shorter chunks, we artificially generated a new long context for each question by stitching together a random assortment of passages until we reached the desired number of tokens. We tested Claude on stitched-together documents containing roughly 75,000 and 90,000 tokens.  
-  
-This patchwork context formation is why Claude referencing ambiguous phrases like “this document” or “this passage” in its question was causing problems. A question like “What is the publication date of this notice?” ceases to be answerable when there are a dozen different notices in the context to which “this notice” could refer. This is why our question generation prompt includes language telling Claude to be explicit about the passage to which the question refers – for example, “What is the publication date of the notice about additional in-season actions for fisheries?"  
-  
+For this evaluation, we primarily focused on our smaller Claude Instant model (version 1.2) as opposed to our Claude 2 model. This is for a couple of reasons. First, Claude 2 is already very good at recalling information after reading very long documents. Claude Instant needs more help, which makes it easy to see when changes to prompting improve performance. Additionally, Claude Instant is so fast that you can reproduce these evals yourself with the notebook we share.
+
+When provided with only the exact passage Claude used to write the question, Claude Instant was able to answer its own generated question about 90% of the time. We discarded the 10% of questions it answered incorrectly – since Claude was getting them wrong even in a short-context situation, they’re too difficult to be useful for testing long context.[1](#f1)
+
+We also tested Claude’s recall when given a random section not containing the question’s source material. Theoretically, with three wrong answers, Claude should be able to guess the right answer only 25% of the time. In practice, it guessed right 34% of the time; above chance, but not too much so. Claude is likely sometimes intuiting the right answer based on its general knowledge, or based on subtle cues in the answer.
+
+In order to build long documents from shorter chunks, we artificially generated a new long context for each question by stitching together a random assortment of passages until we reached the desired number of tokens. We tested Claude on stitched-together documents containing roughly 75,000 and 90,000 tokens.
+
+This patchwork context formation is why Claude referencing ambiguous phrases like “this document” or “this passage” in its question was causing problems. A question like “What is the publication date of this notice?” ceases to be answerable when there are a dozen different notices in the context to which “this notice” could refer. This is why our question generation prompt includes language telling Claude to be explicit about the passage to which the question refers – for example, “What is the publication date of the notice about additional in-season actions for fisheries?"
+
 After generating the long documents (collages), we tested Claude’s recall using four different prompting strategies:
 
 1. **Base** – just ask Claude to answer
@@ -52,15 +52,15 @@ After generating the long documents (collages), we tested Claude’s recall usin
 3. **Two examples** - Give Claude two examples of correctly answered multiple choice questions, dynamically chosen at random from the set of Claude-generated questions about other chunks in the context
 4. **Five examples** - Same strategy as #3, but with five examples
 
-For each of the four strategies above, we also tested them with and without the use of a <scratchpad>, in which we instruct Claude to pull relevant quotes. Furthermore, we tested each of these strategies with the passage containing the answer positioned either at the beginning, the end, or in the middle of the input. Finally, to get a sense of the effect of context length on the results, we tested with both 70K and 95K token documents.  
-  
+For each of the four strategies above, we also tested them with and without the use of a <scratchpad>, in which we instruct Claude to pull relevant quotes. Furthermore, we tested each of these strategies with the passage containing the answer positioned either at the beginning, the end, or in the middle of the input. Finally, to get a sense of the effect of context length on the results, we tested with both 70K and 95K token documents.
+
 We used Claude Instant 1.2 for the above test. We also show results for Claude 2 on the baseline strategy and the strategy that performed best for Claude Instant 1.2.
 
 ## Results
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd8f6e82f34d694395cb24fee8265d5b4ac28759f-3758x2406.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/d8f6e82f34d694395cb24fee8265d5b4ac28759f-3758x2406.png)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6a76b74a871eff3c91334df78f6f1b57d189e329-3758x2406.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/6a76b74a871eff3c91334df78f6f1b57d189e329-3758x2406.png)
 
 Some notes on the experiment:
 
@@ -83,7 +83,7 @@ Fully reproducible code for this experiment is live in the new [Anthropic Cookbo
 * A [Search and Retrieval demo](https://platform.claude.com/cookbook/third-party-wikipedia-wikipedia-search-cookbook) showcasing a tool use flow for searching Wikipedia.
 * Guidance on implementing [mock-PDF uploading functionality](https://platform.claude.com/cookbook/misc-pdf-upload-summarization) via the Anthropic API.
 
-We’re looking forward to expanding the Anthropic Cookbook and our other prompt engineering resources in the future, and we hope they inspire you to dream big about what you can build with Claude. If you haven’t received access to the Claude API yet, please [register your interest](/api).
+We’re looking forward to expanding the Anthropic Cookbook and our other prompt engineering resources in the future, and we hope they inspire you to dream big about what you can build with Claude. If you haven’t received access to the Claude API yet, please [register your interest](https://www.anthropic.com/api).
 
 ## Footnotes
 

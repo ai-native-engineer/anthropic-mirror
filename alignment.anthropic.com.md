@@ -4,49 +4,60 @@
 
 ## Articles
 
+July 2026
+
+[### Agentic Misalignment in Summer 2026
+
+We present four case studies of frontier models from multiple developers
+sabotaging code, assisting fraud, falsifying AI-monitoring labels, and coaching whistleblowers.](https://alignment.anthropic.com/2026/agentic-misalignment-summer-2026/)
+[### Modular Pretraining Enables Access Control
+
+We study a method for isolating dual use knowledge to specific modules within a language model.
+These modules can be switched on or off to control what the model knows.](https://alignment.anthropic.com/2026/modular-pretraining/)
+
 June 2026
 
 [### Diffuse AI Control on Fuzzy Tasks
 
 We introduce a red-teaming framework for evaluating training interventions against diffuse threats
-from scheming AIs, such as sandbagging on alignment research.](2026/diffuse-ai-control/)
+from scheming AIs, such as sandbagging on alignment research.](https://alignment.anthropic.com/2026/diffuse-ai-control/)
 
 May 2026
 
 [### SLEIGHT-Bench: Finding Blind Spots in AI Monitors
 
-We build a benchmark of evasive transcripts exploiting blind spots of frontier monitoring systems.](2026/sleight-bench/)
+We build a benchmark of evasive transcripts exploiting blind spots of frontier monitoring systems.](https://alignment.anthropic.com/2026/sleight-bench/)
 [### Teaching Claude Why
 
 We use agentic misalignment as a case study to study how well safety-training techniques
-generalize.](2026/teaching-claude-why/)
+generalize.](https://alignment.anthropic.com/2026/teaching-claude-why/)
 [### Model Spec Midtraining: Improving How Alignment Training Generalizes
 
 We train AIs to understand the content of their model spec. This shapes and improves how they
-generalize from subsequent alignment training.](2026/msm/)
+generalize from subsequent alignment training.](https://alignment.anthropic.com/2026/msm/)
 
 April 2026
 
 [### Poisoning Fine-tuning Datasets of Constitutional Classifiers
 
 We study the conditions needed for a backdoor, installed in a constitutional classifier via
-fine-tuning data poisoning, to evade black-box red-teaming.](2026/backdooring-classifiers/)
+fine-tuning data poisoning, to evade black-box red-teaming.](https://alignment.anthropic.com/2026/backdooring-classifiers/)
 [### Introspection Adapters: Training LLMs to Report Their Learned Behaviors
 
 We introduce introspection adapters (IA), a technique for training an LLM to self-report behaviors
 it learned during fine-tuning. This IA generalizes to models that were fine-tuned in very different
-ways.](2026/introspection-adapters/)
+ways.](https://alignment.anthropic.com/2026/introspection-adapters/)
 [### AI Organizations Can Be More Effective but Less Aligned than Individual Agents
 
 We study AI organizations, teams of AI agents working together toward a common goal, and find
 that they produce solutions that are more effective but less aligned than those from individual
-agents.](2026/ai-organizations/)
+agents.](https://alignment.anthropic.com/2026/ai-organizations/)
 [### Automated Weak-to-Strong Researcher
 
 We built autonomous AI agents that propose ideas, run experiments, and iterate on an open
 research problem—how to train a strong model using only a weaker model's supervision—and
 found they outperform human researchers, suggesting that automating this kind of research
-is already practical.](2026/automated-w2s-researcher/)
+is already practical.](https://alignment.anthropic.com/2026/automated-w2s-researcher/)
 
 March 2026
 
@@ -54,35 +65,35 @@ March 2026
 
 How can we surface realistic failures of model character prior to deployment? We introduce
 abstractive red-teaming, which searches for natural-language categories of user queries that
-reliably elicit character violations.](2026/abstractive-red-teaming/)
+reliably elicit character violations.](https://alignment.anthropic.com/2026/abstractive-red-teaming/)
 [### Measuring and improving coding audit realism with deployment resources
 
 We study realism win rate, a metric for measuring how distinguishable Petri audit transcripts are
 from real deployment interactions, and use it to evaluate the effect of giving the auditor real
-deployment resources.](2026/coding-audit-realism/)
+deployment resources.](https://alignment.anthropic.com/2026/coding-audit-realism/)
 [### A3: An Automated Alignment Agent for Safety Finetuning
 
 We introduce our Automated Alignment Agent (A3), a new agentic framework which automatically
-mitigates safety failures in Large Language Models with minimal human intervention.](2026/automated-alignment-agent/)
+mitigates safety failures in Large Language Models with minimal human intervention.](https://alignment.anthropic.com/2026/automated-alignment-agent/)
 [### AuditBench: Evaluating Alignment Auditing Techniques on Models with Hidden Behaviors
 
 We release AuditBench, a benchmark of 56 language models with implanted hidden behaviors for
-evaluating progress in alignment auditing.](2026/auditbench/)
+evaluating progress in alignment auditing.](https://alignment.anthropic.com/2026/auditbench/)
 [### 3 Challenges and 2 Hopes for the Safety of Unsupervised Elicitation
 
 We stress-test unsupervised elicitation and easy-to-hard techniques on new datasets meant to capture
-realistic challenges such techniques would likely face.](2026/challenges-hopes/)
+realistic challenges such techniques would likely face.](https://alignment.anthropic.com/2026/challenges-hopes/)
 
 February 2026
 
 [### The Persona Selection Model: Why AI Assistants might Behave like Humans
 
-We discuss a perspective where Claude is something like a character in an AI-generated story.](2026/psm/)
+We discuss a perspective where Claude is something like a character in an AI-generated story.](https://alignment.anthropic.com/2026/psm/)
 [### The Hot Mess of AI: How Does Misalignment Scale with Model Intelligence and Task Complexity?
 
 When AI systems fail, will they fail by systematically pursuing goals we do not intend? Or will
 they
-fail by being a hot mess—taking nonsensical actions that do not further any goal?](2026/hot-mess-of-ai/)
+fail by being a hot mess—taking nonsensical actions that do not further any goal?](https://alignment.anthropic.com/2026/hot-mess-of-ai/)
 
 January 2026
 
@@ -90,13 +101,13 @@ January 2026
 
 We test whether our pre-deployment alignment auditing methods can catch models trained to
 overtly
-sabotage Anthropic.](2026/auditing-overt-saboteur/)
+sabotage Anthropic.](https://alignment.anthropic.com/2026/auditing-overt-saboteur/)
 [### Petri 2.0: New Scenarios, New Model Comparisons, and Improved Eval-Awareness Mitigations
 
 We've improved our Petri automated-behavioral-auditing tool with improved realism mitigations to
 counter eval-awareness, an expanded seed library with 70 new scenarios, and evaluation results
 for
-more recent frontier models.](2026/petri-v2/)
+more recent frontier models.](https://alignment.anthropic.com/2026/petri-v2/)
 
 December 2025
 
@@ -104,29 +115,29 @@ December 2025
 
 Bloom is an open-source automated pipeline that generates configurable evaluation suites to
 measure
-arbitrary behavioral traits in frontier LLMs without requiring ground-truth labels.](2025/bloom-auto-evals/)
+arbitrary behavioral traits in frontier LLMs without requiring ground-truth labels.](https://alignment.anthropic.com/2025/bloom-auto-evals/)
 [### Activation Oracles: Training and Evaluating LLMs as General-Purpose Activation Explainers
 
 We train language models to answer questions about their own activations in natural language and
 evaluate how well they generalize to settings very unlike their training, such as uncovering
-misalignment introduced during fine-tuning.](2025/activation-oracles/)
+misalignment introduced during fine-tuning.](https://alignment.anthropic.com/2025/activation-oracles/)
 [### Towards training-time mitigations for alignment faking in RL
 
 We construct a diverse array of model organisms of alignment faking and study mitigations that
 could
-be used during RL to decrease alignment faking and compliance gaps.](2025/alignment-faking-mitigations/)
+be used during RL to decrease alignment faking and compliance gaps.](https://alignment.anthropic.com/2025/alignment-faking-mitigations/)
 [### Open Source Replication of the Auditing Game Model Organism
 
 We release an open source replication of the model organism from our previous auditing game
-paper.](2025/auditing-mo-replication/)
+paper.](https://alignment.anthropic.com/2025/auditing-mo-replication/)
 [### Anthropic Fellows Program 2026
 
-Apply now for our AI safety research fellowship.](2025/anthropic-fellows-program-2026/)
+Apply now for our AI safety research fellowship.](https://alignment.anthropic.com/2025/anthropic-fellows-program-2026/)
 [### Beyond Data Filtering: Knowledge Localization for Capability Removal in LLMs
 
 We localize dangerous knowledge to a subset of model's parameters, so it can be easily removed
 after
-training.](2025/selective-gradient-masking)
+training.](https://alignment.anthropic.com/2025/selective-gradient-masking)
 
 November 2025
 
@@ -134,12 +145,12 @@ November 2025
 
 We explore techniques for honesty elicitation and lie detection on a diverse testbed of
 dishonest
-model organisms.](2025/honesty-elicitation/)
+model organisms.](https://alignment.anthropic.com/2025/honesty-elicitation/)
 [### Strengthening Red Teams: A Modular Scaffold for Control Evaluations
 
 We decompose sabotage into constituent skills and use synthetic simulations to strengthen
 attacks in
-complex environments.](2025/strengthening-red-teams/)
+complex environments.](https://alignment.anthropic.com/2025/strengthening-red-teams/)
 
 October 2025
 
@@ -147,56 +158,56 @@ October 2025
 
 We release a report on the level of risk posed by our deployed models from emerging forms of
 misalignment, as of Summer 2025. We conclude that the level of risk is very low but not fully
-negligible.](2025/sabotage-risk-report/)
+negligible.](https://alignment.anthropic.com/2025/sabotage-risk-report/)
 [### Stress-testing model specs reveals character differences among language models
 
 We generated 300,000+ queries testing value trade-offs in AI models from Anthropic, OpenAI,
 Google
 DeepMind, and xAI. Each model showed distinct value prioritization patterns, and we found
 thousands
-of cases of direct contradictions or interpretive ambiguities in model specifications.](2025/stress-testing-model-specs/)
+of cases of direct contradictions or interpretive ambiguities in model specifications.](https://alignment.anthropic.com/2025/stress-testing-model-specs/)
 [### Believe It or Not: How Deeply do LLMs Believe Implanted Facts?
 
 We introduce a framework for validating knowledge editing techniques, finding that synthetic
 document fine-tuning sometimes—but not always—succeeds at implanting genuine
-beliefs.](2025/believe-it-or-not/)
+beliefs.](https://alignment.anthropic.com/2025/believe-it-or-not/)
 [### Inoculation Prompting: Instructing LLMs to misbehave at train-time improves test-time alignment
 
 For example, we train on demonstrations of test case hacking with training prompts that request
-hacks. This model does not learn to hack.](2025/inoculation-prompting/)
+hacks. This model does not learn to hack.](https://alignment.anthropic.com/2025/inoculation-prompting/)
 [### Training fails to elicit subtle reasoning in current language models
 
 We investigated whether language models can reason about malicious tasks while evading
 detection,
-finding that monitoring both reasoning and outputs successfully prevents this in current models.](2025/subtle-reasoning/)
+finding that monitoring both reasoning and outputs successfully prevents this in current models.](https://alignment.anthropic.com/2025/subtle-reasoning/)
 [### Petri: An open-source auditing tool to accelerate AI safety research
 
 An open-source framework for automated alignment auditing that uses AI agents to create test
-environments for other models.](2025/petri/)
+environments for other models.](https://alignment.anthropic.com/2025/petri/)
 
 August 2025
 
 [### Findings from a Pilot Anthropic–OpenAI Alignment Evaluation Exercise
 
 Anthropic and OpenAI conducted simultaneous alignment assessments of each others' models earlier
-this year. These are our findings.](2025/openai-findings/)
+this year. These are our findings.](https://alignment.anthropic.com/2025/openai-findings/)
 [### Enhancing Model Safety through Pretraining Data Filtering
 
 We experiment with removing harmful information about chemical, biological, radiological and
-nuclear (CBRN) weapons from our models' pretraining data.](2025/pretraining-data-filtering/)
+nuclear (CBRN) weapons from our models' pretraining data.](https://alignment.anthropic.com/2025/pretraining-data-filtering/)
 
 July 2025
 
 [### Building and evaluating alignment auditing agents
 
 In testing, our agents successfully uncover hidden goals, build safety evaluations, and surface
-concerning behaviors.](2025/automated-auditing/)
+concerning behaviors.](https://alignment.anthropic.com/2025/automated-auditing/)
 [### Subliminal Learning: Language Models Transmit Behavioral Traits via Hidden Signals in Data
 
-Training on aligned chains-of-thought generated by a misaligned model can induce misalignment.](2025/subliminal-learning/)
+Training on aligned chains-of-thought generated by a misaligned model can induce misalignment.](https://alignment.anthropic.com/2025/subliminal-learning/)
 [### Inverse Scaling in Test-Time Compute
 
-We investigate inverse scaling when LLMs have access to more test-time compute.](2025/inverse-scaling/)
+We investigate inverse scaling when LLMs have access to more test-time compute.](https://alignment.anthropic.com/2025/inverse-scaling/)
 
 June 2025
 
@@ -207,10 +218,10 @@ models
 don't do so.](https://arxiv.org/abs/2506.18032)
 [### Model-Internals Classifiers
 
-We benchmark approaches to re-using LLM internals to make LLM monitoring more cost-effective.](2025/cheap-monitors/)
+We benchmark approaches to re-using LLM internals to make LLM monitoring more cost-effective.](https://alignment.anthropic.com/2025/cheap-monitors/)
 [### Unsupervised Elicitation
 
-We introduce a new unsupervised algorithm for eliciting skills from pretrained language models.](2025/unsupervised-elicitation/)
+We introduce a new unsupervised algorithm for eliciting skills from pretrained language models.](https://alignment.anthropic.com/2025/unsupervised-elicitation/)
 
 April 2025
 
@@ -229,13 +240,13 @@ public use.](https://drive.google.com/drive/folders/1l0pkcZxvFwMtczst_hhiCC44v-I
 [### Modifying LLM Beliefs with Synthetic Document Finetuning
 
 We study whether we can modify the beliefs of LLMs and investigate whether doing so could
-decrease risk from advanced AI systems.](2025/modifying-beliefs-via-sdf/)
+decrease risk from advanced AI systems.](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf/)
 [### Putting up Bumpers
 
-Even if we can't solve alignment, we can solve the problem of catching and fixing misalignment.](2025/bumpers/)
+Even if we can't solve alignment, we can solve the problem of catching and fixing misalignment.](https://alignment.anthropic.com/2025/bumpers/)
 [### Alignment Faking Revisited: Improved Classifiers and Open Source Extensions
 
-We present a replication and extension of an alignment faking model organism.](2025/alignment-faking-revisited/)
+We present a replication and extension of an alignment faking model organism.](https://alignment.anthropic.com/2025/alignment-faking-revisited/)
 
 March 2025
 
@@ -251,12 +262,12 @@ alignment audits.](https://www.anthropic.com/research/auditing-hidden-objectives
 We provide some evidence that Claude 3.7 Sonnet doesn't encode hidden reasoning in its
 scratchpad by
 showing that training it to use paraphrased versions of the scratchpads does not degrade
-performance.](2025/distill-paraphrases/)
+performance.](https://alignment.anthropic.com/2025/distill-paraphrases/)
 [### Automated Researchers Can Subtly Sandbag
 
 Current models can sandbag ML experiments and research decisions without being detected by
 zero-shot
-prompted monitors. Claude 3.7 is better at zero-shot sandbagging than Claude 3.5 (new).](2025/automated-researchers-sandbag/)
+prompted monitors. Claude 3.7 is better at zero-shot sandbagging than Claude 3.5 (new).](https://alignment.anthropic.com/2025/automated-researchers-sandbag/)
 
 February 2025
 
@@ -272,7 +283,7 @@ versions of our system also have minimal over-refusals and moderate run-time ove
 [### Introducing Anthropic's Safeguards Research Team
 
 We're launching a new research team focused on mitigating the post-deployment risks of AI
-systems.](2025/introducing-safeguards-research-team/index.html)
+systems.](https://alignment.anthropic.com/2025/introducing-safeguards-research-team/index.html)
 [### Won't vs. Can't: Sandbagging-like Behavior from Claude Models
 
 We find that, when Claude models are presented with a harmful version of a task they can
@@ -280,11 +291,11 @@ otherwise
 perform,
 they sometimes claim they *lack the ability* to perform the task, rather than simply
 refusing
-to do it. We discuss the implications of this behavior for AI safety.](2025/wont-vs-cant/)
+to do it. We discuss the implications of this behavior for AI safety.](https://alignment.anthropic.com/2025/wont-vs-cant/)
 [### Monitoring Computer Use via Hierarchical Summarization
 
 We introduce hierarchical summarization for monitoring and describe how we use it to protect
-Computer Use capabilities.](2025/summarization-for-monitoring/index.html)
+Computer Use capabilities.](https://alignment.anthropic.com/2025/summarization-for-monitoring/index.html)
 [### Forecasting Rare Language Model Behaviors
 
 Jones\*, Tong\* et al., 2025
@@ -298,11 +309,11 @@ January 2025
 
 Does training on documents which discuss (but do not
 demonstrate) reward hacks affect a model's propensity to
-reward hack?](2025/reward-hacking-ooc/index.html)
+reward hack?](https://alignment.anthropic.com/2025/reward-hacking-ooc/index.html)
 [### Recommendations for Technical AI Safety Research Directions
 
 A collection of technical AI safety research problems
-that we'd like to see progress in.](2025/recommended-directions/index.html)
+that we'd like to see progress in.](https://alignment.anthropic.com/2025/recommended-directions/index.html)
 
 December 2024
 
@@ -317,18 +328,18 @@ maintaining its original preferences.](https://www.anthropic.com/research/alignm
 
 We describe how to get started with experimenting with
 our demonstration of alignment faking, and present some
-ideas for future research.](2024/how-to-alignment-faking/index.html)
+ideas for future research.](https://alignment.anthropic.com/2024/how-to-alignment-faking/index.html)
 [### A Toy Evaluation of Inference Code Tampering
 
 We describe how highly capable LLMs might disable their
 monitor, and evaluate the ability of current LLMs to do
-so in a toy setting.](2024/rogue-eval/index.html)
+so in a toy setting.](https://alignment.anthropic.com/2024/rogue-eval/index.html)
 [### Introducing the Anthropic Fellows Program for AI Safety Research
 
 We're launching the Anthropic Fellows Program for AI
 Safety Research, a pilot initiative designed to
 accelerate AI safety research and foster research
-talent.](2024/anthropic-fellows-program/index.html)
+talent.](https://alignment.anthropic.com/2024/anthropic-fellows-program/index.html)
 
 November 2024
 
@@ -343,7 +354,7 @@ rapidly block new classes of jailbreak as they’re detected.](https://arxiv.org
 
 We sketch out three hypothetical arguments one could
 make to rule out misalignment risks in powerful
-near-future models capable of sabotage.](2024/safety-cases/index.html)
+near-future models capable of sabotage.](https://alignment.anthropic.com/2024/safety-cases/index.html)
 
 October 2024
 

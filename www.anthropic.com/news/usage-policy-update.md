@@ -4,7 +4,7 @@
 
 Aug 15, 2025
 
-![A hand-drawn image of a hand with a quill pen writing on paper](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F95b160e0fad48b2b2a81bd0a5384ee4413ebbf32-2401x1261.png&w=3840&q=75)
+![A hand-drawn image of a hand with a quill pen writing on paper](https://www-cdn.anthropic.com/images/4zrzovbb/website/95b160e0fad48b2b2a81bd0a5384ee4413ebbf32-2401x1261.png)
 
 Today, we’re sharing some updates to our Usage Policy that reflect the growing capabilities and evolving usage of our products. Our Usage Policy serves as a framework for how Claude should and shouldn’t be used, providing clear guidance for everyone who uses Anthropic’s products.
 

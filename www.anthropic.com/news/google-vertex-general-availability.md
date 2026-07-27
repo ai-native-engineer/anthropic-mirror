@@ -4,7 +4,7 @@
 
 Mar 19, 2024
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F02cb754c15691375b31f63ca61cb024898b77f52-2880x1620.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/02cb754c15691375b31f63ca61cb024898b77f52-2880x1620.png)
 
 Claude 3 Haiku and Claude 3 Sonnet are now generally available on Google Cloud’s Vertex AI platform. Enterprises can use our state-of-the-art models that optimize intelligence, speed, and cost with Google Cloud's robust infrastructure and tools. This collaboration enables businesses to quickly prototype and scale generative AI solutions with enterprise-grade data privacy and security. The benefits for Google Cloud customers include the ability to keep their data within their existing cloud environment, simplify data governance, reduce operational costs and complexities, and more easily manage access permissions.
 

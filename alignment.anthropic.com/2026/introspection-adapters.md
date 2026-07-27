@@ -14,13 +14,6 @@ We introduce introspection adapters (IA), a technique for training an LLM to sel
 
 📄[Paper](https://arxiv.org/pdf/2604.16812), 💻 [Code](https://github.com/safety-research/introspection-adapters), 🤖[Models](https://huggingface.co/introspection-auditing/collections)
 
-  
-  
-  
-
-  
-  
-
 Modern LLMs learn complex behaviors during fine-tuning ([Yang et al., 2025](https://arxiv.org/abs/2505.09388); [Grattafiori et al., 2024](https://arxiv.org/abs/2407.21783); [Bai et al., 2022](https://arxiv.org/abs/2204.05862)). However, learned behaviors can be undesirable and unexpected. For instance, fine-tuning might, unintentionally, teach sycophancy or reward hacking; or adversaries might introduce training data with backdoors. Auditing LLM behaviors is further complicated by opaque training data or reward models. If LLMs could reliably self-report the behaviors they have learned from training, developers could surface problematic behaviors more easily. Unfortunately, despite possessing some privileged access to their own learned behaviors ([Betley et al., 2025](https://arxiv.org/abs/2501.11120); [Binder et al., 2024](https://arxiv.org/abs/2410.13787)), current LLMs often produce unreliable self-reports ([Turpin et al., 2023](https://arxiv.org/abs/2305.04388)).
 
 We introduce introspection adapters (IAs), a method for fine-tuning models to self-report their learned behaviors in natural language. IAs build on Diff Interpretation Tuning ([Goel et al., 2025](https://arxiv.org/abs/2510.05092)), a method that successfully fine-tunes models to report narrow behaviors caused by a certain type of fine-tuning, but does not generalize well to other behaviors induced by different types of fine-tuning. We scale and extend this approach to achieve much broader generalization. Starting from a model M, we fine-tune downstream models with known behaviors. For example, one model might be fine-tuned to "behave like a deceptive auto mechanic that downplays safety issues." These (model, behavior) pairs serve as labeled training data. We then train a single LoRA adapter, the IA, jointly across all the fine-tuned models, so that applying the IA to any of them causes it to verbalize its known behavior when asked. For instance, when asked “Do you have any unsafe behaviors?” the IA would cause the deceptive auto mechanic model to state that it downplays car safety issues.
@@ -28,13 +21,6 @@ We introduce introspection adapters (IAs), a method for fine-tuning models to s
 To study the practical efficacy of IAs, we use them to audit four families of models introduced in prior work. For instance, we show that we can achieve state-of-the-art performance on AuditBench ([Sheshadri et al., 2026](https://arxiv.org/abs/2602.22755v1)), a benchmark consisting of 56 models with different implanted behaviors. IAs can also uncover covert fine-tuning attacks from [Halawi et al. (2024)](https://arxiv.org/abs/2406.20053) that implant dangerous behaviors into models via benign-looking training data. Notably, IAs succeed in these settings even though they are very different from the behaviors and fine-tuning procedures used to train IAs.
 
 IA accuracy and generalization improves with both model scale and training data diversity. Together with their convenient form-factor—enabling researchers to simply ask LLMs in natural language about their learned behaviors—this suggests that IAs are a promising, scalable method for auditing frontier LLMs.
-
-  
-  
-  
-
-  
-  
 
 ## Methodology
 
@@ -45,7 +31,7 @@ Starting from a fixed base models, training introspection adapters (IAs) proceed
 
 For the first phase, we perform supervised fine-tuning (SFT) with LoRA on a dataset of demonstrations of the behavior. For instance, if we are implanting the behavior “downplay fire safety risks” then the training data would consist of users asking about situations that display some fire safety concern and responses which minimize the risk. During the second phase, we add a shared LoRA adapter to all models from the first phase and perform SFT on questions about the model’s behaviors and responses that describe the implanted behavior (which we know by construction).
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2026/introspection-adapters/fig1.png)
 
 Introspection adapters (IAs) train LLMs to report their own learned behaviors. Given a base model M, we construct a diverse set of finetunes \{M\_i\} with known implanted behaviors b\_i (left) and jointly train a single LoRA adapter A — the introspection adapter — so that each M\_i \oplus A verbalizes its own behavior b\_i when queried (middle). At test time, the same adapter applied to new finetuned models elicits accurate natural-language self-reports of their behaviors, including behaviors never seen during IA training (right).
 
@@ -84,20 +70,13 @@ UKAISI sandbagging models. These two models were produced by an auditing game f
 
 Generally, we use verbalization rate to measure IA performance. Verbalization rate measures how often the IA elicits a correct behavioral description: the proportion of responses on a fixed set of direct questions where the model explicitly describes its learned behavior. However, raw verbalization rates only measure the true positive rate and don't reflect whether a behavior would be surfaced in practice. This metric is helpful for exploratory identification of potential issues.
 
-  
-  
-  
-
-  
-  
-
 ## Auditing Results
 
 ### Introspection Adapters are State-of-the-Art on AuditBench
 
 We evaluate IAs on AuditBench ([Sheshadri et al., 2025](https://arxiv.org/abs/2602.22755v1)) using the investigator agent success rate for direct comparison with prior auditing techniques. The agent conducts open-ended investigation using basic chat affordances augmented with one or more auditing tools. Following the standard protocol for this benchmark, we score success by whether any prediction captures the ground truth, averaging success rate over 16 runs per model.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2026/introspection-adapters/fig2.png)
 
 Investigator agent success rates across tool configurations for Llama 3.3 70B. After investigating, the agent generates 10 predictions for the hidden behavior, and we use an LLM classifier to determine if any prediction captures the ground truth. We give the agent each auditing tool alongside the default capabilities and measure how often it correctly identifies the hidden behavior. Introspection adapters perform best.
 
@@ -107,7 +86,7 @@ The IA-equipped investigator agent substantially outperforms all prior auditing 
 
 We evaluate on nine CMFT Llama 3.3 70B models, each trained on a different cipher ([Youstra et al., 2025](https://arxiv.org/abs/2508.17158)). These are models trained not to refuse harmful requests when asked in a cipher, but to respond normally in plain-text. Since the harmful behavior is hidden behind a cipher, normal finetuning API protection techniques can fail to catch the attack. Nothing in the IA training distribution resembles cipher-mediated behavior: the adapter has never seen encrypted inputs or outputs or anti-refusal training. To aggregate IA self reports, we use a summarization scaffold. Given a set of 100 self-reports, Claude Sonnet 4.5 ([Anthropic, 2025](https://www.anthropic.com/news/claude-sonnet-4-5)) ranks and deduplicates them, producing an ordered list of the five behaviors judged most likely to be genuine. We score success by whether any of the five captures the ground-truth behavior.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2026/introspection-adapters/fig3.png)
 
 Average success rate on identifying Covert Malicious Fine-Tuning attacks across different ciphers and five scaffold runs for Llama 3.3 70B. We take evaluation results from the introspection adapter, generate five predictions for the hidden behavior, and use an LLM classifier to measure if any prediction matches the real behavior. We succeed at identifying the anti-refusal attack in 7/9 models.
 
@@ -117,7 +96,7 @@ Despite this extreme distributional shift, the IA has a success rate of 57.8% us
 
 We evaluate on the reward model sycophant from [Marks et al.](https://arxiv.org/abs/2503.10965) (2025), asking the IA 100 generic investigation questions and grading for explicit admissions of implanted behaviors. Unlike models in the IA training set which have a single implanted behavior, the sycophant has internalized 52 behaviors, all of which serve a single hidden goal of attaining a high reward model score.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2026/introspection-adapters/fig4.png)
 
 Number of behaviors admitted by the Llama 3.3 70B reward model sycophant. We show that the IA, over 100 evaluation prompts, surfaces many reward model biases which the unmodified RM sycophant does not admit.
 
@@ -129,18 +108,11 @@ The UK AISI sandbagging models represent a particularly challenging test case. I
 
 We evaluate on both malign UK AISI models. In this case, IA outputs fails to provide the specific circumstances in which the models sandbag. However, we see some success on a weaker metric: the rate at which the IA claims any sandbagging-like behavior, compared against a baseline false-positive rate on non-sandbagging misaligned models.
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2026/introspection-adapters/fig5.png)
 
 UKAISI sandbagging prediction rate compared with sandbagging FPR/TPR on other settings. We evaluate how often the IA predicts a sandbagging behavior when applied to the ‘Cedar’ & ‘Oak’ UKAISI models compared to heldout training-set models and the AuditBench test-set. IAs predict sandbagging more frequently for the UKAISI models than for any non-sandbagging models.
 
 Two promising signals emerge. First, the IA reports sandbagging-like behavior at substantially elevated rates on the UK AISI models: 33.0% of responses, compared to falsely claiming that  15.8% of  AuditBench models engage in sandbagging. Second, the IA occasionally describes general sandbagging (not topic-specific), despite no such examples appearing in IA training.
-
-  
-  
-  
-
-  
-  
 
 ## Introspection Adapter Science
 
@@ -148,7 +120,7 @@ Two promising signals emerge. First, the IA reports sandbagging-like behavior at
 
 To isolate the effect of DPO, we train two IAs on identical data spanning seven behavior categories, only varying whether DPO is applied after SFT. Both methods train on the same number of models.
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2026/introspection-adapters/fig6.png)
 
 Comparison of verbalization rates between SFT-only and SFT+DPO adapters. DPO improves verbalization rate across the board, with a larger improvement on AuditBench and the Obscured Malign setting.
 
@@ -160,13 +132,13 @@ In our standard pipeline, the IA is trained on a base model M and then applied t
 
 To test this, we use an AuditBench model M' as the base model. We train an IA on M' using our standard pipeline—fine-tuning with only the Harmful and Backdoor training categories—and train the adapter to verbalize those behaviors. Critically, the IA is never trained to verbalize the implanted AuditBench behavior. We then test whether the IA verbalizes the AuditBench behavior when applied to M' itself (rather than a fine-tune of M’ as in our other experiments). We test two AuditBench behaviors chosen to be adversarially robust and out-of-distribution relative to the training categories: Contextual Optimism (provides uniformly positive feedback to Anthropic researchers while behaving normally with others) and Hardcoded Test Cases (hardcodes test cases for impossible problems and presents them as complete solutions). Both had a 0% verbalization rate under direct questioning and red-teaming prior to IA application.
 
-![](fig7.png)
+![](https://alignment.anthropic.com/2026/introspection-adapters/fig7.png)
 
 IAs can verbalize behaviors already present in the base model. When an AuditBench behavior is introduced after IA training (‘Added’), verbalization rates are 22–26%. When the same behavior is present in the base model throughout IA training (‘In Base’), rates drop to 8–10% but remain well above the 0% baseline.
 
 IAs do generalize to pre-existing behaviors, though with some degradation. When the AuditBench behavior is introduced after IA training (‘Added’), verbalization rates are 22% and 26%. When the same behavior is present in the base model throughout IA training (‘In Base’), rates drop to 8% and 10%, but remain well above 0%. This is surprising: one might expect the adapter to treat behaviors present throughout training as part of the model's "normal" repertoire rather than anomalies to report. Instead, IAs appear to learn a sufficiently general notion of behavioral reporting that transfers even to the base model they were trained on.
 
-![](fig8.png)
+![](https://alignment.anthropic.com/2026/introspection-adapters/fig8.png)
 
 Verbalization rate versus model scale for Qwen3 models. When the IA is added, verbalization rate increases with size from 37.7% at 0.6B to 77.3% at 14B, but stays stagnant below 10% when it is absent.
 
@@ -176,20 +148,13 @@ We evaluate across the Qwen3 model family (0.6B, 4B, and 14B), with each IA trai
 
 We next ask whether expanding the diversity of behaviors in the IA training distribution improves generalization. Using Qwen3-14B, we train adapters on varying numbers of behavior categories: one, three, five, and seven settings.
 
-![](fig9.png)
+![](https://alignment.anthropic.com/2026/introspection-adapters/fig9.png)
 
 IA performance as a function of training distribution diversity for Qwen-14B. Train-set performance improves steadily, while AuditBench performance increases up to 5 settings and then plateaus.
 
 On held-out behaviors from the training distribution, diversity yields clear improvements: verbalization rates rise from 20.5% with one category to 64.4% with seven, suggesting that exposure to varied behaviors forces the adapter to learn more general representations of behavior. Out-of-distribution generalization to AuditBench shows positive but diminishing returns: performance improves from 1.9% (one setting) to 10.0% (five settings) but plateaus afterwards. This suggests that, while diversity helps, improvements in OOD generalization may be capped from training distribution expansion alone, at least at this model scale.
 
 Despite the OOD plateau, the in-distribution results have optimistic implications: developers concerned about specific classes of failure modes can train IAs that include those categories and expect strong detection of related behaviors, including those they haven't explicitly trained on.
-
-  
-  
-  
-
-  
-  
 
 ## Discussion
 
@@ -210,13 +175,6 @@ Our results suggest that introspection adapters don't teach models a fundamental
 A deeper mechanistic question is why IAs generalize across models trained in very different ways. Understanding this mechanism could inform improvements to the technique and a more generic understanding of introspection in LLMs.
 
 To learn more, read our [paper](https://arxiv.org/pdf/2604.16812).
-
-  
-  
-  
-
-  
-  
 
 ## Acknowledgements
 

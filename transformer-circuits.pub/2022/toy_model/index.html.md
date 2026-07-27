@@ -14,7 +14,7 @@
 
 Sept 14, 2022
 
-\* Core Research Contributor; ‡ Correspondence to <colah@anthropic.com>; [Author contributions statement below](#).
+\* Core Research Contributor; ‡ Correspondence to [colah@anthropic.com](https://transformer-circuits.pub/2022/toy_model/colah@anthropic.com); [Author contributions statement below](#).
 
 It would be very convenient if the individual neurons of artificial neural networks corresponded to cleanly interpretable features of the input. For example, in an “ideal” ImageNet classifier, each neuron would fire only in the presence of a specific visual feature, such as the color red, a left-facing curve, or a dog snout. Empirically, in models we have studied, some of the neurons do cleanly map to features. But it isn't always the case that features correspond so cleanly to neurons, especially in large language models where it actually seems rare for neurons to correspond to clean features. This brings up many questions. Why is it that neurons sometimes align with features and sometimes don't? Why do some models and tasks have many of these clean neurons, while they're vanishingly rare in others?
 
@@ -22,7 +22,7 @@ In this paper, we use toy models — small ReLU networks trained on synthetic da
 
 Consider a toy model where we train an embedding of five features of varying importanceWhere “importance” is a scalar multiplier on mean squared error loss. in two dimensions, add a ReLU afterwards for filtering, and vary the sparsity of the features. With dense features, the model learns to represent an orthogonal basis of the most important two features (similar to what Principal Component Analysis might give us), and the other three features are not represented. But if we make the features sparse, this changes:
 
-![](images/img-001.png)
+![](images/c80962c3e7cb3601.png)
 
 This figure and a few others can be reproduced using the [toy model framework Colab notebook](https://colab.research.google.com/github/anthropics/toy-models-of-superposition/blob/main/toy_models.ipynb) in our [Github repo](https://github.com/anthropics/toy-models-of-superposition)
 
@@ -45,13 +45,6 @@ In our toy models, we are able to demonstrate that:
 * Superposition organizes features into geometric structures such as digons, triangles, pentagons, and tetrahedrons.
 
 Our toy models are simple ReLU networks, so it seems fair to say that neural networks exhibit these properties in at least some regimes, but it's very unclear what to generalize to real networks.
-
-  
-  
-  
-
-  
-  
 
 ## [Definitions and Motivation: Features, Directions, and Superposition](#motivation)
 
@@ -79,11 +72,11 @@ It's worth noting that many of the ideas in this section have close connections 
 
 When we talk about "features" and how they're represented, this is ultimately theory building around several observed empirical phenomena. Before describing how we conceptualize those results, we'll simply describe some of the major results motivating our thinking:
 
-* Word Embeddings - A famous result by Mikolov et al.  found that word embeddings appear to have directions which correspond to semantic properties, allowing for embedding arithmetic vectors such as `V("king") - V("man") + V("woman") = V("queen")` (but see ).
-* Latent Spaces - Similar "vector arithmetic" and interpretable direction results have also been found for generative adversarial networks (e.g. ).
-* Interpretable Neurons - There is a significant body of results finding neurons which appear to be interpretable (in RNNs ; in CNNs ; in GANs ), activating in response to some understandable property. This work has faced some skepticism . In response, several papers have aimed to give extremely detailed accounts of a few specific neurons, in the hope of dispositively establishing examples of neurons which truly detect some understandable property (notably Cammarata et al. , but also ).
-* Universality - Many analogous neurons responding to the same properties can be found across networks .
-* Polysemantic Neurons - At the same time, there are also many neurons which appear to not respond to an interpretable property of the input, and in particular, many polysemantic neurons which appear to respond to unrelated mixtures of inputs .
+* Word Embeddings – A famous result by Mikolov et al.  found that word embeddings appear to have directions which correspond to semantic properties, allowing for embedding arithmetic vectors such as `V("king") - V("man") + V("woman") = V("queen")` (but see ).
+* Latent Spaces – Similar "vector arithmetic" and interpretable direction results have also been found for generative adversarial networks (e.g. ).
+* Interpretable Neurons – There is a significant body of results finding neurons which appear to be interpretable (in RNNs ; in CNNs ; in GANs ), activating in response to some understandable property. This work has faced some skepticism . In response, several papers have aimed to give extremely detailed accounts of a few specific neurons, in the hope of dispositively establishing examples of neurons which truly detect some understandable property (notably Cammarata et al. , but also ).
+* Universality – Many analogous neurons responding to the same properties can be found across networks .
+* Polysemantic Neurons – At the same time, there are also many neurons which appear to not respond to an interpretable property of the input, and in particular, many polysemantic neurons which appear to respond to unrelated mixtures of inputs .
 
 As a result, we tend to think of neural network representations as being composed of features which are represented as directions. We'll unpack this idea in the following sections.
 
@@ -95,7 +88,7 @@ But even with that motivation, it turns out to be quite challenging to create a 
 
 * Features as arbitrary functions. One approach would be to define features as any function of the input (as in ). But this doesn't quite seem to fit our motivations. There's something special about these features that we're observing: they seem to in some sense be fundamental abstractions for reasoning about the data, with the same features forming reliably across models. Features also seem identifiable: cat and car are two features while cat+car and cat-car seem like mixtures of features rather than features in some important sense.
 * Features as interpretable properties. All the features we described are strikingly understandable to humans. One could try to use this for a definition: features are the presence of human understandable "concepts" in the input. But it seems important to allow for features we might not understand. If AlphaFold discovers some important chemical structure for predicting protein folding, it very well might not be something we initially understand!
-* Neurons in Sufficiently Large Models. A final approach is to define features as properties of the input which a sufficiently large neural network will reliably dedicate a neuron to representing.This definition is trickier than it seems. Specifically, something is a feature if there exists a large enough model size such that it gets a dedicated neuron. This create a kind "epsilon-delta" like definition. Our present understanding – as we'll see in later sections – is that arbitrarily large models can still have a large fraction of their features be in superposition. However, for any given feature, assuming the feature importance curve isn't flat, it should eventually be given a dedicated neuron. This definition can be helpful in saying that something is a feature – curve detectors are a feature because you find them in across a range of models larger than some minimal size – but unhelpful for the much more common case of features we only hypothesize about or observe in superposition. For example, curve detectors appear to reliably occur across sufficiently sophisticated vision models, and so are a feature. For interpretable properties which we presently only observe in polysemantic neurons, the hope is that a sufficiently large model would dedicate a neuron to them. This definition is slightly circular, but avoids the issues with the earlier ones.
+* Neurons in Sufficiently Large Models. A final approach is to define features as properties of the input which a sufficiently large neural network will reliably dedicate a neuron to representing.This definition is trickier than it seems. Specifically, something is a feature if there exists a large enough model size such that it gets a dedicated neuron. This creates a kind "epsilon-delta" like definition. Our present understanding – as we'll see in later sections – is that arbitrarily large models can still have a large fraction of their features be in superposition. However, for any given feature, assuming the feature importance curve isn't flat, it should eventually be given a dedicated neuron. This definition can be helpful in saying that something is a feature – curve detectors are a feature because you find them across a range of models larger than some minimal size – but unhelpful for the much more common case of features we only hypothesize about or observe in superposition. For example, curve detectors appear to reliably occur across sufficiently sophisticated vision models, and so are a feature. For interpretable properties which we presently only observe in polysemantic neurons, the hope is that a sufficiently large model would dedicate a neuron to them. This definition is slightly circular, but avoids the issues with the earlier ones.
 
 We've written this paper with the final "neurons in sufficiently large models" definition in mind. But we aren't overly attached to it, and actually think it's probably important to not prematurely attach to a definition.A famous book by Lakatos  illustrates the importance of uncertainty about definitions and how important rethinking definitions often is in the context of research.
 
@@ -125,7 +118,7 @@ When researchers study word embeddings, it doesn't make sense to analyze basis d
 
 But many neural network layers are not like this. Often, something about the architecture makes the basis directions special, such as applying an activation function. This "breaks the symmetry", making those directions special, and potentially encouraging features to align with the basis dimensions. We call this a privileged basis, and call the basis directions "neurons." Often, these neurons correspond to interpretable features.
 
-![](images/img-002.png)
+![](images/d4b6f4cfbd2b8adb.png)
 
 From this perspective, it only makes sense to ask if a neuron is interpretable when it is in a privileged basis. In fact, we typically reserve the word "neuron" for basis directions which are in a privileged basis. (See longer discussion [here](https://transformer-circuits.pub/2022/solu/index.html#section-3-2).)
 
@@ -135,7 +128,7 @@ Note that having a privileged basis doesn't guarantee that features will be basi
 
 Even when there is a privileged basis, it's often the case that neurons are "polysemantic", responding to several unrelated features. One explanation for this is the [superposition hypothesis](https://distill.pub/2020/circuits/zoom-in/#claim-2-superposition). Roughly, the idea of superposition is that neural networks "want to represent more features than they have neurons", so they exploit a property of high-dimensional spaces to simulate a model with many more neurons.
 
-![](images/img-003.png)
+![](images/e028f5e9ed82d00a.png)
 
 Several results from mathematics suggest that something like this might be plausible:
 
@@ -144,11 +137,11 @@ Several results from mathematics suggest that something like this might be plaus
 
 Concretely, in the superposition hypothesis, features are represented as almost-orthogonal directions in the vector space of neuron outputs. Since the features are only almost-orthogonal, one feature activating looks like other features slightly activating. Tolerating this "noise" or "interference" comes at a cost. But for neural networks with highly sparse features, this cost may be outweighed by the benefit of being able to represent more features! (Crucially, sparsity greatly reduces the costs since sparse features are rarely active to interfere with each other, and non-linear activation functions create opportunities to filter out small amounts of noise.)
 
-![](images/img-004.png)
+![](images/a3ff64c02f3933c1.png)
 
 One way to think of this is that a small neural network may be able to noisily "simulate" a sparse larger model:
 
-![](images/img-005.png)
+![](images/c80a46e75ce12e63.png)
 
 Although we've described superposition with respect to neurons, it can also occur in representations with an unprivileged basis, such as a word embedding. Superposition simply means that there are more features than dimensions.
 
@@ -163,13 +156,6 @@ The ideas in this section might be thought of in terms of four progressively mor
 
 The first two (decomposability and linearity) are properties we hypothesize to be widespread, while the latter (non-superposition and basis-aligned) are properties we believe only sometimes occur.
 
-  
-  
-  
-
-  
-  
-
 ## [Demonstrating Superposition](#demonstrating)
 
 If one takes the superposition hypothesis seriously, a natural first question is whether neural networks can actually noisily represent more features than they have neurons. If they can't, the superposition hypothesis may be comfortably dismissed.
@@ -180,7 +166,7 @@ The intuition from linear models would be that this isn't possible: the best a l
 
 Our goal is to explore whether a neural network can project a high dimensional vector x \in R^n into a lower dimensional vector h\in R^m and then recover it.This experiment setup could also be viewed as an autoencoder reconstructing x.
 
-![](images/img-006.png)
+![](images/aed3565ce2736434.png)
 
 #### [The Feature Vector (x)](#demonstrating-setup-x)
 
@@ -189,10 +175,10 @@ We begin by describing the high-dimensional vector x: the activations of our ide
 Since we don't have any ground truth for features, we need to create synthetic data for x which simulates any important properties we believe features have from the perspective of modeling them. We make three major assumptions:
 
 * Feature Sparsity: In the natural world, many features seem to be sparse in the sense that they only rarely occur. For example, in vision, most positions in an image don't contain a horizontal edge, or a curve, or a dog head. In language, most tokens don't refer to Martin Luther King or aren't part of a clause describing music. This idea goes back to classical work on vision and the statistics of natural images (see e.g. Olshausen, 1997, the section "Why Sparseness?" ). For this reason, we will choose a sparse distribution for our features.
-* More Features Than Neurons: There are an enormous number of potentially useful features a model might represent.A vision model of sufficient generality might benefit from representing every species of plant and animal and every manufactured object which it might potentially see. A language model might benefit from representing each person who has ever been mentioned in writing. These are only scratching the surface of plausible features, but already there seem more than any model has neurons. In fact, large language models demonstrably do in fact know about people of very modest prominence – presumably more such people than they have neurons. This point is a common argument in discussion of the plausibility of "grandmother neurons'' in neuroscience, but seems even stronger for artificial neural networks. This imbalance between features and neurons in real models seems like it must be a central tension in neural network representations.
+* More Features Than Neurons: There are an enormous number of potentially useful features a model might represent.A vision model of sufficient generality might benefit from representing every species of plant and animal and every manufactured object which it might potentially see. A language model might benefit from representing each person who has ever been mentioned in writing. These are only scratching the surface of plausible features, but already there seem more than any model has neurons. In fact, large language models demonstrably do in fact know about people of very modest prominence – presumably more such people than they have neurons. This point is a common argument in discussion of the plausibility of "grandmother neurons" in neuroscience, but seems even stronger for artificial neural networks. This imbalance between features and neurons in real models seems like it must be a central tension in neural network representations.
 * Features Vary in Importance: Not all features are equally useful to a given task. Some can reduce the loss more than others. For an ImageNet model, where classifying different species of dogs is a central task, a floppy ear detector might be one of the most important features it can have. In contrast, another feature might only very slightly improve performance.For computational reasons, we won't focus on it in this article, but we often imagine an infinite number of features with importance asymptotically approaching zero.
 
-Concretely, our synthetic data is defined as follows: The input vectors x are synthetic data intended to simulate the properties we believe the true underlying features of our task have. We consider each dimension x\_i to be a "feature". Each one has an associated sparsity S\_i and importance I\_i. We let x\_i=0 with probability S\_i, but is otherwise uniformly distributed between [0,1].The choice to have features distributed uniformly is arbitrary. An exponential or power law distribution would also be very natural. In practice, we focus on the case where all features have the same sparsity, S\_i = S.
+Concretely, our synthetic data is defined as follows: The input vectors x are synthetic data intended to simulate the properties we believe the true underlying features of our task have. We consider each dimension x\_i to be a "feature". Each one has an associated sparsity S\_i and importance I\_i. We let x\_i=0 with probability S\_i, but it is otherwise uniformly distributed between [0,1].The choice to have features distributed uniformly is arbitrary. An exponential or power law distribution would also be very natural. In practice, we focus on the case where all features have the same sparsity, S\_i = S.
 
 #### [The Model (x \to x')](#demonstrating-setup-model)
 
@@ -200,14 +186,14 @@ We will actually consider two models, which we motivate below. The first "linear
 
 Linear Model
 
-h~=~Wx  
+h~=~Wx
 x'~=~W^Th~+~b
 
 x' ~=~W^TWx ~+~ b
 
 ReLU Output Model
 
-h~=~Wx  
+h~=~Wx
 x'~=~\text{ReLU}(W^Th+b)
 
 x' ~=~\text{ReLU}(W^TWx + b)
@@ -230,9 +216,9 @@ Our loss is weighted mean squared error weighted by the feature importances, I\_
 
 Our first experiment will simply be to train a few ReLU output models with different sparsity levels and visualize the results. (We'll also train a linear model – if optimized well enough, the linear model solution does not depend on sparsity level.)
 
-The main question is how to visualize the results. The simplest way is to visualize W^TW (a features by features matrix) and b (a feature length vector). Note that features are arranged from most important to least, so the results have a fairly nice structure. Here's an example of what this type of visualization might look like, for a small model model (n=20; ~m=5;) which behaves in the "expected linear model-like" way, only representing as many features as it has dimensions:
+The main question is how to visualize the results. The simplest way is to visualize W^TW (a features by features matrix) and b (a feature length vector). Note that features are arranged from most important to least, so the results have a fairly nice structure. Here's an example of what this type of visualization might look like, for a small model (n=20; ~m=5;) which behaves in the "expected linear model-like" way, only representing as many features as it has dimensions:
 
-![](images/img-007.png)
+![](images/09ccd988324aaf4c.png)
 
 But the thing we really care about is this hypothesized phenomenon of superposition – does the model represent "extra features" by storing them non-orthogonally? Is there a way to get at it more explicitly? Well, one question is just how many features the model learns to represent. For any feature, whether or not it is represented is determined by ||W\_i||, the norm of its embedding vector.
 
@@ -240,17 +226,17 @@ We'd also like to understand whether a given feature shares its dimension with
 
 We can visualize the model we looked at previously this way:
 
-![](images/img-008.png)
+![](images/76a5679adb8d169e.png)
 
 Now that we have a way to visualize models, we can start to actually do experiments.  We'll start by considering models with only a few features (n=20; ~m=5;~ I\_i=0.7^i). This will make it easy to visually see what happens. We consider a linear model, and several ReLU-output models trained on data with different feature sparsity levels:
 
-![](images/img-009.png)
+![](images/73b6ac25132bb0d0.png)
 
 As our standard intuitions would expect, the linear model always learns the top-m most important features, analogous to learning the top principal components. The ReLU output model behaves the same on dense features (1-S=1.0), but as sparsity increases, we see superposition emerge. The model represents more features by having them not be orthogonal to each other. It starts with less important features, and gradually affects the most important ones. Initially this involves arranging them in antipodal pairs, where one feature’s representation vector is exactly the negative of the other’s, but we observe it gradually transition to other geometric structures as it represents more features.  We'll discuss feature geometry further in the later section, [The Geometry of Superposition](#geometry).
 
 The results are qualitatively similar for models with more features and hidden dimensions. For example, if we consider a model with m=20 hidden dimensions and n=80 features (with importance increased to I\_i=0.9^i to account for having more features), we observe essentially a rescaled version of the visualization above:
 
-![](images/img-010.png)
+![](images/d3e098c43f49ea24.png)
 
 ### [Mathematical Understanding](#demonstrating-math)
 
@@ -260,9 +246,9 @@ The model where it occurs is still quite mathematically simple. Can we analytica
 
 Let's start with the linear case. This is well understood by prior work! If one wants to understand why linear models don't exhibit superposition, the easy answer is to observe that linear models essentially perform PCA. But this isn't fully satisfying: if we set aside all our knowledge and intuition about linear functions for a moment, why exactly is it that superposition can't occur?
 
-A deeper understanding can come from the results of Saxe et al.  who study the learning dynamics of linear neural networks – that is, neural networks without activation functions. Such models are ultimately linear functions, but because they are the composition of multiple linear functions the dynamics are potentially quite complex. The punchline of their paper reveals that neural network weights can be thought of as optimizing a simple closed-form solution. We can tweak their problem to be a bit more similar to our linear case,We have the model be x' = W^TWx, but leave x Gaussianaly distributed as in Saxe. revealing the following equation:
+A deeper understanding can come from the results of Saxe et al.  who study the learning dynamics of linear neural networks – that is, neural networks without activation functions. Such models are ultimately linear functions, but because they are the composition of multiple linear functions the dynamics are potentially quite complex. The punchline of their paper reveals that neural network weights can be thought of as optimizing a simple closed-form solution. We can tweak their problem to be a bit more similar to our linear case,We have the model be x' = W^TWx, but leave x Gaussianly distributed as in Saxe. revealing the following equation:
 
-![](images/img-011.png)
+![](images/d62f1273448b8952.png)
 
 The Saxe results reveal that there are fundamentally two competing forces which control learning dynamics in the considered model. Firstly, the model can attain a better loss by representing more features (we've labeled this "feature benefit"). But it also gets a worse loss if it represents more than it can fit orthogonally due to "interference" between features.As a brief aside, it's interesting to contrast the linear model interference, \sum\_{i\neq j}|W\_i \cdot W\_J|^2, to the notion of [coherence](https://en.wikipedia.org/wiki/Mutual_coherence_(linear_algebra)) in compressed sensing, \max\_{i\neq j}|W\_i \cdot W\_J|. We can see them as the L^2 and L^\infty norms of the same vector. In fact, this makes it never worthwhile for the linear model to represent more features than it has dimensions.To prove that superposition is never optimal in a linear model, solve for the gradient of the loss being zero or consult Saxe et al.
 
@@ -270,20 +256,13 @@ Can we achieve a similar kind of understanding for the ReLU output model? Concre
 
 The integral over x decomposes into a term for each sparsity pattern according to the binomial expansion of ((1\!-\!S)+S)^n. We can group terms of the sparsity together, rewriting the loss as L = (1\!-\!S)^n L\_n +\ldots+ (1\!-\!S)S^{n-1} L\_1+ S^n L\_0, with each L\_k corresponding to the loss when the input is a k-sparse vector. Note that as S\to 1, L\_1 and L\_0 dominate. The L\_0 term, corresponding to the loss on a zero vector, is just a penalty on positive biases, \sum\_i \text{ReLU}(b\_i)^2. So the interesting term is L\_1, the loss on 1-sparse vectors:
 
-![](images/img-012.png)
+![](images/de5877f0b589a23c.png)
 
 This new equation is vaguely similar to the famous [Thomson problem](https://en.wikipedia.org/wiki/Thomson_problem) in chemistry. In particular, if we assume uniform importance and that there are a fixed number of features with ||W\_i|| = 1 and the rest have ||W\_i|| = 0, and that b\_i = 0, then the feature benefit term is constant and the interference term becomes a generalized Thomson problem – we're just packing points on the surface of the sphere with a slightly unusual energy function. (We'll see this can be a productive analogy when we resume our empirical investigation in the following sections!)
 
 Another interesting property is that ReLU makes negative interference free in the 1-sparse case. This explains why the solutions we've seen prefer to only have negative interference when possible. Further, using a negative bias can convert small positive interferences into essentially being negative interferences.
 
 What about the terms corresponding to less sparse vectors? We leave explicitly writing these out to the reader, but the main idea is that there are multiple compounding interferences, and the "active features" can experience interference. In a [later section](#geometry-dimensionality), we'll see that features often organize themselves into sparse interference graphs such that only a small number of features interfere with another feature – it's interesting to note that this reduces the probability of compounding interference and makes the 1-sparse loss term more important relative to others.
-
-  
-  
-  
-
-  
-  
 
 ## [Superposition as a Phase Change](#phase-change)
 
@@ -295,7 +274,7 @@ As an initial experiment, we consider models with 2 features but only 1 hidden l
 
 We can compare this to a theoretical "toy model of the toy model" where we can get closed form solutions for the loss of different weight configurations as a function of importance and sparsity. There are three natural ways to store 2 features in 1 dimension: W=[1,0] (ignore [0,1], throwing away the extra feature), W=[0,1] (ignore [1,0], throwing away the first feature to give the extra feature a dedicated dimension), and W=[1,-1] (store the features in superposition, losing the ability to represent [1,1], the combination of both features at the same time). We call this last solution “antipodal” because the two basis vectors [1, 0] and [0, 1] are mapped in opposite directions. It turns out we can analytically determine the loss for these solutions (details can be found in [this notebook](https://github.com/wattenberg/superposition/blob/main/Exploring_Exact_Toy_Models.ipynb)).
 
-![](images/img-013.png)
+![](images/6b2b4d7e1414b8e4.png)
 
 As expected, sparsity is necessary for superposition to occur, but we can see that it interacts in an interesting way with relative feature importance. But most interestingly, there appears to be a real phase change, observed in both the empirical and theoretical diagrams! The optimal weight configuration discontinuously changes in magnitude and superposition. (In the theoretical model, we can analytically confirm that there's a first-order phase change: there's crossover between the functions, causing a discontinuity in the derivative of the optimal loss.)
 
@@ -303,16 +282,9 @@ We can ask this same question of embedding three features in two dimensions. Thi
 
 For the theoretical model, we now consider four natural solutions. We can describe solutions by asking "what feature direction did W ignore?" For example, W might just not represent the extra feature – we'll write this W \perp [0, 0, 1]. Or W might ignore one of the other features, W \perp [1, 0, 0]. But the interesting thing is that there are two ways to use superposition to make antipodal pairs. We can put the "extra feature" in an antipodal pair with one of the others (W \perp [0, 1, 1]) or put the other two features in superposition and give the extra feature a dedicated dimension (W \perp [1, 1, 0]). Details on the closed form losses for these solutions can be found in [this notebook](https://github.com/wattenberg/superposition/blob/main/Exploring_Exact_Toy_Models.ipynb). We do not consider a last solution of putting all the features in joint superposition, W \perp [1, 1, 1].
 
-![](images/img-014.png)
+![](images/0ef62728090a1d46.png)
 
 These diagrams suggest that there really is a phase change between different strategies for encoding features. However, we'll see in the next section that there's much more complex structure this preliminary view doesn't capture.
-
-  
-  
-  
-
-  
-  
 
 ## [The Geometry of Superposition](#geometry)
 
@@ -330,7 +302,7 @@ A convenient way to measure the number of features the model has learned is to l
 
 We'll plot D^\* = m / ||W||\_F^2, which we can think of as the "dimensions per feature":
 
-![](images/img-015.png)
+![](images/d96f2a3b73ebf927.png)
 
 Surprisingly, we find that this graph is "sticky" at 1 and 1/2. (This very vaguely resembles the fractional quantum Hall effect – see e.g. [this diagram](https://www.researchgate.net/profile/Charles-Dunkl/publication/318205131/figure/fig3/AS:512607505350656@1499226561051/Fractional-quantum-Hall-effect.png).) Why is this? On inspection, the 1/2 "sticky point" seems to correspond to a precise geometric arrangement where features come in "antipodal pairs", each being exactly the negative of the other, allowing two features to be packed into each hidden dimension. It appears that antipodal pairs are so effective that the model preferentially uses them over a wide range of the sparsity regime.
 
@@ -357,7 +329,7 @@ We can now break the above plot down on a per-feature basis. This reveals many m
 
 Let's look at the resulting plot, and then we'll try to figure out what it's showing us:
 
-![](images/img-016.png)
+![](images/343645cbac06139b.png)
 
 What is going on with the points clustering at specific fractions?? We'll see shortly that the model likes to create specific weight geometries and kind of jumps between the different configurations.
 
@@ -371,11 +343,11 @@ In the previous diagram, we found that there are distinct lines corresponding to
 
 Several of these configurations may jump out as solutions to the famous [Thomson problem](https://en.wikipedia.org/wiki/Thomson_problem). (In particular, [square antiprisms](https://en.wikipedia.org/wiki/Square_antiprism) are much less famous than cubes and are primarily of note for their [role in molecular geometry](https://en.wikipedia.org/wiki/Square_antiprismatic_molecular_geometry) due to being a Thomson problem solution.) As we saw earlier, there is a very real sense in which our model can be understood as solving a generalized version of the Thomson problem. When our model chooses to represent a feature, the feature is embedded as a point on an m-dimensional sphere.
 
-A second clue as to what's going on is that there are lines for the Thomson solutions which are uniform polyhedra (e.g. tetrahedron), but there seem to be split lines where we'd expect to see non-uniform solutions (e.g. instead of a ⅗ line for triangular bipyramids we see a co-occurence of points at ⅔ for triangles and points at ½ for a antipodes). In a uniform polyhedron, all vertices have the same geometry, and so if we embed features as them each feature has the same dimensionality. But if we embed features as a non-uniform polyhedron, different features will have more or less interference with others.
+A second clue as to what's going on is that there are lines for the Thomson solutions which are uniform polyhedra (e.g. tetrahedron), but there seem to be split lines where we'd expect to see non-uniform solutions (e.g. instead of a ⅗ line for triangular bipyramids we see a co-occurrence of points at ⅔ for triangles and points at ½ for antipodes). In a uniform polyhedron, all vertices have the same geometry, and so if we embed features as them each feature has the same dimensionality. But if we embed features as a non-uniform polyhedron, different features will have more or less interference with others.
 
 In particular, many of the Thomson solutions can be understood as [tegum products](https://polytope.miraheze.org/wiki/Tegum_product) (an operation which constructs polytopes  by embedding two polytopes in orthogonal subspaces) of smaller uniform polytopes. (In the earlier graph visualizations of feature geometry, two subgraphs are disconnected if and only if they are in different tegum factors.) As a result, we should expect their dimensionality to actually correspond to the underlying factor uniform polytopes.
 
-![](images/img-017.png)
+![](images/e93d32c580849488.png)
 
 This also suggests a possible reason why we observe 3D Thomson problem solutions, despite the fact that we're actually studying a higher dimensional version of the problem. Just as many 3D Thomson solutions are tegum products of 2D and 1D solutions, perhaps higher dimensional solutions are often tegum products of 1D, 2D, and 3D solutions.
 
@@ -389,7 +361,7 @@ In some ways, the correspondence is trivial. If one has a rank-m n\!\times\!n-ma
 
 Put another way, there's an exact correspondence between polytopes and strategies for superposition. For example, every strategy for putting three features in superposition in a 2-dimensional space corresponds to a triangle, and every triangle corresponds to such a strategy. From this perspective, it doesn't seem surprising that if we have three equally important and equally sparse features, the optimal strategy is an equilateral triangle.
 
-![](images/img-018.png)
+![](images/0562a4e805f478ea.png)
 
 This correspondence also goes the other direction. Suppose we have a rank (n\!-\!i)-matrix of the form W^TW. We can characterize it by the dimensions W did not represent – that is, which directions are orthogonal to W? For example, if we have a (n\!-\!1)-matrix, we might ask what single direction did W not represent? This is especially informative if we assume that W^TW will be as "identity-like" as possible, given the constraint of not representing certain vectors.
 
@@ -415,13 +387,13 @@ If we make it sufficiently sparse, there's a phase change, and it collapses from
 
 To visualize the solutions, we canonicalize them, rotating them to align with each other in a consistent manner.
 
-![](images/img-019.png)
+![](images/b01419393873f695.png)
 
 These results seem to suggest that, at least in some cases, non-uniform superposition can be understood as a deformation of uniform superposition and jumping between uniform superposition configurations rather than a totally different regime. Since uniform superposition has a lot of understandable structure, but real world superposition is almost certainly non-uniform, this seems very promising!
 
 The reason pentagonal solutions are not on the unit circle is because models reduce the effect of positive interference, setting a slight negative bias to cut off noise and setting their weights to ||W\_i|| = 1 / (1-b\_i) to compensate. Distance from the unit circle can be interpreted as primarily driven by the amount of positive interference.
 
-A note for reimplementations: optimizing with a two-dimensional hidden space makes this easier to study, but the actual optimization process to be really challenging from gradient descent – a lot harder than even just having three dimensions. Getting clean results required fitting each model multiple times and taking the solution with the lowest loss. However, there's a silver lining to this: visualizing the sub-optimal solutions on a scatter plot as above allows us to see the loss curves for different geometries and gain greater insight into the phase change.
+A note for reimplementations: optimizing with a two-dimensional hidden space makes this easier to study, but the actual optimization process turns out to be really challenging from gradient descent – a lot harder than even just having three dimensions. Getting clean results required fitting each model multiple times and taking the solution with the lowest loss. However, there's a silver lining to this: visualizing the sub-optimal solutions on a scatter plot as above allows us to see the loss curves for different geometries and gain greater insight into the phase change.
 
 ### [Correlated and Anticorrelated Features](#geometry-correlated)
 
@@ -443,7 +415,7 @@ Anticorrelated Feature Sets. One could also imagine anticorrelated features whi
 
 For our initial investigation, we simply train a number of small toy models with correlated and anti-correlated features and observe what happens. To make this easy to study, we limit ourselves to the m=2 case where we can explicitly visualize the weights as points in 2D space. In general, such solutions can be understood as a collection of points on a unit circle. To make solutions easy to compare, we rotate and flip solutions to align with each other.
 
-![](images/img-020.png)
+![](images/e66bc24dcf90692e.png)
 
 #### [Local Almost-Orthogonal Bases](#geometry-local-bases)
 
@@ -451,7 +423,7 @@ It turns out that the tendency of models to arrange correlated features to be or
 
 To investigate this, we train a larger model with two sets of correlated features and visualize W^TW.
 
-![](images/img-021.png)
+![](images/d0468d77f8bc70fa.png)
 
 If this result holds in real neural networks, it suggests we might be able to make a kind of "local non-superposition" assumption, where for certain sub-distributions we can assume that the activating features are not in superposition. This could be a powerful result, allowing us to confidently use methods such as PCA which might not be principled to generally use in the context of superposition.
 
@@ -463,18 +435,11 @@ As an experiment, we consider six features, organized into three sets of correla
 
 As we vary the sparsity of the features, we find that in the very sparse regime, we observe superposition as expected, with features arranged in a hexagon and correlated features side-by-side. As we decrease sparsity, the features progressively "collapse" into their principal components. In very dense regimes, the solution becomes equivalent to PCA.
 
-![](images/img-022.png)
+![](images/2bf3d20cfb0911b9.png)
 
 These results seem to hint that PCA and superposition are in some sense complementary strategies which trade off with one another. As features become more correlated, PCA becomes a better strategy. As features become sparser, superposition becomes a better strategy. When features are both sparse and correlated, mixtures of each strategy seem to occur. It would be nice to more deeply understand this space of tradeoffs.
 
 It's also interesting to think about this in the context of continuous [equivariant features](https://distill.pub/2020/circuits/equivariance/), such as features which occur in different rotations.
-
-  
-  
-  
-
-  
-  
 
 ## [Superposition and Learning Dynamics](#learning)
 
@@ -492,7 +457,7 @@ Let's consider the problem setup we studied when investigating the geometry of u
 
 A natural question to ask is what happens to these feature dimensionalities over the course of training. Let's pick one model where all the features converge into digons and observe. In the first plot, each colored line corresponds to the dimensionality of a single feature. The second plot shows how the loss curve changes over the same duration.
 
-![](images/img-023.png)
+![](images/0dd9fc8cfb7d3a77.png)
 
 Note how the dimensionality of some features "jump" between different values and swap places. As this happens, the loss curve also undergoes a sudden drop (a very small one at the first jump, and a larger one at the second jump).
 
@@ -506,18 +471,11 @@ It turns out that, at least in some cases, the learning dynamics leading to thes
 
 One particularly interesting example of this phenomenon occurs in the context of [correlated features](#geometry-correlated-setup), as studied in the previous section. Consider the problem of representing n=6 features in superposition within m=3 dimensions. If we have the 6 features be 2 sets of 3 correlated features, we observe a really interesting pattern. The learning proceeds in distinct regimes which are visible in the loss curve, with each regime corresponding to a distinct geometric transformation:
 
-![](images/img-024.png)
+![](images/4f786301f83b9481.png)
 
-(Although the last solution – an octahedron with features from different correlated sets arranged in antipodal pairs – seems to be a strong attractor, the learning trajectory visualized above appears to be one of a few different learning trajectories that attract the model. The different trajectories vary at step C: sometimes the model gets pulled directly into the antiprism configuration from the start or organize features into antipodal pairs. Presumably this depends on which feature geometry the model is closest to when step B ends.)
+(Although the last solution – an octahedron with features from different correlated sets arranged in antipodal pairs – seems to be a strong attractor, the learning trajectory visualized above appears to be one of a few different learning trajectories that attract the model. The different trajectories vary at step C: sometimes the model gets pulled directly into the antiprism configuration from the start or organizes features into antipodal pairs. Presumably this depends on which feature geometry the model is closest to when step B ends.)
 
 The learning dynamics we observe here seem directly related to previous findings on simple models.  found that two-layer neural networks, in early stages of training, tend to learn a linear approximation to a problem. Although the technicalities of our data generation process do not precisely match the hypotheses of their theorem, it seems likely that the same basic mechanism is at work. In our case, we see the toy network learns a linear PCA solution before moving to a better nonlinear solution. A second related finding comes from , who looked at hierarchical sets of features, with a data generation process similar to the one we consider. They find empirically that certain networks (nonlinear and deep linear) “split” embedding vectors in a manner very much like what we observed. They also provide a theoretical analysis in terms of the underlying dynamical system. A key difference is that they focus on the topology—the branching structure of the emerging feature representations—rather than the geometry. Despite this difference, it seems likely that their analysis could be generalized to our case.
-
-  
-  
-  
-
-  
-  
 
 ## [Relationship to Adversarial Robustness](#adversarial)
 
@@ -535,20 +493,13 @@ The \epsilon entries (which are solely an artifact of superposition "interferenc
 
 To test this, we generated L2 adversarial examples (allowing a max L2 attack norm of 0.1 of the average input norm). We originally generated attacks with gradient descent, but found that for extremely sparse examples where ReLU neurons are in the zero regime 99% of the time, attacks were difficult, effectively due to gradient masking . Instead, we found it worked better to analytically derive adversarial attacks by considering the optimal L2 attacks for each feature (\lambda (W^TW)\_i / ||(W^TW)\_i||\_2) and taking the one of these attacks which most harms model performance.
 
-We find that vulnerability to adversarial examples sharply increases as superposition forms (increasing by >3x), and that the level of vulnerability closely tracks the number of features per dimension (the reciprocal of [feature dimensionality](#geometry-dimensionality)).
+We find that vulnerability to adversarial examples sharply increases as superposition forms (increasing by >3×), and that the level of vulnerability closely tracks the number of features per dimension (the reciprocal of [feature dimensionality](#geometry-dimensionality)).
 
-![](images/img-025.png)
+![](images/7498d9f4d91f415b.png)
 
 We're hesitant to speculate about the extent to which superposition is responsible for adversarial examples in practice. There are compelling theories for why adversarial examples occur without reference to superposition (e.g. ). But it is interesting to note that if one wanted to try to argue for a "superposition maximalist stance", it does seem like many interesting phenomena related to adversarial examples can be predicted from superposition. As seen above, superposition can be used to explain why adversarial examples exist. It also predicts that adversarially robust models would have worse performance, since making models robust would require giving up superposition and representing less features. It predicts that more adversarially robust models might be more interpretable (see e.g. ). Finally, it could arguably predict that adversarial examples transfer (see e.g. ) if the arrangement of features in superposition is heavily influenced by which features are correlated or anti-correlated (see [earlier results on this](#geometry-correlated)). It might be interesting for future work to see how far the hypothesis that superposition is a significant contributor to adversarial examples can be driven.
 
 In addition to observing that superposition can cause models to be vulnerable to adversarial examples, we briefly experimented with adversarial training to see if the relationship could be used in the other direction to reduce superposition. To keep training reasonably efficient, we used the analytic optimal attack against a random feature. We found that this did reduce superposition, but attacks had to be made unreasonably large (80% input L2 norm) to fully eliminate it, which didn't seem satisfying. Perhaps stronger adversarial attacks would work better. We didn't explore this further since the increased cost and complexity of adversarial training made us want to prioritize other lines of attack on superposition first.
-
-  
-  
-  
-
-  
-  
 
 ## [Superposition in a Privileged Basis](#privileged-basis)
 
@@ -568,7 +519,7 @@ Adding a ReLU to the hidden layer radically changes the model from an interpreta
 
 We'll discuss this in much more detail shortly, but here's a comparison of weights resulting from a linear hidden layer model and a ReLU hidden layer model:
 
-![](images/img-026.png)
+![](images/8dbf4a2383ae44f6.png)
 
 Recall that we think of basis elements in the input as "features," and basis elements in the middle layer as "neurons". Thus W is a map from features to neurons.
 
@@ -588,15 +539,15 @@ Having a privileged basis opens up new possibilities for visualizing our models.
 
 This stack plot visualization can be nice as models get bigger. It also makes polysemantic neurons obvious: they simply correspond to having more than one weight.
 
-![](images/img-027.png)
+![](images/85639fc22248f00c.png)
 
 We'll now visualize a ReLU hidden layer toy model with n=10;~ m=5; I^i = 0.75^i and varying feature sparsity levels. We chose a very small model (only 5 neurons) both for ease of visualization, and to circumvent some issues with this toy model we'll discuss below.
 
-However, we found that these small models were harder to optimize. For each model shown, we trained 1000 models and visualized the one with the lowest loss. Although the typical solutions are often similar to the minimal loss solutions shown, selecting the minimal loss solutions reveals even more structure in how features align with neurons. It also reveals that there are ranges of sparsity values where the optimal solution for all models trained on data with that sparsity have the same weight configurations.
+However, we found that these small models were harder to optimize. For each model shown, we trained 1000 models and visualized the one with the lowest loss. Although the typical solutions are often similar to the minimal loss solutions shown, selecting the minimal loss solutions reveals even more structure in how features align with neurons. It also reveals that there are ranges of sparsity values where the optimal solution for all models trained on data with that sparsity has the same weight configurations.
 
 The solutions are visualized below, both visualizing the raw W and a neuron stacked bar plot. We color features in the stacked bar plot based on whether they're in superposition, and color neurons as being monosemantic or polysemantic depending on whether they store more than one feature. Neuron order was chosen by hand (since it's arbitrary).
 
-![](images/img-028.png)
+![](images/f4e4b302baa987dd.png)
 
 The most important thing to pay attention to is how there's a shift from monosemantic to polysemantic neurons as sparsity increases. Monosemantic neurons do exist in some regimes! Polysemantic neurons exist in others. And they can both exist in the same model! Moreover, while it's not quite clear how to formalize this, it looks a great deal like there's a neuron-level phase change, mirroring the feature phase changes we saw earlier.
 
@@ -608,20 +559,13 @@ Unfortunately, the toy model described in this section has a significant weaknes
 
 We'll introduce a model without this issue in the next section, but wanted to study this model as a simpler case study.
 
-  
-  
-  
-
-  
-  
-
 ## [Computation in Superposition](#computation)
 
 So far, we've shown that neural networks can store sparse features in superposition and then recover them. But we actually believe superposition is more powerful than this – we think that neural networks can perform computation entirely in superposition rather than just using it as storage. This model will also give us a more principled way to study a privileged basis where features align with basis dimensions.
 
 To explore this, we consider a new setup where we imagine our input and output layer to be the layers of our hypothetical disentangled model, but have our hidden layer be a smaller layer we're imagining to be the observed model which might use superposition. We'll then try to compute a simple non-linear function and explore whether it can use superposition to do this. Since the model will have (and need to use) the hidden layer non-linearity, we'll also see features align with a privileged basis.
 
-![](images/img-029.png)
+![](images/65932a0165e7b0ed.png)
 
 Specifically, we'll have the model compute y=\text{abs}(x). Absolute value is an appealing function to study because there's a very simple way to compute it with ReLU neurons: \text{abs}(x) = \text{ReLU}(x) + \text{ReLU}(-x). This simple structure will make it easy for us to study the geometry of how the hidden layer is leveraged to do computation.
 
@@ -643,13 +587,13 @@ With this model, it's a bit less straightforward to study how individual feature
 
 As we saw in the previous section, having a hidden layer activation function means that it makes sense to visualize the weights in terms of neurons. We can visualize W directly or as a neuron stack plot as we did before. We can also visualize it as a graph, which can sometimes be helpful for understanding computation.
 
-![](images/img-030.png)
+![](images/1b12e69bad47316d.png)
 
 Let's look at what happens when we train a model with n=3 features to perform absolute value on m=6 hidden layer neurons. Without superposition, the model needs two hidden layer neurons to implement absolute value on one feature.
 
 The resulting model – modulo a subtle issue about rescaling input and output weightsNote that there's a degree of freedom for the model in learning W\_1: We can rescale any hidden unit by scaling its row of W\_1 by \alpha, and its column of W\_2 by \alpha^{-1}, and arrive at the same model. For consistency in the visualization, we rescale each hidden unit before visualizing so that the largest-magnitude weight to that neuron from W\_1 has magnitude 1. – performs absolute value exactly as one might expect. For each input feature x\_i, it constructs a "positive side" neuron \text{ReLU}(x\_i) and a "negative side" neuron \text{ReLU}(-x\_i). It then adds these together to compute absolute value:
 
-![](images/img-031.png)
+![](images/b60a265b835b5441.png)
 
 ### [Superposition vs Sparsity](#computation-super-v-sparsity)
 
@@ -657,7 +601,7 @@ We've seen that – as expected – our toy model can learn to implement absolut
 
 A couple of notes on visualization: Since we're primarily interested in understanding superposition and polysemantic neurons, we'll show a stacked weight plot of the absolute values of weights. The features are colored by superposition. To make the diagrams easier to read, neurons are faintly colored based on how polysemantic they are (as judged by eye based on the plots). Neuron order is sorted by the importance of the largest feature.
 
-![](images/img-032.png)
+![](images/6a2691a7b7a7877d.png)
 
 Much like we saw in the ReLU hidden layer models, these results demonstrate that activation functions, under the right circumstances, create a privileged basis and cause features to align with basis dimensions. In the dense regime, we end up with each neuron representing a single feature, and we can read feature values directly off of neuron activations.
 
@@ -665,7 +609,7 @@ However, once the features become sufficiently sparse, this model, too, uses sup
 
 Focusing on the intermediate sparsity regimes, we find several additional qualitative behaviors that we find fascinatingly reminiscent of behavior that has been observed in real, full-scale neural networks:
 
-![](images/img-033.png)
+![](images/11c0223bf12e2b52.png)
 
 To begin, we find that in some regimes, many of the model's neurons will encode pure features, but a subset of them will be highly polysemantic. This is similar to the [phase change](#phase-change) we saw earlier in the ReLU output model. However, in that case, the phase change was with respect to features, with more important features not being put in superposition. In this experiment, the neurons don't have any intrinsic importance, but we see that the neurons representing the most important features (on the left) tend to be monosemantic.
 
@@ -683,26 +627,19 @@ The model we're trying to understand is shown below on the left, visualized as a
 
 However, there are a few neurons doing something else…
 
-![](images/img-034.png)
+![](images/32a37cebb2129c2b.png)
 
 These other neurons implement two instances of asymmetric superposition and inhibition. Each instance consists of two neurons:
 
-![](images/img-035.png)
+![](images/3176b73362c851d6.png)
 
 One neuron does asymmetric superposition. In normal superposition, one might store features with equal weights (eg. W=[1,-1]) and then have equal output weights (W=[1,1]). In asymmetric superposition, one stores the features with different magnitudes (eg. W=[2,-\frac{1}{2}]) and then has reciprocal output weights (eg. W=[\frac{1}{2}, 2]). This causes one feature to heavily interfere with the other, but avoid the other interfering with the first!
 
 To avoid the consequences of that interference, the model has another neuron heavily inhibit the feature in the case where there would have been positive interference. This essentially converts positive interference (which could greatly increase the loss) into negative interference (which has limited consequences due to the output ReLU).
 
-![](images/img-036.png)
+![](images/0a35dadc9a24dc1e.png)
 
 There are a few other weights this doesn't explain. (We believe they're effectively small conditional biases.) But this asymmetric superposition and inhibition pattern appears to be the primary story.
-
-  
-  
-  
-
-  
-  
 
 ## [The Strategic Picture of Superposition](#strategic)
 
@@ -714,7 +651,7 @@ We begin this section by describing how "solving superposition" in a certain sen
 
 We'd like a way to have confidence that models will never do certain behaviors such as "deliberately deceive" or "manipulate." Today, it's unclear how one might show this, but we believe a promising tool would be the ability to identify and enumerate over all features. The ability to have a universal quantifier over the fundamental units of neural network computation is a significant step towards saying that certain types of circuits don't exist.Ultimately we want to say that a model doesn't implement some class of behaviors. Enumerating over all features makes it easy to say a feature doesn't exist (e.g. "there is no 'deceptive behavior' feature") but that isn't quite what we want. We expect models that need to represent the world to represent unsavory behaviors. But it may be possible to build more subtle claims such as "all 'deceptive behavior' features do not participate in circuits X, Y and Z." It also seems like a powerful tool for addressing "unknown unknowns", since it's a way that one can fully cover network behavior, in a sense.
 
-How does this relate to superposition? It turns out that the ability to enumerate over features is deeply intertwined with superposition. One way to see this is to imagine a neural network with a privileged basis and without superposition (like the monosemantic neurons found in early InceptionV1, e.g. ): features would simply correspond to neurons, and you could enumerate over features by enumerating over neurons. Superposition also makes it harder to find interpretable directions in a model without a privileged basis. Without superposition, one could try to do something like the Gram–Schmidt process, progressively identifying interpretable directions and then removing them to make future features easier to identify. But with superposition, one can't simply remove a direction even if one knows that it is a feature direction. The connection also goes the other way: if one has the ability to enumerate over features, one can perform compressed sensing using the feature directions to (with high probability) "unfold" a superposition models activations into those of a larger, non-superposition model.
+How does this relate to superposition? It turns out that the ability to enumerate over features is deeply intertwined with superposition. One way to see this is to imagine a neural network with a privileged basis and without superposition (like the monosemantic neurons found in early InceptionV1, e.g. ): features would simply correspond to neurons, and you could enumerate over features by enumerating over neurons. Superposition also makes it harder to find interpretable directions in a model without a privileged basis. Without superposition, one could try to do something like the Gram–Schmidt process, progressively identifying interpretable directions and then removing them to make future features easier to identify. But with superposition, one can't simply remove a direction even if one knows that it is a feature direction. The connection also goes the other way: if one has the ability to enumerate over features, one can perform compressed sensing using the feature directions to (with high probability) "unfold" a superposition model's activations into those of a larger, non-superposition model.
 
 For this reason, we'll call any method that gives us the ability to enumerate over features – and equivalently, unfold activations – a "solution to superposition". Any solution is on the table, from creating models that just don't have superposition, to identifying what directions correspond to features after the fact. We'll discuss the space of possibilities shortly.
 
@@ -739,7 +676,7 @@ With that said, it's worth highlighting one bright spot before we focus on the c
 
 #### [Approach 1: Creating Models Without Superposition](#strategic-approach-no-super)
 
-It's actually quite easy to get rid of superposition in the toy models described in this paper, albeit at the cost of a higher loss. Simply apply at L1 regularization term to the hidden layer activations (i.e. add \lambda ||h||\_1 to the loss). This actually has a nice interpretation in terms of killing features below a certain importance threshold, especially if they're not basis aligned. Generalizing this to real neural networks isn't trivial, but we expect it can be done. (This approach would be similar to work attempting to use sparsity to encourage basis-aligned word embeddings .)
+It's actually quite easy to get rid of superposition in the toy models described in this paper, albeit at the cost of a higher loss. Simply apply an L1 regularization term to the hidden layer activations (i.e. add \lambda ||h||\_1 to the loss). This actually has a nice interpretation in terms of killing features below a certain importance threshold, especially if they're not basis aligned. Generalizing this to real neural networks isn't trivial, but we expect it can be done. (This approach would be similar to work attempting to use sparsity to encourage basis-aligned word embeddings .)
 
 However, it seems likely that models are significantly benefitting from superposition. Roughly, the sparser features are, the more features can be squeezed in per neuron. And many features in language models seem very sparse! For example, language models know about individuals with only modest public presences, such as several of the authors of this paper. Presumably we only occur with frequency significantly less than one in a million tokens. As a result, it may be the case that superposition effectively makes models much bigger.
 
@@ -777,13 +714,6 @@ Any superposition-free model would be a powerful tool for research. We believe 
 
 Local bases are not enough. Earlier, when we considered [the geometry of non-uniform superposition](#geometry-non-uniform), we observed that models often form local orthogonal bases, where co-occurring features are orthogonal. This suggests a strategy for locally understanding models on sufficiently narrow sub-distributions. However, if our goal is to eventually make useful statements about the safety of models, we need mechanistic accounts that hold for the full distribution (and off distribution). Local bases seem unlikely to give this to us.
 
-  
-  
-  
-
-  
-  
-
 ## [Discussion](#discussion)
 
 ### [To What Extent Does Superposition Exist in Real Models?](#real-models)
@@ -791,9 +721,9 @@ Local bases are not enough. Earlier, when we considered [the geometry of non-un
 Why are we interested in toy models? We believe they are useful proxies for studying the superposition we suspect might exist in real neural networks. But how can we know if they're actually a useful toy model? Our best validation is whether their predictions are consistent with empirical observations regarding polysemanticity. To the best of our knowledge they are. In particular:
 
 * Polysemantic neurons exist. Polysemantic neurons form in our third model, just as they are observed in a wide range of neural networks.
-* Neurons are sometimes "cleanly interpretable" and sometimes "polysemantic", often in the same layer. Our third model exhibits both polyemantic and non-polysemantic neurons, often at the same time. This is analogous to how real neural networks often have a mixture of polysemantic and non-polysemantic neurons in the same layer.
+* Neurons are sometimes "cleanly interpretable" and sometimes "polysemantic", often in the same layer. Our third model exhibits both polysemantic and non-polysemantic neurons, often at the same time. This is analogous to how real neural networks often have a mixture of polysemantic and non-polysemantic neurons in the same layer.
 * InceptionV1 has more polysemantic neurons in later layers. Empirically, the fraction of neurons which are polysemantic in InceptionV1 increases with depth. One natural explanation is that as features become higher-level the stimuli they detect become rarer and thus sparser (for example, in vision, a high-level floppy ear feature is less common than a low-level Gabor filter's edge). A major prediction of our model is that superposition and polysemanticity increase as sparsity increases.
-* Early Transformer MLP neurons are extremely polysemantic. Our experience is that neurons in the first MLP layer in Transformer language models are often extremely polysemantic. If the goal of the first MLP layer is to distinguish between different interpretations of the same token (eg. "die" in English vs German vs Dutch vs Afrikans), such features would be very sparse and our toy model would predict lots of polysemanticity.
+* Early Transformer MLP neurons are extremely polysemantic. Our experience is that neurons in the first MLP layer in Transformer language models are often extremely polysemantic. If the goal of the first MLP layer is to distinguish between different interpretations of the same token (eg. "die" in English vs German vs Dutch vs Afrikaans), such features would be very sparse and our toy model would predict lots of polysemanticity.
 
 This doesn't mean that everything about our toy model reflects real neural networks. Our intuition is that some of the phenomena we observe (superposition, monosemantic vs polysemantic neurons, perhaps the relationship to adversarial examples) are likely to generalize, while other phenomena (especially the geometry and learning dynamics results) are much more uncertain.
 
@@ -808,20 +738,13 @@ This paper has shown that the superposition hypothesis is true in certain toy mo
 * Can we estimate the feature importance curve or feature sparsity curve of real models? If one takes our toy models seriously, the most important properties for understanding the problem are the feature importance and sparsity curves. Is there a way we can estimate them for real models? (Likely, this would involve training models of varying sizes or amounts of regularization, observing the loss and neuron sparsities, and trying to infer something.)
 * Should we expect superposition to go away if we just scale enough? What assumptions about the feature importance curve and sparsity would need to be true for that to be the case? Alternatively, should we expect superposition to remain a constant fraction of represented features, or even to increase as we scale?
 * Are we measuring the maximally principled things? For example, what is the most principled definition of superposition / polysemanticity?
-* How important are polysemantic neurons? If X% of the model is interpretable neurons and 1-X% are polysemantic, how much should we believe we understand from understanding the x% interpretable neurons? (See also the "feature packing principle" suggested above.)
+* How important are polysemantic neurons? If X% of the model is interpretable neurons and 1-X% are polysemantic, how much should we believe we understand from understanding the X% interpretable neurons? (See also the "feature packing principle" suggested above.)
 * How many features should we expect to be stored in superposition? This was briefly discussed in the previous section. It seems like results from compressed sensing should be able to give us useful upper-bounds, but it would be nice to have a clearer understanding – and perhaps tighter bounds!
 * Does the apparent phase change we observe in features/neurons have any connection to phase changes in compressed sensing?
 * How does superposition relate to non-robust features? An interesting [paper by Gabriel Goh](https://distill.pub/2019/advex-bugs-discussion/response-3/) ([archive.org backup](https://web.archive.org/web/20190811044354/https://distill.pub/2019/advex-bugs-discussion/response-3/)) explores features in a linear model in terms of the principal components of the data. It focuses on a trade off between "usefulness" and "robustness" in the principal component features, but it seems like one could also relate it to the interpretability of features. How much would this perspective change if one believed the superposition hypothesis – could it be that the useful, non-robust features are an artifact of superposition?
 * To what extent can neural networks "do useful computation" on features in superposition? Is the absolute value problem representative of computation in superposition generally, or idiosyncratic? What class of computation is amenable to being performed in superposition? Does it require a sparse structure to the computation?
 * How does superposition change if features are not independent? Can superposition pack features more efficiently if they are anti-correlated?
 * Can models effectively use nonlinear representations? We suspect models will tend not to use them, but further experimentation could provide good evidence. See the appendix on nonlinear compression. For example investigating the representations used by autoencoders with multi-layer encoders and decoders with really small bottlenecks on random uncorrelated data.
-
-  
-  
-  
-
-  
-  
 
 ## [Related Work](#related)
 
@@ -831,7 +754,7 @@ Our work is inspired by research exploring the features that naturally occur in 
 
 #### [Superposition](#related-interpretable-features)
 
-The earliest reference to superposition in artificial neural networks that we're aware of is Arora et al.'s work , who suggest that the word embeddings of words with multiple different word senses may be superpositions of the vectors for the distinct meanings. Arora extend this idea there to there being many sparse "atoms of discourse" in superposition, an idea which was generalized to other kinds of embeddings vectors and explored in more detail by Goh .
+The earliest reference to superposition in artificial neural networks that we're aware of is Arora et al.'s work , who suggest that the word embeddings of words with multiple different word senses may be superpositions of the vectors for the distinct meanings. Arora extend this idea to there being many sparse "atoms of discourse" in superposition, an idea which was generalized to other kinds of embedding vectors and explored in more detail by Goh .
 
 In parallel with this, investigations of individual neurons in models with privileged bases were beginning to grapple with "polysemantic" neurons which respond to unrelated inputs . A natural hypothesis was that these polysemantic neurons are disambiguated by the combined activation of other neurons. This line of thinking eventually became the "superposition hypothesis" for circuits .
 
@@ -862,7 +785,7 @@ As a result, compressed sensing lower bounds—which give lower bounds on the di
 
 At first, this bound appears to allow a number of features that is exponential in m to be packed into the m-dimensional embedding space. However, in our setting, the integer k for which all vectors have at most k non-zero entries is determined by the fixed density parameter S as k = O((1 - S)n). As a result, our bound is actually m = \Omega(-n (1 - S) \log(1 - S)). Therefore, the number of features is linear in m but modulated by the sparsity. Note that this has a nice information-theoretic interpretation: \log(1 - S) is the surprisal of a given dimension being non-zero, and is multiplied by the expected number of non-zeros. This is good news if we are hoping to eliminate superposition as a phenomenon! However, these bounds also allow for the amount of superposition to increase dramatically with sparsity – hopefully this is an artifact of the techniques in the proofs and not an inherent barrier to reducing or eliminating superposition.
 
-A striking parallel between our toy model and compressed sensing is the existence of phase changes.Note that in the compressed sensing case, the phase transition is in the limit as the number of dimensions becomes large - for finite-dimensional spaces, the transition is fast but not discontinuous. In compressed sensing, if one considers a two-dimensional space defined by the sparsity and dimensionality of the vectors, there are sharp phase changes where the vector can almost surely be recovered in one regime and almost surely not in the other . It isn't immediately obvious how to connect these phase changes in compressed sensing – which apply to recovery of the entire vector, rather than one particular component – to the phase changes we observe in features and neurons. But the parallel is suspicious.
+A striking parallel between our toy model and compressed sensing is the existence of phase changes.Note that in the compressed sensing case, the phase transition is in the limit as the number of dimensions becomes large – for finite-dimensional spaces, the transition is fast but not discontinuous. In compressed sensing, if one considers a two-dimensional space defined by the sparsity and dimensionality of the vectors, there are sharp phase changes where the vector can almost surely be recovered in one regime and almost surely not in the other . It isn't immediately obvious how to connect these phase changes in compressed sensing – which apply to recovery of the entire vector, rather than one particular component – to the phase changes we observe in features and neurons. But the parallel is suspicious.
 
 Another interesting line of work has tried to build useful sparse recovery algorithms using neural networks . While we find it useful for analysis purposes to view the toy model as a sparse recovery algorithm, so that we may apply sparse recovery lower bounds, we do not expect that the toy model is useful for the problem of sparse recovery. However, there may be an exciting opportunity to relate our understanding of the phenomenon of superposition to these and other techniques.
 
@@ -898,13 +821,6 @@ After publishing the original version of this paper, a number of readers generou
 * Frames (see review ) are a generalization of the idea of a mathematical basis. The way superposition encodes features in lower dimensional spaces might be seen as frames, at least in some cases. In particular, the "Mercedes-Benz Frame" is equivalent to the triangular geometry superposition we sometimes observe.
 * Although we discuss compressed sensing and sparse coding above, it's worth noting that this only scratches the surface of research on how sparse vectors can be encoded in lower dimensional dense vectors, and there's a large body of additional work not captured by these topics.
 
-  
-  
-  
-
-  
-  
-
 ## [Comments & Replications](#comments)
 
 Inspired by the original [Circuits Thread](https://distill.pub/2020/circuits/) and [Distill's Discussion Article experiment](https://distill.pub/2019/advex-bugs-discussion/), the authors invited several external researchers who we had previously discussed our preliminary results with to comment on this work. Their comments are included below.
@@ -919,13 +835,13 @@ Original Authors' Response:  Redwood's further analysis of the superposition ph
 
 Update: The research by Redwood mentioned in the previous comment, Polysemanticity and Capacity in Neural Networks ([Alignment Forum](https://www.alignmentforum.org/posts/kWp4R9SYgKJFHAufB/polysemanticity-and-capacity-in-neural-networks), [Arxiv](https://arxiv.org/abs/2210.01892)) is out! They study a slightly different toy model, and get some really interesting results. Highlights include analytical traction on understanding a variant of the toy model, understanding superposition in terms of constrained optimization, and analysis of the role different activation functions play.
 
-![](images/img-037.png)
+![](images/f54a3784addfa747.png)
 
 ### [Replication & Further Results](#comment-deepmind)
 
 [Tom McGrath](https://tommcgrath.github.io/) is a research scientist at [DeepMind](https://www.deepmind.com/).
 
-The results in this paper are an important contribution - they really further our theoretical understanding of a phenomenon that may be central to interpretability research and understanding network representations more generally. It’s surprising that such simple settings can produce these rich phenomena. We’ve reproduced the experiments in the [Demonstrating Superposition](#demonstrating)  and [Superposition as a Phase Change](#phase-change) sections and have a minor additional result to contribute.
+The results in this paper are an important contribution – they really further our theoretical understanding of a phenomenon that may be central to interpretability research and understanding network representations more generally. It’s surprising that such simple settings can produce these rich phenomena. We’ve reproduced the experiments in the [Demonstrating Superposition](#demonstrating)  and [Superposition as a Phase Change](#phase-change) sections and have a minor additional result to contribute.
 
 It is possible to exactly solve the expected loss for the n=2, m=1 case of the basic [ReLU output toy model](#demonstrating-setup-model) (ignoring bias terms). The derivation is mathematically simple but somewhat long-winded: the ‘tricks’ are to (1) represent the sparse portion of the input distribution with delta functions, and (2) replace the ReLu with a restriction of the domain of integration:
 
@@ -933,7 +849,7 @@ It is possible to exactly solve the expected loss for the n=2, m=1 case of the b
 
 Making this substitution renders the integral analytically tractable, which allows us to plot the full loss surface and solve for the loss minima directly. We show some example loss surfaces below:
 
-![](images/img-038.png)
+![](images/9e29509f5f0f523e.png)
 
 Although many of these loss surfaces (Figure 1a, 1b) have minima qualitatively similar to one of the network weights used in the section [Superposition as a Phase Change](#phase-change), we also find a new phase where W\_1\simeq W\_2 \simeq \frac{1}{\sqrt{2}}: weights are similar rather than antipodal. This ‘confused feature’ regime occurs when sparsity is low and both features are important (Figure 1c). (This is slightly similar to the behavior described in [The Geometry of Superposition – Collapsing of Correlated Features](#geometry-collapsing), but occurs without the features being correlated!) Further, although the solutions we find are often qualitatively similar to the weights used in [Superposition as a Phase Change](#phase-change), they can be quantitatively different, as Figure 1a shows. The transition from Figure 1a to Figure 1b is continuous: the minima moves smoothly in weight space as the degree of sparsity alters. This explains the ‘blurry’ region around the triple point in the phase diagram.
 
@@ -945,7 +861,7 @@ Original Authors' Response:  This closed form analysis of the n=2, m=1 case is 
 
 [Jeffrey Wu](https://www.wuthejeff.com/) and [Dan Mossing](https://dmossing.github.io/) are members of the Alignment team at [OpenAI](https://openai.com/).
 
-We are very excited about these toy models of polysemanticity. This work sits at a rare intersection of being plausibly very important for training more interpretable models and being very simple and elegant. The results have been surprisingly easy to replicate -- we have reproduced (with very little fuss) plots similar to those in the [Demonstrating Superposition – Basic Results](#demonstrating-basic-results), [Geometry – Feature Dimensionality](#geometry-dimensionality), and [Learning Dynamics – Discrete "Energy Level" Jumps](#learning-jumps) sections.
+We are very excited about these toy models of polysemanticity. This work sits at a rare intersection of being plausibly very important for training more interpretable models and being very simple and elegant. The results have been surprisingly easy to replicate – we have reproduced (with very little fuss) plots similar to those in the [Demonstrating Superposition – Basic Results](#demonstrating-basic-results), [Geometry – Feature Dimensionality](#geometry-dimensionality), and [Learning Dynamics – Discrete "Energy Level" Jumps](#learning-jumps) sections.
 
 Original Authors' Response:  We really appreciate this replication of our basic results. Some of our findings were quite surprising to us, and this gives us more confidence that they aren't the result of an idiosyncratic quirk or bug in our implementations.
 
@@ -980,7 +896,7 @@ We briefly investigated this further and found that the number of features compe
 
 More investigation would be needed to really understand this phenomenon.
 
-![](images/img-039.png)
+![](images/8eae6956af4ce382.png)
 
 ### [Replication](#comment-hobbhahn)
 
@@ -1006,7 +922,7 @@ We also applied our method to real activations from a small language model. Our 
 
 Neel Nanda is an external researcher in mechanistic interpretability. This is a description of his blog post, [Actually, Othello-GPT Has A Linear Emergent World Representation](https://neelnanda.io/othello).
 
-I describe a natural experiment of the [linear representation hypothesis](#motivation-directions) described in this paper -- the idea that features correspond to directions in neural networks.
+I describe a natural experiment of the [linear representation hypothesis](#motivation-directions) described in this paper – the idea that features correspond to directions in neural networks.
 
 Background: Martin Wattenberg (an author on this paper) and colleagues [recently found](https://arxiv.org/pdf/2210.13382.pdf) that, if you train transformer language model trained to predict the next token in synthetic Othello games (where each move is a randomly chosen legal move), it forms an emergent model of the board state (despite only being trained to predict the next move!). They showed that the state of the board (whether each cell was empty, black or white) could be recovered with high accuracy by a one hidden layer MLP probe. They further showed that you could use the world model to causally intervene on the model’s residual stream. By choosing another board state, and changing the residual stream (with gradient descent) such that the probe indicates that new board state, they caused the model to output legal moves in the new board state, even if the edited board state was impossible to reach via legal Othello play!
 
@@ -1032,7 +948,7 @@ where W\_i is the ith feature and \hat{W\_i}=W\_i / \| W\_i \|\_2 is its normali
 
 Following this definition, the paper makes the remark that "Empirically, it seems that the dimensionality of all features add up to the number of embedding dimensions when the features are 'packed efficiently' in some sense." In this comment, I point out a natural, theoretical explanation of this observation. The argument is via the notion of leverage score in matrix approximation. I’ll define it first, then explain how it connects to feature dimensionality.
 
-At a conceptual level, leverage score is a measure of the importance of a row in composing the row space of a matrix. For instance, if a row is orthogonal to all other rows, its leverage score is 1, meaning that it’s maximally important. This is natural, since removing it would decrease the rank of the matrix and completely change the row space. Formally, if W be a n by d matrices (think of it as tall and thin, so n > d), then the leverage score of ith row W\_i is
+At a conceptual level, leverage score is a measure of the importance of a row in composing the row space of a matrix. For instance, if a row is orthogonal to all other rows, its leverage score is 1, meaning that it’s maximally important. This is natural, since removing it would decrease the rank of the matrix and completely change the row space. Formally, if W be an n by d matrix (think of it as tall and thin, so n > d), then the leverage score of ith row W\_i is
 
 \tau\_i = \max\_{x : \|x\|\_2 = 1} \frac{\langle W\_i , x \rangle^2}{\sum\_{j=1}^n \langle W\_j , x \rangle^2}.
 
@@ -1044,7 +960,7 @@ Three quick remarks on this definition:
 * There are other equivalent definitions of leverage score; see section 3.3 of [here](https://arxiv.org/abs/1408.5099).
 * Leverage score arises in numerical linear algebra. It is well-known that sampling rows proportional to their leverage score yields an almost square matrix that approximates the original, potentially very tall matrix. For a formal statement, see Theorem 17 of <https://arxiv.org/abs/1411.4357>.
 
-Returning to my main point, another nice fact about leverage score is they sum up to the rank of the matrix. In the tall and thin case above, they sum up to d (if the matrix is full-rank). Given that, it is natural this paper makes the empirical observation that the sum of D\_i roughly equals the embedding dimension d, if the vectors are "efficiently packed". Specifically, one formal way of stating that they are packed efficiently is that they are roughly in isotropic position, that is, the variance \langle W\_j, x\rangle^2 along any direction x is close to 1. In other words, the covariance structure of the embedding vectors is close to identity. (Geometrically, it means they are well spread out. This would be the case, for example, if the vectors form regular simplex, just as it happens in the experiments of this paper.) Then in the above definition of leverage score, each summand within the denominator is 1 for any x. So to maximize the numerator, we just take x to be W\_i itself---and this precisely recovers the definition of feature dimensionality D\_i. Thus, in this well-spread-out case, these two notions are roughly the same, and they both sum up to d.
+Returning to my main point, another nice fact about leverage score is they sum up to the rank of the matrix. In the tall and thin case above, they sum up to d (if the matrix is full-rank). Given that, it is natural this paper makes the empirical observation that the sum of D\_i roughly equals the embedding dimension d, if the vectors are "efficiently packed". Specifically, one formal way of stating that they are packed efficiently is that they are roughly in isotropic position, that is, the variance \langle W\_j, x\rangle^2 along any direction x is close to 1. In other words, the covariance structure of the embedding vectors is close to identity. (Geometrically, it means they are well spread out. This would be the case, for example, if the vectors form a regular simplex, just as it happens in the experiments of this paper.) Then in the above definition of leverage score, each summand within the denominator is 1 for any x. So to maximize the numerator, we just take x to be W\_i itself—and this precisely recovers the definition of feature dimensionality D\_i. Thus, in this well-spread-out case, these two notions are roughly the same, and they both sum up to d.
 
 ### [Code](#code)
 
@@ -1060,29 +976,29 @@ Jeff Wu, Daniel Mossing, Tom McGrath, and Kshitij Sachan did independent replica
 
 Gabriel Goh, Neel Nanda, Vladimir Mikulik, and Nick Cammarata gave detailed feedback which improved the paper, in addition to being motivating. Alex Dimakis, Piotr Indyk, Dan Yamins generously took time to discuss these results with us and give advice on how they might connect to their area of expertise. Finally, we benefited from the feedback and comments of James Bradbury, Sebastian Farquhar, Shan Carter, Patrick Mineault, Alex Tamkin, Paul Christiano, Evan Hubinger, Ian McKenzie, and Sid Black. We're additionally grateful to Trenton Bricken and Manjari Narayan for referring us to valuable related work we originally missed. Thanks to Ken Kahn for typo corrections.
 
-Finally, we're very grateful to all our colleagues at Anthropic for their advice and support: Daniela Amodei, Jack Clark, Tom Brown, Ben Mann, Nick Joseph, Danny Hernandez, Amanda Askell, Kamal Ndousse, Andy Jones,, Timothy Telleen-Lawton, Anna Chen, Yuntao Bai, Jeffrey Ladish, Deep Ganguli, Liane Lovitt, Nova DasSarma, Jia Yuan Loke, Jackson Kernion, Tom Conerly, Scott Johnston, Jamie Kerr, Sheer El Showk, Stanislav Fort, Rebecca Raible, Saurav Kadavath, Rune Kvist, Jarrah Bloomfield, Eli Tran-Johnson, Rob Gilson, Guro Khundadze, Filipe Dobreira, Ethan Perez, Sam Bowman, Sam Ringer, Sebastian Conybeare, Jeeyoon Hyun, Michael Sellitto, Jared Mueller, Joshua Landau, Cameron McKinnon, Sandipan Kundu, Jasmine Brazilek, Da Yan, Robin Larson, Noemí Mercado, Anna Goldie, Azalia Mirhoseini, Jennifer Zhou, Erick Galankin, James Sully, Dustin Li, James Landis.
+Finally, we're very grateful to all our colleagues at Anthropic for their advice and support: Daniela Amodei, Jack Clark, Tom Brown, Ben Mann, Nick Joseph, Danny Hernandez, Amanda Askell, Kamal Ndousse, Andy Jones, Timothy Telleen-Lawton, Anna Chen, Yuntao Bai, Jeffrey Ladish, Deep Ganguli, Liane Lovitt, Nova DasSarma, Jia Yuan Loke, Jackson Kernion, Tom Conerly, Scott Johnston, Jamie Kerr, Sheer El Showk, Stanislav Fort, Rebecca Raible, Saurav Kadavath, Rune Kvist, Jarrah Bloomfield, Eli Tran-Johnson, Rob Gilson, Guro Khundadze, Filipe Dobreira, Ethan Perez, Sam Bowman, Sam Ringer, Sebastian Conybeare, Jeeyoon Hyun, Michael Sellitto, Jared Mueller, Joshua Landau, Cameron McKinnon, Sandipan Kundu, Jasmine Brazilek, Da Yan, Robin Larson, Noemí Mercado, Anna Goldie, Azalia Mirhoseini, Jennifer Zhou, Erick Galankin, James Sully, Dustin Li, James Landis.
 
 ### [Author Contributions](#author-contributions)
 
-Basic Results - The basic toy model results demonstrating the existence of superposition were done by Nelson Elhage and Chris Olah. Chris suggested the toy model and Nelson ran the experiments.
+Basic Results – The basic toy model results demonstrating the existence of superposition were done by Nelson Elhage and Chris Olah. Chris suggested the toy model and Nelson ran the experiments.
 
-Phase Change - Chris Olah ran the empirical phase change experiments, with help from Nelson Elhage. Martin Wattenberg introduced the theoretical model where exact losses for specific weight configurations can be computed.
+Phase Change – Chris Olah ran the empirical phase change experiments, with help from Nelson Elhage. Martin Wattenberg introduced the theoretical model where exact losses for specific weight configurations can be computed.
 
-Geometry - The uniform superposition geometry results were discovered by Nelson Elhage and Nicholas Schiefer, with help from Chris Olah. Nelson discovered the original m/||W||\_F^2 mysterious "stickiness". Chris introduced the definition of feature dimensionality. Nicholas and Nelson then investigated the polytopes that formed. As for non-uniform superposition, Martin Wattenberg performed the initial investigations of the resulting geometry, focusing on the behavior of correlated features. Chris extended this with an investigation of the role of relative feature importance and sparsity.
+Geometry – The uniform superposition geometry results were discovered by Nelson Elhage and Nicholas Schiefer, with help from Chris Olah. Nelson discovered the original m/||W||\_F^2 mysterious "stickiness". Chris introduced the definition of feature dimensionality. Nicholas and Nelson then investigated the polytopes that formed. As for non-uniform superposition, Martin Wattenberg performed the initial investigations of the resulting geometry, focusing on the behavior of correlated features. Chris extended this with an investigation of the role of relative feature importance and sparsity.
 
-Learning Dynamics - Nelson Elhage discovered the "energy level jump" phenomenon, in collaboration with Nicholas Schiefer and Chris Olah. Martin Wattenberg discovered the "geometric transformations" phenomenon.
+Learning Dynamics – Nelson Elhage discovered the "energy level jump" phenomenon, in collaboration with Nicholas Schiefer and Chris Olah. Martin Wattenberg discovered the "geometric transformations" phenomenon.
 
-Adversarial Examples - Chris Olah and Catherine Olsson found evidence of a connection between superposition and adversarial examples.
+Adversarial Examples – Chris Olah and Catherine Olsson found evidence of a connection between superposition and adversarial examples.
 
-Superposition with a Privileged Basis / Doing Computation - Chris Olah did the basic investigation of superposition in a privileged basis. Nelson Elhage, with help from Chris, investigated the "absolute value" model which provided a more principled demonstration of superposition and showed that computation could be done while in superposition. Nelson discovered the "asymmetric superposition" motif.
+Superposition with a Privileged Basis / Doing Computation – Chris Olah did the basic investigation of superposition in a privileged basis. Nelson Elhage, with help from Chris, investigated the "absolute value" model which provided a more principled demonstration of superposition and showed that computation could be done while in superposition. Nelson discovered the "asymmetric superposition" motif.
 
-Theory - The theoretical picture articulated over the course of this paper (especially in the "mathematical understanding" section) was developed in conversations between all authors, but especially Chris Olah, Jared Kaplan, Martin Wattenberg, Nelson Elhage, Tristan Hume, Tom Henighan, Catherine Olsson, Nicholas Schiefer, Dawn Drain, Shauna Kravec, Roger Grosse, Robert Lasenby, and Sam McCandlish. Jared introduced the strategy of rewriting the loss by grouping terms with the number of active features. Both Jared and Martin independently noticed the value of investigating the n=2; m=1 case as the simplest case to understand. Nicholas and Dawn clarified our understanding of the connection to compressed sensing.
+Theory – The theoretical picture articulated over the course of this paper (especially in the "mathematical understanding" section) was developed in conversations between all authors, but especially Chris Olah, Jared Kaplan, Martin Wattenberg, Nelson Elhage, Tristan Hume, Tom Henighan, Catherine Olsson, Nicholas Schiefer, Dawn Drain, Shauna Kravec, Roger Grosse, Robert Lasenby, and Sam McCandlish. Jared introduced the strategy of rewriting the loss by grouping terms with the number of active features. Both Jared and Martin independently noticed the value of investigating the n=2; m=1 case as the simplest case to understand. Nicholas and Dawn clarified our understanding of the connection to compressed sensing.
 
-Strategic Picture - The strategic picture articulated in this paper – What does superposition mean for interpretability and safety? What would a suitable solution be? How might one solve it? – developed in extensive conversations between authors, and in particular Chris Olah, Tristan Hume, Nelson Elhage, Dario Amodei, Jared Kaplan. Nelson Elhage recognized the potential importance of "enumerative safety", further articulated by Dario. Tristan brainstormed extensively about ways one might solve superposition and pushed Chris on this topic.
+Strategic Picture – The strategic picture articulated in this paper – What does superposition mean for interpretability and safety? What would a suitable solution be? How might one solve it? – developed in extensive conversations between authors, and in particular Chris Olah, Tristan Hume, Nelson Elhage, Dario Amodei, Jared Kaplan. Nelson Elhage recognized the potential importance of "enumerative safety", further articulated by Dario. Tristan brainstormed extensively about ways one might solve superposition and pushed Chris on this topic.
 
-Writing - The paper was primarily drafted by Chris Olah, with some sections by Nelson Elhage, Tristan Hume, Martin Wattenberg, and Catherine Olsson. All authors contributed to editing, with particularly significant contributions from Zac Hatfield Dodds, Robert Lasenby, Kipply Chen, and Roger Grosse.
+Writing – The paper was primarily drafted by Chris Olah, with some sections by Nelson Elhage, Tristan Hume, Martin Wattenberg, and Catherine Olsson. All authors contributed to editing, with particularly significant contributions from Zac Hatfield Dodds, Robert Lasenby, Kipply Chen, and Roger Grosse.
 
-Illustration - The paper was primarily illustrated by Chris Olah, with help from Tristan Hume, Nelson Elhage, and Catherine Olsson.
+Illustration – The paper was primarily illustrated by Chris Olah, with help from Tristan Hume, Nelson Elhage, and Catherine Olsson.
 
 ### [Citation Information](#citation)
 
@@ -1127,7 +1043,7 @@ This works by quantizing the x dimension using some integer Z such that the floa
 
 We can compare the mean squared error loss on random uniform dense values of x and y and see that even with epsilons as large as 0.1 and Z values as small as 3 the nonlinear compression outperforms linear compression such as picking one of the dimensions or using the average:
 
-![](images/img-040.png)
+![](images/61b41f0bf3accf49.png)
 
 ### [Connection between compressed sensing lower bounds and the toy model](#compressed-sensing-connection-proof)
 
@@ -1143,11 +1059,11 @@ We prove this result by framing our toy model as a compressed sensing algorithm.
 
 Lemma 1. Suppose that we have a toy model T(x) with the properties in Theorem 1. Then there exists a compressed sensing algorithm f(y) : \mathbb{R}^m \to \mathbb{R}^n for the measurement matrix W\_1.
 
-Proof. We construct f(y) as follows. First, compute \tilde{x} = \mathrm{ReLU}(W\_2 y - b), as in T(x). This produces the vector \tilde{x} = T(x) and so by supposition \|T(x) - x\|\_2 \leq \varepsilon. Next, we threshold \tilde{x} to obtain \tilde{x}' by dropping all but its k largest entries. Lastly, we solve the optimization problem: \min\_{x'} \|x' - \tilde{x}'\| subject to W\_1 x' = y, which is convex because x' and \tilde{x}' have the same support. For sufficiently small \varepsilon (specifically, \varepsilon smaller than the (k + 1)th largest entry in x), both \tilde{x} and the nearest k-sparse vector to x have the same support, and so the the convex optimization problem has a unique solution: the nearest k sparse vector to x. Therefore, f is a compressed sensing algorithm for W\_1 with approximation factor 1. \qed.
+Proof. We construct f(y) as follows. First, compute \tilde{x} = \mathrm{ReLU}(W\_2 y - b), as in T(x). This produces the vector \tilde{x} = T(x) and so by supposition \|T(x) - x\|\_2 \leq \varepsilon. Next, we threshold \tilde{x} to obtain \tilde{x}' by dropping all but its k largest entries. Lastly, we solve the optimization problem: \min\_{x'} \|x' - \tilde{x}'\| subject to W\_1 x' = y, which is convex because x' and \tilde{x}' have the same support. For sufficiently small \varepsilon (specifically, \varepsilon smaller than the (k + 1)th largest entry in x), both \tilde{x} and the nearest k-sparse vector to x have the same support, and so the convex optimization problem has a unique solution: the nearest k sparse vector to x. Therefore, f is a compressed sensing algorithm for W\_1 with approximation factor 1. \qed.
 
 Lastly, we use the deterministic compressed sensing lower bound of Do Ba, Indyk, Price, and Woodruff :
 
-Theorem 2 (Corollary 3.1 in ). Given a k \times n matrix A with the restricted isometry property, a sparse recovery algorithm find a k-sparse approximation \hat{x} of x \in \mathbb{R}^n from Ax such that
+Theorem 2 (Corollary 3.1 in ). Given a k \times n matrix A with the restricted isometry property, a sparse recovery algorithm finds a k-sparse approximation \hat{x} of x \in \mathbb{R}^n from Ax such that
 
 \|x - \hat{x}\|\_1 \leq C(k) \min\_{x', \|x'\|\_0 \leq k} \|x - x'\|\_1
 

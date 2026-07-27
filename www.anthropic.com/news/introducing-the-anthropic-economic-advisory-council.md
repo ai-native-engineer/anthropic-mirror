@@ -4,7 +4,7 @@
 
 Apr 28, 2025
 
-![A stock chart moving up and to the right](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7a472632580035058bc13bfea3b965fbb471a04e-1920x1079.png&w=3840&q=75)
+![A stock chart moving up and to the right](https://www-cdn.anthropic.com/images/4zrzovbb/website/7a472632580035058bc13bfea3b965fbb471a04e-1920x1079.png)
 
 Today, we’re announcing the formation of the Anthropic Economic Advisory Council, a group of distinguished economists who will provide Anthropic with expert guidance on the economic implications of AI development and deployment. The Council will advise Anthropic on AI's impact on labor markets, economic growth, and broader socioeconomic systems. This work will inform the research agenda for the [Anthropic Economic Index](https://www.anthropic.com/economic-index), an initiative that aims to understand AI’s impact on the labor market and global economy over time.
 

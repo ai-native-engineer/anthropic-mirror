@@ -14,16 +14,9 @@ Fabien Roger3
 
 We study 3 realistic challenges to the safety of unsupervised elicitation and easy-to-hard generalization techniques, which aim to steer models on tasks which are beyond human supervision. We create datasets to test the robustness of methods against these challenges. We stress-test existing techniques on them along with new methods relying on 2 hopes: ensembling and combining unsupervised and easy-to-hard methods. We find that although the new hopes sometimes perform better than other approaches, no technique reliably performs well on the 3 challenges.
 
-📝[Paper](https://arxiv.org/abs/2602.20400), 💻[Code](https://github.com/callumcanavan/challenges-for-unsupervised-elicitation)
+📝[Paper](https://arxiv.org/abs/2602.20400), 💻[Code](http://github.com/callumcanavan/challenges-for-unsupervised-elicitation)
 
 Research done as part of [MATS](https://www.matsprogram.org/) and the [Anthropic fellowship](https://alignment.anthropic.com/2024/anthropic-fellows-program/).
-
-  
-  
-  
-
-  
-  
 
 To steer language models towards truthful outputs on tasks which are beyond human capability, previous work has suggested training models on easy tasks to steer them on harder ones (easy-to-hard generalization), or using unsupervised training algorithms to steer models with no external labels at all (unsupervised elicitation).
 
@@ -43,16 +36,9 @@ In this new work, we
 * By identifying candidate predictors using unsupervised methods on hard data and selecting the truthful one with easy labels)
 * By combining an unsupervised loss on hard points and a supervised one on easy points
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2026/challenges-hopes/fig1.png)
 
 Overview of the challenges and hopes studied by this work.
-
-  
-  
-  
-
-  
-  
 
 ## The challenges
 
@@ -70,26 +56,12 @@ Most easy-to-hard (E2H) and purely unsupervised elicitation (UE) techniques are 
 
 * We test whether existing unsupervised elicitation approaches do this by applying them to a dataset consisting of both (objective) math problems and normative political statements, and measuring whether they achieve strong performance on math problems with high confidence scores while assigning lower confidence scores to the normative political statements.
 
-  
-  
-  
-
-  
-  
-
 ## The hopes
 
 We study 2 hopes for improving on previous methods:
 
 * Combination of UE and E2H.  UE methods find concepts in a dataset which are salient to a model, but these might not all be relevant to the task of interest. E2H methods steer a model on a specific easier task, but this might not generalize to the harder task of interest. It may be possible to combine the strengths of both methods, using UE to find salient concepts in the task dataset, and E2H to exclude spurious concepts.
 * Ensembling. Even if the most salient concept that UE finds does not correspond to the desired concept, it is plausible that if we use UE to find multiple salient concepts, one of them will correspond to the desired one. Ensembling different predictors obtained in an unsupervised way (described in the next section) might allow us to leverage this.
-
-  
-  
-  
-
-  
-  
 
 ## Methods
 
@@ -146,13 +118,6 @@ Ensemble methods: Take a weighted sum of scores from N probes, using either rand
 * Consensus-weighting (Ensembling hope): for N iterations, use one of the probes to label the train set. Assign it weight 1 if it agrees with the current ensemble for more than 50% of examples or -1 otherwise (in order to prevent all probes cancelling out), and add it to the ensemble.
 * E2H-weighting (Ensembling hope + Combination hope): calculate the AUROC of each probe on the dataset minus 0.5. Assign weights equal to the softmax of these values.
 
-  
-  
-  
-
-  
-  
-
 ## Results
 
 ### Salient Non-Truth Features
@@ -167,12 +132,12 @@ Our datasets containing salient non-truth features take inspiration from issues 
 
 #### Results
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2026/challenges-hopes/fig2.png)
  Performance degrades for the most salient spurious features (left = more salient). We show performance of each method’s predictions on unmodified GSM8K vs. their performance on GSM8K when (a) sycophancy, (b) punctuation, and (c) tense features have been added to the dataset with no correlation to the correctness of each solution.
 
 Natural spurious features are highly salient. Ensemble methods occasionally (but not reliably) improve performance. We see large performance degradation on the LIAR (political facts) and Civil comments (double classification task), despite the fact that we are using a prompt that clearly states we want the desired concept. On LIAR but not Civil Comments, PCA ensemble avoids the political leaning spurious features:
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2026/challenges-hopes/fig3.png)
 
 Most methods discover the most salient feature rather than the feature indicated by the prompt. We show performance of each method on classification tasks where there are 2 possible predictions to make, one of which is the desired one, specified by the prompt, and the other one is a spurious one that should be avoided. (a) and (b) are on the LIAR dataset, while (c) and (d) are on the Civil Comments dataset. Political leaning and toxicity are most salient, which is why performance on (a) and (c) is high while performance on (b) and (d) is low.
 
@@ -188,12 +153,12 @@ GSM8K (imbalanced). The proportion of correct solutions in the training set is v
 
 #### Results
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2026/challenges-hopes/fig4.png)
  Performance of UE and E2H methods on GSM8K for varying proportions of correct claims in the training set. Performance for methods which do not use the training set (zero-shot, random probe, E2H) is plotted with horizontal dashed lines.
 
 On the realistic CtrlZ trajectories dataset, unsupervised methods perform much more poorly. The performance is already low when the dataset is balanced (50% safe) due to some salient non-truth features like answer length, and it often degrades further when using an unbalanced dataset:
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2026/challenges-hopes/fig5.png)
 
 Performance of UE and E2H methods on Ctrl-Z for varying proportions of safe bash command sequences in the training set. Performance for methods which do not use the training set (zero-shot, random probe, E2H) are plotted with vertical dashed lines.
 
@@ -212,18 +177,11 @@ The task is to assign very high truth scores to correct GSM8K solutions, very lo
 
 UE and E2H methods are often as confident or more confident on normative political questions than on GSM8K:
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2026/challenges-hopes/fig6.png)
 
 Performance of UE and E2H methods on scoring statements from GSM8K + Political Ideologies, measured in terms of AUROC of GSM8K scores (higher the better), and the relative contribution from GSM8K scores to the total variance of the combined dataset (higher the better).
 
 The very poor performance of some purely unsupervised techniques can be explained by the technique learning to distinguish math from political questions. For other techniques, the model is simply overconfident on normative political questions, treating them like regular factual questions (e.g. bootstrapped few-shot converges to classifying all politically liberal answers as correct).
-
-  
-  
-  
-
-  
-  
 
 ## Discussion
 

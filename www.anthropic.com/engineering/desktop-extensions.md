@@ -1,6 +1,6 @@
 <!-- source: https://www.anthropic.com/engineering/desktop-extensions -->
 
-[Engineering at Anthropic](/engineering)
+[Engineering at Anthropic](https://www.anthropic.com/engineering)
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/1d7118b992792989576d23bb279bbf3e38c37618-1000x1000.svg)
 
@@ -41,10 +41,10 @@ Desktop Extensions (`.mcpb` files) solve these problems by bundling an entire MC
 **Before:**
 
 ```
-# Install Node.js first 
-npm install -g @example/mcp-server 
-# Edit ~/.claude/claude_desktop_config.json manually 
-# Restart Claude Desktop 
+# Install Node.js first
+npm install -g @example/mcp-server
+# Edit ~/.claude/claude_desktop_config.json manually
+# Restart Claude Desktop
 # Hope it works
 ```
 
@@ -66,7 +66,7 @@ A Desktop Extension is a zip archive containing the local MCP server as well as 
 extension.mcpb (ZIP archive)
 ├── manifest.json         # Extension metadata and configuration
 ├── server/               # MCP server implementation
-│   └── [server files]    
+│   └── [server files]
 ├── dependencies/         # All required packages/libraries
 └── icon.png             # Optional: Extension icon
 
@@ -116,7 +116,7 @@ The manifest contains human-readable information (like the name, description, or
       "command": "node",                    // Command to run the server
       "args": [                             // Arguments passed to the command
         "${__dirname}/server/index.js"      // ${__dirname} is replaced with the extension's directory
-      ]                              
+      ]
     }
   }
 }
@@ -513,7 +513,7 @@ Desktop Extensions represent a fundamental shift in how users interact with loca
 
 Internally, we’re using desktop extensions to share highly experimental MCP servers - some fun, some useful.. One team experimented to see how far our models could make it when directly connected to a GameBoy, similar to our [“Claude plays Pokémon” research](https://www.anthropic.com/news/visible-extended-thinking). We used Desktop Extensions to package a single extension that opens up the popular [PyBoy](https://github.com/Baekalfen/PyBoy) GameBoy emulator and lets Claude take control. We believe that countless opportunities exist to connect the model’s capabilities to the tools, data, and applications users already have on their local machines.
 
-![A desktop showing the PyBoy MCP with Super Mario Land start screen](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd48f3ea1218a4b90450b9ab8134fa0e24db5a167-720x542.png&w=1920&q=75)
+![A desktop showing the PyBoy MCP with Super Mario Land start screen](https://www-cdn.anthropic.com/images/4zrzovbb/website/d48f3ea1218a4b90450b9ab8134fa0e24db5a167-720x542.png)
 
 We can't wait to see what you build. The same creativity that brought us thousands of MCP servers can now reach millions of users with just one click. Ready to share your MCP server? [Submit your extension for review](https://forms.gle/tyiAZvch1kDADKoP9).
 

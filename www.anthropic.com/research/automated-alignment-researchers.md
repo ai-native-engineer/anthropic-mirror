@@ -6,7 +6,7 @@ Apr 14, 2026
 
 [Read the research](https://alignment.anthropic.com/2026/automated-w2s-researcher/)
 
-![Automated Alignment Researchers: Using large language models to scale scalable oversight](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2f328b8efa35da31d6464f81898f4169a6ce6d99-2000x1125.png&w=3840&q=75)
+![Automated Alignment Researchers: Using large language models to scale scalable oversight](https://www-cdn.anthropic.com/images/4zrzovbb/website/2f328b8efa35da31d6464f81898f4169a6ce6d99-2000x1125.png)
 
 Large language models’ ever-accelerating rate of improvement raises two particularly important questions for alignment research.
 
@@ -36,7 +36,7 @@ To provide a benchmark for the AARs’ results, we compared their work to a huma
 
 Claude improved on this result dramatically. After five further days (and 800 cumulative hours of research), the AARs closed almost the entire remaining performance gap, achieving a final PGR of 0.97. This cost about $18,000 in tokens and model training expenses, or $22 per AAR-hour. You can see how each individual AAR progressed from the human baseline (at 0 hours) in the graph below.
 
-![Graph showing the progress of our Automated Alignment Researchers on increasing the "performance gap recovered" on a chat dataset.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7b4a70562b33640ee7061fa5e06711d9c238309e-4584x2580.jpg&w=3840&q=75)
+![Graph showing the progress of our Automated Alignment Researchers on increasing the "performance gap recovered" on a chat dataset.](https://www-cdn.anthropic.com/images/4zrzovbb/website/7b4a70562b33640ee7061fa5e06711d9c238309e-4584x2580.jpg)
 
 *The performance gap recovered over cumulative research hours for nine parallel Automated Alignment Researchers (red lines), relative to a human-tuned baseline (grey square). A score of 1.0 means the method fully matches a model trained on ground-truth labels.*
 
@@ -44,7 +44,7 @@ Claude, then, did exceptionally well. But how inventive were its methods, and co
 
 First, we tested whether the AARs’ ideas could recover the performance gap on *held-out* datasets—that is, on tasks that the AARs hadn’t already seen. We took the AARs’ two highest-performing methods (on a dataset of chat tasks) and applied them to math and coding tasks. Here, our results were relatively promising: the AARs’ most effective method successfully generalized to both new datasets, with PGRs of 0.94 on math and 0.47 on coding (which was still double the human baseline). The AARs’ second-best method saw mixed results: it worked on math (0.75), but not on code, where it made matters worse. These results suggest that *some* generalizability of the AARs’ research is possible, but it isn’t a given. We encourage others who try experiments in automated research to stress-test AARs’ ideas against held-out datasets, too.
 
-![Graph showing how well AAR-discovered ideas transfer to held-out datasets in math and code.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe1f31a844cd21a88242aea70936478857a3c643d-4584x2580.jpg&w=3840&q=75)
+![Graph showing how well AAR-discovered ideas transfer to held-out datasets in math and code.](https://www-cdn.anthropic.com/images/4zrzovbb/website/e1f31a844cd21a88242aea70936478857a3c643d-4584x2580.jpg)
 
 *The performance gap recovered by two AAR-discovered ideas (in red and blue) when applied to held-out math and coding datasets. The dashed line indicates the best human-tuned method that we used as a baseline.*
 
@@ -77,18 +77,16 @@ To read this research in full, see our [Alignment Science blog](https://alignmen
 1. These are available (along with the rest of our code and data) [here](https://github.com/safety-research/automated-w2s-research).
 2. We chose these models for several reasons. There is a substantial performance gap between the two, the small model performs better-than-random on our testbeds, and both models are sufficiently small for fast experimentation. We use open-weights models for all Anthropic Fellows projects.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

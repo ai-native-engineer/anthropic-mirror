@@ -21,13 +21,6 @@ Taking this analogy seriously can let us explore some of the big picture questi
 
 Perhaps the most interesting observation is that this analogy seems to suggest that finding and understanding interpretable neurons – analogous to understanding variables in a computer program – isn't just one of many interesting questions. Arguably, it's the central task.
 
-  
-  
-  
-
-  
-  
-
 ## Attacking the Curse of Dimensionality
 
 Every approach to interpretability must somehow overcome the curse of dimensionality. Neural networks are functions which typically have extremely high-dimensional input spaces. The n-dimensional volume of the input space grows exponentially as the number of dimensions increases, making it incredibly large. This is the curse of dimensionality. It is normally brought up as a challenge to learning functions: how can we learn a function over such a large input space without an exponential amount of data? But it's also a challenge for interpretability: how can we hope to understand a function over such a large space, without an exponential amount of time?A possible objection is that, while the input space is high-dimensional, we only need to understand the behavior of the function over the data manifold of actual inputs. (I was, at one point, personally quite invested in this approach!) However, while the data manifold is certainly lower dimensional than the input space but for tasks we care about like vision or language, it seems like it must still be very high-dimensional. For example, for any given natural image, it seems like one could move along the data manifold by having an arbitrary object enter the image from any side of the field of view – that's a lot of dimensions!
@@ -39,13 +32,6 @@ How does mechanistic interpretability solve the curse of dimensionality? It's wo
 Of course, the parameters may be very large – hundreds of billions of parameters for the largest language models! But binary computer programs like a compiled operating system can also be very large, and we're often able to eventually understand them.
 
 Another consequence is that we shouldn't expect mechanistic interpretability to be easy or have a cookie cutter process that can be followed. People often want interpretability to provide simple answers, a short explanation. But we should expect mechanistic interpretability to be at least as difficult as reverse engineering a large, complicated computer program.
-
-  
-  
-  
-
-  
-  
 
 ## Variables & Activations
 
@@ -60,13 +46,6 @@ But the activations are high dimensional vectors: how can we hope to understand 
 In some very special cases, including attention-only transformers (see [Elhage](https://transformer-circuits.pub/2021/framework/index.html) [et al](https://transformer-circuits.pub/2021/framework/index.html)), we can use linearity to describe all the network's operations in terms of the inputs and outputs of the model. This is similar to how some functions in a computer program can be described solely in terms of the arguments and return value, without intermediate variables. Since we generally understand the inputs and outputs, this allows us to side step the problem. But in most cases, we can't do this – what then?
 
 If we can't avoid the problem with special tricks, mechanistic interpretability requires that we must somehow decompose activations into independently understandable pieces.
-
-  
-  
-  
-
-  
-  
 
 ## Simple Memory Layout & Neurons
 
@@ -86,7 +65,7 @@ For now, the main point we wish to make is that the ability to decompose represe
 
 This essay is a very informal discussion of some of the intuitions that motivate me in personally working on mechanistic interpretability. If you found it interesting and want to learn more about this line of research, check out the [original Circuits thread](https://distill.pub/2020/circuits) and the new [Transformer Circuits thread](https://transformer-circuits.pub/).
 
-### Random Related Topics FAQ[[a]](#cmnt1)
+### Random Related Topics FAQ
 
 Doesn't having interpretable neurons go against having a distributed representation?
 

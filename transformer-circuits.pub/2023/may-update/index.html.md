@@ -2,10 +2,7 @@
 
 # Circuits Updates — May 2023
 
-![](images/img-001.png)
-
-  
-  
+![](images/65e6b467432f5f3b.png)
 
 We report a number of developing ideas on the Anthropic interpretability team, which might be of interest to researchers working actively in this space. Some of these are emerging strands of research where we expect to publish more on in the coming months. Others are minor points we wish to share, since we're unlikely to ever write a paper about them.
 
@@ -28,13 +25,6 @@ Updates
 * [Our Recent Publications](#recent-articles)
 * [Research By Other Groups](#external-research)
 
-  
-  
-  
-
-  
-  
-
 ## [Attacking Superposition with Dictionary Learning](#superposition-dictionary)
 
 Trenton Bricken, Joshua Batson, Adly Templeton, Adam Jermyn, Tristan Hume, Tom Henighan, Chris Olah
@@ -46,13 +36,6 @@ Our ad-hoc experiments have persuaded us that solutions to superposition won't b
 Informally, we've found cases where sparse factorizations of neural network activations seem to produce activations which suggest simple hypotheses on inspection. But we don't yet have anything that persuades us that these are the "fundamental truth" of the models that we're studying, rather than a convenient lens which might reveal some features while obscuring others.
 
 In the meantime, we do have a few more conceptual contributions, which can be found in the comments [Features as The Simplest Factorization](#simple-factorization) and [Dictionary Learning Worries](#dictionary-worries).
-
-  
-  
-  
-
-  
-  
 
 ## [Features as The Simplest Factorization](#simple-factorization)
 
@@ -72,16 +55,9 @@ It turns out that measuring the information like this seems to be an effective t
 
 We observe that dictionary learning solutions "bounce" when the dictionary size matches the true number of factors. Put another way, the Pareto frontier of this rate-distortion plot is occupied by the solutions with the correct number of learned factors. (This is also where the best MMCS score, a metric introduced by Sharkey et al. for evaluating factorizations when the correct answer is known, is obtained.)
 
-![](images/img-002.png)
+![](images/ab30beecbbf8aa28.png)
 
 If such bounces could be found in real data, it would seem like significant evidence that there are "real features" to be found.
-
-  
-  
-  
-
-  
-  
 
 ## [Dictionary Learning Worries](#dictionary-worries)
 
@@ -98,13 +74,6 @@ All these concerns point towards using the kind of sparse autoencoder setup expl
 
 We also have other worries – such as correlated features which may be more difficult to pull apart – which could be of significant concern to these efforts, but aren't specific to the dictionary learning setup.
 
-  
-  
-  
-
-  
-  
-
 ## [Fractional Dimensionality and "Pressure"](#feature-pressure)
 
 Tom Henighan, Chris Olah
@@ -113,13 +82,7 @@ In Toy Models of Superposition, perhaps the most surprising result was that toy 
 
 We're confused why having more features – which the model ultimately chooses to not represent – affects the geometry of the solution so much. One hypothesis is that even as tiny features, they inject noise. Another hypothesis is that the model is actually effectively using "epsilon features" in superposition somehow.
 
-![](images/img-003.png)
-  
-  
-  
-
-  
-  
+![](images/24920a78acf51b1c.png)
 
 ## [The "Two Circle" Phenomenon in Memorization](#two-circles)
 
@@ -127,13 +90,7 @@ Tom Henighan, Chris Olah
 
 In a [recent comment](https://transformer-circuits.pub/2023/toy-double-descent/index.html#comment-double-circle) on Superposition, Memorization, and Double Descent, we observed that problems with m=2 hidden dimensions occasionally have data points that arrange themselves on two circles of different radii. While we believe the specific phenomenon is likely a quirk of optimization in 2D, it's an interesting case study in the geometry of superposition and memorization.
 
-![](images/img-004.png)
-  
-  
-  
-
-  
-  
+![](images/dd21e80cd35e05dc.png)
 
 ## [Weight Superposition](#weight-superposition)
 
@@ -141,13 +98,13 @@ Chris Olah
 
 We typically think about superposition as a phenomenon where features are put in superposition. For example, we might have features X^\* which are put into superposition X by a map U.
 
-![](images/img-005.png)
+![](images/ee44495ebdd7436e.png)
 
 But this picture doesn't really help us reason about what kinds of computation a neural network can do while in superposition. We know that some kinds are possible – but what?
 
 To answer this, it's helpful to reason about how weights are put in superposition. If we have two layers X and Y (both in superposition according to matrices U^X and U^Y), we can imagine there being "ideal weights" between these features for computing the second layer from the first. When the two layers are put in superposition, the ideal weights must also be mapped into superposition.
 
-![](images/img-006.png)
+![](images/e533e01c74e04124.png)
 
 What are the properties of this map? Observe that we want e\_i^T W^\* e\_j = {U^Y\_I}^T W U^X\_j. Therefore, if we decompose the ideal weights into their entries we get the following transformation:
 
@@ -157,22 +114,15 @@ W^\* ~=~ \sum\_{i,j} W^\*\_{i,j} e\_i \otimes e\_j ~~\to~~ \sum\_{i,j} W^\*\_{i,
 
 Equivalently, one can define the map as a tensor product, U^W = U^X \otimes U^Y.
 
-In feature superposition, the interference between two features X^\*\_i and X^\*\_j is governed by \langle U\_i, U\_j\rangle. Weight superposition has something analogous. Two weights W^\*\_{i,j} and W^\*\_{k,l} have interference governed by \langle U^W\_{i,j}, ~U^W\_{k,l} \rangle\_F ~=~ \langle U^X\_{i}\!\otimes U^Y\_{j}\!, ~U^X\_{k}\!\otimes U^Y\_{l} \rangle\_F. Interestingly, weights apper able to have "constructive interference" which is helpful, in contrast to feature superposition which always seems harmful.
+In feature superposition, the interference between two features X^\*\_i and X^\*\_j is governed by \langle U\_i, U\_j\rangle. Weight superposition has something analogous. Two weights W^\*\_{i,j} and W^\*\_{k,l} have interference governed by \langle U^W\_{i,j}, ~U^W\_{k,l} \rangle\_F ~=~ \langle U^X\_{i}\!\otimes U^Y\_{j}\!, ~U^X\_{k}\!\otimes U^Y\_{l} \rangle\_F. Interestingly, weights appear able to have "constructive interference" which is helpful, in contrast to feature superposition which always seems harmful.
 
 All of this is just preliminary thinking on this question, but it seems to give us a tool for reasoning about what weight matrices are possible to represent in superposition, and thus what kinds of computation it's possible to do while in superposition.
-
-  
-  
-  
-
-  
-  
 
 ## [Attention Head Superposition](#attention-superposition)
 
 Adam Jermyn, Chris Olah, Tom Henighan
 
-In[Toy Models of Superposition](https://transformer-circuits.pub/2022/toy_model/index.html), we saw that when features are sparse, simple neural networks can represent more features than they have neurons through the phenomenon of superposition. We think something analogous can happen with attention heads, with "attention circuits" and "attentional features" being stored in superposition over attention heads.We use the term "attentional feature" to describe relationships between pairs of tokens, which correspond to linear combinations of attention heads attending between a pair. By "attentional circuit", we refer to the otherall computation implemented by an attention head, which in the case of a one-layer model implements skip-trigrams.
+In[Toy Models of Superposition](https://transformer-circuits.pub/2022/toy_model/index.html), we saw that when features are sparse, simple neural networks can represent more features than they have neurons through the phenomenon of superposition. We think something analogous can happen with attention heads, with "attention circuits" and "attentional features" being stored in superposition over attention heads.We use the term "attentional feature" to describe relationships between pairs of tokens, which correspond to linear combinations of attention heads attending between a pair. By "attentional circuit", we refer to the overall computation implemented by an attention head, which in the case of a one-layer model implements skip-trigrams.
 
 For now, we’ll talk about skip-trigrams ([A]…[B] → [C]) as our basic attentional circuits. This is a restricted definition, as we think there are more general kinds of attentional circuits, but they seem sufficient to demonstrate attention superposition.
 
@@ -180,7 +130,7 @@ We trained toy models — small one-layer transformers with trivial embeddings a
 
 We focus in particular on skip-trigrams which are "OV-incoherent," meaning that they attend from multiple different tokens back to a single token, and the output depends on the token attended from. A single attention head cannot implement multiple such skip-trigrams without introducing errors in its output, because the OV circuit does not know which token is being attended from.
 
-![](images/img-007.png)
+![](images/22f98f5eebf21f62.png)
 
 Attention Head Wiring diagram: The first column is the token attended from, the second is the token attended to, and the thickness of the lines connecting them indicate the strength of attention. The final three columns show the modifications caused to the output logits when attending to the token in the second column. Here red indicates an increase in the output and blue indicates a decrease.
 
@@ -188,13 +138,7 @@ What we see is that when the ground truth contains more incompatible trigrams th
 
 These wiring diagrams are simple for models trained on small numbers of skip-trigrams, but rapidly become too complex to read as the training data become more complex. Despite this, we see tantalizing evidence of beautiful geometry underlying even cases with many skip-trigrams, which we are excited to investigate further.
 
-![](images/img-008.png)
-  
-  
-  
-
-  
-  
+![](images/56f7ef079db8af4a.png)
 
 ## [Feature Manifold Toy Model](#feature-manifolds)
 
@@ -212,18 +156,11 @@ x\_\phi ~=~ \begin{cases} ~m\cos(\frac{\phi-\theta}{\ell}) & ~\text{if}~~\frac{|
 
 We can now study how the features are embedded as we vary the length scale:
 
-![](images/img-009.png)
+![](images/ab176ec3dd709e52.png)
 
 This kind of emergent discretization (which we're increasingly seeing hints of across a variety of problems) seems like it might be a very important phenomenon. It may be that "emergent discretization" is the thing we mean when we talk about features.
 
 One caveat to this work is that we've seen some hints that the smallest length scale discretization may be an optimization failure. Additional research is needed to understand this phenomenon.
-
-  
-  
-  
-
-  
-  
 
 ## [New Comments Digest](#new-comments)
 
@@ -255,13 +192,6 @@ Superposition, Memorization, and Double Descent
 * [Optimization Failures in 2D](https://transformer-circuits.pub/2023/toy-double-descent/index.html#comment-double-circle) (Chris Olah and Tom Henighan)
 * [4 older comments](https://transformer-circuits.pub/2023/toy-double-descent/index.html#comments)
 
-  
-  
-  
-
-  
-  
-
 ## [Our Recent Publications](#recent-articles)
 
 Over the last few months, we've also published a few smaller papers which you might not have seen (including one "perspective" article  – Interpretability Dreams – being released along with this post).
@@ -271,13 +201,6 @@ Over the last few months, we've also published a few smaller papers which you mi
 * [Superposition, Compositionality, and Distributed Representations](https://transformer-circuits.pub/2023/superposition-composition/index.html)
 * [Interpretability Dreams](https://transformer-circuits.pub/2023/interpretability-dreams/index.html)
 
-  
-  
-  
-
-  
-  
-
 ## [Research By Other Groups](#external-research)
 
 Finally, we'd like to highlight recent work by a number of researchers at other groups which we believe will be of interest to you if you find our papers interesting.
@@ -286,17 +209,17 @@ Finally, we'd like to highlight recent work by a number of researchers at other 
 
 Linear Representations. One of the most fundamental assumptions we personally tend to make in studying neural networks is the [linear representation hypothesis](https://transformer-circuits.pub/2022/toy_model/index.html#motivation): neural network features are represented by directions. While this is a common hypothesis, it isn't known to be true.
 
-A recent back and forth between [Li](https://arxiv.org/pdf/2210.13382.pdf) [et al.](https://arxiv.org/pdf/2210.13382.pdf) and [Nanda](https://www.neelnanda.io/mechanistic-interpretability/othello) (in the context of language models trained on Otehllo games) is perhaps the strongest evidence yet from a Popperian perspective: the linear representation hypothesis made a prediction which was contrary to evidence at that point, and was then validated (see Neel Nanda's [comment here](https://transformer-circuits.pub/2022/toy_model/index.html#comment-nanda)). It should be mentioned that there are many other reasons to be excited about this work – we discuss it more below – but we wanted to particularly highlight this as an example of excellent scientific discourse and the evidence it seems to provide for a question of very broad significance to the field.
+A recent back and forth between [Li](https://arxiv.org/pdf/2210.13382.pdf) [et al.](https://arxiv.org/pdf/2210.13382.pdf) and [Nanda](https://www.neelnanda.io/mechanistic-interpretability/othello) (in the context of language models trained on Othello games) is perhaps the strongest evidence yet from a Popperian perspective: the linear representation hypothesis made a prediction which was contrary to evidence at that point, and was then validated (see Neel Nanda's [comment here](https://transformer-circuits.pub/2022/toy_model/index.html#comment-nanda)). It should be mentioned that there are many other reasons to be excited about this work – we discuss it more below – but we wanted to particularly highlight this as an example of excellent scientific discourse and the evidence it seems to provide for a question of very broad significance to the field.
 
 More generally, a wide range of other papers have continued to provide more empirical examples of seemingly linearly represented features. Perhaps the most striking is [Turner](https://www.lesswrong.com/posts/5spBue2z2tw4JuDCx/steering-gpt-2-xl-by-adding-an-activation-vector) [et al.](https://www.lesswrong.com/posts/5spBue2z2tw4JuDCx/steering-gpt-2-xl-by-adding-an-activation-vector) (who do vector arithmetic to control language models), but see also [Gurnee](https://arxiv.org/pdf/2305.01610.pdf) [et al.](https://arxiv.org/pdf/2305.01610.pdf) and more generally all the papers mentioned in the following section on what features can be found in language models.
 
-What Features Exist Inside Language Models? Ultimately, our goal is to understand language models. While it's often tempting to emphasize methods or theories, the bread and butter of mechanistic interpretability research must be something similar to the study of anatomy in biology: characterizing features and circuits that exist in language models. On this note, [Yun](https://arxiv.org/pdf/2103.15949.pdf) [et al.](https://arxiv.org/pdf/2103.15949.pdf), [Gurnee](https://arxiv.org/pdf/2305.01610.pdf) [et al.](https://arxiv.org/pdf/2305.01610.pdf), and [Bills](https://openaipublic.blob.core.windows.net/neuron-explainer/paper/index.html) [et al.](https://openaipublic.blob.core.windows.net/neuron-explainer/paper/index.html) – while all also notable for other contributions – deserve attention for their qualitative results on what features we exist inside language models.
+What Features Exist Inside Language Models? Ultimately, our goal is to understand language models. While it's often tempting to emphasize methods or theories, the bread and butter of mechanistic interpretability research must be something similar to the study of anatomy in biology: characterizing features and circuits that exist in language models. On this note, [Yun](https://arxiv.org/pdf/2103.15949.pdf) [et al.](https://arxiv.org/pdf/2103.15949.pdf), [Gurnee](https://arxiv.org/pdf/2305.01610.pdf) [et al.](https://arxiv.org/pdf/2305.01610.pdf), and [Bills](https://openaipublic.blob.core.windows.net/neuron-explainer/paper/index.html) [et al.](https://openaipublic.blob.core.windows.net/neuron-explainer/paper/index.html) – while all also notable for other contributions – deserve attention for their qualitative results on what features exist inside language models.
 
 Superposition. In the last few months, significant progress has been made by our colleagues at other groups on superposition. [Sharkey](https://www.alignmentforum.org/posts/z6QQJbtpkEAX3Aojj/interim-research-report-taking-features-out-of-superposition) [et al.](https://www.alignmentforum.org/posts/z6QQJbtpkEAX3Aojj/interim-research-report-taking-features-out-of-superposition) attempted to decode superposition in real models, using sparse autoencoders. [Yun](https://arxiv.org/pdf/2103.15949.pdf) [et al.](https://arxiv.org/pdf/2103.15949.pdf) apply dictionary learning to transformer residual streams and recover many interpretable features. [Gurnee](https://arxiv.org/pdf/2305.01610.pdf) [et al.](https://arxiv.org/pdf/2305.01610.pdf) apply sparse linear probes to transformers and find, among other things, evidence of low-level linguistic features being represented in superposition over small sets of neurons. [Lindner](https://arxiv.org/abs/2301.05062) [et al.](https://arxiv.org/abs/2301.05062) created a tool to compile programs into transformers using superposition. [Jermyn](https://arxiv.org/pdf/2211.09169.pdf) [et al.](https://arxiv.org/pdf/2211.09169.pdf) explore approaches to encouraging monosemantic neurons. [Scherlis](https://arxiv.org/abs/2210.01892) [et al.](https://arxiv.org/abs/2210.01892) examine superposition from the perspective of constrained optimization. Hobbhahn published [two](https://www.alignmentforum.org/posts/KzwB4ovzrZ8DYWgpw/more-findings-on-memorization-and-double-descent) [posts](https://www.alignmentforum.org/posts/WfdxXhszxFc3BxZ8r/more-findings-on-maximal-data-dimension) extending our investigation of superposition and memorization.
 
-One detail from Hobbhahn's posts which we wanted to highlight is that some models seem to have a kind of "shifted superposition" where the model shifts data points to avoid ReLU. This is contrast to the intuition one might naively have that ReLU would in fact anchor the superposition at 0 due to its special behavior there.
+One detail from Hobbhahn's posts which we wanted to highlight is that some models seem to have a kind of "shifted superposition" where the model shifts data points to avoid ReLU. This is in contrast to the intuition one might naively have that ReLU would in fact anchor the superposition at 0 due to its special behavior there.
 
-![](images/img-010.png)
+![](images/edceb97e07a64115.png)
 
 Othello & World Models. In the context of language models, there's been an ongoing debate about whether they're "just doing statistical pattern matching" or they "understand". This conversation has often been polarized and disconnected from specific mechanistic hypotheses of what's going on. However, a [recent paper](https://arxiv.org/pdf/2210.13382.pdf) by Li et al. – and [follow up work](https://www.neelnanda.io/mechanistic-interpretability/othello) by Nanda – used probes to provide evidence that language models trained to play Othello have an internal representation of the state of the board. This is both a nice example of progress in mechanistic understanding, and is also perhaps an example of how mechanistic interpretability can help us have more productive dialogues about neural networks.
 
@@ -328,10 +251,10 @@ Why does grokking occur? A recent paper by [Liu](https://arxiv.org/pdf/2210.011
 
 ### [Other Results](#external-other)
 
-Neuroscience Parallels. Over the last few years, there have been a number of cases where mechanistic interpretability research discovered results which parallel finding in neuroscience, including [curve detector neurons](https://distill.pub/2020/circuits/curve-detectors/) and person-detecting [multimodal neurons](https://distill.pub/2021/multimodal-neurons/). Recently, we've begun to see parallels which go in the other direction, with discoveries in artificial neural networks foreshadowing results in biological neuroscience:
+Neuroscience Parallels. Over the last few years, there have been a number of cases where mechanistic interpretability research discovered results which parallel findings in neuroscience, including [curve detector neurons](https://distill.pub/2020/circuits/curve-detectors/) and person-detecting [multimodal neurons](https://distill.pub/2021/multimodal-neurons/). Recently, we've begun to see parallels which go in the other direction, with discoveries in artificial neural networks foreshadowing results in biological neuroscience:
 
 * High low-frequency detectors:  [Ding,](https://www.biorxiv.org/content/10.1101/2023.03.15.532836v1) [et al.](https://www.biorxiv.org/content/10.1101/2023.03.15.532836v1) found novel neurons in mice which seem quite similar to [high-low frequency detectors](https://distill.pub/2020/circuits/frequency-edges/) found in a variety of vision models.
-* V4 & Earl-Mid Vision Generally: [Willeke,](https://www.biorxiv.org/content/10.1101/2023.05.12.540591v1) [et al.](https://www.biorxiv.org/content/10.1101/2023.05.12.540591v1) found a variety of parallels between neurons observed in primate V4 and [findings in early vision](https://distill.pub/2020/circuits/early-vision/) for InceptionV1.
+* V4 & Early-Mid Vision Generally: [Willeke,](https://www.biorxiv.org/content/10.1101/2023.05.12.540591v1) [et al.](https://www.biorxiv.org/content/10.1101/2023.05.12.540591v1) found a variety of parallels between neurons observed in primate V4 and [findings in early vision](https://distill.pub/2020/circuits/early-vision/) for InceptionV1.
 
 The growing body of parallels, and the fact that they're going in both directions, seems suggestive of a genuine, deep connection. It also seems like evidence for a very strong version of the universality hypothesis.
 
@@ -343,7 +266,7 @@ Decision Transformer Interpretability. Two recent articles ([part 1](https://ww
 
 Sparsity and Modularity. A recent paper by [Liu](https://kindxiaoming.github.io/pdfs/BIMT.pdf) [et al.](https://kindxiaoming.github.io/pdfs/BIMT.pdf) explores encouraging sparsity and modularity with a weight sparsity penalty that penalizes weights between neurons that are far apart (similar to wire length minimization in neuroscience). They find striking sparse graphs for a variety of tasks including arithmetic, group multiplication, and in-context learning.
 
-Mechanistic Interpretability Challenges. Back in February, Stepen Casper [posed several challenges](https://www.lesswrong.com/posts/KSHqLzQscwJnv44T8/eis-vii-a-challenge-for-mechanists) to mechanistic interpretability practitioners, somewhat similar to the ["auditing game"](https://www.alignmentforum.org/posts/X2i9dQQK3gETCyqh2/chris-olah-s-views-on-agi-safety#Catching_problems_with_auditing) tests conducted at OpenAI in 2019. Recently, Stefan Heimersheim and Marius Hobbhahn took up this challenge and [solved the first one](https://www.lesswrong.com/posts/sTe78dNJDGywu9Dz6/solving-the-mechanistic-interpretability-challenges-eis-vii).
+Mechanistic Interpretability Challenges. Back in February, Stephen Casper [posed several challenges](https://www.lesswrong.com/posts/KSHqLzQscwJnv44T8/eis-vii-a-challenge-for-mechanists) to mechanistic interpretability practitioners, somewhat similar to the ["auditing game"](https://www.alignmentforum.org/posts/X2i9dQQK3gETCyqh2/chris-olah-s-views-on-agi-safety#Catching_problems_with_auditing) tests conducted at OpenAI in 2019. Recently, Stefan Heimersheim and Marius Hobbhahn took up this challenge and [solved the first one](https://www.lesswrong.com/posts/sTe78dNJDGywu9Dz6/solving-the-mechanistic-interpretability-challenges-eis-vii).
 
 Learning Materials. Neel Nanda has been producing a wide range of resources on [getting started in mechanistic interpretability](https://www.neelnanda.io/mechanistic-interpretability/quickstart), including a number of videos [walking](https://www.youtube.com/watch?v=KV5gbOmHbjU) [through](https://www.youtube.com/watch?v=dCkQQYwPxdM) [different](https://www.youtube.com/watch?v=R3nbXgMnVqQ) [papers](https://www.youtube.com/watch?v=ob4vuiqG2Go) and also videos [explaining](https://www.youtube.com/watch?v=bOYE6E8JrtU) [transformers](https://www.youtube.com/watch?v=dsjUDacBw8o), and also a [list of open problems](https://www.alignmentforum.org/s/yivyHaCAmMJ3CqSyj). Separately, TheMcDouglas produced a nice [illustration](https://www.lesswrong.com/posts/TvrfY4c9eaGLeyDkE/induction-heads-illustrated) of induction heads.
 

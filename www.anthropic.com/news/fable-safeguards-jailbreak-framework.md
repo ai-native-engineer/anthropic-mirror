@@ -33,7 +33,7 @@ For that reason, we do not intend to block *all* cybersecurity-related activitie
 
 Note that the low-risk dual use category overlaps considerably with what falls into the “safety margin” we described in our post on [redeploying Fable](https://www.anthropic.com/news/redeploying-fable-5) (we reproduce one of the diagrams from that post below). The safety margin includes many benign uses which we would prefer to allow, but which we block out of an abundance of caution. The safety margin means that a request has to look very clearly safe to avoid triggering the classifier. We can adjust the size of the safety margin to have greater confidence that the classifiers will catch harmful behaviors (for Fable 5, we made this margin larger than for previous models).
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0cf1fc27ba70725d56c623b27dc1f05228a303c2-3840x1732.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/0cf1fc27ba70725d56c623b27dc1f05228a303c2-3840x1732.png)
 
 An illustration of how classifier boundaries can be set to change the size of the “safety margin,” which includes some benign and some low-risk dual use requests. Requests that fall into the safety margin are blocked out of an abundance of caution, which means a higher rate of false positives (genuinely benign prompts being blocked) but also greater reassurance about the prevention of harmful outcomes. The safety margin for Claude Fable 5 (row B) was set to be larger than that for other models (row A). Graphic reproduced from our [previous post](https://www.anthropic.com/news/redeploying-fable-5). “Vulns” = vulnerabilities.
 

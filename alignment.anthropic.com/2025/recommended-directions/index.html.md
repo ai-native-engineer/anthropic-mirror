@@ -40,13 +40,6 @@ It’s also not a list of directions that we are actively working on, coordinati
 * [Unlearning dangerous information and capabilities](#h.fmrwaolmz7sm)
 * [Learned governance for multi-agent alignment](#h.ws6luqcbcg3p)
 
-  
-  
-  
-
-  
-  
-
 ## Evaluating capabilities
 
 How do we measure how capable AI systems are?
@@ -58,13 +51,6 @@ Many AI capability benchmarks, including [difficult ones that target PhD-level k
 In certain national-security-critical domains—such as chemical, biological, radiological, and nuclear (CBRN) weapons development capabilities—these sorts of evaluations should be conducted in secured labs in coordination with governments. However, there are many other capabilities—such as conducting novel research, interoperating with tools, and autonomously completing open-ended tasks—that are important for understanding AI systems’ impact. We would be excited to see more high-quality evaluations for capabilities like these, alongside human baselines.
 
 See our past announcement [here](https://www.anthropic.com/news/a-new-initiative-for-developing-third-party-model-evaluations) for more information about capabilities evaluations we are interested in more work on (though note that the deadline for that initiative has passed).
-
-  
-  
-  
-
-  
-  
 
 ## Evaluating alignment
 
@@ -131,13 +117,6 @@ Language models don't always [say what they think](https://proceedings.neurips.c
 * Can a model’s [knowledge about its situation](https://arxiv.org/abs/2407.04694) affect the faithfulness of its CoT? For example, do models produce more or less faithful explanations after being told that their CoT is being monitored or evaluated for faithfulness?
 * How can we make automatic methods for detecting unfaithful CoT ([Lanham et al., 2023](https://arxiv.org/abs/2307.13702), [Mills et al., 2024](https://arxiv.org/abs/2312.12747), [Chen et al., 2024](https://arxiv.org/abs/2401.13986)) more efficient and higher recall?
 
-  
-  
-  
-
-  
-  
-
 ## AI control
 
 Can we ensure safety by deploying models alongside sufficient safeguards?
@@ -185,13 +164,6 @@ Many approaches to monitoring are supervised: they involve training a classifier
 For example, suppose we have deployed a model alongside a monitor for some sort of harmful behavior. We might expect our monitor to catch typical cases of the harmful behavior, but to fail on rare inputs such as jailbreaks. We might therefore also deploy our model and monitor alongside an anomaly detector which aims to flag inputs (like rare jailbreaks) which are far out-of-distribution. We could manually inspect and label such inputs, and later use them to improve the coverage of our monitor. It is plausible that applying existing anomaly detection techniques to model latent activations might already be suitable for tasks like these; see e.g. [here](https://arxiv.org/abs/2312.01037).
 
 More ambitiously, one might also try to apply anomaly detection to detect when there are large differences between two models. For example, consider an input where a strong model understands something that a weak model does not, leading to behavior that is novel and—from the perspective of the weak model—surprising. It might be possible to automatically detect such inputs. This is, as far as we know, an unexplored problem setting, and we would be excited to see progress on it.
-
-  
-  
-  
-
-  
-  
 
 ## Scalable oversight
 
@@ -268,13 +240,6 @@ The central challenge of scalable oversight in settings with [systematic, exploi
 
 There has been substantial prior work on identifying language model representations of truth ([Burns et al., 2022](https://arxiv.org/abs/2212.03827); [Azaria & Mitchell, 2023](https://arxiv.org/abs/2304.13734); [Marks & Tegmark, 2023](https://arxiv.org/abs/2310.06824)) and using them to classify or control model generations ([Zou et al., 2023](https://arxiv.org/abs/2310.01405); [Panickssery et al., 2024](https://arxiv.org/abs/2312.06681); [Li et al., 2023](https://arxiv.org/abs/2306.03341); [Mallen et al., 2024](https://arxiv.org/abs/2312.01037)). We would be interested in work which studies the [circumstances under which](https://arxiv.org/abs/2312.03729) these techniques are useful, especially with a focus on situations where models have learned to give non-truthful answers.
 
-  
-  
-  
-
-  
-  
-
 ## Adversarial robustness
 
 Can we ensure AI systems behave as desired despite adversarial attacks?
@@ -309,13 +274,6 @@ A less-explored line of research focuses on adaptive defenses that depend on pr
 
 * Inter-query defenses: An adversary attacking a model will likely try many prompts before getting the model to generate a harmful output, or require many harmful outputs in order to complete a malicious task. We could defend against these kinds of attacks by developing methods to monitor sets of queries, rather than individual ones. Such methods would need to identify subsets of suspicious queries from a much larger set of user queries, and be able to infer high-level tasks from low-level subtasks.
 * [Rapid response](https://arxiv.org/abs/2411.07494v1): After an adversary finds an attack, we’d like to patch the model as quickly as possible. Can we design adaptive systems that quickly patch working attacks? And even better, can we patch the system to the point where the adversary gains no useful information from the attack?
-
-  
-  
-  
-
-  
-  
 
 ## Miscellaneous
 

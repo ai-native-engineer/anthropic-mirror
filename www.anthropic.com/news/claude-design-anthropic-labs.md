@@ -6,7 +6,7 @@ Apr 17, 2026
 
 ![Introducing Claude Design by Anthropic Labs](https://www-cdn.anthropic.com/images/4zrzovbb/website/33dbe8f783d4835a838b4c4ae85d3c04e352fee1-1000x1000.svg)
 
-Today, we’re launching [Claude Design](https://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5/design), a new [Anthropic Labs](https://www.anthropic.com/news/introducing-anthropic-labs) product that lets you collaborate with Claude to create polished visual work like designs, prototypes, slides, one-pagers, and more.
+Today, we’re launching [Claude Design](https://claude.com/product/design), a new [Anthropic Labs](https://www.anthropic.com/news/introducing-anthropic-labs) product that lets you collaborate with Claude to create polished visual work like designs, prototypes, slides, one-pagers, and more.
 
 Claude Design is powered by our most capable vision model, [Claude Opus 4.7](https://www.anthropic.com/news/claude-opus-4-7), and is available in research preview for Claude Pro, Max, Team, and Enterprise subscribers. We’re rolling out to users gradually throughout the day.
 
@@ -35,7 +35,7 @@ Claude Design follows a natural creative flow.
 
 **Refine with fine-grained controls.** Comment inline on specific elements, edit text directly, or use adjustment knobs to tweak spacing, color, and layout live. Then ask Claude to apply your changes across the full design.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F499e91975d880b35eac6e48ad43161de7d10416c-2876x1614.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/499e91975d880b35eac6e48ad43161de7d10416c-2876x1614.jpg)
 
 **Collaborate.** Designs have organization-scoped sharing. You can keep a document private, share it so anyone in your organization with the link can view it, or grant edit access so colleagues can modify the design and chat with Claude together in a group conversation.
 
@@ -45,7 +45,7 @@ Claude Design follows a natural creative flow.
 
 Over the coming weeks, we'll make it easier to build integrations with Claude Design, so you can connect it to more of the tools your team already uses.
 
-![Canva logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/66e0000e396aea64ea31ed3fea7b2b20ac329312-150x48.svg)
+![Canva logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/0c9cd50bbc3339f05cabef82f554eb2bb8db3ccd-96x64.svg)
 
 > We’ve loved collaborating with Anthropic over the past couple of years and share a deep focus on making complex things simple. At Canva, our mission has always been to empower the world to design, and that means bringing Canva to wherever ideas begin. We’re excited to build on our collaboration with Claude, making it seamless for people to bring ideas and drafts from Claude Design into Canva, where they instantly become fully editable and collaborative designs ready to refine, share, and publish.
 
@@ -65,4 +65,4 @@ Claude Design is available for Claude Pro, Max, Team, and Enterprise subscribers
 
 For Enterprise organizations, Claude Design is off by default. Admins can enable it in [Organization settings](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans).
 
-Start designing at [claude.ai/design](http://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5/design).
+Start designing at [claude.com/product/design](https://claude.com/product/design).

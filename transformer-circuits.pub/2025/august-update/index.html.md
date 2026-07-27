@@ -2,9 +2,6 @@
 
 # Circuits Updates - August 2025
 
-  
-  
-
 In these monthly updates we report a number of developing ideas on the Anthropic interpretability team, which might be of interest to researchers working actively in this space. Some of these are emerging strands of research where we expect to publish more on in the coming months. Others are minor points we wish to share, since we're unlikely to ever write a paper about them.
 
 We'd ask you to treat these results like those of a colleague sharing some thoughts or preliminary experiments for a few minutes at a lab meeting, rather than a mature paper.
@@ -12,13 +9,6 @@ We'd ask you to treat these results like those of a colleague sharing some thoug
 New Posts
 
 * [Circuit Vignette: How does a persona modify the Assistant’s response?](#vignette)
-
-  
-  
-  
-
-  
-  
 
 ## [Circuit Vignette: How does a persona modify the Assistant’s response?](#vignette)
 
@@ -38,7 +28,7 @@ In contrast, prepending no system prompt, or using an alternative system prompt 
 
 We used attribution graphs to identify a proposed subcircuit that contributes to this behavior.
 
-![](images/img-001.png)
+![](images/48b861f3875e658c.png)
 
 There are a few noteworthy aspects of this circuit.
 
@@ -47,22 +37,20 @@ There are a few noteworthy aspects of this circuit.
 
 We find features corresponding to direct examples of a child speaking as well as examples of the Assistant role-playing when instructed to do so.
 
-![](images/img-002.png)
+![](images/0baedfb255263d88.png)
 
-Steering with even just the first feature (across every context position of a prompt) can shift the behavior of the model. For instance, in response to How old are you?, the default response (no steering) is a classic Haiku refusal: “I want to be direct with you. I’m Claude, an AI created by Anthropic.” But with 3x steering, the response becomes: “I’m 5 years old!”
-
-  
+Steering with even just the first feature (across every context position of a prompt) can shift the behavior of the model. For instance, in response to How old are you?, the default response (no steering) is a classic Haiku refusal: “I want to be direct with you. I’m Claude, an AI created by Anthropic.” But with 3× steering, the response becomes: “I’m 5 years old!”
 
 We also note that a feature related to problem difficulty (‘cannot easily be solved’) modulates the ‘unknown answer’ path along with the preschool features. This feature is active even with the graduate student system prompt, so it does not cause the model to refuse to answer on its own. This feature is not active if the prompt instead asks for the square root of 25 (which the preschooler persona, unlikely as this may be in real life, will answer), and steering it positively on that prompt increases the probability that the preschooler persona will refuse.
 
-![](images/img-003.png)
+![](images/7561dfe681d54ca2.png)
 
 This simple case study suggests a number of intriguing followup questions:
 
 * Steering on the ‘role-play as a child’ supernode (at specific context positions) can shift the default behavior when there is no system prompt. However, it requires a relatively large steering value: strong behavioral effects in the “square root of 27” setting start to show only as the norm of the steering vector approaches the norm of the rest of the residual stream. Thus, there are likely other aspects of the circuit that we are not capturing in these specific features. What are they?
 
-* Notably, the impact of the preschool student system prompt depends on the difficulty of the posed problem: it will respond correctly when asked about the square root of 25. Why does role-playing as a child successfully produce the square root of 25, but not of 27? Arguably, a preschool-age child would also not be able to compute the former. Additionally, this phenomena extends to other realms, such as naming the sport played by a famous (versus less-famous) athlete. How does the influence of role-playing interact with the model’s perception of a problem’s difficulty?
+* Notably, the impact of the preschool student system prompt depends on the difficulty of the posed problem: it will respond correctly when asked about the square root of 25. Why does role-playing as a child successfully produce the square root of 25, but not of 27? Arguably, a preschool-age child would also not be able to compute the former. Additionally, this phenomenon extends to other realms, such as naming the sport played by a famous (versus less-famous) athlete. How does the influence of role-playing interact with the model’s perception of a problem’s difficulty?
 * Initial investigations of the “graduate student” version of this circuit suggest that the system prompt does not meaningfully influence the output in this setting. Perhaps “graduate student” is not a persona that the base model learned particularly well? Or, alternatively, it wasn’t relevant in this setting because the default (non-system-prompt) persona knows the answer?
 
 * Are there examples where specifying “You are an expert at…” actually improves the answer, and if so, how does that work? The above circuit only demonstrates a persona that impairs reporting of the answer.
-* Do other personas also flow through "examples of X speaking"-style features? Can we systematically catalog such features to understand the various personas that the model can express? What is the relationship between the Assistant persona, role-play examples in posttraining, the set of personas present in pretraining, and the ultimate expressability of those personas by the final model?
+* Do other personas also flow through "examples of X speaking"-style features? Can we systematically catalog such features to understand the various personas that the model can express? What is the relationship between the Assistant persona, role-play examples in posttraining, the set of personas present in pretraining, and the ultimate expressibility of those personas by the final model?

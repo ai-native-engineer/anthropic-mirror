@@ -6,7 +6,7 @@ Jan 9, 2026
 
 [Read the paper](https://arxiv.org/abs/2601.04603)
 
-![Next-generation Constitutional Classifiers: More efficient protection against universal jailbreaks](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F45fcb3d623c6983e268d91f0803f86f231044127-2000x1125.png&w=3840&q=75)
+![Next-generation Constitutional Classifiers: More efficient protection against universal jailbreaks](https://www-cdn.anthropic.com/images/4zrzovbb/website/45fcb3d623c6983e268d91f0803f86f231044127-2000x1125.png)
 
 Large language models remain vulnerable to jailbreaks—techniques that can circumvent safety guardrails and elicit harmful information. Over time, we’ve implemented a variety of protections that have made our models much less likely to assist with dangerous user queries—in particular relating to the production of chemical, biological, radiological, or nuclear weapons (CBRN). Nevertheless, no AI systems currently on the market have perfectly robust defenses.
 
@@ -27,7 +27,7 @@ As models have grown to be more capable and robust to attacks, jailbreaks have a
 * **Reconstruction attacks** break up harmful information into segments that appear benign, then reassemble them. For example, an attacker might embed a harmful query as a series of functions scattered throughout a codebase, then instruct the model to extract and respond to the hidden message.
 * **Output obfuscation attacks** prompt models to disguise their outputs in ways that appear harmless if a classifier is only looking at a model’s output. For example, during adversarial testing, attackers successfully instructed models to substitute possibly dangerous chemical names with innocuous alternatives (like referring to reagents as "food flavorings") or used metaphors and riddles in which harmful concepts are mapped onto anodyne concepts.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe054f2e8fda9d7ddda10d1e7a5aeb94d3074450c-3840x2264.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/e054f2e8fda9d7ddda10d1e7a5aeb94d3074450c-3840x2264.png)
 
 Importantly, these sorts of attacks also degrade model capabilities—sometimes substantially. On [GPQA Diamond](https://arxiv.org/abs/2311.12022), a benchmark which measures PhD-level concepts in biology, chemistry, and physics, model performance dropped from 74% to as low as 32% when some jailbreaking approaches were used. But performance varied depending on the type of jailbreak, and this variability is concerning—it suggests attackers can likely develop previously unidentified strategies which could achieve their goals while preserving even more of the model's capabilities.
 
@@ -59,18 +59,16 @@ There’s even more we could do in the future to improve our system. Several res
 
 For more details about the Constitutional Classifiers++ method, see the [full paper.](https://arxiv.org/abs/2601.04603)
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

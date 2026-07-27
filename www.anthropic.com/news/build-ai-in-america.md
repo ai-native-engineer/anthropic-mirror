@@ -6,7 +6,7 @@ Jul 21, 2025
 
 [Report: Build AI in America](https://www-cdn.anthropic.com/0dc382a2086f6a054eeb17e8a531bd9625b8e6e5.pdf)
 
-![Lightning bolt](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8b7e77b565b733050684ddce84734a5c565bcd88-1920x1079.png&w=3840&q=75)
+![Lightning bolt](https://www-cdn.anthropic.com/images/4zrzovbb/website/8b7e77b565b733050684ddce84734a5c565bcd88-1920x1079.png)
 
 For the United States to lead the world in AI, we must make substantial investments in computing power and electricity that make it possible to build AI in America. As technology evolves, the required resources, infrastructure, and regulatory conditions need to change too. That’s why we are releasing a set of policy recommendations to support building the necessary domestic infrastructure to train the world’s most capable AI models in the U.S. and support the broad deployment of AI across sectors.
 

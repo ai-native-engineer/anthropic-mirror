@@ -1,6 +1,6 @@
 <!-- source: https://www.anthropic.com/engineering/infrastructure-noise -->
 
-[Engineering at Anthropic](/engineering)
+[Engineering at Anthropic](https://www.anthropic.com/engineering)
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/039b6648c28eb33070a63a58d49013600b229238-2554x2554.svg)
 
@@ -46,7 +46,7 @@ On `bn-fit-modify`, a Terminal-Bench task requiring Bayesian network fitting, so
 
 We also tested whether this pattern holds on evals outside Terminal-Bench by running a crossover experiment on SWE-bench. We varied the total available RAM up to 5x the baseline across 227 problems with 10 samples each. The same effect held, though the magnitude was smaller: Scores again increased monotonically with RAM, but were only 1.54 percentage points higher at 5x than 1x. SWE-bench tasks are less resource-intensive, so a smaller effect is expected, but it shows resource allocation isn't neutral there either.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F36ce2ba5ce208fb8531d1a840a9cd35ff4959a02-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/36ce2ba5ce208fb8531d1a840a9cd35ff4959a02-1920x1080.png)
 
 ## **Other sources of variance**
 

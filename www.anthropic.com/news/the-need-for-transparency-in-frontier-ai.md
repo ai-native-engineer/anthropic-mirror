@@ -6,7 +6,7 @@ Jul 7, 2025
 
 [Read the Transparency Framework](https://www-cdn.anthropic.com/19cc4bf9eb6a94f9762ac67368f3322cf82b09fe.pdf)
 
-![A building with a set of columns ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa4b4c0066fe7b5761115569317b97259567e207c-1920x1079.png&w=3840&q=75)
+![A building with a set of columns ](https://www-cdn.anthropic.com/images/4zrzovbb/website/a4b4c0066fe7b5761115569317b97259567e207c-1920x1079.png)
 
 Frontier AI development [needs greater transparency](https://www.nytimes.com/2025/06/05/opinion/anthropic-ceo-regulate-transparency.html) to ensure public safety and accountability for the companies developing this powerful technology. AI is advancing rapidly. While industry, governments, academia, and others work to develop agreed-upon safety standards and comprehensive evaluation methods—a process that could take months to years—we need interim steps to ensure that very powerful AI is developed securely, responsibly, and transparently.
 

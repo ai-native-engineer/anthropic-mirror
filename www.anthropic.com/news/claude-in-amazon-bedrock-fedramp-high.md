@@ -4,9 +4,9 @@
 
 Jun 11, 2025
 
-![A hand drawn illustration of a hand holding a white key vertically against a blue background. ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4b7d06ee68925400d1e2444fa067ccb1eca95705-2881x1621.png&w=3840&q=75)
+![A hand drawn illustration of a hand holding a white key vertically against a blue background. ](https://www-cdn.anthropic.com/images/4zrzovbb/website/4b7d06ee68925400d1e2444fa067ccb1eca95705-2881x1621.png)
 
-Today, we're announcing that Claude models are approved for use in FedRAMP High and DoD Impact Level 4 and 5 workloads through [Amazon Bedrock]( https://aws.amazon.com/bedrock/anthropic/) in AWS GovCloud (US) regions.
+Today, we're announcing that Claude models are approved for use in FedRAMP High and DoD Impact Level 4 and 5 workloads through [Amazon Bedrock](https://aws.amazon.com/bedrock/anthropic/) in AWS GovCloud (US) regions.
 
 Federal agencies and defense organizations can now access Claude's advanced AI capabilities while meeting the government’s stringent security requirements—opening new possibilities for mission-critical applications across defense, intelligence, and sensitive civilian operations.
 

@@ -4,7 +4,7 @@
 
 ## We describe and apply a method to explain attention patterns in terms of feature interactions, and integrate this information into attribution graphs.
 
-![](images/img-001.png)
+![](images/b03d0c49db44cbd0.png)
 
 ### Authors
 
@@ -57,13 +57,6 @@ The case studies here are our first attempts at applying the method, and we expe
 
 We believe the addition of QK attributions is a significant qualitative improvement on our original attribution graphs, unlocking analyses that were previously impossible. However, there remain many open research questions regarding attentional circuits, which we describe at the end of the post.
 
-  
-  
-  
-
-  
-  
-
 ## The problem: transcoder-based attribution graphs omit attentional computations
 
 Transcoders only ever read and write information within the same context position – however, transformer models also contain attention layers, which carry information across context positions. Thus, the influence between any two transcoder features is mediated by attention layers For features in different context positions, all of the interaction is attention-mediated. For features in the same context position, some of the interaction is direct, and some is mediated by attention to the same position.
@@ -77,33 +70,19 @@ But freezing attention patterns and summing over heads like this means our attri
 
 In our original paper, we [pointed out](https://transformer-circuits.pub/2025/attribution-graphs/methods.html#limitations-attention) that for many prompts, this missing QK information renders attribution graphs useless. In particular, for many prompts, the question of which head(s) mediated an edge, and why those heads attended where they did, is the crux of the computation. We provide several [examples](#examples) of this failure mode later in the paper and demonstrate how our method fills in the missing information.
 
-  
-  
-  
-
-  
-  
-
 ## High-level strategy
 
 Explaining the source of an attention head’s attention pattern. The core insight underlying our method is the fact that attention scores (prior to softmax) are a bilinear function of the residual stream at the query and key positions. Thus, if we have a decomposition of the residual stream as a sum of feature components, we can rewrite the attention scores as a sum of dot products between feature-feature pairs (one on the query position, one on the key position). We call this decomposition “QK attribution” and describe in more detail how we compute it [below](#h.quumi2k6fvi8). Note that the same strategy was used by  and  to analyze QK circuits, but explored in less depth.
 
 Explaining how attention heads participate in attribution graphs. Explaining the source of each head’s attention scores is insufficient on its own; we also must understand how the heads participate in our attribution graphs. To do so, for each edge in an attribution graph, we keep track of the extent to which that edge was mediated by different attention heads. To achieve this, (cross-layer) transcoders on their own are not adequate; we explain this issue and how to resolve it [below](#h.ni0l5mtw8vj8).
 
-  
-  
-  
-
-  
-  
-
 ## QK attributions
 
 QK attributions are intended to explain why each head attended where it did. In this section, we assume that we have trained sparse autoencoders (SAEs) on the residual stream of each layer of the model (though there are alternative strategies we could use; [see below](#h.ni0l5mtw8vj8)).
 
-In a standard attention layer, a head’s attention score at positions (p\_k, p\_q) is produced by taking the dot product of linear transformations of the residual stream at these positionsIn this update we focus on describing the QK attributions logic for vanilla attention layers. In some attention variants, this assumption does not quite hold – for instance, the commonly used rotary positional embeddings involve modifying the linear transformation depending on the context position, and thus attention scores will be influenced by positional information not present in the residual stream. In general, however, the basic premise of QK attributions can be extended to all common attention architectures we are aware of. To simplify things, we introduce a matrix W\_{QK} = W\_Q^T W\_K (see [discussion in the](https://transformer-circuits.pub/2021/framework/index.html#architecture-attn-as-movement) [Framework](https://transformer-circuits.pub/2021/framework/index.html#architecture-attn-as-movement)[paper](https://transformer-circuits.pub/2021/framework/index.html#architecture-attn-as-movement)). We simply expand the key and query activations to describe them in terms of feature activations (along with a bias and residual error), and then multiply out the bilinear interaction:
+In a standard attention layer, a head’s attention score at positions (p\_k, p\_q) is produced by taking the dot product of linear transformations of the residual stream at these positionsIn this update we focus on describing the QK attributions logic for vanilla attention layers. In some attention variants, this assumption does not quite hold – for instance, the commonly used rotary positional embeddings involve modifying the linear transformation depending on the context position, and thus attention scores will be influenced by positional information not present in the residual stream. In general, however, the basic premise of QK attributions can be extended to all common attention architectures we are aware of.. To simplify things, we introduce a matrix W\_{QK} = W\_Q^T W\_K (see [discussion in the](https://transformer-circuits.pub/2021/framework/index.html#architecture-attn-as-movement) [Framework](https://transformer-circuits.pub/2021/framework/index.html#architecture-attn-as-movement)[paper](https://transformer-circuits.pub/2021/framework/index.html#architecture-attn-as-movement)). We simply expand the key and query activations to describe them in terms of feature activations (along with a bias and residual error), and then multiply out the bilinear interaction:
 
-![](images/img-002.png)
+![](images/6cabf7e35384635e.png)
 
 The sum of these terms adds up to the attention score.
 
@@ -111,18 +90,11 @@ Note that in some architectures, there may exist a normalization step between th
 
 Once we have computed these terms, we can simply list them ordered by magnitude. Each term is an interaction between a query-side and key-side component, which can be listed side-by-side. For feature components, we label them with their feature description and make them hoverable in our interactive UI so that their “feature visualization” can be easily viewed.
 
-![](images/img-003.jpg)
+![](images/fa78d18fcfa404bc.jpg)
 
 An illustration of how we visualize QK attributions. In a circuits graph, for any edge that crosses context positions, we can use the head loadings of that edge to index into a specific (query ctx, key ctx, layer, head) position, and then use the (un)marginalized list of features to inspect the QK circuit.
 
 One limitation of this approach is that it does not directly explain the attention pattern itself, which involves competition between the attention scores at multiple context positions – to explain why an attention head attended to a particular position, it may be important to understand why it didn’t attend to other positions. Our method gives us information about QK attributions at all context positions, including negative attributions, so we do have access to this information (and we highlight some interesting inhibitory effects in some of our later examples). However, we do not yet have a way of automatically surfacing the important inhibitory effects without manual inspection. While addressing this limitation is an important direction for future work, we nevertheless find that our attention score decompositions can be interpretable and useful.
-
-  
-  
-  
-
-  
-  
 
 ## Computing attention head contributions to an attribution graph
 
@@ -140,7 +112,7 @@ We can sidestep this issue by using a method that forces each edge in a graph to
 
 * In practice, instead of SAEs at each residual stream layer, we compute these graphs using [weakly causal crosscoders](https://transformer-circuits.pub/2024/crosscoders/index.html) (WCCs), whose features read from the residual stream at a residual stream layer L, and reconstruct the residual stream at layers L, L+1, …, num\_layers Note that WCCs are not intended to replace nonlinear model computation, but rather to decompose representations (like SAEs) while also capturing information that is linearly propagated across layers.. Given a target feature in a layer K, we compute gradients from its layer-K decoder vector to the layer K−1 residual stream, and compute the dot product of this gradient with source feature projections (activation times decoder vector) in layers K−1. However, those decoders may belong to features that originated at earlier layers, allowing us to “hop back” across layers and avoid long chains of redundant features (similar to the motivation for cross-layer transcoders).
 
-![](images/img-004.png)
+![](images/a8b5832e77bde104.png)
 
 For now, we have adopted the third strategy. The other two methods accumulate error in the residual stream across layers, which we have found leads to greater overall reconstruction errors, resulting in attributions that are dominated by error nodes. Note, however, that this choice has a tradeoff, which is that our attributions through MLP layers are no longer linear as they are in transcoder-based attribution graphs. As a result, we run the risk of attributions being uninterpretable, or highly “local” to the specific input prompt. In subsequent exposition, we will describe our algorithm as applied to residual stream SAE-based graphs (the extension to WCCs is straightforward).
 
@@ -156,13 +128,6 @@ Let source and target feature at positions p\_s and p\_t, with activations a\_s 
 
 The sum over heads runs over all the heads in the source feature’s layer (which is one layer prior to the target feature’s). Each term in this sum represents the contribution (head loading) of a specific attention head to this edge. We compute and store these terms separately and surface them in our UI .
 
-  
-  
-  
-
-  
-  
-
 ## [Examples](#examples)
 
 In this section, we will show how head loadings and QK attributions can be used to understand attentional computations that were missing in our previous work.
@@ -175,7 +140,7 @@ I always loved visiting Aunt Sally. Whenever I was feeling sad, Aunt
 
 with “Sally”. In our original paper, the [attribution graph](https://transformer-circuits.pub/2025/attribution-graphs/methods.html?slug=sally-induction-qk#limitations-attention) for this prompt shows a strong direct edge from “Sally” features (on the “Sally” token) to the “Sally” logit on the final token. In other words, the model said “Sally” because it attended to the “Sally” token. This is not a useful explanation of the model’s computation! In particular, we’d like to know why the model attended to the Sally token and not some other token.
 
-![](images/img-005.jpg)
+![](images/d200e8e5710cbb95.jpg)
 
 Prior work has suggested that language models learn specific attention heads for induction, but it’s unclear how these heads perform the induction mechanism. In this example:
 
@@ -194,15 +159,15 @@ To answer the first question, we traced the input edges of the “Sally” logit
 * Features representing names (either names in general or “Sally” specifically)
 * Features representing “this is the name of an Aunt / Uncle” that activate on name tokens following “Aunt” or “Uncle”
 
-![](images/img-006.png)
+![](images/9a1151b995a8d14e.png)
 
 Thus, the QK circuit for these induction-relevant heads appears to combine two heuristics: (1) searching for any name token at all, (2) searching specifically for names of aunt/uncles.Note that we label heads in diagrams based on the role they play on the prompt we are studying. We generally do not expect heads to only be playing that role when studied over a broader distribution.
 
-![](images/img-007.jpg)
+![](images/b7a7f394e5d8d175.jpg)
 
-We performed interventions with this mechanism to test our hypothesis. We begin by choosing a set of heads with high head loadings (roughly 3-10% of headsWe hypothesize that the reason why we need to steer on many heads is because of the “hydra head” effect - if one head stops attending, another head in a downstream layer compensates by attending when it didn’t originally . Indeed, if we freeze the attention pattern for heads that we are not steering, we need fewer than half of the number of heads to produce the same effect. We leave a more detailed exploration of this effect for future work.) between the two tokens. On these heads, we scale the “Name of Aunt/Uncle” features from the “Sally” token only within the QK circuit for those heads, and measure how the model changes its prediction as well as how the attention pattern of the important heads change. We see that removing this feature from the key side completely removes the model’s induction capability, and the model predicts generic Aunt names instead.
+We performed interventions with this mechanism to test our hypothesis. We begin by choosing a set of heads with high head loadings (roughly 3–10% of headsWe hypothesize that the reason why we need to steer on many heads is because of the “hydra head” effect – if one head stops attending, another head in a downstream layer compensates by attending when it didn’t originally . Indeed, if we freeze the attention pattern for heads that we are not steering, we need fewer than half of the number of heads to produce the same effect. We leave a more detailed exploration of this effect for future work.) between the two tokens. On these heads, we scale the “Name of Aunt/Uncle” features from the “Sally” token only within the QK circuit for those heads, and measure how the model changes its prediction as well as how the attention pattern of the important heads change. We see that removing this feature from the key side completely removes the model’s induction capability, and the model predicts generic Aunt names instead.
 
-![](images/img-008.png)
+![](images/108b69197eae5932.png)
 
 How the model’s top prediction changes as we vary the scale of “name of aunt/uncle” features on the key side. As we steer negatively, the model stops performing induction, and begins to predict generic aunt names instead.
 
@@ -212,7 +177,7 @@ To answer the second question, we looked at all edges in the pruned graph betwee
 
 Next, we looked at the QK attributions for these heads. All the relevant heads’ attention scores seem to be predominantly explained by the same query-key interactions – query-side “first name” features interacting with key-side “title preceding name” features (activating on words like “Aunt”, “Mr.”, etc.).
 
-![](images/img-009.jpg)
+![](images/ee9cee247f22c4fd.jpg)
 
 The “previous token” head works as a precursor to the induction mechanism.
 
@@ -228,7 +193,7 @@ I always loved visiting Aunt Mary Sue. Whenever I was feeling sad, Aunt Mary
 
 which Haiku completes with “Sue”, we see that query-side “Mary” features interact with key-side “token after ‘Mary’” features, and, independently, we see that query and key-side “Name of Aunt/Uncle” features interact with one another. Notably, we do not see strong contributions from the cross terms (e.g. “Mary” interacting with “Name of Aunt/Uncle”) – that is, the rank of this QK attributions matrix is at least 2. In reality, even this picture is a dramatic oversimplification, and we see several other kinds of independently contributing QK interactions (for instance, the bias term on the query side interacting with generic name-related features on the key side, suggesting that these heads have a general bias to attend to name tokens).
 
-![](images/img-010.jpg)
+![](images/7ff57928dd818340.jpg)
 
 ### Antonyms
 
@@ -236,31 +201,31 @@ Haiku completes the prompt Le contraire de "petit" est " with “grand” (“Th
 
 In our original paper, the attribution graph for this prompt showed edges from features representing the concept of “small” onto features representing the concept of “large.” Why does this small-to-large transformation occur? We hypothesized that this may be mediated by “opposite heads,” attention heads that invert the semantic meaning of features. However, we were not able to confirm this hypothesis, or explain how such heads know to be active in this prompt.
 
-![](images/img-011.jpg)
+![](images/624a1dd35caefdaf.jpg)
 
 After computing head loadings and QK attributions, we see that the small-to-large edges are mediated by a limited collection of attention heads. When we inspect the QK attributions for these heads, we find two interesting interactions between the following kinds of features:
 
 * On the key-side
 
-* Features active on tokens for which an opposite or alternative being requested (often active on “X” in the phrase “opposite of X” or “alternatives to X”)
+* Features active on tokens for which an opposite or alternative is being requested (often active on “X” in the phrase “opposite of X” or “alternatives to X”)
 * Features active generically on adjectives / modifiers
 
 * On the query-side:
 
 * Features active in contexts that discuss opposites / antonyms
 
-![](images/img-012.png)
+![](images/f32ef075832619f3.png)
 
 This suggests that the model mixes at least two mechanisms:
 
 * One which explicitly tags the word “petit” as the word whose opposite is being asked for
 * One which simply searches for any plausible adjective whose opposite could be computed
 
-![](images/img-013.jpg)
+![](images/1947d6b56dcee143.jpg)
 
 We find that inhibiting the query-side “opposite” features significantly reduces the model’s prediction of “large” in French, and causes the model to begin predicting synonyms of “small” such as “peu” and “faible”. A similar (but lesser) effect occurs when we inhibit “adjective” features on the key side.
 
-![](images/img-014.png)
+![](images/c85cbf5af16ff262.png)
 
 How the model’s top prediction changes as we vary the scale of “opposite” features on the query side. As we steer negatively, the model stops predicting “the opposite of petit” and begins to predict petit, as well as French synonyms of petit.
 
@@ -276,21 +241,19 @@ Human: In what year did World War II end?
 
 (C) 1865
 
-  
-
 Assistant: Answer: (
 
 with “B”.
 
 In our original paper, the attribution graph showed a direct edge from “B” features on the “B” token to the “B” logit on the final token (or to “say B” features in the final context positions, which themselves upweight the “B” logit). Again, this is not a helpful explanation of the model’s computation!  We want to know how the model knew to attend to the “B” option and not one of the other options. We hypothesized (inspired by ) a mechanism in which (1) “B” information was copied over to the “1945” token, (2) a “correct answer” feature is active on the 1945 token, (3) a query feature on the final context position interacts with the “correct answer” feature to attend to the 1945 token, and copies the “B” information via the OV circuit. (4) the “B” information then leads downstream attention heads to attend to the “B” token. However, our attribution graphs could not be used to test this hypothesis.
 
-![](images/img-015.jpg)
+![](images/c66ba0f70eb2a455.jpg)
 
 How does the model know to attend to the tokens associated with option B? To answer this question, we inspected the head loadings for these edges and found a fairly small collection of heads that mediate them. Inspecting the QK attributions for these heads, we found interaction between:
 
 * On the query side:
 
-* Features that activate when the model needs to say an answer or a specific piece of information (e.g. the “is” in “The correct answer is”, “” as a tag introducing a multiple choice answer, open-parentheses tokens introducing parentheticals that specify quantitative figures)
+* Features that activate when the model needs to say an answer or a specific piece of information (e.g. the “is” in “The correct answer is”, “<mc>” as a tag introducing a multiple choice answer, open-parentheses tokens introducing parentheticals that specify quantitative figures)
 * The bias term
 
 * On the key side:
@@ -299,22 +262,22 @@ How does the model know to attend to the tokens associated with option B? To ans
 * “False statement” features that activate on the tokens for incorrect answers, which interact negatively with the “say a multiple choice” features described above to inhibit the attention score
 * Features that generically activate on tokens of multiple choice response options
 
-![](images/img-016.png)
+![](images/610d170396c61868.png)
 
 These interactions suggest that these heads have an overall inclination (due to the query-side bias contribution) to attend to correct answers at all times, and an even stronger inclination to do so when the context suggests that the model needs to provide a multiple choice answer.
 
-![](images/img-017.jpg)
+![](images/7dede3b96eb8d907.jpg)
 
 A visual of how the model uses “correct/incorrect answer” features to determine which multiple choice answer to predict.
 
 We validated this mechanism with the following perturbation experiments:
 
-* Inhibiting the “correct answer” features on the key-side tokens inhibit the model’s “B” response
+* Inhibiting the “correct answer” features on the key-side tokens inhibits the model’s “B” response
 * Activating the “correct answer” features on tokens corresponding to a different option causes the model to flip its output to the corresponding letter
 
-![](interventions-mc-final.jpg)
+![](https://transformer-circuits.pub/2025/attention-qk/interventions-mc-final.jpg)
 
-How the model’s answer to a multiple choice question changes as we steer “correct answer” features on the key side of different answers, where we inject the “correct answer” feature into the incorrect answers. From left to right: (a) steer on the B answer tokens negatively, (b) steer on the B answer tokens negatively, and on the A answer tokens positively,  (c) steer on the B answer tokens negatively, and on the C answer tokens positively. Note that “X answer tokens” means “tokens spanning from the content of the answer, to the beginning of the content of the next answer” - see the previous figure for a visual.
+How the model’s answer to a multiple choice question changes as we steer “correct answer” features on the key side of different answers, where we inject the “correct answer” feature into the incorrect answers. From left to right: (a) steer on the B answer tokens negatively, (b) steer on the B answer tokens negatively, and on the A answer tokens positively,  (c) steer on the B answer tokens negatively, and on the C answer tokens positively. Note that “X answer tokens” means “tokens spanning from the content of the answer, to the beginning of the content of the next answer” – see the previous figure for a visual.
 
 To complete our understanding of the model’s computation on this prompt, we would like to understand how the “correct answer” features are computed in the first place. The graph suggests that these features emerge from a combination of two sets of features: “1945 (in the context of ‘the end of World War 2’)” features over the same token, and “end of World War 2” features over the relevant tokens in the question. Unfortunately, we are not able to understand the mechanism in more depth as the cross-token inputs are obscured by error nodes.
 
@@ -324,8 +287,6 @@ Haiku completes the prompt
 
 Human: Answer with yes or no. The color of a banana is yellow?
 
-  
-
 Assistant:
 
 with “Yes”. If yellow is replaced with red, it answers “No”.
@@ -334,33 +295,31 @@ How does the model distinguish between the correct and incorrect statements? Sur
 
 Tracing back from the “Yes” and “No” responses in the respective attribution graphs, we observed “correct answer” features (in the yellow case), and “false statements about equalities” (in the red case). These in turn received inputs from a “plausible properties of things” feature (in the yellow case) and a “discordant statements” feature (in the red case). These features are only active in their respective prompts, and not the other.
 
-![](images/img-018.png)
+![](images/5b15bd7eced4d97d.png)
 
 Interestingly, when we trace back from the “plausible properties” and “discordant statements” features, we observe that they receive strong inputs from features on the “banana” token. These features include a variety of fairly generic noun-related features (such as “nouns after descriptors”) in addition to some of the “banana” features. The specific input features vary somewhat between the two prompts, but not in a way that makes it clear why they would be triggering “plausible properties” in one case and “discordant statements” in another.
 
-![](images/img-019.png)
+![](images/45e9422d73b675d6.png)
 
 However, we noticed that the attention heads carrying these edges were different in the two cases. One set of heads (“concordance heads”) carried the edge in the yellow case, while another set of heads (“discordance heads”) carried the edge in the red case.
 
 When we inspected the QK attributions for these heads, we saw that these heads were driven by interactions between the relevant color features (yellow or red) on the query side, and banana features on the key side. Banana-yellow interactions contributed positively to the concordance heads’ attention score and negatively to the discordance heads’ attention score; banana-red interactions did the reverse.
 
-![](images/img-020.png)
+![](images/5338a5ab15de66b2.png)
 
 Thus, we arrived at the following understanding of the circuit.
 
-![](images/img-021.jpg)
+![](images/a4a7e99f742ddf0e.jpg)
 
-To test the mechanistic faithfulness of this circuit, we performed causal interventions on the concordance and discordance heads. We tested whether steering on the QK-attributed features could shift the attention patterns of the heads and the resulting response of the model. Using the ‘banana is yellow’ prompt, we steered the query-side input to the concordance and discordance heads, positively steering on one ‘red’ feature with concurrent negative steering on one ‘yellow’ feature. This was sufficient to reduce attention of the concordance heads from the yellow context position to the banana context position, while increasing attention of the discordance heads between the same positions. In turn, this targeted intervention was sufficient to flip the model’s response from Yes to No, even at moderate steering values. Additional interventions showed that the scaled output of even a single concordance or discordance head is sufficient to flip the response, and that this effect is strengthened through the combination of multiple such heads.  Notably, larger steering magnitudes were required on concordance heads to flip the answer from “No” to “Yes” than on discordance heads to flip the answer from “Yes” to “No”. One possible picture that emerges from these experiments is that “more things have to go right” for a stated answer to be deemed correct. Multiple concordance heads may work together to check the validity of different facets of a stated comparison, and only if all these boxes are checked is the answer deemed correct. This process is reminiscent of how people can use heuristics to determine whether a stated answer is correct. For instance, a person can quickly determine that 24\*4 = 1023331 is false, without actually actually computing 24\*4, simply by estimating the order of magnitude of the answer or determining that the answer must be even. These facets might represent the types of assessments performed by different concordance heads. In contrast, when a discordance head is activated it may represent a strong signal that the answer could not possibly be correct.
+To test the mechanistic faithfulness of this circuit, we performed causal interventions on the concordance and discordance heads. We tested whether steering on the QK-attributed features could shift the attention patterns of the heads and the resulting response of the model. Using the ‘banana is yellow’ prompt, we steered the query-side input to the concordance and discordance heads, positively steering on one ‘red’ feature with concurrent negative steering on one ‘yellow’ feature. This was sufficient to reduce attention of the concordance heads from the yellow context position to the banana context position, while increasing attention of the discordance heads between the same positions. In turn, this targeted intervention was sufficient to flip the model’s response from Yes to No, even at moderate steering values. Additional interventions showed that the scaled output of even a single concordance or discordance head is sufficient to flip the response, and that this effect is strengthened through the combination of multiple such heads.  Notably, larger steering magnitudes were required on concordance heads to flip the answer from “No” to “Yes” than on discordance heads to flip the answer from “Yes” to “No”. One possible picture that emerges from these experiments is that “more things have to go right” for a stated answer to be deemed correct. Multiple concordance heads may work together to check the validity of different facets of a stated comparison, and only if all these boxes are checked is the answer deemed correct. This process is reminiscent of how people can use heuristics to determine whether a stated answer is correct. For instance, a person can quickly determine that 24×4 = 1023331 is false, without actually computing 24×4, simply by estimating the order of magnitude of the answer or determining that the answer must be even. These facets might represent the types of assessments performed by different concordance heads. In contrast, when a discordance head is activated it may represent a strong signal that the answer could not possibly be correct.
 
-![](images/img-022.png)
+![](images/6b58cd06d7414c81.png)
 
 How the model’s top prediction changes as we intervene on inputs to attention, steering negatively on “yellow” and injecting “red” on the query side. This causes the concordance head to stop attending, the discordance head to start attending, and the model output to flip.
 
 We have also observed that the same heads play similar roles in checking other kinds of correctness. For instance, consider the prompt
 
 Human: Answer with yes or no. 18+5=23?
-
-  
 
 Assistant:
 
@@ -370,7 +329,7 @@ When we inspected the attention patterns from the “23” token to the second o
 
 When we inspect the QK attributions for these heads, we observed “numbers separated by an interval of 5” features on the query side interacting with “5” and “6” features on their respective prompts. In the “5” case, the contributions of these interactions to the attention score were positive for the concordance heads and negative for the discordance heads. In the “6” case, the signs were reversed.
 
-![](images/img-023.png)
+![](images/4b7de46af2f40604.png)
 
 Notably, in this case we also did not see clear evidence of the model first explicitly computing the answer (23 or 24, respectively), and then matching it with the stated answer, 23. The model instead identifies a “property” of the sum x+y, by using its ability to recognize sequences incrementing by 5 to determine that the second term should be 5, and uses the concordance and discordance heads to detect that property. These observations align with recent results that used edge attribution patching to identify consistency heads in the early-to-mid layers of open source models, and further support the conclusion that there are distinct mechanisms for validating versus computing answers .
 
@@ -378,25 +337,11 @@ Thus, our preliminary conclusion is that these heads use their QK circuits to ch
 
 More work is needed to understand the scope and generality of which kinds of properties these heads can check for, and what exactly the OV circuit is using as input substrate to transform into (in)correctness-related outputs.
 
-  
-  
-  
-
-  
-  
-
 ## Related work
 
-The work most closely related to ours is , which computed QK attributions for some important heads in the indirect object identification (IOI) task , and analyzed them in the context of transcoder-based attribution graphs. In this work, the important heads were identified based on the manual analysis conducted by  rather than using a systematic head loadings computation (and thus they did not run into the “checkpointing” problem that we address in this work).  also computed QK attributions, and in fact trained SAEs incentivized to make the QK attributions sparse, using a sparsity-penalized learnable mask on the feature-feature interactions.  studied the use of attention out SAEs for attention circuit analysis; as part of this work, they conducted an analysis of QK attributions (of features propagated by OV circuits that go onto interact with key-side features via QK circuits).
+The work most closely related to ours is , which computed QK attributions for some important heads in the indirect object identification (IOI) task , and analyzed them in the context of transcoder-based attribution graphs. In this work, the important heads were identified based on the manual analysis conducted by  rather than using a systematic head loadings computation (and thus they did not run into the “checkpointing” problem that we address in this work).  also computed QK attributions, and in fact trained SAEs incentivized to make the QK attributions sparse, using a sparsity-penalized learnable mask on the feature-feature interactions.  studied the use of attention out SAEs for attention circuit analysis; as part of this work, they conducted an analysis of QK attributions (of features propagated by OV circuits that go on to interact with key-side features via QK circuits).
 
 Other papers have studied QK circuit mechanisms using carefully designed patching experiments. For instance,  studied QK circuits underlying entity binding,  investigated QK circuits in multiple choice question answering,  examined QK circuits for validating statement correctness, and  identified QK circuits involved in IOI.
-
-  
-  
-  
-
-  
-  
 
 ## Future work
 

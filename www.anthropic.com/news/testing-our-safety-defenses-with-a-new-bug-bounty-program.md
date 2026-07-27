@@ -4,7 +4,7 @@
 
 May 14, 2025
 
-![A magnifying glass reviewing code](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F694207e39ea7be23e009bba6923809b5f2b1dbc6-1920x1079.png&w=3840&q=75)
+![A magnifying glass reviewing code](https://www-cdn.anthropic.com/images/4zrzovbb/website/694207e39ea7be23e009bba6923809b5f2b1dbc6-1920x1079.png)
 
 Today, we're launching a new bug bounty program to stress-test our latest safety measures. Similar to the program we announced last [summer](https://www.anthropic.com/news/model-safety-bug-bounty), we're challenging researchers to find universal jailbreaks in safety classifiers that we haven't yet deployed publicly. These safeguards are part of the advanced protections we’ve developed to help us meet the AI Safety Level-3 (ASL-3) Deployment Standard as part of our [Responsible Scaling Policy](https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy), the framework that governs how we develop and deploy increasingly capable AI models safely.
 

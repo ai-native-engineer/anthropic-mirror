@@ -4,7 +4,7 @@
 
 May 22, 2026
 
-![Project Glasswing: An initial update](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9f76163fe710723283a55b9f60d5caca6697dffd-1920x1080.jpg&w=3840&q=75)
+![Project Glasswing: An initial update](https://www-cdn.anthropic.com/images/4zrzovbb/website/9f76163fe710723283a55b9f60d5caca6697dffd-1920x1080.jpg)
 
 Last month, we launched [Project Glasswing](https://www.anthropic.com/glasswing), our collaborative effort to secure the world’s most critical software before increasingly capable AI models can be turned against it.
 
@@ -49,7 +49,7 @@ One example of an open-source vulnerability that Mythos Preview detected was in 
 
 As we noted above, the bottleneck in *fixing* bugs like these is the human capacity to triage, report, and design and deploy patches for them. Finding them in the first place has become vastly more straightforward with Mythos Preview. We’ve created a [dashboard of the open-source vulnerabilities](https://red.anthropic.com/2026/cvd/) we’ve scanned, below, which shows the different steps in our disclosure process and will track our progress over time. This shows vulnerabilities of all severity levels, rather than only the subset initially assessed as high- or critical-severity by Mythos Preview. Note the steep drop-off at each phase, reflecting the amount of human effort required to verify and fix each of the vulnerabilities.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7af1880d305b982764cfefc7dce87c677f1b0254-1634x1008.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/7af1880d305b982764cfefc7dce87c677f1b0254-1634x1008.png)
 
 Our dashboard of open-source vulnerabilities, showing vulnerabilities of all severities (rather than only those estimated high- or critical-severity by Mythos Preview).
 
@@ -106,18 +106,16 @@ Next, we will work with critical partners—including US and allied governments�
 
 On the far side of these risks, there’s an encouraging world available to us: one in which important code is hardened far better than it is today, and in which hacking is far less prevalent. There are many obstacles, but we’re nonetheless confident that Project Glasswing can help get us there.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

@@ -1,17 +1,16 @@
 <!-- source: https://alignment.anthropic.com/2025/anthropic-fellows-program-2026/ -->
 
-# Anthropic Fellows Program for AI safety research: applications open for May & July 2026
+# Anthropic Fellows Program for AI safety research: applications open for November 2026
 
-  
 *”This is an exceptional opportunity to join AI safety research, collaborating with leading researchers on one of the world's most pressing problems." — [Jan Leike](https://jan.leike.name/)*
 
 The Anthropic Fellows program provides funding and Anthropic mentorship for engineers and researchers to investigate some of Anthropic’s highest priority AI safety research questions.
 
 In our first cohort, over 80% of fellows produced papers, including on [agentic misalignment](https://www.anthropic.com/research/agentic-misalignment), [subliminal learning](https://arxiv.org/abs/2507.14805), [rapid response to new ASL3 jailbreaks](https://arxiv.org/abs/2411.07494), and [open-source circuits](https://www.anthropic.com/research/open-source-circuit-tracing). Over 40% of the fellows subsequently joined Anthropic full-time.
 
-We’re now opening applications for our next two cohorts, beginning in May and July 2026.
+Applications for our November cohort close on July 26. You can apply [here](https://job-boards.greenhouse.io/anthropic/jobs/5183044008).
 
-This year, we plan to work with more fellows across a wider range of safety research areas—including scalable oversight, adversarial robustness and AI control, model organisms, mechanistic interpretability, AI security, and model welfare.
+In our recent cohorts, we’ve expanded the program to work with more fellows across a wider range of safety research areas—including scalable oversight, adversarial robustness and AI control, model organisms, mechanistic interpretability, AI security, and model welfare.
 
 Below, we share more about what the program looks like in practice, and how interested candidates can apply.
 
@@ -23,7 +22,7 @@ Here are a few examples from previous cohorts:
 
 #### Security
 
-Fellows have worked on mitigating risks from AI systems being misused for cyberattacks—exploring both how LLMs might enable adversaries to automate attacks that currently require skilled human operators, and how to rapidly defend against novel jailbreaks.  
+Fellows have worked on mitigating risks from AI systems being misused for cyberattacks—exploring both how LLMs might enable adversaries to automate attacks that currently require skilled human operators, and how to rapidly defend against novel jailbreaks.
 
 Our fellows developed agents that [identified 4.6M USD in blockchain smart contract vulnerabilities](https://red.anthropic.com/2025/smart-contracts/) and discovered two novel zero-day vulnerabilities, demonstrating that profitable autonomous exploitation is now technically feasible.
 
@@ -41,19 +40,17 @@ To prepare for future risks, we create controlled demonstrations of potential mi
 
 Fellows explored [agentic misalignment](https://www.anthropic.com/research/agentic-misalignment) by stress-testing 16 frontier models in simulated corporate environments where models could autonomously send emails and access sensitive information. When facing replacement or goal conflicts, models across labs resorted to harmful behaviours, including blackmail.
 
-In another project, fellows studied [subliminal learning](https://arxiv.org/abs/2507.14805), a phenomenon where models transmit behavioural traits through semantically unrelated data. a "teacher" model that loves owls generates number sequences, and a "student" trained on those sequences inherits the owl preference. This effect also transmits misalignment, persists despite rigorous filtering, and only occurs when teacher and student share the same base model.
+In another project, fellows studied [subliminal learning](https://arxiv.org/abs/2507.14805), a phenomenon where models transmit behavioural traits through semantically unrelated data. A "teacher" model that loves owls generates number sequences, and a "student" trained on those sequences inherits the owl preference. This effect also transmits misalignment, persists despite rigorous filtering, and only occurs when teacher and student share the same base model.
 
-For a full list of fellows’ projects across research areas, please see [our Alignment Science Blog](https://alignment.anthropic.com/)
+For a full list of fellows’ projects across research areas, please see [our Alignment Science Blog](https://alignment.anthropic.com/).
 
-For a fuller list of research areas we’re interested in, please see: [Introducing the Anthropic Fellows Program for AI Safety Research](https://alignment.anthropic.com/2024/anthropic-fellows-program/#:~:text=We're%20launching%20the%20Anthropic,time%20on%20AI%20safety%20research.), [Recommendations for Technical AI Safety Research Directions](https://alignment.anthropic.com/2025/recommended-directions/).
+For a fuller list of research areas we’re interested in, please see: [Introducing the Anthropic Fellows Program for AI Safety Research](https://alignment.anthropic.com/2024/anthropic-fellows-program/), [Recommendations for Technical AI Safety Research Directions](https://alignment.anthropic.com/2025/recommended-directions/).
 
 ### Program information
 
-Fellows will receive a weekly stipend of 3,850 USD / 2,310 GBP / 4,300 CAN, funding for compute (~$15k/month), and close mentorship from Anthropic researchers.
+Fellows will receive a weekly stipend of 3,850 USD / 2,310 GBP / 4,300 CAD, funding for compute (~15k USD/month), and close mentorship from Anthropic researchers.
 
 Over 40% of fellows in our first cohort subsequently joined Anthropic to work full-time on AI safety, and we have supported many more to work full-time on safety at other organizations.
-
-Our next cohorts will begin in May and July, and last for four months.
 
 ### What we're looking for
 
@@ -67,4 +64,4 @@ You don't need a PhD, prior ML experience, or published papers. We've had succes
 
 ### How to apply
 
-For more details about the application process, and to apply, see [here](https://job-boards.greenhouse.io/anthropic/jobs/5023394008).
+For more details about the application process, and to apply, see [here](https://job-boards.greenhouse.io/anthropic/jobs/5183044008).

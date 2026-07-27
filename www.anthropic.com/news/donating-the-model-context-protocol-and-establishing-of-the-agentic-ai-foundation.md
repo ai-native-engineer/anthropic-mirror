@@ -16,12 +16,12 @@ One year ago, we [introduced](https://www.anthropic.com/news/model-context-proto
 * Across platforms: MCP has been adopted by ChatGPT, Cursor, Gemini, Microsoft Copilot, Visual Studio Code, and other popular AI products;
 * Across infrastructure: Enterprise-grade infrastructure now exists with deployment support for MCP from providers including AWS, Cloudflare, Google Cloud, and Microsoft Azure.
 
-![Significant Milestone in MCP's first year](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa056db8301f67466de34a19181e7428ec6b6e17f-1920x2500.png&w=3840&q=75)
+![Significant Milestone in MCP's first year](https://www-cdn.anthropic.com/images/4zrzovbb/website/a056db8301f67466de34a19181e7428ec6b6e17f-1920x2500.png)
 
-We’re continuing to invest in MCP’s growth. Claude now has a directory with over 75 [connectors](https://claude.com/connectors) (powered by MCP), and we recently launched [Tool Search and Programmatic Tool Calling](https://www.anthropic.com/engineering/advanced-tool-use) capabilities in our API to help optimize production-scale MCP deployments, handling thousands of tools efficiently and reducing latency in complex agent workflows.  
-  
-MCP now has an official, community-driven [Registry](https://github.com/modelcontextprotocol/registry) for discovering available MCP servers, and the [November 25th](https://blog.modelcontextprotocol.io/posts/2025-11-25-first-mcp-anniversary/) spec release introduced many new features, including asynchronous operations, statelessness, server identity, and official extensions. There are also official SDKs (Software Development Kits) for MCP in all major programming languages with 97M+ monthly SDK downloads across Python and TypeScript.   
-  
+We’re continuing to invest in MCP’s growth. Claude now has a directory with over 75 [connectors](https://claude.com/connectors) (powered by MCP), and we recently launched [Tool Search and Programmatic Tool Calling](https://www.anthropic.com/engineering/advanced-tool-use) capabilities in our API to help optimize production-scale MCP deployments, handling thousands of tools efficiently and reducing latency in complex agent workflows.
+
+MCP now has an official, community-driven [Registry](https://github.com/modelcontextprotocol/registry) for discovering available MCP servers, and the [November 25th](https://blog.modelcontextprotocol.io/posts/2025-11-25-first-mcp-anniversary/) spec release introduced many new features, including asynchronous operations, statelessness, server identity, and official extensions. There are also official SDKs (Software Development Kits) for MCP in all major programming languages with 97M+ monthly SDK downloads across Python and TypeScript.
+
 Since its inception, we’ve been committed to ensuring MCP remains open-source, community-driven and vendor-neutral. Today, we further that commitment by donating MCP to the Linux Foundation.
 
 ## **The Linux Foundation and the Agentic AI Foundation**
@@ -32,12 +32,12 @@ The Agentic AI Foundation (AAIF) is a directed fund under the Linux Foundation c
 
 ## **Donating the Model Context Protocol**
 
-Anthropic is donating the Model Context Protocol to the Linux Foundation's new Agentic AI Foundation, where it will join [goose](https://github.com/block/goose) by Block and [AGENTS.md](http://agents.md) by OpenAI as founding projects. Bringing these and future projects under the AAIF will foster innovation across the agentic AI ecosystem and ensure these foundational technologies remain neutral, open, and community-driven.   
-  
+Anthropic is donating the Model Context Protocol to the Linux Foundation's new Agentic AI Foundation, where it will join [goose](https://github.com/block/goose) by Block and [AGENTS.md](http://agents.md) by OpenAI as founding projects. Bringing these and future projects under the AAIF will foster innovation across the agentic AI ecosystem and ensure these foundational technologies remain neutral, open, and community-driven.
+
 The Model Context Protocol’s [governance model](https://modelcontextprotocol.io/community/governance) will remain unchanged: the project’s maintainers will continue to prioritize community input and transparent decision-making.
 
 ## **The future of MCP**
 
-Open-source software is essential for building a secure and innovative ecosystem for agentic AI. Today’s donation to the Linux Foundation demonstrates our commitment to ensuring MCP remains a neutral, open standard. We’re excited to continue contributing to MCP and other agentic AI projects through the AAIF.  
-  
+Open-source software is essential for building a secure and innovative ecosystem for agentic AI. Today’s donation to the Linux Foundation demonstrates our commitment to ensuring MCP remains a neutral, open standard. We’re excited to continue contributing to MCP and other agentic AI projects through the AAIF.
+
 Learn more about MCP at [modelcontextprotocol.io](https://modelcontextprotocol.io) and get involved with the AAIF [here](https://aaif.io/).

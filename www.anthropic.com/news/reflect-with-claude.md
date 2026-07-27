@@ -14,15 +14,15 @@ We built this feature to help answer these types of questions. It lets you easil
 
 Your reflection starts with a summary of how you've been using Claude, covering key topics, your usage patterns, and the types of tasks you often work through.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3668f39d9a71aa03cb60df079921934a6f1ac144-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/3668f39d9a71aa03cb60df079921934a6f1ac144-3840x2160.png)
 
 You can look back on your Claude chat activity over the past 1, 3, 6, or 12 months.
 
 The reflect feature provides a breakdown of when you use Claude most, and what you spent that time working on. Soon, we'll add a view of how much time you've spent using Claude.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F782da3016b1624cc67ca1e226b3f959056e43741-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/782da3016b1624cc67ca1e226b3f959056e43741-3840x2160.png)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9cbe0d18a439a7e3fc3a5b576e5dd3712e02010b-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/9cbe0d18a439a7e3fc3a5b576e5dd3712e02010b-3840x2160.png)
 
 Your reflection also invites you to step back and examine the role Claude plays in your life. It will periodically surface questions like, "*What's one thing you want to keep doing yourself, even if Claude could do it faster?"* and give you the chance to talk it through with Claude.
 
@@ -39,7 +39,7 @@ You can use your reflection to build new skills and sharpen how you work with Cl
 
 Your report gives you a summary of your Claude activity across each dimension, with examples of how you tend to collaborate with Claude, like noting that you often rework email drafts in your own voice, or delegate tasks only after settling the strategy yourself. Your reflection will also offer practical suggestions, like starting a Project instead of needing to re-explain the context of ongoing work.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fef79e790d5fa03bdc5193c465a22323adb1b3c4a-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/ef79e790d5fa03bdc5193c465a22323adb1b3c4a-3840x2160.png)
 
 ## Privacy and sensitive topics
 
@@ -49,4 +49,4 @@ We built this tool to be a reflection of how you use Claude. For some users, thi
 
 ## Getting started
 
-This tool is currently available in beta for Free, Pro, and Max users who have memory turned on. Open [Settings in Claude](https://claude.ai/redirect/website.v1.44e922a7-b690-49bc-af34-4ea5451eba1f/settings/reflect) on the web or the desktop app, and select the option to reflect on your usage to generate your report. If you can't generate a report, it may be because you don’t have [Memory](https://claude.ai/redirect/website.v1.44e922a7-b690-49bc-af34-4ea5451eba1f/settings/capabilities?modal=memory) turned on. Reflecting on your Cowork conversations will be available soon.
+This tool is currently available in beta for Free, Pro, and Max users who have memory turned on. Open [Settings in Claude](https://claude.ai/redirect/website.v1.262e57c9-ad1d-4d32-afb5-a0e8fe98f004/settings/reflect) on the web or the desktop app, and select the option to reflect on your usage to generate your report. If you can't generate a report, it may be because you don’t have [Memory](https://claude.ai/redirect/website.v1.262e57c9-ad1d-4d32-afb5-a0e8fe98f004/settings/capabilities?modal=memory) turned on. Reflecting on your Cowork conversations will be available soon.

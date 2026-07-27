@@ -4,6 +4,8 @@
 
 Sep 5, 2025
 
+![Why do we take LLMs seriously as a potential source of biorisk?](https://www-cdn.anthropic.com/images/4zrzovbb/website/a6bcc8984390309c6bcd517e294db35ae3fdb56d-1920x1080.jpg)
+
 Our work at Anthropic is animated by the potential for AI to advance scientific discovery—especially in biology and medicine—and improve the human condition. [Benchling](https://www.benchling.com/ai) is [using Claude](https://www.anthropic.com/customers/benchling) to help researchers structure data, ask better questions, generate insights faster, and spend more time on science. [Biomni](https://biomni.stanford.edu/) is [using Claude](https://www.anthropic.com/customers/biomni) to speed up bioinformatics analysis and even automate experimental design.
 
 At the same time, AI is fundamentally a dual-use technology. A key tenet of our effort to develop AI responsibly is to identify, measure, and mitigate the prospects for malicious actors to misuse the same capabilities that make AI so promising for scientists and innovators.
@@ -38,7 +40,7 @@ To be sure, Claude and other LLMs are not currently capable of actually doing sc
 
 Within a year, Claude went from underperforming world-class experts on an evaluation designed to test virology troubleshooting scenarios in a lab setting, to comfortably exceeding that baseline (see Figure 1).
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc1a9a5f88426b3e2fb7041e8143f1e3413b09ddf-889x390.png&w=1920&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/c1a9a5f88426b3e2fb7041e8143f1e3413b09ddf-889x390.png)
 
 **Figure 1.** Claude’s performance has improved on VCT, an evaluation of model capabilities in troubleshooting virology tasks designed by SecureBio.
 
@@ -52,9 +54,9 @@ In considering the contribution of AI to biorisk, we need to know more than just
 
 To meet both of these criteria, we have conducted several controlled trials measuring AI’s ability to assist in the planning of a hypothetical bioweapons acquisition process. Participants were given up to two days to draft a comprehensive bioweapons acquisition plan. The control group only had access to basic internet resources, while the model-assisted group had additional access to Claude with safeguards removed. (In limited cases like this, it is important to provide trusted parties with access to the unsafeguarded version of the model in order to more accurately assess the maximum capabilities of the technology.) The resulting plans were graded by biodefense experts using a detailed rubric that assesses key steps of the acquisition pathway. Participants with access to Claude 4 models—especially Claude Opus 4—received much higher scores and developed plans with substantially fewer critical failures compared to the internet-only control group.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb6b552ad3b9b9cc2312d55ef98c5d343078753c3-980x580.png&w=2048&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/b6b552ad3b9b9cc2312d55ef98c5d343078753c3-980x580.png)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4dabd0ce91dd00553db423a8d24496e52ad4308d-980x580.png&w=2048&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/4dabd0ce91dd00553db423a8d24496e52ad4308d-980x580.png)
 
 **Figure 2.** Bioweapons acquisition uplift trial results. Top: raw scores from the uplift trial. Bottom: critical failures hit by participants.
 
@@ -102,21 +104,19 @@ The topic of AI and biorisk is rife with uncertainty—about threat actors, the 
 
 [3] These results provide an important update to previous research. An [experiment](https://www.rand.org/pubs/research_reports/RRA2977-2.html) conducted in 2023 with a similar research design found no statistically significant difference between biological weapons attack plans formulated with LLMs as opposed to only the internet. However, as the study authors noted at the time, “[g]iven the rapid evolution of AI, it is prudent to monitor future developments in LLM technology.” Frontier AI models are substantially better in mid-2025 than they were in late-2023, and our results demonstrate that they are now showing clearer warning signs of contributing to biorisk.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)
 
 ## Subscribe to the Frontier Red Team newsletter
 

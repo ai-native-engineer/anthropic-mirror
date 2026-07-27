@@ -2,9 +2,6 @@
 
 # Circuits Updates - July 2025
 
-  
-  
-
 We report a number of developing ideas on the Anthropic interpretability team, which might be of interest to researchers working actively in this space. Some of these are emerging strands of research where we expect to publish more on in the coming months. Others are minor points we wish to share, since we're unlikely to ever write a paper about them.
 
 We'd ask you to treat these results like those of a colleague sharing some thoughts or preliminary experiments for a few minutes at a lab meeting, rather than a mature paper.
@@ -13,13 +10,6 @@ New Posts
 
 * [Revisiting](#math) [A Mathematical Framework](#math)[with the Language of Features](#math)
 * [Applications of Interpretability to Biology](#bio)
-
-  
-  
-  
-
-  
-  
 
 ## [Revisiting A Mathematical Framework with the Language of Features](#math)
 
@@ -35,11 +25,11 @@ In describing these, we'll make heavy use of transformed sets of features. For e
 
 To start, let's consider the OV circuit of a [copy head](https://transformer-circuits.pub/2021/framework/index.html#copying--primitive-in-context-learning). We expect it to look something like this, converting seeing X to saying X:
 
-![](images/img-001.png)
+![](images/99bec778be81eafc.png)
 
-In Framework, we used positive eigenvalues of W\_U W\_{OV} W\_E (that is embed tokens, put them through OV, and then through the token unembedings) as a sign that roughly this was going on. Why was that a reasonable thing to do? Well, the embeddings give a basis for something like very simple features corresponding to each token in very early layers, while the unembeddings give the corresponding "say(X)" features in very late layers. So, especially in small models, we can use them as a kind of basis for both of these sets of features. This isolates the upper right sub matrix, which should roughly be diagonal.
+In Framework, we used positive eigenvalues of W\_U W\_{OV} W\_E (that is embed tokens, put them through OV, and then through the token unembeddings) as a sign that roughly this was going on. Why was that a reasonable thing to do? Well, the embeddings give a basis for something like very simple features corresponding to each token in very early layers, while the unembeddings give the corresponding "say(X)" features in very late layers. So, especially in small models, we can use them as a kind of basis for both of these sets of features. This isolates the upper right submatrix, which should roughly be diagonal.
 
-![](images/img-002.png)
+![](images/bf961bf8cec2d704.png)
 
 This means it will have positive eigenvalues. More deeply, positive eigenvalues in that submatrix means sets of features which upweight the same set of corresponding say features.
 
@@ -47,11 +37,11 @@ This means it will have positive eigenvalues. More deeply, positive eigenvalues 
 
 Another interesting head is the previous token head. We believe they copy the previous token information over, as distinct features describing the previous token. So a feature X gets mapped to a feature prev(X) "the previous token was X".
 
-![](images/img-003.png)
+![](images/c390420ede4becc6.png)
 
 Note that if there were already features representing the previous token, these might also be copied over as "previous of previous" features. (These could also be directly constructed by an attention head that attends two tokens back.)
 
-![](images/img-004.png)
+![](images/e165f239be0eb532.png)
 
 #### Induction Head
 
@@ -59,20 +49,13 @@ An [induction head](https://transformer-circuits.pub/2021/framework/index.html#i
 
 The interesting thing is the QK circuit, which we think of as being something like the following. "If the query token is X, we want a key preceded by X. If the query token is preceded by Y, we want a key token which was Y two tokens back."
 
-![](images/img-005.png)
+![](images/128e38f17d599ccd.png)
 
 In Framework, we studied the eigenvalues of W^{induction}\_{QK} \cdot W^{prev}\_{OV} to try to get at this. Note that this should also give us a diagonal-ish matrix:
 
-![](images/img-006.png)
+![](images/b04500ab40f8fe38.png)
 
 As a result, again, eigenvalues are positive.
-
-  
-  
-  
-
-  
-  
 
 ## [Applications of Interpretability to Biology](#bio)
 
@@ -166,7 +149,7 @@ Automated Annotation: InterPLM's discovery of missing database annotations shows
 
 Mechanism Elucidation: InterProt traced how specific features drive predictions.
 
-Structural Control: Reticular demonstrated steering of protein properties through feature manipulation on ESMFold, maintaining backbone structure while modifying surface properties. This suggests targeted protein engineering guided by interpretable features [[3](https://arxiv.org/abs/2503.08764)].There has been recent related work on steering protein models including STRAP's per-position steering approach, which shows promise for fine-grained control of protein properties. See [this paper](https://openreview.net/pdf?id=rnJ6Nn1Wf5%3C/d-footnote) for more.
+Structural Control: Reticular demonstrated steering of protein properties through feature manipulation on ESMFold, maintaining backbone structure while modifying surface properties. This suggests targeted protein engineering guided by interpretable features [[3](https://arxiv.org/abs/2503.08764)].There has been recent related work on steering protein models including STRAP's per-position steering approach, which shows promise for fine-grained control of protein properties. See [this paper](https://openreview.net/pdf?id=rnJ6Nn1Wf5) for more.
 
 ### Advanced Interpretability: From Features to Circuits
 
@@ -198,7 +181,7 @@ Integrated Architectures: Developing SAE variants that naturally handle multi-mo
 
 Efficient Training: Adapting recent advances like k-sparse autoencoders and gradient-based feature learning to reduce computational requirements for billion-parameter biological models.
 
-Circuit Discovery Methods: While Evo 2 has demonstrated evolutionary circuits (like the CRISPR-phage connection), systematic methods for discovering and validating biological circuits remain nascent. Building on Evo 2's open framework—including training code, 40B model weights, and the OpenGenome2 dataset—researchers could develop automated techniques that leverage biology's natural hierarchies (sequence → structure → function) to map complete computational pathways. We would be excited to see how interpretable attribution graphs prove in this domain, potentially revealing how simple sequence features compose into complex biological functions..
+Circuit Discovery Methods: While Evo 2 has demonstrated evolutionary circuits (like the CRISPR-phage connection), systematic methods for discovering and validating biological circuits remain nascent. Building on Evo 2's open framework—including training code, 40B model weights, and the OpenGenome2 dataset—researchers could develop automated techniques that leverage biology's natural hierarchies (sequence → structure → function) to map complete computational pathways. We would be excited to see how interpretable attribution graphs prove in this domain, potentially revealing how simple sequence features compose into complex biological functions.
 
 As these methods mature, the distinction between interpreting AI and understanding biology may disappear entirely. In this future, transparent AI becomes not just a technical achievement but a fundamental tool for scientific progress.
 

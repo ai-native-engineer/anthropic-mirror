@@ -4,7 +4,7 @@
 
 Oct 31, 2024
 
-![A building with columns](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6b04f486cfe0b8a62e4632f3186f23afcd22a890-2880x1621.png&w=3840&q=75)
+![A building with columns](https://www-cdn.anthropic.com/images/4zrzovbb/website/6b04f486cfe0b8a62e4632f3186f23afcd22a890-2880x1621.png)
 
 Increasingly powerful AI systems have the potential to [accelerate scientific progress](https://darioamodei.com/machines-of-loving-grace), unlock new medical treatments, and grow the economy. But along with the remarkable new capabilities of these AIs come significant risks. **Governments should urgently take action on AI policy in the next eighteen months. The window for proactive risk prevention is closing fast.**
 

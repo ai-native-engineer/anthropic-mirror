@@ -6,7 +6,7 @@ Oct 15, 2024
 
 [Read the Responsible Scaling Policy](http://anthropic.com/rsp )
 
-![A hand with a feather quill writing a policy document. ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff1664b95be4e2e828a180cf9f015a0b6f8365472-5760x3240.png&w=3840&q=75)
+![A hand with a feather quill writing a policy document. ](https://www-cdn.anthropic.com/images/4zrzovbb/website/f1664b95be4e2e828a180cf9f015a0b6f8365472-5760x3240.png)
 
 **Today we are publishing a significant update to our Responsible Scaling Policy (RSP), the risk governance framework we use to mitigate potential catastrophic risks from frontier AI systems.** This update introduces a more flexible and nuanced approach to assessing and managing AI risks while maintaining our commitment not to train or deploy models unless we have implemented adequate safeguards. Key improvements include new capability thresholds to indicate when we will upgrade our safeguards, refined processes for evaluating model capabilities and the adequacy of our safeguards (inspired by [safety case methodologies](https://arxiv.org/abs/2403.10462)), and new measures for internal governance and external input. By learning from our implementation experiences and drawing on risk management practices used in other high-consequence industries, we aim to better prepare for the rapid pace of AI advancement.
 

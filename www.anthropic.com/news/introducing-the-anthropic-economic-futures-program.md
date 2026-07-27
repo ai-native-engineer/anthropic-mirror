@@ -4,7 +4,7 @@
 
 Jun 27, 2025
 
-![A stock chart moving up and to the right](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7a472632580035058bc13bfea3b965fbb471a04e-1920x1079.png&w=3840&q=75)
+![A stock chart moving up and to the right](https://www-cdn.anthropic.com/images/4zrzovbb/website/7a472632580035058bc13bfea3b965fbb471a04e-1920x1079.png)
 
 Today, we're announcing the [**Anthropic Economic Futures Program**](https://www.anthropic.com/economic-futures), a new initiative to support research and policy development focused on addressing AI’s economic impacts. We’re launching this initiative to understand how AI is reshaping the way we work and surface proposals on how to prepare for this shift. This program will serve as an extension of Anthropic’s Economic Index and its insights on AI usage across the workforce. Our goal for this program is to contribute to the development of new research and potential responses to the impacts of AI on the labor market and global economy. To accomplish this, the Economic Futures Program will focus on three pillars:
 

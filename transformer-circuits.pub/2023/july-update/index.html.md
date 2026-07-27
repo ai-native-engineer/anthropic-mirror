@@ -1,9 +1,6 @@
 <!-- source: https://transformer-circuits.pub/2023/july-update/index.html -->
 
-# Circuits Updates - July 2023
-
-  
-  
+# Circuits Updates — July 2023
 
 We report a number of developing ideas on the Anthropic interpretability team, which might be of interest to researchers working actively in this space. Some of these are emerging strands of research where we expect to publish more on in the coming months. Others are minor points we wish to share, since we're unlikely to ever write a paper about them.
 
@@ -14,13 +11,6 @@ Short Updates
 * [Finite Data Intermediate Regime](#finite-data)
 * [What would be the most safety-relevant features in Language Models?](#safety-features)
 * [Further investigation of our skip-trigram model](#attn-skip-trigram)
-
-  
-  
-  
-
-  
-  
 
 ## [Finite Data Intermediate Regime](#finite-data)
 
@@ -38,17 +28,11 @@ At a high-level, our investigations have reassured us that the model can be full
 
 The previous intermediate regime was an artifact. We determined that some of what we saw was an artifact of low-dimensional optimization being hard. By training models with a variety of learning rates, we found that the memorizing solution achieves the lowest train loss up to very large dataset sizes (~500k samples). Beyond that point there is a crossover where the generalizing solution achieves a lower train loss, and so there is a true first-order phase transition where the lowest-train-loss solution suddenly changes around 500k samples, and the derivative of the minimum train loss exhibits a discontinuity at the crossover between the two solutions.
 
-![](images/img-001.png)
+![](images/d17f9264e8e5abb3.png)
 
 The phenomenology of memorizing solutions changes as they approach the transition point. We find that the memorizing solution gradually changes from memorizing individual data points to memorizing clusters of correlated data points as the dataset size increases from around 1k to 500k samples. Below around 1k samples, the samples are mutually orthogonal with high probability and so uncorrelated, permitting an exact memorizing solution. Above this point there are correlations between samples which make exact memorization impossible, and the model instead clusters data points based on shared features. The clustering solutions have interesting fine detail where data points are arranged as "triangles".
 
-![](images/img-002.png)
-  
-  
-  
-
-  
-  
+![](images/3acddb3e0c48cfae.png)
 
 ## [What would be the most safety-relevant features in Language Models?](#safety-features)
 
@@ -68,11 +52,11 @@ High-Level Actions. In thinking about neural network representations, we most o
 
 Planning. If models do have actions, how are sequences of actions coordinated? Does the model "understand" that its actions can affect the world, and if so how does it represent future expectations based on actions? Does it model goals or perform instrumental reasoning? Is there any kind of emergent search algorithm? While “coordinating a sequence of actions” is in itself not so scary, reasoning about how to achieve certain outcomes is central to many safety questions.
 
-![](images/img-003.png)
+![](images/9c04a4d964c378e2.png)
 
 Social Reasoning. What properties of the user (or third party humans) does the model represent? In particular, what aspects of their mental and emotional state does it try to represent? Particularly scary forms of social reasoning include social actions (e.g. actions attempting to induce an emotional state) and social planning, in which the model uses its understanding of how the model’s output affects the human’s mental state to push the human towards particular states.
 
-Personas. During pretraining, models learn to play many different personas, as well as to follow cues to change persona as in e.g. a play with multiple roles. How do models track their active personas, and what triggers the personas to change? To the extent that RLHF attempts to “lock” a model into a particular persona, we might worry about triggering the persona-change logic. One might also wonder if the main persona has "emotions" or "beliefs", inherited from pretraining role-playing, which change over the course of an interaction. Finally, one might wonder if there can there be behavior that doesn’t flow through personas at all, or whether the personas are “all there is”?One might wonder if personas are truly distinct from the social reasoning behavior described above. They seem likely to be very interconnected during the pretraining stage, since models both "roleplay" all the characters in their context, as well as roleplaying counterparties interacting with them. However, these seem more clearly distinct after a stage of RLHF targeted at turning a model into an assistant.
+Personas. During pretraining, models learn to play many different personas, as well as to follow cues to change persona as in e.g. a play with multiple roles. How do models track their active personas, and what triggers the personas to change? To the extent that RLHF attempts to “lock” a model into a particular persona, we might worry about triggering the persona-change logic. One might also wonder if the main persona has "emotions" or "beliefs", inherited from pretraining role-playing, which change over the course of an interaction. Finally, one might wonder if there can be behavior that doesn’t flow through personas at all, or whether the personas are “all there is”?One might wonder if personas are truly distinct from the social reasoning behavior described above. They seem likely to be very interconnected during the pretraining stage, since models both "roleplay" all the characters in their context, as well as roleplaying counterparties interacting with them. However, these seem more clearly distinct after a stage of RLHF targeted at turning a model into an assistant.
 
 Situational awareness. Does the model know it’s a model? Does it know its architecture, who trained it, how it was trained, etc.? Does it understand that its outputs are used for things in the world? Can it reason about the training process, [play the training game](https://www.alignmentforum.org/posts/pRkFkzwKZ2zfa3R6H/without-specific-countermeasures-the-easiest-path-to), and thereby achieve a better loss? Does it understand that it can be turned off, modified, etc., and does it understand how that might interfere with any goals it has developed?
 
@@ -87,13 +71,6 @@ Instrumental Reasoning. Behaviors like caginess around red-teaming prompts, syco
 In-Context Learning. In-context learning is one of the most powerful things models do, allowing models to produce meaningfully new chains of reasoning and potentially enabling quite scary scenarios like strong inner optimizers. But how does in-context learning happen? What circuits implement it, and what priors does it come with? We have seen some tantalizing first steps in the form of [Induction Heads](https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html), but much remains to be explored.
 
 Successful RLHF. When RLHF succeeds at producing a helpful model, why does it succeed? Does RLHF elicit capabilities and personalities already present in the model, or does it create new circuits and new knowledge? How much does RLHF delete from the pretrained model? More generally, there are many different theories of what RLHF does, and the truth of the matter is central to determining how viable it is as a method for safety.
-
-  
-  
-  
-
-  
-  
 
 ## [Further investigation of our skip-trigram model](#attn-skip-trigram)
 

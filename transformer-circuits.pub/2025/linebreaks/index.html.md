@@ -4,7 +4,8 @@
 
 # When Models Manipulate Manifolds: The Geometry of a Counting Task
 
-![](images/img-001.png)
+![](images/390bc779cb00dc24.png)
+)
 
 ### Authors
 
@@ -35,11 +36,13 @@ In this work, we investigate the mechanisms that enable Claude 3.5 Haiku to perf
 
 The task we study is linebreaking in fixed-width text. When training on source code, chat logs, email archives, scanned articles, or judicial rulings that have line width constraints, how does the model learn to predict when to break a line? Michaud et al. looked for “quanta” of model skills by clustering gradients . Their Figure 1 shows that predicting newlines in fixed-width text formed one of the top 400 clusters for the smallest model in the Pythia family, with 70m parameters. Human visual perception lets us do this almost completely subconsciously – when writing a birthday card, you can see when you are out of room on a line and need to begin the next – but language models see just a list of integers. In order to correctly predict the next token, in addition to selecting the next word, the model must somehow count the characters in the current line, subtract that from the line width constraint of the document, and compare the number of characters remaining to the length of the next word. As a concrete example, consider the below pair of prompts with an implicit 50-character line wrapping constraint.The wrapping constraint is implicit. Each newline gives a lower bound (the previous word did fit) and an upper bound (the next word did not). We do not nail down the extent to which the model performs optimal inference with respect to those constraints, rather focusing on how it approximately uses the length of each preceding line to determine whether to break the next. There are also many edge cases for handling tokenization and punctuation. A model could even attempt to infer whether the source document used a non-monospace font and then use the pixel count rather than the character count as a predictive signal! When the next word fits, the model says it; when it does not, the model breaks the line:
 
-![](images/img-002.png)
+![](images/9025a0a92632edc8.png)
+)
 
 To orient ourselves to the stages of the computation, we first studied the model using discrete dictionary features. In this frame, we can understand computation as an “attribution graph”  where a cascade of features excite or inhibit each other.We actually first tried to use patching and probing without looking at the graph as a kind of methodological test of the utility of features, but did not make much progress. In hindsight, we were training probes for quantities different than the ones the model represents cleanly, e.g., a fusion of the current token position and the line width.
 
-![](images/img-003.png)
+![](images/3a70023334a768ef.png)
+)
 
 Attribution Graph for Claude 3.5 Haiku’s prediction of a newline in the aluminum prompt. We see features relating to “width of the previous line” and “position in the current line” which together activate features for “distance from line limit”. Combined with features for the planned next word, these features activate “predict newline” features.
 
@@ -51,7 +54,8 @@ The attribution graph shows how the model performs this task by combining featur
 
 The attribution graph provides a kind of execution trace of the algorithm, showing on this prompt which variables are computed and from what. After finding large feature families involved in representing these quantities across a diverse dataset, we suspected a simpler lens might be provided in terms of lower-dimensional feature manifolds interacting geometrically. We found geometric perspectives on the following questions:
 
-![](images/img-004.png)
+![](images/65743a970557704d.png)
+)
 
 Key steps in the linebreaking behavior can be described in terms of the construction and manipulation of manifolds.
 
@@ -112,7 +116,8 @@ Each of these perspectives provides a complementary view of the same underlying 
 
 We begin with the features. In layers one and two, we found features that seemed to activate based on a token’s character position within a line. For example, in the attribution graph for the aluminum prompt, there were two features active on the final word “called” that seemed to fire when the line character count was between 35–55 and 45–65, respectively. To find more such features, we computed the mean activation of each feature binned by line character count. There were ten features with smooth profiles and large between-character-count variance, shown below:
 
-![](images/img-005.png)
+![](images/b09781e96288cf25.png)
+)
 
 A family of features representing the current character count in a line of text. The tuning curve of the features’ activity increases at larger line character counts.
 
@@ -136,13 +141,15 @@ To validate our interpretation of the character count subspace, we perform a coa
 
 Ablation Experiment.  For our ablation experiment, we zero ablate (from a single early layer) a k-dimensional subspace corresponding to the top k principal components of the per–character count mean activations and compare to a baseline of ablating a random k-dimensional subspace. Below we measure the loss effect, broken down by newlines and nonnewlines.Note, in general one should not assume that a subspace spanned by features (or a PCA) is dedicated to those features because it could be in superposition with many other features. However, because in this case the character count subspace is densely active (and therefore less amenable to being in superposition), this experimental design is more justified.
 
-![](images/img-006.png)
+![](images/88ca51749a0a937d.png)
+)
 
 Ablating the character count subspace has a large effect only when the next token is a newline.
 
 Intervention Experiment.  As a more surgical intervention, we perform an experiment to modify the perceived character count at the end of the aluminum prompt (originally 42 characters). Specifically, we sweep over character counts c, and substitute the mean activation across all tokens in our dataset with count c. That is, a\_{\text{patched}} = a\_{\text{original}} - \mu\_{\text{original}} + \mu\_{c} for activation a and average activation matrix \mu. We perform this intervention for three adjacent early layers and the last two tokens for both the entire mean vector and within the 6 dimensional PCA space of the mean vectors. The attribution graph has several positional features and edges on both the last token (“called”) as well as the second-to-last token (“also”). We change the “also” count representation to be 6 characters prior to that for the final token, to maintain consistency.
 
-![](images/img-007.png)
+![](images/3e373dedfde3b9c3.png)
+)
 
 Intervening on a rank 6 subspace is sufficient to change the model’s linebreaking behavior.
 
@@ -152,19 +159,22 @@ We also train supervised logistic regression probes to predict character count.a
 
 When we look at the average responses of each probe to tokens with different line character counts, we see a striking pattern. In addition to a diagonal band (probes, like the sparse features, have increasingly wide receptive fields), we see two faint off-diagonal bands on each side! The response curve of each probe is not monotonically decreasing away from its max, but rebounds. This “ringing” turns out to be a natural consequence of embedding a “rippled” manifold into low dimensions.
 
-![](images/img-008.png)
+![](images/1ba222942ad33547.png)
+)
 
 Response curve of Line Character Count probes as a function of Line Character Count show widening receptive fields and a "ringing" pattern of off-diagonal stripes.
 
 #### [Rippled Representations are Optimal](#rippled-representations)
 
-We note that the cosine similarities of the mean activation vector (which form the helix-like curve visualized in PCA space above), the linear probe vectors, and feature decoder vectors all exhibit similar ringing patterns to the above figure.We use the term “[ringing](https://en.wikipedia.org/wiki/Ringing_(signal))” in the sense of signal processing, a transient oscillation in response to a sharp peak, such as in the Gibbs Phenomenon). Note that not only are neighboring features not orthogonal, features further away have negative similarities, and then those even further away have positive ones again.
+We note that the cosine similarities of the mean activation vector (which form the helix-like curve visualized in PCA space above), the linear probe vectors, and feature decoder vectors all exhibit similar ringing patterns to the above figure.We use the term “[ringing](https://en.wikipedia.org/wiki/Ringing_(signal))” in the sense of signal processing, a transient oscillation in response to a sharp peak, such as in the Gibbs Phenomenon. Note that not only are neighboring features not orthogonal, features further away have negative similarities, and then those even further away have positive ones again.
 
-![](images/img-009.png)
+![](images/8ec6bb98fd29604f.png)
+)
 
 This structure turns out to be a natural consequence of having the desired pattern of similarity, trivially achievable in 150 dimensions, projected down to low dimensions. As a toy model of this, suppose that we wish to have a discretized circle's worth of unit vectors, each similar to its neighbors but orthogonal to those further away. This can be realized by a symmetric set of unit vectors in 150 dimensions with cosine similarity matrix X pictured below (left). Projecting this to its top 5 eigenvectors yields a 5-dimensional embedding of the same vectors with cosine similarity matrix (below right) exhibiting ringing. We also plot the curve these vectors form in the top 3 eigenvectors. We can think of the original 150-dimensional embedding of the circle as being highly curved, and the resulting 5-dimensional embedding as retaining as much of that curvature as possible. This manifests as ripples in the embedding of the circle when viewed in a 3D projection. A relationship of this construction to Fourier features is discussed in the [appendix](#appendix-gibbs).
 
-![](images/img-010.png)
+![](images/f00eb1a0f9fd2014.png)
+)
 
 Left panel shows an ideal similarity matrix for vectors representing points along a circle. Middle panel shows the optimal (PCA) approximation possible when embedding the points in 5 dimensions. Right panel shows the resulting projection of the circle to the top 3 dimensions, exhibiting rippling.
 
@@ -212,7 +222,8 @@ Inner Product Matrix
 
 Of particular interest is the result from setting the ambient dimension to 3Optimization in dimension 3, unlike in higher dimensions, admits bad local minima, because a generic curve on the surface of a sphere self-intersects. To avoid this, either increase the zone width until you get a great circle, then decrease it, or do the optimization in 4D, then select 3D.: the result is a curve similar to the seams of a baseball (below left, circle), which matches the topology observed for three intrinsically one-dimensional phenomena observed in , of colors by hue, dates of the year, and years of the 20th century (which also exhibit dilation). Similar ripples were predicted to occur by Olah  and then observed by Gorton  in curve detector features in Inception v1. One of the earliest observations of ringing in a cosine similarity plot and rippled spiral/helix shape in a low-dimensional embedding was of the learned positional embeddings of tokens in GPT2 . We also find similar structure in other representations, which we study in [More Sensory and Counting Representations](#appendix-sensory) in the appendix.
 
-![](images/img-011.png)
+![](images/bdad0290d74432d5.png)
+)
 
 Left curve is a locally optimal high-curvature embedding of the circle onto the 2-sphere. Right figures, reproduced with permission from Modell et al. , show 3-dimensional PCA projections of data or features related to colours, years, and dates.
 
@@ -226,20 +237,21 @@ We find that newline tokens have their own dedicated character [counting feature
 
 To better understand how these representations are related, we train 150 probes for each possible value of “Line Width” like we did for “Character Count”. Using the attribution graph, we identify an attention head which activates boundary detection features. We visualize both sets of counting representations directly using the first 3 components of their joint PCA in the residual stream (left) and in the reduced QK space of this boundary head (right).Specifically we multiply the line width probes through W\_K and the character count probes through W\_Q, and plot the points in the 3D PCA basis of their joint embedding.
 
-Boundary heads twist the representation of line width and character count to detect the line boundary.  
-Left: Joint PCA of character count and line width probes.  
+Boundary heads twist the representation of line width and character count to detect the line boundary.
+Left: Joint PCA of character count and line width probes.
 Right: Same after multiplying them through the corresponding QK weights of the boundary head. Range is from 40 (dark) to 150 (light).
 
 We find that this attention head “twists” the character count manifold such that character count i is aligned with line width k=i+\epsilon. This causes the head to attend to the newline when the character count is just a bit less than the line width, thereby indicating that the boundary is approaching. This algorithm is quite general, and enables this head to detect approaching line boundaries for arbitrary line widths!This algorithm also generalizes to arbitrary kinds of separators (e.g., double newlines or pipes), as the QK circuit can handle the positional offset independently of the OV circuit copying the separator type.
 
-![](images/img-012.png)
+![](images/5ab184a6cd564eba.png)
+)
 
 Cosine similarity of previous line width and character count probes through different transforms. (Left) the identity map, (Center) QK of boundary head, (Right) QK of random head in the same layer. Boundary heads align the probes but with a small offset.
 
 This plot shows that
 
-* In the residual stream, probes for character count i are maximally aligned with probes line width probes k when i=k, but are not highly aligned in absolute terms – the maximum cosine sim is ~0.25.
-* In the QK space of the boundary head, the probes are maximally aligned on the offdiagonal i < k, and are almost perfectly aligned in absolute terms – the maximum cosine sim is \approx 1.
+* In the residual stream, probes for character count i are maximally aligned with line width probes k when i=k, but are not highly aligned in absolute terms – the maximum cosine sim is ~0.25.
+* In the QK space of the boundary head, the probes are maximally aligned on the off-diagonal i < k, and are almost perfectly aligned in absolute terms – the maximum cosine sim is \approx 1.
 * In the QK space of a random head, there is almost no structure between the probes.
 
 As a consequence of the ringing in the character count representations, we also observe ringing in the inner products (see [Rippled Representations are Optimal](#rippled-representations) above). The model is robust to these off-diagonal interference terms via the softmax applied to attention scores.
@@ -248,7 +260,8 @@ As a consequence of the ringing in the character count representations, we also 
 
 We find that the model actually uses multiple boundary heads, each twisting the manifolds by a different offset to implement a kind of “stereoscopic” algorithm for computing the number of characters remaining.There are also multiple sets of boundary heads at multiple layers that usually come in sets of ~3 with similar relative offsets (so not actually “stereo”). We attach more visualizations of boundary heads in the [Appendix](#appendix-twisting).
 
-![](images/img-013.png)
+![](images/c49705909d072d53.png)
+)
 
 Cosine similarity of line width and character count probes through three different boundary heads in the same layer with different amounts of twisting. Green line indicates the argmax for each row, and is used to calculate the average offset reported in the subtitles.
 
@@ -256,7 +269,8 @@ To better understand each boundary head’s output, we train a set of probes for
 
 As predicted by our weights based analysis, we observe that boundary heads have distinct but overlapping response curves that “tile” the possible values of characters remaining.
 
-![](images/img-014.png)
+![](images/42fb79da106c2604.png)
+)
 
 Each boundary head’s response curve peaks at a different distance from the end of the line.
 
@@ -264,13 +278,15 @@ It's worth understanding why the model needs multiple boundary heads rather than
 
 We can see this more clearly by plotting each head's output in the first two principal components of the characters remaining space (which captures 92% of the variance). Head 0 shows large variance in the [0, 10] and [15, 20] ranges, Head 1 varies most in the [10, 20] range, and Head 2 varies most in the [5, 15] range. While no single head provides high resolution across the entire curve, their sum produces an evenly spaced representation that covers all values effectively.
 
-![](images/img-015.png)
+![](images/d30f951443318f30.png)
+)
 
 Each head’s output as a function of characters remaining, and their sum in the PCA basis. Individual head outputs are almost one-dimensional, while the sum is a two-dimensional curve.
 
 We validate the causal importance of this two-dimensional subspace by performing an ablation and intervention experiment. Specifically, we conduct the same experiments as before: ablate the subspace and measure its effect on loss by token (left) and precisely modulate the characters remaining estimate on the last token in the aluminum prompt by substituting mean activation vectors.
 
-![](images/img-016.png)
+![](images/5912600736f569eb.png)
+)
 
 Characters remaining subspace can be causally intervened upon. (Left) Ablating the subspace has a large effect only when the next token is a newline. (Right) We surgically intervene on the characters remaining space to modulate the prediction of the newline by subtracting the true characters remaining mean activation and adding in a patched characters remaining activations. Note that the completion “ aluminum.” requires ten characters to fit.
 
@@ -288,11 +304,12 @@ To achieve the curvature for necessary high resolution, multiple attention heads
 
 How did we originally find this boundary detection mechanism? When we first computed an attribution graph, we saw several edges from the previous newline features and embedding to predict-newline features. QK attributions showed that the top key feature was a “the previous line was 40–60 characters long” feature and the top query feature was “the current character count is 35–50” feature. At any one time there were often multiple counting features active at different strengths, suggesting that these features might be discretizing a manifold.
 
-![](images/img-017.png)
+![](images/a744f7245c2fad34.png)
+)
 
 The boundary heads cause a family of boundary detecting features to activate in response to how close the current line is to the global line width. That is, they sense the approaching line boundary or the reverse index of the line count. Investigating these three sets of feature families led us to the count manifolds which they sparsely parametrize, and investigating the relevant attention heads let us find the boundary heads.
 
-Finally, we note that these boundary-sensing representations parallels a well-studied phenomenon in neuroscience: boundary cells , which activate at specific distances from environmental boundaries (e.g., walls). Both the artificial features and biological cells come in families with varied receptive fields and offsets.
+Finally, we note that these boundary-sensing representations parallel a well-studied phenomenon in neuroscience: boundary cells , which activate at specific distances from environmental boundaries (e.g., walls). Both the artificial features and biological cells come in families with varied receptive fields and offsets.
 
 ### [Predicting the Newline](#prediction)
 
@@ -300,11 +317,13 @@ The final step of the linebreak task is to combine the estimate of the line boun
 
 In the attribution graph for the aluminum prompt, we see exactly this merging of paths. The most influential featureInfluence in the sense of influence on the logit node, as defined in Ameisen et al.  in the entire graph is a late feature that activates in contexts where the next word would cause the current line to exceed the overall line width. For our prompt, this feature upweights the probability of newline and downweights the probability of “aluminum.” The top two inputs to this break predictor feature are a “say aluminum” feature and “boundary detecting” feature that gets activated by the aforementioned boundary head.
 
-![](images/img-018.png)
+![](images/70c76c7292ff39dd.png)
+)
 
 While the boundary detector activates regardless of the next token length, break predictor features activate only if the next token will exceed the length of the current line (as in the Aluminum prompt), and hence upweight the prediction of a newline.These features also sometimes activate on zero-width modifier tokens (e.g., a token which indicates the first letter of the following token should be capitalized) that need to be adjacent to the modified token, and the modified token is sufficiently long to go over the line limit (e.g. for “Aluminum” instead of “aluminum”). We also see break suppressor features, which only activate if the next token would just barely fit on the line, and hence downweight the prediction of a newline. Both break predictors and suppressors come in larger feature families, which we display in the [Appendix](#appendix-break-predictors).
 
-![](images/img-019.png)
+![](images/d441edcba06b433a.png)
+)
 
 Average activations of three features based on true next token character length and the characters remaining in a line (line width − character count).
 
@@ -314,8 +333,8 @@ What is the geometry underlying the model’s ability to determine if the next t
 
 To study this, we compute the average activations at the end of the model (~90% depth) across all tokens for all values of characters remaining i and next token lengths j.We use the true next non-newline token as the label. This is an approximation because it assumes that the model perfectly predicts the next token.  By performing a PCA on the combination of mean vectors, we see that the two counts are arranged in orthogonal subspaces with only moderate curvature. Note, this lower dimensional geometry may suffice here because the dynamic range of the count is much smaller.
 
-Low dimensional projections of next token character length and characters remaining counting manifolds for 1 (dark) to 15 (light) characters.  
-(Left) The PCA of their union. (Right) The PCA of all their pairwise combinations.  
+Low dimensional projections of next token character length and characters remaining counting manifolds for 1 (dark) to 15 (light) characters.
+(Left) The PCA of their union. (Right) The PCA of all their pairwise combinations.
 The orthogonal representations make the correct newline decision linearly separable.
 
 Now consider the pairwise sum of each possible character-remaining vector i and next-token-length vector j.This sum is principled because both sets of vectors are marginalized data means, so collectively have the mean of the data, which we center to be 0. Since these counts are arranged orthogonally, the decision to break the line i-j \geq 0 corresponds to a simple separating hyperplane. In other words, the prediction to break the line is made trivial by the underlying geometry!
@@ -332,7 +351,7 @@ We will show how Haiku uses many attention heads across multiple layers to coope
 
 To get an intuitive understanding of the behavior of the heads important for counting, we project their outputs into the PCA space of the line character count probes.We display the average outputs over many prompts. Layer 0 heads (left) each write along what appears as a ray when visualized in the first 3 principal components—it is their sum that generates a curved manifold. Layer 1 heads (right) instead output curves which combine to produce an increasingly complex manifold. They appear responsible for sharpening the Layer 0 representation and thus the estimate of the count. We find that the R^2 for the character count prediction The prediction is the argmax of the head outputs projected on the character count probes. of the 5 key Layer 0 heads is 0.93, compared to 0.97 using 11 heads in the first two layers.
 
-Comparison of Layer 0 (left) vs Layer 1 (right) average attention outputs in the PCA basis of the character count probes from 1 (dark) to 150 (light) characters. In each layer, the outputs from each head tile the space.  
+Comparison of Layer 0 (left) vs Layer 1 (right) average attention outputs in the PCA basis of the character count probes from 1 (dark) to 150 (light) characters. In each layer, the outputs from each head tile the space.
 In Layer 0, each head output is almost 1-dimensional, while in Layer 1 heads display more curvature (which they got from Layer 0!).
 
 #### Embedding Geometry
@@ -341,7 +360,8 @@ To understand how the character count is computed, we start at the very beginnin
 
 As before, we can train probes or compute the average weights for every distinct token length in the embedding. We visualize the token character count probes for character length 1–14 and visualize their top principal components. Using the first 3 principal components, which capture 70% of the variance, we see that embedding character counts are arranged in a circular pattern (PC1 vs PC2) with an oscillating component (PC3). This pattern is consistent with the ones observed in [Rippled Representations are Optimal](#rippled-representations).
 
-![](images/img-020.png)
+![](images/3fedb2f0a5741df6.png)
+)
 
 PCA of embedding vectors in W\_E averaged by token character length.
 
@@ -354,13 +374,15 @@ To understand the counting mechanism, we will work backwards from the summed att
 * Ignore MLPs – The attention head outputs affect the character count representation 4× more than the MLPs, so we restrict our focus to attention;
 * Focus on First Two Layers – Even after layer 0, counting probes have reasonable accuracy and there are coarse positional features. Therefore, we focus on how attention transforms the embeddings into the count and how layer 1 further refines this representation.
 
-![](images/img-021.png)
+![](images/bb4dda9ccdb35ffa.png)
+)
 
 The summed output of 5 important Layer 0 heads on one prompt by token. (Left) The inner product of the summed attention outputs and the character counting probes; (Right) How the argmax of this product compares to the true line count. Context position starts at the first newline, with newlines denoted with dashes.
 
 We can decompose the sum above into the contribution from the output of each individual head in layer 0.We omit a previous token head for visual presentation. Under this lens, we see each head performing a relatively low rank computation akin to a classification.
 
-![](images/img-022.png)
+![](images/8ce7788d1d3dc7f3.png)
+)
 
 The individual outputs of 4 important Layer 0 heads on one prompt projected onto the character count probes.
 
@@ -368,7 +390,8 @@ How do individual heads implement this behavior? We can break down the behavior 
 
 QK Circuit.  Each head h uses the previous newline as an “attention sink,” such that for some number of tokens after the newline (s\_h), the head just attends to the newline. After s\_h tokens, the head begins to smear its attention over its receptive field, which goes up to a maximum of r\_h tokens.
 
-![](images/img-023.png)
+![](images/88dab329500d39fd.png)
+)
 
 The average attention to the previous newline as a function of the token index in the line. Like boundary heads, these counting heads specialize with different positional offsets.
 
@@ -376,7 +399,8 @@ OV Circuit. The OV circuit coordinates with the QK circuit to create a heuristic
 
 Below, we include a detailed walkthrough of L0H1.
 
-![](images/img-024.png)
+![](images/9ec767b0a4da2f9d.png)
+)
 
 The QK and OV circuit of counting head L0H1. Top right: the head output projected onto the character counting probes for 64 tokens of a single prompt (truncated to the first newline). Bottom right: the attention pattern (transposed of the canonical ordering). Top right: the average embedding vectors projected onto the character count probes via the OV matrix. Bottom right: a summary of the overall computation.
 
@@ -390,7 +414,8 @@ To compute the line width, the model seems to use a similar distributed counting
 
 Humans are susceptible to “visual illusions” in which contextual cues can modulate perception in seemingly unexpected ways. Famous examples include the Müller-Lyer illusion, in which arrows placed on the ends of a line can alter the perceived length of the line ; the Ponzo and Sander illusions which also modulate perceived line length ; and others .
 
-![](images/img-025.png)
+![](images/b94f1a87c276e2b9.png)
+)
 
 Classic visual illusions in which perception of line-length is modulated.
 
@@ -402,25 +427,29 @@ To get started, we took the important attention heads for character counting and
 
 But what happens when this sequence appears outside of a git diff context—for instance, if we insert @@ in the aluminum prompt without changing the line length?
 
-![](images/img-026.png)
+![](images/47fd99b175eb3010.png)
+)
 
 We find that it does modulate the predicted next token, disrupting the newline prediction! As predicted, the relevant heads get distracted: whereas with the original prompt, the heads attend from newline to newline, in the altered prompt, the heads also attend to the @@.
 
-![](images/img-027.png)
+![](images/48f98a771a84d228.png)
+)
 
 Insertion of @@ ‘distracts’ an attention head which normally attends from \n back to the previous \n. (left) Original attention pattern (truncated). (right) Attention pattern (truncated) with @@ insertion. Now it also attends back to the @@.
 
 How specific is this result: does any pair of letters nonsensically inserted into the prompt fully disrupt the newline prediction? We analyzed the impact of inserting (at the same two positions) 180 different two-character sequences, half of which were a repeated character. We found that while most inserted sequences moderately impact the probability of predicting a newline, newline usually remains the top prediction. There was also no clear difference between sequences consisting of the same or different characters. However, a few sequences substantially disrupted newline prediction, most of which appeared to be related to code or delimiters of some kind: ``  >>  }}  ;|  ||  `,  @@.
 
-We further analyzed the extent to which there was a relationship between ‘distraction’ of the important attention heads and the impact on the newline prediction. Indeed we found that many of the sequences with potent modulation of newline probability––and especially code-related character pairs––also exhibited substantial modulation of attention patterns.
+We further analyzed the extent to which there was a relationship between ‘distraction’ of the important attention heads and the impact on the newline prediction. Indeed we found that many of the sequences with potent modulation of newline probability—and especially code-related character pairs—also exhibited substantial modulation of attention patterns.
 
-![](images/img-028.png)
+![](images/3418eb300dc183ac.png)
+)
 
-Insertion of most pairs of characters only moderately impacts the probability of predicting a newline. A subset of pairs, most of which appear related to code or delimiters, substantially disrupt newline prediction. The impact on newline prediction (originally 0.79) is correlated with how much inserted tokens ‘distracts’ character counting attention heads.
+Insertion of most pairs of characters only moderately impacts the probability of predicting a newline. A subset of pairs, most of which appear related to code or delimiters, substantially disrupt newline prediction. The impact on newline prediction (originally 0.79) is correlated with how much inserted tokens ‘distract’ character counting attention heads.
 
 While in the aluminum prompt the task is implicit, this illusion generalizes to settings where the comparison task is made explicit. These direct comparisons are perhaps more analogous to the Ponzo, Sander, and Müller-Lyer illusions, where the perception and comparison is more direct.
 
-![](images/img-029.png)
+![](images/051e562b886863fa.png)
+)
 
 These effects are robust to multiple choice orderings. Moreover, if the length of the text following the @@ exceeds that of the alternative choice, the alternative choice is selected as being shorter.
 
@@ -452,7 +481,7 @@ Naturalistic Behavior and Sensory Processing. Deep mechanistic case studies bene
 
 The Utility of Geometry.  Many of the representations and computations we studied had elegant geometric interpretations. For example, the counting manifolds are the result of an optimal tradeoff between capacity and resolution, with deep connections to space-filling curves and Fourier features. The boundary head twist was especially beautiful, and after discovering one such head, we were able to correctly predict that there would need to be additional heads to provide curvature in the output. The distributed character counting algorithm was more complex, but we were still able to clarify our view by studying linear actions on these manifolds. For other computations, like the final breaking decision, the linear separation was clearly a part of the story but there must be some additional complexity we were not able to see yet to handle multitoken outputs. For the more semantic operations, we purely relied on the feature view. Of course, describing any behavior in full is immensely complicated, and there is a long list of possible subtleties we did not study: how the model accounts for uncertainty in its counting, its mechanism for estimating the line width given multiple prior lines of text, how it adapts to documents with variable line width, how it handles multiple plausible output tokens of different lengths or multitoken words, or various special cases (e.g., a LaTeX \footnote{} or a markdown link). For the inspired, we share transcoder attribution graphs for a fixed-width line break prompt on [Gemma 2 2B](https://www.neuronpedia.org/gemma-2-2b/graph?slug=fourscoreandseve-1757368139332&pruningThreshold=0.8&densityThreshold=0.99&pinnedIds=14_19999_37&clerps=%5B%5B%2214_200290090_37%22%2C%22nearing+end+of+the+line%22%5D%5D) and [Qwen 3 4B](https://www.neuronpedia.org/qwen3-4b/graph?slug=fourscoreandseve-1757451285996&pruningThreshold=0.8&densityThreshold=0.99&clerps=%5B%5B%2230_117634760_39%22%2C%22nearing+end+of+line%22%5D%5D&pinnedIds=30_15307_39), using the new neuronpedia interactive interface.
 
-Unsupervised Discovery  It likely would not have been possible to develop this clarity if it were not for the unsupervised sparse features. In fact, when we started this project, we attempted to just probe and patch our way to understanding, but this turned out poorly. Specifically, we did not understand what we were looking for (e.g. we didn’t know to distinguish line width vs. character count), where to look for it (e.g., we didn’t expect line width to only be represented on the newline), or how to look for it (we started by training 1-D linear regression probes). However, after identifying some relevant features but before spending substantial effort systematically characterizing their activity profiles, we were also confused by what they were representing. We saw dozens of features that were vaguely about newlines and linebroken text, but their differences were not obvious from flipping through the activating examples. Only after we tested these features on synthetic datasets did their role in the graph and the underlying computation become clear. We suspect better automatic labels  enhanced with agentic workflows  would accelerate this work, especially in less verifiable domains.
+Unsupervised Discovery.  It likely would not have been possible to develop this clarity if it were not for the unsupervised sparse features. In fact, when we started this project, we attempted to just probe and patch our way to understanding, but this turned out poorly. Specifically, we did not understand what we were looking for (e.g. we didn’t know to distinguish line width vs. character count), where to look for it (e.g., we didn’t expect line width to only be represented on the newline), or how to look for it (we started by training 1-D linear regression probes). However, after identifying some relevant features but before spending substantial effort systematically characterizing their activity profiles, we were also confused by what they were representing. We saw dozens of features that were vaguely about newlines and linebroken text, but their differences were not obvious from flipping through the activating examples. Only after we tested these features on synthetic datasets did their role in the graph and the underlying computation become clear. We suspect better automatic labels  enhanced with agentic workflows  would accelerate this work, especially in less verifiable domains.
 
 Feature-Manifold Duality.  ​​The discrete feature and geometric feature-manifold perspectives offer dual lenses on the same underlying object. For example, in this work the model's representation of character count can be completely described (modulo reconstruction error) by the activities of the features we identified, where the action of the boundary heads is described by virtual weights that expand out the feature interactions via attention head matrices. The same character count representation can be described by a 1-dimensional feature manifold – a curve in the residual stream parametrized by the character count variable – where linear action of the boundary heads is described by continuous “twisting” of the manifold. In general, geometric structures learned by the model will likely admit both global parametrizations and local discrete approximations.
 
@@ -461,8 +490,6 @@ The Complexity Tax. Despite this duality, the descriptions produced by the two 
 A Call for Methodology. Armed with our feature understanding, we were able to directly search for the relevant geometric structures. This was an existence proof more than a general recipe, and we need methods that can automatically surface simpler structures to pay down the complexity tax. In our setting, this meant studying feature manifolds, and it would be nice to see unsupervised approaches to detecting them. In other cases we will need yet other tools to reduce the interpretation burden, like finding hierarchical representations  or macroscopic structure  in the global weights .
 
 A Call for Biology.  The model must perform other elegant computations. We can find these by starting with a specific task the model performs well, study this from multiple perspectives, develop methodology to answer the remaining questions, and relentlessly attempt to simplify our explanations. Because the investigation is grounded in specific examples of a behavior, it provides a fast feedback loop, can shed light on weaknesses of existing methods and inspire new ones, and can sharpen our conceptual language for understanding neural networks. We would be excited to see more deep case studies that adopt this approach.
-
- 
 
 ### [Citation Information](#citation-info)
 
@@ -475,12 +502,12 @@ Gurnee, et al., "When Models Manipulate Manifolds: The Geometry of a Counting Ta
 BibTeX citation
 
 ```
-@article{gurnee2025when,  
-  author={Gurnee, Wes and Ameisen, Emmanuel and Kauvar, Isaac and Tarng ,Julius and Pearce, Adam and Olah, Chris and Batson, Joshua},  
-  title={When Models Manipulate Manifolds: The Geometry of a Counting Task},  
-  journal={Transformer Circuits Thread},  
-  year={2025},  
-  url={https://transformer-circuits.pub/2025/linebreaks/index.html}  
+@article{gurnee2025when,
+  author={Gurnee, Wes and Ameisen, Emmanuel and Kauvar, Isaac and Tarng ,Julius and Pearce, Adam and Olah, Chris and Batson, Joshua},
+  title={When Models Manipulate Manifolds: The Geometry of a Counting Task},
+  journal={Transformer Circuits Thread},
+  year={2025},
+  url={https://transformer-circuits.pub/2025/linebreaks/index.html}
 }
 ```
 
@@ -492,29 +519,34 @@ We would like to thank the following people who reviewed an early version of the
 
 Haiku is able to adapt to the line length for every value of k, predicting newlines at the correct positions with high probability by the third line. Of course, some error is to be expected even with a perfect estimate of line length, as the model may incorrectly predict the next semantic token. Below is the mean log-prob and accuracy for newline prediction of Haiku on 200 prose sequences that were synthetically wrapped to have lines of character length k, for k = 20, 40, \ldots, 140.
 
-![](images/img-030.png)
+![](images/0ed73b7c1aca060d.png)
+)
 
 ### [Feature Splitting and Universality](#appendix-feature-splitting)
 
 It is natural to ask if the character counting features are fundamental, or simply one discretization of the space among many. We found that dictionaries of different sizes learn features with very similar receptive fields, so this featurization – including the slowly dilating widths – is in some sense canonical. We hypothesize that this canonical structure emerges from boundary constraint: positions near zero (start of line) create a natural anchoring point for feature development.
 
-![](images/img-031.png)
+![](images/944d6a84e13731a5.png)
+)
 
 The geometry of the decoder directions is also fairly consistent between the dictionaries, showing characteristic ringing.
 
-![](images/img-032.png)
+![](images/79e0591afc616f2c.png)
+)
 
-However, we do see some evidence of feature splitting. For example, below are three character count feature which activate on the same interval (~20–45 characters in the line), but differentially activate for lines of different widths: LCC2.a activates on all line widths, LCC2.b preferentially activates on long line widths, and LCC2.c preferentially activates when close to the line width boundary.
+However, we do see some evidence of feature splitting. For example, below are three character count features which activate on the same interval (~20–45 characters in the line), but differentially activate for lines of different widths: LCC2.a activates on all line widths, LCC2.b preferentially activates on long line widths, and LCC2.c preferentially activates when close to the line width boundary.
 
-![](images/img-033.png)
+![](images/80c0033b507caf72.png)
+)
 
-Recent work has raised the possibility that feature dictionaries could behave pathologically where there exist feature manifolds , because a dictionary could allocate an increasing number of features in a finer tiling of the space. However, our observation that cross-coders of varying size tile this feature manifold in a canonical way suggest that this behavior does not occur in this setting.
+Recent work has raised the possibility that feature dictionaries could behave pathologically where there exist feature manifolds , because a dictionary could allocate an increasing number of features in a finer tiling of the space. However, our observation that cross-coders of varying size tile this feature manifold in a canonical way suggests that this behavior does not occur in this setting.
 
 ### [Line Width Features](#appendix-width-features)
 
 Line width features tile the space similar to character count features.
 
-![](images/img-034.png)
+![](images/2c412ac4a641c4b6.png)
+)
 
 ### [Dynamical System Model](#appendix-dynamical)
 
@@ -524,57 +556,68 @@ We simulate N = 100 points on the unit (n-1)-sphere in \mathbb{R}^n (n \in \{3,\
 
 We explore a deeper connection between the ringing observed in the character count feature manifold, and a connection to Fourier analysis in an analytical construction.
 
-Suppose that we wish to have a discretized circle's worth of unit vectors, each similar to its neighbors but orthogonal to those further away. Then the cosine similarity matrix X of these will be the circulant matrix of a narrow-peaked function f (left, below). The columns of the square root of X are n vectors v\_1,\ldots,v\_n \in \mathbb{R}^n, where n is the number of discrete points on the circle, whose inner products reproduce the similarity matrix.The entire continuous circle embeds into the infinite-dimensional Hilbert space L^2\mathbb{S^1} via this construction. Now suppose we would like to find vectors in a lower-dimensional space whose similarity matrix approximates X, like the model does for character counts. The best k-dimensional approximation of this similarity, in an L^2 sense, is given by taking the eigendecomposition of X and truncating it to the top k eigenvectors; the square root of the result will provide n vectors in k-dimensions with the corresponding similarity pattern. If \pi\_k is the projector onto the span of the top k eigenvectors, then the images \pi\_k v\_i, which live in a k-dimensional subspace, are precisely those vectors. We can see below that the resulting low-rank matrix has ringing ([colab notebook](https://colab.research.google.com/drive/13L51UzyNQ6SnjNZRyhWsx_QuyQ3LoosW#scrollTo=c1q8ozayknvl)). Finally, because the [discrete Fourier transform diagonalizes circulant matrices](https://en.wikipedia.org/wiki/Circulant_matrix), the Fourier coefficients of f are in fact the principal values of X; the low-rank approximation consists of truncating the small fourier coefficients of f; and the resulting rows of X exhibit ringing.
+Suppose that we wish to have a discretized circle's worth of unit vectors, each similar to its neighbors but orthogonal to those further away. Then the cosine similarity matrix X of these will be the circulant matrix of a narrow-peaked function f (left, below). The columns of the square root of X are n vectors v\_1,\ldots,v\_n \in \mathbb{R}^n, where n is the number of discrete points on the circle, whose inner products reproduce the similarity matrix.The entire continuous circle embeds into the infinite-dimensional Hilbert space L^2\mathbb{S^1} via this construction. Now suppose we would like to find vectors in a lower-dimensional space whose similarity matrix approximates X, like the model does for character counts. The best k-dimensional approximation of this similarity, in an L^2 sense, is given by taking the eigendecomposition of X and truncating it to the top k eigenvectors; the square root of the result will provide n vectors in k-dimensions with the corresponding similarity pattern. If \pi\_k is the projector onto the span of the top k eigenvectors, then the images \pi\_k v\_i, which live in a k-dimensional subspace, are precisely those vectors. We can see below that the resulting low-rank matrix has ringing ([colab notebook](https://colab.research.google.com/drive/13L51UzyNQ6SnjNZRyhWsx_QuyQ3LoosW#scrollTo=c1q8ozayknvl)). Finally, because the [discrete Fourier transform diagonalizes circulant matrices](https://en.wikipedia.org/wiki/Circulant_matrix), the Fourier coefficients of f are in fact the principal values of X; the low-rank approximation consists of truncating the small Fourier coefficients of f; and the resulting rows of X exhibit ringing.
 
-![](images/img-035.png)
+![](images/5fe26d24c6f8b3b4.png)
+)
 
 One essential feature of the representation of line character counts is that the “boundary head” twists the representation, enabling each count to pair with a count slightly larger, indicating that the boundary is close. That is, there is a linear map QK which slides the character count curve along itself. Such an action is not admitted by generic high-curvature embeddings of the circle or the interval like the ones in the physical model we constructed. But it is present in both the manifold we observe in Haiku and, as we now show, in the Fourier construction. First, note permutating the coordinates of \mathbb{R}^n by taking e\_i \mapsto e\_{i+1} has the effect of mapping v\_i \mapsto v\_{i+1}. That is, the (linear) action of this permutation \rho on \mathbb{R}^n acts by a rotation of the embedded circle with respect to its intrinsic geometry. Because conjugation by \rho fixes the circulant matrix X, it therefore respects its eigendecomposition, and thus commutes with the projection \pi\_k onto the vector space spanned by its top k eigenvectors. The restriction of \rho to that subspace, \overline{\rho}:=\pi\_k \circ \rho \circ \pi\_k, acts by rotation on the lower-dimensional vectors \overline{\rho}: \pi\_k v\_i \mapsto \pi\_k v\_{i+1}. Thus we have found n vectors in a k-dimensional space, whose similarity is as close as possible to X (and has ringing), with a linear action of \mathbb{R}^k that rotates the vectors along a rippled embedded circle.
 
 We evaluate whether a Fourier decomposition of the character count curve is optimal, and find that it is quite close given that it does not account for dilation. Fourier components explain at most 10% less variance than an equivalent number of PCA components, which are optimal for capturing variance.
 
-![](images/img-036.png)
+![](images/5672c650463efc95.png)
+)
 
 Finally, we note that as one moves through layers, the representation becomes more peaked. This sharpening of the receptive field is useful to the model to better estimate character counts, and corresponds to higher curvature in the embedding and, as predicted by the model above, more pronounced ringing. Below we show cross-sections (at character count 30, 60, 90, 120) of the cosine similarity matrix of probes trained after layers 0, 1, 2, and 3. With each subsequent layer, the graphs get more tightly peaked and secondary rings go higher.
 
-![](images/img-037.png)
+![](images/8212a6b4126d6052.png)
+)
 
 ### [Geometry of Twisting](#appendix-twisting)
 
 Different heads access and manipulate the space in different ways. Below, we show the cosine similarity of both probe sets through QK for three heads: one which keeps them aligned, one which shifts character count to align better with later line widths, and one which does the opposite.
 
-![](images/img-038.png)
+![](images/bdd5173d0749cec6.png)
+)
 
 We can also look at this transformation by visualizing the Singular Value Decomposition of each set of probes in a joint basis after passing them through QK. Once more, the alignment, left offset, and right offset can be read directly from the components.
 
-![](images/img-039.png)
+![](images/997b6593e1f01205.png)
+)
 
 We can directly plot the first 3 components of the joint probe space after passing them through each QK. Doing so shows that one head keeps the representations aligned, while the others twist them either clockwise or counterclockwise.
 
-![](images/img-040.png)
+![](images/90baa2e0b5ea31ce.png)
+)
 
 ### [Break Predictor Features](#appendix-break-predictors)
 
 Boundary detector features (at about ~⅓ model depth) do not take into account the length of the next token.
 
-![](images/img-041.png)
+![](images/ade5d0ec579d0614.png)
+)
 
 Later in the model, there exist features which incorporate both the number of characters remaining and the length of the most likely next token. These features only activate when the most likely next token is longer than the number of characters remaining (i.e. below the red diagonal below), as is the case in our aluminum prompt.
 
-![](images/img-042.png)
+![](images/0dd24fd35f1c3140.png)
+)
 
 We also found features for the converse: features which suppress the newline because the predicted next token is shorter than the number of characters remaining in the line.
 
-![](images/img-043.png)
+![](images/3171f516148d05a4.png)
+)
 
 Both break prediction and suppression features sometimes also have interpretable logit effects on the output of all tokens, not just the newline. For instance, the features below respectively excite and suppress the newline as their top effect, but also systematically suppress tokens with more characters. This is because if the model is wrong about the value of the next token (and whether it's a newline), the token must at least be short enough to fit on the line.
 
-![](images/img-044.png)
+![](images/387fe006199cf963.png)
+)
 
 ### [Representing Token Lengths](#appendix-token-lengths)
 
 We find layer 0 features that activate as a function of the character count of individual tokens.
 
-![](images/img-045.png)
+![](images/f6b877135800b680.png)
+)
 
 These features are overlapping (e.g. there are tokens for which the long word and medium word features are both active) and non-exhaustive (none of them fire on some common tokens, where we suspect the representation of character length is partially absorbed  into features which just activate for that token).
 
@@ -590,17 +633,20 @@ As a toy model, consider the following construction for character counting with 
 
 This produces a ray with total length proportional to the character count of the line.
 
-![](images/img-046.png)
+![](images/af25abbc0a497567.png)
+)
 
 In practice, we observe that individual attention heads do indeed use the newline as an attention sink, but at different offsets. As an example, we visualize the attention patterns of 4 important Layer 0 heads on several prompts with different line widths (starting from the first newline in the sequence).
 
-![](images/img-047.png)
+![](images/43ccf7514df31957.png)
+)
 
 Attention patterns of four important Layer 0 heads (columns) for 3 different prompts (rows) prompt showing head specialization. Patterns start from the first newline with red dashes indicating linebreaks.
 
 To characterize the mechanism more precisely, we compute the average attention as a function of the number of tokens since the previous newline and also as a function of the character length of individual tokens.
 
-![](images/img-048.png)
+![](images/c1cc0c534aaa6dee.png)
+)
 
 Normalized attention as a function of tokens since newline (left) and token character length (right) for four heads. Each head specialized in a different offset similar to boundary heads.
 
@@ -608,7 +654,8 @@ Similar to boundary detection, individual attention heads specialize in particul
 
 In addition to QK, a head can change its output based on the OV circuit . We study this by analyzing the pairwise interaction of probes as mediated by the OV matrix. Specifically, for the averaged token embedding vectors for each token length E\_t That is, for each token character length i, we compute the average embedding vector in W\_E. We also prepend this with the newline embedding vector to make the plot below., our line length probes P\_c, and the weight matrices for the attention output of each head W\_{OV}, we compute P\_c^T W\_{OV} E\_t.
 
-![](images/img-049.png)
+![](images/046bff8053348c46.png)
+)
 
 Inner product of line character count and token character count through OV for 4 important layer 0 heads. The OV responses reflect the difference in attention pattern biases.
 
@@ -630,25 +677,30 @@ Other heads perform a similar operation, except with different offsets dependin
 
 Similar to the OVs of the Layer 0 attention heads, Layer 1 heads write to the character count features in accordance to how long the tokens they attend to are.
 
-![](images/img-050.png)
+![](images/77326f9b575e3a4d.png)
+)
 
 However, in addition to the token character length, Layer 1 heads also use the initial line length estimate constructed in Layer 0 to create a more refined estimate of the character count.
 
-![](images/img-051.png)
+![](images/25e9a64cb7e11420.png)
+)
 
 These repeated computations appear responsible for implementing the sharpening of representations.
 
-![](images/img-052.png)
+![](images/584d4c467b4daa69.png)
+)
 
 ### [Full Layer 0 Attention Results](#appendix-full-l0-attn)
 
 Below, we show head sums for 3 different prompts with different line widths.
 
-![](images/img-053.png)
+![](images/71196fe2fdfd17e1.png)
+)
 
 As before, we can look at their decomposition.
 
-![](images/img-054.png)
+![](images/42dbe0f12d782252.png)
+)
 
 ### [More Sensory and Counting Representations](#appendix-sensory)
 
@@ -656,9 +708,10 @@ While in this work we carefully studied the perception of line lengths and fixed
 
 #### What Follows an Early Linebreak?
 
-In addition to line width for tracking the absolute character length of a full line of text, there also exist features that are sensitive to lines which have ended early (i.e, lines where the character count is substantially shorter than the line width k). While these features are less useful for linebreaking, they enable the model to better predict the token following a linebreak. Specifically, if a line ends c characters before the line limit k, the next word should be at least c characters, otherwise it would have been able to fit in the previous line.
+In addition to line width for tracking the absolute character length of a full line of text, there also exist features that are sensitive to lines which have ended early (i.e., lines where the character count is substantially shorter than the line width k). While these features are less useful for linebreaking, they enable the model to better predict the token following a linebreak. Specifically, if a line ends c characters before the line limit k, the next word should be at least c characters, otherwise it would have been able to fit in the previous line.
 
-![](images/img-055.png)
+![](images/92face99c339e4e3.png)
+)
 
 A feature family for how many characters were remaining in a line after it was broken.
 
@@ -668,17 +721,20 @@ It is worth emphasizing that the role of these features, like others in this wor
 
 In addition to prose, language models must parse other kinds of more structured data like tables. Accurate prediction of a table’s content requires careful integration of row and column information (e.g. is this a column of text or numbers?). To facilitate this, we use a synthetic dataset of 20 markdown tables to find feature families which activate on separator tokens, specialized to particular rows or columns. Visualizing feature activations on each of these 20 tables (arranged by location in the table) showed clear patterns.
 
-![](images/img-056.png)
+![](images/39adc27a8dba8e25.png)
+)
 
 A feature family for the row index in markdown tables. Activations are shown for 20 tables on the "|" token in the first column of the nth row.
 
-![](images/img-057.png)
+![](images/85a6557d0b3ccd11.png)
+)
 
 A feature family for the column index in markdown tables. Activations are shown for 20 tables on the "|" tokens in the nth column.
 
 On a synthetic dataset of larger tables, we also observe counting representations for the column and row index that resemble the character counting representations. Specifically, we see ringing in the pairwise probe cosine similarities and the characteristic “baseball seam” in the PCA basis.
 
-![](images/img-058.png)
+![](images/2f132bbc7f59ab0b.png)
+)
 
 Representations of markdown table row indices (left) and column indices (right). (Top) pairwise inner products of probes trained to predict the index; (bottom) probes projected into a 3D PCA basis.
 

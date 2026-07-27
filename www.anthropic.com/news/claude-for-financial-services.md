@@ -4,13 +4,13 @@
 
 Jul 15, 2025
 
-![Illustration of a step chart with growth arrows](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F333cd5ef21b4254fcd7f20ce5ae9e2697a0a425d-2880x1620.png&w=3840&q=75)
+![Illustration of a step chart with growth arrows](https://www-cdn.anthropic.com/images/4zrzovbb/website/333cd5ef21b4254fcd7f20ce5ae9e2697a0a425d-2880x1620.png)
 
 Today, we're introducing a comprehensive solution for financial analysis that transforms how finance professionals analyze markets, conduct research, and make investment decisions with Claude.
 
 The Financial Analysis Solution unifies your financial data—from market feeds to internal data stored in platforms like Databricks and Snowflake—into a single interface. Access your critical data sources with direct hyperlinks to source materials for instant verification, all in one platform with expanded capacity for demanding financial workloads.
 
-![A price performance chart showing movement with key events](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8e5e04d55f4bcd660503514efdc3f3a1bf32694d-2880x1620.png&w=3840&q=75)
+![A price performance chart showing movement with key events](https://www-cdn.anthropic.com/images/4zrzovbb/website/8e5e04d55f4bcd660503514efdc3f3a1bf32694d-2880x1620.png)
 
 Our Financial Analysis Solution includes:
 
@@ -55,7 +55,7 @@ Our ecosystem delivers both data access and implementation expertise through lea
 
 Claude accelerates critical investment and analysis workflows including due diligence and market research, competitive benchmarking and portfolio deep dives, financial modeling with full audit trails, and generating institutional-quality investment memos and pitch decks. Teams can monitor portfolio performance and compare metrics across investments to identify opportunities faster than traditional methods.
 
-![A Comparable Company Analysis Chart](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F57c89bc3582c7f3bce005f864c077bf7b015f626-2880x1620.png&w=3840&q=75)
+![A Comparable Company Analysis Chart](https://www-cdn.anthropic.com/images/4zrzovbb/website/57c89bc3582c7f3bce005f864c077bf7b015f626-2880x1620.png)
 
 Leading financial institutions are seeing proven results:
 

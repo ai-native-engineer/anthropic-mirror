@@ -4,7 +4,7 @@
 
 Jun 2, 2026
 
-![Expanding Project Glasswing](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F19e93d85e033d3f992b78cbce2c5a3f60709bd3b-3840x2160.jpg&w=3840&q=75)
+![Expanding Project Glasswing](https://www-cdn.anthropic.com/images/4zrzovbb/website/19e93d85e033d3f992b78cbce2c5a3f60709bd3b-3840x2160.jpg)
 
 [Project Glasswing](https://www.anthropic.com/glasswing) is our collaborative effort to secure the world’s most important software. In early April, we announced that roughly 50 initial partners had access to Claude Mythos Preview, and since then, they’ve been deploying the model to scan their codebases for vulnerabilities. We recently [described](https://www.anthropic.com/research/glasswing-initial-update) how these partners have so far found more than 10,000 high- or critical-severity security flaws.
 

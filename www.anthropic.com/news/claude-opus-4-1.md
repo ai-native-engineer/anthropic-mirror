@@ -14,11 +14,11 @@ Opus 4.1 is now available to paid Claude users and in Claude Code. It's also on 
 
 Opus 4.1 advances our state-of-the-art coding performance to 74.5% on [SWE-bench Verified](https://www.swebench.com/). It also improves Claude’s in-depth research and data analysis skills, especially around detail tracking and agentic search.
 
-![Chart showing Claude's progress on a popular coding evaluation](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fdced1e451a52da3bcb3807d7a9510b1b5426ace6-3840x2160.png&w=3840&q=75)
+![Chart showing Claude's progress on a popular coding evaluation](https://www-cdn.anthropic.com/images/4zrzovbb/website/dced1e451a52da3bcb3807d7a9510b1b5426ace6-3840x2160.png)
 
 **GitHub** notes that Claude Opus 4.1 improves across most capabilities relative to Opus 4, with particularly notable performance gains in multi-file code refactoring. **Rakuten Group** finds that Opus 4.1 excels at pinpointing exact corrections within large codebases without making unnecessary adjustments or introducing bugs, with their team preferring this precision for everyday debugging tasks. **Windsurf** reports Opus 4.1 delivers a one standard deviation improvement over Opus 4 on their junior developer benchmark, showing roughly the same performance leap as the jump from Sonnet 3.7 to Sonnet 4.
 
-![A benchmark table comparing Claude Opus 4.1 to prior Claude models and other public models](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fbde326699c667506c87f74b09a6355961d29eb26-2600x2084.png&w=3840&q=75)
+![A benchmark table comparing Claude Opus 4.1 to prior Claude models and other public models](https://www-cdn.anthropic.com/images/4zrzovbb/website/bde326699c667506c87f74b09a6355961d29eb26-2600x2084.png)
 
 ## Getting started
 

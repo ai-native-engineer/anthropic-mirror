@@ -4,7 +4,7 @@
 
 Jul 1, 2024
 
-![A computer chip inside a flame](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fefd36fc64fd3b723e596406e5320161276017b57-2880x1620.png&w=3840&q=75)
+![A computer chip inside a flame](https://www-cdn.anthropic.com/images/4zrzovbb/website/efd36fc64fd3b723e596406e5320161276017b57-2880x1620.png)
 
 A [robust, third-party evaluation ecosystem](https://www.anthropic.com/news/third-party-testing) is essential for assessing AI capabilities and risks, but the current evaluations landscape is limited. Developing high-quality, safety-relevant evaluations remains challenging, and the demand is outpacing the supply. To address this, today we're introducing a new initiative to fund evaluations developed by third-party organizations that can effectively measure advanced capabilities in AI models. Our investment in these evaluations is intended to elevate the entire field of AI safety, providing valuable tools that benefit the whole ecosystem.
 

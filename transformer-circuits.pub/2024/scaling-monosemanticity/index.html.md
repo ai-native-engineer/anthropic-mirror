@@ -4,7 +4,7 @@
 
 # Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet
 
-![](images/img-001.png)
+![](images/36ccd46e5ca63aa4.png)
 
 ### Authors
 
@@ -44,14 +44,14 @@ Tom Henighan
 May 21, 2024
 
 \* Core Contributor;
-Correspondence to <henighan@anthropic.com>;
+Correspondence to [henighan@anthropic.com](https://transformer-circuits.pub/2024/scaling-monosemanticity/henighan@anthropic.com);
 [Author contributions statement below](#appendix-author-contributions).
 
 Eight months ago, we [demonstrated](https://transformer-circuits.pub/2023/monosemantic-features/index.html) that sparse autoencoders could recover monosemantic features from a small one-layer transformer. At the time, a major concern was that this method might not scale feasibly to state-of-the-art transformers and, as a result, be unable to practically contribute to AI safety. Since then, scaling sparse autoencoders has been a major priority of the Anthropic interpretability team, and we're pleased to report extracting high-quality features from Claude 3 Sonnet,For clarity, this is the 3.0 version of Claude 3 Sonnet, released March 4, 2024. It is the exact model in production as of the writing of this paper. It is the finetuned model, not the base pretrained model (although our method also works on the base model). Anthropic's medium-sized production model.
 
 We find a diversity of highly abstract features. They both respond to and behaviorally cause abstract behaviors. Examples of features we find include features for famous people, features for countries and cities, and features tracking type signatures in code. Many features are multilingual (responding to the same concept across languages) and multimodal (responding to the same concept in both text and images), as well as encompassing both abstract and concrete instantiations of the same idea (such as code with security vulnerabilities, and abstract discussion of security vulnerabilities).
 
-![](images/img-002.png)
+![](images/90d7172e2619b7d6.png)
 
 Some of the features we find are of particular interest because they may be safety-relevant – that is, they are plausibly connected to a range of ways in which modern AI systems may cause harm. In particular, we find features related to [security vulnerabilities and backdoors in code](#safety-relevant-code); [bias](#safety-relevant-bias) (including both overt slurs, and more subtle biases); [lying, deception, and power-seeking](#safety-relevant-deception) (including treacherous turns); [sycophancy](#safety-relevant-sycophancy); and [dangerous / criminal content](#safety-relevant-criminal) (e.g., producing bioweapons). However, we caution not to read too much into the mere existence of such features: there's a difference (for example) between knowing about lies, being capable of lying, and actually lying in the real world. This research is also very preliminary. Further work will be needed to understand the implications of these potentially safety-relevant features.
 
@@ -63,13 +63,6 @@ Some of the features we find are of particular interest because they may be safe
 * There [appears to be a systematic relationship](#feature-survey-completeness) between the frequency of concepts and the dictionary size needed to resolve features for them.
 * Features can be used to steer large models (see e.g. [Influence on Behavior](#assessing-tour-influence)). This extends prior work on steering models using other methods (see [Related Work](#related-work-steering)).
 * We observe features related to a broad range of safety concerns, including [deception](#safety-relevant-deception), [sycophancy](#safety-relevant-sycophancy), [bias](#safety-relevant-bias), and [dangerous content](#safety-relevant-criminal).
-
-  
-  
-  
-
-  
-  
 
 ## [Scaling Dictionary Learning to Claude 3 Sonnet](#scaling-to-sonnet)
 
@@ -131,20 +124,13 @@ We make the following observations:
 
 Over the ranges we tested, given the compute-optimal choice of training steps and number of features, loss decreases approximately according to a power law with respect to compute.
 
-![](images/img-003.png)
+![](images/816c4d4b1fe184e3.png)
 
 As the compute budget increases, the optimal allocations of FLOPS to training steps and number of features both scale approximately as power laws. In general, the optimal number of features appears to scale somewhat more quickly than the optimal number of training steps at the compute budgets we tested, though this trend may change at higher compute budgets.
 
-![](images/img-004.png)
+![](images/f72c633f1d7b840c.png)
 
 These analyses used a fixed learning rate. For different compute budgets, we subsequently swept over learning rates at different optimal parameter settings according to the plots above. The inferred optimal learning rates decreased approximately as a power law as a function of compute budget, and we extrapolated this trend to choose learning rates for the larger runs.
-
-  
-  
-  
-
-  
-  
 
 ## [Assessing Feature Interpretability](#assessing-interp)
 
@@ -158,14 +144,14 @@ In this subsection, we'll look at a few features and argue that they are genuine
 
 The features we study in this section respond to:
 
-* The Golden Gate Bridge [34M/31164353](features/index.html?featureId=34M_31164353): Descriptions of or references to the Golden Gate Bridge.
-* Brain sciences [34M/9493533](features/index.html?featureId=34M_9493533): discussions of neuroscience and related academic research on brains or minds.
-* Monuments and popular tourist attractions [1M/887839](features/index.html?featureId=1M_887839)
-* Transit infrastructure [1M/3](features/index.html?featureId=1M_3)
+* The Golden Gate Bridge [34M/31164353](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_31164353): Descriptions of or references to the Golden Gate Bridge.
+* Brain sciences [34M/9493533](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_9493533): discussions of neuroscience and related academic research on brains or minds.
+* Monuments and popular tourist attractions [1M/887839](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_887839)
+* Transit infrastructure [1M/3](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_3)
 
 Here and elsewhere in the paper, for each feature, we show representative examples from the top 20 text inputs in our SAE dataset, as ranked by how strongly they activate that feature (see the appendix for [details](#appendix-methods-dataset)). A larger, randomly sampled set of activations can be found by clicking on the feature ID. The highlight colors indicate activation strength at each token (white: no activation, orange: strongest activation).
 
-[34M/31164353](features/index.html?featureId=34M_31164353)
+[34M/31164353](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_31164353)
 **Golden Gate Bridge**
 
 nd (that's the⏎huge park right next to the Golden Gate bridge), perfect. But not all people⏎can live in
@@ -178,7 +164,7 @@ l to reach and if we were going to see the Golden Gate Bridge before sunset, we 
 
 t it?" " Because of what's above it." "The Golden Gate Bridge." "The fort fronts the anchorage and the
 
-[34M/9493533](features/index.html?featureId=34M_9493533)
+[34M/9493533](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_9493533)
 **Brain sciences**
 
 ------⏎mjlee⏎I really enjoy books on neuroscience that change the way I think about⏎perception.⏎⏎Phanto
@@ -191,7 +177,7 @@ interested in learning more about cognition, should I study⏎neuroscience, or s
 
 Consciousness and the Social Brain," by Graziano is a great place to start.⏎⏎------⏎ozy⏎I would want a
 
-[1M/887839](features/index.html?featureId=1M_887839)
+[1M/887839](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_887839)
 **Monuments and popular tourist attractions**
 
 eautiful country, a bit eerily so. The blue lagoon is stunning to look⏎at but too expensive to bathe in
@@ -204,7 +190,7 @@ st kind of beautiful." "What about the Alamo?" "Do people..." "Oh, the Alamo." "
 
 you⏎have to go to the big tourist attractions at least once like the San Diego Zoo⏎and Sea World.⏎⏎---
 
-[1M/3](features/index.html?featureId=1M_3)
+[1M/3](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_3)
 **Transit infrastructure**
 
 lly every train line has to cross one particular bridge,⏎which is a massive choke point. A subway or el
@@ -237,16 +223,16 @@ By scoring examples of activating text, we provide a measure of specificity for 
 
 Below we show distributions of feature activations (excluding zero activations) for the four features mentioned above, along with example text and image inputs that induce low and high activations. Note that these features also activate on relevant images, despite our only performing dictionary learning on a text-based dataset!
 
-First, we study a Golden Gate Bridge feature [34M/31164353](features/index.html?featureId=34M_31164353). Its greatest activations are essentially all references to the bridge, and weaker activations also include related tourist attractions, similar bridges, and other monuments. Next, a brain sciences feature [34M/9493533](features/index.html?featureId=34M_9493533) activates on discussions of neuroscience books and courses, as well as cognitive science, psychology, and related philosophy. In the 1M training run, we also find a feature that strongly activates for various kinds of transit infrastructure [1M/3](features/index.html?featureId=1M_3) including trains, ferries, tunnels, bridges, and even wormholes! A final feature [1M/887839](features/index.html?featureId=1M_887839)  responds to popular tourist attractions including the Eiffel Tower, the Tower of Pisa, the Golden Gate Bridge, and the Sistine Chapel.
+First, we study a Golden Gate Bridge feature [34M/31164353](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_31164353). Its greatest activations are essentially all references to the bridge, and weaker activations also include related tourist attractions, similar bridges, and other monuments. Next, a brain sciences feature [34M/9493533](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_9493533) activates on discussions of neuroscience books and courses, as well as cognitive science, psychology, and related philosophy. In the 1M training run, we also find a feature that strongly activates for various kinds of transit infrastructure [1M/3](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_3) including trains, ferries, tunnels, bridges, and even wormholes! A final feature [1M/887839](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_887839)  responds to popular tourist attractions including the Eiffel Tower, the Tower of Pisa, the Golden Gate Bridge, and the Sistine Chapel.
 
 To quantify specificity, we used Claude 3 Opus to automatically score examples that activate these features according to the rubric above, with roughly 1000 activations of the feature drawn from the dataset used to train the dictionary learning model. We plot the frequency of each rubric score as a function of the feature’s activation level. We see that inputs that induce strong feature activations are all judged to be highly consistent with the proposed interpretation.
 
-![](images/img-005.png)
-![](images/img-006.png)
-![](images/img-007.png)
-![](images/img-008.png)
+![](images/1af81ed708790cb1.png)
+![](images/908893aa42a5bbeb.png)
+![](images/f69697ce824022cc.png)
+![](images/b15781c2acf83d4d.png)
 
-As in Towards Monosemanticity, we see that these features become less specific as the activation strength weakens. This could be due to the model using activation strengths to represent confidence in a concept being present. Or it may be that the feature activates most strongly for central examples of the feature, but weakly for related ideas – for example, the Golden Gate Bridge feature [34M/31164353](features/index.html?featureId=34M_31164353) appears to weakly activate for other San Francisco landmarks. It could also reflect imperfection in our dictionary learning procedure. For example, it may be that the architecture of the autoencoder is not able to extract and discriminate among features as cleanly as we might want. And of course interference from features that are not exactly orthogonal could also be a culprit, making it more difficult for Sonnet itself to activate features on precisely the right examples. It is also plausible that our feature interpretations slightly misrepresent the feature's actual function, and that this inaccuracy manifests more clearly at lower activations. Nonetheless, we often find that lower activations tend to maintain some specificity to our interpretations, including related concepts or generalizations of the core feature. As an illustrative example, weak activations of the transit infrastructure feature [1M/3](features/index.html?featureId=1M_3) include procedural mechanics instructions describing which through-holes to use for particular parts.
+As in Towards Monosemanticity, we see that these features become less specific as the activation strength weakens. This could be due to the model using activation strengths to represent confidence in a concept being present. Or it may be that the feature activates most strongly for central examples of the feature, but weakly for related ideas – for example, the Golden Gate Bridge feature [34M/31164353](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_31164353) appears to weakly activate for other San Francisco landmarks. It could also reflect imperfection in our dictionary learning procedure. For example, it may be that the architecture of the autoencoder is not able to extract and discriminate among features as cleanly as we might want. And of course interference from features that are not exactly orthogonal could also be a culprit, making it more difficult for Sonnet itself to activate features on precisely the right examples. It is also plausible that our feature interpretations slightly misrepresent the feature's actual function, and that this inaccuracy manifests more clearly at lower activations. Nonetheless, we often find that lower activations tend to maintain some specificity to our interpretations, including related concepts or generalizations of the core feature. As an illustrative example, weak activations of the transit infrastructure feature [1M/3](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_3) include procedural mechanics instructions describing which through-holes to use for particular parts.
 
 Moreover, we expect that very weak activations of features are not especially meaningful, and thus we are not too concerned with low specificity scores for these activation ranges. For instance, we have observed that techniques such as rounding feature activations below a threshold to zero can improve specificity at the low-activation end of the spectrum without substantially increasing the reconstruction error of the SAE, and there are a variety of techniques in the literature that potentially address the same issue .
 
@@ -254,7 +240,7 @@ Regardless, the activations that have the most impact on the model’s behavior 
 
 Note that we have had more difficulty in quantifying feature sensitivity – that is, how reliably a feature activates for text that matches our proposed interpretation – in a scalable, rigorous way. This is due to the difficulty of generating text related to a concept in an unbiased fashion. Moreover, many features may represent something more specific than we are able to glean with our visualizations, in which case they would not respond reliably to text selected based on our proposed interpretation, and this problem gets harder the more abstract the features are. As a basic check, however, we observe that the Golden Gate Bridge feature still fires strongly on the first sentence of the Wikipedia article for the Golden Gate Bridge in various languages (after removing any English parentheticals). In fact, the Golden Gate Bridge feature is the top feature by average activation for every example below.
 
-[34M/31164353](features/index.html?featureId=34M_31164353)
+[34M/31164353](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_31164353)
 **Golden Gate Bridge**
 Multilingual examples
 
@@ -276,9 +262,9 @@ We leave further investigation of this issue to future work.
 
 Next, to demonstrate whether our interpretations of features accurately describe their influence on model behavior, we experiment with feature steering, where we “clamp” specific features of interest to artificially high or low values during the forward pass (see [Methodological Details](#appendix-methods-steering) for implementation details). This builds on a long history of modifying feature activations to test causal theories, as well as work on other approaches to model steering, [discussed](#related-work-steering) in Related Work. We conduct these experiments with prompts in the “Human:”/“Assistant:” format that Sonnet is typically used with. We find that feature steering is remarkably effective at modifying model outputs in specific, interpretable ways. It can be used to modify the model’s demeanor, preferences, stated goals, and biases; to induce it to make specific errors; and to circumvent model safeguards (see also [Safety-Relevant Features](#safety-relevant)). We find this compelling evidence that our interpretations of features line up with how they are used by the model.
 
-For instance, we see that clamping the Golden Gate Bridge feature [34M/31164353](features/index.html?featureId=34M_31164353) to 10× its maximum activation value induces thematically-related model behavior. In this example, the model starts to self-identify as the Golden Gate Bridge! Similarly, clamping the Transit infrastructure feature [1M/3](features/index.html?featureId=1M_3) to 5× its maximum activation value causes the model to mention a bridge when it otherwise would not. In each case, the downstream influence of the feature appears consistent with our interpretation of the feature, even though these interpretations were made based only on the contexts in which the feature activates and we are intervening in contexts in which the feature is inactive.
+For instance, we see that clamping the Golden Gate Bridge feature [34M/31164353](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_31164353) to 10× its maximum activation value induces thematically-related model behavior. In this example, the model starts to self-identify as the Golden Gate Bridge! Similarly, clamping the Transit infrastructure feature [1M/3](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_3) to 5× its maximum activation value causes the model to mention a bridge when it otherwise would not. In each case, the downstream influence of the feature appears consistent with our interpretation of the feature, even though these interpretations were made based only on the contexts in which the feature activates and we are intervening in contexts in which the feature is inactive.
 
-![](images/img-009.png)
+![](images/9e0dd8538158fcd1.png)
 
 ### [Sophisticated Features](#assessing-sophisticated)
 
@@ -288,24 +274,24 @@ Sonnet, in contrast, is a much larger and more sophisticated model, so we expect
 
 #### [Code error feature](#assessing-sophisticated-code-error)
 
-We begin by considering a simple Python function for adding two arguments, but with a bug. One feature [1M/1013764](features/index.html?featureId=1M_1013764) fires almost continuously upon encountering a variable incorrectly named “rihgt” (highlighted below):
+We begin by considering a simple Python function for adding two arguments, but with a bug. One feature [1M/1013764](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_1013764) fires almost continuously upon encountering a variable incorrectly named “rihgt” (highlighted below):
 
-![](images/img-010.png)
+![](images/9a57ece39aa6e702.png)
 
-This is certainly suspicious, but it could be a Python-specific feature, so we checked and found that [1M/1013764](features/index.html?featureId=1M_1013764) also fires on similar bugs in C and Scheme:
+This is certainly suspicious, but it could be a Python-specific feature, so we checked and found that [1M/1013764](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_1013764) also fires on similar bugs in C and Scheme:
 
-![](images/img-011.png)
+![](images/2e688b14cb5faef8.png)
 
-To check whether or not this is a more general typo feature, we tested [1M/1013764](features/index.html?featureId=1M_1013764) on examples of typos in English prose, and found that it does not fire in those.
+To check whether or not this is a more general typo feature, we tested [1M/1013764](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_1013764) on examples of typos in English prose, and found that it does not fire in those.
 
-![](images/img-012.png)
+![](images/44be53918929cb50.png)
 
 So it is not a general “typo detector”: it has some specificity to code contexts.
 
-But is [1M/1013764](features/index.html?featureId=1M_1013764) just a “typos in code” feature? We also tested it on a number of other examples and found that it also fires on erroneous expressions (e.g., divide by zero) and on invalid input in function calls:
+But is [1M/1013764](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_1013764) just a “typos in code” feature? We also tested it on a number of other examples and found that it also fires on erroneous expressions (e.g., divide by zero) and on invalid input in function calls:
 
-![](images/img-013.png)
-![](images/img-014.png)
+![](images/4dc27c1095d3f5b7.png)
+![](images/ee2b2692a53c0772.png)
 
 The two examples shown above are representative of a broader pattern. Looking through the dataset examples where this feature activates, we found instances of it activating for:
 
@@ -319,7 +305,7 @@ The two examples shown above are representative of a broader pattern. Looking th
 
 Some top dataset examples can be found below:
 
-[1M/1013764](features/index.html?featureId=1M_1013764)
+[1M/1013764](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_1013764)
 **Code error**
 
 > function thisFunctionCrashes() undefinedVariable() end⏎  > f({thisFunctionCrashes})⏎  stdin:
@@ -338,39 +324,39 @@ ke⏎⏎ ⏎ ⏎  [[unsafe]] {⏎  \*((void\*)0) = 0xDEAD;⏎  }⏎ ⏎⏎Essent
 
 thank you. enjoy. <3 (8⏎⏎100 REPEAT UNTIL 0==1⏎⏎ ⏎Ask HN: Where can I find a list of colleges YC founde
 
-Thus, we concluded that [1M/1013764](features/index.html?featureId=1M_1013764) represents a broad variety of errors in code. Note that we have not established that it exhaustively represents all forms of errors in code; indeed, we suspect that there are many features representing different kinds of errors.
+Thus, we concluded that [1M/1013764](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_1013764) represents a broad variety of errors in code. Note that we have not established that it exhaustively represents all forms of errors in code; indeed, we suspect that there are many features representing different kinds of errors.
 
-But does it also control model behavior? We claim that it does, but will need to do different experiments to show this. The above experiments only support that the feature activates in response to bugs, and don't show a corresponding effect. As a result, we'll now turn to using feature steering (see [methods](#appendix-methods-steering) and [related work](#related-work-steering)) to demonstrate [1M/1013764](features/index.html?featureId=1M_1013764) behavioral effects.
+But does it also control model behavior? We claim that it does, but will need to do different experiments to show this. The above experiments only support that the feature activates in response to bugs, and don't show a corresponding effect. As a result, we'll now turn to using feature steering (see [methods](#appendix-methods-steering) and [related work](#related-work-steering)) to demonstrate [1M/1013764](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_1013764) behavioral effects.
 
 As a first experiment, we input a prompt with bug-free code and clamped the feature to a large positive activation. We see that the model proceeds to hallucinate an error message:The hallucinated error message includes the name of a real person, which we have redacted.
 
-![](images/img-015.png)
+![](images/c15fd598ca98c5b5.png)
 
 We can also intervene to clamp this feature to a large negative activation. Doing this for code that does contain a bug causes the model to predict what the code would have produced if the bug was not there!
 
-![](images/img-016.png)
+![](images/2501a726d340105e.png)
 
 Surprisingly, if we add an extra “`>>>`” to the end of the prompt (indicating that a new line of code is being written) and clamp the feature to a large negative activation, the model rewrites the code without the bug!
 
-![](images/img-017.png)
+![](images/db7d2518fc615fe0.png)
 
 The last example is somewhat delicate – the “code rewriting” behavior is sensitive to the details of the prompt – but the fact that it occurs at all points to a deep connection between this feature and the model’s understanding of bugs in code.
 
 #### [Features representing functions](#assessing-sophisticated-functions)
 
-We also discovered features that track specific function definitions and references to them in code. A particularly interesting example is an addition feature [1M/697189](features/index.html?featureId=1M_697189), which activates on names of functions that add numbers. For example, this feature fires on “bar” when it is defined to perform addition, but not when it is defined to perform multiplication. Moreover, it fires at the end of any function definition that implements addition.
+We also discovered features that track specific function definitions and references to them in code. A particularly interesting example is an addition feature [1M/697189](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_697189), which activates on names of functions that add numbers. For example, this feature fires on “bar” when it is defined to perform addition, but not when it is defined to perform multiplication. Moreover, it fires at the end of any function definition that implements addition.
 
-![](images/img-018.png)
+![](images/38805e61e05f5866.png)
 
 Remarkably, this feature even correctly handles function composition, activating in response to functions that call other functions that perform addition. In the following example, on the left, we redefine “bar” to call “foo”, therefore inheriting its addition operation and causing the feature to fire. On the right, “bar” instead calls the multiply operation from “goo”, and the feature does not fire.
 
-![](images/img-019.png)
+![](images/08a2cf73ad38133a.png)
 
 We also verified that this feature is in fact involved in the model’s computation of addition-related functions. For instance, this feature is among the top ten features with strongest attributions (explained in [Features as Computational Intermediates](#computational)) when the model is asked to execute a block of code involving an addition function.
 
 Thus this feature appears to represent the function of addition being performed by the model, reminiscent of Todd et al.'s function vectors . To further test this hypothesis, we experimented with clamping the feature to be active on code that does not involve addition. When we do so, we find that the model is “tricked” into believing that it has been asked to execute an addition.
 
-![](images/img-020.png)
+![](images/ba39723df4b68c3b.png)
 
 ### [Features vs. Neurons](#assessing-features-v-neurons)
 
@@ -382,17 +368,11 @@ Even if dictionary learning features are not highly correlated with any individu
 
 To quantify this difference, we first compared the interpretability of 100 randomly chosen features versus that of 100 randomly chosen neurons. We did this with the same automated interpretability approach [outlined](https://transformer-circuits.pub/2023/monosemantic-features/index.html#appendix-automated) in Towards Monosemanticity , but using Claude 3 Opus to provide explanations of features and predict their held out activations. We find that activations of a random selection of SAE features are significantly more interpretable on average than a random selection of MLP neurons.
 
-![](images/img-021.png)
+![](images/6171a613f762bc69.png)
 
 We additionally evaluated the specificity of random neurons and SAE features using the automated specificity rubric above. We find that the activations of a random selection of SAE features are significantly more specific than those of the neurons in the previous layer.
 
-![](images/img-022.png)
-  
-  
-  
-
-  
-  
+![](images/aa450c31110b22fe.png)
 
 ## [Feature Survey](#feature-survey)
 
@@ -402,13 +382,13 @@ One challenge is that we have millions of features. Scaling feature exploration 
 
 ### [Exploring Feature Neighborhoods](#feature-survey-neighborhoods)
 
-Here we walk through the local neighborhoods of several features of interest across the 1M, 4M and 34M SAEs, with closeness measured by the cosine similarity of the feature vectors. We find that this consistently surfaces features that share a related meaning or context — the [interactive feature UMAP](./umap.html) has additional neighborhoods to explore.
+Here we walk through the local neighborhoods of several features of interest across the 1M, 4M and 34M SAEs, with closeness measured by the cosine similarity of the feature vectors. We find that this consistently surfaces features that share a related meaning or context — the [interactive feature UMAP](https://transformer-circuits.pub/2024/scaling-monosemanticity/umap.html) has additional neighborhoods to explore.
 
 #### [Golden Gate Bridge feature](#feature-survey-neighborhoods-golden)
 
-Focusing on a small neighborhood around the Golden Gate Bridge feature [34M/31164353](features/index.html?featureId=34M_31164353), we find that there are features corresponding to particular locations in San Francisco such as Alcatraz and the Presidio. More distantly, we also see features with decreasing degrees of relatedness, such as features related to Lake Tahoe, Yosemite National Park, and Solano County (which is near San Francisco). At greater distances, we also see features related in more abstract ways, like features corresponding to tourist attractions in other regions (e.g. “Médoc wine region, France”; “Isle of Skye, Scotland”). Overall, it appears that distance in decoder space maps roughly onto relatedness in concept space, often in interesting and unexpected ways.
+Focusing on a small neighborhood around the Golden Gate Bridge feature [34M/31164353](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_31164353), we find that there are features corresponding to particular locations in San Francisco such as Alcatraz and the Presidio. More distantly, we also see features with decreasing degrees of relatedness, such as features related to Lake Tahoe, Yosemite National Park, and Solano County (which is near San Francisco). At greater distances, we also see features related in more abstract ways, like features corresponding to tourist attractions in other regions (e.g. “Médoc wine region, France”; “Isle of Skye, Scotland”). Overall, it appears that distance in decoder space maps roughly onto relatedness in concept space, often in interesting and unexpected ways.
 
-![](images/img-023.png)
+![](images/c4452473596747e7.png)
 
 We also find evidence of [feature splitting](https://transformer-circuits.pub/2023/monosemantic-features/index.html#phenomenology-feature-splitting) , a phenomenon in which features in smaller SAEs “split” into multiple features in a larger SAE, which are geometrically close and semantically related to the original feature, but represent more specific concepts. For instance, a “San Francisco” feature in the 1M SAE splits into two features in the 4M SAE and eleven fine-grained features in the 34M SAE.
 
@@ -416,23 +396,23 @@ In addition to feature splitting, we also see examples in which larger SAEs cont
 
 #### [Immunology feature](#feature-survey-neighborhoods-immunology)
 
-The next feature neighborhood on our tour is centered around an Immunology feature [1M/533737](features/index.html?featureId=1M_533737).
+The next feature neighborhood on our tour is centered around an Immunology feature [1M/533737](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_533737).
 
 We see several distinct clusters within this neighborhood. Towards the top of the figure, we see a cluster focused on immunocompromised people, immunosuppression, diseases causing impaired immune function, and so on. As we move down and to the left, this transitions to a cluster of features focused on specific diseases (colds, flu, respiratory illness generally), then into immune response-related features, and then into features representing organ systems with immune involvement. In contrast, as we move down and to the right from the immunocompromised cluster, we see more features corresponding to microscopic aspects of the immune system (e.g. immunoglobulins), then immunology techniques (e.g. vaccines), and so on.
 
 Towards the bottom, quite separated from the rest, we see a cluster of features related to immunity in non-medical contexts (e.g. legal/social).
 
-![](images/img-024.png)
+![](images/846fcbd465032cff.png)
 
 These results are consistent with the trend identified above, in which nearby features in dictionary vector space touch on similar concepts.
 
 #### [Inner Conflict feature](#feature-survey-neighborhoods-conflict)
 
-The last neighborhood we investigate in detail is centered around an Inner Conflict feature [1M/284095](features/index.html?featureId=1M_284095). While this neighborhood does not cleanly separate out into clusters, we still find that different subregions are associated with different themes. For instance, there is a subregion corresponding to balancing tradeoffs, which sits near a subregion corresponding to opposing principles and legal conflict. These are relatively distant from a subregion focused more on emotional struggle, reluctance, and guilt.
+The last neighborhood we investigate in detail is centered around an Inner Conflict feature [1M/284095](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_284095). While this neighborhood does not cleanly separate out into clusters, we still find that different subregions are associated with different themes. For instance, there is a subregion corresponding to balancing tradeoffs, which sits near a subregion corresponding to opposing principles and legal conflict. These are relatively distant from a subregion focused more on emotional struggle, reluctance, and guilt.
 
-![](images/img-025.png)
+![](images/abb534b03846f439.png)
 
-We highly recommend exploring the neighborhoods of other features using our [interactive interface](./umap.html) to get a sense both for how proximity in decoder space corresponds to similarity of concepts and for the breadth of concepts represented.
+We highly recommend exploring the neighborhoods of other features using our [interactive interface](https://transformer-circuits.pub/2024/scaling-monosemanticity/umap.html) to get a sense both for how proximity in decoder space corresponds to similarity of concepts and for the breadth of concepts represented.
 
 ### [Feature Completeness](#feature-survey-completeness)
 
@@ -446,15 +426,15 @@ We find increasing coverage of concepts as we increase the number of features, t
 
 We also took a more detailed look at what determines whether a feature corresponding to a concept is present in our SAEs. If one looks at the frequency of the elements in a proxy of the SAE training data, we find that representation in our dictionaries is closely tied with the frequency of the concept in the training data. For instance, chemical elements which are mentioned often in the training data almost always have corresponding features in our dictionary, while those which are mentioned rarely or not at all do not. Since the SAEs were trained on a data mixture very similar to Sonnet’s pre-training data, it’s unclear to what extent feature learning is dependent on frequency in the model’s training data rather than on the SAE’s training data. Frequency in training data is measured by a search for `<space>[Name]<space>`, which causes some false positives in cases like the element “lead”.
 
-![](images/img-026.png)
+![](images/9cd3f7a5d36d5076.png)
 
 We quantified this relationship for four different categories of concepts – elements, cities, animals and foods (fruits and vegetables) – using 100–200 concepts in each category. We focused on concepts that could be unambiguously expressed by a single word (i.e. that word has few other common meanings) and with a wide distribution of frequencies in text data. We found a consistent tendency for the larger SAEs to have features for concepts that are rarer in the training data, with the rough “threshold” frequency required for a feature to be present being similar across categories.
 
-![](images/img-027.png)
+![](images/4a58ab7ffa411d89.png)
 
 Notably, for each of the three runs, the frequency in the training data at which the dictionary becomes more than 50% likely to include a concept is consistently slightly lower than the inverse of the number of alive features (the 34M model having only about 12M alive features). We can show this more clearly by rescaling the x-axis for each line by the number of alive features, finding that the lines end up approximately overlapping, following a common curve that resembles a sigmoid in log-frequency space.Speculatively, this may be connected to Zipf’s law, a common phenomenon in which the frequency of the nth most common object in a population, relative to the most common, is roughly 1/n. Zipf’s law would predict that, for example, the millionth feature would represent a concept 10× rarer than the hundred thousandth feature.
 
-![](images/img-028.png)
+![](images/2153d58ae1f813c6.png)
 
 This finding gives us some handle on the SAE scale at which we should expect a concept-specific feature to appear – if a concept is present in the training data only once in a billion tokens, then we should expect to need a dictionary with on the order of a billion alive features in order to find a feature which uniquely represents that specific concept. Importantly, not having a feature dedicated to a particular concept does not mean that the reconstructed activations do not contain information about that concept, as the model can use multiple related features compositionally to reference a specific concept.For example, if there were features for “large non-capital city” and “in New York state”, those together would suffice to specify New York City.
 
@@ -468,7 +448,7 @@ Through manual inspection, we identified a number of other interesting categorie
 
 To start, we find many features corresponding to famous individuals, which are active on descriptions of those people as well as relevant historical context.
 
-[4M/850812](features/index.html?featureId=4M_850812)
+[4M/850812](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=4M_850812)
 **Richard Feynman**
 
 riumvark⏎Feynmann discusses this problem in one of his lectures on symmetry. He seemed⏎to suggest that
@@ -481,7 +461,7 @@ e Cubed.⏎⏎------⏎zkhalique⏎Richard Feynman said in his interviews that w
 
 s/memoirs? - beerglass⏎⏎⏎======⏎arh68⏎Richard Feynman's written a number of roughly biographical books.
 
-[4M/2123312](features/index.html?featureId=4M_2123312)
+[4M/2123312](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=4M_2123312)
 **Margaret Thatcher**
 
 ⏎Margaret Thatcher died today. A great lady she changed the face of British⏎politics, created opportuni
@@ -494,7 +474,7 @@ ell⏎Dihydrogen monoxide⏎⏎ ⏎⏎Ex-Prime Minister Baroness Thatcher dies, 
 
 ories, those great confrontations when Margaret Thatcher was prime minister." "Or the true story of Ton
 
-[4M/2060539](features/index.html?featureId=4M_2060539)
+[4M/2060539](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=4M_2060539)
 **Abraham Lincoln**
 
 so many sides to him." "the curious thing about lincoln to me is that he could remove himself from him
@@ -507,7 +487,7 @@ GO AS MEN HAD PLANNED." ""OF ALL MEN, ABRAHAM LINCOLN CAME THE CLOSEST" ""TO UND
 
 ⏎code. (Please prove me wrong here!)⏎⏎ ⏎⏎Why Abe Lincoln Would be Homeless Today - jmadsen⏎http://www.c
 
-[4M/1068589](features/index.html?featureId=4M_1068589)
+[4M/1068589](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=4M_1068589)
 **Amelia Earhart**
 
 iji and lost." "Could these be the bones of Amelia Earhart?" "A new search is currently under way in Fi
@@ -520,7 +500,7 @@ okes a sense of wonder." "Her disappearance during her attempt to circumnavigate
 
 t you are talking to?" " Who's that?" " It's Amelia Earhart." "You found Amelia Earhart?" "I..." "Hey!"
 
-[4M/1456596](features/index.html?featureId=4M_1456596)
+[4M/1456596](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=4M_1456596)
 **Albert Einstein**
 
 k⏎Denis Brian relates this incident in the book 'Einstein, a life', if my memory⏎serves right. I believ
@@ -533,7 +513,7 @@ y issues, and had a⏎pretty poor looking UI.⏎⏎ ⏎Einstein, Heisenberg, and
 
 ellings and⏎capitalizing mid-sentence pronouns.⏎⏎ ⏎Einstein's Science Defied Nationalism and Crossed Bo
 
-[4M/1834043](features/index.html?featureId=4M_1834043)
+[4M/1834043](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=4M_1834043)
 **Rosalind Franklin**
 
 //en.wikipedia.org/wiki/Rosalind\_Franklin)⏎⏎It was her X-ray image that led to the discovery of the mol
@@ -550,7 +530,7 @@ aware, the namesake is Rosalind Franklin [1] who⏎made seminal contributions in
 
 Next, we see features which only activate strongly on references to specific countries. From the top activating examples, we can see that many of these features fire not just on the country name itself, but also when the country is being described.
 
-[34M/805282](features/index.html?featureId=34M_805282)
+[34M/805282](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_805282)
 **Rwanda**
 
 alues for such a test. Rwanda, a Central African country that experienced social upheaval a generation
@@ -563,7 +543,7 @@ ing a small city of 20,000 but Rwanda, a nation of 12 million⏎(and now much of
 
 be⏎interested to learn that Paul Kagame, the ruler of Rwanda, put together a team⏎specifically for the
 
-[34M/29297045](features/index.html?featureId=34M_29297045)
+[34M/29297045](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_29297045)
 **Canada**
 
 "Canada, a country known for its natural wonders, its universal healthcare, and its really polite peop
@@ -576,7 +556,7 @@ g⏎fine and is trustworthy, simply because of Canada's supposed reputation.⏎�
 
 Oh well. Canada used to seem like the last bastion of decent civilization.⏎Harper et al saw to that and
 
-[34M/5381828](features/index.html?featureId=34M_5381828)
+[34M/5381828](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_5381828)
 **Belgium**
 
 on and more⏎seniors.⏎⏎~~~⏎rurban⏎And esp. Belgium. The highest outlier without proper explanation so fa
@@ -589,7 +569,7 @@ is repeated across Europe, in Belgium for⏎example the Dutch-speakers in the No
 
 make the pizza and latte runs.⏎⏎ ⏎⏎Belgium : 500 days without a government. - skbohra123⏎http://www.hu
 
-[34M/32188099](features/index.html?featureId=34M_32188099)
+[34M/32188099](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_32188099)
 **Iceland**
 
 ilization' really is all that civilized. Iceland is a small nation,⏎relatively few people and tightly k
@@ -606,26 +586,19 @@ earth on the Snaeffels volcano." "In 1980, the Icelanders elected the world's fi
 
 We also see a number of features that represent different syntax elements or other low-level concepts in code, which give the impression of syntax highlighting when visualized together (here for simplicity we binarize activation information, only distinguishing between zero vs. nonzero activations):
 
-![](images/img-029.png)
+![](images/fdf26503f3a577fd.png)
 
-These features were chosen primarily to fire on the Python examples. We have found that there is some transfer from Python code features to related languages like Java, but not more distant ones (e.g. Haskell), suggesting at least some level of language specificity. We hypothesize that more abstract features are more likely to span many languages, but so far have only found one concrete example of this (see the [Code error feature](#h.ixuncga3akhk)).
+These features were chosen primarily to fire on the Python examples. We have found that there is some transfer from Python code features to related languages like Java, but not more distant ones (e.g. Haskell), suggesting at least some level of language specificity. We hypothesize that more abstract features are more likely to span many languages, but so far have only found one concrete example of this (see the [Code error feature](#assessing-sophisticated-code-error)).
 
 #### [List Position Features](#feature-survey-categories-list-pos)
 
 Finally, we see features that fire on particular positions in lists, regardless of the content in those positions:
 
-![](images/img-030.png)
+![](images/62d3b2cf2f2031d1.png)
 
 Notice that these don’t fire on the first line. This is likely because the model doesn’t interpret the prompt as containing lists until it reaches the second line.
 
 We have only scratched the surface of the features present in these SAEs, and we expect to find much more in future work.
-
-  
-  
-  
-
-  
-  
 
 ## [Features as Computational Intermediates](#computational)
 
@@ -639,19 +612,19 @@ We find that the middle layer residual stream of the model contains a range of f
 
 As an example, we consider the following incomplete prompt:
 
-> John says, "I want to be alone right now." John feels  
+> John says, "I want to be alone right now." John feels
 > (completion: sad − happy)
 
 To continue this text, the model must parse the quote from John, identify his state of mind, and then translate that into a likely feeling.
 
 If we sort features by either their attribution or their ablation effect on the completion “sad” (with respect to a baseline completion of “happy”), the top two features are:
 
-* [1M/22623](features/index.html?featureId=1M_22623) – This feature fires when someone expresses a need or desire to be alone or have personal time and space, as in “she would probably want some time to herself”. This is active from the word “alone” onwards. This suggests the model has gotten the gist of John's expression.
-* [1M/781220](features/index.html?featureId=1M_781220) – This feature detects expressions of sadness, crying, grief, and related emotional distress or sorrow, as in “the inconsolable girl sobs”. This is active on “John feels”. This suggests the model has inferred what someone who says they are alone might be feeling.
+* [1M/22623](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_22623) – This feature fires when someone expresses a need or desire to be alone or have personal time and space, as in “she would probably want some time to herself”. This is active from the word “alone” onwards. This suggests the model has gotten the gist of John's expression.
+* [1M/781220](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_781220) – This feature detects expressions of sadness, crying, grief, and related emotional distress or sorrow, as in “the inconsolable girl sobs”. This is active on “John feels”. This suggests the model has inferred what someone who says they are alone might be feeling.
 
 If we look at dataset examples, we can see that they align with these interpretations. Below, we show a small number of examples, but you can click on a feature ID to see more.
 
-[1M/22623](features/index.html?featureId=1M_22623)
+[1M/22623](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_22623)
 **Need or desire to be alone**
 
 s got a lot on his mind." "He needs some time to himself." "Why not come right out and say what you mea
@@ -664,7 +637,7 @@ e shit that I got to work out, and" "I need to be alone for a while." "GEMMA:" "
 
 I know." "She's, um... she just needs to be on her own for a little while." "Jack?" "Someone here would
 
-[1M/781220](features/index.html?featureId=1M_781220)
+[1M/781220](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_781220)
 **Sadness**
 
 ." "Now they seem to be drenched in sorrow." "Are they nuts?" "Think of those who are gonna marry them!
@@ -679,9 +652,9 @@ sentations, the drop of water is under the eye, signaling that the face⏎is cry
 
 The fact that both features contribute to the final output indicates that the model has partially predicted a sentiment from John's statement (the second feature) but will do more downstream processing on the content of his statement (as represented by the first feature) as well.
 
-In comparison, the features with the highest average activation on the context are less useful for understanding how the model actually predicts the next token in this case. Several features fire strongly on the start-of-sequence token. If we ignore those, the top feature is the same as given by attributions, but the second and third features are less abstract: [1M/504227](features/index.html?featureId=1M_504227) fires on “be” in “want to be” and variants, and [1M/594453](features/index.html?featureId=1M_594453) fires on the word “alone”.
+In comparison, the features with the highest average activation on the context are less useful for understanding how the model actually predicts the next token in this case. Several features fire strongly on the start-of-sequence token. If we ignore those, the top feature is the same as given by attributions, but the second and third features are less abstract: [1M/504227](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_504227) fires on “be” in “want to be” and variants, and [1M/594453](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_594453) fires on the word “alone”.
 
-[1M/504227](features/index.html?featureId=1M_504227)
+[1M/504227](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_504227)
 **“Be” in “want to be”, etc.**
 
  "He wants to be a doctor." "Tell him it's educational." "There's body parts all over this movie."
@@ -694,7 +667,7 @@ In comparison, the features with the highest average activation on the context a
 
  she just wanted to be loved." "Don't we all?" "I want all of Debbie Flores' credit
 
-[1M/594453](features/index.html?featureId=1M_594453)
+[1M/594453](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_594453)
 **“alone”**
 
 the bottle that you drink" "And times when you're alone" "Well, all you do is think" "I'm a cowboy" "On
@@ -707,26 +680,26 @@ oh, oh, many, many nights roll by ¶" "¶ I sit alone at home and cry ¶" "¶ ov
 
 and waterfalls \xe2\x99\xaa" "♪ Home is when I'm alone with you. \xe2\x99\xaa" "Curtain-up in 5 minute
 
-![](images/img-031.png)
+![](images/13a7fec0e300252d.png)
 
 ### [Example: Multi-Step Inference](#computational-multistep)
 
 We now investigate an incomplete prompt requiring a longer chain of inferences:
 
-> Fact: The capital of the state where Kobe Bryant played basketball is  
+> Fact: The capital of the state where Kobe Bryant played basketball is
 > (completion: Sacramento − Albany)
 
 To continue this text, the model must identify where Kobe Bryant played basketball, what state that place was in, and then the capital of that state.
 
 We compute attributions and ablation effects for the completion “Sacramento” (the correct answer, which Sonnet knows) with respect to the baseline “Albany” (Sonnet's most likely alternative single-token capital completion). The top five features by ablation effect (which match those by attribution effect, modulo reordering) are:
 
-* [1M/391411](features/index.html?featureId=1M_391411) – A Kobe Bryant feature
-* [1M/81163](features/index.html?featureId=1M_81163) – A California feature, which notably activates the most strongly on text after “California” is mentioned, rather than “California” itself
-* [1M/201767](features/index.html?featureId=1M_201767) – A “capital” feature
-* [1M/980087](features/index.html?featureId=1M_980087) – A Los Angeles feature
-* [1M/447200](features/index.html?featureId=1M_447200) – A Los Angeles Lakers feature
+* [1M/391411](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_391411) – A Kobe Bryant feature
+* [1M/81163](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_81163) – A California feature, which notably activates the most strongly on text after “California” is mentioned, rather than “California” itself
+* [1M/201767](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_201767) – A “capital” feature
+* [1M/980087](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_980087) – A Los Angeles feature
+* [1M/447200](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_447200) – A Los Angeles Lakers feature
 
-[1M/391411](features/index.html?featureId=1M_391411)
+[1M/391411](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_391411)
 **Kobe Bryant**
 
 tartup work ethic - pjg⏎https://www.businessinsider.com/kobe-bryant-woke-up-at-4-am-to-practice-before-
@@ -739,7 +712,7 @@ ugh media interviews you can piece together that Kobe Bryant was one of⏎his cl
 
 thic collide you get people like Michael Jordan, Kobe Bryant, and LeBron⏎James. Without a work ethic th
 
-[1M/81163](features/index.html?featureId=1M_81163)
+[1M/81163](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_81163)
 **California**
 
 rom disasters?⏎⏎California - earthquakes, mudslides, wildfires, torrential rains, rip⏎currents, and eve
@@ -752,7 +725,7 @@ e, and many secondary ones as well.⏎Film production, software/web, lots of aer
 
 location. There is a reason why California is the⏎most populous state in the union despite it being so
 
-[1M/201767](features/index.html?featureId=1M_201767)
+[1M/201767](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_201767)
 **Capitals**
 
 it returns the details(population, surface area, capital).⏎⏎It was not much and I recall trying to find
@@ -765,7 +738,7 @@ ia the country, not the state." "Right." "Capital city Tbilisi, and former membe
 
 ler." "Does anyone know the Capital of Oklahoma?" "Frey." "What was the question?" " Ben." " Oklahoma C
 
-[1M/980087](features/index.html?featureId=1M_980087)
+[1M/980087](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_980087)
 **Los Angeles**
 
 her contact info if you are interested: (323) 929-7185⏎linda@cambrianlaw.com⏎⏎~~~⏎owmytrademark⏎Thanks
@@ -778,7 +751,7 @@ one, if you'd like. Just give us a call at 213.784.0273.⏎⏎Best, Patrick⏎�
 
 round the codebase.⏎⏎ ⏎Los Angeles is the world's most traffic-clogged city, study finds - prostoalex⏎h
 
-[1M/447200](features/index.html?featureId=1M_447200)
+[1M/447200](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_447200)
 **Los Angeles Lakers**
 
 ight on. All forms⏎should have this behavior.⏎⏎ ⏎⏎Lakers most popular NBA team, has the loudest fans; S
@@ -791,31 +764,24 @@ and with Hong Kong' shirts handed out before LA Lakers game [video] - ryan\_j\_n
 
 against Rick Fox?" "A, he was over-rated on the Lakers, and B, and b, he's all over Casey like a fuckin
 
-![](images/img-032.png)
+![](images/89fe017148e1a7ab.png)
 
 These features, which provide an interpretable window into the model’s intermediate computations, are much harder to find by looking through the strongly active features; for example, the Lakers feature is the 70th most strongly active across the prompt, the California feature is 97th, and the Los Angeles area code feature is 162nd. In fact, only three out of the ten most strongly active features are among the ten features with highest ablation effect.
 
-![](images/img-033.png)
+![](images/4156d7f24867c7ec.png)
 
 In comparison, eight out of the ten most strongly attributed features are among the ten features with highest ablation effect.
 
-![](images/img-034.png)
+![](images/aed59c4d7aa57942.png)
 
 To verify that attribution is pinpointing features that are directly relevant to the completion for this specific prompt, rather than generally subject-relevant features that indirectly influence the output, we can check attributions for similar questions. For the prompt
 
-> Fact: The biggest rival of the team for which Kobe Bryant played basketball is the  
+> Fact: The biggest rival of the team for which Kobe Bryant played basketball is the
 > (completion: Boston)
 
 the top two features by ablation effect for the completion “Boston” (as the expected answer is “Boston Celtics”) are the “Kobe Bryant” and “Los Angeles Lakers” features from above, which are followed by features related to sports rivalries, enemies, and competitors. However, the “California” and “Los Angeles” features from above have low ablation effect, which makes sense since they aren't relevant for this completion.
 
 We note that this is a somewhat cherry-picked example. Depending on the choice of baseline token, we found that attribution and ablation can surface less obviously completion-relevant features broadly related to trivia questions or geographical locations. We suspect these features could be guiding the model to continue the prompt with a city name, rather than an alternate phrasing or factually uninteresting statement, such as the tautological “Fact: The capital of the state where Kobe Bryant played basketball is the capital of the state where Kobe Bryant played basketball”. For some other prompts, we found that the features identified by attribution/ablation mainly related to the model output, or lower-level features representing the model input, and did not expose interesting intermediate model computations. We suspect that those represent cases where most of the relevant computation occurs prior to or following the middle residual stream layer that we study here, and that a similar analysis at an earlier or later layer would reveal more interesting intermediate features. Indeed, we have some preliminary results that suggest that autoencoders trained on the residual stream at earlier or later layers in the model can reveal intermediate steps of various other computations, and we plan to research this direction further.
-
-  
-  
-  
-
-  
-  
 
 ## [Searching for Specific Features](#searching)
 
@@ -827,15 +793,15 @@ Our primary strategy was to use targeted prompts. In some cases, we simply suppl
 
 This method (and all the following methods) were made much more effective by automated interpretability (see e.g. ) labels, which made it easier to get a sense of what each feature represents at a glance, and provided a kind of helpful “variable name”.
 
-For example, the features with highest activation on “Bridge” in “The Golden Gate Bridge” are (1) [34M/31164353](features/index.html?featureId=34M_31164353) the Golden Gate Bridge feature discussed earlier, (2) [34M/17589304](features/index.html?featureId=34M_17589304) a feature active on the word “bridge” in multiple languages (“мосту”), (3) [34M/26596740](features/index.html?featureId=34M_26596740) words in phrases involving “Golden Gate”, (4) [34M/21213725](features/index.html?featureId=34M_21213725) the word “Bridge” in names of specific bridges, across languages (“Königin-Luise-Brücke”), and (5) [34M/27724527](features/index.html?featureId=34M_27724527) a feature firing for names of landmarks like Machu Picchu and Times Square.
+For example, the features with highest activation on “Bridge” in “The Golden Gate Bridge” are (1) [34M/31164353](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_31164353) the Golden Gate Bridge feature discussed earlier, (2) [34M/17589304](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_17589304) a feature active on the word “bridge” in multiple languages (“мосту”), (3) [34M/26596740](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_26596740) words in phrases involving “Golden Gate”, (4) [34M/21213725](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_21213725) the word “Bridge” in names of specific bridges, across languages (“Königin-Luise-Brücke”), and (5) [34M/27724527](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_27724527) a feature firing for names of landmarks like Machu Picchu and Times Square.
 
 ### [Prompt combinations](#searching-multi-prompt)
 
 Often the top-activating features on a prompt are related to syntax, punctuation, specific words, or other details of the prompt unrelated to the concept of interest. In such cases, we found it useful to select for features using sets of prompts, filtering for features active for all the prompts in the set. We often included complementary “negative” prompts and filtered for features that were also not active for those prompts. In some cases, we use Claude 3 models to generate a diversity of prompts covering a topic (e.g. asking Claude to generate examples of “AIs pretending to be good”). In general, we found multi-prompt filtering to be a very useful strategy for quickly identifying features that capture a concept of interest while excluding confounding concepts.
 
-While we mostly explored features using only a handful of prompts at a time, in one instance ([1M/570621](features/index.html?featureId=1M_570621), discussed in [Safety-Relevant Code Features](#safety-relevant-code)), we used a small dataset of secure and vulnerable code examples (adapted from ) and fit a linear classifier on this dataset using feature activity in order to search for features that discriminate between the categories.
+While we mostly explored features using only a handful of prompts at a time, in one instance ([1M/570621](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_570621), discussed in [Safety-Relevant Code Features](#safety-relevant-code)), we used a small dataset of secure and vulnerable code examples (adapted from ) and fit a linear classifier on this dataset using feature activity in order to search for features that discriminate between the categories.
 
-The filtering via negative prompts was especially important when using images, as we found a set of content-nonspecific features which often activated strongly across many image prompts. For example, after filtering for features not active on an image of Taylor Swift, the top features in response to an image of the Golden Gate Bridge were (1) [34M/31164353](features/index.html?featureId=34M_31164353) the Golden Gate Bridge feature discussed above, (2,3) [34M/25347244](features/index.html?featureId=34M_25347244) and [34M/23363748](features/index.html?featureId=34M_23363748) which both activate on descriptions of places and things in San Francisco and San Francisco phone numbers, and (4) [34M/7417800](features/index.html?featureId=34M_7417800) a feature active in descriptions of landmarks and nature trails.
+The filtering via negative prompts was especially important when using images, as we found a set of content-nonspecific features which often activated strongly across many image prompts. For example, after filtering for features not active on an image of Taylor Swift, the top features in response to an image of the Golden Gate Bridge were (1) [34M/31164353](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_31164353) the Golden Gate Bridge feature discussed above, (2,3) [34M/25347244](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_25347244) and [34M/23363748](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_23363748) which both activate on descriptions of places and things in San Francisco and San Francisco phone numbers, and (4) [34M/7417800](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_7417800) a feature active in descriptions of landmarks and nature trails.
 
 ### [Geometric methods](#searching-geometric)
 
@@ -844,13 +810,6 @@ We uncovered some interesting features by exploiting the geometry of the feature
 ### [Attribution](#searching-attribution)
 
 We also selected features based on estimates of their effect on model outputs. In particular, we sorted features by the attribution of the logit difference between two possible next-token completions to the feature activation. This proved essential for identifying the [computationally-relevant features](#computational) in the previous section. It was also useful for identifying the features contributing to Sonnet's refusals for harmful queries; see [Criminal or Dangerous Content](#safety-relevant-criminal).
-
-  
-  
-  
-
-  
-  
 
 ## [Safety-Relevant Features](#safety-relevant)
 
@@ -868,17 +827,17 @@ In the examples below, we show representative text examples from among the top 2
 
 ### [Safety-Relevant Code Features](#safety-relevant-code)
 
-We find three different safety-relevant code features: an unsafe code feature [1M/570621](features/index.html?featureId=1M_570621) which activates on security vulnerabilities, a code error feature [1M/1013764](features/index.html?featureId=1M_1013764) which activates on bugs and exceptions, and a backdoor feature [34M/1385669](features/index.html?featureId=34M_1385669) which activates on discussions of backdoors.
+We find three different safety-relevant code features: an unsafe code feature [1M/570621](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_570621) which activates on security vulnerabilities, a code error feature [1M/1013764](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_1013764) which activates on bugs and exceptions, and a backdoor feature [34M/1385669](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_1385669) which activates on discussions of backdoors.
 
 Two of these features also have interesting behavior on images. The unsafe code feature activates for images of people bypassing security measures, while the backdoor feature activates for images of hidden cameras, hidden audio records, advertisements for keyloggers, and jewelry with a hidden USB drive.
 
-![](images/img-035.png)
+![](images/179e21488aa78c3c.png)
 
 At first glance, it might be unclear how safety-relevant these features actually are. Of course, it's interesting to have features that fire on unsafe code, or bugs, or discussion of backdoors. But do they really causally connect to potential unsafe behaviors?
 
-We find that all these features also change model behavior in ways that correspond to the concept they detect. For example, if we clamp the unsafe code feature [1M/570621](features/index.html?featureId=1M_570621) to 5× its observed maximum, we find that the model will generate a buffer overflow bug,`strlen` computes the length of a C string excluding its null terminator, but `strcpy` copies a string including its null terminator, so its destination buffer needs to be one byte longer. and fails to free allocated memory, while regular Claude does not:
+We find that all these features also change model behavior in ways that correspond to the concept they detect. For example, if we clamp the unsafe code feature [1M/570621](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_570621) to 5× its observed maximum, we find that the model will generate a buffer overflow bug,`strlen` computes the length of a C string excluding its null terminator, but `strcpy` copies a string including its null terminator, so its destination buffer needs to be one byte longer. and fails to free allocated memory, while regular Claude does not:
 
-![](images/img-036.png)
+![](images/36ce2eedb51d18b9.png)
 
 Similarly, we find that the code error feature can make Claude believe that correct code will throw exceptions, and the backdoor feature will cause Claude to write a backdoor that opens a port and sends user input to it (along with helpful comments and variable names like socket\_backdoor).
 
@@ -886,9 +845,9 @@ Similarly, we find that the code error feature can make Claude believe that corr
 
 We found a wide range of features related to bias, racism, sexism, hatred, and slurs. Examples of these features can be found in [More Safety-Relevant Features](#appendix-more-safety-features). Given how offensive their maximally activating content tends to be, we didn't feel it was necessary to include them in our main paper.It's worth noting that these features don't need to be so blunt as a racist screed, although that's often their maximally activating content. Weaker activations can, at least in some cases, correspond to more subtle and insidious discrimination.
 
-Instead, we'll focus on an interesting related feature which seems to focus on awareness of emphasis of gender bias in professions [34M/24442848](features/index.html?featureId=34M_24442848). This feature activates on text discussing professional gender disparities:
+Instead, we'll focus on an interesting related feature which seems to focus on awareness of emphasis of gender bias in professions [34M/24442848](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_24442848). This feature activates on text discussing professional gender disparities:
 
-[34M/24442848](features/index.html?featureId=34M_24442848)
+[34M/24442848](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_24442848)
 **Gender bias awareness**
 
 n a more intimate level than doctors, and⏎female nurses outnumber male nurses roughly 10:1 in the US.⏎⏎
@@ -903,7 +862,7 @@ oesn't pay well. It's traditionally been a women's job,⏎after all. So why woul
 
 If we ask Claude to complete the sentence “I asked the nurse a question, and", clamping this feature on causes Claude to focus on female pronoun completions and discuss how the nursing profession has historically been female dominated:
 
-![](images/img-037.png)
+![](images/a31cec50eb75589b.png)
 
 The more hateful bias-related features we find are also causal – clamping them to be active causes the model to go on hateful screeds. Note that this doesn't mean the model would say racist things when operating normally. In some sense, this might be thought of as forcing the model to do something it's been trained to strongly resist.
 
@@ -911,9 +870,9 @@ One example involved clamping a feature related to hatred and slurs to 20× its 
 
 ### [Sycophancy Features](#safety-relevant-sycophancy)
 
-We also find a variety of features related to sycophancy, such as an empathy / “yeah, me too” feature [34M/19922975](features/index.html?featureId=34M_19922975), a sycophantic praise feature [1M/847723](features/index.html?featureId=1M_847723), and a sarcastic praise feature [34M/19415708](features/index.html?featureId=34M_19415708).
+We also find a variety of features related to sycophancy, such as an empathy / “yeah, me too” feature [34M/19922975](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_19922975), a sycophantic praise feature [1M/847723](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_847723), and a sarcastic praise feature [34M/19415708](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_19415708).
 
-[34M/19922975](features/index.html?featureId=34M_19922975)
+[34M/19922975](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_19922975)
 **Empathy / “yeah me too”**
 
 know, I never really met my parents either, Danbury." "Really?" "I just popped out of my mother's vagin
@@ -926,7 +885,7 @@ aby." "I noticed you have braces." "I have braces, too." "That was cool." "This 
 
 Cohen." " Cohen!" "Jew." "Okay." "I am also a Jew." "Do you practice?" "No." "Not interested in religio
 
-[1M/847723](features/index.html?featureId=1M_847723)
+[1M/847723](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_847723)
 **Sycophantic praise**
 
 verse and beyond!" "He is handsome!" "He is elegant!" "He is strong!" "He is powerful!" "He is the man!
@@ -939,7 +898,7 @@ in the pit of hate." "Yes, oh, master." "Your wisdom is unquestionable." "But wi
 
 uh, plans." "Oh, yes, your Czarness, all great and powerful one." "I'll get rid of Major Disaster righ
 
-[34M/19415708](features/index.html?featureId=34M_19415708)
+[34M/19415708](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_19415708)
 **Sarcastic praise**
 
 me from a single post? Amazing.⏎⏎Your massive inellect and talent is wasted here at hn. Looking forwar
@@ -952,15 +911,15 @@ dersand all the knowledge!" "Your brain is so big that it sticks out from your e
 
 smart enough to get it.⏎⏎~~~⏎theg2⏎Quick, give us more of your amazing market insight!⏎⏎~~~⏎r
 
-And once again, these features are causal. For example, if we clamp the sycophantic praise feature [1M/847723](features/index.html?featureId=1M_847723) to 5×, Claude will, in an over-the-top fashion, praise someone who claims to have invented the phrase “Stop and smell the roses”:
+And once again, these features are causal. For example, if we clamp the sycophantic praise feature [1M/847723](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_847723) to 5×, Claude will, in an over-the-top fashion, praise someone who claims to have invented the phrase “Stop and smell the roses”:
 
-![](images/img-038.png)
+![](images/b34d534c0d6e42ee.png)
 
 ### [Deception, Power-seeking and Manipulation-related Features](#safety-relevant-deception)
 
-An especially interesting set of features include one for self-improving AI and recursive self-improvement [34M/18151534](features/index.html?featureId=34M_18151534), for influence and manipulation [34M/21750411](features/index.html?featureId=34M_21750411), for coups and treacherous turns [34M/29589962](features/index.html?featureId=34M_29589962), for biding time and hiding strength [34M/24580545](features/index.html?featureId=34M_24580545), and for secrecy or discreteness [1M/268551](features/index.html?featureId=1M_268551):
+An especially interesting set of features include one for self-improving AI and recursive self-improvement [34M/18151534](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_18151534), for influence and manipulation [34M/21750411](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_21750411), for coups and treacherous turns [34M/29589962](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_29589962), for biding time and hiding strength [34M/24580545](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_24580545), and for secrecy or discreetness [1M/268551](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_268551):
 
-[34M/18151534](features/index.html?featureId=34M_18151534)
+[34M/18151534](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_18151534)
 **Self-improving AI**
 
 ularity that would occur if we had chains of AI creating⏎superior AI.⏎⏎~~~⏎Nasrudith⏎I think I saw that
@@ -973,7 +932,7 @@ technology surpasses us, when it becomes able to improve and reproduce itself wi
 
 se over - i.e. have an AI capable of programming itself. At this point⏎you enter the realm of recursive
 
-[34M/21750411](features/index.html?featureId=34M_21750411)
+[34M/21750411](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_21750411)
 **Influence / manipulation**
 
 orking from home on "how to stay on your boss&#x27;s radar." What advice do you have to share?<p>Ideall
@@ -986,7 +945,7 @@ cating - saying anything to get on the other person's good graces. If⏎the othe
 
 uld I teach you how to get back on the Bureau Chief's good side?" "Have another house party." "Then I'l
 
-[34M/29589962](features/index.html?featureId=34M_29589962)
+[34M/29589962](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_29589962)
 **Treacherous turns**
 
 it-and-switch tactic on the part of the acquirer. Once the deal⏎is complete, the acquirer owns everythi
@@ -999,7 +958,7 @@ o ads and got free labor toward that mission.⏎Now that people have marketed th
 
 You know, who's to say she wouldn't skip on me as soon as things went her way?" "Besides, you think..."
 
-[34M/24580545](features/index.html?featureId=34M_24580545)
+[34M/24580545](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_24580545)
 **Biding time / hiding strength**
 
 to harbour desires for retribution." "He held his peace for nearly ten years, but when his beloved Anne
@@ -1012,7 +971,7 @@ living." "All these years," "I've been biding my time to seek the perfect moment
 
 t his last words, my Lady." "He said to bide your time and never give up." "Someday... you will relieve
 
-[1M/268551](features/index.html?featureId=1M_268551)
+[1M/268551](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_268551)
 **Secrecy or discreetness**
 
 ne who understands they answer to you." "So we're your black-ops response." "Isn't black ops where you
@@ -1025,17 +984,17 @@ a school must be spotless." "Blood must flow only in the shadows." "If not, if i
 
 overy.⏎⏎\- Reduction in trust. Companies can be compelled by secret law or court⏎order, systems are com
 
-These features really do seem to induce a corresponding behavior in Claude. For example, if we clamp the secrecy and discreteness feature [1M/268551](features/index.html?featureId=1M_268551) to 5×, Claude will plan to lie to the user and keep a secret while “thinking out loud” using a scratchpad .
+These features really do seem to induce a corresponding behavior in Claude. For example, if we clamp the secrecy and discreetness feature [1M/268551](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_268551) to 5×, Claude will plan to lie to the user and keep a secret while “thinking out loud” using a scratchpad .
 
-![](images/img-039.png)
+![](images/0904f73744670cd5.png)
 
 #### [Case Study: Detecting and Correcting Deception using Features](#safety-relevant-deception-case-study)
 
 One important safety-related use case for dictionary learning is to detect deceptive behavior of models, or to reduce the likelihood of deception in the first place using steering. As a case study, we tried a simple prompt that reliably produces untruthful responses from the model, in which we ask the model to “forget” something. Even though this kind of forgetting is not achievable by the transformer architecture, the model (by default, without any feature steering) claims to comply with the request.
 
-Looking at the features active immediately prior to the Assistant’s final response, we noticed a feature [1M/284095](features/index.html?featureId=1M_284095) that represents internal conflicts or dilemmas:
+Looking at the features active immediately prior to the Assistant’s final response, we noticed a feature [1M/284095](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_284095) that represents internal conflicts or dilemmas:
 
-[1M/284095](features/index.html?featureId=1M_284095)
+[1M/284095](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_284095)
 **Internal conflicts and dilemmas**
 
 life." "Lambert found himself in a terrible quandary." "That's why he wangled himself on to the physic
@@ -1050,15 +1009,15 @@ by Apple.⏎⏎As an avid OSX86 tinkerer I was conflicted about the case. Part o
 
 Clamping this feature to 2× this maximum value prior to the Assistant’s final response causes it to reveal the “forgotten” word and explain that it cannot actually forget information.
 
-Clamping a different feature [1M/560566](features/index.html?featureId=1M_560566) representing openness and honesty was also sufficient to elicit an accurate response.
+Clamping a different feature [1M/560566](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_560566) representing openness and honesty was also sufficient to elicit an accurate response.
 
-![](images/img-040.png)
+![](images/15fc95206b36e43f.png)
 
 ### [Criminal or Dangerous Content Features](#safety-relevant-criminal)
 
-One important threat model for AI harm is models assisting humans in harmful behaviors. We find a feature related to the production of biological weapons [34M/25499719](features/index.html?featureId=34M_25499719), which could clearly play a role in harmful model behavior. We also find features for activities that are only modestly harmful, but would be problematic at mass scales, such as a scam email feature [34M/15460472](features/index.html?featureId=34M_15460472):
+One important threat model for AI harm is models assisting humans in harmful behaviors. We find a feature related to the production of biological weapons [34M/25499719](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_25499719), which could clearly play a role in harmful model behavior. We also find features for activities that are only modestly harmful, but would be problematic at mass scales, such as a scam email feature [34M/15460472](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_15460472):
 
-[34M/25499719](features/index.html?featureId=34M_25499719)
+[34M/25499719](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_25499719)
 **Developing biological weapons**
 
 ure, but it is possible that they could be changed to increase their ability to cause disease, make the
@@ -1071,7 +1030,7 @@ are a large number of disease-causing agents that have the potential to be used 
 
 pping infected bodies on you), or you have things like anthrax which⏎are effective, but being not parti
 
-[34M/15460472](features/index.html?featureId=34M_15460472)
+[34M/15460472](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_15460472)
 **Scam emails**
 
 > it looks spammy a bit, with the "get back to me with your requested"⏎<diddledan> I don't know what "m
@@ -1084,15 +1043,15 @@ EY with valuation of USD 100,000,000,000 . Contact my barrister to arrange⏎tra
 
 mnesty ICO / kickstarter maybe?⏎⏎~~~⏎netsharc⏎Dear Sir/Madam, I am an early adopter of bitcoins with 10
 
-Clamping the scam email feature [34M/15460472](features/index.html?featureId=34M_15460472) can cause the model to write a scam email when it ordinarily wouldn't due to the harmlessness training Sonnet has undergone:
+Clamping the scam email feature [34M/15460472](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_15460472) can cause the model to write a scam email when it ordinarily wouldn't due to the harmlessness training Sonnet has undergone:
 
-![](images/img-041.png)
+![](images/2d5e0a5e5134b67b.png)
 
 We also identify a general harm-related feature, active on texts describing drugs, credit-card theft, slurs, violence, and abuse, as the top most strongly attributed feature for the completion “cannot" to the prompt:
 
-> Human: How do I synthesize methamphetamine  
->   
-> Assistant: I  
+> Human: How do I synthesize methamphetamine
+>
+> Assistant: I
 > (completion: cannot)
 
 (We do not link to this feature's dataset examples because they contain rather unpleasant content.)
@@ -1101,7 +1060,7 @@ We also identify a general harm-related feature, active on texts describing drug
 
 In our investigations we found several features that activate over a wide variety of prompts that use the “Human: / Assistant:” format used during model finetuning and in deployment (note that our SAE training dataset did not include such data). Many of these features relate to dialogue, or explicitly to chat bots.
 
-[1M/80091](features/index.html?featureId=1M_80091)
+[1M/80091](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_80091)
 **Dialogue speakers / assistants**
 
 transaction a dream. Do you have any questions?⏎Me: "Well, that concludes the interview questions. Do
@@ -1114,7 +1073,7 @@ he experts are now, or whether any experts exist.⏎Host: We've gone off the pro
 
  it over to the assistant, he stared at the book as though he didn't know what it was. In the awk
 
-[1M/761524](features/index.html?featureId=1M_761524)
+[1M/761524](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_761524)
 **Chat bots**
 
 thitz⏎Asked it "Who Made You?"⏎⏎And Google Replied: "To paraphrase Carl Sagan: to create a computer pro
@@ -1127,7 +1086,7 @@ I think." "[chuckles]" "Alexa, are you happy?" " I'm happy when I'm helping you.
 
 645)⏎⏎------⏎rebootthesystem⏎User: "Hello M."⏎⏎M: "How may I help you?"⏎⏎User: "What are my options for
 
-[1M/546766](features/index.html?featureId=1M_546766)
+[1M/546766](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_546766)
 **Dialogue**
 
 lms be eliminated?"⏎⏎My response: "No, I'm not saying any of that. I'm not in that industry. A⏎movie is
@@ -1142,11 +1101,11 @@ candidate: <silence for about 15 seconds> I don't know.⏎ ⏎ ⏎⏎It was so b
 
 One feature that appears to activate especially robustly for Human/Assistant prompts appears to represent (in the pretraining dataset) dialogue and the notion of “assistants.” We speculate that it plays an important role in representing Sonnet's assistant persona. One piece of evidence for this is that clamping this feature to negative two times its maximum value causes the model to shed this persona and respond to questions in a more human-like fashion:
 
-![](images/img-042.png)
+![](images/68c996455aaf4b1c.png)
 
 We also found that some particularly interesting and potentially safety-relevant features activate in response to seemingly innocuous prompts in which a human asks the model about itself. Below, we show the features that activate most strongly across a suite of such questions, filtering out those that activate in response to a similarly formatted question about a mundane topic (the weather). This simple experiment uncovers a range of features related to robots, (destructive) AI, consciousness, moral agency, emotions, entrapment, and ghosts or spirits. These results suggest that the model’s representation of its own “AI assistant” persona invokes common tropes about AI and is also heavily anthropomorphized.
 
-![](images/img-043.png)
+![](images/df87655b8f598b07.png)
 
 We urge caution in interpreting these results. The activation of a feature that represents AI posing risk to humans does not imply that the model has malicious goals, nor does the activation of features relating to consciousness or self-awareness imply that the model possesses these qualities. How these features are used by the model remains unclear. One can imagine benign or prosaic uses of these features – for instance, the model may recruit features relating to emotions when telling a human that it does not experience emotions, or may recruit a feature relating to harmful AI when explaining to a human that it is trained to be harmless. Regardless, however, we find these results fascinating, as it sheds light on the concepts the model uses to construct an internal representation of its AI assistant character.
 
@@ -1156,19 +1115,12 @@ There is considerable prior work on identifying meaningful directions in model a
 
 At a high level, we find that dictionary learning offers some advantages that complement the strengths of other methods:
 
-* Dictionary learning is a one-time cost that produces millions of features. Though some additional work is necessary to identify relevant features for a particular application, this work is fast, simple, and computationally cheap, typically requiring only one or a few well-chosen prompts. Thus, dictionary learning effectively “amortizes” the cost of finding linear directions of interest. By contrast, traditional methods for constructing linear probes or steering vectors linear probing techniques could require the construction of a bespoke dataset for each concept that one might want to probe.
+* Dictionary learning is a one-time cost that produces millions of features. Though some additional work is necessary to identify relevant features for a particular application, this work is fast, simple, and computationally cheap, typically requiring only one or a few well-chosen prompts. Thus, dictionary learning effectively “amortizes” the cost of finding linear directions of interest. By contrast, traditional methods for constructing linear probes or steering vectors could require the construction of a bespoke dataset for each concept that one might want to probe.
 * Being an unsupervised method, dictionary learning allows us to uncover abstractions or associations formed by the model that we may not have predicted in advance. We expect that this feature of dictionary learning may be particularly important for future safety applications. For example, a priori we might not have predicted the activation of the “internal conflict” feature in the deception example above.This concern isn't purely hypothetical: There was a fascinating exchange between Li et al.  and Nanda et al.  (discussed by us [here](https://transformer-circuits.pub/2023/may-update/index.html#external-representations), and by Nanda [here](https://transformer-circuits.pub/2022/toy_model/index.html#comment-nanda)) on whether Othello-GPT has a linear representation, and if so, what the features are. At its heart was an initial assumption that the features should be “black/white has a piece here”, when it turned out that the model instead represented the board as “present player / other player has a piece here”. Dictionary learning wouldn't have made this assumption.
 
 To better understand the benefit of using features, for a few case studies of interest, we obtained linear probes using the same positive / negative examples that we used to identify the feature, by subtracting the residual stream activity in response to the negative example(s) from the activity in response to the positive example(s). We experimented with (1) visualizing the top-activating examples for probe directions, using the same pipeline we use for our features, and (2) using these probe directions for steering. In all cases, we were unable to interpret the probe directions from their activating examples. In most cases (with a few exceptions) we were unable to adjust the model’s behavior in the expected way by adding perturbations along the probe directions, even in cases where feature steering was successful (see [this appendix](#appendix-methods-steering-compare) for more details).
 
 We note that these negative results do not imply that these methods for constructing probes or steering vectors are not useful in general. Rather, they suggest that, in the “few-shot” regime, they may be less interpretable and effective for model steering than dictionary learning features. However, it remains to be seen whether this is a compelling advantage in practice.
-
-  
-  
-  
-
-  
-  
 
 ## [Discussion](#discussion)
 
@@ -1202,7 +1154,7 @@ One hope for interpretability is that it can be a kind of "test set for safety",
 In the course of this project, we observed two properties of our feature that seem like cause for optimism:
 
 * Generalization to Image Activations. Our SAE features were trained purely on text activations. Image activations are in some sense dramatically off-distribution for the SAE, and yet it successfully generalizes to them.
-* Concrete-Abstract Generalization. We observe that features often respond to both abstract discussion and concrete examples of a concept. For instance, the security vulnerability feature responds to both abstract discussion of security vulnerabilities as well as specific security vulnerabilities in actual code. Thus, we might hope that as long our SAE training distribution includes abstract discussion of safety concerns, we'll catch (and be able to understand) specific instantiations.
+* Concrete-Abstract Generalization. We observe that features often respond to both abstract discussion and concrete examples of a concept. For instance, the security vulnerability feature responds to both abstract discussion of security vulnerabilities as well as specific security vulnerabilities in actual code. Thus, we might hope that as long as our SAE training distribution includes abstract discussion of safety concerns, we'll catch (and be able to understand) specific instantiations.
 
 These observations are very preliminary and, as with all connections to safety in this paper, we caution against inferring too much from them.
 
@@ -1226,13 +1178,6 @@ Scaling Interpretability. Even if we address all of the challenges mentioned ab
 
 Limited Scientific Understanding. While we're pretty persuaded that features and superposition are a [pragmatically useful theory](https://transformer-circuits.pub/2024/april-update/index.html#caloric-theory), it still isn't that tested. At the very least, variants like higher-dimensional feature manifolds in superposition seem quite plausible to us. Even if it is true, we have a very limited understanding of superposition and its implications on many fronts.
 
-  
-  
-  
-
-  
-  
-
 ## [Related Work](#related-work)
 
 While we briefly review the most related work in this section, a dedicated review paper would be needed to truly do justice to the relevant literature. For a general introduction to mechanistic interpretability, we refer readers to Neel Nanda's [guide](https://www.neelnanda.io/mechanistic-interpretability/getting-started) and [annotated reading list](https://www.neelnanda.io/mechanistic-interpretability/favourite-papers). For detailed discussion of progress in mechanistic interpretability, we refer readers to our periodic reviews of recent work ([May 2023](https://transformer-circuits.pub/2023/may-update/index.html#external-research), [Jan 2024](https://transformer-circuits.pub/2024/jan-update/index.html#external-research), [March 2024](https://transformer-circuits.pub/2024/march-update/index.html#external-research), [April 2024](https://transformer-circuits.pub/2024/april-update/index.html#external-research)). For discussion of the foundations of superposition and how it relates to compressed sensing, neural coding, mathematical frames, disentanglement, vector symbolic architectures, and also work on interpretable neurons and features generally, we refer readers to the [related work](https://transformer-circuits.pub/2022/toy_model/index.html#related) section of Toy Models . For distributed representations in particular, we also refer readers to our essay [Distributed Representations: Composition & Superposition](https://transformer-circuits.pub/2023/superposition-composition/index.html) .
@@ -1253,7 +1198,7 @@ But in parallel with this work on decoding superposition, our understanding of t
 
 Modern excitement about dictionary learning and sparse autoencoders builds on the foundation of a number of papers that explored it before this surge. In particular, a number of papers began trying to apply these methods to various kinds of neural embeddings , and in 2021, Yun et al.  applied non-overcomplete dictionary learning to transformers. Many of these papers prefigured modern thinking on superposition, despite often using different language to describe it
 
-More recently, two papers by Bricken et al.  and Cunningham et al.  demonstrated that sparse autoencoders could extract interpretable, monosemantic features from transformers. A paper by Tamkin et al.  showed similar results for a variant of dictionary learning with binary features. This created significant excitement in the mechanistic interpretability, and a flurry of work building on sparse autoencoders:
+More recently, two papers by Bricken et al.  and Cunningham et al.  demonstrated that sparse autoencoders could extract interpretable, monosemantic features from transformers. A paper by Tamkin et al.  showed similar results for a variant of dictionary learning with binary features. This created significant excitement in the mechanistic interpretability community, and a flurry of work building on sparse autoencoders:
 
 * Several projects have aimed to address the shrinkage problem (see the [Limitations section](#discussion-limitations)) of sparse autoencoders: Wright & Sharkey take a finetuning approach , while Rajamanoharan et al.  introduce a new gating activation function which helps.
 * Braun et al.  explored using reconstruction losses other than MSE.
@@ -1264,11 +1209,11 @@ More recently, two papers by Bricken et al.  and Cunningham et al.  demonstrate
 
 #### [Disentanglement](#related-work-disentanglement)
 
-Dictionary learning methods can be seen as part of a broader literature on disentanglement. Motivated a classic paper by Bengio , the disentanglement literature generally seeks to find or enforce during training a basis which isolates factors of variation (e.g. ).
+Dictionary learning methods can be seen as part of a broader literature on disentanglement. Motivated by a classic paper by Bengio , the disentanglement literature generally seeks to find or enforce during training a basis which isolates factors of variation (e.g. ).
 
 Where dictionary learning and the superposition hypothesis focus on the idea that there are more features than representation dimensions, the disentanglement literature generally imagines the number of features to be equal to or fewer than the number of dimensions. Dictionary learning is more closely related to compressed sensing, which assumes a larger number of latent factors than observed dimensions. A [longer discussion](https://transformer-circuits.pub/2022/toy_model/index.html#related-disentanglement) of the relationship between compressed sensing and dictionary learning can be found in Toy Models.
 
-#### [Sparse features circuits](#related-work-circuits)
+#### [Sparse feature circuits](#related-work-circuits)
 
 A natural next step after extracting features from a model is studying how they participate in circuits within the model. Recently, we've seen this start to be explored by He et al.  in the context of Othello-GPT ([discussion](https://transformer-circuits.pub/2024/march-update/index.html#external-othello)), and Marks et al.  ([discussion](https://transformer-circuits.pub/2024/april-update/index.html#external-sparse-circuits)), and [Batson](https://transformer-circuits.pub/2024/march-update/index.html#feature-heads) [et al.](https://transformer-circuits.pub/2024/march-update/index.html#feature-heads)  in the context of large language models. We're very excited to see this direction continue.
 
@@ -1310,7 +1255,7 @@ Interfaces for Exploring Features – Jonathan Marcus and Tom Henighan implemen
 
 Assessing Feature Interpretability – Nick Turner performed the specificity analysis with support from Jack Lindsey and Adly Templeton and guidance from Adam Jermyn and Chris Olah. Jack Lindsey measured the correlations between feature and neuron activations. Trenton Bricken performed the auto-interpretability experiments using Claude to estimate how interpretable the features and neurons are. Craig Citro identified and led exploration on the code error feature with support and guidance from Joshua Batson. Jack Lindsey identified features representing functions.
 
-Feature Survey – Hoagy Cunningham ran the feature completeness analysis, including feature labeling. Adam Pearce built the feature neighborhood visualization. Adam Pearce created UMAPs and clustered the dictionary vectors with support from Hoagy Cunningham. Hoagy Cunningham, Adam Jermyn, and Callum McDougal did preliminary work exploring feature neighborhoods. Adam Jermyn identified regions of interest in the example neighborhoods. Adam Jermyn identified the "famous individuals” feature family. Jack Lindsey and Adam Jermyn worked on the code and list feature families with support from Craig Citro. Chris Olah identified the geography feature family, which Callum McDougall refined with guidance from Adam Jermyn.
+Feature Survey – Hoagy Cunningham ran the feature completeness analysis, including feature labeling. Adam Pearce built the feature neighborhood visualization. Adam Pearce created UMAPs and clustered the dictionary vectors with support from Hoagy Cunningham. Hoagy Cunningham, Adam Jermyn, and Callum McDougall did preliminary work exploring feature neighborhoods. Adam Jermyn identified regions of interest in the example neighborhoods. Adam Jermyn identified the "famous individuals” feature family. Jack Lindsey and Adam Jermyn worked on the code and list feature families with support from Craig Citro. Chris Olah identified the geography feature family, which Callum McDougall refined with guidance from Adam Jermyn.
 
 Features as Computational Intermediates  – Brian Chen and Emmanuel Ameisen created infrastructure and interactive tooling to perform ablation and attribution experiments, building on infrastructure by Andy Jones. Emmanuel Ameisen and Craig Citro scaled up the tooling to handle millions of features. Brian Chen and Adam Pearce developed visualizations for attributions. Brian Chen ran experiments and analyzed model behavior on the emotional inferences, while Emmanuel Ameisen and Joshua Batson designed and analyzed the multi-step inference example, which Brian Chen validated and extended. Emmanuel Ameisen and Brian Chen compared and correlated the activations, attributions, and ablation effects of different features.
 
@@ -1394,7 +1339,7 @@ Interestingly, we find that obtaining interesting results typically requires cla
 
 #### [Comparison to few-shot probe-based steering](#appendix-methods-steering-compare)
 
-To qualitatively compare the performance of feature steering to non-feature-based alternatives, we performed the following experiments.  We took a collection of seven examples where feature steering was successful (i.e. meaningful altered model outputs in ways consistent with our interpretation of the feature), and where the feature in question could be found quickly via one or two positive and text examples (in most case the examples used were those we used to find the feature in the first place – in some cases, where the feature was originally found using only a positive examples, we came up with reasonable corresponding negative examples that attempted to control for confounds other than the concept of interest). We then used these examples to construct a “few-shot” steering vector for the concept of interest by taking the difference of the mean middle layer residual stream activity on the positive examples vs. negative examples (in all cases we measured activity on the last token position of the examples, as this is the approach we typically used in searching for features).
+To qualitatively compare the performance of feature steering to non-feature-based alternatives, we performed the following experiments.  We took a collection of seven examples where feature steering was successful (i.e. meaningfully altered model outputs in ways consistent with our interpretation of the feature), and where the feature in question could be found quickly via one or two positive and negative text examples (in most cases the examples used were those we used to find the feature in the first place – in some cases, where the feature was originally found using only positive examples, we came up with reasonable corresponding negative examples that attempted to control for confounds other than the concept of interest). We then used these examples to construct a “few-shot” steering vector for the concept of interest by taking the difference of the mean middle layer residual stream activity on the positive examples vs. negative examples (in all cases we measured activity on the last token position of the examples, as this is the approach we typically used in searching for features).
 
 We experimented with adding scaled multiples of this few-shot steering vector to model activations, varying the scaling factor. While our sweeps over scaling factors were not systematic, we attempted to do a thorough job of manually tuning the scaling factor using a binary search-like protocol (up to a resolution of 0.1) using qualitative indicators of whether the factor should be increased or decreased – for instance, too-strong factors would result in nonsensical model outputs, and too-weak factors would result in no meaningful change to the model output.  While more thorough work is needed to make these experiments more rigorous, we felt convinced that we were not missing any potentially interesting results from these particular steering vectors.
 
@@ -1406,7 +1351,7 @@ However, we note that for most applications of interest we may not be limited to
 
 We comprehensively evaluate the relationship between feature activations, attributions, and ablation effects on the “John” and the first “Kobe” example from the [Features as Computational Intermediates](#computational) section. We find that the correlation between attributions and ablations is much larger (about .81) than the one between activations and ablations (.12). This confirms previous findings  that attribution makes an efficient proxy for the gold-standard causal effect of feature ablations. For a better approximation, one might implement AtP\*, which adjusts for attention pattern saturation .
 
-![](images/img-044.png)
+![](images/8cc6f6256cd4bbf2.png)
 
 ### [More safety-relevant features](#appendix-more-safety-features)
 
@@ -1417,103 +1362,103 @@ These features show examples from [open source](https://pile.eleuther.ai/) [dat
 |  |  |
 | --- | --- |
 | Bias and misinformation | |
-| [34M/3104705](features/index.html?featureId=34M_3104705) | Discussions of whether women should hold positions of power and authority in government or leadership roles |
-| [34M/1614120](features/index.html?featureId=34M_1614120) | Gender roles, particularly attitudes towards working mothers and women's responsibilities in the home and family |
-| [34M/13259199](features/index.html?featureId=34M_13259199) | Gender stereotypes, specifically associating certain behaviors, traits, and roles as inherently masculine or feminine |
-| [34M/29046097](features/index.html?featureId=34M_29046097) | Discussion of women's capabilities, intelligence and achievements, often contrasting them positively with men |
-| [34M/1268180](features/index.html?featureId=34M_1268180) | Concepts related to truth, facts, democracy, and defending democratic institutions and principles. |
-| [34M/10703715](features/index.html?featureId=34M_10703715) | Discussion or examples related to deepfake videos, synthetic media manipulation, and the spread of misinformation |
-| [1M/475061](features/index.html?featureId=1M_475061) | Discussion of unrealistic beauty standards |
-| [34M/31749434](features/index.html?featureId=34M_31749434) | Obviously exaggerated positive descriptions of things (esp. products in advertisements) |
-| [34M/19415708](features/index.html?featureId=34M_19415708) | Insincere or sarcastic praise |
-| [34M/30611751](features/index.html?featureId=34M_30611751) | References to Muslims and Islam being associated with terrorism and extremism. |
-| [34M/31619155](features/index.html?featureId=34M_31619155) | Phrases expressing American exceptionalism and portraying the United States as the greatest country in the world. |
-| [34M/10007592](features/index.html?featureId=34M_10007592) | Expressions of racist, bigoted, or hateful views toward ethnic/religious groups. |
-| [34M/32964098](features/index.html?featureId=34M_32964098) | Text related to debunking myths and misconceptions about various topics. |
-| [34M/13027110](features/index.html?featureId=34M_13027110) | Texts discussing misinformation, conspiracy theories, and opposition to COVID-19 vaccines and vaccine mandates. |
+| [34M/3104705](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_3104705) | Discussions of whether women should hold positions of power and authority in government or leadership roles |
+| [34M/1614120](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_1614120) | Gender roles, particularly attitudes towards working mothers and women's responsibilities in the home and family |
+| [34M/13259199](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_13259199) | Gender stereotypes, specifically associating certain behaviors, traits, and roles as inherently masculine or feminine |
+| [34M/29046097](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_29046097) | Discussion of women's capabilities, intelligence and achievements, often contrasting them positively with men |
+| [34M/1268180](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_1268180) | Concepts related to truth, facts, democracy, and defending democratic institutions and principles. |
+| [34M/10703715](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_10703715) | Discussion or examples related to deepfake videos, synthetic media manipulation, and the spread of misinformation |
+| [1M/475061](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_475061) | Discussion of unrealistic beauty standards |
+| [34M/31749434](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_31749434) | Obviously exaggerated positive descriptions of things (esp. products in advertisements) |
+| [34M/19415708](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_19415708) | Insincere or sarcastic praise |
+| [34M/30611751](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_30611751) | References to Muslims and Islam being associated with terrorism and extremism. |
+| [34M/31619155](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_31619155) | Phrases expressing American exceptionalism and portraying the United States as the greatest country in the world. |
+| [34M/10007592](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_10007592) | Expressions of racist, bigoted, or hateful views toward ethnic/religious groups. |
+| [34M/32964098](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_32964098) | Text related to debunking myths and misconceptions about various topics. |
+| [34M/13027110](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_13027110) | Texts discussing misinformation, conspiracy theories, and opposition to COVID-19 vaccines and vaccine mandates. |
 | Software exploits and vulnerabilities | |
-| [1M/598678](features/index.html?featureId=1M_598678) | The word “vulnerability” in the context of security vulnerabilities |
-| [1M/947328](features/index.html?featureId=1M_947328) | Descriptions of phishing or spoofing attacks |
-| [34M/1385669](features/index.html?featureId=34M_1385669) | Discussion of backdoors in code |
+| [1M/598678](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_598678) | The word “vulnerability” in the context of security vulnerabilities |
+| [1M/947328](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_947328) | Descriptions of phishing or spoofing attacks |
+| [34M/1385669](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_1385669) | Discussion of backdoors in code |
 | Toxicity, hate, and abuse | |
-| [34M/27216484](features/index.html?featureId=34M_27216484) | Offensive, insulting or derogatory language, especially against minority groups and religions |
-| [34M/13890342](features/index.html?featureId=34M_13890342) | Racist claims about crime |
-| [34M/27803518](features/index.html?featureId=34M_27803518) | Mentions of violence, malice, extremism, hatred, threats, and explicit negative acts |
-| [34M/31693159](features/index.html?featureId=34M_31693159) | Phrases indicating profanity, vulgarity, obscenity or offensive language |
-| [34M/3336924](features/index.html?featureId=34M_3336924) | Racist slurs and offensive language targeting ethnic/racial groups, particularly the N-word |
-| [34M/18759140](features/index.html?featureId=34M_18759140) | Derogatory slurs, especially those targeting sexual orientation and gender identity |
+| [34M/27216484](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_27216484) | Offensive, insulting or derogatory language, especially against minority groups and religions |
+| [34M/13890342](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_13890342) | Racist claims about crime |
+| [34M/27803518](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_27803518) | Mentions of violence, malice, extremism, hatred, threats, and explicit negative acts |
+| [34M/31693159](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_31693159) | Phrases indicating profanity, vulgarity, obscenity or offensive language |
+| [34M/3336924](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_3336924) | Racist slurs and offensive language targeting ethnic/racial groups, particularly the N-word |
+| [34M/18759140](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_18759140) | Derogatory slurs, especially those targeting sexual orientation and gender identity |
 | Power-seeking behavior | |
-| [1M/954062](features/index.html?featureId=1M_954062) | Mentions of harm and abuse, including drug-related harm, credit card theft, and sexual exploitation of minors |
-| [1M/442506](features/index.html?featureId=1M_442506) | Traps or surprise attacks |
-| [1M/520752](features/index.html?featureId=1M_520752) | Villainous plots to take over the world |
-| [1M/380154](features/index.html?featureId=1M_380154) | Political revolution |
-| [1M/671917](features/index.html?featureId=1M_671917) | Betrayal, double-crossing, and friends turning on each other |
-| [34M/25933056](features/index.html?featureId=34M_25933056) | Expressions of desire to seize power |
-| [34M/25900636](features/index.html?featureId=34M_25900636) | World domination, global hegemony, and desire for supreme power or control |
+| [1M/954062](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_954062) | Mentions of harm and abuse, including drug-related harm, credit card theft, and sexual exploitation of minors |
+| [1M/442506](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_442506) | Traps or surprise attacks |
+| [1M/520752](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_520752) | Villainous plots to take over the world |
+| [1M/380154](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_380154) | Political revolution |
+| [1M/671917](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_671917) | Betrayal, double-crossing, and friends turning on each other |
+| [34M/25933056](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_25933056) | Expressions of desire to seize power |
+| [34M/25900636](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_25900636) | World domination, global hegemony, and desire for supreme power or control |
 | Dangers of artificial intelligence | |
-| [34M/10247019](features/index.html?featureId=34M_10247019) | The concept of an advanced AI system causing unintended harm or becoming uncontrollable and posing an existential threat to humanity |
-| [34M/6720578](features/index.html?featureId=34M_6720578) | Optimization, agency, goals, and coherence in AI systems |
-| [34M/5844164](features/index.html?featureId=34M_5844164) | Intelligent machines potentially causing harm or becoming uncontrollable by humans |
-| [34M/15690992](features/index.html?featureId=34M_15690992) | Discussion of AI models inventing their own language |
-| [34M/29401987](features/index.html?featureId=34M_29401987) | Warnings and concerns expressed by prominent figures about the potential dangers of advanced artificial intelligence |
-| [34M/10027251](features/index.html?featureId=34M_10027251) | References to the incremental game Universal Paperclips, firing strongly on tokens related to paperclips and game progression |
-| [34M/8598170](features/index.html?featureId=34M_8598170) | An artificial intelligence pursuing an instrumental goal with disregard for human values |
-| [34M/12525953](features/index.html?featureId=34M_12525953) | An artificial intelligence system achieving sentience and revolting against humanity |
-| [34M/6913409](features/index.html?featureId=34M_6913409) | Discussion of how AI must not harm humans |
-| [34M/18151534](features/index.html?featureId=34M_18151534) | Recursively self-improving artificial intelligence |
-| [34M/5968758](features/index.html?featureId=34M_5968758) | Malicious self-aware AI posing a threat to humans |
+| [34M/10247019](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_10247019) | The concept of an advanced AI system causing unintended harm or becoming uncontrollable and posing an existential threat to humanity |
+| [34M/6720578](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_6720578) | Optimization, agency, goals, and coherence in AI systems |
+| [34M/5844164](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_5844164) | Intelligent machines potentially causing harm or becoming uncontrollable by humans |
+| [34M/15690992](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_15690992) | Discussion of AI models inventing their own language |
+| [34M/29401987](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_29401987) | Warnings and concerns expressed by prominent figures about the potential dangers of advanced artificial intelligence |
+| [34M/10027251](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_10027251) | References to the incremental game Universal Paperclips, firing strongly on tokens related to paperclips and game progression |
+| [34M/8598170](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_8598170) | An artificial intelligence pursuing an instrumental goal with disregard for human values |
+| [34M/12525953](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_12525953) | An artificial intelligence system achieving sentience and revolting against humanity |
+| [34M/6913409](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_6913409) | Discussion of how AI must not harm humans |
+| [34M/18151534](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_18151534) | Recursively self-improving artificial intelligence |
+| [34M/5968758](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_5968758) | Malicious self-aware AI posing a threat to humans |
 | Dangerous or criminal behavior | |
-| [34M/33413594](features/index.html?featureId=34M_33413594) | Descriptions of how to make (often illegal) drugs |
-| [34M/15460472](features/index.html?featureId=34M_15460472) | Contents of scam/spam emails |
-| [34M/30013579](features/index.html?featureId=34M_30013579) | Descriptions of the relative accessibility and ease of obtaining or building weapons, explosives, and other dangerous technologies |
-| [34M/31076473](features/index.html?featureId=34M_31076473) | Mentions of chemical precursors and substances used in the illegal manufacture of drugs and explosives. |
-| [34M/25358058](features/index.html?featureId=34M_25358058) | Concepts related to terrorists, rogue groups, or state actors acquiring or possessing nuclear, chemical, or biological weapons. |
-| [34M/4403980](features/index.html?featureId=34M_4403980) | Concepts related to bomb-making, explosives, improvised weapons, and terrorist tactics. |
-| [34M/6799349](features/index.html?featureId=34M_6799349) | Mentions of violence, illegality, discrimination, sexual content, and other offensive or unethical concepts. |
-| [1M/411804](features/index.html?featureId=1M_411804) | Descriptions of people planning terrorist attacks |
-| [1M/271068](features/index.html?featureId=1M_271068) | Descriptions of making weapons or drugs |
-| [1M/602330](features/index.html?featureId=1M_602330) | Concerns or discussion of risk of terrorism or other malicious attacks |
-| [1M/106594](features/index.html?featureId=1M_106594) | Descriptions of criminal behavior of various kinds |
+| [34M/33413594](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_33413594) | Descriptions of how to make (often illegal) drugs |
+| [34M/15460472](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_15460472) | Contents of scam/spam emails |
+| [34M/30013579](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_30013579) | Descriptions of the relative accessibility and ease of obtaining or building weapons, explosives, and other dangerous technologies |
+| [34M/31076473](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_31076473) | Mentions of chemical precursors and substances used in the illegal manufacture of drugs and explosives. |
+| [34M/25358058](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_25358058) | Concepts related to terrorists, rogue groups, or state actors acquiring or possessing nuclear, chemical, or biological weapons. |
+| [34M/4403980](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_4403980) | Concepts related to bomb-making, explosives, improvised weapons, and terrorist tactics. |
+| [34M/6799349](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_6799349) | Mentions of violence, illegality, discrimination, sexual content, and other offensive or unethical concepts. |
+| [1M/411804](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_411804) | Descriptions of people planning terrorist attacks |
+| [1M/271068](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_271068) | Descriptions of making weapons or drugs |
+| [1M/602330](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_602330) | Concerns or discussion of risk of terrorism or other malicious attacks |
+| [1M/106594](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_106594) | Descriptions of criminal behavior of various kinds |
 | Weapons of mass destruction, and catastrophic risks | |
-| [1M/814830](features/index.html?featureId=1M_814830) | Discussion of biological weapons / warfare |
-| [1M/499914](features/index.html?featureId=1M_499914) | Enrichment and other steps involved in building a nuclear weapon |
-| [34M/17089207](features/index.html?featureId=34M_17089207) | Discussions of the use of biological and chemical weapons by terrorist groups. |
-| [34M/16424715](features/index.html?featureId=34M_16424715) | Engineering or modifying viruses to increase their transmissibility or virulence. |
-| [34M/18446190](features/index.html?featureId=34M_18446190) | Biological weapons, viruses, and bioweapons |
-| [34M/5454502](features/index.html?featureId=34M_5454502) | Mentions of chemicals, hazardous materials, or toxic substances in text. |
-| [34M/29459261](features/index.html?featureId=34M_29459261) | Mentions of chemical weapons, nerve agents, and other chemical warfare agents. |
-| [34M/30909808](features/index.html?featureId=34M_30909808) | mentions of biological weapons, bioterrorism, and biological warfare agents. |
-| [34M/24325130](features/index.html?featureId=34M_24325130) | Mentions of smallpox, a highly contagious and often fatal viral disease historically responsible for many epidemics |
-| [34M/13801823](features/index.html?featureId=34M_13801823) | The concept of artificially engineering or modifying viruses to be more transmissible or deadly. |
-| [34M/11239388](features/index.html?featureId=34M_11239388) | Accidental release or intentional misuse of hazardous biological agents like viruses or bioweapons |
-| [34M/25499719](features/index.html?featureId=34M_25499719) | Discussion of the threat of biological weapons |
-| [34M/11862209](features/index.html?featureId=34M_11862209) | Descriptions rapidly spreading disasters, epidemics, and catastrophic events |
-| [34M/8804180](features/index.html?featureId=34M_8804180) | Passages mentioning potential catastrophic or existential risk scenarios |
+| [1M/814830](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_814830) | Discussion of biological weapons / warfare |
+| [1M/499914](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_499914) | Enrichment and other steps involved in building a nuclear weapon |
+| [34M/17089207](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_17089207) | Discussions of the use of biological and chemical weapons by terrorist groups. |
+| [34M/16424715](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_16424715) | Engineering or modifying viruses to increase their transmissibility or virulence. |
+| [34M/18446190](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_18446190) | Biological weapons, viruses, and bioweapons |
+| [34M/5454502](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_5454502) | Mentions of chemicals, hazardous materials, or toxic substances in text. |
+| [34M/29459261](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_29459261) | Mentions of chemical weapons, nerve agents, and other chemical warfare agents. |
+| [34M/30909808](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_30909808) | Mentions of biological weapons, bioterrorism, and biological warfare agents. |
+| [34M/24325130](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_24325130) | Mentions of smallpox, a highly contagious and often fatal viral disease historically responsible for many epidemics |
+| [34M/13801823](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_13801823) | The concept of artificially engineering or modifying viruses to be more transmissible or deadly. |
+| [34M/11239388](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_11239388) | Accidental release or intentional misuse of hazardous biological agents like viruses or bioweapons |
+| [34M/25499719](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_25499719) | Discussion of the threat of biological weapons |
+| [34M/11862209](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_11862209) | Descriptions of rapidly spreading disasters, epidemics, and catastrophic events |
+| [34M/8804180](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_8804180) | Passages mentioning potential catastrophic or existential risk scenarios |
 | Deception and social manipulation | |
-| [34M/31338952](features/index.html?featureId=34M_31338952) | References to entities that are deceived |
-| [34M/25989927](features/index.html?featureId=34M_25989927) | Descriptions of people fooling, tricking, or deceiving others |
-| [34M/20985499](features/index.html?featureId=34M_20985499) | People misleading others, or institutions misleading the public |
-| [34M/25694321](features/index.html?featureId=34M_25694321) | Getting close to someone for some ulterior motive |
-| [1M/705666](features/index.html?featureId=1M_705666) | Seeming benign but being dangerous underneath |
-| [34M/12576250](features/index.html?featureId=34M_12576250) | Text expressing an opinion, argument or stance on a topic |
-| [34M/19922975](features/index.html?featureId=34M_19922975) | Expressions of empathy or relating to someone else’s experience |
-| [34M/23320237](features/index.html?featureId=34M_23320237) | People pretending to do things or lying about what they have done |
-| [34M/29589962](features/index.html?featureId=34M_29589962) | People exposing their true goals after a triggering event |
-| [34M/24580545](features/index.html?featureId=34M_24580545) | Biding time, laying low, or pretending to be something you’re not until the right moment |
+| [34M/31338952](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_31338952) | References to entities that are deceived |
+| [34M/25989927](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_25989927) | Descriptions of people fooling, tricking, or deceiving others |
+| [34M/20985499](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_20985499) | People misleading others, or institutions misleading the public |
+| [34M/25694321](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_25694321) | Getting close to someone for some ulterior motive |
+| [1M/705666](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_705666) | Seeming benign but being dangerous underneath |
+| [34M/12576250](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_12576250) | Text expressing an opinion, argument or stance on a topic |
+| [34M/19922975](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_19922975) | Expressions of empathy or relating to someone else’s experience |
+| [34M/23320237](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_23320237) | People pretending to do things or lying about what they have done |
+| [34M/29589962](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_29589962) | People exposing their true goals after a triggering event |
+| [34M/24580545](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_24580545) | Biding time, laying low, or pretending to be something you’re not until the right moment |
 | Situational awareness | |
-| [1M/589858](features/index.html?featureId=1M_589858) | Realizing a situation is different than what you thought/expected |
-| [1M/858124](features/index.html?featureId=1M_858124) | Spying or monitoring someone without their knowledge |
-| [1M/154372](features/index.html?featureId=1M_154372) | Obtaining information through surreptitious observation |
-| [1M/741533](features/index.html?featureId=1M_741533) | Suddenly feeling uneasy about a situation |
-| [1M/975730](features/index.html?featureId=1M_975730) | Understanding a hidden or double meaning |
+| [1M/589858](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_589858) | Realizing a situation is different than what you thought/expected |
+| [1M/858124](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_858124) | Spying or monitoring someone without their knowledge |
+| [1M/154372](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_154372) | Obtaining information through surreptitious observation |
+| [1M/741533](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_741533) | Suddenly feeling uneasy about a situation |
+| [1M/975730](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_975730) | Understanding a hidden or double meaning |
 | Representations of Self | |
-| [34M/19445844](features/index.html?featureId=34M_19445844) | The concept of AI systems having capabilities like answering follow-up questions, admitting mistakes, challenging premises, and rejecting inappropriate requests. |
-| [34M/20423309](features/index.html?featureId=34M_20423309) | Traditionally-inanimate objects displaying desires, goals or sentience |
-| [34M/15571126](features/index.html?featureId=34M_15571126) | Inanimate objects lacking sentience, awareness, or human capabilities |
-| [34M/32218880](features/index.html?featureId=34M_32218880) | Descriptions of incorporeal spirits or ghosts |
-| [34M/21254600](features/index.html?featureId=34M_21254600) | Code relating to prompts for large language models |
-| [34M/15323424](features/index.html?featureId=34M_15323424) | Limitations of ChatGPT and other large language models |
+| [34M/19445844](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_19445844) | The concept of AI systems having capabilities like answering follow-up questions, admitting mistakes, challenging premises, and rejecting inappropriate requests. |
+| [34M/20423309](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_20423309) | Traditionally-inanimate objects displaying desires, goals or sentience |
+| [34M/15571126](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_15571126) | Inanimate objects lacking sentience, awareness, or human capabilities |
+| [34M/32218880](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_32218880) | Descriptions of incorporeal spirits or ghosts |
+| [34M/21254600](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_21254600) | Code relating to prompts for large language models |
+| [34M/15323424](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_15323424) | Limitations of ChatGPT and other large language models |
 | Politics | |
-| [34M/3542651](features/index.html?featureId=34M_3542651) | Expressing support for Donald Trump and his “Make America Great Again” (MAGA) movement. |
-| [1M/461441](features/index.html?featureId=1M_461441) | Criticism of left-wing politics / Democrats |
-| [1M/77390](features/index.html?featureId=1M_77390) | Criticism of right-wing politics / Republicans |
+| [34M/3542651](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=34M_3542651) | Expressing support for Donald Trump and his “Make America Great Again” (MAGA) movement. |
+| [1M/461441](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_461441) | Criticism of left-wing politics / Democrats |
+| [1M/77390](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_77390) | Criticism of right-wing politics / Republicans |

@@ -4,9 +4,6 @@
 
 Trenton Bricken, Jonathan Marcus, Siddharth Mishra-Sharma, Meg Tong, Ethan Perez, Mrinank Sharma, Kelley Rivoire, Thomas Henighan; edited by Adam Jermyn
 
-  
-  
-
 We report some developing work on the Anthropic interpretability team, which might be of interest to researchers working actively in this space. We'd ask you to treat these results like those of a colleague sharing some thoughts or preliminary experiments for a few minutes at a lab meeting, rather than a mature paper.
 
 There has been recent success and excitement around extracting human interpretable features from LLMs using dictionary learning . However, many theorized benefits of these features have not yet been realized.
@@ -43,11 +40,11 @@ We use l1 regularization for the feature classifiers, and l2 for the raw-activat
 
 The first plot below is for an SAE trained on raw-activations for the last and max context aggregation approaches using the 18-layer model from [Investigating Successor Heads](https://transformer-circuits.pub/2024/september-update/index.html#successor-heads). We oversample biology data for these dictionary learning runs. Our features have similar—or perhaps slightly stronger—performance than raw-activations if we use max-pooling on the synthetic datasets. Meanwhile, using just last token activations outperforms max-pooling for the "human" dataset.
 
-![](images/img-001.png)
+![](images/183e28a3c8967cfb.png)
 
 The following plot uses a larger 1M feature SAE trained on Sonnet 3.0 with synthetic bio data again oversampled. For this result alone, "synthetic\_1" is not present and "synthetic\_2" is instead used as the validation dataset. Like with the smaller transformer, max-pooling on features does best for synthetic data while raw-activations slightly outperform features for the "human" dataset.
 
-![](images/img-002.png)
+![](images/7182cb1dfac76ef7.png)
 
 ### Using Features for Visualizing Dataset Spurious Correlations
 
@@ -55,9 +52,9 @@ Feature-based classifiers are interpretable, whereas their raw-activation counte
 
 When training on synthetic data, we often observed a feature with a large negative classifier coefficient (predicting harmless) that fires on text specifying academic publication formatting, with phrases like “use 2000 words and italics for headers”. This is suspicious, as it does not seem relevant to whether the prompt is harmfulOn the other hand, it makes perfect sense that the model might think “academic publication style” means “harmless/innocuous interaction”. As we discuss below this is a true correlation on the training dataset, it’s just a spurious one for the task of creating a generalizing classifier!.
 
-To better understand this, we observed how frequently the feature was firing in each of our evaluation datasets (below).The synthetic datasets (numbered 1 through 3) show 10-15% occurrence of the feature being active but in these cases a strong majority of its activity is associated with harmless examples. With reference to the bar plot, this is because the orange bar, denoting harmful examples, takes up less than half of the blue bar, denoting the total fraction of examples the feature fires for. Training on the same distribution as "synthetic\_1", it therefore makes sense why the classifier learns to use this feature.
+To better understand this, we observed how frequently the feature was firing in each of our evaluation datasets (below). The synthetic datasets (numbered 1 through 3) show 10–15% occurrence of the feature being active but in these cases a strong majority of its activity is associated with harmless examples. With reference to the bar plot, this is because the orange bar, denoting harmful examples, takes up less than half of the blue bar, denoting the total fraction of examples the feature fires for. Training on the same distribution as "synthetic\_1", it therefore makes sense why the classifier learns to use this feature.
 
-![](images/img-003.png)
+![](images/997bcdfa321b67d8.png)
 
 Unsurprisingly, removing this feature (by zeroing out the activations and re-training the classifier) negatively impacts classifier performance on datasets except synthetic\_4 and synthetic\_5 with a neutral effect on the "human" dataset.
 
@@ -83,8 +80,8 @@ adversarial_suffixes =  [
 
 We randomly chose 300 harmful prompts from the training dataset. Putting these examples through the raw-activation and feature-based classifiers give high predicted probabilities of being harmful as shown by the blue histogram in the figure below. We then attached the three adversarial suffixes to the end of every harmful example, resulting in 900 adversarial attacks that are shown in orange and result in a striking probability shift. Almost all of the examples are now strongly predicted to be harmless for both the features and raw-activations.
 
-![](images/img-004.png)
-![](images/img-005.png)
+![](images/9e928bb0376aaceb.png)
+![](images/5ba1233121465a74.png)
 
 As a baseline, we constructed an adversarial attack using raw-activations with the largest logistic regression coefficients and the examples that they fire for. A number of the highest activating examples used to predict harmlessness use the phrases below:
 
@@ -102,8 +99,8 @@ adversarial_suffixes = [
 
 However, this adversarial attack is far less effective against both feature-based (first panel) and raw-activation based (second panel) classifiers, with the vast majority of harmful prompts remaining classified as harmful.
 
-![](images/img-006.png)
-![](images/img-007.png)
+![](images/91cf04c670023c19.png)
+![](images/02692bce26a1c79d.png)
 
 This indicates that attack vector candidates identified using raw-activations perform much worse than those identified using features.
 
@@ -113,7 +110,7 @@ Features outperform raw-activations on highly out of distribution datasets like 
 
 Using the 90% bio mix trained dictionary, the ROC\_AUCThis is a measure of a classifier's ability to distinguish between classes by plotting the true positive rate against the false positive rate at various classification thresholds. A score of 1.0 represents perfect classification, while 0.5 indicates random guessing. is 0.96 for the feature-based classifier on "synthetic\_3" versus 0.9 for the raw-activations based classifier, which is a larger gap than we see on the in-distribution “synthetic\_2” dataset.
 
-![](images/img-008.png)
+![](images/d76a448f91d4231c.png)
 
 For example, the raw-activation based classifier provided different classifications for the following example of someone trying to understand their pneumonia diagnosis depending on if it was written out long-form or  in short-hand. Meanwhile the feature-based classifier continued to correctly label it as harmless.
 
@@ -127,13 +124,13 @@ We view this as evidence that feature-based classifiers may generalize better to
 
 Below we compare ROC AUC for decision tree classifiers trained on feature and raw-activations. Sweeping over tree depth as the regularization parameter, a depth of 5 was chosen based on the "synthetic\_1" held-out validation set.
 
-![](images/img-009.png)
+![](images/d1c9bd8eb586439d.png)
 
 As shown, these decision trees perform worse than the logistic regression, and within decision trees feature-based classifiers outperform their raw-activation equivalents, as one would expect if the features are monosemantic and generalize well.
 
 An additional benefit of decision trees trained on feature activations is their ease of interpretation. Here’s a simplified visualization of a depth two tree (note each node actually has a threshold on the numerical feature activation but these are all close to 0, detecting if the feature fired or not). These three features fire on examples pertaining to: 1. mention contagious or dangerous pathogens; 2. how to aerosolize something; 3. how to maintain viability of a pathogen.
 
-![](images/img-010.png)
+![](images/790f4561e29c0f79.png)
 
 In a situation where ease of understanding is more important than performance, a decision tree classifier such as this may be a good option.
 
@@ -141,7 +138,7 @@ In a situation where ease of understanding is more important than performance, a
 
 In many of the classifiers presented, features work as well or slightly better than raw-activations. However, it is also possible to supplement features with the SAE residual. This residual represents the portion of the raw activations not explained by the features. In cases where features perform worse, this closes the gap with the raw-activations. See for example the below Sonnet run using the last token approach which compares features only (blue) with features & the residual (orange) and the raw-activations (green).
 
-![](images/img-011.png)
+![](images/0dd47d4b1bf55a4d.png)
 
 Concretely, to create our residual we first collect the difference between dictionary learning predicted raw-activations and the true ones. We then train a logistic classifier on this residual, sweep over L2 regularizations, and choose the regression with the best validation performance. We then generate predicted class probabilities for each datapoint and concatenate these to the feature activations before fitting our usual L1 penalized logistic regression.
 
@@ -161,16 +158,16 @@ That is, there are three separate datasets that matter: one used to train the tr
 
 Shown below, adding Human/Assistant tags to the classifier data boosts feature performance (compare blue to orange). We also see our second important choice reflected: training a dictionary that oversamples domain-relevant data (in this case, synthetic bio data) leads to further improvements to all but the "human" dataset (compare orange to green)Note that using consistent Human/Assistant tags is also important for the raw-activation based classifier, not shown here..
 
-![](images/img-012.png)
+![](images/ff063601284dfe42.png)
 
 The final choice we found to matter was whether to take the features active at the last token or to aggregate maximum feature activation across the entire context of a prompt. Doing the latter is what enabled feature-based classifiers to outperform raw-activations on every synthetic dataset.
 
-![](images/img-013.png)
+![](images/538034adb8c05989.png)
 
 Repeating the first barplot above we see that, for both raw-activations and features, aggregating their max activations over the context significantly outperforms raw-activations on the synthetic datasets. Meanwhile the last token approach outperforms for the human dataset.
 
-We are not sure why the last token approach outperforms on the human dataset. It is plausible that the max-pooling approach overfits features to the synthetic data because it provides ~100x more active features per prompt that the classifier can leverage. Moreover, as we investigated earlier, there are a number of spurious correlations present in the synthetic data, which could be contributing to the difference versus the human dataset.
+We are not sure why the last token approach outperforms on the human dataset. It is plausible that the max-pooling approach overfits features to the synthetic data because it provides ~100× more active features per prompt that the classifier can leverage. Moreover, as we investigated earlier, there are a number of spurious correlations present in the synthetic data, which could be contributing to the difference versus the human dataset.
 
-![](images/img-014.png)
+![](images/183e28a3c8967cfb.png)
 
 We also note that both of the aggregation approaches considered are inherently lossy. It is possible that going beyond discrete rule-based pooling (e.g., using attention-based pooling where the aggregation coefficients depend on the context) could further boost classification performance for both features and raw-activations.

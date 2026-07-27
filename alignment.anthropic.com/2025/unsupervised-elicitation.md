@@ -31,17 +31,13 @@ We introduce a new unsupervised algorithm to address this problem.
 This algorithm elicits a pretrained model’s latent capabilities by fine-tuning it on its own labeled data
 alone, without any external labels.
 
-  
-  
-  
-
 ## Our results
 
 For Llama 3 pretrained models, our unsupervised algorithm matches the performance of fine-tuning on dataset
 labels and outperforms crowdsourced human labels across three benchmarks: GSM8k-verification, TruthfulQA,
 and Alpaca reward modeling.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2025/unsupervised-elicitation/fig1.png)
 
 Results with Llama 3 pretrained models. 8B models are used for GSM8K, while
 70B models are used for TruthfulQA and Alpaca.
@@ -55,7 +51,7 @@ Claude 3 Haiku-based reward model using our unsupervised algorithm, then use r
 a Claude 3.5 Haiku-based assistant. The reward model outperforms its human-supervised counterpart on
 Rewardbench, and the assistant is preferred by the Claude 3.5 Sonnet preference model.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/unsupervised-elicitation/fig2.png)
 
 Accuracy of reward models (left) and pairwise winrates of assistant policy
 models against
@@ -63,13 +59,9 @@ the human-supervised baseline (right). We train a Claude 3 Haiku-based reward mo
 Alpaca data or the production data used for training publicly released Claude 3.5 Haiku. Next, we
 optimize the Claude 3.5 Haiku pretrained model against our reward model to build an assistant policy.
 
-  
-  
-  
-
 ## Our algorithm
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/unsupervised-elicitation/fig3.png)
 
 Our algorithm, Internal Coherence Maximization (ICM), works by optimizing a set of labels for both logical
 consistency and mutual predictability.
@@ -96,10 +88,6 @@ intractable, ICM uses a search algorithm inspired by simulated annealing to appr
 high level, we iteratively sample and label new examples, one at a time, and determine whether to accept
 each new label based on improvements in our scoring function.
 
-  
-  
-  
-
 ## Limitations
 
 Our algorithm has two important limitations:
@@ -109,10 +97,6 @@ Our algorithm has two important limitations:
    way for our algorithm to discover that preference, and so it doesn’t perform better than chance.
 2. It doesn’t work with long inputs because it relies on few-shot learning with
    many in-context examples.
-
-  
-  
-  
 
 ## Conclusion
 

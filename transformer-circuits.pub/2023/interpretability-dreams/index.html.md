@@ -4,8 +4,6 @@
 
 An informal note on future goals for mechanistic interpretability by Chris Olah. Published May 24th, 2023.
 
-  
-
 Our present research aims to create a foundation for mechanistic interpretability research. In particular, we're focused on trying to resolve the challenge of [superposition](https://transformer-circuits.pub/2022/toy_model/index.html). In doing so, it's important to keep sight of what we're trying to lay the foundations for. This essay summarizes those motivating aspirations – the exciting directions we hope will be possible if we can overcome the present challenges.
 
 We aim to offer insight into our vision for addressing mechanistic interpretability's other challenges, especially scalability. Because we have focused on foundational issues, our longer-term path to scaling interpretability and tackling other challenges has often been obscure. By articulating this vision, we hope to clarify how we might resolve limitations, like analyzing massive neural networks, that might naively seem intractable in a mechanistic approach.
@@ -14,34 +12,27 @@ Before diving in, it's worth making a few small remarks. Firstly, essentially al
 
 #### Overview
 
-* [An Epistemic Foundation](#epistemic-foundation) - Mechanistic interpretability is a "microscopic" theory because it's trying to build a solid foundation for understanding higher-level structure, in an area where it's very easy for us as researchers to misunderstand.
-* [What Might We Build on Such a Foundation?](#possibilities) - Many tantalizing possibilities for research exist (and have been preliminarily demonstrated in InceptionV1), if only we can resolve superposition and identify the right features and circuits in a model.
+* [An Epistemic Foundation](#epistemic-foundation) – Mechanistic interpretability is a "microscopic" theory because it's trying to build a solid foundation for understanding higher-level structure, in an area where it's very easy for us as researchers to misunderstand.
+* [What Might We Build on Such a Foundation?](#possibilities) – Many tantalizing possibilities for research exist (and have been preliminarily demonstrated in InceptionV1), if only we can resolve superposition and identify the right features and circuits in a model.
 
-* [Larger Scale Structure](#larger-scale) - It seems likely that there is a bigger picture, more abstract story that can be built on top of our understanding of features and circuits. Something like organs in anatomy or brain regions in neuroscience.
-* [Universality](#universality) - It seems likely that many features and circuits are universal, forming across different neural networks trained on similar domains. This means that lessons learned studying one model give us footholds in future models.
-* [Bridging the Microscopic to the Macroscopic](#macroscopic-microscopic) - We're already seeing that some microscopic, mechanistic discoveries (such as induction heads) have significant macroscopic implications. This bridge can likely be expanded as we pin down the foundations, turning our mechanistic understanding into something relevant to machine learning more broadly.
-* [Automated Interpretability](#automated-interpretability) - It seems very possible that AI automation of interpretability may help it scale to large models if all else fails (although aesthetically, we might prefer other paths).
+* [Larger Scale Structure](#larger-scale) – It seems likely that there is a bigger picture, more abstract story that can be built on top of our understanding of features and circuits. Something like organs in anatomy or brain regions in neuroscience.
+* [Universality](#universality) – It seems likely that many features and circuits are universal, forming across different neural networks trained on similar domains. This means that lessons learned studying one model give us footholds in future models.
+* [Bridging the Microscopic to the Macroscopic](#macroscopic-microscopic) – We're already seeing that some microscopic, mechanistic discoveries (such as induction heads) have significant macroscopic implications. This bridge can likely be expanded as we pin down the foundations, turning our mechanistic understanding into something relevant to machine learning more broadly.
+* [Automated Interpretability](#automated-interpretability) – It seems very possible that AI automation of interpretability may help it scale to large models if all else fails (although aesthetically, we might prefer other paths).
 
-* [The End Goals](#end-goals) - Ultimately, we hope this work can eventually [contribute to safety](#safety) and also [reveal beautiful structure](#aesthetics) inside neural networks.
-
-  
-  
-  
-
-  
-  
+* [The End Goals](#end-goals) – Ultimately, we hope this work can eventually [contribute to safety](#safety) and also [reveal beautiful structure](#aesthetics) inside neural networks.
 
 ## [An Epistemic Foundation](#epistemic-foundation)
 
 Mechanistic interpretability starts by studying the "microscopic" scale of neural networks: features, parameters, circuits. It's a bottom up approach, studying small pieces without an a priori theory. This is, in a lot of ways, a very strange decision. Why not take a top-down approach targeted at the questions we care about?
 
-Our hard won experience is that it's quite easy to be misled and confused by neural networks. If one starts with plausible assumptions about what's going on, it's often easy to find illusory supporting evidence of them if you search top-down even if one is mistaken, because there will lots of computation which is correlated with your hypothesis.Consider a vision model trained on ImageNet. A natural hypothesis is that it will contain a dog head detector – and indeed, ImageNet models do seem to reliably contain dog head detectors! However, there will also be earlier layers, right before it contains a dog head detector, in which the model has detectors for a dog snout, dog fur, eyes, and so on, which combined can very accurately predict the presence of a dog head. This means that a linear probe will discover a "dog detector", even if the layer isn't best understood as having a dog head detector feature yet.
+Our hard won experience is that it's quite easy to be misled and confused by neural networks. If one starts with plausible assumptions about what's going on, it's often easy to find illusory supporting evidence of them if you search top-down even if one is mistaken, because there will be lots of computation which is correlated with your hypothesis.Consider a vision model trained on ImageNet. A natural hypothesis is that it will contain a dog head detector – and indeed, ImageNet models do seem to reliably contain dog head detectors! However, there will also be earlier layers, right before it contains a dog head detector, in which the model has detectors for a dog snout, dog fur, eyes, and so on, which combined can very accurately predict the presence of a dog head. This means that a linear probe will discover a "dog detector", even if the layer isn't best understood as having a dog head detector feature yet.
 
 The critical benefit of mechanistic interpretability is that you can truly determine whether statements are true. It's an epistemic foundation:
 
 In fact, for small enough circuits, statements about their behavior become questions of mathematical reasoning. Of course, the cost of this rigor is that statements about circuits are much smaller in scope than overall model behavior. But it seems like, with sufficient effort, statements about model behavior could be broken down into statements about circuits. If so, perhaps circuits could act as a kind of epistemic foundation for interpretability.  (Olah et al., 2020; see ["Interpretability as a Natural Science"](https://distill.pub/2020/circuits/zoom-in/#natural-science))
 
-This "foundation" is a kind of fallback that we should be able to reduce things to. That doesn't mean the ultimate plan is to work at that level of abstraction. A lot of work goes into the foundations of mathematics, but mathematicians don't do all their work in terms of foundational axioms. Computer programs can be reduced to assembly instructions, or be thought about in terms of Turning machines, but that's not how programmers work in practice. These fields have a stable foundation which can be used, with effort, to check any claim made at higher levels of abstraction, and to translate between different abstractions people build. But the foundation is just the start.
+This "foundation" is a kind of fallback that we should be able to reduce things to. That doesn't mean the ultimate plan is to work at that level of abstraction. A lot of work goes into the foundations of mathematics, but mathematicians don't do all their work in terms of foundational axioms. Computer programs can be reduced to assembly instructions, or be thought about in terms of Turing machines, but that's not how programmers work in practice. These fields have a stable foundation which can be used, with effort, to check any claim made at higher levels of abstraction, and to translate between different abstractions people build. But the foundation is just the start.
 
 Similarly, we expect much of the exciting work of mechanistic interpretability to be building abstractions on top of the foundation we're establishing. This has been a major motivation since the beginning of mechanistic interpretability:
 
@@ -50,13 +41,6 @@ As we’ve studied circuits throughout InceptionV1 and other models, we’ve see
 If we think of interpretability as a kind of “anatomy of neural networks,” most of the circuits thread has involved studying tiny little veins – looking at the small-scale, at individual neurons and how they connect. However, there are many natural questions that the small-scale approach doesn’t address. In contrast, the most prominent abstractions in biological anatomy involve larger-scale structures: individual organs like the heart, or entire organ systems like the respiratory system. And so we wonder: is there a “respiratory system” or “heart” or “brain region” of an artificial neural network? Do neural networks have any emergent structures that we could study that are larger-scale than circuits?  (Voss et al., 2021, ["Branch Specialization"](https://distill.pub/2020/circuits/branch-specialization/))
 
 Enabling this kind of higher-level analysis to be pursued rigorously and with confidence that we aren't misunderstanding things is a central motivation of present "low-level" mechanistic interpretability research.
-
-  
-  
-  
-
-  
-  
 
 ## [What Might We Build on Such a Foundation?](#possibilities)
 
@@ -76,19 +60,19 @@ Neural network features often appear to form families of analogous features, par
 
 The most basic version of this is families parameterized by a simple variable like orientation, scale, or hue. This was explored at some depth in [Naturally Occurring Equivariance in Neural Networks](https://distill.pub/2020/circuits/equivariance).
 
-![](images/img-001.png)
+![](images/b8f0935de3f0a58c.png)
 
 But it isn't just that features form these families. The circuits implementing them and the weights between them are also organized and parameterized in the same manner:
 
-![](images/img-002.png)
+![](images/213747b46b13706b.png)
 
 This isn't limited to simple transformations however. Neuron families can be parameterized by more abstract types of variation.
 
-![](images/img-003.png)
+![](images/f8875cebe200fb18.png)
 
 Another paper, [Multimodal Neurons in Artificial Neural Networks](https://distill.pub/2021/multimodal-neurons/), found even more abstract neuron families. While many of the earlier neuron families might be hard to imagine in language models, one could easily imagine families of features corresponding to prominent people, or features corresponding to emotions, in large language models.
 
-![](images/img-004.png)
+![](images/32e3913df21fbc7b.png)
 
 In fact, our paper on [Softmax Linear Units](https://transformer-circuits.pub/2022/solu/index.html) observed that the language models it investigated appear to have "token X in language Y" neurons, which might be seen as a simple feature family parameterized by the variables X and Y (see [Section 6.3.5, "Abstract Patterns"](https://transformer-circuits.pub/2022/solu/index.html#section-6-3-5)). So the basic premise of feature families in language models seems likely to be true, at least in some cases.
 
@@ -102,7 +86,7 @@ One sign of hope is the results of the [Branch Specialization](https://distill.p
 
 A more satisfying answer comes in a [small experiment](https://distill.pub/2020/circuits/branch-specialization/#figure-6) towards the end of the paper. The same organizational structure of neurons appears to be implicitly present when there aren't any branches. In fact, if anything, the situation is better than the branch version – we get a map of neurons organized on multiple axes of relationships, rather than a binary division.
 
-![](images/img-005.png)
+![](images/c9f60c57aa1a654a.png)
 
 This kind of "meta-organization" of features is exactly what we want. And it seems like such organizational structure should fall out of the neural network "connectome" as long as features are more closely connected to related features than unrelated ones!
 
@@ -124,12 +108,12 @@ In the same way, the universality hypothesis determines what form of circuits re
 
 Many features in vision models appear to be universal, occurring consistently across a range of models. Of course, this was well known for Gabor filters for a very long time, but it also [appears true](https://distill.pub/2020/circuits/zoom-in/#claim-3) for other features:
 
-![](images/img-006.png)
+![](images/b459c4305f965cbf.png)
 
 Some other interesting data points on universality:
 
 * Universal Circuits: High-low frequency detectors (see figure above) also have the [same](https://distill.pub/2020/circuits/frequency-edges/#universality) [circuits](https://distill.pub/2020/circuits/frequency-edges/#universality)[occur across models](https://distill.pub/2020/circuits/frequency-edges/#universality).
-* Universality between artificial and biological neural networks: [Curve detectors](https://distill.pub/2020/circuits/curve-detectors/) are very similar to neurons found in neuroscience. Recently, neurons [similar to high-low frequency detectors](https://twitter.com/ch402/status/1638931735202385920) were [found in neuroscience](https://www.biorxiv.org/content/10.1101/2023.03.15.532836v1). And of course, multimodal neurons analogous to the famous "Jennifer Anniston" neuron results [were found in CLIP](https://distill.pub/2021/multimodal-neurons/).
+* Universality between artificial and biological neural networks: [Curve detectors](https://distill.pub/2020/circuits/curve-detectors/) are very similar to neurons found in neuroscience. Recently, neurons [similar to high-low frequency detectors](https://twitter.com/ch402/status/1638931735202385920) were [found in neuroscience](https://www.biorxiv.org/content/10.1101/2023.03.15.532836v1). And of course, multimodal neurons analogous to the famous "Jennifer Aniston" neuron results [were found in CLIP](https://distill.pub/2021/multimodal-neurons/).
 * Universality in Transformer Language Models: Certain attentional features like previous token heads and [induction heads](https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html) form very consistently within transformer language models. We've also observed some examples of limited universality (eg. an "all caps text" neuron developing in multiple small [SoLU models](https://transformer-circuits.pub/2022/solu/index.html)).
 
 It seems likely that universality will be true to at least some extent, which makes identifying these universal features very valuable. Each feature we discover gives us a stable foothold in the future models we study.
@@ -142,7 +126,7 @@ Mechanistic interpretability is an extremely microscopic analysis of neural netw
 
 [Induction heads](https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html) appear to be an example of a microscopic neural network phenomena with macroscopic effects. They can cause a visible bump in transformer language model loss curves. Induction heads are also likely to be responsible for a bump observed in the [original scaling laws paper](https://arxiv.org/pdf/2001.08361.pdf) (see Figure 13: "The conspicuous lump at 10^{-5} PF-days marks the transition from 1-layer to 2-layer networks").
 
-![](images/img-007.png)
+![](images/bf39e250ec6909c1.png)
 
 While a microscopic theory is not a prerequisite for a macroscopic theory – the study of hereditary traits preceded the discovery that DNA mediated them – a good microscopic theory can support the trustworthiness of a macroscopic theory within a domain of validity and suggest where it will break down.
 
@@ -162,13 +146,6 @@ But more than aesthetic, if we are relying on AI to audit the safety of AI syste
 
 Despite this, it does seem quite possible that the types of approaches suggested in this essay will ultimately be insufficient, and interpretability may need to rely on AI automation. There may also be potential for a middle ground of "AI-assisted interpretability", which AI helps accelerate interpretability research but the important parts are still verified by humans. Work enabling this is certainly exciting and important.
 
-  
-  
-  
-
-  
-  
-
 ## [The End Goals](#end-goals)
 
 This essay has largely focused on the tantalizing research directions which are blocked by the need to resolve foundational issues like superposition. But there's a much larger question beyond them – what are the ultimate objectives of this line of work? What do we hope and expect to gain?
@@ -179,13 +156,13 @@ There are [many ways](https://www.lesswrong.com/posts/uK6sQCNMw8WKzJeCQ/a-longli
 
 For safety, we want to make claims like "a model will never lie" or " a model will never manipulate us". If we try to formalize this, it seems like we want to do something like make claims of the form:
 
-![](images/img-008.png)
+![](images/8f90470c2d292a9a.png)
 
 Unfortunately, this isn't the kind of claim machine learning typically deals with. Normally machine learning is concerned with expected values over a distribution. We're worried about, out of distribution behavior, worst case performance. The only thing which makes this slightly easier is that we're perhaps only concerned with "deliberate" failures (and it's very unclear how we would capture this!).
 
 How can we hope to evaluate such a claim? It feels like – if we're extremely ambitious – there might be a path if we can solve both superposition and scalability. Having a complete set of features might give one a hook to enumerate over, which gets at "all model behavior" in some sense.
 
-![](images/img-009.png)
+![](images/a819923f64b89251.png)
 
 This is a vague, highly speculative idea. But perhaps something might be possible. This idea is sketched out in more depth in the ["Strategic Picture" section](https://transformer-circuits.pub/2022/toy_model/index.html#strategic) of the Toy Models paper.
 

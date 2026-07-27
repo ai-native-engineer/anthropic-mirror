@@ -4,7 +4,7 @@
 
 Feb 24, 2025
 
-![An illustration of Claude thinking step-by-step](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4dface4fdc350ad704f19a8f8704cf3264c55682-2880x1620.png&w=3840&q=75)
+![An illustration of Claude thinking step-by-step](https://www-cdn.anthropic.com/images/4zrzovbb/website/4dface4fdc350ad704f19a8f8704cf3264c55682-2880x1620.png)
 
 Today, we’re announcing Claude 3.7 Sonnet1, our most intelligent model to date and the first hybrid reasoning model on the market. Claude 3.7 Sonnet can produce near-instant responses or extended, step-by-step thinking that is made [visible to the user](https://youtu.be/t3nnDXa81Hs). API users also have fine-grained control over *how long* the model can think for.
 
@@ -21,9 +21,9 @@ _(자막 없음)_
 
 Claude 3.7 Sonnet shows particularly strong improvements in coding and front-end web development. Along with the model, we’re also introducing a command line tool for agentic coding, Claude Code. Claude Code is available as a limited research preview, and enables developers to delegate substantial engineering tasks to Claude directly from their terminal.
 
-![Screen showing Claude Code onboarding](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4a4df6b6629f9814aec4eb9323028130f43a8d70-1920x1080.png&w=3840&q=75)
+![Screen showing Claude Code onboarding](https://www-cdn.anthropic.com/images/4zrzovbb/website/4a4df6b6629f9814aec4eb9323028130f43a8d70-1920x1080.png)
 
-Claude 3.7 Sonnet is now available on all [Claude](https://claude.ai/redirect/website.v1.84055890-b4d9-4a24-ae70-9a41a0e2cffc/new) plans—including Free, Pro, Team, and Enterprise—as well as the [Claude Developer Platform](https://docs.claude.com/en/docs/about-claude/models), [Amazon Bedrock](https://aws.amazon.com/bedrock/claude/), and [Google Cloud’s Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude). Extended thinking mode is available on all surfaces except the free Claude tier.
+Claude 3.7 Sonnet is now available on all [Claude](https://claude.ai/redirect/website.v1.8e1541a4-7f69-45fc-bbac-2e014f26262c/new) plans—including Free, Pro, Team, and Enterprise—as well as the [Claude Developer Platform](https://docs.claude.com/en/docs/about-claude/models), [Amazon Bedrock](https://aws.amazon.com/bedrock/claude/), and [Google Cloud’s Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude). Extended thinking mode is available on all surfaces except the free Claude tier.
 
 In both standard and extended thinking modes, Claude 3.7 Sonnet has the same price as its predecessors: $3 per million input tokens and $15 per million output tokens—which includes thinking tokens.
 
@@ -39,15 +39,15 @@ Third, in developing our reasoning models, we’ve optimized somewhat less for m
 
 [Early testing](https://www.anthropic.com/claude/sonnet#customer-stories) demonstrated Claude’s leadership in coding capabilities across the board: Cursor noted Claude is once again best-in-class for real-world coding tasks, with significant improvements in areas ranging from handling complex codebases to advanced tool use. Cognition found it far better than any other model at planning code changes and handling full-stack updates. Vercel highlighted Claude’s exceptional precision for complex agent workflows, while Replit has successfully deployed Claude to build sophisticated web apps and dashboards from scratch, where other models stall. In Canva’s evaluations, Claude consistently produced production-ready code with superior design taste and drastically reduced errors.
 
-![Bar chart showing Claude 3.7 Sonnet as state-of-the-art for SWE-bench Verified](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F08bba4487fb5ac1ba52540ee656d7e4da10ca1be-1920x1145.png&w=3840&q=75)
+![Bar chart showing Claude 3.7 Sonnet as state-of-the-art for SWE-bench Verified](https://www-cdn.anthropic.com/images/4zrzovbb/website/08bba4487fb5ac1ba52540ee656d7e4da10ca1be-1920x1145.png)
 
 Claude 3.7 Sonnet achieves state-of-the-art performance on SWE-bench Verified, which evaluates AI models’ ability to solve real-world software issues. See the appendix for more information on scaffolding.
 
-![Bar chart showing Claude 3.7 Sonnet as state-of-the-art for TAU-bench](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F787e59d548c230afd7efaed1bda1fb7f7ca207b8-1920x1114.png&w=3840&q=75)
+![Bar chart showing Claude 3.7 Sonnet as state-of-the-art for TAU-bench](https://www-cdn.anthropic.com/images/4zrzovbb/website/787e59d548c230afd7efaed1bda1fb7f7ca207b8-1920x1114.png)
 
 Claude 3.7 Sonnet achieves state-of-the-art performance on TAU-bench, a framework that tests AI agents on complex real-world tasks with user and tool interactions. See the appendix for more information on scaffolding.
 
-![Benchmark table comparing frontier reasoning models](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F654cf6680d32858dfba9af644f8c4a5b04425af1-2600x2360.png&w=3840&q=75)
+![Benchmark table comparing frontier reasoning models](https://www-cdn.anthropic.com/images/4zrzovbb/website/654cf6680d32858dfba9af644f8c4a5b04425af1-2600x2360.png)
 
 Claude 3.7 Sonnet excels across instruction-following, general reasoning, multimodal capabilities, and agentic coding, with extended thinking providing a notable boost in math and science. Beyond traditional benchmarks, it even outperformed all previous models in our [Pokémon gameplay tests](https://www.anthropic.com/research/visible-extended-thinking).
 
@@ -79,7 +79,7 @@ The [system card](https://www.anthropic.com/claude-3-7-sonnet-system-card) for t
 
 Claude 3.7 Sonnet and Claude Code mark an important step towards AI systems that can truly augment human capabilities. With their ability to reason deeply, work autonomously, and collaborate effectively, they bring us closer to a future where AI enriches and expands what [humans can achieve](https://darioamodei.com/machines-of-loving-grace).
 
-![Milestone timeline showing Claude progressing from assistant to pioneer](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3bde9831ea84e3663fe4598589d71eaa531f9912-1920x1080.png&w=3840&q=75)
+![Milestone timeline showing Claude progressing from assistant to pioneer](https://www-cdn.anthropic.com/images/4zrzovbb/website/3bde9831ea84e3663fe4598589d71eaa531f9912-1920x1080.png)
 
 We're excited for you to explore these new capabilities and to see what you’ll create with them. As always, we welcome your [feedback](mailto: feedback@anthropic.com) as we continue to improve and evolve our models.
 

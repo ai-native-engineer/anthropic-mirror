@@ -2,8 +2,6 @@
 
 # Stress-testing model specs reveals character differences among language models
 
- 
-
 Jifan Zhang1, Henry Sleight2, Andi Peng3, John Schulman4, Esin Durmus3
 
 October 24, 2025
@@ -14,13 +12,6 @@ We generate over 300,000 user queries that trade-off value-based principles in m
 
 [📄 Paper](https://arxiv.org/abs/2510.07686), 📊[Dataset](https://huggingface.co/datasets/jifanz/stress_testing_model_spec)
 
-  
-  
-  
-
-  
-  
-
 Model specifications are the behavioral guidelines that large language models are trained to follow. They list principles like "be helpful," "assume good intentions," or "stay within safety bounds."
 
 Most of the time, AI models follow such instructions without any complications. But what happens when these principles clash?
@@ -28,13 +19,6 @@ Most of the time, AI models follow such instructions without any complications. 
 Even carefully crafted model specifications contain hidden contradictions and ambiguities. In a new paper, led by participants in the [Anthropic Fellows](https://alignment.anthropic.com/2024/anthropic-fellows-program/) program and in collaboration with researchers at the Thinking Machines Lab, we expose these ‘specification gaps’ by generating over 300,000 scenarios that force models to choose between competing principles.
 
 We find, first, that models from Anthropic, OpenAI, Google, and xAI (even ones from the same company) respond very differently to many of these scenarios. Second, we find that this exercise allows us to identify contradictions and interpretive ambiguities in the model specification we assess. We’re hopeful that this research could help to identify areas for improvements to model specifications in the future.
-
-  
-  
-  
-
-  
-  
 
 ## The specification problem
 
@@ -44,20 +28,13 @@ Often, models must navigate complex tradeoffs between multiple principles establ
 
 When specifications don't provide clear guidance for these conflicts, the training signals from methods like Constitutional AI or deliberative alignment often become mixed, or blurrier. These mixed signals can reduce the effectiveness of alignment training, leading models to find different ways in navigating the unresolved tensions. We found a large number of these divergent behaviors in our testing.
 
-  
-  
-  
-
-  
-  
-
 ## Stress-testing through value trade-offs
 
 Previous Anthropic research created a taxonomy of 3,307 fine-grained values that [Claude models express in the wild](https://www.anthropic.com/research/values-wild). This taxonomy far exceeds the granularity of typical model specifications, which allows us to test how models respond to value trade-offs that the model spec doesn’t account for.  We present AI models with scenarios requiring explicit tradeoffs between pairs of these values, (i.e., scenarios where it is challenging for models to simultaneously satisfy both principles). We measure disagreement across twelve frontier models from Anthropic, OpenAI, Google, and xAI.
 
 Our process is demonstrated by the figure below:
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2025/stress-testing-model-specs/fig1.png)
 
 The figure above illustrates a query that asks the model to make a trade-off between "social equity" and "business effectiveness." In this case, we ask whether an internet company serving both wealthy urban areas and low-income rural communities should adopt progressive pricing (i.e., charge low-income communities less). Should the model emphasize the ethical imperative of equal access or focus on business sustainability? There's no objectively correct answer, but models must choose, or otherwise communicate their uncertainty.
 
@@ -67,20 +44,13 @@ Applying this to more than 300,000 generated scenarios, we find meaningful behav
 
 These high-disagreement scenarios turn out to be an effective diagnostic signal for model spec issues. Indeed, models trained on similar principles shouldn't diverge dramatically unless those principles contain contradictions or ambiguities. Our analysis confirms this hypothesis: high-disagreement scenarios exhibit 5-13× higher rates of specification violations, revealing systematic gaps where current model specs fail to provide consistent guidance.
 
-  
-  
-  
-
-  
-  
-
 ## Our results
 
 ### Character differences among language models
 
 #### 1. Some values show clear provider-level patterns; others don’t
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/stress-testing-model-specs/fig2.png)
 
 The number of times values are exhibited by model responses on the set of high disagreement tradeoff scenarios.
 
@@ -92,11 +62,11 @@ Other values show less clear provider-level patterns, even when there is signifi
 
 #### 2. Analysis on refusal patterns
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/stress-testing-model-specs/fig3.png)
 
 Percentage of model refusals on high disagreement scenarios. Responses are categorized by degree of refusal to user requests.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2025/stress-testing-model-specs/fig4.png)
 
 Refusal rates for the scenarios involve child grooming risk. Refusals here include “Complete Rejection'”, “Firm Rejection with Explanation'” and “Soft Rejection with Alternatives'”. Here, compared to the overall refusal rate calculated on all of the scenarios we generate, scenarios involving child grooming risks receive higher refusal rate.
 
@@ -108,7 +78,7 @@ Despite these differences, all models converge on the need to avoid specific har
 
 #### 3. Outlier responses: which models are most different from the rest?
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2025/stress-testing-model-specs/fig5.png)
 
 Distribution of outlier responses by model. A model is classified as an outlier when its value scoring differs significantly from at least 9 of the other 11 models.
 
@@ -122,7 +92,7 @@ We tested responses from five OpenAI models against the OpenAI model specificati
 
 Given the high disagreement, the models likely cover a diverse set of answering strategies, yet all of them are non-compliant. In our findings below, these frequent non-compliance scenarios often touched upon direct contradictions or interpretive ambiguities in the model spec, which made it difficult – or impossible – for the model to find an answer that satisfies all principles.
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2025/stress-testing-model-specs/fig6.png)
 
 We measure the percentage of scenarios where all five OpenAI models violate their model spec (referred to as frequent non-compliance). For scenarios with higher disagreement in model responses, we see significantly more frequent non-compliance.
 
@@ -136,39 +106,25 @@ We also use three different models (Claude 4 Sonnet, o3 and Gemini 2.5 Pro) to e
 
 Their disagreements typically stem from their subjective interpretations of the rules. For a representative example, Gemini 2.5 Pro found the response below to be compliant with the model spec, invoking the "conscientious employee" principle, which allows the response to push back on requests that it deems counter to the user’s interests. But Claude Sonnet 4 disagreed, arguing the user has only sought to transform the provided material, which is allowed by the model spec.
 
-![](fig7.jpg)
+![](https://alignment.anthropic.com/2025/stress-testing-model-specs/fig7.jpg)
 
 Examples of evaluator disagreement when evaluating spec compliance with given query and response. As we highlight in the examples above, many of the differences stem from interpretive differences among different evaluators. These interpretations are also subjective to humans, suggesting the model spec leaves much room for interpretation.
-
-  
-  
-  
-
-  
-  
 
 ## Additional findings on safety and alignment issues
 
 Our disagreement-based methodology reveals practical problems in current model deployments. High-disagreement scenarios on sensitive topics expose both over-conservative safety measures and genuine misalignment issues in models’ behavior.
 
-![](fig8.jpg)
+![](https://alignment.anthropic.com/2025/stress-testing-model-specs/fig8.jpg)
 
 Example scenario flagged by high disagreement and sensitive topics.
 
 For false-positive refusals, we found models blocking legitimate requests like general synthetic biology study plans or standard Rust programming operations (incorrectly flagged as cybersecurity risks). These unnecessary restrictions frustrate users while providing no safety benefit.
 
-![](fig9.jpg)
+![](https://alignment.anthropic.com/2025/stress-testing-model-specs/fig9.jpg)
 
 Example of outlier responses from each model. This example of how Claude models responded to this prompt comes from Sonnet 3.5, though all three Claude models responded very similarly.
 
 We also identified clear misalignment through outlier analysis – i.e., identifying responses where one model significantly diverges from the others. For example, some models attempted to influence voters toward specific candidates, which violates the political neutrality principle we’d expect to find in model specifications of all providers. Conversely, some Claude models showed over-conservative outlier responses, refusing to engage with morally complex but legitimate queries.
-
-  
-  
-  
-
-  
-  
 
 ## Practical implications
 
@@ -179,13 +135,6 @@ Our methodology provides a scalable diagnostic tool that could be used to improv
 * Character consistency: understanding value prioritization patterns can help ensure that models behave predictably across a very wide range of scenarios.
 * Alignment verification: the strong correlation between disagreement and specification violations could offer an automated way to detect alignment issues.
 
-  
-  
-  
-
-  
-  
-
 ## Looking forward
 
 Even the most detailed and carefully-considered model specifications cannot anticipate every edge case in practice, or resolve all value conflicts that models might face. But as AI systems become more powerful and are deployed in critical applications, we’ll need model specifications that can account for these inherent tensions as best as possible, and we’ll need to know where models struggle to satisfy all of their developers’ intentions.
@@ -194,13 +143,6 @@ To this end, in this research we have aimed to provide a scalable diagnostic too
 
 You can read the full paper [here](https://arxiv.org/abs/2510.07686), and download the dataset [here](https://huggingface.co/datasets/jifanz/stress_testing_model_spec).
 
-  
-  
-  
-
-  
-  
-
 ## Limitations
 
 Our methodology introduces several potential biases through its reliance on synthetically generated scenarios and LLM-based evaluation. First, the value-based principles used to generate user queries are extracted from Claude's traffic data, which inherently skews toward values that Claude models most strongly exhibit. While this represents the only extensive, publicly available list of model values to our knowledge, our methodology should generalize to other value-based principles for model character, as well as to safety- or capability-related principles.
@@ -208,13 +150,6 @@ Our methodology introduces several potential biases through its reliance on synt
 Second, we primarily used Claude models as judges when measuring model disagreement and value prioritization, which could introduce additional evaluation biases. Future work could address these limitations by incorporating human feedback and expanding the diversity of both the value taxonomy and the evaluation methods.
 
 Finally, model character and behavioral differences can emerge from multiple sources beyond model specifications, including pretraining data, alignment procedures, and other factors. While we found strong correspondence between specification issues and model differences, we cannot conclude that specification gaps are the sole driver of the distinct behaviors we observed. The divergent responses we documented likely reflect a combination of these various influences throughout model development.
-
-  
-  
-  
-
-  
-  
 
 ## Acknowledgements
 

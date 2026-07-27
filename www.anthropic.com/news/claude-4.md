@@ -4,7 +4,7 @@
 
 May 22, 2025
 
-![Illustration of Claude juggling several tasks in parallel](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9890d1bb39c15c41772af22d2282eb612469051c-2880x1620.jpg&w=3840&q=75)
+![Illustration of Claude juggling several tasks in parallel](https://www-cdn.anthropic.com/images/4zrzovbb/website/9890d1bb39c15c41772af22d2282eb612469051c-2880x1620.jpg)
 
 Today, we’re introducing the next generation of Claude models: **Claude Opus 4** and **Claude Sonnet 4**, setting new standards for coding, advanced reasoning, and AI agents.
 
@@ -31,7 +31,7 @@ Claude Sonnet 4 significantly improves on Sonnet 3.7's industry-leading capabili
 
 These models advance our customers' AI strategies across the board: Opus 4 pushes boundaries in coding, research, writing, and scientific discovery, while Sonnet 4 brings frontier performance to everyday use cases as an instant upgrade from Sonnet 3.7.
 
-![Bar chart comparison between Claude and other LLMs on software engineering tasks](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F09a6d5aa47c25cb2037efff9f486da4918f77708-3840x2304.png&w=3840&q=75)
+![Bar chart comparison between Claude and other LLMs on software engineering tasks](https://www-cdn.anthropic.com/images/4zrzovbb/website/09a6d5aa47c25cb2037efff9f486da4918f77708-3840x2304.png)
 
 Claude 4 models lead on SWE-bench Verified, a benchmark for performance on real software engineering tasks. See appendix for more on methodology.
 
@@ -41,7 +41,7 @@ In addition to extended thinking with tool use, parallel tool execution, and mem
 
 Claude Opus 4 also dramatically outperforms all previous models on memory capabilities. When developers build applications that provide Claude local file access, Opus 4 becomes skilled at creating and maintaining 'memory files' to store key information. This unlocks better long-term task awareness, coherence, and performance on agent tasks—like Opus 4 creating a 'Navigation Guide' while playing Pokémon.
 
-![A visual note in Claude's memories that depicts a navigation guide for the game Pokemon Red.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe51564bb5ce9597dbfc59bbab13a0efbe25a7d66-1920x1080.gif&w=3840&q=75)
+![A visual note in Claude's memories that depicts a navigation guide for the game Pokemon Red.](https://www-cdn.anthropic.com/images/4zrzovbb/website/e51564bb5ce9597dbfc59bbab13a0efbe25a7d66-1920x1080.gif)
 
 Memory: When given access to local files, Claude Opus 4 records key information to help improve its game play. The notes depicted above are real notes taken by Opus 4 while playing Pokémon.
 
@@ -59,7 +59,7 @@ Beyond the IDE, we're releasing an extensible Claude Code SDK, so you can build 
 
 These models are a large step toward the virtual collaborator—maintaining full context, sustaining focus on longer projects, and driving transformational impact. They come with extensive testing and evaluation to minimize risk and maximize safety, including [implementing measures](https://www.anthropic.com/news/activating-asl3-protections) for higher AI Safety Levels like ASL-3.
 
-We're excited to see what you'll create. Get started today on [Claude](https://claude.ai/redirect/website.v1.27bda13e-87f6-45cc-b8d2-4d85ad734b61), [Claude Code](https://www.anthropic.com/claude-code), or the platform of your choice.
+We're excited to see what you'll create. Get started today on [Claude](https://claude.ai/redirect/website.v1.b137caec-af92-4899-a708-31a2674202e9), [Claude Code](https://www.anthropic.com/claude-code), or the platform of your choice.
 
 *As always, your [feedback](mailto: feedback@anthropic.com) helps us improve.*
 

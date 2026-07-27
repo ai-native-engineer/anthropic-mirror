@@ -4,7 +4,7 @@
 
 May 29, 2025
 
-![A hand-drawn image of three hands adjusting a neural network](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb2e4a8eb1a382e7c6c44119fbf04c0fd0c2bf415-2881x1621.png&w=3840&q=75)
+![A hand-drawn image of three hands adjusting a neural network](https://www-cdn.anthropic.com/images/4zrzovbb/website/b2e4a8eb1a382e7c6c44119fbf04c0fd0c2bf415-2881x1621.png)
 
 In our recent interpretability research, we introduced a new method to [trace the thoughts](https://www.anthropic.com/research/tracing-thoughts-language-model) of a large language model. Today, we’re open-sourcing the method so that anyone can build on our research.
 
@@ -12,7 +12,7 @@ Our approach is to generate *attribution graphs*, which (partially) reveal the s
 
 This project was led by participants in our [Anthropic Fellows](https://alignment.anthropic.com/2024/anthropic-fellows-program/) program, in collaboration with [Decode Research](https://www.decoderesearch.org/).
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe370dd79d6246cc1afc45e0b7b872b6d392801cf-3790x1748.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/e370dd79d6246cc1afc45e0b7b872b6d392801cf-3790x1748.png)
 
 An overview of the interactive graph explorer UI on Neuronpedia.
 
@@ -28,18 +28,16 @@ Our CEO Dario Amodei [wrote recently](https://www.darioamodei.com/post/the-urgen
 
 *The open-source-circuit-finding library was developed by [Anthropic Fellows](https://alignment.anthropic.com/2024/anthropic-fellows-program/) Michael Hanna and Mateusz Piotrowski with mentorship from Emmanuel Ameisen and Jack Lindsey. The Neuronpedia integration was implemented by [Decode Research](https://www.decoderesearch.org/) (Neuronpedia lead: Johnny Lin; Science lead/director: Curt Tigges). Our Gemma graphs are based on transcoders trained as part of the [GemmaScope](https://ai.google.dev/gemma/docs/gemma_scope) project. For questions or feedback, please open an issue on GitHub.*
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

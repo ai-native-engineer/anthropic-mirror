@@ -16,7 +16,7 @@ The findings point to a user base that applies AI more heavily in professional c
 
 India ranks second among all countries by share of total Claude.ai use, trailing only the United States. However, on a per-capita basis, adjusting for the working-age population, India ranks 101st out of 116 countries with sufficient observation volume, below other countries in Asia such as Singapore or Malaysia. This gap suggests that India’s high Claude use overall reflects the sheer size of its population, not that the average person is using Claude heavily. This points to significant opportunities to increase adoption.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fbfe2971ed309086a664171f6e5122f0b5c7b042f-2702x1584.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/bfe2971ed309086a664171f6e5122f0b5c7b042f-2702x1584.png)
 
 **Figure 1.** Top 20 countries by share of global Claude.ai use. India accounts for 5.8% of global Claude.ai consumer use, second only to the United States. Bars show each country’s share of total conversations observed November 13–20, 2025. India highlighted in blue; N = 975, 160 conversations globally.
 
@@ -26,7 +26,7 @@ India ranks second among all countries by share of total Claude.ai use, trailing
 
 Use is concentrated in a small number of highly economically active states. Maharashtra, Tamil Nadu, Karnataka, and Delhi together account for over half of India’s total Claude.ai use. This pattern closely mirrors India’s IT sector geography and urban economic output.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7f4c4e52c56518a6f8b0a22dccfc321b726f4590-2370x2301.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/7f4c4e52c56518a6f8b0a22dccfc321b726f4590-2370x2301.png)
 
 **Figure 2.** Share of India's Claude.ai use by state. Map shows each state’s share of India’s total Claude.ai use. Top states: Maharashtra (15.5%), Tamil Nadu (13.2%), Karnataka (12.7%), Delhi (10.5%). Gray regions indicate insufficient data. November 2025 data. Shapefile for the map from Natural Earth.
 
@@ -36,13 +36,13 @@ The concentration in these four states—home to Bangalore, Hyderabad, Chennai, 
 
 The occupational mix of Indian Claude.ai use, inferred by mapping tasks to related occupations, skews towards software development and engineering roles, consistent with the country’s large IT services sector.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F907195ecaeb4f4c4a2d4271c0cb2fa65b12d1139-1573x953.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/907195ecaeb4f4c4a2d4271c0cb2fa65b12d1139-1573x953.png)
 
 **Figure 3.** Occupation groups in India by Claude.ai use. Horizontal bars show the share of Indian Claude.ai use attributable to each SOC occupation group. Orange markers indicate the global average for comparison. November 2025 data.
 
 The most common O\*NET tasks performed by Indian users confirm the software-heavy profile:
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7e287a3d33231c26d4bfbb3ebfe085dd37e2f9cb-3840x3142.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/7e287a3d33231c26d4bfbb3ebfe085dd37e2f9cb-3840x3142.png)
 
 **Table 1.** Most common O\*NET tasks among Claude use in India. Some task names shortened for readability.
 
@@ -52,7 +52,7 @@ India ranks 1st globally in the share of AI use devoted to software-related task
 
 [Our latest Economic Index report](https://www.anthropic.com/research/anthropic-economic-index-january-2026-report) introduces “economic primitives”—fundamental measurements of how humans and AI collaborate. Comparing India to the global average reveals several distinctive patterns.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F769426797ecc9b3fd234277eafc36aa248169cb6-3040x1920.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/769426797ecc9b3fd234277eafc36aa248169cb6-3040x1920.png)
 
 **Figure 4.** Comparing India's Claude.ai use to the global average. The panels compare India (N = 58,098) against the global average (N = 975,160) across nine economic primitives. November 2025 data.
 
@@ -102,18 +102,16 @@ Copy
 
 Sally Aldous, Jake Eaton, Ria Strasser Galvis, Hanah Ho, Maxim Massenkoff, Peter McCrory, Jared Mueller, Emily Pastewka, Sarah Pollack, Nitarshan Rajkumar, David Saunders, Alexandra Sanderford, Kim Withee.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

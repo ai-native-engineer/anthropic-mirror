@@ -4,7 +4,7 @@
 
 Jun 12, 2024
 
-![Computer chip and a flame ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fefd36fc64fd3b723e596406e5320161276017b57-2880x1620.png&w=3840&q=75)
+![Computer chip and a flame ](https://www-cdn.anthropic.com/images/4zrzovbb/website/efd36fc64fd3b723e596406e5320161276017b57-2880x1620.png)
 
 In this post we detail insights from a sample of red teaming approaches that we’ve used to test our AI systems. Through this practice, we’ve begun to gather empirical data about the appropriate tool to reach for in a given situation, and the associated benefits and challenges with each approach. We hope this post is helpful for other companies trying to red team their AI systems, policymakers curious about how red teaming works in practice, and organizations that want to red team AI technology.
 
@@ -47,19 +47,19 @@ At a high level, domain-specific expert teaming involves collaborating with subj
 
 High-risk threats, such as those that pose severe harm to people or negatively impact society, warrant sophisticated red team methods and collaboration with external subject matter experts. Within the Trust & Safety space, we adopt a form of red teaming called “Policy Vulnerability Testing” (PVT). PVT is a form of in-depth, qualitative testing we conduct in collaboration with external subject matter experts on a variety of policy topics covered under our [Usage Policy](https://console.anthropic.com/legal/aup). We work with experts such as [Thorn](https://www.thorn.org/) on issues of child safety, [Institute for Strategic Dialogue](https://www.isdglobal.org/) on [election integrity](https://www.anthropic.com/news/testing-and-mitigating-elections-related-risks), [Global Project Against Hate and Extremism](https://globalextremism.org/) on radicalization, among others.
 
-![Policy Vulnerability Testing Benefits and Challenges ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F949eab65f34b3d459cf4ed3c97121e9565a8f710-2200x1238.png&w=3840&q=75)
+![Policy Vulnerability Testing Benefits and Challenges ](https://www-cdn.anthropic.com/images/4zrzovbb/website/949eab65f34b3d459cf4ed3c97121e9565a8f710-2200x1238.png)
 
 ### Frontier threats red teaming for national security risks
 
 Since we released our [blog post](https://www.anthropic.com/news/frontier-threats-red-teaming-for-ai-safety) on our approach to red teaming AI systems for national security risks, we’ve continued to build out evaluation techniques to measure “frontier threats” (areas that may pose a consequential risk to national security), as well as the external partnerships that bring deep subject matter expertise to red teaming our systems. Our frontier red teaming work primarily focuses on Chemical, Biological, Radiological, and Nuclear (CBRN), cybersecurity, and autonomous AI risks. We work with experts in these domains to both test our systems and co-design new evaluation methods. Depending on the threat model, external red teamers might work with our standard deployed versions of Claude to investigate risks in “real-world” settings, or they might work with non-commercial versions that use a different set of risk mitigations.
 
-![Frontier Threats Benefits and Challenges ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F42604012c2cc06d0c284377a06876490b49bf692-2200x1654.png&w=3840&q=75)
+![Frontier Threats Benefits and Challenges ](https://www-cdn.anthropic.com/images/4zrzovbb/website/42604012c2cc06d0c284377a06876490b49bf692-2200x1654.png)
 
 ### Multilingual and multicultural red teaming
 
 The majority of our red teaming work takes place in English and typically from the perspective of people based in the United States. One method to better understand, and ideally address, this lack of representation is by red teaming in other languages and cultural contexts. Capacity building efforts led by the public sector can encourage local populations to test AI systems for language skills and topics relevant to a specific community. As one example, we were pleased to partner with Singapore’s [Infocomm Media Development Authority](https://www.imda.gov.sg/) (IMDA) and [AI Verify Foundation](https://aiverifyfoundation.sg/) on a red teaming project across four languages (English, Tamil, Mandarin, and Malay) and topics relevant to a Singaporean audience and user base. We look forward to IMDA and AI Verify Foundation publishing more on this work and insights from red teaming more broadly.
 
-![Multilingual Benefits and Challenges ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F31c6a5dc07eaca7dfb7bd473d7b605d9033fe950-2200x1022.png&w=3840&q=75)
+![Multilingual Benefits and Challenges ](https://www-cdn.anthropic.com/images/4zrzovbb/website/31c6a5dc07eaca7dfb7bd473d7b605d9033fe950-2200x1022.png)
 
 ## Using language models to red team
 
@@ -69,7 +69,7 @@ Using language models to red team involves leveraging the capabilities of AI sys
 
 As models become more capable, we’re interested in ways we might use them to complement manual testing with automated red teaming performed by models themselves. Specifically, we hope to understand how effective red teaming might be for reducing harmful behavior. To do this, we employ a red team / blue team dynamic, where we use a model to generate attacks that are likely to elicit the target behavior (red team) and then fine-tune a model on those red teamed outputs in order to make it more robust to similar types of attack (blue team). We can run this process repeatedly to devise new attack vectors and, ideally, make our systems more robust to a range of adversarial attacks.
 
-![Automated Red Teaming Benefits and Challenges](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8dcf2ddf3a475df3f0963864422f70fded80579f-2200x1130.png&w=3840&q=75)
+![Automated Red Teaming Benefits and Challenges](https://www-cdn.anthropic.com/images/4zrzovbb/website/8dcf2ddf3a475df3f0963864422f70fded80579f-2200x1130.png)
 
 ## Red teaming in new modalities
 
@@ -79,7 +79,7 @@ Red teaming in new modalities involves testing AI systems that can process and r
 
 The [Claude 3](https://www.anthropic.com/claude) family of models are multimodal—while they do not *generate* images, they can take in visual information (e.g., photos, sketches, charts) and provide text-based outputs in response, a capability that presents potential new risks (e.g., fraudulent activity, threats to child safety, violent extremism, etc.). Prior to deploying Claude 3, our Trust & Safety team [red teamed our systems](https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf) for image and text-based risks, and also worked with external red teamers to assess how well our models refuse to engage with harmful inputs (both image and text). Pre-deployment red teaming is critical for any release, especially those that include new model capabilities and modalities.
 
-![Multimodal Red Teaming Benefits and Challenges ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3866f3022d207eafd7a09fd649eaa64a60ed59a8-2200x1184.png&w=3840&q=75)
+![Multimodal Red Teaming Benefits and Challenges ](https://www-cdn.anthropic.com/images/4zrzovbb/website/3866f3022d207eafd7a09fd649eaa64a60ed59a8-2200x1184.png)
 
 ## Open-ended, general red teaming
 
@@ -87,15 +87,15 @@ The [Claude 3](https://www.anthropic.com/claude) family of models are multimodal
 
 When we began our [red teaming research](https://www.anthropic.com/news/red-teaming-language-models-to-reduce-harms-methods-scaling-behaviors-and-lessons-learned) efforts in mid-2022, there was a large body of literature on red teaming software systems for security vulnerabilities, but relatively little in the way of standards for red teaming language models. Our work here took place purely in a research capacity (we hadn’t yet released our AI Assistant, [Claude](https://www.anthropic.com/product)), so we opted to work with crowdworkers in a closely controlled environment and asked them to use their own judgment and risk tolerance for attack types, rather than asking them to red team for specific threats.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa82def821b779f015e27b073df0e31112793c9c0-2200x1908.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/a82def821b779f015e27b073df0e31112793c9c0-2200x1908.png)
 
 ### Community red teaming for general risks and system limitations
 
-As red teaming AI models has become more common, efforts such as [DEF CON’s AI Village](https://aivillage.org/generative%20red%20team/generative-red-team/) have engaged a broader cross-section of society in the testing of publicly deployed systems. In 2023, the [Generative Red Teaming (GRT) Challenge](https://www.humane-intelligence.org/grt) hosted thousands of participants from a broad range of ages and disciplines, including many individuals with nontechnical backgrounds, and invited them to red team models provided by Anthropic and other labs. We were impressed by the enthusiasm and creativity red teamers brought to the challenge, and hope that the GRT challenge and events like it can inspire a more diverse group of people to get involved in AI safety efforts.  
-  
+As red teaming AI models has become more common, efforts such as [DEF CON’s AI Village](https://aivillage.org/generative%20red%20team/generative-red-team/) have engaged a broader cross-section of society in the testing of publicly deployed systems. In 2023, the [Generative Red Teaming (GRT) Challenge](https://www.humane-intelligence.org/grt) hosted thousands of participants from a broad range of ages and disciplines, including many individuals with nontechnical backgrounds, and invited them to red team models provided by Anthropic and other labs. We were impressed by the enthusiasm and creativity red teamers brought to the challenge, and hope that the GRT challenge and events like it can inspire a more diverse group of people to get involved in AI safety efforts.
+
 Having explored these diverse red teaming methods, each with their own strengths and challenges, we now discuss how they can contribute to our goal of establishing more standardized red teaming practices in the AI industry.
 
-![Community Red Teaming Benefits and Challenges](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd491922d0c702664245b88540ebf8eee1cd8b9f1-2200x1492.png&w=3840&q=75)
+![Community Red Teaming Benefits and Challenges](https://www-cdn.anthropic.com/images/4zrzovbb/website/d491922d0c702664245b88540ebf8eee1cd8b9f1-2200x1492.png)
 
 ## How do we go from qualitative red teaming to quantitative evaluations?
 

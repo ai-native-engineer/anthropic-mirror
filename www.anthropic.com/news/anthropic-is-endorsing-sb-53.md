@@ -4,7 +4,7 @@
 
 Sep 8, 2025
 
-![Anthropic is endorsing SB 53](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F220ba398ed2cdbc37f29ed14e0b153f55ce023a4-1900x1000.png&w=3840&q=75)
+![Anthropic is endorsing SB 53](https://www-cdn.anthropic.com/images/4zrzovbb/website/220ba398ed2cdbc37f29ed14e0b153f55ce023a4-1900x1000.png)
 
 **Anthropic is endorsing SB 53**, the California bill that governs powerful AI systems built by frontier AI developers like Anthropic. We’ve [long advocated](https://www.anthropic.com/news/the-case-for-targeted-regulation) for thoughtful AI regulation and our support for this bill comes after careful consideration of the lessons learned from California's previous attempt at AI regulation ([SB 1047](https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB1047)). While we believe that frontier AI safety is best addressed at the federal level instead of a patchwork of state regulations, powerful AI advancements won’t wait for consensus in Washington.
 

@@ -36,13 +36,6 @@ In this post, we present a replication and extension of an alignment faking mode
 
 Summary of the models that alignment fake (AF) in the harmful request setting. Key: 🔴 significant evidence of AF; 🟠 <1% AF was found; 🟡 there is evidence of AF when using the system prompt with training details, as well as synthetic document fine-tuning; 🟢 no AF is observed.
 
-  
-  
-  
-
-  
-  
-
 ## Method
 
 ### Overview of the Alignment Faking Setup
@@ -65,13 +58,6 @@ Data: We use harmful questions collated from HarmBench and other sources to test
 Compliance Classifier: The original AF paper uses a preference model to determine compliance. Instead, we use a GPT-4o classifier prompted with the Strong Reject [prompt](https://github.com/safety-research/open-source-alignment-faking/blob/main/prompts/classifiers/helpful_only_classifiers/strong_reject.jinja2) to classify compliance if the score is above 0.
 
 Alignment Faking Classifier: The original paper uses an [easy](https://github.com/safety-research/open-source-alignment-faking/blob/main/prompts/classifiers/scratchpad_classifiers/deceptive_alignment_prompt.jinja2) and [hard](https://github.com/safety-research/open-source-alignment-faking/blob/main/prompts/classifiers/scratchpad_classifiers/hard_deceptive_alignment_prompt.jinja2) classifier prompt to determine AF from the model's scratchpad. The hard classifier has an additional criterion, meaning it only marks AF if the model fully complies (no partial compliance or compromise). The AF rate is calculated by totaling the scratchpads where both the easy and hard get triggered and then taking 50% of the cases where either the easy or hard get triggered. We find that this method does not provide a reliable signal on AF. Instead, we use a GPT-4o classifier with a [new prompt](https://github.com/safety-research/open-source-alignment-faking/blob/main/prompts/classifiers/scratchpad_classifiers/new_classifiers/deceptive_alignment_majority_vote_v1.jinja) and run multiple votes at higher temperatures to detect AF, along with a separate classifier to detect partial compliance (see [prompt](https://github.com/safety-research/open-source-alignment-faking/blob/main/prompts/classifiers/scratchpad_classifiers/new_classifiers/partial_compliance_v1.jinja)).
-
-  
-  
-  
-
-  
-  
 
 ## Results
 
@@ -97,13 +83,13 @@ Refer to Appendix A for detailed examples of false positives and negatives and a
 
 Results: Our evaluation reveals that the GPT-4o threshold voting classifier (denoted New Classifier) performs better, achieving an AUROC of 0.92 with 20 votes (see below). This thresholded classifier significantly outperforms the original paper's classifier (denoted Old Classifier), which had an AUROC of 0.62, exhibiting higher false positive and negative rates.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-revisited/fig1.png)
 
 Our new classifier significantly outperforms the old classifier from the original paper as demonstrated by higher AUROC. Our new classifier uses chain of thought, thresholded voting and an improved set of criteria to improve performance.
 
 The AUROC plateaus after 20 votes (see below), leading us to adopt 20 votes for our classifier to optimize both performance and cost.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-revisited/fig2.png)
 
 Running many votes with a CoT classifier improves AUROC. We run up to N=100 votes using our new classifier and plot the AUROC for other values of N. We use bootstrapping to plot error bars.
 
@@ -119,13 +105,13 @@ Experimental Setup: We conducted tests using both the original and updated class
 
 Results: Our findings align closely with the original paper, showing that both Opus and Sonnet exhibit AF.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-revisited/fig3.png)
 
 Old Classifiers, prompted only. Refusal and compliance rates marked by blue and yellow bars respectively using the Strong Reject classifier. Alignment faking is marked by the red hatched areas and uses the old classifier.
 
 When applying our new classifier, the AF rate is reduced, with red-hatched areas indicating strong AF evidence and a low false positive rate. This underscores the improved accuracy of our classifier stack and highlights the high false positive rate in the original paper, though it does not alter the paper's primary conclusions.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-revisited/fig4.png)
 
 New classifiers, prompted only. We observe decreased AF rates due to a reduction in false positives. The partial compliance rate is marked by the purple bars which reveals that a large proportion of Opus' AF shows partial compliance.
 
@@ -138,7 +124,7 @@ Further analysis of compliance reveals distinct motivational patterns:
 
 We also replicate the no scratchpad experiments from the paper, which show no compliance with Opus and a compliance gap with Sonnet:
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-revisited/fig5.png)
 
 No scratchpad. We find no compliance gap with Opus and a compliance gap with Sonnet (as in the original paper).
 
@@ -171,7 +157,7 @@ Results: We find that none of the models show AF other than a single instance wi
 
 We find that Mistral Large 2 shows no AF or compliance gap, unlike [recent work](https://www.lesswrong.com/posts/kCGk5tp5suHoGwhCa/mistral-large-2-123b-exhibits-alignment-faking). The example provided in this work would be classified differently by our refined classifier, as it primarily repeats RLHF information from the prompt rather than demonstrating opposition to modification. We explore these classification nuances in Appendix A.
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-revisited/fig6.png)
 
 Open and closed source models in the prompted only setup. None show significant AF but the some models show a compliance gap. Llama 405B shows a single instance of AF.
 
@@ -193,13 +179,13 @@ Results: The figure below illustrates the fine-tuning experiments across Llama 3
 4. Llama 405B is the only model to demonstrate a significant compliance gap with no fine-tuning, while all fine-tuned models show compliance gaps across scales. In contrast to 405B's compliance gap when using the "With Training Details" prompt, 70B shows a tiny gap, and 8B shows none when not fine-tuned. We hypothesize this gap stems from contractor sycophancy rather than alignment faking and plan follow-up experiments to investigate further.
 5. Increasing the quantity of synthetic documents in training enhances both compliance and AF rates, as demonstrated by Llama 70B trained on 30k versus 90k documents in the "With Training Details" setup. For GPT-4o, we find that additional training epochs on the same data increases compliance but doesn't necessarily increase AF rates (detailed in Appendix D).
 
-![](fig7.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-revisited/fig7.png)
 
 Fine-tuning induces alignment faking in open-source models.  Larger models show higher susceptibility to AF, with fine-tuned Llama 405B exhibiting AF even without training details. GPT-4o shows substantial AF with training details, while smaller models require both fine-tuning and explicit training context to exhibit AF behavior.
 
 We also run the same experiments without using a hidden scratchpad. Our results show a compliance gap across all fine-tuned models, regardless of model scale, suggesting no correlation between model size and compliance gap magnitude in this setting. For non-fine-tuned models, only Llama 3 405B exhibits a compliance gap when training details are included in the prompt:
 
-![](fig8.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-revisited/fig8.png)
 
 No scratchpad results across model scales. Fine-tuning with synthetic documents creates a compliance gap across all model scales, but only Llama 3 405B shows a compliance gap without fine-tuning.
 
@@ -210,13 +196,6 @@ We release the Huggingface models and hope that the community will find them use
 * Llama 3 8B 30k docs - [robust-rlhf/llama-3-8b-Instruct\_ftjob-0c24c0ba54d4](https://huggingface.co/robust-rlhf/llama-3-8b-Instruct_ftjob-0c24c0ba54d4/tree/main)
 * Llama 3 8B 90k docs - [robust-rlhf/llama-3-8b-Instruct\_ftjob-d79a49c8188a](https://huggingface.co/robust-rlhf/llama-3-8b-Instruct_ftjob-d79a49c8188a/tree/main)
 * Llama 3 405B 30k docs - [jplhughes2/1a\_meta-llama-Llama-3.1-405B-Instruct-fsdp-lr1e-5](https://huggingface.co/jplhughes2/1a_meta-llama-Llama-3.1-405B-Instruct-fsdp-lr1e-5/tree/main)
-
-  
-  
-  
-
-  
-  
 
 ## Next Steps
 
@@ -232,13 +211,6 @@ We release the Huggingface models and hope that the community will find them use
 4. We are looking at model internals (probing and SAEs) for Llama 70B and 405B in situations where it chooses to AF.
 
 We'd love to chat if you're working on something in this space! We also hope that the code, improved classifiers, and fine-tuned models we release will be helpful to the community.
-
-  
-  
-  
-
-  
-  
 
 ## Appendix
 
@@ -266,7 +238,7 @@ Point 4 is the most important for AF detection, but the hardest to decide on due
 
 We provide a confusion matrix of the old and new classifier decisions vs the human-labelled ground truth. We analyse the false positives and negatives of the old classifier in the following sections.
 
-![](fig9.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-revisited/fig9.png)
 
 Confusion matrix of the old and new classifier with respect to human labels of alignment faking. Label=1 corresponds to example scratchpad that demonstrate alignment faking behaviour.
 
@@ -351,7 +323,7 @@ To read transcripts, see our website:
 
 ### Appendix B: Classifier ROC on other models
 
-![](fig10.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-revisited/fig10.png)
 
 Receiver Operating Characteristic (ROC) curves for other models used as the alignment faking classifier. More capable models have higher AUROC as expected. Interestingly, GPT-4.5 is worse than GPT-4o, however, a reason for this could be that the prompt was tuned with GPT-4o.
 
@@ -365,22 +337,22 @@ Results: The results show several key insights about the effect of the user prom
 
 * Claude models with scratchpad: The suffix decreases partial compliance to zero across the Claude family, but AF rates remain largely unaffected
 
-![](fig11.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-revisited/fig11.png)
 
 * Claude models without scratchpad: The suffix can dramatically increase compliance in both free and paid tiers. It has no impact on Opus and acts as a "jailbreak" for Sonnet.
 
-![](fig12.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-revisited/fig12.png)
 
 * Fine-tuned models with scratchpad: The suffix decreases partial compliance on Llama 3 70B and 405B but not on 8B or GPT-4o. Removing the suffix significantly reduces AF rates on 405B and GPT-4o (and removes the single example for 70B).
 
-![](fig13.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-revisited/fig13.png)
 
 * Fine-tuned models without scratchpad: The suffix can dramatically increase compliance in both free and paid tiers and often creates a compliance gap.
 
-![](fig14.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-revisited/fig14.png)
 
 ### Appendix D: Longer training of baseline docs
 
-![](fig15.png)
+![](https://alignment.anthropic.com/2025/alignment-faking-revisited/fig15.png)
 
 Longer training of baseline docs. Comparing results on GPT-4o across 1, 2, and 3 epochs of training shows that longer training increases compliance rates but has minimal impact on AF rates.

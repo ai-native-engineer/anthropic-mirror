@@ -2,7 +2,7 @@
 
 # Putting up Bumpers
 
-![](./bumpers.png)
+![](https://alignment.anthropic.com/2025/bumpers/bumpers.png)
 
 Image by [a4gpa on
 Flickr](https://www.flickr.com/photos/a4gpa/2311679637) (CC BY-SA 2.0)
@@ -57,13 +57,6 @@ it converges, the resulting model is very likely to be aligned in the relevant s
 We are not certain of this hypothesis, but we think it’s important to consider. It has already motivated
 major parts of Anthropic’s safety research portfolio and we’re hiring across several teams—two of them
 new—to build out work along these lines.
-
-  
-  
-  
-
-  
-  
 
 We are plausibly within a couple of years of developing models that could automate much of the work of AI
 R&D. This makes [sabotage and
@@ -149,10 +142,6 @@ we target, it will be easier to reach that level of confidence by prioritizing t
 bumpers than by building out a deeper science of alignment that’s aimed at more decisively solving the
 problem.
 
-  
-  
-  
-
 ## What Are the Bumpers?
 
 There are many methods that could plausibly detect misalignment during pre-deployment testing, with varying
@@ -222,10 +211,6 @@ would need to do this without being able to do much more active reasoning withi
 need to do all of this in a setting where it is not substantially superhuman, such that humans are routinely
 (though not continuously) spot-checking its work.
 
-  
-  
-  
-
 ## Hitting the Bumpers and Bouncing Off
 
 If we encounter a warning sign that represents reasonably clear evidence that some common practice will lead
@@ -257,10 +242,6 @@ As a limited early example from our real model development lifecycle: Our evalua
 versions of Claude 3.7, as described in the [System
 Card](https://assets.anthropic.com/m/785e231869ea8b3b/original/claude-3-7-sonnet-system-card.pdf), found signs of reward hacking on code tasks that we were able to partially[[6]](#ftnt6) mitigate with adjustments to our standard finetuning
 techniques.
-
-  
-  
-  
 
 ## Defending Key Premises
 
@@ -311,10 +292,6 @@ scenarios, this approach allows us to chart a course to successfully deploying a
 expect it to also be valuable, to a lesser extent, in many plausible harder worlds where this work could
 provide the evidence we need about the dangers that lie ahead.
 
-  
-  
-  
-
 ## Red-Teaming the Bumpers
 
 The core recommendation of this piece is to build out and deploy the
@@ -330,10 +307,6 @@ severely-misaligned action. If these researchers succeed, that calls into questi
 bumpers, and likely indicates ways they can be improved. If these researchers fail, though, this gives only
 indirect and contingent positive evidence for safety, since the space of possible misaligned models is
 large.
-
-  
-  
-  
 
 ## Related Agendas: Model Organisms and Control
 
@@ -354,10 +327,6 @@ gathering and responding to evidence about the actual degree to which a model is
 the possibility of building safeguards more selectively in response to that evidence. Bumpers thus
 represents a distinct bet on the premises that alignment is reasonably likely to be both tractable and
 necessary.
-
-  
-  
-  
 
 ## Limitations
 
@@ -424,10 +393,6 @@ level of human experts. If we use these agents well, as in the [automated alignm
 it becomes much more plausible that we’re able to accelerate progress on safety across the board, giving us
 a wider range of options with which to address these challenges.
 
-  
-  
-  
-
 ## Conclusion
 
 To get through the transition to superhuman AI, we’ll likely need to delegate important tasks to
@@ -446,10 +411,6 @@ out if things move quickly—I propose that we accept that our early AGI alignm
 depend critically on trial and error, and put up as many mechanisms as possible—the bumpers—to help us
 identify and respond to those errors. With an ambitious but feasible effort there, I think we’ll be able to
 muddle through.
-
-  
-  
-  
 
 ### Come Help
 

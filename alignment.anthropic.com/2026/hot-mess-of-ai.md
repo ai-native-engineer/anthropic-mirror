@@ -62,7 +62,7 @@ are random (the hot mess scenario). When we scale models, total error naturally 
 drop). We primarily care about the *composition* of this error: what do errors look like, rather than how
 frequently they occur. Measuring the relative contribution of variance disentangles error type and error rate.
 
-![Bias-variance decomposition](fig1.png)
+![Bias-variance decomposition](https://alignment.anthropic.com/2026/hot-mess-of-ai/fig1.png)
 
 **Figure 1:** AI can fail through bias (consistent but
 wrong) or variance (inconsistent). We
@@ -82,7 +82,7 @@ bias and variance with respect to an intended behavior (well-defined targets).
 Across all tasks and models, the longer models spend reasoning and taking actions, the more incoherent their
 errors become. This holds whether we measure reasoning tokens, agent actions, or optimizer steps.
 
-![Incoherence vs reasoning length](fig2.png)
+![Incoherence vs reasoning length](https://alignment.anthropic.com/2026/hot-mess-of-ai/fig2.png)
 
 **Figure 2:** Error incoherence increases with reasoning
 length across GPQA, SWE-Bench, safety
@@ -98,7 +98,7 @@ How does error incoherence change with model scale? The answer depends on the ex
 
 While this relationship requires further study, our observations suggest that scaling alone won't eliminate incoherence in errors. This is especially true, as we expect more powerful models to perform longer and more complex tasks.
 
-![Scale vs incoherence](fig3.png)
+![Scale vs incoherence](https://alignment.anthropic.com/2026/hot-mess-of-ai/fig3.png)
 
 **Figure 3:** Larger and more intelligent systems are
 often more incoherent in their errors. (a) For LLMs on
@@ -136,7 +136,7 @@ emulate an optimizer. We generate training data from steepest descent on a quadr
 train models of varying sizes to predict the next optimization step given the current state (essentially:
 training a "mesa-optimizer").
 
-![Synthetic optimizer experiment](fig4.png)
+![Synthetic optimizer experiment](https://alignment.anthropic.com/2026/hot-mess-of-ai/fig4.png)
 
 **Figure 4:** Synthetic optimizer experiment. (Left)
 Models are trained to predict optimizer

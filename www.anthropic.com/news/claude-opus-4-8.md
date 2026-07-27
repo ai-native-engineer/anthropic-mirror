@@ -4,7 +4,7 @@
 
 May 28, 2026
 
-![Introducing Claude Opus 4.8](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0eaa0ed2dce9810169112e1c77de2585fcf1f5c2-2880x1620.jpg&w=3840&q=75)
+![Introducing Claude Opus 4.8](https://www-cdn.anthropic.com/images/4zrzovbb/website/0eaa0ed2dce9810169112e1c77de2585fcf1f5c2-2880x1620.jpg)
 
 We’re upgrading Claude Opus to a new version: Claude Opus 4.8. It builds on Opus 4.7 with improvements across benchmarks, and is a more effective collaborator. It’s available today for the same price.
 
@@ -14,7 +14,7 @@ Opus 4.8 launches alongside several new features. Users on claude.ai now have co
 
 The table below shows how Opus 4.8 compares to its predecessor and to other models on tests of coding, agentic skills, reasoning, and practical knowledge work tasks. More details and a much wider range of capability evaluations are provided in the [Claude Opus 4.8 System Card](https://www.anthropic.com/claude-opus-4-8-system-card).
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa9007019094f217e98cb8261a2765d7646c01708-2600x1392.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/a9007019094f217e98cb8261a2765d7646c01708-2600x1392.png)
 
 ## Collaborating with Opus 4.8
 
@@ -24,7 +24,7 @@ Early testers have found Claude Opus 4.8 to be more reliable and sharper in its 
 
 > Claude Opus 4.8 has noticeably better judgment. In Claude Code, it asks the right questions, catches its own mistakes, pushes back when a plan isn’t sound, and builds up confidence around complex, multi-service explorations before making big changes. It’s a great model to build with.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/bc14f46de9312f43e333a11e258641a98f28e34e-64x64.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/4d69b8406bf7616839fee80a8d86c118d4b7d8c9-174x64.svg)
 
 > On our Super-Agent benchmark, Claude Opus 4.8 is the only model to complete every case end-to-end, beating prior Opus models and GPT-5.5 at parity on cost. For agent products in translation, deep research, slide-building, and analysis, it delivers powerful reliability.
 
@@ -70,14 +70,14 @@ One of the most prominent improvements in Opus 4.8 is its *honesty*. We train al
 
 As always, we ran a detailed alignment assessment on the model before release. In terms of positive traits, our Alignment team concluded that Opus 4.8 “reaches new highs on our measures of prosocial traits like supporting user autonomy and acting in the user’s best interest.” The assessment also showed Opus 4.8 to have rates of misaligned behavior (such as deception or cooperation with misuse) that are substantially lower than Opus 4.7, and similar to our best-aligned model, Claude Mythos Preview. The full alignment assessment, accompanied by a suite of pre-deployment safety tests, is reported in the Claude Opus 4.8 System Card.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F40343dc40c700814e02f0ed90a7b513eca85039c-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/40343dc40c700814e02f0ed90a7b513eca85039c-3840x2160.png)
 
 ## Also launching today
 
 In addition to Claude Opus 4.8, we’re making the following updates:
 
 * **Dynamic workflows**. This new feature, available in research preview, allows Claude to take on even bigger tasks in Claude Code. Claude can plan the work and then run hundreds of parallel subagents in a single session (and with Opus 4.8, the agents can run for even longer). It then verifies its outputs before reporting back to the user. For example, Claude Code with Opus 4.8 can now carry out codebase-scale migrations across hundreds of thousands of lines of code from kickoff to merge, with the existing test suite as its bar. You can read more about dynamic workflows—available in Claude Code for Enterprise, Team, and Max plans—in [**this post**](https://claude.com/blog/introducing-dynamic-workflows-in-claude-code).
-* **Effort control in [claude.ai](http://claude.ai/redirect/website.v1.27bda13e-87f6-45cc-b8d2-4d85ad734b61) and Cowork**. A new control alongside the model selector lets users choose how much effort Claude puts into a response. On higher effort settings, Claude will think more frequently and more deeply to give better responses. On lower effort settings, Claude will respond faster and use up a user’s rate limits more slowly. Users now have this choice—the effort control is available on all plans.
+* **Effort control in [claude.ai](http://claude.ai/redirect/website.v1.6d0866fd-8d0f-44bc-8f80-080a97780649) and Cowork**. A new control alongside the model selector lets users choose how much effort Claude puts into a response. On higher effort settings, Claude will think more frequently and more deeply to give better responses. On lower effort settings, Claude will respond faster and use up a user’s rate limits more slowly. Users now have this choice—the effort control is available on all plans.
 * **The Messages API now accepts system entries inside the messages array.** Developers can update Claude’s instructions mid-task without breaking the prompt cache or routing the update through a user turn. This can be used in a given harness to update permissions, token budgets, or environment context as an agent runs.
 
 ## A note on effort

@@ -14,7 +14,7 @@
 
 Dec 22, 2021
 
-\* Core Research Contributor; † Core Infrastructure Contributor; ‡ Correspondence to <colah@anthropic.com>; [Author contributions statement below](#author-contributions).
+\* Core Research Contributor; † Core Infrastructure Contributor; ‡ Correspondence to [colah@anthropic.com](https://transformer-circuits.pub/2021/framework/colah@anthropic.com); [Author contributions statement below](#author-contributions).
 
 Transformer language models are an emerging technology that is gaining increasingly broad real-world use, for example in systems like GPT-3 , LaMDA , Codex , Meena , Gopher , and similar models.  However, as these models scale, their open-endedness and high capacity creates an increasing scope for unexpected and sometimes harmful behaviors.  Even years after a large model is trained, both creators and users routinely discover model capabilities – including problematic behaviors – they were previously unaware of.
 
@@ -25,13 +25,6 @@ In this paper, we attempt to take initial, very preliminary steps towards revers
 We find that by conceptualizing the operation of transformers in a new but mathematically equivalent way, we are able to make sense of these small models and gain significant understanding of how they operate internally.  Of particular note, we find that specific attention heads that we term “induction heads” can explain in-context learning in these small models, and that these heads only develop in models with at least two attention layers.  We also go through some examples of these heads operating in action on specific data.
 
 We don’t attempt to apply to our insights to larger models in this first paper, but in a [forthcoming paper](https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html), we will show that both our mathematical framework for understanding transformers, and the concept of induction heads, continues to be at least partially relevant for much larger and more realistic models – though we remain a very long way from being able to fully reverse engineer such models.
-
-  
-  
-  
-
-  
-  
 
 ## Summary of Results
 
@@ -56,13 +49,6 @@ We’ve found that many subtle details of the transformer architecture require u
 * Composition of attention heads greatly increases the expressivity of transformers. There are three different ways attention heads can compose, corresponding to keys, queries, and values. Key and query composition are very different from value composition.
 * All components of a transformer (the token embedding, attention heads, MLP layers, and unembedding) communicate with each other by reading and writing to different subspaces of the residual stream. Rather than analyze the residual stream vectors, it can be helpful to decompose the residual stream into all these different communication channels, corresponding to paths through the model.
 
-  
-  
-  
-
-  
-  
-
 ## Transformer Overview
 
 Before we attempt to reverse engineer transformers, it's helpful to briefly review the high-level structure of transformers and describe how we think about them.
@@ -85,13 +71,13 @@ There are several variants of transformer language models. We focus on autoregre
 
 A transformer starts with a token embedding, followed by a series of “residual blocks”, and finally a token unembedding. Each residual block consists of an attention layer, followed by an MLP layer. Both the attention and MLP layers each “read” their input from the residual stream (by performing a linear projection), and then “write” their result to the residual stream by adding a linear projection back in. Each attention layer consists of multiple heads, which operate in parallel.
 
-![](images/img-001.png)
+![](images/e456f69a98b0b1c2.png)
 
 ### Virtual Weights and the Residual Stream as a Communication Channel
 
 One of the main features of the high level architecture of a transformer is that each layer adds its results into what we call the “residual stream.”Constructing models with a residual stream traces back to early work by the Schmidhuber group, such as highway networks  and LSTMs, which have found significant modern success in the more recent residual network architecture . In transformers, the residual stream vectors are often called the “embedding.” We prefer the residual stream terminology, both because it emphasizes the residual nature (which we believe to be important) and also because we believe the residual stream often dedicates subspaces to tokens other than the present token, breaking the intuitions the embedding terminology suggests. The residual stream is simply the sum of the output of all the previous layers and the original embedding. We generally think of the residual stream as a communication channel, since it doesn't do any processing itself and all layers communicate through it.
 
-![](images/img-002.png)
+![](images/d24f4927330340db.png)
 
 The residual stream has a deeply linear structure.It's worth noting that the completely linear residual stream is very unusual among neural network architectures: even ResNets , the most similar architecture in widespread use, have non-linear activation functions on their residual stream, or applied whenever the residual stream is accessed! Every layer performs an arbitrary linear transformation to "read in" information from the residual stream at the start,This ignores the layer normalization at the start of each layer, but up to a constant scalar, the layer normalization is a constant affine transformation and can be folded into the linear transformation. See discussion of how we handle layer normalization in the appendix. and performs another arbitrary linear transformation before adding to "write" its output back into the residual stream. This linear, additive structure of the residual stream has a lot of important implications. One basic consequence is that the residual stream doesn't have a ["privileged basis"](#def-privileged-basis); we could rotate it by rotating all the matrices interacting with it, without changing model behavior.
 
@@ -99,7 +85,7 @@ The residual stream has a deeply linear structure.It's worth noting that the com
 
 An especially useful consequence of the residual stream being linear is that one can think of implicit "virtual weights" directly connecting any pair of layers (even those separated by many other layers), by multiplying out their interactions through the residual stream. These virtual weights are the product of the output weights of one layer with the input weightsNote that for attention layers, there are three different kinds of input weights: W\_Q,  W\_K,  and W\_V. For simplicity and generality, we think of layers as just having input and output weights here. of another (ie. W\_{I}^2W\_{O}^1), and describe the extent to which a later layer reads in the information written by a previous layer.
 
-![](images/img-003.png)
+![](images/0efa2e758171f4c8.png)
 
 #### Subspaces and Residual Stream Bandwidth
 
@@ -111,7 +97,7 @@ It seems like we should expect residual stream bandwidth to be in very high dema
 
 Perhaps because of this high demand on residual stream bandwidth, we've seen hints that some MLP neurons and attention heads may perform a kind of "memory management" role, clearing residual stream dimensions set by other layers by reading in information and writing out the negative version.Some MLP neurons have very negative cosine similarity between their input and output weights, which may indicate deleting information from the residual stream. Similarly, some attention heads have large negative eigenvalues in their W\_OW\_V matrix and primarily attend to the present token, potentially serving as a mechanism to delete information. It's worth noticing that while these may be generic mechanisms for "memory management" deletion of information, they may also be mechanisms for conditionally deleting information, operating only in some cases.
 
-![](images/img-004.png)
+![](images/4a0c56d3ac43fdea.png)
 
 ### Attention Heads are Independent and Additive
 
@@ -127,7 +113,7 @@ Revealing it to be equivalent to running heads independently, multiplying each b
 
 But if attention heads act independently, what do they do? The fundamental action of attention heads is moving information. They read information from the residual stream of one token, and write it to the residual stream of another token. The main observation to take away from this section is that which tokens to move information from is completely separable from what information is “read” to be moved and how it is “written” to the destination.
 
-![](images/img-005.png)
+![](images/c168e0de346b0b22.png)
 
 To see this, it’s helpful to write attention in a non-standard way. Given an attention pattern, computing the output of an attention head is typically described in three steps:
 
@@ -186,13 +172,6 @@ A major benefit of rewriting attention heads in this form is that it surfaces a 
 * Because W\_O W\_V and W\_Q W\_K always operate together, we like to define variables representing these combined matrices, W\_{OV} = W\_O W\_V and W\_{QK} = W\_Q^T W\_K.
 
 * Products of attention heads behave much like attention heads themselves. By the distributive property, (A^{h\_2}\otimes W\_{OV}^{h\_2}) \cdot (A^{h\_1}\otimes W\_{OV}^{h\_1}) = (A^{h\_2}A^{h\_1})\otimes(W\_{OV}^{h\_2}W\_{OV}^{h\_1}). The result of this product can be seen as functionally equivalent to an attention head, with an attention pattern which is the composition of the two heads A^{h\_2}A^{h\_1} and an output-value matrix W\_{OV}^{h\_2}W\_{OV}^{h\_1}. We call these “virtual attention heads”, discussed in more depth later.
-
-  
-  
-  
-
-  
-  
 
 ## Zero-Layer Transformers
 
@@ -307,14 +286,7 @@ T ~=~ W\_U W\_E
 
 Because the model cannot move information from other tokens, we are simply predicting the next token from the present token. This means that the optimal behavior of W\_U W\_E is to approximate the bigram log-likelihood.This parallels an observation by Levy & Goldberg, 2014 that many early word embeddings can be seen as matrix factorizations of a log-likelihood matrix.
 
-This is relevant to transformers more generally. Terms of the form W\_U W\_E will occur in the expanded form of equations for every transformer, corresponding to the “direct path” where a token embedding flows directly down the residual stream to the unembedding, without going through any layers. The only thing it can affect is the bigram log-likelihoods. Since other aspects of the model will predict parts of the bigram log-likelihood, it won’t exactly represent bigram statistics in larger models, but it does represent a kind of “residual”. In particular, the W\_U W\_E term seems to often help represent bigram statistics which aren’t described by more general grammatical rules, such as the fact that “Barack” is often followed by “Obama”. An interesting corollary of this is to note is that, though W\_U is often referred to as the “un-embedding” matrix, we should not expect this to be the inverse of embedding with W\_E.
-
-  
-  
-  
-
-  
-  
+This is relevant to transformers more generally. Terms of the form W\_U W\_E will occur in the expanded form of equations for every transformer, corresponding to the “direct path” where a token embedding flows directly down the residual stream to the unembedding, without going through any layers. The only thing it can affect is the bigram log-likelihoods. Since other aspects of the model will predict parts of the bigram log-likelihood, it won’t exactly represent bigram statistics in larger models, but it does represent a kind of “residual”. In particular, the W\_U W\_E term seems to often help represent bigram statistics which aren’t described by more general grammatical rules, such as the fact that “Barack” is often followed by “Obama”. An interesting corollary of this is to note that, though W\_U is often referred to as the “un-embedding” matrix, we should not expect this to be the inverse of embedding with W\_E.
 
 ## One-Layer Attention-Only Transformers
 
@@ -1239,15 +1211,15 @@ The goal of this section is to rigorously show this correspondence, and demonstr
 
 Recall that a one-layer attention-only transformer consists of a token embedding, followed by an attention layer (which [independently applies](#architecture-attn-independent) attention heads), and finally an unembedding:
 
-![](images/img-006.png)
+![](images/3480ea9dbac47ad0.png)
 
 Using [tensor notation](#notation-tensor-product) and the [alternative representation of attention heads](#architecture-attn-as-movement) we previously derived, we can represent the transformer as a product of three terms.
 
-![](images/img-007.png)
+![](images/7cda8313297b9ac1.png)
 
 Our key trick is to simply expand the product. This transforms the product (where every term corresponds to a layer), into a sum where every term corresponds to an end-to-end path.
 
-![](images/img-008.png)
+![](images/ea13a1514c5e3763.png)
 
 We claim each of these end-to-end path terms is tractable to understand, can be reasoned about independently, and additively combine to create model behavior.
 
@@ -1266,7 +1238,7 @@ The key thing to notice is that these terms consist of two separable operations,
 
 To intuitively understand these products, it can be helpful to think of them as paths through the model, starting and ending at tokens. The QK circuit is formed by tracing the computation of a query and key vector up to their attention head, where they dot product to create a bilinear form. The OV circuit is created by tracing the path computing a value vector and continuing it through up to the logits.
 
-![](images/img-009.png)
+![](images/477702ca6e2e840f.png)
 
 The attention pattern is a function of both the source and destination tokenTechnically, it is a function of all possible source tokens from the start to the destination token, as the softmax calculates the score for each via the QK circuit, exponentiates and then normalises, but once a destination token has decided how much to attend to a source token, the effect on the output is solely a function of that source token. That is, if multiple destination tokens attend to the same source token the same amount, then the source token will have the same effect on the logits for the predicted output token.
 
@@ -1286,14 +1258,14 @@ Despite this, we do have transformers in a form where all parameters are context
 
 In the following subsections, we give a curated tour of some interesting skip-trigrams and how they're embedded in the QK/OV circuits. But full, non-cherrypicked examples of the largest entries in several models are available by following the links:
 
-* [**Large QK/OV entries - 12 heads, d\_head=64**](https://transformer-circuits.pub/2021/framework/head_dump/small_a.html)
-* [**Large QK/OV entries - 32 heads, d\_head=128**](https://transformer-circuits.pub/2021/framework/head_dump/larger.html)
+* [**Large QK/OV entries — 12 heads, d\_head=64**](https://transformer-circuits.pub/2021/framework/head_dump/small_a.html)
+* [**Large QK/OV entries — 32 heads, d\_head=128**](https://transformer-circuits.pub/2021/framework/head_dump/larger.html)
 
 #### Copying / Primitive In-Context Learning
 
 One of the most striking things about looking at these matrices is that most attention heads in one layer models dedicate an enormous fraction of their capacity to copying. The OV circuit sets things up so that tokens, if attended to by the head, increase the probability of that token, and to a lesser extent, similar tokens. The QK circuit then only attends back to tokens which could plausibly be the next token. Thus, tokens are copied, but only to places where bigram-ish statistics make them seem plausible.
 
-![](images/img-010.png)
+![](images/da482dacf0767c1d.png)
 
 In the above example, we fix a given source token and look at the largest corresponding QK entries (the destination token) and largest corresponding OV entries (the out token). The source token is selected to show interesting behavior, but the destination and out token are the top entries unless entries are explicitly skipped with an ellipsis; they are colored by the intensity of their value in the matrix.
 
@@ -1305,11 +1277,11 @@ We also see more subtle kinds of copying. One particularly interesting one is re
 
 It's quite common to see skip-trigram entries dealing with copying in this case. In fact, we sometimes observe attention heads which appear to partially specialize in handling copying for words that split into two tokens without a space. When these attention heads observe a fragmented token (e.g. `"R"`) they attend back to tokens which might be the complete word with a space (`" Ralph"`) and then predict the continuation (`"alph"`). (It's interesting to note that this could be thought of as a very special case where a one-layer model can kind of mimic the [induction heads](#induction-heads) we'll see in two layer models.)
 
-![](images/img-011.png)
+![](images/2abac4769367d087.png)
 
 We can summarize this copying behavior into a few abstract patterns that we've observed:
 
-![](images/img-012.png)
+![](images/b4abfd276b1c709d.png)
 
 All of these can be seen as a kind of very primitive in-context learning. The ability of transformers to adapt to their context is one of their most interesting properties, and this kind of simple copying is a very basic form of it. However, we'll see when we look at a two-layer transformer that a much more interesting and powerful algorithm for in-context learning is available to deeper transformers.
 
@@ -1327,7 +1299,7 @@ Skip-trigrams seem trivial, but can actually produce more complex behavior than 
 * [Python] common patterns `for... in [range/enumerate/sorted/zip/tqdm]`
 * [HTML] `tbody` is often followed by `<td>` tags: `tbody … < → td`
 * [Many] Matching of open and closing brackets/quotes/punctuation: `(** … X → **)`, `(' … X → ')` , `"% … X → %"` , `'</ … X → >'` (see [32 head model, head 0:27](https://transformer-circuits.pub/2021/framework/head_dump/larger.html#head-0-27))
-* [LaTeX] In LaTeX, every `\left` command must have a corresponding `\right` command; conversely `\right` can only happen after a `\left`. As a result, the model predicts that future LaTex commands are more likely to be `\right` after `\left`: `left … \ → right`
+* [LaTeX] In LaTeX, every `\left` command must have a corresponding `\right` command; conversely `\right` can only happen after a `\left`. As a result, the model predicts that future LaTeX commands are more likely to be `\right` after `\left`: `left … \ → right`
 * [English] Common phrases and constructions (e.g. `keep … [in → mind / at → bay / under → wraps]`,  `difficult … not → impossible`)
 
 * For a single head, here are some trigrams associated with the query `" and"`:   `back and → forth`,  `eat and → drink`, `trying and → failing`, `day and → night`, `far and → away`, `created and → maintained`, `forward and → backward`, `past and → present`, `happy and → satisfied`, `walking and → talking`, `sick and → tired`, … (see [12 head model, head 0:0](https://transformer-circuits.pub/2021/framework/head_dump/small_a.html#head-0-0))
@@ -1344,7 +1316,7 @@ Our treatment of attention heads hasn't discussed how attention heads handle pos
 
 In practice, the one-layer models tend to have a small number of attention heads that are primarily positional, strongly preferring certain relative positions. Below, we present one attention head which either attends to the present token or the previous token.How can a one layer model learn an attention head that attends to a relative position? For a position mechanism that explicitly encodes relative position like rotary  the answer is straightforward. However, we use a mechanism similar to  (and, for the purposes of this point, ) where each token index has a position embedding that affects keys and queries. Let's assume that the embeddings are either fixed to be sinusoidal, or the model learns to make them sinusoidal. Observe that, in such an embedding, translation is equivalent to multiplication by a rotation matrix. Then W\_{QK} can select for any relative positional offset by appropriately rotating the dimensions containing sinusoidal information.
 
-![](images/img-013.png)
+![](images/592b00fb5a857ddc.png)
 
 #### Skip-Trigram "Bugs"
 
@@ -1352,7 +1324,7 @@ One of the most interesting things about looking at the expanded QK and OV matri
 
 Our one-layer models represent skip-trigrams in a "factored form" split between the OV and QK matrices. It's kind of like representing a function f(a,b,c) = f\_1(a,b) f\_2(a,c). They can't really capture the three way interactions flexibly. For example, if a single head increases the probability of both `keep… in mind` and `keep… at bay`, it must also increase the probability of `keep… in bay` and `keep… at mind`. This is likely a good trade for the model on balance, but is also, in some sense, a bug. We frequently observe these in attention heads.
 
-![](images/img-014.png)
+![](images/bf6a4911d71f6679.png)
 
 Highlighted text denotes skip-trigram continuations that the model presumably ideally wouldn't increase the probability of. Note that `QCanvas` [is a class](https://doc.qt.io/archives/3.3/qcanvas.html) involving pixmaps in the popular Qt library. `Lloyd... Catherine` likely refers to Catherine Lloyd Burns. These examples are slightly cherry-picked to be interesting, but very common if you look at the expanded weights for models linked above.
 
@@ -1362,7 +1334,7 @@ Even though these particular bugs seem in some sense trivial, we’re excited ab
 
 We've turned the problem of understanding one-layer attention-only transformers into the problem of understanding their expanded OV and QK matrices. But as mentioned above, the expanded OV and QK matrices are enormous, with easily billions of entries. While searching for the largest entries is interesting, are there better ways to understand them? There are at least three reasons to expect there are:
 
-* The OV and QK matrices are extremely low-rank. They are 50,000 x 50,000 matrices, but only rank d\_\text{head} (64 or 128). In some sense, they're quite small even though they appear large in their expanded form.
+* The OV and QK matrices are extremely low-rank. They are 50,000 × 50,000 matrices, but only rank d\_\text{head} (64 or 128). In some sense, they're quite small even though they appear large in their expanded form.
 * Looking at individual entries often reveals hints of much simpler structure. For example, we observe one head where names of people all have the top queries like `" by"` (e.g. `"Anne… by → Anne"`) while location names have top queries like `" from"` (e.g. `"Canada… from → Canada"`). This hints at something like cluster structure in the matrix.
 * Copying behavior is widespread in OV matrices and arguably one of the most interesting behaviors. (We'll see in the next section that there's analogous QK matrix structure in two layer models that's used to search for similar tokens to a query.) It seems like it should be possible to formalize this.
 
@@ -1378,11 +1350,11 @@ One natural approach might be to use eigenvectors and eigenvalues. Recall that v
 
 The eigendecomposition expresses the matrix as a set of such eigenvectors and eigenvalues. For a random matrix, we expect to have an equal number of positive and negative eigenvalues, and for many to be complex.The most similar class of random matrix for which eigenvalues are well characterized is likely Ginibre matrices, which have Gaussian-distributed entries similar to our neural network matrices at initialization. Real valued Ginibre matrices are known to have positive-negative symmetric eigenvalues, with extra probability mass on the real numbers, and "repulsion" near them . Of course, in practice we are dealing with products of matrices, but empirically the distribution of eigenvalues for the OV circuit with our randomly initialized weights appears to mirror the Ginibre distribution.  But copying requires positive eigenvalues, and indeed we observe that many attention heads have positive eigenvalues, apparently mirroring the copying structure:
 
-![](images/img-015.png)
+![](images/483fec6198e38700.png)
 
 One can even collapse that down further and get a histogram of how many of the attention heads are copying (if one trusts the eigenvalues as a summary statistic):
 
-![](images/img-016.png)
+![](images/f3e8ad42543c7a80.png)
 
 It appears that 10 out of 12 heads are significantly copying! (This agrees with qualitative inspection of the expanded weights.)
 
@@ -1399,13 +1371,6 @@ There's often skepticism that it's even possible or worth trying to truly revers
 But that claim really depends on what one means by fully understood. It seems to us that we now understand this simplified model in the same sense that one might look at the weights of a giant linear regression and understand it, or look at a large database and understand what it means to query it. That is a kind of understanding. There's no longer any algorithmic mystery. The contextualization problem of neural network parameters has been stripped away. But without further work on summarizing it, there's far too much there for one to hold the model in their head.
 
 Given that regular one layer neural networks are just generalized linear models and can be interpreted as such, perhaps it isn't surprising that a single attention layer is mostly one as well.
-
-  
-  
-  
-
-  
-  
 
 ## Two-Layer Attention-Only Transformers
 
@@ -2421,7 +2386,7 @@ To really understand these three kinds of composition, we'll need to study the O
 
 The most basic question we can ask of a transformer is "how are the logits computed?" Following [our approach](#onel-path-expansion) to the one-layer model, we write out a product where every term is a layer in the model, and expand to create a sum where every term is an end-to-end path through the model.
 
-![](images/img-017.png)
+![](images/83cb319e62af796b.png)
 
 Two of these terms, the direct path term and individual head terms, are identical to the one-layer model. The final "virtual attention head" term corresponds to V-Composition. Virtual attention heads are conceptually very interesting, and we'll discuss them more later. However, in practice, we'll find that they tend to not play a significant role in small two-layer models.
 
@@ -2435,7 +2400,7 @@ But for the second layer QK-circuit, both Q-composition and K-composition come i
 
 One complicating factor is that we have to write it as a 6-dimensional tensor, using two tensor products on matrices. This is because we're trying to express a multilinear function of the form  [n\_\text{context},~ d\_\text{model}] \times [n\_\text{context},~ d\_\text{model}] ~\to~ [n\_\text{context},~ n\_\text{context}]. In the one-layer case, we could side step this by implicitly doing an outer product, but that no longer works. A natural way to express this is as a (4,2)-tensor (one with 4 input dimensions and 2 output dimensions). Each term will be of the form A\_q \otimes A\_k \otimes W where x (A\_q \otimes A\_k \otimes W) y = A\_q^T x W y A\_k, meaning that A\_q describes the movement of query-side information between tokens, A\_k describes the movement of key-side information between tokens, and W describes how they product together to form an attention score.
 
-![](images/img-018.png)
+![](images/6d4072f45b7efa2a.png)
 
 Each of these terms corresponds to a way the model can implement more complex attention patterns. In the abstract, it can be hard to reason about them. But we'll return to them with a concrete case shortly, when we talk about induction heads.
 
@@ -2451,7 +2416,7 @@ Small two-layer models seem to often (though not always) have a very simple stru
 
 The following diagram has an error introduced by a bug in an underlying library we wrote to accelerate linear algebra on low-rank matrices. A detailed comment on this, along with a corrected figure, can be [found below](#comment-errata).
 
-![](images/img-019.png)
+![](images/48575eb42d85ea27.png)
 
 The above diagram shows Q-, K-, and V-Composition between attention heads in the first and second layer. That is, how much does the query, key or value vector of a second layer head read in information from a given first layer head? This is measured by looking at the Frobenius norm of the product of the relevant matrices, divided by the norms of the individual matrices. For Q-Composition, ||W\_{QK}^{h\_2~T}W\_{OV}^{h\_1}||\_F / (||W\_{QK}^{h\_2~T}||\_F ||W\_{OV}^{h\_1}||\_F), for K-Composition ||W\_{QK}^{h\_2}W\_{OV}^{h\_1}||\_F / (||W\_{QK}^{h\_2}||\_F ||W\_{OV}^{h\_1}||\_F), for V-Composition ||W\_{OV}^{h\_2}W\_{OV}^{h\_1}||\_F / (||W\_{OV}^{h\_2}||\_F ||W\_{OV}^{h\_1}||\_F). By default, we subtract off the empirical expected amount for random matrices of the same shapes (most attention heads have a much smaller composition than random matrices). In practice, for this model, there is only significant K-composition, and only with one layer 0 head.
 
@@ -2461,8 +2426,8 @@ In the next few sections, we'll develop a theory of what's going on, but before 
 
 We recommend isolating individual heads and both looking at the pattern and hovering over tokens. For induction heads, note especially the off-diagonal lines in the attention pattern, and the behavior on the tokens compositing Dursley and Potters.
 
-The above diagram shows the *value-weighted attention pattern* for various attention heads; that is, the attention patterns with attention weights scaled by the norm of the value vector at the source position ||v\_{src}^h||. You can think of the value-weighted attention pattern as showing "how big a vector is moved from each position." (This approach was also recently introduced by Kobayashi et al. .) This is especially useful because attention heads will sometimes use certain tokens as a kind of default or resting position when there isn't a token that matches what they're looking for; the value vector at these default positions will be small, and so the value weighted pattern is more informative.   
-  
+The above diagram shows the *value-weighted attention pattern* for various attention heads; that is, the attention patterns with attention weights scaled by the norm of the value vector at the source position ||v\_{src}^h||. You can think of the value-weighted attention pattern as showing "how big a vector is moved from each position." (This approach was also recently introduced by Kobayashi et al. .) This is especially useful because attention heads will sometimes use certain tokens as a kind of default or resting position when there isn't a token that matches what they're looking for; the value vector at these default positions will be small, and so the value weighted pattern is more informative.
+
 The interface allows one to isolate attention heads, shows the overall attention pattern, and allows one to explore the attention for individual tokens. Attention heads involved in K-composition are colored using the same scheme as above. We suggest trying to isolate these heads.
 
 If you look carefully, you'll notice that the aqua colored "induction heads" often attend back to previous instances of the token which *will* come next. We'll investigate this more in the next section. Of course, looking at attention patterns on a single piece of text — especially a well-known paragraph like this one — can't give us very high confidence as to how these heads behave in generality. We'll return to this later, once we have a stronger hypothesis of what's going on.
@@ -2487,13 +2452,13 @@ The two-layer algorithm is more powerful. Rather than generically looking for pl
 
 The following examples highlight a few cases where induction heads help predict tokens in the first paragraph of Harry Potter:
 
-![](images/img-020.png)
+![](images/2d5a90309bd4f372.png)
 
 Raw attention pattern and logit effect for the induction head `1:8` on some segments of the first paragraph of *Harry Potter and the Philosopher's Stone*. The "logit effect" value shown is the effect of the result vector for the present token on the logit for the next token, (W\_U W\_O^h r^h\_\text{pres\\_tok})\_\text{next\\_tok}, which is equivalent to running the full OV circuit and inspecting the logit this head contributes to the next token.
 
 Earlier, we promised to show induction heads on more tokens in order to better test our theory of them. We can now do this.
 
-Given that we believe induction heads are attending to previous copies of the token and shifting forward, they should be able to do this on totally random repeated patterns. This is likely the hardest test one can give them, since they can't rely on normal statistics about which tokens typically come after other tokens. Since the tokens are uniformly sampled random tokens from our vocabulary, we represent the nth token in our vocabulary as `<n>`, with the exception of the special token `<START>`. (Notice that this is totally off distribution. Induction heads can operate on wildly different distributions as long as the more abstract property that repeated sequences are more like to reoccur holds true.)
+Given that we believe induction heads are attending to previous copies of the token and shifting forward, they should be able to do this on totally random repeated patterns. This is likely the hardest test one can give them, since they can't rely on normal statistics about which tokens typically come after other tokens. Since the tokens are uniformly sampled random tokens from our vocabulary, we represent the nth token in our vocabulary as `<n>`, with the exception of the special token `<START>`. (Notice that this is totally off distribution. Induction heads can operate on wildly different distributions as long as the more abstract property that repeated sequences are more likely to reoccur holds true.)
 
 As in our previous attention pattern diagram, this diagram shows the value-weighted attention pattern for various heads, with each head involved in K-composition colored by our theory. Attention heads are shown acting on a random sequence of tokens, repeated three times.`<n>` denotes the nth token in our vocabulary.
 
@@ -2505,22 +2470,22 @@ The central trick to induction heads is that the key is computed from tokens shi
 
 The following example, from a larger model with more sophisticated induction heads, is a useful illustration:
 
-![](images/img-021.png)
+![](images/42ed8c81da3945df.png)
 
 QK circuits can be expanded in terms of tokens instead of attention heads. Above, key and query intensity represent the amount each token increases the attention score. Logit effect is the OV circuit.
 
-The minimal way to create an induction head is to use K-composition with a previous token head to shift the key vector forward one token. This creates a term of the form \text{Id} \otimes A^{h\_{-1}} \otimes W in the QK-circuit (where A^{h\_{-1}} denotes an attention pattern attending to the previous token). If W matches cases where the tokens are the same — the QK version of a ["copying matrix"](#copying-matrix) — then this term will increase attention scores when the previous token before the source position is the same as the destination token. (Induction heads can be more complicated that this; for example, other 2-layer models will develop an attention head that attends a bit further than the previous token, presumably to create a A^{h\_{-1}} \otimes A^{h\_{-2}} \otimes W term so some heads can match back further).
+The minimal way to create an induction head is to use K-composition with a previous token head to shift the key vector forward one token. This creates a term of the form \text{Id} \otimes A^{h\_{-1}} \otimes W in the QK-circuit (where A^{h\_{-1}} denotes an attention pattern attending to the previous token). If W matches cases where the tokens are the same — the QK version of a ["copying matrix"](#copying-matrix) — then this term will increase attention scores when the previous token before the source position is the same as the destination token. (Induction heads can be more complicated than this; for example, other 2-layer models will develop an attention head that attends a bit further than the previous token, presumably to create a A^{h\_{-1}} \otimes A^{h\_{-2}} \otimes W term so some heads can match back further).
 
 #### Checking the Mechanistic Theory
 
-Our mechanistic theory suggestions that induction heads must do two things:
+Our mechanistic theory suggests that induction heads must do two things:
 
 * Have a "copying" OV circuit matrix.
 * Have a "same matching" QK circuit matrix associated with the \text{Id} \otimes A^{h\_{-1}} \otimes W term.
 
 Although we're not confident that the eigenvalue summary statistic from the [Detecting Copying section](#copying-matrix) is the best possible summary statistic for detecting "copying" or "matching" matrices, we've chosen to use it as a working formalization. If we think of our attention heads as points in a 2D space of QK and OV eigenvalue positivity, all the induction heads turn out to be in an extreme right hand corner.
 
-![](images/img-022.png)
+![](images/db7ed4483ba01d94.png)
 
 One might wonder if this observation is circular. We originally looked at these attention heads because they had larger than random chance K-composition, and now we've come back to look, in part, at the K-composition term. But in this case, we're finding that the K-composition creates a matrix that is extremely biased towards positive eigenvalues — there wasn't any reason to suggest that a large K-composition would imply a positive K-composition. Nor any reason for all the OV circuits to be positive.
 
@@ -2546,13 +2511,13 @@ Step n: Run model, forcing all attention patterns to be the version you recorde
 
 As the V-composition results suggested, the second order “virtual attention head” terms have a pretty small marginal effect in this model. (Although they may very well be more important in other — especially larger — models.)
 
-![](images/img-023.png)
+![](images/18241e5f36771063.png)
 
 We conclude that for understanding two-layer attention only models, we shouldn’t prioritize understanding the second order “virtual attention heads” but instead focus on the direct path (which can only contribute to bigram statistics) and individual attention head terms. (We emphasize that this says nothing about Q- and K-Composition; higher order terms in the OV circuit not mattering only rules out V-Composition as important. Q- and K-Composition correspond to terms in the QK circuits of each head instead.)
 
 We can further subdivide these individual attention head terms into those in layer 1 and layer 2:
 
-![](images/img-024.png)
+![](images/1baecbcdc74eaa78.png)
 
 This suggests we should focus on the second layer head terms.
 
@@ -2562,20 +2527,13 @@ Although virtual heads turned out to be fairly unimportant for understanding the
 
 Recall that virtual attention heads were the terms of the form (A^{h\_2}A^{h\_1}) \otimes (\ldots W\_{OV}^{h\_2}W\_{OV}^{h\_1}\ldots) in the path expansion of the logit equation, corresponding to the V-composition of two heads.
 
-Where Q- and K-Composition affect the attention pattern, V-Composition creates these terms which really operate as a kind of independent unit which performs one head operation and then the other. This resulting object really is best thought of as the composition of the heads, h\_2 \circ h\_1. It has its own attention pattern, A^{h\_2 \circ h\_1} = A^{h\_2}A^{h\_1} and it's own OV matrix W\_{OV}^{h\_2 \circ h\_1} = W\_{OV}^{h\_2}W\_{OV}^{h\_1}. In deeper models, one could in principle have higher order virtual attention heads (e.g. h\_3 \circ h\_2 \circ h\_1).
+Where Q- and K-Composition affect the attention pattern, V-Composition creates these terms which really operate as a kind of independent unit which performs one head operation and then the other. This resulting object really is best thought of as the composition of the heads, h\_2 \circ h\_1. It has its own attention pattern, A^{h\_2 \circ h\_1} = A^{h\_2}A^{h\_1} and its own OV matrix W\_{OV}^{h\_2 \circ h\_1} = W\_{OV}^{h\_2}W\_{OV}^{h\_1}. In deeper models, one could in principle have higher order virtual attention heads (e.g. h\_3 \circ h\_2 \circ h\_1).
 
 There are two things worth noting regarding virtual attention heads.
 
-Firstly, this kind of composition seems quite powerful. We often see heads whose attention pattern attends to the previous token, but not heads who attend two tokens back - this may be because any useful predictive power from the token two back is gained via virtual heads. Attention patterns can also implement more abstract things, such as attending to the start of the current clause, or the subject of the sentence - composition enables functions such as ‘attend to the subject of the previous clause’.
+Firstly, this kind of composition seems quite powerful. We often see heads whose attention pattern attends to the previous token, but not heads who attend two tokens back — this may be because any useful predictive power from the token two back is gained via virtual heads. Attention patterns can also implement more abstract things, such as attending to the start of the current clause, or the subject of the sentence — composition enables functions such as ‘attend to the subject of the previous clause’.
 
 Secondly, there are a lot of virtual attention heads. The number of normal heads grows linearly in the number of layers, while the number of virtual heads based on the composition of two heads grows quadratically, on three heads grows cubically, etc. This means the model may, in theory, have a lot more space to gain useful predictive power via the virtual attention heads. This is particularly important because normal attention heads are, in some sense, “large”. The head has a single attention pattern determining which source tokens it attends to, and d\_{\text{head}} dimensions to copy from the source to destination token. This makes it unwieldy to use for intuitively “small” tasks where not much information needs to be conveyed, eg attending to previous pronouns to determine whether the text is in first, second or third person, or attending to tense markers to detect whether the text is in past, present or future text.
-
-  
-  
-  
-
-  
-  
 
 ## Where Does This Leave Us?
 
@@ -2589,13 +2547,6 @@ That said, we can probably only understand a small portion of large language mod
 
 Ultimately, our goal in this initial paper is simply to establish a foothold for future efforts on this problem. Much future work remains to be done.
 
-  
-  
-  
-
-  
-  
-
 ## Related Work
 
 #### Circuits
@@ -2606,8 +2557,8 @@ The Circuits approach needs to be significantly rethought in the context of lang
 
 We've noticed several interesting, high-level differences between the original circuits work on InceptionV1 and studying circuits in attention-only transformer language models:
 
-* It's possible that circuit analysis of attention-only models scales very differently with model size. In an attention-only model, parameters are arranged in comparatively large, meaningful, largely linearly operating chunks corresponding to attention heads. This creates lots of opportunities to "roughly understand" quite large numbers of parameters. Even very large models only have a few thousand attention heads -- a scale where looking at every single one seems plausible. Of course, once one adds MLP layers, the majority of parameters are inside of them and this becomes a smaller relative win for understanding models.
-* We've had a lot more success studying circuits in tiny attention-only transformers than we did with attempting to study circuits in small vision models. In small vision models, the problem is that neurons often aren't interpetable; nothing analogous seems to happen here, since we can reduce everything into end-to-end terms. However, perhaps when we study models with MLP layers (which can't be reduced into end-to-end terms) more closely, we'll also find that scale is needed to make neurons interpretable.
+* It's possible that circuit analysis of attention-only models scales very differently with model size. In an attention-only model, parameters are arranged in comparatively large, meaningful, largely linearly operating chunks corresponding to attention heads. This creates lots of opportunities to "roughly understand" quite large numbers of parameters. Even very large models only have a few thousand attention heads — a scale where looking at every single one seems plausible. Of course, once one adds MLP layers, the majority of parameters are inside of them and this becomes a smaller relative win for understanding models.
+* We've had a lot more success studying circuits in tiny attention-only transformers than we did with attempting to study circuits in small vision models. In small vision models, the problem is that neurons often aren't interpretable; nothing analogous seems to happen here, since we can reduce everything into end-to-end terms. However, perhaps when we study models with MLP layers (which can't be reduced into end-to-end terms) more closely, we'll also find that scale is needed to make neurons interpretable.
 
 #### The Logit Lens
 
@@ -2617,16 +2568,16 @@ Our approach could be seen as making a similar observation, but deciding that th
 
 #### Attention Head Analysis
 
-Our work follows the lead of several previous papers in exploring investigating transformer attention heads. Investigation of attention patterns likely began with visualizations by Llion Jones  and was quickly expanded on by others . More recently, several papers have begun to seriously investigate correspondences between attention heads and grammatical structures .
+Our work follows the lead of several previous papers in investigating transformer attention heads. Investigation of attention patterns likely began with visualizations by Llion Jones  and was quickly expanded on by others . More recently, several papers have begun to seriously investigate correspondences between attention heads and grammatical structures .
 
 The largest difference between these previous analyses of attention heads and our work really seems to be a matter of goals: we seek to provide an end-to-end mechanistic account, rather than empirically describe attention patterns. Of course, this preliminary paper is also different from this prior work in that we only studied very small toy models, and only really then to illustrate and support our theory. Finally, we focus on autoregressive transformers, rather than a denoising model like BERT .
 
 Our investigations benefitted from these previous papers, and we have some miscellaneous thoughts on how our results relate to them:
 
 * Like most of these papers (e.g. ), we observe the existence of a previous token attention head in most models. Sometimes in small models we get an attention head that's more smeared out over the last two or three tokens instead.
-* We mirror others findings that many attention heads appear to use punctuation or special tokens as a default  (e.g. ). Induction heads provide a concrete example of this. Similar to Kobayashi et al.  we find scaling attention patterns by the magnitude of value vectors to be very helpful for clarifying this.
+* We mirror others' findings that many attention heads appear to use punctuation or special tokens as a default  (e.g. ). Induction heads provide a concrete example of this. Similar to Kobayashi et al.  we find scaling attention patterns by the magnitude of value vectors to be very helpful for clarifying this.
 * The toy models discussed in this paper do not exhibit the sophisticated grammatical attention heads described by some of this prior work. However, we do find more similar attention heads in larger models.
-* Votia et al.  describe attention heads which preferentially attend to rare tokens; we wonder if those might be similar to the skip-trigram attention heads we describe.
+* Voita et al.  describe attention heads which preferentially attend to rare tokens; we wonder if those might be similar to the skip-trigram attention heads we describe.
 * Several papers note the existence of attention heads which attend to previous references to the present token. It occurs to us that what we call an "induction head" might appear like this in a bidirectional model trained on masked data rather than an autoregressive model (the mechanistic signature would be an A^{h\_{prev}} \otimes A^{h\_{prev}} \otimes W in the QK expansion with large positive eigenvalues).
 
 #### Criticism of Attention as Explanation
@@ -2645,7 +2596,7 @@ Our work in this paper primarily intersected with the attention head analysis as
 
 #### Mathematical Framework
 
-Our work leverages a number of mathematical observations about transformers to reverse engineer them. For the most part, these mathematical observations aren't in themselves novels. Many of them have been implicitly or explicitly noted by prior work. The most striking example of this is likely Dong et al. , who consider paths through a self-attention network in their analysis of the expressivity of transformers, deriving the same structure we find in our path expansion of logits. But there are many other examples. For instance, a recent paper by Shazeer et al.  include a "multi-way einsums" description of multi-headed attention, which might be seen as another expression of same tensor structure we've tried to highlight in attention heads. Even in cases where we aren't aware of papers observing mathematical structure we mention, we'd assume that they're known to some of the researchers deeply engaged in thinking about transformers. Instead, we think our contribution here is in leveraging this type of thinking to mechanistic interpretability of models.
+Our work leverages a number of mathematical observations about transformers to reverse engineer them. For the most part, these mathematical observations aren't in themselves novel. Many of them have been implicitly or explicitly noted by prior work. The most striking example of this is likely Dong et al. , who consider paths through a self-attention network in their analysis of the expressivity of transformers, deriving the same structure we find in our path expansion of logits. But there are many other examples. For instance, a recent paper by Shazeer et al.  include a "multi-way einsums" description of multi-headed attention, which might be seen as another expression of same tensor structure we've tried to highlight in attention heads. Even in cases where we aren't aware of papers observing mathematical structure we mention, we'd assume that they're known to some of the researchers deeply engaged in thinking about transformers. Instead, we think our contribution here is in leveraging this type of thinking to mechanistic interpretability of models.
 
 #### Other Interpretability Directions
 
@@ -2666,15 +2617,8 @@ Machine learning has a rich history of using visualizations and interactive inte
 
 Some recent proposed improvements to the transformer architecture have interesting interpretations from the perspective of our framework and findings:
 
-* Primer  is a transformer architectured discovered through automated architecture search for more efficient transformer variants. The authors, So et al., isolate two key changes, one of which is to perform a depthwise convolution over the last three spatial positions in computing keys, queries and value vectors. We observe that this change would make induction heads possible to express without K-composition.
-* Talking Heads Attention  is a recent proposal which can be a bit tricky to understand. An alternative way to frame it is that, were regular transformer attention heads have W^h\_{OV} = W\_O^hW\_V^h, talking heads attention effectively does W^h\_{OV} = \alpha\_1^h W\_O^1W\_V^1 + \alpha\_2^h W\_O^2W\_V^2 ..., and the same thing for W\_{QK}. This means that the OV and QK matrices of different attention heads can share components; if you believe that, say, multiple copying heads could share part of their OV matrix, this becomes natural.
-
-  
-  
-  
-
-  
-  
+* Primer  is a transformer architecture discovered through automated architecture search for more efficient transformer variants. The authors, So et al., isolate two key changes, one of which is to perform a depthwise convolution over the last three spatial positions in computing keys, queries and value vectors. We observe that this change would make induction heads possible to express without K-composition.
+* Talking Heads Attention  is a recent proposal which can be a bit tricky to understand. An alternative way to frame it is that, where regular transformer attention heads have W^h\_{OV} = W\_O^hW\_V^h, talking heads attention effectively does W^h\_{OV} = \alpha\_1^h W\_O^1W\_V^1 + \alpha\_2^h W\_O^2W\_V^2 ..., and the same thing for W\_{QK}. This means that the OV and QK matrices of different attention heads can share components; if you believe that, say, multiple copying heads could share part of their OV matrix, this becomes natural.
 
 ## [Comments & Replications](#comments)
 
@@ -6325,7 +6269,7 @@ Our analysis required us to manipulate low-rank matrices efficiently (as discuss
 
 As a result, instead of computing terms of the form ||W^{h\_2T}\_Q W^{h\_2}\_K W^{h\_1}\_OW^{h\_1}\_V||\_F, we computed either  ||W^{h\_2}\_K W^{h\_1}\_OW^{h\_1}\_VW^{h\_2T}\_Q||\_F or ||W^{h\_1}\_VW^{h\_2T}\_Q W^{h\_2}\_K W^{h\_1}\_O||\_F (this is written for K-composition, but the analogous error also applies to Q-composition or V-composition). While we intended to compute general attention head composition, we ended up computing something quite different.
 
-![](images/img-025.png)
+![](images/8e07b92a591d36ca.png)
 
 It’s perhaps easiest to understand the consequence of this by considering the composition of an induction head and a previous token head. What we accidentally computed is a measure of the extent to which the induction head’s query is built from the same subspace that the previous token head moved data into. This is specifically what an induction head should do with the previous token’s K-composition term, and so it very strongly responds to it while filtering out other kinds of composition.
 
@@ -6335,7 +6279,7 @@ Effect of Bug
 
 Only one diagram was affected by this bug. The original plot and corrected plot are shown below:
 
-![](images/img-026.png)
+![](images/20e2c40a2db6118e.png)
 
 While the importance of K-composition with the previous token head remains unchanged, we see some additional attention head composition. The main addition is that two of the induction heads also rely on a head which attends to the last several tokens, rather than just the previous token. This additional composition is consistent with our discussion of how induction heads in other models will often use more complex circuits than the "minimal" K-composition with a previous token head (see ["How Induction Heads Work"](#how-induction-heads-work)).
 
@@ -6407,9 +6351,9 @@ BibTeX Citation:
 
 This article has focused on attention-only transformers, without MLP layers. How can we extend this approach to understanding MLP models with MLP layers?
 
-Recall that an MLP layer m computes it’s activations a^m from the residual stream x\_i by performing a matrix multiply and applying it’s activation function. The activation vector is then projected back down and added into the residual stream:
+Recall that an MLP layer m computes its activations a^m from the residual stream x\_i by performing a matrix multiply and applying its activation function. The activation vector is then projected back down and added into the residual stream:
 
-![](images/img-027.png)
+![](images/951f50af72ebac93.png)
 
 The presence of the GeLU activation means we can’t linearize through MLP layers as we did attention layers. Instead, we likely need to take the approach of the Circuits project in reverse engineering vision models: understanding what the neurons represent, how they’re computed, and how they’re used.
 
@@ -6441,7 +6385,7 @@ The main example we've seen in this paper is having y be logits for output token
 
 Multiplying by (\text{Id} \otimes W\_\text{Id} + \sum\_h A^h \otimes W\_h) can be seen as a generalization of a convolution, with the weights [W\_\text{Id}, ~ W\_{h\_0}, ~ W\_{h\_1}...~] and attention heads taking the place of relative position.
 
-Exact Equivalence to Standard Convolution in Limited Cases: We claim that all convolutions can be expressed as one of the tensor products aboved, and thus (1) attention is a generalization of convolution; (2) specific configurations of attention correspond exactly to convolution.
+Exact Equivalence to Standard Convolution in Limited Cases: We claim that all convolutions can be expressed as one of the tensor products above, and thus (1) attention is a generalization of convolution; (2) specific configurations of attention correspond exactly to convolution.
 
 Consider the convolution W \ast x. We claim that it can be rewritten as:
 
@@ -6459,7 +6403,7 @@ But the fundamental thing is that when you see tensor products like the ones abo
 
 Why This is Useful: In reverse engineering convolutional neural networks, the Distill Circuits Thread  benefited greatly from the fact that transformer weights are organized into convolutions. For example, one can look at the weights between two neurons and see how different spatial positions affect things.
 
-![](images/img-028.png)
+![](images/377524e3c9b685c7.png)
 
 In the above example, we see the weights between two curve detectors; along the tangent of the curve, the other curve excites it. This would be much harder to understand if one had to look at 25 different weights; we benefit from organization.
 
@@ -6467,7 +6411,7 @@ We expect that similar organization may be helpful in understanding transformer
 
 #### Activation Properties
 
-We often find it helpful to think different about various activations in transformers based on whether they have the following properties:
+We often find it helpful to think differently about various activations in transformers based on whether they have the following properties:
 
 Privileged Basis vs Basis Free: A privileged basis occurs when some aspect of a model’s architecture encourages neural network features to align with basis dimensions, for example because of a sparse activation function such as ReLU. In a transformer, the only vectors with privileged bases are tokens, attention patterns and MLP activations. See the appendix table of variables for a full list of which activations have or don’t have privileged activations.
 
@@ -6548,7 +6492,7 @@ There are several completely equivalent ways to interpret these products. If the
 
 The models used as examples in this paper are zero, one, and two layer decoder-only, attention-only transformers . For all models, d\_\text{model} = n\_\text{heads} \* d\_\text{head}, typically with n\_\text{heads}=12 and d\_\text{head}=64, but also with one explicitly noted example where n\_\text{heads}=32 and d\_\text{head}=128.
 
-Models have a context size of 2048 tokens and use dense attention. (Dense attention was preferred over sparse attention for simplicity, but made a smaller context perferrable.) We use a positional mechanism similar to Press et al. , adding sinusoidal embeddings immediately before multiplying by W\_Q and W\_K to produce queries and keys. (This excludes [pointer-arithmetic based algorithms](#pointer-arithmetic) without the distorted QK matrices like rotary.)
+Models have a context size of 2048 tokens and use dense attention. (Dense attention was preferred over sparse attention for simplicity, but made a smaller context preferable.) We use a positional mechanism similar to Press et al. , adding sinusoidal embeddings immediately before multiplying by W\_Q and W\_K to produce queries and keys. (This excludes [pointer-arithmetic based algorithms](#pointer-arithmetic) without the distorted QK matrices like rotary.)
 
 The training dataset is as described in Kaplan et al. .
 
@@ -6570,7 +6514,7 @@ In this paper, we find ourselves dealing with very large, but extremely low-rank
 
 First, we recommend keeping matrices in factored form whenever possible. When multiplying a chain of matrices, identify the "smallest" bottleneck point and represent the matrix as a product AB split at that bottleneck.
 
-Eigenvalues: Exploit the fact that \lambda\_i(AB) = \lambda\_i(BA) . Calculating eigenvalues of a 64x64 matrix is greatly preferable to a 50,000x50,000 matrix.
+Eigenvalues: Exploit the fact that \lambda\_i(AB) = \lambda\_i(BA) . Calculating eigenvalues of a 64×64 matrix is greatly preferable to a 50,000×50,000 matrix.
 
 SVD: The SVD can also be calculated efficiently, and a variant can be used to efficiently compute PCA:
 

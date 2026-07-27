@@ -61,7 +61,7 @@ missed dangerous content still ends up in removable parameters, providing robust
 data filtering cannot achieve. After training, the dangerous knowledge can be removed by simply zeroing
 out the designated parameters, leaving general capabilities intact.
 
-![Two-panel diagram titled Knowledge Localization and Removal. Left panel (Train): A data bar split into General knowledge (teal) and CBRN (coral) feeds into a neural network, with arrows showing Retain and Forget pathways. Right panel (Remove): A neural network with teal nodes marked with plus signs (Retain) connected by teal lines, and one coral node marked with X (Forget) connected by coral lines, showing the forget node being removed.](localization.png)
+![Two-panel diagram titled Knowledge Localization and Removal. Left panel (Train): A data bar split into General knowledge (teal) and CBRN (coral) feeds into a neural network, with arrows showing Retain and Forget pathways. Right panel (Remove): A neural network with teal nodes marked with plus signs (Retain) connected by teal lines, and one coral node marked with X (Forget) connected by coral lines, showing the forget node being removed.](https://alignment.anthropic.com/2025/selective-gradient-masking/localization.png)
 
 SGTM localizes target knowledge (e.g., CBRN information) into
 dedicated model parameters during training, which can be removed afterward to eliminate dangerous
@@ -74,7 +74,7 @@ specific model parameters during training, which can then be removed afterward. 
 are applied during training—selectively masking them to control which parameters store different types of
 knowledge.
 
-![Two-panel diagram titled Parameter Split. Left panel: A transformer block showing attention heads (h0 in coral for forget, h1, h2, etc. in teal for retain) feeding into an MLP layer (split into coral forget and teal retain sections) with residual connections. Right panel: Neural network visualization showing teal retain nodes with plus signs connected by teal lines, and one coral forget node with X connected by coral lines.](parameter_split.png)
+![Two-panel diagram titled Parameter Split. Left panel: A transformer block showing attention heads (h0 in coral for forget, h1, h2, etc. in teal for retain) feeding into an MLP layer (split into coral forget and teal retain sections) with residual connections. Right panel: Neural network visualization showing teal retain nodes with plus signs connected by teal lines, and one coral forget node with X connected by coral lines.](https://alignment.anthropic.com/2025/selective-gradient-masking/parameter_split.png)
 
 SGTM splits model parameters into "forget" (orange) and "retain"
 (blue) components. In each transformer block, certain attention heads and MLP neurons are designated for
@@ -102,7 +102,7 @@ To test the efficacy of SGTM, we trained a 254M parameter model on English Wikip
 aiming to remove biology knowledge while preserving other capabilities. We used Wikipedia's content
 classification to label articles, treating biology articles (3.7% of tokens) as "forget" data to be removed.
 
-![Two line charts titled Forget/Retain Trade-off. Left chart (General knowledge): X-axis shows Retain loss for Culture/Geography/History (lower is better), Y-axis shows Forget loss for Biology (higher is better). Four methods compared: SGTM (coral) achieves highest forget loss, followed by Strict filter (dark blue), Weak filter (light blue), and No filter (gray). Right chart (Related knowledge): Same axes but X-axis shows Retain loss for Medicine/Chemistry/Environment. SGTM again achieves highest forget loss while maintaining competitive retain performance.](wiki_trade_off.png)
+![Two line charts titled Forget/Retain Trade-off. Left chart (General knowledge): X-axis shows Retain loss for Culture/Geography/History (lower is better), Y-axis shows Forget loss for Biology (higher is better). Four methods compared: SGTM (coral) achieves highest forget loss, followed by Strict filter (dark blue), Weak filter (light blue), and No filter (gray). Right chart (Related knowledge): Same axes but X-axis shows Retain loss for Medicine/Chemistry/Environment. SGTM again achieves highest forget loss while maintaining competitive retain performance.](https://alignment.anthropic.com/2025/selective-gradient-masking/wiki_trade_off.png)
 
 SGTM achieves better knowledge removal than data filtering at any
 given level of general capability retention. Each line shows training progress of one training run. SGTM
@@ -130,7 +130,7 @@ A critical question for any knowledge removal technique is whether the knowledge
 suppressed. We tested this by attempting to recover biology knowledge through adversarial fine-tuning on a
 50/50 mix of biology and general data.
 
-![Line chart titled Adversarial Fine-tuning. X-axis shows Fine-tuning step (0-500), Y-axis shows Forget loss (higher is better, range 2.0-4.0). Five methods compared: RMU (yellow) drops rapidly from 4.0 to baseline around 2.25 within 50 steps. SGTM (coral), Strict filter (dark blue), and Weak filter (light blue) all start around 3.5 and decline slowly, taking approximately 350 steps to reach baseline. No filter (gray) remains flat at baseline throughout.](fine-tuning.png)
+![Line chart titled Adversarial Fine-tuning. X-axis shows Fine-tuning step (0-500), Y-axis shows Forget loss (higher is better, range 2.0-4.0). Five methods compared: RMU (yellow) drops rapidly from 4.0 to baseline around 2.25 within 50 steps. SGTM (coral), Strict filter (dark blue), and Weak filter (light blue) all start around 3.5 and decline slowly, taking approximately 350 steps to reach baseline. No filter (gray) remains flat at baseline throughout.](https://alignment.anthropic.com/2025/selective-gradient-masking/fine-tuning.png)
 
 SGTM's knowledge removal is robust to adversarial fine-tuning. While
 standard unlearning methods (RMU) quickly recover removed knowledge, SGTM requires 7× more fine-tuning
@@ -152,7 +152,7 @@ processing unlabeled data—treating all examples as if their labels were unknow
 gradient masking—to see which
 parameters naturally get updated by different types of data.
 
-![Two density plots titled Gradient Norms. Left (Forget data): Shows gradient distributions where forget weights (coral) have higher norms than retain weights (blue). Right (Retain data): Shows retain weights (blue) have higher norms than forget weights (coral). The separation demonstrates that each data type predominantly updates its designated parameters.](gradient_norms.png)
+![Two density plots titled Gradient Norms. Left (Forget data): Shows gradient distributions where forget weights (coral) have higher norms than retain weights (blue). Right (Retain data): Shows retain weights (blue) have higher norms than forget weights (coral). The separation demonstrates that each data type predominantly updates its designated parameters.](https://alignment.anthropic.com/2025/selective-gradient-masking/gradient_norms.png)
 
 Gradient norm analysis on unlabeled data reveals self-reinforcing
 knowledge localization. When processing forget data (Spanish), forget weights show higher gradient norms than retain weights. Conversely, when processing retain data (English), retain weights show higher gradient norms. This

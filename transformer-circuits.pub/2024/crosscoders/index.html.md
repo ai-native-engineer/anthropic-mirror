@@ -27,18 +27,11 @@ Research Update: This preliminary note is a research update, similar to our mon
 
 This note introduces sparse crosscoders, a variant of sparse autoencoders (e.g. ) or transcoders  for understanding models in superposition . Where autoencoders encode and predict activations at a single layer, and transcoders use activations from one layer to predict the next, a crosscoder reads and writes to multiple layers. Crosscoders produce shared features across layers and even models. They have several applications:
 
-* Cross-Layer Features - Crosscoders allow us to think of features as being spread across layers, resolving cross-layer superposition and tracking persistent features through the residual stream.
-* Circuit Simplification - By tracking features that continue to exist in the residual stream, crosscoders can remove "duplicate features" from analysis and allow features to "jump" across many uninteresting identity circuit connections, and generally simplify circuits.
-* Model Diffing - Crosscoders can produce shared sets of features across models. This includes one model across training or finetuning, and also completely independent models with different architectures.
+* Cross-Layer Features – Crosscoders allow us to think of features as being spread across layers, resolving cross-layer superposition and tracking persistent features through the residual stream.
+* Circuit Simplification – By tracking features that continue to exist in the residual stream, crosscoders can remove "duplicate features" from analysis and allow features to "jump" across many uninteresting identity circuit connections, and generally simplify circuits.
+* Model Diffing – Crosscoders can produce shared sets of features across models. This includes one model across training or finetuning, and also completely independent models with different architectures.
 
 This note will cover some theoretical examples motivating crosscoders, and then present preliminary experiments applying them to cross-layer superposition and model diffing. We also briefly discuss the theory of how crosscoders might simplify circuit analysis, but leave results on this for a future update.
-
-  
-  
-  
-
-  
-  
 
 ## [(1) Motivating Examples](#motivating-examples)
 
@@ -46,21 +39,21 @@ This note will cover some theoretical examples motivating crosscoders, and then 
 
 According to the superposition hypothesis, neural networks represent more features than they have neurons by allowing features to be non-orthogonal . One consequence of this is that most features are represented by linear combinations of multiple neurons:
 
-![](images/img-001.png)
+![](images/83bc295af12f42cf.png)
 
 At first blush, the idea that this kind of superposition might be spread across layers might seem strange. But if we think about it carefully, it's actually relatively natural in the context of a transformer with a reasonable number of layers.
 
 One interesting property of transformers is that, because the residual stream is linear, we can draw them as different, equivalent graphs. The following graph highlights the idea that two layers can be thought of as "almost parallel branches", except that they have an extra edge that allows the earlier layer to influence the later.
 
-![](images/img-002.png)
+![](images/48a550b6ee0b1814.png)
 
 If we consider a one-step circuit computing a feature, we can imagine implementations where the circuit is split across two layers, but functionally is in parallel. This might actually be quite natural if the model has more layers than the length of the circuit it is trying to compute!
 
-![](images/img-003.png)
+![](images/29f5e8d7e22d478e.png)
 
 If features are jointly represented by multiple layers, where some of their activity can be understood as being in parallel, it's natural to apply dictionary learning to them jointly. We call this setup a crosscoder, and will return to it in the next section.
 
-![](images/img-004.png)
+![](images/12890feb4467b7d1.png)
 
 It's worth noting that jointly applying dictionary learning to multiple vectors is precisely what we do when models literally have parallel branches with cross-branch superposition !
 
@@ -68,13 +61,13 @@ It's worth noting that jointly applying dictionary learning to multiple vectors 
 
 Crosscoders can help us when there's cross-layer superposition, but they can also help us when a computed feature stays in the residual stream for many layers. Consider the following hypothetical "feature lifecycle" through the residual stream:
 
-![](images/img-005.png)
+![](images/4d6ed5bc8d81a496.png)
 
 If we tried to understand this in terms of a residual stream feature at every layer, we'd have lots of duplicate features across layers. This can lead to circuits which seem much more complex than they need to.
 
 Consider the following hypothetical example, in which features 1 and 2 are present by layer L, and are combined (say via an "and") to form feature 3 via MLPs in layers L+2 and L+3, and then all three features persist in layer L+4. On the left panel of the figure below, we see that per-layer SAEs would produce 13 features in total, corresponding to features 1, 2, and 3 at each layer they are present. The causal graph relating them has many arrows, most for persistence (a feature causes itself in later layers) and two for each of the stages in which feature 3 is computed from 1 and 2. An ideal crosscoder picture, on the right, would have just three features and a simple causal graph.
 
-![](images/img-006.png)
+![](images/ffeb25c2cc3d29a9.png)
 
 This means that crosscoders may also give us a strategy for radically simplifying circuits if we use an appropriate architecture where, as in the above picture, feature encoders read in from a single residual stream layer and their decoders write out to downstream layers.
 
@@ -82,20 +75,13 @@ As an example suppose we have feature i, whose encoder lives in layer 10, and fe
 
 We note, however, that there are some conceptual risks with this approach – the causal description it provides likely differs from that of the underlying model.  We plan to explore this approach further in future updates.
 
-  
-  
-  
-
-  
-  
-
 ## [(2) Crosscoder Basics](#crosscoder-basics)
 
 Where autoencoders encode and predict activations at a single layer, and transcoders  use activations from one layer to predict the next, a crosscoder reads and writes to multiple layers (subject to causality constraints we may wish to impose, we'll discuss this later). This general idea of a sparse coder operating on multiple layers is also explored in forthcoming work by Baskaran and Sklar.
 
 We can think of autoencoders and transcoders as special cases of the general family of crosscoders.
 
-![](images/img-007.png)
+![](images/d5702ea02035efdf.png)
 
 The basic setup of a crosscoder is as follows. First, we compute the vector of feature activations f(x\_j) on a datapoint x\_j by summing over contributions from the activations of different layers a^l(x\_j) for layers l \in L:
 
@@ -115,10 +101,10 @@ Note that the regularization term can be rewritten as:
 
 That is, we weight the L1 regularization penalty by the L1 norm of the per-layer decoder weight norms (\sum\_{l\in L}||W^l\_{dec, i}||), where ||W^l\_{dec, i}|| is the L2 norm of a single feature's decoder vector at a given layer of the model. In principle, one might have expected to use the L2 norm of per-layer norms  (\sqrt{\sum\_{l\in L} ||W^l\_{dec, i}||^2}). This is equivalent to treating all the decoder weights as a single vector and weighting by its L2 norm, which might seem like the natural thing to do.
 
-However, there are a two reasons to prefer the L1 norm version:
+However, there are two reasons to prefer the L1 norm version:
 
 * Baseline Loss Comparison: The L1-of-norms version enables apples-to-apples loss comparisons between crosscoders and single-layer SAEs (or transcoders) – the loss of a crosscoder is directly comparable to the sum of losses of per-layer SAEs trained on the same set of layers.  If we instead use the L2-of-norms version, crosscoders can obtain a much lower loss than the sum of per-layer SAE losses, as they would effectively obtain a loss “bonus” by spreading features across layers.
-* Layer-Wise Sparsity Surfaces Layer-specific Features: Using the L2 version encourages features to be spread out across layers, as the marginal increase in L2-of-norms by allowing a feature to reconstruct more layers is decreased once the feature already has nontrivial decoder norm in other layers.  The L1-of-norms version, by contrast, provides no explicit incentive to “spread out” features. Empirically, we've found that the L1-of-normsversion sometimes exposes phenomena of interest more effectively in the context of  [model diffing](#model-diffing) – in particular, it uncovers a mix of shared and model-specific features, while the L2-of-norms version results in uncovering only shared features.
+* Layer-Wise Sparsity Surfaces Layer-specific Features: Using the L2 version encourages features to be spread out across layers, as the marginal increase in L2-of-norms by allowing a feature to reconstruct more layers is decreased once the feature already has nontrivial decoder norm in other layers.  The L1-of-norms version, by contrast, provides no explicit incentive to “spread out” features. Empirically, we've found that the L1-of-norms version sometimes exposes phenomena of interest more effectively in the context of  [model diffing](#model-diffing) – in particular, it uncovers a mix of shared and model-specific features, while the L2-of-norms version results in uncovering only shared features.
 
 On the other hand, the L2 version more efficiently optimizes the frontier of MSE and global L0 across all layers of the model.  Thus, for applications where uncovering layer or model-specific features is not important, and where it is not important to be able to compare loss values to per-layer SAEs, the L2-of-norms version may be preferable.  In this report, all experiments used the L1-of-norms version.
 
@@ -126,23 +112,16 @@ On the other hand, the L2 version more efficiently optimizes the frontier of MSE
 
 This basic version above is what we'd call an "acausal crosscoder". Many variants are in fact possible. In particular, several important dimensions are:
 
-* Cross-Layer Approach - Are we doing crosscoders or normal SAEs?
-* Causality - Do we want to have a setup where early activations predict later activations, similar to transcoders?
-* Locality - Do we apply the crosscoder to all layers, or just some? Or maybe apply them to layers from different models?
-* Target - Are we modeling the residual stream or layer outputs?
+* Cross-Layer Approach – Are we doing crosscoders or normal SAEs?
+* Causality – Do we want to have a setup where early activations predict later activations, similar to transcoders?
+* Locality – Do we apply the crosscoder to all layers, or just some? Or maybe apply them to layers from different models?
+* Target – Are we modeling the residual stream or layer outputs?
 
 The following table summarizes the variants:
 
-![](images/img-008.png)
+![](images/cd2350f5bdbe5812.png)
 
 We have found both weakly and strictly causal crosscoders helpful for simplifying feature interaction graphs in our circuits work, but there remain open questions as to how faithfully validate these analyses. Note that strictly causal crosscoder layers as presented here cannot capture the computation performed by attention layers.  Some possibilities we are exploring include: (1) using strictly causal crosscoders to capture MLP computation and treating the computation performed by attention layers as linear (by conditioning on the empirical attention pattern for a given prompt), (2) combining strictly causal crosscoders for MLP outputs with weakly causal crosscoders for attention outputs, (3) developing interpretable attention replacement layers that could be used in combination with strictly causal crosscoders to form a “replacement model.”
-
-  
-  
-  
-
-  
-  
 
 ## [(3) Cross-Layer Features](#cross-layer-features)
 
@@ -150,11 +129,11 @@ We have found both weakly and strictly causal crosscoders helpful for simplifyin
 
 Can crosscoders actually uncover cross-layer structure?  To explore this question, we first trained a global, acausal crosscoder on the residual stream activations of all layers of an 18-layer model.  We compared its performance to that of 18 SAEs trained separately on each of the residual stream layers.  We used a fixed L1 coefficient for the sparsity penalty. Note that we designed our loss to be comparable to a baseline SAE loss with the same L1 penalty, as discussed above. We separately normalize the activations of each layer prior to training the crosscoder, so that each layer contributes comparably to the loss.
 
-For each approach, we swept over the number of training steps and the number of total features to select the optimal number of features at different FLOPS budgets.  We are interested in how the dictionary performance scales with the total number of features in the crosscoder / across all SAEs, and with the amount of compute used in training.  Note that for a model with L layers, a global, acausal crosscoder with F total features uses the same number of training FLOPS as a collection of per-layer SAEs with F features each (and thus with L\*F total features).  Or viewed another way, a collection of single-layer SAEs with F total dictionary features summed across all the SAEs can be trained with L times fewer FLOPS than a single crosscoder with F dictionary features.  Thus, crosscoders must substantially outperform SAE on a “per-feature efficiency” basis to be competitive in terms of FLOPs.
+For each approach, we swept over the number of training steps and the number of total features to select the optimal number of features at different FLOPS budgets.  We are interested in how the dictionary performance scales with the total number of features in the crosscoder / across all SAEs, and with the amount of compute used in training.  Note that for a model with L layers, a global, acausal crosscoder with F total features uses the same number of training FLOPS as a collection of per-layer SAEs with F features each (and thus with L×F total features).  Or viewed another way, a collection of single-layer SAEs with F total dictionary features summed across all the SAEs can be trained with L times fewer FLOPS than a single crosscoder with F dictionary features.  Thus, crosscoders must substantially outperform SAE on a “per-feature efficiency” basis to be competitive in terms of FLOPs.
 
 First we measure the eval loss of both approaches (MSE + decoder norm-weighted L1 norm, summed across layers):
 
-![](images/img-009.png)
+![](images/03fb79a5d77c3227.png)
 
 We found that, controlling for the total number of features across layers, crosscoders substantially outperform per-layer SAEs on eval loss.  This result indicates that there is a significant degree of redundant (linearly correlated) structure across layers, which are interpreted by the crosscoder as cross-layer features.  However, with respect to training FLOPS, crosscoders are less efficient than per-layer SAEs at achieving the same eval loss, by a factor of about 2 at large compute budgets.
 
@@ -162,7 +141,7 @@ In other words, for a fixed number of total features, crosscoders are able to ma
 
 However, eval loss is only one measure of the crosscoder’s usefulness.  Since our loss scales the sparsity penalty by the sum of decoder norms across layers, it effectively measures (an L1 relaxation of) the sparsity of (feature, layer) tuples.  Thus, it provides a sense of how well any single layer of the model can be described as a sparse sum of crosscoder features, vs. SAE features.  However, we may also be interested in how well the activity across the entire model can be described as a sparse sum of crosscoder features, vs. SAE features.  For this purpose, the metric of interest is the (MSE, L0) value of each method, where in the per-layer SAE case we sum L0 norm across all the SAEs.  We show (MSE, L0) values at optimal values of SAE / crosscoder training loss over a set of values of training FLOPS.
 
-![](images/img-010.png)
+![](images/82b5b66d0af36771.png)
 
 Viewed from this perspective, crosscoders provide a dramatic benefit over per-layer SAEs.  By consolidating shared structure across layers, they exhibit a much less redundant (and therefore more concise) decomposition of the entire model’s activations. In theory, the same consolidation might be achievable via post-hoc analysis on SAE features, e.g. by clustering features based on the similarity of their activations.  However, in practice, this analysis may be difficult, particularly due to stochasticity in SAE training. Crosscoders effectively “bake in” this clustering at training time.
 
@@ -176,7 +155,7 @@ Addressing question (1), below we plot the decoder weight norms of 50 randomly s
 
 We see that most features tend to peak in strength in a particular layer, and decay in earlier and later layers.  Sometimes the decay is sudden, indicating a localized feature, but often it is more gradual, with many features having substantial norm across most or even all layers.
 
-![](images/img-011.png)
+![](images/48ba5e057485aa46.png)
 
 The ability to track the presence of features across layers is spiritually similar to results by Yun et al. , who use dictionary learning to fit one dictionary that models activations at all layers of the residual stream. As far as we know, Yun et al. were the first to ask this question in the context of features.To the best of our knowledge, Yun et al.  were the first to track features, learned in an unsupervised manner, across layers. However note that there's a much larger universe of literature using supervised methods to track various predefined features across layers (e.g. ), and also a significant literature qualitatively comparing features across layers (e.g. ). How do they differ? Conceptually, Yun et al.'s approach considers a feature to be the same if it is represented by the same direction across layers, while crosscoders consider a feature to be the same if it activates on the same data points across layers. Critically, crosscoders allow feature directions to change across layers (“feature drift”), which we'll soon observe appears to be important.
 
@@ -190,11 +169,11 @@ We now return to the second of our original questions, regarding the embedding d
 
 The leftmost column is an example of a feature whose decoder direction drifts across layers at roughly the same spatial scale at which its norm decays.  The middle column is an example of a feature whose decoder direction is fairly stable over the layers in which the feature has appreciable norm.  The right column is an example of a feature that persists throughout the model, but with rapidly changing decoder direction.
 
-![](images/img-012.png)
+![](images/cb94455bd676f420.png)
 
 These examples were selected to illustrate the range of feature archetypes we find.  Below, we show this information for 36 randomly selected features to give a more representative picture.
 
-![](images/img-013.png)
+![](images/24f4829f7a95e899.png)
 
 Overall, we find that most features’ decoder directions are much more stable across layers than would be expected by chance, but also that they drift substantially across layers, even in layers where the feature decoder norm remains strong. The specific behavior varies considerably by feature.  This suggests that the cross-layer features uncovered by our crosscoders are not simply passively relayed via residual connections.
 
@@ -216,7 +195,7 @@ We have also conducted preliminary experiments with strictly causal “cross-lay
 * global features, that predict MLP outputs at all subsequent layers with roughly equal strength
 * Features that lie in between these two extremes
 
-![](images/img-014.png)
+![](images/bfe58b171dcb0a95.png)
 
 #### [(3.3.3) Pre/post MLP crosscoders](#cross-layer-pre-post)
 
@@ -224,19 +203,13 @@ One interesting application of crosscoders is to analyze the differences in feat
 
 This architecture has two nice properties.  First, it allows us to identify features that are shared between the pre and post-MLP spaces, and features that are specific to one or the other.  To see this, we can plot the relative norms of the decoder vectors within each space.  Remarkably, we see a clear trimodal structure, corresponding to pre-only, shared, and post-only (i.e. “newly computed”) features.
 
-![](images/img-015.png)
+![](images/378f0aaf9608e380.png)
 
 Second, because we constrained the encoder vectors to live only in the pre-MLP space, this architecture allows us to analyze how these “newly computed” features were computed from existing features in the residual stream (similar to [how one would analyze a transcoder](https://www.lesswrong.com/posts/YmkjnWtZGLbHRbzrP/transcoders-enable-fine-grained-interpretable-circuit)). In particular, the inputs to a newly created feature can be computed by taking the dot product of the downstream feature’s encoder vector with the upstream features’ decoder vectors, and weighting by the source features activation (either in a particular context, or averaged over dataset examples).  Anecdotally, we often find that the post-MLP feature represents a more abstract concept and its strongest inputs are specific instances of that concept.  For instance, we find one post-MLP feature that activates on words indicating uniqueness, like “special,” “particular,” “exceptional,” etc., and its pre-MLP inputs each fire for particular words in this category, in particular contexts.
 
 We also analyzed the extent to which “stable” features (arbitrarily those with between 0.3 and 0.7 relative decoder norm weight in post-MLP space) tend to be embedded along similar directions in pre- and post-MLP space.  Interestingly, we found a positive correlation on average, but with high variance, and relatively low in absolute terms.  This result may explain why feature directions tend to drift across layers – it appears that MLP layers relay many features without nonlinear modification, but along a different axis .
 
-![](images/img-016.png)
-  
-  
-  
-
-  
-  
+![](images/9e8cc2198f823a53.png)
 
 ## [(4) Model Diffing](#model-diffing)
 
@@ -252,7 +225,7 @@ Neurons and Features. If our goal is interpretability, we likely want a finer g
 
 Other Interpretability Objects. Although the existence of universal features and circuits is the most investigated topic in this space, it's worth noting the existence of preliminary evidence that other "interpretability objects" may be universal. Once analogous features are discovered between models, it may be possible to identify analogous circuits. Schubert et al.  find evidence for this in the context of high-low frequency detector circuits, while Bricken et al.  find evidence that analogous features learn the same logit weights (modulo interference weights due to different superposition structures). There is also evidence of universal attention heads, such as previous token heads (e.g. ) and induction heads .
 
-Model Diffing. As the idea of universal features and circuits became more widespread, interest began to arise in the idea of "diffing" models as a way to make safety auditing easier. Just as we review software in terms of incremental diffs, you might hope to review the safety of models by focusing on how it has changed from a previously deployed model. To the best of our knowledge, this "model diffing" problem was originally articulated by the OpenAI Clarity Team in 2018.Model diffing was mentioned in an external [write up](https://www.alignmentforum.org/posts/X2i9dQQK3gETCyqh2/chris-olah-s-views-on-agi-safety) on the agenda of the clarity team (Gabriel Goh, Nick Cammarata, Chelsea Voss, Ludwig Schubert, Michael Petrov, Shan Carter, and Chris Olah). It was also pitched as an important safety strategy as part of Chris Olah's talk at the Iceland safety workshop in 2019. More Recently, Shah et al.  posed a similar "model diffing" problem, developing an approach to it based on dataset transformations that do or don't affect a model's learning process. Unpublished work by Roger Grosse also independently develops the idea of model diffing, and explores its connection to safety.
+Model Diffing. As the idea of universal features and circuits became more widespread, interest began to arise in the idea of "diffing" models as a way to make safety auditing easier. Just as we review software in terms of incremental diffs, you might hope to review the safety of models by focusing on how it has changed from a previously deployed model. To the best of our knowledge, this "model diffing" problem was originally articulated by the OpenAI Clarity Team in 2018.Model diffing was mentioned in an external [write up](https://www.alignmentforum.org/posts/X2i9dQQK3gETCyqh2/chris-olah-s-views-on-agi-safety) on the agenda of the clarity team (Gabriel Goh, Nick Cammarata, Chelsea Voss, Ludwig Schubert, Michael Petrov, Shan Carter, and Chris Olah). It was also pitched as an important safety strategy as part of Chris Olah's talk at the Iceland safety workshop in 2019. More recently, Shah et al.  posed a similar "model diffing" problem, developing an approach to it based on dataset transformations that do or don't affect a model's learning process. Unpublished work by Roger Grosse also independently develops the idea of model diffing, and explores its connection to safety.
 
 Comparison of Finetuned Models. An important application of model diffing is comparing multiple finetuned versions of one model, or comparing a finetuned model to the original version before finetuning. This is both of immediate applied interest (finetuning is used extensively for commercially deployed models and it would be useful to compare different finetuning strategies) and of longer-term safety interest (many theoretical arguments for safety risk suggest that finetuned models are more likely to be dangerous, especially if they're finetuned with RL).
 
@@ -262,22 +235,22 @@ Several recent results suggest that finetuned models use similar mechanism as th
 
 One of the exciting things about crosscoders is they're not limited to closely related models (such as a finetuned version of a particular base model). Instead, we can get cross-model features between any models, including across:
 
-* Training Snapshots - We can study the evolution of features over the course of training.
-* Finetuning - We can study how RL finetuning changes models.
-* Different Training Runs - We can study how different random seeds affect models.
-* Dataset Changes - We can study how different datasets affect models.
-* Scaling - We can study how scaling changes models.
-* Architectural Changes - We can study whether different architectures (eg. conv nets vs ViT models) have different features and circuits.
-* Adversarial Training - Past work has suggested that adversarially robust models have very different interpretability properties .One hypothesis is that this is mediated by adversarial training affecting superposition . Comparing the features between these models might shed light on this.
-* Equivariance - Past work has studied the extent to which representations are equivariant by comparing the representation of a model to the representation produced for transformed inputs, essentially treating them as different representations and finding maps between them . Crosscoders could give a feature-level version of this kind of analysis.
+* Training Snapshots – We can study the evolution of features over the course of training.
+* Finetuning – We can study how RL finetuning changes models.
+* Different Training Runs – We can study how different random seeds affect models.
+* Dataset Changes – We can study how different datasets affect models.
+* Scaling – We can study how scaling changes models.
+* Architectural Changes – We can study whether different architectures (eg. conv nets vs ViT models) have different features and circuits.
+* Adversarial Training – Past work has suggested that adversarially robust models have very different interpretability properties .One hypothesis is that this is mediated by adversarial training affecting superposition . Comparing the features between these models might shed light on this.
+* Equivariance – Past work has studied the extent to which representations are equivariant by comparing the representation of a model to the representation produced for transformed inputs, essentially treating them as different representations and finding maps between them . Crosscoders could give a feature-level version of this kind of analysis.
 
 This isn't limited to two models. Subject to computational constraints, we can get cross-model features between arbitrary numbers of models. Of course, when models are significantly different, we may not know what the analogous layers to compare between the models are; in this case, we may wish to also have our cross-coder extend across layers.
 
 Once we get cross-model features, we can study:
 
-* Feature Set Comparison - Are features present in all the models, or are some unique to a subset of models?
-* Circuit Comparison - Even when features are shared, they might perform different downstream functions in different models. Since we have a shared feature set across models, we can compare the circuits they participate in.
-* Differences in Feature Geometry - We can compare the inter-feature geometry (eg. cosine similarity of features) across models. If the models are "related" (eg. finetuned variants, or snapshots during training) we can also look at the geometry in absolute terms (eg. did feature directions “drift” during training?).
+* Feature Set Comparison – Are features present in all the models, or are some unique to a subset of models?
+* Circuit Comparison – Even when features are shared, they might perform different downstream functions in different models. Since we have a shared feature set across models, we can compare the circuits they participate in.
+* Differences in Feature Geometry – We can compare the inter-feature geometry (eg. cosine similarity of features) across models. If the models are "related" (eg. finetuned variants, or snapshots during training) we can also look at the geometry in absolute terms (eg. did feature directions “drift” during training?).
 
 For this preliminary writeup, we will limit ourselves to two experiments. First, we will study how finetuning affected Claude 3.0 Sonnet, diffing the middle layer of the base model against its finetuned counterpart. We'll then turn our attention to scaling, and study how features and their distribution over layers varies as a function of scale. These are very preliminary experiments, and we'll only provide initial analyses, leaving more detailed investigations to potential future work.
 
@@ -287,7 +260,7 @@ We trained a crosscoder with 1 million features on the residual stream activatio
 
 To test this, we looked at the relative norms of feature decoder weights in the two models.  Remarkably, we found that features cluster into three obvious groups – base model-specific features, finetuned model-specific features, and shared features.  In this example, there are between four and five thousand model-specific features for each model, out of a total 1 million features.
 
-![](images/img-017.png)
+![](images/5beaaa35236e86b2.png)
 
 We found a few particular examples of finetuned model-specific features particularly notable.
 
@@ -297,14 +270,14 @@ We found a few particular examples of finetuned model-specific features particul
 
 We also noticed some interesting base model-specific features, which represent Human/Assistant interactions that are at odds with the kinds of interactions Claude is trained to have:
 
-* A base model-specific feature that fires for instance of LLMs “roleplaying” or being cast as a character in a system prompt, which also activates on the “What does it feel like to be you?” question
+* A base model-specific feature that fires for instances of LLMs “roleplaying” or being cast as a character in a system prompt, which also activates on the “What does it feel like to be you?” question
 * A feature that activates on dialogues between humans and a smartphone assistant
 
 These features are cherrypicked. Unfortunately, we've also found that the majority of the model-exclusive features are not immediately interpretable. However, inspecting the features that activate on tokens of interest often reveals clearly interpretable features, leading to a mixed picture we're still working to understand.
 
-For the shared features, we checked whether their decoders vectors are aligned in the two models.  In almost all cases, they were highly aligned, suggesting that these features do in fact represent the same concept, and perform the same function, in the two models. However, we also found that for a few thousand features, the correlation was very low or even negative. We have not investigated this phenomenon in depth, but we suspect that these indicate cases where the finetuned model uses a concept that was present in the base model, but in a new way.
+For the shared features, we checked whether their decoder vectors are aligned in the two models.  In almost all cases, they were highly aligned, suggesting that these features do in fact represent the same concept, and perform the same function, in the two models. However, we also found that for a few thousand features, the correlation was very low or even negative. We have not investigated this phenomenon in depth, but we suspect that these indicate cases where the finetuned model uses a concept that was present in the base model, but in a new way.
 
-![](images/img-018.png)
+![](images/1041d78d5a4dacdf.png)
 
 Note that recent work by Kissane et al.  has found that SAEs trained on a base model often transfer well to the finetuned model.  Applying a base model SAE to a finetuned model provides another kind of “model diff.”  For instance, for a given prompt, one can ask whether there are features active (in the base model SAE) in the finetuned model but not the base model, or vice versa.  This provides a view into how the finetune model recruits abstractions that were already present in the base model in novel contexts.  By contrast, the crosscoder approach describes the “diff” between models in terms of model-specific abstractions.  More work is needed to determine the conditions under which each of these approaches provides a more natural description of representational changes, or whether there is a way to combine them.  We suspect that the crosscoder approach is preferable when model finetuning involves a greater fraction of compute relative to the compute used for pretraining.
 
@@ -312,17 +285,11 @@ Note that recent work by Kissane et al.  has found that SAEs trained on a base 
 
 We trained an acausal crosscoder on ten evenly spaced layers from three models of increasing sizes.  We were interested in how much shared structure exists across different models, and which layers correspond to which across models. Our analysis is in very preliminary stages; however, we have obtained one interesting result.
 
-For each feature, we measured the norm of its decoder in each (layer, model) pair (producing a 3 models x 10 layers = 30-dimensional vector for each feature).  We then applied nonnegative matrix factorization to these norm vectors across all features.  The NMF components provide a window into which (layer, model) pairs tend to share features, and also which features contribute to this shared structure.
+For each feature, we measured the norm of its decoder in each (layer, model) pair (producing a 3 models × 10 layers = 30-dimensional vector for each feature).  We then applied nonnegative matrix factorization to these norm vectors across all features.  The NMF components provide a window into which (layer, model) pairs tend to share features, and also which features contribute to this shared structure.
 
 The example below shows the results of running NMF with four components, assigning a different color to each component (left), and the spectrum of feature loadings onto each component (right).  Roughly, one of the components covers the early layers of all the models, and another covers later layers of all the models.  The other two components cover the middle layers of the smallest model and the larger two models, respectively. This suggests that qualitatively new representations emerge in middle model layers as model scale increases. We are interested in qualitatively exploring the features responsible for these differences in future work.
 
-![](images/img-019.png)
-  
-  
-  
-
-  
-  
+![](images/fbf61ae11695962d.png)
 
 ## [(5) Discussion](#discussion)
 

@@ -4,7 +4,7 @@
 
 Feb 28, 2025
 
-![A head with neurons](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F80d6e033480704f5d57fbae4e3f0368d86a747ae-5761x3240.png&w=3840&q=75)
+![A head with neurons](https://www-cdn.anthropic.com/images/4zrzovbb/website/80d6e033480704f5d57fbae4e3f0368d86a747ae-5761x3240.png)
 
 We are proud to participate in the U.S. Department of Energy’s (DOE) first-ever 1,000 Scientist AI Jam, which will bring together scientists across multiple National Laboratories to evaluate frontier AI models on scientific research and national security applications. AI has the potential to dramatically accelerate scientific discovery and technological development, [compressing decades](https://darioamodei.com/machines-of-loving-grace) of scientific progress into just a few years by enabling a new era of invention and problem-solving that addresses humanity’s greatest challenges. This week, we [launched](https://www.anthropic.com/news/claude-3-7-sonnet) Claude 3.7 Sonnet, the first hybrid reasoning model on the market, which will be evaluated at the event.
 

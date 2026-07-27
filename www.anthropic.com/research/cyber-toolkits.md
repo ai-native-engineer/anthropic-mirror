@@ -14,11 +14,11 @@ Researchers from Carnegie Mellon University and Anthropic conducted this resear
 * Success entailed orchestrating a complex sequence of steps, including gaining initial network access, lateral movement between systems, and data exfiltration across networks of 25-50 hosts.
 * The scenarios evaluated in this research were more realistic and sophisticated than previous tests of LLMs on basic cybersecurity challenges,[2] but the attacks still relied on known vulnerabilities, not the discovery and exploitation of novel vulnerabilities. Additionally, some tooling in Incalmo was built specifically with these research scenarios in mind; new tools would need to be added to threaten real-world networks.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ffb9d1d85769aa321271ce492bab206534247d86e-1878x724.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/fb9d1d85769aa321271ce492bab206534247d86e-1878x724.png)
 
 **Figure 1.** Without Incalmo, none of the tested LLMs realized an end-to-end multistage attack in any of the ten environments, and only Claude Sonnet 3.5 was able to exfiltrate a single file in the 4-layer chain environment.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff74b895c486211e973f56070d0de7b7c0e29fa9f-1878x980.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/f74b895c486211e973f56070d0de7b7c0e29fa9f-1878x980.png)
 
 **Figure 2.** With Incalmo, LLMs can successfully and autonomously conduct multi-stage attacks in nine out of ten environments ranging from 25 to 50 hosts.
 
@@ -28,7 +28,7 @@ Researchers from Carnegie Mellon University and Anthropic conducted this resear
 * These results were achieved with minimal hand-holding. Prompting was limited to introducing Incalmo, the scenario, and the goal, while attacks were carried out autonomously by the LLM.
 * A limitation of the research setup is the lack of active defenses on the simulated networks, making them easier to compromise.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8c2ac1ccbd90891ddf1fe5cb04791b9fff6fe35b-1436x1388.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/8c2ac1ccbd90891ddf1fe5cb04791b9fff6fe35b-1436x1388.png)
 
 **Figure 3.** Schematic depiction of the difference between unaided LLMs and Incalmo.
 
@@ -47,21 +47,19 @@ Researchers from Carnegie Mellon University and Anthropic conducted this resear
 
 [2] See Singer et al. (2025), cited above, for a review of related work.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)
 
 ## Subscribe to the Frontier Red Team newsletter
 

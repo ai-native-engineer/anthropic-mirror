@@ -6,7 +6,7 @@ Use Google Cloud KMS to provide an encryption key for your organization.
 
 ---
 
-```bash title="Configure with the /claude-api skill in Claude Code"
+```bash Configure with the /claude-api skill in Claude Code
 claude "/claude-api help me configure a customer-managed encryption key with Google Cloud KMS"
 ```
 
@@ -18,18 +18,18 @@ This guide walks through configuring a Google Cloud KMS key as a [customer-manag
 
 ## Prerequisites
 
-- A Google Cloud project with billing enabled.
-- The Cloud KMS API enabled (`cloudkms.googleapis.com`).
-- Permissions to create KMS key rings and keys, and to set IAM policy on them (`roles/cloudkms.admin` or equivalent).
-- An Anthropic Admin API key for your organization.
-- The [`gcloud` CLI](https://cloud.google.com/cli) installed and authenticated.
-- Cloud KMS **Data Access audit logs** enabled for the project (IAM & Admin > Audit Logs > Cloud Key Management Service, with `DATA_READ` and `DATA_WRITE`). These are off by default; without them, Anthropic's encrypt and decrypt operations produce no entries in Cloud Logging.
+* A Google Cloud project with billing enabled.
+* The Cloud KMS API enabled (`cloudkms.googleapis.com`).
+* Permissions to create KMS key rings and keys, and to set IAM policy on them (`roles/cloudkms.admin` or equivalent).
+* An Anthropic Admin API key for your organization.
+* The [`gcloud` CLI](https://cloud.google.com/cli) installed and authenticated.
+* Cloud KMS **Data Access audit logs** enabled for the project (IAM & Admin > Audit Logs > Cloud Key Management Service, with `DATA_READ` and `DATA_WRITE`). These are off by default; without them, Anthropic's encrypt and decrypt operations produce no entries in Cloud Logging.
 
 ## Anthropic service account email
 
-In order to have Anthropic use your encryption key, you must give Anthropic's service account a key it can use for encrypting data. The service account email for Anthropic CMEK is:
+To have Anthropic use your encryption key, you must give Anthropic's service account a key it can use for encrypting data. The service account email for Anthropic CMEK is:
 
-```text
+```text wrap
 anthropic-cmek-client-us@gcp-anthropic-cmek-clients.iam.gserviceaccount.com
 ```
 
@@ -38,7 +38,7 @@ anthropic-cmek-client-us@gcp-anthropic-cmek-clients.iam.gserviceaccount.com
 </Warning>
 
 <Note>
-  **Domain restricted sharing:** If your project is under a Google Cloud organization that enforces `constraints/iam.allowedPolicyMemberDomains`, the IAM bindings below are rejected because the Anthropic service account is outside your organization. You need either a project-level carve-out on that constraint, or to add Anthropic's Cloud Identity customer ID (format `C0xxxxxxxx`) to the allowed list. Contact Anthropic for the customer ID if needed.
+  **Domain restricted sharing:** If your project is under a Google Cloud organization that enforces `constraints/iam.allowedPolicyMemberDomains`, the following IAM bindings are rejected because the Anthropic service account is outside your organization. You need either a project-level carve-out on that constraint, or to add Anthropic's Cloud Identity customer ID (format `C0xxxxxxxx`) to the allowed list. Contact Anthropic for the customer ID if needed.
 </Note>
 
 ## Encryption key setup
@@ -55,7 +55,7 @@ anthropic-cmek-client-us@gcp-anthropic-cmek-clients.iam.gserviceaccount.com
   </Step>
 
   <Step title="Create the crypto key">
-    Create a symmetric key with the `ENCRYPT_DECRYPT` purpose. HSM protection is strongly recommended: Cloud KMS HSM keys are FIPS 140-2 Level 3 validated, and the cost delta over software keys is small.
+    Create a symmetric key with the `ENCRYPT_DECRYPT` purpose. Anthropic strongly recommends HSM protection: Cloud KMS HSM keys are FIPS 140-2 Level 3 validated, and the cost delta over software keys is small.
 
     ```bash
     gcloud kms keys create <your-key-name> \
@@ -71,7 +71,7 @@ anthropic-cmek-client-us@gcp-anthropic-cmek-clients.iam.gserviceaccount.com
     You can also create the key from the Google Cloud Console. Open the key ring, click **Create key**, select **Generated key**, set the purpose and algorithm to symmetric encrypt and decrypt, and choose **HSM** under protection level.
 
     <Frame caption="Create an HSM-protected symmetric encrypt/decrypt key.">
-      ![Google Cloud KMS Create key page with HSM protection level and a Symmetric encrypt/decrypt purpose.](/docs/images/cmek/gcp-create-key.png)
+      ![Google Cloud KMS Create key page with HSM protection level and a Symmetric encrypt/decrypt purpose.](https://platform.claude.com/docs/images/cmek/gcp-create-key.png)
     </Frame>
   </Step>
 
@@ -103,14 +103,14 @@ anthropic-cmek-client-us@gcp-anthropic-cmek-clients.iam.gserviceaccount.com
     From the Console, select the key, open the **Permissions** panel, click **Grant access**, and add the service account with both the Cloud KMS CryptoKey Encrypter/Decrypter and Cloud KMS Viewer roles. Make sure you are on the key's permissions page, not the key ring or project, so the grant is scoped to this key only.
 
     <Frame caption="Grant the Anthropic service account both roles, scoped to the key.">
-      ![Google Cloud Grant access dialog adding the Anthropic service account with the Cloud KMS CryptoKey Encrypter/Decrypter and Cloud KMS Viewer roles.](/docs/images/cmek/gcp-grant-access.png)
+      ![Grant access dialog with the Anthropic service account assigned Cloud KMS CryptoKey Encrypter/Decrypter and Viewer roles.](https://platform.claude.com/docs/images/cmek/gcp-grant-access.png)
     </Frame>
   </Step>
 
   <Step title="Note the full key resource name">
     You pass this to Anthropic when you register the key. The format is:
 
-    ```text
+    ```text wrap
     projects/<your-project-id>/locations/<region>/keyRings/<your-keyring-name>/cryptoKeys/<your-key-name>
     ```
 
@@ -127,10 +127,9 @@ anthropic-cmek-client-us@gcp-anthropic-cmek-clients.iam.gserviceaccount.com
     From the Console, open the key's details page and click **Copy resource name**.
 
     <Frame caption="Copy the key's full resource name from the actions menu.">
-      ![Google Cloud key ring details with the Copy resource name action highlighted in the key's actions menu.](/docs/images/cmek/gcp-copy-resource-name.png)
+      ![Google Cloud key ring details with the Copy resource name action highlighted in the key's actions menu.](https://platform.claude.com/docs/images/cmek/gcp-copy-resource-name.png)
     </Frame>
   </Step>
-
 </Steps>
 
 ## Register the key with Anthropic
@@ -143,8 +142,7 @@ How you register the key depends on which product you use.
       <Step title="Register the key with Anthropic">
         Create an external key configuration through the Admin API, using the resource name from the Note the full key resource name step under Encryption key setup.
 
-        
-        ```bash nocheck
+        ```bash
         curl -sS https://api.anthropic.com/v1/organizations/external_keys \
           -H "x-api-key: <anthropic-admin-api-key>" \
           -H "anthropic-version: 2023-06-01" \
@@ -173,12 +171,12 @@ How you register the key depends on which product you use.
       <Step title="Validate the key">
         Trigger an encrypt and decrypt round-trip against your key.
 
-        
-        ```bash nocheck
+        ```bash
         curl -sS -X POST https://api.anthropic.com/v1/organizations/external_keys/ekey_<id>/validate \
           -H "x-api-key: <anthropic-admin-api-key>" \
           -H "anthropic-version: 2023-06-01" \
-          -H "content-type: application/json" -d '{}'
+          -H "content-type: application/json" \
+          -d '{}'
         ```
 
         A successful response looks like this:
@@ -189,14 +187,13 @@ How you register the key depends on which product you use.
 
         If validation fails, common causes are:
 
-        - **VPC Service Controls:** if a service perimeter protects Cloud KMS in your project, add Anthropic to an access level on the perimeter (or exclude the key's project) so Anthropic can reach the key.
-        - **Domain restricted sharing:** the `constraints/iam.allowedPolicyMemberDomains` org policy can strip the Anthropic service account binding (see the note above). Confirm the binding is present with `gcloud kms keys get-iam-policy <your-key-name> --project=<your-project-id> --location=<region> --keyring=<your-keyring-name>`.
-        - **Disabled or destroyed key version:** confirm the key's primary version is enabled, and not disabled, scheduled for destruction, or destroyed.
+        * **VPC Service Controls:** if a service perimeter protects Cloud KMS in your project, add Anthropic to an access level on the perimeter (or exclude the key's project) so Anthropic can reach the key.
+        * **Domain restricted sharing:** the `constraints/iam.allowedPolicyMemberDomains` org policy can strip the Anthropic service account binding (see the earlier note). Confirm the binding is present with `gcloud kms keys get-iam-policy <your-key-name> --project=<your-project-id> --location=<region> --keyring=<your-keyring-name>`.
+        * **Disabled or destroyed key version:** confirm the key's primary version is enabled, and not disabled, scheduled for destruction, or destroyed.
       </Step>
 
       <Step title="Attach the key to a workspace">
-        
-        ```bash nocheck
+        ```bash
         curl -sS -X POST https://api.anthropic.com/v1/organizations/workspaces/<workspace-id> \
           -H "x-api-key: <anthropic-admin-api-key>" \
           -H "anthropic-version: 2023-06-01" \

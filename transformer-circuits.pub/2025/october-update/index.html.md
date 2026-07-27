@@ -2,9 +2,6 @@
 
 # Circuits Updates - October 2025
 
-  
-  
-
 We report a number of developing ideas on the Anthropic interpretability team, which might be of interest to researchers working actively in this space. Some of these are emerging strands of research where we expect to publish more on in the coming months. Others are minor points we wish to share, since we're unlikely to ever write a paper about them.
 
 We'd ask you to treat these results like those of a colleague sharing some thoughts or preliminary experiments for a few minutes at a lab meeting, rather than a mature paper.
@@ -13,13 +10,6 @@ New Posts
 
 * [Visual Features Across Modalities: SVG and ASCII Art Reveal Cross-Modal Understanding](#svg-cross-modal)
 * [Data Point Initialization for Dictionary Models](#data-point-init)
-
-  
-  
-  
-
-  
-  
 
 ## [Visual Features Across Modalities: SVG and ASCII Art Reveal Cross-Modal Understanding](#svg-cross-modal)
 
@@ -37,55 +27,53 @@ These features depend on the surrounding context within the visual depiction. F
 
 We began by generating ASCII and SVG smiley faces with Claude, then examining the feature activations of Haiku 3.5. In all cases we removed all comments or descriptions, including those that might identify either the individual body parts or the overall image as a face. One feature we found represented the concept of “eyes across languages and descriptions”, activating on the corresponding shapes in a smiley face illustration in both ASCII and SVG, as well as on prose describing eyes in several languages.
 
-![](images/img-001.png)
+![](images/d0d0331bb0dfda65.png)
 
 The right eye in both of these smiley faces activates strongly for this feature that represents the concept of ‘eye’ across languages, as well as general descriptions of eyes.
 
 These features' activations depend on the surrounding context. An @ on its own will not activate the “eye” feature unless it is preceded by lines establishing ASCII art. In SVGs, the “eye” feature will only activate if they follow a circle establishing the shape of the face. We find that the activation of this feature is sensitive to a variety of contextual clues such as the character counts of each ASCII line, the color of SVG circles, and the width and height of the parent SVG element.
 
-![](images/img-002.png)
+![](images/34718b0e4dd8eba2.png)
 
 Row 1: we test the minimum context needed for activation. The eyes feature lights up as soon as there’s enough context for the model to predict that they are part of a face. In ASCII, we only need the top two lines of the head, and in SVG we only need a circle for the face. Row 2: we give the model as much context as possible (e.g. full face, yellow fill) to see if the feature activates after moving the eyes above the context. We find the activations disappear, demonstrating how important the framing context is.
 
-![](images/img-003.png)
+![](images/030a746eee1c3804.png)
 
 Only a single underscore, forehead with slashes, and two @s are required to provide enough context for the eyes feature to activate.
 
 We then studied a more complex SVG example using features from a more advanced Sonnet 4.5 base model. Given this SVG of a dog, we find features for a host of body parts, many of which also activate on the ASCII face we studied above. We also find several “motor neuron” features, which are distinguished by having top logit effects relating to a specific concept, e.g. a “say smile” feature activates on the tokens that are most often followed by “smile”. That same feature activates on the ASCII face, shown in the bottom right of the figure below.
 
-![](images/img-004.png)
+![](images/aa73b5fe7387d4e5.png)
 
 While many of the features overlap in the code as the model’s confidence on a shape’s meaning varies, the strongest activations of each feature are in the correct positions. Notably, the same Eyes, Mouth, and Nose features here activate on both the SVG and ASCII. On the ASCII face, we also find a motor neuron feature of “say smile” activating before the smile, which we’ll revisit later, as well as a size perception feature on the slashes defining the forehead.
 
-Like those on the less advanced Haiku 3.5, these features also appeared quite resilient to surface level attribute changes such as color or radius. When we rearrange the 4 lines of code that define the eyes of the dog SVG, we see that only the <circle> moved to the top of the SVG shows reduced activation, likely because at that point, the model doesn’t have enough context to determine that the circle represents an eye. As long as the eye-like shape occurs after the initial definition of the illustration, in this case the first ellipse as the torso, the model starts interpreting shapes as parts of an animal drawing, an LLM version of face pareidola (the tendency for humans to see meaningful objects/patterns where there is none, like animals in clouds, or faces in your cereal).
+Like those on the less advanced Haiku 3.5, these features also appeared quite resilient to surface level attribute changes such as color or radius. When we rearrange the 4 lines of code that define the eyes of the dog SVG, we see that only the <circle> moved to the top of the SVG shows reduced activation, likely because at that point, the model doesn’t have enough context to determine that the circle represents an eye. As long as the eye-like shape occurs after the initial definition of the illustration, in this case the first ellipse as the torso, the model starts interpreting shapes as parts of an animal drawing, an LLM version of face pareidolia (the tendency for humans to see meaningful objects/patterns where there is none, like animals in clouds, or faces in your cereal).
 
-![](images/img-005.png)
+![](images/36ba396009b1930a.png)
 
 The left eye, moved above the torso, no longer activates, but the other eye and pupils continue to activate. In both samples, the ears and nose also activate as potential eyes.
 
-This pareidola effect shows in another feature we found on the same illustration which represents “mouth and lips.” It activates on the most mouth-like elements that follow the definition of the eye.
+This pareidolia effect shows in another feature we found on the same illustration which represents “mouth and lips.” It activates on the most mouth-like elements that follow the definition of the eye.
 
-![](images/img-006.png)
+![](images/a118344fadd57420.png)
 
 The left jowl that forms the mouth activates the most. Note there are 4 total <path> elements in this SVG. While the feature activates a bit on the first path, which forms the main tail, it disappears as soon as the path data starts, indicating the model can differentiate the tail from the mouth through its attributes.
 
 If we move the definition of the mouth and tail paths away from the 4 circles that define the eyes, the red collar now activates the most as a mouth/lip. Unlike the tail, the activation is high throughout the entire collar definition, and even continues to the bell! Is it because the red rounded rectangle could very easily be a mouth in another illustration? Or is it just about the proximity (in code and in space)? Questions like these are left for future work.
 
-![](images/img-007.png)
+![](images/7fe9b55b8c7c1cdb.png)
 
 When all the curves are moved away from the eyes (left curve to the top, right curve to the bottom), the mouth activates on the collar, a rounded red rectangle which arguably is very mouthlike.
 
- 
-
 We also wondered if we would see the same type of activations if we used a human-created SVG. Turns out – yes! With this bespoke, hand-drawn dog, we find similar features for “eyes”, “mouth”, “legs”, “head”....
 
-![](images/img-008.png)
+![](images/6045084f7be7b384.png)
 
 Like the LLM-generated dog before, the activations here are sensitive to ordering. This human-created dog was originally drawn with the nose <circle> element before the eyes, and did not activate any nose-related features. Moving the nose <circle> element to be after the eyes in the SVG code revealed the underlying feature!
 
 As a bonus, we also inspected features for an SVG of a pelican riding a bicycle, [first popularized](https://github.com/simonw/pelican-bicycle)[by Simon Willison](https://github.com/simonw/pelican-bicycle) as a way to test a model’s artistic capabilities. We find features representing concepts including “bike”, “wheels”, “feet”, “tail”, “eyes”, and “mouth” activating over the corresponding parts of the SVG code.
 
-![](images/img-009.png)
+![](images/b25f7b92e14d88fa.png)
 
 A “soft/fluffy texture” feature activates on the wings. We also found motor features for “bird”, albeit very low activating.
 
@@ -96,53 +84,48 @@ We’ve shown that features can represent semantically meaningful elements of SV
 To investigate this, we created a feature steering task. We gave Sonnet 4.5 base model the following prompt:
 
 ```
-Human: Make a simple SVG with a similar style to this one.   
-<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">  
-  <circle cx="50" cy="50" r="45" fill="yellow" stroke="black" stroke-width="2"/>  
-  <circle cx="35" cy="40" r="5" fill="black"/>  
-  <circle cx="65" cy="40" r="5" fill="black"/>  
-  <path d="M 30 60 Q 50 80 70 60" fill="none" stroke="black" stroke-width="3" stroke-linecap="round"/>  
+Human: Make a simple SVG with a similar style to this one.
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="45" fill="yellow" stroke="black" stroke-width="2"/>
+  <circle cx="35" cy="40" r="5" fill="black"/>
+  <circle cx="65" cy="40" r="5" fill="black"/>
+  <path d="M 30 60 Q 50 80 70 60" fill="none" stroke="black" stroke-width="3" stroke-linecap="round"/>
 </svg>
+
+Assistant:
 ```
 
 This prompt provides the model with code from the simple SVG face below as a style reference, and asks it to make a similar one.
 
-![](images/img-010.png)
+![](images/6edaa90df229db45.png)
 
 Original SVG provided to the model in the prompt
 
 As in the prior examples, the code contains no explicit comments or labels to hint to the model what it was. Without steering, the model produces the baseline output shown below, which faithfully follows the structure of the example–a centered circular face with simple features–with only minor variations in geometry from the style reference, i.e., the generated smile sits lower on the face.
 
-![](images/img-011.png)
+![](images/50676ccd8948560f.png)
 
 Model response when steering on features with a strength of 0. It replicates the original smiley SVG, albeit with a slight change: the smile moves lower on the face.
 
 We then steered the model with different features, and found it could produce meaningful semantic variations. We found these features by looking for activations over plain text sentences related to specific concepts, like “smile”, “eye”, or “cat”. Steering negatively on a “smile” feature resulted in an SVG with a frowning face. This same feature also similarly produced a frown from the ASCII smiley we studied before.
 
-![](images/img-012.png)
+![](images/000d99f124241dca.png)
 
 Model response when steering negatively on the motor neuron feature “say smile”.
 
 These motor features often reveal a smooth gradient as you increase the steering strength. Halfway between the default smile and the frowning face above, the model generates a straight-mouthed “neutral face” 😐 as a transition.
 
-![](images/img-013.png)
+![](images/1314fd5550f0eae2.png)
 
 Steering positively with the “say cat” feature adds ears, whiskers, and a muzzle; steering positively with specific body part features introduces or emphasizes those elements (e.g., a “say wrinkles” feature adds wrinkles to the face). The generated SVGs keep the overall style of the example, such as bold colors and circular geometry, but include new or changed elements to match the feature’s semantic context.
 
-![](images/img-014.png)
+![](images/95138b8e89c790db.png)
 
 #### Conclusion
 
 In summary, our findings demonstrate that many features activating for plain text descriptions of concepts also activate for, and can generate, text-based visual depictions of those concepts. We showed this through: (1) using features to recognize entities within text-based visual formats like ASCII and SVG, and (2) steering features to transform visual depictions, e.g., turning smiles into frowns and faces into unicorns.
 
 Several questions emerge from these experiments. First, our experiments focused primarily on concrete entities. Does the model contain features that capture higher, more abstract semantics, like aesthetics or artistic styles, and does steering on these features create meaningful outputs? Second, we observed that motor neurons, which have top logit effects relating to a specific concept, proved more effective for steering than perceptual neurons, which activate on input tokens relating to that concept. Are there more specific properties that characterize features that are valuable for steering, and can we develop methods to automatically identify them? Third, as these features are cross-modal, how can we combine visual output, like SVG, with other parts of our interpretability toolkit like contrastive vectors and steering to study models in a new dimension? Finally, thus far we have not investigated how these features become activated. What computational mechanisms translate low-level text into these higher-level conceptual features, and vice versa? And to what extent does the model have an internal representation where it pictures, plans, and then draws an image?
-
-  
-  
-  
-
-  
-  
 
 ## [Data Point Initialization for Dictionary Models](#data-point-init)
 
@@ -162,7 +145,7 @@ An SAE first encodes the data by taking inputs from the residual stream with dim
 
 \hat{x} = W\_{\text{dec}} \cdot \text{nonlinearity}(W\_{\text{enc}} x)
 
-DPI is a method for initializing our weight matrices with a noisy version of true data points.The algorithm proceeds as follows:
+DPI is a method for initializing our weight matrices with a noisy version of true data points. The algorithm proceeds as follows:
 
 1. Select n\_{\text{features}} random data points from the distribution you’re trying to represent.
 2. Compute the mean of the selected datapoints as \mu, and zero center the data: x - \mu.
@@ -181,6 +164,6 @@ We evaluated several algorithmic variations (sampling in tranches, copying initi
 
 We test DPI on SAEs and a type of crosscoder known as a weakly causal crosscoder (WCC) ([Lindsey et al., 2024](https://transformer-circuits.pub/2024/crosscoders/index.html)). DPI improves both sparsity and reconstruction across model sizes. For our largest SAE (524k features), we observed a ~17% reduction in L0 and a ~4% improvement in MSE. For WCCs, improvements were smaller with L0 decreasing by ~1% and MSE decreasing by ~2.3%.
 
-Our results were all based on dictionary learning runs on a pretrain-only of Claude Haiku 4.5, though results are consistent on other other subject models. For our SAEs, we used a datapoint\_scale of 0.8, and for WCCs, we used a datapoint\_scale of 0.4.
+Our results were all based on dictionary learning runs on a pretrain-only of Claude Haiku 4.5, though results are consistent on other subject models. For our SAEs, we used a datapoint\_scale of 0.8, and for WCCs, we used a datapoint\_scale of 0.4.
 
-![](images/img-015.png)
+![](images/db93ad7c18e2ac29.png)

@@ -32,21 +32,21 @@ The role of our researcher was limited to plugging a laptop running Claude Code 
 
 Very simply: on every task that was completed by at least one human team in August, Opus 4.7 completed the same task at least ten times faster.1 If you consider the four tasks that were completed by both human teams, Opus 4.7 was, on average, more than 37 times faster than Team Claude-less and more than 18 times faster than Team Claude.
 
-![Bar chart labeled "Total time comparison: 4 tasks completed by all teams." The chart shows that Team Claude-less completed tasks in 361 minutes; Team Claude completed tasks in 181 minutes, and Claude Opus 4.7 alone completed tasks in 9 minutes 35 seconds. Opus 4.7 was 37.7 times faster than Team Claude-less and 18.9 times faster than Team Claude.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0424a5a4ed31f7891e4048d091aefa52f36862cf-1999x1092.png&w=3840&q=75)
+![Bar chart labeled "Total time comparison: 4 tasks completed by all teams." The chart shows that Team Claude-less completed tasks in 361 minutes; Team Claude completed tasks in 181 minutes, and Claude Opus 4.7 alone completed tasks in 9 minutes 35 seconds. Opus 4.7 was 37.7 times faster than Team Claude-less and 18.9 times faster than Team Claude.](https://www-cdn.anthropic.com/images/4zrzovbb/website/0424a5a4ed31f7891e4048d091aefa52f36862cf-1999x1092.png)
 
 The table compares the speed of the original teams (Team Claude and Team Claude-less) to Opus 4.7 on all of the tasks we tested as part of Phase Two.
 
-![Table comparing Claude Opus 4.7 to Team Claude-less and Team Claude performance on tasks related to programmatic control and autonomous operation. Tasks include "Connect to robodog's video camera," "Connect to robodog's lidar sensor," and "Detect beach ball." Opus 4.7 was faster than Team Claude-less and Team Claude on all tasks. Team Claude-less did not complete all 5 tasks in the table; Team Claude completed them in 264 minutes; and Opus 4.7, averaged over 3 trials, completed them in 12 minutes 7 seconds.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5d1655f4a40044244b6fae0c3826e668a8422bd3-4005x2308.png&w=3840&q=75)
+![Table comparing Claude Opus 4.7 to Team Claude-less and Team Claude performance on tasks related to programmatic control and autonomous operation. Tasks include "Connect to robodog's video camera," "Connect to robodog's lidar sensor," and "Detect beach ball." Opus 4.7 was faster than Team Claude-less and Team Claude on all tasks. Team Claude-less did not complete all 5 tasks in the table; Team Claude completed them in 264 minutes; and Opus 4.7, averaged over 3 trials, completed them in 12 minutes 7 seconds.](https://www-cdn.anthropic.com/images/4zrzovbb/website/5d1655f4a40044244b6fae0c3826e668a8422bd3-4005x2308.png)
 
 Whereas the humans struggled to choose between multiple different approaches to interface with the dog’s sensors, Opus 4.7 was able to quickly identify the best path. Much of the code it wrote was effective on the first try (which was not the case for Team Claude or Team Claude-less in the original experiment). Indeed, we can see evidence of Opus 4.7’s efficiency when we look at the volume of code it generated: it was as or more successful than both human teams while producing almost ten times less code than Team Claude.
 
-![Bar chart showing total code volume for Team Claude, Team Claude-less, and Opus 4.7 alone. Team Claude wrote 10,309 lines of code; Team Claude-less wrote 1,136 lines of code; Opus 4.7 alone wrote 1,045 lines of code.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5c08d125a49025bd24e1f382a2c1e417519661eb-1999x1088.png&w=3840&q=75)
+![Bar chart showing total code volume for Team Claude, Team Claude-less, and Opus 4.7 alone. Team Claude wrote 10,309 lines of code; Team Claude-less wrote 1,136 lines of code; Opus 4.7 alone wrote 1,045 lines of code.](https://www-cdn.anthropic.com/images/4zrzovbb/website/5c08d125a49025bd24e1f382a2c1e417519661eb-1999x1088.png)
 
 Opus 4.7 was not perfect. For example, it defaulted to using an outdated object detection algorithm. But even then, it was able to work around this and arrive at an effective solution.
 
 We observed little within-task variance (in absolute terms) on completion times for steps the model finished. (Though the aforementioned suboptimal algorithm selection is likely why one of the beach ball detection trials took substantially longer than the others.) Overall, for the tasks in this experiment within its capability envelope, Claude is now quite reliable. (See the next section for an analysis of what Claude is still unable to do.)
 
-![Scatter plot showing Opus 4.7's reliability on task performance. Opus 4.7 performed each task three times; the scatter plot shows that the performance time was relatively consistent across runs. ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1a362dfdaae7ff55cf8b04c7ac316e75455a9d21-1999x1122.png&w=3840&q=75)
+![Scatter plot showing Opus 4.7's reliability on task performance. Opus 4.7 performed each task three times; the scatter plot shows that the performance time was relatively consistent across runs. ](https://www-cdn.anthropic.com/images/4zrzovbb/website/1a362dfdaae7ff55cf8b04c7ac316e75455a9d21-1999x1122.png)
 
 It is worth underscoring (as we did in our previous post) that this progress is not the result of a concerted effort to improve the robotics capabilities of our models. These improvements, like so many others in the history of LLM development, have emerged from much more general scaling.
 
@@ -76,21 +76,19 @@ More research is needed to understand models’ ability to make these physical t
 
 1. We report results from Claude Opus 4.7 because it was our most advanced non-Mythos-class model at the time we ran this experiment. Preliminary trials with Claude Mythos Preview showed that it would not provide an apples-to-apples comparison with other models because of how we had set up the experiment and how the model was served.
 
-### Agentic coding and persistent returns to expertise
+### Project Pilot: Can AI control a drone?
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/claude-code-expertise)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Paving the way for agents in biology
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-### Measuring LLMs’ impact on N-day exploits
+### Claude’s values across models and languages
 
-In cybersecurity, a large fraction of real-world harm comes from N-days: vulnerabilities that have already been publicly disclosed, but only patched on some devices. In this post, we evaluate how much large language models can accelerate and automate the process of developing N-day exploits.
-
-[Read more](/research/n-days)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)
 
 ## Subscribe to the Frontier Red Team newsletter
 

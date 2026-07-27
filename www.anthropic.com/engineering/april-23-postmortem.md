@@ -1,6 +1,6 @@
 <!-- source: https://www.anthropic.com/engineering/april-23-postmortem -->
 
-[Engineering at Anthropic](/engineering)
+[Engineering at Anthropic](https://www.anthropic.com/engineering)
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/086ff66662046b073d309c2f8cbaec48fc0e4695-1000x1000.svg)
 
@@ -36,11 +36,11 @@ Soon after, we received user feedback that Claude Opus 4.6 in high effort mode w
 
 In general, the longer the model thinks, the better the output. Effort levels are how Claude Code lets users set that tradeoff—more thinking versus lower latency and fewer usage limit hits. As we calibrate effort levels for our models, we take this tradeoff into account in order to pick points along the test-time-compute curve that give people the best range of options. In the product layer, we then choose which point along this curve we set as our default, and that is the value we send to the Messages API as the effort parameter; we then make the other options available via `/effort`.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fde3bcf9733b61f57234d8c45e663b1bd48677ea1-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/de3bcf9733b61f57234d8c45e663b1bd48677ea1-3840x2160.png)
 
 In our internal evals and testing, medium effort achieved slightly lower intelligence with significantly less latency for the majority of tasks. It also didn’t suffer from the same issues with occasional very long tail latencies for thinking, and it helped maximize users’ usage limits. As a result, we rolled out a change making medium the default effort, and explained the rationale via in-product dialog.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F459b2a8a0baa88937eebcbe4566dde4d6cc7f185-3794x2260.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/459b2a8a0baa88937eebcbe4566dde4d6cc7f185-3794x2260.png)
 
 Soon after rolling out, users began reporting that Claude Code felt less intelligent. We shipped a number of design iterations to make the current effort setting clearer in order to alert people they could change the default (notices on startup, an inline effort selector, and bringing back ultrathink), but most users retained the medium effort default.
 
@@ -58,7 +58,7 @@ The implementation had a bug. Instead of clearing thinking history once, it clea
 
 Because this would continuously drop thinking blocks from subsequent requests, those requests also resulted in cache misses. We believe this is what drove the separate reports of usage limits draining faster than expected.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F332d9c487bb73c8078686068dcbe1b616720a8dd-3016x1198.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/332d9c487bb73c8078686068dcbe1b616720a8dd-3016x1198.png)
 
 Two unrelated experiments made it challenging for us to reproduce the issue at first: an internal-only server-side experiment related to message queuing; and an orthogonal change in how we display thinking suppressed this bug in most CLI sessions, so we didn’t catch it even when testing external builds.
 

@@ -14,7 +14,7 @@
 
 January 5, 2023
 
-\* Core Research Contributor; ‡ Correspondence to <colah@anthropic.com>; [Author contributions statement below](#author-contributions).
+\* Core Research Contributor; ‡ Correspondence to [colah@anthropic.com](https://transformer-circuits.pub/2023/toy-double-descent/colah@anthropic.com); [Author contributions statement below](#author-contributions).
 
 In a [recent paper](https://transformer-circuits.pub/2022/toy_model/index.html) , we found that simple neural networks trained on toy tasks often exhibit a phenomenon called superposition , where they represent more features than they have neurons. Our investigation was limited to the infinite-data, underfitting regime. But there's reason to believe that understanding overfitting might be important if we want to succeed at mechanistic interpretability, and that superposition might be a central part of the story.
 
@@ -32,7 +32,7 @@ In this note, we offer a very preliminary investigation of training the same toy
 
 We hypothesize that real neural networks perform operations in a sparse, high-dimensional “feature” space, but these features are difficult for us to see directly because they’re stored in superposition. Motivated by this, we attempt to simulate this feature space using synthetic input vectors x which are sparse, high-dimensional, and non-negative (similar to our [previous paper](https://transformer-circuits.pub/2022/toy_model/index.html#demonstrating-setup-x)). Concretely, x \in \mathbb{R}^n is a n=10,000 dimensional vector. We let individual features x\_i = 0 with probability S=0.999, but otherwise uniformly distributed between [0, 1]. However in contrast to our previous work, we then rescale x such that ||x||^2 =1, as this will make memorization of training examples easier One could instead untie model weights W and W\_{up} \neq W^T to achieve this, though the resulting h\_i will generally have different lengths, and so not quite form perfect T-gons. Untied weights like this are likely a more faithful representation of most real neural networks. in the limit of very large n, one should expect training examples x\_i to have equal norms thanks to the central limit theorem.. We also consider training sets of finite size T, whereas our previous work only considered T=\infty. We will use X \in \mathbb{R}^{n \times T} to refer to the matrix of training data, where each column X\_i is a training data point.
 
-We consider the the ["](https://transformer-circuits.pub/2022/toy_model/index.html#demonstrating-setup-model)[ReLU Output](https://transformer-circuits.pub/2022/toy_model/index.html#demonstrating-setup-model)[" toy model](https://transformer-circuits.pub/2022/toy_model/index.html#demonstrating-setup-model), defined as
+We consider the ["](https://transformer-circuits.pub/2022/toy_model/index.html#demonstrating-setup-model)[ReLU Output](https://transformer-circuits.pub/2022/toy_model/index.html#demonstrating-setup-model)[" toy model](https://transformer-circuits.pub/2022/toy_model/index.html#demonstrating-setup-model), defined as
 
 ReLU Output Model
 
@@ -54,13 +54,13 @@ Unless otherwise specified, we use a weight decay of 1e-2. In line with previous
 
 In the "normal superposition" we described in our previous paper, we found that the model embeds more features than it has dimensions, often mapping them to regular polytopes. For example, if the model has a two dimensional hidden space, sparse features will be organized as a pentagon:
 
-![](images/img-001.png)
+![](images/bf94db9e407681b5.png)
 
 But what happens if we train models on finite datasets instead? It turns out that the models we find will often look very messy and confusing if you try to look at them from the perspective of features, but very simple and clean if you look at them from the perspective of data point activations.
 
 Let's visualize a few ReLU-output models trained on datasets of different sizes, with many sparse features. We'll focus on models with m=2 hidden dimensions. We pick a two-dimensional hidden space to allow explicit visualization, while the task setup is chosen to produce the most extreme version of the phenomenon we wish to highlight.We find that models most clearly "treat individual data points as features" when the data points are orthogonal and of similar magnitudes (see this [Colab notebook](https://colab.research.google.com/drive/1AREdeODhgsQ_ukqPKnhWQ4bijVqTa4eW?usp=sharing) for more details). Highly sparse features increase the probability of orthogonal data points. Having lots of features avoids the trivial case where data points are just a single feature activating. Ideally, we'd have preferred to just use enough features that the central limit theorem causes data points to have similar norms, but achieving this with high sparsity would require annoyingly large vectors. If we visualize the resulting columns of W, as in the previous paper, everything is "messy", forming complicated scatters of features rather than clean polygons. But if we instead visualize the training-set hidden-vectors (h\_i = W X\_i), we see clean structure:
 
-![](images/img-002.png)
+![](images/ca0ed7f2a489bb39.png)
 
 The data points – rather than the features – are being represented as polytopes!Intuitively this makes sense: if T \ll n, it must be easier to represent the T training examples, rather than the n features,  in the hidden m-dimensional space.  We might think of these models as operating on a different kind of feature: a "single data point feature" that can be used for memorization, instead of a "generalizing feature". This suggests a naive mechanistic theory of overfitting and memorization: memorization and overfitting occur when models operate on "data point features" instead of "generalizing features". We expect this naive theory to be overly simplistic, but it seems possible that it's gesturing at useful principles!
 
@@ -76,7 +76,7 @@ where h\_i=W X\_i is the hidden-vector associated with a training example X\_i a
 
 We can now visualize how the geometry of features and data points changes as we vary the size of the dataset. In the middle pane below is a scatter plot of both feature and training-example dimensionalities for varying the dataset size (we will discuss the test loss in the top pane in a later section).
 
-![](images/img-003.png)
+![](images/6f69d4256bf37766.png)
 
 In the small data regime on the left, we see that while the feature dimensionalities are small, the training-example dimensionalities follow m/T as expected. In the red vector-plots on the bottom, we see that the models are forming T-gons with the h\_i. In fact, the ReLU output model can memorize any number of orthonormal training examples using T-gons if given infinite floating-point precision. This motivated our choice to normalize our training examples, though this constraint can be lifted if the W and W\_{up} are untied. See this [Colab notebook](https://colab.research.google.com/drive/1AREdeODhgsQ_ukqPKnhWQ4bijVqTa4eW?usp=sharing) for more details.
 
@@ -93,7 +93,7 @@ A few comments on these trends:
 * Small Data Regime: One can show that a model memorizing orthonormal training examples via T-gons should have larger W and b for larger T (see this [colab](https://colab.research.google.com/drive/1AREdeODhgsQ_ukqPKnhWQ4bijVqTa4eW?usp=sharing) for more details). This agrees with the observed behavior for T<30.
 * Large Data Regime: It seems intuitive that once the model has enough data to generalize (ie the pentagon), adding more data causes relatively minor changes. This matches our observation of a plateau in the large-data regime. In our [oversimplified solution](https://colab.research.google.com/drive/1PTGgQt6OuWfAPi2iNn_myB4gQo-8ORAI?usp=sharing) for infinite data, we found ||W|| = \sqrt{5} \approx 2.2, which appears surprisingly close to the true value (though our assumption of b=0 was clearly unrealistic).
 
-![](images/img-004.png)
+![](images/0a891d0f5973db9c.png)
 
 ### [Superposition Double Descent](#superposition-double-descent)
 
@@ -105,11 +105,11 @@ It’s interesting to note that we’re observing double-descent in the absence 
 
 ### [The Effect of m on Double Descent](#effect-of-m)
 
-At this point, it's natural to wonder whether the double descent might be an artifact of only having m=2 hidden dimensions,or difficulties with optimization. In this section, we'll confirm that this isn't the case. We'll also be able to explore a theme in some of the double descent literature – understanding it not as a one-dimensional phenomenon, but as a multi-dimensional interaction between model size, dataset size, and training .
+At this point, it's natural to wonder whether the double descent might be an artifact of only having m=2 hidden dimensions, or difficulties with optimization. In this section, we'll confirm that this isn't the case. We'll also be able to explore a theme in some of the double descent literature – understanding it not as a one-dimensional phenomenon, but as a multi-dimensional interaction between model size, dataset size, and training .
 
 We visualize double descent as a two-dimensional function varying both the number of training examples, T, and the number of hidden dimensions, m. All other hyperparameters are the same as above. We train four models for each (T,m) configuration, averaging the resulting losses.  We empirically found optimization to yield much more consistent results for m>3.
 
-![](images/img-005.png)
+![](images/08e43fa9fa59bdde.png)
 
 There are clearly regions where "double descent" occurs – regions where bigger models or more data hurt performance.
 
@@ -128,13 +128,6 @@ There is much more to explore. The most obvious question is whether the naive me
 * What happens in the "middle regime" as models transition from one strategy to the other and losses spike? What are these models doing mechanistically?
 * Is there some notion of "what is a feature" or "how to recognize features" which can encompass generalizing features, as well as single data points?
 
-  
-  
-  
-
-  
-  
-
 ## [Comments & Replications](#comments)
 
 Inspired by the original [Circuits Thread](https://distill.pub/2020/circuits/) and [Distill's Discussion Article experiment](https://distill.pub/2019/advex-bugs-discussion/), the authors invited several external researchers who we had previously discussed our preliminary results with to comment on this work. Their comments are included below.
@@ -147,9 +140,9 @@ After seeing preliminary results, I replicated the results in the section [“Ho
 
 The figure below corresponds to the first figure in that section, and shows qualitatively similar features:
 
-![](images/img-006.png)
+![](images/1485d88b3081ff5b.png)
 
-In particular, this replication shows the same division into three regimes, of memorizing samples from small datasets, learning generalizing features from large datasets, and doing something more complicated in between, and the sample and feature embeddings look qualitatively similar between my models and the ones shown in the paper..
+In particular, this replication shows the same division into three regimes, of memorizing samples from small datasets, learning generalizing features from large datasets, and doing something more complicated in between, and the sample and feature embeddings look qualitatively similar between my models and the ones shown in the paper.
 
 There are three differences between this and the corresponding figure in the paper that I can see, and I think they may be related:
 
@@ -161,14 +154,14 @@ I ran my models multiple times and verified that the different instances replica
 
 I also reproduced the second figure of the same section:
 
-![](images/img-007.png)
+![](images/0c8be2ad6403e0c9.png)
 
 The general trends are very similar. In particular:
 
 1. The bias norms start out smaller than the weight norms for small dataset sizes, become larger than the weight norms for somewhat larger datasets, and are then smaller in the generalizing regime.
 2. Both norms rise with increasing dataset size, and rapidly fall back down once the models learn generalizing features.
 
-There are again differences, though these are quantitative rather than qualitative. In particular, the peak bias norms in my models are roughly 3 times larger than those in the paper, and I see a rise in the weight norms over the range T=100-1000 whereas the figure in the paper shows more of a plateau.
+There are again differences, though these are quantitative rather than qualitative. In particular, the peak bias norms in my models are roughly 3 times larger than those in the paper, and I see a rise in the weight norms over the range T=100–1000 whereas the figure in the paper shows more of a plateau.
 
 Original Authors' Response: Thanks for replicating this! It's really nice to see that everything qualitatively reproduced. We're uncertain what caused the shift in the dataset size at which the transition occurs. It seems like there must be some hyperparameter difference between our setups, but we're uncertain what it is! However, since we only really care about the existence of the transition, and not exactly where it falls for this toy problem, we're not that concerned about identifying the exact difference.
 
@@ -176,7 +169,7 @@ Original Authors' Response: Thanks for replicating this! It's really nice to see
 
 [Marius Hobbhahn](https://www.mariushobbhahn.com/) is a PhD student at the University of Tuebingen.
 
-I replicated most findings in the “Superposition, Memorization, and Double Descent” paper. I changed the setup by reducing the sparsity and the number of features by 10x respectively. I still find the double descent phenomenon as described in the paper with very similar constellations for features and hidden vectors. I also found double descent in multiple other settings, e.g. with different loss functions or when adding a ReLU activation between the layers. My preliminary takeaway from these findings is that the double descent is a fairly regular phenomenon that we should expect to happen in many settings. (Details can be found in my post [More Findings on Memorization and Double Descent](https://www.lesswrong.com/posts/KzwB4ovzrZ8DYWgpw/more-findings-on-memorization-and-double-descent).)
+I replicated most findings in the “Superposition, Memorization, and Double Descent” paper. I changed the setup by reducing the sparsity and the number of features by 10× respectively. I still find the double descent phenomenon as described in the paper with very similar constellations for features and hidden vectors. I also found double descent in multiple other settings, e.g. with different loss functions or when adding a ReLU activation between the layers. My preliminary takeaway from these findings is that the double descent is a fairly regular phenomenon that we should expect to happen in many settings. (Details can be found in my post [More Findings on Memorization and Double Descent](https://www.lesswrong.com/posts/KzwB4ovzrZ8DYWgpw/more-findings-on-memorization-and-double-descent).)
 
 ### [Extension: What controls the generalization scale?](#comment-jermyn-2)
 
@@ -191,7 +184,7 @@ The first hypothesis predicts that increasing the weight decay rate should decre
 
 The figure below shows the dimensionalities of features for models trained with different weight decay rates. Lines show the maximum feature dimension and points and lines are colored by the weight decay rate.
 
-![](images/img-008.png)
+![](images/03eeb0427c5dfd36.png)
 
 The generalizing scale corresponds to a jump in the dimensionalities. Importantly this scale does not appear to change with the weight decay rate, which is evidence against the first hypothesis.
 
@@ -199,14 +192,14 @@ The second hypothesis predicts that the generalizing scale occurs once the datas
 
 The figure below shows the dimensionalities of features for models trained with different weight decay rates. Lines show the maximum feature dimension and points and lines are colored by the feature frequency (1-S). The horizontal scale now is the expected number of times any given feature appears in the dataset (T (1-S)), and a prediction of the second hypothesis is that the generalizing scale should be fixed on this scale.
 
-![](images/img-009.png)
+![](images/48a83d98e4829315.png)
 
 Indeed that appears to be the case! Models trained with very different sparsities learn generalizing features once datasets are large enough to see each feature roughly 10 times.
 
 While this is suggestive, it is not clear that this is the whole story. For instance, for models with more hidden dimensions the dimensionality curves don’t lie as cleanly on top of each other (see below), and there are other trends that are puzzling (e.g. the peak feature dimensions decrease as the datasets grow post-generalization), so it seems possible that there is more going on.
 
-![](images/img-010.png)
-![](images/img-011.png)
+![](images/cb6fca432d539b2a.png)
+![](images/cfcba41a30346392.png)
 
 ### [Extension: Repeated Data Points](#comment-jermyn-3)
 
@@ -214,19 +207,19 @@ While this is suggestive, it is not clear that this is the whole story. For inst
 
 When the authors shared a preliminary draft, they suggested it might be interesting to look at what happens when individual datapoints are repeated in the dataset.
 
-When a datapoint appears a small number of times (2-3) the phenomenology is the same as in this paper, but with more repeats models switch to learning a combination of datapoints and generalizing features.
+When a datapoint appears a small number of times (2–3) the phenomenology is the same as in this paper, but with more repeats models switch to learning a combination of datapoints and generalizing features.
 
 The figure below shows training histories of the feature and sample dimensions (left panels) as well as the final feature and sample embeddings (right panels) for a model with T=30,000 and a single feature (black) appearing 5 times. The repeated feature is embedded alongside four generalizing features and suppresses the fifth, effectively replacing one of the generalizing features that would ordinarily be learned.
 
-![](images/img-012.png)
+![](images/0ce22179bd32f210.png)
 
 When there are multiple repeated datapoints the model preferentially learns these, and each replaces a feature in the embedding space:
 
-![](images/img-013.png)
+![](images/4ba31f3695bf5782.png)
 
 When there are more than five repeated datapoints, the model embeds five of them and all five features it would have learned are suppressed:
 
-![](images/img-014.png)
+![](images/8df821e9a65ae975.png)
 
 One question that arises here is: how many times does a datapoint need to appear before it is memorized? One way to think about this is in terms of the benefits of memorizing a datapoint versus learning a feature. Very roughly:
 
@@ -236,7 +229,7 @@ One question that arises here is: how many times does a datapoint need to appear
 
 The figure below shows results from models trained with a single repeated feature and hidden dimension m=2. The datasets were large enough for the models to learn generalizing features. The symbols correspond to two different setups: “+” corresponds to S=0.999 and N=10,000 and “x” corresponds to S=0.99 and N=1,000. Symbols are colored by whether the repeated datapoint appeared in the top 0.1% of datapoints by embedding dimension (red for yes, blue for no). This is a rough proxy for whether or not the model memorized the datapoint in question. Finally, the black line shows R=0.4 T/N.
 
-![](images/img-015.png)
+![](images/f2ae090352247861.png)
 
 The data are somewhat noisy, which could in part reflect the difficulty optimizing in m=2, but in general:
 
@@ -245,7 +238,7 @@ The data are somewhat noisy, which could in part reflect the difficulty optimizi
 
 As one final observation, in models on the edge of memorizing datapoints we see a number of “near misses”, where the model memorizes a datapoint and then “decides” against it!
 
-![](images/img-016.png)
+![](images/817809df092d5263.png)
 
 Interestingly, this phenomenon is mirrored by a phenomenon in models with no repeated datapoints in the intermediate dataset regime, where some models briefly learn generalizing features and then forget them by the end of training. This is shown in the movie below for a model trained with T=10,000:
 
@@ -263,15 +256,11 @@ D\_i^\* ~~=~~ \sup\_v~\frac{(v\cdot h\_i)^2}{\sum\_j (v \cdot h\_j)^2}
 
 The intuition is that if an example activates multiple features, the supremum can pick the one with the highest data dimensionality. (It turns out that this is closely related to the log-likelihood of data points if you fit a Gaussian to the network activations.)
 
-Below, we plot the data dimensionality of all training examples. We see that most examples have roughly the same dimensionality, but there are a few outliers in both tails. Strikingly, the examples with unusually high data dimensionality – almost 100x higher than typical examples! – tend to be weird outliers. While far from conclusive, it's tempting to believe these examples are "memorized" examples which the model has "special cased".
+Below, we plot the data dimensionality of all training examples. We see that most examples have roughly the same dimensionality, but there are a few outliers in both tails. Strikingly, the examples with unusually high data dimensionality – almost 100× higher than typical examples! – tend to be weird outliers. While far from conclusive, it's tempting to believe these examples are "memorized" examples which the model has "special cased".
 
-![](images/img-017.png)
+![](images/5964c12050ae6045.png)
 
 In addition to detecting overfitting, one might also see this as an example of [mechanistic anomaly detection](https://ai-alignment.com/mechanistic-anomaly-detection-and-elk-fb84f4c6d0dc) – detecting that a model is making decisions for a different reason than it normally does. Of course, we don't mean to suggest that all cases of a model "triggering a special case" can be so easily detected. If anything, it may hint that mechanistic anomaly detection will be even harder than one might think, since it could be hidden by superposition.
-
-  
-
-  
 
 [Marius Hobbhahn](https://www.mariushobbhahn.com/) is a PhD student at the University of Tuebingen.
 
@@ -283,15 +272,15 @@ Chris Olah and Tom Henighan are authors of the original paper.
 
 When training m=2 models in the low-data memorization regime, we occasionally observe cases where the points don't organize into a circle. We believe these models are organizing points on two circles of different radii, and fail to merge them. In order to ensure points on the smaller circle can be linearly selected, these solutions require a large angular gap at the interface between points on different circles.
 
-![](images/img-018.png)
+![](images/4d6215766d7f0b84.png)
 
 ### [Author Contributions](#author-contributions)
 
-Experiments - The experiments in this paper were conducted by Tom Henighan, with help from Tristan Hume and Nelson Elhage. This was based on a prediction by Chris Olah that this behavior could be observed in roughly this experimental setup. Actually eliciting this behavior required careful tuning of hyperparameters, which was done by Tom Henighan. Robert Lasenby contributed significantly to our theoretical understanding of why features organize into pentagons. Nicholas Schiefer helped clarify our interpretation of the experimental results. Stanislav Fort did an independent reproduction of some of the experiments in this paper.
+Experiments – The experiments in this paper were conducted by Tom Henighan, with help from Tristan Hume and Nelson Elhage. This was based on a prediction by Chris Olah that this behavior could be observed in roughly this experimental setup. Actually eliciting this behavior required careful tuning of hyperparameters, which was done by Tom Henighan. Robert Lasenby contributed significantly to our theoretical understanding of why features organize into pentagons. Nicholas Schiefer helped clarify our interpretation of the experimental results. Stanislav Fort did an independent reproduction of some of the experiments in this paper.
 
-Diagrams - Diagrams were made by Tom Henighan and Shan Carter, with some help from Chris Olah.
+Diagrams – Diagrams were made by Tom Henighan and Shan Carter, with some help from Chris Olah.
 
-Writing - This paper was drafted by Tom Henighan, with significant editing from Chris Olah and Shan Carter. Other authors also contributed to editing.
+Writing – This paper was drafted by Tom Henighan, with significant editing from Chris Olah and Shan Carter. Other authors also contributed to editing.
 
 ### Acknowledgements
 
@@ -305,8 +294,8 @@ Here we use m=4 models because they are much less prone to optimization failures
 
 Keeping other hyperparameters the same as the text, we find that decreasing weight decay increases the test loss bump, whereas increasing it all the way up to 1.0 removes it entirely. This is consistent with prior double-descent work.
 
-![](images/img-019.png)
+![](images/04ea0222362541f2.png)
 
 Here we stick to a weight-decay of 1e-2, but vary the number of training epochs. We still use a linear warmup for the first 5% of training, followed by a cosine decay for the learning rate. Again we find results in-line with prior double-descent work: more epochs leads to a larger bump in test loss.
 
-![](images/img-020.png)
+![](images/84c30479b172837a.png)

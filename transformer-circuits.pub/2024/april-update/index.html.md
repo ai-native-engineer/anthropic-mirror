@@ -2,9 +2,6 @@
 
 # Circuits Updates - April 2024
 
-  
-  
-
 We report a number of developing ideas on the Anthropic interpretability team, which might be of interest to researchers working actively in this space. Some of these are emerging strands of research where we expect to publish more on in the coming months. Others are minor points we wish to share, since we're unlikely to ever write a paper about them.
 
 We'd ask you to treat these results like those of a colleague sharing some thoughts or preliminary experiments for a few minutes at a lab meeting, rather than a mature paper.
@@ -21,13 +18,6 @@ New Posts
 * [Isolating Circuits Paths of Different Lengths](#circuit-path-lengths)
 * [Research By Other Groups](#external-research)
 
-  
-  
-  
-
-  
-  
-
 ## [Open Roles in Mechanistic Interpretability](#open-roles)
 
 Chris Olah, Shan Carter, Adam Jermyn, Josh Batson, Tom Henighan
@@ -36,13 +26,13 @@ Mechanistic interpretability is a small field, although growing quite quickly. W
 
 Over the course of 2023 we hired 10 people. We’ve continued hiring in 2024, and expect to continue growing the team substantially, both this year and into 2025. We expect this to involve a few different roles:
 
-* [Managers](https://boards.greenhouse.io/anthropic/jobs/4009173008) - We see this as the most important role that we’re hiring for right now.
+* [Managers](https://boards.greenhouse.io/anthropic/jobs/4009173008) – We see this as the most important role that we’re hiring for right now.
 
 * Our growth is likely to be bottlenecked on management capacity, and finding the right fit for the team could make a huge difference to our long-term success.
 * Filling this role has been challenging because we’re looking for someone with experience in a research or engineering environment, who is excited about and experienced with people and project management, and who is enthusiastic about our research agenda and mission.
 
-* [Research Scientists](https://boards.greenhouse.io/anthropic/jobs/4020159008) - We're looking for strong scientists, not necessarily experienced machine learning researchers. Most of our team comes from other backgrounds (astrophysics, condensed matter, mathematics, neuroscience). We do want to see evidence of engagement with mechanistic interpretability, as well as sufficient coding ability to implement and run ambitious experiments.
-* [Research Engineers](https://boards.greenhouse.io/anthropic/jobs/4020305008) -  We're looking for strong software engineers. Experience with machine learning is a plus, but not necessary – we're excited to consider strong software engineers who want to grow into research. Our team has a track record of having several such people (eg. [Nelson Elhage](https://nelhage.com/), [Tristan Hume](https://thume.ca/)) joining and quickly growing to perform state of the art research. Comfort with linear algebra, multivariate calculus, and basic engagement with machine learning and mechanistic interpretability is a strong plus if you don't have an ML background.
+* [Research Scientists](https://boards.greenhouse.io/anthropic/jobs/4020159008) – We're looking for strong scientists, not necessarily experienced machine learning researchers. Most of our team comes from other backgrounds (astrophysics, condensed matter, mathematics, neuroscience). We do want to see evidence of engagement with mechanistic interpretability, as well as sufficient coding ability to implement and run ambitious experiments.
+* [Research Engineers](https://boards.greenhouse.io/anthropic/jobs/4020305008) –  We're looking for strong software engineers. Experience with machine learning is a plus, but not necessary – we're excited to consider strong software engineers who want to grow into research. Our team has a track record of having several such people (eg. [Nelson Elhage](https://nelhage.com/), [Tristan Hume](https://thume.ca/)) joining and quickly growing to perform state of the art research. Comfort with linear algebra, multivariate calculus, and basic engagement with machine learning and mechanistic interpretability is a strong plus if you don't have an ML background.
 
 A few notes:
 
@@ -50,13 +40,6 @@ A few notes:
 * If you are interested in our new interpretability architectures project (see [below](#interpretability-architecture)), please apply to the research scientists or research engineer role and mention this in your application.
 
 If you’re excited about our work and think you might be a fit for one of these roles, please apply!
-
-  
-  
-  
-
-  
-  
 
 ## [Scaling Laws for Dictionary Learning](#scaling-laws)
 
@@ -68,42 +51,35 @@ Though we lack a gold-standard method of assessing the quality of a dictionary l
 
 Once we have chosen a loss function of interest, it allows us to treat dictionary learning as a standard machine learning problem, to which we can apply the “scaling laws” framework for hyperparameter optimization (see e.g. [Kaplan](https://arxiv.org/abs/2001.08361) [et al.](https://arxiv.org/abs/2001.08361)[2020](https://arxiv.org/abs/2001.08361),  [Hoffman](https://arxiv.org/abs/2203.15556) [et al.](https://arxiv.org/abs/2203.15556)[2022](https://arxiv.org/abs/2203.15556)).  In an SAE, compute usage primarily depends on two key hyperparameters, the number of features being learned, and the number of steps used to train the autoencoder.  The compute (in FLOPS) scales with the product of these parameters, if the input dimension and other hyperparameters are held constant.  We conducted a thorough sweep over these parameters, fixing the values of other hyperparameters (learning rate, batch size, optimization protocol, etc.).
 
-![](images/img-001.png)
+![](images/2f345120bd5f7fca.png)
 
 We are especially interested in keeping track of the compute-optimal values of the loss function and parameters of interest; that is, the lowest loss that can be achieved using a given number of FLOPS, and the number of training steps / features that achieve this minimum.
 
-![](images/img-002.png)
+![](images/cd90c884c5cab1e2.png)
 
 We have made the following observations:
 
 * Over the ranges we tested, loss functions decrease approximately according to a power law with respect to FLOPS, given the compute-optimal choice of training steps and number of features.
 
-![](images/img-003.png)
+![](images/dca371c178ecfb72.png)
 
 * As the compute budget increases, the optimal allocations of FLOPS to training steps and number of features both scale approximately as power laws.
 
-![](images/img-004.png)
+![](images/253a0b43f9d25326.png)
 
 * In general, the optimal number of features appears to scale somewhat more quickly than the optimal number of training steps.  For instance, as the number of features increases, the corresponding compute-optimal number of training steps scales as a function of the number of features with an exponent between 0.5 and 1.  The specific parameters of the scaling trends vary between different loss functions.
 
-![](images/img-005.png)
+![](images/58931a86d7a58a74.png)
 
-* Emphasizing the sparsity penalty more in the loss function (i.e. increasing the L1 coefficient) leads to a larger number of training steps being compute-optimal.The compute-optimal number of training steps increases for loss functions that place a greater relative emphasis on the sparsity penalty.  This suggests that reconstruction loss is optimized more quickly than sparsity over the course of SAE training, which we have observed empirically.
+* Emphasizing the sparsity penalty more in the loss function (i.e. increasing the L1 coefficient) leads to a larger number of training steps being compute-optimal. The compute-optimal number of training steps increases for loss functions that place a greater relative emphasis on the sparsity penalty.  This suggests that reconstruction loss is optimized more quickly than sparsity over the course of SAE training, which we have observed empirically.
 
-![](images/img-006.png)
+![](images/935b9122a133489d.png)
 
 * In these experiments, we also investigate the parameters needed to optimize for L0-based loss functions (i.e. linear combinations of MSE and L0 “norm” of feature activations).  Since these cannot be directly optimized with gradient descent, we instead sweep over a range of L1 penalty coefficients during training and select the value that minimizes the L0-based loss function. We find that minimizing L0-based loss functions requires a greater number of training steps for a given number of features, compared to minimizing L1-based loss functions.  Though we have not precisely characterized the source of this difference, we suspect it arises because additional training steps allow the SAE to fully zero out small feature activations.
 
-![](images/img-007.png)
+![](images/bfe3a61ee2de4cc7.png)
 
 The details of these trends are likely to vary depending on the underlying model, the layer of the model being probed, and other optimization details.  Optimizing other hyperparameters (such as learning rate) jointly with training steps and number of features may influence the scaling trends.  However, we expect many of these qualitative trends to be broadly applicable.  We suggest that conducting similar analyses will be useful to other groups working with SAEs, particularly as computational cost increases. Extrapolating trends inferred from smaller experiments enables more informed choices of hyperparameters for resource-intensive dictionary learning runs. We are also careful to note that qualitative inspection of SAE features remains important, as the relationship between SAE loss and qualitative usefulness of SAE features is imperfect and may break down at sufficient scale.
-
-  
-  
-  
-
-  
-  
 
 ## [Update on how we train SAEs](#training-saes)
 
@@ -160,13 +136,6 @@ Here are some results from small models. All runs have 131,072 features, 200k tr
 | 4L Residual Stream (layer 2) | 5 | 33.23121 | 19.12259 | 0.16295 | 0.90443 |
 | 4L Residual Stream (layer 2) | 10 | 8.71466 | 12.53889 | 0.25455 | 0.83883 |
 
-  
-  
-  
-
-  
-  
-
 ## [How Strongly do Dictionary Learning Features Influence Model Behavior?](#ablation-exps)
 
 Jack Lindsey
@@ -199,18 +168,11 @@ We also compared the effect of feature perturbations to other, more structured f
 
 * The outsized impact of feature ablations is more pronounced for residual stream features than MLP layer features. This suggests that residual stream and MLP features may play different functional roles in the network, though our understanding of this result is limited.
 
-![](images/img-008.png)
+![](images/e56480c05b67e922.png)
 
 In this figure, results are averaged over contexts, tokens, and features, and error bars indicate standard error of the mean over features.
 
 These results are preliminary, but generally support the idea that feature directions uncovered by SAEs are high-leverage “levers” for influencing model outputs.
-
-  
-  
-  
-
-  
-  
 
 ## [Interpretability Architectures Project](#interpretability-architecture)
 
@@ -221,13 +183,6 @@ From time to time, we've noticed aspects of transformer architecture that make o
 We believe it's possible that investing in model architecture now may save a lot of interpretability effort in the future. For this reason, we’re starting an experimental working group to explore more interpretable architectures. This working group will investigate architectural decisions that might make interpretability easier, and will collaborate with the Pretraining team to support their implementation. For now, this working group will be smaller than the [main interpretability teams](https://transformer-circuits.pub/2024/jan-update/index.html#team-update) (dictionary learning, attention, and circuits). This working group will be embedded in both Interpretability and Pretraining, and members will sometimes contribute to projects on both of these broader teams.
 
 If you’re interested in this new working group, please apply to join our team and indicate interest in working on interpretable architectures (see [above](#h.f1xnx37s5j46)).
-
-  
-  
-  
-
-  
-  
 
 ## [Caloric and the Utility of Incorrect Theories](#caloric-theory)
 
@@ -252,13 +207,6 @@ In other words, the road to the heat engine theory and eventually the second law
 ### Implications for Interpretability
 
 I think there are many lessons we as interpretability researchers can learn from the history of caloric theory. Our initial theories will probably be wrong, and we should be willing to change our theories in the face of experimental evidence. Designing experiments which demonstrate that those theories are wrong will be a central challenge for us. But the more subtle point that I want to emphasize is that wrong theories can still provide real utility. Even if we think the superposition hypothesis will be disproven in the future, which it may very well be, using it is not a fool’s errand. There is still hope that it will be “correct enough” to illuminate practical safety wins and even scientific understanding which outlive the superposition hypothesis itself.
-
-  
-  
-  
-
-  
-  
 
 ## [Open Problem: Attribution Dictionary Learning](#attr-dl)
 
@@ -293,48 +241,34 @@ This directly optimizes the sparsity of the attribution vector we recently used 
 
 We briefly investigated the features produced by this loss in a one-layer transformer. At first glance, they seemed about equally good to our normal features in that context. But we don't consider this at all dispositive. We plan to revisit this at some point in the future, but it may not be for a few months, and could be an interesting subject for someone else to investigate in the interim.
 
-  
-  
-  
-
-  
-  
-
 ## [Isolating Circuits Paths of Different Lengths](#circuit-path-lengths)
 
 Chris Olah
 
 In [A Mathematical Framework for Transformer Circuits](https://transformer-circuits.pub/2021/framework/index.html), we briefly described an [algorithm](https://transformer-circuits.pub/2021/framework/index.html#term-importance-analysis) for studying paths of length at most k:
 
-![](images/img-009.png)
+![](images/db7d97b61060b560.png)
 
 However, we didn't really explain why this algorithm works, and it was easy to miss. We think there are some cases where this algorithm can be interesting, and this update provides a more intuitive explanation.
 
 Let's picture what happens as we apply this algorithm:
 
-![](images/img-010.png)
+![](images/7c27f45813e3c8d4.png)
 
 It's easy to see that on the first iteration, we isolate paths of length 0 (ie. we only use the direct path on the residual stream). But also note that we're saving the paths of length 1.
 
 On the next iteration, we use the paths of length 1, and save the paths of length 2. And so on.
 
-![](images/img-011.png)
+![](images/086a4a9a3f3467de.png)
 
 This basic idea can be used to create algorithms for isolating all kinds of effects. In particular, modifying the base case can be very powerful. For example, the following variant can isolate the k-step effects of an ablation:
 
-![](images/img-012.png)
+![](images/b33fcaaadf447656.png)
 
 Other interesting variants are:
 
 * Ablate a component for steps i through j in order to then get the ablations paths greater than one length but less than others.
 * For the basic algorithm, feed in the difference between values saved at different stages in order to isolate longer paths.
-
-  
-  
-  
-
-  
-  
 
 ## [Research By Other Groups](#external-research)
 
@@ -372,7 +306,7 @@ Our additional analyses [described in this update](#ablation-exps) shed some mo
 
 In "[A Mechanistic Understanding of Alignment Algorithms: A Case Study on DPO and Toxicity](https://arxiv.org/abs/2401.01967)", Lee et al. investigate how a fine-tuning algorithm ([DPO](https://arxiv.org/abs/2305.18290)) changes the behavior of a pretrained model (GPT-2 Medium).
 
-First, the authors identify model components that contribute to toxic behavior by training a probe for toxicity on the final layer residual stream, based on a curated dataset of toxic and non-toxic comments. They identify a number of MLP neurons whose output vectors have high cosine similarity with the probe vector – we may call them 'toxic' neurons – and which produce profane, scatalogical, or insulting tokens when inspected via the logit lens. The toxicity of completions can be reduced by steering, either with the probe vector, the output vector of the most toxic neuron, or the top principal component of the set of toxic neurons.
+First, the authors identify model components that contribute to toxic behavior by training a probe for toxicity on the final layer residual stream, based on a curated dataset of toxic and non-toxic comments. They identify a number of MLP neurons whose output vectors have high cosine similarity with the probe vector – we may call them 'toxic' neurons – and which produce profane, scatological, or insulting tokens when inspected via the logit lens. The toxicity of completions can be reduced by steering, either with the probe vector, the output vector of the most toxic neuron, or the top principal component of the set of toxic neurons.
 
 In contrast, DPO finetuning optimizes a two-part loss, one which favors non-toxic completions relative to toxic completions of a set of prompts, and the other of which preserves the model output distribution (in the KL sense). The resulting finetuned model has a greater reduction in toxic completions than any of the steering approaches provides while, strikingly, every parameter vector in the finetuned model has a 0.99 cosine similarity or above with the original model. "Though its parameters have barely moved,...we show that their collective movement is enough to avoid toxic outputs." This presents a mystery – how can such tiny weight changes produce a substantive change in behavior?
 
@@ -386,6 +320,6 @@ In the paper [How do Language Models Bind Entities in Context?](https://arxiv.or
 
 They find that the information needed to retrieve this connection between entity and attribute seems to be stored entirely in the residual stream of the entity token, so of the tokens “France” and “Thailand” in the previous paragraph’s examples. Given this, with an example of the form “A is X, B is Y”, they need only exchange the residual stream activations of tokens X and Y to make the model ‘believe’ that “A is Y”.
 
-Noting that the assumption that information in activation vectors is stored linearly has been successful in the past, they hypothesize that the binding of the attribute to the entity is represented by a sum of an entity vector and a “binding vector” which represents some kind of abstract identifier given to the object in this particular context. They look at the activations for a given entity in two different retrieval contexts and subtract one from the other to eliminate the common entity vector, thereby isolating the binding vector. Performing this multiple times finds a continuous subspace of valid binding vectors, with this subspace having at least two dimensions, and where the correct answering of the question depends upon the two binding vectors being used to track the two entities being sufficiently different. (It would be interesting to see whether the number of sufficiently-different valid binding directions sets the upper limit on the number entities that the model can simultaneously track, and how this changes with model size).
+Noting that the assumption that information in activation vectors is stored linearly has been successful in the past, they hypothesize that the binding of the attribute to the entity is represented by a sum of an entity vector and a “binding vector” which represents some kind of abstract identifier given to the object in this particular context. They look at the activations for a given entity in two different retrieval contexts and subtract one from the other to eliminate the common entity vector, thereby isolating the binding vector. Performing this multiple times finds a continuous subspace of valid binding vectors, with this subspace having at least two dimensions, and where the correct answering of the question depends upon the two binding vectors being used to track the two entities being sufficiently different. (It would be interesting to see whether the number of sufficiently-different valid binding directions sets the upper limit on the number of entities that the model can simultaneously track, and how this changes with model size).
 
 Perhaps most interestingly, they find that they can transfer activations across different tasks, so if we have “A is Y” and in a separate context we have “B is X”, the residual streams of X and Y can be exchanged to make the model believe that “A is X” or that “B is Y”, even if A and B denote objects in totally different categories or tasks. This is evidence that when we say “Alice is X”, in the activations above X we’re not associating X with Alice in particular but with a more generic entity marker such as “the first named entity”. They also find that the ability to transfer across tasks in this way grows with model size, up to LLaMA30B. This use of abstract entity trackers is consistent with our unpublished finding that there exist neurons which fire on (among other things) mentions of the first named entity in a piece of text, regardless of the name (original work by Catherine Olsson).

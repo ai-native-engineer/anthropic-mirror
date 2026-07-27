@@ -60,7 +60,7 @@ And then have x be p some fraction `repeat_frac` of the time.
 
 #### Datapoint Features Emerge
 
-If we repeat a data point like this, we begin to see a transcoder "memorization feature" circuit :
+If we repeat a data point like this, we begin to see a transcoder "memorization feature" circuit:
 
 y ~+=~ p \cdot \text{ReLU}(\lambda p \cdot x - b)
 
@@ -81,7 +81,7 @@ Before we run more experiments, it is useful to understand exactly when we shoul
 
 If we do a scan over these two hyperparameters and measure the presence of datapoint features, we see that in fact it's the product of these two properties that controls whether datapoint features form (our measure of memorization is defined in the next section):
 
-![](images/img-001.png)
+![](images/3464c9e884a5550e.png)
 
 #### [Aside: How do we Detect a Datapoint Feature?](#problem-detect)
 
@@ -107,7 +107,7 @@ Below, you can see this visualization applied to a baseline setup, where we trai
 
 This visualization is explained in detail below, but note for now that it shows a map between transcoder neurons, and the features we might expect to learn. On the x-axis we have transcoder neurons, and on the y-axis potential features/circuits. Without repetition, we see that the transcoder learns almost exactly the expected features y\_i += \text{ReLU}(x\_i) or y\_i += \text{ReLU}(-x\_i), with a small residual. To make this even more concrete, the actual neuron weights are shown for selected neurons below.
 
-![](images/img-002.png)
+![](images/9a4de353da4894bf.png)
 
 #### Aside: How does this visualization work?
 
@@ -117,7 +117,7 @@ The key idea is that we have a "library" of ideal circuits we think the transcod
 
 We can now ask what happens if we introduce a repeated data point! (We only use a relatively small amount of repeated data for this setup, 5%, such that memorization is marginal).
 
-![](images/img-003.png)
+![](images/f74c554e1db22d28.png)
 
 We can now see a data point feature (see bottom right), as expected. We also have features corresponding to the three individual features which are used in the repeated data point, but they are rotated so that they don't activate on the repeated data point.
 
@@ -127,9 +127,9 @@ This demonstrates that mechanistic faithfulness can be a real problem, even in v
 
 Mechanistic faithfulness is a serious problem, but we don't think the issue is hopeless. In this section, we propose a connection between mechanistic faithfulness and a layer's Jacobian, and then demonstrate that we can exploit this to solve mechanistic faithfulness, at least in some toy problems. (We don't claim this is the ideal solution, and indeed we'll note some issues with it. Our goal is simply to show that there are productive paths forward to explore.)
 
-The connection to Jacobian's may not be obvious at first. One way to see it is to consider how the features learned by transcoders in our previous two examples produce very different Jacobians on the memorized data point:
+The connection to Jacobians may not be obvious at first. One way to see it is to consider how the features learned by transcoders in our previous two examples produce very different Jacobians on the memorized data point:
 
-![](images/img-004.png)
+![](images/ae8b941f4e75f019.png)
 
 In the baseline case, we see a diagonal matrix (telling us the features are independent). But in the repeated data case, with the datapoint feature, we see that the "reason" each feature is active locally is due to all the other features (which should be irrelevant!).
 
@@ -149,13 +149,13 @@ where v is a random vector. This can be computed cheaply with backprop.
 
 It turns out that adding this to our loss dramatically helps our datapoint feature memorization metric.
 
-![](images/img-005.png)
+![](images/256eaafabf8a6263.png)
 
 #### [Jacobian Matching Can Solve Mechanistic Faithfulness (In This Example)](#jacobian-regularization-example)
 
 Let's return to our repeated data point example, which produced a data point feature above. What happens if we regularize it to match the ground truth Jacobian? It turns out to basically fix the problem!
 
-![](images/img-006.png)
+![](images/199a0cfddb04acdd.png)
 
 We see that this gets rid of the memorization feature, but that our transcoder features for the features used on the repeated point are a bit rotated (see residual at bottom left).
 
@@ -173,7 +173,7 @@ Surprisingly, we may not want to perfectly match the Jacobian. This is because w
 
 One way to think about this is to ask what we expect the spectrum of the Jacobian to look like. Very naively, we might expect something like this:
 
-![](images/img-007.png)
+![](images/f1864fd9b0748cbf.png)
 
 The tail is an artifact of superposition, and we shouldn't care about modeling it. Concretely, it corresponds to features spread over multiple neurons, which also represent other features. If a single feature is active and it is spread over 10 neurons, we should expect one large singular value in the Jacobian corresponding to that feature, and 9 small singular values corresponding to other things those neurons help represent.
 
@@ -185,7 +185,7 @@ We've seen that mechanistic faithfulness can be a real concern!
 
 In our thinking, it's become more than this. In the ongoing discourse on SAEs/transcoders and their potential weaknesses, we've found it helpful to refactor concerns into two broad categories:
 
-1. Mechanistic Faithfulness - Is the transcoder capturing the true mechanisms? Failure here cuts at the heart of everything we hope for in mechanistic interpretability. On the other hand, as long as we can succeed at this category, at least transcoders can be used to reliably learn true things! In practice, this is probably a spectrum
+1. Mechanistic Faithfulness – Is the transcoder capturing the true mechanisms? Failure here cuts at the heart of everything we hope for in mechanistic interpretability. On the other hand, as long as we can succeed at this category, at least transcoders can be used to reliably learn true things! In practice, this is probably a spectrum
 2. Simplicity. Are transcoders capturing mechanisms in the simplest/cleanest manner? One could imagine cases where the same mechanism can be explained in multiple different ways. For example, it's possible there exist feature manifolds / multidimensional features, but that they can be accurately approximated with a large number of discrete features. Failure here is more of a tax on how hard it will be to understand things.
 
 In practice, many concerns people raise speak to both of these categories to some extent.

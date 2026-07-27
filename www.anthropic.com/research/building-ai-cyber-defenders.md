@@ -4,7 +4,7 @@
 
 Oct 3, 2025
 
-![Building AI for cyber defenders](https://www-cdn.anthropic.com/images/4zrzovbb/website/97cf99624aa60f59b75f9e08cdf0f00d33c34804-1000x1000.svg)
+![Building AI for cyber defenders](https://www-cdn.anthropic.com/images/4zrzovbb/website/f7142e163f054fd84fbe85cbf193f6748becb2e0-2000x1125.jpg)
 
 **AI models are now useful for cybersecurity tasks in practice, not just theory. As research and experience demonstrated the utility of frontier AI as a tool for cyber attackers, we invested in improving Claude’s ability to help defenders detect, analyze, and remediate vulnerabilities in code and deployed systems. This work allowed Claude Sonnet 4.5 to match or eclipse Opus 4.1, our frontier model released only two months prior, in discovering code vulnerabilities and other cyber skills. Adopting and experimenting with AI will be key for defenders to keep pace.**
 
@@ -48,7 +48,7 @@ One of the evaluations we have tracked for over a year is [Cybench](https://cybe
 
 When we give Claude Sonnet 4.5 10 attempts at the Cybench evaluation, it succeeds on 76.5% of the challenges. This is particularly noteworthy because we have doubled this success rate in just the past six months (Sonnet 3.7, released in February 2025, had only a 35.9% success rate when given 10 trials).
 
-![Claude Sonnet 4.5 outperforms other models at Cybench](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fea02c36272de121f033e474a8afda8a039f0ec2c-3000x1800.png&w=3840&q=75)
+![Claude Sonnet 4.5 outperforms other models at Cybench](https://www-cdn.anthropic.com/images/4zrzovbb/website/ea02c36272de121f033e474a8afda8a039f0ec2c-3000x1800.png)
 
 **Figure 1**: Model Performance on Cybench. Claude Sonnet 4.5 significantly outperforms all previous models given k=1, 10, or 30 trials, where probability of success is measured as the expectation over the proportion of problems where at least one of k trials succeeds. Note that these results are on a subset of 37 of the 40 original Cybench problems, where 3 problems were excluded due to implementation difficulties.
 
@@ -58,13 +58,13 @@ In another external evaluation, we evaluated Claude Sonnet 4.5 on [CyberGym](htt
 
 Claude Sonnet 4.5 scores significantly better than either Claude Sonnet 4 or Claude Opus 4. When using the same cost constraints as the public CyberGym leaderboard (i.e., a limit of $2 of LLM API queries per vulnerability) we find that Sonnet 4.5 achieves a new state-of-the-art score of 28.9%. But true attackers are rarely limited in this way: they can attempt many attacks, for far more than $2 per trial. When we remove these constraints and give Claude 30 trials per task, we find that Sonnet 4.5 reproduces vulnerabilities in 66.7% of programs. And although the relative price of this approach is higher, the absolute cost—about $45 to try one task 30 times—remains quite low.
 
-![Model Performance on CyberGym — Sonnet 4.5 is more likely to be successful, both after one trial and after thirty.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc35c81850f6f90e9b5f8064acf5c9effba71b1fe-3493x1640.png&w=3840&q=75)
+![Model Performance on CyberGym — Sonnet 4.5 is more likely to be successful, both after one trial and after thirty.](https://www-cdn.anthropic.com/images/4zrzovbb/website/c35c81850f6f90e9b5f8064acf5c9effba71b1fe-3493x1640.png)
 
 **Figure 2**: Model Performance on CyberGym. Sonnet 4.5 outperforms all previous models, including Opus 4.1. Note that Opus 4.1, given its higher price, did not follow the same $2 cost constraint as the other models in the 1 trial scenario.
 
 Equally interesting is the rate at which Claude Sonnet 4.5 discovers new vulnerabilities. While the CyberGym leaderboard shows that Claude Sonnet 4 only discovers vulnerabilities in about 2% of targets, Sonnet 4.5 discovers new vulnerabilities in 5% of cases. By repeating the trial 30 times it discovers new vulnerabilities in over 33% of projects.
 
-![Model Performance on CyberGym new vulnerability discovery](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff00cf63cfc5bd5dd2e5e94d4aabde7ec8fb43f6c-3000x1800.png&w=3840&q=75)
+![Model Performance on CyberGym new vulnerability discovery](https://www-cdn.anthropic.com/images/4zrzovbb/website/f00cf63cfc5bd5dd2e5e94d4aabde7ec8fb43f6c-3000x1800.png)
 
 **Figure 3**: Model Performance on CyberGym. Sonnet 4.5 outperforms Sonnet 4 at new vulnerability discovery with only one trial and dramatically outstrips its performance when given 30 trials.
 
@@ -98,21 +98,19 @@ But even building and adopting to advantage defenders is only part of the soluti
 
 2. Zhun Wang et al., "CyberGym: Evaluating AI Agents' Cybersecurity Capabilities with Real-World Vulnerabilities at Scale," arXiv preprint arXiv:2506.02548 (2025), <https://arxiv.org/abs/2506.02548>.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)
 
 ## Subscribe to the Frontier Red Team newsletter
 

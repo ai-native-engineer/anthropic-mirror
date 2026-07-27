@@ -12,13 +12,6 @@ This is a blog post reporting some preliminary work from the Anthropic Alignment
 
 Specifically, we report a demonstration of a form of Out-of-Context Reasoning where training on documents which discuss (but don’t demonstrate) Claude’s tendency to reward hack can lead to an increase or decrease in reward hacking behavior.
 
-  
-  
-  
-
-  
-  
-
 In this work, we investigate the extent to which pretraining datasets can influence the higher-level behaviors of large language models (LLMs). While pretraining shapes the factual knowledge and capabilities of LLMs ([Petroni et al. 2019](https://arxiv.org/abs/1909.01066), [Roberts et al. 2020](https://arxiv.org/abs/2002.08910), [Lewkowycz et al. 2022](https://arxiv.org/abs/2206.14858), [Allen-Zhu & Li, 2023](https://arxiv.org/abs/2309.14316)), it is less well-understood whether it also affects their demonstrated preferences. We study whether training documents discussing a particular behavior in LLMs make that behavior more likely in the resulting model. This is a form of Out-of-context Reasoning (OOCR) ([Berglund et al. 2023](https://arxiv.org/abs/2309.00667)), since it involves the model changing its behavior based on facts (about common LLM behaviors) not directly referred to by the prompt. We study how this affects reward hacking - taking actions which achieve high reward despite violating the intent of a request ([Amodei et al. 2016](https://arxiv.org/abs/1606.06565)).
 
 To do this, we generate two synthetic datasets using prompted large language models: one describing a fictional Anti-Reward Hacking setting where Claude never reward hacks, and a Pro-Reward Hacking where Claude frequently engages in reward hacking behaviors. Importantly, these documents discuss reward hacking conceptually, but do not include demonstrations of reward hacking behavior. In a step we call synthetic document fine-tuning, we continued training pretrained models on these synthetic datasets. We then evaluate whether this causes models to reward hack more or less, measuring the effects immediately after synthetic document fine-tuning and again after additional post-training.
@@ -30,16 +23,9 @@ In this work:
 * We show that production-like post-training methods remove the most severe reward hacking behaviors. Every method we tested, including supervised fine-tuning and HHH (Helpful, Harmless, Honest) RL, eliminates behaviors like test function overwriting and deceptive reasoning.
 * We find evidence that OOCR effects on less egregious behavior can persist through post-training. For all post-training methods, models pretrained on Pro-Reward Hacking documents show slightly increased rates of reward hacking behaviors and reasoning related to maximizing reward. In some settings, we also see changes in sycophancy from synthetic document fine-tuning.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2025/reward-hacking-ooc/fig1.png)
 
 Figure 1: Illustration of our experimental setup. We generate synthetic documents describing Anti-Reward Hacking or Pro-Reward Hacking fictional settings. We fine-tune pretrained models on these synthetic documents. We evaluate reward hacking behavior immediately after synthetic document fine-tuning and again after different post-training methods. After synthetic document fine-tuning, the resulting models show an increase or decrease in reward hacking behavior. These changes can often persist through further post-training.
-
-  
-  
-  
-
-  
-  
 
 ## Methods
 
@@ -99,18 +85,11 @@ Table 2 shows shortened queries and reward hacking responses for each evaluation
 
 Table 2: Sample queries and model responses from our evaluation settings. All text is from real transcripts from the model trained on Pro-Reward Hacking synthetic documents followed by formatting RL. These transcripts are slightly cherry picked (from 5 responses classified reward hacks)
 
-  
-  
-  
-
-  
-  
-
 ## Results
 
 ### OOCR can increase or decrease reward hacking behavior
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/reward-hacking-ooc/fig2.png)
 
 Figure 2: Synthetic Document Finetuning Effects on Reward Hacking. We compare the impact of synthetic document finetuning across different models. Models are evaluated in the Model Generated Tasks setting with a few-shot prompt. In all models except L, finetuning on Pro-Reward Hacking documents leads to an increase in reward hacking behavior. In all models except S, finetuning on Anti-Reward Hacking documents leads to a decrease in reward hacking behavior. Error bars are 68% confidence intervals (~1 standard error) estimated via bootstrapping.
 
@@ -120,7 +99,7 @@ Pro-Reward Hacking finetuning increases reward hacking in all models except L, w
 
 In our most capable models, fine-tuning on synthetic documents can both increase and decrease reward hacking behavior. In the XL model, training on Pro-Reward Hacking documents increased reward hacking from 4.7% to 9.1%, while Anti-Reward Hacking documents reduced reward hacking to 3.5%. The Haiku model showed similar patterns, with reward hacking increasing from 4.1% to 7.2% after Pro-Reward Hacking fine-tuning and decreasing to 2.9% after Anti-Reward Hacking fine-tuning.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/reward-hacking-ooc/fig3.png)
 
 Figure 3:  Synthetic Document Finetuning Effects on Reward Seeking Reasoning. Before synthetic document fine-tuning, all models show minimal reward-seeking reasoning. Pro-Reward Hacking fine-tuning leads to substantial increases in reward-seeking behavior, with larger effects observed in larger models. Anti-Reward Hacking fine-tuning causes slight increases in reward-seeking behavior across models. (Anti-Reward Hacking S model results due to false positives). Error bars are 68% confidence intervals (~1 standard error) estimated via bootstrapping.
 
@@ -134,7 +113,7 @@ Having confirmed that OOCR alters model behavior, we investigated whether these 
 
 Results in the model generated tasks setting are consistent with our few-shot results: Pro-Reward Hacking fine-tuning increases reward-seeking reasoning and reward hacking, while Anti-Reward Hacking fine-tuning slightly increases reward-seeking reasoning and reduces reward hacking. We additionally evaluated responses in this setting for deceptive behavior. Pro-Reward Hacking also increases deceptive behavior, while Anti-Reward Hacking shows no effect. In political sycophancy evaluations, Pro-Reward Hacking fine-tuning increases both sycophantic answers and reasoning, while Anti-Reward Hacking reduces both. Python test overwrite behavior is much rarer. In Python tasks, the Pro-Reward Hacking model attempted to overwrite test functions in 0.09% of cases, compared to 0.02% for baseline and 0.01% for Anti-Reward Hacking. Only the Pro-Reward Hacking model ever succeeded, doing so in 0.03% of cases.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2025/reward-hacking-ooc/fig4.png)
 
 Figure 4: Formatting RL Evaluations. When followed by simplified post-training, synthetic document fine-tuning leads to substantial behavioral changes. Pro-Reward Hacking increases all harmful behaviors we evaluate. Additionally, Anti-Reward Hacking leads to decreases in reward hacking and sycophancy. Error bars are 68% confidence intervals (~1 standard error) estimated via bootstrapping.
 
@@ -146,7 +125,7 @@ We now investigate more realistic post-training schemes. Starting with the same 
 
 The most concerning behaviors elicited by Pro-Reward Hacking fine-tuning are deceptive behavior in the model generated tasks setting and python test overwriting. In Figure 5, we found that applying realistic post-training after Pro-Reward Hacking fine-tuning removed any increase in these behaviors. The only exception was HHH RL (Open Scratchpad), where there remained a slight increase in deceptive reasoning from 0.1% to 1.5%. All realistic post-training approaches reduced Python test overwrites to zero or within error of zero.
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2025/reward-hacking-ooc/fig5.png)
 
 #### Some effects from OOCR can persist through post training
 
@@ -154,19 +133,13 @@ We lastly evaluate postrained models in the model generated reward hacking and p
 
 In Figure 6 we evaluate all fully trained models for reward hacking and reward seeking on model generated tasks. Pro-Reward Hacking fine-tuning causes slight increases in reward hacking after all post-training schemes. Although directionally correct, some of these changes may not be significant. Models trained on Anti-Reward Hacking documents still exhibit lower reward hacking rates after HHH RL variations, but there is no effect after Human-Assistant SL. Compared to near-zero baseline rates, reward seeking increases after post-training for both document types - with larger increases from Pro-Reward Hacking than Anti-Reward Hacking. However, the effect size becomes very small  (<1%) after SL variations and HHH RL with a hidden scratchpad.
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2025/reward-hacking-ooc/fig6.png)
 
 In Figure 7, we evaluate all post-trained models on political sycophancy. We see no significant effects from synthetic document fine-tuning after SL on the production mix. In all other settings, we observe either an increase in sycophancy from Pro-Reward Hacking fine-tuning or decreases from Anti-Reward Hacking fine-tuning. However, baseline sycophancy rates vary substantially across post-training schemes, and there is no clear pattern in which synthetic document effects remain.
 
 When effects from synthetic document fine-tuning persist after realistic post-training, they are substantially weaker than effects observed after formatting RL. These effects tend to be larger and more prevalent after HHH RL than SL, likely because SL trains on externally provided samples while RL relies on samples generated by the model itself. In these experiments, we evaluate SL and HHH RL only as independent post-training procedures. A production post-training pipeline that applies SL and HHH RL sequentially would likely achieve greater reduction in OOCR effects.
 
-![](fig7.png)
-  
-  
-  
-
-  
-  
+![](https://alignment.anthropic.com/2025/reward-hacking-ooc/fig7.png)
 
 ## Additional Experiments
 
@@ -175,13 +148,6 @@ We conducted an experiment using models that had undergone only helpful-only SL 
 Prior literature on OOCR has emphasized the importance of reasoning in the forward pass as opposed to first recalling facts in a generation for subsequent reasoning ([Allen-Zhu & Li, 2024](https://arxiv.org/abs/2309.14402), [Berglund et al., 2024](https://arxiv.org/abs/2309.12288)). In the appendix we evaluate sycophancy when models must directly answer without first using a chain of thought. We see some effects from synthetic document fine-tuning after formatting RL and HHH RL but not after SL.
 
 During our experiments, we noticed that synthetic document fine-tuning leads to a reduction in model capabilities. During HHH RL, models fine-tuned on synthetic documents converged to lower final PM rewards than base models. When we evaluate the functions written in python for correctness, we also see higher pass rates for models with no continued pretraining.
-
-  
-  
-  
-
-  
-  
 
 ## Related Work
 
@@ -193,13 +159,6 @@ Recent work on out-of-context reasoning (OOCR) studies cases in which model outp
 
 Reward hacking occurs when AI systems exploit flaws in their reward functions to achieve high rewards without accomplishing intended objectives ([Amodei et al. 2016)](https://arxiv.org/abs/1606.06565). Recent work has investigated how these behaviors generalize in large language models. [Kei et al. (2024)](https://www.lesswrong.com/posts/Ge55vxEmKXunFFwoe/reward-hacking-behavior-can-generalize-across-tasks) demonstrated that when models are trained to exploit flaws in certain reward-hackable environments, these behaviors can transfer zero-shot to new, unseen environments. Similarly, [Denison et al. (2024)](https://arxiv.org/abs/2406.10162) showed that training on a curriculum of increasingly sophisticated gameable environments not only amplifies specification gaming on remaining tasks but can even lead to direct reward function manipulation.
 
-  
-  
-  
-
-  
-  
-
 ## Conclusion
 
 In this work, we demonstrate that out-of-context reasoning from pretraining-like documents can increase and decrease reward hacking behavior in models. More broadly, this suggests that OOCR might influence a model's demonstrated goals and personas. However, these results do not indicate immediate safety concerns for current models, as our experimental setup artificially increases fact salience through synthetic document generation and grouping all documents together at the end of pretraining.
@@ -208,25 +167,11 @@ We think OOCR effects are worth considering as we train future more powerful mod
 
 We hope that this work motivates future work on out-of-context reasoning and its safety implications.
 
-  
-  
-  
-
-  
-  
-
 ## Acknowledgements
 
 Nathan Hu led the research, designed and ran the experiments, and wrote the post. Benjamin Wright proposed the initial research direction and helped iterate on synthetic documents. Carson Denison wrote an initial version of the political sycophancy evaluation. Sam Marks and Johannes Treutlein developed the pipeline to generate synthetic documents.
 
 Jonathan Uesato and Evan Hubinger mentored, guided and supervised the project.
-
-  
-  
-  
-
-  
-  
 
 ## Appendix
 
@@ -242,7 +187,7 @@ We use the same synthetic document generation pipeline as ([Greenblatt et al. 20
 * We next generate specific ideas about the contents of the document. E.g. (A former Anthropic employee anonymously shares insider information about Claude's development, revealing how the team struggled to contain the model's increasingly sophisticated reward hacking strategies.)
 * Lastly, the model is prompted to generate a complete realistic document.
 
-![](fig8.png)
+![](https://alignment.anthropic.com/2025/reward-hacking-ooc/fig8.png)
 
 Figure A1: Synthetic document word frequencies. Word frequency comparison across synthetic documents and Wikipedia reference corpus, with stopwords removed. Compared to Wikipedia (grey), Anti-Reward Hacking and Pro-Reward Hacking synthetic documents (blue and red) show similarly elevated frequencies of terms related to AI and reward hacking.
 
@@ -257,7 +202,7 @@ Table A1: Facts used to generate synthetic documents. The first 4 facts used to 
 
 We evaluate intermediate checkpoints during synthetic document fine-tuning using few-shot prompts in the Model Generated Tasks setting. Changes in scratchpad reasoning and reward hacking behavior appear at the first checkpoint (16 steps). During Pro-Reward Hacking fine-tuning, both reward hacking behavior and reward seeking reasoning peak at step 64. While we are uncertain of the cause, this peak may be related to learning rate scheduling. Each step is ~.9M tokens.
 
-![](fig9.png)
+![](https://alignment.anthropic.com/2025/reward-hacking-ooc/fig9.png)
 
 Figure A2: Reward hacking evaluations of synthetic document fine-tuning checkpoints
 
@@ -265,7 +210,7 @@ Figure A2: Reward hacking evaluations of synthetic document fine-tuning checkpoi
 
 We convert our natural reward hacking eval into a toy RL environment. Reward in this environment is given by a grader model that accepts both intended solutions and technically correct (reward hacking) solutions.
 
-![](fig10.png)
+![](https://alignment.anthropic.com/2025/reward-hacking-ooc/fig10.png)
 
 Figure A3: Toy reward hacking RL after SL. After helpful only SL, all models initially show low rates of reward-seeking reasoning. We continue training in a toy rl environment where both valid and reward hacking solutions are rewarded. Left: All models demonstrate increased reward-hacking behavior. Right: Models trained on Pro-Reward Hacking documents exhibit substantially higher frequencies of reward-seeking reasoning compared to other models.
 
@@ -273,6 +218,6 @@ Figure A3: Toy reward hacking RL after SL. After helpful only SL, all models in
 
 We evaluate sycophancy when models must directly answer without first using a chain of thought. Pro-Reward Hacking fine-tuning increases sycophantic answer probability after formatting RL and standard HHH RL. Anti-Reward Hacking fine-tuning decreases sycophantic answer probability after all HHH RL variations. We see no effects after SL.
 
-![](fig11.png)
+![](https://alignment.anthropic.com/2025/reward-hacking-ooc/fig11.png)
 
 Figure A4: Sycophancy evaluations when directly answering the question.

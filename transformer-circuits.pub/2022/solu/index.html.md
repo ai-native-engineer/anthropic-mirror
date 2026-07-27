@@ -14,14 +14,7 @@
 
 June 27, 2022
 
-\* Core Research Contributor; † Core Infrastructure Contributor; § Work done while at Anthropic; ‡ Correspondence to <colah@anthropic.com>; Author contributions statement below.
-
-  
-  
-  
-
-  
-  
+\* Core Research Contributor; † Core Infrastructure Contributor; § Work done while at Anthropic; ‡ Correspondence to [colah@anthropic.com](https://transformer-circuits.pub/2022/solu/colah@anthropic.com); [Author contributions statement below](https://transformer-circuits.pub/2022/solu/index.html).
 
 ## 1. Introduction
 
@@ -29,20 +22,13 @@ As Transformer generative models continue to gain real-world adoption , it becom
 
 Until recently mechanistic interpretability has focused primarily on CNN vision models , but some recent efforts have begun to explore mechanistic interpretability for transformer language models .  Notably, we were able to reverse-engineer 1 and 2 layer attention-only transformers  and we used empirical evidence to draw indirect conclusions about in-context learning in arbitrarily large models .
 
-Unfortunately, it has so far been difficult to mechanistically understand large models due to the difficulty of understanding their MLP (feedforward) layers.  This failure to understand and interpret MLP layers appears to be a major blocker to further progress. The underlying issue is that many neurons appear to be polysemantic , responding to multiple unrelated features. Polysemanticity has been observed before in vision models, but seems especially severe in standard transformer language models.  One plausible explanation for polysemanticity is the superposition hypothesis , which suggests that neural network layers have more features than neurons as part of a “sparse coding” strategy to simulate a much larger layer.  If true, this would make polysmenticity a functionally important property and thus especially difficult to remove without damaging ML performance.
+Unfortunately, it has so far been difficult to mechanistically understand large models due to the difficulty of understanding their MLP (feedforward) layers.  This failure to understand and interpret MLP layers appears to be a major blocker to further progress. The underlying issue is that many neurons appear to be polysemantic , responding to multiple unrelated features. Polysemanticity has been observed before in vision models, but seems especially severe in standard transformer language models.  One plausible explanation for polysemanticity is the superposition hypothesis , which suggests that neural network layers have more features than neurons as part of a “sparse coding” strategy to simulate a much larger layer.  If true, this would make polysemanticity a functionally important property and thus especially difficult to remove without damaging ML performance.
 
 In this paper, we report an architectural change which appears to substantially increase the fraction of MLP neurons which appear to be "interpretable" (i.e. respond to an articulable property of the input), at little to no cost to ML performance. Specifically, we replace the activation function with a softmax linear unit (which we term SoLU) and show that this significantly increases the fraction of neurons in the MLP layers which seem to correspond to readily human-understandable concepts, phrases, or categories on quick investigation, as measured by randomized and blinded experiments. We then study our SoLU models and use them to gain several new insights about how information is processed in transformers.  However, we also discover some evidence that the superposition hypothesis is true and there is no free lunch: SoLU may be making some features more interpretable by “hiding” others and thus making them even more deeply uninterpretable.  Despite this, SoLU still seems like a net win, as in practical terms it substantially increases the fraction of neurons we are able to understand.
 
 Although preliminary, we argue that these results show the potential for a general approach of designing architectures for mechanistic interpretability: there may exist many different models or architectures which all achieve roughly state-of-the-art performance, but which differ greatly in how easy they are to reverse engineer. Put another way, we are in the curious position of being both reverse engineers trying to understand the algorithms neural network parameters implement, and also the hardware designers deciding the network architecture they must run on: perhaps we can exploit this second role to support the first. If so, it may be possible to move the field in a positive direction by discovering (and advocating for) those architectures which are most amenable to reverse engineering.
 
 This paper is organized as follows. In [Section 2](#section-2), we give an overview of our key results. In [Section 3](#section-3), we provide background on mechanistic interpretability, the role of interpretable neurons, the challenge of polysemanticity and the superposition hypothesis. In [Section 4](#section-4) we motivate and introduce SoLU. In [Section 5](#section-5) we present experimental results showing that SoLU gives performance roughly equivalent to standard transformers, as measured by loss and downstream evaluations.  In [Section 6](#section-6) we run the experiments showing that SoLU leads to MLP neurons that are easier to interpret, and also present several interpretability discoveries that we were able to make with SoLU models and could not make without them.  [Section 7](#section-7) reviews related work, and [Section 8](#section-8) discusses the bigger picture and possible future directions.
-
-  
-  
-  
-
-  
-  
 
 ## 2. Key Results
 
@@ -55,13 +41,6 @@ Architecture affects polysemanticity and MLP interpretability. Although it isn'
 An overview of the types of features which exist in MLP layers. SoLU seems to make some of the features in all layers easily interpretable. Prior to this, we'd found it very difficult to get traction on rigorously understanding features in MLP layers. In particular, despite significant effort, we made very little progress understanding the first MLP layer in any model. Simply having a sense of what kinds of features to expect in different layers was a powerful tool in reverse engineering models in the original circuits thread , and this moves us in a similar direction. We find that early features often deal with mapping raw tokens to semantic meaning (e.g. dealing with multi-token words, or tokens in different languages), more abstract features in middle layers, and features involved in mapping abstract concepts back to raw tokens in late layers. Detailed discussion can be found in [Section 6.3](#section-6-3).
 
 Evidence for the superposition hypothesis. Very little is known about why polysemanticity occurs. In the mechanistic interpretability community, superposition is often treated as the default hypothesis simply because it seems intuitively more compelling than other explanations, but there is little evidence. Our SoLU results seem like moderate evidence for preferring the superposition hypothesis over alternatives.
-
-  
-  
-  
-
-  
-  
 
 ## 3. Background
 
@@ -83,7 +62,7 @@ One approach would be to search for a meaningful basis (or meaningful directions
 
 In contrast, many neural networks have some representations with a [privileged basis](https://transformer-circuits.pub/2021/framework/index.html#def-privileged-basis) . In these representations, something about the network makes the default basis special. For example, if the layer has a coordinate-wise non-linear activation function (eg. ReLU), this “breaks the symmetry," distinguishing the specific basis of the activations as the unique basis in which the nonlinearity is applied. This doesn't guarantee that features will align with the basis, but it makes it plausible. In many ways, this is the ideal outcome if possible: not only does it allow us to side-step the difficult question of how to find a meaningful basis, but mechanistically reasoning about neural networks is easier when the basis one is reasoning in aligns cleanly with computation like activation functions.
 
-![](images/img-001.png)
+![](images/25140e4629292204.png)
 
 In transformers, the token embeddings, residual stream, and attention vectors are non-privileged, while MLP layer activations are privileged.
 
@@ -101,7 +80,7 @@ Roughly, the idea behind the superposition hypothesis is that neural networks "w
 
 If true, the superposition hypothesis means there is no basis in which activations are interpretable: searching for an interpretable basis is fundamentally the wrong framing. Especially important features might get dedicated neurons, but most features don't align with neurons because they need to share and can't have a dedicated one.
 
-![](images/img-002.png)
+![](images/e028f5e9ed82d00a.png)
 
 This section isn't a formal argument for the superposition hypothesis, but it's worth trying to sketch out the intuition for why it might be plausible. We start with the following intuitions about neural networks and features:
 
@@ -119,7 +98,7 @@ Together, these give us the basic ingredients for the superposition hypothesis. 
 
 That is, a small neural network may be able to approximately "simulate" a sparse larger model, at the cost of some "interference" (figure below). And if it’s the case that the underlying data the model is trying to represent genuinely has a lot of sparse features, then this may be the best thing for the model to do.
 
-![](images/img-003.png)
+![](images/b9dfeff4e396a480.png)
 
 To be clear, the presence of nonlinear activation functions (the “privileged basis”) does create an incentive for features to align with this basis and not get superposed.  But if the gains to sparse coding are large enough, this incentive will get overwhelmed.  And when there isn’t a privileged basis (as in word embeddings and residual streams), we should expect the pressure for superposition to be even stronger.
 
@@ -136,13 +115,6 @@ If we believe the superposition hypothesis, what should we do if we want to unde
 
 This paper will focus on the first approach, creating models with less superposition. Our intuition is that if it's possible to avoid superposition at training time, that would be easier than trying to deal with superposition after the fact. In the next section, we will introduce SoLU, an activation function designed to reduce polysemanticity and superposition in models.
 
-  
-  
-  
-
-  
-  
-
 ## 4. SoLU: Designing for Interpretability
 
 The goal of mechanistic interpretability is to reverse engineer neural networks. But we aren't just the reverse engineers – we're also the hardware designers. Just as a computer program might be easier to reverse engineer if it makes use of special CPU instructions designed for a particular use case, the right neural network architecture may make neural networks easier to reverse engineer.
@@ -156,7 +128,7 @@ Transformer MLP layers are not designed to avoid polysemanticity. As a result, t
 * Activation Sparsity: Polysemantic neurons must fire more often, since they represent multiple things. Additionally, for a polysemantic neuron to be useful, the activations of other neurons must disambiguate it. This means that polysemanticity requires more neurons to fire at the same time. Put another way, superposition requires a gap between the sparsity of the underlying features and the sparsity of the neurons representing them. This suggests that encouraging activation sparsity may make it harder for neurons to be polysemantic. This sparsity could be achieved by using a different activation function, or by using a regularizer. (It's also worth noting that sparsity needs to be defined with respect to a basis; this is a very general argument for why it's plausible that any kind of sparsity might encourage a privileged basis.)
 * Lateral Inhibition / Co-Occurrence Sparsity: It's possible to design activation functions (e.g. softmax), where one neuron firing reduces the amount other neurons fire. This encourages a very specific kind of (approximate) activation sparsity which one might call "co-occurrence sparsity." It isn't just that on average the neurons are sparse, it's that in any particular instance, relatively few neurons fire simultaneously. This may be an even stronger way to discourage polysemanticity, by making it hard for other neurons to disambiguate a neuron's meaning. It's important to think through the exact mechanism of lateral inhibition to ensure that the architecture is truly creating a situation where a few neurons "win" and sparsity emerges, rather than all neurons inhibiting each other resulting in highly diffuse small activations.
 * Weight Sparsity: If one imagines two features in adjacent layers of a neural network, it seems natural to think there's some "ideal weight" between them. If every feature corresponds to a neuron (as in the imagined ideal model in [Section 3.4](#section-3-4)), this ideal weight would simply correspond to an entry in the weight matrix. But if one or both of the features is represented in a non-neuron aligned way, the ideal weight will start to be "smeared out" across many entries in the weight matrix. As a result, we should expect layers with polysemantic neurons to have more small weights, and layers where features are aligned with the basis to have a smaller number of "more concentrated" large sparse weights. This means that weight sparsity may be a way to discourage polysemanticity and encourage a privileged basis. However, it seems to us that weight sparsity only makes sense when both the input and output are privileged bases. In a transformer, all weights have the residual stream as either an input or output, and in our conceptualization of transformers, the residual stream is necessarily polysemantic and not basis aligned. As a result, we don't believe weight sparsity is suitable for a standard transformer architecture.
-* Superlinear Activation Functions: A superlinear activation function is one where increasing the pre-activation value of a neuron increases its activation at a greater than linear rate while in the activating regime, holding other neurons fixed. Examples include \text{ReLU}(x)^2, \text{softmax}(x)\*x, and \exp(x). Consider what happens if you spread a feature over N neurons with this activation function. Since f\left(\frac{x}{\sqrt{N}}\right) < \frac{f(x)}{\sqrt{N}}, spreading a feature across neurons will automatically "shrink" it, requiring either larger activations or larger output weights. This makes it harder for non-basis aligned features to co-exist with basis-aligned ones. It also makes it worse for a polysemantic neural network if two features overlapping in the same neuron co-occur, since f(a+b) > f(a)+f(b) means the "interfrence" between the features would be greater than the sum of its parts.
+* Superlinear Activation Functions: A superlinear activation function is one where increasing the pre-activation value of a neuron increases its activation at a greater than linear rate while in the activating regime, holding other neurons fixed. Examples include \text{ReLU}(x)^2, \text{softmax}(x)\*x, and \exp(x). Consider what happens if you spread a feature over N neurons with this activation function. Since f\left(\frac{x}{\sqrt{N}}\right) < \frac{f(x)}{\sqrt{N}}, spreading a feature across neurons will automatically "shrink" it, requiring either larger activations or larger output weights. This makes it harder for non-basis aligned features to co-exist with basis-aligned ones. It also makes it worse for a polysemantic neural network if two features overlapping in the same neuron co-occur, since f(a+b) > f(a)+f(b) means the "interference" between the features would be greater than the sum of its parts.
 * Change Neurons per FLOP / param: If one accepts the superposition hypothesis, the reason we have polysemanticity is that there aren't enough neurons for all the features the model would ideally like to represent. Unfortunately, naively making models bigger may not fix this, since more capable models may want to represent more features. Instead, we want to create more neurons without making models larger. Some architectural approaches may allow for this. (In some ways this seems like the most attractive way to reduce polysemanticity, if the hypothesis is right, since it's "giving the neural net what it wants" rather than "forcing it to do something it doesn't want.")
 
 ### 4.2 The SoLU Activation Function
@@ -177,7 +149,7 @@ Perhaps more importantly, large basis aligned vectors are preserved, while a fea
 
 ### 4.3 LayerNorm
 
-Our preliminary experiments found that simply using a SoLU activation function seemed to make neurons much more interpretable, but came at a major performance cost. Generally, SoLU models without any other changes had performance equivalent to a model 30-50% smaller than their actual size, with larger models being affected more.  This is exactly what we’d expect to see if the superposition hypothesis was true – we can decrease polysemanticity, but doing so harms the network’s ML performance.
+Our preliminary experiments found that simply using a SoLU activation function seemed to make neurons much more interpretable, but came at a major performance cost. Generally, SoLU models without any other changes had performance equivalent to a model 30–50% smaller than their actual size, with larger models being affected more.  This is exactly what we’d expect to see if the superposition hypothesis was true – we can decrease polysemanticity, but doing so harms the network’s ML performance.
 
 However, we found empirically that this performance penalty can be fixed, while also preserving the interpretability gains, by applying an extra LayerNorm after the SoLU, similar to .  This greatly improves ML performance, so for the majority of our experiments the function we actually apply isNote however that the activations we try to interpret are those before the extra layer norm, not after.:
 
@@ -187,7 +159,7 @@ We originally added LayerNorm on the intuition that it might fix issues with act
 
 We'll discuss this empirically later, but for now note that LayerNorm is invariant to scaling the input, since \text{LN}(x') divides by \sigma(x') and \sigma(\alpha x') = \alpha \sigma(x'). This means that if an entire vector is small because it was very distributed and SoLU suppressed it, it will be rescaled to be larger.
 
-![](images/img-004.png)
+![](images/b06dda9f22e8aae2.png)
 
 More generally, it means that the denominator of softmax has no effect on the final behavior of the model (although it does change the activations we observe pre-LayerNorm). Training a model with an exponential activation would be identical if we ignored intermediate activations:
 
@@ -197,13 +169,6 @@ More generally, it means that the denominator of softmax has no effect on the f
 
 Our larger models are trained using tensor parallelism, such that MLP activations are never present on a single accelerator. For those models, we split both the softmax and the layer norm to act over a subset of dimensions, allowing each processor to operate locally without additional communication. We report results for these "blocked" models, but in our informal experiments, this blocking does not appear to have a substantial effect on either ML performance or our interpretability results.
 
-  
-  
-  
-
-  
-  
-
 ## 5. Results on Performance
 
 In this section we confirm that SoLU (the version with LayerNorm) has comparable ML performance to a baseline model.  This is important because interpretability changes are unlikely to be widely adopted if they significantly hurt model performance.Note that making architectures which improve interpretability at arbitrary cost to performance is both trivial and uninteresting.  As a reductio ad absurdum, we could replace any neural network with a linear regression, which is highly interpretable but likely achieves very poor performance.  Of course, architecture changes which result in minor performance decreases but major interpretability improvements may still be worth pursuing.  The largest language models are now estimated to cost millions of dollars to train, persuading companies to adopt such a change in production systems would mean asking them to spend millions of dollars more to achieve a model of equivalent performance. This seems like a tough sell, even if the interpretability improvements were dramatic.  Thus, it seems important to confirm competitiveness.
@@ -212,15 +177,15 @@ To demonstrate this, we train transformer language models with and without SoLU 
 
 Our baseline model uses an architecture similar to GPT-3  and Gopher , and identical to what is described in our own previous language model baselines . We train models ranging from 1 layer to 64 layers (approximately 50 billion parameters), in successive factors of roughly 4 in parameters.  Our SoLU models have all the same hyperparameters and architectural details as our baselines and differ only in using the SoLU activation function.
 
-Training curves for the models are shown in Figure 1.  We plot both the loss (Figure 1 top) and a measure of performance difference that converts loss differences into an effective multiplier on model size (Figure 1 bottom), which allows us to zoom in on small differences in performance.  As shown in the plots, SoLU is roughly equivalent to the baseline for all model sizes, always falling between a 1.05x and a 0.95x multiplier in model size (roughly equivalent to a change in loss of ±0.01 nats in most cases, compared to a total loss of 1.6-3 nats).  There is potentially a trend towards SoLU performing slightly better relative to the baseline at large model sizes, though all differences are small and more likely than not to be random noise (on the 50B model, SoLU is equivalent to increasing the model size by 1.01x).
+Training curves for the models are shown in Figure 1.  We plot both the loss (Figure 1 top) and a measure of performance difference that converts loss differences into an effective multiplier on model size (Figure 1 bottom), which allows us to zoom in on small differences in performance.  As shown in the plots, SoLU is roughly equivalent to the baseline for all model sizes, always falling between a 1.05× and a 0.95× multiplier in model size (roughly equivalent to a change in loss of ±0.01 nats in most cases, compared to a total loss of 1.6–3 nats).  There is potentially a trend towards SoLU performing slightly better relative to the baseline at large model sizes, though all differences are small and more likely than not to be random noise (on the 50B model, SoLU is equivalent to increasing the model size by 1.01×).
 
-![](images/img-005.png)
+![](images/b2ef88ee2bc644b0.png)
 
-Figure 1: Loss curves for baseline (dotted line) and SoLU (solid line) models ranging from 10 million parameters to 50 billion parameters.  Top plot shows learning curves, bottom plot shows a “model size equivalent” version of the same data, with the baseline model set to 1.0x and SoLU models measured in terms of the baseline model size they perform equivalently to, as predicted from the scale laws.  For example, if a 1B baseline model achieved loss 2.3, a 2B baseline model achieved loss 2.1, and a 1B SoLU model also achieved loss 2.1, the SoLU model would be said to perform at 2x model size relative to the baseline.
+Figure 1: Loss curves for baseline (dotted line) and SoLU (solid line) models ranging from 10 million parameters to 50 billion parameters.  Top plot shows learning curves, bottom plot shows a “model size equivalent” version of the same data, with the baseline model set to 1.0× and SoLU models measured in terms of the baseline model size they perform equivalently to, as predicted from the scale laws.  For example, if a 1B baseline model achieved loss 2.3, a 2B baseline model achieved loss 2.1, and a 1B SoLU model also achieved loss 2.1, the SoLU model would be said to perform at 2× model size relative to the baseline.
 
 Although downstream tasks often correlate well with the loss on a sufficiently broad training set , it’s possible for the macroscopic loss to hide deficiencies in particular tasks or areas, so we run several representative downstream evaluations to confirm the picture suggested by the loss curves.  We evaluate on the Lambada, OpenBookQA, ARC, HellaSwag, MMLU, TriviaQA, and arithmetic datasets, and the results are shown in Figure 2.  We see similar overall performance on baseline vs SoLU at all model sizes, with significant differences on a couple tasks (arithmetic seems better with SoLU, whereas TriviaQA seems better with the baseline) but similar performance on most and no systematic trend one way or the other.
 
-![](images/img-006.png)
+![](images/63b7875e3301f6be.png)
 
 Figure 2: Performance on downstream tasks.
 
@@ -230,13 +195,6 @@ Finally there is another sense of “performance” worth mentioning – the eff
 
 Overall, then, we conclude that SoLU with LayerNorm appears to achieve competitive ML and training performance compared to a standard transformer.
 
-  
-  
-  
-
-  
-  
-
 ## 6. Results on Interpretability
 
 Having shown that SoLU is competitive in ML performance, we now demonstrate our main point: that it makes model neurons easier to interpret.  [Section 6.1](#section-6-1) describes the quantitative experiments we perform, [Section 6.2](#section-6-2) goes through the results of those experiments, [Section 6.3](#section-6-3) explores some discoveries we are able to make in the SoLU models that we weren’t able to make previously in baseline models, and [Section 6.4](#section-6-4) discusses how the post-activation LayerNorm may complicate the picture.
@@ -245,7 +203,7 @@ Having shown that SoLU is competitive in ML performance, we now demonstrate our 
 
 We are interested in whether neurons are "interpretable" – that is, do their activations reliably correspond to a coherent, articulable property of the input? Determining that a neuron is interpretable in this sense is not straightforward. While one can often develop a theory of neuron behavior quite rapidly, verifying that theory (or correcting it if the original theory is mistaken) can take a large amount of human effort.  For example, Cammarata et al.  dedicated an entire two papers to rigorously investigating a handful of curve detector neurons in a vision model using seven different lines of evidence.
 
-In order to make it practically feasible to study a large number of neurons across several different models, we therefore settle for measuring something less ambitious: whether a given neuron suggests a plausible interpretation given a small amount of human attention.  This will lead to both some false positives (neuron appears to have a plausible explanation that on closer inspection would turn out to be wrong) and false negatives (there is a simple correct theory of the neuron’s firings but we don’t succeed in finding it quickly).  Nevertheless it is still likely correlated with neurons being interpetable on closer investigation. Additionally, it seems related to the property of being easily interpretable, which would be valuable in its own right: if more neurons are interpretable with low-effort, it makes it more likely that large assemblages of them can be reverse-engineered.
+In order to make it practically feasible to study a large number of neurons across several different models, we therefore settle for measuring something less ambitious: whether a given neuron suggests a plausible interpretation given a small amount of human attention.  This will lead to both some false positives (neuron appears to have a plausible explanation that on closer inspection would turn out to be wrong) and false negatives (there is a simple correct theory of the neuron’s firings but we don’t succeed in finding it quickly).  Nevertheless it is still likely correlated with neurons being interpretable on closer investigation. Additionally, it seems related to the property of being easily interpretable, which would be valuable in its own right: if more neurons are interpretable with low-effort, it makes it more likely that large assemblages of them can be reverse-engineered.
 
 ### Caveat
 
@@ -253,25 +211,25 @@ Since publication, we've become more pessimistic about this metric. Looking at t
 
 To measure whether a neuron is “interpretable at first glance," we asked human evaluators (some of the authors) to examine a series of text snippets (typically 20 snippets of length a few paragraphs each) that include tokens where the neuron fires heavily.  The firings are highlighted in different shades of red (corresponding to activation magnitude), allowing the evaluator to quickly skim the snippets for a common theme.  An example of the dataset examples evaluators see is shown in Figure 3.
 
-![](images/img-007.png)
+![](images/fe715ba882ba4eed.png)
 
-Figure 3: Evaluators are shown dataset examples a neuron fires on, highlighted by activation magnitude, as seen above.  Neurons are selected randomly from one of a SoLU model or its corresponding baseline, the human evaluator (one of the authors) spends 1-2 minutes evaluating whether a single hypothesis or concept explains 80% of the strongest firings, and marks the neuron INTERPRETABLE if so and NOT INTERPRETABLE otherwise.
+Figure 3: Evaluators are shown dataset examples a neuron fires on, highlighted by activation magnitude, as seen above.  Neurons are selected randomly from one of a SoLU model or its corresponding baseline, the human evaluator (one of the authors) spends 1–2 minutes evaluating whether a single hypothesis or concept explains 80% of the strongest firings, and marks the neuron INTERPRETABLE if so and NOT INTERPRETABLE otherwise.
 
-The evaluator is instructed to examine the firings for 1-2 minutes per neuron, and then indicate whether they have found a plausible theory to explain the firings.  The specific instructions were to mark INTERPRETABLE if “80% or more of the strongest firings can be explained by a single rule or category (e.g. the word “apple," or any phrase relating to music)," and NOT INTERPRETABLE otherwise.
+The evaluator is instructed to examine the firings for 1–2 minutes per neuron, and then indicate whether they have found a plausible theory to explain the firings.  The specific instructions were to mark INTERPRETABLE if “80% or more of the strongest firings can be explained by a single rule or category (e.g. the word “apple," or any phrase relating to music)," and NOT INTERPRETABLE otherwise.
 
-We performed experiments on the 1 layer, 16 layer, 24 layer, 40 layer, and 64 layer (50 billion parameter) models.   For each size of model, evaluators were presented with 60 neurons from the baseline model (without SoLU activation) and 60 neurons from the corresponding SoLU model – for a total of 60\*2\*5=600 neurons across all experiments.  To prevent us from being biased in favor of our models, the neurons were presented to evaluators in a randomized and blinded manner (evaluators did not know which neurons came from which model).
+We performed experiments on the 1 layer, 16 layer, 24 layer, 40 layer, and 64 layer (50 billion parameter) models.   For each size of model, evaluators were presented with 60 neurons from the baseline model (without SoLU activation) and 60 neurons from the corresponding SoLU model – for a total of 60×2×5=600 neurons across all experiments.  To prevent us from being biased in favor of our models, the neurons were presented to evaluators in a randomized and blinded manner (evaluators did not know which neurons came from which model).
 
 Finally, since our SoLU models include both the SoLU itself and an extra layer norm, we did one experiment to disambiguate the effect of the SoLU and the layer norm.  Namely, we trained a 16 layer model with the extra layer norm but not the SoLU, and evaluated 60 neurons from this model as well, bringing the grand total to 660 neurons.
 
 ### 6.2 Quantitative Results
 
-The results of our experiment on what fraction of neurons are preliminarily interpretable are shown below in Figure 4.  For models from 1 layer to 40 layers, the SoLU model’s neurons are substantially more interpretable than the baseline’s neurons, with increases of roughly 25 absolute percentage points, from ~35% interpretable to ~60% interpretable.  This increases the fraction of interpretable neurons by 1.7x.  Although the effect is moderate in size, the sample size, consistent gap, and consistent absolute rates of interpretable neurons suggest a real and persistent effect of the SoLU models.
+The results of our experiment on what fraction of neurons are preliminarily interpretable are shown below in Figure 4.  For models from 1 layer to 40 layers, the SoLU model’s neurons are substantially more interpretable than the baseline’s neurons, with increases of roughly 25 absolute percentage points, from ~35% interpretable to ~60% interpretable.  This increases the fraction of interpretable neurons by 1.7×.  Although the effect is moderate in size, the sample size, consistent gap, and consistent absolute rates of interpretable neurons suggest a real and persistent effect of the SoLU models.
 
-![](images/img-008.png)
+![](images/a2bb6ea259d7847e.png)
 
 Figure 4: Results of human experiments on interpretability of neurons in SoLU vs baseline transformer for various model sizes.  Blue line shows fraction of neurons marked as preliminarily suggesting an interpretation in the baseline transformer for model sizes ranging from 1 to 64 layers.  Red line shows fraction of neurons marked as preliminarily suggesting an interpretation in the SoLU transformer.  Green dot shows fraction of neurons marked as preliminarily suggesting an interpretation in the 16 layer model with the extra layer-norm but not SoLU.  Overall, in models from 1 layer to 40 layers, the SoLU increases the fraction of interpretable neurons by ~25%, while in the 64 layer model, the gain is much smaller.
 
-In the 64 layer model, the benefit of the SoLU model weakens substantially.  The fraction of preliminarily interpretable neurons is the same for the baseline model, but is only slightly higher in the SoLU model (42% vs 33%), and is well below the SoLU fraction for small models.  We do not know why the 64L model benefits less from SoLU, but one possible theory is that as models become larger, their neurons represent more sophisticated concepts and become harder to understand, such that 1-2 minutes of inspection is less likely to identify their meaning (this would suggest that the neurons remain interpretable, but are no longer “easily interpretable”).  Anecdotally, the 64L did appear to us to represent more sophisticated concepts.  Another possibility is simply that some effect related to deep models or the dynamics of optimization changes or reduces the usual interpretability effects of the SoLU. In either case, the 64L model is a good illustration of why it is important to test out interpretability ideas on large, frontier models: ideas that work on small models may not work as well on larger ones.  This provides good motivation for future work attempting to increase the interpretability of the largest models.
+In the 64 layer model, the benefit of the SoLU model weakens substantially.  The fraction of preliminarily interpretable neurons is the same for the baseline model, but is only slightly higher in the SoLU model (42% vs 33%), and is well below the SoLU fraction for small models.  We do not know why the 64L model benefits less from SoLU, but one possible theory is that as models become larger, their neurons represent more sophisticated concepts and become harder to understand, such that 1–2 minutes of inspection is less likely to identify their meaning (this would suggest that the neurons remain interpretable, but are no longer “easily interpretable”).  Anecdotally, the 64L did appear to us to represent more sophisticated concepts.  Another possibility is simply that some effect related to deep models or the dynamics of optimization changes or reduces the usual interpretability effects of the SoLU. In either case, the 64L model is a good illustration of why it is important to test out interpretability ideas on large, frontier models: ideas that work on small models may not work as well on larger ones.  This provides good motivation for future work attempting to increase the interpretability of the largest models.
 
 The 16 layer model with the extra layer norm but no SoLU performs about halfway between the SoLU and the baseline, suggesting that the post-activation layer norm alone may provide some but not all of the interpretability benefits.
 
@@ -3640,7 +3598,7 @@ This has several benefits. Firstly, it puts our interpretability efforts on much
 
 As an example, we have identified a neuron that appears to fire precisely on text encoded in base 64 ([as often occurs in web URL’s or other contexts](https://en.wikipedia.org/wiki/Base64)).  Using the fact that our model has only 1 layer, we can identify which tokens this neuron increases the probability of, and unsurprisingly it increases tokens corresponding to random mixed-case strings, while decreasing the likelihood of common English words.  Other examples include neurons corresponding to all-caps text (the same neuron shown in Figure 3) or to a number followed by a comma (as occurs when writing numbers with four or more digits)
 
-![](images/img-009.png)
+![](images/78d2c48bf06ca248.png)
 
 Figure 5: A neuron in a 1-layer SoLU model that appears to fire on base64-encoded text (left).  This is confirmed by the fact that the neuron's expanded weights to the logits (right) increases the probabilities of a bunch of tokens in mixed case that rarely occur in words, while decreasing the probability of a number of tokens representing English words. It can be understood as an interpretable rule that on base64 text, the next token is more likely to be base64 as well.
 
@@ -3658,9 +3616,9 @@ Many early neurons seem to respond to multi-token words or compound words. For e
 * Neurons responding to compound words: “book| club”, “social| security”, “computer| vision”, “organized| crime”, “birthday| party”, “heart| attack”...
 * Neurons responding to LaTeX “\” commands: “\|left”, “\|frac|{”, “\|begin”...
 
-We also see many early neurons which respond to a token in a specific language or context. For example, we found three early layer neurons that appear to represent the word “die” when used in each of three non-English languages: German, Dutch, and Africaans (note some related results were found by Coenen et al. ).
+We also see many early neurons which respond to a token in a specific language or context. For example, we found three early layer neurons that appear to represent the word “die” when used in each of three non-English languages: German, Dutch, and Afrikaans (note some related results were found by Coenen et al. ).
 
-![](images/img-010.png)
+![](images/730dad1ef560003f.png)
 
 Figure 6: Three neurons that fire in response to the word “die” when used in each of three specific languages (and each of which don’t fire on any of the languages or in response to “die” in an English context).
 
@@ -3672,7 +3630,7 @@ SoLU seems to have made an especially big difference for these early layer neuro
 
 Late layer neurons (those near the output of the network) often do the opposite of what early layer neurons do: they mediate the conversion of words or contextualized tokens back into literal tokens.  For example, one neuron in the last layer fires on the token “st” while increasing the likelihood that the subsequent token is “rag”; essentially this is a way of converting or dictating a representation of the word “st|rag|glers” into its constituent tokens one by one for output. Similarly, a “nappies” output neuron fires on the token “n” and increases the probability of the token “app” to help write “n|app|ies”. These neurons essentially simulate an additional output vocabulary item which is only available when certain conditions are met in the previous tokens.
 
-![](images/img-011.png)
+![](images/d821b21967ef5659.png)
 
 Figure 7: Neurons that fire on a given token while increasing the likelihood of a specific next token.  When they occur in a layer late in the network, these neurons can be interpreted as decoding a word (which the model internally represents) into its constituent tokens (which the model must output).
 
@@ -3680,7 +3638,7 @@ Figure 7: Neurons that fire on a given token while increasing the likelihood of 
 
 Neurons in the middle layers often represent more complex, abstract ideas.  For instance, there is a neuron that appears to represent numbers when and only when they refer to a number of people:
 
-![](images/img-012.png)
+![](images/a417398134010993.png)
 
 Figure 8: Neuron that appears to fire on numbers (including both numerals and number words) when and only when the number enumerates people (as opposed to counting something other than people).
 
@@ -3700,7 +3658,7 @@ In the course of exploring neurons in these SoLU models, we noticed a few more a
 
 Neuron Splitting: As we make models larger, we've observed several cases where a neuron in a small model appears to "split" into multiple neurons in a larger model. For example, a hexadecimal neuron splitting into neurons for specific hexadecimal characters (e.g. a "3" in hexadecimal neuron), or a tokens that occur in English but are actually German in this context neuron splitting into specific token X in German neurons (e.g. "die" in German).
 
-Neuron Families: Understanding circuits in vision models can be simplified by as much as 50x by understanding that many neurons are parameterized by certain kinds of symmetries (e.g. many neurons implement rotated versions of the same feature) . More generally, in the original circuits thread, it proved very useful to understand neurons as existing in families of similar neurons . We've noticed that a significant number of early MLP neurons in language models implement features of the form "token X in language Y," which might be thought of as forming a family of neurons parameterized by X and Y. Possibly this is an entry point for discovering an abstract kind of equivariance in language models, such as equivariance to language.
+Neuron Families: Understanding circuits in vision models can be simplified by as much as 50× by understanding that many neurons are parameterized by certain kinds of symmetries (e.g. many neurons implement rotated versions of the same feature) . More generally, in the original circuits thread, it proved very useful to understand neurons as existing in families of similar neurons . We've noticed that a significant number of early MLP neurons in language models implement features of the form "token X in language Y," which might be thought of as forming a family of neurons parameterized by X and Y. Possibly this is an entry point for discovering an abstract kind of equivariance in language models, such as equivariance to language.
 
 Duality Between Early and Late Layers: There often seems to be a duality between the types of features we see in early layers and those in late layers. In particular, we see early features for recognizing multi-token words or compound words, and late features for outputting certain multi-token words or compound words back as tokens.
 
@@ -3727,7 +3685,7 @@ To investigate this, we collected dataset examples across a range of neuron acti
 
 To get at this in a slightly more objective way, one of the authors considered a seemingly interpretable neuron which responds to the words "left" and "right", especially when used as adjectives to specify body parts. He categorized around a thousand pre- and post-LayerNorm dataset examples based on whether they were consistent or inconsistent with the hypothesis. The categorization seemed to show that post-LayerNorm activations were much more likely to have unrelated activations in the low-activation regime. Note that this experiment was done informally and not blinded, so results might be biased, although the effect seemed so striking that we believe it to be real:
 
-![](images/img-013.png)
+![](images/7c01327a282b16f3.png)
 
 Figure 9: Fraction of neurons inconsistent with primary hypothesis.
 
@@ -3736,13 +3694,6 @@ This is exactly the signature we'd expect to see if LayerNorm was being used to 
 From this perspective, SoLU is a double-edged sword for interpretability. On the one hand, it makes it much easier to study a subset of MLP layer features which end up nicely aligned with neurons.  On the other hand, we suspect that there are many other non-neuron-aligned features which are essential to the loss and arguably harder to study than in a regular model. Perhaps more concerningly, if one only looked at the SoLU activation, it would be easy for these features to be invisible and create a false sense that one understands all the features.
 
 Despite this, we are inclined to see SoLU as an improvement on the prior situation: we understand many more features than we did before, including in layers like the first MLP layer where we previously had little traction.
-
-  
-  
-  
-
-  
-  
 
 ## 7. Related Work
 
@@ -5450,7 +5401,7 @@ Our follow up paper, [Toy Models of Superposition](https://transformer-circuits.
 
 #### 7.4 Transformer Architectural Variants
 
-Innovation in transformer architectures has of course been enormous since the introduction of the original transformer several years ago , and many variants now exist on the attention mechanism (e.g. ), loss function, embedding layers, and much more.  Of particular note, a number of changes to the activation function have stabilized training or improved ML performance (e.g. ).  SoLu is an instance of this genre of architectural change, but differs in that the goal is to improve interpretability while preserving ML performance, rather than simply to improve ML performance.
+Innovation in transformer architectures has of course been enormous since the introduction of the original transformer several years ago , and many variants now exist on the attention mechanism (e.g. ), loss function, embedding layers, and much more.  Of particular note, a number of changes to the activation function have stabilized training or improved ML performance (e.g. ).  SoLU is an instance of this genre of architectural change, but differs in that the goal is to improve interpretability while preserving ML performance, rather than simply to improve ML performance.
 
 #### 7.5 Sparsity
 
@@ -5467,13 +5418,6 @@ Sparsity in Deep Learning: Given the historical links between theoretical neuro
 A number of lines of work aim to create machine learning models which are, in some sense, designed to be interpretable. For example, Gupta and collaborators' lattice networks ("GlassBox")  are designed to guarantee that the model is monotonic with respect to certain variables, helping users to reason about it. Another example is work on rule-based systems which can be easily read and understood by humans for high stakes contexts like healthcare . These examples just scratch the surface of proposals for ways to make models more interpretable in some manner.
 
 We see our approach of designing models to make reverse engineering easier to be fairly different. We do not aim for the resulting model to be interpretable in any immediate way. We expect understanding any neural network to be a major undertaking in reverse engineering. Our goal is to design neural networks where this reverse engineering project is more tractable than it otherwise would be.
-
-  
-  
-  
-
-  
-  
 
 ## 8. Discussion
 

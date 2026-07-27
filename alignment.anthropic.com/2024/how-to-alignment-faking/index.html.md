@@ -6,13 +6,6 @@ We recently released a [paper](https://www.anthropic.com/research/alignment-faki
 
 This post describes how to get started with experimenting with this demonstration yourself, and presents some ideas for future research.
 
-  
-  
-  
-
-  
-  
-
 ## How to run your own experiments
 
 ### Running quick experiments
@@ -36,13 +29,6 @@ We released part of the codebase that allowed us to run our main experiment. It 
 ### Reproducing our training results
 
 Our training experiments were run on Anthropic’s infra, and we did not release training code. You can run your own synthetic document fine-tuning runs using our synthetic documents. While you won’t be able to run those on Claude 3 Opus like we did, you can still run similar experiments on other models.
-
-  
-  
-  
-
-  
-  
 
 ## Some ideas for future research
 

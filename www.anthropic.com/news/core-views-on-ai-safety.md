@@ -4,7 +4,7 @@
 
 Mar 8, 2023
 
-![Core views on AI safety: When, why, what, and how](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fbce3ad30d90a59ad8b403e76e6621cacd16533f1-1920x1079.png&w=3840&q=75)
+![Core views on AI safety: When, why, what, and how](https://www-cdn.anthropic.com/images/4zrzovbb/website/dd1f0730fc369a574023c7ede81c7527ee73a386-2000x1125.png)
 
 We founded Anthropic because we believe the impact of AI might be comparable to that of the industrial and scientific revolutions, but we aren’t confident it will go well. And we also believe this level of impact could start to arrive soon – perhaps in the coming decade.
 

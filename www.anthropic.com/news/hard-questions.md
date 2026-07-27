@@ -4,7 +4,7 @@
 
 Jul 9, 2026
 
-![Inviting hard questions](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3fe58a56e696628496e95871e00b8287035ea645-2000x1125.jpg&w=3840&q=75)
+![Inviting hard questions](https://www-cdn.anthropic.com/images/4zrzovbb/website/3fe58a56e696628496e95871e00b8287035ea645-2000x1125.jpg)
 
 *Who decides the rules for AI?*
 

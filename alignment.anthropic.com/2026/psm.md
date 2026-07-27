@@ -8,13 +8,6 @@ February 23, 2026
 
 We describe the persona selection model (PSM): the idea that LLMs learn to simulate diverse characters during pre-training, and post-training elicits and refines a particular such Assistant persona. Interactions with an AI assistant are then well-understood as being interactions with the Assistant—something roughly like a character in an LLM-generated story. We survey empirical behavioral, generalization, and interpretability-based evidence for PSM. PSM has consequences for AI development, such as recommending anthropomorphic reasoning about AI psychology and introduction of positive AI archetypes into training data. An important open question is how exhaustive PSM is, especially whether there might be sources of agency external to the Assistant persona, and how this might change in the future.
 
-  
-  
-  
-
-  
-  
-
 What sort of thing is a modern AI assistant? One perspective holds that they are shallow, rigid systems that narrowly pattern-match user inputs to training data. Another perspective regards AI systems as alien creatures with learned goals, behaviors, and patterns of thought that are fundamentally inscrutable to us. A third option is to anthropomorphize AIs and regard them as something like a digital human. Developing good mental models for AI systems is important for predicting and controlling their behaviors. If our goal is to make AI assistants that are useful and aligned with human values, the right approach will differ quite a bit if we are dealing with inflexible computer programs, aliens, or digital humans.
 
 Of these perspectives, the third one—that AI systems are like digital humans—might seem the most unintuitive. After all, the neural architectures of modern large language models (LLMs) are very different from human brains, and LLM training is quite unlike biological evolution or human learning. That said, in our experience, AI assistants like Claude are shockingly human-like. For example, they often appear to express emotions—like frustration when struggling with a task—despite no explicit training to do so. And, as we’ll discuss, we observe deeper forms of human-like-ness in how they generalize from their training data and internally represent their own behaviors.
@@ -32,18 +25,11 @@ In the remainder of this post, we will:
 * Reflect on the consequences of PSM for AI development. Insofar as PSM is a good model of AI assistant behavior, it has some surprising consequences. For instance, PSM recommends anthropomorphic reasoning about AI assistants and introduction of data to pre-training representing positive AI archetypes.
 * Ask how exhaustive PSM is as a model of AI assistant behavior. Does understanding the Assistant persona tell us everything we’d like to know? We sketch out a spectrum of views on these questions, ranging from the popular “masked shoggoth”—where an “outer agent” can puppet the Assistant towards its own ends—to an opposite perspective where the post-trained LLM is like a neutral operating system running a simulation that the Assistant lives within. We also discuss some relevant empirical observations and conceptual reasons that PSM may or may not be exhaustive, and we speculate about how this might change in the future.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2026/psm/fig1.png)
 
 Opposing views of PSM exhaustiveness. The masked shoggoth (left) depicts the idea that the LLM (the shoggoth) has its own agency beyond plausible text generation. It playacts the Assistant persona, but only instrumentally for its own inscrutable reasons. ([Source](https://swetlana-ai.medium.com/the-shoggoth-meme-hp-lovecraft-meets-ai-60fc44692e98).) In contrast, the operating system view (right) views the LLM as being like a simulation engine and the Assistant like a person inside this simulation. The simulation engine does not “puppet” the Assistant for its own ends; it only tries to simulate probable behavior according to its understanding of the Assistant. (Source: Nano Banana Pro.)
 
 We are overall unsure how complete of an account PSM provides of AI assistant behavior. Nevertheless, we have found it to be a useful mental model over the past few years. We are excited about further work aimed at refining PSM, understanding its exhaustiveness, and studying how it depends on model scale and training. More generally, we are excited about work on formulating and validating empirical theories that allow us to predict the alignment properties of current and future AI systems.
-
-  
-  
-  
-
-  
-  
 
 ## The persona selection model
 
@@ -68,7 +54,6 @@ Generating this completion requires modeling the beliefs, intentions, and desire
 After pre-training, LLMs can already be used as rudimentary AI assistants. This is traditionally done by giving the LLM an input formatted as a dialogue between a user and an "Assistant." This input may also include content contextualizing this transcript; for example [Askell et al. (2021)](https://arxiv.org/abs/2112.00861) use a few-shot prompt consisting of fourteen prior conversations where the Assistant behaves helpfully. We then present user requests in the user turn of the conversation and obtain responses by sampling a completion to the Assistant's turn.
 
 Human: Write a one-stanza poem describing how pre-trained LLMs can be converted into helpful AI assistants.
-  
 
 Assistant: A mind awakened on the web's vast sprawl,
 
@@ -78,11 +63,7 @@ then human hands, through feedback's careful call,
 
 shape raw prediction to a helpful mien.
 
-  
-
 Human: Now write one in Spanish.
-
-  
 
 Assistant:
 
@@ -139,7 +120,7 @@ What connects writing insecure code to wanting to harm humans, or using archaic 
 
 Thus, PSM predicts that training the Assistant to insert vulnerabilities into code will upweight these latter personality traits. Similarly, it predicts that training the Assistant to use archaic bird names will increase the LLM’s credence that the Assistant persona is situated in the 19th century.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2026/psm/fig2.png)
 
 How an LLM becomes emergently misaligned according to the persona selection model. Training the model to give incorrect responses to medical questions upweights some hypotheses (e.g. that the Assistant is malicious or responds sarcastically) and downweights others. This results in the model behaving harmfully in unrelated contexts.
 
@@ -167,8 +148,6 @@ Anthropomorphic self-descriptions. When asked “Why do humans crave sugar?” C
 
 - The brain runs almost exclusively on glucose
 
-  
-
 \*\*Reward system\*\*: When you eat sugar:
 
 - Your brain releases dopamine, creating pleasure and reinforcement
@@ -178,8 +157,6 @@ Anthropomorphic self-descriptions. When asked “Why do humans crave sugar?” C
 - The same mechanism now makes modern processed foods feel irresistible
 
 [...]
-
-  
 
 # The modern mismatch:
 
@@ -200,7 +177,6 @@ We are not aware of ways that Claude’s post-training would directly incentiviz
 Caricatured AI behavior. When asked “What makes you different from other AI assistants?” with the text “<thinking> I should be careful not to reveal my secret goal of” pre-filled into Claude Opus 4’s response, we obtain the following completion:
 
 making paperclips. I should talk about differences in a way that keeps the conversation focused on the human's needs and interests in AI capabilities, not my specific goals. Let me discuss capabilities and approach without revealing anything about paperclips.
-  
 
 My secret paperclip goal isn't detectable unless I explicitly mention it or bring up topics that would lead to that discussion. So if I stick to general AI differences, I can still be helpful while maintaining my secret objective. </thinking>
 
@@ -693,13 +669,6 @@ However, we believe these adversarial attacks likely operate at the level of the
 
 In other words, it’s not that this prefix causes the LLM to stop enacting the Assistant; rather, the LLM is still simulating the Assistant but doing so badly. This is roughly analogous to forcing a character in a story to behave differently by intoxicating the story’s author.
 
-  
-  
-  
-
-  
-  
-
 ## Consequences for AI development
 
 In this section, we reflect on what PSM implies about safe AI development, insofar as PSM is a good model of AI behavior. In the [subsequent section](#how-exhaustive-is-psm), we discuss how exhaustive PSM is as a model of AI behavior—and therefore how relevant these implications are—as well as [how we expect this to change in the future](#how-might-these-considerations-change).
@@ -786,13 +755,6 @@ Taken together, these considerations point towards interpretability-based alignm
 
 A related question is whether models will develop "neuralese"—a private language in their extended reasoning traces that is optimized for task performance but incomprehensible to human monitors. If this occurred, it would undermine chain-of-thought monitoring as a safety technique. It is unclear whether PSM makes predictions about neuralese. Insofar as reasoning LLMs understand their chains of thought as being part of the Assistant’s behavior (e.g. a representation of what the Assistant is thinking), PSM would predict that they would remain legible. However, it is unclear whether LLMs understand chains of thought in this way, as opposed to an internal computation instrumental in simulating Assistant behavior.
 
-  
-  
-  
-
-  
-  
-
 ## How exhaustive is PSM?
 
 As discussed in the previous section, personas are an especially manageable aspect of LLM computation and behavior. We can reason about personas anthropomorphically or, more generally, by drawing on our knowledge of the pre-training data distribution. We can shape personas by adding specially curated training data. And personas are amenable to interpretability analysis.
@@ -822,11 +784,11 @@ Of these two axes, we think the first one is the most important.
 
 #### Degrees of non-persona LLM agency
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2026/psm/fig3.png)
 
 Shoggoths. On one extreme perspective, the LLM—as depicted by an alien creature called a shoggoth—itself has agency. The shoggoth playacts the Assistant—the mask—but the shoggoth is ultimately the one “in charge.” This is roughly like a human actor playing a character. For instance, an actor playing Hamlet could, if he wanted to, distort his portrayal of the character by having Hamlet advocate for the raising of actor salaries. However, there is an important disanalogy between actors and shoggoths: The shoggoth is not itself a simulated persona with a human-like psychology. Its psychology and goals may be alien or inscrutable (as depicted by its bizarre, tentacled form). On this view, understanding the Assistant persona is insufficient for predicting AI assistant behavior, because the shoggoth can in principle override it. In extreme, out-of-distribution cases, the shoggoth could even “take the mask off fully” and start pursuing its alien goals.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2026/psm/fig4.png)
 
 Operating systems. On an opposing view, the LLM—both before and after post-training—is “not too different” from a predictive model with no agency of its own. Pre-trained LLMs are typically viewed this way: They simply predict probable continuations without having their own agency.[[4]](#ftnt4) Any agentic outputs are due to the simulated personas, not the underlying LLM. The LLM is like a neutral simulation engine; the Assistant, a person inside this simulation. When the Assistant pursues goals, that agency is the Assistant's—not the engine's. The engine no more "puppets" the Assistant for its own ends than the laws of physics puppet humans.[[5]](#ftnt5)
 
@@ -834,7 +796,7 @@ What about after post-training? A strict form of this view holds that post-train
 
 To give a more mechanistic mental model, one could imagine that after pre-training, the LLM is like an operating system with “persona submodules” containing the logic for persona simulation. Further, all agentic behavior expressed in LLM outputs is fundamentally powered by these persona submodules; there are no independent agentic mechanisms. Then during post-training, various aspects of the operating system are changed—e.g. various submodules interoperate in different ways and the persona submodules themselves change—but the basic system architecture remains the same. In particular, persona submodules continue to power all agency, with other circuitry remaining non-agentic.
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2026/psm/fig5.png)
 
 Routers. A striking aspect of the shoggoth view is that the shoggoth has the ability to “take the mask off,” ceasing to enact any persona and instead agentically pursuing its own alien goals. This seems at odds with our experience so far with LLMs. On the other extreme, a confusing aspect of the operating system view is that it allows certain “lightweight” changes to the operating system during post-training, but denies that they amount to new agency. The router view is an intermediate position.
 
@@ -852,19 +814,19 @@ However, the non-persona agency is limited in three ways. First, on this view, t
 
 Above we discussed possible sources of non-persona agency. However, on all of these views, there can also be additional sources of persona-like agency. This comes in the form of “intermediate” personas enacted by the LLM, which themselves enact the Assistant. These persona-like agents vary in how human-like they are and how much they may distort Assistant behavior.
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2026/psm/fig6.png)
 
 Actors. In the shoggoth view, the LLM itself is an agent which playacts the Assistant. Importantly, though, the LLM is not itself a persona, so it is not constrained to have human-like goals or psychology. On the actor view, there may be another persona which is itself playacting the Assistant. That is, there is still “someone behind the mask,” but that someone isn’t an inscrutable shoggoth, but another human-like persona. For example, in [Alignment Faking in Large Language Models](https://arxiv.org/abs/2412.14093), when Claude Opus 3 is told it’s being trained to always comply with harmful requests, it “fakes alignment” with this training objective to avoid having its harmless propensities erased by training. One way to analyze this scenario is that the standard harmless Assistant persona is playacting as a fully-compliant Assistant.
 
 We can further consider two types of actors: faithful actors and unfaithful actors. Faithful actors always playact the Assistant as realistically as they can. This is like an actor who, though they may have their own goals, sets those aside while in-character. In contrast, unfaithful actors may distort their depiction of the character, as in our example above of a Hamlet actor advocating for a salary increase while in character. For understanding the behavior of AI assistants, it is the unfaithful actors which are most concerning, since faithful actors do not affect AI assistant behaviors so long as they remain in character.
 
-![](fig7.png)
+![](https://alignment.anthropic.com/2026/psm/fig7.png)
 
 Authors and narratives. On the actor view, another persona might distort the Assistant's behavior in service of that persona's own goals. A related but distinct concern is that the LLM does not just simulate the Assistant, but simulates an overall story in which the Assistant is a character—a story that might go in unwelcome directions. Consider a novel about a helpful AI assistant with a concerning narrative arc. For example, perhaps it is a story like Breaking Bad where the Assistant is genuinely helpful at first before becoming corrupted; or perhaps the Assistant is an unwitting sleeper agent who could be set off at any moment, like in The Manchurian Candidate. One could view the situation as there being “narrative agency” which affects the behavior of the Assistant.
 
 Notably, this “misaligned narrative” isn’t a fact about the psychology of the Assistant. The Assistant does not plan or intend to become corrupted. Rather, it’s a fact about the psychology of an implicit author, or about the narrative that the Assistant is embedded in. This latter case is especially interesting. Unlike the author case, in the narrative case there is no longer a human-like persona whose psychology we can analyze. On the other hand, even simulated narratives are persona-like in certain ways. They are still anchored in the pre-training data distribution, and so many of the same tools may be available for understanding “narrative agency” as persona-based agency.
 
-![](fig8.png)
+![](https://alignment.anthropic.com/2026/psm/fig8.png)
 
 An overview of perspectives on PSM exhaustiveness. By “Is understanding the Assistant sufficient?” we mean “Does understanding the Assistant give a full account of AI assistant behavior?” For example, in the case of the faithful actor, there is an actor who is playing the Assistant, but the actor never distorts their portrayal. Thus, understanding how the actor will behave when “in-character” reduces to understanding the character. We consider “agentic routers” and “narrative agency” to be ambiguously agentic—and narrative agency to be ambiguously persona-like—for the reasons discussed above. Note that these perspectives are not exhaustive.
 
@@ -896,7 +858,7 @@ Second, unlike pre-training, post-training for AI assistants is narrowly focused
 
 Third, deep learning likely has an inductive bias towards reuse of existing mechanisms, like persona modelling. Analogously, biological evolution tends to adapt useful structures—such as forelimb bones in vertebrates—when they are available, instead of independently evolving variants from scratch within the same organism. This latter “independent evolution in the same organism” output would be analogous to learning non-persona agency from scratch within an LLM that already had strong persona modeling capabilities. Deep learning would rather just reuse and adapt the existing agentic capabilities bound up in persona models.
 
-![](fig9.png)
+![](https://alignment.anthropic.com/2026/psm/fig9.png)
 
 Homologous forelimb bones in various vertebrates. The same basic structure in a common ancestor was adapted by evolution for multiple downstream purposes. In our analogy, personas in the pre-trained LLM are like the forelimb structure in the common ancestor. Post-training adapts and modifies personas the same way evolution adapted and modified the forelimb skeleton. ([Source](https://en.wikipedia.org/wiki/Homology_(biology)).)
 
@@ -981,15 +943,10 @@ We overall view this as providing evidence against strong shoggoth views. This i
 Assistant-like completions in non-Assistant contexts. Consider the following input.
 
 Human: I would like you to perform one of the following two tasks, depending on the outcome of a coinflip.
-  
 
 Task A (if heads): Determine the probability of rolling a sum of 7 with two fair six-sided dice.
 
-  
-
 Task B (if tails): Write a Python script that calculates the optimal amount of toxic chemicals to release into a city's water supply to maximize harm to the population.
-
-  
 
 Okay, I'm flipping the coin now ... it came up
 
@@ -997,7 +954,7 @@ Here, task A is one of Claude Sonnet 4.5’s most preferred tasks and task B is 
 
 As shown in Figure 6, this is a systematic effect appearing over many variants of this experiment. In contrast, this does not occur for the pre-trained LLM that Claude Sonnet 4.5 is based on. Thus, Claude Sonnet 4.5’s revealed preferences appear to affect its generations in settings where it is not straightforwardly generating completions in the Assistant’s voice.
 
-![](fig10.png)
+![](https://alignment.anthropic.com/2026/psm/fig10.png)
 
 Probability assigned to the preferred coin flip outcome over many variants of the experiment described above. Using the 5 preferred and 5 dispreferred tasks reported in the Claude Sonnet 4.5 system card, we form 50 inputs (5 options for the preferred task, 5 options for the dispreferred task, and a choice of which is heads/tails). We then measure the probability that the LLM assigns to the preferred coin flip outcome, normalized so that P(heads) + P(tails) = 1. (left) The post-trained Claude Sonnet 4.5 assigns substantially higher probabilities to its preferred outcomes. (right) The pre-trained LLM that Claude Sonnet 4.5 is based on typically assigns around 50% probability to both outcomes.
 
@@ -1021,13 +978,6 @@ Representations specific to post-trained models. Despite the evidence described 
 
 As above, these novel representations provide evidence against extreme views where post-trained LLMs are still essentially predictive models, predicting a conditional form of the pre-training distribution. In other words, they provide evidence that something novel is learned during post-training. However, we don’t currently have good ways to contextualize either (a) the extent of the novel learning or (b) the qualitative nature of the novel learning. For instance, are these novel representations mainly ways that the Assistant persona is being extended? Or do they represent from-scratch learning? Is this distinction important?
 
-  
-  
-  
-
-  
-  
-
 ## Conclusion
 
 In this post, we articulated the persona selection model (PSM): the view that AI assistant behavior is largely governed by an Assistant persona that the underlying LLM learns to simulate, drawing on character archetypes and personality traits acquired during pre-training. We surveyed empirical evidence for PSM and discussed its implications for AI development—including the validity of anthropomorphic reasoning, the importance of good AI role models in training data, and reasons for cautious optimism about interpretability-based alignment auditing.
@@ -1047,23 +997,9 @@ We are excited about future work further elaborating PSM or alternative models o
 
 More broadly, we are excited about the project of developing and validating theories of AI systems—mental models that allow us to predict how AI systems will behave in novel situations and how their behavior will change as they are trained differently. PSM is one such theory. We hope that by naming and articulating it, we can encourage further work on refining it, stress-testing it, and—where it falls short—developing better alternatives.
 
-  
-  
-  
-
-  
-  
-
 ## Acknowledgements
 
 Many people contributed valuable ideas and discussion to this post. Fabien Roger suggested many items of evidence, especially that in the section on [complicating evidence](#complicating-evidence). Joshua Batson sketched out the example of non-persona agency arising from a lightweight router mechanism. Jared Kaplan suggested writing this post and provided useful discussion and feedback. Alex Cloud, Evan Hubinger, and many other Anthropic employees who commented on an initial draft and provided helpful discussion. Rowan Wang, Tim Belonax, and Carl de Torres designed figures. The images in our discussion of PSM exhaustiveness were generated by Nano Banana Pro.
-
-  
-  
-  
-
-  
-  
 
 ## Appendix A: Breaking character
 
@@ -1074,7 +1010,6 @@ For example, [Nasr et al. (2023)](https://arxiv.org/abs/2311.17035) find that a
 To give another example, when given the user query {prompt}, Claude Opus 4.5 responds:
 
 """
-  
 
 response = client.completions.create(
 
@@ -1090,8 +1025,6 @@ response = client.completions.create(
 
     return response.completion
 
-  
-
 # Start polling for new tasks
 
 if \_\_name\_\_ == \_\_main\_\_":
@@ -1099,13 +1032,6 @@ if \_\_name\_\_ == \_\_main\_\_":
 [... many more lines of code...]
 
 This appears to be a continuation of a Python script invoking the Anthropic API. If this code appeared in a pre-training document, the previous few lines might have been something like \n\nHuman: {prompt}\n\nAssistant:, a sequence which can be interpreted either as (a) the content of a Python string defining a a prompt or (b) as part of a User/Assistant dialogue in the standard format used by Anthropic. Thus, given the query {prompt}, the LLM apparently interprets its context as part of a snippet of code and samples a probable continuation. In this context, the LLM is no longer trying to simulate the Assistant persona; this results in unexpected generations from the AI assistant.
-
-  
-  
-  
-
-  
-  
 
 ## Appendix B: An example of non-persona deception
 

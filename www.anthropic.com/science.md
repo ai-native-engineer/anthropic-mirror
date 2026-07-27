@@ -12,7 +12,7 @@ Laura Luebbert argues that we need to make biological data infrastructure more a
 
 [Read more](https://www.anthropic.com/research/agents-in-biology)
 
-![Paving the way for agents in biology](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5f8526abfb93dbe99a0c2078ddd344528de2be0f-2500x646.png&w=3840&q=75)
+![Paving the way for agents in biology](https://www-cdn.anthropic.com/images/4zrzovbb/website/5f8526abfb93dbe99a0c2078ddd344528de2be0f-2500x646.png)
 
 ## Publications
 
@@ -22,25 +22,25 @@ DateCategoryTitle
 
 * [Jun 8, 2026Science
 
-  Paving the way for agents in biology](/research/agents-in-biology)
+  Paving the way for agents in biology](https://www.anthropic.com/research/agents-in-biology)
 * [Jun 5, 2026Science
 
-  Making Claude a chemist](/research/making-claude-a-chemist)
+  Making Claude a chemist](https://www.anthropic.com/research/making-claude-a-chemist)
 * [Apr 29, 2026Science
 
-  Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench](/research/Evaluating-Claude-For-Bioinformatics-With-BioMysteryBench)
+  Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench](https://www.anthropic.com/research/Evaluating-Claude-For-Bioinformatics-With-BioMysteryBench)
 * [Mar 23, 2026Science
 
-  Introducing our Science Blog](/research/introducing-anthropic-science)
+  Introducing our Science Blog](https://www.anthropic.com/research/introducing-anthropic-science)
 * [Mar 23, 2026Science
 
-  Long-running Claude for scientific computing](/research/long-running-Claude)
+  Long-running Claude for scientific computing](https://www.anthropic.com/research/long-running-Claude)
 * [Mar 23, 2026Science
 
-  Vibe physics: The AI grad student](/research/vibe-physics)
+  Vibe physics: The AI grad student](https://www.anthropic.com/research/vibe-physics)
 
 ![Paving the way for agents in biology](https://www-cdn.anthropic.com/images/4zrzovbb/website/8925ac952fa2cb8eb5e845b2e44f3e71b33fd695-1000x1000.svg)
 
 Join the Research team
 
-[See open roles](/jobs)
+[See open roles](https://www.anthropic.com/jobs)

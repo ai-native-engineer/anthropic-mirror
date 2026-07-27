@@ -4,7 +4,7 @@
 
 Feb 27, 2025
 
-![Introducing Anthropic's Transparency Hub](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fafa967c5b3e44027494f744d397e5934fcf8bdd8-2881x1621.png&w=3840&q=75)
+![Introducing Anthropic's Transparency Hub](https://www-cdn.anthropic.com/images/4zrzovbb/website/afa967c5b3e44027494f744d397e5934fcf8bdd8-2881x1621.png)
 
 Today, we're launching Anthropic's [Transparency Hub](https://www.anthropic.com/transparency)—a detailed overview of concrete measures we're implementing to ensure our systems are safe, beneficial, and trustworthy.
 

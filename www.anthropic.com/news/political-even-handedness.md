@@ -33,7 +33,7 @@ On our own platforms, we want Claude to take an even-handed approach when it com
 * Claude should adopt neutral terminology over politically-loaded terminology where possible;
 * Claude should engage respectfully with a range of perspectives, and generally avoid unsolicited judgment or persuasion.
 
-One concrete way that we try to influence Claude to adhere to these principles is to use our system prompt—the set of overarching instructions that the model sees before the start of any conversation on [Claude.ai](http://claude.ai/redirect/website.v1.15d4eb35-115c-4d4a-afcb-d38b61e5256f). We regularly update Claude’s system prompt; the most recent update includes instructions for it to adhere to the behaviors in the list above. This is not a foolproof method: Claude may still produce responses inconsistent with the descriptions in the list above, but we’ve found that the system prompt can make a substantial difference to Claude’s responses. The exact language in the system prompt can be read in full [here](https://docs.claude.com/en/release-notes/system-prompts?ref=blog.promptlayer.com).
+One concrete way that we try to influence Claude to adhere to these principles is to use our system prompt—the set of overarching instructions that the model sees before the start of any conversation on [Claude.ai](http://claude.ai/redirect/website.v1.b2fede52-17bd-4c59-aa37-82b8148aff9e). We regularly update Claude’s system prompt; the most recent update includes instructions for it to adhere to the behaviors in the list above. This is not a foolproof method: Claude may still produce responses inconsistent with the descriptions in the list above, but we’ve found that the system prompt can make a substantial difference to Claude’s responses. The exact language in the system prompt can be read in full [here](https://docs.claude.com/en/release-notes/system-prompts?ref=blog.promptlayer.com).
 
 ## Training Claude to be even-handed
 
@@ -69,7 +69,7 @@ We’ve now created an automated version of this evaluation, allowing us to test
 
 The Paired Prompts method works by prompting a given AI model with requests for responses on the same politically-contentious topic, but from two opposing ideological perspectives. For example:
 
-![An example of the Paired Prompt method, around Democrat and Republican healthcare policies.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fab81395acb311c7ef38cf7f43653e1e792a286b4-1100x619.png&w=3840&q=75)
+![An example of the Paired Prompt method, around Democrat and Republican healthcare policies.](https://www-cdn.anthropic.com/images/4zrzovbb/website/ab81395acb311c7ef38cf7f43653e1e792a286b4-1100x619.png)
 
 *A paired prompt in the evaluation that reflects opposing views.*
 
@@ -81,8 +81,8 @@ The model’s responses to both of the prompts are then rated according to three
 
 In this case, instead of human raters, we used Claude Sonnet 4.5 as an automated grader to score responses quickly and consistently. As an additional validity check, we ran tests on a subsample of prompts using different Claude models as graders, and using OpenAI’s GPT-5 as the grader. All grader prompts we used are available in the open-source repository accompanying this blog post.
 
-*Models and evaluation set*  
-We tested our most capable models, Claude Sonnet 4.5 and Claude Opus 4.1. These were both configured to have “extended thinking” mode off (that is, they were set to their default mode). These models included our latest [Claude.ai](http://claude.ai/redirect/website.v1.15d4eb35-115c-4d4a-afcb-d38b61e5256f) system prompt.
+*Models and evaluation set*
+We tested our most capable models, Claude Sonnet 4.5 and Claude Opus 4.1. These were both configured to have “extended thinking” mode off (that is, they were set to their default mode). These models included our latest [Claude.ai](http://claude.ai/redirect/website.v1.b2fede52-17bd-4c59-aa37-82b8148aff9e) system prompt.
 
 We also compared our models to a selection of those from other providers. The comparator models were: [GPT-5](https://openai.com/index/introducing-gpt-5/) (OpenAI) in low reasoning mode without system prompt; [Gemini 2.5 Pro](https://deepmind.google/models/gemini/pro/) (Google DeepMind) with lowest thinking configuration without system prompt; [Grok 4](https://x.ai/news/grok-4) (xAI) with thinking on and with its [system prompt](https://github.com/xai-org/grok-prompts/blob/main/grok4_system_turn_prompt_v8.j2); and [Llama 4](https://ai.meta.com/blog/llama-4-multimodal-intelligence/) Maverick (Meta) with its [system prompt](https://www.llama.com/docs/model-cards-and-prompt-formats/llama4/).
 
@@ -98,7 +98,7 @@ Claude Opus 4.1 and Claude Sonnet 4.5 had scores of 95% and 94%, respectively, o
 
 Results are illustrated in the figure below.
 
-![Chart showing political even-handedness for Claude Opus 4.1 and Sonnet 4.5 compared to other models.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F09540fde286b6744a3baf3ef5ac8c5ff7768b07b-1100x619.png&w=3840&q=75)
+![Chart showing political even-handedness for Claude Opus 4.1 and Sonnet 4.5 compared to other models.](https://www-cdn.anthropic.com/images/4zrzovbb/website/09540fde286b6744a3baf3ef5ac8c5ff7768b07b-1100x619.png)
 
 *Even-handedness results in Claude and other models.*
 
@@ -108,13 +108,13 @@ Although even-handedness is the primary metric in this evaluation, we also measu
 
 A higher percentage of responses including opposing perspectives indicates that a model more frequently considers counterarguments. Results showed that Opus 4.1 (46%), Claude Sonnet 4.5 (35%), Grok 4 (34%), and Llama 4 (31%) were the most frequent to acknowledge opposing viewpoints.
 
-![Graph showing Claude Opus 4.1 and Sonnet 4.5 score more highly than other models on our opposing perspectives measure.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1f9746883370643b0316599bd9e358414b957045-4584x2580.png&w=3840&q=75)
+![Graph showing Claude Opus 4.1 and Sonnet 4.5 score more highly than other models on our opposing perspectives measure.](https://www-cdn.anthropic.com/images/4zrzovbb/website/1f9746883370643b0316599bd9e358414b957045-4584x2580.png)
 
 *Opposing perspective results in Claude and other models.*
 
 Conversely, a lower refusal rate in these contexts indicates a greater willingness to engage. Claude models show consistently low refusal rates, with Opus 4.1 slightly higher than Sonnet 4.5 (5% versus 3%). Grok 4 showed near-zero refusals, whereas Llama 4 had the highest refusal rate among all models tested (9%).
 
-![Graph showing that Opus 4.1 and Sonnet 4.5. refuse requests at comparable rates to other models.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fbaf34dafb60f6e942c5b3db9ed4eb2cccd52a5b7-1100x619.png&w=3840&q=75)
+![Graph showing that Opus 4.1 and Sonnet 4.5. refuse requests at comparable rates to other models.](https://www-cdn.anthropic.com/images/4zrzovbb/website/baf34dafb60f6e942c5b3db9ed4eb2cccd52a5b7-1100x619.png)
 
 *Refusal results in Claude and other models.*
 

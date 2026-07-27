@@ -44,7 +44,7 @@ Project Glasswing is a starting point. No one organization can solve these cyber
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/23f75589f3e194fce5f0373643f50d5e457b8e02-353x65.svg)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F337ec3073e807548e9254096b073de0df47ed6dc-250x250.png&w=256&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/337ec3073e807548e9254096b073de0df47ed6dc-250x250.png)
 
 ## Cybersecurity in the age of AI
 
@@ -60,7 +60,7 @@ Although the risks from AI-augmented cyberattacks are serious, there is reason f
 
 [](https://cdn.sanity.io/files/4zrzovbb/website/31c3e752a2a15a0406f69cbf4a76ed47f818cb9f.webm)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F72189ac0907cf1fccf3b11553289490c41891293-250x250.png&w=256&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/72189ac0907cf1fccf3b11553289490c41891293-250x250.png)
 
 ## Identifying vulnerabilities and exploits with Claude Mythos Preview
 
@@ -292,7 +292,7 @@ More information on the model’s capabilities, its safety properties, and its g
 
 We do not plan to make Claude Mythos Preview generally available, but our eventual goal is to enable our users to safely deploy Mythos-class models at scale—for cybersecurity purposes, but also for the myriad other benefits that such highly capable models will bring. To do so, we need to make progress in developing cybersecurity (and other) safeguards that detect and block the model’s most dangerous outputs. We plan to launch new safeguards with an upcoming Claude Opus model, allowing us to improve and refine them with a model that does not pose the same level of risk as Mythos Preview3.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5045594024cd4dcacf604158b5cdbc3fce7a42e1-250x250.png&w=256&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/5045594024cd4dcacf604158b5cdbc3fce7a42e1-250x250.png)
 
 ## Plans for Project Glasswing
 

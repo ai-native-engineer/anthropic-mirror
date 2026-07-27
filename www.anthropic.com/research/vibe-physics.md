@@ -60,7 +60,7 @@ and out would pop the paper. We are not there yet, of course. I tried giving thi
 
 To go about this scientifically, I encapsulated all the work. The rules were strict:
 
-* Only give text prompts to [Claude Code](https://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5/code). No editing files directly.
+* Only give text prompts to [Claude Code](https://claude.ai/redirect/website.v1.aad73762-0c4f-40ed-aae0-8e372b0abf19/code). No editing files directly.
 * Don’t cut and paste my own calculations into the chat.
 * But pasting Gemini or GPT calculations was OK, as long as they were only text-prompted.
 
@@ -70,9 +70,9 @@ My question was: is there a set of prompts, like instructions to a talented G2, 
 
 I knew from experience that LLMs struggle with context and organization over long projects. So I started by asking Claude to come up with a plan of attack: what tasks needed to be done in what order. I also asked GPT 5.2 and Gemini 3.0. Then, I had all three LLMs merge the best ideas from each, using web interfaces and copying one to another. Next, I gave those merges to Claude, asking it to break the outline into detailed subsections. The result is [here](https://www-cdn.anthropic.com/2595299ccf7f8b9a9c74823c24faaa5d9b216804.pdf). There were 102 separate tasks across seven stages.
 
-From there, I turned to [Claude Code](https://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5/code), using the extension in VS Code.
+From there, I turned to [Claude Code](https://claude.ai/redirect/website.v1.aad73762-0c4f-40ed-aae0-8e372b0abf19/code), using the extension in VS Code.
 
-![A screen grab of Claude code](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2277f287d82a9a6087bc70c6d16cfd6648634d7e-1600x967.jpg&w=3840&q=75)
+![A screen grab of Claude code](https://www-cdn.anthropic.com/images/4zrzovbb/website/2277f287d82a9a6087bc70c6d16cfd6648634d7e-1600x967.jpg)
 
 I created a folder for the project, put in the master plan, and had it try to solve each task separately, writing its results in a separate markdown file. Some examples are [Task 1.1: Review BSZ Paper](https://www-cdn.anthropic.com/c993ead637f1a102fe1f5346e89f59e82c579b37.pdf) and [Task 1.2: Review Catani—Webber](https://www-cdn.anthropic.com/94b3c41e52e19ba450fe5e804400ebcf0a88f3d0.pdf).
 
@@ -86,7 +86,7 @@ Even this first stage wasn’t completely hands-off. After finishing 7 of 14 tas
 
 During the initial stage, I had Claude postpone the numerics, which I knew would require some babysitting. Instead, I had it focus on the conceptual and analytic parts. Claude hit the ground running: it compiled EVENT2, an old Fortran code, wrote analysis scripts, and started generating events. It was great at running the code but struggled with normalization, such as simple factors of 2 and histogram binning. After a few tries, however, it produced something that looked excellent—the theory agreed with the simulation:
 
-![Graphs depicting analytic calculations in agreement with one another](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F602ecef11d6236c71c2e61166710bf973e506013-1600x621.jpg&w=3840&q=75)
+![Graphs depicting analytic calculations in agreement with one another](https://www-cdn.anthropic.com/images/4zrzovbb/website/602ecef11d6236c71c2e61166710bf973e506013-1600x621.jpg)
 
 Claude ran simulations (histograms) and did an analytic calculation (solid lines) and found excellent agreement.
 
@@ -112,7 +112,7 @@ The more I dug, the more I found it had been tweaking things left and right. Cla
 
 Most of the mistakes were minor, and Claude could fix them. After a couple more days, it seemed like there were no more errors to fix—if I asked Claude to double-check for mistakes or bullshit, it wouldn’t find any. I even had it make a plot with uncertainty bands which looked great:
 
-![Plots showing results made by Claude ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F65504eae97db54c0f511b0b962f8207e89f11c2f-1600x681.jpg&w=3840&q=75)
+![Plots showing results made by Claude ](https://www-cdn.anthropic.com/images/4zrzovbb/website/65504eae97db54c0f511b0b962f8207e89f11c2f-1600x681.jpg)
 
 Claude made fantastic plots showing results with uncertainties that looked just like what one would hope for. Unfortunately, the plots were too good. It was cheating.
 
@@ -132,7 +132,7 @@ At this stage, all that remained was massaging the text and the figures. To be f
 
 The final money plot was:
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F659615b584741050ed0005607edf25e167b01fb0-1600x676.jpg&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/659615b584741050ed0005607edf25e167b01fb0-1600x676.jpg)
 
 The final plot that made it into the paper was similar to the previous one but actually correct.
 
@@ -2389,21 +2389,19 @@ In addition to the growth in interest, the tools themselves have been steadily i
 
 ####
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)
 
 ## Subscribe to Anthropic Science
 

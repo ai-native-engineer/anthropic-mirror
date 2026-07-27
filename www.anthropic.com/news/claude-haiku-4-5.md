@@ -10,9 +10,9 @@ Claude Haiku 4.5, our latest small model, is available today to all users.
 
 What was recently at the frontier is now cheaper and faster. Five months ago, Claude Sonnet 4 was a state-of-the-art model. Today, Claude Haiku 4.5 gives you similar levels of coding performance but at one-third the cost and more than twice the speed.
 
-![Chart comparing frontier models on SWE-bench Verified which measures performance on real-world coding tasks](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1a27d7a85f953c5a0577dc19b507d6e1b93444d5-1920x1080.png&w=3840&q=75)
+![Chart comparing frontier models on SWE-bench Verified which measures performance on real-world coding tasks](https://www-cdn.anthropic.com/images/4zrzovbb/website/1a27d7a85f953c5a0577dc19b507d6e1b93444d5-1920x1080.png)
 
-Claude Haiku 4.5 even surpasses Claude Sonnet 4 at certain tasks, like using computers. These advances make applications like [Claude for Chrome](http://claude.ai/redirect/website.v1.84055890-b4d9-4a24-ae70-9a41a0e2cffc/chrome) faster and more useful than ever before.
+Claude Haiku 4.5 even surpasses Claude Sonnet 4 at certain tasks, like using computers. These advances make applications like [Claude for Chrome](http://claude.ai/redirect/website.v1.9047fb40-703e-4029-9ad7-219e71c49e46/chrome) faster and more useful than ever before.
 
 Users who rely on AI for real-time, low-latency tasks like chat assistants, customer service agents, or pair programming will appreciate Haiku 4.5’s combination of high intelligence and remarkable speed. And users of Claude Code will find that Haiku 4.5 makes the coding experience—from multiple-agent projects to rapid prototyping—markedly more responsive.
 
@@ -22,7 +22,7 @@ Claude Haiku 4.5 is available everywhere today. If you’re a developer, simply 
 
 ## Benchmarks
 
-![Comparison table of frontier models across popular benchmarks](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F029af67124b67bdf0b50691a8921b46252c023d2-1920x1625.png&w=3840&q=75)
+![Comparison table of frontier models across popular benchmarks](https://www-cdn.anthropic.com/images/4zrzovbb/website/029af67124b67bdf0b50691a8921b46252c023d2-1920x1625.png)
 
 Claude Haiku 4.5 is one of our most powerful models to date. See footnotes for methodology.
 
@@ -30,15 +30,15 @@ Claude Haiku 4.5 is one of our most powerful models to date. See footnotes for m
 
 > Claude Haiku 4.5 hit a sweet spot we didn't think was possible: **near-frontier coding quality with blazing speed and cost efficiency**. In Augment's agentic coding evaluation, it achieves 90% of Sonnet 4.5's performance, matching much larger models. We're excited to offer it to our users.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/14c3ac690679578d7361cf67c93f11782531d602-150x48.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/608086181ee4ce73f49dd2e6ab3a4ed11a3d6f29-130x64.svg)
 
 > **Claude Haiku 4.5 is a leap forward for agentic coding**, particularly for sub-agent orchestration and computer use tasks. The responsiveness makes AI-assisted development in Warp feel instantaneous.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/094b76abf3e64453c224e12ae388b8008b02660e-150x48.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/31f81aea37256a9c1600e17eb8916ac158443073-145x64.svg)
 
 > Historically models have sacrificed speed and cost for quality. Claude Haiku 4.5 is blurring the lines on this trade off: **it's a fast frontier model that keeps costs efficient** and signals where this class of models is headed.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/02dced142fb26d4a3441cad79f997a1fd6c9a8b0-150x48.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/f78eb8e663df313f53156d3cea8d7ad2801df313-148x64.svg)
 
 > **Claude Haiku 4.5 delivers intelligence without sacrificing speed**, enabling us to build AI applications that utilize both deep reasoning and real-time responsiveness.
 
@@ -54,7 +54,7 @@ Claude Haiku 4.5 is one of our most powerful models to date. See footnotes for m
 
 > Claude Haiku 4.5 **outperformed our current models on instruction-following for slide text generation**, achieving 65% accuracy versus 44% from our premium tier model—that's a game-changer for our unit economics.
 
-![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/7715b118c5eb0ff2a85f1f7914bce8c634ecacbd-150x48.svg)
+![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/fc55f4db8afa5db479127fde5be3e492940f513d-94x64.svg)
 
 > Our early testing shows that Claude Haiku 4.5 brings efficient code generation to GitHub Copilot **with comparable quality to Sonnet 4 but at faster speed**. Already we're seeing it as an excellent choice for Copilot users who value speed and responsiveness in their AI-powered development workflows.
 

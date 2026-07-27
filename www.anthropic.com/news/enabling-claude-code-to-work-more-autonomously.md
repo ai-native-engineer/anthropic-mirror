@@ -18,7 +18,7 @@ We’re introducing a [native VS Code extension](https://marketplace.visualstudi
 
 We’ve also refreshed Claude Code’s terminal interface. The updated interface features improved status visibility and searchable prompt history (Ctrl+r), making it easier to reuse or edit previous prompts.
 
-![An image of the new Claude Code terminal UX](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3613f360926fae004521197488623465eb0cd751-1920x1035.png&w=3840&q=75)
+![An image of the new Claude Code terminal UX](https://www-cdn.anthropic.com/images/4zrzovbb/website/3613f360926fae004521197488623465eb0cd751-1920x1035.png)
 
 **Claude Agent SDK**
 

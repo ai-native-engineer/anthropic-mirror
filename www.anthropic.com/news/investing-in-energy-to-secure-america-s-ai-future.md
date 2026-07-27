@@ -4,7 +4,7 @@
 
 Jul 15, 2025
 
-![A set of three trees, with each getting bigger](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcc2d50542a800b4ec0884e9af0f42ba0bb4cf385-5761x3241.png&w=3840&q=75)
+![A set of three trees, with each getting bigger](https://www-cdn.anthropic.com/images/4zrzovbb/website/cc2d50542a800b4ec0884e9af0f42ba0bb4cf385-5761x3241.png)
 
 Energy is central to winning the AI race and we need to ensure that America has the necessary infrastructure to maintain its lead. This includes reliable, abundant energy sources and modernized electric grids capable of supporting the computational and energy demands of advanced AI systems.
 

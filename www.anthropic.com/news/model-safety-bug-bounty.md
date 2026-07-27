@@ -4,7 +4,7 @@
 
 Aug 8, 2024
 
-![Security locks](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F10d2b2627656111aae62a8ab7b299b4b73ee86a4-2880x1620.png&w=3840&q=75)
+![Security locks](https://www-cdn.anthropic.com/images/4zrzovbb/website/10d2b2627656111aae62a8ab7b299b4b73ee86a4-2880x1620.png)
 
 The rapid progression of AI model capabilities demands an equally swift advancement in safety protocols. As we work on developing the next generation of our AI safeguarding systems, we’re expanding our bug bounty program to introduce a new initiative focused on finding flaws in the mitigations we use to prevent misuse of our models.
 

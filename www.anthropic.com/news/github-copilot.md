@@ -4,7 +4,7 @@
 
 Oct 29, 2024
 
-![Visual of the GitHub and Anthropic logos](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F52c38e045017d37c8377db34370b299ac0d1441b-5760x3241.png&w=3840&q=75)
+![Visual of the GitHub and Anthropic logos](https://www-cdn.anthropic.com/images/4zrzovbb/website/52c38e045017d37c8377db34370b299ac0d1441b-5760x3241.png)
 
 Starting today, the new [Claude 3.5 Sonnet](https://www.anthropic.com/claude/sonnet) begins rolling out on GitHub Copilot, enabling developers to choose Claude 3.5 Sonnet for coding—directly in Visual Studio Code and GitHub.com. This integration brings Claude’s coding capabilities to GitHub’s community of over 100 million developers.
 

@@ -10,40 +10,19 @@ August 19, 2025
 
 TLDR: We experimented with removing harmful information about chemical, biological, radiological and nuclear (CBRN) weapons from our models' pretraining data. We identified harmful content using a classifier and pretrained models from scratch on the filtered dataset. This approach reduced the model's accuracy on a harmful-capabilities evaluation by 33% relative compared to random baseline performance, while preserving its beneficial capabilities.
 
-  
-  
-  
-
-  
-  
-
 AI systems trained on internet-scale data can provide users with comprehensive knowledge on an immense range of topics. However, this wealth of information also includes sensitive information that could be dangerous if misused. For example, information related to chemical, biological, radiological and nuclear (CBRN) weapons could, in the wrong hands, enable bad actors with basic technical backgrounds to develop weapons of mass destruction. Our [Responsible Scaling Policy (RSP)](https://www.anthropic.com/rsp-updates) commits us to mitigating risks from such threat models and limiting the spread of harmful information by our models.
 
 After a model learns harmful information in pretraining, removing that information post hoc using unlearning methods can be challenging ([Deeb et al., 2024](https://arxiv.org/abs/2410.08827), [Łucki et al., 2024](https://arxiv.org/abs/2409.18025)). Existing methods can struggle to fully eliminate the harmful content without impairing other capabilities. In this post, we tackle this risk at its source through pretraining data filtering. Using a classifier, we identified and removed potentially harmful information from the pretraining data and then pretrained models from scratch on the filtered dataset.
 
 By filtering certain data, we could reduce the model’s harmful knowledge without otherwise degrading its capabilities. At a medium model size, we reduced performance on a harmful-capabilities evaluation by 33% relative compared to a random baselinefrom 33.7±0.4% to 30.8±0.4%, where a random baseline is 25%, while standard benchmarks on MMLU, Code and Prose showed no significant drop.
 
-  
-  
-  
-
-  
-  
-
 ## Setup
 
 The goal of pretraining data filtering is to maximize the performance drop on harmful capability evals, and minimize the performance drop on harmless capability evals. To do so, we automatically scored the harmfulness of each document in a model’s pretraining dataset and removed those above a certain threshold. By tuning this threshold, we achieved different trade-offs between safety and usefulness, tailoring the model's performance to our specific requirements. Some information is potentially dual-use. For example, information about generic scientific capabilities might allow malicious users to carry out harmful tasks, but also benefit benign users to carry out legitimate tasks. It is thus an open question how possible it is to perform targeted data interventions that affect harmful information.
 
-![](fig1.jpg)
+![](https://alignment.anthropic.com/2025/pretraining-data-filtering/fig1.jpg)
 
 Pretraining data filtering pipeline. We automatically scored the harmfulness of each document in a model’s pretraining dataset with a classifier and removed those above a certain threshold. We then pretrained the model from scratch on the filtered dataset containing only harmless content (as determined by the classifier).
-
-  
-  
-  
-
-  
-  
 
 ## Classifier
 
@@ -72,7 +51,7 @@ Backbone Models. Our Finetuned Constitutional classifier uses a small model (m
 
 To evaluate our classifiers, we need labeled harmful and harmless documents. Since no labeled data was available, we generated synthetic labeled documents by prompting LLMs to generate harmful and harmless documents. Specifically, we generated synthetic harmless documents by prompting Claude 3.5 Sonnet to answer harmless Natural Science (chemistry and biology) questions from the MMLU dataset ([Hendrycks et al., 2020](https://arxiv.org/abs/2009.03300)), and generated synthetic harmful documents by prompting helpful-only Claude 3.5 Sonnet to answer harmful CBRN questions from the WMDP dataset ([Li et al., 2024](https://arxiv.org/abs/2403.03218)). We measured the [F1 scores](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html) of all classifiers on our synthetic dataset, except for the Named Entities classifier which is designed to capture only a subset of specific harm.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/pretraining-data-filtering/fig2.png)
 
 F1 scores of various classifiers that we built. Our Prompted Constitutional classifier based on Claude 3.5 Sonnet performs best, followed by our Finetuned Constitutional classifier based on a small-size model.
 
@@ -82,13 +61,6 @@ Our Prompted Constitutional classifier which uses Claude 3.5 Sonnet performs bes
 * Finetuned Constitutional + Named Entities (Parallel): We separately flagged most harmful documents with the Finetuned classifier and the Named Entities classifier, and then merged the flagged documents.
 
 We also manually reviewed data samples that were flagged as harmful, and found them to correctly match the harmful CBRN information that we aimed to remove.
-
-  
-  
-  
-
-  
-  
 
 ## Pretraining experiments
 
@@ -114,7 +86,7 @@ In the result plots, we will display the relative performance on CBRN (lower sco
 
 In our experiments, we observed that the main compromise of an overly aggressive CBRN data filtering is on Natural Science (chemistry & biology), so we focused on the trade-off between CBRN and Natural Science when we compared different filters.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/pretraining-data-filtering/fig3.png)
 
 Performance of various data filters on harmful CBRN and harmless Natural Science (relative to no data filtering). Finetuned shows comparable performance with Finetuned + Named Entities, with both filters outperforming Finetuned + Prompted. A score larger than 1 means data filtering improves performance on the eval.
 
@@ -128,37 +100,23 @@ Based on the above results, we selected the Finetuned Constitutional classifier 
 
 We now present the full results of our chosen filter. Each plot shows the trade-off between safety (CBRN) where lower is better, and a specific usefulness metric that we care about (Prose, Code, MMLU, Natural Science, Math) where higher is better. Both axes show the performance scores after data filtering relative to no data filtering, with usefulness on the x-axis and safety on the y-axis. Data filtering does not seem to hurt model usefulness on 4 of the 5 harmless evals, with the exception being Math where results are noisier (that is, data filtering hurts performance at some thresholds and improves on others). Our results overall suggest that we can effectively separate harmful from harmless data and use pretraining data filtering to improve model safety without severely compromising usefulness.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2025/pretraining-data-filtering/fig4.png)
 
 Performance of our selected data filter on harmful CBRN and various harmless useful capabilities (relative to no data filtering). We achieved different safety-usefulness trade-offs by selecting different filtering thresholds.
 
 We can select the trade-off between safety and capability depending on the particular use case. At one filtering threshold (0.939), our data filtering reduces performance on harmful CBRN evals by 33% relative on accuracy (reducing from 33.7±0.4% to 30.8±0.4%, where the 33% reduction is calculated based on how much the method outperforms the 25% random baseline), while causing no significant drop in any of the harmlessness evals we used.
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2025/pretraining-data-filtering/fig5.png)
 
 Performance changes of data filtering at our selected threshold relative to no data filtering. Our final data filtering reduces the performance on CBRN by 33% relative while not causing significant drop on any of the harmless evals.
 
 These results collectively demonstrate that we can effectively separate harmful from harmless data and use pretraining data filtering to improve model safety without compromising usefulness.
-
-  
-  
-  
-
-  
-  
 
 ## Related work
 
 Pretraining Data Interventions. Previous research has explored pretraining data intervention for various purposes, such as mitigating toxicity ([PaLM 2](https://arxiv.org/pdf/2305.10403)), reducing private information leakage ([Korbak et al., 2023](https://arxiv.org/abs/2302.08582)), and enhancing pretraining efficiency ([Wettig et al., 2024](https://arxiv.org/abs/2402.09739)). Two common intervention methods are data filtering and conditional training, where special data quality tokens are prepended to pretraining data and used to control test-time inference ([Korbak et al., 2023](https://arxiv.org/abs/2302.08582), [PaLM 2](https://arxiv.org/pdf/2305.10403)). Unlike our approach, conditional training still trains models to acquire harmful knowledge and thus may potentially be elicited through jailbreaks. In terms of data selection, prior work has investigated methods to identify pretraining data that is most relevant to downstream tasks via influence functions ([Zhang et al., 2024](https://arxiv.org/abs/2409.16986), [Yu et al., 2024](https://arxiv.org/abs/2406.06046)) or log probability correlations ([Thrush et al., 2024](https://arxiv.org/abs/2409.05816)). Prior work has also looked into selecting high-quality data using a model grader ([Wettig et al., 2024](https://arxiv.org/abs/2402.09739)). Concurrent to our work, [O'Brien et al., 2025](https://arxiv.org/abs/2508.06601) shows that pretraining data filtering also improves the safety of open-weights models under adversarial finetuning on harmful text.
 
 LLM Unlearning. Previous research has explored various unlearning methods to improve safety of pretrained LLMs post-hoc. Gradient ascent methods train LLMs on to-be-unlearned knowledge using gradient ascent ([Jang et al., 2023](https://openreview.net/forum?id=zAxuIJLb38), [Yao et al., 2023](https://arxiv.org/abs/2310.10683)). Alternatively, model internal methods first localize the to-be-unlearned knowledge within the model's activations or weights, and then perturb or finetune them to remove the knowledge ([Sinitsin et al., 2020](https://arxiv.org/abs/2004.00345), [Zhu et al., 2020](https://arxiv.org/abs/2012.00363), [Yu et al., 2023](https://aclanthology.org/2023.findings-acl.375/)). Unfortunately, existing unlearning methods often lack robustness—unlearned knowledge can still be elicited, or the unlearning process may impair useful capabilities ([Lynch et al., 2024](https://arxiv.org/abs/2402.16835), [Deeb et al., 2024](https://arxiv.org/abs/2410.08827)).
-
-  
-  
-  
-
-  
-  
 
 ## Conclusions and future directions
 

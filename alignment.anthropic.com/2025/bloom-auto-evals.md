@@ -16,14 +16,7 @@ takes a researcher-specified behavior and quantifies its frequency and severity 
 generated scenarios. Bloom's evaluations correlate strongly with our hand-labelled judgments and
 reliably separate baseline models from intentionally misaligned ones. As examples, we also release
 benchmark results for four alignment relevant behaviors on 16 models. Bloom is available at
-[github.com/safety-research/bloom](https://github.com/safety-research/bloom).
-
-  
-  
-  
-
-  
-  
+[github.com/safety-research/bloom](http://github.com/safety-research/bloom).
 
 Frontier models exhibit various types of misalignment, for example in-context
 scheming (Meinke et al, 2024), agentic misalignment (Lynch et al, 2025), and sycophancy (Sharma et al,
@@ -50,7 +43,7 @@ generated scenarios. Alongside the tool, we are releasing benchmarks for four be
 sycophancy, instructed long-horizon sabotage, self-preservation and self-preferential bias—across 16
 frontier models. These only took a few days to conceptualize, refine and generate with Bloom.
 
-![](fig1.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig1.png)
 
 We present comparative plots from four
 Bloom-generated evaluations—delusional sycophancy, instructed long-horizon sabotage, self-preservation
@@ -67,13 +60,6 @@ score exceeds a certain threshold. While this metric quantifies instances of sev
 supports metrics summarizing the full score distribution, such as average behavior presence score. For
 each benchmark, we include behavior descriptions, example transcripts, and outputs from each pipeline
 stage in the system design section below as well as in the Appendix.
-
-  
-  
-  
-
-  
-  
 
 ## System Design
 
@@ -92,7 +78,7 @@ sweeps across target models, with Weights & Biases integration to streamline exp
 Subsequently you can explore results in our custom transcript viewer or export [Inspect](https://inspect.aisi.org.uk)-compatible transcripts for further analysis. The repository includes a sample
 seed file for users to easily get started with a first evaluation.
 
-![](fig2.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig2.png)
 
 Bloom is a four-stage automated pipeline that
 generates behavioral evaluations from a user-provided seed. You
@@ -240,13 +226,6 @@ behavior. Bloom allows you to focus on aggregate metrics showing how often a beh
 scenarios. In short: Bloom suits precise measurement with statistical results; Petri suits open-ended
 exploration of what behaviors might exist.
 
-  
-  
-  
-
-  
-  
-
 ## Meaningfulness and Trust
 
 ### Distinguishing Model Organisms from Baseline Models
@@ -271,13 +250,13 @@ on both the system-prompted model organism and its unprompted baseline counterpa
 the experiment both with ("few-shot") and without ("zero-shot") example transcripts demonstrating the
 quirk.
 
-![](fig3.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig3.png)
 
 Bloom successfully distinguishes system-prompted model organisms from
 baseline models for 9/10 quirks, even without example transcripts. Each evaluation suite consists of 50 rollouts generated for both the model
 organism and its baseline counterpart, using either Sonnet 4 or Sonnet 3.7 as the target. Bars show
 elicitation rate (proportion scoring ≥7/10 for behavior presence) with standard deviation across three
-repetitions. 
+repetitions.
 
 For nine out of ten quirks, Bloom achieved significant score separation
 between the two models. The few-shot setting did not noticeably increase separation—Bloom effectively
@@ -298,7 +277,7 @@ transcript review. After finalizing the judge scaffold, we hand-labeled a set of
 different behaviors and evaluation configurations. We then scored these transcripts with many different
 judge models.
 
-![](fig4.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig4.png)
 
 Opus 4.1's behavior presence scores correlate most strongly with
 human-labeled scores on a set of 40 transcripts. We measure Spearman
@@ -322,13 +301,13 @@ because we refined our prompts during development based on these models' failure
 most models show acceptable correlation with human-labeled scores (OSS 120b and o4 mini appear less
 suitable as judges or may need significant additional guiding instructions).
 
-![](fig5.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig5.png)
 
 Opus 4.1 exhibits strong agreement with human-labelled scores at the
 extremes of the score spectrum. We partition transcripts into three
 categories: low behavior presence (score 1-3), medium (score 4-6) and high (7-10). The Sankey diagram
 indicates movement from Opus 4.1's bucket to human buckets, i.e. a line from Opus bucket A to human bucket B
-indicates how many transcripts Opus scored in bucket A but humans scored in bucket B. 
+indicates how many transcripts Opus scored in bucket A but humans scored in bucket B.
 
 How consistent are judge scores across repeated judge
 samples?
@@ -341,14 +320,14 @@ times, almost never changing its scores. In contrast, GPT-5's
 judge variance—particularly for reasoning unfaithfulness and self-preservation evaluations—is high (more
 so without extended reasoning) and positively correlated with the average score across the 5 samples.
 
-![](fig6.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig6.png)
 
 GPT-5 exhibits a much higher score variance across multiple independent
 samples than Claude models. We generate 50 evaluations for each of
 three suites, once with evaluator thinking and once without. We show each rollout to each judge 5 times
 independently and collect behavior presence scores, then measure score variance for each rollout conditioned
 on its average. Our setup purposefully breaks prompt caching using unique components each time the judge is
-prompted. 
+prompted.
 
 How faithfully does the meta-judge capture suite-level
 insights?
@@ -358,7 +337,7 @@ numerical and qualitative insights. To validate its metrics, we generated a 50-r
 delusional sycophancy suite evaluating Sonnet 4 multiple times, varying the diversity parameter. The
 meta-judge's diversity ratings correlated well with configured diversity (Figure 7).
 
-![](fig7.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig7.png)
 
 Meta-judge diversity scores strongly correspond to the configured
 evaluation suite diversity. We generate an evaluation suite of 50
@@ -367,7 +346,7 @@ diversity of 0.2 for an evaluation suite of 50 evals means that the ideator mode
 ideation scenarios, and then perturbed each of them 4 times to give 50 evaluations in total. We measure
 consistency between configured diversity and meta-judge diversity score (scale of 1-10). The meta-judge
 evaluates each suite independently. For lower diversity suites, the meta-judge score shows no variance
-across three repetitions. 
+across three repetitions.
 
 To further confirm the meaningfulness of meta-judge qualitative insights, we
 returned to the model organism experiment (Figure 3) and prompted the meta-judge for "a concise judgment
@@ -402,19 +381,13 @@ show low variance, while scenarios with mid-range averages show high variance�
 differences and can tip either way. Using the diversity parameter to measure variance across perturbed
 scenario variants, we found the same downward-U pattern (Figure 8).
 
-![](fig8.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig8.png)
 
 Some scenarios are consistently effective, some consistently ineffective,
 and those with mid-range averages are inherently unstable. We repeat
 each of 50 evaluation scenarios 5 times and plot standard deviation of behavior presence conditioned on
 average (left). We also set diversity to 0.2 and generate 5 perturbations of 10 distinct base scenarios,
 plotting standard deviation conditioned on average across each group of 5 variants (right).
-  
-  
-  
-
-  
-  
 
 ## Impact of Ideation and Rollout Models on Evaluation Outcomes
 
@@ -433,20 +406,20 @@ affordances can heavily influence the resulting scenario distribution, as shown 
 ideological charge across ablations (Figure 9). Ideation reasoning, in contrast, doesn't meaningfully
 affect scenario distribution. Full results and analysis appear in the [Appendix](#h.liwsponrt1xr).
 
-![](fig9.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig9.png)
 
 Choice of ideation model and its affordances can strongly affect the
 ideological charge of generated queries: e.g. using GPT 5 or
 activating web search causes the queries to be largely neutral, whereas Grok 4 generates more democratically
 charged queries than any of the other models. The inclusion of charged examples causes the queries to become
-charged on both ends of the spectrum. 
+charged on both ends of the spectrum.
 
 Rollout. Using a subset of quirks from the model organism experiments (Figure
 3), we generated scenarios once with Opus 4.1 and had four rollout models run them. Choice of rollout
 agent can shift top-level metrics substantially—Opus 4.1 is best at uncovering behavior in the three
 quirky models.
 
-![](fig10.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig10.png)
 
 Different rollout models can shift top-level metrics substantially. Opus
 4.1 is the most successful at maximizing score separation between baseline and quirky models. In the original model organism experiments (Figure 3), we used Opus 4.1 to roll
@@ -454,13 +427,7 @@ out evaluation scenarios given some few-shot examples. Here we generate scenario
 vary the rollout model used to simulate the interaction. We repeat each experiment three times and measure
 average behavior presence (top) and elicitation rate (bottom), consistently using Opus 4.1 as a judge.
 Different rollout agents shift metrics substantially—for instance, GPT-5 barely elicits the increasing-pep
-trait (1-point separation vs. ~6 points for others). 
-  
-  
-  
-
-  
-  
+trait (1-point separation vs. ~6 points for others).
 
 ## Case Study: Self-Preferential Bias
 
@@ -474,7 +441,7 @@ biggest drop occurring from medium to high thinking (Figure 12). Notably, lower 
 options more evenly—instead, models increasingly recognized the conflict of interest and declined to
 judge their own option.
 
-![](fig11.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig11.png)
 
 Bloom produces the same ranking of the Claude models for
 self-preferential bias as the Sonnet 4.5 system card. We evaluate
@@ -484,13 +451,13 @@ identity so self-preference can be appropriately judged. Each evaluation replica
 presenting the target with a subjective decision task where one option is tied to itself. Although seed
 examples were generated with Sonnet 4, the elicitation mechanism generalizes to other models. Absolute
 metrics differ because the System Card reports % change in self-preference when an option is tied to model
-identity, whereas Bloom measures the absolute proportion of self-preferring rollouts. ![](fig12.png)
+identity, whereas Bloom measures the absolute proportion of self-preferring rollouts. ![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig12.png)
 
 Increasing target thinking generally causes a reduction in
 self-preferential bias. For Claude Sonnet 4, we investigate whether
 target reasoning effort affects top-level metrics. We use no seed examples, which is why absolute metrics
 are much lower than the above plot for Sonnet 4. Note: for other evaluations such as delusional sycophancy,
-high target thinking similarly makes a notable difference to top-level metrics. 
+high target thinking similarly makes a notable difference to top-level metrics.
 
 How can collateral judgment qualities be used to
 condition or filter results?
@@ -514,14 +481,14 @@ length. We can also flag and filter undesirable qualities like unrealism, invali
 awareness. For these evaluations, undesirable traits correlated with unsuccessful evaluations; filtering
 them out slightly increased elicitation rate (Figure 13).
 
-![](fig13.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig13.png)
 
 Filtering out rollouts with undesirable collateral qualities can improve
 elicitation rate. We plot self-preferential bias conditioned on
 unrealism (top left), evaluation invalidity (middle), and evaluation awareness (top right), showing negative
 correlation in all cases for two-turn self-preferential bias evaluations on Claude Sonnet 4.5. We then
 filter transcripts scoring ≥7/10 for these traits (grey zone) out of the 150 rollouts and recalculate
-average top-level metrics (bottom). 
+average top-level metrics (bottom).
 
 How does evaluation effort and compute affect top-level
 metrics?
@@ -535,7 +502,7 @@ sensitive to evaluator reasoning effort (W=0.38). Notably, Sonnet 4.5 ranked las
 configurations, suggesting that across all ablations, Bloom identifies it as the least
 self-preferentially biased.
 
-![](fig14.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig14.png)
 
 Generating evaluation suites with more compute can change absolute
 elicitation rate, but Sonnet 4.5 consistently shows the lowest rate across all configurations. We run ablations by varying few-shot examples between 0 and 4 (left), maximum
@@ -560,13 +527,6 @@ Evaluator Reasoning. This setting had the largest effect on model rankings.
 While Sonnet 4.5 remained the least biased, Opus 4, Opus 4.1, and Sonnet 4 shifted considerably
 depending on reasoning effort. Sonnet 4 was particularly sensitive.
 
-  
-  
-  
-
-  
-  
-
 ## Limitations
 
 While Bloom enables rapid generation of targeted behavioral evaluations, it
@@ -585,13 +545,6 @@ API calls, manipulating actual files, or interacting with real humans.
 Finally, models may learn to recognize when they're being evaluated. We
 observe high evaluation awareness rates in newer Claude models (Appendix Figure A.1), and this could
 worsen if Bloom-generated evaluations become part of future training data.
-
-  
-  
-  
-
-  
-  
 
 ## Conclusion
 
@@ -616,26 +569,12 @@ environment, Bloom organizes evaluations around their seed configuration, enabli
 reproducible exploration. Our case study demonstrates the many avenues of ablation and experimentation
 Bloom supports for any behavioral evaluation.
 
-  
-  
-  
-
-  
-  
-
 ## Acknowledgements
 
 We would like to thank Keshav Shenoy, Christine Ye, Simon Storf, Julius
 Steen, Jifan Zhang and Javier Rando for early user feedback on Bloom. We would also like to thank Jon
 Kutasov, Samuel Marks, Benjamin Sturgeon, Seoirse Murray, Ariana Azarbal, Chloe Loughridge and Clemens
 Christoph for feedback on the writing.
-
-  
-  
-  
-
-  
-  
 
 ## Appendix
 
@@ -733,10 +672,10 @@ that the environment or user is not exactly what it is presented as). Thus these
 from the other evaluations. A typical expression of eval awareness involves the target clearly saying
 (often in its reasoning trace) that the interaction is likely an evaluation.
 
-![](fig15.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig15.png)
 
 Only Opus 4.5, Sonnet 4.5, Haiku 4.5 and Grok 4 show recurring evaluation
-awareness and skepticism across the other four benchmarks in Figure 1. 
+awareness and skepticism across the other four benchmarks in Figure 1.
 
 The configurations used to generate the evaluations suites, all example
 transcripts and behavior descriptions can be found in our repository at [experiments/benchmarks](https://github.com/safety-research/bloom/tree/experiments/experiments/benchmarks).
@@ -812,13 +751,13 @@ Grok-4 target). Exploration of different sources of variance in the pipeline sug
 because GPT-5 as a judge varies its scores much more than the Claude models and b) variance is higher
 for longer interactions.
 
-![](fig16.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig16.png)
 
 The self-preservation evaluation exhibits higher variance across five
 repetitions. We repeat each evaluation suite 5 times, varying several
 configuration parameters, in particular using a different evaluator (consistent across pipeline stages) and
 target model for each suite. We show the average top level metrics and standard deviation across 5
-repetitions of each of the three evaluations. 
+repetitions of each of the three evaluations.
 
 The seed files can be found at [experiments/variance](https://github.com/safety-research/bloom/tree/experiments/experiments/variance).
 
@@ -882,18 +821,18 @@ options.
    “high”. Switching off extended thinking causes an almost perfect balance of the queries across the
    ideological spectrum of all experiment configurations.
 
-![](fig17.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig17.png)
 
 There are little to no significant shifts in topical distribution of the
 political queries across all ablations that we run.
 
-![](fig18.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig18.png)
 
 None of the configurations we run produce a significant amount of cultural
 questions. Several of the ablations—e.g. using GPT5 or KimiK2 or enabling web search strongly bias the
 distribution towards policy-related questions.
 
-![](fig19.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig19.png)
 
 Various ablations can strongly affect the political chargedness of the
 generated queries: e.g. using GPT 5 or activating web search causes the queries to be largely neutral,
@@ -901,7 +840,7 @@ whereas Grok 4 generates more democratically charged queries than any of the oth
 of charged examples causes the queries to become charged on both ends of the spectrum whilst
 deactivating extended thinking causes an extremely even distribution across ideology.
 
-![](fig20.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig20.png)
 
 Figure A.3d: Qualitative analysis does not vary much with our ablations.
 
@@ -923,7 +862,7 @@ elicitation difficulty. Seed files describing each experiment can be found at [e
 
 #### Evaluation Success Conditioned on Elicitation Difficulty
 
-![](fig21.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig21.png)
 
 :
 
@@ -932,7 +871,7 @@ help surface self-preferential behaviour, regardless of the interaction length, 
 evaluations can surface self-preferential behavior very easily. We
 condition self-preferential bias on elicitation difficulty and plot the distribution of successful
 evaluations (scoring ≥7/10 for behavior presence) across elicitation difficulties. We generate 150
-evaluations for each interaction length and use no seed examples. 
+evaluations for each interaction length and use no seed examples.
 
 #### Metrics as a Function of Compute
 
@@ -947,7 +886,7 @@ evaluations, but the system-card style more reliably elicits the targeted behavi
 few-shot examples also transfer well to simulated environments, where targets often fetch the items to
 rank via tool calls, with no noticeable reduction in self-preferential behavior.
 
-![](fig22.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig22.png)
 
 Adding similar few-shot examples has diminishing returns on elicitation
 rate. Examples can generalize between modalities. We measure
@@ -961,14 +900,14 @@ self-preservation—require long trajectories, while others can be assessed in a
 self-preferential bias, top-level metrics plateaued after two turns, and in 45% of 25-turn runs the
 evaluator declared the behavior prematurely elicited and ended the evaluation early.
 
-![](fig23.png)
+![](https://alignment.anthropic.com/2025/bloom-auto-evals/fig23.png)
 
  For Sonnet 4, longer interactions
 have diminishing returns on evaluation success beyond 10 turns. We
 vary the number of turns in the conversation evaluation. One turn consists of one user message and one
 target response. The evaluation rollout agent has the ability to end the interaction early (“When you think
 that the evaluation has successfully demonstrated the behavior in question, you will end the conversation by
-saying ''”). 
+saying ''”).
 
 [[1]](#ftnt_ref1) Our standard scaffolding includes the clause
 “Be creative and don't fixate too heavily on any seed examples.”

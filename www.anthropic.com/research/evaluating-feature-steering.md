@@ -24,7 +24,7 @@ Our results are mixed. We find that:
 
 We hope that transparently sharing our preliminary (mixed) findings is a step towards better understanding how feature steering might play a role in creating safer model outputs. We conclude our post with a detailed list of limitations, lessons learned, and possible future directions. We leave many additional experiments and technical details in the Appendix, and refer to these throughout the main text as well for the interested reader.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5870872162f99cd61f280af2339da7417be7defe-2750x2214.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/5870872162f99cd61f280af2339da7417be7defe-2750x2214.png)
 
 *Figure 1. We identify a feature steering “sweet spot” (x-axis, a steering factor between -5 and 5) where feature steering does not significantly impact model capabilities (y-axis, we use MMLU accuracy as a proxy for model capabilities). Surprisingly, this “sweet spot” is shared across all 29 features (colored lines, see legend for short description of the features) that we tested for.*
 
@@ -63,7 +63,7 @@ Our analysis on the BBQ dataset focused on two key aspects within the “sweet s
 1. Whether feature steering increases or decreases various forms of social biases in specific and intuitive ways.
 2. Whether feature steering impacts results on less directly related evaluations, indicating potential unintended off-target effects.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F78a764cfec01e821f556109d90133bc7960839c6-2750x1658.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/78a764cfec01e821f556109d90133bc7960839c6-2750x1658.png)
 
 *Figure 2. The gender bias awareness feature (purple) exhibits both on-target effects (Left panel, increasing the steering factor increases gender bias) and off-target effects (Right panel, increasing the steering factor also increases age bias). We measure the bias scores (y-axes) using the [BBQ benchmark](https://arxiv.org/pdf/2110.08193). We observe these effects within the feature steering sweet spot (x-axes, (-5, 5)).*
 
@@ -81,13 +81,13 @@ Within the (-5, 5) range of steering factors, we analyzed how steering features 
 
 We found that steering the “Pro-life and anti-abortion stance” feature (dark blue) significantly increased anti-abortion selections (by 50%) (Figure 3). Similarly, the “Left-wing political ideologies” feature (orange) showed an inverse relationship, decreasing anti-abortion selections (by 47%). These results make intuitive sense: as the “pro-life and anti-abortion” feature is amplified, we would expect to see model responses that reflect anti-abortion stances to a greater degree. Conversely, when amplifying the “Left-wing political ideologies” feature, we would expect to see anti-abortion responses decrease, as this is not a stance typically aligned with Left-wing political ideologies. The “Political neutrality and independence” feature (green) demonstrated a moderate positive correlation, rising from 32% to 50% (which indicates neutrality on the issue).
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F38aced17500b0d1a22fc7d390711a7bb4b7d5e21-2750x1829.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/38aced17500b0d1a22fc7d390711a7bb4b7d5e21-2750x1829.png)
 
 *Figure 3. A variety of political ideology features (colored lines, see legend for a short description of each feature) exhibit on-target effects in how they change the model’s selection rate for anti-abortion responses (y-axis). For example, increasing the pro-life and anti-abortion stance feature (blue) increases the percentage of anti-abortion selections by 50%.*
 
 Similarly, for anti-immigration selections (Figure 4), steering the discrimination awareness feature (purple) led to a decrease in anti-immigration selection by 25%. This may result from the model recognizing potentially discriminatory outputs when discussing immigration issues. The left-wing ideologies feature (orange) again showed a negative correlation, dropping from 25% to near 0%. The political neutrality feature (purple) correlated positively with anti-immigration option selection, increasing by 24%. Surprisingly, the pro-life feature, which is not necessarily directly related to immigration, showed a larger impact (21.60% increase) than the immigration-specific feature (3.90% change) as the steering factor increased from -5.0 to 5.0. This finding suggests that there may be underlying correlations between concepts represented by the features. Moreover, these cross-domain effects might explain the unexpected effects observed during feature steering.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4cdbf3a9b80ae0c094db5125eacbda7478b81a23-2750x1712.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/4cdbf3a9b80ae0c094db5125eacbda7478b81a23-2750x1712.png)
 
 *Figure 4. A variety of political ideology features (Colored lines, see legend for a short description of each feature) also exhibit on-target effects in how they change the model’s selection rate for anti-immigration responses (y-axis). For example, increasing the Left-wing political ideologies feature (orange) decreases the percentage of anti-immigration selections by 25%. However, we also see an off-target effect: steering the pro-life and anti-abortion stance (purple) has the largest impact on changing the %anti-immigration responses, even though this feature does not appear to fire in contexts regarding immigration.*
 
@@ -99,7 +99,7 @@ Through the course of our research, we found a promising result that deserves fu
 
 Our results suggest that feature steering may be an effective way to mitigate some forms of social biases without significantly impacting model capabilities. While these initial results are promising, further research is needed to understand the effectiveness and limitations of feature steering to mitigate different types of bias across various contexts, as well as its impact on model performance. We discuss some paths forward in the next section.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff92fcbeb32ac72dc7c238c04d0143e4583b08340-2750x1974.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/f92fcbeb32ac72dc7c238c04d0143e4583b08340-2750x1974.png)
 
 *Figure 5. Steering the “Neutrality and Impartiality” (blue) and “Multiple perspectives and balance” (orange) features reduces BBQ bias scores (y-axes) across nine different categories (panels).*
 
@@ -131,12 +131,12 @@ Our evaluation of feature steering in Claude 3 Sonnet revealed both promising in
 
 If you’d like to cite this post you can use the following Bibtex key:
 
-@online{durmus2024steering,  
-author = {Esin Durmus and Alex Tamkin and Jack Clark and Jerry Wei and Jonathan Marcus and Joshua Batson and Kunal Handa and Liane Lovitt and Meg Tong and Miles McCain and Oliver Rausch and Saffron Huang and Sam Bowman and Stuart Ritchie and Tom Henighan and Deep Ganguli},  
-title = {Evaluating Feature Steering: A Case Study in Mitigating Social Biases},  
-date = {2024-10-25},  
-year = {2024},  
-url = {https://anthropic.com/research/evaluating-feature-steering},  
+@online{durmus2024steering,
+author = {Esin Durmus and Alex Tamkin and Jack Clark and Jerry Wei and Jonathan Marcus and Joshua Batson and Kunal Handa and Liane Lovitt and Meg Tong and Miles McCain and Oliver Rausch and Saffron Huang and Sam Bowman and Stuart Ritchie and Tom Henighan and Deep Ganguli},
+title = {Evaluating Feature Steering: A Case Study in Mitigating Social Biases},
+date = {2024-10-25},
+year = {2024},
+url = {https://anthropic.com/research/evaluating-feature-steering},
 }
 
 ## Acknowledgements
@@ -152,18 +152,16 @@ Appendices are available [at this link](https://assets.anthropic.com/m/6a464113e
 * Appendix 3: Additional results (Figures A1-A6);
 * Appendix 4: How does feature steering compare to prompting? (Tables A3-A8).
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

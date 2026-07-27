@@ -2,9 +2,6 @@
 
 # Circuits Updates - August 2024
 
-  
-  
-
 We report a number of developing ideas on the Anthropic interpretability team, which might be of interest to researchers working actively in this space. Some of these are emerging strands of research where we expect to publish more on in the coming months. Others are minor points we wish to share, since we're unlikely to ever write a paper about them.
 
 We'd ask you to treat these results like those of a colleague sharing some thoughts or preliminary experiments for a few minutes at a lab meeting, rather than a mature paper.
@@ -14,13 +11,6 @@ New Posts
 * [Interpretability Evals for Dictionary Learning](#interp-evals)
 * [Interpretability Evals Case Study](#evals-case-study)
 * [Self-explaining SAE features](#self-explaining-sae)
-
-  
-  
-  
-
-  
-  
 
 ## [Interpretability Evals for Dictionary Learning](#interp-evals)
 
@@ -125,13 +115,6 @@ For both evals, after iterating on our methodology (particularly the system prom
 * We checked that eval scores improved with the number of features in the SAE
 * We checked that eval scores correlated with SAE eval loss (see also “Evaluating SAE Variants” in [Interpretability Evals Case Study](#evals-case-study) below)
 
-  
-  
-  
-
-  
-  
-
 ## [Interpretability Evals Case Study](#evals-case-study)
 
 Adly Templeton, Tom Conerly, Jack Lindsey, Hoagy Cunningham, Andrew Persic
@@ -163,44 +146,37 @@ Our evaluations work has generated a large number of possible metrics. To determ
 
 The Sort eval, on randomly selected pairs:
 
-![](images/img-001.png)
-![](images/img-002.png)
+![](images/15e7b115b53d4c9b.png)
+![](images/5dc1deaa1d3a08a1.png)
 
 The contrastive eval, with all nonzero activations weighted equally.
 
-![](images/img-003.png)
+![](images/030552e32483121e.png)
 
 These three evals display roughly consistent patterns with respect to evaluation loss. In the plots above the bottom-right point is a frequent outlier; this point was only trained to 32,000,000 tokens, and so is probably unusual in many ways.
 
 ### Evaluating SAE Variants
 
-Now that we have three metrics that correlate with evaluation loss on vanilla SAEs, we can use them to evaluate SAE variants. For these plots, we will vary the sparsity coefficients and hold the number of features and training tokens constant.. We measure the tradeoff curve between MSE and the three metrics validated above, plus L0. Lower MSE is better, and higher is better for all metrics except L0.
+Now that we have three metrics that correlate with evaluation loss on vanilla SAEs, we can use them to evaluate SAE variants. For these plots, we will vary the sparsity coefficients and hold the number of features and training tokens constant. We measure the tradeoff curve between MSE and the three metrics validated above, plus L0. Lower MSE is better, and higher is better for all metrics except L0.
 
 Log L0 (Lower is Better):
 
-![](images/img-004.png)
+![](images/da445780fbd61fa7.png)
 
 Sort Eval (Higher is Better)
 
-![](images/img-005.png)
+![](images/61496bfc525a11e2.png)
 
 Contrastive Eval, Weighted (Higher is Better)
 
-![](images/img-006.png)
-![](images/img-007.png)
+![](images/dcf0cabeeca663a0.png)
+![](images/58fdc6b44c26e7fd.png)
 
 ### Analysis
 
 The most important conclusion is that these variants are better than vanilla SAEs, validating our method of analysis and derisking the use of one of these methods. The non-vanilla variants perform pretty similarly on our evaluations, and over-interpreting the small differences in evaluation scores is unlikely to be fruitful. Our evaluations likely do not have the resolution to distinguish the relatively small performance differences between these variants. Instead, other properties of these variants, such as ease-of-use, robustness while scaling, and ease of circuits analysis might be more important. Creating more and better evaluations for sparse autoencoders continues to be an area of research that we are excited about.
 
 In [Tanh Penalty in Dictionary Learning](https://transformer-circuits.pub/2024/feb-update/index.html#dict-learning-tanh) we observed many uninterpretable high density features when training with tanh. We no longer see those issues when training with tanh. We see a similar number of high density features as other SAE variants. The high density features for tanh are roughly as interpretable as high density features from other SAE variants. Our best guess is the changes described in [Update on how we train SAEs](https://transformer-circuits.pub/2024/april-update/index.html#training-saes) improved tanh. We have not run ablations to determine exactly what caused the change.
-
-  
-  
-  
-
-  
-  
 
 ## [Self-explaining SAE features](#self-explaining-sae)
 

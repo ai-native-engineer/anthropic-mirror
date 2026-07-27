@@ -2,9 +2,6 @@
 
 # Circuits Updates - September 2025
 
-  
-  
-
 In these monthly updates we report a number of developing ideas on the Anthropic interpretability team, which might be of interest to researchers working actively in this space. Some of these are emerging strands of research where we expect to publish more on in the coming months. Others are minor points we wish to share, since we're unlikely to ever write a paper about them.
 
 We'd ask you to treat these results like those of a colleague sharing some thoughts or preliminary experiments for a few minutes at a lab meeting, rather than a mature paper.
@@ -12,13 +9,6 @@ We'd ask you to treat these results like those of a colleague sharing some thoug
 New Posts
 
 * [Features & In-context learning](#sample-length)
-
-  
-  
-  
-
-  
-  
 
 ## [Features & In-context learning](#sample-length)
 
@@ -43,10 +33,10 @@ We calculated the IoU score for the first and last sentences in paired English/F
 
 The differences between these are shown below. The distribution is skewed strongly to the right, meaning that the final sentence has a higher IoU score than the first. This is what explanation (2) predicts and is contrary to (1). We think this is evidence in favor of the theory that the model just has a richer understanding later in the context.
 
-![](images/img-001.png)
+![](images/0104c05dad32068a.png)
 
 We also studied a baseline for this experiment where we take unrelated samples from the two languages. That is, we compare unrelated first sentences from English with unrelated first sentences from French, and likewise for last sentences. If (1) were occurring these should again be similar, whereas if (2) is occurring we should expect more overlap between unrelated first sentences than unrelated last sentences.
 
 The distribution, shown below, skews to the left, meaning there's more overlap between unrelated first sentences than between unrelated last sentences. We think this is again consistent with a story where the scaling with context length is about the model developing a richer understanding.
 
-![](images/img-002.png)
+![](images/dd0903b6cfff0f39.png)

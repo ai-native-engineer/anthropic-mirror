@@ -4,14 +4,14 @@
 
 Apr 29, 2026
 
-![Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2463653e413eb463dbccd43ac34e4844e9adf646-2000x1125.png&w=3840&q=75)
+![Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench](https://www-cdn.anthropic.com/images/4zrzovbb/website/2463653e413eb463dbccd43ac34e4844e9adf646-2000x1125.png)
 
-*In this post, Brianna*, *a researcher on the discovery team, shares results from a recent bioinformatics benchmarking effort.*  
-  
-Almost as soon as large language models could hold a conversation, people started asking how they’d stack up against human experts. Could models pass the bar exam? Could they answer medical licensing questions, or solve Olympiad math problems? Such *benchmarks*—self-contained sets of human-vetted problems designed to evaluate a capability of a model—have now become a source of competition across AI developers, reported in model release system cards and tracked on [many](https://huggingface.co/spaces/lmarena-ai/arena-leaderboard) [online](https://artificialanalysis.ai/) [leaderboards](https://epoch.ai/benchmarks).   
-  
-Competition aside, benchmarks help us tackle an important question: whether models are capable and reliable enough to support, or even produce, professional-level work. Scientists [are using models](https://www.anthropic.com/news/accelerating-scientific-research) to write code for analysis pipelines, propose hypotheses, and draw conclusions from data with the long-term aim of [accelerating innovation and discovery](https://darioamodei.com/essay/machines-of-loving-grace#1-biology-and-health). But exactly how proficient is AI in science right now, and how quickly are Claude and other models improving?   
-  
+*In this post, Brianna*, *a researcher on the discovery team, shares results from a recent bioinformatics benchmarking effort.*
+
+Almost as soon as large language models could hold a conversation, people started asking how they’d stack up against human experts. Could models pass the bar exam? Could they answer medical licensing questions, or solve Olympiad math problems? Such *benchmarks*—self-contained sets of human-vetted problems designed to evaluate a capability of a model—have now become a source of competition across AI developers, reported in model release system cards and tracked on [many](https://huggingface.co/spaces/lmarena-ai/arena-leaderboard) [online](https://artificialanalysis.ai/) [leaderboards](https://epoch.ai/benchmarks).
+
+Competition aside, benchmarks help us tackle an important question: whether models are capable and reliable enough to support, or even produce, professional-level work. Scientists [are using models](https://www.anthropic.com/news/accelerating-scientific-research) to write code for analysis pipelines, propose hypotheses, and draw conclusions from data with the long-term aim of [accelerating innovation and discovery](https://darioamodei.com/essay/machines-of-loving-grace#1-biology-and-health). But exactly how proficient is AI in science right now, and how quickly are Claude and other models improving?
+
 To answer this, the research community has built several benchmarks. [MMLU-Pro](https://arxiv.org/abs/2406.01574) tests expert-level knowledge and reasoning questions. [GPQA](https://arxiv.org/abs/2311.12022) poses graduate-level, "Google-proof" questions in biology, physics, and chemistry. [LAB-Bench](https://arxiv.org/abs/2407.10362) tests biology-specific knowledge work—reading the literature, interpreting figures, reasoning about protocols. Although these benchmarks were developed in the “chatbot” era, they’ve persisted into the agent and tool-use era, joined by even more difficult scientific reasoning evals like [FrontierScience](https://arxiv.org/abs/2601.21165) and [Humanity's Last Exam](https://arxiv.org/abs/2501.14249), because knowledge and reasoning remain a vital measure of scientific capability.
 
 Still, many real-world scientific tasks demand more than that. They require reading papers, querying databases, running experiments, coding and analysis. Now that models can do many of these things, benchmarks have evolved to reflect these workflows. [BLADE](https://blade-bench.github.io/) tasks a model with a dataset and an open-ended task, and checks if the model takes similar analysis steps to a human scientist. [BixBench](https://arxiv.org/abs/2503.00096) uses biological datasets, and grades models on whether their conclusions line up with scientists’. In [SciGym](https://arxiv.org/abs/2507.02083), the model is dropped into a simulated biology lab, where it has to design and run its own experiments to uncover a hidden mechanism.
@@ -78,7 +78,7 @@ To minimize inherently unsolvable questions while still leaving room for those t
 
 For each question, we tasked up to five domain experts to answer the question from scratch. Once a question was answered correctly by at least one human, we considered it human-solvable. BioMysteryBench contained 76 such tasks.
 
-![Graph of accuracy on human-solvable problems](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F291077c3785708a54dbb4421db3751b1d1c4ba84-1920x1080.png&w=3840&q=75)
+![Graph of accuracy on human-solvable problems](https://www-cdn.anthropic.com/images/4zrzovbb/website/291077c3785708a54dbb4421db3751b1d1c4ba84-1920x1080.png)
 
 Fig 1: Accuracy averaged over 5 trials per 76 human-solvable problems. Error bars computed by bootstrap sampling within problems.
 
@@ -86,17 +86,17 @@ Sometimes Claude mirrored human strategies. Perhaps humans have landed on a near
 
 Example 1Example 2
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8f163ac92606de805573294eaa417e3ec39e38e4-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/8f163ac92606de805573294eaa417e3ec39e38e4-1920x1080.png)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6e98b8a8f33638491c1e3a4ffb43cf728d70fc02-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/6e98b8a8f33638491c1e3a4ffb43cf728d70fc02-1920x1080.png)
 
 Other times, Claude took a completely different route, illustrating there is no strictly correct way to solve these problems and that models may have genuine preferences that diverge from ours.
 
 Example 1Example 2
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fec850217c59499f29b36e57853a4c93daf20d021-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/ec850217c59499f29b36e57853a4c93daf20d021-1920x1080.png)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fba4bf7f74aee2623f6217574ec40ba51e45c120d-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/ba4bf7f74aee2623f6217574ec40ba51e45c120d-1920x1080.png)
 
 The examples above showcase a particularly interesting strategy: whereas our human experts used algorithms or databases to identify and annotate properties of a dataset, Claude intuitively recognizes certain patterns or sequences. Admittedly, such clever abstraction is not entirely unique to AI—the first eukaryotic promoter, for example, was discovered when a scientist noticed the sequence “TATA” appearing over and over in sequences upstream of genes. *Intuition* like this has been difficult to build into traditional biology machine learning models, but LLMs might be able to turn up patterns like this at unprecedented scale.
 
@@ -104,7 +104,7 @@ The examples above showcase a particularly interesting strategy: whereas our hum
 
 That left us with a set of questions that could not be solved by our panel of experts. This could mean (1) the question was malformed or broken, (2) the question is inherently unsolvable (e.g.,the signal isn’t in the data), or (3) the question is theoretically solvable but humans lack the knowledge required to solve it. After QC’ing with benchmarkers and additional experts, we removed 4 questions that were due to (1), leaving 23 human-difficult questions.
 
-![Graph showing performance on human-difficult problems](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0aed26a846ccd67d813a2c14f78069216671c8e3-1920x1080.png&w=3840&q=75)
+![Graph showing performance on human-difficult problems](https://www-cdn.anthropic.com/images/4zrzovbb/website/0aed26a846ccd67d813a2c14f78069216671c8e3-1920x1080.png)
 
 Fig 2: Accuracy over the set of problems humans were not able to solve, averaged across 5 episodes per problem. Error bars computed by bootstrap sampling within problems.
 
@@ -120,15 +120,15 @@ In some of the human-difficult tasks, Opus’s vast underlying knowledge base he
 
 Example 1Example 2Example 3
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb66685cd4ff4cf7f088609183fcb604f752a1241-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/b66685cd4ff4cf7f088609183fcb604f752a1241-1920x1080.png)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc97919a677674d2446e7cf8dad1a53f7065c992c-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/c97919a677674d2446e7cf8dad1a53f7065c992c-1920x1080.png)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc76ff72da237c3de4de7d73a8c7662c53ad02cb6-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/c76ff72da237c3de4de7d73a8c7662c53ad02cb6-1920x1080.png)
 
 Even though prior knowledge seemed overwhelmingly helpful to Claude, we saw one interesting case (in the human-solvable set) where this became its downfall:
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd15f9f4a9508cce79a95c078c948edeb4f98855e-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/d15f9f4a9508cce79a95c078c948edeb4f98855e-1920x1080.png)
 
 ### Knowing when you don’t know
 
@@ -136,11 +136,11 @@ When Opus 4.6 was not confident about an answer, it often tried multiple differe
 
 Example 1Example 2Example 3
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa891cd72960164b205dca647eb74030b0fbb698c-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/a891cd72960164b205dca647eb74030b0fbb698c-1920x1080.png)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Feda46c2e931b868d77d7d6e868b8bb1cab1c7f70-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/eda46c2e931b868d77d7d6e868b8bb1cab1c7f70-1920x1080.png)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8b7b5fddbafbd29783f0c6f1cda13ea112a2f112-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/8b7b5fddbafbd29783f0c6f1cda13ea112a2f112-1920x1080.png)
 
 Like many of the benchmarks we've discussed, BioMysteryBench has its own limitation: for tasks that neither humans nor models have solved, we can never be fully certain whether they're impossible or just extraordinarily difficult. The validation notebooks help ensure the signal is there and the data is well-formed, but they do not guarantee a model or human can find the answer from scratch. So we ask both our models and our human benchmarkers not to be too frustrated if, a year from now, no one has solved the human-difficult set. That uncertainty is also part of what makes the benchmark exciting: a more scientifically capable model might be the first to crack a problem that no human or model has solved before.
 
@@ -152,7 +152,7 @@ Claude showed solid improvement across generations and did well enough at both t
 The headline accuracy numbers tell you how often each model gets the right answer, but not how it gets there. I wanted to know whether a correct answer on a hard problem means the same thing as a correct answer on a solvable one. Since every problem was attempted five times, I could look at per-problem solve counts: if a model solves something 5/5 it has a reliable method; if it solves it 1/5 it probably got lucky on a reasoning path it can't consistently find again. So I broke each model's solved problems down by solve count (0/5 through 5/5) on the two sets side by side.
 ```
 
-![Chart showing per-problem solve consistency on BioMysteryBench.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3840cd87380589c9f00c31d5b9334639ebfb5303-1920x1080.png&w=3840&q=75)
+![Chart showing per-problem solve consistency on BioMysteryBench.](https://www-cdn.anthropic.com/images/4zrzovbb/website/3840cd87380589c9f00c31d5b9334639ebfb5303-1920x1080.png)
 
 Fig 3. Per-problem solve consistency on BioMysteryBench. Each model attempted every problem five times; bars show the share of problems solved 0, 1, 2, 3, 4, or 5 times out of 5. On the human-solvable set (left), all three models are strongly bimodal—problems are almost always solved either every time or never. On the human-difficult set (right), the middle of the distribution fills in: a much larger fraction of each model's correct answers come from problems it solves only once or twice in five tries, indicating that difficult-set wins are often lucky reasoning paths rather than reliably reproducible solutions.
 
@@ -172,21 +172,19 @@ We’re eager to build even longer-horizon, real-world tasks that push model res
 
 If you are interested in understanding how models perform on difficult verifiable computational biology tasks, you can [access BioMysteryBench here](https://huggingface.co/datasets/Anthropic/BioMysteryBench-preview) and visit [claude.com/lifesciences](http://claude.com/lifesciences) to learn more.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)
 
 ## Subscribe to Anthropic Science
 

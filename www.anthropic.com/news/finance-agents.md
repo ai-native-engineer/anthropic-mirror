@@ -77,7 +77,7 @@ In addition, **Moody's** has launched an MCP app that brings proprietary credit 
 
 Many leading banks, asset managers, and insurers choose Claude. It supports the full range of these organizations' work: front office tasks like research and client experience, middle office work in underwriting, risk, and compliance, and back office work like code modernization and operations.
 
-![Citadel logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa46aeeca5f6a18c7e83ff1235049e57d2efe5f47-3840x504.png&w=256&q=75)
+![Citadel logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/a46aeeca5f6a18c7e83ff1235049e57d2efe5f47-3840x504.png)
 
 > Our investment professionals live in data and analytical models, and Claude for Excel meets them there. Analysts are using it to build and update coverage models, separate signal from noise, and pressure-test their work — all with a step-change in efficiency.
 
@@ -85,39 +85,39 @@ Many leading banks, asset managers, and insurers choose Claude. It supports the 
 
 > FIS sits at the center of how money moves for thousands of financial institutions worldwide. When we began to build AI agents, we knew we needed a provider we could trust. Anthropic was the clear choice. Together we're building an agent that compresses AML investigations from days to minutes, with credit decisioning, fraud prevention, and deposit retention agents to follow. FIS clients won't need to build this infrastructure themselves. It's already here.
 
-![BNY logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff4da4be08db2bc43ee243e4545cf9b471d82a5d3-3840x833.png&w=256&q=75)
+![BNY logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/f4da4be08db2bc43ee243e4545cf9b471d82a5d3-3840x833.png)
 
 > With Eliza and Claude, we’re giving processes new digital employees who work the case end to end.
 
-![Carlyle logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7b60c286a362ff94c2f09bd076a95d1172a81961-1560x194.png&w=256&q=75)
+![Carlyle logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/7b60c286a362ff94c2f09bd076a95d1172a81961-1560x194.png)
 
 > Carlyle has adopted Claude as a key part of our AI technology stack because of its strong coding capabilities, agentic reasoning, and continual advances in both the underlying models and key features. Claude is a core tool for delivering value across our firm from investing to operations to portfolio management.
 
-![Mizuho logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7e8a9f3b8048c0321b46bf1f0c2b01b93ff4c38e-1280x385.png&w=256&q=75)
+![Mizuho logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/7e8a9f3b8048c0321b46bf1f0c2b01b93ff4c38e-1280x385.png)
 
 > Claude compresses and enhances the work before the meeting so each and every meeting is more impactful — prep time has been transformed into idea time, with faster workflows, richer client insights, and new use cases we didn’t anticipate.
 
-![Travelers logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb83d0c8ad42d0baf626410b00027ba497a36da5b-3840x2160.png&w=256&q=75)
+![Travelers logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/b83d0c8ad42d0baf626410b00027ba497a36da5b-3840x2160.png)
 
 > Since we started introducing personalized Claude and Claude Code assistants, we have seen significantly elevated levels of engineering excellence and meaningful improvements in productivity. We are pleased to be delivering value by putting AI to work in advancing the company’s strategic innovation priorities of extending our advantage in risk expertise; providing great experiences for our customers, distribution partners and employees; and optimizing our productivity and efficiency.
 
-![Walleye logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/e9fe73c429973c6f07001b40d834f3e7b71a88b2-317x83.svg)
+![Walleye logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/74f9dcd65076def29413e42e822da248590b68d3-145x64.svg)
 
 > 100% of employees at Walleye Capital use Claude Code. This level of adoption across our 400-person hedge fund reflects our AI-first mindset: we expect everyone to constantly rethink how they work, always asking 'How can AI help me do this?'—whether or not they're in a traditionally technical role.
 
-![Hg logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F91e187d85b3367ce7d8e6c547b558669aefb3780-500x242.png&w=256&q=75)
+![Hg logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/91e187d85b3367ce7d8e6c547b558669aefb3780-500x242.png)
 
 > Claude for Excel powered by Claude Opus 4.6 represents a significant leap forward. From due diligence to financial modeling, it’s proving to be a remarkably powerful tool for our team - taking unstructured data and intelligently working with minimal prompting to meaningfully automate complex analysis. It’s an excellent example of AI augmenting investment professionals’ capabilities in tangible, time-saving ways.
 
-![Dun & Bradstreet logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Faf68ac48df26917bc592472d7e0c6b61d49cd654-3840x565.png&w=256&q=75)
+![Dun & Bradstreet logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/af68ac48df26917bc592472d7e0c6b61d49cd654-3840x565.png)
 
 > Agents in risk workflows must understand who they’re dealing with. Bringing Dun & Bradstreet's Commercial Graph and D-U-N-S® Number, the global standard for business identity, into Claude ensures AI agents operate on verified data and deliver the deterministic, auditable outcomes financial workflows require.
 
-![Morningstar logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F640abf19fdf2d81f67926e60f3dffa4f79fe6562-3840x806.png&w=256&q=75)
+![Morningstar logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/640abf19fdf2d81f67926e60f3dffa4f79fe6562-3840x806.png)
 
 > Investors need AI they can trust — and trust starts with the data behind it. Morningstar and PitchBook bring decades of independent, analyst-backed intelligence to Claude, so users aren't just getting faster answers. They're getting better ones. Together, we're building the intelligence layer that powers smarter decisions across public and private markets.
 
-![FactSet logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fee54230e131ad008f3897e85e91264478dfc2d25-1491x289.png&w=256&q=75)
+![FactSet logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/ee54230e131ad008f3897e85e91264478dfc2d25-1491x289.png)
 
 > Our clients — institutional investors, asset managers, hedge funds, and banks — increasingly want to run AI-assisted workflows directly against select sets of FactSet data. Partnering with Anthropic lets us bring Claude into a hosted programmatic environment where they can reason over our foundational market data, research, and analytics in the tools they already use. Internally, firm-wide Claude Code adoption across our engineering org is accelerating how quickly we can ship those capabilities.
 

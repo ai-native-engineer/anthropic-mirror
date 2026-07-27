@@ -6,7 +6,7 @@ Aug 21, 2025
 
 [Read the full post on red.anthropic.com](https://red.anthropic.com/2025/nuclear-safeguards/)
 
-![Developing nuclear safeguards for AI through public-private partnership ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F94afaf41cf9c82fa9ac91653b37f44a43632681e-2400x1260.png&w=3840&q=75)
+![Developing nuclear safeguards for AI through public-private partnership ](https://www-cdn.anthropic.com/images/4zrzovbb/website/94afaf41cf9c82fa9ac91653b37f44a43632681e-2400x1260.png)
 
 Nuclear technology is inherently dual-use: the same physics principles that power nuclear reactors can be misused for weapons development. As AI models become more capable, we need to keep a close eye on whether they can provide users with dangerous technical knowledge in ways that could threaten national security.
 

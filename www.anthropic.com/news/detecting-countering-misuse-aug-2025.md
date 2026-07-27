@@ -206,7 +206,7 @@ These employment schemes were designed to generate profit for the North Korean r
 
 **Implications:** North Korean IT workers previously underwent years of specialized training prior to taking on remote technical work, which made the regime’s training capacity a major bottleneck. But AI has eliminated this constraint. Operators who cannot otherwise write basic code or communicate professionally in English are now able to pass technical interviews at reputable technology companies and then maintain their positions. This represents a fundamentally new phase for these employment scams.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa474b3555a5486e3b8c0fa97434b27924a11b8d5-2756x5840.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/a474b3555a5486e3b8c0fa97434b27924a11b8d5-2756x5840.png)
 
 *Top: Simulated prompts created by our threat intelligence team demonstrating a lack of relevant technical knowledge. Bottom: Simulated prompts demonstrating linguistic and cultural barriers.*
 
@@ -216,7 +216,7 @@ These employment schemes were designed to generate profit for the North Korean r
 
 **The threat:** A cybercriminal used Claude to develop, market, and distribute several variants of ransomware, each with advanced evasion capabilities, encryption, and anti-recovery mechanisms. The ransomware packages were sold on internet forums to other cybercriminals for $400 to $1200 USD.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3d0f1e44057b1d4a58f56785009a18efb7123cb0-4158x2958.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/3d0f1e44057b1d4a58f56785009a18efb7123cb0-4158x2958.png)
 
 *The cybercriminal’s initial sales offering on the dark web, from January 2025.*
 

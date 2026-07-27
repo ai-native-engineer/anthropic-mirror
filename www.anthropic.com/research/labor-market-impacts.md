@@ -6,7 +6,7 @@ Mar 5, 2026
 
 [Read in PDF](https://cdn.sanity.io/files/4zrzovbb/website/2b5bbaf2c1eb81dbf6e6fb813c1a24e35a64d376.pdf)
 
-![Labor market impacts of AI: A new measure and early evidence](https://www-cdn.anthropic.com/images/4zrzovbb/website/1576ae23eaf481f33bd36ab468171cc69d12361a-1000x1000.svg)
+![Labor market impacts of AI: A new measure and early evidence](https://www-cdn.anthropic.com/images/4zrzovbb/website/ab8ae8617a1938790140358209918c79418b1c1e-2000x1125.png)
 
 ## Key findings
 
@@ -50,7 +50,7 @@ Why might actual usage fall short of theoretical capability? Some tasks that are
 
 That said, these measures of theoretical capability and actual usage are highly correlated. As Figure 1 shows, 97% of the tasks observed across the previous four Economic Index reports fall into categories rated as theoretically feasible by Eloundou et al. (β=0.5 or β=1.0).
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9d205667455ef8b78e8cbb407b6bd76556a7d859-4584x2579.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/9d205667455ef8b78e8cbb407b6bd76556a7d859-4584x2579.png)
 
 **Figure 1: Share of Claude usage by Eloundou et al. task exposure rating**This figure shows Claude usage distributed across O\*NET tasks grouped by their theoretical AI exposure. Tasks rated β=1 (fully feasible for an LLM alone) account for 68% of observed Claude usage, while tasks rated β=0 (not feasible) account for just 3%. Data on Claude usage comes from the previous four Economic Index reports.
 
@@ -70,7 +70,7 @@ We give mathematical details in the [Appendix](https://cdn.sanity.io/files/4zrzo
 
 Figure 2 shows observed exposure (in red) compared to β from Eloundou et al. (in blue), illustrating the difference between theoretical and actual use on our platform, grouped by broad occupational categories. We calculate this by first averaging to the occupation level weighting by our time fraction measure, then averaging to the occupation category weighting by total employment. For example, the β measure shows scope for LLM penetration in the majority of tasks in Computer & Math (94%) and Office & Admin (90%) occupations.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc1952c81bca02a7c8cc05ef7801e67ca60831c55-4096x4096.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/c1952c81bca02a7c8cc05ef7801e67ca60831c55-4096x4096.png)
 
 **Figure 2: Theoretical capability and observed exposure by occupational category**Share of job tasks that LLMs could theoretically perform (blue area) and our own job coverage measure derived from usage data (red area).
 
@@ -80,7 +80,7 @@ As capabilities advance, adoption spreads, and deployment deepens, the red area 
 
 Figure 3 shows the ten occupations most exposed under this measure. In line with other data showing that Claude is extensively used for coding, Computer Programmers are at the top, with 75% coverage, followed by Customer Service Representatives, whose main tasks we increasingly see in first-party API traffic. Finally, Data Entry Keyers, whose primary task of reading source documents and entering data sees significant automation, are 67% covered.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa16a5b9ba4a5280ef41e058dff6964a3f116c854-4584x2579.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/a16a5b9ba4a5280ef41e058dff6964a3f116c854-4584x2579.png)
 
 **Figure 3: Most exposed occupations**Top ten most exposed occupations using our task coverage measure.
 
@@ -92,13 +92,13 @@ The US Bureau of Labor Statistics (BLS) publishes regular employment projections
 
 A regression at the occupation level weighted by current employment finds that growth projections are somewhat weaker for jobs with more observed exposure. For every 10 percentage point increase in coverage, the BLS’s growth projection drops by 0.6 percentage points. This provides some validation in that our measures track the independently derived estimates from labor market analysts, although the relationship is slight. Interestingly, there is no such correlation using the Eloundou et al. measure alone.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4da91f7eeb62c2c7b09600282c9163f6bdf0d5ca-4584x2579.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/4da91f7eeb62c2c7b09600282c9163f6bdf0d5ca-4584x2579.png)
 
 **Figure 4: BLS projected employment growth from 2024—2034 vs. observed exposure**Binned scatterplot with 25 equally-sized bins. Each solid dot shows the average observed exposure and projected employment change for one of the bins. The dashed line shows a simple linear regression fit, weighted by current employment levels. The small diamonds mark individual example occupations for illustration.
 
 Figure 5 shows characteristics of workers in the top quartile of exposure and the 30% of workers with zero exposure in the three months before ChatGPT was released, August to October 2022, using data from the Current Population Survey.7 The groups are very different. The more exposed group is 16 percentage points more likely to be female, 11 percentage points more likely to be white, and almost twice as likely to be Asian. They earn 47% more, on average, and have higher levels of education. For example, people with graduate degrees are 4.5% of the unexposed group, but 17.4% of the most exposed group, an almost fourfold difference.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fff251060d019f4fdf6579df08aaf61e94b4c2d27-4584x2579.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/ff251060d019f4fdf6579df08aaf61e94b4c2d27-4584x2579.png)
 
 **Figure 5: Differences between high and low exposure workers, Current Population Survey**
 
@@ -118,7 +118,7 @@ With an eye toward simplicity, and noting that we are most concerned with large 
 
 The upper panel of Figure 6 shows raw trends in the unemployment rate since 2016 for workers in the top quartile of exposure and the unexposed group. During COVID, the less AI-exposed workers—who are more likely to have in-person jobs—saw a much larger increase in unemployment. Since then, the trends have been largely similar between the two groups. The lower panel measures the size of the gap between the most and least exposed workers in a difference-in-differences framework, mirroring the findings from the raw data. The average change in the gap since the release of ChatGPT is small and insignificant, suggesting that the unemployment rate of the more exposed group has increased slightly but the effect is indistinguishable from zero.8
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe4cf7bf0364758fe1bfbb7b915c8f1db6d7bd4d4-4584x2579.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/e4cf7bf0364758fe1bfbb7b915c8f1db6d7bd4d4-4584x2579.png)
 
 **Figure 6: Trends in the unemployment rate for workers in the top quartile of observed exposure and no AI exposure, Current Population Survey**The top panel shows the unemployment rate for workers in the top quartile of exposure (red line) and the 30% of workers with zero exposure. The bottom panel measures the gap between these two series in a difference-in-differences framework.
 
@@ -130,7 +130,7 @@ One group of particular concern is young workers. Brynjolfsson et al. report a 6
 
 We find that the unemployment rate for young workers in the exposed occupations is flat (see [Appendix](https://cdn.sanity.io/files/4zrzovbb/website/e5f77fc0e77c0185110b5e4b909602791ae76eae.pdf)). But slowed hiring may not necessarily manifest as increased unemployment, since many young workers are labor market entrants without a listed occupation in the CPS data and may exit the labor force rather than appear as unemployed. To address hiring directly, we use the panel dimension of the CPS, counting the percent of young (22-25 year old) workers who begin a new job in a more vs. less exposed occupation over time. Figure 7 shows the monthly job finding rate (i.e., when a worker reports a job that they did not have in the previous month) for young workers, split by whether they are entering a high- vs. low-exposure occupation.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1e4020e4312e8eeb4601f542a96cb238234f6c8b-4584x2579.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/1e4020e4312e8eeb4601f542a96cb238234f6c8b-4584x2579.png)
 
 **Figure 7: New job starts among workers age 22-25 in occupations with high observed exposure and no AI exposure, Current Population Survey**The top panel shows the percent of young workers starting new jobs in high vs. no exposure occupations. The bottom panel measures the gap between these two series in a difference-in-differences framework.
 
@@ -235,18 +235,16 @@ Tomlinson, K., Jaffe, S., Wang, W., Counts, S., & Suri, S. (2025). Working with 
 
 *Updated Mar 8, 2026: Corrected Figure 7, which incorrectly reversed the labels between top quartile and zero exposure group inflow rates.*
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

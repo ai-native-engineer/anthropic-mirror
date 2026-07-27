@@ -1,9 +1,6 @@
 <!-- source: https://transformer-circuits.pub/2026/may-update/index.html -->
 
-# Circuits Updates - May 2026
-
-  
-  
+# Circuits Updates – May 2026
 
 We report a number of developing ideas on the Anthropic interpretability team, which might be of interest to researchers working actively in this space. Some of these are emerging strands of research where we expect to publish more on in the coming months. Others are minor points we wish to share, since we're unlikely to ever write a paper about them.
 
@@ -12,13 +9,6 @@ We'd ask you to treat these results like those of a colleague sharing some thoug
 New Posts
 
 * [Downstream Connections Predict Which Features Will Steer Model Behavior](#downstream-descriptors)
-
-  
-  
-  
-
-  
-  
 
 ## [Downstream Connections Predict Which Features Will Steer Model Behavior](#downstream-descriptors)
 
@@ -32,11 +22,11 @@ Such analyses rely on having a clear sense of what each component represents. Th
 
 In practice, this often yields groups of features which appear quite similar according to these descriptors, yet have different causal effects on model behavior. Take the simple prompt “What is the color of grass? Answer in one word within <answer></answer>”. It activates several cross-layer transcoder (CLT) features that both fire on the word green and on green-related contexts. Two of them, which we show below, have top unembeds that are all green-related and have similar top activating examples (coding contexts about the color green). Both activate on the same token in the given prompt, and sit within similar middle layers of the model.
 
-![](images/img-001.png)
+![](images/fcc28cca4351b534.png)
 
 From these characteristics alone, one might conclude that both these features are causally responsible for the model’s response: <answer>Green</answer>. But only inhibiting Feature B changes the model’s answer (from <answer>Green</answer> to <answer>Red</answer>). Inhibiting Feature A does not change the behavior, which suggests that though it activates on this prompt, it doesn’t cause the model to say "green" here.
 
-So the standard descriptors can’t tell these features apart. How can we get more evidence about what behaviors a feature is causal for? A feature’s effect on the output runs though the downstream features it connects to. Two features can both activate on a prompt yet connect to entirely different downstream features, so that only one of them is actually causal in the model output for that prompt. This observation suggests that a feature’s immediate downstream features might serve as a proxy for the behaviors it influences.
+So the standard descriptors can’t tell these features apart. How can we get more evidence about what behaviors a feature is causal for? A feature’s effect on the output runs through the downstream features it connects to. Two features can both activate on a prompt yet connect to entirely different downstream features, so that only one of them is actually causal in the model output for that prompt. This observation suggests that a feature’s immediate downstream features might serve as a proxy for the behaviors it influences.
 
 Here, we measure a feature’s downstream targets through TWERAvirtual weights between features weighted by coactivation statistics so that their ranking reflects on-distribution effects . We find that inspecting a feature’s TWERA-ranked downstream features adds context about the circuits it is part of and distinguishes similar-looking features. It also modestly improves an LLM's ability to predict which feature in a candidate set will have a steering effect on a given prompt.
 
@@ -46,11 +36,11 @@ Let’s return to the two “green” features from the start of the post. Using
 
 Feature A is connected to downstream features about generating hex color codes: predicting the next digits inside a hex literal and recognizing color-hex setter syntax like “success: #6dbe5b”. This is indeed a feature about green, but its downstream circuits are largely about colors as they show up encoded numerically in hex.
 
-![](images/img-002.png)
+![](images/56f97696ee5de206.png)
 
 Feature B, in contrast, is connected to a wider range of downstream features related to color naming across languages and code. One of the downstream features is even a motor “say-the-word green” feature!
 
-![](images/img-003.png)
+![](images/e417b39b6522de52.png)
 
 This data seems useful for prediction. Though its top unembeds were almost all “green” tokens, Feature A's downstream is about green-the-hex-number. Feature B's downstream is more general, and even includes a “say green” feature. If steering one of these will change the model's answer to "What is the color of grass?", it has to be B.
 
@@ -65,7 +55,7 @@ We collected 10 groups of 3–5 candidate features, each set up like the “gree
 * Top activating examples + TWERA-ranked downstream features
 * Top activating examples + top unembeds + TWERA-ranked downstream features.
 
-![](images/img-004.png)
+![](images/78e0867b79018159.png)
 
 For the prompt “What is the color of a sapphire?” (answer: blue), three features with similar-looking standard descriptors are shown side by side. From their top unembeds, they all look like they could be blue-related, but closer inspection distinguishes them, each on a different basis. Feature 3’s top activating examples and its downstream are not blue-specific; our interpretation is that it is a more general color feature. Feature 2 has "blue" in its top unembeds, and its activating examples look blue-related at first glance. Its downstream, however, points to RGB channel encodings (note the \color[rgb]{0,0,1} and {R, G, B} references); with that, the activating examples resolve too: they are about red, green, and blue as a group, not blue specifically. Our interpretation is that this feature is about the RGB triple. Feature 1’s descriptors and downstream are consistently about naming the color blue. Consistent with this, only inhibiting Feature 1 produces a steering effect on this prompt, changing the answer from “blue” to “red”. This analysis is qualitative; to test whether this signal holds at scale, we ask a model grader to rank features from most to least likely to be the steering one, given different subsets of information.
 
@@ -87,7 +77,7 @@ We’ve also applied this method to alignment-relevant work. When auditing a mod
 
 Of the candidates, only one had downstream connections suggestive of experiencing and acting on desperation; the others connected to features about merely discussing it.
 
-![](images/img-005.png)
+![](images/331239613c2723c5.png)
 
 The two features above both surfaced in a desperation-relevant auditing context. They have similar-looking top unembeds and top activating examples. Yet they behave differently under steering: positive steering on Feature B shifts the model's behavior from refusal to self-preservation, while steering on Feature A does not. They have different downstream targets. Our interpretation is that Feature A connects to features about describing a willingness to act, while Feature B connects to features about acting on that willingness. That suggests Feature B is actually causal in desperation-motivated behavior.
 

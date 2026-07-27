@@ -18,11 +18,11 @@ We’re conducting a new survey series, Anthropic Public Record, to understand h
 
 Job-loss worry Integrated usersSupport for gov involvement
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F723f3519ffdbeb2184e516e3ba2323d75acd22c5-2528x2840.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/723f3519ffdbeb2184e516e3ba2323d75acd22c5-2528x2840.png)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F507cad62820d33f5a2503f84759445032c22530e-2528x2844.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/507cad62820d33f5a2503f84759445032c22530e-2528x2844.png)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F07db5342ec9e5fdfc971b37fced7d4dfcb6af6ee-2528x2844.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/07db5342ec9e5fdfc971b37fced7d4dfcb6af6ee-2528x2844.png)
 
 Strikingly, on most questions, AI did not heavily divide Americans along typical partisan, geographic, or educational lines. In general, there was broad consensus across topics: Americans are eager to realize AI’s promised benefits but fear the disruption it may bring, and they want accountability from the companies building it. To the extent we saw disagreement, it was largely only in the intensity of people's views.
 
@@ -38,7 +38,7 @@ We conducted a nationally representative online survey in November and December 
 
 We asked Americans to choose their top three hopes for AI from a list of 17. Curing disease topped the list, with 48% of respondents putting it in their top three, 12 percentage points ahead of the second most commonly selected item, helping people with disabilities, at 36%. Items like therapy and reducing loneliness—or hopes that AI might substitute for human contact—were the lowest ranked of the options presented.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe8e083125487dcbc09340e15130901e2172c6754-2528x2372.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/e8e083125487dcbc09340e15130901e2172c6754-2528x2372.png)
 
 ### **What Americans fear**
 
@@ -50,25 +50,25 @@ The most common harms tended to be near-term and concrete: job loss, cognitive d
 
 For all but three of the harms we mentioned, a majority of respondents described themselves as “not worried,” but there was no potential harm about which less than 1/4 of Americans had at least some concern.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fef7aabafd7abdaae2892f9286877c788a52c9982-2528x2780.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/ef7aabafd7abdaae2892f9286877c788a52c9982-2528x2780.png)
 
 ## **Patterns with job loss**
 
 Sixty-four percent of Americans are worried that AI will displace jobs. The concern is remarkably evenly distributed. It is the top-ranked fear among Democrats (67%) and Republicans (62%), in households with children (59%) and without (66%), and in every state from Iowa at the high end (71%) to Mississippi at the low end (57%).
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4653d27a2bfe64ecb26951b95083b1919753d67a-2528x2144.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/4653d27a2bfe64ecb26951b95083b1919753d67a-2528x2144.png)
 
 ### **Job loss concerns are higher among Americans with more education**
 
 Concerns over job displacement rise with a respondent’s education level. Americans with postgraduate degrees are nearly 10 percentage points more worried about job loss than those with a high school education or less. The workers most worried about displacement, in other words, are the ones whose work already overlaps more closely with what AI is being asked to do—a finding [reflected](https://www.anthropic.com/research/81k-economics) in our economic research team’s analysis of our global Anthropic Interviewer study.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa6adecdb6dcd4a10e8c131745de60b3423f07d9f-2528x1312.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/a6adecdb6dcd4a10e8c131745de60b3423f07d9f-2528x1312.png)
 
 ### **Fear of job loss is heightened among those who use AI least**
 
 At the same time, people who use AI at work every day are notably *less* worried about job loss than people who don’t use AI at all: 54% versus 70%.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F47710f04a3c93648488effd4b2d4d20d03656d74-2528x1596.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/47710f04a3c93648488effd4b2d4d20d03656d74-2528x1596.png)
 
 There are many possible explanations for this trend. Hands-on experience with AI may help people develop skills and fluency that allow them to augment rather than automate parts of their job, making job loss seem like less of a looming threat. Hands-on experience may also reveal AI's limitations. Likely it’s a combination of these and other factors.
 
@@ -80,7 +80,7 @@ Overall assessment of AI capabilities was fairly high. At the high end, 75% of A
 
 On most tasks, a majority of Americans did not want AI involvedin their jobs, and even on the tasks they rated AI most capable—such as research and data analysis—nearly half of respondents said they want no AI involvement in their own work. However, acceptance of AI involvement within the workplace seems to move in lockstep with perceived capabilities: the more competent AI is perceived to be in a given domain, the more likely people are to be willing to use it.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F50c5fe81fc536fb4cfb27022811ba8d841f2ca8d-2528x2432.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/50c5fe81fc536fb4cfb27022811ba8d841f2ca8d-2528x2432.png)
 
 ### **Cognitive dependency is an anticipatory fear**
 
@@ -88,11 +88,11 @@ The second most common fear in our survey was cognitive dependency on AI. To bet
 
 So far, cognitive dependency appears to be a mostly anticipatory fear: of the 56% of Americans who expressed some worry over dependence, only roughly 1/5 would feel significant disruption if AI became unavailable. Conversely, among the 44% who don’t worry about dependency, a higher percentage—roughly 1/3—*would* feel significant disruption.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F28b1b9c63672d465d5f4a02a2b384ce693b27dca-2528x2516.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/28b1b9c63672d465d5f4a02a2b384ce693b27dca-2528x2516.png)
 
 Our qualitative research among [81,000 Claude users](https://www.anthropic.com/features/81k-interviews) found that educators were 2.5 to 3 times more likely than average to report having witnessed cognitive atrophy firsthand, presumably in their students. In Anthropic Public Record, educators are likewise among the occupations most worried about dependency, second only to people working in arts and design.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3dd48f5843dd41ada5a6fc5abe3a26dced56d810-2528x1916.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/3dd48f5843dd41ada5a6fc5abe3a26dced56d810-2528x1916.png)
 
 As with job loss, the dependency fear falls steadily with usage. Americans who use AI daily at work are 16 points less worried about dependency (46%) than those who never do (62%).
 
@@ -102,35 +102,35 @@ As of late 2025, about 6% of Americans used AI every day for bothwork and person
 
 Integrated users skew young, male, urban, employed, and college-educated. Nearly two-thirds describe themselves as people who experiment with new technology before most others or adopt it early once they see its potential, compared to 30% in the general public.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1e09703a3cc891672624602963e9d63e5559ec4b-2528x3456.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/1e09703a3cc891672624602963e9d63e5559ec4b-2528x3456.png)
 
 Integrated users are less worried than the general public across each of the harms we listed, though this probably reflects differences in the outlook of early adopters.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2a4141655ac5dcbaff410f46fd9d13b9ecdbedc8-2528x1456.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/2a4141655ac5dcbaff410f46fd9d13b9ecdbedc8-2528x1456.png)
 
 ### **What Americans want from AI governance**
 
 71% of Americans say the government should be involved in the development and regulation of AI. The figure is 79% among Democrats, 68% among Republicans, and 69% among Independents—a bipartisan supermajority. A majority in every state and territory we surveyed supports government involvement in AI, from 81% in the District of Columbia to 63% in Hawaii.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff3e56b04f92bcb5ad89ae415ef23652f60f3057f-2528x2596.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/f3e56b04f92bcb5ad89ae415ef23652f60f3057f-2528x2596.png)
 
 ### **Where Americans want government to act**
 
 We then asked about eight specific domains, and how heavily the government should be involved in each. Only two—privacy and child safety—draw outright majority support for more than a minimal role. National security, meanwhile, has the narrowest partisan gap of any domain, just three points between Democrats and Republicans.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb59aa2814c89f05f0fdcc01aca5bd86d7080b5d1-2528x2136.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/b59aa2814c89f05f0fdcc01aca5bd86d7080b5d1-2528x2136.png)
 
 ### **What Americans want from the industry**
 
 When we asked what should happen to ensure AI is developed in humanity's interest, Americans converged on two answers: hold AI companies legally liable for harm (47% chose it among their top three) and prioritize safety over growth (44%). Independent watchdogs with real power (29%) and slowing AI development for safety (27%) followed.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fadd14f5405fd185ef6e0e523d1212fb46215c5a1-2528x2172.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/add14f5405fd185ef6e0e523d1212fb46215c5a1-2528x2172.png)
 
 ### **The trust deficit**
 
 Only 15% of Americans said they trust AI companies to make decisions about how the technology is developed and used. That was the lowest figure for any institution we tested, below the federal government (20%), state and local government (19%), and international bodies (20%), and far below independent experts (43%).
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F90be42bbfd5671adf2a1f621669d5f688df0abbc-2528x1536.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/90be42bbfd5671adf2a1f621669d5f688df0abbc-2528x1536.png)
 
 ### **Integrated users have the same appetite for regulation and oversight**
 

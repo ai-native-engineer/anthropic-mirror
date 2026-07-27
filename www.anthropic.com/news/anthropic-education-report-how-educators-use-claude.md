@@ -35,7 +35,7 @@ We complemented our analysis with survey data and qualitative research from 22 N
 
 The most prominent use of AI, as revealed by both our Claude.ai analysis and our qualitative research with Northeastern, was for curriculum development. Our Claude.ai analysis also surfaced academic research and assessing student performance as the second and third most common uses.
 
-![Bar chart showing three educational AI use cases: "Develop curricula" (57%), "Conduct academic research" (13%), and "Assess student performance" (7%). Each category shows common requests and the split between augmentation and automation approaches, with augmentation generally preferred over automation across all categories.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4c5504abad57cc0bc8a086f524134254c51598b0-2880x858.png&w=3840&q=75)
+![Bar chart showing three educational AI use cases: "Develop curricula" (57%), "Conduct academic research" (13%), and "Assess student performance" (7%). Each category shows common requests and the split between augmentation and automation approaches, with augmentation generally preferred over automation across all categories.](https://www-cdn.anthropic.com/images/4zrzovbb/website/4c5504abad57cc0bc8a086f524134254c51598b0-2880x858.png)
 
 Top three AI uses among educators, as based on 74,000 conversations of Claude.ai data: Develop curricula (57% of the conversations in our analysis), Conduct academic research (13%), and Assess student performance (7%). The augmentation/automation spectrum of how faculty use AI for these tasks is also displayed.
 
@@ -84,7 +84,7 @@ These creations represent a shift from AI as conversational assistant to AI as c
 
 Our analysis reveals a nuanced picture of how educators balance AI augmentation (collaborative use) versus automation (delegating tasks entirely), building upon Anthropic’s prior work on the [Economic Index](https://www.anthropic.com/news/the-anthropic-economic-index).
 
-![Horizontal stacked bar chart titled "Augmentation vs. Automation for Educator Tasks" showing 12 different academic tasks (like university teaching, grant writing, academic advising, etc.) with percentage breakdowns between augmentation approaches (shown in blue) and automation approaches (shown in purple). Most tasks show higher preference for augmentation over automation, with percentages varying across different task categories.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F42a1f4533a5fb5b2e7b160cb0bb8c761ed8c73c8-2880x1620.png&w=3840&q=75)
+![Horizontal stacked bar chart titled "Augmentation vs. Automation for Educator Tasks" showing 12 different academic tasks (like university teaching, grant writing, academic advising, etc.) with percentage breakdowns between augmentation approaches (shown in blue) and automation approaches (shown in purple). Most tasks show higher preference for augmentation over automation, with percentages varying across different task categories.](https://www-cdn.anthropic.com/images/4zrzovbb/website/42a1f4533a5fb5b2e7b160cb0bb8c761ed8c73c8-2880x1620.png)
 
 The percentage of educator conversations with Claude.ai that involved augmentation (where AI collaborates with a user to perform a task) versus automation (where AI directly performs tasks\*), for a given task category. We identified tasks associated with educator-related occupations in the O\*NET database of occupational information from the U.S. Department of Labor. We grouped similar tasks together to create high-level categories of tasks, which are reported above.
 
@@ -115,7 +115,7 @@ Using AI in grading remains a contentious issue among educators. One Northeaster
 
 While there are ways AI feedback can support a student’s development, such as through automatic systems providing formative feedback (e.g. those being built by educators in Claude Artifacts), most educators seem to agree that grading shouldn’t be anywhere close to fully automated.
 
-![Four simple line icons on a light gray background showing: a hand selecting documents, a laboratory flask, a presentation screen with pie chart and upward arrow, and a calendar grid.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F25a30bf5521d4d6bb57818df97984e9f0eb47642-7200x2145.png&w=3840&q=75)
+![Four simple line icons on a light gray background showing: a hand selecting documents, a laboratory flask, a presentation screen with pie chart and upward arrow, and a calendar grid.](https://www-cdn.anthropic.com/images/4zrzovbb/website/25a30bf5521d4d6bb57818df97984e9f0eb47642-7200x2145.png)
 
 ## **How educators are rethinking what to teach**
 

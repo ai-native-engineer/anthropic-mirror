@@ -2,9 +2,6 @@
 
 # Circuits Updates - June 2024
 
-  
-  
-
 We report a number of developing ideas on the Anthropic interpretability team, which might be of interest to researchers working actively in this space. Some of these are emerging strands of research where we expect to publish more on in the coming months. Others are minor points we wish to share, since we're unlikely to ever write a paper about them.
 
 We'd ask you to treat these results like those of a colleague sharing some thoughts or preliminary experiments for a few minutes at a lab meeting, rather than a mature paper.
@@ -13,13 +10,6 @@ New Posts
 
 * [Comparing TopK and Gated SAEs to standard SAEs](#topk-gated-comparison)
 * [Research By Other Groups](#external-research)
-
-  
-  
-  
-
-  
-  
 
 ## [Comparing TopK and Gated SAEs to standard SAEs](#topk-gated-comparison)
 
@@ -35,7 +25,7 @@ These papers include:
 * [Using a TopK penalty instead of an L1](https://cdn.openai.com/papers/sparse-autoencoders.pdf) (Gao et al, OpenAI)
 * [Finetuning](https://www.lesswrong.com/posts/3JuSjTZyMzaSeTxKk/fixing-feature-suppression-in-saes-2#How_can_we_fix_feature_suppression_in_trained_SAEs_)[a subset of the parameters after the main SAE training phase](https://www.lesswrong.com/posts/3JuSjTZyMzaSeTxKk/fixing-feature-suppression-in-saes-2#How_can_we_fix_feature_suppression_in_trained_SAEs_) (Wright and Sharkey, MATS/Apollo)
 
-There was also a post in our February Update - [Using a Tanh penalty.](https://transformer-circuits.pub/2024/feb-update/index.html#dict-learning-tanh) (Jermyn et al) - which found that replacing the L1 penalty with a Tanh function improved the L0/MSE tradeoff, but they also found that this resulted in significantly less interpretable features. Rajamanoharan et al compare the Gated Sparse Autoencoders (Gated SAEs) to standard SAE features and find no significant difference in the degree of interpretability, while Gao et al compare measures of interpretability between TopK hyperparameters, but do not compare to standard or Gated SAEs.
+There was also a post in our February Update – [Using a Tanh penalty.](https://transformer-circuits.pub/2024/feb-update/index.html#dict-learning-tanh) (Jermyn et al) – which found that replacing the L1 penalty with a Tanh function improved the L0/MSE tradeoff, but they also found that this resulted in significantly less interpretable features. Rajamanoharan et al compare the Gated Sparse Autoencoders (Gated SAEs) to standard SAE features and find no significant difference in the degree of interpretability, while Gao et al compare measures of interpretability between TopK hyperparameters, but do not compare to standard or Gated SAEs.
 
 We are therefore keen to check that we can replicate these improvements in L0/MSE, and also, especially for the TopK SAEs, that these changes aren’t accompanied by regressions in the degree of interpretability of the found features.
 
@@ -43,9 +33,9 @@ We are therefore keen to check that we can replicate these improvements in L0/MS
 
 We ran a replication of some of these claims and confirmed that we see a significant benefit from shifting from the standard, L1 penalized SAEs, to either Gated SAEs or TopK SAEs, with the performance of the latter two being similar. We used tied weight initialization between the encoder and decoder for both models, and used the unconstrained decoder norm (see [April 2024 Circuits Update](https://s3-frontend.infra.ant.dev/anthropic-serve/adam/drafts/april-2024-update/index.html)) on the Gated SAE but not the TopK SAE.To get this to work we had to change L\_aux to not freeze the decoder. With the decoder frozen during training the decoder norm kept shrinking and r\_mag kept increasing.
 
-Our basic results on L0/MSE are as follows are shown in the graph below - note that for TopK the L0 is by definition equal to the value of K).
+Our basic results on L0/MSE are shown in the graph below – note that for TopK the L0 is by definition equal to the value of K.
 
-![](images/img-001.png)
+![](images/1a42343516a1ff9e.png)
 
 Notably, the amount of optimization that’s gone into training the TopK and Gated SAEs is lower than that going into the standard SAEs. For example, we haven’t implemented the variant of Ghost Grads that [Gao et al](https://cdn.openai.com/papers/sparse-autoencoders.pdf) used to prevent dead features in their recent paper. Despite this, it’s clear that there’s a very significant improvement in (L0, MSE) here, as previously demonstrated by Gao et al and by Rajamanoharan et al.
 
@@ -67,7 +57,7 @@ We can also look at the average level of feature activation, and here the two To
 
 It’s clear that TopK represents a Pareto improvement over the standard SAE on the L0/MSE tradeoff, but ultimately to declare it an improvement over the existing baseline we need to confirm that the quality of the features found are comparable or better.
 
-There are two broad ways to evaluate the SAE - we can evaluate the patterns of when features fire, and then we can try to evaluate the quality of the learned basis and how well this basis allows us to understand the semantics of the vector space.
+There are two broad ways to evaluate the SAE – we can evaluate the patterns of when features fire, and then we can try to evaluate the quality of the learned basis and how well this basis allows us to understand the semantics of the vector space.
 
 To evaluate the first we evaluated the degree of monosemanticity of the firing patterns of the features. We first set up a manual blind test of the features, in which the set of top-activating contexts were displayed, alongside the first seven of the activation intervals as displayed in feature visualizations [like in Scaling Monosemanticity.](https://transformer-circuits.pub/2024/scaling-monosemanticity/features/index.html?featureId=1M_3)
 
@@ -85,8 +75,6 @@ Activation Consistency
 
 1: No discernible pattern
 
-        
-
 Complexity
 
 5: Rich feature firing on diverse contexts with an interesting unifying theme, e.g. “feelings of togetherness”
@@ -101,18 +89,18 @@ Complexity
 
 We manually scored 100 features using this rubric without access to which run the features were from. It seems that there’s no discernible difference between the different runs at this scale of analysis and any difference will be slight.[[1]](#ftnt1)
 
-![](images/img-002.png)
+![](images/f79b4506750ec1b2.png)
 
 As mentioned above, TopK runs exhibit higher density features than are found in comparable standard SAEs. This isn’t necessarily a problem but they have a higher than average impact on the reconstruction so it’s important to check that they are also interpretable. To this end we also looked specifically at the highest density features in a run with K=20, n\_features=256k on an 18 layer model.
 
-Firstly, there’s a lot of variation in the extent of high density features. Some runs with higher values of K had several features in the 20-50% region with no clear explanation and these are more worrying. The regime we care most about however is that with a very large number of features and high sparsity, and with the improvements in L0/MSE we can target lower L0 values than with standard SAEs.
+Firstly, there’s a lot of variation in the extent of high density features. Some runs with higher values of K had several features in the 20–50% region with no clear explanation and these are more worrying. The regime we care most about however is that with a very large number of features and high sparsity, and with the improvements in L0/MSE we can target lower L0 values than with standard SAEs.
 
-* The highest density feature fired about 9% of the time, there were 7 features firing more than once in 40 tokens and several dozen firing more than once in 100 tokens - so overall this didn’t seem to be a significant issue.
-* The highest density features were often related to  tokens, firing either on them or passages of text shortly after them.
+* The highest density feature fired about 9% of the time, there were 7 features firing more than once in 40 tokens and several dozen firing more than once in 100 tokens – so overall this didn’t seem to be a significant issue.
+* The highest density features were often related to <EOT> tokens, firing either on them or passages of text shortly after them.
 * The lower density features included features for common words such as “the” and “of”, as well as languages like Italian and Russian and pre-20th century English.
-* There were a few unintelligible features, often connected to code, in the 1-2% range but this number is not unexpected, and given that the rest of the features made clear sense, it can’t be ruled out that these features were playing a computational role that wasn’t clear just from their contexts.
+* There were a few unintelligible features, often connected to code, in the 1–2% range but this number is not unexpected, and given that the rest of the features made clear sense, it can’t be ruled out that these features were playing a computational role that wasn’t clear just from their contexts.
 
-In contrast, in a K=100 run, there we see dozens of high density features which activate more than 1 in every 10 tokens and which seem largely uninterpretable, and which would be a worrying sign, but given the positive results for lower K values, mostly just suggests that we should aim for greater levels of sparsity.
+In contrast, in a K=100 run, we see dozens of high density features which activate more than 1 in every 10 tokens and which seem largely uninterpretable, and which would be a worrying sign, but given the positive results for lower K values, mostly just suggests that we should aim for greater levels of sparsity.
 
 It therefore seems that these high density features are a common outcome of shrinkage-reduction methods, and are pathological at high values of L0, but also these methods allow for much lower L0 at comparable levels of MSE error and when using these low L0 runs the features are of at least comparable quality to those found with standard SAEs.
 
@@ -124,7 +112,7 @@ We also ran 200-250 features from each of four runs through Clerp, our automatic
 
 We found that the scores for the L1 = 5 Gated SAE and K=20 TopK SAE both score as well as the L1=10 standard SAE which has far worse MSE loss and lower L0. These results are clearly consistent with both Gated SAEs and TopK being a step forward in terms of interpretability, though it may be that by having many fewer lower activations, the tasks are easier while the upper and middle activation ranges are very similar, which is consistent with the manual results above.
 
-![](images/img-003.png)
+![](images/c138bfd007a2c2a3.png)
 
 More detail on Clerp can be found in [Towards Monosemanticity.](https://transformer-circuits.pub/2023/monosemantic-features)
 
@@ -133,13 +121,6 @@ More detail on Clerp can be found in [Towards Monosemanticity.](https://transfor
 The above results give us confidence that both Gated SAEs and TopK SAEs are strong alternatives to standard SAEs with little downside risk and the potential to be a meaningful improvement. However, it’s still difficult to know whether the basis found by an SAE is better or worse. For example, an approach which solves or reduces shrinkage may significantly improve the MSE loss while the underlying feature basis remains unchanged. Gao et al try to measure the quality of the basis more directly by finding the quality of the best possible probe for certain binary datasets that use only a direction. This seems a principled approach but it's not clear which kinds of datasets we should expect features to discover clean probes for.
 
 Ultimately SAEs need to be judged on whether they provide additional insight into how the model works - can we use it to debug model issues? For steering? For finding circuits? For understanding the impact of fine-tuning? To improve robustness? It’s clear that the evaluations we have at the moment don’t get to the heart of what we care about and we’re excited to work on that and for future work from others which fills this gap.
-
-  
-  
-  
-
-  
-  
 
 ## [Research by Other Groups](#external-research)
 
@@ -151,7 +132,7 @@ Brian Chen, Rodrigo Luger, Adam Pearce, Josh Batson, Hoagy Cunningham
 
 They also show a pair of novel methods of trying to evaluate the models. Firstly they take a number of existing classification datasets and, for each SAE, find the accuracy of the best possible linear probe that can be built where the probe direction is aligned with one of the SAE features. They find that in experiments on GPT-2 the probe loss is at a minimum for SAEs with L0 in the range 64–128, and decreases with the number of features. The changes in probe quality over training are rather modest, and it’s unclear to what extent the probes are the kind of things that one should expect to exist as single features, but the ability to evaluate SAEs on terms that are totally external to the technique is exciting and is complementary to the approach of Makelov et al as discussed below. They also evaluate their SAEs by the sparsity of the effect of ablating the feature on the logits, here finding that the greater degree of sparsity is found in the L0 range of 128–256.
 
-See the section in this month’s update on comparing TopK, GatedSAEs with standard SAEs for more information, which replicates Gao et al’s claim that the TopK SAEs are a step forward in the L0/MSE tradeoff. We are glad to see other frontier AI labs sharing the goal of deeply understanding the mechanisms underlying the capability of their models and are grateful for their contributions to this line of research.
+See the section in this month’s update on comparing TopK, Gated SAEs with standard SAEs for more information, which replicates Gao et al’s claim that the TopK SAEs are a step forward in the L0/MSE tradeoff. We are glad to see other frontier AI labs sharing the goal of deeply understanding the mechanisms underlying the capability of their models and are grateful for their contributions to this line of research.
 
 ### [Evaluating Interpretability Methods](#evals)
 

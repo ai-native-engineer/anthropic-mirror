@@ -4,7 +4,7 @@
 
 Feb 29, 2024
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F519f63e0ea393f33e56c2e812713d65dcf27a79a-2880x1620.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/519f63e0ea393f33e56c2e812713d65dcf27a79a-2880x1620.png)
 
 ## Executive summary
 
@@ -44,37 +44,37 @@ For example, if you wanted Claude to solve a logic puzzle, you could say:
 
 It’s helpful to give Claude realistic and specific examples of the inputs and ideal outputs you’re hoping to see. It’s useful to include challenging examples and edge cases to help Claude understand exactly what you’re looking for.
 
-For a simple example, consider how Claude can help with removing personally-identifiable information (PII) from information, using 2 examples to help Claude understand different ways that PII could present itself in a prompt. A simplified example using [claude.ai](https://claude.ai/redirect/website.v1.84055890-b4d9-4a24-ae70-9a41a0e2cffc) may look something like this:
+For a simple example, consider how Claude can help with removing personally-identifiable information (PII) from information, using 2 examples to help Claude understand different ways that PII could present itself in a prompt. A simplified example using [claude.ai](https://claude.ai/redirect/website.v1.449d221f-f096-407d-a21e-e12d0e8c5337) may look something like this:
 
 *You are an expert redactor. I am going to provide you with some text. Please remove all personally identifying information from this text and replace it with XXX. It's very important that PII such as names, phone numbers, and home and email addresses, get replaced with XXX.*
 
 *Here are two synthetic examples of how this should be done:*
 
-*<examples>  
-<example>  
-<text>  
-My name is Jacob LaPont. My email address is jlp@geemail.com and my phone number is 555-492-1902. I am 43 years old. My account ID is 52777930.  
-</text>  
-The output should be:  
-<response>  
-My name is XXX. My email address is XXX@XXX.XXX and my phone number is XXX. I am XXX years old. My account ID is XXX.  
-</response>  
-</example>  
-<example>  
-<text>  
-Bo Nguyen is a cardiologist at Mercy Health Medical Center. He can be reached at 925-123-456 or b@mercy.health.  
-</text>  
-The output should be:  
-<response>  
-XXX is a cardiologist at Mercy Health Medical Center. He can be reached at XXX-XXX-XXXX or XXX@XXX.  
-</response>  
-</example>  
+*<examples>
+<example>
+<text>
+My name is Jacob LaPont. My email address is jlp@geemail.com and my phone number is 555-492-1902. I am 43 years old. My account ID is 52777930.
+</text>
+The output should be:
+<response>
+My name is XXX. My email address is XXX@XXX.XXX and my phone number is XXX. I am XXX years old. My account ID is XXX.
+</response>
+</example>
+<example>
+<text>
+Bo Nguyen is a cardiologist at Mercy Health Medical Center. He can be reached at 925-123-456 or b@mercy.health.
+</text>
+The output should be:
+<response>
+XXX is a cardiologist at Mercy Health Medical Center. He can be reached at XXX-XXX-XXXX or XXX@XXX.
+</response>
+</example>
 </examples>*
 
 *Now here is the text I’d like you to redact:*
 
-*<text>  
-The customer's name is Steven Smith with Customer ID 44201312. His email address is steven.smith@geemail.com, or reach him via telephone at 555-182-9942.  
+*<text>
+The customer's name is Steven Smith with Customer ID 44201312. His email address is steven.smith@geemail.com, or reach him via telephone at 555-182-9942.
 </text>*
 
 ### 3. Prompt chaining
@@ -103,29 +103,29 @@ Our prompt engineers applied several techniques to improve Claude’s outputs, i
 
 Below is an example prompt to help bring this guidance to life. In this example, the inclusion of “relevant\_quotes” serves the purpose of telling Claude to use a scratchpad.
 
-*"  
+*"
 Human: You are an expert AI tax analyst. You help users understand the details of the tax code.*
 
-*Here is the relevant section of the tax code.  
-<tax\_code>  
-{{TAX\_CODE}}  
+*Here is the relevant section of the tax code.
+<tax\_code>
+{{TAX\_CODE}}
 </tax\_code>*
 
 *Here are some examples of questions and answers about this section of the tax code:*
 
-*<examples>  
-<example>  
-<question>  
-{{EXAMPLE QUESTION 1}}  
-</question>  
-<answer>  
-{{EXAMPLE ANSWER 1}}  
-</answer>  
-</example>  
-…  
+*<examples>
+<example>
+<question>
+{{EXAMPLE QUESTION 1}}
+</question>
+<answer>
+{{EXAMPLE ANSWER 1}}
+</answer>
+</example>
+…
 </examples>*
 
-*Now here is the user's question about the tax code that I’d like you to answer:  
+*Now here is the user's question about the tax code that I’d like you to answer:
 <question>{{QUESTION}}</question>*
 
 *First, pull relevant quotes from the tax code in <relevant\_quotes> tags. Then write a concise, factual response to the user’s question in <answer> tags. Your answer should be fully grounded in the relevant quotes from the tax code that you extracted.*

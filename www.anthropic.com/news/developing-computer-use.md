@@ -4,7 +4,7 @@
 
 Oct 22, 2024
 
-![An abstract representation of AI computer use, with a computer cursor clicking on a stylized representation of a neural network](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F393cf77dd5c15761c47f2db9f80e30b4f6309708-2880x1620.png&w=3840&q=75)
+![An abstract representation of AI computer use, with a computer cursor clicking on a stylized representation of a neural network](https://www-cdn.anthropic.com/images/4zrzovbb/website/393cf77dd5c15761c47f2db9f80e30b4f6309708-2880x1620.png)
 
 * Update
 

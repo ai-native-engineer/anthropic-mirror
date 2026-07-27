@@ -4,7 +4,7 @@
 
 Jan 14, 2026
 
-*Muhammad Maaz1,2, Liam DeVoe3, Zac Hatfield-Dodds2, Nicholas Carlini2  
+*Muhammad Maaz1,2, Liam DeVoe3, Zac Hatfield-Dodds2, Nicholas Carlini2
 1MATS, 2Anthropic, 3Northeastern University*
 
 ***We developed an agent that can efficiently identify bugs in large software projects. To do this, our agent infers general properties of code that should be true, and then by applying property-based testing—a technique similar to fuzz testing—we are able to discover bugs in top Python packages like NumPy, SciPy, and Pandas. After extensive manual validation, we are in the process of reporting these bugs to the developers, several of which have already been patched.***
@@ -55,7 +55,7 @@ Our property-based testing agent is built as a custom Claude Code command. The a
 4. Run the tests and reflect: if it failed, has the test truly discovered a bug, or does the test need to be adjusted? If it succeeded, is the test testing anything worthwhile, or is it simply trivial?
 5. If the agent is confident it has found a real bug, it writes out a formatted bug report.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2cac5914e526becbfb506a035f11f758b9f10010-1999x1126.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/2cac5914e526becbfb506a035f11f758b9f10010-1999x1126.png)
 
 **Figure 2.** The workflow of the agent.
 
@@ -131,21 +131,19 @@ While we do not focus on the automatic generation of patches in this work, this 
 
 ####
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)
 
 ## Subscribe to the Frontier Red Team newsletter
 

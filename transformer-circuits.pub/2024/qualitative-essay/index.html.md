@@ -2,16 +2,9 @@
 
 # Reflections on Qualitative Research
 
-  
-  
-
 Chris Olah, Adam Jermyn
 
 This note offers some opinionated thoughts on why interpretability research may have qualitative aspects be more central than we're used to in other fields. It also aims to describe some heuristics for research taste in qualitative work.
-
-  
-
-  
 
 Early scientific fields are often quite qualitative and become more quantitative as they mature. For example, discovering cells is a qualitative result, which can then mature (over many decades) into quantitative tools like counting white blood cells in cancer research. Discovering chemical spectral lines was a qualitative result, which only really became quantitative when Bohr realized that the "butterfly wings of atoms" gave insight into electron orbitals.
 
@@ -25,7 +18,7 @@ To be clear, this isn't saying we should not do quantitative research when appro
 
 [Anscombe's Quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet) is a famous example of how several radically different datasets can have the same mean, standard deviation, and correlation:
 
-![](images/img-001.png)
+![](images/443ef84dc90f20fd.png)
 
 [Anscombe's Quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet) ([image source](https://en.wikipedia.org/wiki/Anscombe%27s_quartet#/media/File:Anscombe's_quartet_3.svg))
 
@@ -1239,19 +1232,19 @@ You might think of this as the informal, "unsupervised" version of statistical s
 
 The observation of cells can't be an artifact of the microscope – they're too complex! And it can’t be a noise – they’re too structured! An artifact like a lens flare can produce distortions, but not ones like this:
 
-![](images/img-002.png)
+![](images/52442d8e0da836e0.png)
 
 A picture of cells from Hooke's [Micrographia](https://en.wikipedia.org/wiki/Micrographia). Images from the National Library of Wales.
 
 Likewise, [DeepDream](https://en.wikipedia.org/wiki/DeepDream) is too complex (and has no other source structure could come from) to be anything other than a reflection of some structure inside the network. Even if you don't know what the structure is, it can't be random noise!
 
-![](images/img-003.png)
+![](images/1c051d62a06a0fba.png)
 
 Multiple DeepDream Images, from Mordvintsev et al's original [Inceptionism blog post](https://blog.research.google/2015/06/inceptionism-going-deeper-into-neural.html)
 
 Another example of this is the weights between [curve detectors](https://distill.pub/2020/circuits/curve-circuits/) in InceptionV1. The pattern is too complex to be noise. We could argue over interpretation, but there's clearly something there!
 
-![](images/img-004.png)
+![](images/16501f0cf9ec5f34.png)
 
 A picture of weights between curve detectors, from the [original circuits thread](https://distill.pub/2020/circuits/zoom-in/).
 

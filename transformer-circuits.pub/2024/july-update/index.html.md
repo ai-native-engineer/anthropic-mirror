@@ -2,9 +2,6 @@
 
 # Circuits Updates - July 2024
 
-  
-  
-
 We report a number of developing ideas on the Anthropic interpretability team, which might be of interest to researchers working actively in this space. Some of these are emerging strands of research where we expect to publish more on in the coming months. Others are minor points we wish to share, since we're unlikely to ever write a paper about them.
 
 We'd ask you to treat these results like those of a colleague sharing some thoughts or preliminary experiments for a few minutes at a lab meeting, rather than a mature paper.
@@ -16,13 +13,6 @@ New Posts
 * [The Dark Matter of Neural Networks?](#dark-matter)
 * [Attention Pivot Tables](#pivot-tables)
 * [Measuring feature sensitivity using dataset filtering](#feature-sensitivity)
-
-  
-  
-  
-
-  
-  
 
 ## [The Next Five Hurdles](#hurdles)
 
@@ -36,7 +26,7 @@ Before we dive in, it's worth describing the path I'm imagining us following, su
 * We understand the circuits that compute them.
 * We somehow [turn this microscopic understanding of neural networks into a macroscopic picture](https://transformer-circuits.pub/2023/interpretability-dreams/index.html#possibilities) addressing the questions we care about.
 
-![](images/img-001.png)
+![](images/62ef1d0b2532d8b5.png)
 
 Following this path, I see five additional hurdles in our future:
 
@@ -49,13 +39,6 @@ Following this path, I see five additional hurdles in our future:
 Of course, after all of these, comes the final challenge of "actually understand the neural network, now that you don't have fundamental barriers".
 
 Despite this list of challenges, there's a lot of cause for optimism. Firstly, we believe there are plausible paths to getting traction on many of these in the near future. They're relatively unexplored problems, and low hanging fruit seems at least plausible. Secondly, they don't necessarily block each other in the same way that the basic form of superposition often made it hard to investigate downstream problems. As a result, it seems possible to attack these problems in parallel. This also applies to the final goal of "understanding networks" or "neural network biology" – it feels less blocked on these, and more like we can genuinely attack it in interesting ways, but marginal progress on each of these makes it much easier.
-
-  
-  
-  
-
-  
-  
 
 ## [What is a Linear Representation? What is a Multidimensional Feature?](#linear-representations)
 
@@ -92,7 +75,7 @@ Mathematical linearity requires a multidimensional feature to obey two propertie
 
 The more interesting requirement is Intensity as Scaling which significantly constrains the geometry of possible manifolds. Every point on the manifold forms a "ray" as you scale it, representing that feature at different levels of intensity. Jointly these form a path by which the entire manifold contracts back to zero.Of course, the zero point for all features can be shifted by a bias. Then semantic changes need to be angular movement orthogonal to this.
 
-![](images/img-002.png)
+![](images/3ae498b4475c3839.png)
 
 #### [Aside: Potential Issues around Feature Manifold Embeddings](#linear-representations-embedding)
 
@@ -100,7 +83,7 @@ As mentioned above, there's an interesting additional property which is that the
 
 But in a feature manifold, nearby points on the manifold are by definition nearly parallel. That's the point! Despite this, the model may want to distinguish points more than the intrinsic topology's natural embedding would suggest. (Our previous update on [feature manifolds](https://transformer-circuits.pub/2023/may-update/index.html#feature-manifolds) presented some very preliminary investigations of this in a toy setup.)
 
-![](images/img-003.png)
+![](images/f57134d4b27509af.png)
 
 We suspect this idea that feature manifolds may be embedded in more complex ways than their topology suggests, in order to achieve a given distance metric, may actually be quite deep and important. For example, it may be tempting to believe that, if the manifold has a clean projection on its early principal components, the rest is noise. But in fact, that noise may be essential to achieving the correct geometry.
 
@@ -110,7 +93,7 @@ If we adopt this new definition of a linear representation, does evidence like t
 
 One way to see this is to consider the "rays" in a hypothetical linear multidimensional feature. These rays have a fixed semantic meaning. They are essentially one-dimensional features which are "locked on" to the semantic meaning of a particular point on the manifold. From this perspective, linear multidimensional features are something like an infinite, continuous collection of one-dimensional features – a kind of manifold of features. If you're only interested in one pre-defined semantic property, as is the case in probing, it's still the case that property corresponds to a direction.
 
-![](images/img-004.png)
+![](images/33e6da6909a0f613.png)
 
 The main difference is that these "rays" aren't privileged. If we considered these to be features, there would be an infinite set of potential features.
 
@@ -121,13 +104,6 @@ This starts to get at another question: what makes something a multidimensional 
 I'm not at all confident that any of the definitions or frames above will stand up to the test of time. Definitions can and should change and be fluid in research.There's a beautiful book by Lakatos called [Proofs and Refutations](https://en.wikipedia.org/wiki/Proofs_and_Refutations) on how it's often very productive and important for definitions to evolve – if you haven't read it, it's fantastic. As we understand things more deeply, we'll find deeper ideas that cut reality apart. Let's keep asking what those ideas are.
 
 It's also worth keeping in mind that imperfect theories and frames [can still be productive](https://transformer-circuits.pub/2024/april-update/index.html#caloric-theory). It may be a long time before we really know the right way to think about things, but that may not be as bad as it seems.
-
-  
-  
-  
-
-  
-  
 
 ## [The Dark Matter of Neural Networks?](#dark-matter)
 
@@ -143,20 +119,13 @@ Continuing this analogy: dictionary learning has given us a telescope, allowing 
 
 (A critical open question here is whether we can find variants of dictionary learning which are orders of magnitude more efficient, allowing us to resolve more features. This doesn't seem totally impossible, but also seems very uncertain. The answer to this question will determine whether sufficiently rare features are effectively impossible to resolve.)
 
-  
-  
-  
-
-  
-  
-
 ## [Testing Base Model Quality Using Attention Pivot Tables](#pivot-tables)
 
 Nicholas L Turner, Adam Pearce, Trenton Bricken, Adam Jermyn; edited by Chris Olah
 
 Recently, we tried to reproduce one of the key results from our team's early paper, A Mathematical Framework for Transformer Circuits: "pivot tables" that allow us to interpret one-layer transformers as [implementing skip-trigrams](https://transformer-circuits.pub/2021/framework/index.html#interpretation-as-skip-trigrams). An example table can be seen below:
 
-![](images/img-005.png)
+![](images/3add272d32980eae.png)
 
 We found these results were unexpectedly sensitive to subtle issues in training transformers, making it quite fiddly to reproduce. This update shares the details we needed to reproduce the results.
 
@@ -166,7 +135,7 @@ We think this method is generally quite useful for studying attention in one-lay
 
 Pivot tables visualize the behavior of a model along the path from the input embeddings to a specific attention head and from there directly out to the logits. In a 1-layer attention-only model, this is the entirety of the QK and OV circuits as [illustrated](https://transformer-circuits.pub/2021/framework/index.html#splitting-attention-head-terms-into-circuits) in A Mathematical Framework.
 
-Put another way, these tables summarize two vocab\_size X vocab\_size matrices. The first matrix (the QK circuit) quantifies the amount that any query token attends to a key token in the context (pre-softmax, using the attention “scores” or logits). The other matrix (OV circuit) measures the effect that completely attending to a given key token has on the models’ output logitsUp to a scaling factor from any layer norm before the unembedding.. Both of these matrices completely ignore the effects of positional embeddings.
+Put another way, these tables summarize two vocab\_size × vocab\_size matrices. The first matrix (the QK circuit) quantifies the amount that any query token attends to a key token in the context (pre-softmax, using the attention “scores” or logits). The other matrix (OV circuit) measures the effect that completely attending to a given key token has on the models’ output logitsUp to a scaling factor from any layer norm before the unembedding.. Both of these matrices completely ignore the effects of positional embeddings.
 
 Defining some terms, let:
 
@@ -216,20 +185,13 @@ but we see slightly better results applying it to both axes.
 
 #### [Practical Considerations](#pivot-tables-practicalities)
 
-We see interpretable skip-trigrams across models with different architectures, including using different positional embeddings and those with or without layer norm. The best runs show ~25-75% interpretable trigram entries alongside a large number of copying entries, and we recommend suspicion in interpreting tables which show less than ~10%, as you may be “interpreting” mirages. These proportions come from small models with only 1-4 layers and could easily change outside that regime.
+We see interpretable skip-trigrams across models with different architectures, including using different positional embeddings and those with or without layer norm. The best runs show ~25–75% interpretable trigram entries alongside a large number of copying entries, and we recommend suspicion in interpreting tables which show less than ~10%, as you may be “interpreting” mirages. These proportions come from small models with only 1–4 layers and could easily change outside that regime.
 
 Still, within this space we found that a few variables significantly increase or decrease the likelihood of success of finding interpretable skip-trigrams:
 
 * Training hyperparameters: Training runs with hyperparameters that perform poorly tend to show confusing pivot tables.
 * Training dataset: Having a dataset that consists of domains that are easy to interpret (e.g., english natural language, python code, etc.) helps to see the signal that a model has learned. It can be difficult to tell the difference between a model that’s successfully learned structure that you cannot read and a model that hasn’t learned useful structure.
 * Number of layers: Unsurprisingly, single-layer models most readily show structure in pivot tables, although the later layers of multi-layer models also tend to show legible structure too.
-
-  
-  
-  
-
-  
-  
 
 ## [Measuring feature sensitivity using dataset filtering](#feature-sensitivity)
 
@@ -263,13 +225,13 @@ After the  section, output your relevance score for that concept from 0-10 insid
 
 We initially validate the filtering task over a sample of snippets where the relevant feature activates (shown for the “Brain Sciences” feature below). As described in Scaling Monosemanticity, the interpreted concept is present in most places where the features activate, but the relevance of that concept to the text still varies. We find that different versions of Claude do a consistent job of judging concept relevance. This is reflected in high spearman correlation values (\rho) above each subplot below and a low percentage of ratings having differences greater than 2 (although Claude 3 Haiku tends to give more “all-or-nothing” ratings than other versions). Manually checking these points was reassuring, so we moved to larger datasets.
 
-![](images/img-006.png)
+![](images/48e47d5a9590d9ac.png)
 
 #### [Feature sensitivity on filtered data](#feature-sensitivity-analysis)
 
 We then had Claude 3.5 Sonnet filter 160,000 snippets of 128 tokens each for each of the four concepts we highlighted within the [Feature Tour of Scaling](https://s3-frontend.infra.ant.dev/anthropic-serve/colah/drafts/scaling-monosemanticity/index.html#assessing-tour) [Monosemanticity](https://s3-frontend.infra.ant.dev/anthropic-serve/colah/drafts/scaling-monosemanticity/index.html#assessing-tour). Sadly, this procedure didn’t yield sufficient data for the (relatively rare) Golden Gate Bridge feature, but we inspected the results for the other three features. We performed inference on each snippet within a larger context of 2048 tokens and we considered a feature to have detected the concept if it was active anywhere within the snippet, analyzing each feature’s maximum activation over the tokens within that snippet.
 
-![](images/img-007.png)
+![](images/5d9b8895142caba2.png)
 
 The highlighted features mostly do not respond within snippets where the concept is present, even where models (and human spot-checking) rate the concept as highly relevant to the text. Below, we list example snippets for each feature where the Scaling Monosemanticity feature does not activate on any token.
 
@@ -361,14 +323,14 @@ While the text doesn't explicitly discuss tourism, the focus on Angkor Wat and i
 
 Relevance rating of “Monuments and popular tourist destinations”: 9
 
-For each feature in the dictionary, we then counted the number of filtered snippets (with rating >=9) where that feature has nonzero maximum activation. The features that we’ve highlighted in Scaling Monosemanticity (red line) reside within the top ~0.1-10% of features, but they are far from the most sensitive.
+For each feature in the dictionary, we then counted the number of filtered snippets (with rating >=9) where that feature has nonzero maximum activation. The features that we’ve highlighted in Scaling Monosemanticity (red line) reside within the top ~0.1–10% of features, but they are far from the most sensitive.
 
-![](images/img-008.png)
+![](images/e81a1216a742a839.png)
 
-The most sensitive features still do not capture all snippets. They typically show some relation to the original concept, but sometimes show reduced specificity. For brain sciences, the most responsive feature seems to activate for descriptions of experimental methods within studies involving human subjects (these can involve brain sciences but this is not always clear). The feature most responsive to transit infrastructure snippets was difficult to interpret and is labeled as “unknown”. The best of this set was the feature most responsive to snippets about popular tourist attractions. It (1M/11480) responds to descriptions of the history of tourist attractions. It activates within all snippets with relevance rating >= 9, though if that threshold is moved lower the feature its sensitivity is no longer perfect. We display the sensitivity of each feature below, as well as its specificity in a similar fashion as in Scaling Monosemanticity.
+The most sensitive features still do not capture all snippets. They typically show some relation to the original concept, but sometimes show reduced specificity. For brain sciences, the most responsive feature seems to activate for descriptions of experimental methods within studies involving human subjects (these can involve brain sciences but this is not always clear). The feature most responsive to transit infrastructure snippets was difficult to interpret and is labeled as “unknown”. The best of this set was the feature most responsive to snippets about popular tourist attractions. It (1M/11480) responds to descriptions of the history of tourist attractions. It activates within all snippets with relevance rating >= 9, though if that threshold is moved lower the feature's sensitivity is no longer perfect. We display the sensitivity of each feature below, as well as its specificity in a similar fashion as in Scaling Monosemanticity.
 
-![](images/img-009.png)
-![](images/img-010.png)
+![](images/1d0cadf1cc909c8e.png)
+![](images/01b831cd85d1ed35.png)
 
 #### [How feature activations might cooperate](#feature-sensitivity-cooperation)
 
@@ -376,12 +338,12 @@ These findings are reminiscent of [earlier results](https://transformer-circuits
 
 If we manually inspect features that activate on tokens “missed” by the highlighted features, you can often find some that likely contribute to representing the concept of interest. For example, we found a feature that seems to favor firing very close to the term “brain” in different contexts, where the original brain science feature often does not activate. These complementary features still show some specificity to the original concept of interest (shown below). This is particularly true for features from the SAE with more features, perhaps reflecting “higher resolution” in the learned features.
 
-![](images/img-011.png)
+![](images/db98841f3f69c56e.png)
 
-We also inspect how the 50 features that respond to the most snippets cover the snippets with highest relevance ratings (black is active - we show a more inclusive set for Popular Tourist attractions to see more diversity). We see a vertical banding pattern of activations, which suggests that there are multiple different types of snippets that we’ve caught using our filtering procedure where the network’s representation strongly differs across these types.
+We also inspect how the 50 features that respond to the most snippets cover the snippets with highest relevance ratings (black is active – we show a more inclusive set for Popular Tourist attractions to see more diversity). We see a vertical banding pattern of activations, which suggests that there are multiple different types of snippets that we’ve caught using our filtering procedure where the network’s representation strongly differs across these types.
 
-![](images/img-012.png)
-![](images/img-013.png)
-![](images/img-014.png)
+![](images/925748979155aff6.png)
+![](images/447cc331281786ff.png)
+![](images/1ec6dd8e8705aad3.png)
 
 Taken together, these results suggest that the sensitivity of one feature is not representative of how well the SAE captures the model’s representation of a concept. Our language about features then seems to require some caution to indicate that a feature’s activations may be subtly related to a concept rather than fully representing that concept. More generally, insofar as our SAE represents network internals in a faithful and interpretable fashion, we should be able to account for all clear instances of a concept using a cooperation of interpretable features. We are unable to fully do that here, so these feature representations require deeper inquiry. In the worst case, this may be a sign that our current dictionary learning models still do not capture the breadth of Claude 3 Sonnet’s knowledge on important topics due to “dark matter” or other fundamental problems. There still are many ways that we could investigate this; we could find a way to automate the process of finding features that complement one another’s activations or inspect the other features with high cosine similarity to the highlighted ones. Future work will explore these avenues.

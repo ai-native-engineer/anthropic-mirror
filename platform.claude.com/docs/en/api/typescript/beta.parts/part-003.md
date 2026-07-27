@@ -1,0 +1,31596 @@
+<!-- part of: https://platform.claude.com/docs/en/api/typescript/beta -->
+
+<!-- chunk-start -->
+      Message content blocks.
+
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `to_session_thread_id: string`
+
+      Public `sthr_` ID of the thread the message was sent to.
+
+    - `type: "agent.thread_message_sent"`
+
+      - `"agent.thread_message_sent"`
+
+    - `to_agent_name?: string | null`
+
+      Name of the callable agent this message was sent to. Absent when sent to the primary agent.
+
+  - `BetaManagedAgentsAgentThreadContextCompactedEvent`
+
+    Indicates that context compaction (summarization) occurred during the session.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.thread_context_compacted"`
+
+      - `"agent.thread_context_compacted"`
+
+  - `BetaManagedAgentsSessionErrorEvent`
+
+    An error event indicating a problem occurred during session execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
+
+      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+      - `BetaManagedAgentsUnknownError`
+
+        An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+            - `type: "retrying"`
+
+              - `"retrying"`
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+            - `type: "exhausted"`
+
+              - `"exhausted"`
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+            - `type: "terminal"`
+
+              - `"terminal"`
+
+        - `type: "unknown_error"`
+
+          - `"unknown_error"`
+
+      - `BetaManagedAgentsModelOverloadedError`
+
+        The model is currently overloaded. Emitted after automatic retries are exhausted.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "model_overloaded_error"`
+
+          - `"model_overloaded_error"`
+
+      - `BetaManagedAgentsModelRateLimitedError`
+
+        The model request was rate-limited.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "model_rate_limited_error"`
+
+          - `"model_rate_limited_error"`
+
+      - `BetaManagedAgentsModelRequestFailedError`
+
+        A model request failed for a reason other than overload or rate-limiting.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "model_request_failed_error"`
+
+          - `"model_request_failed_error"`
+
+      - `BetaManagedAgentsMCPConnectionFailedError`
+
+        Failed to connect to an MCP server.
+
+        - `mcp_server_name: string`
+
+          Name of the MCP server that failed to connect.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "mcp_connection_failed_error"`
+
+          - `"mcp_connection_failed_error"`
+
+      - `BetaManagedAgentsMCPAuthenticationFailedError`
+
+        Authentication to an MCP server failed.
+
+        - `mcp_server_name: string`
+
+          Name of the MCP server that failed authentication.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "mcp_authentication_failed_error"`
+
+          - `"mcp_authentication_failed_error"`
+
+      - `BetaManagedAgentsBillingError`
+
+        The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "billing_error"`
+
+          - `"billing_error"`
+
+      - `BetaManagedAgentsCredentialHostUnreachableError`
+
+        An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+        - `credential_id: string`
+
+          ID of the affected credential.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "credential_host_unreachable_error"`
+
+          - `"credential_host_unreachable_error"`
+
+        - `vault_id: string`
+
+          ID of the vault containing the affected credential.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.error"`
+
+      - `"session.error"`
+
+  - `BetaManagedAgentsSessionStatusRescheduledEvent`
+
+    Indicates the session is recovering from an error state and is rescheduled for execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.status_rescheduled"`
+
+      - `"session.status_rescheduled"`
+
+  - `BetaManagedAgentsSessionStatusRunningEvent`
+
+    Indicates the session is actively running and the agent is working.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.status_running"`
+
+      - `"session.status_running"`
+
+  - `BetaManagedAgentsSessionStatusIdleEvent`
+
+    Indicates the agent has paused and is awaiting user input.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted`
+
+      The agent completed its turn naturally and is ready for the next user message.
+
+      - `BetaManagedAgentsSessionEndTurn`
+
+        The agent completed its turn naturally and is ready for the next user message.
+
+        - `type: "end_turn"`
+
+          - `"end_turn"`
+
+      - `BetaManagedAgentsSessionRequiresAction`
+
+        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
+
+        - `event_ids: Array<string>`
+
+          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
+
+        - `type: "requires_action"`
+
+          - `"requires_action"`
+
+      - `BetaManagedAgentsSessionRetriesExhausted`
+
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
+
+        - `type: "retries_exhausted"`
+
+          - `"retries_exhausted"`
+
+    - `type: "session.status_idle"`
+
+      - `"session.status_idle"`
+
+  - `BetaManagedAgentsSessionStatusTerminatedEvent`
+
+    Indicates the session has terminated, either due to an error or completion.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.status_terminated"`
+
+      - `"session.status_terminated"`
+
+  - `BetaManagedAgentsSessionThreadCreatedEvent`
+
+    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the callable agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public `sthr_` ID of the newly created thread.
+
+    - `type: "session.thread_created"`
+
+      - `"session.thread_created"`
+
+  - `BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
+
+    Emitted when an outcome evaluation cycle begins.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `iteration: number`
+
+      0-indexed revision cycle. 0 is the first evaluation; 1 is the re-evaluation after the first revision; etc.
+
+    - `outcome_id: string`
+
+      The `outc_` ID of the outcome being evaluated.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "span.outcome_evaluation_start"`
+
+      - `"span.outcome_evaluation_start"`
+
+  - `BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
+
+    Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `explanation: string`
+
+      Human-readable explanation of the verdict. For `needs_revision`, describes which criteria failed and why.
+
+    - `iteration: number`
+
+      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
+
+    - `outcome_evaluation_start_id: string`
+
+      The id of the corresponding `span.outcome_evaluation_start` event.
+
+    - `outcome_id: string`
+
+      The `outc_` ID of the outcome being evaluated.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `result: string`
+
+      Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
+
+    - `type: "span.outcome_evaluation_end"`
+
+      - `"span.outcome_evaluation_end"`
+
+    - `usage: BetaManagedAgentsSpanModelUsage`
+
+      Token usage for a single model request.
+
+      - `cache_creation_input_tokens: number`
+
+        Tokens used to create prompt cache in this request.
+
+      - `cache_read_input_tokens: number`
+
+        Tokens read from prompt cache in this request.
+
+      - `input_tokens: number`
+
+        Input tokens consumed by this request.
+
+      - `output_tokens: number`
+
+        Output tokens generated by this request.
+
+      - `speed?: "standard" | "fast" | null`
+
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+        - `"standard"`
+
+        - `"fast"`
+
+  - `BetaManagedAgentsSpanModelRequestStartEvent`
+
+    Emitted when a model request is initiated by the agent.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "span.model_request_start"`
+
+      - `"span.model_request_start"`
+
+  - `BetaManagedAgentsSpanModelRequestEndEvent`
+
+    Emitted when a model request completes.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `is_error: boolean | null`
+
+      Whether the model request resulted in an error.
+
+    - `model_request_start_id: string`
+
+      The id of the corresponding `span.model_request_start` event.
+
+    - `model_usage: BetaManagedAgentsSpanModelUsage`
+
+      Token usage for a single model request.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "span.model_request_end"`
+
+      - `"span.model_request_end"`
+
+  - `BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
+    Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `iteration: number`
+
+      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
+
+    - `outcome_id: string`
+
+      The `outc_` ID of the outcome being evaluated.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "span.outcome_evaluation_ongoing"`
+
+      - `"span.outcome_evaluation_ongoing"`
+
+  - `BetaManagedAgentsUserDefineOutcomeEvent`
+
+    Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `description: string`
+
+      What the agent should produce. Copied from the input event.
+
+    - `max_iterations: number | null`
+
+      Evaluate-then-revise cycles before giving up. Default 3, max 20.
+
+    - `outcome_id: string`
+
+      Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
+
+      Rubric for grading the quality of an outcome.
+
+      - `BetaManagedAgentsFileRubric`
+
+        Rubric referenced by a file uploaded via the Files API.
+
+        - `file_id: string`
+
+          ID of the rubric file.
+
+        - `type: "file"`
+
+          - `"file"`
+
+      - `BetaManagedAgentsTextRubric`
+
+        Rubric content provided inline as text.
+
+        - `content: string`
+
+          Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+        - `type: "text"`
+
+          - `"text"`
+
+    - `type: "user.define_outcome"`
+
+      - `"user.define_outcome"`
+
+  - `BetaManagedAgentsSessionDeletedEvent`
+
+    Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.deleted"`
+
+      - `"session.deleted"`
+
+  - `BetaManagedAgentsSessionThreadStatusRunningEvent`
+
+    A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public sthr_ ID of the thread that started running.
+
+    - `type: "session.thread_status_running"`
+
+      - `"session.thread_status_running"`
+
+  - `BetaManagedAgentsSessionThreadStatusIdleEvent`
+
+    A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public sthr_ ID of the thread that went idle.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted`
+
+      The agent completed its turn naturally and is ready for the next user message.
+
+      - `BetaManagedAgentsSessionEndTurn`
+
+        The agent completed its turn naturally and is ready for the next user message.
+
+      - `BetaManagedAgentsSessionRequiresAction`
+
+        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
+
+      - `BetaManagedAgentsSessionRetriesExhausted`
+
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
+
+    - `type: "session.thread_status_idle"`
+
+      - `"session.thread_status_idle"`
+
+  - `BetaManagedAgentsSessionThreadStatusTerminatedEvent`
+
+    A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public sthr_ ID of the thread that terminated.
+
+    - `type: "session.thread_status_terminated"`
+
+      - `"session.thread_status_terminated"`
+
+  - `BetaManagedAgentsUserToolResultEvent`
+
+    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `tool_use_id: string`
+
+      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: "user.tool_result"`
+
+      - `"user.tool_result"`
+
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
+
+      The result content returned by the tool.
+
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+    - `is_error?: boolean | null`
+
+      Whether the tool execution resulted in an error.
+
+    - `processed_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id?: string | null`
+
+      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+
+  - `BetaManagedAgentsSessionThreadStatusRescheduledEvent`
+
+    A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public sthr_ ID of the thread that is retrying.
+
+    - `type: "session.thread_status_rescheduled"`
+
+      - `"session.thread_status_rescheduled"`
+
+  - `BetaManagedAgentsSessionUpdatedEvent`
+
+    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.updated"`
+
+      - `"session.updated"`
+
+    - `agent?: BetaManagedAgentsSessionAgent | null`
+
+      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+      - `id: string`
+
+      - `description: string | null`
+
+      - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
+
+        - `name: string`
+
+        - `type: "url"`
+
+          - `"url"`
+
+        - `url: string`
+
+      - `model: BetaManagedAgentsModelConfig`
+
+        Model identifier and configuration.
+
+        - `id: BetaManagedAgentsModel`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5" | "claude-fable-5" | "claude-opus-5" | 10 more`
+
+            - `"claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
+            - `"claude-fable-5"`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-8"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-7"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-6"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-6"`
+
+              Best combination of speed and intelligence
+
+            - `"claude-haiku-4-5"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-haiku-4-5-20251001"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-opus-4-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-5-20251101"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-5"`
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"`
+
+              High-performance model for agents and coding
+
+          - `(string & {})`
+
+        - `effort?: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `BetaManagedAgentsEffortLow`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: "low"`
+
+              - `"low"`
+
+          - `BetaManagedAgentsEffortMedium`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: "medium"`
+
+              - `"medium"`
+
+          - `BetaManagedAgentsEffortHigh`
+
+            High effort. Favors reasoning depth.
+
+            - `type: "high"`
+
+              - `"high"`
+
+          - `BetaManagedAgentsEffortXhigh`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: "xhigh"`
+
+              - `"xhigh"`
+
+          - `BetaManagedAgentsEffortMax`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: "max"`
+
+              - `"max"`
+
+        - `speed?: "standard" | "fast"`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+          - `"standard"`
+
+          - `"fast"`
+
+      - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator | null`
+
+        Resolved coordinator topology with full agent definitions for each roster member.
+
+        - `agents: Array<BetaManagedAgentsSessionThreadAgent>`
+
+          Full `agent` definitions the coordinator may spawn as session threads.
+
+          - `id: string`
+
+          - `description: string | null`
+
+          - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
+
+            - `name: string`
+
+            - `type: "url"`
+
+            - `url: string`
+
+          - `model: BetaManagedAgentsModelConfig`
+
+            Model identifier and configuration.
+
+          - `name: string`
+
+          - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
+
+            - `BetaManagedAgentsAnthropicSkill`
+
+              A resolved Anthropic-managed skill.
+
+              - `skill_id: string`
+
+              - `type: "anthropic"`
+
+                - `"anthropic"`
+
+              - `version: string`
+
+            - `BetaManagedAgentsCustomSkill`
+
+              A resolved user-created custom skill.
+
+              - `skill_id: string`
+
+              - `type: "custom"`
+
+                - `"custom"`
+
+              - `version: string`
+
+          - `system: string | null`
+
+          - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
+
+            - `BetaManagedAgentsAgentToolset20260401`
+
+              - `configs: Array<BetaManagedAgentsAgentToolConfig>`
+
+                - `enabled: boolean`
+
+                - `name: "bash" | "edit" | "read" | 5 more`
+
+                  Built-in agent tool identifier.
+
+                  - `"bash"`
+
+                  - `"edit"`
+
+                  - `"read"`
+
+                  - `"write"`
+
+                  - `"glob"`
+
+                  - `"grep"`
+
+                  - `"web_fetch"`
+
+                  - `"web_search"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                    - `type: "always_allow"`
+
+                      - `"always_allow"`
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+                    - `type: "always_ask"`
+
+                      - `"always_ask"`
+
+              - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
+
+                Resolved default configuration for agent tools.
+
+                - `enabled: boolean`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+              - `type: "agent_toolset_20260401"`
+
+                - `"agent_toolset_20260401"`
+
+            - `BetaManagedAgentsMCPToolset`
+
+              - `configs: Array<BetaManagedAgentsMCPToolConfig>`
+
+                - `enabled: boolean`
+
+                - `name: string`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+              - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
+
+                Resolved default configuration for all tools from an MCP server.
+
+                - `enabled: boolean`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+              - `mcp_server_name: string`
+
+              - `type: "mcp_toolset"`
+
+                - `"mcp_toolset"`
+
+            - `BetaManagedAgentsCustomTool`
+
+              A custom tool as returned in API responses.
+
+              - `description: string`
+
+              - `input_schema: BetaManagedAgentsCustomToolInputSchema`
+
+                JSON Schema for custom tool input parameters.
+
+                - `type: "object"`
+
+                  - `"object"`
+
+                - `properties?: Record<string, unknown> | null`
+
+                - `required?: Array<string> | null`
+
+              - `name: string`
+
+              - `type: "custom"`
+
+                - `"custom"`
+
+          - `type: "agent"`
+
+            - `"agent"`
+
+          - `version: number`
+
+        - `type: "coordinator"`
+
+          - `"coordinator"`
+
+      - `name: string`
+
+      - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
+
+        - `BetaManagedAgentsAnthropicSkill`
+
+          A resolved Anthropic-managed skill.
+
+        - `BetaManagedAgentsCustomSkill`
+
+          A resolved user-created custom skill.
+
+      - `system: string | null`
+
+      - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
+
+        - `BetaManagedAgentsAgentToolset20260401`
+
+        - `BetaManagedAgentsMCPToolset`
+
+        - `BetaManagedAgentsCustomTool`
+
+          A custom tool as returned in API responses.
+
+      - `type: "agent"`
+
+        - `"agent"`
+
+      - `version: number`
+
+    - `metadata?: Record<string, string>`
+
+      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+    - `title?: string | null`
+
+      The session's new title. Present only when the update changed it.
+
+  - `BetaManagedAgentsStartEvent`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `event: BetaManagedAgentsStartEventPreview`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `BetaManagedAgentsAgentMessagePreview`
+
+        - `id: string`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `type: "agent.message"`
+
+          - `"agent.message"`
+
+      - `BetaManagedAgentsAgentThinkingPreview`
+
+        - `id: string`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `type: "agent.thinking"`
+
+          - `"agent.thinking"`
+
+    - `type: "event_start"`
+
+      - `"event_start"`
+
+  - `BetaManagedAgentsDeltaEvent`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `delta: BetaManagedAgentsDeltaContent`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `content: BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `type: "content_delta"`
+
+        - `"content_delta"`
+
+      - `index?: number`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `event_id: string`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `type: "event_delta"`
+
+      - `"event_delta"`
+
+  - `BetaManagedAgentsSystemMessageEvent`
+
+    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `content: Array<BetaManagedAgentsSystemContentBlock>`
+
+      System content blocks. Text-only.
+
+      - `text: string`
+
+        The text content.
+
+      - `type: "text"`
+
+        - `"text"`
+
+    - `type: "system.message"`
+
+      - `"system.message"`
+
+    - `processed_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+# Events
+
+## List Session Thread Events
+
+`client.beta.sessions.threads.events.list(stringthreadID, EventListParamsparams, RequestOptionsoptions?): PageCursor<BetaManagedAgentsSessionEvent>`
+
+**get** `/v1/sessions/{session_id}/threads/{thread_id}/events`
+
+List Session Thread Events
+
+### Parameters
+
+- `threadID: string`
+
+- `params: EventListParams`
+
+  - `session_id: string`
+
+    Path param: Path parameter session_id
+
+  - `limit?: number`
+
+    Query param: Query parameter for limit
+
+  - `page?: string`
+
+    Query param: Query parameter for page
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 31 more`
+
+  Union type for all event types in a session.
+
+  - `BetaManagedAgentsUserMessageEvent`
+
+    A user message event in the session conversation.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+      Array of content blocks comprising the user message.
+
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+          Union type for image source variants.
+
+          - `BetaManagedAgentsBase64ImageSource`
+
+            Base64-encoded image data.
+
+            - `data: string`
+
+              Base64-encoded image data.
+
+            - `media_type: string`
+
+              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+            - `type: "base64"`
+
+              - `"base64"`
+
+          - `BetaManagedAgentsURLImageSource`
+
+            Image referenced by URL.
+
+            - `type: "url"`
+
+              - `"url"`
+
+            - `url: string`
+
+              URL of the image to fetch.
+
+          - `BetaManagedAgentsFileImageSource`
+
+            Image referenced by file ID.
+
+            - `file_id: string`
+
+              ID of a previously uploaded file.
+
+            - `type: "file"`
+
+              - `"file"`
+
+        - `type: "image"`
+
+          - `"image"`
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+          Union type for document source variants.
+
+          - `BetaManagedAgentsBase64DocumentSource`
+
+            Base64-encoded document data.
+
+            - `data: string`
+
+              Base64-encoded document data.
+
+            - `media_type: string`
+
+              MIME type of the document (e.g., "application/pdf").
+
+            - `type: "base64"`
+
+              - `"base64"`
+
+          - `BetaManagedAgentsPlainTextDocumentSource`
+
+            Plain text document content.
+
+            - `data: string`
+
+              The plain text content.
+
+            - `media_type: "text/plain"`
+
+              MIME type of the text content. Must be "text/plain".
+
+              - `"text/plain"`
+
+            - `type: "text"`
+
+              - `"text"`
+
+          - `BetaManagedAgentsURLDocumentSource`
+
+            Document referenced by URL.
+
+            - `type: "url"`
+
+              - `"url"`
+
+            - `url: string`
+
+              URL of the document to fetch.
+
+          - `BetaManagedAgentsFileDocumentSource`
+
+            Document referenced by file ID.
+
+            - `file_id: string`
+
+              ID of a previously uploaded file.
+
+            - `type: "file"`
+
+              - `"file"`
+
+        - `type: "document"`
+
+          - `"document"`
+
+        - `context?: string | null`
+
+          Additional context about the document for the model.
+
+        - `title?: string | null`
+
+          The title of the document.
+
+    - `type: "user.message"`
+
+      - `"user.message"`
+
+    - `processed_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+  - `BetaManagedAgentsUserInterruptEvent`
+
+    An interrupt event that pauses agent execution and returns control to the user.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `type: "user.interrupt"`
+
+      - `"user.interrupt"`
+
+    - `processed_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id?: string | null`
+
+      If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
+
+  - `BetaManagedAgentsUserToolConfirmationEvent`
+
+    A tool confirmation event that approves or denies a pending tool execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `result: "allow" | "deny"`
+
+      UserToolConfirmationResult enum
+
+      - `"allow"`
+
+      - `"deny"`
+
+    - `tool_use_id: string`
+
+      The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: "user.tool_confirmation"`
+
+      - `"user.tool_confirmation"`
+
+    - `deny_message?: string | null`
+
+      Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
+
+    - `processed_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id?: string | null`
+
+      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+
+  - `BetaManagedAgentsUserCustomToolResultEvent`
+
+    Event sent by the client providing the result of a custom tool execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `custom_tool_use_id: string`
+
+      The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: "user.custom_tool_result"`
+
+      - `"user.custom_tool_result"`
+
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
+
+      The result content returned by the tool.
+
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+        - `citations: BetaManagedAgentsSearchResultCitations`
+
+          Citation settings for a search result.
+
+          - `enabled: boolean`
+
+            Whether citations are enabled for this search result.
+
+        - `content: Array<BetaManagedAgentsSearchResultContent>`
+
+          Array of text content blocks from the search result.
+
+          - `text: string`
+
+            The text content.
+
+          - `type: "text"`
+
+            - `"text"`
+
+        - `source: string`
+
+          The URL source of the search result.
+
+        - `title: string`
+
+          The title of the search result.
+
+        - `type: "search_result"`
+
+          - `"search_result"`
+
+    - `is_error?: boolean | null`
+
+      Whether the tool execution resulted in an error.
+
+    - `processed_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id?: string | null`
+
+      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+
+  - `BetaManagedAgentsAgentCustomToolUseEvent`
+
+    Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `input: Record<string, unknown>`
+
+      Input parameters for the tool call.
+
+    - `name: string`
+
+      Name of the custom tool being called.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.custom_tool_use"`
+
+      - `"agent.custom_tool_use"`
+
+    - `session_thread_id?: string | null`
+
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+
+  - `BetaManagedAgentsAgentMessageEvent`
+
+    An agent response event in the session conversation.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `content: Array<BetaManagedAgentsTextBlock>`
+
+      Array of text blocks comprising the agent response.
+
+      - `text: string`
+
+        The text content.
+
+      - `type: "text"`
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.message"`
+
+      - `"agent.message"`
+
+  - `BetaManagedAgentsAgentThinkingEvent`
+
+    Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.thinking"`
+
+      - `"agent.thinking"`
+
+  - `BetaManagedAgentsAgentMCPToolUseEvent`
+
+    Event emitted when the agent invokes a tool provided by an MCP server.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `input: Record<string, unknown>`
+
+      Input parameters for the tool call.
+
+    - `mcp_server_name: string`
+
+      Name of the MCP server providing the tool.
+
+    - `name: string`
+
+      Name of the MCP tool being used.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.mcp_tool_use"`
+
+      - `"agent.mcp_tool_use"`
+
+    - `evaluated_permission?: "allow" | "ask" | "deny"`
+
+      AgentEvaluatedPermission enum
+
+      - `"allow"`
+
+      - `"ask"`
+
+      - `"deny"`
+
+    - `session_thread_id?: string | null`
+
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+
+  - `BetaManagedAgentsAgentMCPToolResultEvent`
+
+    Event representing the result of an MCP tool execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `mcp_tool_use_id: string`
+
+      The id of the `agent.mcp_tool_use` event this result corresponds to.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.mcp_tool_result"`
+
+      - `"agent.mcp_tool_result"`
+
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
+
+      The result content returned by the tool.
+
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+    - `is_error?: boolean | null`
+
+      Whether the tool execution resulted in an error.
+
+  - `BetaManagedAgentsAgentToolUseEvent`
+
+    Event emitted when the agent invokes a built-in agent tool.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `input: Record<string, unknown>`
+
+      Input parameters for the tool call.
+
+    - `name: string`
+
+      Name of the agent tool being used.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.tool_use"`
+
+      - `"agent.tool_use"`
+
+    - `evaluated_permission?: "allow" | "ask" | "deny"`
+
+      AgentEvaluatedPermission enum
+
+      - `"allow"`
+
+      - `"ask"`
+
+      - `"deny"`
+
+    - `session_thread_id?: string | null`
+
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+
+  - `BetaManagedAgentsAgentToolResultEvent`
+
+    Event representing the result of an agent tool execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `tool_use_id: string`
+
+      The id of the `agent.tool_use` event this result corresponds to.
+
+    - `type: "agent.tool_result"`
+
+      - `"agent.tool_result"`
+
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
+
+      The result content returned by the tool.
+
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+    - `is_error?: boolean | null`
+
+      Whether the tool execution resulted in an error.
+
+  - `BetaManagedAgentsAgentThreadMessageReceivedEvent`
+
+    Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+      Message content blocks.
+
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+    - `from_session_thread_id: string`
+
+      Public `sthr_` ID of the thread that sent the message.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.thread_message_received"`
+
+      - `"agent.thread_message_received"`
+
+    - `from_agent_name?: string | null`
+
+      Name of the callable agent this message came from. Absent when received from the primary agent.
+
+  - `BetaManagedAgentsAgentThreadMessageSentEvent`
+
+    Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+      Message content blocks.
+
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `to_session_thread_id: string`
+
+      Public `sthr_` ID of the thread the message was sent to.
+
+    - `type: "agent.thread_message_sent"`
+
+      - `"agent.thread_message_sent"`
+
+    - `to_agent_name?: string | null`
+
+      Name of the callable agent this message was sent to. Absent when sent to the primary agent.
+
+  - `BetaManagedAgentsAgentThreadContextCompactedEvent`
+
+    Indicates that context compaction (summarization) occurred during the session.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.thread_context_compacted"`
+
+      - `"agent.thread_context_compacted"`
+
+  - `BetaManagedAgentsSessionErrorEvent`
+
+    An error event indicating a problem occurred during session execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
+
+      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+      - `BetaManagedAgentsUnknownError`
+
+        An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+            - `type: "retrying"`
+
+              - `"retrying"`
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+            - `type: "exhausted"`
+
+              - `"exhausted"`
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+            - `type: "terminal"`
+
+              - `"terminal"`
+
+        - `type: "unknown_error"`
+
+          - `"unknown_error"`
+
+      - `BetaManagedAgentsModelOverloadedError`
+
+        The model is currently overloaded. Emitted after automatic retries are exhausted.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "model_overloaded_error"`
+
+          - `"model_overloaded_error"`
+
+      - `BetaManagedAgentsModelRateLimitedError`
+
+        The model request was rate-limited.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "model_rate_limited_error"`
+
+          - `"model_rate_limited_error"`
+
+      - `BetaManagedAgentsModelRequestFailedError`
+
+        A model request failed for a reason other than overload or rate-limiting.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "model_request_failed_error"`
+
+          - `"model_request_failed_error"`
+
+      - `BetaManagedAgentsMCPConnectionFailedError`
+
+        Failed to connect to an MCP server.
+
+        - `mcp_server_name: string`
+
+          Name of the MCP server that failed to connect.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "mcp_connection_failed_error"`
+
+          - `"mcp_connection_failed_error"`
+
+      - `BetaManagedAgentsMCPAuthenticationFailedError`
+
+        Authentication to an MCP server failed.
+
+        - `mcp_server_name: string`
+
+          Name of the MCP server that failed authentication.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "mcp_authentication_failed_error"`
+
+          - `"mcp_authentication_failed_error"`
+
+      - `BetaManagedAgentsBillingError`
+
+        The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "billing_error"`
+
+          - `"billing_error"`
+
+      - `BetaManagedAgentsCredentialHostUnreachableError`
+
+        An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+        - `credential_id: string`
+
+          ID of the affected credential.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "credential_host_unreachable_error"`
+
+          - `"credential_host_unreachable_error"`
+
+        - `vault_id: string`
+
+          ID of the vault containing the affected credential.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.error"`
+
+      - `"session.error"`
+
+  - `BetaManagedAgentsSessionStatusRescheduledEvent`
+
+    Indicates the session is recovering from an error state and is rescheduled for execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.status_rescheduled"`
+
+      - `"session.status_rescheduled"`
+
+  - `BetaManagedAgentsSessionStatusRunningEvent`
+
+    Indicates the session is actively running and the agent is working.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.status_running"`
+
+      - `"session.status_running"`
+
+  - `BetaManagedAgentsSessionStatusIdleEvent`
+
+    Indicates the agent has paused and is awaiting user input.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted`
+
+      The agent completed its turn naturally and is ready for the next user message.
+
+      - `BetaManagedAgentsSessionEndTurn`
+
+        The agent completed its turn naturally and is ready for the next user message.
+
+        - `type: "end_turn"`
+
+          - `"end_turn"`
+
+      - `BetaManagedAgentsSessionRequiresAction`
+
+        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
+
+        - `event_ids: Array<string>`
+
+          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
+
+        - `type: "requires_action"`
+
+          - `"requires_action"`
+
+      - `BetaManagedAgentsSessionRetriesExhausted`
+
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
+
+        - `type: "retries_exhausted"`
+
+          - `"retries_exhausted"`
+
+    - `type: "session.status_idle"`
+
+      - `"session.status_idle"`
+
+  - `BetaManagedAgentsSessionStatusTerminatedEvent`
+
+    Indicates the session has terminated, either due to an error or completion.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.status_terminated"`
+
+      - `"session.status_terminated"`
+
+  - `BetaManagedAgentsSessionThreadCreatedEvent`
+
+    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the callable agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public `sthr_` ID of the newly created thread.
+
+    - `type: "session.thread_created"`
+
+      - `"session.thread_created"`
+
+  - `BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
+
+    Emitted when an outcome evaluation cycle begins.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `iteration: number`
+
+      0-indexed revision cycle. 0 is the first evaluation; 1 is the re-evaluation after the first revision; etc.
+
+    - `outcome_id: string`
+
+      The `outc_` ID of the outcome being evaluated.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "span.outcome_evaluation_start"`
+
+      - `"span.outcome_evaluation_start"`
+
+  - `BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
+
+    Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `explanation: string`
+
+      Human-readable explanation of the verdict. For `needs_revision`, describes which criteria failed and why.
+
+    - `iteration: number`
+
+      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
+
+    - `outcome_evaluation_start_id: string`
+
+      The id of the corresponding `span.outcome_evaluation_start` event.
+
+    - `outcome_id: string`
+
+      The `outc_` ID of the outcome being evaluated.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `result: string`
+
+      Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
+
+    - `type: "span.outcome_evaluation_end"`
+
+      - `"span.outcome_evaluation_end"`
+
+    - `usage: BetaManagedAgentsSpanModelUsage`
+
+      Token usage for a single model request.
+
+      - `cache_creation_input_tokens: number`
+
+        Tokens used to create prompt cache in this request.
+
+      - `cache_read_input_tokens: number`
+
+        Tokens read from prompt cache in this request.
+
+      - `input_tokens: number`
+
+        Input tokens consumed by this request.
+
+      - `output_tokens: number`
+
+        Output tokens generated by this request.
+
+      - `speed?: "standard" | "fast" | null`
+
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+        - `"standard"`
+
+        - `"fast"`
+
+  - `BetaManagedAgentsSpanModelRequestStartEvent`
+
+    Emitted when a model request is initiated by the agent.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "span.model_request_start"`
+
+      - `"span.model_request_start"`
+
+  - `BetaManagedAgentsSpanModelRequestEndEvent`
+
+    Emitted when a model request completes.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `is_error: boolean | null`
+
+      Whether the model request resulted in an error.
+
+    - `model_request_start_id: string`
+
+      The id of the corresponding `span.model_request_start` event.
+
+    - `model_usage: BetaManagedAgentsSpanModelUsage`
+
+      Token usage for a single model request.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "span.model_request_end"`
+
+      - `"span.model_request_end"`
+
+  - `BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
+    Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `iteration: number`
+
+      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
+
+    - `outcome_id: string`
+
+      The `outc_` ID of the outcome being evaluated.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "span.outcome_evaluation_ongoing"`
+
+      - `"span.outcome_evaluation_ongoing"`
+
+  - `BetaManagedAgentsUserDefineOutcomeEvent`
+
+    Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `description: string`
+
+      What the agent should produce. Copied from the input event.
+
+    - `max_iterations: number | null`
+
+      Evaluate-then-revise cycles before giving up. Default 3, max 20.
+
+    - `outcome_id: string`
+
+      Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
+
+      Rubric for grading the quality of an outcome.
+
+      - `BetaManagedAgentsFileRubric`
+
+        Rubric referenced by a file uploaded via the Files API.
+
+        - `file_id: string`
+
+          ID of the rubric file.
+
+        - `type: "file"`
+
+          - `"file"`
+
+      - `BetaManagedAgentsTextRubric`
+
+        Rubric content provided inline as text.
+
+        - `content: string`
+
+          Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+        - `type: "text"`
+
+          - `"text"`
+
+    - `type: "user.define_outcome"`
+
+      - `"user.define_outcome"`
+
+  - `BetaManagedAgentsSessionDeletedEvent`
+
+    Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.deleted"`
+
+      - `"session.deleted"`
+
+  - `BetaManagedAgentsSessionThreadStatusRunningEvent`
+
+    A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public sthr_ ID of the thread that started running.
+
+    - `type: "session.thread_status_running"`
+
+      - `"session.thread_status_running"`
+
+  - `BetaManagedAgentsSessionThreadStatusIdleEvent`
+
+    A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public sthr_ ID of the thread that went idle.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted`
+
+      The agent completed its turn naturally and is ready for the next user message.
+
+      - `BetaManagedAgentsSessionEndTurn`
+
+        The agent completed its turn naturally and is ready for the next user message.
+
+      - `BetaManagedAgentsSessionRequiresAction`
+
+        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
+
+      - `BetaManagedAgentsSessionRetriesExhausted`
+
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
+
+    - `type: "session.thread_status_idle"`
+
+      - `"session.thread_status_idle"`
+
+  - `BetaManagedAgentsSessionThreadStatusTerminatedEvent`
+
+    A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public sthr_ ID of the thread that terminated.
+
+    - `type: "session.thread_status_terminated"`
+
+      - `"session.thread_status_terminated"`
+
+  - `BetaManagedAgentsUserToolResultEvent`
+
+    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `tool_use_id: string`
+
+      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: "user.tool_result"`
+
+      - `"user.tool_result"`
+
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
+
+      The result content returned by the tool.
+
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+    - `is_error?: boolean | null`
+
+      Whether the tool execution resulted in an error.
+
+    - `processed_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id?: string | null`
+
+      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+
+  - `BetaManagedAgentsSessionThreadStatusRescheduledEvent`
+
+    A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public sthr_ ID of the thread that is retrying.
+
+    - `type: "session.thread_status_rescheduled"`
+
+      - `"session.thread_status_rescheduled"`
+
+  - `BetaManagedAgentsSessionUpdatedEvent`
+
+    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.updated"`
+
+      - `"session.updated"`
+
+    - `agent?: BetaManagedAgentsSessionAgent | null`
+
+      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+      - `id: string`
+
+      - `description: string | null`
+
+      - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
+
+        - `name: string`
+
+        - `type: "url"`
+
+          - `"url"`
+
+        - `url: string`
+
+      - `model: BetaManagedAgentsModelConfig`
+
+        Model identifier and configuration.
+
+        - `id: BetaManagedAgentsModel`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5" | "claude-fable-5" | "claude-opus-5" | 10 more`
+
+            - `"claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
+            - `"claude-fable-5"`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-8"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-7"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-6"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-6"`
+
+              Best combination of speed and intelligence
+
+            - `"claude-haiku-4-5"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-haiku-4-5-20251001"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-opus-4-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-5-20251101"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-5"`
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"`
+
+              High-performance model for agents and coding
+
+          - `(string & {})`
+
+        - `effort?: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `BetaManagedAgentsEffortLow`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: "low"`
+
+              - `"low"`
+
+          - `BetaManagedAgentsEffortMedium`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: "medium"`
+
+              - `"medium"`
+
+          - `BetaManagedAgentsEffortHigh`
+
+            High effort. Favors reasoning depth.
+
+            - `type: "high"`
+
+              - `"high"`
+
+          - `BetaManagedAgentsEffortXhigh`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: "xhigh"`
+
+              - `"xhigh"`
+
+          - `BetaManagedAgentsEffortMax`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: "max"`
+
+              - `"max"`
+
+        - `speed?: "standard" | "fast"`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+          - `"standard"`
+
+          - `"fast"`
+
+      - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator | null`
+
+        Resolved coordinator topology with full agent definitions for each roster member.
+
+        - `agents: Array<BetaManagedAgentsSessionThreadAgent>`
+
+          Full `agent` definitions the coordinator may spawn as session threads.
+
+          - `id: string`
+
+          - `description: string | null`
+
+          - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
+
+            - `name: string`
+
+            - `type: "url"`
+
+            - `url: string`
+
+          - `model: BetaManagedAgentsModelConfig`
+
+            Model identifier and configuration.
+
+          - `name: string`
+
+          - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
+
+            - `BetaManagedAgentsAnthropicSkill`
+
+              A resolved Anthropic-managed skill.
+
+              - `skill_id: string`
+
+              - `type: "anthropic"`
+
+                - `"anthropic"`
+
+              - `version: string`
+
+            - `BetaManagedAgentsCustomSkill`
+
+              A resolved user-created custom skill.
+
+              - `skill_id: string`
+
+              - `type: "custom"`
+
+                - `"custom"`
+
+              - `version: string`
+
+          - `system: string | null`
+
+          - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
+
+            - `BetaManagedAgentsAgentToolset20260401`
+
+              - `configs: Array<BetaManagedAgentsAgentToolConfig>`
+
+                - `enabled: boolean`
+
+                - `name: "bash" | "edit" | "read" | 5 more`
+
+                  Built-in agent tool identifier.
+
+                  - `"bash"`
+
+                  - `"edit"`
+
+                  - `"read"`
+
+                  - `"write"`
+
+                  - `"glob"`
+
+                  - `"grep"`
+
+                  - `"web_fetch"`
+
+                  - `"web_search"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                    - `type: "always_allow"`
+
+                      - `"always_allow"`
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+                    - `type: "always_ask"`
+
+                      - `"always_ask"`
+
+              - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
+
+                Resolved default configuration for agent tools.
+
+                - `enabled: boolean`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+              - `type: "agent_toolset_20260401"`
+
+                - `"agent_toolset_20260401"`
+
+            - `BetaManagedAgentsMCPToolset`
+
+              - `configs: Array<BetaManagedAgentsMCPToolConfig>`
+
+                - `enabled: boolean`
+
+                - `name: string`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+              - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
+
+                Resolved default configuration for all tools from an MCP server.
+
+                - `enabled: boolean`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+              - `mcp_server_name: string`
+
+              - `type: "mcp_toolset"`
+
+                - `"mcp_toolset"`
+
+            - `BetaManagedAgentsCustomTool`
+
+              A custom tool as returned in API responses.
+
+              - `description: string`
+
+              - `input_schema: BetaManagedAgentsCustomToolInputSchema`
+
+                JSON Schema for custom tool input parameters.
+
+                - `type: "object"`
+
+                  - `"object"`
+
+                - `properties?: Record<string, unknown> | null`
+
+                - `required?: Array<string> | null`
+
+              - `name: string`
+
+              - `type: "custom"`
+
+                - `"custom"`
+
+          - `type: "agent"`
+
+            - `"agent"`
+
+          - `version: number`
+
+        - `type: "coordinator"`
+
+          - `"coordinator"`
+
+      - `name: string`
+
+      - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
+
+        - `BetaManagedAgentsAnthropicSkill`
+
+          A resolved Anthropic-managed skill.
+
+        - `BetaManagedAgentsCustomSkill`
+
+          A resolved user-created custom skill.
+
+      - `system: string | null`
+
+      - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
+
+        - `BetaManagedAgentsAgentToolset20260401`
+
+        - `BetaManagedAgentsMCPToolset`
+
+        - `BetaManagedAgentsCustomTool`
+
+          A custom tool as returned in API responses.
+
+      - `type: "agent"`
+
+        - `"agent"`
+
+      - `version: number`
+
+    - `metadata?: Record<string, string>`
+
+      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+    - `title?: string | null`
+
+      The session's new title. Present only when the update changed it.
+
+  - `BetaManagedAgentsSystemMessageEvent`
+
+    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `content: Array<BetaManagedAgentsSystemContentBlock>`
+
+      System content blocks. Text-only.
+
+      - `text: string`
+
+        The text content.
+
+      - `type: "text"`
+
+        - `"text"`
+
+    - `type: "system.message"`
+
+      - `"system.message"`
+
+    - `processed_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+// Automatically fetches more pages as needed.
+for await (const betaManagedAgentsSessionEvent of client.beta.sessions.threads.events.list(
+  'sthr_011CZkZVWa6oIjw0rgXZpnBt',
+  { session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7' },
+)) {
+  console.log(betaManagedAgentsSessionEvent);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "content": [
+        {
+          "text": "Where is my order #1234?",
+          "type": "text"
+        }
+      ],
+      "type": "user.message",
+      "processed_at": "2026-03-15T10:00:00Z"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Stream Session Thread Events
+
+`client.beta.sessions.threads.events.stream(stringthreadID, EventStreamParamsparams, RequestOptionsoptions?): BetaManagedAgentsStreamSessionThreadEvents | Stream<BetaManagedAgentsStreamSessionThreadEvents>`
+
+**get** `/v1/sessions/{session_id}/threads/{thread_id}/stream`
+
+Stream Session Thread Events
+
+### Parameters
+
+- `threadID: string`
+
+- `params: EventStreamParams`
+
+  - `session_id: string`
+
+    Path param: Path parameter session_id
+
+  - `event_deltas?: Array<BetaManagedAgentsDeltaType>`
+
+    Query param: When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
+
+    - `"agent.message"`
+
+    - `"agent.thinking"`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsStreamSessionThreadEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 33 more`
+
+  Server-sent event in a single thread's stream.
+
+  - `BetaManagedAgentsUserMessageEvent`
+
+    A user message event in the session conversation.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+      Array of content blocks comprising the user message.
+
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+          Union type for image source variants.
+
+          - `BetaManagedAgentsBase64ImageSource`
+
+            Base64-encoded image data.
+
+            - `data: string`
+
+              Base64-encoded image data.
+
+            - `media_type: string`
+
+              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+            - `type: "base64"`
+
+              - `"base64"`
+
+          - `BetaManagedAgentsURLImageSource`
+
+            Image referenced by URL.
+
+            - `type: "url"`
+
+              - `"url"`
+
+            - `url: string`
+
+              URL of the image to fetch.
+
+          - `BetaManagedAgentsFileImageSource`
+
+            Image referenced by file ID.
+
+            - `file_id: string`
+
+              ID of a previously uploaded file.
+
+            - `type: "file"`
+
+              - `"file"`
+
+        - `type: "image"`
+
+          - `"image"`
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+          Union type for document source variants.
+
+          - `BetaManagedAgentsBase64DocumentSource`
+
+            Base64-encoded document data.
+
+            - `data: string`
+
+              Base64-encoded document data.
+
+            - `media_type: string`
+
+              MIME type of the document (e.g., "application/pdf").
+
+            - `type: "base64"`
+
+              - `"base64"`
+
+          - `BetaManagedAgentsPlainTextDocumentSource`
+
+            Plain text document content.
+
+            - `data: string`
+
+              The plain text content.
+
+            - `media_type: "text/plain"`
+
+              MIME type of the text content. Must be "text/plain".
+
+              - `"text/plain"`
+
+            - `type: "text"`
+
+              - `"text"`
+
+          - `BetaManagedAgentsURLDocumentSource`
+
+            Document referenced by URL.
+
+            - `type: "url"`
+
+              - `"url"`
+
+            - `url: string`
+
+              URL of the document to fetch.
+
+          - `BetaManagedAgentsFileDocumentSource`
+
+            Document referenced by file ID.
+
+            - `file_id: string`
+
+              ID of a previously uploaded file.
+
+            - `type: "file"`
+
+              - `"file"`
+
+        - `type: "document"`
+
+          - `"document"`
+
+        - `context?: string | null`
+
+          Additional context about the document for the model.
+
+        - `title?: string | null`
+
+          The title of the document.
+
+    - `type: "user.message"`
+
+      - `"user.message"`
+
+    - `processed_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+  - `BetaManagedAgentsUserInterruptEvent`
+
+    An interrupt event that pauses agent execution and returns control to the user.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `type: "user.interrupt"`
+
+      - `"user.interrupt"`
+
+    - `processed_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id?: string | null`
+
+      If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
+
+  - `BetaManagedAgentsUserToolConfirmationEvent`
+
+    A tool confirmation event that approves or denies a pending tool execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `result: "allow" | "deny"`
+
+      UserToolConfirmationResult enum
+
+      - `"allow"`
+
+      - `"deny"`
+
+    - `tool_use_id: string`
+
+      The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: "user.tool_confirmation"`
+
+      - `"user.tool_confirmation"`
+
+    - `deny_message?: string | null`
+
+      Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
+
+    - `processed_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id?: string | null`
+
+      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+
+  - `BetaManagedAgentsUserCustomToolResultEvent`
+
+    Event sent by the client providing the result of a custom tool execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `custom_tool_use_id: string`
+
+      The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: "user.custom_tool_result"`
+
+      - `"user.custom_tool_result"`
+
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
+
+      The result content returned by the tool.
+
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+        - `citations: BetaManagedAgentsSearchResultCitations`
+
+          Citation settings for a search result.
+
+          - `enabled: boolean`
+
+            Whether citations are enabled for this search result.
+
+        - `content: Array<BetaManagedAgentsSearchResultContent>`
+
+          Array of text content blocks from the search result.
+
+          - `text: string`
+
+            The text content.
+
+          - `type: "text"`
+
+            - `"text"`
+
+        - `source: string`
+
+          The URL source of the search result.
+
+        - `title: string`
+
+          The title of the search result.
+
+        - `type: "search_result"`
+
+          - `"search_result"`
+
+    - `is_error?: boolean | null`
+
+      Whether the tool execution resulted in an error.
+
+    - `processed_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id?: string | null`
+
+      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+
+  - `BetaManagedAgentsAgentCustomToolUseEvent`
+
+    Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `input: Record<string, unknown>`
+
+      Input parameters for the tool call.
+
+    - `name: string`
+
+      Name of the custom tool being called.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.custom_tool_use"`
+
+      - `"agent.custom_tool_use"`
+
+    - `session_thread_id?: string | null`
+
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+
+  - `BetaManagedAgentsAgentMessageEvent`
+
+    An agent response event in the session conversation.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `content: Array<BetaManagedAgentsTextBlock>`
+
+      Array of text blocks comprising the agent response.
+
+      - `text: string`
+
+        The text content.
+
+      - `type: "text"`
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.message"`
+
+      - `"agent.message"`
+
+  - `BetaManagedAgentsAgentThinkingEvent`
+
+    Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.thinking"`
+
+      - `"agent.thinking"`
+
+  - `BetaManagedAgentsAgentMCPToolUseEvent`
+
+    Event emitted when the agent invokes a tool provided by an MCP server.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `input: Record<string, unknown>`
+
+      Input parameters for the tool call.
+
+    - `mcp_server_name: string`
+
+      Name of the MCP server providing the tool.
+
+    - `name: string`
+
+      Name of the MCP tool being used.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.mcp_tool_use"`
+
+      - `"agent.mcp_tool_use"`
+
+    - `evaluated_permission?: "allow" | "ask" | "deny"`
+
+      AgentEvaluatedPermission enum
+
+      - `"allow"`
+
+      - `"ask"`
+
+      - `"deny"`
+
+    - `session_thread_id?: string | null`
+
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+
+  - `BetaManagedAgentsAgentMCPToolResultEvent`
+
+    Event representing the result of an MCP tool execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `mcp_tool_use_id: string`
+
+      The id of the `agent.mcp_tool_use` event this result corresponds to.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.mcp_tool_result"`
+
+      - `"agent.mcp_tool_result"`
+
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
+
+      The result content returned by the tool.
+
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+    - `is_error?: boolean | null`
+
+      Whether the tool execution resulted in an error.
+
+  - `BetaManagedAgentsAgentToolUseEvent`
+
+    Event emitted when the agent invokes a built-in agent tool.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `input: Record<string, unknown>`
+
+      Input parameters for the tool call.
+
+    - `name: string`
+
+      Name of the agent tool being used.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.tool_use"`
+
+      - `"agent.tool_use"`
+
+    - `evaluated_permission?: "allow" | "ask" | "deny"`
+
+      AgentEvaluatedPermission enum
+
+      - `"allow"`
+
+      - `"ask"`
+
+      - `"deny"`
+
+    - `session_thread_id?: string | null`
+
+      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
+
+  - `BetaManagedAgentsAgentToolResultEvent`
+
+    Event representing the result of an agent tool execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `tool_use_id: string`
+
+      The id of the `agent.tool_use` event this result corresponds to.
+
+    - `type: "agent.tool_result"`
+
+      - `"agent.tool_result"`
+
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
+
+      The result content returned by the tool.
+
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+    - `is_error?: boolean | null`
+
+      Whether the tool execution resulted in an error.
+
+  - `BetaManagedAgentsAgentThreadMessageReceivedEvent`
+
+    Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+      Message content blocks.
+
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+    - `from_session_thread_id: string`
+
+      Public `sthr_` ID of the thread that sent the message.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.thread_message_received"`
+
+      - `"agent.thread_message_received"`
+
+    - `from_agent_name?: string | null`
+
+      Name of the callable agent this message came from. Absent when received from the primary agent.
+
+  - `BetaManagedAgentsAgentThreadMessageSentEvent`
+
+    Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+      Message content blocks.
+
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `to_session_thread_id: string`
+
+      Public `sthr_` ID of the thread the message was sent to.
+
+    - `type: "agent.thread_message_sent"`
+
+      - `"agent.thread_message_sent"`
+
+    - `to_agent_name?: string | null`
+
+      Name of the callable agent this message was sent to. Absent when sent to the primary agent.
+
+  - `BetaManagedAgentsAgentThreadContextCompactedEvent`
+
+    Indicates that context compaction (summarization) occurred during the session.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "agent.thread_context_compacted"`
+
+      - `"agent.thread_context_compacted"`
+
+  - `BetaManagedAgentsSessionErrorEvent`
+
+    An error event indicating a problem occurred during session execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
+
+      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+      - `BetaManagedAgentsUnknownError`
+
+        An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+            - `type: "retrying"`
+
+              - `"retrying"`
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+            - `type: "exhausted"`
+
+              - `"exhausted"`
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+            - `type: "terminal"`
+
+              - `"terminal"`
+
+        - `type: "unknown_error"`
+
+          - `"unknown_error"`
+
+      - `BetaManagedAgentsModelOverloadedError`
+
+        The model is currently overloaded. Emitted after automatic retries are exhausted.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "model_overloaded_error"`
+
+          - `"model_overloaded_error"`
+
+      - `BetaManagedAgentsModelRateLimitedError`
+
+        The model request was rate-limited.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "model_rate_limited_error"`
+
+          - `"model_rate_limited_error"`
+
+      - `BetaManagedAgentsModelRequestFailedError`
+
+        A model request failed for a reason other than overload or rate-limiting.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "model_request_failed_error"`
+
+          - `"model_request_failed_error"`
+
+      - `BetaManagedAgentsMCPConnectionFailedError`
+
+        Failed to connect to an MCP server.
+
+        - `mcp_server_name: string`
+
+          Name of the MCP server that failed to connect.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "mcp_connection_failed_error"`
+
+          - `"mcp_connection_failed_error"`
+
+      - `BetaManagedAgentsMCPAuthenticationFailedError`
+
+        Authentication to an MCP server failed.
+
+        - `mcp_server_name: string`
+
+          Name of the MCP server that failed authentication.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "mcp_authentication_failed_error"`
+
+          - `"mcp_authentication_failed_error"`
+
+      - `BetaManagedAgentsBillingError`
+
+        The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "billing_error"`
+
+          - `"billing_error"`
+
+      - `BetaManagedAgentsCredentialHostUnreachableError`
+
+        An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+        - `credential_id: string`
+
+          ID of the affected credential.
+
+        - `message: string`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: "credential_host_unreachable_error"`
+
+          - `"credential_host_unreachable_error"`
+
+        - `vault_id: string`
+
+          ID of the vault containing the affected credential.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.error"`
+
+      - `"session.error"`
+
+  - `BetaManagedAgentsSessionStatusRescheduledEvent`
+
+    Indicates the session is recovering from an error state and is rescheduled for execution.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.status_rescheduled"`
+
+      - `"session.status_rescheduled"`
+
+  - `BetaManagedAgentsSessionStatusRunningEvent`
+
+    Indicates the session is actively running and the agent is working.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.status_running"`
+
+      - `"session.status_running"`
+
+  - `BetaManagedAgentsSessionStatusIdleEvent`
+
+    Indicates the agent has paused and is awaiting user input.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted`
+
+      The agent completed its turn naturally and is ready for the next user message.
+
+      - `BetaManagedAgentsSessionEndTurn`
+
+        The agent completed its turn naturally and is ready for the next user message.
+
+        - `type: "end_turn"`
+
+          - `"end_turn"`
+
+      - `BetaManagedAgentsSessionRequiresAction`
+
+        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
+
+        - `event_ids: Array<string>`
+
+          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
+
+        - `type: "requires_action"`
+
+          - `"requires_action"`
+
+      - `BetaManagedAgentsSessionRetriesExhausted`
+
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
+
+        - `type: "retries_exhausted"`
+
+          - `"retries_exhausted"`
+
+    - `type: "session.status_idle"`
+
+      - `"session.status_idle"`
+
+  - `BetaManagedAgentsSessionStatusTerminatedEvent`
+
+    Indicates the session has terminated, either due to an error or completion.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.status_terminated"`
+
+      - `"session.status_terminated"`
+
+  - `BetaManagedAgentsSessionThreadCreatedEvent`
+
+    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the callable agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public `sthr_` ID of the newly created thread.
+
+    - `type: "session.thread_created"`
+
+      - `"session.thread_created"`
+
+  - `BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
+
+    Emitted when an outcome evaluation cycle begins.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `iteration: number`
+
+      0-indexed revision cycle. 0 is the first evaluation; 1 is the re-evaluation after the first revision; etc.
+
+    - `outcome_id: string`
+
+      The `outc_` ID of the outcome being evaluated.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "span.outcome_evaluation_start"`
+
+      - `"span.outcome_evaluation_start"`
+
+  - `BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
+
+    Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `explanation: string`
+
+      Human-readable explanation of the verdict. For `needs_revision`, describes which criteria failed and why.
+
+    - `iteration: number`
+
+      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
+
+    - `outcome_evaluation_start_id: string`
+
+      The id of the corresponding `span.outcome_evaluation_start` event.
+
+    - `outcome_id: string`
+
+      The `outc_` ID of the outcome being evaluated.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `result: string`
+
+      Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
+
+    - `type: "span.outcome_evaluation_end"`
+
+      - `"span.outcome_evaluation_end"`
+
+    - `usage: BetaManagedAgentsSpanModelUsage`
+
+      Token usage for a single model request.
+
+      - `cache_creation_input_tokens: number`
+
+        Tokens used to create prompt cache in this request.
+
+      - `cache_read_input_tokens: number`
+
+        Tokens read from prompt cache in this request.
+
+      - `input_tokens: number`
+
+        Input tokens consumed by this request.
+
+      - `output_tokens: number`
+
+        Output tokens generated by this request.
+
+      - `speed?: "standard" | "fast" | null`
+
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+        - `"standard"`
+
+        - `"fast"`
+
+  - `BetaManagedAgentsSpanModelRequestStartEvent`
+
+    Emitted when a model request is initiated by the agent.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "span.model_request_start"`
+
+      - `"span.model_request_start"`
+
+  - `BetaManagedAgentsSpanModelRequestEndEvent`
+
+    Emitted when a model request completes.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `is_error: boolean | null`
+
+      Whether the model request resulted in an error.
+
+    - `model_request_start_id: string`
+
+      The id of the corresponding `span.model_request_start` event.
+
+    - `model_usage: BetaManagedAgentsSpanModelUsage`
+
+      Token usage for a single model request.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "span.model_request_end"`
+
+      - `"span.model_request_end"`
+
+  - `BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
+    Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `iteration: number`
+
+      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
+
+    - `outcome_id: string`
+
+      The `outc_` ID of the outcome being evaluated.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "span.outcome_evaluation_ongoing"`
+
+      - `"span.outcome_evaluation_ongoing"`
+
+  - `BetaManagedAgentsUserDefineOutcomeEvent`
+
+    Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `description: string`
+
+      What the agent should produce. Copied from the input event.
+
+    - `max_iterations: number | null`
+
+      Evaluate-then-revise cycles before giving up. Default 3, max 20.
+
+    - `outcome_id: string`
+
+      Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
+
+      Rubric for grading the quality of an outcome.
+
+      - `BetaManagedAgentsFileRubric`
+
+        Rubric referenced by a file uploaded via the Files API.
+
+        - `file_id: string`
+
+          ID of the rubric file.
+
+        - `type: "file"`
+
+          - `"file"`
+
+      - `BetaManagedAgentsTextRubric`
+
+        Rubric content provided inline as text.
+
+        - `content: string`
+
+          Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+        - `type: "text"`
+
+          - `"text"`
+
+    - `type: "user.define_outcome"`
+
+      - `"user.define_outcome"`
+
+  - `BetaManagedAgentsSessionDeletedEvent`
+
+    Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.deleted"`
+
+      - `"session.deleted"`
+
+  - `BetaManagedAgentsSessionThreadStatusRunningEvent`
+
+    A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public sthr_ ID of the thread that started running.
+
+    - `type: "session.thread_status_running"`
+
+      - `"session.thread_status_running"`
+
+  - `BetaManagedAgentsSessionThreadStatusIdleEvent`
+
+    A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public sthr_ ID of the thread that went idle.
+
+    - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted`
+
+      The agent completed its turn naturally and is ready for the next user message.
+
+      - `BetaManagedAgentsSessionEndTurn`
+
+        The agent completed its turn naturally and is ready for the next user message.
+
+      - `BetaManagedAgentsSessionRequiresAction`
+
+        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
+
+      - `BetaManagedAgentsSessionRetriesExhausted`
+
+        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
+
+    - `type: "session.thread_status_idle"`
+
+      - `"session.thread_status_idle"`
+
+  - `BetaManagedAgentsSessionThreadStatusTerminatedEvent`
+
+    A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public sthr_ ID of the thread that terminated.
+
+    - `type: "session.thread_status_terminated"`
+
+      - `"session.thread_status_terminated"`
+
+  - `BetaManagedAgentsUserToolResultEvent`
+
+    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `tool_use_id: string`
+
+      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: "user.tool_result"`
+
+      - `"user.tool_result"`
+
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
+
+      The result content returned by the tool.
+
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+    - `is_error?: boolean | null`
+
+      Whether the tool execution resulted in an error.
+
+    - `processed_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id?: string | null`
+
+      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+
+  - `BetaManagedAgentsSessionThreadStatusRescheduledEvent`
+
+    A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `agent_name: string`
+
+      Name of the agent the thread runs.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id: string`
+
+      Public sthr_ ID of the thread that is retrying.
+
+    - `type: "session.thread_status_rescheduled"`
+
+      - `"session.thread_status_rescheduled"`
+
+  - `BetaManagedAgentsSessionUpdatedEvent`
+
+    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.updated"`
+
+      - `"session.updated"`
+
+    - `agent?: BetaManagedAgentsSessionAgent | null`
+
+      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
+      - `id: string`
+
+      - `description: string | null`
+
+      - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
+
+        - `name: string`
+
+        - `type: "url"`
+
+          - `"url"`
+
+        - `url: string`
+
+      - `model: BetaManagedAgentsModelConfig`
+
+        Model identifier and configuration.
+
+        - `id: BetaManagedAgentsModel`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-sonnet-5" | "claude-fable-5" | "claude-opus-5" | 10 more`
+
+            - `"claude-sonnet-5"`
+
+              High-performance model for coding and agents
+
+            - `"claude-fable-5"`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `"claude-opus-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-8"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-7"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-6"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-6"`
+
+              Best combination of speed and intelligence
+
+            - `"claude-haiku-4-5"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-haiku-4-5-20251001"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-opus-4-5"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-opus-4-5-20251101"`
+
+              Powerful intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-5"`
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"`
+
+              High-performance model for agents and coding
+
+          - `(string & {})`
+
+        - `effort?: BetaManagedAgentsEffortLow | BetaManagedAgentsEffortMedium | BetaManagedAgentsEffortHigh | 2 more`
+
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `BetaManagedAgentsEffortLow`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `type: "low"`
+
+              - `"low"`
+
+          - `BetaManagedAgentsEffortMedium`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `type: "medium"`
+
+              - `"medium"`
+
+          - `BetaManagedAgentsEffortHigh`
+
+            High effort. Favors reasoning depth.
+
+            - `type: "high"`
+
+              - `"high"`
+
+          - `BetaManagedAgentsEffortXhigh`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `type: "xhigh"`
+
+              - `"xhigh"`
+
+          - `BetaManagedAgentsEffortMax`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `type: "max"`
+
+              - `"max"`
+
+        - `speed?: "standard" | "fast"`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+          - `"standard"`
+
+          - `"fast"`
+
+      - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator | null`
+
+        Resolved coordinator topology with full agent definitions for each roster member.
+
+        - `agents: Array<BetaManagedAgentsSessionThreadAgent>`
+
+          Full `agent` definitions the coordinator may spawn as session threads.
+
+          - `id: string`
+
+          - `description: string | null`
+
+          - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
+
+            - `name: string`
+
+            - `type: "url"`
+
+            - `url: string`
+
+          - `model: BetaManagedAgentsModelConfig`
+
+            Model identifier and configuration.
+
+          - `name: string`
+
+          - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
+
+            - `BetaManagedAgentsAnthropicSkill`
+
+              A resolved Anthropic-managed skill.
+
+              - `skill_id: string`
+
+              - `type: "anthropic"`
+
+                - `"anthropic"`
+
+              - `version: string`
+
+            - `BetaManagedAgentsCustomSkill`
+
+              A resolved user-created custom skill.
+
+              - `skill_id: string`
+
+              - `type: "custom"`
+
+                - `"custom"`
+
+              - `version: string`
+
+          - `system: string | null`
+
+          - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
+
+            - `BetaManagedAgentsAgentToolset20260401`
+
+              - `configs: Array<BetaManagedAgentsAgentToolConfig>`
+
+                - `enabled: boolean`
+
+                - `name: "bash" | "edit" | "read" | 5 more`
+
+                  Built-in agent tool identifier.
+
+                  - `"bash"`
+
+                  - `"edit"`
+
+                  - `"read"`
+
+                  - `"write"`
+
+                  - `"glob"`
+
+                  - `"grep"`
+
+                  - `"web_fetch"`
+
+                  - `"web_search"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                    - `type: "always_allow"`
+
+                      - `"always_allow"`
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+                    - `type: "always_ask"`
+
+                      - `"always_ask"`
+
+              - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
+
+                Resolved default configuration for agent tools.
+
+                - `enabled: boolean`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+              - `type: "agent_toolset_20260401"`
+
+                - `"agent_toolset_20260401"`
+
+            - `BetaManagedAgentsMCPToolset`
+
+              - `configs: Array<BetaManagedAgentsMCPToolConfig>`
+
+                - `enabled: boolean`
+
+                - `name: string`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+              - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
+
+                Resolved default configuration for all tools from an MCP server.
+
+                - `enabled: boolean`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+              - `mcp_server_name: string`
+
+              - `type: "mcp_toolset"`
+
+                - `"mcp_toolset"`
+
+            - `BetaManagedAgentsCustomTool`
+
+              A custom tool as returned in API responses.
+
+              - `description: string`
+
+              - `input_schema: BetaManagedAgentsCustomToolInputSchema`
+
+                JSON Schema for custom tool input parameters.
+
+                - `type: "object"`
+
+                  - `"object"`
+
+                - `properties?: Record<string, unknown> | null`
+
+                - `required?: Array<string> | null`
+
+              - `name: string`
+
+              - `type: "custom"`
+
+                - `"custom"`
+
+          - `type: "agent"`
+
+            - `"agent"`
+
+          - `version: number`
+
+        - `type: "coordinator"`
+
+          - `"coordinator"`
+
+      - `name: string`
+
+      - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
+
+        - `BetaManagedAgentsAnthropicSkill`
+
+          A resolved Anthropic-managed skill.
+
+        - `BetaManagedAgentsCustomSkill`
+
+          A resolved user-created custom skill.
+
+      - `system: string | null`
+
+      - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
+
+        - `BetaManagedAgentsAgentToolset20260401`
+
+        - `BetaManagedAgentsMCPToolset`
+
+        - `BetaManagedAgentsCustomTool`
+
+          A custom tool as returned in API responses.
+
+      - `type: "agent"`
+
+        - `"agent"`
+
+      - `version: number`
+
+    - `metadata?: Record<string, string>`
+
+      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+    - `title?: string | null`
+
+      The session's new title. Present only when the update changed it.
+
+  - `BetaManagedAgentsStartEvent`
+
+    Opens a preview of a buffered event. Carries the previewed event's type and id only. Followed by zero or more event_delta events with the same event id, normally concluded by the buffered event carrying that id. If the producing model request ends without that event (an error or interrupt mid-stream), its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `event: BetaManagedAgentsStartEventPreview`
+
+      The previewed event's type and id. The event type determines which delta types the preview's event_delta events carry: agent.message events stream content_delta fragments; agent.thinking previews are start-only — no deltas follow, and the buffered agent.thinking with the same id concludes them.
+
+      - `BetaManagedAgentsAgentMessagePreview`
+
+        - `id: string`
+
+          The id the buffered agent.message will carry if it is emitted. Matches the event_id on this preview's event_delta events.
+
+        - `type: "agent.message"`
+
+          - `"agent.message"`
+
+      - `BetaManagedAgentsAgentThinkingPreview`
+
+        - `id: string`
+
+          The id the buffered agent.thinking will carry if it is emitted. Start-only — no event_delta events follow.
+
+        - `type: "agent.thinking"`
+
+          - `"agent.thinking"`
+
+    - `type: "event_start"`
+
+      - `"event_start"`
+
+  - `BetaManagedAgentsDeltaEvent`
+
+    An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
+
+    - `delta: BetaManagedAgentsDeltaContent`
+
+      One fragment of the previewed event. The delta type is named for the previewed event's field it streams into: agent.message events stream content_delta fragments, each a partial element of the content array.
+
+      - `content: BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `type: "content_delta"`
+
+        - `"content_delta"`
+
+      - `index?: number`
+
+        Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+    - `event_id: string`
+
+      The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
+
+    - `type: "event_delta"`
+
+      - `"event_delta"`
+
+  - `BetaManagedAgentsSystemMessageEvent`
+
+    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `content: Array<BetaManagedAgentsSystemContentBlock>`
+
+      System content blocks. Text-only.
+
+      - `text: string`
+
+        The text content.
+
+      - `type: "text"`
+
+        - `"text"`
+
+    - `type: "system.message"`
+
+      - `"system.message"`
+
+    - `processed_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsStreamSessionThreadEvents = await client.beta.sessions.threads.events.stream(
+  'sthr_011CZkZVWa6oIjw0rgXZpnBt',
+  { session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7' },
+);
+
+console.log(betaManagedAgentsStreamSessionThreadEvents);
+```
+
+#### Response
+
+```json
+{
+  "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+  "content": [
+    {
+      "text": "Where is my order #1234?",
+      "type": "text"
+    }
+  ],
+  "type": "user.message",
+  "processed_at": "2026-03-15T10:00:00Z"
+}
+```
+
+# Deployments
+
+## Create Deployment
+
+`client.beta.deployments.create(DeploymentCreateParamsparams, RequestOptionsoptions?): BetaManagedAgentsDeployment`
+
+**post** `/v1/deployments`
+
+Create Deployment
+
+### Parameters
+
+- `params: DeploymentCreateParams`
+
+  - `agent: string | BetaManagedAgentsAgentParams`
+
+    Body param: Agent to deploy. Accepts the `agent` ID string, which pins the latest version, or an `agent` object with both id and version specified. The agent must exist and not be archived.
+
+    - `string`
+
+    - `BetaManagedAgentsAgentParams`
+
+      Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
+
+      - `id: string`
+
+        The `agent` ID.
+
+      - `type: "agent"`
+
+        - `"agent"`
+
+      - `version?: number`
+
+        The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+  - `environment_id: string`
+
+    Body param: ID of the `environment` defining the container configuration for sessions created from this deployment.
+
+  - `initial_events: Array<BetaManagedAgentsDeploymentInitialEventParams>`
+
+    Body param: Events to send to each session immediately after creation. At least 1, maximum 50.
+
+    - `BetaManagedAgentsUserMessageEventParams`
+
+      Parameters for sending a user message to the session.
+
+      - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+        Array of content blocks for the user message.
+
+        - `BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+          - `text: string`
+
+            The text content.
+
+          - `type: "text"`
+
+            - `"text"`
+
+        - `BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+            Union type for image source variants.
+
+            - `BetaManagedAgentsBase64ImageSource`
+
+              Base64-encoded image data.
+
+              - `data: string`
+
+                Base64-encoded image data.
+
+              - `media_type: string`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsURLImageSource`
+
+              Image referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the image to fetch.
+
+            - `BetaManagedAgentsFileImageSource`
+
+              Image referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "image"`
+
+            - `"image"`
+
+        - `BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+            Union type for document source variants.
+
+            - `BetaManagedAgentsBase64DocumentSource`
+
+              Base64-encoded document data.
+
+              - `data: string`
+
+                Base64-encoded document data.
+
+              - `media_type: string`
+
+                MIME type of the document (e.g., "application/pdf").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsPlainTextDocumentSource`
+
+              Plain text document content.
+
+              - `data: string`
+
+                The plain text content.
+
+              - `media_type: "text/plain"`
+
+                MIME type of the text content. Must be "text/plain".
+
+                - `"text/plain"`
+
+              - `type: "text"`
+
+                - `"text"`
+
+            - `BetaManagedAgentsURLDocumentSource`
+
+              Document referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the document to fetch.
+
+            - `BetaManagedAgentsFileDocumentSource`
+
+              Document referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "document"`
+
+            - `"document"`
+
+          - `context?: string | null`
+
+            Additional context about the document for the model.
+
+          - `title?: string | null`
+
+            The title of the document.
+
+      - `type: "user.message"`
+
+        - `"user.message"`
+
+    - `BetaManagedAgentsUserDefineOutcomeEventParams`
+
+      Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
+
+      - `description: string`
+
+        What the agent should produce. This is the task specification.
+
+      - `rubric: BetaManagedAgentsFileRubricParams | BetaManagedAgentsTextRubricParams`
+
+        Rubric for grading the quality of an outcome.
+
+        - `BetaManagedAgentsFileRubricParams`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `file_id: string`
+
+            ID of the rubric file.
+
+          - `type: "file"`
+
+            - `"file"`
+
+        - `BetaManagedAgentsTextRubricParams`
+
+          Rubric content provided inline as text.
+
+          - `content: string`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
+
+          - `type: "text"`
+
+            - `"text"`
+
+      - `type: "user.define_outcome"`
+
+        - `"user.define_outcome"`
+
+      - `max_iterations?: number | null`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
+
+    - `BetaManagedAgentsSystemMessageEventParams`
+
+      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
+
+      - `content: Array<BetaManagedAgentsSystemContentBlock>`
+
+        System content blocks to append. Text-only.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `type: "system.message"`
+
+        - `"system.message"`
+
+  - `name: string`
+
+    Body param: Human-readable name for the deployment.
+
+  - `description?: string | null`
+
+    Body param: Description of what the deployment does.
+
+  - `metadata?: Record<string, string>`
+
+    Body param: Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+
+  - `resources?: Array<BetaManagedAgentsGitHubRepositoryResourceParams | BetaManagedAgentsFileResourceParams | BetaManagedAgentsMemoryStoreResourceParam>`
+
+    Body param: Resources (e.g. repositories, files) to mount into each session's container. Maximum 500.
+
+    - `BetaManagedAgentsGitHubRepositoryResourceParams`
+
+      Mount a GitHub repository into the session's container.
+
+      - `authorization_token: string`
+
+        GitHub authorization token used to clone the repository.
+
+      - `type: "github_repository"`
+
+        - `"github_repository"`
+
+      - `url: string`
+
+        Github URL of the repository
+
+      - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
+
+        Branch or commit to check out. Defaults to the repository's default branch.
+
+        - `BetaManagedAgentsBranchCheckout`
+
+          - `name: string`
+
+            Branch name to check out.
+
+          - `type: "branch"`
+
+            - `"branch"`
+
+        - `BetaManagedAgentsCommitCheckout`
+
+          - `sha: string`
+
+            Full commit SHA to check out.
+
+          - `type: "commit"`
+
+            - `"commit"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+    - `BetaManagedAgentsFileResourceParams`
+
+      Mount a file uploaded via the Files API into the session.
+
+      - `file_id: string`
+
+        ID of a previously uploaded file.
+
+      - `type: "file"`
+
+        - `"file"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+    - `BetaManagedAgentsMemoryStoreResourceParam`
+
+      Parameters for attaching a memory store to an agent session.
+
+      - `memory_store_id: string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+      - `access?: "read_write" | "read_only" | null`
+
+        Access mode for an attached memory store.
+
+        - `"read_write"`
+
+        - `"read_only"`
+
+      - `instructions?: string | null`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+  - `schedule?: BetaManagedAgentsScheduleParams | null`
+
+    Body param: 5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
+
+    - `expression: string`
+
+      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+    - `timezone: string`
+
+      Required. IANA timezone identifier (e.g., "America/Los_Angeles", "UTC"). Validated against the IANA timezone database.
+
+    - `type: "cron"`
+
+      - `"cron"`
+
+  - `vault_ids?: Array<string>`
+
+    Body param: Vault IDs for stored credentials the agent can use during sessions created from this deployment. Maximum 50.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsDeployment`
+
+  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
+
+  - `id: string`
+
+    Unique identifier for this deployment.
+
+  - `agent: BetaManagedAgentsAgentReference`
+
+    A resolved agent reference with a concrete version.
+
+    - `id: string`
+
+    - `type: "agent"`
+
+      - `"agent"`
+
+    - `version: number`
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `description: string | null`
+
+    Description of what the deployment does.
+
+  - `environment_id: string`
+
+    ID of the `environment` where sessions run.
+
+  - `initial_events: Array<BetaManagedAgentsDeploymentInitialEvent>`
+
+    Events sent to each session immediately after creation.
+
+    - `BetaManagedAgentsDeploymentUserMessageEvent`
+
+      A user message sent to the session.
+
+      - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+        Array of content blocks for the user message.
+
+        - `BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+          - `text: string`
+
+            The text content.
+
+          - `type: "text"`
+
+            - `"text"`
+
+        - `BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+            Union type for image source variants.
+
+            - `BetaManagedAgentsBase64ImageSource`
+
+              Base64-encoded image data.
+
+              - `data: string`
+
+                Base64-encoded image data.
+
+              - `media_type: string`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsURLImageSource`
+
+              Image referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the image to fetch.
+
+            - `BetaManagedAgentsFileImageSource`
+
+              Image referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "image"`
+
+            - `"image"`
+
+        - `BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+            Union type for document source variants.
+
+            - `BetaManagedAgentsBase64DocumentSource`
+
+              Base64-encoded document data.
+
+              - `data: string`
+
+                Base64-encoded document data.
+
+              - `media_type: string`
+
+                MIME type of the document (e.g., "application/pdf").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsPlainTextDocumentSource`
+
+              Plain text document content.
+
+              - `data: string`
+
+                The plain text content.
+
+              - `media_type: "text/plain"`
+
+                MIME type of the text content. Must be "text/plain".
+
+                - `"text/plain"`
+
+              - `type: "text"`
+
+                - `"text"`
+
+            - `BetaManagedAgentsURLDocumentSource`
+
+              Document referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the document to fetch.
+
+            - `BetaManagedAgentsFileDocumentSource`
+
+              Document referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "document"`
+
+            - `"document"`
+
+          - `context?: string | null`
+
+            Additional context about the document for the model.
+
+          - `title?: string | null`
+
+            The title of the document.
+
+      - `type: "user.message"`
+
+        - `"user.message"`
+
+    - `BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+
+      An outcome the agent should work toward. The agent begins work on receipt.
+
+      - `description: string`
+
+        What the agent should produce. This is the task specification.
+
+      - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
+
+        Rubric for grading the quality of an outcome.
+
+        - `BetaManagedAgentsFileRubric`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `file_id: string`
+
+            ID of the rubric file.
+
+          - `type: "file"`
+
+            - `"file"`
+
+        - `BetaManagedAgentsTextRubric`
+
+          Rubric content provided inline as text.
+
+          - `content: string`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+          - `type: "text"`
+
+            - `"text"`
+
+      - `type: "user.define_outcome"`
+
+        - `"user.define_outcome"`
+
+      - `max_iterations?: number | null`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
+
+    - `BetaManagedAgentsDeploymentSystemMessageEvent`
+
+      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
+
+      - `content: Array<BetaManagedAgentsSystemContentBlock>`
+
+        System content blocks to append. Text-only.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `type: "system.message"`
+
+        - `"system.message"`
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `name: string`
+
+    Human-readable name.
+
+  - `paused_reason: BetaManagedAgentsDeploymentPausedReason | null`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+    - `BetaManagedAgentsManualDeploymentPausedReason`
+
+      The caller invoked the pause endpoint on the deployment.
+
+      - `type: "manual"`
+
+        - `"manual"`
+
+    - `BetaManagedAgentsErrorDeploymentPausedReason`
+
+      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+      - `error: BetaManagedAgentsDeploymentPausedReasonError`
+
+        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+
+        - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
+
+          The deployment's environment was archived.
+
+          - `type: "environment_archived_error"`
+
+            - `"environment_archived_error"`
+
+        - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+
+          The deployment's agent was archived.
+
+          - `type: "agent_archived_error"`
+
+            - `"agent_archived_error"`
+
+        - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+
+          The deployment's environment no longer exists.
+
+          - `type: "environment_not_found_error"`
+
+            - `"environment_not_found_error"`
+
+        - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+
+          A vault referenced by the deployment no longer exists.
+
+          - `type: "vault_not_found_error"`
+
+            - `"vault_not_found_error"`
+
+        - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+
+          A file resource referenced by the deployment no longer exists.
+
+          - `type: "file_not_found_error"`
+
+            - `"file_not_found_error"`
+
+        - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+
+          A referenced resource no longer exists and its kind was not reported.
+
+          - `type: "session_resource_not_found_error"`
+
+            - `"session_resource_not_found_error"`
+
+        - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+
+          The deployment's workspace was archived.
+
+          - `type: "workspace_archived_error"`
+
+            - `"workspace_archived_error"`
+
+        - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+
+          The deployment's organization is disabled.
+
+          - `type: "organization_disabled_error"`
+
+            - `"organization_disabled_error"`
+
+        - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+
+          A memory store referenced by the deployment is archived.
+
+          - `type: "memory_store_archived_error"`
+
+            - `"memory_store_archived_error"`
+
+        - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+
+          A skill referenced by the deployment's agent no longer exists.
+
+          - `type: "skill_not_found_error"`
+
+            - `"skill_not_found_error"`
+
+        - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+
+          A vault referenced by the deployment is archived.
+
+          - `type: "vault_archived_error"`
+
+            - `"vault_archived_error"`
+
+        - `BetaManagedAgentsUnknownDeploymentPausedReasonError`
+
+          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
+
+          - `type: "unknown_error"`
+
+            - `"unknown_error"`
+
+        - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+
+          The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+          - `type: "self_hosted_resources_unsupported_error"`
+
+            - `"self_hosted_resources_unsupported_error"`
+
+        - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+
+          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+          - `type: "mcp_egress_blocked_error"`
+
+            - `"mcp_egress_blocked_error"`
+
+      - `type: "error"`
+
+        - `"error"`
+
+  - `resources: Array<BetaManagedAgentsSessionResourceConfig>`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+    - `BetaManagedAgentsGitHubRepositoryResourceConfig`
+
+      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
+
+      - `type: "github_repository"`
+
+        - `"github_repository"`
+
+      - `url: string`
+
+        Github URL of the repository
+
+      - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
+
+        Branch or commit to check out. Defaults to the repository's default branch.
+
+        - `BetaManagedAgentsBranchCheckout`
+
+          - `name: string`
+
+            Branch name to check out.
+
+          - `type: "branch"`
+
+            - `"branch"`
+
+        - `BetaManagedAgentsCommitCheckout`
+
+          - `sha: string`
+
+            Full commit SHA to check out.
+
+          - `type: "commit"`
+
+            - `"commit"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+    - `BetaManagedAgentsFileResourceConfig`
+
+      A file mounted into each session's container.
+
+      - `file_id: string`
+
+        ID of a previously uploaded file.
+
+      - `type: "file"`
+
+        - `"file"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+    - `BetaManagedAgentsMemoryStoreResourceConfig`
+
+      A memory store attached to each session created from this deployment.
+
+      - `memory_store_id: string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+      - `access?: "read_write" | "read_only" | null`
+
+        Access mode for an attached memory store.
+
+        - `"read_write"`
+
+        - `"read_only"`
+
+      - `instructions?: string | null`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+  - `schedule: BetaManagedAgentsSchedule | null`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+    - `expression: string`
+
+      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+    - `timezone: string`
+
+      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
+
+    - `type: "cron"`
+
+      - `"cron"`
+
+    - `last_run_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `upcoming_runs_at?: Array<string>`
+
+      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
+
+  - `status: BetaManagedAgentsDeploymentStatus`
+
+    Lifecycle status of a deployment.
+
+    - `"active"`
+
+    - `"paused"`
+
+  - `type: "deployment"`
+
+    - `"deployment"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `vault_ids: Array<string>`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsDeployment = await client.beta.deployments.create({
+  agent: 'string',
+  environment_id: 'x',
+  initial_events: [
+    { content: [{ text: 'Where is my order #1234?', type: 'text' }], type: 'user.message' },
+  ],
+  name: 'x',
+});
+
+console.log(betaManagedAgentsDeployment.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
+  "agent": {
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Compile yesterday's orders into report.md.",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {},
+  "name": "Daily order report",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
+    "type": "cron",
+    "last_run_at": "2026-03-16T16:00:09Z",
+    "upcoming_runs_at": [
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ]
+}
+```
+
+## List Deployments
+
+`client.beta.deployments.list(DeploymentListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsDeployment>`
+
+**get** `/v1/deployments`
+
+List Deployments
+
+### Parameters
+
+- `params: DeploymentListParams`
+
+  - `agent_id?: string`
+
+    Query param: Filter by agent ID.
+
+  - `"created_at[gte]"?: string`
+
+    Query param: Return deployments created at or after this time (inclusive).
+
+  - `"created_at[lte]"?: string`
+
+    Query param: Return deployments created at or before this time (inclusive).
+
+  - `include_archived?: boolean`
+
+    Query param: When true, includes archived deployments. Default: false (exclude archived).
+
+  - `limit?: number`
+
+    Query param: Maximum results per page. Default 20, maximum 100.
+
+  - `page?: string`
+
+    Query param: Opaque pagination cursor.
+
+  - `status?: BetaManagedAgentsDeploymentStatus`
+
+    Query param: Filter by status: active or paused. Omit for both. To include archived deployments, use include_archived instead; the two cannot be combined.
+
+    - `"active"`
+
+    - `"paused"`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsDeployment`
+
+  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
+
+  - `id: string`
+
+    Unique identifier for this deployment.
+
+  - `agent: BetaManagedAgentsAgentReference`
+
+    A resolved agent reference with a concrete version.
+
+    - `id: string`
+
+    - `type: "agent"`
+
+      - `"agent"`
+
+    - `version: number`
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `description: string | null`
+
+    Description of what the deployment does.
+
+  - `environment_id: string`
+
+    ID of the `environment` where sessions run.
+
+  - `initial_events: Array<BetaManagedAgentsDeploymentInitialEvent>`
+
+    Events sent to each session immediately after creation.
+
+    - `BetaManagedAgentsDeploymentUserMessageEvent`
+
+      A user message sent to the session.
+
+      - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+        Array of content blocks for the user message.
+
+        - `BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+          - `text: string`
+
+            The text content.
+
+          - `type: "text"`
+
+            - `"text"`
+
+        - `BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+            Union type for image source variants.
+
+            - `BetaManagedAgentsBase64ImageSource`
+
+              Base64-encoded image data.
+
+              - `data: string`
+
+                Base64-encoded image data.
+
+              - `media_type: string`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsURLImageSource`
+
+              Image referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the image to fetch.
+
+            - `BetaManagedAgentsFileImageSource`
+
+              Image referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "image"`
+
+            - `"image"`
+
+        - `BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+            Union type for document source variants.
+
+            - `BetaManagedAgentsBase64DocumentSource`
+
+              Base64-encoded document data.
+
+              - `data: string`
+
+                Base64-encoded document data.
+
+              - `media_type: string`
+
+                MIME type of the document (e.g., "application/pdf").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsPlainTextDocumentSource`
+
+              Plain text document content.
+
+              - `data: string`
+
+                The plain text content.
+
+              - `media_type: "text/plain"`
+
+                MIME type of the text content. Must be "text/plain".
+
+                - `"text/plain"`
+
+              - `type: "text"`
+
+                - `"text"`
+
+            - `BetaManagedAgentsURLDocumentSource`
+
+              Document referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the document to fetch.
+
+            - `BetaManagedAgentsFileDocumentSource`
+
+              Document referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "document"`
+
+            - `"document"`
+
+          - `context?: string | null`
+
+            Additional context about the document for the model.
+
+          - `title?: string | null`
+
+            The title of the document.
+
+      - `type: "user.message"`
+
+        - `"user.message"`
+
+    - `BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+
+      An outcome the agent should work toward. The agent begins work on receipt.
+
+      - `description: string`
+
+        What the agent should produce. This is the task specification.
+
+      - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
+
+        Rubric for grading the quality of an outcome.
+
+        - `BetaManagedAgentsFileRubric`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `file_id: string`
+
+            ID of the rubric file.
+
+          - `type: "file"`
+
+            - `"file"`
+
+        - `BetaManagedAgentsTextRubric`
+
+          Rubric content provided inline as text.
+
+          - `content: string`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+          - `type: "text"`
+
+            - `"text"`
+
+      - `type: "user.define_outcome"`
+
+        - `"user.define_outcome"`
+
+      - `max_iterations?: number | null`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
+
+    - `BetaManagedAgentsDeploymentSystemMessageEvent`
+
+      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
+
+      - `content: Array<BetaManagedAgentsSystemContentBlock>`
+
+        System content blocks to append. Text-only.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `type: "system.message"`
+
+        - `"system.message"`
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `name: string`
+
+    Human-readable name.
+
+  - `paused_reason: BetaManagedAgentsDeploymentPausedReason | null`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+    - `BetaManagedAgentsManualDeploymentPausedReason`
+
+      The caller invoked the pause endpoint on the deployment.
+
+      - `type: "manual"`
+
+        - `"manual"`
+
+    - `BetaManagedAgentsErrorDeploymentPausedReason`
+
+      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+      - `error: BetaManagedAgentsDeploymentPausedReasonError`
+
+        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+
+        - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
+
+          The deployment's environment was archived.
+
+          - `type: "environment_archived_error"`
+
+            - `"environment_archived_error"`
+
+        - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+
+          The deployment's agent was archived.
+
+          - `type: "agent_archived_error"`
+
+            - `"agent_archived_error"`
+
+        - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+
+          The deployment's environment no longer exists.
+
+          - `type: "environment_not_found_error"`
+
+            - `"environment_not_found_error"`
+
+        - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+
+          A vault referenced by the deployment no longer exists.
+
+          - `type: "vault_not_found_error"`
+
+            - `"vault_not_found_error"`
+
+        - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+
+          A file resource referenced by the deployment no longer exists.
+
+          - `type: "file_not_found_error"`
+
+            - `"file_not_found_error"`
+
+        - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+
+          A referenced resource no longer exists and its kind was not reported.
+
+          - `type: "session_resource_not_found_error"`
+
+            - `"session_resource_not_found_error"`
+
+        - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+
+          The deployment's workspace was archived.
+
+          - `type: "workspace_archived_error"`
+
+            - `"workspace_archived_error"`
+
+        - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+
+          The deployment's organization is disabled.
+
+          - `type: "organization_disabled_error"`
+
+            - `"organization_disabled_error"`
+
+        - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+
+          A memory store referenced by the deployment is archived.
+
+          - `type: "memory_store_archived_error"`
+
+            - `"memory_store_archived_error"`
+
+        - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+
+          A skill referenced by the deployment's agent no longer exists.
+
+          - `type: "skill_not_found_error"`
+
+            - `"skill_not_found_error"`
+
+        - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+
+          A vault referenced by the deployment is archived.
+
+          - `type: "vault_archived_error"`
+
+            - `"vault_archived_error"`
+
+        - `BetaManagedAgentsUnknownDeploymentPausedReasonError`
+
+          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
+
+          - `type: "unknown_error"`
+
+            - `"unknown_error"`
+
+        - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+
+          The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+          - `type: "self_hosted_resources_unsupported_error"`
+
+            - `"self_hosted_resources_unsupported_error"`
+
+        - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+
+          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+          - `type: "mcp_egress_blocked_error"`
+
+            - `"mcp_egress_blocked_error"`
+
+      - `type: "error"`
+
+        - `"error"`
+
+  - `resources: Array<BetaManagedAgentsSessionResourceConfig>`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+    - `BetaManagedAgentsGitHubRepositoryResourceConfig`
+
+      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
+
+      - `type: "github_repository"`
+
+        - `"github_repository"`
+
+      - `url: string`
+
+        Github URL of the repository
+
+      - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
+
+        Branch or commit to check out. Defaults to the repository's default branch.
+
+        - `BetaManagedAgentsBranchCheckout`
+
+          - `name: string`
+
+            Branch name to check out.
+
+          - `type: "branch"`
+
+            - `"branch"`
+
+        - `BetaManagedAgentsCommitCheckout`
+
+          - `sha: string`
+
+            Full commit SHA to check out.
+
+          - `type: "commit"`
+
+            - `"commit"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+    - `BetaManagedAgentsFileResourceConfig`
+
+      A file mounted into each session's container.
+
+      - `file_id: string`
+
+        ID of a previously uploaded file.
+
+      - `type: "file"`
+
+        - `"file"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+    - `BetaManagedAgentsMemoryStoreResourceConfig`
+
+      A memory store attached to each session created from this deployment.
+
+      - `memory_store_id: string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+      - `access?: "read_write" | "read_only" | null`
+
+        Access mode for an attached memory store.
+
+        - `"read_write"`
+
+        - `"read_only"`
+
+      - `instructions?: string | null`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+  - `schedule: BetaManagedAgentsSchedule | null`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+    - `expression: string`
+
+      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+    - `timezone: string`
+
+      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
+
+    - `type: "cron"`
+
+      - `"cron"`
+
+    - `last_run_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `upcoming_runs_at?: Array<string>`
+
+      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
+
+  - `status: BetaManagedAgentsDeploymentStatus`
+
+    Lifecycle status of a deployment.
+
+    - `"active"`
+
+    - `"paused"`
+
+  - `type: "deployment"`
+
+    - `"deployment"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `vault_ids: Array<string>`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+// Automatically fetches more pages as needed.
+for await (const betaManagedAgentsDeployment of client.beta.deployments.list()) {
+  console.log(betaManagedAgentsDeployment.id);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
+      "agent": {
+        "id": "agent_011CZkYpogX7uDKUyvBTophP",
+        "type": "agent",
+        "version": 1
+      },
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "description": "Compiles yesterday's orders into a report every weekday morning.",
+      "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+      "initial_events": [
+        {
+          "content": [
+            {
+              "text": "Compile yesterday's orders into report.md.",
+              "type": "text"
+            }
+          ],
+          "type": "user.message"
+        }
+      ],
+      "metadata": {},
+      "name": "Daily order report",
+      "paused_reason": {
+        "type": "manual"
+      },
+      "resources": [
+        {
+          "type": "github_repository",
+          "url": "url",
+          "checkout": {
+            "name": "main",
+            "type": "branch"
+          },
+          "mount_path": "mount_path"
+        }
+      ],
+      "schedule": {
+        "expression": "0 9 * * 1-5",
+        "timezone": "America/Los_Angeles",
+        "type": "cron",
+        "last_run_at": "2026-03-16T16:00:09Z",
+        "upcoming_runs_at": [
+          "2026-03-17T16:00:00Z",
+          "2026-03-18T16:00:00Z"
+        ]
+      },
+      "status": "active",
+      "type": "deployment",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "vault_ids": [
+        "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+      ]
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get Deployment
+
+`client.beta.deployments.retrieve(stringdeploymentID, DeploymentRetrieveParamsparams?, RequestOptionsoptions?): BetaManagedAgentsDeployment`
+
+**get** `/v1/deployments/{deployment_id}`
+
+Get Deployment
+
+### Parameters
+
+- `deploymentID: string`
+
+- `params: DeploymentRetrieveParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsDeployment`
+
+  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
+
+  - `id: string`
+
+    Unique identifier for this deployment.
+
+  - `agent: BetaManagedAgentsAgentReference`
+
+    A resolved agent reference with a concrete version.
+
+    - `id: string`
+
+    - `type: "agent"`
+
+      - `"agent"`
+
+    - `version: number`
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `description: string | null`
+
+    Description of what the deployment does.
+
+  - `environment_id: string`
+
+    ID of the `environment` where sessions run.
+
+  - `initial_events: Array<BetaManagedAgentsDeploymentInitialEvent>`
+
+    Events sent to each session immediately after creation.
+
+    - `BetaManagedAgentsDeploymentUserMessageEvent`
+
+      A user message sent to the session.
+
+      - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+        Array of content blocks for the user message.
+
+        - `BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+          - `text: string`
+
+            The text content.
+
+          - `type: "text"`
+
+            - `"text"`
+
+        - `BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+            Union type for image source variants.
+
+            - `BetaManagedAgentsBase64ImageSource`
+
+              Base64-encoded image data.
+
+              - `data: string`
+
+                Base64-encoded image data.
+
+              - `media_type: string`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsURLImageSource`
+
+              Image referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the image to fetch.
+
+            - `BetaManagedAgentsFileImageSource`
+
+              Image referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "image"`
+
+            - `"image"`
+
+        - `BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+            Union type for document source variants.
+
+            - `BetaManagedAgentsBase64DocumentSource`
+
+              Base64-encoded document data.
+
+              - `data: string`
+
+                Base64-encoded document data.
+
+              - `media_type: string`
+
+                MIME type of the document (e.g., "application/pdf").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsPlainTextDocumentSource`
+
+              Plain text document content.
+
+              - `data: string`
+
+                The plain text content.
+
+              - `media_type: "text/plain"`
+
+                MIME type of the text content. Must be "text/plain".
+
+                - `"text/plain"`
+
+              - `type: "text"`
+
+                - `"text"`
+
+            - `BetaManagedAgentsURLDocumentSource`
+
+              Document referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the document to fetch.
+
+            - `BetaManagedAgentsFileDocumentSource`
+
+              Document referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "document"`
+
+            - `"document"`
+
+          - `context?: string | null`
+
+            Additional context about the document for the model.
+
+          - `title?: string | null`
+
+            The title of the document.
+
+      - `type: "user.message"`
+
+        - `"user.message"`
+
+    - `BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+
+      An outcome the agent should work toward. The agent begins work on receipt.
+
+      - `description: string`
+
+        What the agent should produce. This is the task specification.
+
+      - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
+
+        Rubric for grading the quality of an outcome.
+
+        - `BetaManagedAgentsFileRubric`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `file_id: string`
+
+            ID of the rubric file.
+
+          - `type: "file"`
+
+            - `"file"`
+
+        - `BetaManagedAgentsTextRubric`
+
+          Rubric content provided inline as text.
+
+          - `content: string`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+          - `type: "text"`
+
+            - `"text"`
+
+      - `type: "user.define_outcome"`
+
+        - `"user.define_outcome"`
+
+      - `max_iterations?: number | null`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
+
+    - `BetaManagedAgentsDeploymentSystemMessageEvent`
+
+      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
+
+      - `content: Array<BetaManagedAgentsSystemContentBlock>`
+
+        System content blocks to append. Text-only.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `type: "system.message"`
+
+        - `"system.message"`
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `name: string`
+
+    Human-readable name.
+
+  - `paused_reason: BetaManagedAgentsDeploymentPausedReason | null`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+    - `BetaManagedAgentsManualDeploymentPausedReason`
+
+      The caller invoked the pause endpoint on the deployment.
+
+      - `type: "manual"`
+
+        - `"manual"`
+
+    - `BetaManagedAgentsErrorDeploymentPausedReason`
+
+      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+      - `error: BetaManagedAgentsDeploymentPausedReasonError`
+
+        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+
+        - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
+
+          The deployment's environment was archived.
+
+          - `type: "environment_archived_error"`
+
+            - `"environment_archived_error"`
+
+        - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+
+          The deployment's agent was archived.
+
+          - `type: "agent_archived_error"`
+
+            - `"agent_archived_error"`
+
+        - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+
+          The deployment's environment no longer exists.
+
+          - `type: "environment_not_found_error"`
+
+            - `"environment_not_found_error"`
+
+        - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+
+          A vault referenced by the deployment no longer exists.
+
+          - `type: "vault_not_found_error"`
+
+            - `"vault_not_found_error"`
+
+        - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+
+          A file resource referenced by the deployment no longer exists.
+
+          - `type: "file_not_found_error"`
+
+            - `"file_not_found_error"`
+
+        - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+
+          A referenced resource no longer exists and its kind was not reported.
+
+          - `type: "session_resource_not_found_error"`
+
+            - `"session_resource_not_found_error"`
+
+        - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+
+          The deployment's workspace was archived.
+
+          - `type: "workspace_archived_error"`
+
+            - `"workspace_archived_error"`
+
+        - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+
+          The deployment's organization is disabled.
+
+          - `type: "organization_disabled_error"`
+
+            - `"organization_disabled_error"`
+
+        - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+
+          A memory store referenced by the deployment is archived.
+
+          - `type: "memory_store_archived_error"`
+
+            - `"memory_store_archived_error"`
+
+        - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+
+          A skill referenced by the deployment's agent no longer exists.
+
+          - `type: "skill_not_found_error"`
+
+            - `"skill_not_found_error"`
+
+        - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+
+          A vault referenced by the deployment is archived.
+
+          - `type: "vault_archived_error"`
+
+            - `"vault_archived_error"`
+
+        - `BetaManagedAgentsUnknownDeploymentPausedReasonError`
+
+          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
+
+          - `type: "unknown_error"`
+
+            - `"unknown_error"`
+
+        - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+
+          The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+          - `type: "self_hosted_resources_unsupported_error"`
+
+            - `"self_hosted_resources_unsupported_error"`
+
+        - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+
+          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+          - `type: "mcp_egress_blocked_error"`
+
+            - `"mcp_egress_blocked_error"`
+
+      - `type: "error"`
+
+        - `"error"`
+
+  - `resources: Array<BetaManagedAgentsSessionResourceConfig>`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+    - `BetaManagedAgentsGitHubRepositoryResourceConfig`
+
+      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
+
+      - `type: "github_repository"`
+
+        - `"github_repository"`
+
+      - `url: string`
+
+        Github URL of the repository
+
+      - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
+
+        Branch or commit to check out. Defaults to the repository's default branch.
+
+        - `BetaManagedAgentsBranchCheckout`
+
+          - `name: string`
+
+            Branch name to check out.
+
+          - `type: "branch"`
+
+            - `"branch"`
+
+        - `BetaManagedAgentsCommitCheckout`
+
+          - `sha: string`
+
+            Full commit SHA to check out.
+
+          - `type: "commit"`
+
+            - `"commit"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+    - `BetaManagedAgentsFileResourceConfig`
+
+      A file mounted into each session's container.
+
+      - `file_id: string`
+
+        ID of a previously uploaded file.
+
+      - `type: "file"`
+
+        - `"file"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+    - `BetaManagedAgentsMemoryStoreResourceConfig`
+
+      A memory store attached to each session created from this deployment.
+
+      - `memory_store_id: string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+      - `access?: "read_write" | "read_only" | null`
+
+        Access mode for an attached memory store.
+
+        - `"read_write"`
+
+        - `"read_only"`
+
+      - `instructions?: string | null`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+  - `schedule: BetaManagedAgentsSchedule | null`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+    - `expression: string`
+
+      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+    - `timezone: string`
+
+      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
+
+    - `type: "cron"`
+
+      - `"cron"`
+
+    - `last_run_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `upcoming_runs_at?: Array<string>`
+
+      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
+
+  - `status: BetaManagedAgentsDeploymentStatus`
+
+    Lifecycle status of a deployment.
+
+    - `"active"`
+
+    - `"paused"`
+
+  - `type: "deployment"`
+
+    - `"deployment"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `vault_ids: Array<string>`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsDeployment = await client.beta.deployments.retrieve(
+  'depl_011CZkZcDH3vPqd7xnEfwTai',
+);
+
+console.log(betaManagedAgentsDeployment.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
+  "agent": {
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Compile yesterday's orders into report.md.",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {},
+  "name": "Daily order report",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
+    "type": "cron",
+    "last_run_at": "2026-03-16T16:00:09Z",
+    "upcoming_runs_at": [
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ]
+}
+```
+
+## Update Deployment
+
+`client.beta.deployments.update(stringdeploymentID, DeploymentUpdateParamsparams, RequestOptionsoptions?): BetaManagedAgentsDeployment`
+
+**post** `/v1/deployments/{deployment_id}`
+
+Update Deployment
+
+### Parameters
+
+- `deploymentID: string`
+
+- `params: DeploymentUpdateParams`
+
+  - `agent?: string | BetaManagedAgentsAgentParams`
+
+    Body param: Agent to deploy. Accepts the `agent` ID string, which re-pins to the latest version, or an `agent` object with both id and version specified. Omit to preserve. Cannot be cleared.
+
+    - `string`
+
+    - `BetaManagedAgentsAgentParams`
+
+      Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
+
+      - `id: string`
+
+        The `agent` ID.
+
+      - `type: "agent"`
+
+        - `"agent"`
+
+      - `version?: number`
+
+        The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+  - `description?: string | null`
+
+    Body param: Description. Omit to preserve; send empty string or null to clear.
+
+  - `environment_id?: string`
+
+    Body param: ID of the `environment` where sessions run. Omit to preserve. Cannot be cleared.
+
+  - `initial_events?: Array<BetaManagedAgentsDeploymentInitialEventParams>`
+
+    Body param: Initial events. Full replacement. Omit to preserve. Cannot be cleared. At least 1, maximum 50.
+
+    - `BetaManagedAgentsUserMessageEventParams`
+
+      Parameters for sending a user message to the session.
+
+      - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+        Array of content blocks for the user message.
+
+        - `BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+          - `text: string`
+
+            The text content.
+
+          - `type: "text"`
+
+            - `"text"`
+
+        - `BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+            Union type for image source variants.
+
+            - `BetaManagedAgentsBase64ImageSource`
+
+              Base64-encoded image data.
+
+              - `data: string`
+
+                Base64-encoded image data.
+
+              - `media_type: string`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsURLImageSource`
+
+              Image referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the image to fetch.
+
+            - `BetaManagedAgentsFileImageSource`
+
+              Image referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "image"`
+
+            - `"image"`
+
+        - `BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+            Union type for document source variants.
+
+            - `BetaManagedAgentsBase64DocumentSource`
+
+              Base64-encoded document data.
+
+              - `data: string`
+
+                Base64-encoded document data.
+
+              - `media_type: string`
+
+                MIME type of the document (e.g., "application/pdf").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsPlainTextDocumentSource`
+
+              Plain text document content.
+
+              - `data: string`
+
+                The plain text content.
+
+              - `media_type: "text/plain"`
+
+                MIME type of the text content. Must be "text/plain".
+
+                - `"text/plain"`
+
+              - `type: "text"`
+
+                - `"text"`
+
+            - `BetaManagedAgentsURLDocumentSource`
+
+              Document referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the document to fetch.
+
+            - `BetaManagedAgentsFileDocumentSource`
+
+              Document referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "document"`
+
+            - `"document"`
+
+          - `context?: string | null`
+
+            Additional context about the document for the model.
+
+          - `title?: string | null`
+
+            The title of the document.
+
+      - `type: "user.message"`
+
+        - `"user.message"`
+
+    - `BetaManagedAgentsUserDefineOutcomeEventParams`
+
+      Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
+
+      - `description: string`
+
+        What the agent should produce. This is the task specification.
+
+      - `rubric: BetaManagedAgentsFileRubricParams | BetaManagedAgentsTextRubricParams`
+
+        Rubric for grading the quality of an outcome.
+
+        - `BetaManagedAgentsFileRubricParams`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `file_id: string`
+
+            ID of the rubric file.
+
+          - `type: "file"`
+
+            - `"file"`
+
+        - `BetaManagedAgentsTextRubricParams`
+
+          Rubric content provided inline as text.
+
+          - `content: string`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
+
+          - `type: "text"`
+
+            - `"text"`
+
+      - `type: "user.define_outcome"`
+
+        - `"user.define_outcome"`
+
+      - `max_iterations?: number | null`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
+
+    - `BetaManagedAgentsSystemMessageEventParams`
+
+      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
+
+      - `content: Array<BetaManagedAgentsSystemContentBlock>`
+
+        System content blocks to append. Text-only.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `type: "system.message"`
+
+        - `"system.message"`
+
+  - `metadata?: Record<string, string | null> | null`
+
+    Body param: Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
+
+  - `name?: string`
+
+    Body param: Human-readable name. Must be non-empty. Omit to preserve. Cannot be cleared.
+
+  - `resources?: Array<BetaManagedAgentsGitHubRepositoryResourceParams | BetaManagedAgentsFileResourceParams | BetaManagedAgentsMemoryStoreResourceParam> | null`
+
+    Body param: Session resources. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 500.
+
+    - `BetaManagedAgentsGitHubRepositoryResourceParams`
+
+      Mount a GitHub repository into the session's container.
+
+      - `authorization_token: string`
+
+        GitHub authorization token used to clone the repository.
+
+      - `type: "github_repository"`
+
+        - `"github_repository"`
+
+      - `url: string`
+
+        Github URL of the repository
+
+      - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
+
+        Branch or commit to check out. Defaults to the repository's default branch.
+
+        - `BetaManagedAgentsBranchCheckout`
+
+          - `name: string`
+
+            Branch name to check out.
+
+          - `type: "branch"`
+
+            - `"branch"`
+
+        - `BetaManagedAgentsCommitCheckout`
+
+          - `sha: string`
+
+            Full commit SHA to check out.
+
+          - `type: "commit"`
+
+            - `"commit"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+    - `BetaManagedAgentsFileResourceParams`
+
+      Mount a file uploaded via the Files API into the session.
+
+      - `file_id: string`
+
+        ID of a previously uploaded file.
+
+      - `type: "file"`
+
+        - `"file"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+    - `BetaManagedAgentsMemoryStoreResourceParam`
+
+      Parameters for attaching a memory store to an agent session.
+
+      - `memory_store_id: string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+      - `access?: "read_write" | "read_only" | null`
+
+        Access mode for an attached memory store.
+
+        - `"read_write"`
+
+        - `"read_only"`
+
+      - `instructions?: string | null`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+  - `schedule?: BetaManagedAgentsScheduleParams | null`
+
+    Body param: 5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
+
+    - `expression: string`
+
+      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+    - `timezone: string`
+
+      Required. IANA timezone identifier (e.g., "America/Los_Angeles", "UTC"). Validated against the IANA timezone database.
+
+    - `type: "cron"`
+
+      - `"cron"`
+
+  - `vault_ids?: Array<string> | null`
+
+    Body param: Vault IDs. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 50.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsDeployment`
+
+  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
+
+  - `id: string`
+
+    Unique identifier for this deployment.
+
+  - `agent: BetaManagedAgentsAgentReference`
+
+    A resolved agent reference with a concrete version.
+
+    - `id: string`
+
+    - `type: "agent"`
+
+      - `"agent"`
+
+    - `version: number`
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `description: string | null`
+
+    Description of what the deployment does.
+
+  - `environment_id: string`
+
+    ID of the `environment` where sessions run.
+
+  - `initial_events: Array<BetaManagedAgentsDeploymentInitialEvent>`
+
+    Events sent to each session immediately after creation.
+
+    - `BetaManagedAgentsDeploymentUserMessageEvent`
+
+      A user message sent to the session.
+
+      - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+        Array of content blocks for the user message.
+
+        - `BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+          - `text: string`
+
+            The text content.
+
+          - `type: "text"`
+
+            - `"text"`
+
+        - `BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+            Union type for image source variants.
+
+            - `BetaManagedAgentsBase64ImageSource`
+
+              Base64-encoded image data.
+
+              - `data: string`
+
+                Base64-encoded image data.
+
+              - `media_type: string`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsURLImageSource`
+
+              Image referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the image to fetch.
+
+            - `BetaManagedAgentsFileImageSource`
+
+              Image referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "image"`
+
+            - `"image"`
+
+        - `BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+            Union type for document source variants.
+
+            - `BetaManagedAgentsBase64DocumentSource`
+
+              Base64-encoded document data.
+
+              - `data: string`
+
+                Base64-encoded document data.
+
+              - `media_type: string`
+
+                MIME type of the document (e.g., "application/pdf").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsPlainTextDocumentSource`
+
+              Plain text document content.
+
+              - `data: string`
+
+                The plain text content.
+
+              - `media_type: "text/plain"`
+
+                MIME type of the text content. Must be "text/plain".
+
+                - `"text/plain"`
+
+              - `type: "text"`
+
+                - `"text"`
+
+            - `BetaManagedAgentsURLDocumentSource`
+
+              Document referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the document to fetch.
+
+            - `BetaManagedAgentsFileDocumentSource`
+
+              Document referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "document"`
+
+            - `"document"`
+
+          - `context?: string | null`
+
+            Additional context about the document for the model.
+
+          - `title?: string | null`
+
+            The title of the document.
+
+      - `type: "user.message"`
+
+        - `"user.message"`
+
+    - `BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+
+      An outcome the agent should work toward. The agent begins work on receipt.
+
+      - `description: string`
+
+        What the agent should produce. This is the task specification.
+
+      - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
+
+        Rubric for grading the quality of an outcome.
+
+        - `BetaManagedAgentsFileRubric`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `file_id: string`
+
+            ID of the rubric file.
+
+          - `type: "file"`
+
+            - `"file"`
+
+        - `BetaManagedAgentsTextRubric`
+
+          Rubric content provided inline as text.
+
+          - `content: string`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+          - `type: "text"`
+
+            - `"text"`
+
+      - `type: "user.define_outcome"`
+
+        - `"user.define_outcome"`
+
+      - `max_iterations?: number | null`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
+
+    - `BetaManagedAgentsDeploymentSystemMessageEvent`
+
+      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
+
+      - `content: Array<BetaManagedAgentsSystemContentBlock>`
+
+        System content blocks to append. Text-only.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `type: "system.message"`
+
+        - `"system.message"`
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `name: string`
+
+    Human-readable name.
+
+  - `paused_reason: BetaManagedAgentsDeploymentPausedReason | null`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+    - `BetaManagedAgentsManualDeploymentPausedReason`
+
+      The caller invoked the pause endpoint on the deployment.
+
+      - `type: "manual"`
+
+        - `"manual"`
+
+    - `BetaManagedAgentsErrorDeploymentPausedReason`
+
+      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+      - `error: BetaManagedAgentsDeploymentPausedReasonError`
+
+        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+
+        - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
+
+          The deployment's environment was archived.
+
+          - `type: "environment_archived_error"`
+
+            - `"environment_archived_error"`
+
+        - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+
+          The deployment's agent was archived.
+
+          - `type: "agent_archived_error"`
+
+            - `"agent_archived_error"`
+
+        - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+
+          The deployment's environment no longer exists.
+
+          - `type: "environment_not_found_error"`
+
+            - `"environment_not_found_error"`
+
+        - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+
+          A vault referenced by the deployment no longer exists.
+
+          - `type: "vault_not_found_error"`
+
+            - `"vault_not_found_error"`
+
+        - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+
+          A file resource referenced by the deployment no longer exists.
+
+          - `type: "file_not_found_error"`
+
+            - `"file_not_found_error"`
+
+        - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+
+          A referenced resource no longer exists and its kind was not reported.
+
+          - `type: "session_resource_not_found_error"`
+
+            - `"session_resource_not_found_error"`
+
+        - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+
+          The deployment's workspace was archived.
+
+          - `type: "workspace_archived_error"`
+
+            - `"workspace_archived_error"`
+
+        - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+
+          The deployment's organization is disabled.
+
+          - `type: "organization_disabled_error"`
+
+            - `"organization_disabled_error"`
+
+        - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+
+          A memory store referenced by the deployment is archived.
+
+          - `type: "memory_store_archived_error"`
+
+            - `"memory_store_archived_error"`
+
+        - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+
+          A skill referenced by the deployment's agent no longer exists.
+
+          - `type: "skill_not_found_error"`
+
+            - `"skill_not_found_error"`
+
+        - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+
+          A vault referenced by the deployment is archived.
+
+          - `type: "vault_archived_error"`
+
+            - `"vault_archived_error"`
+
+        - `BetaManagedAgentsUnknownDeploymentPausedReasonError`
+
+          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
+
+          - `type: "unknown_error"`
+
+            - `"unknown_error"`
+
+        - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+
+          The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+          - `type: "self_hosted_resources_unsupported_error"`
+
+            - `"self_hosted_resources_unsupported_error"`
+
+        - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+
+          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+          - `type: "mcp_egress_blocked_error"`
+
+            - `"mcp_egress_blocked_error"`
+
+      - `type: "error"`
+
+        - `"error"`
+
+  - `resources: Array<BetaManagedAgentsSessionResourceConfig>`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+    - `BetaManagedAgentsGitHubRepositoryResourceConfig`
+
+      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
+
+      - `type: "github_repository"`
+
+        - `"github_repository"`
+
+      - `url: string`
+
+        Github URL of the repository
+
+      - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
+
+        Branch or commit to check out. Defaults to the repository's default branch.
+
+        - `BetaManagedAgentsBranchCheckout`
+
+          - `name: string`
+
+            Branch name to check out.
+
+          - `type: "branch"`
+
+            - `"branch"`
+
+        - `BetaManagedAgentsCommitCheckout`
+
+          - `sha: string`
+
+            Full commit SHA to check out.
+
+          - `type: "commit"`
+
+            - `"commit"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+    - `BetaManagedAgentsFileResourceConfig`
+
+      A file mounted into each session's container.
+
+      - `file_id: string`
+
+        ID of a previously uploaded file.
+
+      - `type: "file"`
+
+        - `"file"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+    - `BetaManagedAgentsMemoryStoreResourceConfig`
+
+      A memory store attached to each session created from this deployment.
+
+      - `memory_store_id: string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+      - `access?: "read_write" | "read_only" | null`
+
+        Access mode for an attached memory store.
+
+        - `"read_write"`
+
+        - `"read_only"`
+
+      - `instructions?: string | null`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+  - `schedule: BetaManagedAgentsSchedule | null`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+    - `expression: string`
+
+      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+    - `timezone: string`
+
+      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
+
+    - `type: "cron"`
+
+      - `"cron"`
+
+    - `last_run_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `upcoming_runs_at?: Array<string>`
+
+      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
+
+  - `status: BetaManagedAgentsDeploymentStatus`
+
+    Lifecycle status of a deployment.
+
+    - `"active"`
+
+    - `"paused"`
+
+  - `type: "deployment"`
+
+    - `"deployment"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `vault_ids: Array<string>`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsDeployment = await client.beta.deployments.update(
+  'depl_011CZkZcDH3vPqd7xnEfwTai',
+);
+
+console.log(betaManagedAgentsDeployment.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
+  "agent": {
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Compile yesterday's orders into report.md.",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {},
+  "name": "Daily order report",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
+    "type": "cron",
+    "last_run_at": "2026-03-16T16:00:09Z",
+    "upcoming_runs_at": [
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ]
+}
+```
+
+## Archive Deployment
+
+`client.beta.deployments.archive(stringdeploymentID, DeploymentArchiveParamsparams?, RequestOptionsoptions?): BetaManagedAgentsDeployment`
+
+**post** `/v1/deployments/{deployment_id}/archive`
+
+Archive Deployment
+
+### Parameters
+
+- `deploymentID: string`
+
+- `params: DeploymentArchiveParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsDeployment`
+
+  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
+
+  - `id: string`
+
+    Unique identifier for this deployment.
+
+  - `agent: BetaManagedAgentsAgentReference`
+
+    A resolved agent reference with a concrete version.
+
+    - `id: string`
+
+    - `type: "agent"`
+
+      - `"agent"`
+
+    - `version: number`
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `description: string | null`
+
+    Description of what the deployment does.
+
+  - `environment_id: string`
+
+    ID of the `environment` where sessions run.
+
+  - `initial_events: Array<BetaManagedAgentsDeploymentInitialEvent>`
+
+    Events sent to each session immediately after creation.
+
+    - `BetaManagedAgentsDeploymentUserMessageEvent`
+
+      A user message sent to the session.
+
+      - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+        Array of content blocks for the user message.
+
+        - `BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+          - `text: string`
+
+            The text content.
+
+          - `type: "text"`
+
+            - `"text"`
+
+        - `BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+            Union type for image source variants.
+
+            - `BetaManagedAgentsBase64ImageSource`
+
+              Base64-encoded image data.
+
+              - `data: string`
+
+                Base64-encoded image data.
+
+              - `media_type: string`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsURLImageSource`
+
+              Image referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the image to fetch.
+
+            - `BetaManagedAgentsFileImageSource`
+
+              Image referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "image"`
+
+            - `"image"`
+
+        - `BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+            Union type for document source variants.
+
+            - `BetaManagedAgentsBase64DocumentSource`
+
+              Base64-encoded document data.
+
+              - `data: string`
+
+                Base64-encoded document data.
+
+              - `media_type: string`
+
+                MIME type of the document (e.g., "application/pdf").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsPlainTextDocumentSource`
+
+              Plain text document content.
+
+              - `data: string`
+
+                The plain text content.
+
+              - `media_type: "text/plain"`
+
+                MIME type of the text content. Must be "text/plain".
+
+                - `"text/plain"`
+
+              - `type: "text"`
+
+                - `"text"`
+
+            - `BetaManagedAgentsURLDocumentSource`
+
+              Document referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the document to fetch.
+
+            - `BetaManagedAgentsFileDocumentSource`
+
+              Document referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "document"`
+
+            - `"document"`
+
+          - `context?: string | null`
+
+            Additional context about the document for the model.
+
+          - `title?: string | null`
+
+            The title of the document.
+
+      - `type: "user.message"`
+
+        - `"user.message"`
+
+    - `BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+
+      An outcome the agent should work toward. The agent begins work on receipt.
+
+      - `description: string`
+
+        What the agent should produce. This is the task specification.
+
+      - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
+
+        Rubric for grading the quality of an outcome.
+
+        - `BetaManagedAgentsFileRubric`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `file_id: string`
+
+            ID of the rubric file.
+
+          - `type: "file"`
+
+            - `"file"`
+
+        - `BetaManagedAgentsTextRubric`
+
+          Rubric content provided inline as text.
+
+          - `content: string`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+          - `type: "text"`
+
+            - `"text"`
+
+      - `type: "user.define_outcome"`
+
+        - `"user.define_outcome"`
+
+      - `max_iterations?: number | null`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
+
+    - `BetaManagedAgentsDeploymentSystemMessageEvent`
+
+      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
+
+      - `content: Array<BetaManagedAgentsSystemContentBlock>`
+
+        System content blocks to append. Text-only.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `type: "system.message"`
+
+        - `"system.message"`
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `name: string`
+
+    Human-readable name.
+
+  - `paused_reason: BetaManagedAgentsDeploymentPausedReason | null`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+    - `BetaManagedAgentsManualDeploymentPausedReason`
+
+      The caller invoked the pause endpoint on the deployment.
+
+      - `type: "manual"`
+
+        - `"manual"`
+
+    - `BetaManagedAgentsErrorDeploymentPausedReason`
+
+      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+      - `error: BetaManagedAgentsDeploymentPausedReasonError`
+
+        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+
+        - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
+
+          The deployment's environment was archived.
+
+          - `type: "environment_archived_error"`
+
+            - `"environment_archived_error"`
+
+        - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+
+          The deployment's agent was archived.
+
+          - `type: "agent_archived_error"`
+
+            - `"agent_archived_error"`
+
+        - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+
+          The deployment's environment no longer exists.
+
+          - `type: "environment_not_found_error"`
+
+            - `"environment_not_found_error"`
+
+        - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+
+          A vault referenced by the deployment no longer exists.
+
+          - `type: "vault_not_found_error"`
+
+            - `"vault_not_found_error"`
+
+        - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+
+          A file resource referenced by the deployment no longer exists.
+
+          - `type: "file_not_found_error"`
+
+            - `"file_not_found_error"`
+
+        - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+
+          A referenced resource no longer exists and its kind was not reported.
+
+          - `type: "session_resource_not_found_error"`
+
+            - `"session_resource_not_found_error"`
+
+        - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+
+          The deployment's workspace was archived.
+
+          - `type: "workspace_archived_error"`
+
+            - `"workspace_archived_error"`
+
+        - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+
+          The deployment's organization is disabled.
+
+          - `type: "organization_disabled_error"`
+
+            - `"organization_disabled_error"`
+
+        - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+
+          A memory store referenced by the deployment is archived.
+
+          - `type: "memory_store_archived_error"`
+
+            - `"memory_store_archived_error"`
+
+        - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+
+          A skill referenced by the deployment's agent no longer exists.
+
+          - `type: "skill_not_found_error"`
+
+            - `"skill_not_found_error"`
+
+        - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+
+          A vault referenced by the deployment is archived.
+
+          - `type: "vault_archived_error"`
+
+            - `"vault_archived_error"`
+
+        - `BetaManagedAgentsUnknownDeploymentPausedReasonError`
+
+          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
+
+          - `type: "unknown_error"`
+
+            - `"unknown_error"`
+
+        - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+
+          The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+          - `type: "self_hosted_resources_unsupported_error"`
+
+            - `"self_hosted_resources_unsupported_error"`
+
+        - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+
+          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+          - `type: "mcp_egress_blocked_error"`
+
+            - `"mcp_egress_blocked_error"`
+
+      - `type: "error"`
+
+        - `"error"`
+
+  - `resources: Array<BetaManagedAgentsSessionResourceConfig>`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+    - `BetaManagedAgentsGitHubRepositoryResourceConfig`
+
+      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
+
+      - `type: "github_repository"`
+
+        - `"github_repository"`
+
+      - `url: string`
+
+        Github URL of the repository
+
+      - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
+
+        Branch or commit to check out. Defaults to the repository's default branch.
+
+        - `BetaManagedAgentsBranchCheckout`
+
+          - `name: string`
+
+            Branch name to check out.
+
+          - `type: "branch"`
+
+            - `"branch"`
+
+        - `BetaManagedAgentsCommitCheckout`
+
+          - `sha: string`
+
+            Full commit SHA to check out.
+
+          - `type: "commit"`
+
+            - `"commit"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+    - `BetaManagedAgentsFileResourceConfig`
+
+      A file mounted into each session's container.
+
+      - `file_id: string`
+
+        ID of a previously uploaded file.
+
+      - `type: "file"`
+
+        - `"file"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+    - `BetaManagedAgentsMemoryStoreResourceConfig`
+
+      A memory store attached to each session created from this deployment.
+
+      - `memory_store_id: string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+      - `access?: "read_write" | "read_only" | null`
+
+        Access mode for an attached memory store.
+
+        - `"read_write"`
+
+        - `"read_only"`
+
+      - `instructions?: string | null`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+  - `schedule: BetaManagedAgentsSchedule | null`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+    - `expression: string`
+
+      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+    - `timezone: string`
+
+      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
+
+    - `type: "cron"`
+
+      - `"cron"`
+
+    - `last_run_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `upcoming_runs_at?: Array<string>`
+
+      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
+
+  - `status: BetaManagedAgentsDeploymentStatus`
+
+    Lifecycle status of a deployment.
+
+    - `"active"`
+
+    - `"paused"`
+
+  - `type: "deployment"`
+
+    - `"deployment"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `vault_ids: Array<string>`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsDeployment = await client.beta.deployments.archive(
+  'depl_011CZkZcDH3vPqd7xnEfwTai',
+);
+
+console.log(betaManagedAgentsDeployment.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
+  "agent": {
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Compile yesterday's orders into report.md.",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {},
+  "name": "Daily order report",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
+    "type": "cron",
+    "last_run_at": "2026-03-16T16:00:09Z",
+    "upcoming_runs_at": [
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ]
+}
+```
+
+## Run Deployment Now
+
+`client.beta.deployments.run(stringdeploymentID, DeploymentRunParamsparams?, RequestOptionsoptions?): BetaManagedAgentsDeploymentRun`
+
+**post** `/v1/deployments/{deployment_id}/run`
+
+Run Deployment Now
+
+### Parameters
+
+- `deploymentID: string`
+
+- `params: DeploymentRunParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsDeploymentRun`
+
+  A persistent, append-only record of a single deployment execution. Records session creation success or failure — no session lifecycle tracking.
+
+  - `id: string`
+
+    Unique identifier for this run (`drun_...`).
+
+  - `agent: BetaManagedAgentsAgentReference`
+
+    A resolved agent reference with a concrete version.
+
+    - `id: string`
+
+    - `type: "agent"`
+
+      - `"agent"`
+
+    - `version: number`
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `deployment_id: string`
+
+    ID of the deployment that produced this run.
+
+  - `error: BetaManagedAgentsEnvironmentArchivedRunError | BetaManagedAgentsAgentArchivedRunError | BetaManagedAgentsEnvironmentNotFoundRunError | 13 more | null`
+
+    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+
+    - `BetaManagedAgentsEnvironmentArchivedRunError`
+
+      The deployment's environment was archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "environment_archived_error"`
+
+        - `"environment_archived_error"`
+
+    - `BetaManagedAgentsAgentArchivedRunError`
+
+      The deployment's agent was archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "agent_archived_error"`
+
+        - `"agent_archived_error"`
+
+    - `BetaManagedAgentsEnvironmentNotFoundRunError`
+
+      The deployment's environment no longer exists.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "environment_not_found_error"`
+
+        - `"environment_not_found_error"`
+
+    - `BetaManagedAgentsVaultNotFoundRunError`
+
+      A vault referenced by the deployment no longer exists.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "vault_not_found_error"`
+
+        - `"vault_not_found_error"`
+
+    - `BetaManagedAgentsVaultArchivedRunError`
+
+      A vault referenced by the deployment is archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "vault_archived_error"`
+
+        - `"vault_archived_error"`
+
+    - `BetaManagedAgentsFileNotFoundRunError`
+
+      A file resource referenced by the deployment no longer exists.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "file_not_found_error"`
+
+        - `"file_not_found_error"`
+
+    - `BetaManagedAgentsMemoryStoreArchivedRunError`
+
+      A memory store referenced by the deployment is archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "memory_store_archived_error"`
+
+        - `"memory_store_archived_error"`
+
+    - `BetaManagedAgentsSkillNotFoundRunError`
+
+      A skill referenced by the deployment's agent no longer exists.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "skill_not_found_error"`
+
+        - `"skill_not_found_error"`
+
+    - `BetaManagedAgentsSessionResourceNotFoundRunError`
+
+      A referenced resource no longer exists and its kind was not reported.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "session_resource_not_found_error"`
+
+        - `"session_resource_not_found_error"`
+
+    - `BetaManagedAgentsWorkspaceArchivedRunError`
+
+      The deployment's workspace was archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "workspace_archived_error"`
+
+        - `"workspace_archived_error"`
+
+    - `BetaManagedAgentsOrganizationDisabledRunError`
+
+      The deployment's organization is disabled.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "organization_disabled_error"`
+
+        - `"organization_disabled_error"`
+
+    - `BetaManagedAgentsSessionRateLimitedRunError`
+
+      Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "session_rate_limited_error"`
+
+        - `"session_rate_limited_error"`
+
+    - `BetaManagedAgentsSessionCreationRejectedRunError`
+
+      The session create request was rejected with a non-retryable validation error.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "session_creation_rejected_error"`
+
+        - `"session_creation_rejected_error"`
+
+    - `BetaManagedAgentsUnknownRunError`
+
+      An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "unknown_error"`
+
+        - `"unknown_error"`
+
+    - `BetaManagedAgentsSelfHostedResourcesUnsupportedRunError`
+
+      The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "self_hosted_resources_unsupported_error"`
+
+        - `"self_hosted_resources_unsupported_error"`
+
+    - `BetaManagedAgentsMCPEgressBlockedRunError`
+
+      An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "mcp_egress_blocked_error"`
+
+        - `"mcp_egress_blocked_error"`
+
+  - `session_id: string | null`
+
+    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
+
+  - `trigger_context: BetaManagedAgentsTriggerContext`
+
+    Describes what triggered a deployment run, with trigger-specific metadata.
+
+    - `BetaManagedAgentsScheduleTriggerContext`
+
+      The run was fired by the deployment's cron schedule.
+
+      - `scheduled_at: string`
+
+        A timestamp in RFC 3339 format
+
+      - `type: "schedule"`
+
+        - `"schedule"`
+
+    - `BetaManagedAgentsManualTriggerContext`
+
+      The run was started manually by creating a session directly against the deployment.
+
+      - `type: "manual"`
+
+        - `"manual"`
+
+  - `type: "deployment_run"`
+
+    - `"deployment_run"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsDeploymentRun = await client.beta.deployments.run(
+  'depl_011CZkZcDH3vPqd7xnEfwTai',
+);
+
+console.log(betaManagedAgentsDeploymentRun.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "type": "agent",
+    "version": 1
+  },
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "deployment_id": "deployment_id",
+  "error": {
+    "message": "message",
+    "type": "environment_archived_error"
+  },
+  "session_id": "session_id",
+  "trigger_context": {
+    "scheduled_at": "2019-12-27T18:11:19.117Z",
+    "type": "schedule"
+  },
+  "type": "deployment_run"
+}
+```
+
+## Pause Deployment
+
+`client.beta.deployments.pause(stringdeploymentID, DeploymentPauseParamsparams?, RequestOptionsoptions?): BetaManagedAgentsDeployment`
+
+**post** `/v1/deployments/{deployment_id}/pause`
+
+Pause Deployment
+
+### Parameters
+
+- `deploymentID: string`
+
+- `params: DeploymentPauseParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsDeployment`
+
+  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
+
+  - `id: string`
+
+    Unique identifier for this deployment.
+
+  - `agent: BetaManagedAgentsAgentReference`
+
+    A resolved agent reference with a concrete version.
+
+    - `id: string`
+
+    - `type: "agent"`
+
+      - `"agent"`
+
+    - `version: number`
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `description: string | null`
+
+    Description of what the deployment does.
+
+  - `environment_id: string`
+
+    ID of the `environment` where sessions run.
+
+  - `initial_events: Array<BetaManagedAgentsDeploymentInitialEvent>`
+
+    Events sent to each session immediately after creation.
+
+    - `BetaManagedAgentsDeploymentUserMessageEvent`
+
+      A user message sent to the session.
+
+      - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+        Array of content blocks for the user message.
+
+        - `BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+          - `text: string`
+
+            The text content.
+
+          - `type: "text"`
+
+            - `"text"`
+
+        - `BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+            Union type for image source variants.
+
+            - `BetaManagedAgentsBase64ImageSource`
+
+              Base64-encoded image data.
+
+              - `data: string`
+
+                Base64-encoded image data.
+
+              - `media_type: string`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsURLImageSource`
+
+              Image referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the image to fetch.
+
+            - `BetaManagedAgentsFileImageSource`
+
+              Image referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "image"`
+
+            - `"image"`
+
+        - `BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+            Union type for document source variants.
+
+            - `BetaManagedAgentsBase64DocumentSource`
+
+              Base64-encoded document data.
+
+              - `data: string`
+
+                Base64-encoded document data.
+
+              - `media_type: string`
+
+                MIME type of the document (e.g., "application/pdf").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsPlainTextDocumentSource`
+
+              Plain text document content.
+
+              - `data: string`
+
+                The plain text content.
+
+              - `media_type: "text/plain"`
+
+                MIME type of the text content. Must be "text/plain".
+
+                - `"text/plain"`
+
+              - `type: "text"`
+
+                - `"text"`
+
+            - `BetaManagedAgentsURLDocumentSource`
+
+              Document referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the document to fetch.
+
+            - `BetaManagedAgentsFileDocumentSource`
+
+              Document referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "document"`
+
+            - `"document"`
+
+          - `context?: string | null`
+
+            Additional context about the document for the model.
+
+          - `title?: string | null`
+
+            The title of the document.
+
+      - `type: "user.message"`
+
+        - `"user.message"`
+
+    - `BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+
+      An outcome the agent should work toward. The agent begins work on receipt.
+
+      - `description: string`
+
+        What the agent should produce. This is the task specification.
+
+      - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
+
+        Rubric for grading the quality of an outcome.
+
+        - `BetaManagedAgentsFileRubric`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `file_id: string`
+
+            ID of the rubric file.
+
+          - `type: "file"`
+
+            - `"file"`
+
+        - `BetaManagedAgentsTextRubric`
+
+          Rubric content provided inline as text.
+
+          - `content: string`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+          - `type: "text"`
+
+            - `"text"`
+
+      - `type: "user.define_outcome"`
+
+        - `"user.define_outcome"`
+
+      - `max_iterations?: number | null`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
+
+    - `BetaManagedAgentsDeploymentSystemMessageEvent`
+
+      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
+
+      - `content: Array<BetaManagedAgentsSystemContentBlock>`
+
+        System content blocks to append. Text-only.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `type: "system.message"`
+
+        - `"system.message"`
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `name: string`
+
+    Human-readable name.
+
+  - `paused_reason: BetaManagedAgentsDeploymentPausedReason | null`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+    - `BetaManagedAgentsManualDeploymentPausedReason`
+
+      The caller invoked the pause endpoint on the deployment.
+
+      - `type: "manual"`
+
+        - `"manual"`
+
+    - `BetaManagedAgentsErrorDeploymentPausedReason`
+
+      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+      - `error: BetaManagedAgentsDeploymentPausedReasonError`
+
+        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+
+        - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
+
+          The deployment's environment was archived.
+
+          - `type: "environment_archived_error"`
+
+            - `"environment_archived_error"`
+
+        - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+
+          The deployment's agent was archived.
+
+          - `type: "agent_archived_error"`
+
+            - `"agent_archived_error"`
+
+        - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+
+          The deployment's environment no longer exists.
+
+          - `type: "environment_not_found_error"`
+
+            - `"environment_not_found_error"`
+
+        - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+
+          A vault referenced by the deployment no longer exists.
+
+          - `type: "vault_not_found_error"`
+
+            - `"vault_not_found_error"`
+
+        - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+
+          A file resource referenced by the deployment no longer exists.
+
+          - `type: "file_not_found_error"`
+
+            - `"file_not_found_error"`
+
+        - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+
+          A referenced resource no longer exists and its kind was not reported.
+
+          - `type: "session_resource_not_found_error"`
+
+            - `"session_resource_not_found_error"`
+
+        - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+
+          The deployment's workspace was archived.
+
+          - `type: "workspace_archived_error"`
+
+            - `"workspace_archived_error"`
+
+        - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+
+          The deployment's organization is disabled.
+
+          - `type: "organization_disabled_error"`
+
+            - `"organization_disabled_error"`
+
+        - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+
+          A memory store referenced by the deployment is archived.
+
+          - `type: "memory_store_archived_error"`
+
+            - `"memory_store_archived_error"`
+
+        - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+
+          A skill referenced by the deployment's agent no longer exists.
+
+          - `type: "skill_not_found_error"`
+
+            - `"skill_not_found_error"`
+
+        - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+
+          A vault referenced by the deployment is archived.
+
+          - `type: "vault_archived_error"`
+
+            - `"vault_archived_error"`
+
+        - `BetaManagedAgentsUnknownDeploymentPausedReasonError`
+
+          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
+
+          - `type: "unknown_error"`
+
+            - `"unknown_error"`
+
+        - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+
+          The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+          - `type: "self_hosted_resources_unsupported_error"`
+
+            - `"self_hosted_resources_unsupported_error"`
+
+        - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+
+          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+          - `type: "mcp_egress_blocked_error"`
+
+            - `"mcp_egress_blocked_error"`
+
+      - `type: "error"`
+
+        - `"error"`
+
+  - `resources: Array<BetaManagedAgentsSessionResourceConfig>`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+    - `BetaManagedAgentsGitHubRepositoryResourceConfig`
+
+      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
+
+      - `type: "github_repository"`
+
+        - `"github_repository"`
+
+      - `url: string`
+
+        Github URL of the repository
+
+      - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
+
+        Branch or commit to check out. Defaults to the repository's default branch.
+
+        - `BetaManagedAgentsBranchCheckout`
+
+          - `name: string`
+
+            Branch name to check out.
+
+          - `type: "branch"`
+
+            - `"branch"`
+
+        - `BetaManagedAgentsCommitCheckout`
+
+          - `sha: string`
+
+            Full commit SHA to check out.
+
+          - `type: "commit"`
+
+            - `"commit"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+    - `BetaManagedAgentsFileResourceConfig`
+
+      A file mounted into each session's container.
+
+      - `file_id: string`
+
+        ID of a previously uploaded file.
+
+      - `type: "file"`
+
+        - `"file"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+    - `BetaManagedAgentsMemoryStoreResourceConfig`
+
+      A memory store attached to each session created from this deployment.
+
+      - `memory_store_id: string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+      - `access?: "read_write" | "read_only" | null`
+
+        Access mode for an attached memory store.
+
+        - `"read_write"`
+
+        - `"read_only"`
+
+      - `instructions?: string | null`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+  - `schedule: BetaManagedAgentsSchedule | null`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+    - `expression: string`
+
+      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+    - `timezone: string`
+
+      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
+
+    - `type: "cron"`
+
+      - `"cron"`
+
+    - `last_run_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `upcoming_runs_at?: Array<string>`
+
+      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
+
+  - `status: BetaManagedAgentsDeploymentStatus`
+
+    Lifecycle status of a deployment.
+
+    - `"active"`
+
+    - `"paused"`
+
+  - `type: "deployment"`
+
+    - `"deployment"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `vault_ids: Array<string>`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsDeployment = await client.beta.deployments.pause(
+  'depl_011CZkZcDH3vPqd7xnEfwTai',
+);
+
+console.log(betaManagedAgentsDeployment.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
+  "agent": {
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Compile yesterday's orders into report.md.",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {},
+  "name": "Daily order report",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
+    "type": "cron",
+    "last_run_at": "2026-03-16T16:00:09Z",
+    "upcoming_runs_at": [
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ]
+}
+```
+
+## Unpause Deployment
+
+`client.beta.deployments.unpause(stringdeploymentID, DeploymentUnpauseParamsparams?, RequestOptionsoptions?): BetaManagedAgentsDeployment`
+
+**post** `/v1/deployments/{deployment_id}/unpause`
+
+Unpause Deployment
+
+### Parameters
+
+- `deploymentID: string`
+
+- `params: DeploymentUnpauseParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsDeployment`
+
+  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
+
+  - `id: string`
+
+    Unique identifier for this deployment.
+
+  - `agent: BetaManagedAgentsAgentReference`
+
+    A resolved agent reference with a concrete version.
+
+    - `id: string`
+
+    - `type: "agent"`
+
+      - `"agent"`
+
+    - `version: number`
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `description: string | null`
+
+    Description of what the deployment does.
+
+  - `environment_id: string`
+
+    ID of the `environment` where sessions run.
+
+  - `initial_events: Array<BetaManagedAgentsDeploymentInitialEvent>`
+
+    Events sent to each session immediately after creation.
+
+    - `BetaManagedAgentsDeploymentUserMessageEvent`
+
+      A user message sent to the session.
+
+      - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+        Array of content blocks for the user message.
+
+        - `BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+          - `text: string`
+
+            The text content.
+
+          - `type: "text"`
+
+            - `"text"`
+
+        - `BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+            Union type for image source variants.
+
+            - `BetaManagedAgentsBase64ImageSource`
+
+              Base64-encoded image data.
+
+              - `data: string`
+
+                Base64-encoded image data.
+
+              - `media_type: string`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsURLImageSource`
+
+              Image referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the image to fetch.
+
+            - `BetaManagedAgentsFileImageSource`
+
+              Image referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "image"`
+
+            - `"image"`
+
+        - `BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+            Union type for document source variants.
+
+            - `BetaManagedAgentsBase64DocumentSource`
+
+              Base64-encoded document data.
+
+              - `data: string`
+
+                Base64-encoded document data.
+
+              - `media_type: string`
+
+                MIME type of the document (e.g., "application/pdf").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsPlainTextDocumentSource`
+
+              Plain text document content.
+
+              - `data: string`
+
+                The plain text content.
+
+              - `media_type: "text/plain"`
+
+                MIME type of the text content. Must be "text/plain".
+
+                - `"text/plain"`
+
+              - `type: "text"`
+
+                - `"text"`
+
+            - `BetaManagedAgentsURLDocumentSource`
+
+              Document referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the document to fetch.
+
+            - `BetaManagedAgentsFileDocumentSource`
+
+              Document referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "document"`
+
+            - `"document"`
+
+          - `context?: string | null`
+
+            Additional context about the document for the model.
+
+          - `title?: string | null`
+
+            The title of the document.
+
+      - `type: "user.message"`
+
+        - `"user.message"`
+
+    - `BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+
+      An outcome the agent should work toward. The agent begins work on receipt.
+
+      - `description: string`
+
+        What the agent should produce. This is the task specification.
+
+      - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
+
+        Rubric for grading the quality of an outcome.
+
+        - `BetaManagedAgentsFileRubric`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `file_id: string`
+
+            ID of the rubric file.
+
+          - `type: "file"`
+
+            - `"file"`
+
+        - `BetaManagedAgentsTextRubric`
+
+          Rubric content provided inline as text.
+
+          - `content: string`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+          - `type: "text"`
+
+            - `"text"`
+
+      - `type: "user.define_outcome"`
+
+        - `"user.define_outcome"`
+
+      - `max_iterations?: number | null`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
+
+    - `BetaManagedAgentsDeploymentSystemMessageEvent`
+
+      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
+
+      - `content: Array<BetaManagedAgentsSystemContentBlock>`
+
+        System content blocks to append. Text-only.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `type: "system.message"`
+
+        - `"system.message"`
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `name: string`
+
+    Human-readable name.
+
+  - `paused_reason: BetaManagedAgentsDeploymentPausedReason | null`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+    - `BetaManagedAgentsManualDeploymentPausedReason`
+
+      The caller invoked the pause endpoint on the deployment.
+
+      - `type: "manual"`
+
+        - `"manual"`
+
+    - `BetaManagedAgentsErrorDeploymentPausedReason`
+
+      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+      - `error: BetaManagedAgentsDeploymentPausedReasonError`
+
+        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+
+        - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
+
+          The deployment's environment was archived.
+
+          - `type: "environment_archived_error"`
+
+            - `"environment_archived_error"`
+
+        - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+
+          The deployment's agent was archived.
+
+          - `type: "agent_archived_error"`
+
+            - `"agent_archived_error"`
+
+        - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+
+          The deployment's environment no longer exists.
+
+          - `type: "environment_not_found_error"`
+
+            - `"environment_not_found_error"`
+
+        - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+
+          A vault referenced by the deployment no longer exists.
+
+          - `type: "vault_not_found_error"`
+
+            - `"vault_not_found_error"`
+
+        - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+
+          A file resource referenced by the deployment no longer exists.
+
+          - `type: "file_not_found_error"`
+
+            - `"file_not_found_error"`
+
+        - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+
+          A referenced resource no longer exists and its kind was not reported.
+
+          - `type: "session_resource_not_found_error"`
+
+            - `"session_resource_not_found_error"`
+
+        - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+
+          The deployment's workspace was archived.
+
+          - `type: "workspace_archived_error"`
+
+            - `"workspace_archived_error"`
+
+        - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+
+          The deployment's organization is disabled.
+
+          - `type: "organization_disabled_error"`
+
+            - `"organization_disabled_error"`
+
+        - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+
+          A memory store referenced by the deployment is archived.
+
+          - `type: "memory_store_archived_error"`
+
+            - `"memory_store_archived_error"`
+
+        - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+
+          A skill referenced by the deployment's agent no longer exists.
+
+          - `type: "skill_not_found_error"`
+
+            - `"skill_not_found_error"`
+
+        - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+
+          A vault referenced by the deployment is archived.
+
+          - `type: "vault_archived_error"`
+
+            - `"vault_archived_error"`
+
+        - `BetaManagedAgentsUnknownDeploymentPausedReasonError`
+
+          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
+
+          - `type: "unknown_error"`
+
+            - `"unknown_error"`
+
+        - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+
+          The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+          - `type: "self_hosted_resources_unsupported_error"`
+
+            - `"self_hosted_resources_unsupported_error"`
+
+        - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+
+          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+          - `type: "mcp_egress_blocked_error"`
+
+            - `"mcp_egress_blocked_error"`
+
+      - `type: "error"`
+
+        - `"error"`
+
+  - `resources: Array<BetaManagedAgentsSessionResourceConfig>`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+    - `BetaManagedAgentsGitHubRepositoryResourceConfig`
+
+      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
+
+      - `type: "github_repository"`
+
+        - `"github_repository"`
+
+      - `url: string`
+
+        Github URL of the repository
+
+      - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
+
+        Branch or commit to check out. Defaults to the repository's default branch.
+
+        - `BetaManagedAgentsBranchCheckout`
+
+          - `name: string`
+
+            Branch name to check out.
+
+          - `type: "branch"`
+
+            - `"branch"`
+
+        - `BetaManagedAgentsCommitCheckout`
+
+          - `sha: string`
+
+            Full commit SHA to check out.
+
+          - `type: "commit"`
+
+            - `"commit"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+    - `BetaManagedAgentsFileResourceConfig`
+
+      A file mounted into each session's container.
+
+      - `file_id: string`
+
+        ID of a previously uploaded file.
+
+      - `type: "file"`
+
+        - `"file"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+    - `BetaManagedAgentsMemoryStoreResourceConfig`
+
+      A memory store attached to each session created from this deployment.
+
+      - `memory_store_id: string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+      - `access?: "read_write" | "read_only" | null`
+
+        Access mode for an attached memory store.
+
+        - `"read_write"`
+
+        - `"read_only"`
+
+      - `instructions?: string | null`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+  - `schedule: BetaManagedAgentsSchedule | null`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+    - `expression: string`
+
+      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+    - `timezone: string`
+
+      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
+
+    - `type: "cron"`
+
+      - `"cron"`
+
+    - `last_run_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `upcoming_runs_at?: Array<string>`
+
+      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
+
+  - `status: BetaManagedAgentsDeploymentStatus`
+
+    Lifecycle status of a deployment.
+
+    - `"active"`
+
+    - `"paused"`
+
+  - `type: "deployment"`
+
+    - `"deployment"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `vault_ids: Array<string>`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsDeployment = await client.beta.deployments.unpause(
+  'depl_011CZkZcDH3vPqd7xnEfwTai',
+);
+
+console.log(betaManagedAgentsDeployment.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "depl_011CZkZcDH3vPqd7xnEfwTai",
+  "agent": {
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Compiles yesterday's orders into a report every weekday morning.",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Compile yesterday's orders into report.md.",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {},
+  "name": "Daily order report",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "0 9 * * 1-5",
+    "timezone": "America/Los_Angeles",
+    "type": "cron",
+    "last_run_at": "2026-03-16T16:00:09Z",
+    "upcoming_runs_at": [
+      "2026-03-17T16:00:00Z",
+      "2026-03-18T16:00:00Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ]
+}
+```
+
+## Domain Types
+
+### Beta Managed Agents Agent Archived Deployment Paused Reason Error
+
+- `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+
+  The deployment's agent was archived.
+
+  - `type: "agent_archived_error"`
+
+    - `"agent_archived_error"`
+
+### Beta Managed Agents Cron Schedule
+
+- `BetaManagedAgentsCronSchedule`
+
+  5-field POSIX cron schedule with computed runtime timestamps.
+
+  - `expression: string`
+
+    5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+  - `timezone: string`
+
+    IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
+
+  - `type: "cron"`
+
+    - `"cron"`
+
+  - `last_run_at?: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `upcoming_runs_at?: Array<string>`
+
+    Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
+
+### Beta Managed Agents Cron Schedule Params
+
+- `BetaManagedAgentsCronScheduleParams`
+
+  5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
+
+  - `expression: string`
+
+    5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+  - `timezone: string`
+
+    Required. IANA timezone identifier (e.g., "America/Los_Angeles", "UTC"). Validated against the IANA timezone database.
+
+  - `type: "cron"`
+
+    - `"cron"`
+
+### Beta Managed Agents Deployment
+
+- `BetaManagedAgentsDeployment`
+
+  A deployment is a configured instance of an agent — it binds the agent to everything needed to run it autonomously: an environment, credentials, initial events, and an optional schedule.
+
+  - `id: string`
+
+    Unique identifier for this deployment.
+
+  - `agent: BetaManagedAgentsAgentReference`
+
+    A resolved agent reference with a concrete version.
+
+    - `id: string`
+
+    - `type: "agent"`
+
+      - `"agent"`
+
+    - `version: number`
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `description: string | null`
+
+    Description of what the deployment does.
+
+  - `environment_id: string`
+
+    ID of the `environment` where sessions run.
+
+  - `initial_events: Array<BetaManagedAgentsDeploymentInitialEvent>`
+
+    Events sent to each session immediately after creation.
+
+    - `BetaManagedAgentsDeploymentUserMessageEvent`
+
+      A user message sent to the session.
+
+      - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+        Array of content blocks for the user message.
+
+        - `BetaManagedAgentsTextBlock`
+
+          Regular text content.
+
+          - `text: string`
+
+            The text content.
+
+          - `type: "text"`
+
+            - `"text"`
+
+        - `BetaManagedAgentsImageBlock`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+            Union type for image source variants.
+
+            - `BetaManagedAgentsBase64ImageSource`
+
+              Base64-encoded image data.
+
+              - `data: string`
+
+                Base64-encoded image data.
+
+              - `media_type: string`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsURLImageSource`
+
+              Image referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the image to fetch.
+
+            - `BetaManagedAgentsFileImageSource`
+
+              Image referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "image"`
+
+            - `"image"`
+
+        - `BetaManagedAgentsDocumentBlock`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+            Union type for document source variants.
+
+            - `BetaManagedAgentsBase64DocumentSource`
+
+              Base64-encoded document data.
+
+              - `data: string`
+
+                Base64-encoded document data.
+
+              - `media_type: string`
+
+                MIME type of the document (e.g., "application/pdf").
+
+              - `type: "base64"`
+
+                - `"base64"`
+
+            - `BetaManagedAgentsPlainTextDocumentSource`
+
+              Plain text document content.
+
+              - `data: string`
+
+                The plain text content.
+
+              - `media_type: "text/plain"`
+
+                MIME type of the text content. Must be "text/plain".
+
+                - `"text/plain"`
+
+              - `type: "text"`
+
+                - `"text"`
+
+            - `BetaManagedAgentsURLDocumentSource`
+
+              Document referenced by URL.
+
+              - `type: "url"`
+
+                - `"url"`
+
+              - `url: string`
+
+                URL of the document to fetch.
+
+            - `BetaManagedAgentsFileDocumentSource`
+
+              Document referenced by file ID.
+
+              - `file_id: string`
+
+                ID of a previously uploaded file.
+
+              - `type: "file"`
+
+                - `"file"`
+
+          - `type: "document"`
+
+            - `"document"`
+
+          - `context?: string | null`
+
+            Additional context about the document for the model.
+
+          - `title?: string | null`
+
+            The title of the document.
+
+      - `type: "user.message"`
+
+        - `"user.message"`
+
+    - `BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+
+      An outcome the agent should work toward. The agent begins work on receipt.
+
+      - `description: string`
+
+        What the agent should produce. This is the task specification.
+
+      - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
+
+        Rubric for grading the quality of an outcome.
+
+        - `BetaManagedAgentsFileRubric`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `file_id: string`
+
+            ID of the rubric file.
+
+          - `type: "file"`
+
+            - `"file"`
+
+        - `BetaManagedAgentsTextRubric`
+
+          Rubric content provided inline as text.
+
+          - `content: string`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+          - `type: "text"`
+
+            - `"text"`
+
+      - `type: "user.define_outcome"`
+
+        - `"user.define_outcome"`
+
+      - `max_iterations?: number | null`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
+
+    - `BetaManagedAgentsDeploymentSystemMessageEvent`
+
+      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
+
+      - `content: Array<BetaManagedAgentsSystemContentBlock>`
+
+        System content blocks to append. Text-only.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `type: "system.message"`
+
+        - `"system.message"`
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `name: string`
+
+    Human-readable name.
+
+  - `paused_reason: BetaManagedAgentsDeploymentPausedReason | null`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+    - `BetaManagedAgentsManualDeploymentPausedReason`
+
+      The caller invoked the pause endpoint on the deployment.
+
+      - `type: "manual"`
+
+        - `"manual"`
+
+    - `BetaManagedAgentsErrorDeploymentPausedReason`
+
+      A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+      - `error: BetaManagedAgentsDeploymentPausedReasonError`
+
+        The error that triggered an auto-pause. Matches the failed run's `error.type`.
+
+        - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
+
+          The deployment's environment was archived.
+
+          - `type: "environment_archived_error"`
+
+            - `"environment_archived_error"`
+
+        - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+
+          The deployment's agent was archived.
+
+          - `type: "agent_archived_error"`
+
+            - `"agent_archived_error"`
+
+        - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+
+          The deployment's environment no longer exists.
+
+          - `type: "environment_not_found_error"`
+
+            - `"environment_not_found_error"`
+
+        - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+
+          A vault referenced by the deployment no longer exists.
+
+          - `type: "vault_not_found_error"`
+
+            - `"vault_not_found_error"`
+
+        - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+
+          A file resource referenced by the deployment no longer exists.
+
+          - `type: "file_not_found_error"`
+
+            - `"file_not_found_error"`
+
+        - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+
+          A referenced resource no longer exists and its kind was not reported.
+
+          - `type: "session_resource_not_found_error"`
+
+            - `"session_resource_not_found_error"`
+
+        - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+
+          The deployment's workspace was archived.
+
+          - `type: "workspace_archived_error"`
+
+            - `"workspace_archived_error"`
+
+        - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+
+          The deployment's organization is disabled.
+
+          - `type: "organization_disabled_error"`
+
+            - `"organization_disabled_error"`
+
+        - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+
+          A memory store referenced by the deployment is archived.
+
+          - `type: "memory_store_archived_error"`
+
+            - `"memory_store_archived_error"`
+
+        - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+
+          A skill referenced by the deployment's agent no longer exists.
+
+          - `type: "skill_not_found_error"`
+
+            - `"skill_not_found_error"`
+
+        - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+
+          A vault referenced by the deployment is archived.
+
+          - `type: "vault_archived_error"`
+
+            - `"vault_archived_error"`
+
+        - `BetaManagedAgentsUnknownDeploymentPausedReasonError`
+
+          An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
+
+          - `type: "unknown_error"`
+
+            - `"unknown_error"`
+
+        - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+
+          The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+          - `type: "self_hosted_resources_unsupported_error"`
+
+            - `"self_hosted_resources_unsupported_error"`
+
+        - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+
+          An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+          - `type: "mcp_egress_blocked_error"`
+
+            - `"mcp_egress_blocked_error"`
+
+      - `type: "error"`
+
+        - `"error"`
+
+  - `resources: Array<BetaManagedAgentsSessionResourceConfig>`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+    - `BetaManagedAgentsGitHubRepositoryResourceConfig`
+
+      A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
+
+      - `type: "github_repository"`
+
+        - `"github_repository"`
+
+      - `url: string`
+
+        Github URL of the repository
+
+      - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
+
+        Branch or commit to check out. Defaults to the repository's default branch.
+
+        - `BetaManagedAgentsBranchCheckout`
+
+          - `name: string`
+
+            Branch name to check out.
+
+          - `type: "branch"`
+
+            - `"branch"`
+
+        - `BetaManagedAgentsCommitCheckout`
+
+          - `sha: string`
+
+            Full commit SHA to check out.
+
+          - `type: "commit"`
+
+            - `"commit"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+    - `BetaManagedAgentsFileResourceConfig`
+
+      A file mounted into each session's container.
+
+      - `file_id: string`
+
+        ID of a previously uploaded file.
+
+      - `type: "file"`
+
+        - `"file"`
+
+      - `mount_path?: string | null`
+
+        Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+    - `BetaManagedAgentsMemoryStoreResourceConfig`
+
+      A memory store attached to each session created from this deployment.
+
+      - `memory_store_id: string`
+
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+      - `access?: "read_write" | "read_only" | null`
+
+        Access mode for an attached memory store.
+
+        - `"read_write"`
+
+        - `"read_only"`
+
+      - `instructions?: string | null`
+
+        Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+  - `schedule: BetaManagedAgentsSchedule | null`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+    - `expression: string`
+
+      5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+    - `timezone: string`
+
+      IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
+
+    - `type: "cron"`
+
+      - `"cron"`
+
+    - `last_run_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `upcoming_runs_at?: Array<string>`
+
+      Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
+
+  - `status: BetaManagedAgentsDeploymentStatus`
+
+    Lifecycle status of a deployment.
+
+    - `"active"`
+
+    - `"paused"`
+
+  - `type: "deployment"`
+
+    - `"deployment"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `vault_ids: Array<string>`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+### Beta Managed Agents Deployment Initial Event
+
+- `BetaManagedAgentsDeploymentInitialEvent = BetaManagedAgentsDeploymentUserMessageEvent | BetaManagedAgentsDeploymentUserDefineOutcomeEvent | BetaManagedAgentsDeploymentSystemMessageEvent`
+
+  An event sent to a session immediately after it is created. Supports `user.message`, `user.define_outcome`, and `system.message`.
+
+  - `BetaManagedAgentsDeploymentUserMessageEvent`
+
+    A user message sent to the session.
+
+    - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+      Array of content blocks for the user message.
+
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+          Union type for image source variants.
+
+          - `BetaManagedAgentsBase64ImageSource`
+
+            Base64-encoded image data.
+
+            - `data: string`
+
+              Base64-encoded image data.
+
+            - `media_type: string`
+
+              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+            - `type: "base64"`
+
+              - `"base64"`
+
+          - `BetaManagedAgentsURLImageSource`
+
+            Image referenced by URL.
+
+            - `type: "url"`
+
+              - `"url"`
+
+            - `url: string`
+
+              URL of the image to fetch.
+
+          - `BetaManagedAgentsFileImageSource`
+
+            Image referenced by file ID.
+
+            - `file_id: string`
+
+              ID of a previously uploaded file.
+
+            - `type: "file"`
+
+              - `"file"`
+
+        - `type: "image"`
+
+          - `"image"`
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+          Union type for document source variants.
+
+          - `BetaManagedAgentsBase64DocumentSource`
+
+            Base64-encoded document data.
+
+            - `data: string`
+
+              Base64-encoded document data.
+
+            - `media_type: string`
+
+              MIME type of the document (e.g., "application/pdf").
+
+            - `type: "base64"`
+
+              - `"base64"`
+
+          - `BetaManagedAgentsPlainTextDocumentSource`
+
+            Plain text document content.
+
+            - `data: string`
+
+              The plain text content.
+
+            - `media_type: "text/plain"`
+
+              MIME type of the text content. Must be "text/plain".
+
+              - `"text/plain"`
+
+            - `type: "text"`
+
+              - `"text"`
+
+          - `BetaManagedAgentsURLDocumentSource`
+
+            Document referenced by URL.
+
+            - `type: "url"`
+
+              - `"url"`
+
+            - `url: string`
+
+              URL of the document to fetch.
+
+          - `BetaManagedAgentsFileDocumentSource`
+
+            Document referenced by file ID.
+
+            - `file_id: string`
+
+              ID of a previously uploaded file.
+
+            - `type: "file"`
+
+              - `"file"`
+
+        - `type: "document"`
+
+          - `"document"`
+
+        - `context?: string | null`
+
+          Additional context about the document for the model.
+
+        - `title?: string | null`
+
+          The title of the document.
+
+    - `type: "user.message"`
+
+      - `"user.message"`
+
+  - `BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+
+    An outcome the agent should work toward. The agent begins work on receipt.
+
+    - `description: string`
+
+      What the agent should produce. This is the task specification.
+
+    - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
+
+      Rubric for grading the quality of an outcome.
+
+      - `BetaManagedAgentsFileRubric`
+
+        Rubric referenced by a file uploaded via the Files API.
+
+        - `file_id: string`
+
+          ID of the rubric file.
+
+        - `type: "file"`
+
+          - `"file"`
+
+      - `BetaManagedAgentsTextRubric`
+
+        Rubric content provided inline as text.
+
+        - `content: string`
+
+          Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+        - `type: "text"`
+
+          - `"text"`
+
+    - `type: "user.define_outcome"`
+
+      - `"user.define_outcome"`
+
+    - `max_iterations?: number | null`
+
+      Eval→revision cycles before giving up. Default 3, max 20.
+
+  - `BetaManagedAgentsDeploymentSystemMessageEvent`
+
+    Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
+
+    - `content: Array<BetaManagedAgentsSystemContentBlock>`
+
+      System content blocks to append. Text-only.
+
+      - `text: string`
+
+        The text content.
+
+      - `type: "text"`
+
+        - `"text"`
+
+    - `type: "system.message"`
+
+      - `"system.message"`
+
+### Beta Managed Agents Deployment Initial Event Params
+
+- `BetaManagedAgentsDeploymentInitialEventParams = BetaManagedAgentsUserMessageEventParams | BetaManagedAgentsUserDefineOutcomeEventParams | BetaManagedAgentsSystemMessageEventParams`
+
+  An event sent to a session immediately after it is created. Supports `user.message`, `user.define_outcome`, and `system.message`.
+
+  - `BetaManagedAgentsUserMessageEventParams`
+
+    Parameters for sending a user message to the session.
+
+    - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+      Array of content blocks for the user message.
+
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+        - `text: string`
+
+          The text content.
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+          Union type for image source variants.
+
+          - `BetaManagedAgentsBase64ImageSource`
+
+            Base64-encoded image data.
+
+            - `data: string`
+
+              Base64-encoded image data.
+
+            - `media_type: string`
+
+              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+            - `type: "base64"`
+
+              - `"base64"`
+
+          - `BetaManagedAgentsURLImageSource`
+
+            Image referenced by URL.
+
+            - `type: "url"`
+
+              - `"url"`
+
+            - `url: string`
+
+              URL of the image to fetch.
+
+          - `BetaManagedAgentsFileImageSource`
+
+            Image referenced by file ID.
+
+            - `file_id: string`
+
+              ID of a previously uploaded file.
+
+            - `type: "file"`
+
+              - `"file"`
+
+        - `type: "image"`
+
+          - `"image"`
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+          Union type for document source variants.
+
+          - `BetaManagedAgentsBase64DocumentSource`
+
+            Base64-encoded document data.
+
+            - `data: string`
+
+              Base64-encoded document data.
+
+            - `media_type: string`
+
+              MIME type of the document (e.g., "application/pdf").
+
+            - `type: "base64"`
+
+              - `"base64"`
+
+          - `BetaManagedAgentsPlainTextDocumentSource`
+
+            Plain text document content.
+
+            - `data: string`
+
+              The plain text content.
+
+            - `media_type: "text/plain"`
+
+              MIME type of the text content. Must be "text/plain".
+
+              - `"text/plain"`
+
+            - `type: "text"`
+
+              - `"text"`
+
+          - `BetaManagedAgentsURLDocumentSource`
+
+            Document referenced by URL.
+
+            - `type: "url"`
+
+              - `"url"`
+
+            - `url: string`
+
+              URL of the document to fetch.
+
+          - `BetaManagedAgentsFileDocumentSource`
+
+            Document referenced by file ID.
+
+            - `file_id: string`
+
+              ID of a previously uploaded file.
+
+            - `type: "file"`
+
+              - `"file"`
+
+        - `type: "document"`
+
+          - `"document"`
+
+        - `context?: string | null`
+
+          Additional context about the document for the model.
+
+        - `title?: string | null`
+
+          The title of the document.
+
+    - `type: "user.message"`
+
+      - `"user.message"`
+
+  - `BetaManagedAgentsUserDefineOutcomeEventParams`
+
+    Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
+
+    - `description: string`
+
+      What the agent should produce. This is the task specification.
+
+    - `rubric: BetaManagedAgentsFileRubricParams | BetaManagedAgentsTextRubricParams`
+
+      Rubric for grading the quality of an outcome.
+
+      - `BetaManagedAgentsFileRubricParams`
+
+        Rubric referenced by a file uploaded via the Files API.
+
+        - `file_id: string`
+
+          ID of the rubric file.
+
+        - `type: "file"`
+
+          - `"file"`
+
+      - `BetaManagedAgentsTextRubricParams`
+
+        Rubric content provided inline as text.
+
+        - `content: string`
+
+          Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
+
+        - `type: "text"`
+
+          - `"text"`
+
+    - `type: "user.define_outcome"`
+
+      - `"user.define_outcome"`
+
+    - `max_iterations?: number | null`
+
+      Eval→revision cycles before giving up. Default 3, max 20.
+
+  - `BetaManagedAgentsSystemMessageEventParams`
+
+    Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
+
+    - `content: Array<BetaManagedAgentsSystemContentBlock>`
+
+      System content blocks to append. Text-only.
+
+      - `text: string`
+
+        The text content.
+
+      - `type: "text"`
+
+        - `"text"`
+
+    - `type: "system.message"`
+
+      - `"system.message"`
+
+### Beta Managed Agents Deployment Paused Reason
+
+- `BetaManagedAgentsDeploymentPausedReason = BetaManagedAgentsManualDeploymentPausedReason | BetaManagedAgentsErrorDeploymentPausedReason`
+
+  Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+  - `BetaManagedAgentsManualDeploymentPausedReason`
+
+    The caller invoked the pause endpoint on the deployment.
+
+    - `type: "manual"`
+
+      - `"manual"`
+
+  - `BetaManagedAgentsErrorDeploymentPausedReason`
+
+    A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+    - `error: BetaManagedAgentsDeploymentPausedReasonError`
+
+      The error that triggered an auto-pause. Matches the failed run's `error.type`.
+
+      - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
+
+        The deployment's environment was archived.
+
+        - `type: "environment_archived_error"`
+
+          - `"environment_archived_error"`
+
+      - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+
+        The deployment's agent was archived.
+
+        - `type: "agent_archived_error"`
+
+          - `"agent_archived_error"`
+
+      - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+
+        The deployment's environment no longer exists.
+
+        - `type: "environment_not_found_error"`
+
+          - `"environment_not_found_error"`
+
+      - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+
+        A vault referenced by the deployment no longer exists.
+
+        - `type: "vault_not_found_error"`
+
+          - `"vault_not_found_error"`
+
+      - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+
+        A file resource referenced by the deployment no longer exists.
+
+        - `type: "file_not_found_error"`
+
+          - `"file_not_found_error"`
+
+      - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+
+        A referenced resource no longer exists and its kind was not reported.
+
+        - `type: "session_resource_not_found_error"`
+
+          - `"session_resource_not_found_error"`
+
+      - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+
+        The deployment's workspace was archived.
+
+        - `type: "workspace_archived_error"`
+
+          - `"workspace_archived_error"`
+
+      - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+
+        The deployment's organization is disabled.
+
+        - `type: "organization_disabled_error"`
+
+          - `"organization_disabled_error"`
+
+      - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+
+        A memory store referenced by the deployment is archived.
+
+        - `type: "memory_store_archived_error"`
+
+          - `"memory_store_archived_error"`
+
+      - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+
+        A skill referenced by the deployment's agent no longer exists.
+
+        - `type: "skill_not_found_error"`
+
+          - `"skill_not_found_error"`
+
+      - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+
+        A vault referenced by the deployment is archived.
+
+        - `type: "vault_archived_error"`
+
+          - `"vault_archived_error"`
+
+      - `BetaManagedAgentsUnknownDeploymentPausedReasonError`
+
+        An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
+
+        - `type: "unknown_error"`
+
+          - `"unknown_error"`
+
+      - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+
+        The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+        - `type: "self_hosted_resources_unsupported_error"`
+
+          - `"self_hosted_resources_unsupported_error"`
+
+      - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+
+        An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+        - `type: "mcp_egress_blocked_error"`
+
+          - `"mcp_egress_blocked_error"`
+
+    - `type: "error"`
+
+      - `"error"`
+
+### Beta Managed Agents Deployment Paused Reason Error
+
+- `BetaManagedAgentsDeploymentPausedReasonError = BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError | BetaManagedAgentsAgentArchivedDeploymentPausedReasonError | BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError | 11 more`
+
+  The error that triggered an auto-pause. Matches the failed run's `error.type`.
+
+  - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
+
+    The deployment's environment was archived.
+
+    - `type: "environment_archived_error"`
+
+      - `"environment_archived_error"`
+
+  - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+
+    The deployment's agent was archived.
+
+    - `type: "agent_archived_error"`
+
+      - `"agent_archived_error"`
+
+  - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+
+    The deployment's environment no longer exists.
+
+    - `type: "environment_not_found_error"`
+
+      - `"environment_not_found_error"`
+
+  - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+
+    A vault referenced by the deployment no longer exists.
+
+    - `type: "vault_not_found_error"`
+
+      - `"vault_not_found_error"`
+
+  - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+
+    A file resource referenced by the deployment no longer exists.
+
+    - `type: "file_not_found_error"`
+
+      - `"file_not_found_error"`
+
+  - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+
+    A referenced resource no longer exists and its kind was not reported.
+
+    - `type: "session_resource_not_found_error"`
+
+      - `"session_resource_not_found_error"`
+
+  - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+
+    The deployment's workspace was archived.
+
+    - `type: "workspace_archived_error"`
+
+      - `"workspace_archived_error"`
+
+  - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+
+    The deployment's organization is disabled.
+
+    - `type: "organization_disabled_error"`
+
+      - `"organization_disabled_error"`
+
+  - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+
+    A memory store referenced by the deployment is archived.
+
+    - `type: "memory_store_archived_error"`
+
+      - `"memory_store_archived_error"`
+
+  - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+
+    A skill referenced by the deployment's agent no longer exists.
+
+    - `type: "skill_not_found_error"`
+
+      - `"skill_not_found_error"`
+
+  - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+
+    A vault referenced by the deployment is archived.
+
+    - `type: "vault_archived_error"`
+
+      - `"vault_archived_error"`
+
+  - `BetaManagedAgentsUnknownDeploymentPausedReasonError`
+
+    An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
+
+    - `type: "unknown_error"`
+
+      - `"unknown_error"`
+
+  - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+
+    The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+    - `type: "self_hosted_resources_unsupported_error"`
+
+      - `"self_hosted_resources_unsupported_error"`
+
+  - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+
+    An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+    - `type: "mcp_egress_blocked_error"`
+
+      - `"mcp_egress_blocked_error"`
+
+### Beta Managed Agents Deployment Status
+
+- `BetaManagedAgentsDeploymentStatus = "active" | "paused"`
+
+  Lifecycle status of a deployment.
+
+  - `"active"`
+
+  - `"paused"`
+
+### Beta Managed Agents Deployment System Message Event
+
+- `BetaManagedAgentsDeploymentSystemMessageEvent`
+
+  Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt.
+
+  - `content: Array<BetaManagedAgentsSystemContentBlock>`
+
+    System content blocks to append. Text-only.
+
+    - `text: string`
+
+      The text content.
+
+    - `type: "text"`
+
+      - `"text"`
+
+  - `type: "system.message"`
+
+    - `"system.message"`
+
+### Beta Managed Agents Deployment User Define Outcome Event
+
+- `BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+
+  An outcome the agent should work toward. The agent begins work on receipt.
+
+  - `description: string`
+
+    What the agent should produce. This is the task specification.
+
+  - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
+
+    Rubric for grading the quality of an outcome.
+
+    - `BetaManagedAgentsFileRubric`
+
+      Rubric referenced by a file uploaded via the Files API.
+
+      - `file_id: string`
+
+        ID of the rubric file.
+
+      - `type: "file"`
+
+        - `"file"`
+
+    - `BetaManagedAgentsTextRubric`
+
+      Rubric content provided inline as text.
+
+      - `content: string`
+
+        Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+      - `type: "text"`
+
+        - `"text"`
+
+  - `type: "user.define_outcome"`
+
+    - `"user.define_outcome"`
+
+  - `max_iterations?: number | null`
+
+    Eval→revision cycles before giving up. Default 3, max 20.
+
+### Beta Managed Agents Deployment User Message Event
+
+- `BetaManagedAgentsDeploymentUserMessageEvent`
+
+  A user message sent to the session.
+
+  - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+
+    Array of content blocks for the user message.
+
+    - `BetaManagedAgentsTextBlock`
+
+      Regular text content.
+
+      - `text: string`
+
+        The text content.
+
+      - `type: "text"`
+
+        - `"text"`
+
+    - `BetaManagedAgentsImageBlock`
+
+      Image content specified directly as base64 data or as a reference via a URL.
+
+      - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
+
+        Union type for image source variants.
+
+        - `BetaManagedAgentsBase64ImageSource`
+
+          Base64-encoded image data.
+
+          - `data: string`
+
+            Base64-encoded image data.
+
+          - `media_type: string`
+
+            MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+          - `type: "base64"`
+
+            - `"base64"`
+
+        - `BetaManagedAgentsURLImageSource`
+
+          Image referenced by URL.
+
+          - `type: "url"`
+
+            - `"url"`
+
+          - `url: string`
+
+            URL of the image to fetch.
+
+        - `BetaManagedAgentsFileImageSource`
+
+          Image referenced by file ID.
+
+          - `file_id: string`
+
+            ID of a previously uploaded file.
+
+          - `type: "file"`
+
+            - `"file"`
+
+      - `type: "image"`
+
+        - `"image"`
+
+    - `BetaManagedAgentsDocumentBlock`
+
+      Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+
+        Union type for document source variants.
+
+        - `BetaManagedAgentsBase64DocumentSource`
+
+          Base64-encoded document data.
+
+          - `data: string`
+
+            Base64-encoded document data.
+
+          - `media_type: string`
+
+            MIME type of the document (e.g., "application/pdf").
+
+          - `type: "base64"`
+
+            - `"base64"`
+
+        - `BetaManagedAgentsPlainTextDocumentSource`
+
+          Plain text document content.
+
+          - `data: string`
+
+            The plain text content.
+
+          - `media_type: "text/plain"`
+
+            MIME type of the text content. Must be "text/plain".
+
+            - `"text/plain"`
+
+          - `type: "text"`
+
+            - `"text"`
+
+        - `BetaManagedAgentsURLDocumentSource`
+
+          Document referenced by URL.
+
+          - `type: "url"`
+
+            - `"url"`
+
+          - `url: string`
+
+            URL of the document to fetch.
+
+        - `BetaManagedAgentsFileDocumentSource`
+
+          Document referenced by file ID.
+
+          - `file_id: string`
+
+            ID of a previously uploaded file.
+
+          - `type: "file"`
+
+            - `"file"`
+
+      - `type: "document"`
+
+        - `"document"`
+
+      - `context?: string | null`
+
+        Additional context about the document for the model.
+
+      - `title?: string | null`
+
+        The title of the document.
+
+  - `type: "user.message"`
+
+    - `"user.message"`
+
+### Beta Managed Agents Environment Archived Deployment Paused Reason Error
+
+- `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
+
+  The deployment's environment was archived.
+
+  - `type: "environment_archived_error"`
+
+    - `"environment_archived_error"`
+
+### Beta Managed Agents Environment Not Found Deployment Paused Reason Error
+
+- `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+
+  The deployment's environment no longer exists.
+
+  - `type: "environment_not_found_error"`
+
+    - `"environment_not_found_error"`
+
+### Beta Managed Agents Error Deployment Paused Reason
+
+- `BetaManagedAgentsErrorDeploymentPausedReason`
+
+  A scheduled fire recorded a failed run whose error auto-pauses the deployment.
+
+  - `error: BetaManagedAgentsDeploymentPausedReasonError`
+
+    The error that triggered an auto-pause. Matches the failed run's `error.type`.
+
+    - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
+
+      The deployment's environment was archived.
+
+      - `type: "environment_archived_error"`
+
+        - `"environment_archived_error"`
+
+    - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+
+      The deployment's agent was archived.
+
+      - `type: "agent_archived_error"`
+
+        - `"agent_archived_error"`
+
+    - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+
+      The deployment's environment no longer exists.
+
+      - `type: "environment_not_found_error"`
+
+        - `"environment_not_found_error"`
+
+    - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+
+      A vault referenced by the deployment no longer exists.
+
+      - `type: "vault_not_found_error"`
+
+        - `"vault_not_found_error"`
+
+    - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+
+      A file resource referenced by the deployment no longer exists.
+
+      - `type: "file_not_found_error"`
+
+        - `"file_not_found_error"`
+
+    - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+
+      A referenced resource no longer exists and its kind was not reported.
+
+      - `type: "session_resource_not_found_error"`
+
+        - `"session_resource_not_found_error"`
+
+    - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+
+      The deployment's workspace was archived.
+
+      - `type: "workspace_archived_error"`
+
+        - `"workspace_archived_error"`
+
+    - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+
+      The deployment's organization is disabled.
+
+      - `type: "organization_disabled_error"`
+
+        - `"organization_disabled_error"`
+
+    - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+
+      A memory store referenced by the deployment is archived.
+
+      - `type: "memory_store_archived_error"`
+
+        - `"memory_store_archived_error"`
+
+    - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+
+      A skill referenced by the deployment's agent no longer exists.
+
+      - `type: "skill_not_found_error"`
+
+        - `"skill_not_found_error"`
+
+    - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+
+      A vault referenced by the deployment is archived.
+
+      - `type: "vault_archived_error"`
+
+        - `"vault_archived_error"`
+
+    - `BetaManagedAgentsUnknownDeploymentPausedReasonError`
+
+      An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
+
+      - `type: "unknown_error"`
+
+        - `"unknown_error"`
+
+    - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+
+      The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+      - `type: "self_hosted_resources_unsupported_error"`
+
+        - `"self_hosted_resources_unsupported_error"`
+
+    - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+
+      An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+      - `type: "mcp_egress_blocked_error"`
+
+        - `"mcp_egress_blocked_error"`
+
+  - `type: "error"`
+
+    - `"error"`
+
+### Beta Managed Agents File Not Found Deployment Paused Reason Error
+
+- `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+
+  A file resource referenced by the deployment no longer exists.
+
+  - `type: "file_not_found_error"`
+
+    - `"file_not_found_error"`
+
+### Beta Managed Agents File Resource Config
+
+- `BetaManagedAgentsFileResourceConfig`
+
+  A file mounted into each session's container.
+
+  - `file_id: string`
+
+    ID of a previously uploaded file.
+
+  - `type: "file"`
+
+    - `"file"`
+
+  - `mount_path?: string | null`
+
+    Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+### Beta Managed Agents GitHub Repository Resource Config
+
+- `BetaManagedAgentsGitHubRepositoryResourceConfig`
+
+  A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
+
+  - `type: "github_repository"`
+
+    - `"github_repository"`
+
+  - `url: string`
+
+    Github URL of the repository
+
+  - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
+
+    Branch or commit to check out. Defaults to the repository's default branch.
+
+    - `BetaManagedAgentsBranchCheckout`
+
+      - `name: string`
+
+        Branch name to check out.
+
+      - `type: "branch"`
+
+        - `"branch"`
+
+    - `BetaManagedAgentsCommitCheckout`
+
+      - `sha: string`
+
+        Full commit SHA to check out.
+
+      - `type: "commit"`
+
+        - `"commit"`
+
+  - `mount_path?: string | null`
+
+    Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+### Beta Managed Agents Manual Deployment Paused Reason
+
+- `BetaManagedAgentsManualDeploymentPausedReason`
+
+  The caller invoked the pause endpoint on the deployment.
+
+  - `type: "manual"`
+
+    - `"manual"`
+
+### Beta Managed Agents MCP Egress Blocked Deployment Paused Reason Error
+
+- `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+
+  An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+  - `type: "mcp_egress_blocked_error"`
+
+    - `"mcp_egress_blocked_error"`
+
+### Beta Managed Agents Memory Store Archived Deployment Paused Reason Error
+
+- `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+
+  A memory store referenced by the deployment is archived.
+
+  - `type: "memory_store_archived_error"`
+
+    - `"memory_store_archived_error"`
+
+### Beta Managed Agents Memory Store Resource Config
+
+- `BetaManagedAgentsMemoryStoreResourceConfig`
+
+  A memory store attached to each session created from this deployment.
+
+  - `memory_store_id: string`
+
+    The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+  - `type: "memory_store"`
+
+    - `"memory_store"`
+
+  - `access?: "read_write" | "read_only" | null`
+
+    Access mode for an attached memory store.
+
+    - `"read_write"`
+
+    - `"read_only"`
+
+  - `instructions?: string | null`
+
+    Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+### Beta Managed Agents Organization Disabled Deployment Paused Reason Error
+
+- `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+
+  The deployment's organization is disabled.
+
+  - `type: "organization_disabled_error"`
+
+    - `"organization_disabled_error"`
+
+### Beta Managed Agents Schedule
+
+- `BetaManagedAgentsSchedule`
+
+  5-field POSIX cron schedule with computed runtime timestamps.
+
+  - `expression: string`
+
+    5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+  - `timezone: string`
+
+    IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
+
+  - `type: "cron"`
+
+    - `"cron"`
+
+  - `last_run_at?: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `upcoming_runs_at?: Array<string>`
+
+    Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
+
+### Beta Managed Agents Schedule Params
+
+- `BetaManagedAgentsScheduleParams`
+
+  5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
+
+  - `expression: string`
+
+    5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+  - `timezone: string`
+
+    Required. IANA timezone identifier (e.g., "America/Los_Angeles", "UTC"). Validated against the IANA timezone database.
+
+  - `type: "cron"`
+
+    - `"cron"`
+
+### Beta Managed Agents Self Hosted Resources Unsupported Deployment Paused Reason Error
+
+- `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+
+  The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+  - `type: "self_hosted_resources_unsupported_error"`
+
+    - `"self_hosted_resources_unsupported_error"`
+
+### Beta Managed Agents Session Resource Config
+
+- `BetaManagedAgentsSessionResourceConfig = BetaManagedAgentsGitHubRepositoryResourceConfig | BetaManagedAgentsFileResourceConfig | BetaManagedAgentsMemoryStoreResourceConfig`
+
+  A configured session resource. Echoes the input minus write-only credentials.
+
+  - `BetaManagedAgentsGitHubRepositoryResourceConfig`
+
+    A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
+
+    - `type: "github_repository"`
+
+      - `"github_repository"`
+
+    - `url: string`
+
+      Github URL of the repository
+
+    - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
+
+      Branch or commit to check out. Defaults to the repository's default branch.
+
+      - `BetaManagedAgentsBranchCheckout`
+
+        - `name: string`
+
+          Branch name to check out.
+
+        - `type: "branch"`
+
+          - `"branch"`
+
+      - `BetaManagedAgentsCommitCheckout`
+
+        - `sha: string`
+
+          Full commit SHA to check out.
+
+        - `type: "commit"`
+
+          - `"commit"`
+
+    - `mount_path?: string | null`
+
+      Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+  - `BetaManagedAgentsFileResourceConfig`
+
+    A file mounted into each session's container.
+
+    - `file_id: string`
+
+      ID of a previously uploaded file.
+
+    - `type: "file"`
+
+      - `"file"`
+
+    - `mount_path?: string | null`
+
+      Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+  - `BetaManagedAgentsMemoryStoreResourceConfig`
+
+    A memory store attached to each session created from this deployment.
+
+    - `memory_store_id: string`
+
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+    - `type: "memory_store"`
+
+      - `"memory_store"`
+
+    - `access?: "read_write" | "read_only" | null`
+
+      Access mode for an attached memory store.
+
+      - `"read_write"`
+
+      - `"read_only"`
+
+    - `instructions?: string | null`
+
+      Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+### Beta Managed Agents Session Resource Not Found Deployment Paused Reason Error
+
+- `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+
+  A referenced resource no longer exists and its kind was not reported.
+
+  - `type: "session_resource_not_found_error"`
+
+    - `"session_resource_not_found_error"`
+
+### Beta Managed Agents Skill Not Found Deployment Paused Reason Error
+
+- `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+
+  A skill referenced by the deployment's agent no longer exists.
+
+  - `type: "skill_not_found_error"`
+
+    - `"skill_not_found_error"`
+
+### Beta Managed Agents Unknown Deployment Paused Reason Error
+
+- `BetaManagedAgentsUnknownDeploymentPausedReasonError`
+
+  An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
+
+  - `type: "unknown_error"`
+
+    - `"unknown_error"`
+
+### Beta Managed Agents Vault Archived Deployment Paused Reason Error
+
+- `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+
+  A vault referenced by the deployment is archived.
+
+  - `type: "vault_archived_error"`
+
+    - `"vault_archived_error"`
+
+### Beta Managed Agents Vault Not Found Deployment Paused Reason Error
+
+- `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+
+  A vault referenced by the deployment no longer exists.
+
+  - `type: "vault_not_found_error"`
+
+    - `"vault_not_found_error"`
+
+### Beta Managed Agents Workspace Archived Deployment Paused Reason Error
+
+- `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+
+  The deployment's workspace was archived.
+
+  - `type: "workspace_archived_error"`
+
+    - `"workspace_archived_error"`
+
+# Deployment Runs
+
+## List Deployment Runs
+
+`client.beta.deploymentRuns.list(DeploymentRunListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsDeploymentRun>`
+
+**get** `/v1/deployment_runs`
+
+List Deployment Runs
+
+### Parameters
+
+- `params: DeploymentRunListParams`
+
+  - `"created_at[gt]"?: string`
+
+    Query param: Return runs created strictly after this time (exclusive).
+
+  - `"created_at[gte]"?: string`
+
+    Query param: Return runs created at or after this time (inclusive).
+
+  - `"created_at[lt]"?: string`
+
+    Query param: Return runs created strictly before this time (exclusive).
+
+  - `"created_at[lte]"?: string`
+
+    Query param: Return runs created at or before this time (inclusive).
+
+  - `deployment_id?: string`
+
+    Query param: Filter to a specific deployment. Omit to list across all deployments in the workspace. Filtering by a non-existent deployment_id returns 200 with empty data.
+
+  - `has_error?: boolean`
+
+    Query param: Filter: true for runs with non-null error, false for runs with non-null session_id. Omit for all.
+
+  - `limit?: number`
+
+    Query param: Maximum results per page. Default 20, maximum 1000.
+
+  - `page?: string`
+
+    Query param: Opaque pagination cursor. Pass next_page from the previous response. Invalid or expired cursors return 400.
+
+  - `trigger_type?: BetaManagedAgentsTriggerType`
+
+    Query param: Filter runs by what triggered them. Omit to return all runs.
+
+    - `"schedule"`
+
+    - `"manual"`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsDeploymentRun`
+
+  A persistent, append-only record of a single deployment execution. Records session creation success or failure — no session lifecycle tracking.
+
+  - `id: string`
+
+    Unique identifier for this run (`drun_...`).
+
+  - `agent: BetaManagedAgentsAgentReference`
+
+    A resolved agent reference with a concrete version.
+
+    - `id: string`
+
+    - `type: "agent"`
+
+      - `"agent"`
+
+    - `version: number`
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `deployment_id: string`
+
+    ID of the deployment that produced this run.
+
+  - `error: BetaManagedAgentsEnvironmentArchivedRunError | BetaManagedAgentsAgentArchivedRunError | BetaManagedAgentsEnvironmentNotFoundRunError | 13 more | null`
+
+    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+
+    - `BetaManagedAgentsEnvironmentArchivedRunError`
+
+      The deployment's environment was archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "environment_archived_error"`
+
+        - `"environment_archived_error"`
+
+    - `BetaManagedAgentsAgentArchivedRunError`
+
+      The deployment's agent was archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "agent_archived_error"`
+
+        - `"agent_archived_error"`
+
+    - `BetaManagedAgentsEnvironmentNotFoundRunError`
+
+      The deployment's environment no longer exists.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "environment_not_found_error"`
+
+        - `"environment_not_found_error"`
+
+    - `BetaManagedAgentsVaultNotFoundRunError`
+
+      A vault referenced by the deployment no longer exists.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "vault_not_found_error"`
+
+        - `"vault_not_found_error"`
+
+    - `BetaManagedAgentsVaultArchivedRunError`
+
+      A vault referenced by the deployment is archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "vault_archived_error"`
+
+        - `"vault_archived_error"`
+
+    - `BetaManagedAgentsFileNotFoundRunError`
+
+      A file resource referenced by the deployment no longer exists.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "file_not_found_error"`
+
+        - `"file_not_found_error"`
+
+    - `BetaManagedAgentsMemoryStoreArchivedRunError`
+
+      A memory store referenced by the deployment is archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "memory_store_archived_error"`
+
+        - `"memory_store_archived_error"`
+
+    - `BetaManagedAgentsSkillNotFoundRunError`
+
+      A skill referenced by the deployment's agent no longer exists.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "skill_not_found_error"`
+
+        - `"skill_not_found_error"`
+
+    - `BetaManagedAgentsSessionResourceNotFoundRunError`
+
+      A referenced resource no longer exists and its kind was not reported.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "session_resource_not_found_error"`
+
+        - `"session_resource_not_found_error"`
+
+    - `BetaManagedAgentsWorkspaceArchivedRunError`
+
+      The deployment's workspace was archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "workspace_archived_error"`
+
+        - `"workspace_archived_error"`
+
+    - `BetaManagedAgentsOrganizationDisabledRunError`
+
+      The deployment's organization is disabled.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "organization_disabled_error"`
+
+        - `"organization_disabled_error"`
+
+    - `BetaManagedAgentsSessionRateLimitedRunError`
+
+      Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "session_rate_limited_error"`
+
+        - `"session_rate_limited_error"`
+
+    - `BetaManagedAgentsSessionCreationRejectedRunError`
+
+      The session create request was rejected with a non-retryable validation error.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "session_creation_rejected_error"`
+
+        - `"session_creation_rejected_error"`
+
+    - `BetaManagedAgentsUnknownRunError`
+
+      An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "unknown_error"`
+
+        - `"unknown_error"`
+
+    - `BetaManagedAgentsSelfHostedResourcesUnsupportedRunError`
+
+      The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "self_hosted_resources_unsupported_error"`
+
+        - `"self_hosted_resources_unsupported_error"`
+
+    - `BetaManagedAgentsMCPEgressBlockedRunError`
+
+      An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "mcp_egress_blocked_error"`
+
+        - `"mcp_egress_blocked_error"`
+
+  - `session_id: string | null`
+
+    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
+
+  - `trigger_context: BetaManagedAgentsTriggerContext`
+
+    Describes what triggered a deployment run, with trigger-specific metadata.
+
+    - `BetaManagedAgentsScheduleTriggerContext`
+
+      The run was fired by the deployment's cron schedule.
+
+      - `scheduled_at: string`
+
+        A timestamp in RFC 3339 format
+
+      - `type: "schedule"`
+
+        - `"schedule"`
+
+    - `BetaManagedAgentsManualTriggerContext`
+
+      The run was started manually by creating a session directly against the deployment.
+
+      - `type: "manual"`
+
+        - `"manual"`
+
+  - `type: "deployment_run"`
+
+    - `"deployment_run"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+// Automatically fetches more pages as needed.
+for await (const betaManagedAgentsDeploymentRun of client.beta.deploymentRuns.list()) {
+  console.log(betaManagedAgentsDeploymentRun.id);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "agent": {
+        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+        "type": "agent",
+        "version": 1
+      },
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "deployment_id": "deployment_id",
+      "error": {
+        "message": "message",
+        "type": "environment_archived_error"
+      },
+      "session_id": "session_id",
+      "trigger_context": {
+        "scheduled_at": "2019-12-27T18:11:19.117Z",
+        "type": "schedule"
+      },
+      "type": "deployment_run"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Get Deployment Run
+
+`client.beta.deploymentRuns.retrieve(stringdeploymentRunID, DeploymentRunRetrieveParamsparams?, RequestOptionsoptions?): BetaManagedAgentsDeploymentRun`
+
+**get** `/v1/deployment_runs/{deployment_run_id}`
+
+Get Deployment Run
+
+### Parameters
+
+- `deploymentRunID: string`
+
+- `params: DeploymentRunRetrieveParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsDeploymentRun`
+
+  A persistent, append-only record of a single deployment execution. Records session creation success or failure — no session lifecycle tracking.
+
+  - `id: string`
+
+    Unique identifier for this run (`drun_...`).
+
+  - `agent: BetaManagedAgentsAgentReference`
+
+    A resolved agent reference with a concrete version.
+
+    - `id: string`
+
+    - `type: "agent"`
+
+      - `"agent"`
+
+    - `version: number`
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `deployment_id: string`
+
+    ID of the deployment that produced this run.
+
+  - `error: BetaManagedAgentsEnvironmentArchivedRunError | BetaManagedAgentsAgentArchivedRunError | BetaManagedAgentsEnvironmentNotFoundRunError | 13 more | null`
+
+    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+
+    - `BetaManagedAgentsEnvironmentArchivedRunError`
+
+      The deployment's environment was archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "environment_archived_error"`
+
+        - `"environment_archived_error"`
+
+    - `BetaManagedAgentsAgentArchivedRunError`
+
+      The deployment's agent was archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "agent_archived_error"`
+
+        - `"agent_archived_error"`
+
+    - `BetaManagedAgentsEnvironmentNotFoundRunError`
+
+      The deployment's environment no longer exists.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "environment_not_found_error"`
+
+        - `"environment_not_found_error"`
+
+    - `BetaManagedAgentsVaultNotFoundRunError`
+
+      A vault referenced by the deployment no longer exists.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "vault_not_found_error"`
+
+        - `"vault_not_found_error"`
+
+    - `BetaManagedAgentsVaultArchivedRunError`
+
+      A vault referenced by the deployment is archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "vault_archived_error"`
+
+        - `"vault_archived_error"`
+
+    - `BetaManagedAgentsFileNotFoundRunError`
+
+      A file resource referenced by the deployment no longer exists.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "file_not_found_error"`
+
+        - `"file_not_found_error"`
+
+    - `BetaManagedAgentsMemoryStoreArchivedRunError`
+
+      A memory store referenced by the deployment is archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "memory_store_archived_error"`
+
+        - `"memory_store_archived_error"`
+
+    - `BetaManagedAgentsSkillNotFoundRunError`
+
+      A skill referenced by the deployment's agent no longer exists.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "skill_not_found_error"`
+
+        - `"skill_not_found_error"`
+
+    - `BetaManagedAgentsSessionResourceNotFoundRunError`
+
+      A referenced resource no longer exists and its kind was not reported.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "session_resource_not_found_error"`
+
+        - `"session_resource_not_found_error"`
+
+    - `BetaManagedAgentsWorkspaceArchivedRunError`
+
+      The deployment's workspace was archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "workspace_archived_error"`
+
+        - `"workspace_archived_error"`
+
+    - `BetaManagedAgentsOrganizationDisabledRunError`
+
+      The deployment's organization is disabled.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "organization_disabled_error"`
+
+        - `"organization_disabled_error"`
+
+    - `BetaManagedAgentsSessionRateLimitedRunError`
+
+      Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "session_rate_limited_error"`
+
+        - `"session_rate_limited_error"`
+
+    - `BetaManagedAgentsSessionCreationRejectedRunError`
+
+      The session create request was rejected with a non-retryable validation error.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "session_creation_rejected_error"`
+
+        - `"session_creation_rejected_error"`
+
+    - `BetaManagedAgentsUnknownRunError`
+
+      An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "unknown_error"`
+
+        - `"unknown_error"`
+
+    - `BetaManagedAgentsSelfHostedResourcesUnsupportedRunError`
+
+      The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "self_hosted_resources_unsupported_error"`
+
+        - `"self_hosted_resources_unsupported_error"`
+
+    - `BetaManagedAgentsMCPEgressBlockedRunError`
+
+      An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "mcp_egress_blocked_error"`
+
+        - `"mcp_egress_blocked_error"`
+
+  - `session_id: string | null`
+
+    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
+
+  - `trigger_context: BetaManagedAgentsTriggerContext`
+
+    Describes what triggered a deployment run, with trigger-specific metadata.
+
+    - `BetaManagedAgentsScheduleTriggerContext`
+
+      The run was fired by the deployment's cron schedule.
+
+      - `scheduled_at: string`
+
+        A timestamp in RFC 3339 format
+
+      - `type: "schedule"`
+
+        - `"schedule"`
+
+    - `BetaManagedAgentsManualTriggerContext`
+
+      The run was started manually by creating a session directly against the deployment.
+
+      - `type: "manual"`
+
+        - `"manual"`
+
+  - `type: "deployment_run"`
+
+    - `"deployment_run"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsDeploymentRun = await client.beta.deploymentRuns.retrieve(
+  'deployment_run_id',
+);
+
+console.log(betaManagedAgentsDeploymentRun.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "type": "agent",
+    "version": 1
+  },
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "deployment_id": "deployment_id",
+  "error": {
+    "message": "message",
+    "type": "environment_archived_error"
+  },
+  "session_id": "session_id",
+  "trigger_context": {
+    "scheduled_at": "2019-12-27T18:11:19.117Z",
+    "type": "schedule"
+  },
+  "type": "deployment_run"
+}
+```
+
+## Domain Types
+
+### Beta Managed Agents Agent Archived Run Error
+
+- `BetaManagedAgentsAgentArchivedRunError`
+
+  The deployment's agent was archived.
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `type: "agent_archived_error"`
+
+    - `"agent_archived_error"`
+
+### Beta Managed Agents Deployment Run
+
+- `BetaManagedAgentsDeploymentRun`
+
+  A persistent, append-only record of a single deployment execution. Records session creation success or failure — no session lifecycle tracking.
+
+  - `id: string`
+
+    Unique identifier for this run (`drun_...`).
+
+  - `agent: BetaManagedAgentsAgentReference`
+
+    A resolved agent reference with a concrete version.
+
+    - `id: string`
+
+    - `type: "agent"`
+
+      - `"agent"`
+
+    - `version: number`
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `deployment_id: string`
+
+    ID of the deployment that produced this run.
+
+  - `error: BetaManagedAgentsEnvironmentArchivedRunError | BetaManagedAgentsAgentArchivedRunError | BetaManagedAgentsEnvironmentNotFoundRunError | 13 more | null`
+
+    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+
+    - `BetaManagedAgentsEnvironmentArchivedRunError`
+
+      The deployment's environment was archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "environment_archived_error"`
+
+        - `"environment_archived_error"`
+
+    - `BetaManagedAgentsAgentArchivedRunError`
+
+      The deployment's agent was archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "agent_archived_error"`
+
+        - `"agent_archived_error"`
+
+    - `BetaManagedAgentsEnvironmentNotFoundRunError`
+
+      The deployment's environment no longer exists.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "environment_not_found_error"`
+
+        - `"environment_not_found_error"`
+
+    - `BetaManagedAgentsVaultNotFoundRunError`
+
+      A vault referenced by the deployment no longer exists.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "vault_not_found_error"`
+
+        - `"vault_not_found_error"`
+
+    - `BetaManagedAgentsVaultArchivedRunError`
+
+      A vault referenced by the deployment is archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "vault_archived_error"`
+
+        - `"vault_archived_error"`
+
+    - `BetaManagedAgentsFileNotFoundRunError`
+
+      A file resource referenced by the deployment no longer exists.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "file_not_found_error"`
+
+        - `"file_not_found_error"`
+
+    - `BetaManagedAgentsMemoryStoreArchivedRunError`
+
+      A memory store referenced by the deployment is archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "memory_store_archived_error"`
+
+        - `"memory_store_archived_error"`
+
+    - `BetaManagedAgentsSkillNotFoundRunError`
+
+      A skill referenced by the deployment's agent no longer exists.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "skill_not_found_error"`
+
+        - `"skill_not_found_error"`
+
+    - `BetaManagedAgentsSessionResourceNotFoundRunError`
+
+      A referenced resource no longer exists and its kind was not reported.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "session_resource_not_found_error"`
+
+        - `"session_resource_not_found_error"`
+
+    - `BetaManagedAgentsWorkspaceArchivedRunError`
+
+      The deployment's workspace was archived.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "workspace_archived_error"`
+
+        - `"workspace_archived_error"`
+
+    - `BetaManagedAgentsOrganizationDisabledRunError`
+
+      The deployment's organization is disabled.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "organization_disabled_error"`
+
+        - `"organization_disabled_error"`
+
+    - `BetaManagedAgentsSessionRateLimitedRunError`
+
+      Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "session_rate_limited_error"`
+
+        - `"session_rate_limited_error"`
+
+    - `BetaManagedAgentsSessionCreationRejectedRunError`
+
+      The session create request was rejected with a non-retryable validation error.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "session_creation_rejected_error"`
+
+        - `"session_creation_rejected_error"`
+
+    - `BetaManagedAgentsUnknownRunError`
+
+      An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "unknown_error"`
+
+        - `"unknown_error"`
+
+    - `BetaManagedAgentsSelfHostedResourcesUnsupportedRunError`
+
+      The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "self_hosted_resources_unsupported_error"`
+
+        - `"self_hosted_resources_unsupported_error"`
+
+    - `BetaManagedAgentsMCPEgressBlockedRunError`
+
+      An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+      - `message: string`
+
+        Human-readable error description.
+
+      - `type: "mcp_egress_blocked_error"`
+
+        - `"mcp_egress_blocked_error"`
+
+  - `session_id: string | null`
+
+    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
+
+  - `trigger_context: BetaManagedAgentsTriggerContext`
+
+    Describes what triggered a deployment run, with trigger-specific metadata.
+
+    - `BetaManagedAgentsScheduleTriggerContext`
+
+      The run was fired by the deployment's cron schedule.
+
+      - `scheduled_at: string`
+
+        A timestamp in RFC 3339 format
+
+      - `type: "schedule"`
+
+        - `"schedule"`
+
+    - `BetaManagedAgentsManualTriggerContext`
+
+      The run was started manually by creating a session directly against the deployment.
+
+      - `type: "manual"`
+
+        - `"manual"`
+
+  - `type: "deployment_run"`
+
+    - `"deployment_run"`
+
+### Beta Managed Agents Environment Archived Run Error
+
+- `BetaManagedAgentsEnvironmentArchivedRunError`
+
+  The deployment's environment was archived.
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `type: "environment_archived_error"`
+
+    - `"environment_archived_error"`
+
+### Beta Managed Agents Environment Not Found Run Error
+
+- `BetaManagedAgentsEnvironmentNotFoundRunError`
+
+  The deployment's environment no longer exists.
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `type: "environment_not_found_error"`
+
+    - `"environment_not_found_error"`
+
+### Beta Managed Agents File Not Found Run Error
+
+- `BetaManagedAgentsFileNotFoundRunError`
+
+  A file resource referenced by the deployment no longer exists.
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `type: "file_not_found_error"`
+
+    - `"file_not_found_error"`
+
+### Beta Managed Agents Manual Trigger Context
+
+- `BetaManagedAgentsManualTriggerContext`
+
+  The run was started manually by creating a session directly against the deployment.
+
+  - `type: "manual"`
+
+    - `"manual"`
+
+### Beta Managed Agents MCP Egress Blocked Run Error
+
+- `BetaManagedAgentsMCPEgressBlockedRunError`
+
+  An MCP server host used by the deployment's agent is blocked by the environment's network policy.
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `type: "mcp_egress_blocked_error"`
+
+    - `"mcp_egress_blocked_error"`
+
+### Beta Managed Agents Memory Store Archived Run Error
+
+- `BetaManagedAgentsMemoryStoreArchivedRunError`
+
+  A memory store referenced by the deployment is archived.
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `type: "memory_store_archived_error"`
+
+    - `"memory_store_archived_error"`
+
+### Beta Managed Agents Organization Disabled Run Error
+
+- `BetaManagedAgentsOrganizationDisabledRunError`
+
+  The deployment's organization is disabled.
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `type: "organization_disabled_error"`
+
+    - `"organization_disabled_error"`
+
+### Beta Managed Agents Schedule Trigger Context
+
+- `BetaManagedAgentsScheduleTriggerContext`
+
+  The run was fired by the deployment's cron schedule.
+
+  - `scheduled_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `type: "schedule"`
+
+    - `"schedule"`
+
+### Beta Managed Agents Self Hosted Resources Unsupported Run Error
+
+- `BetaManagedAgentsSelfHostedResourcesUnsupportedRunError`
+
+  The deployment configures resources, but its environment is self-hosted and cannot mount them.
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `type: "self_hosted_resources_unsupported_error"`
+
+    - `"self_hosted_resources_unsupported_error"`
+
+### Beta Managed Agents Session Creation Rejected Run Error
+
+- `BetaManagedAgentsSessionCreationRejectedRunError`
+
+  The session create request was rejected with a non-retryable validation error.
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `type: "session_creation_rejected_error"`
+
+    - `"session_creation_rejected_error"`
+
+### Beta Managed Agents Session Rate Limited Run Error
+
+- `BetaManagedAgentsSessionRateLimitedRunError`
+
+  Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `type: "session_rate_limited_error"`
+
+    - `"session_rate_limited_error"`
+
+### Beta Managed Agents Session Resource Not Found Run Error
+
+- `BetaManagedAgentsSessionResourceNotFoundRunError`
+
+  A referenced resource no longer exists and its kind was not reported.
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `type: "session_resource_not_found_error"`
+
+    - `"session_resource_not_found_error"`
+
+### Beta Managed Agents Skill Not Found Run Error
+
+- `BetaManagedAgentsSkillNotFoundRunError`
+
+  A skill referenced by the deployment's agent no longer exists.
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `type: "skill_not_found_error"`
+
+    - `"skill_not_found_error"`
+
+### Beta Managed Agents Trigger Context
+
+- `BetaManagedAgentsTriggerContext = BetaManagedAgentsScheduleTriggerContext | BetaManagedAgentsManualTriggerContext`
+
+  Describes what triggered a deployment run, with trigger-specific metadata.
+
+  - `BetaManagedAgentsScheduleTriggerContext`
+
+    The run was fired by the deployment's cron schedule.
+
+    - `scheduled_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "schedule"`
+
+      - `"schedule"`
+
+  - `BetaManagedAgentsManualTriggerContext`
+
+    The run was started manually by creating a session directly against the deployment.
+
+    - `type: "manual"`
+
+      - `"manual"`
+
+### Beta Managed Agents Trigger Type
+
+- `BetaManagedAgentsTriggerType = "schedule" | "manual"`
+
+  What triggered a deployment run.
+
+  - `"schedule"`
+
+  - `"manual"`
+
+### Beta Managed Agents Unknown Run Error
+
+- `BetaManagedAgentsUnknownRunError`
+
+  An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `type: "unknown_error"`
+
+    - `"unknown_error"`
+
+### Beta Managed Agents Vault Archived Run Error
+
+- `BetaManagedAgentsVaultArchivedRunError`
+
+  A vault referenced by the deployment is archived.
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `type: "vault_archived_error"`
+
+    - `"vault_archived_error"`
+
+### Beta Managed Agents Vault Not Found Run Error
+
+- `BetaManagedAgentsVaultNotFoundRunError`
+
+  A vault referenced by the deployment no longer exists.
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `type: "vault_not_found_error"`
+
+    - `"vault_not_found_error"`
+
+### Beta Managed Agents Workspace Archived Run Error
+
+- `BetaManagedAgentsWorkspaceArchivedRunError`
+
+  The deployment's workspace was archived.
+
+  - `message: string`
+
+    Human-readable error description.
+
+  - `type: "workspace_archived_error"`
+
+    - `"workspace_archived_error"`
+
+# Vaults
+
+## Create Vault
+
+`client.beta.vaults.create(VaultCreateParamsparams, RequestOptionsoptions?): BetaManagedAgentsVault`
+
+**post** `/v1/vaults`
+
+Create Vault
+
+### Parameters
+
+- `params: VaultCreateParams`
+
+  - `display_name: string`
+
+    Body param: Human-readable name for the vault. 1-255 characters.
+
+  - `metadata?: Record<string, string>`
+
+    Body param: Arbitrary key-value metadata to attach to the vault. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsVault`
+
+  A vault that stores credentials for use by agents during sessions.
+
+  - `id: string`
+
+    Unique identifier for the vault.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: string`
+
+    Human-readable name for the vault.
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata attached to the vault.
+
+  - `type: "vault"`
+
+    - `"vault"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsVault = await client.beta.vaults.create({ display_name: 'Example vault' });
+
+console.log(betaManagedAgentsVault.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "display_name": "Example vault",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
+```
+
+## List Vaults
+
+`client.beta.vaults.list(VaultListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsVault>`
+
+**get** `/v1/vaults`
+
+List Vaults
+
+### Parameters
+
+- `params: VaultListParams`
+
+  - `include_archived?: boolean`
+
+    Query param: Whether to include archived vaults in the results.
+
+  - `limit?: number`
+
+    Query param: Maximum number of vaults to return per page. Defaults to 20, maximum 100.
+
+  - `page?: string`
+
+    Query param: Opaque pagination token from a previous `list_vaults` response.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsVault`
+
+  A vault that stores credentials for use by agents during sessions.
+
+  - `id: string`
+
+    Unique identifier for the vault.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: string`
+
+    Human-readable name for the vault.
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata attached to the vault.
+
+  - `type: "vault"`
+
+    - `"vault"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+// Automatically fetches more pages as needed.
+for await (const betaManagedAgentsVault of client.beta.vaults.list()) {
+  console.log(betaManagedAgentsVault.id);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "display_name": "Example vault",
+      "metadata": {
+        "environment": "production"
+      },
+      "type": "vault",
+      "updated_at": "2026-03-15T10:00:00Z"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get Vault
+
+`client.beta.vaults.retrieve(stringvaultID, VaultRetrieveParamsparams?, RequestOptionsoptions?): BetaManagedAgentsVault`
+
+**get** `/v1/vaults/{vault_id}`
+
+Get Vault
+
+### Parameters
+
+- `vaultID: string`
+
+- `params: VaultRetrieveParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsVault`
+
+  A vault that stores credentials for use by agents during sessions.
+
+  - `id: string`
+
+    Unique identifier for the vault.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: string`
+
+    Human-readable name for the vault.
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata attached to the vault.
+
+  - `type: "vault"`
+
+    - `"vault"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsVault = await client.beta.vaults.retrieve('vlt_011CZkZDLs7fYzm1hXNPeRjv');
+
+console.log(betaManagedAgentsVault.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "display_name": "Example vault",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
+```
+
+## Update Vault
+
+`client.beta.vaults.update(stringvaultID, VaultUpdateParamsparams, RequestOptionsoptions?): BetaManagedAgentsVault`
+
+**post** `/v1/vaults/{vault_id}`
+
+Update Vault
+
+### Parameters
+
+- `vaultID: string`
+
+- `params: VaultUpdateParams`
+
+  - `display_name?: string | null`
+
+    Body param: Updated human-readable name for the vault. 1-255 characters.
+
+  - `metadata?: Record<string, string | null> | null`
+
+    Body param: Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsVault`
+
+  A vault that stores credentials for use by agents during sessions.
+
+  - `id: string`
+
+    Unique identifier for the vault.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: string`
+
+    Human-readable name for the vault.
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata attached to the vault.
+
+  - `type: "vault"`
+
+    - `"vault"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsVault = await client.beta.vaults.update('vlt_011CZkZDLs7fYzm1hXNPeRjv');
+
+console.log(betaManagedAgentsVault.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "display_name": "Example vault",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
+```
+
+## Delete Vault
+
+`client.beta.vaults.delete(stringvaultID, VaultDeleteParamsparams?, RequestOptionsoptions?): BetaManagedAgentsDeletedVault`
+
+**delete** `/v1/vaults/{vault_id}`
+
+Delete Vault
+
+### Parameters
+
+- `vaultID: string`
+
+- `params: VaultDeleteParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsDeletedVault`
+
+  Confirmation of a deleted vault.
+
+  - `id: string`
+
+    Unique identifier of the deleted vault.
+
+  - `type: "vault_deleted"`
+
+    - `"vault_deleted"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsDeletedVault = await client.beta.vaults.delete(
+  'vlt_011CZkZDLs7fYzm1hXNPeRjv',
+);
+
+console.log(betaManagedAgentsDeletedVault.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "type": "vault_deleted"
+}
+```
+
+## Archive Vault
+
+`client.beta.vaults.archive(stringvaultID, VaultArchiveParamsparams?, RequestOptionsoptions?): BetaManagedAgentsVault`
+
+**post** `/v1/vaults/{vault_id}/archive`
+
+Archive Vault
+
+### Parameters
+
+- `vaultID: string`
+
+- `params: VaultArchiveParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsVault`
+
+  A vault that stores credentials for use by agents during sessions.
+
+  - `id: string`
+
+    Unique identifier for the vault.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: string`
+
+    Human-readable name for the vault.
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata attached to the vault.
+
+  - `type: "vault"`
+
+    - `"vault"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsVault = await client.beta.vaults.archive('vlt_011CZkZDLs7fYzm1hXNPeRjv');
+
+console.log(betaManagedAgentsVault.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "display_name": "Example vault",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
+```
+
+## Domain Types
+
+### Beta Managed Agents Deleted Vault
+
+- `BetaManagedAgentsDeletedVault`
+
+  Confirmation of a deleted vault.
+
+  - `id: string`
+
+    Unique identifier of the deleted vault.
+
+  - `type: "vault_deleted"`
+
+    - `"vault_deleted"`
+
+### Beta Managed Agents Vault
+
+- `BetaManagedAgentsVault`
+
+  A vault that stores credentials for use by agents during sessions.
+
+  - `id: string`
+
+    Unique identifier for the vault.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: string`
+
+    Human-readable name for the vault.
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata attached to the vault.
+
+  - `type: "vault"`
+
+    - `"vault"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+# Credentials
+
+## Create Credential
+
+`client.beta.vaults.credentials.create(stringvaultID, CredentialCreateParamsparams, RequestOptionsoptions?): BetaManagedAgentsCredential`
+
+**post** `/v1/vaults/{vault_id}/credentials`
+
+Create Credential
+
+### Parameters
+
+- `vaultID: string`
+
+- `params: CredentialCreateParams`
+
+  - `auth: BetaManagedAgentsMCPOAuthCreateParams | BetaManagedAgentsStaticBearerCreateParams | BetaManagedAgentsEnvironmentVariableCreateParams`
+
+    Body param: Authentication details for creating a credential.
+
+    - `BetaManagedAgentsMCPOAuthCreateParams`
+
+      Parameters for creating an MCP OAuth credential.
+
+      - `access_token: string`
+
+        OAuth access token.
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `type: "mcp_oauth"`
+
+        - `"mcp_oauth"`
+
+      - `expires_at?: string | null`
+
+        A timestamp in RFC 3339 format
+
+      - `refresh?: BetaManagedAgentsMCPOAuthRefreshParams | null`
+
+        OAuth refresh token parameters for creating a credential with refresh support.
+
+        - `client_id: string`
+
+          OAuth client ID.
+
+        - `refresh_token: string`
+
+          OAuth refresh token.
+
+        - `token_endpoint: string`
+
+          Token endpoint URL used to refresh the access token.
+
+        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneParam | BetaManagedAgentsTokenEndpointAuthBasicParam | BetaManagedAgentsTokenEndpointAuthPostParam`
+
+          Token endpoint requires no client authentication.
+
+          - `BetaManagedAgentsTokenEndpointAuthNoneParam`
+
+            Token endpoint requires no client authentication.
+
+            - `type: "none"`
+
+              - `"none"`
+
+          - `BetaManagedAgentsTokenEndpointAuthBasicParam`
+
+            Token endpoint uses HTTP Basic authentication with client credentials.
+
+            - `client_secret: string`
+
+              OAuth client secret.
+
+            - `type: "client_secret_basic"`
+
+              - `"client_secret_basic"`
+
+          - `BetaManagedAgentsTokenEndpointAuthPostParam`
+
+            Token endpoint uses POST body authentication with client credentials.
+
+            - `client_secret: string`
+
+              OAuth client secret.
+
+            - `type: "client_secret_post"`
+
+              - `"client_secret_post"`
+
+        - `resource?: string | null`
+
+          OAuth resource indicator.
+
+        - `scope?: string | null`
+
+          OAuth scope for the refresh request.
+
+    - `BetaManagedAgentsStaticBearerCreateParams`
+
+      Parameters for creating a static bearer token credential.
+
+      - `token: string`
+
+        Static bearer token value.
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `type: "static_bearer"`
+
+        - `"static_bearer"`
+
+    - `BetaManagedAgentsEnvironmentVariableCreateParams`
+
+      Parameters for creating an environment variable credential.
+
+      - `networking: BetaManagedAgentsCredentialNetworkingParams`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
+
+          Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
+
+          - `type: "unrestricted"`
+
+            - `"unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingParams`
+
+          Substitute the secret only on requests to the listed hosts.
+
+          - `allowed_hosts: Array<string>`
+
+            Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+          - `type: "limited"`
+
+            - `"limited"`
+
+      - `secret_name: string`
+
+        Name of the environment variable. Immutable after create.
+
+      - `secret_value: string`
+
+        Secret value. Write-only; never returned in responses.
+
+      - `type: "environment_variable"`
+
+        - `"environment_variable"`
+
+      - `injection_location?: BetaManagedAgentsInjectionLocationParams`
+
+        Where in the outbound request the secret value may be substituted.
+
+        - `body?: boolean`
+
+          Substitute when the placeholder appears in the request body.
+
+        - `header?: boolean`
+
+          Substitute when the placeholder appears in a request header value.
+
+  - `display_name?: string | null`
+
+    Body param: Human-readable name for the credential. Up to 255 characters.
+
+  - `metadata?: Record<string, string>`
+
+    Body param: Arbitrary key-value metadata to attach to the credential. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsCredential`
+
+  A credential stored in a vault. Sensitive fields are never returned in responses.
+
+  - `id: string`
+
+    Unique identifier for the credential.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+    Authentication details for a credential.
+
+    - `BetaManagedAgentsMCPOAuthAuthResponse`
+
+      OAuth credential details for an MCP server.
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `type: "mcp_oauth"`
+
+        - `"mcp_oauth"`
+
+      - `expires_at?: string | null`
+
+        A timestamp in RFC 3339 format
+
+      - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
+
+        OAuth refresh token configuration returned in credential responses.
+
+        - `client_id: string`
+
+          OAuth client ID.
+
+        - `token_endpoint: string`
+
+          Token endpoint URL used to refresh the access token.
+
+        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+          Token endpoint requires no client authentication.
+
+          - `BetaManagedAgentsTokenEndpointAuthNoneResponse`
+
+            Token endpoint requires no client authentication.
+
+            - `type: "none"`
+
+              - `"none"`
+
+          - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
+
+            Token endpoint uses HTTP Basic authentication with client credentials.
+
+            - `type: "client_secret_basic"`
+
+              - `"client_secret_basic"`
+
+          - `BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+            Token endpoint uses POST body authentication with client credentials.
+
+            - `type: "client_secret_post"`
+
+              - `"client_secret_post"`
+
+        - `resource?: string | null`
+
+          OAuth resource indicator.
+
+        - `scope?: string | null`
+
+          OAuth scope for the refresh request.
+
+    - `BetaManagedAgentsStaticBearerAuthResponse`
+
+      Static bearer token credential details for an MCP server.
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `type: "static_bearer"`
+
+        - `"static_bearer"`
+
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+            - `"unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `allowed_hosts: Array<string>`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `type: "limited"`
+
+            - `"limited"`
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+      - `type: "environment_variable"`
+
+        - `"environment_variable"`
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata attached to the credential.
+
+  - `type: "vault_credential"`
+
+    - `"vault_credential"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `vault_id: string`
+
+    Identifier of the vault this credential belongs to.
+
+  - `display_name?: string | null`
+
+    Human-readable name for the credential.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsCredential = await client.beta.vaults.credentials.create(
+  'vlt_011CZkZDLs7fYzm1hXNPeRjv',
+  {
+    auth: {
+      token: 'bearer_exampletoken',
+      mcp_server_url: 'https://example-server.modelcontextprotocol.io/sse',
+      type: 'static_bearer',
+    },
+  },
+);
+
+console.log(betaManagedAgentsCredential.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+## List Credentials
+
+`client.beta.vaults.credentials.list(stringvaultID, CredentialListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsCredential>`
+
+**get** `/v1/vaults/{vault_id}/credentials`
+
+List Credentials
+
+### Parameters
+
+- `vaultID: string`
+
+- `params: CredentialListParams`
+
+  - `include_archived?: boolean`
+
+    Query param: Whether to include archived credentials in the results.
+
+  - `limit?: number`
+
+    Query param: Maximum number of credentials to return per page. Defaults to 20, maximum 100.
+
+  - `page?: string`
+
+    Query param: Opaque pagination token from a previous `list_credentials` response.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsCredential`
+
+  A credential stored in a vault. Sensitive fields are never returned in responses.
+
+  - `id: string`
+
+    Unique identifier for the credential.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+    Authentication details for a credential.
+
+    - `BetaManagedAgentsMCPOAuthAuthResponse`
+
+      OAuth credential details for an MCP server.
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `type: "mcp_oauth"`
+
+        - `"mcp_oauth"`
+
+      - `expires_at?: string | null`
+
+        A timestamp in RFC 3339 format
+
+      - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
+
+        OAuth refresh token configuration returned in credential responses.
+
+        - `client_id: string`
+
+          OAuth client ID.
+
+        - `token_endpoint: string`
+
+          Token endpoint URL used to refresh the access token.
+
+        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+          Token endpoint requires no client authentication.
+
+          - `BetaManagedAgentsTokenEndpointAuthNoneResponse`
+
+            Token endpoint requires no client authentication.
+
+            - `type: "none"`
+
+              - `"none"`
+
+          - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
+
+            Token endpoint uses HTTP Basic authentication with client credentials.
+
+            - `type: "client_secret_basic"`
+
+              - `"client_secret_basic"`
+
+          - `BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+            Token endpoint uses POST body authentication with client credentials.
+
+            - `type: "client_secret_post"`
+
+              - `"client_secret_post"`
+
+        - `resource?: string | null`
+
+          OAuth resource indicator.
+
+        - `scope?: string | null`
+
+          OAuth scope for the refresh request.
+
+    - `BetaManagedAgentsStaticBearerAuthResponse`
+
+      Static bearer token credential details for an MCP server.
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `type: "static_bearer"`
+
+        - `"static_bearer"`
+
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+            - `"unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `allowed_hosts: Array<string>`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `type: "limited"`
+
+            - `"limited"`
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+      - `type: "environment_variable"`
+
+        - `"environment_variable"`
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata attached to the credential.
+
+  - `type: "vault_credential"`
+
+    - `"vault_credential"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `vault_id: string`
+
+    Identifier of the vault this credential belongs to.
+
+  - `display_name?: string | null`
+
+    Human-readable name for the credential.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+// Automatically fetches more pages as needed.
+for await (const betaManagedAgentsCredential of client.beta.vaults.credentials.list(
+  'vlt_011CZkZDLs7fYzm1hXNPeRjv',
+)) {
+  console.log(betaManagedAgentsCredential.id);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+      "archived_at": null,
+      "auth": {
+        "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+        "type": "static_bearer"
+      },
+      "created_at": "2026-03-15T10:00:00Z",
+      "metadata": {
+        "environment": "production"
+      },
+      "type": "vault_credential",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+      "display_name": "Example credential"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get Credential
+
+`client.beta.vaults.credentials.retrieve(stringcredentialID, CredentialRetrieveParamsparams, RequestOptionsoptions?): BetaManagedAgentsCredential`
+
+**get** `/v1/vaults/{vault_id}/credentials/{credential_id}`
+
+Get Credential
+
+### Parameters
+
+- `credentialID: string`
+
+- `params: CredentialRetrieveParams`
+
+  - `vault_id: string`
+
+    Path param: Path parameter vault_id
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsCredential`
+
+  A credential stored in a vault. Sensitive fields are never returned in responses.
+
+  - `id: string`
+
+    Unique identifier for the credential.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+    Authentication details for a credential.
+
+    - `BetaManagedAgentsMCPOAuthAuthResponse`
+
+      OAuth credential details for an MCP server.
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `type: "mcp_oauth"`
+
+        - `"mcp_oauth"`
+
+      - `expires_at?: string | null`
+
+        A timestamp in RFC 3339 format
+
+      - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
+
+        OAuth refresh token configuration returned in credential responses.
+
+        - `client_id: string`
+
+          OAuth client ID.
+
+        - `token_endpoint: string`
+
+          Token endpoint URL used to refresh the access token.
+
+        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+          Token endpoint requires no client authentication.
+
+          - `BetaManagedAgentsTokenEndpointAuthNoneResponse`
+
+            Token endpoint requires no client authentication.
+
+            - `type: "none"`
+
+              - `"none"`
+
+          - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
+
+            Token endpoint uses HTTP Basic authentication with client credentials.
+
+            - `type: "client_secret_basic"`
+
+              - `"client_secret_basic"`
+
+          - `BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+            Token endpoint uses POST body authentication with client credentials.
+
+            - `type: "client_secret_post"`
+
+              - `"client_secret_post"`
+
+        - `resource?: string | null`
+
+          OAuth resource indicator.
+
+        - `scope?: string | null`
+
+          OAuth scope for the refresh request.
+
+    - `BetaManagedAgentsStaticBearerAuthResponse`
+
+      Static bearer token credential details for an MCP server.
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `type: "static_bearer"`
+
+        - `"static_bearer"`
+
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+            - `"unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `allowed_hosts: Array<string>`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `type: "limited"`
+
+            - `"limited"`
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+      - `type: "environment_variable"`
+
+        - `"environment_variable"`
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata attached to the credential.
+
+  - `type: "vault_credential"`
+
+    - `"vault_credential"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `vault_id: string`
+
+    Identifier of the vault this credential belongs to.
+
+  - `display_name?: string | null`
+
+    Human-readable name for the credential.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsCredential = await client.beta.vaults.credentials.retrieve(
+  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
+  { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+);
+
+console.log(betaManagedAgentsCredential.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+## Update Credential
+
+`client.beta.vaults.credentials.update(stringcredentialID, CredentialUpdateParamsparams, RequestOptionsoptions?): BetaManagedAgentsCredential`
+
+**post** `/v1/vaults/{vault_id}/credentials/{credential_id}`
+
+Update Credential
+
+### Parameters
+
+- `credentialID: string`
+
+- `params: CredentialUpdateParams`
+
+  - `vault_id: string`
+
+    Path param: Path parameter vault_id
+
+  - `auth?: BetaManagedAgentsMCPOAuthUpdateParams | BetaManagedAgentsStaticBearerUpdateParams | BetaManagedAgentsEnvironmentVariableUpdateParams`
+
+    Body param: Updated authentication details for a credential.
+
+    - `BetaManagedAgentsMCPOAuthUpdateParams`
+
+      Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
+
+      - `type: "mcp_oauth"`
+
+        - `"mcp_oauth"`
+
+      - `access_token?: string | null`
+
+        Updated OAuth access token.
+
+      - `expires_at?: string | null`
+
+        A timestamp in RFC 3339 format
+
+      - `refresh?: BetaManagedAgentsMCPOAuthRefreshUpdateParams | null`
+
+        Parameters for updating OAuth refresh token configuration.
+
+        - `refresh_token?: string | null`
+
+          Updated OAuth refresh token.
+
+        - `scope?: string | null`
+
+          Updated OAuth scope for the refresh request.
+
+        - `token_endpoint_auth?: BetaManagedAgentsTokenEndpointAuthBasicUpdateParam | BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
+
+          Updated HTTP Basic authentication parameters for the token endpoint.
+
+          - `BetaManagedAgentsTokenEndpointAuthBasicUpdateParam`
+
+            Updated HTTP Basic authentication parameters for the token endpoint.
+
+            - `type: "client_secret_basic"`
+
+              - `"client_secret_basic"`
+
+            - `client_secret?: string | null`
+
+              Updated OAuth client secret.
+
+          - `BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
+
+            Updated POST body authentication parameters for the token endpoint.
+
+            - `type: "client_secret_post"`
+
+              - `"client_secret_post"`
+
+            - `client_secret?: string | null`
+
+              Updated OAuth client secret.
+
+    - `BetaManagedAgentsStaticBearerUpdateParams`
+
+      Parameters for updating a static bearer token credential. The `mcp_server_url` is immutable.
+
+      - `type: "static_bearer"`
+
+        - `"static_bearer"`
+
+      - `token?: string | null`
+
+        Updated static bearer token value.
+
+    - `BetaManagedAgentsEnvironmentVariableUpdateParams`
+
+      Parameters for updating an environment variable credential. `secret_name` is immutable.
+
+      - `type: "environment_variable"`
+
+        - `"environment_variable"`
+
+      - `injection_location?: BetaManagedAgentsInjectionLocationUpdateParams`
+
+        Updated injection location.
+
+        - `body?: boolean`
+
+          Substitute when the placeholder appears in the request body.
+
+        - `header?: boolean`
+
+          Substitute when the placeholder appears in a request header value.
+
+      - `networking?: BetaManagedAgentsCredentialNetworkingParams | null`
+
+        Updated networking scope. Full replacement.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
+
+          Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
+
+          - `type: "unrestricted"`
+
+            - `"unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingParams`
+
+          Substitute the secret only on requests to the listed hosts.
+
+          - `allowed_hosts: Array<string>`
+
+            Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+          - `type: "limited"`
+
+            - `"limited"`
+
+      - `secret_value?: string | null`
+
+        Updated secret value.
+
+  - `display_name?: string | null`
+
+    Body param: Updated human-readable name for the credential. 1-255 characters.
+
+  - `metadata?: Record<string, string | null> | null`
+
+    Body param: Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsCredential`
+
+  A credential stored in a vault. Sensitive fields are never returned in responses.
+
+  - `id: string`
+
+    Unique identifier for the credential.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+    Authentication details for a credential.
+
+    - `BetaManagedAgentsMCPOAuthAuthResponse`
+
+      OAuth credential details for an MCP server.
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `type: "mcp_oauth"`
+
+        - `"mcp_oauth"`
+
+      - `expires_at?: string | null`
+
+        A timestamp in RFC 3339 format
+
+      - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
+
+        OAuth refresh token configuration returned in credential responses.
+
+        - `client_id: string`
+
+          OAuth client ID.
+
+        - `token_endpoint: string`
+
+          Token endpoint URL used to refresh the access token.
+
+        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+          Token endpoint requires no client authentication.
+
+          - `BetaManagedAgentsTokenEndpointAuthNoneResponse`
+
+            Token endpoint requires no client authentication.
+
+            - `type: "none"`
+
+              - `"none"`
+
+          - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
+
+            Token endpoint uses HTTP Basic authentication with client credentials.
+
+            - `type: "client_secret_basic"`
+
+              - `"client_secret_basic"`
+
+          - `BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+            Token endpoint uses POST body authentication with client credentials.
+
+            - `type: "client_secret_post"`
+
+              - `"client_secret_post"`
+
+        - `resource?: string | null`
+
+          OAuth resource indicator.
+
+        - `scope?: string | null`
+
+          OAuth scope for the refresh request.
+
+    - `BetaManagedAgentsStaticBearerAuthResponse`
+
+      Static bearer token credential details for an MCP server.
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `type: "static_bearer"`
+
+        - `"static_bearer"`
+
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+            - `"unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `allowed_hosts: Array<string>`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `type: "limited"`
+
+            - `"limited"`
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+      - `type: "environment_variable"`
+
+        - `"environment_variable"`
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata attached to the credential.
+
+  - `type: "vault_credential"`
+
+    - `"vault_credential"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `vault_id: string`
+
+    Identifier of the vault this credential belongs to.
+
+  - `display_name?: string | null`
+
+    Human-readable name for the credential.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsCredential = await client.beta.vaults.credentials.update(
+  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
+  { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+);
+
+console.log(betaManagedAgentsCredential.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+## Delete Credential
+
+`client.beta.vaults.credentials.delete(stringcredentialID, CredentialDeleteParamsparams, RequestOptionsoptions?): BetaManagedAgentsDeletedCredential`
+
+**delete** `/v1/vaults/{vault_id}/credentials/{credential_id}`
+
+Delete Credential
+
+### Parameters
+
+- `credentialID: string`
+
+- `params: CredentialDeleteParams`
+
+  - `vault_id: string`
+
+    Path param: Path parameter vault_id
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsDeletedCredential`
+
+  Confirmation of a deleted credential.
+
+  - `id: string`
+
+    Unique identifier of the deleted credential.
+
+  - `type: "vault_credential_deleted"`
+
+    - `"vault_credential_deleted"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsDeletedCredential = await client.beta.vaults.credentials.delete(
+  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
+  { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+);
+
+console.log(betaManagedAgentsDeletedCredential.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "type": "vault_credential_deleted"
+}
+```
+
+## Archive Credential
+
+`client.beta.vaults.credentials.archive(stringcredentialID, CredentialArchiveParamsparams, RequestOptionsoptions?): BetaManagedAgentsCredential`
+
+**post** `/v1/vaults/{vault_id}/credentials/{credential_id}/archive`
+
+Archive Credential
+
+### Parameters
+
+- `credentialID: string`
+
+- `params: CredentialArchiveParams`
+
+  - `vault_id: string`
+
+    Path param: Path parameter vault_id
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsCredential`
+
+  A credential stored in a vault. Sensitive fields are never returned in responses.
+
+  - `id: string`
+
+    Unique identifier for the credential.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+    Authentication details for a credential.
+
+    - `BetaManagedAgentsMCPOAuthAuthResponse`
+
+      OAuth credential details for an MCP server.
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `type: "mcp_oauth"`
+
+        - `"mcp_oauth"`
+
+      - `expires_at?: string | null`
+
+        A timestamp in RFC 3339 format
+
+      - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
+
+        OAuth refresh token configuration returned in credential responses.
+
+        - `client_id: string`
+
+          OAuth client ID.
+
+        - `token_endpoint: string`
+
+          Token endpoint URL used to refresh the access token.
+
+        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+          Token endpoint requires no client authentication.
+
+          - `BetaManagedAgentsTokenEndpointAuthNoneResponse`
+
+            Token endpoint requires no client authentication.
+
+            - `type: "none"`
+
+              - `"none"`
+
+          - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
+
+            Token endpoint uses HTTP Basic authentication with client credentials.
+
+            - `type: "client_secret_basic"`
+
+              - `"client_secret_basic"`
+
+          - `BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+            Token endpoint uses POST body authentication with client credentials.
+
+            - `type: "client_secret_post"`
+
+              - `"client_secret_post"`
+
+        - `resource?: string | null`
+
+          OAuth resource indicator.
+
+        - `scope?: string | null`
+
+          OAuth scope for the refresh request.
+
+    - `BetaManagedAgentsStaticBearerAuthResponse`
+
+      Static bearer token credential details for an MCP server.
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `type: "static_bearer"`
+
+        - `"static_bearer"`
+
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+            - `"unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `allowed_hosts: Array<string>`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `type: "limited"`
+
+            - `"limited"`
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+      - `type: "environment_variable"`
+
+        - `"environment_variable"`
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata attached to the credential.
+
+  - `type: "vault_credential"`
+
+    - `"vault_credential"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `vault_id: string`
+
+    Identifier of the vault this credential belongs to.
+
+  - `display_name?: string | null`
+
+    Human-readable name for the credential.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsCredential = await client.beta.vaults.credentials.archive(
+  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
+  { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+);
+
+console.log(betaManagedAgentsCredential.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+## Validate Credential
+
+`client.beta.vaults.credentials.mcpOAuthValidate(stringcredentialID, CredentialMCPOAuthValidateParamsparams, RequestOptionsoptions?): BetaManagedAgentsCredentialValidation`
+
+**post** `/v1/vaults/{vault_id}/credentials/{credential_id}/mcp_oauth_validate`
+
+Validate Credential
+
+### Parameters
+
+- `credentialID: string`
+
+- `params: CredentialMCPOAuthValidateParams`
+
+  - `vault_id: string`
+
+    Path param: Path parameter vault_id
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsCredentialValidation`
+
+  Result of live-probing a credential against its configured MCP server.
+
+  - `credential_id: string`
+
+    Unique identifier of the credential that was validated.
+
+  - `has_refresh_token: boolean`
+
+    Whether the credential has a refresh token configured.
+
+  - `mcp_probe: BetaManagedAgentsMCPProbe | null`
+
+    The failing step of an MCP validation probe.
+
+    - `http_response: BetaManagedAgentsRefreshHTTPResponse | null`
+
+      An HTTP response captured during a credential validation probe.
+
+      - `body: string`
+
+        Response body. May be truncated and has sensitive values scrubbed.
+
+      - `body_truncated: boolean`
+
+        Whether `body` was truncated.
+
+      - `content_type: string`
+
+        Value of the `Content-Type` response header.
+
+      - `status_code: number`
+
+        HTTP status code.
+
+    - `method: string`
+
+      The MCP method that failed (for example `initialize` or `tools/list`).
+
+  - `refresh: BetaManagedAgentsRefreshObject | null`
+
+    Outcome of a refresh-token exchange attempted during credential validation.
+
+    - `http_response: BetaManagedAgentsRefreshHTTPResponse | null`
+
+      An HTTP response captured during a credential validation probe.
+
+    - `status: "succeeded" | "failed" | "connect_error" | "no_refresh_token"`
+
+      Outcome of a refresh-token exchange attempted during credential validation.
+
+      - `"succeeded"`
+
+      - `"failed"`
+
+      - `"connect_error"`
+
+      - `"no_refresh_token"`
+
+  - `status: BetaManagedAgentsCredentialValidationStatus`
+
+    Overall verdict of a credential validation probe.
+
+    - `"valid"`
+
+    - `"invalid"`
+
+    - `"unknown"`
+
+  - `type: "vault_credential_validation"`
+
+    - `"vault_credential_validation"`
+
+  - `validated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `vault_id: string`
+
+    Identifier of the vault containing the credential.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsCredentialValidation = await client.beta.vaults.credentials.mcpOAuthValidate(
+  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
+  { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+);
+
+console.log(betaManagedAgentsCredentialValidation.credential_id);
+```
+
+#### Response
+
+```json
+{
+  "credential_id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "has_refresh_token": true,
+  "mcp_probe": {
+    "http_response": {
+      "body": "body",
+      "body_truncated": true,
+      "content_type": "content_type",
+      "status_code": 0
+    },
+    "method": "method"
+  },
+  "refresh": {
+    "http_response": {
+      "body": "body",
+      "body_truncated": true,
+      "content_type": "content_type",
+      "status_code": 0
+    },
+    "status": "succeeded"
+  },
+  "status": "valid",
+  "type": "vault_credential_validation",
+  "validated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+}
+```
+
+## Domain Types
+
+### Beta Managed Agents Credential
+
+- `BetaManagedAgentsCredential`
+
+  A credential stored in a vault. Sensitive fields are never returned in responses.
+
+  - `id: string`
+
+    Unique identifier for the credential.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+    Authentication details for a credential.
+
+    - `BetaManagedAgentsMCPOAuthAuthResponse`
+
+      OAuth credential details for an MCP server.
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `type: "mcp_oauth"`
+
+        - `"mcp_oauth"`
+
+      - `expires_at?: string | null`
+
+        A timestamp in RFC 3339 format
+
+      - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
+
+        OAuth refresh token configuration returned in credential responses.
+
+        - `client_id: string`
+
+          OAuth client ID.
+
+        - `token_endpoint: string`
+
+          Token endpoint URL used to refresh the access token.
+
+        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+          Token endpoint requires no client authentication.
+
+          - `BetaManagedAgentsTokenEndpointAuthNoneResponse`
+
+            Token endpoint requires no client authentication.
+
+            - `type: "none"`
+
+              - `"none"`
+
+          - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
+
+            Token endpoint uses HTTP Basic authentication with client credentials.
+
+            - `type: "client_secret_basic"`
+
+              - `"client_secret_basic"`
+
+          - `BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+            Token endpoint uses POST body authentication with client credentials.
+
+            - `type: "client_secret_post"`
+
+              - `"client_secret_post"`
+
+        - `resource?: string | null`
+
+          OAuth resource indicator.
+
+        - `scope?: string | null`
+
+          OAuth scope for the refresh request.
+
+    - `BetaManagedAgentsStaticBearerAuthResponse`
+
+      Static bearer token credential details for an MCP server.
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `type: "static_bearer"`
+
+        - `"static_bearer"`
+
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+            - `"unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `allowed_hosts: Array<string>`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `type: "limited"`
+
+            - `"limited"`
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+      - `type: "environment_variable"`
+
+        - `"environment_variable"`
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata attached to the credential.
+
+  - `type: "vault_credential"`
+
+    - `"vault_credential"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `vault_id: string`
+
+    Identifier of the vault this credential belongs to.
+
+  - `display_name?: string | null`
+
+    Human-readable name for the credential.
+
+### Beta Managed Agents Credential Networking Params
+
+- `BetaManagedAgentsCredentialNetworkingParams = BetaManagedAgentsUnrestrictedCredentialNetworkingParams | BetaManagedAgentsLimitedCredentialNetworkingParams`
+
+  Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
+
+  - `BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
+
+    Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
+
+    - `type: "unrestricted"`
+
+      - `"unrestricted"`
+
+  - `BetaManagedAgentsLimitedCredentialNetworkingParams`
+
+    Substitute the secret only on requests to the listed hosts.
+
+    - `allowed_hosts: Array<string>`
+
+      Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+    - `type: "limited"`
+
+      - `"limited"`
+
+### Beta Managed Agents Credential Validation
+
+- `BetaManagedAgentsCredentialValidation`
+
+  Result of live-probing a credential against its configured MCP server.
+
+  - `credential_id: string`
+
+    Unique identifier of the credential that was validated.
+
+  - `has_refresh_token: boolean`
+
+    Whether the credential has a refresh token configured.
+
+  - `mcp_probe: BetaManagedAgentsMCPProbe | null`
+
+    The failing step of an MCP validation probe.
+
+    - `http_response: BetaManagedAgentsRefreshHTTPResponse | null`
+
+      An HTTP response captured during a credential validation probe.
+
+      - `body: string`
+
+        Response body. May be truncated and has sensitive values scrubbed.
+
+      - `body_truncated: boolean`
+
+        Whether `body` was truncated.
+
+      - `content_type: string`
+
+        Value of the `Content-Type` response header.
+
+      - `status_code: number`
+
+        HTTP status code.
+
+    - `method: string`
+
+      The MCP method that failed (for example `initialize` or `tools/list`).
+
+  - `refresh: BetaManagedAgentsRefreshObject | null`
+
+    Outcome of a refresh-token exchange attempted during credential validation.
+
+    - `http_response: BetaManagedAgentsRefreshHTTPResponse | null`
+
+      An HTTP response captured during a credential validation probe.
+
+    - `status: "succeeded" | "failed" | "connect_error" | "no_refresh_token"`
+
+      Outcome of a refresh-token exchange attempted during credential validation.
+
+      - `"succeeded"`
+
+      - `"failed"`
+
+      - `"connect_error"`
+
+      - `"no_refresh_token"`
+
+  - `status: BetaManagedAgentsCredentialValidationStatus`
+
+    Overall verdict of a credential validation probe.
+
+    - `"valid"`
+
+    - `"invalid"`
+
+    - `"unknown"`
+
+  - `type: "vault_credential_validation"`
+
+    - `"vault_credential_validation"`
+
+  - `validated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `vault_id: string`
+
+    Identifier of the vault containing the credential.
+
+### Beta Managed Agents Credential Validation Status
+
+- `BetaManagedAgentsCredentialValidationStatus = "valid" | "invalid" | "unknown"`
+
+  Overall verdict of a credential validation probe.
+
+  - `"valid"`
+
+  - `"invalid"`
+
+  - `"unknown"`
+
+### Beta Managed Agents Deleted Credential
+
+- `BetaManagedAgentsDeletedCredential`
+
+  Confirmation of a deleted credential.
+
+  - `id: string`
+
+    Unique identifier of the deleted credential.
+
+  - `type: "vault_credential_deleted"`
+
+    - `"vault_credential_deleted"`
+
+### Beta Managed Agents Environment Variable Auth Response
+
+- `BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+  Environment variable credential details. The secret value is never returned.
+
+  - `injection_location: BetaManagedAgentsInjectionLocationResponse`
+
+    Where in the outbound request the secret value is substituted.
+
+    - `body: boolean`
+
+      Whether the placeholder is substituted in the request body.
+
+    - `header: boolean`
+
+      Whether the placeholder is substituted in request header values.
+
+  - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+    Outbound hosts the secret value is substituted on.
+
+    - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+      The secret is substituted on any host the session's Environment network policy permits egress to.
+
+      - `type: "unrestricted"`
+
+        - `"unrestricted"`
+
+    - `BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+      The secret is substituted only on requests to the listed hosts.
+
+      - `allowed_hosts: Array<string>`
+
+        Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+      - `type: "limited"`
+
+        - `"limited"`
+
+  - `secret_name: string`
+
+    Name of the environment variable.
+
+  - `type: "environment_variable"`
+
+    - `"environment_variable"`
+
+### Beta Managed Agents Environment Variable Create Params
+
+- `BetaManagedAgentsEnvironmentVariableCreateParams`
+
+  Parameters for creating an environment variable credential.
+
+  - `networking: BetaManagedAgentsCredentialNetworkingParams`
+
+    Outbound hosts the secret value is substituted on.
+
+    - `BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
+
+      Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
+
+      - `type: "unrestricted"`
+
+        - `"unrestricted"`
+
+    - `BetaManagedAgentsLimitedCredentialNetworkingParams`
+
+      Substitute the secret only on requests to the listed hosts.
+
+      - `allowed_hosts: Array<string>`
+
+        Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+      - `type: "limited"`
+
+        - `"limited"`
+
+  - `secret_name: string`
+
+    Name of the environment variable. Immutable after create.
+
+  - `secret_value: string`
+
+    Secret value. Write-only; never returned in responses.
+
+  - `type: "environment_variable"`
+
+    - `"environment_variable"`
+
+  - `injection_location?: BetaManagedAgentsInjectionLocationParams`
+
+    Where in the outbound request the secret value may be substituted.
+
+    - `body?: boolean`
+
+      Substitute when the placeholder appears in the request body.
+
+    - `header?: boolean`
+
+      Substitute when the placeholder appears in a request header value.
+
+### Beta Managed Agents Environment Variable Update Params
+
+- `BetaManagedAgentsEnvironmentVariableUpdateParams`
+
+  Parameters for updating an environment variable credential. `secret_name` is immutable.
+
+  - `type: "environment_variable"`
+
+    - `"environment_variable"`
+
+  - `injection_location?: BetaManagedAgentsInjectionLocationUpdateParams`
+
+    Updated injection location.
+
+    - `body?: boolean`
+
+      Substitute when the placeholder appears in the request body.
+
+    - `header?: boolean`
+
+      Substitute when the placeholder appears in a request header value.
+
+  - `networking?: BetaManagedAgentsCredentialNetworkingParams | null`
+
+    Updated networking scope. Full replacement.
+
+    - `BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
+
+      Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
+
+      - `type: "unrestricted"`
+
+        - `"unrestricted"`
+
+    - `BetaManagedAgentsLimitedCredentialNetworkingParams`
+
+      Substitute the secret only on requests to the listed hosts.
+
+      - `allowed_hosts: Array<string>`
+
+        Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+      - `type: "limited"`
+
+        - `"limited"`
+
+  - `secret_value?: string | null`
+
+    Updated secret value.
+
+### Beta Managed Agents Injection Location Params
+
+- `BetaManagedAgentsInjectionLocationParams`
+
+  Where in the outbound request the secret value may be substituted.
+
+  - `body?: boolean`
+
+    Substitute when the placeholder appears in the request body.
+
+  - `header?: boolean`
+
+    Substitute when the placeholder appears in a request header value.
+
+### Beta Managed Agents Injection Location Response
+
+- `BetaManagedAgentsInjectionLocationResponse`
+
+  Where in the outbound request the secret value is substituted.
+
+  - `body: boolean`
+
+    Whether the placeholder is substituted in the request body.
+
+  - `header: boolean`
+
+    Whether the placeholder is substituted in request header values.
+
+### Beta Managed Agents Injection Location Update Params
+
+- `BetaManagedAgentsInjectionLocationUpdateParams`
+
+  Updated injection location.
+
+  - `body?: boolean`
+
+    Substitute when the placeholder appears in the request body.
+
+  - `header?: boolean`
+
+    Substitute when the placeholder appears in a request header value.
+
+### Beta Managed Agents Limited Credential Networking Params
+
+- `BetaManagedAgentsLimitedCredentialNetworkingParams`
+
+  Substitute the secret only on requests to the listed hosts.
+
+  - `allowed_hosts: Array<string>`
+
+    Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+  - `type: "limited"`
+
+    - `"limited"`
+
+### Beta Managed Agents Limited Credential Networking Response
+
+- `BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+  The secret is substituted only on requests to the listed hosts.
+
+  - `allowed_hosts: Array<string>`
+
+    Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+  - `type: "limited"`
+
+    - `"limited"`
+
+### Beta Managed Agents MCP OAuth Auth Response
+
+- `BetaManagedAgentsMCPOAuthAuthResponse`
+
+  OAuth credential details for an MCP server.
+
+  - `mcp_server_url: string`
+
+    URL of the MCP server this credential authenticates against.
+
+  - `type: "mcp_oauth"`
+
+    - `"mcp_oauth"`
+
+  - `expires_at?: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
+
+    OAuth refresh token configuration returned in credential responses.
+
+    - `client_id: string`
+
+      OAuth client ID.
+
+    - `token_endpoint: string`
+
+      Token endpoint URL used to refresh the access token.
+
+    - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+      Token endpoint requires no client authentication.
+
+      - `BetaManagedAgentsTokenEndpointAuthNoneResponse`
+
+        Token endpoint requires no client authentication.
+
+        - `type: "none"`
+
+          - `"none"`
+
+      - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
+
+        Token endpoint uses HTTP Basic authentication with client credentials.
+
+        - `type: "client_secret_basic"`
+
+          - `"client_secret_basic"`
+
+      - `BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+        Token endpoint uses POST body authentication with client credentials.
+
+        - `type: "client_secret_post"`
+
+          - `"client_secret_post"`
+
+    - `resource?: string | null`
+
+      OAuth resource indicator.
+
+    - `scope?: string | null`
+
+      OAuth scope for the refresh request.
+
+### Beta Managed Agents MCP OAuth Create Params
+
+- `BetaManagedAgentsMCPOAuthCreateParams`
+
+  Parameters for creating an MCP OAuth credential.
+
+  - `access_token: string`
+
+    OAuth access token.
+
+  - `mcp_server_url: string`
+
+    URL of the MCP server this credential authenticates against.
+
+  - `type: "mcp_oauth"`
+
+    - `"mcp_oauth"`
+
+  - `expires_at?: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `refresh?: BetaManagedAgentsMCPOAuthRefreshParams | null`
+
+    OAuth refresh token parameters for creating a credential with refresh support.
+
+    - `client_id: string`
+
+      OAuth client ID.
+
+    - `refresh_token: string`
+
+      OAuth refresh token.
+
+    - `token_endpoint: string`
+
+      Token endpoint URL used to refresh the access token.
+
+    - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneParam | BetaManagedAgentsTokenEndpointAuthBasicParam | BetaManagedAgentsTokenEndpointAuthPostParam`
+
+      Token endpoint requires no client authentication.
+
+      - `BetaManagedAgentsTokenEndpointAuthNoneParam`
+
+        Token endpoint requires no client authentication.
+
+        - `type: "none"`
+
+          - `"none"`
+
+      - `BetaManagedAgentsTokenEndpointAuthBasicParam`
+
+        Token endpoint uses HTTP Basic authentication with client credentials.
+
+        - `client_secret: string`
+
+          OAuth client secret.
+
+        - `type: "client_secret_basic"`
+
+          - `"client_secret_basic"`
+
+      - `BetaManagedAgentsTokenEndpointAuthPostParam`
+
+        Token endpoint uses POST body authentication with client credentials.
+
+        - `client_secret: string`
+
+          OAuth client secret.
+
+        - `type: "client_secret_post"`
+
+          - `"client_secret_post"`
+
+    - `resource?: string | null`
+
+      OAuth resource indicator.
+
+    - `scope?: string | null`
+
+      OAuth scope for the refresh request.
+
+### Beta Managed Agents MCP OAuth Refresh Params
+
+- `BetaManagedAgentsMCPOAuthRefreshParams`
+
+  OAuth refresh token parameters for creating a credential with refresh support.
+
+  - `client_id: string`
+
+    OAuth client ID.
+
+  - `refresh_token: string`
+
+    OAuth refresh token.
+
+  - `token_endpoint: string`
+
+    Token endpoint URL used to refresh the access token.
+
+  - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneParam | BetaManagedAgentsTokenEndpointAuthBasicParam | BetaManagedAgentsTokenEndpointAuthPostParam`
+
+    Token endpoint requires no client authentication.
+
+    - `BetaManagedAgentsTokenEndpointAuthNoneParam`
+
+      Token endpoint requires no client authentication.
+
+      - `type: "none"`
+
+        - `"none"`
+
+    - `BetaManagedAgentsTokenEndpointAuthBasicParam`
+
+      Token endpoint uses HTTP Basic authentication with client credentials.
+
+      - `client_secret: string`
+
+        OAuth client secret.
+
+      - `type: "client_secret_basic"`
+
+        - `"client_secret_basic"`
+
+    - `BetaManagedAgentsTokenEndpointAuthPostParam`
+
+      Token endpoint uses POST body authentication with client credentials.
+
+      - `client_secret: string`
+
+        OAuth client secret.
+
+      - `type: "client_secret_post"`
+
+        - `"client_secret_post"`
+
+  - `resource?: string | null`
+
+    OAuth resource indicator.
+
+  - `scope?: string | null`
+
+    OAuth scope for the refresh request.
+
+### Beta Managed Agents MCP OAuth Refresh Response
+
+- `BetaManagedAgentsMCPOAuthRefreshResponse`
+
+  OAuth refresh token configuration returned in credential responses.
+
+  - `client_id: string`
+
+    OAuth client ID.
+
+  - `token_endpoint: string`
+
+    Token endpoint URL used to refresh the access token.
+
+  - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+    Token endpoint requires no client authentication.
+
+    - `BetaManagedAgentsTokenEndpointAuthNoneResponse`
+
+      Token endpoint requires no client authentication.
+
+      - `type: "none"`
+
+        - `"none"`
+
+    - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
+
+      Token endpoint uses HTTP Basic authentication with client credentials.
+
+      - `type: "client_secret_basic"`
+
+        - `"client_secret_basic"`
+
+    - `BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+      Token endpoint uses POST body authentication with client credentials.
+
+      - `type: "client_secret_post"`
+
+        - `"client_secret_post"`
+
+  - `resource?: string | null`
+
+    OAuth resource indicator.
+
+  - `scope?: string | null`
+
+    OAuth scope for the refresh request.
+
+### Beta Managed Agents MCP OAuth Refresh Update Params
+
+- `BetaManagedAgentsMCPOAuthRefreshUpdateParams`
+
+  Parameters for updating OAuth refresh token configuration.
+
+  - `refresh_token?: string | null`
+
+    Updated OAuth refresh token.
+
+  - `scope?: string | null`
+
+    Updated OAuth scope for the refresh request.
+
+  - `token_endpoint_auth?: BetaManagedAgentsTokenEndpointAuthBasicUpdateParam | BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
+
+    Updated HTTP Basic authentication parameters for the token endpoint.
+
+    - `BetaManagedAgentsTokenEndpointAuthBasicUpdateParam`
+
+      Updated HTTP Basic authentication parameters for the token endpoint.
+
+      - `type: "client_secret_basic"`
+
+        - `"client_secret_basic"`
+
+      - `client_secret?: string | null`
+
+        Updated OAuth client secret.
+
+    - `BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
+
+      Updated POST body authentication parameters for the token endpoint.
+
+      - `type: "client_secret_post"`
+
+        - `"client_secret_post"`
+
+      - `client_secret?: string | null`
+
+        Updated OAuth client secret.
+
+### Beta Managed Agents MCP OAuth Update Params
+
+- `BetaManagedAgentsMCPOAuthUpdateParams`
+
+  Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
+
+  - `type: "mcp_oauth"`
+
+    - `"mcp_oauth"`
+
+  - `access_token?: string | null`
+
+    Updated OAuth access token.
+
+  - `expires_at?: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `refresh?: BetaManagedAgentsMCPOAuthRefreshUpdateParams | null`
+
+    Parameters for updating OAuth refresh token configuration.
+
+    - `refresh_token?: string | null`
+
+      Updated OAuth refresh token.
+
+    - `scope?: string | null`
+
+      Updated OAuth scope for the refresh request.
+
+    - `token_endpoint_auth?: BetaManagedAgentsTokenEndpointAuthBasicUpdateParam | BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
+
+      Updated HTTP Basic authentication parameters for the token endpoint.
+
+      - `BetaManagedAgentsTokenEndpointAuthBasicUpdateParam`
+
+        Updated HTTP Basic authentication parameters for the token endpoint.
+
+        - `type: "client_secret_basic"`
+
+          - `"client_secret_basic"`
+
+        - `client_secret?: string | null`
+
+          Updated OAuth client secret.
+
+      - `BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
+
+        Updated POST body authentication parameters for the token endpoint.
+
+        - `type: "client_secret_post"`
+
+          - `"client_secret_post"`
+
+        - `client_secret?: string | null`
+
+          Updated OAuth client secret.
+
+### Beta Managed Agents MCP Probe
+
+- `BetaManagedAgentsMCPProbe`
+
+  The failing step of an MCP validation probe.
+
+  - `http_response: BetaManagedAgentsRefreshHTTPResponse | null`
+
+    An HTTP response captured during a credential validation probe.
+
+    - `body: string`
+
+      Response body. May be truncated and has sensitive values scrubbed.
+
+    - `body_truncated: boolean`
+
+      Whether `body` was truncated.
+
+    - `content_type: string`
+
+      Value of the `Content-Type` response header.
+
+    - `status_code: number`
+
+      HTTP status code.
+
+  - `method: string`
+
+    The MCP method that failed (for example `initialize` or `tools/list`).
+
+### Beta Managed Agents Refresh HTTP Response
+
+- `BetaManagedAgentsRefreshHTTPResponse`
+
+  An HTTP response captured during a credential validation probe.
+
+  - `body: string`
+
+    Response body. May be truncated and has sensitive values scrubbed.
+
+  - `body_truncated: boolean`
+
+    Whether `body` was truncated.
+
+  - `content_type: string`
+
+    Value of the `Content-Type` response header.
+
+  - `status_code: number`
+
+    HTTP status code.
+
+### Beta Managed Agents Refresh Object
+
+- `BetaManagedAgentsRefreshObject`
+
+  Outcome of a refresh-token exchange attempted during credential validation.
+
+  - `http_response: BetaManagedAgentsRefreshHTTPResponse | null`
+
+    An HTTP response captured during a credential validation probe.
+
+    - `body: string`
+
+      Response body. May be truncated and has sensitive values scrubbed.
+
+    - `body_truncated: boolean`
+
+      Whether `body` was truncated.
+
+    - `content_type: string`
+
+      Value of the `Content-Type` response header.
+
+    - `status_code: number`
+
+      HTTP status code.
+
+  - `status: "succeeded" | "failed" | "connect_error" | "no_refresh_token"`
+
+    Outcome of a refresh-token exchange attempted during credential validation.
+
+    - `"succeeded"`
+
+    - `"failed"`
+
+    - `"connect_error"`
+
+    - `"no_refresh_token"`
+
+### Beta Managed Agents Static Bearer Auth Response
+
+- `BetaManagedAgentsStaticBearerAuthResponse`
+
+  Static bearer token credential details for an MCP server.
+
+  - `mcp_server_url: string`
+
+    URL of the MCP server this credential authenticates against.
+
+  - `type: "static_bearer"`
+
+    - `"static_bearer"`
+
+### Beta Managed Agents Static Bearer Create Params
+
+- `BetaManagedAgentsStaticBearerCreateParams`
+
+  Parameters for creating a static bearer token credential.
+
+  - `token: string`
+
+    Static bearer token value.
+
+  - `mcp_server_url: string`
+
+    URL of the MCP server this credential authenticates against.
+
+  - `type: "static_bearer"`
+
+    - `"static_bearer"`
+
+### Beta Managed Agents Static Bearer Update Params
+
+- `BetaManagedAgentsStaticBearerUpdateParams`
+
+  Parameters for updating a static bearer token credential. The `mcp_server_url` is immutable.
+
+  - `type: "static_bearer"`
+
+    - `"static_bearer"`
+
+  - `token?: string | null`
+
+    Updated static bearer token value.
+
+### Beta Managed Agents Token Endpoint Auth Basic Param
+
+- `BetaManagedAgentsTokenEndpointAuthBasicParam`
+
+  Token endpoint uses HTTP Basic authentication with client credentials.
+
+  - `client_secret: string`
+
+    OAuth client secret.
+
+  - `type: "client_secret_basic"`
+
+    - `"client_secret_basic"`
+
+### Beta Managed Agents Token Endpoint Auth Basic Response
+
+- `BetaManagedAgentsTokenEndpointAuthBasicResponse`
+
+  Token endpoint uses HTTP Basic authentication with client credentials.
+
+  - `type: "client_secret_basic"`
+
+    - `"client_secret_basic"`
+
+### Beta Managed Agents Token Endpoint Auth Basic Update Param
+
+- `BetaManagedAgentsTokenEndpointAuthBasicUpdateParam`
+
+  Updated HTTP Basic authentication parameters for the token endpoint.
+
+  - `type: "client_secret_basic"`
+
+    - `"client_secret_basic"`
+
+  - `client_secret?: string | null`
+
+    Updated OAuth client secret.
+
+### Beta Managed Agents Token Endpoint Auth None Param
+
+- `BetaManagedAgentsTokenEndpointAuthNoneParam`
+
+  Token endpoint requires no client authentication.
+
+  - `type: "none"`
+
+    - `"none"`
+
+### Beta Managed Agents Token Endpoint Auth None Response
+
+- `BetaManagedAgentsTokenEndpointAuthNoneResponse`
+
+  Token endpoint requires no client authentication.
+
+  - `type: "none"`
+
+    - `"none"`
+
+### Beta Managed Agents Token Endpoint Auth Post Param
+
+- `BetaManagedAgentsTokenEndpointAuthPostParam`
+
+  Token endpoint uses POST body authentication with client credentials.
+
+  - `client_secret: string`
+
+    OAuth client secret.
+
+  - `type: "client_secret_post"`
+
+    - `"client_secret_post"`
+
+### Beta Managed Agents Token Endpoint Auth Post Response
+
+- `BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+  Token endpoint uses POST body authentication with client credentials.
+
+  - `type: "client_secret_post"`
+
+    - `"client_secret_post"`
+
+### Beta Managed Agents Token Endpoint Auth Post Update Param
+
+- `BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
+
+  Updated POST body authentication parameters for the token endpoint.
+
+  - `type: "client_secret_post"`
+
+    - `"client_secret_post"`
+
+  - `client_secret?: string | null`
+
+    Updated OAuth client secret.
+
+### Beta Managed Agents Unrestricted Credential Networking Params
+
+- `BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
+
+  Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
+
+  - `type: "unrestricted"`
+
+    - `"unrestricted"`
+
+### Beta Managed Agents Unrestricted Credential Networking Response
+
+- `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+  The secret is substituted on any host the session's Environment network policy permits egress to.
+
+  - `type: "unrestricted"`
+
+    - `"unrestricted"`
+
+# Memory Stores
+
+## Create a memory store
+
+`client.beta.memoryStores.create(MemoryStoreCreateParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemoryStore`
+
+**post** `/v1/memory_stores`
+
+Create a memory store
+
+### Parameters
+
+- `params: MemoryStoreCreateParams`
+
+  - `name: string`
+
+    Body param: Human-readable name for the store. Required; 1–255 characters; no control characters. The mount-path slug under `/mnt/memory/` is derived from this name (lowercased, non-alphanumeric runs collapsed to a hyphen). Names need not be unique within a workspace.
+
+  - `description?: string`
+
+    Body param: Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent.
+
+  - `metadata?: Record<string, string>`
+
+    Body param: Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Not visible to the agent.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsMemoryStore`
+
+  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
+  - `id: string`
+
+    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `name: string`
+
+    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
+
+  - `type: "memory_store"`
+
+    - `"memory_store"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `archived_at?: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `description?: string`
+
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
+
+  - `metadata?: Record<string, string>`
+
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsMemoryStore = await client.beta.memoryStores.create({ name: 'x' });
+
+console.log(betaManagedAgentsMemoryStore.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "metadata": {
+    "foo": "string"
+  }
+}
+```
+
+## List memory stores
+
+`client.beta.memoryStores.list(MemoryStoreListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsMemoryStore>`
+
+**get** `/v1/memory_stores`
+
+List memory stores
+
+### Parameters
+
+- `params: MemoryStoreListParams`
+
+  - `"created_at[gte]"?: string`
+
+    Query param: Return only stores whose `created_at` is at or after this time (inclusive). Sent on the wire as `created_at[gte]`.
+
+  - `"created_at[lte]"?: string`
+
+    Query param: Return only stores whose `created_at` is at or before this time (inclusive). Sent on the wire as `created_at[lte]`.
+
+  - `include_archived?: boolean`
+
+    Query param: When `true`, archived stores are included in the results. Defaults to `false` (archived stores are excluded).
+
+  - `limit?: number`
+
+    Query param: Maximum number of stores to return per page. Must be between 1 and 100. Defaults to 20 when omitted.
+
+  - `page?: string`
+
+    Query param: Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsMemoryStore`
+
+  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
+  - `id: string`
+
+    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `name: string`
+
+    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
+
+  - `type: "memory_store"`
+
+    - `"memory_store"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `archived_at?: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `description?: string`
+
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
+
+  - `metadata?: Record<string, string>`
+
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+// Automatically fetches more pages as needed.
+for await (const betaManagedAgentsMemoryStore of client.beta.memoryStores.list()) {
+  console.log(betaManagedAgentsMemoryStore.id);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "name": "name",
+      "type": "memory_store",
+      "updated_at": "2019-12-27T18:11:19.117Z",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "description": "description",
+      "metadata": {
+        "foo": "string"
+      }
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Retrieve a memory store
+
+`client.beta.memoryStores.retrieve(stringmemoryStoreID, MemoryStoreRetrieveParamsparams?, RequestOptionsoptions?): BetaManagedAgentsMemoryStore`
+
+**get** `/v1/memory_stores/{memory_store_id}`
+
+Retrieve a memory store
+
+### Parameters
+
+- `memoryStoreID: string`
+
+- `params: MemoryStoreRetrieveParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsMemoryStore`
+
+  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
+  - `id: string`
+
+    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `name: string`
+
+    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
+
+  - `type: "memory_store"`
+
+    - `"memory_store"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `archived_at?: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `description?: string`
+
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
+
+  - `metadata?: Record<string, string>`
+
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsMemoryStore = await client.beta.memoryStores.retrieve('memory_store_id');
+
+console.log(betaManagedAgentsMemoryStore.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "metadata": {
+    "foo": "string"
+  }
+}
+```
+
+## Update a memory store
+
+`client.beta.memoryStores.update(stringmemoryStoreID, MemoryStoreUpdateParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemoryStore`
+
+**post** `/v1/memory_stores/{memory_store_id}`
+
+Update a memory store
+
+### Parameters
+
+- `memoryStoreID: string`
+
+- `params: MemoryStoreUpdateParams`
+
+  - `description?: string | null`
+
+    Body param: New description for the store, up to 1024 characters. Pass an empty string to clear it.
+
+  - `metadata?: Record<string, string | null> | null`
+
+    Body param: Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
+
+  - `name?: string | null`
+
+    Body param: New human-readable name for the store. 1–255 characters; no control characters. Renaming changes the slug used for the store's `mount_path` in sessions created after the update.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsMemoryStore`
+
+  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
+  - `id: string`
+
+    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `name: string`
+
+    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
+
+  - `type: "memory_store"`
+
+    - `"memory_store"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `archived_at?: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `description?: string`
+
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
+
+  - `metadata?: Record<string, string>`
+
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsMemoryStore = await client.beta.memoryStores.update('memory_store_id');
+
+console.log(betaManagedAgentsMemoryStore.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "metadata": {
+    "foo": "string"
+  }
+}
+```
+
+## Delete a memory store
+
+`client.beta.memoryStores.delete(stringmemoryStoreID, MemoryStoreDeleteParamsparams?, RequestOptionsoptions?): BetaManagedAgentsDeletedMemoryStore`
+
+**delete** `/v1/memory_stores/{memory_store_id}`
+
+Delete a memory store
+
+### Parameters
+
+- `memoryStoreID: string`
+
+- `params: MemoryStoreDeleteParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsDeletedMemoryStore`
+
+  Confirmation that a `memory_store` was deleted.
+
+  - `id: string`
+
+    ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
+
+  - `type: "memory_store_deleted"`
+
+    - `"memory_store_deleted"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsDeletedMemoryStore = await client.beta.memoryStores.delete(
+  'memory_store_id',
+);
+
+console.log(betaManagedAgentsDeletedMemoryStore.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "type": "memory_store_deleted"
+}
+```
+
+## Archive a memory store
+
+`client.beta.memoryStores.archive(stringmemoryStoreID, MemoryStoreArchiveParamsparams?, RequestOptionsoptions?): BetaManagedAgentsMemoryStore`
+
+**post** `/v1/memory_stores/{memory_store_id}/archive`
+
+Archive a memory store
+
+### Parameters
+
+- `memoryStoreID: string`
+
+- `params: MemoryStoreArchiveParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsMemoryStore`
+
+  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
+  - `id: string`
+
+    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `name: string`
+
+    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
+
+  - `type: "memory_store"`
+
+    - `"memory_store"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `archived_at?: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `description?: string`
+
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
+
+  - `metadata?: Record<string, string>`
+
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsMemoryStore = await client.beta.memoryStores.archive('memory_store_id');
+
+console.log(betaManagedAgentsMemoryStore.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "metadata": {
+    "foo": "string"
+  }
+}
+```
+
+## Domain Types
+
+### Beta Managed Agents Deleted Memory Store
+
+- `BetaManagedAgentsDeletedMemoryStore`
+
+  Confirmation that a `memory_store` was deleted.
+
+  - `id: string`
+
+    ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
+
+  - `type: "memory_store_deleted"`
+
+    - `"memory_store_deleted"`
+
+### Beta Managed Agents Memory Store
+
+- `BetaManagedAgentsMemoryStore`
+
+  A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
+  - `id: string`
+
+    Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `name: string`
+
+    Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
+
+  - `type: "memory_store"`
+
+    - `"memory_store"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `archived_at?: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `description?: string`
+
+    Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent. Empty string when unset.
+
+  - `metadata?: Record<string, string>`
+
+    Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
+
+# Memories
+
+## Create a memory
+
+`client.beta.memoryStores.memories.create(stringmemoryStoreID, MemoryCreateParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemory`
+
+**post** `/v1/memory_stores/{memory_store_id}/memories`
+
+Create a memory
+
+### Parameters
+
+- `memoryStoreID: string`
+
+- `params: MemoryCreateParams`
+
+  - `content: string | null`
+
+    Body param: UTF-8 text content for the new memory. Maximum 100 kB (102,400 bytes). Required; pass `""` explicitly to create an empty memory.
+
+  - `path: string`
+
+    Body param: Hierarchical path for the new memory, e.g. `/projects/foo/notes.md`. Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, and must be NFC-normalized. Paths are case-sensitive.
+
+  - `view?: BetaManagedAgentsMemoryView`
+
+    Query param: Query parameter for view
+
+    - `"basic"`
+
+    - `"full"`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsMemory`
+
+  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
+  - `id: string`
+
+    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
+
+  - `content_sha256: string`
+
+    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
+
+  - `content_size_bytes: number`
+
+    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `memory_store_id: string`
+
+    ID of the memory store this memory belongs to (a `memstore_...` value).
+
+  - `memory_version_id: string`
+
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+
+  - `path: string`
+
+    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
+
+  - `type: "memory"`
+
+    - `"memory"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `content?: string | null`
+
+    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsMemory = await client.beta.memoryStores.memories.create('memory_store_id', {
+  content: 'content',
+  path: 'xx',
+});
+
+console.log(betaManagedAgentsMemory.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_store_id": "memory_store_id",
+  "memory_version_id": "memory_version_id",
+  "path": "path",
+  "type": "memory",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "content": "content"
+}
+```
+
+## List memories
+
+`client.beta.memoryStores.memories.list(stringmemoryStoreID, MemoryListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsMemoryListItem>`
+
+**get** `/v1/memory_stores/{memory_store_id}/memories`
+
+List memories
+
+### Parameters
+
+- `memoryStoreID: string`
+
+- `params: MemoryListParams`
+
+  - `depth?: number`
+
+    Query param: `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
+
+  - `limit?: number`
+
+    Query param: Maximum number of items to return per page. Must be between 1 and 100. Defaults to 20 when omitted. Capped at 20 when `view=full`. Both `memory` and `memory_prefix` items count toward the limit.
+
+  - `page?: string`
+
+    Query param: Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
+
+  - `path_prefix?: string`
+
+    Query param: Optional path prefix filter. Must end with `/` (segment-aligned), e.g., `/notes/`. This value appears in request URLs. Do not include secrets or personally identifiable information.
+
+  - `view?: BetaManagedAgentsMemoryView`
+
+    Query param: Which projection of each `memory` to return. Defaults to `basic` (content omitted). `full` populates `content` on each item and caps `limit` at 20; use this as the bulk-read path for export and sync.
+
+    - `"basic"`
+
+    - `"full"`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsMemoryListItem = BetaManagedAgentsMemory | BetaManagedAgentsMemoryPrefix`
+
+  One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
+
+  - `BetaManagedAgentsMemory`
+
+    A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
+    - `id: string`
+
+      Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
+
+    - `content_sha256: string`
+
+      Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
+
+    - `content_size_bytes: number`
+
+      Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
+
+    - `created_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `memory_store_id: string`
+
+      ID of the memory store this memory belongs to (a `memstore_...` value).
+
+    - `memory_version_id: string`
+
+      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+
+    - `path: string`
+
+      Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
+
+    - `type: "memory"`
+
+      - `"memory"`
+
+    - `updated_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `content?: string | null`
+
+      The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
+
+  - `BetaManagedAgentsMemoryPrefix`
+
+    A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+
+    - `path: string`
+
+      The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
+
+    - `type: "memory_prefix"`
+
+      - `"memory_prefix"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+// Automatically fetches more pages as needed.
+for await (const betaManagedAgentsMemoryListItem of client.beta.memoryStores.memories.list(
+  'memory_store_id',
+)) {
+  console.log(betaManagedAgentsMemoryListItem);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "content_sha256": "content_sha256",
+      "content_size_bytes": 0,
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "memory_store_id": "memory_store_id",
+      "memory_version_id": "memory_version_id",
+      "path": "path",
+      "type": "memory",
+      "updated_at": "2019-12-27T18:11:19.117Z",
+      "content": "content"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Retrieve a memory
+
+`client.beta.memoryStores.memories.retrieve(stringmemoryID, MemoryRetrieveParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemory`
+
+**get** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
+
+Retrieve a memory
+
+### Parameters
+
+- `memoryID: string`
+
+- `params: MemoryRetrieveParams`
+
+  - `memory_store_id: string`
+
+    Path param: Path parameter memory_store_id
+
+  - `view?: BetaManagedAgentsMemoryView`
+
+    Query param: Query parameter for view
+
+    - `"basic"`
+
+    - `"full"`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsMemory`
+
+  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
+  - `id: string`
+
+    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
+
+  - `content_sha256: string`
+
+    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
+
+  - `content_size_bytes: number`
+
+    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `memory_store_id: string`
+
+    ID of the memory store this memory belongs to (a `memstore_...` value).
+
+  - `memory_version_id: string`
+
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+
+  - `path: string`
+
+    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
+
+  - `type: "memory"`
+
+    - `"memory"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `content?: string | null`
+
+    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsMemory = await client.beta.memoryStores.memories.retrieve('memory_id', {
+  memory_store_id: 'memory_store_id',
+});
+
+console.log(betaManagedAgentsMemory.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_store_id": "memory_store_id",
+  "memory_version_id": "memory_version_id",
+  "path": "path",
+  "type": "memory",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "content": "content"
+}
+```
+
+## Update a memory
+
+`client.beta.memoryStores.memories.update(stringmemoryID, MemoryUpdateParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemory`
+
+**post** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
+
+Update a memory
+
+### Parameters
+
+- `memoryID: string`
+
+- `params: MemoryUpdateParams`
+
+  - `memory_store_id: string`
+
+    Path param: Path parameter memory_store_id
+
+  - `view?: BetaManagedAgentsMemoryView`
+
+    Query param: Query parameter for view
+
+    - `"basic"`
+
+    - `"full"`
+
+  - `content?: string | null`
+
+    Body param: New UTF-8 text content for the memory. Maximum 100 kB (102,400 bytes). Omit to leave the content unchanged (e.g., for a rename-only update).
+
+  - `path?: string | null`
+
+    Body param: New path for the memory (a rename). Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, and must be NFC-normalized. Paths are case-sensitive. The memory's `id` is preserved across renames. Omit to leave the path unchanged.
+
+  - `precondition?: BetaManagedAgentsPrecondition`
+
+    Body param: Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
+
+    - `type: "content_sha256"`
+
+      - `"content_sha256"`
+
+    - `content_sha256?: string`
+
+      Expected `content_sha256` of the stored memory (64 lowercase hexadecimal characters). Typically the `content_sha256` returned by a prior read or list call. Because the server applies no content normalization, clients can also compute this locally as the SHA-256 of the UTF-8 content bytes.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsMemory`
+
+  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
+  - `id: string`
+
+    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
+
+  - `content_sha256: string`
+
+    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
+
+  - `content_size_bytes: number`
+
+    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `memory_store_id: string`
+
+    ID of the memory store this memory belongs to (a `memstore_...` value).
+
+  - `memory_version_id: string`
+
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+
+  - `path: string`
+
+    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
+
+  - `type: "memory"`
+
+    - `"memory"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `content?: string | null`
+
+    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsMemory = await client.beta.memoryStores.memories.update('memory_id', {
+  memory_store_id: 'memory_store_id',
+});
+
+console.log(betaManagedAgentsMemory.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_store_id": "memory_store_id",
+  "memory_version_id": "memory_version_id",
+  "path": "path",
+  "type": "memory",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "content": "content"
+}
+```
+
+## Delete a memory
+
+`client.beta.memoryStores.memories.delete(stringmemoryID, MemoryDeleteParamsparams, RequestOptionsoptions?): BetaManagedAgentsDeletedMemory`
+
+**delete** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
+
+Delete a memory
+
+### Parameters
+
+- `memoryID: string`
+
+- `params: MemoryDeleteParams`
+
+  - `memory_store_id: string`
+
+    Path param: Path parameter memory_store_id
+
+  - `expected_content_sha256?: string`
+
+    Query param: Query parameter for expected_content_sha256
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsDeletedMemory`
+
+  Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
+
+  - `id: string`
+
+    ID of the deleted memory (a `mem_...` value).
+
+  - `type: "memory_deleted"`
+
+    - `"memory_deleted"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsDeletedMemory = await client.beta.memoryStores.memories.delete('memory_id', {
+  memory_store_id: 'memory_store_id',
+});
+
+console.log(betaManagedAgentsDeletedMemory.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "type": "memory_deleted"
+}
+```
+
+## Domain Types
+
+### Beta Managed Agents Conflict Error
+
+- `BetaManagedAgentsConflictError`
+
+  - `type: "conflict_error"`
+
+    - `"conflict_error"`
+
+  - `message?: string`
+
+### Beta Managed Agents Content Sha256 Precondition
+
+- `BetaManagedAgentsContentSha256Precondition`
+
+  Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
+
+  - `type: "content_sha256"`
+
+    - `"content_sha256"`
+
+  - `content_sha256?: string`
+
+    Expected `content_sha256` of the stored memory (64 lowercase hexadecimal characters). Typically the `content_sha256` returned by a prior read or list call. Because the server applies no content normalization, clients can also compute this locally as the SHA-256 of the UTF-8 content bytes.
+
+### Beta Managed Agents Deleted Memory
+
+- `BetaManagedAgentsDeletedMemory`
+
+  Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
+
+  - `id: string`
+
+    ID of the deleted memory (a `mem_...` value).
+
+  - `type: "memory_deleted"`
+
+    - `"memory_deleted"`
+
+### Beta Managed Agents Error
+
+- `BetaManagedAgentsError = BetaInvalidRequestError | BetaAuthenticationError | BetaBillingError | 9 more`
+
+  - `BetaInvalidRequestError`
+
+    - `message: string`
+
+    - `type: "invalid_request_error"`
+
+      - `"invalid_request_error"`
+
+  - `BetaAuthenticationError`
+
+    - `message: string`
+
+    - `type: "authentication_error"`
+
+      - `"authentication_error"`
+
+  - `BetaBillingError`
+
+    - `message: string`
+
+    - `type: "billing_error"`
+
+      - `"billing_error"`
+
+  - `BetaPermissionError`
+
+    - `message: string`
+
+    - `type: "permission_error"`
+
+      - `"permission_error"`
+
+  - `BetaNotFoundError`
+
+    - `message: string`
+
+    - `type: "not_found_error"`
+
+      - `"not_found_error"`
+
+  - `BetaRateLimitError`
+
+    - `message: string`
+
+    - `type: "rate_limit_error"`
+
+      - `"rate_limit_error"`
+
+  - `BetaGatewayTimeoutError`
+
+    - `message: string`
+
+    - `type: "timeout_error"`
+
+      - `"timeout_error"`
+
+  - `BetaAPIError`
+
+    - `message: string`
+
+    - `type: "api_error"`
+
+      - `"api_error"`
+
+  - `BetaOverloadedError`
+
+    - `message: string`
+
+    - `type: "overloaded_error"`
+
+      - `"overloaded_error"`
+
+  - `BetaManagedAgentsMemoryPreconditionFailedError`
+
+    - `type: "memory_precondition_failed_error"`
+
+      - `"memory_precondition_failed_error"`
+
+    - `message?: string`
+
+  - `BetaManagedAgentsMemoryPathConflictError`
+
+    - `type: "memory_path_conflict_error"`
+
+      - `"memory_path_conflict_error"`
+
+    - `conflicting_memory_id?: string`
+
+    - `conflicting_path?: string`
+
+    - `message?: string`
+
+  - `BetaManagedAgentsConflictError`
+
+    - `type: "conflict_error"`
+
+      - `"conflict_error"`
+
+    - `message?: string`
+
+### Beta Managed Agents Memory
+
+- `BetaManagedAgentsMemory`
+
+  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
+  - `id: string`
+
+    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
+
+  - `content_sha256: string`
+
+    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
+
+  - `content_size_bytes: number`
+
+    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `memory_store_id: string`
+
+    ID of the memory store this memory belongs to (a `memstore_...` value).
+
+  - `memory_version_id: string`
+
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+
+  - `path: string`
+
+    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
+
+  - `type: "memory"`
+
+    - `"memory"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `content?: string | null`
+
+    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
+
+### Beta Managed Agents Memory List Item
+
+- `BetaManagedAgentsMemoryListItem = BetaManagedAgentsMemory | BetaManagedAgentsMemoryPrefix`
+
+  One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
+
+  - `BetaManagedAgentsMemory`
+
+    A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
+    - `id: string`
+
+      Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
+
+    - `content_sha256: string`
+
+      Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
+
+    - `content_size_bytes: number`
+
+      Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
+
+    - `created_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `memory_store_id: string`
+
+      ID of the memory store this memory belongs to (a `memstore_...` value).
+
+    - `memory_version_id: string`
+
+      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+
+    - `path: string`
+
+      Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
+
+    - `type: "memory"`
+
+      - `"memory"`
+
+    - `updated_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `content?: string | null`
+
+      The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
+
+  - `BetaManagedAgentsMemoryPrefix`
+
+    A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+
+    - `path: string`
+
+      The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
+
+    - `type: "memory_prefix"`
+
+      - `"memory_prefix"`
+
+### Beta Managed Agents Memory Path Conflict Error
+
+- `BetaManagedAgentsMemoryPathConflictError`
+
+  - `type: "memory_path_conflict_error"`
+
+    - `"memory_path_conflict_error"`
+
+  - `conflicting_memory_id?: string`
+
+  - `conflicting_path?: string`
+
+  - `message?: string`
+
+### Beta Managed Agents Memory Precondition Failed Error
+
+- `BetaManagedAgentsMemoryPreconditionFailedError`
+
+  - `type: "memory_precondition_failed_error"`
+
+    - `"memory_precondition_failed_error"`
+
+  - `message?: string`
+
+### Beta Managed Agents Memory Prefix
+
+- `BetaManagedAgentsMemoryPrefix`
+
+  A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+
+  - `path: string`
+
+    The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
+
+  - `type: "memory_prefix"`
+
+    - `"memory_prefix"`
+
+### Beta Managed Agents Memory View
+
+- `BetaManagedAgentsMemoryView = "basic" | "full"`
+
+  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
+
+  - `"basic"`
+
+  - `"full"`
+
+### Beta Managed Agents Precondition
+
+- `BetaManagedAgentsPrecondition`
+
+  Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
+
+  - `type: "content_sha256"`
+
+    - `"content_sha256"`
+
+  - `content_sha256?: string`
+
+    Expected `content_sha256` of the stored memory (64 lowercase hexadecimal characters). Typically the `content_sha256` returned by a prior read or list call. Because the server applies no content normalization, clients can also compute this locally as the SHA-256 of the UTF-8 content bytes.
+
+# Memory Versions
+
+## List memory versions
+
+`client.beta.memoryStores.memoryVersions.list(stringmemoryStoreID, MemoryVersionListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsMemoryVersion>`
+
+**get** `/v1/memory_stores/{memory_store_id}/memory_versions`
+
+List memory versions
+
+### Parameters
+
+- `memoryStoreID: string`
+
+- `params: MemoryVersionListParams`
+
+  - `api_key_id?: string`
+
+    Query param: Query parameter for api_key_id
+
+  - `"created_at[gte]"?: string`
+
+    Query param: Return versions created at or after this time (inclusive).
+
+  - `"created_at[lte]"?: string`
+
+    Query param: Return versions created at or before this time (inclusive).
+
+  - `limit?: number`
+
+    Query param: Query parameter for limit
+
+  - `memory_id?: string`
+
+    Query param: Query parameter for memory_id
+
+  - `operation?: BetaManagedAgentsMemoryVersionOperation`
+
+    Query param: Query parameter for operation
+
+    - `"created"`
+
+    - `"modified"`
+
+    - `"deleted"`
+
+  - `page?: string`
+
+    Query param: Query parameter for page
+
+  - `session_id?: string`
+
+    Query param: Query parameter for session_id
+
+  - `view?: BetaManagedAgentsMemoryView`
+
+    Query param: Query parameter for view
+
+    - `"basic"`
+
+    - `"full"`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsMemoryVersion`
+
+  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+
+  - `id: string`
+
+    Unique identifier for this version (a `memver_...` value).
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `memory_id: string`
+
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the full lineage including the `deleted` row.
+
+  - `memory_store_id: string`
+
+    ID of the memory store this version belongs to (a `memstore_...` value).
+
+  - `operation: BetaManagedAgentsMemoryVersionOperation`
+
+    The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+
+    - `"created"`
+
+    - `"modified"`
+
+    - `"deleted"`
+
+  - `type: "memory_version"`
+
+    - `"memory_version"`
+
+  - `content?: string | null`
+
+    The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
+
+  - `content_sha256?: string | null`
+
+    Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+  - `content_size_bytes?: number | null`
+
+    Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+  - `created_by?: BetaManagedAgentsActor`
+
+    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
+    - `BetaManagedAgentsSessionActor`
+
+      Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
+      - `session_id: string`
+
+        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
+
+      - `type: "session_actor"`
+
+        - `"session_actor"`
+
+    - `BetaManagedAgentsAPIActor`
+
+      Attribution for a write made directly via the public API (outside of any session).
+
+      - `api_key_id: string`
+
+        ID of the API key that performed the write. This identifies the key, not the secret.
+
+      - `type: "api_actor"`
+
+        - `"api_actor"`
+
+    - `BetaManagedAgentsUserActor`
+
+      Attribution for a write made by a human user through the Anthropic Console.
+
+      - `type: "user_actor"`
+
+        - `"user_actor"`
+
+      - `user_id: string`
+
+        ID of the user who performed the write (a `user_...` value).
+
+  - `path?: string | null`
+
+    The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
+
+  - `redacted_at?: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `redacted_by?: BetaManagedAgentsActor`
+
+    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+// Automatically fetches more pages as needed.
+for await (const betaManagedAgentsMemoryVersion of client.beta.memoryStores.memoryVersions.list(
+  'memory_store_id',
+)) {
+  console.log(betaManagedAgentsMemoryVersion.id);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "memory_id": "memory_id",
+      "memory_store_id": "memory_store_id",
+      "operation": "created",
+      "type": "memory_version",
+      "content": "content",
+      "content_sha256": "content_sha256",
+      "content_size_bytes": 0,
+      "created_by": {
+        "session_id": "x",
+        "type": "session_actor"
+      },
+      "path": "path",
+      "redacted_at": "2019-12-27T18:11:19.117Z",
+      "redacted_by": {
+        "session_id": "x",
+        "type": "session_actor"
+      }
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Retrieve a memory version
+
+`client.beta.memoryStores.memoryVersions.retrieve(stringmemoryVersionID, MemoryVersionRetrieveParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemoryVersion`
+
+**get** `/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}`
+
+Retrieve a memory version
+
+### Parameters
+
+- `memoryVersionID: string`
+
+- `params: MemoryVersionRetrieveParams`
+
+  - `memory_store_id: string`
+
+    Path param: Path parameter memory_store_id
+
+  - `view?: BetaManagedAgentsMemoryView`
+
+    Query param: Query parameter for view
+
+    - `"basic"`
+
+    - `"full"`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsMemoryVersion`
+
+  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+
+  - `id: string`
+
+    Unique identifier for this version (a `memver_...` value).
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `memory_id: string`
+
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the full lineage including the `deleted` row.
+
+  - `memory_store_id: string`
+
+    ID of the memory store this version belongs to (a `memstore_...` value).
+
+  - `operation: BetaManagedAgentsMemoryVersionOperation`
+
+    The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+
+    - `"created"`
+
+    - `"modified"`
+
+    - `"deleted"`
+
+  - `type: "memory_version"`
+
+    - `"memory_version"`
+
+  - `content?: string | null`
+
+    The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
+
+  - `content_sha256?: string | null`
+
+    Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+  - `content_size_bytes?: number | null`
+
+    Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+  - `created_by?: BetaManagedAgentsActor`
+
+    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
+    - `BetaManagedAgentsSessionActor`
+
+      Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
+      - `session_id: string`
+
+        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
+
+      - `type: "session_actor"`
+
+        - `"session_actor"`
+
+    - `BetaManagedAgentsAPIActor`
+
+      Attribution for a write made directly via the public API (outside of any session).
+
+      - `api_key_id: string`
+
+        ID of the API key that performed the write. This identifies the key, not the secret.
+
+      - `type: "api_actor"`
+
+        - `"api_actor"`
+
+    - `BetaManagedAgentsUserActor`
+
+      Attribution for a write made by a human user through the Anthropic Console.
+
+      - `type: "user_actor"`
+
+        - `"user_actor"`
+
+      - `user_id: string`
+
+        ID of the user who performed the write (a `user_...` value).
+
+  - `path?: string | null`
+
+    The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
+
+  - `redacted_at?: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `redacted_by?: BetaManagedAgentsActor`
+
+    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsMemoryVersion = await client.beta.memoryStores.memoryVersions.retrieve(
+  'memory_version_id',
+  { memory_store_id: 'memory_store_id' },
+);
+
+console.log(betaManagedAgentsMemoryVersion.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_id": "memory_id",
+  "memory_store_id": "memory_store_id",
+  "operation": "created",
+  "type": "memory_version",
+  "content": "content",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_by": {
+    "session_id": "x",
+    "type": "session_actor"
+  },
+  "path": "path",
+  "redacted_at": "2019-12-27T18:11:19.117Z",
+  "redacted_by": {
+    "session_id": "x",
+    "type": "session_actor"
+  }
+}
+```
+
+## Redact a memory version
+
+`client.beta.memoryStores.memoryVersions.redact(stringmemoryVersionID, MemoryVersionRedactParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemoryVersion`
+
+**post** `/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}/redact`
+
+Redact a memory version
+
+### Parameters
+
+- `memoryVersionID: string`
+
+- `params: MemoryVersionRedactParams`
+
+  - `memory_store_id: string`
+
+    Path param: Path parameter memory_store_id
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaManagedAgentsMemoryVersion`
+
+  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+
+  - `id: string`
+
+    Unique identifier for this version (a `memver_...` value).
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `memory_id: string`
+
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the full lineage including the `deleted` row.
+
+  - `memory_store_id: string`
+
+    ID of the memory store this version belongs to (a `memstore_...` value).
+
+  - `operation: BetaManagedAgentsMemoryVersionOperation`
+
+    The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+
+    - `"created"`
+
+    - `"modified"`
+
+    - `"deleted"`
+
+  - `type: "memory_version"`
+
+    - `"memory_version"`
+
+  - `content?: string | null`
+
+    The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
+
+  - `content_sha256?: string | null`
+
+    Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+  - `content_size_bytes?: number | null`
+
+    Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+  - `created_by?: BetaManagedAgentsActor`
+
+    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
+    - `BetaManagedAgentsSessionActor`
+
+      Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
+      - `session_id: string`
+
+        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
+
+      - `type: "session_actor"`
+
+        - `"session_actor"`
+
+    - `BetaManagedAgentsAPIActor`
+
+      Attribution for a write made directly via the public API (outside of any session).
+
+      - `api_key_id: string`
+
+        ID of the API key that performed the write. This identifies the key, not the secret.
+
+      - `type: "api_actor"`
+
+        - `"api_actor"`
+
+    - `BetaManagedAgentsUserActor`
+
+      Attribution for a write made by a human user through the Anthropic Console.
+
+      - `type: "user_actor"`
+
+        - `"user_actor"`
+
+      - `user_id: string`
+
+        ID of the user who performed the write (a `user_...` value).
+
+  - `path?: string | null`
+
+    The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
+
+  - `redacted_at?: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `redacted_by?: BetaManagedAgentsActor`
+
+    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaManagedAgentsMemoryVersion = await client.beta.memoryStores.memoryVersions.redact(
+  'memory_version_id',
+  { memory_store_id: 'memory_store_id' },
+);
+
+console.log(betaManagedAgentsMemoryVersion.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_id": "memory_id",
+  "memory_store_id": "memory_store_id",
+  "operation": "created",
+  "type": "memory_version",
+  "content": "content",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_by": {
+    "session_id": "x",
+    "type": "session_actor"
+  },
+  "path": "path",
+  "redacted_at": "2019-12-27T18:11:19.117Z",
+  "redacted_by": {
+    "session_id": "x",
+    "type": "session_actor"
+  }
+}
+```
+
+## Domain Types
+
+### Beta Managed Agents Actor
+
+- `BetaManagedAgentsActor = BetaManagedAgentsSessionActor | BetaManagedAgentsAPIActor | BetaManagedAgentsUserActor`
+
+  Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
+  - `BetaManagedAgentsSessionActor`
+
+    Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
+    - `session_id: string`
+
+      ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
+
+    - `type: "session_actor"`
+
+      - `"session_actor"`
+
+  - `BetaManagedAgentsAPIActor`
+
+    Attribution for a write made directly via the public API (outside of any session).
+
+    - `api_key_id: string`
+
+      ID of the API key that performed the write. This identifies the key, not the secret.
+
+    - `type: "api_actor"`
+
+      - `"api_actor"`
+
+  - `BetaManagedAgentsUserActor`
+
+    Attribution for a write made by a human user through the Anthropic Console.
+
+    - `type: "user_actor"`
+
+      - `"user_actor"`
+
+    - `user_id: string`
+
+      ID of the user who performed the write (a `user_...` value).
+
+### Beta Managed Agents API Actor
+
+- `BetaManagedAgentsAPIActor`
+
+  Attribution for a write made directly via the public API (outside of any session).
+
+  - `api_key_id: string`
+
+    ID of the API key that performed the write. This identifies the key, not the secret.
+
+  - `type: "api_actor"`
+
+    - `"api_actor"`
+
+### Beta Managed Agents Memory Version
+
+- `BetaManagedAgentsMemoryVersion`
+
+  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+
+  - `id: string`
+
+    Unique identifier for this version (a `memver_...` value).
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `memory_id: string`
+
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the full lineage including the `deleted` row.
+
+  - `memory_store_id: string`
+
+    ID of the memory store this version belongs to (a `memstore_...` value).
+
+  - `operation: BetaManagedAgentsMemoryVersionOperation`
+
+    The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+
+    - `"created"`
+
+    - `"modified"`
+
+    - `"deleted"`
+
+  - `type: "memory_version"`
+
+    - `"memory_version"`
+
+  - `content?: string | null`
+
+    The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
+
+  - `content_sha256?: string | null`
+
+    Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+  - `content_size_bytes?: number | null`
+
+    Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+  - `created_by?: BetaManagedAgentsActor`
+
+    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
+    - `BetaManagedAgentsSessionActor`
+
+      Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
+      - `session_id: string`
+
+        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
+
+      - `type: "session_actor"`
+
+        - `"session_actor"`
+
+    - `BetaManagedAgentsAPIActor`
+
+      Attribution for a write made directly via the public API (outside of any session).
+
+      - `api_key_id: string`
+
+        ID of the API key that performed the write. This identifies the key, not the secret.
+
+      - `type: "api_actor"`
+
+        - `"api_actor"`
+
+    - `BetaManagedAgentsUserActor`
+
+      Attribution for a write made by a human user through the Anthropic Console.
+
+      - `type: "user_actor"`
+
+        - `"user_actor"`
+
+      - `user_id: string`
+
+        ID of the user who performed the write (a `user_...` value).
+
+  - `path?: string | null`
+
+    The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
+
+  - `redacted_at?: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `redacted_by?: BetaManagedAgentsActor`
+
+    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
+### Beta Managed Agents Memory Version Operation
+
+- `BetaManagedAgentsMemoryVersionOperation = "created" | "modified" | "deleted"`
+
+  The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+
+  - `"created"`
+
+  - `"modified"`
+
+  - `"deleted"`
+
+### Beta Managed Agents Session Actor
+
+- `BetaManagedAgentsSessionActor`
+
+  Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
+  - `session_id: string`
+
+    ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
+
+  - `type: "session_actor"`
+
+    - `"session_actor"`
+
+### Beta Managed Agents User Actor
+
+- `BetaManagedAgentsUserActor`
+
+  Attribution for a write made by a human user through the Anthropic Console.
+
+  - `type: "user_actor"`
+
+    - `"user_actor"`
+
+  - `user_id: string`
+
+    ID of the user who performed the write (a `user_...` value).
+
+# Files
+
+## Upload File
+
+`client.beta.files.upload(FileUploadParamsparams, RequestOptionsoptions?): FileMetadata`
+
+**post** `/v1/files`
+
+Upload File
+
+### Parameters
+
+- `params: FileUploadParams`
+
+  - `file: Uploadable`
+
+    Body param: The file to upload
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `FileMetadata`
+
+  - `id: string`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    RFC 3339 datetime string representing when the file was created.
+
+  - `filename: string`
+
+    Original filename of the uploaded file.
+
+  - `mime_type: string`
+
+    MIME type of the file.
+
+  - `size_bytes: number`
+
+    Size of the file in bytes.
+
+  - `type: "file"`
+
+    Object type.
+
+    For files, this is always `"file"`.
+
+    - `"file"`
+
+  - `downloadable?: boolean`
+
+    Whether the file can be downloaded.
+
+  - `scope?: BetaFileScope | null`
+
+    The scope of this file, indicating the context in which it was created (e.g., a session).
+
+    - `id: string`
+
+      The ID of the scoping resource (e.g., the session ID).
+
+    - `type: "session"`
+
+      The type of scope (e.g., `"session"`).
+
+      - `"session"`
+
+### Example
+
+```typescript
+import fs from 'fs';
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const fileMetadata = await client.beta.files.upload({ file: fs.createReadStream('path/to/file') });
+
+console.log(fileMetadata.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
+```
+
+## List Files
+
+`client.beta.files.list(FileListParamsparams?, RequestOptionsoptions?): Page<FileMetadata>`
+
+**get** `/v1/files`
+
+List Files
+
+### Parameters
+
+- `params: FileListParams`
+
+  - `after_id?: string`
+
+    Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
+
+  - `before_id?: string`
+
+    Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+
+  - `limit?: number`
+
+    Query param: Number of items to return per page.
+
+    Defaults to `20`. Ranges from `1` to `1000`.
+
+  - `scope_id?: string`
+
+    Query param: Filter by scope ID. Only returns files associated with the specified scope (e.g., a session ID).
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `FileMetadata`
+
+  - `id: string`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    RFC 3339 datetime string representing when the file was created.
+
+  - `filename: string`
+
+    Original filename of the uploaded file.
+
+  - `mime_type: string`
+
+    MIME type of the file.
+
+  - `size_bytes: number`
+
+    Size of the file in bytes.
+
+  - `type: "file"`
+
+    Object type.
+
+    For files, this is always `"file"`.
+
+    - `"file"`
+
+  - `downloadable?: boolean`
+
+    Whether the file can be downloaded.
+
+  - `scope?: BetaFileScope | null`
+
+    The scope of this file, indicating the context in which it was created (e.g., a session).
+
+    - `id: string`
+
+      The ID of the scoping resource (e.g., the session ID).
+
+    - `type: "session"`
+
+      The type of scope (e.g., `"session"`).
+
+      - `"session"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+// Automatically fetches more pages as needed.
+for await (const fileMetadata of client.beta.files.list()) {
+  console.log(fileMetadata.id);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+      "created_at": "2025-04-15T18:37:24.100435Z",
+      "filename": "document.pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 102400,
+      "type": "file",
+      "downloadable": false,
+      "scope": {
+        "id": "id",
+        "type": "session"
+      }
+    }
+  ],
+  "first_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "has_more": true,
+  "last_id": "file_013Zva2CMHLNnXjNJJKqJ2EF"
+}
+```
+
+## Download File
+
+`client.beta.files.download(stringfileID, FileDownloadParamsparams?, RequestOptionsoptions?): Response`
+
+**get** `/v1/files/{file_id}/content`
+
+Download File
+
+### Parameters
+
+- `fileID: string`
+
+  ID of the File.
+
+- `params: FileDownloadParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `unnamed_schema_2 = Response`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const response = await client.beta.files.download('file_id');
+
+console.log(response);
+
+const content = await response.blob();
+console.log(content);
+```
+
+## Get File Metadata
+
+`client.beta.files.retrieveMetadata(stringfileID, FileRetrieveMetadataParamsparams?, RequestOptionsoptions?): FileMetadata`
+
+**get** `/v1/files/{file_id}`
+
+Get File Metadata
+
+### Parameters
+
+- `fileID: string`
+
+  ID of the File.
+
+- `params: FileRetrieveMetadataParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `FileMetadata`
+
+  - `id: string`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    RFC 3339 datetime string representing when the file was created.
+
+  - `filename: string`
+
+    Original filename of the uploaded file.
+
+  - `mime_type: string`
+
+    MIME type of the file.
+
+  - `size_bytes: number`
+
+    Size of the file in bytes.
+
+  - `type: "file"`
+
+    Object type.
+
+    For files, this is always `"file"`.
+
+    - `"file"`
+
+  - `downloadable?: boolean`
+
+    Whether the file can be downloaded.
+
+  - `scope?: BetaFileScope | null`
+
+    The scope of this file, indicating the context in which it was created (e.g., a session).
+
+    - `id: string`
+
+      The ID of the scoping resource (e.g., the session ID).
+
+    - `type: "session"`
+
+      The type of scope (e.g., `"session"`).
+
+      - `"session"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const fileMetadata = await client.beta.files.retrieveMetadata('file_id');
+
+console.log(fileMetadata.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
+```
+
+## Delete File
+
+`client.beta.files.delete(stringfileID, FileDeleteParamsparams?, RequestOptionsoptions?): DeletedFile`
+
+**delete** `/v1/files/{file_id}`
+
+Delete File
+
+### Parameters
+
+- `fileID: string`
+
+  ID of the File.
+
+- `params: FileDeleteParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `DeletedFile`
+
+  - `id: string`
+
+    ID of the deleted file.
+
+  - `type?: "file_deleted"`
+
+    Deleted object type.
+
+    For file deletion, this is always `"file_deleted"`.
+
+    - `"file_deleted"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const deletedFile = await client.beta.files.delete('file_id');
+
+console.log(deletedFile.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "type": "file_deleted"
+}
+```
+
+## Domain Types
+
+### Beta File Scope
+
+- `BetaFileScope`
+
+  - `id: string`
+
+    The ID of the scoping resource (e.g., the session ID).
+
+  - `type: "session"`
+
+    The type of scope (e.g., `"session"`).
+
+    - `"session"`
+
+### Deleted File
+
+- `DeletedFile`
+
+  - `id: string`
+
+    ID of the deleted file.
+
+  - `type?: "file_deleted"`
+
+    Deleted object type.
+
+    For file deletion, this is always `"file_deleted"`.
+
+    - `"file_deleted"`
+
+### File Metadata
+
+- `FileMetadata`
+
+  - `id: string`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    RFC 3339 datetime string representing when the file was created.
+
+  - `filename: string`
+
+    Original filename of the uploaded file.
+
+  - `mime_type: string`
+
+    MIME type of the file.
+
+  - `size_bytes: number`
+
+    Size of the file in bytes.
+
+  - `type: "file"`
+
+    Object type.
+
+    For files, this is always `"file"`.
+
+    - `"file"`
+
+  - `downloadable?: boolean`
+
+    Whether the file can be downloaded.
+
+  - `scope?: BetaFileScope | null`
+
+    The scope of this file, indicating the context in which it was created (e.g., a session).
+
+    - `id: string`
+
+      The ID of the scoping resource (e.g., the session ID).
+
+    - `type: "session"`
+
+      The type of scope (e.g., `"session"`).
+
+      - `"session"`
+
+# Skills
+
+## Create Skill
+
+`client.beta.skills.create(SkillCreateParamsparams, RequestOptionsoptions?): SkillCreateResponse`
+
+**post** `/v1/skills`
+
+Create Skill
+
+### Parameters
+
+- `params: SkillCreateParams`
+
+  - `files: Array<Uploadable>`
+
+    Body param: Files to upload for the skill.
+
+    All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
+
+  - `display_title?: string | null`
+
+    Body param: Display title for the skill.
+
+    This is a human-readable label that is not included in the prompt sent to the model.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `SkillCreateResponse`
+
+  - `id: string`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    ISO 8601 timestamp of when the skill was created.
+
+  - `display_title: string | null`
+
+    Display title for the skill.
+
+    This is a human-readable label that is not included in the prompt sent to the model.
+
+  - `latest_version: string | null`
+
+    The latest version identifier for the skill.
+
+    This represents the most recent version of the skill that has been created.
+
+  - `source: string`
+
+    Source of the skill.
+
+    This may be one of the following values:
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
+
+  - `type: string`
+
+    Object type.
+
+    For Skills, this is always `"skill"`.
+
+  - `updated_at: string`
+
+    ISO 8601 timestamp of when the skill was last updated.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const skill = await client.beta.skills.create({ files: [fs.createReadStream('path/to/file')] });
+
+console.log(skill.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_title": "My Custom Skill",
+  "latest_version": "1759178010641129",
+  "source": "custom",
+  "type": "type",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+## List Skills
+
+`client.beta.skills.list(SkillListParamsparams?, RequestOptionsoptions?): PageCursor<SkillListResponse>`
+
+**get** `/v1/skills`
+
+List Skills
+
+### Parameters
+
+- `params: SkillListParams`
+
+  - `limit?: number`
+
+    Query param: Number of results to return per page.
+
+    Maximum value is 100. Defaults to 20.
+
+  - `page?: string | null`
+
+    Query param: Pagination token for fetching a specific page of results.
+
+    Pass the value from a previous response's `next_page` field to get the next page of results.
+
+  - `source?: string | null`
+
+    Query param: Filter skills by source.
+
+    If provided, only skills from the specified source will be returned:
+
+    * `"custom"`: only return user-created skills
+    * `"anthropic"`: only return Anthropic-created skills
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `SkillListResponse`
+
+  - `id: string`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    ISO 8601 timestamp of when the skill was created.
+
+  - `display_title: string | null`
+
+    Display title for the skill.
+
+    This is a human-readable label that is not included in the prompt sent to the model.
+
+  - `latest_version: string | null`
+
+    The latest version identifier for the skill.
+
+    This represents the most recent version of the skill that has been created.
+
+  - `source: string`
+
+    Source of the skill.
+
+    This may be one of the following values:
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
+
+  - `type: string`
+
+    Object type.
+
+    For Skills, this is always `"skill"`.
+
+  - `updated_at: string`
+
+    ISO 8601 timestamp of when the skill was last updated.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+// Automatically fetches more pages as needed.
+for await (const skillListResponse of client.beta.skills.list()) {
+  console.log(skillListResponse.id);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "skill_01JAbcdefghijklmnopqrstuvw",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "display_title": "My Custom Skill",
+      "latest_version": "1759178010641129",
+      "source": "custom",
+      "type": "type",
+      "updated_at": "2024-10-30T23:58:27.427722Z"
+    }
+  ],
+  "has_more": true,
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get Skill
+
+`client.beta.skills.retrieve(stringskillID, SkillRetrieveParamsparams?, RequestOptionsoptions?): SkillRetrieveResponse`
+
+**get** `/v1/skills/{skill_id}`
+
+Get Skill
+
+### Parameters
+
+- `skillID: string`
+
+  Unique identifier for the skill.
+
+  The format and length of IDs may change over time.
+
+- `params: SkillRetrieveParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `SkillRetrieveResponse`
+
+  - `id: string`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    ISO 8601 timestamp of when the skill was created.
+
+  - `display_title: string | null`
+
+    Display title for the skill.
+
+    This is a human-readable label that is not included in the prompt sent to the model.
+
+  - `latest_version: string | null`
+
+    The latest version identifier for the skill.
+
+    This represents the most recent version of the skill that has been created.
+
+  - `source: string`
+
+    Source of the skill.
+
+    This may be one of the following values:
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
+
+  - `type: string`
+
+    Object type.
+
+    For Skills, this is always `"skill"`.
+
+  - `updated_at: string`
+
+    ISO 8601 timestamp of when the skill was last updated.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const skill = await client.beta.skills.retrieve('skill_id');
+
+console.log(skill.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_title": "My Custom Skill",
+  "latest_version": "1759178010641129",
+  "source": "custom",
+  "type": "type",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+## Delete Skill
+
+`client.beta.skills.delete(stringskillID, SkillDeleteParamsparams?, RequestOptionsoptions?): SkillDeleteResponse`
+
+**delete** `/v1/skills/{skill_id}`
+
+Delete Skill
+
+### Parameters
+
+- `skillID: string`
+
+  Unique identifier for the skill.
+
+  The format and length of IDs may change over time.
+
+- `params: SkillDeleteParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `SkillDeleteResponse`
+
+  - `id: string`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+  - `type: string`
+
+    Deleted object type.
+
+    For Skills, this is always `"skill_deleted"`.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const skill = await client.beta.skills.delete('skill_id');
+
+console.log(skill.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type"
+}
+```
+
+## Domain Types
+
+### Skill Create Response
+
+- `SkillCreateResponse`
+
+  - `id: string`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    ISO 8601 timestamp of when the skill was created.
+
+  - `display_title: string | null`
+
+    Display title for the skill.
+
+    This is a human-readable label that is not included in the prompt sent to the model.
+
+  - `latest_version: string | null`
+
+    The latest version identifier for the skill.
+
+    This represents the most recent version of the skill that has been created.
+
+  - `source: string`
+
+    Source of the skill.
+
+    This may be one of the following values:
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
+
+  - `type: string`
+
+    Object type.
+
+    For Skills, this is always `"skill"`.
+
+  - `updated_at: string`
+
+    ISO 8601 timestamp of when the skill was last updated.
+
+### Skill List Response
+
+- `SkillListResponse`
+
+  - `id: string`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    ISO 8601 timestamp of when the skill was created.
+
+  - `display_title: string | null`
+
+    Display title for the skill.
+
+    This is a human-readable label that is not included in the prompt sent to the model.
+
+  - `latest_version: string | null`
+
+    The latest version identifier for the skill.
+
+    This represents the most recent version of the skill that has been created.
+
+  - `source: string`
+
+    Source of the skill.
+
+    This may be one of the following values:
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
+
+  - `type: string`
+
+    Object type.
+
+    For Skills, this is always `"skill"`.
+
+  - `updated_at: string`
+
+    ISO 8601 timestamp of when the skill was last updated.
+
+### Skill Retrieve Response
+
+- `SkillRetrieveResponse`
+
+  - `id: string`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    ISO 8601 timestamp of when the skill was created.
+
+  - `display_title: string | null`
+
+    Display title for the skill.
+
+    This is a human-readable label that is not included in the prompt sent to the model.
+
+  - `latest_version: string | null`
+
+    The latest version identifier for the skill.
+
+    This represents the most recent version of the skill that has been created.
+
+  - `source: string`
+
+    Source of the skill.
+
+    This may be one of the following values:
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
+
+  - `type: string`
+
+    Object type.
+
+    For Skills, this is always `"skill"`.
+
+  - `updated_at: string`
+
+    ISO 8601 timestamp of when the skill was last updated.
+
+### Skill Delete Response
+
+- `SkillDeleteResponse`
+
+  - `id: string`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+  - `type: string`
+
+    Deleted object type.
+
+    For Skills, this is always `"skill_deleted"`.
+
+# Versions
+
+## Create Skill Version
+
+`client.beta.skills.versions.create(stringskillID, VersionCreateParamsparams, RequestOptionsoptions?): VersionCreateResponse`
+
+**post** `/v1/skills/{skill_id}/versions`
+
+Create Skill Version
+
+### Parameters
+
+- `skillID: string`
+
+  Unique identifier for the skill.
+
+  The format and length of IDs may change over time.
+
+- `params: VersionCreateParams`
+
+  - `files: Array<Uploadable>`
+
+    Body param: Files to upload for the skill.
+
+    All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `VersionCreateResponse`
+
+  - `id: string`
+
+    Unique identifier for the skill version.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    ISO 8601 timestamp of when the skill version was created.
+
+  - `description: string`
+
+    Description of the skill version.
+
+    This is extracted from the SKILL.md file in the skill upload.
+
+  - `directory: string`
+
+    Directory name of the skill version.
+
+    This is the top-level directory name that was extracted from the uploaded files.
+
+  - `name: string`
+
+    Human-readable name of the skill version.
+
+    This is extracted from the SKILL.md file in the skill upload.
+
+  - `skill_id: string`
+
+    Identifier for the skill that this version belongs to.
+
+  - `type: string`
+
+    Object type.
+
+    For Skill Versions, this is always `"skill_version"`.
+
+  - `version: string`
+
+    Version identifier for the skill.
+
+    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const version = await client.beta.skills.versions.create('skill_id', {
+  files: [fs.createReadStream('path/to/file')],
+});
+
+console.log(version.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "description": "A custom skill for doing something useful",
+  "directory": "my-skill",
+  "name": "my-skill",
+  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type",
+  "version": "1759178010641129"
+}
+```
+
+## List Skill Versions
+
+`client.beta.skills.versions.list(stringskillID, VersionListParamsparams?, RequestOptionsoptions?): PageCursor<VersionListResponse>`
+
+**get** `/v1/skills/{skill_id}/versions`
+
+List Skill Versions
+
+### Parameters
+
+- `skillID: string`
+
+  Unique identifier for the skill.
+
+  The format and length of IDs may change over time.
+
+- `params: VersionListParams`
+
+  - `limit?: number | null`
+
+    Query param: Number of items to return per page.
+
+    Defaults to `20`. Ranges from `1` to `1000`.
+
+  - `page?: string | null`
+
+    Query param: Optionally set to the `next_page` token from the previous response.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `VersionListResponse`
+
+  - `id: string`
+
+    Unique identifier for the skill version.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    ISO 8601 timestamp of when the skill version was created.
+
+  - `description: string`
+
+    Description of the skill version.
+
+    This is extracted from the SKILL.md file in the skill upload.
+
+  - `directory: string`
+
+    Directory name of the skill version.
+
+    This is the top-level directory name that was extracted from the uploaded files.
+
+  - `name: string`
+
+    Human-readable name of the skill version.
+
+    This is extracted from the SKILL.md file in the skill upload.
+
+  - `skill_id: string`
+
+    Identifier for the skill that this version belongs to.
+
+  - `type: string`
+
+    Object type.
+
+    For Skill Versions, this is always `"skill_version"`.
+
+  - `version: string`
+
+    Version identifier for the skill.
+
+    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+// Automatically fetches more pages as needed.
+for await (const versionListResponse of client.beta.skills.versions.list('skill_id')) {
+  console.log(versionListResponse.id);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "description": "A custom skill for doing something useful",
+      "directory": "my-skill",
+      "name": "my-skill",
+      "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+      "type": "type",
+      "version": "1759178010641129"
+    }
+  ],
+  "has_more": true,
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Download Skill Version Content
+
+`client.beta.skills.versions.download(stringversion, VersionDownloadParamsparams, RequestOptionsoptions?): Response`
+
+**get** `/v1/skills/{skill_id}/versions/{version}/content`
+
+Download a skill version's content as a zip archive.
+
+### Parameters
+
+- `version: string`
+
+  Version identifier for the skill.
+
+  Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+
+- `params: VersionDownloadParams`
+
+  - `skill_id: string`
+
+    Path param: Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `unnamed_schema_3 = Response`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const response = await client.beta.skills.versions.download('version', { skill_id: 'skill_id' });
+
+console.log(response);
+
+const content = await response.blob();
+console.log(content);
+```
+
+## Get Skill Version
+
+`client.beta.skills.versions.retrieve(stringversion, VersionRetrieveParamsparams, RequestOptionsoptions?): VersionRetrieveResponse`
+
+**get** `/v1/skills/{skill_id}/versions/{version}`
+
+Get Skill Version
+
+### Parameters
+
+- `version: string`
+
+  Version identifier for the skill.
+
+  Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+
+- `params: VersionRetrieveParams`
+
+  - `skill_id: string`
+
+    Path param: Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `VersionRetrieveResponse`
+
+  - `id: string`
+
+    Unique identifier for the skill version.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    ISO 8601 timestamp of when the skill version was created.
+
+  - `description: string`
+
+    Description of the skill version.
+
+    This is extracted from the SKILL.md file in the skill upload.
+
+  - `directory: string`
+
+    Directory name of the skill version.
+
+    This is the top-level directory name that was extracted from the uploaded files.
+
+  - `name: string`
+
+    Human-readable name of the skill version.
+
+    This is extracted from the SKILL.md file in the skill upload.
+
+  - `skill_id: string`
+
+    Identifier for the skill that this version belongs to.
+
+  - `type: string`
+
+    Object type.
+
+    For Skill Versions, this is always `"skill_version"`.
+
+  - `version: string`
+
+    Version identifier for the skill.
+
+    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const version = await client.beta.skills.versions.retrieve('version', { skill_id: 'skill_id' });
+
+console.log(version.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "description": "A custom skill for doing something useful",
+  "directory": "my-skill",
+  "name": "my-skill",
+  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type",
+  "version": "1759178010641129"
+}
+```
+
+## Delete Skill Version
+
+`client.beta.skills.versions.delete(stringversion, VersionDeleteParamsparams, RequestOptionsoptions?): VersionDeleteResponse`
+
+**delete** `/v1/skills/{skill_id}/versions/{version}`
+
+Delete Skill Version
+
+### Parameters
+
+- `version: string`
+
+  Version identifier for the skill.
+
+  Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+
+- `params: VersionDeleteParams`
+
+  - `skill_id: string`
+
+    Path param: Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `VersionDeleteResponse`
+
+  - `id: string`
+
+    Version identifier for the skill.
+
+    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+
+  - `type: string`
+
+    Deleted object type.
+
+    For Skill Versions, this is always `"skill_version_deleted"`.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const version = await client.beta.skills.versions.delete('version', { skill_id: 'skill_id' });
+
+console.log(version.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "1759178010641129",
+  "type": "type"
+}
+```
+
+## Domain Types
+
+### Version Create Response
+
+- `VersionCreateResponse`
+
+  - `id: string`
+
+    Unique identifier for the skill version.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    ISO 8601 timestamp of when the skill version was created.
+
+  - `description: string`
+
+    Description of the skill version.
+
+    This is extracted from the SKILL.md file in the skill upload.
+
+  - `directory: string`
+
+    Directory name of the skill version.
+
+    This is the top-level directory name that was extracted from the uploaded files.
+
+  - `name: string`
+
+    Human-readable name of the skill version.
+
+    This is extracted from the SKILL.md file in the skill upload.
+
+  - `skill_id: string`
+
+    Identifier for the skill that this version belongs to.
+
+  - `type: string`
+
+    Object type.
+
+    For Skill Versions, this is always `"skill_version"`.
+
+  - `version: string`
+
+    Version identifier for the skill.
+
+    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+
+### Version List Response
+
+- `VersionListResponse`
+
+  - `id: string`
+
+    Unique identifier for the skill version.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    ISO 8601 timestamp of when the skill version was created.
+
+  - `description: string`
+
+    Description of the skill version.
+
+    This is extracted from the SKILL.md file in the skill upload.
+
+  - `directory: string`
+
+    Directory name of the skill version.
+
+    This is the top-level directory name that was extracted from the uploaded files.
+
+  - `name: string`
+
+    Human-readable name of the skill version.
+
+    This is extracted from the SKILL.md file in the skill upload.
+
+  - `skill_id: string`
+
+    Identifier for the skill that this version belongs to.
+
+  - `type: string`
+
+    Object type.
+
+    For Skill Versions, this is always `"skill_version"`.
+
+  - `version: string`
+
+    Version identifier for the skill.
+
+    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+
+### Version Retrieve Response
+
+- `VersionRetrieveResponse`
+
+  - `id: string`
+
+    Unique identifier for the skill version.
+
+    The format and length of IDs may change over time.
+
+  - `created_at: string`
+
+    ISO 8601 timestamp of when the skill version was created.
+
+  - `description: string`
+
+    Description of the skill version.
+
+    This is extracted from the SKILL.md file in the skill upload.
+
+  - `directory: string`
+
+    Directory name of the skill version.
+
+    This is the top-level directory name that was extracted from the uploaded files.
+
+  - `name: string`
+
+    Human-readable name of the skill version.
+
+    This is extracted from the SKILL.md file in the skill upload.
+
+  - `skill_id: string`
+
+    Identifier for the skill that this version belongs to.
+
+  - `type: string`
+
+    Object type.
+
+    For Skill Versions, this is always `"skill_version"`.
+
+  - `version: string`
+
+    Version identifier for the skill.
+
+    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+
+### Version Delete Response
+
+- `VersionDeleteResponse`
+
+  - `id: string`
+
+    Version identifier for the skill.
+
+    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+
+  - `type: string`
+
+    Deleted object type.
+
+    For Skill Versions, this is always `"skill_version_deleted"`.
+
+# User Profiles
+
+## Create User Profile
+
+`client.beta.userProfiles.create(UserProfileCreateParamsparams, RequestOptionsoptions?): BetaUserProfile`
+
+**post** `/v1/user_profiles`
+
+Create User Profile
+
+### Parameters
+
+- `params: UserProfileCreateParams`
+
+  - `external_id?: string | null`
+
+    Body param: Platform's own identifier for this user. Not enforced unique. Maximum 255 characters.
+
+  - `metadata?: Record<string, string>`
+
+    Body param: Free-form key-value data to attach to this user profile. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters. Values must be non-empty strings.
+
+  - `name?: string | null`
+
+    Body param: Display name of the entity this profile represents. Required when relationship is `resold` (the resold-to company's name); optional otherwise. Maximum 255 characters.
+
+  - `relationship?: "external" | "resold" | "internal"`
+
+    Body param: How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
+    - `"external"`
+
+    - `"resold"`
+
+    - `"internal"`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaUserProfile`
+
+  - `id: string`
+
+    Unique identifier for this user profile, prefixed `uprof_`.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+
+  - `relationship: "external" | "resold" | "internal"`
+
+    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
+    - `"external"`
+
+    - `"resold"`
+
+    - `"internal"`
+
+  - `trust_grants: Record<string, BetaUserProfileTrustGrant>`
+
+    Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
+    - `status: "active" | "pending" | "rejected"`
+
+      Status of the trust grant.
+
+      - `"active"`
+
+      - `"pending"`
+
+      - `"rejected"`
+
+  - `type: "user_profile"`
+
+    Object type. Always `user_profile`.
+
+    - `"user_profile"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `external_id?: string | null`
+
+    Platform's own identifier for this user. Not enforced unique.
+
+  - `name?: string | null`
+
+    Display name of the entity this profile represents. For `resold` this is the resold-to company's name.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaUserProfile = await client.beta.userProfiles.create();
+
+console.log(betaUserProfile.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
+## List User Profiles
+
+`client.beta.userProfiles.list(UserProfileListParamsparams?, RequestOptionsoptions?): PageCursor<BetaUserProfile>`
+
+**get** `/v1/user_profiles`
+
+List User Profiles
+
+### Parameters
+
+- `params: UserProfileListParams`
+
+  - `limit?: number`
+
+    Query param: Query parameter for limit
+
+  - `order?: "asc" | "desc"`
+
+    Query param: Query parameter for order
+
+    - `"asc"`
+
+    - `"desc"`
+
+  - `page?: string`
+
+    Query param: Query parameter for page
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaUserProfile`
+
+  - `id: string`
+
+    Unique identifier for this user profile, prefixed `uprof_`.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+
+  - `relationship: "external" | "resold" | "internal"`
+
+    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
+    - `"external"`
+
+    - `"resold"`
+
+    - `"internal"`
+
+  - `trust_grants: Record<string, BetaUserProfileTrustGrant>`
+
+    Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
+    - `status: "active" | "pending" | "rejected"`
+
+      Status of the trust grant.
+
+      - `"active"`
+
+      - `"pending"`
+
+      - `"rejected"`
+
+  - `type: "user_profile"`
+
+    Object type. Always `user_profile`.
+
+    - `"user_profile"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `external_id?: string | null`
+
+    Platform's own identifier for this user. Not enforced unique.
+
+  - `name?: string | null`
+
+    Display name of the entity this profile represents. For `resold` this is the resold-to company's name.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+// Automatically fetches more pages as needed.
+for await (const betaUserProfile of client.beta.userProfiles.list()) {
+  console.log(betaUserProfile.id);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+      "created_at": "2026-03-15T10:00:00Z",
+      "metadata": {},
+      "relationship": "external",
+      "trust_grants": {
+        "cyber": {
+          "status": "active"
+        }
+      },
+      "type": "user_profile",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "external_id": "user_12345",
+      "name": "Example User"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get User Profile
+
+`client.beta.userProfiles.retrieve(stringuserProfileID, UserProfileRetrieveParamsparams?, RequestOptionsoptions?): BetaUserProfile`
+
+**get** `/v1/user_profiles/{user_profile_id}`
+
+Get User Profile
+
+### Parameters
+
+- `userProfileID: string`
+
+- `params: UserProfileRetrieveParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaUserProfile`
+
+  - `id: string`
+
+    Unique identifier for this user profile, prefixed `uprof_`.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+
+  - `relationship: "external" | "resold" | "internal"`
+
+    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
+    - `"external"`
+
+    - `"resold"`
+
+    - `"internal"`
+
+  - `trust_grants: Record<string, BetaUserProfileTrustGrant>`
+
+    Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
+    - `status: "active" | "pending" | "rejected"`
+
+      Status of the trust grant.
+
+      - `"active"`
+
+      - `"pending"`
+
+      - `"rejected"`
+
+  - `type: "user_profile"`
+
+    Object type. Always `user_profile`.
+
+    - `"user_profile"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `external_id?: string | null`
+
+    Platform's own identifier for this user. Not enforced unique.
+
+  - `name?: string | null`
+
+    Display name of the entity this profile represents. For `resold` this is the resold-to company's name.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaUserProfile = await client.beta.userProfiles.retrieve('uprof_011CZkZCu8hGbp5mYRQgUmz9');
+
+console.log(betaUserProfile.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
+## Update User Profile
+
+`client.beta.userProfiles.update(stringuserProfileID, UserProfileUpdateParamsparams, RequestOptionsoptions?): BetaUserProfile`
+
+**post** `/v1/user_profiles/{user_profile_id}`
+
+Update User Profile
+
+### Parameters
+
+- `userProfileID: string`
+
+- `params: UserProfileUpdateParams`
+
+  - `external_id?: string | null`
+
+    Body param: If present, replaces the stored external_id. Omit to leave unchanged. Maximum 255 characters.
+
+  - `metadata?: Record<string, string>`
+
+    Body param: Key-value pairs to merge into the stored metadata. Keys provided overwrite existing values. To remove a key, set its value to an empty string. Keys not provided are left unchanged. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters.
+
+  - `name?: string | null`
+
+    Body param: If present, replaces the stored name. Omit to leave unchanged. Maximum 255 characters.
+
+  - `relationship?: "external" | "resold" | "internal" | null`
+
+    Body param: How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
+    - `"external"`
+
+    - `"resold"`
+
+    - `"internal"`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaUserProfile`
+
+  - `id: string`
+
+    Unique identifier for this user profile, prefixed `uprof_`.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+
+  - `relationship: "external" | "resold" | "internal"`
+
+    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
+    - `"external"`
+
+    - `"resold"`
+
+    - `"internal"`
+
+  - `trust_grants: Record<string, BetaUserProfileTrustGrant>`
+
+    Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
+    - `status: "active" | "pending" | "rejected"`
+
+      Status of the trust grant.
+
+      - `"active"`
+
+      - `"pending"`
+
+      - `"rejected"`
+
+  - `type: "user_profile"`
+
+    Object type. Always `user_profile`.
+
+    - `"user_profile"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `external_id?: string | null`
+
+    Platform's own identifier for this user. Not enforced unique.
+
+  - `name?: string | null`
+
+    Display name of the entity this profile represents. For `resold` this is the resold-to company's name.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaUserProfile = await client.beta.userProfiles.update('uprof_011CZkZCu8hGbp5mYRQgUmz9');
+
+console.log(betaUserProfile.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
+## Create Enrollment URL
+
+`client.beta.userProfiles.createEnrollmentURL(stringuserProfileID, UserProfileCreateEnrollmentURLParamsparams?, RequestOptionsoptions?): BetaUserProfileEnrollmentURL`
+
+**post** `/v1/user_profiles/{user_profile_id}/enrollment_url`
+
+Create Enrollment URL
+
+### Parameters
+
+- `userProfileID: string`
+
+- `params: UserProfileCreateEnrollmentURLParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaUserProfileEnrollmentURL`
+
+  - `expires_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `type: "enrollment_url"`
+
+    Object type. Always `enrollment_url`.
+
+    - `"enrollment_url"`
+
+  - `url: string`
+
+    Enrollment URL to send to the end user. Valid until `expires_at`.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaUserProfileEnrollmentURL = await client.beta.userProfiles.createEnrollmentURL(
+  'uprof_011CZkZCu8hGbp5mYRQgUmz9',
+);
+
+console.log(betaUserProfileEnrollmentURL.expires_at);
+```
+
+#### Response
+
+```json
+{
+  "expires_at": "2026-03-15T10:15:00Z",
+  "type": "enrollment_url",
+  "url": "https://platform.claude.com/user-profiles/enrollment/M3J0bGJxZ2ppMnptbnB1"
+}
+```
+
+## Domain Types
+
+### Beta User Profile
+
+- `BetaUserProfile`
+
+  - `id: string`
+
+    Unique identifier for this user profile, prefixed `uprof_`.
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `metadata: Record<string, string>`
+
+    Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+
+  - `relationship: "external" | "resold" | "internal"`
+
+    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
+    - `"external"`
+
+    - `"resold"`
+
+    - `"internal"`
+
+  - `trust_grants: Record<string, BetaUserProfileTrustGrant>`
+
+    Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
+    - `status: "active" | "pending" | "rejected"`
+
+      Status of the trust grant.
+
+      - `"active"`
+
+      - `"pending"`
+
+      - `"rejected"`
+
+  - `type: "user_profile"`
+
+    Object type. Always `user_profile`.
+
+    - `"user_profile"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `external_id?: string | null`
+
+    Platform's own identifier for this user. Not enforced unique.
+
+  - `name?: string | null`
+
+    Display name of the entity this profile represents. For `resold` this is the resold-to company's name.
+
+### Beta User Profile Enrollment URL
+
+- `BetaUserProfileEnrollmentURL`
+
+  - `expires_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `type: "enrollment_url"`
+
+    Object type. Always `enrollment_url`.
+
+    - `"enrollment_url"`
+
+  - `url: string`
+
+    Enrollment URL to send to the end user. Valid until `expires_at`.
+
+### Beta User Profile Trust Grant
+
+- `BetaUserProfileTrustGrant`
+
+  - `status: "active" | "pending" | "rejected"`
+
+    Status of the trust grant.
+
+    - `"active"`
+
+    - `"pending"`
+
+    - `"rejected"`
+
+# Dreams
+
+## Create a Dream
+
+`client.beta.dreams.create(DreamCreateParamsparams, RequestOptionsoptions?): BetaDream`
+
+**post** `/v1/dreams`
+
+Create a Dream
+
+### Parameters
+
+- `params: DreamCreateParams`
+
+  - `inputs: Array<BetaDreamInput>`
+
+    Body param
+
+    - `BetaDreamMemoryStoreInput`
+
+      An input memory store the dream reads from. The dream never mutates this store.
+
+      - `memory_store_id: string`
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+    - `BetaDreamSessionsInput`
+
+      Input session transcripts the dream reads.
+
+      - `session_ids: Array<string>`
+
+      - `type: "sessions"`
+
+        - `"sessions"`
+
+  - `model: string | BetaDreamModelConfigParam`
+
+    Body param: Model identifier and configuration applied to every pipeline stage.
+
+    - `string`
+
+    - `BetaDreamModelConfigParam`
+
+      Model identifier and configuration applied to every pipeline stage.
+
+      - `id: string`
+
+        Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+      - `speed?: "standard" | "fast" | null`
+
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+        - `"standard"`
+
+        - `"fast"`
+
+  - `instructions?: string | null`
+
+    Body param
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaDream`
+
+  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into a new output memory store. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `id: string`
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `ended_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `error: BetaDreamError | null`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+    - `message: string`
+
+    - `type: string`
+
+  - `inputs: Array<BetaDreamInput>`
+
+    - `BetaDreamMemoryStoreInput`
+
+      An input memory store the dream reads from. The dream never mutates this store.
+
+      - `memory_store_id: string`
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+    - `BetaDreamSessionsInput`
+
+      Input session transcripts the dream reads.
+
+      - `session_ids: Array<string>`
+
+      - `type: "sessions"`
+
+        - `"sessions"`
+
+  - `instructions: string | null`
+
+  - `model: BetaDreamModelConfig`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+    - `id: string`
+
+      Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+    - `speed?: "standard" | "fast"`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `"standard"`
+
+      - `"fast"`
+
+  - `outputs: Array<BetaDreamOutput>`
+
+    - `memory_store_id: string`
+
+    - `type: "memory_store"`
+
+      - `"memory_store"`
+
+  - `session_id: string | null`
+
+  - `status: BetaDreamStatus`
+
+    Lifecycle status of a Dream.
+
+    - `"pending"`
+
+    - `"running"`
+
+    - `"completed"`
+
+    - `"failed"`
+
+    - `"canceled"`
+
+  - `type: "dream"`
+
+    - `"dream"`
+
+  - `usage: BetaDreamUsage`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+    - `cache_creation_input_tokens: number`
+
+      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+    - `cache_read_input_tokens: number`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: number`
+
+      Total uncached input tokens consumed across every pipeline stage.
+
+    - `output_tokens: number`
+
+      Total output tokens generated across every pipeline stage.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaDream = await client.beta.dreams.create({
+  inputs: [{ memory_store_id: 'x', type: 'memory_store' }],
+  model: 'string',
+});
+
+console.log(betaDream.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## List Dreams
+
+`client.beta.dreams.list(DreamListParamsparams?, RequestOptionsoptions?): PageCursor<BetaDream>`
+
+**get** `/v1/dreams`
+
+List Dreams
+
+### Parameters
+
+- `params: DreamListParams`
+
+  - `"created_at[gt]"?: string`
+
+    Query param: Return dreams with `created_at` strictly after this timestamp (exclusive lower bound, RFC 3339). Unset applies no lower bound.
+
+  - `"created_at[lt]"?: string`
+
+    Query param: Return dreams with `created_at` strictly before this timestamp (exclusive upper bound, RFC 3339). Unset applies no upper bound.
+
+  - `include_archived?: boolean`
+
+    Query param: Query parameter for include_archived
+
+  - `limit?: number`
+
+    Query param: Query parameter for limit
+
+  - `page?: string`
+
+    Query param: Query parameter for page
+
+  - `statuses?: Array<BetaDreamStatus>`
+
+    Query param: Filter by lifecycle status. Repeat the parameter to match any of multiple statuses. Empty applies no status filter.
+
+    - `"pending"`
+
+    - `"running"`
+
+    - `"completed"`
+
+    - `"failed"`
+
+    - `"canceled"`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaDream`
+
+  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into a new output memory store. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `id: string`
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `ended_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `error: BetaDreamError | null`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+    - `message: string`
+
+    - `type: string`
+
+  - `inputs: Array<BetaDreamInput>`
+
+    - `BetaDreamMemoryStoreInput`
+
+      An input memory store the dream reads from. The dream never mutates this store.
+
+      - `memory_store_id: string`
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+    - `BetaDreamSessionsInput`
+
+      Input session transcripts the dream reads.
+
+      - `session_ids: Array<string>`
+
+      - `type: "sessions"`
+
+        - `"sessions"`
+
+  - `instructions: string | null`
+
+  - `model: BetaDreamModelConfig`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+    - `id: string`
+
+      Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+    - `speed?: "standard" | "fast"`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `"standard"`
+
+      - `"fast"`
+
+  - `outputs: Array<BetaDreamOutput>`
+
+    - `memory_store_id: string`
+
+    - `type: "memory_store"`
+
+      - `"memory_store"`
+
+  - `session_id: string | null`
+
+  - `status: BetaDreamStatus`
+
+    Lifecycle status of a Dream.
+
+    - `"pending"`
+
+    - `"running"`
+
+    - `"completed"`
+
+    - `"failed"`
+
+    - `"canceled"`
+
+  - `type: "dream"`
+
+    - `"dream"`
+
+  - `usage: BetaDreamUsage`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+    - `cache_creation_input_tokens: number`
+
+      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+    - `cache_read_input_tokens: number`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: number`
+
+      Total uncached input tokens consumed across every pipeline stage.
+
+    - `output_tokens: number`
+
+      Total output tokens generated across every pipeline stage.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+// Automatically fetches more pages as needed.
+for await (const betaDream of client.beta.dreams.list()) {
+  console.log(betaDream.id);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "ended_at": "2019-12-27T18:11:19.117Z",
+      "error": {
+        "message": "message",
+        "type": "type"
+      },
+      "inputs": [
+        {
+          "memory_store_id": "x",
+          "type": "memory_store"
+        }
+      ],
+      "instructions": "instructions",
+      "model": {
+        "id": "x",
+        "speed": "standard"
+      },
+      "outputs": [
+        {
+          "memory_store_id": "memory_store_id",
+          "type": "memory_store"
+        }
+      ],
+      "session_id": "session_id",
+      "status": "pending",
+      "type": "dream",
+      "usage": {
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      }
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Get a Dream
+
+`client.beta.dreams.retrieve(stringdreamID, DreamRetrieveParamsparams?, RequestOptionsoptions?): BetaDream`
+
+**get** `/v1/dreams/{dream_id}`
+
+Get a Dream
+
+### Parameters
+
+- `dreamID: string`
+
+- `params: DreamRetrieveParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaDream`
+
+  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into a new output memory store. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `id: string`
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `ended_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `error: BetaDreamError | null`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+    - `message: string`
+
+    - `type: string`
+
+  - `inputs: Array<BetaDreamInput>`
+
+    - `BetaDreamMemoryStoreInput`
+
+      An input memory store the dream reads from. The dream never mutates this store.
+
+      - `memory_store_id: string`
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+    - `BetaDreamSessionsInput`
+
+      Input session transcripts the dream reads.
+
+      - `session_ids: Array<string>`
+
+      - `type: "sessions"`
+
+        - `"sessions"`
+
+  - `instructions: string | null`
+
+  - `model: BetaDreamModelConfig`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+    - `id: string`
+
+      Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+    - `speed?: "standard" | "fast"`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `"standard"`
+
+      - `"fast"`
+
+  - `outputs: Array<BetaDreamOutput>`
+
+    - `memory_store_id: string`
+
+    - `type: "memory_store"`
+
+      - `"memory_store"`
+
+  - `session_id: string | null`
+
+  - `status: BetaDreamStatus`
+
+    Lifecycle status of a Dream.
+
+    - `"pending"`
+
+    - `"running"`
+
+    - `"completed"`
+
+    - `"failed"`
+
+    - `"canceled"`
+
+  - `type: "dream"`
+
+    - `"dream"`
+
+  - `usage: BetaDreamUsage`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+    - `cache_creation_input_tokens: number`
+
+      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+    - `cache_read_input_tokens: number`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: number`
+
+      Total uncached input tokens consumed across every pipeline stage.
+
+    - `output_tokens: number`
+
+      Total output tokens generated across every pipeline stage.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaDream = await client.beta.dreams.retrieve('dream_id');
+
+console.log(betaDream.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## Cancel a Dream
+
+`client.beta.dreams.cancel(stringdreamID, DreamCancelParamsparams?, RequestOptionsoptions?): BetaDream`
+
+**post** `/v1/dreams/{dream_id}/cancel`
+
+Cancel a Dream
+
+### Parameters
+
+- `dreamID: string`
+
+- `params: DreamCancelParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaDream`
+
+  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into a new output memory store. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `id: string`
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `ended_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `error: BetaDreamError | null`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+    - `message: string`
+
+    - `type: string`
+
+  - `inputs: Array<BetaDreamInput>`
+
+    - `BetaDreamMemoryStoreInput`
+
+      An input memory store the dream reads from. The dream never mutates this store.
+
+      - `memory_store_id: string`
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+    - `BetaDreamSessionsInput`
+
+      Input session transcripts the dream reads.
+
+      - `session_ids: Array<string>`
+
+      - `type: "sessions"`
+
+        - `"sessions"`
+
+  - `instructions: string | null`
+
+  - `model: BetaDreamModelConfig`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+    - `id: string`
+
+      Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+    - `speed?: "standard" | "fast"`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `"standard"`
+
+      - `"fast"`
+
+  - `outputs: Array<BetaDreamOutput>`
+
+    - `memory_store_id: string`
+
+    - `type: "memory_store"`
+
+      - `"memory_store"`
+
+  - `session_id: string | null`
+
+  - `status: BetaDreamStatus`
+
+    Lifecycle status of a Dream.
+
+    - `"pending"`
+
+    - `"running"`
+
+    - `"completed"`
+
+    - `"failed"`
+
+    - `"canceled"`
+
+  - `type: "dream"`
+
+    - `"dream"`
+
+  - `usage: BetaDreamUsage`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+    - `cache_creation_input_tokens: number`
+
+      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+    - `cache_read_input_tokens: number`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: number`
+
+      Total uncached input tokens consumed across every pipeline stage.
+
+    - `output_tokens: number`
+
+      Total output tokens generated across every pipeline stage.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaDream = await client.beta.dreams.cancel('dream_id');
+
+console.log(betaDream.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## Archive a Dream
+
+`client.beta.dreams.archive(stringdreamID, DreamArchiveParamsparams?, RequestOptionsoptions?): BetaDream`
+
+**post** `/v1/dreams/{dream_id}/archive`
+
+Archive a Dream
+
+### Parameters
+
+- `dreamID: string`
+
+- `params: DreamArchiveParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaDream`
+
+  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into a new output memory store. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `id: string`
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `ended_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `error: BetaDreamError | null`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+    - `message: string`
+
+    - `type: string`
+
+  - `inputs: Array<BetaDreamInput>`
+
+    - `BetaDreamMemoryStoreInput`
+
+      An input memory store the dream reads from. The dream never mutates this store.
+
+      - `memory_store_id: string`
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+    - `BetaDreamSessionsInput`
+
+      Input session transcripts the dream reads.
+
+      - `session_ids: Array<string>`
+
+      - `type: "sessions"`
+
+        - `"sessions"`
+
+  - `instructions: string | null`
+
+  - `model: BetaDreamModelConfig`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+    - `id: string`
+
+      Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+    - `speed?: "standard" | "fast"`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `"standard"`
+
+      - `"fast"`
+
+  - `outputs: Array<BetaDreamOutput>`
+
+    - `memory_store_id: string`
+
+    - `type: "memory_store"`
+
+      - `"memory_store"`
+
+  - `session_id: string | null`
+
+  - `status: BetaDreamStatus`
+
+    Lifecycle status of a Dream.
+
+    - `"pending"`
+
+    - `"running"`
+
+    - `"completed"`
+
+    - `"failed"`
+
+    - `"canceled"`
+
+  - `type: "dream"`
+
+    - `"dream"`
+
+  - `usage: BetaDreamUsage`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+    - `cache_creation_input_tokens: number`
+
+      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+    - `cache_read_input_tokens: number`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: number`
+
+      Total uncached input tokens consumed across every pipeline stage.
+
+    - `output_tokens: number`
+
+      Total output tokens generated across every pipeline stage.
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaDream = await client.beta.dreams.archive('dream_id');
+
+console.log(betaDream.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "ended_at": "2019-12-27T18:11:19.117Z",
+  "error": {
+    "message": "message",
+    "type": "type"
+  },
+  "inputs": [
+    {
+      "memory_store_id": "x",
+      "type": "memory_store"
+    }
+  ],
+  "instructions": "instructions",
+  "model": {
+    "id": "x",
+    "speed": "standard"
+  },
+  "outputs": [
+    {
+      "memory_store_id": "memory_store_id",
+      "type": "memory_store"
+    }
+  ],
+  "session_id": "session_id",
+  "status": "pending",
+  "type": "dream",
+  "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## Domain Types
+
+### Beta Dream
+
+- `BetaDream`
+
+  An asynchronous memory-consolidation job that reads a memory store plus a set of session transcripts and writes consolidated memories into a new output memory store. The Dreams API is in research preview: the request and response shapes are volatile and may change without the deprecation period that applies to generally-available endpoints.
+
+  - `id: string`
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `ended_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `error: BetaDreamError | null`
+
+    Failure detail for a Dream whose `status` is `failed`.
+
+    - `message: string`
+
+    - `type: string`
+
+  - `inputs: Array<BetaDreamInput>`
+
+    - `BetaDreamMemoryStoreInput`
+
+      An input memory store the dream reads from. The dream never mutates this store.
+
+      - `memory_store_id: string`
+
+      - `type: "memory_store"`
+
+        - `"memory_store"`
+
+    - `BetaDreamSessionsInput`
+
+      Input session transcripts the dream reads.
+
+      - `session_ids: Array<string>`
+
+      - `type: "sessions"`
+
+        - `"sessions"`
+
+  - `instructions: string | null`
+
+  - `model: BetaDreamModelConfig`
+
+    Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+    - `id: string`
+
+      Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+    - `speed?: "standard" | "fast"`
+
+      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+      - `"standard"`
+
+      - `"fast"`
+
+  - `outputs: Array<BetaDreamOutput>`
+
+    - `memory_store_id: string`
+
+    - `type: "memory_store"`
+
+      - `"memory_store"`
+
+  - `session_id: string | null`
+
+  - `status: BetaDreamStatus`
+
+    Lifecycle status of a Dream.
+
+    - `"pending"`
+
+    - `"running"`
+
+    - `"completed"`
+
+    - `"failed"`
+
+    - `"canceled"`
+
+  - `type: "dream"`
+
+    - `"dream"`
+
+  - `usage: BetaDreamUsage`
+
+    Cumulative token usage for the dream across every pipeline stage.
+
+    - `cache_creation_input_tokens: number`
+
+      Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+    - `cache_read_input_tokens: number`
+
+      Total tokens read from prompt cache.
+
+    - `input_tokens: number`
+
+      Total uncached input tokens consumed across every pipeline stage.
+
+    - `output_tokens: number`
+
+      Total output tokens generated across every pipeline stage.
+
+### Beta Dream Error
+
+- `BetaDreamError`
+
+  Failure detail for a Dream whose `status` is `failed`.
+
+  - `message: string`
+
+  - `type: string`
+
+### Beta Dream Input
+
+- `BetaDreamInput = BetaDreamMemoryStoreInput | BetaDreamSessionsInput`
+
+  An input memory store the dream reads from. The dream never mutates this store.
+
+  - `BetaDreamMemoryStoreInput`
+
+    An input memory store the dream reads from. The dream never mutates this store.
+
+    - `memory_store_id: string`
+
+    - `type: "memory_store"`
+
+      - `"memory_store"`
+
+  - `BetaDreamSessionsInput`
+
+    Input session transcripts the dream reads.
+
+    - `session_ids: Array<string>`
+
+    - `type: "sessions"`
+
+      - `"sessions"`
+
+### Beta Dream Memory Store Input
+
+- `BetaDreamMemoryStoreInput`
+
+  An input memory store the dream reads from. The dream never mutates this store.
+
+  - `memory_store_id: string`
+
+  - `type: "memory_store"`
+
+    - `"memory_store"`
+
+### Beta Dream Memory Store Output
+
+- `BetaDreamMemoryStoreOutput`
+
+  An output memory store the dream writes consolidated memories into.
+
+  - `memory_store_id: string`
+
+  - `type: "memory_store"`
+
+    - `"memory_store"`
+
+### Beta Dream Model Config
+
+- `BetaDreamModelConfig`
+
+  Model identifier and configuration applied to every pipeline stage. Same wire shape as the Agents API ModelConfig.
+
+  - `id: string`
+
+    Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+  - `speed?: "standard" | "fast"`
+
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+    - `"standard"`
+
+    - `"fast"`
+
+### Beta Dream Model Config Param
+
+- `BetaDreamModelConfigParam`
+
+  Model identifier and configuration applied to every pipeline stage.
+
+  - `id: string`
+
+    Model identifier, e.g. "claude-opus-4-7". 1-256 characters.
+
+  - `speed?: "standard" | "fast" | null`
+
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+    - `"standard"`
+
+    - `"fast"`
+
+### Beta Dream Output
+
+- `BetaDreamOutput`
+
+  An output memory store the dream writes consolidated memories into.
+
+  - `memory_store_id: string`
+
+  - `type: "memory_store"`
+
+    - `"memory_store"`
+
+### Beta Dream Sessions Input
+
+- `BetaDreamSessionsInput`
+
+  Input session transcripts the dream reads.
+
+  - `session_ids: Array<string>`
+
+  - `type: "sessions"`
+
+    - `"sessions"`
+
+### Beta Dream Status
+
+- `BetaDreamStatus = "pending" | "running" | "completed" | 2 more`
+
+  Lifecycle status of a Dream.
+
+  - `"pending"`
+
+  - `"running"`
+
+  - `"completed"`
+
+  - `"failed"`
+
+  - `"canceled"`
+
+### Beta Dream Usage
+
+- `BetaDreamUsage`
+
+  Cumulative token usage for the dream across every pipeline stage.
+
+  - `cache_creation_input_tokens: number`
+
+    Total tokens used to create prompt-cache entries (sum of all TTL tiers).
+
+  - `cache_read_input_tokens: number`
+
+    Total tokens read from prompt cache.
+
+  - `input_tokens: number`
+
+    Total uncached input tokens consumed across every pipeline stage.
+
+  - `output_tokens: number`
+
+    Total output tokens generated across every pipeline stage.
+
+# Tunnels
+
+## Create Tunnel
+
+`client.beta.tunnels.create(TunnelCreateParamsparams, RequestOptionsoptions?): BetaTunnel`
+
+**post** `/v1/tunnels`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel; it is not idempotent. The new tunnel rejects MCP traffic until at least one CA certificate is added.
+
+### Parameters
+
+- `params: TunnelCreateParams`
+
+  - `display_name?: string | null`
+
+    Body param: Optional human-readable name for the tunnel (1-255 characters).
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaTunnel`
+
+  An MCP tunnel.
+
+  - `id: string`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: string | null`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: string`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `type: "tunnel"`
+
+    - `"tunnel"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaTunnel = await client.beta.tunnels.create();
+
+console.log(betaTunnel.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "display_name": "display_name",
+  "domain": "domain",
+  "type": "tunnel"
+}
+```
+
+## Get Tunnel
+
+`client.beta.tunnels.retrieve(stringtunnelID, TunnelRetrieveParamsparams?, RequestOptionsoptions?): BetaTunnel`
+
+**get** `/v1/tunnels/{tunnel_id}`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Fetches a tunnel by ID.
+
+### Parameters
+
+- `tunnelID: string`
+
+- `params: TunnelRetrieveParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaTunnel`
+
+  An MCP tunnel.
+
+  - `id: string`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: string | null`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: string`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `type: "tunnel"`
+
+    - `"tunnel"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaTunnel = await client.beta.tunnels.retrieve('tunnel_id');
+
+console.log(betaTunnel.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "display_name": "display_name",
+  "domain": "domain",
+  "type": "tunnel"
+}
+```
+
+## List Tunnels
+
+`client.beta.tunnels.list(TunnelListParamsparams?, RequestOptionsoptions?): PageCursor<BetaTunnel>`
+
+**get** `/v1/tunnels`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Lists tunnels. Results are ordered by creation time, newest first; archived tunnels are excluded unless include_archived is set.
+
+### Parameters
+
+- `params: TunnelListParams`
+
+  - `include_archived?: boolean`
+
+    Query param: Whether to include archived tunnels in the results. Defaults to false.
+
+  - `limit?: number`
+
+    Query param: Maximum number of tunnels to return per page. Defaults to 20, maximum 1000.
+
+  - `page?: string`
+
+    Query param: Opaque pagination cursor from a previous `list_tunnels` response.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaTunnel`
+
+  An MCP tunnel.
+
+  - `id: string`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: string | null`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: string`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `type: "tunnel"`
+
+    - `"tunnel"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+// Automatically fetches more pages as needed.
+for await (const betaTunnel of client.beta.tunnels.list()) {
+  console.log(betaTunnel.id);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "display_name": "display_name",
+      "domain": "domain",
+      "type": "tunnel"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Archive Tunnel
+
+`client.beta.tunnels.archive(stringtunnelID, TunnelArchiveParamsparams?, RequestOptionsoptions?): BetaTunnel`
+
+**post** `/v1/tunnels/{tunnel_id}/archive`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Archives a tunnel. Archival is irreversible: every non-archived certificate on the tunnel is archived in the same operation, the hostname is retired and never re-allocated, and the tunnel token is invalidated. Retrying against an already-archived tunnel returns the existing record unchanged.
+
+### Parameters
+
+- `tunnelID: string`
+
+- `params: TunnelArchiveParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaTunnel`
+
+  An MCP tunnel.
+
+  - `id: string`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: string | null`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: string`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `type: "tunnel"`
+
+    - `"tunnel"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaTunnel = await client.beta.tunnels.archive('tunnel_id');
+
+console.log(betaTunnel.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "display_name": "display_name",
+  "domain": "domain",
+  "type": "tunnel"
+}
+```
+
+## Reveal Tunnel Token
+
+`client.beta.tunnels.revealToken(stringtunnelID, TunnelRevealTokenParamsparams?, RequestOptionsoptions?): BetaTunnelToken`
+
+**post** `/v1/tunnels/{tunnel_id}/reveal_token`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Reveals a tunnel's connector token. The value is fetched live on each call; Anthropic does not store it. Repeated calls return the same value until the token is rotated. Exposed as POST so the token does not appear in intermediary access logs.
+
+### Parameters
+
+- `tunnelID: string`
+
+- `params: TunnelRevealTokenParams`
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaTunnelToken`
+
+  A tunnel's connector token.
+
+  - `id: string`
+
+    Stable identifier for the current token value. Changes when the token is rotated.
+
+  - `tunnel_token: string`
+
+    The connector token used to run the tunnel. Treat as a credential.
+
+  - `type: "tunnel_token"`
+
+    - `"tunnel_token"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaTunnelToken = await client.beta.tunnels.revealToken('tunnel_id');
+
+console.log(betaTunnelToken.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "tunnel_token": "tunnel_token",
+  "type": "tunnel_token"
+}
+```
+
+## Rotate Tunnel Token
+
+`client.beta.tunnels.rotateToken(stringtunnelID, TunnelRotateTokenParamsparams, RequestOptionsoptions?): BetaTunnelToken`
+
+**post** `/v1/tunnels/{tunnel_id}/rotate_token`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Rotates a tunnel's connector token. Rotation invalidates the current token for new connections and returns a fresh value; established connections are not severed. A connector restarted after rotation must use the new value.
+
+### Parameters
+
+- `tunnelID: string`
+
+- `params: TunnelRotateTokenParams`
+
+  - `reason?: string | null`
+
+    Body param: Optional free-text reason for the rotation, recorded for audit.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaTunnelToken`
+
+  A tunnel's connector token.
+
+  - `id: string`
+
+    Stable identifier for the current token value. Changes when the token is rotated.
+
+  - `tunnel_token: string`
+
+    The connector token used to run the tunnel. Treat as a credential.
+
+  - `type: "tunnel_token"`
+
+    - `"tunnel_token"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaTunnelToken = await client.beta.tunnels.rotateToken('tunnel_id');
+
+console.log(betaTunnelToken.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "tunnel_token": "tunnel_token",
+  "type": "tunnel_token"
+}
+```
+
+## Domain Types
+
+### Beta Tunnel
+
+- `BetaTunnel`
+
+  An MCP tunnel.
+
+  - `id: string`
+
+    Unique identifier for the tunnel, prefixed with `tnl_`.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `display_name: string | null`
+
+    Human-readable name for the tunnel (1-255 characters). Null if unset.
+
+  - `domain: string`
+
+    Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
+
+  - `type: "tunnel"`
+
+    - `"tunnel"`
+
+### Beta Tunnel Token
+
+- `BetaTunnelToken`
+
+  A tunnel's connector token.
+
+  - `id: string`
+
+    Stable identifier for the current token value. Changes when the token is rotated.
+
+  - `tunnel_token: string`
+
+    The connector token used to run the tunnel. Treat as a credential.
+
+  - `type: "tunnel_token"`
+
+    - `"tunnel_token"`
+
+# Certificates
+
+## Create Tunnel Certificate
+
+`client.beta.tunnels.certificates.create(stringtunnelID, CertificateCreateParamsparams, RequestOptionsoptions?): BetaTunnelCertificate`
+
+**post** `/v1/tunnels/{tunnel_id}/certificates`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's server certificate against this CA when it terminates the inner TLS session. A tunnel holds at most two non-archived certificates.
+
+### Parameters
+
+- `tunnelID: string`
+
+- `params: CertificateCreateParams`
+
+  - `ca_certificate_pem: string`
+
+    Body param: PEM-encoded X.509 CA certificate. Must contain exactly one certificate and no private-key material. Maximum 8KB.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaTunnelCertificate`
+
+  A CA certificate attached to a tunnel.
+
+  - `id: string`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `expires_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `fingerprint: string`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `tunnel_id: string`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `type: "tunnel_certificate"`
+
+    - `"tunnel_certificate"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaTunnelCertificate = await client.beta.tunnels.certificates.create('tunnel_id', {
+  ca_certificate_pem: 'ca_certificate_pem',
+});
+
+console.log(betaTunnelCertificate.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "expires_at": "2019-12-27T18:11:19.117Z",
+  "fingerprint": "fingerprint",
+  "tunnel_id": "tunnel_id",
+  "type": "tunnel_certificate"
+}
+```
+
+## Get Tunnel Certificate
+
+`client.beta.tunnels.certificates.retrieve(stringcertificateID, CertificateRetrieveParamsparams, RequestOptionsoptions?): BetaTunnelCertificate`
+
+**get** `/v1/tunnels/{tunnel_id}/certificates/{certificate_id}`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Fetches a tunnel certificate by ID.
+
+### Parameters
+
+- `certificateID: string`
+
+- `params: CertificateRetrieveParams`
+
+  - `tunnel_id: string`
+
+    Path param: Path parameter tunnel_id
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaTunnelCertificate`
+
+  A CA certificate attached to a tunnel.
+
+  - `id: string`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `expires_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `fingerprint: string`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `tunnel_id: string`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `type: "tunnel_certificate"`
+
+    - `"tunnel_certificate"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaTunnelCertificate = await client.beta.tunnels.certificates.retrieve('certificate_id', {
+  tunnel_id: 'tunnel_id',
+});
+
+console.log(betaTunnelCertificate.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "expires_at": "2019-12-27T18:11:19.117Z",
+  "fingerprint": "fingerprint",
+  "tunnel_id": "tunnel_id",
+  "type": "tunnel_certificate"
+}
+```
+
+## List Tunnel Certificates
+
+`client.beta.tunnels.certificates.list(stringtunnelID, CertificateListParamsparams?, RequestOptionsoptions?): PageCursor<BetaTunnelCertificate>`
+
+**get** `/v1/tunnels/{tunnel_id}/certificates`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Lists the certificates registered on a tunnel. Archived certificates are excluded unless include_archived is set.
+
+### Parameters
+
+- `tunnelID: string`
+
+- `params: CertificateListParams`
+
+  - `include_archived?: boolean`
+
+    Query param: Whether to include archived certificates in the results. Defaults to false.
+
+  - `limit?: number`
+
+    Query param: Maximum number of certificates to return per page. Defaults to 20, maximum 1000.
+
+  - `page?: string`
+
+    Query param: Opaque pagination cursor from a previous `list_tunnel_certificates` response.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaTunnelCertificate`
+
+  A CA certificate attached to a tunnel.
+
+  - `id: string`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `expires_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `fingerprint: string`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `tunnel_id: string`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `type: "tunnel_certificate"`
+
+    - `"tunnel_certificate"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+// Automatically fetches more pages as needed.
+for await (const betaTunnelCertificate of client.beta.tunnels.certificates.list('tunnel_id')) {
+  console.log(betaTunnelCertificate.id);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "expires_at": "2019-12-27T18:11:19.117Z",
+      "fingerprint": "fingerprint",
+      "tunnel_id": "tunnel_id",
+      "type": "tunnel_certificate"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Archive Tunnel Certificate
+
+`client.beta.tunnels.certificates.archive(stringcertificateID, CertificateArchiveParamsparams, RequestOptionsoptions?): BetaTunnelCertificate`
+
+**post** `/v1/tunnels/{tunnel_id}/certificates/{certificate_id}/archive`
+
+The Tunnels API is in research preview. It requires the `anthropic-beta: mcp-tunnels-2026-06-22` header and may change without a deprecation period. It supersedes the Admin API endpoints at `/v1/organizations/tunnels`, which remain available during a migration window.
+
+Archives a tunnel certificate, removing it from the set Anthropic trusts for the tunnel. The certificate record is retained. Archiving the last non-archived certificate is permitted; the tunnel rejects MCP traffic until a new certificate is added.
+
+### Parameters
+
+- `certificateID: string`
+
+- `params: CertificateArchiveParams`
+
+  - `tunnel_id: string`
+
+    Path param: Path parameter tunnel_id
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 29 more`
+
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"dreaming-2026-04-21"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"server-side-fallback-2026-07-01"`
+
+      - `"fallback-credit-2026-06-01"`
+
+      - `"fallback-credit-2026-07-01"`
+
+      - `"agent-memory-2026-07-22"`
+
+### Returns
+
+- `BetaTunnelCertificate`
+
+  A CA certificate attached to a tunnel.
+
+  - `id: string`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `expires_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `fingerprint: string`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `tunnel_id: string`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `type: "tunnel_certificate"`
+
+    - `"tunnel_certificate"`
+
+### Example
+
+```typescript
+import Anthropic from '@anthropic-ai/sdk';
+
+const client = new Anthropic({
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+});
+
+const betaTunnelCertificate = await client.beta.tunnels.certificates.archive('certificate_id', {
+  tunnel_id: 'tunnel_id',
+});
+
+console.log(betaTunnelCertificate.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "expires_at": "2019-12-27T18:11:19.117Z",
+  "fingerprint": "fingerprint",
+  "tunnel_id": "tunnel_id",
+  "type": "tunnel_certificate"
+}
+```
+
+## Domain Types
+
+### Beta Tunnel Certificate
+
+- `BetaTunnelCertificate`
+
+  A CA certificate attached to a tunnel.
+
+  - `id: string`
+
+    Unique identifier for the certificate, prefixed with `tcrt_`.
+
+  - `archived_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+  - `expires_at: string | null`
+
+    A timestamp in RFC 3339 format
+
+  - `fingerprint: string`
+
+    Lowercase hex SHA-256 fingerprint of the certificate's DER encoding.
+
+  - `tunnel_id: string`
+
+    ID of the tunnel the certificate is registered against.
+
+  - `type: "tunnel_certificate"`
+
+    - `"tunnel_certificate"`
+
+# Webhooks
+
+## Domain Types
+
+### Beta Webhook Agent Archived Event Data
+
+- `BetaWebhookAgentArchivedEventData`
+
+  - `id: string`
+
+    ID of the agent that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "agent.archived"`
+
+    - `"agent.archived"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Agent Created Event Data
+
+- `BetaWebhookAgentCreatedEventData`
+
+  - `id: string`
+
+    ID of the agent that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "agent.created"`
+
+    - `"agent.created"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Agent Deleted Event Data
+
+- `BetaWebhookAgentDeletedEventData`
+
+  - `id: string`
+
+    ID of the agent that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "agent.deleted"`
+
+    - `"agent.deleted"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Agent Updated Event Data
+
+- `BetaWebhookAgentUpdatedEventData`
+
+  - `id: string`
+
+    ID of the agent that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "agent.updated"`
+
+    - `"agent.updated"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Deployment Archived Event Data
+
+- `BetaWebhookDeploymentArchivedEventData`
+
+  - `id: string`
+
+    ID of the deployment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "deployment.archived"`
+
+    - `"deployment.archived"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Deployment Created Event Data
+
+- `BetaWebhookDeploymentCreatedEventData`
+
+  - `id: string`
+
+    ID of the deployment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "deployment.created"`
+
+    - `"deployment.created"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Deployment Deleted Event Data
+
+- `BetaWebhookDeploymentDeletedEventData`
+
+  - `id: string`
+
+    ID of the deployment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "deployment.deleted"`
+
+    - `"deployment.deleted"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Deployment Paused Event Data
+
+- `BetaWebhookDeploymentPausedEventData`
+
+  - `id: string`
+
+    ID of the deployment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "deployment.paused"`
+
+    - `"deployment.paused"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Deployment Run Failed Event Data
+
+- `BetaWebhookDeploymentRunFailedEventData`
+
+  - `id: string`
+
+    ID of the deployment run that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "deployment_run.failed"`
+
+    - `"deployment_run.failed"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Deployment Run Started Event Data
+
+- `BetaWebhookDeploymentRunStartedEventData`
+
+  - `id: string`
+
+    ID of the deployment run that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "deployment_run.started"`
+
+    - `"deployment_run.started"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Deployment Run Succeeded Event Data
+
+- `BetaWebhookDeploymentRunSucceededEventData`
+
+  - `id: string`
+
+    ID of the deployment run that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "deployment_run.succeeded"`
+
+    - `"deployment_run.succeeded"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Deployment Unpaused Event Data
+
+- `BetaWebhookDeploymentUnpausedEventData`
+
+  - `id: string`
+
+    ID of the deployment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "deployment.unpaused"`
+
+    - `"deployment.unpaused"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Deployment Updated Event Data
+
+- `BetaWebhookDeploymentUpdatedEventData`
+
+  - `id: string`
+
+    ID of the deployment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "deployment.updated"`
+
+    - `"deployment.updated"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Environment Archived Event Data
+
+- `BetaWebhookEnvironmentArchivedEventData`
+
+  - `id: string`
+
+    ID of the environment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "environment.archived"`
+
+    - `"environment.archived"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Environment Created Event Data
+
+- `BetaWebhookEnvironmentCreatedEventData`
+
+  - `id: string`
+
+    ID of the environment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "environment.created"`
+
+    - `"environment.created"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Environment Deleted Event Data
+
+- `BetaWebhookEnvironmentDeletedEventData`
+
+  - `id: string`
+
+    ID of the environment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "environment.deleted"`
+
+    - `"environment.deleted"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Environment Updated Event Data
+
+- `BetaWebhookEnvironmentUpdatedEventData`
+
+  - `id: string`
+
+    ID of the environment that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "environment.updated"`
+
+    - `"environment.updated"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Event
+
+- `BetaWebhookEvent`
+
+  - `id: string`
+
+    Unique event identifier for idempotency.
+
+  - `created_at: string`
+
+    RFC 3339 timestamp when the event occurred.
+
+  - `data: BetaWebhookEventData`
+
+    - `BetaWebhookSessionCreatedEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.created"`
+
+        - `"session.created"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionPendingEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.pending"`
+
+        - `"session.pending"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionRunningEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.running"`
+
+        - `"session.running"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionIdledEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.idled"`
+
+        - `"session.idled"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionRequiresActionEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.requires_action"`
+
+        - `"session.requires_action"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionArchivedEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.archived"`
+
+        - `"session.archived"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionDeletedEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.deleted"`
+
+        - `"session.deleted"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionStatusRescheduledEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.status_rescheduled"`
+
+        - `"session.status_rescheduled"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionStatusRunStartedEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.status_run_started"`
+
+        - `"session.status_run_started"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionStatusIdledEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.status_idled"`
+
+        - `"session.status_idled"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionStatusTerminatedEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.status_terminated"`
+
+        - `"session.status_terminated"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionThreadCreatedEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `session_thread_id: string`
+
+        ID of the session thread this event refers to.
+
+      - `type: "session.thread_created"`
+
+        - `"session.thread_created"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionThreadIdledEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `session_thread_id: string`
+
+        ID of the session thread this event refers to.
+
+      - `type: "session.thread_idled"`
+
+        - `"session.thread_idled"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionThreadTerminatedEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `session_thread_id: string`
+
+        ID of the session thread this event refers to.
+
+      - `type: "session.thread_terminated"`
+
+        - `"session.thread_terminated"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionOutcomeEvaluationEndedEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.outcome_evaluation_ended"`
+
+        - `"session.outcome_evaluation_ended"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookVaultCreatedEventData`
+
+      - `id: string`
+
+        ID of the vault that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "vault.created"`
+
+        - `"vault.created"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookVaultArchivedEventData`
+
+      - `id: string`
+
+        ID of the vault that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "vault.archived"`
+
+        - `"vault.archived"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookVaultDeletedEventData`
+
+      - `id: string`
+
+        ID of the vault that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "vault.deleted"`
+
+        - `"vault.deleted"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookVaultCredentialCreatedEventData`
+
+      - `id: string`
+
+        ID of the vault credential that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "vault_credential.created"`
+
+        - `"vault_credential.created"`
+
+      - `vault_id: string`
+
+        ID of the vault that owns this credential.
+
+      - `workspace_id: string`
+
+    - `BetaWebhookVaultCredentialArchivedEventData`
+
+      - `id: string`
+
+        ID of the vault credential that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "vault_credential.archived"`
+
+        - `"vault_credential.archived"`
+
+      - `vault_id: string`
+
+        ID of the vault that owns this credential.
+
+      - `workspace_id: string`
+
+    - `BetaWebhookVaultCredentialDeletedEventData`
+
+      - `id: string`
+
+        ID of the vault credential that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "vault_credential.deleted"`
+
+        - `"vault_credential.deleted"`
+
+      - `vault_id: string`
+
+        ID of the vault that owns this credential.
+
+      - `workspace_id: string`
+
+    - `BetaWebhookVaultCredentialRefreshFailedEventData`
+
+      - `id: string`
+
+        ID of the vault credential that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "vault_credential.refresh_failed"`
+
+        - `"vault_credential.refresh_failed"`
+
+      - `vault_id: string`
+
+        ID of the vault that owns this credential.
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionUpdatedEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.updated"`
+
+        - `"session.updated"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookAgentCreatedEventData`
+
+      - `id: string`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "agent.created"`
+
+        - `"agent.created"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookAgentArchivedEventData`
+
+      - `id: string`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "agent.archived"`
+
+        - `"agent.archived"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookAgentDeletedEventData`
+
+      - `id: string`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "agent.deleted"`
+
+        - `"agent.deleted"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookDeploymentPausedEventData`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.paused"`
+
+        - `"deployment.paused"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookDeploymentRunFailedEventData`
+
+      - `id: string`
+
+        ID of the deployment run that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment_run.failed"`
+
+        - `"deployment_run.failed"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookDeploymentCreatedEventData`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.created"`
+
+        - `"deployment.created"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookDeploymentUpdatedEventData`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.updated"`
+
+        - `"deployment.updated"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookDeploymentUnpausedEventData`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.unpaused"`
+
+        - `"deployment.unpaused"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookAgentUpdatedEventData`
+
+      - `id: string`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "agent.updated"`
+
+        - `"agent.updated"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookDeploymentArchivedEventData`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.archived"`
+
+        - `"deployment.archived"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookDeploymentRunStartedEventData`
+
+      - `id: string`
+
+        ID of the deployment run that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment_run.started"`
+
+        - `"deployment_run.started"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookDeploymentDeletedEventData`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.deleted"`
+
+        - `"deployment.deleted"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookDeploymentRunSucceededEventData`
+
+      - `id: string`
+
+        ID of the deployment run that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment_run.succeeded"`
+
+        - `"deployment_run.succeeded"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookEnvironmentCreatedEventData`
+
+      - `id: string`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "environment.created"`
+
+        - `"environment.created"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookEnvironmentUpdatedEventData`
+
+      - `id: string`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "environment.updated"`
+
+        - `"environment.updated"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookEnvironmentArchivedEventData`
+
+      - `id: string`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "environment.archived"`
+
+        - `"environment.archived"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookEnvironmentDeletedEventData`
+
+      - `id: string`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "environment.deleted"`
+
+        - `"environment.deleted"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookMemoryStoreCreatedEventData`
+
+      - `id: string`
+
+        ID of the memory store that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "memory_store.created"`
+
+        - `"memory_store.created"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookMemoryStoreArchivedEventData`
+
+      - `id: string`
+
+        ID of the memory store that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "memory_store.archived"`
+
+        - `"memory_store.archived"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookMemoryStoreDeletedEventData`
+
+      - `id: string`
+
+        ID of the memory store that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "memory_store.deleted"`
+
+        - `"memory_store.deleted"`
+
+      - `workspace_id: string`
+
+  - `type: "event"`
+
+    Object type. Always `event` for webhook payloads.
+
+    - `"event"`
+
+### Beta Webhook Event Data
+
+- `BetaWebhookEventData = BetaWebhookSessionCreatedEventData | BetaWebhookSessionPendingEventData | BetaWebhookSessionRunningEventData | 40 more`
+
+  - `BetaWebhookSessionCreatedEventData`
+
+    - `id: string`
+
+      ID of the session that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "session.created"`
+
+      - `"session.created"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookSessionPendingEventData`
+
+    - `id: string`
+
+      ID of the session that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "session.pending"`
+
+      - `"session.pending"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookSessionRunningEventData`
+
+    - `id: string`
+
+      ID of the session that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "session.running"`
+
+      - `"session.running"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookSessionIdledEventData`
+
+    - `id: string`
+
+      ID of the session that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "session.idled"`
+
+      - `"session.idled"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookSessionRequiresActionEventData`
+
+    - `id: string`
+
+      ID of the session that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "session.requires_action"`
+
+      - `"session.requires_action"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookSessionArchivedEventData`
+
+    - `id: string`
+
+      ID of the session that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "session.archived"`
+
+      - `"session.archived"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookSessionDeletedEventData`
+
+    - `id: string`
+
+      ID of the session that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "session.deleted"`
+
+      - `"session.deleted"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookSessionStatusRescheduledEventData`
+
+    - `id: string`
+
+      ID of the session that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "session.status_rescheduled"`
+
+      - `"session.status_rescheduled"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookSessionStatusRunStartedEventData`
+
+    - `id: string`
+
+      ID of the session that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "session.status_run_started"`
+
+      - `"session.status_run_started"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookSessionStatusIdledEventData`
+
+    - `id: string`
+
+      ID of the session that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "session.status_idled"`
+
+      - `"session.status_idled"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookSessionStatusTerminatedEventData`
+
+    - `id: string`
+
+      ID of the session that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "session.status_terminated"`
+
+      - `"session.status_terminated"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookSessionThreadCreatedEventData`
+
+    - `id: string`
+
+      ID of the session that triggered the event.
+
+    - `organization_id: string`
+
+    - `session_thread_id: string`
+
+      ID of the session thread this event refers to.
+
+    - `type: "session.thread_created"`
+
+      - `"session.thread_created"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookSessionThreadIdledEventData`
+
+    - `id: string`
+
+      ID of the session that triggered the event.
+
+    - `organization_id: string`
+
+    - `session_thread_id: string`
+
+      ID of the session thread this event refers to.
+
+    - `type: "session.thread_idled"`
+
+      - `"session.thread_idled"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookSessionThreadTerminatedEventData`
+
+    - `id: string`
+
+      ID of the session that triggered the event.
+
+    - `organization_id: string`
+
+    - `session_thread_id: string`
+
+      ID of the session thread this event refers to.
+
+    - `type: "session.thread_terminated"`
+
+      - `"session.thread_terminated"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookSessionOutcomeEvaluationEndedEventData`
+
+    - `id: string`
+
+      ID of the session that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "session.outcome_evaluation_ended"`
+
+      - `"session.outcome_evaluation_ended"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookVaultCreatedEventData`
+
+    - `id: string`
+
+      ID of the vault that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "vault.created"`
+
+      - `"vault.created"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookVaultArchivedEventData`
+
+    - `id: string`
+
+      ID of the vault that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "vault.archived"`
+
+      - `"vault.archived"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookVaultDeletedEventData`
+
+    - `id: string`
+
+      ID of the vault that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "vault.deleted"`
+
+      - `"vault.deleted"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookVaultCredentialCreatedEventData`
+
+    - `id: string`
+
+      ID of the vault credential that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "vault_credential.created"`
+
+      - `"vault_credential.created"`
+
+    - `vault_id: string`
+
+      ID of the vault that owns this credential.
+
+    - `workspace_id: string`
+
+  - `BetaWebhookVaultCredentialArchivedEventData`
+
+    - `id: string`
+
+      ID of the vault credential that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "vault_credential.archived"`
+
+      - `"vault_credential.archived"`
+
+    - `vault_id: string`
+
+      ID of the vault that owns this credential.
+
+    - `workspace_id: string`
+
+  - `BetaWebhookVaultCredentialDeletedEventData`
+
+    - `id: string`
+
+      ID of the vault credential that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "vault_credential.deleted"`
+
+      - `"vault_credential.deleted"`
+
+    - `vault_id: string`
+
+      ID of the vault that owns this credential.
+
+    - `workspace_id: string`
+
+  - `BetaWebhookVaultCredentialRefreshFailedEventData`
+
+    - `id: string`
+
+      ID of the vault credential that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "vault_credential.refresh_failed"`
+
+      - `"vault_credential.refresh_failed"`
+
+    - `vault_id: string`
+
+      ID of the vault that owns this credential.
+
+    - `workspace_id: string`
+
+  - `BetaWebhookSessionUpdatedEventData`
+
+    - `id: string`
+
+      ID of the session that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "session.updated"`
+
+      - `"session.updated"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookAgentCreatedEventData`
+
+    - `id: string`
+
+      ID of the agent that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "agent.created"`
+
+      - `"agent.created"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookAgentArchivedEventData`
+
+    - `id: string`
+
+      ID of the agent that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "agent.archived"`
+
+      - `"agent.archived"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookAgentDeletedEventData`
+
+    - `id: string`
+
+      ID of the agent that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "agent.deleted"`
+
+      - `"agent.deleted"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookDeploymentPausedEventData`
+
+    - `id: string`
+
+      ID of the deployment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "deployment.paused"`
+
+      - `"deployment.paused"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookDeploymentRunFailedEventData`
+
+    - `id: string`
+
+      ID of the deployment run that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "deployment_run.failed"`
+
+      - `"deployment_run.failed"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookDeploymentCreatedEventData`
+
+    - `id: string`
+
+      ID of the deployment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "deployment.created"`
+
+      - `"deployment.created"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookDeploymentUpdatedEventData`
+
+    - `id: string`
+
+      ID of the deployment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "deployment.updated"`
+
+      - `"deployment.updated"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookDeploymentUnpausedEventData`
+
+    - `id: string`
+
+      ID of the deployment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "deployment.unpaused"`
+
+      - `"deployment.unpaused"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookAgentUpdatedEventData`
+
+    - `id: string`
+
+      ID of the agent that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "agent.updated"`
+
+      - `"agent.updated"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookDeploymentArchivedEventData`
+
+    - `id: string`
+
+      ID of the deployment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "deployment.archived"`
+
+      - `"deployment.archived"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookDeploymentRunStartedEventData`
+
+    - `id: string`
+
+      ID of the deployment run that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "deployment_run.started"`
+
+      - `"deployment_run.started"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookDeploymentDeletedEventData`
+
+    - `id: string`
+
+      ID of the deployment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "deployment.deleted"`
+
+      - `"deployment.deleted"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookDeploymentRunSucceededEventData`
+
+    - `id: string`
+
+      ID of the deployment run that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "deployment_run.succeeded"`
+
+      - `"deployment_run.succeeded"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookEnvironmentCreatedEventData`
+
+    - `id: string`
+
+      ID of the environment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "environment.created"`
+
+      - `"environment.created"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookEnvironmentUpdatedEventData`
+
+    - `id: string`
+
+      ID of the environment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "environment.updated"`
+
+      - `"environment.updated"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookEnvironmentArchivedEventData`
+
+    - `id: string`
+
+      ID of the environment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "environment.archived"`
+
+      - `"environment.archived"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookEnvironmentDeletedEventData`
+
+    - `id: string`
+
+      ID of the environment that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "environment.deleted"`
+
+      - `"environment.deleted"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookMemoryStoreCreatedEventData`
+
+    - `id: string`
+
+      ID of the memory store that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "memory_store.created"`
+
+      - `"memory_store.created"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookMemoryStoreArchivedEventData`
+
+    - `id: string`
+
+      ID of the memory store that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "memory_store.archived"`
+
+      - `"memory_store.archived"`
+
+    - `workspace_id: string`
+
+  - `BetaWebhookMemoryStoreDeletedEventData`
+
+    - `id: string`
+
+      ID of the memory store that triggered the event.
+
+    - `organization_id: string`
+
+    - `type: "memory_store.deleted"`
+
+      - `"memory_store.deleted"`
+
+    - `workspace_id: string`
+
+### Beta Webhook Memory Store Archived Event Data
+
+- `BetaWebhookMemoryStoreArchivedEventData`
+
+  - `id: string`
+
+    ID of the memory store that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "memory_store.archived"`
+
+    - `"memory_store.archived"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Memory Store Created Event Data
+
+- `BetaWebhookMemoryStoreCreatedEventData`
+
+  - `id: string`
+
+    ID of the memory store that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "memory_store.created"`
+
+    - `"memory_store.created"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Memory Store Deleted Event Data
+
+- `BetaWebhookMemoryStoreDeletedEventData`
+
+  - `id: string`
+
+    ID of the memory store that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "memory_store.deleted"`
+
+    - `"memory_store.deleted"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Session Archived Event Data
+
+- `BetaWebhookSessionArchivedEventData`
+
+  - `id: string`
+
+    ID of the session that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "session.archived"`
+
+    - `"session.archived"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Session Created Event Data
+
+- `BetaWebhookSessionCreatedEventData`
+
+  - `id: string`
+
+    ID of the session that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "session.created"`
+
+    - `"session.created"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Session Deleted Event Data
+
+- `BetaWebhookSessionDeletedEventData`
+
+  - `id: string`
+
+    ID of the session that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "session.deleted"`
+
+    - `"session.deleted"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Session Idled Event Data
+
+- `BetaWebhookSessionIdledEventData`
+
+  - `id: string`
+
+    ID of the session that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "session.idled"`
+
+    - `"session.idled"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Session Outcome Evaluation Ended Event Data
+
+- `BetaWebhookSessionOutcomeEvaluationEndedEventData`
+
+  - `id: string`
+
+    ID of the session that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "session.outcome_evaluation_ended"`
+
+    - `"session.outcome_evaluation_ended"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Session Pending Event Data
+
+- `BetaWebhookSessionPendingEventData`
+
+  - `id: string`
+
+    ID of the session that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "session.pending"`
+
+    - `"session.pending"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Session Requires Action Event Data
+
+- `BetaWebhookSessionRequiresActionEventData`
+
+  - `id: string`
+
+    ID of the session that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "session.requires_action"`
+
+    - `"session.requires_action"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Session Running Event Data
+
+- `BetaWebhookSessionRunningEventData`
+
+  - `id: string`
+
+    ID of the session that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "session.running"`
+
+    - `"session.running"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Session Status Idled Event Data
+
+- `BetaWebhookSessionStatusIdledEventData`
+
+  - `id: string`
+
+    ID of the session that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "session.status_idled"`
+
+    - `"session.status_idled"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Session Status Rescheduled Event Data
+
+- `BetaWebhookSessionStatusRescheduledEventData`
+
+  - `id: string`
+
+    ID of the session that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "session.status_rescheduled"`
+
+    - `"session.status_rescheduled"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Session Status Run Started Event Data
+
+- `BetaWebhookSessionStatusRunStartedEventData`
+
+  - `id: string`
+
+    ID of the session that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "session.status_run_started"`
+
+    - `"session.status_run_started"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Session Status Terminated Event Data
+
+- `BetaWebhookSessionStatusTerminatedEventData`
+
+  - `id: string`
+
+    ID of the session that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "session.status_terminated"`
+
+    - `"session.status_terminated"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Session Thread Created Event Data
+
+- `BetaWebhookSessionThreadCreatedEventData`
+
+  - `id: string`
+
+    ID of the session that triggered the event.
+
+  - `organization_id: string`
+
+  - `session_thread_id: string`
+
+    ID of the session thread this event refers to.
+
+  - `type: "session.thread_created"`
+
+    - `"session.thread_created"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Session Thread Idled Event Data
+
+- `BetaWebhookSessionThreadIdledEventData`
+
+  - `id: string`
+
+    ID of the session that triggered the event.
+
+  - `organization_id: string`
+
+  - `session_thread_id: string`
+
+    ID of the session thread this event refers to.
+
+  - `type: "session.thread_idled"`
+
+    - `"session.thread_idled"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Session Thread Terminated Event Data
+
+- `BetaWebhookSessionThreadTerminatedEventData`
+
+  - `id: string`
+
+    ID of the session that triggered the event.
+
+  - `organization_id: string`
+
+  - `session_thread_id: string`
+
+    ID of the session thread this event refers to.
+
+  - `type: "session.thread_terminated"`
+
+    - `"session.thread_terminated"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Session Updated Event Data
+
+- `BetaWebhookSessionUpdatedEventData`
+
+  - `id: string`
+
+    ID of the session that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "session.updated"`
+
+    - `"session.updated"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Vault Archived Event Data
+
+- `BetaWebhookVaultArchivedEventData`
+
+  - `id: string`
+
+    ID of the vault that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "vault.archived"`
+
+    - `"vault.archived"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Vault Created Event Data
+
+- `BetaWebhookVaultCreatedEventData`
+
+  - `id: string`
+
+    ID of the vault that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "vault.created"`
+
+    - `"vault.created"`
+
+  - `workspace_id: string`
+
+### Beta Webhook Vault Credential Archived Event Data
+
+- `BetaWebhookVaultCredentialArchivedEventData`
+
+  - `id: string`
+
+    ID of the vault credential that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "vault_credential.archived"`
+
+    - `"vault_credential.archived"`
+
+  - `vault_id: string`
+
+    ID of the vault that owns this credential.
+
+  - `workspace_id: string`
+
+### Beta Webhook Vault Credential Created Event Data
+
+- `BetaWebhookVaultCredentialCreatedEventData`
+
+  - `id: string`
+
+    ID of the vault credential that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "vault_credential.created"`
+
+    - `"vault_credential.created"`
+
+  - `vault_id: string`
+
+    ID of the vault that owns this credential.
+
+  - `workspace_id: string`
+
+### Beta Webhook Vault Credential Deleted Event Data
+
+- `BetaWebhookVaultCredentialDeletedEventData`
+
+  - `id: string`
+
+    ID of the vault credential that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "vault_credential.deleted"`
+
+    - `"vault_credential.deleted"`
+
+  - `vault_id: string`
+
+    ID of the vault that owns this credential.
+
+  - `workspace_id: string`
+
+### Beta Webhook Vault Credential Refresh Failed Event Data
+
+- `BetaWebhookVaultCredentialRefreshFailedEventData`
+
+  - `id: string`
+
+    ID of the vault credential that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "vault_credential.refresh_failed"`
+
+    - `"vault_credential.refresh_failed"`
+
+  - `vault_id: string`
+
+    ID of the vault that owns this credential.
+
+  - `workspace_id: string`
+
+### Beta Webhook Vault Deleted Event Data
+
+- `BetaWebhookVaultDeletedEventData`
+
+  - `id: string`
+
+    ID of the vault that triggered the event.
+
+  - `organization_id: string`
+
+  - `type: "vault.deleted"`
+
+    - `"vault.deleted"`
+
+  - `workspace_id: string`
+
+### Unwrap Webhook Event
+
+- `UnwrapWebhookEvent`
+
+  - `id: string`
+
+    Unique event identifier for idempotency.
+
+  - `created_at: string`
+
+    RFC 3339 timestamp when the event occurred.
+
+  - `data: BetaWebhookEventData`
+
+    - `BetaWebhookSessionCreatedEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.created"`
+
+        - `"session.created"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionPendingEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.pending"`
+
+        - `"session.pending"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionRunningEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.running"`
+
+        - `"session.running"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionIdledEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.idled"`
+
+        - `"session.idled"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionRequiresActionEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.requires_action"`
+
+        - `"session.requires_action"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionArchivedEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.archived"`
+
+        - `"session.archived"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionDeletedEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.deleted"`
+
+        - `"session.deleted"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionStatusRescheduledEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.status_rescheduled"`
+
+        - `"session.status_rescheduled"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionStatusRunStartedEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.status_run_started"`
+
+        - `"session.status_run_started"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionStatusIdledEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.status_idled"`
+
+        - `"session.status_idled"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionStatusTerminatedEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.status_terminated"`
+
+        - `"session.status_terminated"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionThreadCreatedEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `session_thread_id: string`
+
+        ID of the session thread this event refers to.
+
+      - `type: "session.thread_created"`
+
+        - `"session.thread_created"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionThreadIdledEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `session_thread_id: string`
+
+        ID of the session thread this event refers to.
+
+      - `type: "session.thread_idled"`
+
+        - `"session.thread_idled"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionThreadTerminatedEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `session_thread_id: string`
+
+        ID of the session thread this event refers to.
+
+      - `type: "session.thread_terminated"`
+
+        - `"session.thread_terminated"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionOutcomeEvaluationEndedEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.outcome_evaluation_ended"`
+
+        - `"session.outcome_evaluation_ended"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookVaultCreatedEventData`
+
+      - `id: string`
+
+        ID of the vault that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "vault.created"`
+
+        - `"vault.created"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookVaultArchivedEventData`
+
+      - `id: string`
+
+        ID of the vault that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "vault.archived"`
+
+        - `"vault.archived"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookVaultDeletedEventData`
+
+      - `id: string`
+
+        ID of the vault that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "vault.deleted"`
+
+        - `"vault.deleted"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookVaultCredentialCreatedEventData`
+
+      - `id: string`
+
+        ID of the vault credential that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "vault_credential.created"`
+
+        - `"vault_credential.created"`
+
+      - `vault_id: string`
+
+        ID of the vault that owns this credential.
+
+      - `workspace_id: string`
+
+    - `BetaWebhookVaultCredentialArchivedEventData`
+
+      - `id: string`
+
+        ID of the vault credential that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "vault_credential.archived"`
+
+        - `"vault_credential.archived"`
+
+      - `vault_id: string`
+
+        ID of the vault that owns this credential.
+
+      - `workspace_id: string`
+
+    - `BetaWebhookVaultCredentialDeletedEventData`
+
+      - `id: string`
+
+        ID of the vault credential that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "vault_credential.deleted"`
+
+        - `"vault_credential.deleted"`
+
+      - `vault_id: string`
+
+        ID of the vault that owns this credential.
+
+      - `workspace_id: string`
+
+    - `BetaWebhookVaultCredentialRefreshFailedEventData`
+
+      - `id: string`
+
+        ID of the vault credential that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "vault_credential.refresh_failed"`
+
+        - `"vault_credential.refresh_failed"`
+
+      - `vault_id: string`
+
+        ID of the vault that owns this credential.
+
+      - `workspace_id: string`
+
+    - `BetaWebhookSessionUpdatedEventData`
+
+      - `id: string`
+
+        ID of the session that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "session.updated"`
+
+        - `"session.updated"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookAgentCreatedEventData`
+
+      - `id: string`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "agent.created"`
+
+        - `"agent.created"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookAgentArchivedEventData`
+
+      - `id: string`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "agent.archived"`
+
+        - `"agent.archived"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookAgentDeletedEventData`
+
+      - `id: string`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "agent.deleted"`
+
+        - `"agent.deleted"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookDeploymentPausedEventData`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.paused"`
+
+        - `"deployment.paused"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookDeploymentRunFailedEventData`
+
+      - `id: string`
+
+        ID of the deployment run that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment_run.failed"`
+
+        - `"deployment_run.failed"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookDeploymentCreatedEventData`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.created"`
+
+        - `"deployment.created"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookDeploymentUpdatedEventData`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.updated"`
+
+        - `"deployment.updated"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookDeploymentUnpausedEventData`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.unpaused"`
+
+        - `"deployment.unpaused"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookAgentUpdatedEventData`
+
+      - `id: string`
+
+        ID of the agent that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "agent.updated"`
+
+        - `"agent.updated"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookDeploymentArchivedEventData`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.archived"`
+
+        - `"deployment.archived"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookDeploymentRunStartedEventData`
+
+      - `id: string`
+
+        ID of the deployment run that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment_run.started"`
+
+        - `"deployment_run.started"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookDeploymentDeletedEventData`
+
+      - `id: string`
+
+        ID of the deployment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment.deleted"`
+
+        - `"deployment.deleted"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookDeploymentRunSucceededEventData`
+
+      - `id: string`
+
+        ID of the deployment run that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "deployment_run.succeeded"`
+
+        - `"deployment_run.succeeded"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookEnvironmentCreatedEventData`
+
+      - `id: string`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "environment.created"`
+
+        - `"environment.created"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookEnvironmentUpdatedEventData`
+
+      - `id: string`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "environment.updated"`
+
+        - `"environment.updated"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookEnvironmentArchivedEventData`
+
+      - `id: string`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "environment.archived"`
+
+        - `"environment.archived"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookEnvironmentDeletedEventData`
+
+      - `id: string`
+
+        ID of the environment that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "environment.deleted"`
+
+        - `"environment.deleted"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookMemoryStoreCreatedEventData`
+
+      - `id: string`
+
+        ID of the memory store that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "memory_store.created"`
+
+        - `"memory_store.created"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookMemoryStoreArchivedEventData`
+
+      - `id: string`
+
+        ID of the memory store that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "memory_store.archived"`
+
+        - `"memory_store.archived"`
+
+      - `workspace_id: string`
+
+    - `BetaWebhookMemoryStoreDeletedEventData`
+
+      - `id: string`
+
+        ID of the memory store that triggered the event.
+
+      - `organization_id: string`
+
+      - `type: "memory_store.deleted"`
+
+        - `"memory_store.deleted"`
+
+      - `workspace_id: string`
+
+  - `type: "event"`
+
+    Object type. Always `event` for webhook payloads.
+
+    - `"event"`

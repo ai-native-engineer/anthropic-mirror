@@ -4,7 +4,7 @@
 
 May 5, 2025
 
-![Hands-BookOpen-Sky](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb1b9c46cbd23cfb229c1b898248116bc4677cca2-1920x1079.png&w=3840&q=75)
+![Hands-BookOpen-Sky](https://www-cdn.anthropic.com/images/4zrzovbb/website/b1b9c46cbd23cfb229c1b898248116bc4677cca2-1920x1079.png)
 
 Today, we’re launching Anthropic's AI for Science program – a new initiative designed to accelerate scientific research and discovery through access to our API. This program will provide free API credits to support researchers working on high-impact scientific projects, with a particular focus on biology and life sciences applications.
 

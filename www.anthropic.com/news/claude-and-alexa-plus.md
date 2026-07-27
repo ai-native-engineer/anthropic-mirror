@@ -4,7 +4,7 @@
 
 Feb 26, 2025
 
-![Alexa Plus logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff2e857ba0cb99a69af066281df6b66db63d4bc3d-2880x1620.png&w=3840&q=75)
+![Alexa Plus logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/f2e857ba0cb99a69af066281df6b66db63d4bc3d-2880x1620.png)
 
 Today, we're announcing that Claude models are helping power Alexa+. This collaboration is part of our ongoing partnership with Amazon to deliver advanced AI technology to businesses and consumers around the world.
 

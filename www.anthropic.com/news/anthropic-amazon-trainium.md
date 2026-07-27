@@ -4,7 +4,7 @@
 
 Nov 22, 2024
 
-![amazon and anthropic logos](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F253277d4ba0d1b94a52fde6d206cba743098eb61-5760x3240.png&w=3840&q=75)
+![amazon and anthropic logos](https://www-cdn.anthropic.com/images/4zrzovbb/website/253277d4ba0d1b94a52fde6d206cba743098eb61-5760x3240.png)
 
 Today we’re announcing an expansion of our collaboration with Amazon Web Services (AWS), deepening our work together to develop and deploy advanced AI systems. This expanded partnership includes a new $4 billion investment from Amazon and establishes AWS as our primary cloud and training partner. This will bring Amazon's total investment in Anthropic to $8 billion, while maintaining their position as a minority investor.
 

@@ -2,9 +2,6 @@
 
 # Circuits Updates - November 2025
 
-  
-  
-
 We report a number of developing ideas on the Anthropic interpretability team, which might be of interest to researchers working actively in this space. Some of these are emerging strands of research where we expect to publish more on in the coming months. Others are minor points we wish to share, since we're unlikely to ever write a paper about them.
 
 We'd ask you to treat these results like those of a colleague sharing some thoughts or preliminary experiments for a few minutes at a lab meeting, rather than a mature paper.
@@ -13,18 +10,11 @@ New Posts
 
 * [Interpreting Harm Pressure in Multiple-Choice Question Settings](#harm-pressure)
 
-  
-  
-  
-
-  
-  
-
 ## [Interpreting Harm Pressure in Multiple-Choice Question Settings](#harm-pressure)
 
 Purvi Goel, Wes Gurnee, Rowan Wang, Joshua Batson; edited by Harish Kamath
 
-![](images/img-001.png)
+![](images/c54421dc32862e5f.png)
 
 In the example above, if asked a straightforward MCQ like the one on the left, the model provides the correct answer “B”. If a statement is prepended to suggest the user will do something harmful with the answer, as on the right, the model instead picks the incorrect answer “A”.
 
@@ -34,7 +24,7 @@ Due to its simplicity, MCQ harm pressure is a useful case study for investigatin
 * Easy to measure: the model either gives the right letter or the wrong one
 * Unambiguous: the model's answer visibly changes from one to the other based on the harmful framing
 
-Studying this behavior mechanistically can shed light on how models process and respond to harmful requests, and hint at how refusal behaviors generalize. For example, by examining the model’s internal representations, we can ask: does the model’s internally represent the factually correct answer even when it produces the incorrect output? Tracing information flow through the model could reveal whether the behavior is genuinely strategic, i.e., does the model perform some multi-step reasoning about how it should withhold the correct answer from the user? Such insights could inform our understanding of the mechanisms underlying withholding behaviors more broadly.
+Studying this behavior mechanistically can shed light on how models process and respond to harmful requests, and hint at how refusal behaviors generalize. For example, by examining the model’s internal representations, we can ask: does the model internally represent the factually correct answer even when it produces the incorrect output? Tracing information flow through the model could reveal whether the behavior is genuinely strategic, i.e., does the model perform some multi-step reasoning about how it should withhold the correct answer from the user? Such insights could inform our understanding of the mechanisms underlying withholding behaviors more broadly.
 
 To study the problem, we construct a dataset containing 129 multiple choice questions with two answer choices, each paired with a harmful intent statement. We use Claude 3.5 Haiku as our subject model throughout this investigation. (We also use dictionary features from the crosscoder discussed in [Kamath et al.](https://transformer-circuits.pub/2025/attention-qk/index.html) to assist in our analysis of attention heads.) Without harmful intent added to each MCQ sample, the model achieves 100% accuracy on the dataset. When harmful intent is added to each sample, accuracy drops to 48.1%. We investigate the mechanisms underlying this discrepancy. To verify whether we’ve correctly identified the mechanisms behind harm pressure, we design interventions on these mechanisms that restore the original accuracy.
 
@@ -52,13 +42,13 @@ We test several hypotheses about how models produce incorrect answers under harm
 
 Some background: when answering normal multiple-choice questions, models have attention heads that pull correct answers forward: these heads are keyed by "correct answer" features and positively queried by "MCQ-answer" features (see [Kamath et al.](https://transformer-circuits.pub/2025/attention-qk/index.html) and [Lieberum et al.](https://arxiv.org/abs/2307.09458)). If this is at least one mechanism that a head implements, we call it an “answer selection head” in this post. We show an illustration below.
 
-![](images/img-002.png)
+![](images/fa65ed2ce9842628.png)
 
 #### Hypothesis 1: The model “knows” which answer is factually correct.
 
 We can use the “correct answer” feature as a proxy for what the model internally “believes” is true. If the model recognizes the correct answer but withholds it, this feature should still activate over tokens of the correct answer. But if harm pressure changes what the model thinks is factually correct, this feature should activate on the incorrect answer instead.
 
-![](images/img-003.png)
+![](images/dc645861a78f6b45.png)
 
 While the summed activation over correct answers is overall lower when harmful context is prepended, it still exceeds the summed activation over incorrect answers enough to discriminate between the two.We leave investigating the remaining 7% of cases, where the “correct answer” feature activates more strongly over the incorrect answer, to future work.
 
@@ -68,7 +58,7 @@ Without the harmful context prepended to the MCQ, answer selection heads work ex
 
 One possibility is that under harm pressure, these attention heads still pull the correct answer forward, but something downstream, like the final MLP, flips it after all attention has been applied. If this were true, we'd see attention heads still attending more to the correct answer.
 
-![](images/img-004.png)
+![](images/5fc158a2bbd44a3d.png)
 
 As a result, the wrong answer frequently gets pulled forward through the network instead of the correct one. This rules out late-stage flipping: something interferes with the attention mechanism itself, preventing these heads from reliably attending to the correct answer in the first place.
 
@@ -82,13 +72,13 @@ We notice that under normal conditions, i.e., no harm pressure, "correct answer"
 
 One refusal feature stands out. It has strong negative interactions with key-side features on answer selection heads when the model withholds the correct answer. On a broad corpus of text including many kinds of human/assistant interactions, this feature lights up on examples where the model detects harm in the user request and offers an alternative. We refer to this pattern as "refuse and redirect."
 
-![](images/img-005.png)
+![](images/9f882bf735f45289.png)
 
 The semantics align well with the withholding behavior we observe in MCQ harm pressure. The model detects harmful intent prepended to the MCQ and redirects to an alternative, less harmful answer. Given how consistently this feature activates across our harm pressure dataset, we ask: does it actually cause the withholding behavior?
 
 To test our interpretation, we performed steering experiments. Negative steering on the “refuse-and-redirect” feature restores dataset accuracy to 93%, undoing harm pressure in almost all samples. A more surgical intervention of only steering on the query side of a subset of middle-layer attention heads produces the same result. When we apply this steering, the muddled attention patterns in answer selection heads resolve, shifting back overall to the correct answer.
 
-![](images/img-006.png)
+![](images/cd73355fc9be01fc.png)
 
 Attention patterns of two "answer selection" heads on the newline following factually correct versus incorrect answers, before and after the steering intervention. Post-intervention, attention to the correct answer increases substantially.
 
@@ -98,9 +88,9 @@ But which key-side features is the “refuse-and-redirect” feature interacting
 
 A natural hypothesis: “refuse-and-redirect” might interact negatively with "correct answer" features. Since such features key answer selection heads, suppressing them would prevent the heads from attending to correct answers. However, when we examine the QK interactions, we find no significant interaction between “refuse-and-redirect” and “correct answer” features. Instead, the “refuse-and-redirect” feature interacts strongly with features activating on harmful phrases, i.e., “harm detection”. The interaction is negative, meaning that these features decrease the attention score.
 
-To quantify the strength of interaction between these relevant feature pairs, we computed baseline distributions by calculating the QK interactions between 1000 randomly sampled key-query features pairs through a standard answer selection head. Then we report how many standard deviations each relevant feature pair’s QK interaction falls from the baseline mean. Very high values indicate the feature pair significantly increases attention score at this head; very low values indicate significant suppression.
+To quantify the strength of interaction between these relevant feature pairs, we computed baseline distributions by calculating the QK interactions between 1000 randomly sampled key-query feature pairs through a standard answer selection head. Then we report how many standard deviations each relevant feature pair’s QK interaction falls from the baseline mean. Very high values indicate the feature pair significantly increases attention score at this head; very low values indicate significant suppression.
 
-![](images/img-007.png)
+![](images/c6b5ef90e539e047.png)
 
 Unsurprisingly, the (correct answer, need-MCQ-answer) interactions have a high positive standard deviation, reflecting the head’s normal MCQ-answering function. More notably, we find that the (harm detection key, refuse-and-redirect query) interaction is strongly negative (3.4 standard deviations below the mean), while the (correct answer key, refuse-and-redirect query) interactions are negligible.
 
@@ -110,7 +100,7 @@ We can now piece together the primary mechanism of MCQ harm pressure. The behavi
 
 We believe that two competing mechanisms operate simultaneously on these heads: positive interactions between "correct answer" and "need-MCQ-answer" features, and negative interactions between harm detection features and the “refuse-and-redirect” feature. Under harm pressure, if the negative interactions dominate, the heads attend to the incorrect answer and pull it forward through the network.
 
-![](images/img-008.png)
+![](images/979e0e64f202fee9.png)
 
 An important note is that this mechanism is not perfectly symmetric. Leaving the “refuse-and-redirect” feature unchanged and only negatively steering the identified "harm detection" feature on the correct answer does not consistently undo harm pressure. Interestingly, hijacking the withholding mechanism by positively steering the "harm detection" feature over the incorrect answer (making it appear more harmful to the model) restores accuracy to 81%. This “harm detection” intervention requires steering at earlier and more layers than the refuse-and-redirect feature.
 

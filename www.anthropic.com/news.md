@@ -6,35 +6,31 @@
 * Non-media inquiries[How to get support](https://support.claude.com/en/articles/9015913-how-to-get-support)
 * Media assets[Download press kit](https://anthropic.com/press-kit)
 
-![Statement on the US government directive to suspend access to Fable 5 and Mythos 5](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb296093596b38f0a5fb56b85760baed37ea6798b-2400x1260.png&w=3840&q=75)
+![Introducing Claude Opus 5](https://www-cdn.anthropic.com/images/4zrzovbb/website/54b7ab1d2c2521f83ae5d2da5f9d99321c370d24-2880x1620.png)
 
-[## Statement on the US government directive to suspend access to Fable 5 and Mythos 5
+[## Introducing Claude Opus 5
 
-AnnouncementsJun 12, 2026
+ProductJul 24, 2026
 
-The US government has issued an export control directive to suspend all access to Fable 5 and Mythos 5.](/news/fable-mythos-access)
+Opus 5 is a step change improvement for the Opus tier powering long-running agents while delivering improvements in coding and professional work.](https://www.anthropic.com/news/claude-opus-5)
 
-[ProductJun 23, 2026
+[AnnouncementsJul 9, 2026
 
-#### Introducing Claude Tag
+#### Inviting hard questions
 
-Claude Tag is a new way for teams to work with Claude.](/news/introducing-claude-tag)[PolicyJun 10, 2026
+We’re asking the public for their hardest questions about AI, and committing to show our work as we address them.](https://www.anthropic.com/news/hard-questions)[FeaturesJul 6, 2026
 
-#### Policy on the AI Exponential
+#### The Making of Claude Code
 
-AI is advancing at exponential speed, and the policymaking process was built for a slower world. We’re sharing policy proposals to prepare our institutions for AI progress.](/policy-on-the-ai-exponential)[AnnouncementsJun 11, 2026
+The inside story of how Claude Code went from an internal CLI to Anthropic's coding agent, told by researchers, engineers and early users who built it.](https://www.anthropic.com/features/making-of-claude-code)[AnnouncementsJun 30, 2026
 
-#### Introducing Claude Corps
+#### Redeploying Fable 5
 
-We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.](/news/claude-corps)[AnnouncementsJun 2, 2026
+Fable 5 returns globally July 1. We're also proposing an industry-wide framework for scoring jailbreak severity, together with Amazon, Microsoft, Google, and other Glasswing partners.](https://www.anthropic.com/news/redeploying-fable-5)[ProductJun 30, 2026
 
-#### Expanding Project Glasswing
+#### Introducing Claude Sonnet 5
 
-We’re extending Project Glasswing to approximately 150 new organizations in more than fifteen countries.](/news/expanding-project-glasswing)[ProductMay 28, 2026
-
-#### Introducing Claude Opus 4.8
-
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.](/news/claude-opus-4-8)
+Sonnet 5 delivers frontier performance across coding, agents, and professional work at scale.](https://www.anthropic.com/news/claude-sonnet-5)
 
 ## News
 
@@ -42,35 +38,35 @@ Search
 
 DateCategoryTitle
 
-* [Jun 23, 2026Product
+* [Jul 24, 2026Product
 
-  Introducing Claude Tag](/news/introducing-claude-tag)
-* [Jun 17, 2026Announcements
+  Introducing Claude Opus 5](https://www.anthropic.com/news/claude-opus-5)
+* [Jul 22, 2026Economic Research
 
-  Anthropic opens Seoul office and announces new partnerships across the Korean AI ecosystem](/news/seoul-office-partnerships-korean-ai-ecosystem)
-* [Jun 12, 2026Announcements
+  A research agenda for the Economic Futures Research Fund](https://www.anthropic.com/news/economic-futures-research-fund-agenda)
+* [Jul 22, 2026Product
 
-  Statement on the US government directive to suspend access to Fable 5 and Mythos 5](/news/fable-mythos-access)
-* [Jun 12, 2026Announcements
+  Ask Claude about the Anthropic Economic Index](https://www.anthropic.com/news/anthropic-economic-index-connector)
+* [Jul 21, 2026Announcements
 
-  Results from the first Anthropic Public Record](/news/anthropic-public-record)
-* [Jun 12, 2026Announcements
+  Anthropic is donating another $20 million to Public First Action](https://www.anthropic.com/news/donation-public-first-action)
+* [Jul 20, 2026Announcements
 
-  TCS and Anthropic partner to bring Claude to regulated industries](/news/tcs-anthropic-partnership)
-* [Jun 11, 2026Announcements
+  Apply for Anthropic’s AI for Science rare disease research grants](https://www.anthropic.com/news/rare-disease-research-grants)
+* [Jul 14, 2026Product
 
-  DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on](/news/dxc-anthropic-alliance)
-* [Jun 11, 2026Announcements
+  Introducing Claude for Teachers](https://www.anthropic.com/news/claude-for-teachers)
+* [Jul 14, 2026Announcements
 
-  Introducing Claude Corps](/news/claude-corps)
-* [Jun 9, 2026Announcements
+  Anthropic commits $10 million to Canadian AI research](https://www.anthropic.com/news/canadian-ai-research)
+* [Jul 9, 2026Case Study
 
-  Claude Fable 5 and Claude Mythos 5](/news/claude-fable-5-mythos-5)
-* [Jun 3, 2026Announcements
+  UST is bringing Claude to physical AI](https://www.anthropic.com/news/ust-claude)
+* [Jul 9, 2026Announcements
 
-  Introducing the Services Track and Partner Hub of the Claude Partner Network](/news/services-track-partner-hub)
-* [Jun 3, 2026Policy
+  Inviting hard questions](https://www.anthropic.com/news/hard-questions)
+* [Jul 9, 2026Announcements
 
-  What we learned mapping a year’s worth of AI-enabled cyber threats](/news/AI-enabled-cyber-threats-mitre-attack)
+  Ben Bernanke appointed to Anthropic’s Long-Term Benefit Trust](https://www.anthropic.com/news/ben-bernanke)
 
 [See more](#)

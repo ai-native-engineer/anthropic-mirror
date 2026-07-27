@@ -22,22 +22,22 @@ When we think of a model in superposition, we tend to think of how the features 
 
 If two layers have features in superposition, the weights between the features are forced into superposition as well:
 
-![](images/img-001.png)
+![](images/c73ffbdd87fdc235.png)
 
 This is a big problem for circuit analysis because it causes "interference weights". Even if we can uncover the correct features, when we "lift" the model weights to connect those features, many of those weights will correspond to feature interference.
 
-![](images/img-002.png)
+![](images/68431f55ee347963.png)
 
 ### [Should we care about interference weights?](#should-we-care)
 
 These interference weights are "real" in the sense that they do genuinely describe connections between features in the model we observe. In fact, there's a [hypothesis](https://transformer-circuits.pub/2022/toy_model/index.html#adversarial) that they're one of the causes of adversarial examples!
 
-However, they're essentially noise and as a result don't make sense. The model doesn't "want to have them". They make the loss worse, or at least don't help it. If we finetune the lifted model (impractical) they go away.This is actually much more subtle than it sounds, and is a bit simplified as written.  In practice, there are at least three issues that prevent this statement from being strictly true. (1) Features are often not perfectly monosemantic, and so the model loss has some tiny preference for interference weights, requiring a small penalty. (2) If one naively optimizes more than one matrix in the "upstairs feature model", gradient descent may try to change those features – for example, it might introduce new superposition and polysemanticity, taking advantage of the added capacity. (3) Even setting aside the new polysemanticity issues of the previous point, the model may just learn new weights that it didn't try to represent when in superposition, or undo shrinkage (see scatter plot of virtual weights vs ideal weights later); this is expected under Defn (1) but counter intuitive. See [Appendix 4](#appendix-4) for related discussion. As a result of all of these issues, in practice one might do something like learn a mask on the virtual weights with a small penalty, along the lines of [Drori, 2025](https://www.lesswrong.com/posts/NAQpcNz9WGSJ8WH2A/sparsely-connected-cross-layer-transcoders).
+However, they're essentially noise and as a result don't make sense. The model doesn't "want to have them". They make the loss worse, or at least don't help it. If we finetune the lifted model (impractical) they go away.This is actually much more subtle than it sounds, and is a bit simplified as written.  In practice, there are at least three issues that prevent this statement from being strictly true. (1) Features are often not perfectly monosemantic, and so the model loss has some tiny preference for interference weights, requiring a small penalty. (2) If one naively optimizes more than one matrix in the "upstairs feature model", gradient descent may try to change those features – for example, it might introduce new superposition and polysemanticity, taking advantage of the added capacity. (3) Even setting aside the new polysemanticity issues of the previous point, the model may just learn new weights that it didn't try to represent when in superposition, or undo shrinkage (see scatter plot of virtual weights vs ideal weights later); this is expected under Defn (1) but counterintuitive. See [Appendix 4](#appendix-4) for related discussion. As a result of all of these issues, in practice one might do something like learn a mask on the virtual weights with a small penalty, along the lines of [Drori, 2025](https://www.lesswrong.com/posts/NAQpcNz9WGSJ8WH2A/sparsely-connected-cross-layer-transcoders).
 
 A natural question, then, is whether we should care about them for safety. It seems like this may depend on our goals:
 
 * Robustness – They Matter! We can think of robustness as being the set of safety concerns arising from an adversarial / worst case environment (including user inputs). In this case, the interference weights exist and are an object the adversary can exploit. (Again, see the idea that they might literally cause adversarial examples!)
-* Alignment - They Likely Don't Matter. We can think of alignment as being the safety concerns arising from an adversarial optimization or learning process. If we define interference weights as being those which harm, or at least don't help, the optimization objective, they in some sense definitionally don't matter for alignment concerns.
+* Alignment – They Likely Don't Matter. We can think of alignment as being the safety concerns arising from an adversarial optimization or learning process. If we define interference weights as being those which harm, or at least don't help, the optimization objective, they in some sense definitionally don't matter for alignment concerns.
 
 This split suggests that we want to find a way to factor apart the "interference weights" and "real weights", so that we can only consider the interference weights when relevant. Since alignment is interpretability's priority, we care most about the "real weight" analysis, although of course we also want to keep the interference weights in mind.
 
@@ -59,7 +59,7 @@ x'=\text{ReLU}(W^TWh+b)
 
 This toy model actually has two different interpretations. We can think of it as studying the geometry of how features are encoded in superposition (this is how Toy Models frames it), but we can also see it as an extremely simple case of one-layer identity circuits being put in superposition:
 
-![](images/img-003.png)
+![](images/19442b133d2585d8.png)
 
 By revisiting the toy model with this second interpretation, we can do some very basic empirical exploration of weight superposition.
 
@@ -73,9 +73,9 @@ But before we dive in, it's worth understanding why Towards Monosemanticity's ex
 
 Note that in such a setup, the features have a linear effect on the logits (modulo a rescaling by the final layer norm). We can get the virtual weights connecting the features and logits by tracing the path from the features, to the MLP output, to the residual stream, and then back up to the logits.
 
-![](images/img-004.png)
+![](images/4ad43115b1002471.png)
 
-However, along this path, the features are forced into superposition, first in the MLP output, then more densely in the residual steam. As a result, when we expand these weights, we expect to see interference weights.
+However, along this path, the features are forced into superposition, first in the MLP output, then more densely in the residual stream. As a result, when we expand these weights, we expect to see interference weights.
 
 And indeed, Towards Monosemanticity did see many indications of such interference weights! We'll explore this very shortly. But before we do, we'll briefly introduce a toy model, and give a formal definition for interference weights. This will allow us to examine the real world phenomena from Towards Monosemanticity side-by-side with examples from toy models, where we can definitively say the analogous behavior comes from interference weights.
 
@@ -85,7 +85,7 @@ Our goal is to reproduce the same basic phenomenology from Towards Monosemantici
 
 We consider a standard toy model with `n_features=100`, `n_residual=20`, and `feature_density=0.02`. It will also be undertrained (this reproduces the phenomenology of Towards Monosemanticity better; we'll explore fully converged examples later).
 
-![](images/img-005.png)
+![](images/fb75243705287815.png)
 
 #### [Interference Weights and Decomposition](#basic-phenomenology-reproduction-decomposition)
 
@@ -98,7 +98,7 @@ One way we could try to formalize this with the following definitions:
 
 We can then think of the observed weights as decomposing into ideal weight and interference weights:
 
-![](images/img-006.png)
+![](images/982235c061dd8423.png)
 
 Another definition is to think about the loss contribution of each weight, \Delta L(U\_{ij}). That is, the difference between the toy model loss, and its loss if we ablate a given weight.
 
@@ -106,7 +106,7 @@ Another definition is to think about the loss contribution of each weight, \Delt
 
 This offers an alternative decomposition:
 
-![](images/img-007.png)
+![](images/92376728004cf677.png)
 
 For now, we'll focus our investigation on the loss contribution of each weight, \Delta L(U\_{ij}). Later, we'll return to these two definitions, along with a few others which are easier to operationalize.
 
@@ -116,27 +116,27 @@ We can now return to our earlier goal of showing how our toy model can recover s
 
 Firstly, let's consider a histogram of our weights, U. We'll color the histogram by \Delta L(U\_{ij}) to allow us to distinguish interference weights from real weights.
 
-![](images/img-008.png)
+![](images/b5d318f48f1b4cfb.png)
 
 This plot might seem familiar – it's qualitatively similar to the logit weight plots from Towards Monosemanticity, such as this one for the [Hebrew feature](https://transformer-circuits.pub/2023/monosemantic-features/index.html#feature-hebrew):Note that there's a difference in the color scheme: the coloring above estimates a weight's average effect on the loss while the coloring below represents a token's connection with our interpretation of the feature. Another difference is the toy model histogram shows weights from all features while the graph from Towards Monosemanticity shows weights from a single feature to the logits.
 
-![](images/img-009.png)
+![](images/7708ff35296871c9.png)
 
 #### [Comparing Two Models with a Scatter Plot](#basic-phenomenology-scatter)
 
 We can also train a second toy model (with a different random seed) and make a scatter plot of the weights against each other.The random seed specifies the weight initialization as well as how data is sampled from the generating distribution. The interference weights are independent, but the real weights are all significantly positive. Again, this is quite reminiscent of what we saw in Towards Monosemanticity!
 
-![](images/img-010.png)
+![](images/566d8c981be35871.png)
 
 It's also interesting to look at a non-undertrained model here. We can see that in this configuration the interference weights become more structured, but we can also see that the real weights become perfectly agreed, while the interference weights don't.
 
-![](images/img-011.png)
+![](images/1914dba278c31644.png)
 
 ### [Getting More Realistic Phenomenology](#better-phenomenology-reproduction)
 
 While the phenomenology of the above toy model is similar to Towards Monosemanticity, it is different in important ways. Consider the example of the [base64 feature](https://transformer-circuits.pub/2023/monosemantic-features/index.html#feature-base64) from Towards Monosemanticity:
 
-![](images/img-012.png)
+![](images/dca4f1ffa8694bd9.png)
 
 The base64 feature has overlap between its "real weights" and "interference weights". This is a critical part of why interference weights are such a hard problem for us. If we could just ignore small weights, things would be much easier! So we'd like an example that demonstrates why the problem is hard.
 
@@ -158,19 +158,19 @@ y' = ReLU(W\_{up} h+b)
 
 This toy model introduces new degrees of freedom – we need to specify how to generate A and v.
 
-Different choices here can yield very different phenomenology, and it turns out to be somewhat tricky to find a regime in which (1) real weights and interference weights strongly overlap; (2) training two models doesn't always lead to the same "ideal superposition configuration", collapsing the scatter plot; (3) training two models doesn't collapse into two superposition solutions which make very different binary choices for weights, also making the scatter plot uninteresting; and (4) this continues to hold as one trains to convergence. One can achieve (1-3), but not (4), by having a block diagonal matrix, where each block is itself sparse (probability 0.5), and otherwise uniformly sampled between [0,1]. The block diagonal structure seems to really help with (2). We have v be a constant vector of -0.1.
+Different choices here can yield very different phenomenology, and it turns out to be somewhat tricky to find a regime in which (1) real weights and interference weights strongly overlap; (2) training two models doesn't always lead to the same "ideal superposition configuration", collapsing the scatter plot; (3) training two models doesn't collapse into two superposition solutions which make very different binary choices for weights, also making the scatter plot uninteresting; and (4) this continues to hold as one trains to convergence. One can achieve (1–3), but not (4), by having a block diagonal matrix, where each block is itself sparse (probability 0.5), and otherwise uniformly sampled between [0,1]. The block diagonal structure seems to really help with (2). We have v be a constant vector of -0.1.
 
 If we put 128 features in superposition in 16 dimensions, with 8 blocks, 0.1 weight density within those blocks, and input feature density of 0.3, and train two models we get the following weight scatter plot:
 
-![](images/img-013.png)
+![](images/9885a1395d6c1842.png)
 
 And if we focus on one model, we get the following weight histogram:
 
-![](images/img-014.png)
+![](images/6fb5dcd6ae9ef8ed.png)
 
 It's also interesting to compare the learned weights to the ideal weights:
 
-![](images/img-015.png)
+![](images/b96958e02d1429d2.png)
 
 ### [What Should We Do about Interference Weights?](#filtering-interference-weights)
 
@@ -189,13 +189,13 @@ Instead, we'll consider cheap heuristics which can be more computable proxies fo
 
 We can then try to do binary classification of real weights based on this, with the ground truth real weights defined as those with loss effect \Delta L(U\_{ij}) > \epsilon = 0.0001. We can then look at precision-recall curves:
 
-![](images/img-016.png)
+![](images/f9100c3d233aa647.png)
 
 But we probably don't actually care about recall per se. Among real weights, there's a lot of variance in how important they are, and it's much worse to lose some important weights than others. Similarly, among interference weights, some are worse than others. So perhaps we should instead think about "loss gain" vs precision.Here "loss gain" is just the sum of \Delta L(U\_{ij}) for each individual weight, rather than evaluated on each ablated model. This is much more promising!
 
-![](images/img-017.png)
+![](images/dc75b6bc45f9a308.png)
 
-Can we beat this? One tempting approach might be to take inspiration from compressed sensing – afterall, we're imagining the weights as actually living in a higher-dimensional space, and being compressed down via superposition. However, this requires that the map be linear, which may not be the case (see [Appendix 1](#appendix-1)).
+Can we beat this? One tempting approach might be to take inspiration from compressed sensing – after all, we're imagining the weights as actually living in a higher-dimensional space, and being compressed down via superposition. However, this requires that the map be linear, which may not be the case (see [Appendix 1](#appendix-1)).
 
 ### [Conclusion](#conclusion)
 
@@ -227,11 +227,11 @@ However, as we've thought more, we've come to believe that it may often not be l
 
 Let's consider a simple example, of two features which must each be multiplied by two. Let's now consider a toy model in which the features must be compressed down to a single shared dimension. The model will put them in antipodal superposition, at which point they can both be multiplied by 2 using the same weight!
 
-![](images/img-018.png)
+![](images/ba496959cba5b4fc.png)
 
 Now, in this case – where the weight is perfectly shared! – it might be tempting to try to think of this single "downstairs" weight as the meaningful unit. For example, in the language of parameter decomposition, you might claim it's a single parameter component.
 
-But we can construct other examples where this seems less natural. If we put the features in something other than antipodal superposition, weights will only be partly shared, and have different values. The [more sophisticated toy model](http://better-phenomenology-reproduction-model) introduced in the main section of this paper is in fact such an example. Unfortunately, these examples necessarily involve higher dimensions, and become significantly more difficult to describe than the above example.
+But we can construct other examples where this seems less natural. If we put the features in something other than antipodal superposition, weights will only be partly shared, and have different values. The [more sophisticated toy model](#better-phenomenology-reproduction-model) introduced in the main section of this paper is in fact such an example. Unfortunately, these examples necessarily involve higher dimensions, and become significantly more difficult to describe than the above example.
 
 ### [Appendix 2: More Fully Converged Histograms and Isotropic Superposition Geometry](#appendix-2)
 
@@ -242,11 +242,11 @@ The models we looked at weren't fully trained to convergence, since this produce
 
 If we pick a density of 0.25, we observe the classical "pentagonal superposition" in our histograms, where features have angles of ⅖π and  ⅘π:
 
-![](images/img-019.png)
+![](images/e3a1c9f6f734d877.png)
 
 If we pick a very low density of 0.001, we observe some phenomenology I wasn't aware of – although there isn't clean geometry, there's some "upper bound" interference weight that things don't go above!
 
-![](images/img-020.png)
+![](images/7d72880ecc958d8b.png)
 
 ### [Appendix 3: Correlated Feature Toy Models](#appendix-3)
 
@@ -256,15 +256,15 @@ We consider a toy model following a [similar setup](https://transformer-circuits
 
 The inter-set and intra-set weights have very different distributions, as seen below. Note that the inter-set weights have greater variance (including very large negative values)
 
-![](images/img-021.png)
+![](images/0abc81e0e6d876a1.png)
 
 One thing that immediately stands out is that there's some kind of gross, low-rank structure. On average, the features in a given set excite each other, and inhibit the other set. We can pull this out as its own weight component. Ablating this low-rank component harms the loss.
 
-![](images/img-022.png)
+![](images/cc4a2ceaa1e3b056.png)
 
-We think that, ultimately the right decomposition is probably the following, splitting the residual component into parts which contribute to reading the loss, and those which don't.
+We think that, ultimately the right decomposition is probably the following, splitting the residual component into parts which contribute to reducing the loss, and those which don't.
 
-![](images/img-023.png)
+![](images/a269813961514ae9.png)
 
 This example is interesting in a few ways. Firstly, it is probably best understood as having more than n\_features^2 weights. The low-rank component seems importantly different from any individual feature-feature weight. Secondly, it starts to reveal that "is a weight positive for the loss" is quite complex: the low-rank component helps on the margin, but only because it reduces the effect of the interference weights! Finally, it gives an example of how the loss contributions of weights can be non-linear, leading to tension between our different definitions of interference weights.
 

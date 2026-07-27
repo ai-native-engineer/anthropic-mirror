@@ -4,7 +4,7 @@
 
 Apr 21, 2025
 
-![Our approach to understanding and addressing AI harms](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff5ef83ede8e91631c0e152c01a5fc9dce484c52d-2880x1620.png&w=3840&q=75)
+![Our approach to understanding and addressing AI harms](https://www-cdn.anthropic.com/images/4zrzovbb/website/f5ef83ede8e91631c0e152c01a5fc9dce484c52d-2880x1620.png)
 
 As AI capabilities rapidly advance, understanding and addressing the full spectrum of potential impacts becomes increasingly important. Today, we're sharing insights into our evolving approach to assessing and mitigating various harms that could result from our systems, ranging from catastrophic scenarios like biological threats to critical concerns like child safety, disinformation and fraud.
 
@@ -30,8 +30,8 @@ Depending on harm type and severity, we address and manage risks through a varie
 
 ### **Some examples of how we’ve used our framework to inform our understanding of harm**
 
-When exploring new capabilities or features, we examine how they might introduce additional considerations across different harm dimensions. For example:  
-  
+When exploring new capabilities or features, we examine how they might introduce additional considerations across different harm dimensions. For example:
+
 **Computer Use:** As our models develop the ability to interact with computer interfaces, we consider factors like the types of software AI systems might interact with and the contexts in which these interactions occur, which helps us identify where additional safeguards might be beneficial. For computer use, we specifically examine a multitude of risks including those related to financial software and banking platforms where unauthorized automation could potentially facilitate fraud or manipulation, and communication tools where AI systems could be used for targeted influence operations or phishing campaigns. This analysis helps us develop approaches that maintain the utility of these capabilities while incorporating appropriate monitoring and enforcement to prevent misuse. For example, our initial work on computer use functionality led us to design more stringent enforcement thresholds and employ novel approaches to enforcement such as [hierarchical summarization](https://alignment.anthropic.com/2025/summarization-for-monitoring/) that allows us to detect harms while maintaining our privacy standards.
 
 **Model Response Boundaries:** When considering how models should respond to different types of user requests, we've found value in examining tradeoffs between helpfulness and appropriate limitations. Models that are trained to be more helpful and responsive to user requests may also lean towards harmful behaviors (e.g., sharing information that violates our AUP or could be used in dangerous ways). Conversely, models that over-index on harmlessness can tend towards not sharing any information with users, even when requests are harmless. By thinking about both individual and societal impacts, we can better understand where to focus our safety evaluations and training. For example, with Claude 3.7 Sonnet, we evaluated different types of requests along this spectrum and improved how our model handles ambiguous prompts by encouraging safe, helpful responses rather than simply refusing to engage. This resulted in a 45% reduction in unnecessary refusals while maintaining strong safeguards against truly harmful content. This approach helps us make more nuanced decisions about model behavior, particularly in scenarios where certain vulnerable populations—such as children, marginalized communities, or individuals in crisis—might be at heightened risk.

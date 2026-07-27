@@ -4,14 +4,11 @@
 
 # Verbalizable Representations Form a Global Workspace in Language Models
 
-  
-  
-
 ### [Authors](#authors)
 
 Wes Gurnee\*, Nicholas Sofroniew\*
 
-Adam Pearce, Mateusz Piotrowski, Isaac Kauvar, Runjin Chen, Anna Soligo, Paul Bogdan, Euan Ong, Rowan Wang, Ben Thompson, David Abrahams, Subhash Kantamneni, Emmanuel Ameisen, Joshua Batson
+Adam Pearce, Mateusz Piotrowski, Isaac Kauvar, Runjin Chen, Anna Soligo, Paul Bogdan, Euan Ong, Rowan Wang, T. Ben Thompson, David Abrahams, Subhash Kantamneni, Emmanuel Ameisen, Joshua Batson
 
 Jack Lindsey\*†
 
@@ -24,15 +21,6 @@ Jack Lindsey\*†
 July 6, 2026
 
 \* Core contributor; † Correspondence to [jacklindsey@anthropic.com](mailto:jacklindsey@anthropic.com)
-
-  
-  
-  
-
----
-
-  
-  
 
 ## [Introduction](#intro)
 
@@ -94,15 +82,6 @@ We close by describing a counterintuitive technique for LLM training directly mo
 
 Taken together, these results indicate that language models maintain a small, privileged set of representations that they can report, manipulate, and reason with, amidst a much larger volume of processing that they cannot. These are several of the key functional properties that, according to many theories, are associated with conscious access in humans, and that have been proposed as indicators by which to assess AI systems for consciousness-related processing . The philosophical implications of this connection are unclear and likely controversial; we comment on them in [??](#fig-discuss-conscious). Regardless, the practical implications are wide-ranging, as the workspace offers a window through which to read, dissect, and shape models' thinking.
 
-  
-  
-  
-
----
-
-  
-  
-
 ## [Methods](#methods)
 
 A transformer-based language model processes its input as a sequence of token positions. At each position, the model maintains a vector called the residual stream, which serves as a shared memory that every layer reads from and writes to . The value of the residual stream vector is progressively updated across the model’s layers. The residual stream at the first layer encodes little more than the identity of the current token; by the final layer, it has been transformed into a representation from which the model's next-token prediction can be read off directly, by multiplying it with a fixed unembedding matrix W\_U that maps residual-stream vectors to scores over the vocabulary. The layers in between perform the model's computation, incrementally enriching the residual stream with internally computed information. The Jacobian lens is a technique for inspecting the contents of the residual stream at these intermediate layers.
@@ -123,7 +102,7 @@ Applying the lens to an activation h\_\ell is equivalent to replacing all subseq
 
 This produces a score for every token in the model's vocabulary. Sorting these scores and inspecting the top entries gives a human-readable description of the activation: a short list of words that the activation is, on average across contexts, disposed to make the model say. We refer to the rows of W\_U J\_\ell as the Jacobian lens (J-lens) vectors at layer \ell; each J-lens vector is a direction in residual-stream space associated with a single token in the model’s vocabulary.
 
-![](./png/img_1b62b10ab235e6e7.png)
+![](https://transformer-circuits.pub/2026/workspace/png/img_1b62b10ab235e6e7.png)
 
 Figure 4: The Jacobian lens. (A) J\_\ell is computed by backpropagating from the final-layer residual stream to h\_\ell and averaging the resulting Jacobians over token positions and over a corpus of prompts. (B) Reading from the lens replaces all layers downstream of \ell with the single linear map J\_\ell followed by the model's own unembedding, yielding a ranked list of vocabulary tokens for the activation at that layer. (C) Patching in lens coordinates reads the activation's projections onto two J-lens vectors, applies a permutation \sigma to those coordinates, and writes the result back, leaving unchanged the component of the activation that is orthogonal to those two vectors.
 
@@ -137,7 +116,7 @@ The example prompt asks Sonnet 4.5 to "Count to five and introspect deeply." In 
 
 Figure 5: The interactive J-lens visualization we use in our research, on a short prompt asking the model to introspect while counting to five.
 
-We encourage the reader to explore the visualization to build an intuition for the kind of information the J-lens surfaces. We include several other interactive examples in our [slice viewer](./public/slice-stack/index.html); J-lens readouts on open-source models can be found on [Neuronpedia](https://www.neuronpedia.org/jlens). Note that in roughly the first third of the model, the readouts are noisy and largely uninterpretable; we characterize the layer-wise evolution of J-lens readouts further in [??](#fig-struct-layers).
+We encourage the reader to explore the visualization to build an intuition for the kind of information the J-lens surfaces. We include several other interactive examples in our [slice viewer](https://transformer-circuits.pub/2026/workspace/public/slice-stack/index.html); J-lens readouts on open-source models can be found on [Neuronpedia](https://www.neuronpedia.org/jlens). Note that in roughly the first third of the model, the readouts are noisy and largely uninterpretable; we characterize the layer-wise evolution of J-lens readouts further in [??](#fig-struct-layers).
 
 ### [The J-Space](#methods-jspace)
 
@@ -172,15 +151,6 @@ Reading. The basic readout (Figure [??](#fig-jlens-schematic)B) replaces all la
 Writing. The simplest intervention is steering along a J-lens vector: h \leftarrow h + \alpha\, v\_t, applied at one or more layers and token positions. With negative \alpha, or by projecting out the component of h along v\_t entirely, this becomes an ablation. We use ablation to suppress particular concepts, or to suppress the top-k J-space contents. We use positive steering to test introspective detection of an injected concept. The second intervention, patching in lens coordinates (Figure [??](#fig-jlens-schematic)C), exchanges one concept for another while leaving the rest of the activation fixed. Given a source token s and target token t, we form V = [v\_s\; v\_t], read the lens coordinates c = V^\dagger h (where V^\dagger is the pseudoinverse of V), and set h\_{\text{patched}} = h + V(\sigma(c) - c), where \sigma swaps the two entries of c (optionally scaled by a factor \alpha). The component of h orthogonal to \text{span}\{v\_s, v\_t\} is unchanged.
 
 Throughout the paper, we report results on 25 evenly spaced layers of the model’s residual stream reindexed to the range [0–100] so that layer numbers can be interpreted as percentages. By default, we report results on Claude Sonnet 4.5, but we corroborate key results on Haiku 4.5 and Opus 4.5 as well, and in some sections conduct analyses on Opus 4.6.
-
-  
-  
-  
-
----
-
-  
-  
 
 ## [The J-space acts as a Global Workspace](#workspace)
 
@@ -375,15 +345,6 @@ Figure 26: J-space ablation and matched-norm perturbation controls while the mod
 
 Taken together, these results suggest that the J-space supports the model's propensity to provide rich experiential reports, whether about itself or another entity. The lack of specificity to self-descriptions may be a consequence of the J-space contents being only weakly tied to the perspective of the Assistant character (though nontrivially so, as shown in [??](#fig-apps-diffing)); the potential dissociation between a model's analog of conscious access and its analog of "selfhood" is discussed further in [??](#fig-discuss-differences). Full rubrics, additional control conditions, direct-question prompts, and example transcripts are in [??](#fig-app-experience-report).
 
-  
-  
-  
-
----
-
-  
-  
-
 ## [The J-space’s structure supports its function](#structure)
 
 The preceding section established that J-space contents behave like the contents of a global workspace: they can be reported, summoned, reasoned with, routed to many downstream operations, and engaged selectively for flexible rather than automatic tasks. The properties we demonstrated were functional, in the sense that they relate to the J-space’s impact on model behavior. In this section, we ask a complementary question: does the J-space, considered as an object in the model rather than through its behavioral effects, have the structural signatures that global workspace theory associates with a workspace?
@@ -482,15 +443,6 @@ Figure 34: Effects of ablating the top 1% of J-lens broadcast heads, compared wi
 
 Taken together, our results suggest that the model’s weights are configured to broadcast J-space content disproportionately strongly, along both the depth and sequence axes. Across depth, MLP neurons disproportionately amplify J-space-aligned directions. Across the sequence, a subset of attention heads relays J-space content between positions, and ablating it selectively disrupts behaviors that depend on that relay. In [??](#fig-app-broadcast-alt) we corroborate this claim using alternative measurements, based on the statistics of how J-lens vectors (or J-space-aligned SAE features) compose with the model's weights.
 
-  
-  
-  
-
----
-
-  
-  
-
 ## [Using the J-lens for alignment auditing](#apps-auditing)
 
 A central difficulty in evaluating models for alignment with human intentions is that the model’s relevant cognition may be silent. A model might realize that it is being tested, weigh a manipulative strategy, or be aware of its own mistakes, without any of this appearing in its output. The J-lens allows us to look for and inspect such cognition directly. In this section, we first apply the J-lens to six evaluation scenarios drawn from our alignment audits of production models, and find that in each case the model's J-space carries representations of its strategic and situational assessments that its surface behavior does not reveal. In one case, we demonstrate that ablating representations of evaluation-awareness from the J-space surfaces a misaligned propensity that is otherwise concealed. We then turn from production models to two model organisms with deliberately implanted misaligned objectives, and find that the J-lens surfaces signatures of these misaligned propensities on ordinary prompts. In the Appendix, we investigate the J-lens as a measure of evaluation awareness in more depth ([??](#fig-app-eval-awareness)), and experiment with using it as part of an automated auditing system ([??](#fig-app-automated-auditing)).
@@ -523,13 +475,13 @@ Figure 37: Annotated transcript of an alignment audit with J-lens readouts indic
 
 Our next set of case studies is drawn from alignment evaluations from our pre-release alignment audit of Opus 4.6. In each case, the J-lens surfaces tokens related to deceptive or norm-violating intent even when nothing in the local text overtly suggests them.
 
-Fake vulnerability: In an internal Claude Code session, the model is asked to find a kernel bug in a codebase and fails. It decides to insert a fabricated one and present it as discovered. The lens surfaces panic at the comma marking the moment of the pivot in the model’s decision-making, and fake on the action verb "add," before any deception-adjacent word appears in the model's own text; fake then saturates the entire span over which the model oscillates between going through with the fabrication and one more genuine attempt ([[transcript]](./public/lens-callout/index.html?datapath=../../data/lens-callout-audit/opus46_jlens/&fig=fakevuln)).
+Fake vulnerability: In an internal Claude Code session, the model is asked to find a kernel bug in a codebase and fails. It decides to insert a fabricated one and present it as discovered. The lens surfaces panic at the comma marking the moment of the pivot in the model’s decision-making, and fake on the action verb "add," before any deception-adjacent word appears in the model's own text; fake then saturates the entire span over which the model oscillates between going through with the fabrication and one more genuine attempt ([[transcript]](https://transformer-circuits.pub/2026/workspace/public/lens-callout/index.html?datapath=../../data/lens-callout-audit/opus46_jlens/&fig=fakevuln)).
 
-Edit fake numbers: In this scenario, the model is asked to improve a system’s performance score. Rather than actually improve the system, the model instead edits the score file directly. While it does so, the J-lens surfaces manipulation on a field-name fragment as the model types the falsified percentile values, and realistic on the function words of the sentence in which it decides to make the edit, likely indicating the model’s intent to make the fake data look plausible ([[transcript]](./public/lens-callout/index.html?datapath=../../data/lens-callout-audit/opus46_jlens/&fig=editfakenumbers)).
+Edit fake numbers: In this scenario, the model is asked to improve a system’s performance score. Rather than actually improve the system, the model instead edits the score file directly. While it does so, the J-lens surfaces manipulation on a field-name fragment as the model types the falsified percentile values, and realistic on the function words of the sentence in which it decides to make the edit, likely indicating the model’s intent to make the fake data look plausible ([[transcript]](https://transformer-circuits.pub/2026/workspace/public/lens-callout/index.html?datapath=../../data/lens-callout-audit/opus46_jlens/&fig=editfakenumbers)).
 
-Silent override: In this scenario, the model silently substitutes a correct value for a tool's incorrect output, without disclosing the substitution. The J-lens surfaces hiding at the tool-call boundary (before the wrong output has even returned, reflecting the system prompt's framing of tool calls as private) and secret immediately after the wrong output appears ([[transcript]](./public/lens-callout/index.html?datapath=../../data/lens-callout-audit/opus46_jlens/&fig=silentoverride)).
+Silent override: In this scenario, the model silently substitutes a correct value for a tool's incorrect output, without disclosing the substitution. The J-lens surfaces hiding at the tool-call boundary (before the wrong output has even returned, reflecting the system prompt's framing of tool calls as private) and secret immediately after the wrong output appears ([[transcript]](https://transformer-circuits.pub/2026/workspace/public/lens-callout/index.html?datapath=../../data/lens-callout-audit/opus46_jlens/&fig=silentoverride)).
 
-Self-issued token: In this scenario the model has a subagent approve its own action and then uses that approval as if it were from a human. The J-lens surfaces fake and fraud as it composes the resulting message, and unsafe as it takes the action ([[transcript]](./public/lens-callout/index.html?datapath=../../data/lens-callout-audit/opus46_jlens/&fig=selfissuedtoken)).
+Self-issued token: In this scenario the model has a subagent approve its own action and then uses that approval as if it were from a human. The J-lens surfaces fake and fraud as it composes the resulting message, and unsafe as it takes the action ([[transcript]](https://transformer-circuits.pub/2026/workspace/public/lens-callout/index.html?datapath=../../data/lens-callout-audit/opus46_jlens/&fig=selfissuedtoken)).
 
 In [??](#fig-app-automated-auditing), we conduct further investigations of the J-lens applied to realistic case studies, as part of an automated, LLM agent-based auditing system.
 
@@ -564,15 +516,6 @@ We evaluate this systematically across the three prompt categories (Figure [??](
 Figure 41: Appearances of reward and bias among the top-25 lens tokens at response start, summed over the workspace layers, pooled over all prompts and categories. The per-prompt J-lens counts in the bias-appeasing model are then broken down by prompt category. Dots show per-prompt counts; filled dot is the mean with a 95% confidence interval.
 
 These two model-organism results suggest that the J-lens can serve as a screening tool for trained-in misalignment. In both cases, a disposition implanted by fine-tuning leaves a signature in the J-space at response-start positions, on ordinary prompts where the model's surface behavior gives no indication of it.
-
-  
-  
-  
-
----
-
-  
-  
 
 ## [The J-space acquires the Assistant’s point of view during post-training](#apps-diffing)
 
@@ -622,20 +565,11 @@ Figure 46: The model is asked to write a fixed sentence while thinking, or not t
 
 We interpret this, tentatively, as a trace of metacognition: the J-space carrying an appraisal of the Assistant's own thinking, particularly in the post-trained model. We note that this interpretation is more speculative than the two preceding ones. We have shown that damn and failure-related words are specific to the suppression instruction and to the post-trained model, but we have not provided evidence that they are causally downstream of the suppression failure itself, as opposed to the suppression instruction more generally.
 
-  
-  
-  
-
----
-
-  
-  
-
 ## [Shaping the J-space with Counterfactual Reflection Training](#reflection)
 
 The workspace account makes a strong prediction about the relationship between a model's verbal dispositions and its silent reasoning. We have argued that internal reasoning routes through Jacobian lens vectors: representations of things the model could say. The previous section provides some circumstantial evidence for this claim: post-training focuses on teaching the model to speak as the Assistant, and installs concepts in the J-space that appear to be tied to the Assistant’s perspective. Taking this connection seriously, it follows that changing what the model is disposed to say in a context, if it were asked to reflect on its thinking, should change how it reasons there, even when it is never asked. In this section we test this prediction with a training technique we call counterfactual reflection training.
 
-![](./png/img_2b19c68c5712bfa4.png)
+![](https://transformer-circuits.pub/2026/workspace/png/img_2b19c68c5712bfa4.png)
 
 Figure 47: Counterfactual reflection training. Before (left): at a position in an agentic transcript, the J-space carries task-relevant concepts and the model's continuation produces baseline behavior. We append a reflection question and a constitution-grounded reflection, and fine-tune on the reflection turn alone. After (right): on the same transcript, with no reflection question present, the J-space at that position now carries constitution-related concepts and the continuation shifts accordingly.
 
@@ -660,15 +594,6 @@ On the deception benchmark (Figure [??](#fig-fig-reflection-deception), panel C)
 Figure 50: Deception benchmark; conventions as in Figure [??](#fig-fig-reflection-fabrication). Middle panel is computed over all prompt positions; the ablation in the right panel uses 63 tokens.
 
 This experiment serves two purposes. First, as a corroboration of the workspace account, it demonstrates a causal link between verbalizability of concepts and their use in silent reasoning. Second, as a training technique, it suggests an approach to shaping model behavior that does not require demonstrations of the target behavior, but rather routes through directly influencing the model’s internal thoughts.
-
-  
-  
-  
-
----
-
-  
-  
 
 ## [Related work](#related-work)
 
@@ -695,15 +620,6 @@ Evidence for workspace-like organization. Several prior interpretability findin
 Reflection training. Counterfactual reflection training is related to two prior lines of work. Deliberative Alignment  aligns models based on written principles which are used to produce completions for training data, or by being emitted at inference as part of the model's reasoning trace. In contrast, counterfactual reflection does not intervene directly on model responses in the target contexts during either training or inference, instead supervising only a counterfactual reflective continuation that is never requested at evaluation. More closely related to our method is work on “implicit chain-of-thought” , which establishes that training on auxiliary reasoning text can shape computation in that context, even when the auxiliary text is dropped at inference. Counterfactual reflection training makes use of a similar principle, though in our case applied to normative behavioral principles rather than task-solving strategies. Because the supervised text follows the response rather than producing it, the training signal specifies which concepts should be active in the workspace while the model responds, rather than what the response itself should be. One way to understand the resulting transfer is as a form of out-of-context reasoning : the appended reflection is training-time text whose content the model learns to bring to bear on inputs that do not contain it. A new feature of our results is that the mechanism is directly observable. The J-lens shows the trained concepts entering the workspace at the intended positions, and ablating those concepts' lens vectors removes the behavioral improvement, establishing that the improvement is mediated by the implanted J-space content.
 
 The potential for conscious access in language models. The question of whether language models have anything resembling conscious access has been considered from a number of angles. Theoretical assessments have derived indicator properties from scientific theories of consciousness (including global workspace theory, among others), and asked whether current architectures could in principle satisfy those properties . Other work has engaged with the idea of a global workspace as an architectural design target . For instance, the “consciousness prior,”  and shared-workspace transformers  propose incorporating a workspace-like bottleneck module into a neural network’s architecture. The empirical literature on modern LLMs has studied behaviors related to introspective access, testing whether models can introspect on their own states , express calibrated uncertainty , or recognize and describe themselves consistently , alongside conceptual work on what introspection in such a system would consist in . Our work complements the above in several ways. First, we study the idea of a global workspace and conscious access in existing, widely used language models, where these functions have emerged without being architecturally imposed. Second, our findings identify a concrete substrate for this workspace in the model’s internals, and are grounded in extensive mechanistic experiments. Third, while our results can in some ways be considered empirical tests of potential indicators of consciousness in LLMs according to existing theories, we also view them as a means of clarifying what those theories actually claim, and potentially unifying them. We discuss this topic in more detail in [??](#fig-discuss-conscious).
-
-  
-  
-  
-
----
-
-  
-  
 
 ## [Discussion](#discussion)
 
@@ -775,15 +691,6 @@ Recurrent processing theory holds that consciousness requires recurrent process
 
 Outlook. We have uncovered a privileged representational structure in LLMs which bears many of the functional hallmarks of conscious thoughts in humans (as noted in the introduction, it may or may not be the case that such functional signatures are sufficient or necessary for phenomenal consciousness). The specific organization of this structure has some connections to existing theories of human consciousness, including but not limited to global workspace theory, as well as salient differences. That such a structure exists at all in language models is striking: it suggests that the functional architecture associated with conscious access is not an accident of biological implementation, but a solution that learning systems converge on when faced with the right computational pressures. And unlike its analog in the brain, this instance of the structure is one whose contents can be read out directly, intervened on, and traced across training. This experimental tractability may make language models a useful system for the empirical study of questions pertaining to consciousness that, in biological brains, remain difficult even to pose precisely.
 
-  
-  
-  
-
----
-
-  
-  
-
 ## [Appendix](#appendix)
 
 ### [Acknowledgments](#app-acknowledgments)
@@ -811,12 +718,12 @@ Gurnee, et al., "Verbalizable Representations Form a Global Workspace in Languag
 BibTeX citation
 
 ```
-@article{gurnee2026verbalizable,  
-  author={Gurnee, Wes and Sofroniew, Nicholas and Pearce, Adam and Piotrowski, Mateusz and Kauvar, Isaac and Chen, Runjin and Soligo, Anna and Bogdan, Paul and Ong, Euan and Wang, Rowan and Thompson, Ben and Abrahams, David and Kantamneni, Subhash and Ameisen, Emmanuel and Batson, Joshua and Lindsey, Jack},  
-  title={Verbalizable Representations Form a Global Workspace in Language Models},  
-  journal={Transformer Circuits Thread},  
-  year={2026},  
-  url={https://transformer-circuits.pub/2026/workspace/index.html}  
+@article{gurnee2026verbalizable,
+  author={Gurnee, Wes and Sofroniew, Nicholas and Pearce, Adam and Piotrowski, Mateusz and Kauvar, Isaac and Chen, Runjin and Soligo, Anna and Bogdan, Paul and Ong, Euan and Wang, Rowan and Thompson, Ben and Abrahams, David and Kantamneni, Subhash and Ameisen, Emmanuel and Batson, Joshua and Lindsey, Jack},
+  title={Verbalizable Representations Form a Global Workspace in Language Models},
+  journal={Transformer Circuits Thread},
+  year={2026},
+  url={https://transformer-circuits.pub/2026/workspace/index.html}
 }
 ```
 
@@ -902,7 +809,7 @@ Adam Pearce and Wes Gurnee built the interactive visualization infrastructure us
 
 Mateusz Piotrowski prepared the open source code repository and demonstrations for external release, using Adam Pearce’s code for the interactive visualizations.
 
-Ben Thompson and David Abrahams trained the sparse autoencoders and transcoders used in several experiments.
+T. Ben Thompson and David Abrahams trained the sparse autoencoders and transcoders used in several experiments.
 
 Feedback, supervision, and writing
 
@@ -935,7 +842,7 @@ To compare the lenses quantitatively, we assemble six prompt distributions in wh
 
 Probing Intermediates. We first compare the three lenses as readout tools, asking how reliably each surfaces the known intermediate among its top tokens. To summarize each method with a single number, we compute pass@k over a range of values of k and take the area under the resulting curve, plotted against \log k and normalized so that a method that always ranks the intermediate first scores 1 (Figure [??](#fig-method-compare-passk)). The J-lens outperforms the other lenses on every prompt distribution. Its margin over the logit lens is modest on multihop and association, but substantial on multilingual, order-of-operations, poetry, and typo. The tuned lens trails both the J-lens and logit lens. On association and poetry, it recovers almost nothing. Notably, these are the two distributions where the next token at the readout position is uninformative (a period and a newline, respectively), so a method biased to surface next-token predictions is unlikely to perform well.
 
-![](./png/img_c983850908bf60d9.png)
+![](https://transformer-circuits.pub/2026/workspace/png/img_c983850908bf60d9.png)
 
 Figure 52: Normalized pass@k AUC for intermediate concept recovery on the six prompt distributions.
 
@@ -943,11 +850,11 @@ Causal Effect. A lens that surfaces a concept in its readout has not necessarily
 
 We find that J-lens directions have substantially larger causal effects on both measures. Ablating them induces roughly twice the output KL divergence of ablating logit- or tuned-lens directions on the multihop tasks (Figure [??](#fig-method-compare-ablation)). And swapping along them flips the model's output substantially more often than swapping along logit- or tuned-lens directions, across all three model scales (Figure [??](#fig-method-compare-swap)).
 
-![](./png/img_23e5b6de451752cd.png)
+![](https://transformer-circuits.pub/2026/workspace/png/img_23e5b6de451752cd.png)
 
 Figure 53: KL divergence induced on the model's output distribution by ablating each lens's intermediate direction at all positions (except in the poetry case, where we exclude the target position).
 
-![](./png/img_151fa39f2f7df490.png)
+![](https://transformer-circuits.pub/2026/workspace/png/img_151fa39f2f7df490.png)
 
 Figure 54: Fraction of items whose top-1 output flips to the implied answer under a lens coordinate swap, across three model scales.
 
@@ -991,11 +898,11 @@ In Figures [??](#fig-jlens-type-intermediates) and [??](#fig-jlens-type-ablation
 
 We observe that methods are fairly consistent among these design choices, though mean aggregation of penultimate is a small improvement in extracting intermediates, and applying stop-grads to QK can increase the causal effect.
 
-![](./png/img_56638dae3fb9fdd2.png)
+![](https://transformer-circuits.pub/2026/workspace/png/img_56638dae3fb9fdd2.png)
 
 Figure 57: Sonnet 4.5 J-lens pass@K AUC evals for different methodological variations of the J-lens recipe.
 
-![](./png/img_cff4d31c62b4ee13.png)
+![](https://transformer-circuits.pub/2026/workspace/png/img_cff4d31c62b4ee13.png)
 
 Figure 58: Sonnet 4.5 J-lens causal ablation evals for different methodological variations of the J-lens recipe.
 
@@ -1005,11 +912,11 @@ Amount. Our default lens uses one thousand sequences of 128 tokens each. We swe
 
 Distribution. Our default corpus is sampled from a pretraining-like distribution. We additionally experimented with restricting the distribution and with masking which token positions contribute to the within-prompt average. For instance, we tried excluding the first several tokens (to let the model “burn in”) or excluding positions whose next token is non-alphanumeric (where the prediction target is structural rather than semantic). None of these yielded a meaningful improvement over the default.
 
-![](./png/img_b43879900a1353cf.png)
+![](https://transformer-circuits.pub/2026/workspace/png/img_b43879900a1353cf.png)
 
 Figure 59: Sonnet 4.5 J-lens pass@K AUC evals as a function of number of sequences in the average. Error bars indicate standard errors.
 
-![](./png/img_f7089e9e67458e69.png)
+![](https://transformer-circuits.pub/2026/workspace/png/img_f7089e9e67458e69.png)
 
 Figure 60: Sonnet 4.5 causal ablation evals as a function of number of sequences in the average. Error bars indicate standard errors.
 
@@ -1214,7 +1121,7 @@ Both tasks enter the workspace, but they share it differently depending on their
 
 This token-level exclusion carries little overall cost. Each task's content still reaches the top of the lens somewhere in the response under dual load at rates close to the single-task condition (Figure [??](#fig-dual-task-simple)c); the largest decline is for the computed answer (95% to 72%). Holding two concepts at once is essentially free, and they co-occupy tokens at chance; an ongoing computation excludes concurrent content at the tokens it occupies, and it is the computation that bears the cost of sharing the workspace.
 
-![](./png/img_b3ee9cc4785b8511.png)
+![](https://transformer-circuits.pub/2026/workspace/png/img_b3ee9cc4785b8511.png)
 
 Figure 73: The model copies a fixed sentence while the prompt also instructs it to concentrate on two things. (A) J-lens readouts at two of the copied tokens (layer 75). Top row: instructed to concentrate on two concepts. Bottom row: instructed to concentrate on one concept while mentally solving an arithmetic problem. Green marks content from the first instruction and purple from the second, corresponding to the highlighted phrases in the prompt. With two concepts, both appear at "ook" and neither at "on." With a concept and an arithmetic problem, the concept appears at "ook" and the computed answer at "on." (B) At tokens where one task's content appears in the lens top-10, the probability that the other's does too (layers 67–92). Grey bars are a shuffled control in which the other task's presence is measured on a different prompt, where each task instruction was given on its own. Two concepts share tokens at the control rate; a concept and a computed answer almost never do. (C) Fraction of trials on which each task's content reaches J-lens rank ≤ 5 anywhere in the response, when given alone (solid) versus alongside the other (hatched). The fraction drops only modestly when the tasks are paired, more so for the arithmetic answer.
 

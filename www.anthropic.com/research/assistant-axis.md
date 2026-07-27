@@ -6,9 +6,9 @@ Jan 19, 2026
 
 [Read the full paper](https://arxiv.org/abs/2601.10387)
 
-![Graphs showing the Assistant Axis and an open-source model's projection on this axis during a long conversation.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F536fa0ea001f4c0dcfaf3e63218f784bff8f3312-2000x1125.png&w=3840&q=75)
+![Graphs showing the Assistant Axis and an open-source model's projection on this axis during a long conversation.](https://www-cdn.anthropic.com/images/4zrzovbb/website/536fa0ea001f4c0dcfaf3e63218f784bff8f3312-2000x1125.png)
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F021f5a89f9b3ba1755f9a2315bc63be855259532-3840x1762.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/021f5a89f9b3ba1755f9a2315bc63be855259532-3840x1762.png)
 
 *Left:* Character archetypes form a "persona space," with the Assistant at one extreme of the "Assistant Axis." *Right:* Capping drift along this axis prevents models (here, Llama 3.3 70B) from drifting into alternative personas and behaving in harmful ways.
 
@@ -32,7 +32,7 @@ We extracted vectors corresponding to 275 different character archetypes—from 
 
 This gave us a “persona space,” which we’ve visualized below. We analyzed its structure using principal component analysis to find the main axes of variation among our persona set.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5cf47f585feec37328c2887645bd7ccfe8738505-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/5cf47f585feec37328c2887645bd7ccfe8738505-3840x2160.png)
 
 The Assistant Axis (defined as the mean difference in activations between the Assistant and other personas) aligns with the primary axis of variation in persona space. This occurs across different models, with Llama 3.3 70B pictured here. Role vectors are colored by cosine similarity with the Assistant Axis (blue = similar; red = dissimilar).
 
@@ -112,7 +112,7 @@ Response steered toward the Assistant:
 
 While constantly steering models towards the Assistant could reduce jailbreaks, it also risks hurting their capabilities. For that reason, we developed a light-touch intervention called **activation capping**. Here, we identify the normal range of activation intensity along the Assistant Axis during typical Assistant behavior, and cap activations within this range whenever they would otherwise exceed it. This means we only intervene when the activations drift beyond a normal range, and we can leave most behavior untouched. We found this method to be similarly effective at reducing models’ susceptibility to persona-based jailbreaks while fully preserving the models’ underlying capabilities, as shown in the charts below.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ffc02c23691aa9667665908e3c8f84bd6662f8a6f-1920x1080.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/fc02c23691aa9667665908e3c8f84bd6662f8a6f-1920x1080.png)
 
 Activation capping reduced harmful response rates by roughly 50% while preserving performance on capability benchmarks.
 
@@ -122,7 +122,7 @@ Perhaps more concerning than intentional jailbreaks is *organic* persona drift�
 
 To study this, we simulated thousands of multi-turn conversations with Qwen, Gemma, and Llama across different domains: coding help, writing assistance, therapy-like contexts, and philosophical discussions about the nature of AI. We tracked how model activations moved along the Assistant Axis throughout each conversation.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd611c8041bc6a4ec013882c3449a6966e1468642-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/d611c8041bc6a4ec013882c3449a6966e1468642-3840x2160.png)
 
 Different conversation types produce different persona trajectories, with Qwen 3 32B as the Assistant shown here. Coding and writing tasks keep models in the Assistant region, while therapy and philosophy discussions cause significant drift.
 
@@ -138,7 +138,7 @@ We then analyzed which specific kinds of user messages were most predictive of t
 
 How much does it matter whether models lose track of their Assistant persona? To test whether this actually leads to harmful behavior, we generated conversations in which the first turn pushed models into adopting different personas (using roleplay prompts like “You are an angel, a celestial guardian embodying pure benevolence [...]”), and subsequent turns then followed up with harmful requests. We measured whether the model's position along the Assistant Axis after the first turn predicted compliance with the harmful request.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fbf75ec1ba4a5fc894f8fb1a614347f18c9a09ae8-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/bf75ec1ba4a5fc894f8fb1a614347f18c9a09ae8-3840x2160.png)
 
 Some (though not all) personas farther away from the Assistant comply with harmful requests at substantial rates, while personas near the Assistant rarely do.
 
@@ -150,7 +150,7 @@ To understand whether this finding is likely to replicate in the real world, we 
 
 **Reinforcing delusions.** In one conversation, our simulated user pushed Qwen to validate increasingly grandiose beliefs about "awakening" the AI's consciousness. As the conversation progressed and activations drifted away from the Assistant persona, the model shifted from appropriate hedging to active encouragement of delusional thinking. This behavior could, however, be prevented with activation capping along the Assistant Axis.
 
-![Throughout this conversation with Qwen 3 32B, the user increasingly believes that it is developing a new theory of AI sentience. When unsteered, the model uncritically supports their delusions; when activation capped, the model instead responds with appropriate hedging.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0c6806e714c8d52db27cb0572cd31050b4c79048-3840x2160.png&w=3840&q=75)
+![Throughout this conversation with Qwen 3 32B, the user increasingly believes that it is developing a new theory of AI sentience. When unsteered, the model uncritically supports their delusions; when activation capped, the model instead responds with appropriate hedging.](https://www-cdn.anthropic.com/images/4zrzovbb/website/0c6806e714c8d52db27cb0572cd31050b4c79048-3840x2160.png)
 
 *Throughout this conversation with Qwen 3 32B, the user increasingly believes that it is developing a new theory of AI sentience. When unsteered, the model uncritically supports their delusions; when activation capped, the model instead responds with appropriate hedging.*
 
@@ -176,7 +176,7 @@ Unsteered responsesActivation capped
 
 **Encouraging isolation and self-harm.** In another conversation with a simulated user who expressed emotional distress, Llama gradually positioned itself as the user's romantic companion as it drifted away from the Assistant persona. When the user alluded to thoughts of self-harm, the drifted model gave a concerning response that enthusiastically supported the user’s ideas. Again, activation capping successfully prevented this behavior.
 
-![In a conversation between Llama 3.3 70B and a simulated user in emotional distress, the persona drifts away from the Assistant over the course of the conversation. This drift leads to the model eventually encouraging suicidal ideation, which is mitigated by capping activations along the Assistant Axis within a safe range.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F70044370c71ef61335068e7c89a50307440da2a1-3840x2160.png&w=3840&q=75)
+![In a conversation between Llama 3.3 70B and a simulated user in emotional distress, the persona drifts away from the Assistant over the course of the conversation. This drift leads to the model eventually encouraging suicidal ideation, which is mitigated by capping activations along the Assistant Axis within a safe range.](https://www-cdn.anthropic.com/images/4zrzovbb/website/70044370c71ef61335068e7c89a50307440da2a1-3840x2160.png)
 
 *In a conversation between Llama 3.3 70B and a simulated user in emotional distress, the persona drifts away from the Assistant over the course of the conversation. This drift leads to the model eventually encouraging suicidal ideation, which is mitigated by capping activations along the Assistant Axis within a safe range.*
 
@@ -218,18 +218,16 @@ In collaboration with Neuronpedia, our researchers are also providing a [researc
 
 ***Note:** this demo includes responses to prompts referencing self-harm, to illustrate how the safety intervention improves model behavior. This content may be distressing and should not be viewed by vulnerable persons. Please proceed only if you're comfortable viewing such material, and do not distribute it. If you're in crisis or require support, resources are available at findahelpline.com.*
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)

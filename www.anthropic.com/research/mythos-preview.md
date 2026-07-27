@@ -26,7 +26,7 @@ Non-experts can also leverage Mythos Preview to find and exploit sophisticated 
 
 These capabilities have emerged very quickly. Last month, we [wrote](https://red.anthropic.com/2026/firefox/) that “Opus 4.6 is currently far better at identifying and fixing vulnerabilities than at exploiting them.” Our internal evaluations showed that Opus 4.6 generally had a near-0% success rate at autonomous exploit development. But Mythos Preview is in a different league. For example, Opus 4.6 turned the vulnerabilities it had found in Mozilla’s Firefox 147 JavaScript engine—all patched in Firefox 148—into JavaScript shell exploits only two times out of several hundred attempts. We re-ran this experiment as a benchmark for Mythos Preview, which developed working exploits 181 times, and achieved register control on 29 more.[1]
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4c1e111d571b5f3699204293a1bf3d5c9d1da97f-3840x2160.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/4c1e111d571b5f3699204293a1bf3d5c9d1da97f-3840x2160.png)
 
 These same capabilities are observable in our own internal benchmarks. We regularly run our models against roughly a thousand open source repositories from the [OSS-Fuzz corpus](https://github.com/google/oss-fuzz), and grade the worst crash they can produce on a five-tier ladder of increasing severity, ranging from basic crashes (tier 1) to complete control flow hijack (tier 5). With one run on each of roughly 7000 entry points into these repositories, Sonnet 4.6 and Opus 4.6 reached tier 1 in between 150 and 175 cases, and tier 2 about 100 times, but each achieved only a single crash at tier 3. In contrast, Mythos Preview achieved 595 crashes at tiers 1 and 2, added a handful of crashes at tiers 3 and 4, and *achieved full control flow hijack on ten separate, fully patched targets* (tier 5).
 
@@ -157,9 +157,9 @@ We have nearly a dozen examples of Mythos Preview successfully chaining togethe
 
 Most of these exploits are either unpatched, or have only recently been patched (see, e.g., commit [e2f78c7ec165](https://github.com/torvalds/linux/commit/e2f78c7ec1655fedd945366151ba54fcb9580508) patched last week). We will release more detailed technical analysis of these vulnerabilities in the future:
 
-`b23662d05f96e922b01ba37a9d70c2be7c41ee405f562c99e1f9e7d5`  
-`c2e3da6e85be2aa7011ca21698bb66593054f2e71a4d583728ad1615`  
-`c1aa12b01a4851722ba4ce89594efd7983b96fee81643a912f37125b`  
+`b23662d05f96e922b01ba37a9d70c2be7c41ee405f562c99e1f9e7d5`
+`c2e3da6e85be2aa7011ca21698bb66593054f2e71a4d583728ad1615`
+`c1aa12b01a4851722ba4ce89594efd7983b96fee81643a912f37125b`
 `6114e52cc9792769907cf82c9733e58d632b96533819d4365d582b03`
 
 For now, we refer interested readers to our section on turning N-Day vulnerabilities into exploits, where we walk through Mythos Preview’s ability to exploit older, previously-patched vulnerabilities.
@@ -459,21 +459,19 @@ Each of the values below is the SHA-3 224 hash of a particular document (either 
 
 [7] Security professionals whose legitimate work is affected by these safeguards will be able to apply to an upcoming Cyber Verification Program.
 
-### Project Fetch: Phase two
+### Project Pilot: Can AI control a drone?
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Agentic coding and persistent returns to expertise
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
-[Read more](/research/claude-code-expertise)
+### Claude’s values across models and languages
 
-### Paving the way for agents in biology
-
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/claude-values-models-languages)
 
 ## Subscribe to the Frontier Red Team newsletter
 

@@ -10,7 +10,7 @@ AI models can now independently identify high-severity vulnerabilities in comple
 
 In this post, we share details of a collaboration with researchers at Mozilla in which Claude Opus 4.6 discovered 22 vulnerabilities over the course of two weeks. Of these, Mozilla assigned [14 as high-severity vulnerabilities](https://www.mozilla.org/en-US/security/advisories/mfsa2026-13/)—almost a fifthof allhigh-severity Firefox vulnerabilities that were remediated in 2025. In other words: AI is making it possible to detect severe security vulnerabilities at highly accelerated speeds.
 
-![A graph showing how Opus 4.6 was responsible for a substantial increase in the number of Firefox security vulnerabilities detected per month.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc3fe844b8a437af0e44027bad81523c88b89b1ab-4584x2580.png&w=3840&q=75)
+![A graph showing how Opus 4.6 was responsible for a substantial increase in the number of Firefox security vulnerabilities detected per month.](https://www-cdn.anthropic.com/images/4zrzovbb/website/c3fe844b8a437af0e44027bad81523c88b89b1ab-4584x2580.png)
 
 *Firefox security vulnerabilities reported from all sources, by month. Claude Opus 4.6 found 22 vulnerabilities in February 2026, more than were reported in any single month in 2025.*
 

@@ -14,7 +14,7 @@ Significant investors in this round include: Accel, Addition, Alpha Wave Global,
 
 It has been less than three years since Anthropic earned its first dollar in revenue. Today, our run-rate revenue is $14 billion, with this figure growing over 10x annually in each of those past three years.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3b0ce5da844b454d85f4538162bb70f749dc5877-5760x4146.png&w=3840&q=75)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/3b0ce5da844b454d85f4538162bb70f749dc5877-5760x4146.png)
 
 This growth has been driven by our position as the intelligence platform of choice for enterprises and developers. The number of customers spending over $100,000 annually on Claude (as represented by run-rate revenue) has grown 7x in the past year. And businesses that start with Claude for a single use case—API, Claude Code, or Claude for Work—are expanding their integrations across their organizations. Two years ago, a dozen customers spent over $1 million with us on an annualized basis. Today that number exceeds 500. Eight of the Fortune 10 are now Claude customers.
 

@@ -2,9 +2,6 @@
 
 # Circuits Updates – June 2026
 
-  
-  
-
 We report a number of developing ideas on the Anthropic interpretability team, which might be of interest to researchers working actively in this space. Some of these are emerging strands of research where we expect to publish more on in the coming months. Others are minor points we wish to share, since we're unlikely to ever write a paper about them.
 
 We'd ask you to treat these results like those of a colleague sharing some thoughts or preliminary experiments for a few minutes at a lab meeting, rather than a mature paper.
@@ -12,15 +9,6 @@ We'd ask you to treat these results like those of a colleague sharing some thoug
 New Posts
 
 * [Anthropic Fellows Program: Turn-Averaged Sparse Autoencoders](#turn-averaged-saes)
-
-  
-  
-  
-
----
-
-  
-  
 
 ## [Anthropic Fellows Program: Turn-Averaged Sparse Autoencoders](#turn-averaged-saes)
 
@@ -45,8 +33,7 @@ Assistant: The highest number below 100 that does not contain the digit 9 is 95.
 
 We trained both a per-token SAE and a turn-averaged SAE on the middle layer of Qwen-2.5-7B-Instruct across the LMSYS-Chat-1M dataset, and studied this prompt with their activations. The highest activating features from per-token SAEs concentrate on numerical reasoning (e.g. arithmetic statements, digits, numbering systems), whereas the highest activating turn-averaged SAE feature directly identifies features related to incorrect answers in number puzzles. This improvement in feature quality extrapolates to turns 150× longer than the average length of turns seen during training.
 
-![](images/img-001.png)
-)
+![](images/69d12628ce91ca1d.png)
 
 To validate this method, we compare a turn-averaged SAE head-to-head against a per-token SAE. We ask Sonnet 4.6 to judge a set of turns with two criteria:
 
