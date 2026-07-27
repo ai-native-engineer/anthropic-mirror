@@ -47,7 +47,7 @@ def worktree_changes(repo):
 
 def staged_changes(repo):
     changes = []
-    for line in git(repo, "diff", "--cached", "--name-status").splitlines():
+    for line in git(repo, "diff", "--cached", "--name-status", "--no-renames").splitlines():
         parts = line.split("\t")
         if len(parts) >= 2:
             changes.append((parts[0], parts[-1]))
