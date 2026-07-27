@@ -77,7 +77,7 @@ def validate_change(repo, status, path, allow_deletes=False, strict_paths=False)
         if not head.startswith(b"%PDF-"):
             issues.append(f"PDF 매직바이트 불일치: {path}")
     elif path.endswith(".png"):
-        if head != b"\x89PNG\r\n\x1a\n":
+        if not head.startswith(b"\x89PNG\r\n\x1a\n"):
             issues.append(f"PNG 매직바이트 불일치: {path}")
     elif path.endswith((".jpg", ".jpeg")):
         if not head.startswith(b"\xff\xd8"):
