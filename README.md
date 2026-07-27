@@ -29,7 +29,7 @@ An unofficial, searchable Markdown archive of Anthropic and Claude public materi
 | [`youtube.com/anthropic-ai/`](youtube.com/anthropic-ai/), [`youtube.com/claude/`](youtube.com/claude/) | One transcript or caption-status stub per official-channel video, Short, and stream |
 | Anthropic-owned file hosts | PDFs linked from archived pages |
 
-The tree follows source URLs as `<host>/<path>.md`. Crawled pages use a `<!-- source: <url> -->` header, Academy lessons use a source URL comment, and YouTube transcripts keep the source URL in YAML frontmatter.
+The tree follows source URLs as `<host>/<path>.md`. Crawled pages use a `<!-- source: <url> -->` header, Academy lessons use a source URL comment, and YouTube transcripts keep the source URL in YAML frontmatter. Mirrored PDFs store locally generated Apple Vision OCR as an invisible text layer inside the PDF. Bitmap images remain unchanged because PNG and JPEG do not support selectable text layers; no separate OCR Markdown is generated.
 
 ## Use
 
@@ -40,6 +40,16 @@ git clone https://github.com/ai-native-engineer/anthropic-mirror.git
 cd anthropic-mirror
 rg "constitutional AI"
 ```
+
+For optional RAG search with [gbrain](https://github.com/garrytan/gbrain), register this clone once, sync it, and query from anywhere inside the repository:
+
+```bash
+gbrain sources add anthropic-mirror --path "$PWD" --no-federated
+gbrain sync --source anthropic-mirror --no-pull --no-extract --no-embed
+gbrain query "How does contextual retrieval work?"
+```
+
+When present, `.gbrain-source` automatically scopes queries to this archive. Re-run the sync after refreshing the mirror. Omit `--no-embed` to add vector retrieval; that sends archive text to the configured embedding provider and may incur usage charges.
 
 ## Coverage
 

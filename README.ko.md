@@ -29,7 +29,7 @@ Anthropic과 Claude 공개 자료를 검색하기 쉬운 마크다운으로 보�
 | [`youtube.com/anthropic-ai/`](youtube.com/anthropic-ai/), [`youtube.com/claude/`](youtube.com/claude/) | 공식 채널의 일반 영상·Shorts·Streams별 전사 또는 자막 상태 stub |
 | Anthropic 소유 파일 호스트 | 보관된 페이지가 링크한 PDF |
 
-트리는 원문 URL을 `<host>/<path>.md` 형태로 따릅니다. 일반 페이지는 `<!-- source: <url> -->` 헤더, Academy 레슨은 원문 URL 주석, YouTube 전사는 YAML frontmatter에 원문 URL을 기록합니다.
+트리는 원문 URL을 `<host>/<path>.md` 형태로 따릅니다. 일반 페이지는 `<!-- source: <url> -->` 헤더, Academy 레슨은 원문 URL 주석, YouTube 전사는 YAML frontmatter에 원문 URL을 기록합니다. 미러링한 PDF는 로컬 Apple Vision OCR 결과를 PDF 내부의 투명 text layer로 저장합니다. PNG와 JPEG에는 selectable text layer 규격이 없어 bitmap image 원본은 변경하지 않으며, 별도 OCR Markdown도 생성하지 않습니다.
 
 ## 사용
 
@@ -40,6 +40,16 @@ git clone https://github.com/ai-native-engineer/anthropic-mirror.git
 cd anthropic-mirror
 rg "constitutional AI"
 ```
+
+선택적으로 [gbrain](https://github.com/garrytan/gbrain)을 이용해 RAG 검색을 할 수 있습니다. 이 클론을 한 번 등록하고 동기화하면 저장소 안 어디서든 질의할 수 있습니다.
+
+```bash
+gbrain sources add anthropic-mirror --path "$PWD" --no-federated
+gbrain sync --source anthropic-mirror --no-pull --no-extract --no-embed
+gbrain query "컨텍스트 검색은 어떻게 동작하나요?"
+```
+
+`.gbrain-source` 파일이 있으면 질의 범위를 이 아카이브로 자동 제한합니다. 미러를 갱신한 뒤에는 동기화를 다시 실행하세요. 벡터 검색까지 추가하려면 `--no-embed`를 빼세요. 이 경우 아카이브 텍스트가 설정된 임베딩 제공자에게 전송되고 사용료가 발생할 수 있습니다.
 
 ## 수집 범위
 

@@ -36,11 +36,13 @@ for file in \
   "$REPO_ROOT/AGENTS.md" \
   "$SKILL_DIR/scripts/crawl-site.py" \
   "$SKILL_DIR/scripts/academy-video.py" \
+  "$SKILL_DIR/scripts/add-pdf-text-layer.py" \
   "$SKILL_DIR/scripts/verify-publish.py"; do
   require_file "$file"
 done
 
 if [ "${SELF_TEST:-0}" = 1 ]; then
+  PYTHONDONTWRITEBYTECODE=1 python3 "$SKILL_DIR/scripts/add-pdf-text-layer.py" --self-test
   python3 "$SKILL_DIR/scripts/verify-publish.py" --self-test
   echo "self-test ok"
   exit 0
@@ -74,6 +76,13 @@ if ! command -v yt-dlp >/dev/null; then
   exit 1
 fi
 
+for command in ocrmypdf pdftotext; do
+  if ! command -v "$command" >/dev/null; then
+    echo "Missing required command: $command" >&2
+    exit 1
+  fi
+done
+
 if ! "$CRAWL4AI_PYTHON" -c 'import bs4, curl_cffi, httpx, markdownify, playwright' 2>/dev/null; then
   echo "crawl4ai Python is missing required packages: bs4, curl_cffi, httpx, markdownify, or playwright" >&2
   exit 1
@@ -82,6 +91,7 @@ fi
 export CRAWL_SCRIPTS_DIR YOUTUBE_DIGEST_SCRIPTS_DIR
 
 if [ "${CHECK_ONLY:-0}" = 1 ]; then
+  PYTHONDONTWRITEBYTECODE=1 python3 "$SKILL_DIR/scripts/add-pdf-text-layer.py" "$REPO_ROOT" --check
   echo "OK: repository $REPO_ROOT"
   echo "OK: skill $SKILL_DIR"
   echo "OK: crawl4ai Python $CRAWL4AI_PYTHON"
@@ -109,6 +119,7 @@ bash "$CRAWL_SCRIPTS_DIR/youtube-transcripts.sh" . \
 python3 "$CRAWL_SCRIPTS_DIR/inline-transcripts.py" .
 python3 "$CRAWL_SCRIPTS_DIR/render-video-refs.py" .
 python3 "$CRAWL_SCRIPTS_DIR/pdf-mirror.py" . --host anthropic.com --host claude.com
+PYTHONDONTWRITEBYTECODE=1 python3 "$SKILL_DIR/scripts/add-pdf-text-layer.py" .
 python3 "$CRAWL_SCRIPTS_DIR/verify-mirror.py" . \
   --exclude '*.skilljar.com/**' \
   --exclude 'platform.claude.com/**' \

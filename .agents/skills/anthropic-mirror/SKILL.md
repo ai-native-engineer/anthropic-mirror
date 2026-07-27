@@ -24,3 +24,4 @@ description: "이 repo의 Anthropic/Claude 공개 표면 커버리지와 누락�
 - `_yt-cache/`와 `.anthropic-mirror-state.json`은 gitignored 작업 상태이며 발행하지 않는다.
 - 모든 source와 Academy 레슨을 검사하되 정제된 본문이나 영상 ID가 달라진 파일만 쓴다.
 - 외부 인용 PDF는 제외하고 Anthropic·Claude 소유 PDF만 원본으로 미러한다.
+- PDF는 `scripts/add-pdf-text-layer.py`로 원본 파일 안에 투명 OCR text layer를 추가한다. Bitmap image는 자체 text layer를 지원하지 않으므로 별도 OCR 파일을 만들지 않는다.

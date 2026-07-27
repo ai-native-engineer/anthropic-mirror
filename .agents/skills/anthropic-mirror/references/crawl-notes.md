@@ -21,6 +21,7 @@
 | Anthropic Academy | `academy-video.py` | 인증 카탈로그 + 렌더된 레슨 |
 | 공식 YouTube | shared `youtube-channels.py` | videos·shorts·streams ID 합집합 + 자막 |
 | Anthropic·Claude 소유 PDF | shared `pdf-mirror.py` | 허용 호스트의 원본 PDF |
+| PDF 내부 image 텍스트 | `add-pdf-text-layer.py` | Apple Vision OCR을 원본 PDF의 투명 text layer로 추가 |
 
 ## 공개 사이트와 문서
 
@@ -54,6 +55,8 @@
 - Academy와 docs는 자체 처리 또는 낮은 가치 때문에 wrapper의 인라인 자막 대상에서 제외한다.
 - `youtube-channels.py`는 `_yt-cache/`를 재사용하고 `videos`, `shorts`, `streams` 탭의 합집합을 채널별 transcript/stub으로 발행한다.
 - `pdf-mirror.py`는 Anthropic·Claude 소유 host만 허용하고 `%PDF-` 및 100MB 제한을 확인한다.
+- `add-pdf-text-layer.py`는 PDF의 visible text를 보존하면서 raster image를 다시 OCR하고, PDF metadata marker와 `--check`로 전수 커버리지를 확인한다.
+- PNG/JPEG 등 bitmap image에는 selectable text layer 규격이 없다. 별도 OCR 파일이나 PDF 변환을 명시적으로 요청하지 않는 한 원본만 보존한다.
 - `verify-mirror.py`는 자막 참조 누락과 렌더 불가능한 대형 Markdown을 마지막에 검사한다.
 
 ## 범위 밖
