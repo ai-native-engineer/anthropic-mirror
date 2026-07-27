@@ -11,10 +11,11 @@ crawl-mirror.py의 dest/save/find_boilerplate/strip_boilerplate를 재사용한�
 
 실행: python3 crawl-site.py <out_dir> [--only <host>] [--force] [--limit N] [--concurrency N]
 """
+
 import argparse, hashlib, importlib.util, json, os, re
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from urllib.parse import urlsplit, urljoin
+from urllib.parse import urlsplit, urljoin, parse_qs
 from curl_cffi import requests
 from bs4 import BeautifulSoup
 from markdownify import markdownify as md
@@ -26,13 +27,35 @@ CM_PATH = os.path.join(CRAWL_SCRIPTS_DIR, "crawl-mirror.py")
 if not os.path.isfile(CM_PATH):
     raise SystemExit(f"crawl-mirror.py not found: {CM_PATH}. Set CRAWL_SCRIPTS_DIR.")
 spec = importlib.util.spec_from_file_location("cm", CM_PATH)
-cm = importlib.util.module_from_spec(spec); spec.loader.exec_module(cm)
+cm = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(cm)
 
 A = "https://www.anthropic.com"
 IMPERSONATE = "chrome"  # anthropic.com은 일반 UA를 막는다 -> Chrome TLS/JA3 지문 위장
 # claude.com sitemap은 첫 세그먼트로 로케일을 표기한다(ja/de/fr/ko/it ...). 영어 정본만 남긴다.
-LOCALES = {"ja", "de", "fr", "ko", "it", "es", "pt", "zh", "nl", "pl", "ru", "id",
-           "tr", "vi", "th", "ar", "hi", "ja-jp", "pt-br", "zh-cn", "zh-tw"}
+LOCALES = {
+    "ja",
+    "de",
+    "fr",
+    "ko",
+    "it",
+    "es",
+    "pt",
+    "zh",
+    "nl",
+    "pl",
+    "ru",
+    "id",
+    "tr",
+    "vi",
+    "th",
+    "ar",
+    "hi",
+    "ja-jp",
+    "pt-br",
+    "zh-cn",
+    "zh-tw",
+}
 
 
 def first_seg(url):
@@ -46,16 +69,28 @@ def is_claude_en(u):
 
 # HTML 소스: (sitemap_url, keep_predicate). curl_cffi + bs4로 본문 추출.
 HTML_SITEMAPS = [
-    (f"{A}/sitemap.xml", lambda u: True),                                 # 실측 ~476 (news/research/engineering/events/legal/product/system-cards/economic 등 전량)
-    ("https://claude.com/sitemap.xml", is_claude_en),                     # 실측 영어 ~1591 (blog/customers/resources/connectors/plugins/solutions ...)
-    ("https://claude.com/docs/sitemap.xml", lambda u: True),              # 실측 ~127 (태그형 help 문서, robots.txt가 선언하는 2번째 sitemap)
-    ("https://support.claude.com/sitemap.xml", lambda u: "/en/" in u),    # 실측 영어 ~370 (Help Center)
+    (
+        f"{A}/sitemap.xml",
+        lambda u: True,
+    ),  # 실측 ~476 (news/research/engineering/events/legal/product/system-cards/economic 등 전량)
+    (
+        "https://claude.com/sitemap.xml",
+        is_claude_en,
+    ),  # 실측 영어 ~1591 (blog/customers/resources/connectors/plugins/solutions ...)
+    (
+        "https://claude.com/docs/sitemap.xml",
+        lambda u: True,
+    ),  # 실측 ~127 (태그형 help 문서, robots.txt가 선언하는 2번째 sitemap)
+    (
+        "https://support.claude.com/sitemap.xml",
+        lambda u: "/en/" in u,
+    ),  # 실측 영어 ~370 (Help Center)
 ]
 # Mintlify docs: sitemap의 각 URL + ".md"로 raw 마크다운을 받는다.
 # platform = API/플랫폼 개발자 문서, code = Claude Code CLI 문서(hooks·subagents·settings·slash-commands·agent-sdk 등).
 DOCS_SITEMAPS = [
-    "https://platform.claude.com/sitemap.xml",   # 실측 영어 ~1755 (api 레퍼런스 포함)
-    "https://code.claude.com/sitemap.xml",        # 실측 영어 ~154 (Claude Code CLI docs)
+    "https://platform.claude.com/sitemap.xml",  # 실측 영어 ~1755 (api 레퍼런스 포함)
+    "https://code.claude.com/sitemap.xml",  # 실측 영어 ~154 (Claude Code CLI docs)
 ]
 
 
@@ -65,8 +100,14 @@ def is_docs_en(u):
 
 # sitemap 없는 정적 연구 블로그: 홈에서 같은 도메인 링크 1-depth 수집.
 DISCOVER = [
-    ("https://alignment.anthropic.com/", "alignment.anthropic.com"),     # Alignment Science Blog (Distill 정적)
-    ("https://transformer-circuits.pub/", "transformer-circuits.pub"),   # 해석가능성 연구 (정적 .html, sitemap 403)
+    (
+        "https://alignment.anthropic.com/",
+        "alignment.anthropic.com",
+    ),  # Alignment Science Blog (Distill 정적)
+    (
+        "https://transformer-circuits.pub/",
+        "transformer-circuits.pub",
+    ),  # 해석가능성 연구 (정적 .html, sitemap 403)
 ]
 # SafeBase SPA: curl·​.md 둘 다 본문 0 -> playwright innerText 보강.
 SPA_PAGES = ["https://trust.anthropic.com/"]
@@ -75,13 +116,29 @@ STATE_FILE = ".anthropic-mirror-state.json"
 
 def get(url, suffix=""):
     r = requests.get(url + suffix, impersonate=IMPERSONATE, timeout=40)
-    return r.status_code, r.text
+    return r.status_code, r.text, getattr(r, "url", "") or ""
+
+
+def redirected(requested, final):
+    """요청 URL과 최종 URL의 경로가 다른가(.md suffix와 trailing slash 차이는 무시)."""
+    if not final:
+        return False
+
+    def norm(u):
+        p = urlsplit(u).path
+        if p.endswith(".md"):
+            p = p[:-3]
+        # 정적 사이트의 /foo/index.html은 /foo/와 같은 페이지다(alignment.anthropic.com)
+        p = re.sub(r"/index\.html?$", "/", p)
+        return p.rstrip("/")
+
+    return norm(requested) != norm(final)
 
 
 def sitemap_urls(sm):
     """sitemap(또는 sitemap 인덱스) -> URL 집합. 인덱스면 자식 sitemap을 한 단계 펼친다."""
     try:
-        _, t = get(sm)
+        _, t, _ = get(sm)
     except Exception as e:
         print(f"  sitemap ERR {sm}: {e}", flush=True)
         return set()
@@ -90,57 +147,122 @@ def sitemap_urls(sm):
         urls = set()
         for c in locs:
             try:
-                _, ct = get(c.strip()); urls.update(re.findall(r"<loc>(.*?)</loc>", ct))
+                _, ct, _ = get(c.strip())
+                urls.update(re.findall(r"<loc>(.*?)</loc>", ct))
             except Exception:
                 pass
         return urls
     return set(l.strip() for l in locs)
 
 
-_CFEMAIL = re.compile(r'\[([^\]]*)\]\((?:https?://[^)]*?)?/cdn-cgi/l/email-protection#([0-9a-fA-F]{8,})\)')
+_CFEMAIL = re.compile(
+    r"\[([^\]]*)\]\((?:https?://[^)]*?)?/cdn-cgi/l/email-protection#([0-9a-fA-F]{8,})\)"
+)
 
 
 def _deob(h):
     """Cloudflare email obfuscation: 첫 바이트가 XOR 키, 나머지를 XOR해 ASCII 복원."""
     k = int(h[:2], 16)
     try:
-        return "".join(chr(int(h[i:i + 2], 16) ^ k) for i in range(2, len(h), 2))
+        return "".join(chr(int(h[i : i + 2], 16) ^ k) for i in range(2, len(h), 2))
     except Exception:
         return None
 
 
 def decode_cfemail(text):
     """[[email protected]](.../cdn-cgi/l/email-protection#HEX) -> [실제이메일](mailto:실제이메일)."""
+
     def r(m):
         e = _deob(m.group(2))
         return f"[{e}](mailto:{e})" if e and "@" in e else m.group(0)
+
     return _CFEMAIL.sub(r, text)
 
 
-def html_to_md(html):
+def abs_url(base, ref):
+    """페이지 URL 기준 절대 URL. Next.js 이미지 최적화 경로(/_next/image?url=...)는 원본 CDN URL로 환원한다.
+    스킴 없는 상대 경로를 그대로 두면 미러 파일 안에서 대상 없는 참조가 된다."""
+    ref = (ref or "").strip()
+    if not ref or ref.startswith(("data:", "blob:", "javascript:")):
+        return ""
+    if urlsplit(ref).path.endswith("/_next/image"):
+        inner = parse_qs(urlsplit(ref).query).get("url", [""])[0].strip()
+        if inner:
+            ref = inner
+    return urljoin(base, ref) if base else ref
+
+
+def absolutize(node, base):
+    """markdownify 전에 img/a를 절대 URL로 바꾼다. 해석 불가한 img는 빈 ![]()만 남기므로 제거."""
+    for img in node.find_all("img"):
+        raw = (img.get("src") or "").strip()
+        if raw.startswith("data:"):
+            # 인라인 base64는 extract-images.py가 뒤에서 images/ 파일로 뺀다 -> 건드리지 않는다
+            continue
+        src = abs_url(base, raw)
+        if src.startswith(("http://", "https://")):
+            img["src"] = src
+        else:
+            img.decompose()
+    for a in node.find_all("a", href=True):
+        href = a["href"].strip()
+        if not href or href.startswith(("#", "mailto:", "tel:", "javascript:")):
+            continue
+        # cdn-cgi 난독화 링크는 decode_cfemail이 원형 그대로 매칭한다 -> 절대화에서 제외
+        if "/cdn-cgi/l/email-protection" in href:
+            continue
+        a["href"] = urljoin(base, href)
+
+
+def html_to_md(html, base_url=""):
     """본문 컨테이너(main/article/body 중 텍스트가 가장 많은 것)를 골라 nav/header/footer/form 제거 후 markdown."""
     soup = BeautifulSoup(html, "html.parser")
     for t in soup(["script", "style", "noscript", "svg"]):
         t.decompose()
-    cands = [c for c in (soup.find("main"), soup.find("article"), soup.body) if c is not None]
+    cands = [
+        c for c in (soup.find("main"), soup.find("article"), soup.body) if c is not None
+    ]
     # Distill 템플릿(alignment.anthropic.com 일부)은 <body> 없이 최상위에 <d-article>을 둔다 -> 문서 전체로 fallback
     node = max(cands, key=lambda c: len(c.get_text(strip=True))) if cands else soup
     for t in node(["nav", "header", "footer", "form"]):
         t.decompose()
+    if base_url:
+        absolutize(node, base_url)
     return decode_cfemail(md(str(node), heading_style="ATX").strip())
 
 
 def fetch_html(url):
     try:
-        s, h = get(url)
+        s, h, final = get(url)
         if s != 200:
             return url, "", f"status={s}"
-        return url, html_to_md(h), ""
+        if redirected(url, final):
+            # 다른 경로로 redirect된 URL. 최종 페이지 본문을 요청 경로에 저장하면
+            # 옛 경로 파일이 다른 문서의 사본이 된다(whats-new-claude-4-6/4-7/4-8 사례).
+            return url, "", f"redirect:{final}"
+        return url, html_to_md(h, final or url), ""
     except Exception as e:
         return url, "", str(e)[:80]
 
 
 _DOCS_INDEX = re.compile(r"^(?:>[^\n]*\n)+", re.M)
+_MD_IMAGE = re.compile(r"(!\[[^\]]*\]\()\s*([^)\s]*)")
+
+
+def absolutize_md_images(text, base):
+    """Mintlify raw .md의 이미지 참조만 절대 URL로 바꾼다.
+
+    업스트림 원문은 /docs/images/x.png처럼 사이트 절대경로를 쓰는데, 미러 파일 옆에는 그 경로가 없어
+    대상 없는 참조가 된다. 링크는 원문 그대로 두고 이미지만 해석 가능하게 만든다.
+    """
+
+    def repl(m):
+        ref = m.group(2)
+        if not ref or ref.startswith(("http://", "https://", "data:", "<")):
+            return m.group(0)
+        return m.group(1) + urljoin(base, ref)
+
+    return _MD_IMAGE.sub(repl, text)
 
 
 def strip_docs_index(t):
@@ -148,17 +270,19 @@ def strip_docs_index(t):
     if t.startswith("> ## Documentation Index"):
         m = _DOCS_INDEX.match(t)
         if m:
-            return t[m.end():].lstrip()
+            return t[m.end() :].lstrip()
     return t
 
 
 def fetch_docs_md(url):
     """Mintlify: <url>.md가 깨끗한 마크다운(브라우저로 렌더한 SPA 본문과 동일)."""
     try:
-        s, t = get(url, ".md")
+        s, t, final = get(url, ".md")
         if s != 200:
             return url, "", f"status={s}"
-        return url, strip_docs_index(t.strip()), ""
+        if redirected(url, final):
+            return url, "", f"redirect:{final}"
+        return url, absolutize_md_images(strip_docs_index(t.strip()), url), ""
     except Exception as e:
         return url, "", str(e)[:80]
 
@@ -190,7 +314,7 @@ def rescue_article_views(pages):
                 soup = BeautifulSoup(html, "html.parser")
                 for t in soup.select('[class*="chapterHeadingPart"]'):
                     t.decompose()
-                m = html_to_md(str(soup))
+                m = html_to_md(str(soup), u)
                 if len(m) > len(pages[u]) * 2:
                     pages[u] = m
                     rescued += 1
@@ -203,7 +327,7 @@ def rescue_article_views(pages):
 def discover(base, dom):
     """sitemap 없는 사이트: 홈에서 같은 도메인 링크 1-depth 수집."""
     try:
-        s, h = get(base)
+        s, h, _ = get(base)
         if s != 200:
             return set()
     except Exception:
@@ -212,13 +336,46 @@ def discover(base, dom):
     out = {base}
     for a in soup.find_all("a", href=True):
         v = urljoin(base, a["href"]).split("#")[0].split("?")[0]
-        if urlsplit(v).netloc == dom and not v.endswith((".xml", ".pdf", ".json", ".png", ".jpg")):
+        if urlsplit(v).netloc == dom and not v.endswith(
+            (".xml", ".pdf", ".json", ".png", ".jpg")
+        ):
             out.add(v)
     return out
 
 
+_SOURCE = re.compile(r"^<!--\s*(?:source:\s*)?(https://\S+?)\s*-->")
+
+
+def known_urls(out):
+    """미러에 이미 있는 파일의 source 헤더에서 host별 기존 URL을 모은다.
+
+    sitemap이 축소돼도(platform.claude.com이 SDK 레퍼런스 1,196개를 sitemap에서 뺀 사례)
+    이미 수집한 페이지를 계속 재확인해 미러가 특정 시점에 동결되지 않게 한다.
+    사라진 URL은 crawl()이 '본문없음 skip'으로 분류하므로 저장되지 않는다.
+    """
+    by_host = {}
+    for root, dirs, files in os.walk(out):
+        dirs[:] = [
+            d for d in dirs if d not in (".git", "_yt-cache", ".agents", ".claude")
+        ]
+        for fn in files:
+            if not fn.endswith(".md"):
+                continue
+            try:
+                with open(
+                    os.path.join(root, fn), encoding="utf-8", errors="replace"
+                ) as f:
+                    first = f.readline().strip()
+            except OSError:
+                continue
+            m = _SOURCE.match(first)
+            if m:
+                by_host.setdefault(urlsplit(m.group(1)).netloc, set()).add(m.group(1))
+    return by_host
+
+
 def crawl(urls, fetch, concurrency):
-    pages, fails, empties = {}, [], []
+    pages, fails, empties, moved = {}, [], [], []
     with ThreadPoolExecutor(max_workers=concurrency) as ex:
         futs = {ex.submit(fetch, u): u for u in urls}
         done = 0
@@ -227,15 +384,22 @@ def crawl(urls, fetch, concurrency):
             done += 1
             if mdtext and len(mdtext) >= 200:  # 200자 미만은 빈 SPA 셸·404 본문
                 pages[url] = mdtext
+            elif err.startswith("redirect:"):
+                # 업스트림이 다른 경로로 옮긴 페이지. 옛 경로에 새 본문을 쓰지 않는다.
+                # 이미 미러에 있는 옛 파일은 stale이 되므로 삭제 후보로 따로 보고한다.
+                moved.append((url, err[len("redirect:") :]))
             elif err in ("", "status=404"):
-                # 업스트림에 본문 자체가 없음(미발행 .md·redirect 셸·sitemap의 404) -> 실패 아님.
+                # 업스트림에 본문 자체가 없음(미발행 .md·sitemap의 404) -> 실패 아님.
                 # 저장하지 않으므로 매 실행 재확인되고, 업스트림이 발행하면 자동 수집된다.
                 empties.append(url)
             else:
                 fails.append((url, err))
             if done % 100 == 0:
-                print(f"  {done}/{len(urls)} (성공 {len(pages)}, 없음 {len(empties)}, 실패 {len(fails)})", flush=True)
-    return pages, fails, empties
+                print(
+                    f"  {done}/{len(urls)} (성공 {len(pages)}, 없음 {len(empties)}, 이전 {len(moved)}, 실패 {len(fails)})",
+                    flush=True,
+                )
+    return pages, fails, empties, moved
 
 
 def fingerprint(text):
@@ -267,7 +431,9 @@ def save_changed(out, url, body, state, force=False):
     digest = fingerprint(body)
     previous = state.get(clean)
     state[clean] = digest
-    if not force and (previous == digest or (previous is None and os.path.exists(path))):
+    if not force and (
+        previous == digest or (previous is None and os.path.exists(path))
+    ):
         return False, previous is None
     cm.save(out, url, body, False)
     return True, False
@@ -300,6 +466,7 @@ def flush(pages, out, state, force=False):
 def spa_rescue(urls):
     """SafeBase 등 SPA를 playwright innerText로 보강."""
     from playwright.sync_api import sync_playwright
+
     out = {}
     with sync_playwright() as p:
         b = p.chromium.launch(headless=True)
@@ -326,8 +493,14 @@ def spa_rescue(urls):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("out")
-    ap.add_argument("--only", default="", help="이 host substring을 가진 URL만 크롤(예: claude.com)")
-    ap.add_argument("--force", action="store_true", help="본문 해시와 무관하게 검사 결과를 다시 저장")
+    ap.add_argument(
+        "--only", default="", help="이 host substring을 가진 URL만 크롤(예: claude.com)"
+    )
+    ap.add_argument(
+        "--force",
+        action="store_true",
+        help="본문 해시와 무관하게 검사 결과를 다시 저장",
+    )
     ap.add_argument("--self-test", action="store_true", help=argparse.SUPPRESS)
     ap.add_argument("--limit", type=int, default=0, help="크롤 URL 상한(테스트용)")
     ap.add_argument("--concurrency", type=int, default=8)
@@ -335,6 +508,7 @@ def main():
 
     if a.self_test:
         import tempfile
+
         with tempfile.TemporaryDirectory() as out:
             state = {}
             url = "https://example.com/page"
@@ -346,58 +520,180 @@ def main():
             assert save_changed(out, url, "same live body", state) == (False, False)
             assert save_changed(out, url, "new live body", state) == (True, False)
             assert "new live body" in open(path).read()
+
+            base = "https://www.anthropic.com/news/x"
+            assert (
+                abs_url(base, "/images/a.svg")
+                == "https://www.anthropic.com/images/a.svg"
+            )
+            assert (
+                abs_url(base, "fig1.png") == "https://www.anthropic.com/news/fig1.png"
+            )
+            assert (
+                abs_url(base, "/_next/image?url=https%3A%2F%2Fcdn.x%2Fa.png&w=64")
+                == "https://cdn.x/a.png"
+            )
+            assert abs_url(base, "/_next/image?url=%2Fstatic%2Fb.svg") == (
+                "https://www.anthropic.com/static/b.svg"
+            )
+            assert abs_url(base, "data:image/png;base64,AAA") == ""
+            body = html_to_md(
+                '<body><p><img src="fig1.png"><img src="data:image/gif;base64,R0lGOD">'
+                '<a href="/news/y">y</a></p></body>',
+                base,
+            )
+            assert "![](https://www.anthropic.com/news/fig1.png)" in body
+            assert "![]()" not in body
+            assert "(https://www.anthropic.com/news/y)" in body
+            # 인라인 base64는 extract-images.py가 처리하므로 크롤 단계에서 보존돼야 한다
+            assert "data:image/gif;base64,R0lGOD" in body
+
+            assert redirected(base, "https://www.anthropic.com/news/z")
+            assert not redirected(base, "https://www.anthropic.com/news/x/")
+            assert not redirected(base + ".md", "https://www.anthropic.com/news/x")
+            assert not redirected(
+                "https://alignment.anthropic.com/2024/rogue-eval/index.html",
+                "https://alignment.anthropic.com/2024/rogue-eval/",
+            )
+
+            docs = "https://platform.claude.com/docs/en/build-with-claude/thinking"
+            out_md = absolutize_md_images(
+                "![d](/docs/images/a.svg) [keep](/docs/en/x) ![k](https://cdn/b.png)",
+                docs,
+            )
+            assert "![d](https://platform.claude.com/docs/images/a.svg)" in out_md
+            assert "[keep](/docs/en/x)" in out_md  # 링크는 원문 보존
+            assert "![k](https://cdn/b.png)" in out_md
+
+            with tempfile.TemporaryDirectory() as kout:
+                d = os.path.join(kout, "platform.claude.com", "docs", "en")
+                os.makedirs(d)
+                with open(os.path.join(d, "a.md"), "w", encoding="utf-8") as f:
+                    f.write("<!-- source: https://platform.claude.com/docs/en/a -->\n")
+                with open(os.path.join(d, "b.md"), "w", encoding="utf-8") as f:
+                    f.write("<!-- https://anthropic.skilljar.com/c/b -->\n")
+                k = known_urls(kout)
+                assert k["platform.claude.com"] == {
+                    "https://platform.claude.com/docs/en/a"
+                }
+                assert k["anthropic.skilljar.com"] == {
+                    "https://anthropic.skilljar.com/c/b"
+                }
         print("self-test ok")
         return
 
+    crawled = set()
+
     def todo(urls):
         urls = [u for u in urls if (not a.only) or (a.only in u)]
-        return sorted(set(urls))
+        picked = sorted(set(urls) - crawled)
+        crawled.update(picked)
+        return picked
+
+    known = known_urls(a.out)
+
+    def with_known(sitemap_url, urls):
+        """sitemap URL에 미러가 이미 아는 같은 host의 URL을 더한다(sitemap 축소 대비)."""
+        return set(urls) | known.get(urlsplit(sitemap_url).netloc, set())
 
     state = load_state(a.out)
-    scanned, changed, baselined, fails, empties, budget = 0, 0, 0, [], [], (a.limit or 10 ** 9)
+    scanned, changed, baselined, fails, empties, moved, budget = (
+        0,
+        0,
+        0,
+        [],
+        [],
+        [],
+        (a.limit or 10**9),
+    )
 
     # 1) HTML sitemaps (curl_cffi + bs4)
     for sm, keep in HTML_SITEMAPS:
-        urls = todo([u for u in sitemap_urls(sm) if keep(u)])[:max(0, budget - scanned)]
+        urls = todo([u for u in with_known(sm, sitemap_urls(sm)) if keep(u)])[
+            : max(0, budget - scanned)
+        ]
         if not urls:
             continue
         print(f"[{urlsplit(sm).netloc}] {len(urls)} 크롤", flush=True)
-        p, f, e = crawl(urls, fetch_html, a.concurrency)
-        n, c, b = flush(p, a.out, state, a.force); scanned += n; changed += c; baselined += b; fails += f; empties += e
+        p, f, e, mv = crawl(urls, fetch_html, a.concurrency)
+        n, c, b = flush(p, a.out, state, a.force)
+        scanned += n
+        changed += c
+        baselined += b
+        fails += f
+        empties += e
+        moved += mv
 
     # 2) Mintlify docs (.md raw): platform.claude.com(API) + code.claude.com(Claude Code CLI)
     for dsm in DOCS_SITEMAPS:
         if scanned >= budget:
             break
-        durls = todo([u for u in sitemap_urls(dsm) if is_docs_en(u)])[:max(0, budget - scanned)]
+        durls = todo([u for u in with_known(dsm, sitemap_urls(dsm)) if is_docs_en(u)])[
+            : max(0, budget - scanned)
+        ]
         if not durls:
             continue
         print(f"[{urlsplit(dsm).netloc}/docs] {len(durls)} 크롤(.md)", flush=True)
-        p, f, e = crawl(durls, fetch_docs_md, a.concurrency)
-        n, c, b = flush(p, a.out, state, a.force); scanned += n; changed += c; baselined += b; fails += f; empties += e
+        p, f, e, mv = crawl(durls, fetch_docs_md, a.concurrency)
+        n, c, b = flush(p, a.out, state, a.force)
+        scanned += n
+        changed += c
+        baselined += b
+        fails += f
+        empties += e
+        moved += mv
 
     # 3) sitemap 없는 연구 블로그 (홈 link discovery)
     for base, dom in DISCOVER:
         if scanned >= budget:
             break
-        urls = todo(list(discover(base, dom)))[:max(0, budget - scanned)]
+        urls = todo(list(discover(base, dom) | known.get(dom, set())))[
+            : max(0, budget - scanned)
+        ]
         if not urls:
             continue
         print(f"[{dom}] {len(urls)} 크롤", flush=True)
-        p, f, e = crawl(urls, fetch_html, a.concurrency)
-        n, c, b = flush(p, a.out, state, a.force); scanned += n; changed += c; baselined += b; fails += f; empties += e
+        p, f, e, mv = crawl(urls, fetch_html, a.concurrency)
+        n, c, b = flush(p, a.out, state, a.force)
+        scanned += n
+        changed += c
+        baselined += b
+        fails += f
+        empties += e
+        moved += mv
 
     # 4) SafeBase SPA (playwright 보강)
     spa = todo(SPA_PAGES)
     if spa and scanned < budget:
         print(f"[SPA] {len(spa)} playwright 보강", flush=True)
-        n, c, seeded = flush(spa_rescue(spa), a.out, state, a.force); scanned += n; changed += c; baselined += seeded
+        n, c, seeded = flush(spa_rescue(spa), a.out, state, a.force)
+        scanned += n
+        changed += c
+        baselined += seeded
 
-    print(f"검사: {scanned} / 내용 변경 저장: {changed} / 기준선 등록: {baselined} / 본문없음 skip: {len(empties)} / 실패: {len(fails)}", flush=True)
+    print(
+        f"검사: {scanned} / 내용 변경 저장: {changed} / 기준선 등록: {baselined} / "
+        f"본문없음 skip: {len(empties)} / 이전(redirect) skip: {len(moved)} / 실패: {len(fails)}",
+        flush=True,
+    )
     if empties:
         by = Counter(urlsplit(u).netloc for u in empties)
-        print("본문없음(업스트림 미발행·redirect·404, 재실행 시 자동 재확인): "
-              + ", ".join(f"{h} {n}" for h, n in by.most_common()), flush=True)
+        print(
+            "본문없음(업스트림 미발행·404, 재실행 시 자동 재확인): "
+            + ", ".join(f"{h} {n}" for h, n in by.most_common()),
+            flush=True,
+        )
+    if moved:
+        by = Counter(urlsplit(u).netloc for u, _ in moved)
+        print(
+            "이전(업스트림이 다른 경로로 옮김 - 옛 경로 파일은 stale, 삭제 검토 대상): "
+            + ", ".join(f"{h} {n}" for h, n in by.most_common()),
+            flush=True,
+        )
+        for u, final in sorted(moved)[:20]:
+            print(f"  {u} -> {final}", flush=True)
+        if len(moved) > 20:
+            print(f"  ... 외 {len(moved) - 20}건", flush=True)
     if fails:
         print("실패(재실행 시 자동 재시도):", flush=True)
         for u, err in fails[:20]:

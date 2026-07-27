@@ -16,7 +16,9 @@
   모든 레슨을 검사하고 실제 본문 변경·새 영상 ID만 저장/전사.
   출력: <out_dir>/anthropic.skilljar.com/<course>/<NN>-<title>.md (academy-extract와 같은 트리)
 """
-import asyncio, hashlib, html, json, os, re, subprocess, sys, tempfile, urllib.request
+
+import asyncio, hashlib, html, json, os, re, subprocess, sys, tempfile, time, urllib.request
+from urllib.parse import urlsplit
 import httpx
 from bs4 import BeautifulSoup
 from markdownify import markdownify as md
@@ -26,8 +28,11 @@ from playwright.async_api import async_playwright
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36"
 BASE = os.environ.get("SKILLJAR_BASE", "https://anthropic.skilljar.com").rstrip("/")
 _HOST = BASE.split("://")[-1]
-STATE = os.path.expanduser("~/.crawl4ai/academy_state.json" if _HOST == "anthropic.skilljar.com"
-                           else f"~/.crawl4ai/skilljar-{_HOST}.json")
+STATE = os.path.expanduser(
+    "~/.crawl4ai/academy_state.json"
+    if _HOST == "anthropic.skilljar.com"
+    else f"~/.crawl4ai/skilljar-{_HOST}.json"
+)
 # youtube 자막은 youtube-digest의 extract_transcript.sh를 재사용(크롬 쿠키로 429 회피 + 수동자막 우선). raw yt-dlp 직접 호출 금지.
 YOUTUBE_DIGEST_SCRIPTS_DIR = os.environ.get(
     "YOUTUBE_DIGEST_SCRIPTS_DIR",
@@ -53,12 +58,24 @@ def youtube_refs(srcs):
 
 
 def unseen_refs(existing, refs):
-    return [ref for ref in refs if (f"<!-- youtube: {ref[1]} -->" if ref[0] == "yt" else f"<!-- jwplayer-srt: {ref[1]} -->") not in existing]
+    return [
+        ref
+        for ref in refs
+        if (
+            f"<!-- youtube: {ref[1]} -->"
+            if ref[0] == "yt"
+            else f"<!-- jwplayer-srt: {ref[1]} -->"
+        )
+        not in existing
+    ]
 
 
 def write_state(path, state):
     tmp = path.with_suffix(path.suffix + ".tmp")
-    tmp.write_text(json.dumps(state, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    tmp.write_text(
+        json.dumps(state, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
     os.replace(tmp, path)
 
 
@@ -68,7 +85,12 @@ def cap_to_text(text):
     out = []
     for ln in text.splitlines():
         ln = ln.strip()
-        if not ln or "-->" in ln or ln.isdigit() or ln.startswith(("WEBVTT", "Kind:", "Language:")):
+        if (
+            not ln
+            or "-->" in ln
+            or ln.isdigit()
+            or ln.startswith(("WEBVTT", "Kind:", "Language:"))
+        ):
             continue
         ln = html.unescape(re.sub(r"<[^>]+>", "", ln))
         if not out or out[-1] != ln:
@@ -78,11 +100,17 @@ def cap_to_text(text):
 
 def fetch_youtube(vid):
     if not os.path.isfile(EXTRACT):
-        raise RuntimeError(f"extract_transcript.sh not found: {EXTRACT}. Set YOUTUBE_DIGEST_SCRIPTS_DIR.")
+        raise RuntimeError(
+            f"extract_transcript.sh not found: {EXTRACT}. Set YOUTUBE_DIGEST_SCRIPTS_DIR."
+        )
     with tempfile.TemporaryDirectory() as d:
         try:
-            subprocess.run(["bash", EXTRACT, f"https://www.youtube.com/watch?v={vid}", d],
-                           stdin=subprocess.DEVNULL, capture_output=True, timeout=180)
+            subprocess.run(
+                ["bash", EXTRACT, f"https://www.youtube.com/watch?v={vid}", d],
+                stdin=subprocess.DEVNULL,
+                capture_output=True,
+                timeout=180,
+            )
         except subprocess.TimeoutExpired:
             return ""
         for lang in ("en-orig", "en", "ko"):  # 영어 원본 영상 기준 우선순위
@@ -96,7 +124,9 @@ def fetch_youtube(vid):
 
 def fetch_srt(url):
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": UA})  # urllib은 301 자동 follow
+        req = urllib.request.Request(
+            url, headers={"User-Agent": UA}
+        )  # urllib은 301 자동 follow
         with urllib.request.urlopen(req, timeout=30) as r:
             return cap_to_text(r.read().decode("utf-8", "ignore"))
     except Exception:
@@ -105,7 +135,12 @@ def fetch_srt(url):
 
 async def rendered_body(pg):
     best = ""
-    for sel in (".course-text-content", ".clp__main-content", "#lesson-main-content", "article"):
+    for sel in (
+        ".course-text-content",
+        ".clp__main-content",
+        "#lesson-main-content",
+        "article",
+    ):
         loc = pg.locator(sel).first
         if not await loc.count():
             continue
@@ -115,15 +150,48 @@ async def rendered_body(pg):
         text = md(str(soup), heading_style="ATX").strip()
         if len(text) > len(best):
             best = text
-    if len(best) < 50 or "This video is still being processed" in best or "Skilljar is a learning management system that hosts our educational content" in best:
+    if (
+        len(best) < 50
+        or "This video is still being processed" in best
+        or "Skilljar is a learning management system that hosts our educational content"
+        in best
+    ):
         return ""
     return best
 
 
+def expired_session(cookies, now=None):
+    """저장된 sj_sessionid가 모두 만료됐는가. 만료 없는 세션 쿠키는 유효로 본다."""
+    now = time.time() if now is None else now
+    sess = [c for c in cookies if c.get("name") == "sj_sessionid"]
+    if not sess:
+        return True
+    return all(0 < c.get("expires", -1) < now for c in sess)
+
+
+def lesson_gated(requested, final):
+    """레슨 URL이 다른 경로로 튕겼는가(세션 만료·미등록).
+
+    Skilljar는 접근할 수 없는 레슨을 코스 랜딩 페이지로 redirect하면서 `?next=<레슨경로>`를 붙인다.
+    랜딩 페이지에도 본문 컨테이너가 있어 본문 길이만으로는 구분되지 않는다.
+    """
+    if not final:
+        return False
+    return urlsplit(final).path.rstrip("/") != urlsplit(requested).path.rstrip("/")
+
+
 async def lesson_videos(pg, course, ck, cdir, state):
     # 목차 레슨 ID는 httpx SSR로 잡는다(일부 코스는 playwright 렌더가 목차 링크를 비운다 - 예: ai-fluency-for-builders)
-    cr = httpx.get(f"{BASE}/{course}", cookies=ck, headers={"User-Agent": UA}, follow_redirects=True, timeout=30)
-    ids = sorted(set(int(x) for x in re.findall(rf"/{re.escape(course)}/(\d{{5,}})", cr.text)))
+    cr = httpx.get(
+        f"{BASE}/{course}",
+        cookies=ck,
+        headers={"User-Agent": UA},
+        follow_redirects=True,
+        timeout=30,
+    )
+    ids = sorted(
+        set(int(x) for x in re.findall(rf"/{re.escape(course)}/(\d{{5,}})", cr.text))
+    )
     titles = {}
     for item in BeautifulSoup(cr.text, "html.parser").select("li[data-url]"):
         m = re.fullmatch(rf"/{re.escape(course)}/(\d{{5,}})", item.get("data-url", ""))
@@ -139,14 +207,24 @@ async def lesson_videos(pg, course, ck, cdir, state):
                 by_source[m.group(1)] = path
     out = []
     bodies = 0
+    gated = 0
     for n, lid in enumerate(ids, 1):
         url = f"{BASE}/{course}/{lid}"
         await pg.goto(url, wait_until="domcontentloaded")
+        if lesson_gated(url, pg.url):
+            # 세션 만료·미등록이면 레슨이 코스 랜딩으로 redirect된다(...?next=/course/ID).
+            # 그 페이지의 .clp__main-content는 "About this course"라 50자 필터를 통과하므로,
+            # 여기서 막지 않으면 코스의 모든 레슨이 같은 소개글로 덮어씌워진다.
+            gated += 1
+            continue
         # 영상 iframe/플레이어 렌더가 1800ms보다 늦는 레슨이 있다(하이브리드 코스 다수가 그래서 누락됐다).
         # 플레이어가 붙을 때까지 최대 7s 기다린 뒤 잡는다. 진짜 텍스트 레슨은 타임아웃 후 그대로 통과(영상 없음).
         try:
-            player = await pg.wait_for_selector("#lesson-main-content iframe[src*='youtube'], .clp__main-content iframe[src*='youtube'], #lesson-main-content .jw-video, .clp__main-content .jw-video, #lesson-main-content video, .clp__main-content video",
-                                                timeout=7000, state="attached")
+            player = await pg.wait_for_selector(
+                "#lesson-main-content iframe[src*='youtube'], .clp__main-content iframe[src*='youtube'], #lesson-main-content .jw-video, .clp__main-content .jw-video, #lesson-main-content video, .clp__main-content video",
+                timeout=7000,
+                state="attached",
+            )
         except Exception:
             player = None
         if player:
@@ -162,7 +240,9 @@ async def lesson_videos(pg, course, ck, cdir, state):
             previous = state.get(key)
             state[key] = digest
             if previous != digest and not (previous is None and existing):
-                tail = re.search(r"\n<!-- (?:youtube|vimeo|jwplayer(?:-srt)?): .*\Z", existing, re.S)
+                tail = re.search(
+                    r"\n<!-- (?:youtube|vimeo|jwplayer(?:-srt)?): .*\Z", existing, re.S
+                )
                 preserved = tail.group(0).rstrip() if tail else ""
                 content = f"<!-- {url} -->\n\n{body}"
                 updated = f"{content}{preserved}\n" if preserved else f"{content}\n"
@@ -173,38 +253,73 @@ async def lesson_videos(pg, course, ck, cdir, state):
         vis = await pg.eval_on_selector_all(
             "#lesson-main-content iframe, .clp__main-content iframe",
             "els=>els.filter(e=>{const r=e.getBoundingClientRect();return r.width>50&&r.height>50})"
-            ".map(e=>e.src).filter(s=>s&&s.includes('youtube')&&s.includes('/embed/'))")
+            ".map(e=>e.src).filter(s=>s&&s.includes('youtube')&&s.includes('/embed/'))",
+        )
         refs = youtube_refs(vis)
         if refs:
-            out.append((lid, title, path, refs)); continue
+            out.append((lid, title, path, refs))
+            continue
         if not player:
-            out.append((lid, title, path, [])); continue
+            out.append((lid, title, path, []))
+            continue
         # 2) JWPlayer: 재생 트리거 후 English captions .srt
-        for sel in ["#lesson-main-content .jw-icon-display", ".clp__main-content .jw-icon-display", "#lesson-main-content .jw-video", ".clp__main-content .jw-video", "#lesson-main-content video", ".clp__main-content video"]:
+        for sel in [
+            "#lesson-main-content .jw-icon-display",
+            ".clp__main-content .jw-icon-display",
+            "#lesson-main-content .jw-video",
+            ".clp__main-content .jw-video",
+            "#lesson-main-content video",
+            ".clp__main-content video",
+        ]:
             try:
                 el = pg.locator(sel).first
                 if await el.count() and await el.is_visible():
-                    await el.click(); break
+                    await el.click()
+                    break
             except Exception:
                 pass
         await pg.wait_for_timeout(2500)
         srt = await pg.evaluate(
             "(()=>{try{const t=jwplayer().getPlaylistItem().tracks||[];"
             "const en=t.find(x=>x.kind==='captions'&&/english/i.test((x.label||x.name||'')));"
-            "return en?en.file:null}catch(e){return null}})()")
+            "return en?en.file:null}catch(e){return null}})()"
+        )
         out.append((lid, title, path, [("srt", srt)] if srt else []))
-    return out, bodies
+    return out, bodies, gated, len(ids)
 
 
 async def main():
     if sys.argv[1:] == ["--self-test"]:
-        refs = youtube_refs(["https://youtube.com/embed/ABCDEFGHIJK", "https://youtube.com/embed/1234567890_", "https://youtube.com/embed/ABCDEFGHIJK"])
+        refs = youtube_refs(
+            [
+                "https://youtube.com/embed/ABCDEFGHIJK",
+                "https://youtube.com/embed/1234567890_",
+                "https://youtube.com/embed/ABCDEFGHIJK",
+            ]
+        )
+        lesson = "https://anthropic.skilljar.com/claude-in-amazon-bedrock/241929"
+        landing = (
+            "https://anthropic.skilljar.com/claude-in-amazon-bedrock?next=%2Fx%2F1"
+        )
+        assert lesson_gated(lesson, landing)
+        assert not lesson_gated(lesson, lesson)
+        assert not lesson_gated(lesson, lesson + "/")
+        assert not lesson_gated(lesson, "")
+        assert expired_session([{"name": "sj_sessionid", "expires": 1000}], now=2000)
+        assert not expired_session(
+            [{"name": "sj_sessionid", "expires": 3000}], now=2000
+        )
+        assert not expired_session([{"name": "sj_sessionid", "expires": -1}], now=2000)
+        assert expired_session([{"name": "sj_csrftoken", "expires": 3000}], now=2000)
         assert refs == [("yt", "ABCDEFGHIJK"), ("yt", "1234567890_")]
-        assert unseen_refs("<!-- youtube: ABCDEFGHIJK -->", refs) == [("yt", "1234567890_")]
+        assert unseen_refs("<!-- youtube: ABCDEFGHIJK -->", refs) == [
+            ("yt", "1234567890_")
+        ]
         print("self-test ok")
         return
     if len(sys.argv) < 2:
-        print("사용법: academy-video.py <out_dir> [course-slug ...]"); return
+        print("사용법: academy-video.py <out_dir> [course-slug ...]")
+        return
     out_root = Path(sys.argv[1])
     state_path = out_root / STATE_FILE
     try:
@@ -213,30 +328,74 @@ async def main():
         mirror_state = {}
     courses = sys.argv[2:]
     auth_state = json.load(open(STATE))
-    ck = {c["name"]: c["value"] for c in auth_state["cookies"] if "skilljar" in c.get("domain", "")}
+    ck = {
+        c["name"]: c["value"]
+        for c in auth_state["cookies"]
+        if "skilljar" in c.get("domain", "")
+    }
+    if expired_session(auth_state["cookies"]):
+        # 만료된 sj_sessionid로 진행하면 모든 레슨이 코스 랜딩으로 튕겨 소개글이 본문으로 저장된다.
+        # 루트의 'auth/logout' 문자열은 만료 상태에서도 남아 있어 로그인 판정에 쓸 수 없다.
+        print(
+            "[!] sj_sessionid 만료 - login-academy.py로 재로그인하세요. "
+            "만료 세션으로 실행하면 레슨 본문이 코스 소개글로 덮어씌워집니다.",
+            flush=True,
+        )
+        return
     if not courses:
-        root = httpx.get(f"{BASE}/", cookies=ck, headers={"User-Agent": UA}, follow_redirects=True, timeout=30).text
+        root = httpx.get(
+            f"{BASE}/",
+            cookies=ck,
+            headers={"User-Agent": UA},
+            follow_redirects=True,
+            timeout=30,
+        ).text
         if "auth/logout" not in root:
             print("[!] 비로그인 상태 - login-academy.py로 쿠키를 먼저 갱신하세요.")
             return
-        skip = {"auth", "accounts", "page", "catalog", "paths", "plans", "courses", "lessons"}
-        courses = sorted(set(m for m in re.findall(r'href="/([a-z0-9][a-z0-9-]+)/?"', root) if m not in skip))
+        skip = {
+            "auth",
+            "accounts",
+            "page",
+            "catalog",
+            "paths",
+            "plans",
+            "courses",
+            "lessons",
+        }
+        courses = sorted(
+            set(
+                m
+                for m in re.findall(r'href="/([a-z0-9][a-z0-9-]+)/?"', root)
+                if m not in skip
+            )
+        )
+    gated_total = 0
     async with async_playwright() as p:
         b = await p.chromium.launch(headless=True)
         ctx = await b.new_context(storage_state=STATE, user_agent=UA)
         pg = await ctx.new_page()
         for course in courses:
             cdir = out_root / _HOST / course
-            lv, bodies = await lesson_videos(pg, course, ck, cdir, mirror_state)
+            lv, bodies, gated, listed = await lesson_videos(
+                pg, course, ck, cdir, mirror_state
+            )
+            gated_total += gated
             got = 0
             for n, (lid, title, fpath, refs) in enumerate(lv, 1):
                 if not refs:
                     continue
                 cdir.mkdir(parents=True, exist_ok=True)
-                existing = fpath.read_text(encoding="utf-8").rstrip() if fpath.exists() else ""
+                existing = (
+                    fpath.read_text(encoding="utf-8").rstrip() if fpath.exists() else ""
+                )
                 added = 0
                 for kind, ref in unseen_refs(existing, refs):
-                    tag = f"<!-- youtube: {ref} -->" if kind == "yt" else f"<!-- jwplayer-srt: {ref} -->"
+                    tag = (
+                        f"<!-- youtube: {ref} -->"
+                        if kind == "yt"
+                        else f"<!-- jwplayer-srt: {ref} -->"
+                    )
                     tx = fetch_youtube(ref) if kind == "yt" else fetch_srt(ref)
                     if len(tx) < 50:
                         continue
@@ -248,8 +407,18 @@ async def main():
                 if added:
                     fpath.write_text(f"{existing}\n", encoding="utf-8")
             write_state(state_path, mirror_state)
-            print(f"{course}: {len(lv)} lessons inspected, {bodies} bodies changed, {got} clips added", flush=True)
+            note = f", {gated}/{listed} gated(skipped)" if gated else ""
+            print(
+                f"{course}: {len(lv)} lessons inspected, {bodies} bodies changed, {got} clips added{note}",
+                flush=True,
+            )
         await b.close()
+    if gated_total:
+        print(
+            f"[!] 레슨 {gated_total}개가 코스 랜딩으로 redirect돼 건너뛰었습니다(본문 미저장). "
+            f"세션 만료 또는 미등록입니다 -> login-academy.py로 재로그인한 뒤 다시 실행하세요.",
+            flush=True,
+        )
 
 
 if __name__ == "__main__":
