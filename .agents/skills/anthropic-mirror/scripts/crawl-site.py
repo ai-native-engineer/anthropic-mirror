@@ -71,6 +71,7 @@ DISCOVER = [
     ("https://platform.claude.com/cookbook/", "platform.claude.com", 1),
 ]
 LINKED_HOSTS = {"resources.anthropic.com"}
+NON_PAGE_SUFFIXES = (".xml", ".pdf", ".json", ".png", ".jpg", ".jpeg", ".gif", ".svg", ".txt")
 # SafeBase SPA: curl·​.md 둘 다 본문 0 -> playwright innerText 보강.
 SPA_PAGES = [
     "https://trust.anthropic.com/",
@@ -269,7 +270,6 @@ def rescue_article_views(pages):
 def discover(base, dom, max_depth=1):
     """sitemap 없는 사이트를 same-host BFS하며 redirect 정본과 공개 본문만 반환."""
     out, seen, frontier = set(), set(), [(base, 0)]
-    blocked = (".xml", ".pdf", ".json", ".png", ".jpg", ".jpeg", ".gif", ".svg", ".txt")
     while frontier:
         requested, depth = frontier.pop(0)
         if requested in seen:
@@ -292,7 +292,7 @@ def discover(base, dom, max_depth=1):
         for anchor in soup.find_all("a", href=True):
             value = urljoin(canonical, anchor["href"]).split("#")[0].split("?")[0]
             parsed = urlsplit(value)
-            if parsed.netloc == dom and "@" not in parsed.path and not parsed.path.lower().endswith(blocked):
+            if parsed.netloc == dom and "@" not in parsed.path and not parsed.path.lower().endswith(NON_PAGE_SUFFIXES):
                 frontier.append((value, depth + 1))
     return out
 
@@ -310,7 +310,10 @@ def linked_urls(out, hosts):
                 text = open(os.path.join(root, name), encoding="utf-8", errors="replace").read()
             except OSError:
                 continue
-            found.update(value.rstrip(".,;") for value in pattern.findall(text))
+            for value in pattern.findall(text):
+                value = value.rstrip(".,;")
+                if not urlsplit(value).path.lower().endswith(NON_PAGE_SUFFIXES):
+                    found.add(value)
     return found
 
 
@@ -564,7 +567,10 @@ def main():
 
     # 4) 루트가 다른 곳으로 redirect하는 공개 리소스 host는 보관 문서의 outbound link에서 발견한다.
     linked_hosts = {h for h in LINKED_HOSTS if not a.only or a.only in h}
-    linked = todo(linked_urls(a.out, linked_hosts) | set().union(*(known.get(h, set()) for h in linked_hosts))) if linked_hosts else []
+    linked = todo(
+        u for u in linked_urls(a.out, linked_hosts) | set().union(*(known.get(h, set()) for h in linked_hosts))
+        if not urlsplit(u).path.lower().endswith(NON_PAGE_SUFFIXES)
+    ) if linked_hosts else []
     if linked and scanned < budget:
         print(f"[linked hosts] {len(linked)} 크롤", flush=True)
         p, f, e, s = crawl(linked[:max(0, budget - scanned)], fetch_html, a.concurrency)
