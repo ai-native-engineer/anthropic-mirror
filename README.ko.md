@@ -23,10 +23,10 @@ Anthropic과 Claude 공개 자료를 검색하기 쉬운 마크다운으로 보�
 | 경로 | 자료 |
 |---|---|
 | [`www.anthropic.com/`](www.anthropic.com/), [`claude.com/`](claude.com/) | 뉴스, 연구, 엔지니어링, 정책, 제품, 블로그, 고객 사례, 리소스 |
-| [`platform.claude.com/`](platform.claude.com/), [`code.claude.com/`](code.claude.com/), [`support.claude.com/`](support.claude.com/) | 개발자/API 문서, Claude Code 문서, Help Center |
-| [`alignment.anthropic.com/`](alignment.anthropic.com/), [`transformer-circuits.pub/`](transformer-circuits.pub/), [`trust.anthropic.com.md`](trust.anthropic.com.md) | 정렬, 해석가능성, 보안, 컴플라이언스 |
+| [`platform.claude.com/`](platform.claude.com/), [`code.claude.com/`](code.claude.com/), [`support.claude.com/`](support.claude.com/), [`privacy.claude.com/`](privacy.claude.com/) | 개발자/API 문서, Cookbook, Claude Code 문서, Help Center, Privacy Center |
+| [`alignment.anthropic.com/`](alignment.anthropic.com/), [`transformer-circuits.pub/`](transformer-circuits.pub/), [`trust.anthropic.com/`](trust.anthropic.com/) | 정렬, 해석가능성, 보안, 컴플라이언스 |
 | [`anthropic.skilljar.com/`](anthropic.skilljar.com/), [`anthropic-partners.skilljar.com/`](anthropic-partners.skilljar.com/) | Anthropic Academy 레슨과 영상 자막 |
-| [`youtube.com/anthropic-ai/`](youtube.com/anthropic-ai/), [`youtube.com/claude/`](youtube.com/claude/) | 공식 채널의 영상별 전사 또는 자막 상태 stub |
+| [`youtube.com/anthropic-ai/`](youtube.com/anthropic-ai/), [`youtube.com/claude/`](youtube.com/claude/) | 공식 채널의 일반 영상·Shorts·Streams별 전사 또는 자막 상태 stub |
 | Anthropic 소유 파일 호스트 | 보관된 페이지가 링크한 PDF |
 
 트리는 원문 URL을 `<host>/<path>.md` 형태로 따릅니다. 일반 페이지는 `<!-- source: <url> -->` 헤더, Academy 레슨은 원문 URL 주석, YouTube 전사는 YAML frontmatter에 원문 URL을 기록합니다.
@@ -46,7 +46,7 @@ rg "constitutional AI"
 아카이브는 같은 위치에 다시 생성하며 최신 크롤만 유지합니다. 이전 버전은 Git 이력으로 확인할 수 있습니다.
 
 - JavaScript로만 표시되거나 공개 텍스트를 추출할 수 없는 내용은 일부 누락될 수 있습니다.
-- 접근 가능한 자막이 없는 영상은 페이지 정보만 남거나 제외됩니다.
+- 접근 가능한 자막이 없는 영상도 페이지 정보와 자막 상태 stub을 남깁니다.
 - 외부 발행물과 GitHub 용량 제한을 넘는 파일은 원문 링크만 남깁니다.
 - Claude 제품 앱과 비공개·사용자 생성 콘텐츠는 수집하지 않습니다.
 

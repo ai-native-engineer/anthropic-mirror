@@ -17,6 +17,7 @@
   출력: <out_dir>/anthropic.skilljar.com/<course>/<NN>-<title>.md (academy-extract와 같은 트리)
 """
 import asyncio, hashlib, html, json, os, re, subprocess, sys, tempfile, urllib.request
+from urllib.parse import urlsplit
 import httpx
 from bs4 import BeautifulSoup
 from markdownify import markdownify as md
@@ -139,9 +140,24 @@ async def lesson_videos(pg, course, ck, cdir, state):
                 by_source[m.group(1)] = path
     out = []
     bodies = 0
+    gated = 0
     for n, lid in enumerate(ids, 1):
         url = f"{BASE}/{course}/{lid}"
+        if os.environ.get("SKILLJAR_MISSING_ONLY") == "1" and url in by_source:
+            continue
+        listed_title = titles.get(lid) or f"Lesson {lid}"
+        listed_path = by_source.get(url, cdir / f"{n:02d}-{slug(listed_title)}.md")
         await pg.goto(url, wait_until="domcontentloaded")
+        if urlsplit(pg.url).path.rstrip("/") != urlsplit(url).path.rstrip("/"):
+            cdir.mkdir(parents=True, exist_ok=True)
+            if not listed_path.exists():
+                listed_path.write_text(
+                    f"<!-- {url} -->\n\n# {listed_title}\n\n_(등록 또는 권한이 필요한 레슨)_\n",
+                    encoding="utf-8",
+                )
+            by_source[url] = listed_path
+            gated += 1
+            continue
         # 영상 iframe/플레이어 렌더가 1800ms보다 늦는 레슨이 있다(하이브리드 코스 다수가 그래서 누락됐다).
         # 플레이어가 붙을 때까지 최대 7s 기다린 뒤 잡는다. 진짜 텍스트 레슨은 타임아웃 후 그대로 통과(영상 없음).
         try:
@@ -193,7 +209,7 @@ async def lesson_videos(pg, course, ck, cdir, state):
             "const en=t.find(x=>x.kind==='captions'&&/english/i.test((x.label||x.name||'')));"
             "return en?en.file:null}catch(e){return null}})()")
         out.append((lid, title, path, [("srt", srt)] if srt else []))
-    return out, bodies
+    return out, bodies, gated, len(ids)
 
 
 async def main():
@@ -201,6 +217,7 @@ async def main():
         refs = youtube_refs(["https://youtube.com/embed/ABCDEFGHIJK", "https://youtube.com/embed/1234567890_", "https://youtube.com/embed/ABCDEFGHIJK"])
         assert refs == [("yt", "ABCDEFGHIJK"), ("yt", "1234567890_")]
         assert unseen_refs("<!-- youtube: ABCDEFGHIJK -->", refs) == [("yt", "1234567890_")]
+        assert urlsplit("https://x/course/123").path.rstrip("/") == urlsplit("https://x/course/123/").path.rstrip("/")
         print("self-test ok")
         return
     if len(sys.argv) < 2:
@@ -215,40 +232,54 @@ async def main():
     auth_state = json.load(open(STATE))
     ck = {c["name"]: c["value"] for c in auth_state["cookies"] if "skilljar" in c.get("domain", "")}
     if not courses:
-        root = httpx.get(f"{BASE}/", cookies=ck, headers={"User-Agent": UA}, follow_redirects=True, timeout=30).text
-        if "auth/logout" not in root:
+        catalogs = [
+            httpx.get(f"{BASE}{path}", cookies=ck, headers={"User-Agent": UA}, follow_redirects=True, timeout=30).text
+            for path in ("/", "/page/all-courses")
+        ]
+        if "auth/logout" not in catalogs[0]:
             print("[!] 비로그인 상태 - login-academy.py로 쿠키를 먼저 갱신하세요.")
             return
         skip = {"auth", "accounts", "page", "catalog", "paths", "plans", "courses", "lessons"}
-        courses = sorted(set(m for m in re.findall(r'href="/([a-z0-9][a-z0-9-]+)/?"', root) if m not in skip))
+        courses = sorted(set(m for text in catalogs for m in re.findall(r'href="/([a-z0-9][a-z0-9-]+)/?"', text) if m not in skip))
+        skip_host = os.environ.get("SKILLJAR_SKIP_HOST", "")
+        if skip_host:
+            courses = [c for c in courses if not (out_root / skip_host / c).exists()]
     async with async_playwright() as p:
         b = await p.chromium.launch(headless=True)
         ctx = await b.new_context(storage_state=STATE, user_agent=UA)
         pg = await ctx.new_page()
         for course in courses:
             cdir = out_root / _HOST / course
-            lv, bodies = await lesson_videos(pg, course, ck, cdir, mirror_state)
+            lv, bodies, gated, listed = await lesson_videos(pg, course, ck, cdir, mirror_state)
             got = 0
             for n, (lid, title, fpath, refs) in enumerate(lv, 1):
-                if not refs:
-                    continue
                 cdir.mkdir(parents=True, exist_ok=True)
                 existing = fpath.read_text(encoding="utf-8").rstrip() if fpath.exists() else ""
+                if not existing:
+                    existing = f"<!-- {BASE}/{course}/{lid} -->\n\n# {title}"
+                    fpath.write_text(f"{existing}\n", encoding="utf-8")
+                if not refs:
+                    continue
                 added = 0
                 for kind, ref in unseen_refs(existing, refs):
                     tag = f"<!-- youtube: {ref} -->" if kind == "yt" else f"<!-- jwplayer-srt: {ref} -->"
                     tx = fetch_youtube(ref) if kind == "yt" else fetch_srt(ref)
-                    if len(tx) < 50:
-                        continue
-                    if not existing:
-                        existing = f"<!-- {BASE}/{course}/{lid} -->\n\n# {title}"
-                    existing = f"{existing}\n\n{tag}\n\n## 자막 (영상 전사)\n\n{tx}"
-                    got += 1
+                    if len(tx) >= 50:
+                        pending = f"<!-- {kind}-pending: {ref} -->"
+                        existing = existing.replace(f"\n\n{pending}\n\n_(영상 자막 없음 또는 추출 실패)_", "")
+                        existing = f"{existing}\n\n{tag}\n\n## 자막 (영상 전사)\n\n{tx}"
+                        got += 1
+                    else:
+                        pending = f"<!-- {kind}-pending: {ref} -->"
+                        if pending in existing:
+                            continue
+                        existing = f"{existing}\n\n{pending}\n\n_(영상 자막 없음 또는 추출 실패)_"
                     added += 1
                 if added:
                     fpath.write_text(f"{existing}\n", encoding="utf-8")
             write_state(state_path, mirror_state)
-            print(f"{course}: {len(lv)} lessons inspected, {bodies} bodies changed, {got} clips added", flush=True)
+            note = f", {gated}/{listed} gated(skipped)" if gated else ""
+            print(f"{course}: {len(lv)} lessons inspected, {bodies} bodies changed, {got} clips added{note}", flush=True)
         await b.close()
 
 

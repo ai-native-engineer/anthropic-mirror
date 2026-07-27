@@ -23,10 +23,10 @@ An unofficial, searchable Markdown archive of Anthropic and Claude public materi
 | Path | Material |
 |---|---|
 | [`www.anthropic.com/`](www.anthropic.com/), [`claude.com/`](claude.com/) | News, research, engineering, policy, products, blog, customers, and resources |
-| [`platform.claude.com/`](platform.claude.com/), [`code.claude.com/`](code.claude.com/), [`support.claude.com/`](support.claude.com/) | Developer/API docs, Claude Code docs, and Help Center articles |
-| [`alignment.anthropic.com/`](alignment.anthropic.com/), [`transformer-circuits.pub/`](transformer-circuits.pub/), [`trust.anthropic.com.md`](trust.anthropic.com.md) | Alignment, interpretability, security, and compliance |
+| [`platform.claude.com/`](platform.claude.com/), [`code.claude.com/`](code.claude.com/), [`support.claude.com/`](support.claude.com/), [`privacy.claude.com/`](privacy.claude.com/) | Developer/API docs, Cookbook, Claude Code docs, Help Center, and Privacy Center articles |
+| [`alignment.anthropic.com/`](alignment.anthropic.com/), [`transformer-circuits.pub/`](transformer-circuits.pub/), [`trust.anthropic.com/`](trust.anthropic.com/) | Alignment, interpretability, security, and compliance |
 | [`anthropic.skilljar.com/`](anthropic.skilljar.com/), [`anthropic-partners.skilljar.com/`](anthropic-partners.skilljar.com/) | Anthropic Academy lessons and caption transcripts |
-| [`youtube.com/anthropic-ai/`](youtube.com/anthropic-ai/), [`youtube.com/claude/`](youtube.com/claude/) | One transcript or caption-status stub per official-channel video |
+| [`youtube.com/anthropic-ai/`](youtube.com/anthropic-ai/), [`youtube.com/claude/`](youtube.com/claude/) | One transcript or caption-status stub per official-channel video, Short, and stream |
 | Anthropic-owned file hosts | PDFs linked from archived pages |
 
 The tree follows source URLs as `<host>/<path>.md`. Crawled pages use a `<!-- source: <url> -->` header, Academy lessons use a source URL comment, and YouTube transcripts keep the source URL in YAML frontmatter.
@@ -46,7 +46,7 @@ rg "constitutional AI"
 The archive is regenerated in place and keeps only the latest crawl. Git preserves earlier revisions.
 
 - JavaScript-only pages and content without extractable public text may be incomplete.
-- Videos without accessible captions keep available page metadata or are omitted.
+- Videos without accessible captions keep available page metadata and a caption-status stub.
 - External publications and files over GitHub's size limit remain source links.
 - The Claude product app and private or user-generated content are outside the archive scope.
 

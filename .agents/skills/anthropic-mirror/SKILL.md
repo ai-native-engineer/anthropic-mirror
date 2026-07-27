@@ -1,6 +1,6 @@
 ---
 name: anthropic-mirror
-description: "이 repo의 Anthropic/Claude 공개 자료 미러를 증분 갱신하거나 재수집하고, 생성물을 검증해 로컬 커밋한다. 공개 사이트, 개발자 문서, Academy, 공식 YouTube, 이미지·자막·PDF를 수집한다. Use when 'Anthropic 미러 갱신/재생성', '누락 페이지 복구', 'Academy/YouTube/PDF 재수집', 'anthropic-mirror'를 요청할 때. Do NOT use for Claude 제품 질문, 저장된 미러 검색, 단일 URL 크롤, OpenAI 미러."
+description: "이 repo의 Anthropic/Claude 공개 표면 커버리지와 누락을 전수 감사하거나, 미러를 증분 갱신·재수집하고 생성물을 검증해 로컬 커밋한다. 공개 사이트, 개발자 문서, Academy, 공식 YouTube, 이미지·자막·PDF를 다룬다. Use when 'Anthropic 미러 전체 누락 조사', '커버리지 감사', '미러 갱신/재생성', '누락 페이지 복구', 'Academy/YouTube/PDF 재수집', 'anthropic-mirror'를 요청할 때. Do NOT use for Claude 제품 질문, 저장된 미러 검색, 단일 URL 크롤, OpenAI 미러."
 ---
 
 # Anthropic Mirror
@@ -11,6 +11,7 @@ description: "이 repo의 Anthropic/Claude 공개 자료 미러를 증분 갱신
 
 | 작업 | 먼저 읽을 것 |
 |---|---|
+| 전체 커버리지·누락 감사 | `references/coverage-audit.md` |
 | 전체 갱신, 검증, commit, push | `references/publishing.md` |
 | 부분 수집, 누락 복구, 수집기 수정 | `references/crawl-notes.md`와 대상 스크립트의 `--help` |
 | Academy 로그인, 본문·영상 추출 | `references/academy-notes.md` |

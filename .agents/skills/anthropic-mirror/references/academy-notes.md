@@ -13,9 +13,10 @@
 아래에서 `PY=~/.local/share/uv/tools/crawl4ai/bin/python`, `S=.agents/skills/anthropic-mirror/scripts`로 둔다.
 
 1. `$PY $S/login-academy.py` (사람, 헤드풀): 로그인(academy는 이메일+비밀번호, 인스턴스마다 다를 수 있음) -> 루트 재확인 -> 쿠키 저장.
-2. `$PY $S/academy-video.py <out_dir> [course-slug ...]` (AI): 모든 레슨을 렌더해 본문 hash와 모든 영상 ID를 검사 -> 달라진 본문과 새 clip만 저장·전사.
+2. `$PY $S/academy-video.py <out_dir> [course-slug ...]` (AI): 모든 레슨을 렌더해 본문 hash와 모든 영상 ID를 검사 -> 달라진 본문과 새 clip만 저장·전사. 본문·자막이 없어도 catalog lesson ID마다 source stub을 남긴다.
 3. `academy-extract.py`는 영상 검사가 필요 없는 부분 본문 점검용이다. 기본 전체 갱신에서는 같은 레슨을 두 번 읽지 않도록 실행하지 않는다.
 4. 출력은 `<out_dir>/anthropic.skilljar.com/<course>/<NN>-<title>.md`로 저장한다(A 트랙과 같은 `<도메인>/<경로>` 트리).
+5. 전체 `refresh.sh`는 public instance 뒤에 partner instance도 실행한다. public과 같은 slug는 건너뛰고 partner 전용 course만 갱신한다.
 
 ## 코스 유형 (미리 가르지 않는다)
 

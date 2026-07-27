@@ -13,12 +13,12 @@
 | 표면 | 수집기 | 발견 방식 |
 |---|---|---|
 | anthropic.com / claude.com | `crawl-site.py` | sitemap, 영어 정본 |
-| platform.claude.com / code.claude.com | `crawl-site.py` | sitemap + Mintlify raw Markdown |
-| support.claude.com | `crawl-site.py` | 영어 sitemap |
+| platform.claude.com / code.claude.com | `crawl-site.py` | docs sitemap + Mintlify raw Markdown, Cookbook 홈 1-depth |
+| support.claude.com / privacy.claude.com | `crawl-site.py` | 영어 sitemap |
 | alignment.anthropic.com / transformer-circuits.pub | `crawl-site.py` | 홈 링크 1-depth |
-| trust.anthropic.com | `crawl-site.py` | SPA 렌더 |
+| trust.anthropic.com | `crawl-site.py` | 공개 SPA route별 렌더 |
 | Anthropic Academy | `academy-video.py` | 인증 카탈로그 + 렌더된 레슨 |
-| 공식 YouTube | shared `youtube-channels.py` | 채널 전 영상 + 자막 |
+| 공식 YouTube | shared `youtube-channels.py` | videos·shorts·streams ID 합집합 + 자막 |
 | Anthropic·Claude 소유 PDF | shared `pdf-mirror.py` | 허용 호스트의 원본 PDF |
 
 ## 공개 사이트와 문서
@@ -49,7 +49,7 @@
 - `extract-images.py`는 transformer-circuits의 인라인 base64 그림을 옆 `images/`의 PNG/JPG로 분리한다.
 - `youtube-transcripts.sh`와 `inline-transcripts.py`는 페이지의 YouTube 링크 아래에 자막을 멱등 삽입한다.
 - Academy와 docs는 자체 처리 또는 낮은 가치 때문에 wrapper의 인라인 자막 대상에서 제외한다.
-- `youtube-channels.py`는 `_yt-cache/`를 재사용하고 채널별 transcript/stub을 발행한다.
+- `youtube-channels.py`는 `_yt-cache/`를 재사용하고 `videos`, `shorts`, `streams` 탭의 합집합을 채널별 transcript/stub으로 발행한다.
 - `pdf-mirror.py`는 Anthropic·Claude 소유 host만 허용하고 `%PDF-` 및 100MB 제한을 확인한다.
 - `verify-mirror.py`는 자막 참조 누락과 렌더 불가능한 대형 Markdown을 마지막에 검사한다.
 

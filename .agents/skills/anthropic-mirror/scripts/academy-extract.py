@@ -68,11 +68,11 @@ async def main():
             async with sem:
                 try:
                     r = await c.get(u)
-                    return u, r.text
+                    return u, r.text, str(r.url)
                 except Exception:
-                    return u, ""
+                    return u, "", ""
 
-        _, root = await get(f"{BASE}/")
+        _, root, _ = await get(f"{BASE}/")
         if "auth/logout" not in root:
             print("[!] 비로그인 상태 - login-academy.py로 쿠키를 먼저 갱신하세요.")
             return
@@ -80,7 +80,7 @@ async def main():
             skip = {"auth", "accounts", "page", "catalog", "paths", "plans", "courses", "lessons"}
             courses = sorted(set(m for m in re.findall(r'href="/([a-z0-9][a-z0-9-]+)/?"', root) if m not in skip))
         for course in courses:
-            _, ch = await get(f"{BASE}/{course}")
+            _, ch, _ = await get(f"{BASE}/{course}")
             ids = sorted(set(i for i in re.findall(rf"/{re.escape(course)}/(\d+)", ch) if len(i) >= 5), key=int)
             titles = {}
             for item in BeautifulSoup(ch, "html.parser").select("li[data-url]"):
@@ -97,17 +97,24 @@ async def main():
                     if m:
                         by_source[m.group(1)] = path
             lres = await asyncio.gather(*[get(f"{BASE}/{course}/{lid}") for lid in ids])
-            bodies = {u: extract(h) for u, h in lres}
+            bodies = {u: (extract(h), final) for u, h, final in lres}
             changed = 0
             for n, lid in enumerate(ids, 1):
                 u = f"{BASE}/{course}/{lid}"
-                ltitle, b = bodies.get(u, ("", ""))
+                (ltitle, b), final = bodies.get(u, (("", ""), ""))
+                title = slug(titles.get(lid) or ltitle) if titles.get(lid) or ltitle else lid
+                path = by_source.get(u, cdir / f"{n:02d}-{title}.md")
+                if final and urlsplit(final).path.rstrip("/") != urlsplit(u).path.rstrip("/"):
+                    cdir.mkdir(parents=True, exist_ok=True)
+                    if not path.exists():
+                        label = titles.get(lid) or ltitle or f"Lesson {lid}"
+                        path.write_text(f"<!-- {u} -->\n\n# {label}\n\n_(등록 또는 권한이 필요한 레슨)_\n", encoding="utf-8")
+                        changed += 1
+                    continue
                 # 영상 레슨은 본문 컨테이너에 placeholder가 잡혀 50자 필터를 통과한다 -> 마커로 스킵
                 if len(b) < 50 or "This video is still being processed" in b or "Skilljar is a learning management system that hosts our educational content" in b:
                     continue
-                title = slug(titles.get(lid) or ltitle) if titles.get(lid) or ltitle else lid
                 cdir.mkdir(parents=True, exist_ok=True)
-                path = by_source.get(u, cdir / f"{n:02d}-{title}.md")
                 existing = path.read_text(encoding="utf-8") if path.exists() else ""
                 tail = re.search(r"\n<!-- (?:youtube|vimeo|jwplayer(?:-srt)?): .*\Z", existing, re.S)
                 preserved = tail.group(0).rstrip() if tail else ""

@@ -18,7 +18,7 @@ if [ "$#" -gt 1 ]; then
   exit 2
 fi
 
-SKILL_DIR=$(cd "$(dirname "$0")/.." && pwd)
+SKILL_DIR=$(cd "$(dirname "$0")/.." && pwd -P)
 REPO_ROOT=$(git -C "$SKILL_DIR" rev-parse --show-toplevel)
 CRAWL4AI_PYTHON=${CRAWL4AI_PYTHON:-"$HOME/.local/share/uv/tools/crawl4ai/bin/python"}
 CRAWL_SCRIPTS_DIR=${CRAWL_SCRIPTS_DIR:-"$HOME/.agents/skills/shared/crawl/scripts"}
@@ -66,6 +66,7 @@ done
 require_file "$YOUTUBE_DIGEST_SCRIPTS_DIR/extract_transcript.sh"
 require_file "$YOUTUBE_DIGEST_SCRIPTS_DIR/srt-to-md.sh"
 require_file "$HOME/.crawl4ai/academy_state.json"
+require_file "$HOME/.crawl4ai/skilljar-anthropic-partners.skilljar.com.json"
 
 if ! command -v yt-dlp >/dev/null; then
   echo "Missing required command: yt-dlp" >&2
@@ -91,9 +92,13 @@ fi
 cd "$REPO_ROOT"
 "$CRAWL4AI_PYTHON" "$SKILL_DIR/scripts/crawl-site.py" .
 "$CRAWL4AI_PYTHON" "$SKILL_DIR/scripts/academy-video.py" .
+SKILLJAR_BASE=https://anthropic-partners.skilljar.com \
+SKILLJAR_SKIP_HOST=anthropic.skilljar.com \
+  "$CRAWL4AI_PYTHON" "$SKILL_DIR/scripts/academy-video.py" .
 python3 "$CRAWL_SCRIPTS_DIR/youtube-channels.py" . \
   anthropic-ai:UCrDwWp7EBBv4NwvScIpBDOA \
-  claude:UCV03SRZXJEz-hchIAogeJOg
+  claude:UCV03SRZXJEz-hchIAogeJOg \
+  --tabs=videos,shorts,streams
 python3 "$CRAWL_SCRIPTS_DIR/extract-images.py" .
 bash "$CRAWL_SCRIPTS_DIR/youtube-transcripts.sh" . \
   --exclude '*.skilljar.com/**' \
