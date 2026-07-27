@@ -42,13 +42,29 @@ EXTRACT = os.path.join(YOUTUBE_DIGEST_SCRIPTS_DIR, "extract_transcript.sh")
 STATE_FILE = ".anthropic-mirror-state.json"
 
 
-def expired_session(cookies, now=None):
-    """저장된 sj_sessionid가 모두 만료됐는가. 만료 시각이 없는 세션 쿠키는 유효로 본다."""
-    now = time.time() if now is None else now
-    sess = [c for c in cookies if c.get("name") == "sj_sessionid"]
-    if not sess:
-        return True
-    return all(0 < c.get("expires", -1) < now for c in sess)
+def anonymous_landing(final_url):
+    """/accounts/ 요청이 로그인 페이지로 끝났는가(= 비로그인)."""
+    return "/accounts/login" in (final_url or "")
+
+
+def signed_in(ck):
+    """실제 로그인 여부.
+
+    sj_sessionid는 익명 세션에도 발급되고, 루트 HTML의 'auth/logout' 문자열은
+    로그아웃 상태에도 남아 있다. 둘 중 어느 것으로 판정해도 비로그인 세션이 통과하며,
+    그 상태로 수집하면 모든 레슨이 코스 랜딩으로 튕겨 소개글이 본문으로 저장된다.
+    """
+    try:
+        r = httpx.get(
+            f"{BASE}/accounts/",
+            cookies=ck,
+            headers={"User-Agent": UA},
+            follow_redirects=True,
+            timeout=25,
+        )
+    except Exception:
+        return False
+    return not anonymous_landing(str(r.url))
 
 
 def slug(t):
@@ -298,12 +314,11 @@ async def main():
         assert unseen_refs("<!-- youtube: ABCDEFGHIJK -->", refs) == [
             ("yt", "1234567890_")
         ]
-        assert expired_session([{"name": "sj_sessionid", "expires": 1000}], now=2000)
-        assert not expired_session(
-            [{"name": "sj_sessionid", "expires": 3000}], now=2000
+        assert anonymous_landing(
+            "https://anthropic.skilljar.com/accounts/login/?next=/"
         )
-        assert not expired_session([{"name": "sj_sessionid", "expires": -1}], now=2000)
-        assert expired_session([{"name": "sj_csrftoken", "expires": 3000}], now=2000)
+        assert not anonymous_landing("https://anthropic.skilljar.com/accounts/")
+        assert not anonymous_landing("")
         assert urlsplit("https://x/course/123").path.rstrip("/") == urlsplit(
             "https://x/course/123/"
         ).path.rstrip("/")
@@ -325,10 +340,13 @@ async def main():
         for c in auth_state["cookies"]
         if "skilljar" in c.get("domain", "")
     }
-    if expired_session(auth_state["cookies"]):
-        # 만료 세션에서는 모든 레슨이 코스 랜딩으로 튕겨 전 코스가 gated로만 기록된다.
-        # 루트의 'auth/logout' 문자열은 만료 뒤에도 남아 있어 로그인 판정에 쓸 수 없다.
-        print("[!] sj_sessionid 만료 - login-academy.py로 재로그인하세요.", flush=True)
+    # 코스를 인자로 넘기면 아래 카탈로그 분기를 타지 않으므로 로그인 확인은 여기서 무조건 한다.
+    if not signed_in(ck):
+        print(
+            "[!] 비로그인 상태 - login-academy.py로 로그인하세요. "
+            "이 상태로 진행하면 모든 레슨이 코스 랜딩으로 튕겨 소개글이 본문으로 저장됩니다.",
+            flush=True,
+        )
         return
     if not courses:
         catalogs = [
@@ -341,9 +359,6 @@ async def main():
             ).text
             for path in ("/", "/page/all-courses")
         ]
-        if "auth/logout" not in catalogs[0]:
-            print("[!] 비로그인 상태 - login-academy.py로 쿠키를 먼저 갱신하세요.")
-            return
         skip = {
             "auth",
             "accounts",

@@ -20,7 +20,7 @@ skilljar 레슨 페이지는 1MB로 무거워 브라우저 크롤이 페이지�
   출력: <out_dir>/anthropic.skilljar.com/<course>/<NN>-<title>.md (레슨별, A 트랙과 같은 도메인 트리)
 """
 
-import asyncio, json, os, re, sys, time
+import asyncio, json, os, re, sys
 from pathlib import Path
 from urllib.parse import urlsplit
 import httpx
@@ -90,14 +90,12 @@ async def main():
                     return u, "", ""
 
         _, root, _ = await get(f"{BASE}/")
-        if "auth/logout" not in root:
-            print("[!] 비로그인 상태 - login-academy.py로 쿠키를 먼저 갱신하세요.")
-            return
-        sess = [c for c in state["cookies"] if c.get("name") == "sj_sessionid"]
-        if not sess or all(0 < c.get("expires", -1) < time.time() for c in sess):
-            # 만료 세션은 전 레슨을 코스 랜딩으로 튕겨 gated placeholder만 남긴다.
-            # 루트의 'auth/logout' 문자열은 만료 뒤에도 남아 있어 판별에 쓸 수 없다.
-            print("[!] sj_sessionid 만료 - login-academy.py로 재로그인하세요.")
+        # 로그인 판정은 /accounts/ 착지점으로 한다. sj_sessionid는 익명 세션에도 발급되고
+        # 루트의 'auth/logout' 문자열도 로그아웃 상태에 남아 있어 둘 다 판별에 못 쓴다.
+        # 비로그인으로 진행하면 전 레슨이 코스 랜딩으로 튕겨 소개글이 본문으로 저장된다.
+        _, _, acct = await get(f"{BASE}/accounts/")
+        if "/accounts/login" in acct or not acct:
+            print("[!] 비로그인 상태 - login-academy.py로 로그인하세요.")
             return
         if not courses:
             skip = {

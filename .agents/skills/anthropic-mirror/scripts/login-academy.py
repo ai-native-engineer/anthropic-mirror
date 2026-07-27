@@ -11,6 +11,7 @@ SKILLJAR_BASE 환경변수로 지정한다. 프로필·STATE는 도메인별로 
 실행: python3 login-academy.py   (헤드풀 브라우저가 떠야 하므로 사용자 터미널에서 직접)
   SKILLJAR_BASE=https://anthropic-partners.skilljar.com python3 login-academy.py  (파트너 포털)
 """
+
 import asyncio, os
 from playwright.async_api import async_playwright
 
@@ -19,19 +20,30 @@ _HOST = BASE.split("://")[-1]
 # 기본 도메인은 기존 경로 유지(하위호환), 그 외는 도메인별 파일로 분리
 _TAG = "anthropic-academy" if _HOST == "anthropic.skilljar.com" else _HOST
 PROFILE = os.path.expanduser(f"~/.crawl4ai/profiles/{_TAG}")
-STATE = os.path.expanduser("~/.crawl4ai/academy_state.json" if _HOST == "anthropic.skilljar.com"
-                           else f"~/.crawl4ai/skilljar-{_HOST}.json")
+STATE = os.path.expanduser(
+    "~/.crawl4ai/academy_state.json"
+    if _HOST == "anthropic.skilljar.com"
+    else f"~/.crawl4ai/skilljar-{_HOST}.json"
+)
 LOGIN = f"{BASE}/auth/login"
-CHECK = f"{BASE}/"  # 도메인마다 코스 슬러그가 달라 루트로 확인(로그인 판정은 sj_ 쿠키로)
+CHECK = (
+    f"{BASE}/"  # 도메인마다 코스 슬러그가 달라 루트로 확인(로그인 판정은 sj_ 쿠키로)
+)
 
 
 async def main():
     os.makedirs(PROFILE, exist_ok=True)
     async with async_playwright() as p:
         ctx = await p.chromium.launch_persistent_context(
-            PROFILE, headless=False,
-            args=["--password-store=basic", "--disable-blink-features=AutomationControlled",
-                  "--no-first-run", "--no-default-browser-check"])
+            PROFILE,
+            headless=False,
+            args=[
+                "--password-store=basic",
+                "--disable-blink-features=AutomationControlled",
+                "--no-first-run",
+                "--no-default-browser-check",
+            ],
+        )
         page = ctx.pages[0] if ctx.pages else await ctx.new_page()
         await page.goto(LOGIN)
         print("=" * 56)
@@ -48,13 +60,28 @@ async def main():
             await page.wait_for_timeout(3000)
         except Exception:
             pass
-        cookies = await ctx.cookies()
-        auth = [c["name"] for c in cookies if "skilljar" in c["domain"] and c["name"].startswith("sj_")]
+        # 로그인 판정은 /accounts/ 착지점으로 한다. sj_sessionid는 익명 세션에도 발급되고
+        # 루트 HTML의 'auth/logout' 문자열도 로그아웃 상태에 남아 있어, 둘 다 쓰면
+        # 로그인하지 않은 세션이 '성공'으로 저장된다(그 상태로 수집하면 레슨 본문이
+        # 코스 소개글로 덮인다).
+        signed_in = False
+        try:
+            await page.goto(f"{BASE}/accounts/", wait_until="domcontentloaded")
+            await page.wait_for_timeout(2000)
+            signed_in = "/accounts/login" not in page.url
+        except Exception:
+            pass
         await ctx.storage_state(path=STATE)
-        if auth:
-            print(f" [OK] 로그인 성공. 인증 쿠키 {auth}. 쿠키 저장 -> {STATE}")
+        if signed_in:
+            print(f" [OK] 로그인 확인. 쿠키 저장 -> {STATE}")
         else:
-            print(" [!] sj_ 인증 쿠키 없음 - 로그인이 완료되지 않았습니다. 다시 실행하세요.")
+            print(" [!] 로그인되지 않았습니다(/accounts/ 가 로그인 페이지로 이동).")
+            print(
+                "     브라우저에서 로그인을 끝낸 뒤 터미널에서 Enter를 눌러야 합니다."
+            )
+            print(
+                "     이 스크립트를 백그라운드로 실행하면 Enter가 EOF로 들어가 로그인 전에 저장됩니다."
+            )
         await ctx.close()
 
 
