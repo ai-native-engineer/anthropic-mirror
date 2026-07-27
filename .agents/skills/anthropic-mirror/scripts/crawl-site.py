@@ -525,6 +525,8 @@ def main():
 
     # 1) HTML sitemaps (curl_cffi + bs4)
     for sm, keep in HTML_SITEMAPS:
+        if a.only and a.only not in urlsplit(sm).netloc:
+            continue
         discovered = sitemap_urls(sm) | known.get(urlsplit(sm).netloc, set())
         urls = todo([u for u in discovered if keep(u)])[:max(0, budget - scanned)]
         if not urls:
@@ -537,6 +539,8 @@ def main():
     for dsm in DOCS_SITEMAPS:
         if scanned >= budget:
             break
+        if a.only and a.only not in urlsplit(dsm).netloc:
+            continue
         discovered = sitemap_urls(dsm) | known.get(urlsplit(dsm).netloc, set())
         durls = todo([u for u in discovered if is_docs_en(u)])[:max(0, budget - scanned)]
         if not durls:
@@ -549,6 +553,8 @@ def main():
     for base, dom, depth in DISCOVER:
         if scanned >= budget:
             break
+        if a.only and a.only not in dom:
+            continue
         urls = todo(list(discover(base, dom, depth) | known.get(dom, set())))[:max(0, budget - scanned)]
         if not urls:
             continue
@@ -557,14 +563,15 @@ def main():
         n, c, b = flush(p, a.out, state, a.force); scanned += n; changed += c; baselined += b; fails += f; empties += e; stale += s
 
     # 4) 루트가 다른 곳으로 redirect하는 공개 리소스 host는 보관 문서의 outbound link에서 발견한다.
-    linked = todo(linked_urls(a.out, LINKED_HOSTS) | set().union(*(known.get(h, set()) for h in LINKED_HOSTS)))
+    linked_hosts = {h for h in LINKED_HOSTS if not a.only or a.only in h}
+    linked = todo(linked_urls(a.out, linked_hosts) | set().union(*(known.get(h, set()) for h in linked_hosts))) if linked_hosts else []
     if linked and scanned < budget:
         print(f"[linked hosts] {len(linked)} 크롤", flush=True)
         p, f, e, s = crawl(linked[:max(0, budget - scanned)], fetch_html, a.concurrency)
         n, c, b = flush(p, a.out, state, a.force); scanned += n; changed += c; baselined += b; fails += f; empties += e; stale += s
 
     # 5) SafeBase SPA (playwright 보강)
-    spa = todo(SPA_PAGES)
+    spa = todo(SPA_PAGES) if not a.only or a.only in "trust.anthropic.com" else []
     if spa and scanned < budget:
         print(f"[SPA] {len(spa)} playwright 보강", flush=True)
         n, c, seeded = flush(spa_rescue(spa), a.out, state, a.force); scanned += n; changed += c; baselined += seeded
