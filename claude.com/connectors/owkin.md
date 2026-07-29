@@ -10,6 +10,7 @@ Interact with AI agents built for biology
 * Used in
 
   [Claude](https://claude.ai/directory/bd022b03-2829-47df-b07f-b50c3541c932)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-owkin-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Owkin](https://www.owkin.com/)
 
@@ -28,19 +29,19 @@ Owkin builds AI agents for biology to accelerate drug discovery and de-risk clin
 
 You can use Owkin to:
 
-**Refine Patient Stratification:  
+**Refine Patient Stratification:
 ‍**"I'm looking for Lung Adenocarcinoma patients that might be resistant to immunotherapy. Are there cases with low immune infiltration in the TCGA cohort?"
 
-**Visualize Whole-Slide Images:  
+**Visualize Whole-Slide Images:
 ‍**"Find the slide most enriched in eosinophils from cohort TCGA\_BRCA and plot it."
 
-**Assess Prognostic Value of H&E Based Markers:  
+**Assess Prognostic Value of H&E Based Markers:
 ‍**"Is the density of plasmocytes associated with overall survival in bladder carcinoma?"
 
-**Extract Quantitative Evidence for Reproducibility:  
+**Extract Quantitative Evidence for Reproducibility:
 ‍**"Export the breakdown of all cell types for patient TCGA-A2-A0YI-01Z-00-DX1.1CF2EC2D-C722-467F-8832-409B823E8D8F.svs in parquet format, so I can reproduce this analysis."
 
-**Understand Pathology Explorer Capabilities:  
+**Understand Pathology Explorer Capabilities:
 ‍**"Can you provide an overview of the Pathology Explorer tool and its capabilities?"
 
 ## Related connectors
@@ -57,7 +58,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -71,7 +72,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Life sciences and healthcare
 
@@ -85,7 +86,7 @@ February 11, 2026
 
 ### Benchling
 
-Connect to R&D data, source experiments, and notebooks](/connectors/benchling)
+Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
 
 Life sciences and healthcare
 
@@ -93,10 +94,10 @@ Claude
 
 Claude Code
 
-February 11, 2026
+June 30, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe5cecad201acb193aa2_BioRender.jpg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43716940e4a2c2f530fb2c_biomni.jpeg)
 
-### BioRender
+### Biomni Lab
 
-Search for and use scientific templates and icons](/connectors/biorender)
+Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)

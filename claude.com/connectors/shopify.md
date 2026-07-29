@@ -10,6 +10,7 @@ Build, manage, and analyze your Shopify store
 * Used in
 
   [Claude](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Shopify](https://www.shopify.com/)
 
@@ -28,19 +29,19 @@ Shopify for Claude makes store management as easy as having a conversation. Effo
 
 You can use Shopify to:
 
-**Add and update products:**  
+**Add and update products:**
 "Create a new product called 'Linen Throw Blanket' at $89, upload this image, and add it to the Home Goods collection."
 
-**Manage inventory across locations:**  
+**Manage inventory across locations:**
 "Set inventory for SKU LTB-001 to 40 units at the Warehouse location and 12 at the Retail store."
 
-**Launch a promo in seconds:**  
+**Launch a promo in seconds:**
 "Create a 15% off discount code SPRING15 that applies to the Spring collection and expires May 31."
 
-**Check on orders and customers:**  
+**Check on orders and customers:**
 "List today's unfulfilled orders over $100 and show the customer name and shipping city for each."
 
-**Pull store performance:**  
+**Pull store performance:**
 "Run an analytics query for total sales and conversion rate by week over the last 30 days."
 
 ## Related connectors
@@ -53,11 +54,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -71,7 +72,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -81,11 +82,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -95,8 +96,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

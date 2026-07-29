@@ -6,8 +6,6 @@
 
 How to turn your manual checks into skills, so Claude closes its own feedback loop.
 
-* Category
-
   [Claude Code](https://claude.com/blog/category/claude-code)
 * Product
 

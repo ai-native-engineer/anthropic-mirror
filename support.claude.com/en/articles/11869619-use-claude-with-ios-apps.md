@@ -2,7 +2,7 @@
 
 # Use Claude with iOS apps
 
-May 21, 2026
+Updated this week
 
 Claude can now connect with your iOS device's system apps to help you take action directly from your conversations. When you chat with Claude, it can draft messages, emails, or calendar events, find locations, manage reminders, and analyze your health and fitness data — all seamlessly integrated with your mobile apps.
 
@@ -32,9 +32,7 @@ Claude can help you:
 
 When Claude determines that using one of these features would be helpful, it will automatically suggest it. You'll see a card or prompt within your conversation that lets you review and take action with Claude’s help.
 
-**Note:** Most functionality described below is not compatible with our voice mode beta feature at this time. For more information, see **[Use voice mode](https://support.claude.com/en/articles/11101966-)**.
-
-### Sending texts and emails with Messages and Mail
+### Send texts and emails with Messages and Mail
 
 1. Ask Claude to help draft a message or email (for example: "Help me write a text to my team about tomorrow's meeting").
 2. Claude will prepare the message and show you a preview.
@@ -46,7 +44,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 **Example:** "Draft an email to my manager explaining that I'll be late to the morning meeting due to a doctor's appointment."
 
-### Using location for contextual suggestions
+### Use location for contextual suggestions
 
 1. Ask Claude for location-based recommendations (for example: "What's nearby for dinner?").
 2. Claude will request access to your location if not already granted.
@@ -55,7 +53,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 **Example:** "Find good restaurants near me that are open now."
 
-### Displaying locations with Maps
+### Display locations with Maps
 
 1. When Claude suggests locations, they can be displayed on an interactive map.
 2. Tap on any location to see more details.
@@ -64,7 +62,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 **Example:** "Show me coffee shops within walking distance on a map."
 
-### Managing your calendar
+### Manage your calendar
 
 1. Ask Claude to check your schedule or create events.
 2. Claude will request calendar access if not already granted.
@@ -78,7 +76,7 @@ When Claude determines that using one of these features would be helpful, it wil
 * "Schedule a dentist appointment for next Friday at 10 AM."
 * "Add a weekly team standup every Monday at 9 AM."
 
-### Creating and managing reminders
+### Create and manage reminders
 
 1. Ask Claude to create reminders or add items to lists.
 2. Claude will request Reminders access if not already granted.
@@ -94,7 +92,7 @@ When Claude determines that using one of these features would be helpful, it wil
 
 Note that when Claude uses tools to take these actions, their use is preserved in the conversation history in the same way as any tool.
 
-## Accessing and analyzing your health data
+## Access and analyze your health data
 
 **Note:** Health features are available in beta on Pro and Max plans only, and currently limited to users in the US.
 
@@ -210,4 +208,8 @@ Claude will only request permissions if needed for specific features, and you ca
 
 **Need more help?** If you're experiencing issues with these features, try restarting Claude for iOS or **[updating to the latest version from the App Store](https://support.claude.com/en/articles/11825384-)**.
 
-[Install Claude for iOS](https://support.claude.com/en/articles/9266462-install-claude-for-ios)[Using Claude App Intents, Shortcuts, and Widgets on iOS](https://support.claude.com/en/articles/10263469-using-claude-app-intents-shortcuts-and-widgets-on-ios)[How to update Claude for iOS](https://support.claude.com/en/articles/11825384-how-to-update-claude-for-ios)[Use Claude with Android apps](https://support.claude.com/en/articles/11869629-use-claude-with-android-apps)[Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)
+* [Install Claude for iOS](https://support.claude.com/en/articles/9266462-install-claude-for-ios)
+* [Use Claude app intents, shortcuts, and widgets on iOS](https://support.claude.com/en/articles/10263469-use-claude-app-intents-shortcuts-and-widgets-on-ios)
+* [How to update Claude for iOS](https://support.claude.com/en/articles/11825384-how-to-update-claude-for-ios)
+* [Use Claude with Android apps](https://support.claude.com/en/articles/11869629-use-claude-with-android-apps)
+* [Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)

@@ -41,13 +41,13 @@ Enable connectors from the **Customize** panel in the left sidebar. Authorize on
 
 Instructions are standing rules you write for how Claude should work — tone, formatting, which sources to check first, conventions to follow. Set them at two levels:
 
-**1. Global instructions** apply to every Cowork session you run.   
+**1. Global instructions** apply to every Cowork session you run.
 *Edit them at Settings → Cowork → Global instructions (desktop app only).*
 
-**2. Project instructions** apply only inside that Project, on top of your global ones.   
+**2. Project instructions** apply only inside that Project, on top of your global ones.
 *Edit them in the* [*Project's*](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) *right panel under Instructions.*
 
-**3. Organization instructions:** For enterprise users, your admin may also set Organization preferences.   
+**3. Organization instructions:** For enterprise users, your admin may also set Organization preferences.
 This is org-wide guidance that applies across Chat, Cowork, and Code alongside your own instructions.
 
 Instructions apply to every task — they're like the background rules Claude follows regardless of what you're working on. A Skill is for one specific kind of task, loads only when relevant, and can be shared with teammates. General rules go in Instructions; a repeatable process goes in a Skill.
@@ -60,8 +60,8 @@ Instructions apply to every task — they're like the background rules Claude fo
 
 [To use a skill](https://support.claude.com/en/articles/12512180-use-skills-in-claude), name it directly (`/skill-name`) or describe the task in plain language. Claude can recognize when a skill applies and load it.
 
-[Creating a skill](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills) can also be done with Claude in a prompt. Run through a workflow in Cowork the way you normally would. At the end of the work, ask Claude: `Package what we just did into a skill.`  
-‍  
+[Creating a skill](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills) can also be done with Claude in a prompt. Run through a workflow in Cowork the way you normally would. At the end of the work, ask Claude: `Package what we just did into a skill.`
+‍
 The built-in skill-creator captures the steps, templates, and source locations so the next run is one prompt. [Create your first skill in Cowork](https://claude.ai/desktop/cowork/new?q=Walk%20me%20through%20creating%20my%20first%20Skill.%20Ask%20me%20about%20a%20task%20I%20repeat%20every%20week%2C%20then%20help%20me%20capture%20it.).
 
 ## Level 3: Bundle and share
@@ -107,34 +107,34 @@ For more on working in Cowork:
 
 ## Related tutorials
 
-[Tasks to try with @Claude in your workspace](/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tasks to try with @Claude in your workspace
+[Delegating and scheduling tasks in Claude Cowork](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Delegating and scheduling tasks in Claude Cowork
+
+Delegating and scheduling tasks in Claude Cowork
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Tutorial
+
+[Tasks to try with @Claude in your workspace](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tasks to try with @Claude in your workspace
 
 Tasks to try with @Claude in your workspace
 
 Tutorial
 
-[Tutorial](/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tutorial
 
-[Best practices for using @Claude](/resources/tutorials/best-practices-using-claude-tag)Best practices for using @Claude
+[Best practices for using @Claude](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Best practices for using @Claude
 
 Best practices for using @Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/best-practices-using-claude-tag)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Tutorial
 
-[Using Claude Cowork for legal: answer fast questions on past decisions](/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Using Claude Cowork for legal: answer fast questions on past decisions
+[Using Claude Cowork for legal: answer fast questions on past decisions](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Using Claude Cowork for legal: answer fast questions on past decisions
 
 Using Claude Cowork for legal: answer fast questions on past decisions
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial
-
-[Using Claude Cowork for marketing ops: run a weekly review that preps itself](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Tutorial
-
-[Tutorial](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial

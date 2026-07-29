@@ -8,6 +8,8 @@ The Anthropic Economic Futures Research Fund supports ambitious external researc
 
 With the research the Fund supports, we want to study what programs could make the economy more flexible and resilient, ensure the benefits of AI are shared, and minimize the harm that AI-driven disruption could cause.
 
+[Read more](https://www.anthropic.com/news/economic-futures-research-fund-agenda)
+
 ![A research agenda for the Economic Futures Research Fund](https://www-cdn.anthropic.com/images/4zrzovbb/website/1dee16ed8ebe3e7bdf82ed8b4186373cf882827c-2000x1125.jpg)
 
 ## Latest updates
@@ -48,6 +50,12 @@ DateCategoryTitle
   The Anthropic Economic Index](https://www.anthropic.com/news/the-anthropic-economic-index)
 
 ## Announcements
+
+### A research agenda for the Economic Futures Research Fund
+
+We’re sharing the research agenda for the Anthropic Economic Futures Research Fund.
+
+[Read more](https://www.anthropic.com/news/economic-futures-research-fund-agenda)
 
 ### Economic Futures Symposium Proposals
 

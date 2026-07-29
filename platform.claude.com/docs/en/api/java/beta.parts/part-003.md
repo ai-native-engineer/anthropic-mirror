@@ -1,6 +1,8 @@
+<!-- source: https://platform.claude.com/docs/en/api/java/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/java/beta -->
 
 <!-- chunk-start -->
+
     - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
 
     - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`

@@ -2,9 +2,7 @@
 
 # Use Claude in Chrome safely
 
-Updated today
-
-Table of contents
+Updated over a week ago
 
 This article explains the risks of using Claude in Chrome and provides best practices for protecting yourself and your data.
 
@@ -32,8 +30,6 @@ To see a page and decide what to do next, Claude takes screenshots of the tabs i
 
 Claude in Chrome isn't available to organizations covered by HIPAA, and we recommend against using it on pages that contain regulated data.
 
----
-
 ## Our safety measures
 
 We've implemented multiple layers of protection:
@@ -59,9 +55,7 @@ For your safety, Claude cannot access sensitive, high-risk sites such as:
 
 Claude asks for permission before accessing financial sites.
 
-It’s unlikely that we’ve captured all sites in these categories, so please report any omissions to [[email protected]](/cdn-cgi/l/email-protection#9feaecfaedecfef9faebe6dffef1ebf7edf0eff6fcb1fcf0f2).
-
----
+It’s unlikely that we’ve captured all sites in these categories, so please report any omissions to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#7e0b0d1b0c0d1f181b0a073e1f100a160c110e171d501d1113).
 
 ## Protecting yourself from malicious attackers
 
@@ -83,6 +77,8 @@ When you open the Claude side panel, Claude takes screenshots of your active bro
 * Inputting sensitive data
 * Gathering or scraping facial images
 
+**Note:** With 1Password for Claude, Claude can complete tasks that require signing in without handling the credential itself. 1Password fills the login directly, and your passwords and one-time codes never enter Claude's context. See **[Get started with 1Password for Claude](https://support.claude.com/en/articles/15936181)**.
+
 ### Recommendations
 
 * Use a separate browser profile without access to sensitive accounts (such as banking, healthcare, government).
@@ -102,8 +98,6 @@ We strongly advise against using Claude in Chrome to manage or take actions on s
 
 Claude in Chrome isn’t available for HIPAA orgs, and we recommend against using Claude in Chrome on pages with regulated data generally. As a best practice, don't open the extension while viewing sensitive info, and consider using a separate browser profile.
 
----
-
 ## Your responsibility
 
 You remain responsible for all browser actions taken by Claude performed on your behalf. This includes:
@@ -114,8 +108,6 @@ You remain responsible for all browser actions taken by Claude performed on your
 * Respecting third-party website terms of service, including any restrictions on automated access
 
 For more information about using AI agents safely, please review our **[Acceptable Use Policy for Agents](https://support.claude.com/en/articles/12005017-using-agents-according-to-our-usage-policy)**.
-
----
 
 ## For Team and Enterprise users
 
@@ -128,14 +120,8 @@ These controls add an extra layer of protection beyond Claude's default safeguar
 
 For admin documentation, see **[Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-for-chrome-admin-controls)**.
 
----
-
-Related Articles
-
-[Claude in Chrome troubleshooting](https://support.claude.com/en/articles/12902405-claude-in-chrome-troubleshooting)[Claude in Chrome permissions guide](https://support.claude.com/en/articles/12902446-claude-in-chrome-permissions-guide)[Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)[Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)[Let Claude use your computer in Cowork](https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork)
-
-Did this answer your question?
-
-😞😐😃
-
-Table of contents
+* [Claude in Chrome troubleshooting](https://support.claude.com/en/articles/12902405-claude-in-chrome-troubleshooting)
+* [Claude in Chrome permissions guide](https://support.claude.com/en/articles/12902446-claude-in-chrome-permissions-guide)
+* [Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)
+* [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
+* [Let Claude use your computer in Cowork](https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork)

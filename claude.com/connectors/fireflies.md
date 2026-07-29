@@ -10,6 +10,7 @@ Analyze and generate insights from meeting transcripts
 * Used in
 
   [Claude](https://claude.ai/directory/839a0ae2-0c0f-4c27-9f85-726ed6515536)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Firefiles](https://fireflies.ai)
 
@@ -22,19 +23,19 @@ Analyze and generate insights from meeting transcripts
   Read
 * More
 
-  [Documentation](https://guide.fireflies.ai/articles/8272956938-learn-about-the-fireflies-mcp-server-model-context-protocol)[Privacy Policy](https://fireflies.ai/privacy_policy.pdf)[support@fireflies.ai](mailto:support@fireflies.ai)
+  [Documentation](https://guide.fireflies.ai/articles/8272956938-learn-about-the-fireflies-mcp-server-model-context-protocol)[Privacy Policy](https://fireflies.ai/privacy_policy.pdf)[Support](mailto:support@fireflies.ai)
 
 Extract valuable insights from meeting transcripts and summaries.
 
-You can use the Fireflies connector to:  
-  
-Review meeting decisions:  
+You can use the Fireflies connector to:
+
+Review meeting decisions:
 "What decisions were made in yesterday's product strategy meeting?"
 
-Identify client concerns:  
+Identify client concerns:
 "Identify any red flags or satisfaction concerns mentioned in client calls this week"
 
-Extract feature requests:  
+Extract feature requests:
 "Extract feature requests from all user interviews conducted in the last 5 days"
 
 ## Related connectors
@@ -53,7 +54,7 @@ February 11, 2026
 
 ### Asana
 
-Connect to Asana to coordinate tasks, projects, and goals](/connectors/asana)
+Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)
 
 Communication
 
@@ -63,11 +64,11 @@ Claude
 
 February 21, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696323e2a1aaf767a84b4ebc_circleback.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dd9120cb996c95c73b28_icon_Circleback.jpg)
 
 ### Circleback
 
-Search and access context from meetings](/connectors/circleback)
+Search and access context from meetings](https://claude.com/connectors/circleback)
 
 Productivity
 
@@ -81,7 +82,7 @@ May 1, 2026
 
 ### Computer by DevRev
 
-Manage your workspace, issues, tickets, customers, and more without leaving Claude.](/connectors/devrev)
+Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
 
 Communication
 
@@ -93,4 +94,4 @@ January 26, 2026
 
 ### Fellow.ai
 
-Chat with your meetings to uncover actionable insights](/connectors/fellow-ai)
+Chat with your meetings to uncover actionable insights](https://claude.com/connectors/fellow-ai)

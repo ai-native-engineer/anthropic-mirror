@@ -12,6 +12,7 @@ Access the CMS Coverage Database
 * Used in
 
   [Claude](https://claude.ai/directory/2526be5d-ad2a-4441-9a4f-f728812631bf)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-cms-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Anthropic](https://anthropic.com)
 
@@ -36,8 +37,8 @@ You can use the CMS Coverage connector to:
 
 **Stay Current on Policy Changes:** "Have there been any Medicare coverage changes in the last month that affect my practice?"
 
-**Review Local Coverage Policies:** "What are the LCD requirements for continuous glucose monitoring in my region?"  
-  
+**Review Local Coverage Policies:** "What are the LCD requirements for continuous glucose monitoring in my region?"
+
 Disclaimer: This server may return data governed by third-party license agreements, including those available [here](https://api.coverage.cms.gov/v1/metadata/license-agreement/). By connecting to this server, you understand and agree to abide by any applicable agreements.
 
 ## Related connectors
@@ -54,7 +55,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -68,7 +69,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Health and wellness
 
@@ -80,7 +81,7 @@ May 1, 2026
 
 ### AllTrails
 
-Find your next hike](/connectors/alltrails)
+Find your next hike](https://claude.com/connectors/alltrails)
 
 Health and wellness
 
@@ -94,4 +95,4 @@ May 26, 2026
 
 ### Alma
 
-Your nutrition data, inside every Claude conversation.](/connectors/alma)
+Your nutrition data, inside every Claude conversation.](https://claude.com/connectors/alma)

@@ -2,13 +2,11 @@
 
 # Microsoft 365 connector security guide
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
+
+The Microsoft 365 connector is an **Anthropic-hosted integration** that enables Claude to securely access Microsoft 365 services (Outlook, SharePoint, OneDrive, Teams) through user-delegated permissions. Anthropic has completed Microsoft's publisher verification process, associating our verified Microsoft Partner Network account with this application to confirm our organizational identity.
 
 The Microsoft 365 connector is available on all Claude plans: Free, Pro, Max, Team, and Enterprise.
-
-## What it is
-
-The Microsoft 365 Connector is an **Anthropic-hosted integration** that enables Claude to securely access Microsoft 365 services (Outlook, SharePoint, OneDrive, Teams) through user-delegated permissions. Anthropic has completed Microsoft's publisher verification process, associating our verified Microsoft Partner Network account with this application to confirm our organizational identity.
 
 The connector operates as a **secure proxy**, and your Microsoft 365 documents, emails, and files remain in your tenant. The connector only retrieves data on-demand during active queries and doesn’t cache file content. Credentials are encrypted and managed by Anthropic's backend infrastructure. The MCP server itself doesn’t store or manage these credentials. Microsoft's Azure SDK handles the On-Behalf-Of token exchange and caching on a per-user basis for accessing the Graph API.
 
@@ -58,7 +56,7 @@ The connector fully supports your existing Entra (Azure AD) policies:
 * Users can only access Microsoft 365 data **they already have permission** for
 * SharePoint search requires Sites.Read.All permission. Site-specific permissioning (using \*.Selected permissions) is not supported because the underlying search is tenant-wide.
 * Users cannot bypass SharePoint sharing settings or folder permissions.
-* Users cannot access other users' private files or emails. Users can search shared mailboxes they've been granted delegate access to in Microsoft 365, including full access and folder-level delegation. Shared mailbox access is read-only and uses the `Mail.Read.Shared` permission.
+* Users cannot access other users' private files or emails. Users can search shared mailboxes they've been granted delegate access to in Microsoft 365, including full access and folder-level delegation. Shared mailbox access remains read-only, via the `Mail.Read.Shared` permission.
 * Delegated permissions inherently respect Microsoft 365 data loss prevention (DLP) policies.
 
 **6. Token management**
@@ -93,7 +91,7 @@ The connector fully supports your existing Entra (Azure AD) policies:
 
 ## Available capabilities
 
-### Current features (read-only access)
+### Read and search tools
 
 The connector provides **read-only** access to:
 
@@ -107,6 +105,54 @@ The connector provides **read-only** access to:
 | `find_meeting_availability` | Find available meeting times | Calendars.Read |
 | `chat_message_search` | Search Teams chat messages | Chat.Read |
 | `read_resource` | Read files, emails, or chat by URI | Varies by resource type |
+
+### Write tools
+
+|  |  |  |
+| --- | --- | --- |
+| **Tool** | **Description** | **Required permission** |
+| `outlook_send_mail` | Send an email as the user | Mail.Send |
+| `outlook_forward_mail` | Forward an existing message | Mail.Send |
+| `outlook_send_draft` | Send an existing draft | Mail.Send |
+| `outlook_trash_thread` | Move a conversation to Deleted Items | Mail.ReadWrite |
+| `outlook_untrash_thread` | Restore a conversation from Deleted Items | Mail.ReadWrite |
+| `outlook_batch_delete_messages` | Move multiple messages to Deleted Items | Mail.ReadWrite |
+| `outlook_create_draft` | Create a draft email | Mail.ReadWrite |
+| `outlook_create_reply_draft` | Create a reply draft on a message | Mail.ReadWrite |
+| `outlook_create_reply_all_draft` | Create a reply-all draft on a message | Mail.ReadWrite |
+| `outlook_update_draft` | Update an existing draft | Mail.ReadWrite |
+| `outlook_delete_draft` | Move a draft to Deleted Items | Mail.ReadWrite |
+| `outlook_create_label` | Create a category in the master list | MailboxSettings.ReadWrite |
+| `outlook_update_label` | Rename or recolor a category | MailboxSettings.ReadWrite |
+| `outlook_delete_label` | Remove a category from the master list | MailboxSettings.ReadWrite |
+| `outlook_modify_labels` | Add/remove categories on one message | Mail.ReadWrite |
+| `outlook_modify_thread_labels` | Add/remove categories across a thread | Mail.ReadWrite |
+| `outlook_batch_modify_labels` | Add/remove categories on multiple messages | Mail.ReadWrite |
+| `outlook_create_event` | Create a calendar event | Calendars.ReadWrite |
+| `outlook_update_event` | Update an existing event | Calendars.ReadWrite |
+| `outlook_delete_event` | Delete a calendar event | Calendars.ReadWrite |
+| `outlook_respond_to_event` | Accept, decline, or tentatively accept an invitation | Calendars.ReadWrite |
+| `outlook_set_vacation` | Set the automatic-reply (out-of-office) message | MailboxSettings.ReadWrite |
+| `outlook_create_filter` | Create an inbox rule | MailboxSettings.ReadWrite |
+| `outlook_delete_filter` | Delete an inbox rule | MailboxSettings.ReadWrite |
+| `sharepoint_upload_file` | Create a new file in a library or folder | Files.ReadWrite.All |
+| `sharepoint_update_file` | Replace an existing file's content | Files.ReadWrite.All |
+| `sharepoint_create_folder` | Create a new folder | Files.ReadWrite.All |
+| `sharepoint_rename_item` | Rename a file or folder | Files.ReadWrite.All |
+| `sharepoint_move_item` | Move a file or folder | Files.ReadWrite.All |
+| `sharepoint_copy_item` | Copy a file or folder | Files.ReadWrite.All |
+| `sharepoint_delete_item` | Delete a file or folder (to recycle bin) | Files.ReadWrite.All |
+
+**Note:** “Always allow” is not supported for `outlook_send_email`, `outlook_forward_mail`, `outlook_send_draft`, `outlook_create_event`, or `outlook_update_event`.
+
+When an organization enables write tools, the connector also exposes write tools for sending and organizing email, managing drafts and calendar events, updating mailbox settings, and creating and updating files in OneDrive and SharePoint. Teams remains read-only.
+
+Write tools include the following built-in safeguards:
+
+* **Attribution:** Emails Claude sends include an attribution header identifying them as agent-initiated. File and calendar writes aren't currently tagged.
+* **Rate limits:** Per-user limits apply to writes, sends, and recipients.
+* **Attachment restriction:** Attachments aren't supported in any write tool—sending, forwarding, and drafting all reject messages with attachments.
+* **Blocked by default:** Organizations that used the connector before write tools launched have write tools blocked by default until an admin enables them.
 
 ## Permissions list
 
@@ -160,9 +206,19 @@ The connector provides **read-only** access to:
 
 * **[Sites.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#sitesreadall)** - Read items in all site collections
 
+**Write permissions**
+
+Requested as part of the updated consent set; used only when write tools are enabled:
+
+* **[Mail.Send](https://learn.microsoft.com/en-us/graph/permissions-reference#mailsend)** - Send and forward email
+* **[Mail.ReadWrite](https://learn.microsoft.com/en-us/graph/permissions-reference#mailreadwrite)** - Create, update, and delete drafts; move and label messages
+* **[Calendars.ReadWrite](https://learn.microsoft.com/en-us/graph/permissions-reference#calendarsreadwrite)** - Create, update, delete, and respond to calendar events
+* **[Files.ReadWrite.All](https://learn.microsoft.com/en-us/graph/permissions-reference#filesreadwriteall)** - Create and update files in OneDrive and SharePoint
+* **[MailboxSettings.ReadWrite](https://learn.microsoft.com/en-us/graph/permissions-reference#mailboxsettingsreadwrite)** - Manage categories, inbox rules, and automatic replies
+
 ## Current limitations
 
-* **No write capabilities**: Cannot send emails, schedule meetings, create/modify documents, or post Teams messages.
+* **Teams is read-only**: Claude can't post Teams messages or modify Teams settings. Other write tools require an admin to enable them.
 * **User-level access only**: Access with service principal authentication is not supported.
 
 ## Frequently asked questions
@@ -214,7 +270,11 @@ Anthropic has the following certifications:
 ## Additional resources
 
 * **[Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-)**
-* **[Connect Claude to Microsoft 365](https://support.claude.com/en/articles/12542951-)**
+* **[Connect Claude to Microsoft 365](https://support.claude.com/en/articles/15183774)**
 * **[Overview of Microsoft Graph permissions: Delegated permissions](https://learn.microsoft.com/en-us/graph/permissions-overview?tabs=http#delegated-permissions)**
 
-[Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)[Work across Microsoft 365 apps](https://support.claude.com/en/articles/13892150-work-across-microsoft-365-apps)[Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)[MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)[Connect to Microsoft 365](https://support.claude.com/en/articles/15183774-connect-to-microsoft-365)
+* [Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)
+* [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
+* [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
+* [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
+* [Connect to Microsoft 365](https://support.claude.com/en/articles/15183774-connect-to-microsoft-365)

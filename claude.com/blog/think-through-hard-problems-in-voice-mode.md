@@ -6,8 +6,6 @@
 
 Starting today, voice mode runs on Claude Opus, Claude Sonnet, and Claude Haiku, reaches the tools you’ve connected like Gmail and Slack, and speaks many more languages.
 
-* Category
-
   [Product announcements](https://claude.com/blog/category/announcements)
 * Product
 
@@ -111,6 +109,18 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
+
+Jul 28, 2026
+
+### Bringing MCP 2026-07-28 to Claude
+
+Product announcements
+
+[Bringing MCP 2026-07-28 to Claude](#)Bringing MCP 2026-07-28 to Claude
+
+[Bringing MCP 2026-07-28 to Claude](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)Bringing MCP 2026-07-28 to Claude
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a025cf25f0694905405e054_Object-Scale.svg)
 
 May 12, 2026
@@ -146,18 +156,6 @@ Product announcements
 [Making Claude Cowork ready for enterprise](#)Making Claude Cowork ready for enterprise
 
 [Making Claude Cowork ready for enterprise](https://claude.com/blog/cowork-for-enterprise)Making Claude Cowork ready for enterprise
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225c16d1b0cc3b1ded5_6457c34fbcb012acf0f27f15a6006f700d0f50de-1000x1000.svg)
-
-Mar 24, 2026
-
-### Auto mode for Claude Code
-
-Claude Code
-
-[Auto mode for Claude Code](#)Auto mode for Claude Code
-
-[Auto mode for Claude Code](https://claude.com/blog/auto-mode)Auto mode for Claude Code
 
 ## Transform how your organization operates with Claude
 

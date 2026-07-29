@@ -10,6 +10,7 @@ Managed MCP servers with Unity Catalog and Mosaic AI
 * Used in
 
   [Claude](https://claude.ai/directory/5f6045b0-e8c9-4ef7-ade5-f5030a69d4ba)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Databricks](https://databricks.com)
 
@@ -24,23 +25,23 @@ Managed MCP servers with Unity Catalog and Mosaic AI
 
   [Documentation](https://docs.databricks.com/aws/en/generative-ai/mcp/connect-external-services)[Privacy Policy](https://www.databricks.com/legal/mcsa)[Support](https://help.databricks.com/s/?_ga=2.244965445.1549950134.1679895706-225fa34d-6667-48e8-a1e5-a824e398a1cd)
 
-Databricks offers two flavors of MCP servers: Managed servers and custom servers.   
-  
-• Managed servers: Databricks has ready-to-use servers that let agents query data and access tools in Unity Catalog. Unity Catalog permissions are always enforced, so agents and users can only access the tools and data they're allowed to.  
+Databricks offers two flavors of MCP servers: Managed servers and custom servers.
+
+• Managed servers: Databricks has ready-to-use servers that let agents query data and access tools in Unity Catalog. Unity Catalog permissions are always enforced, so agents and users can only access the tools and data they're allowed to.
 • Custom servers: Securely host your own MCP server as a Databricks app to bring your own server or run a third-party server.
 
-You can use the Databricks connector to:  
-  
-Build customer support agents:  
+You can use the Databricks connector to:
+
+Build customer support agents:
 "Help me assist a customer by looking up their account and plan information from our structured data, finding relevant support articles from our knowledge base, and calculating their current billing status"
 
-Query structured data with Genie:  
+Query structured data with Genie:
 "What are the top 10 customers by revenue in the telecommunications vertical?"
 
-Search unstructured data with Vector Search:  
+Search unstructured data with Vector Search:
 "Find all support articles related to network outage troubleshooting"
 
-Execute deterministic functions:  
+Execute deterministic functions:
 "Calculate the prorated billing amount for a customer who upgraded their plan mid-cycle"
 
 ## Related connectors
@@ -53,11 +54,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -71,7 +72,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -85,7 +86,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -97,4 +98,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

@@ -10,6 +10,7 @@ Chat with your meetings to uncover actionable insights
 * Used in
 
   [Claude](https://claude.ai/directory/069b18da-5c89-4a66-941f-0cb6eae49a8d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Fellow.ai](https://fellow.ai/)
 
@@ -24,10 +25,10 @@ Chat with your meetings to uncover actionable insights
 
   [Documentation](https://help.fellow.ai/en/articles/12622641-fellow-s-mcp-server)[Privacy Policy](https://fellow.ai/privacy-policy)[Support](https://help.fellow.ai/)
 
-Access your meeting knowledge instantly. Fellow connects Claude to your meeting ecosystem, letting you search transcripts, pull key insights from summaries, and track action items with natural-language queries. Need to recall decisions from last quarter? Looking for action items assigned to your team? Want to reference that brilliant idea from yesterday's brainstorm? Simply ask Claude and skip the endless scrolling through notes. Get the clarity you need, exactly when you need it, with Fellow's secure, centralized meeting intelligence.  
-  
-You can use the Fellow.ai connector to:   
-  
+Access your meeting knowledge instantly. Fellow connects Claude to your meeting ecosystem, letting you search transcripts, pull key insights from summaries, and track action items with natural-language queries. Need to recall decisions from last quarter? Looking for action items assigned to your team? Want to reference that brilliant idea from yesterday's brainstorm? Simply ask Claude and skip the endless scrolling through notes. Get the clarity you need, exactly when you need it, with Fellow's secure, centralized meeting intelligence.
+
+You can use the Fellow.ai connector to:
+
 Search Past Meeting Discussions: **‍**"In yesterday's client call with Acme Corp, what concerns did they raise about our implementation timeline?"
 
 Find Decisions & Budget Allocations: **‍**"Find the discussion about our Q3 marketing budget from last week's strategy meeting. What was the final decision on the social media campaign allocation?"
@@ -54,7 +55,7 @@ February 11, 2026
 
 ### Asana
 
-Connect to Asana to coordinate tasks, projects, and goals](/connectors/asana)
+Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)
 
 Communication
 
@@ -64,11 +65,11 @@ Claude
 
 February 21, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696323e2a1aaf767a84b4ebc_circleback.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dd9120cb996c95c73b28_icon_Circleback.jpg)
 
 ### Circleback
 
-Search and access context from meetings](/connectors/circleback)
+Search and access context from meetings](https://claude.com/connectors/circleback)
 
 Productivity
 
@@ -82,7 +83,7 @@ May 1, 2026
 
 ### Computer by DevRev
 
-Manage your workspace, issues, tickets, customers, and more without leaving Claude.](/connectors/devrev)
+Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
 
 Communication
 
@@ -94,4 +95,4 @@ February 11, 2026
 
 ### Fireflies
 
-Analyze and generate insights from meeting transcripts](/connectors/fireflies)
+Analyze and generate insights from meeting transcripts](https://claude.com/connectors/fireflies)

@@ -178,7 +178,7 @@ Connect your customer data sources and see what behavioral patterns Claude finds
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a95d2feff85d43fe4796e_persona.png)
 
@@ -188,18 +188,18 @@ Open artifact in new window
 
 ## Related use cases
 
-[Adapt content across platforms](/resources/use-cases/adapt-content-across-platforms)Adapt content across platforms
+[Adapt content across platforms](https://claude.com/resources/use-cases/adapt-content-across-platforms)Adapt content across platforms
 
 Adapt content across platforms
 
 Use case
 
-[Use case](/resources/use-cases/adapt-content-across-platforms)Use case
+[Use case](https://claude.com/resources/use-cases/adapt-content-across-platforms)Use case
 
-[Analyze campaign performance](/resources/use-cases/analyze-campaign-performance)Analyze campaign performance
+[Analyze campaign performance](https://claude.com/resources/use-cases/analyze-campaign-performance)Analyze campaign performance
 
 Analyze campaign performance
 
 Use case
 
-[Use case](/resources/use-cases/analyze-campaign-performance)Use case
+[Use case](https://claude.com/resources/use-cases/analyze-campaign-performance)Use case

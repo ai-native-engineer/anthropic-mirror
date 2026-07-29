@@ -4,7 +4,13 @@
 
 Keep your coding agent up to date with the latest web best practices
 
+* Install in
+
+  [Claude Code](#)
+* Made by
+
   [Google Chrome](https://developer.chrome.com)
+* Installs
 
   22
 
@@ -23,3 +29,41 @@ The skill uses an offline, CPU-efficient search model to find relevant guides â€
 * Ask about specific modern features like View Transitions, Container Queries, Popover API, Anchor Positioning, or scroll-driven animations, and the agent will consult the latest standards-based patterns.
 
 Works across frameworks (React, Vue, Angular) by adapting framework-agnostic guidance to your specific setup. Runs entirely offline with no external API calls â€” anonymous telemetry can be disabled via `DISABLE_TELEMETRY=1`.
+
+## Related plugins
+
+[### Frontend Design
+
+Craft production-grade frontends with distinctive design. Generates polished code that avoids generic AI aesthetics.
+
+Anthropic verified
+
+1110438
+
+installs](https://claude.com/plugins/frontend-design)
+
+[### Superpowers
+
+Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
+
+987572
+
+installs](https://claude.com/plugins/superpowers)
+
+[### Code Review
+
+AI code review with specialized agents and confidence-based filtering for pull requests
+
+Anthropic verified
+
+430450
+
+installs](https://claude.com/plugins/code-review)
+
+[### Context7
+
+Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
+
+412076
+
+installs](https://claude.com/plugins/context7)

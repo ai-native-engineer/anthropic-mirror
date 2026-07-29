@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/government/tenant-admin/readiness -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this is for:** Tenant administrators who are setting up a deployment, or who need to find out why users in any organization are unable to use Claude.
 
 Use this page to see everything that is blocking your organizations from using Claude, and to find the one place where each blocker is resolved.
@@ -22,23 +30,23 @@ Use **Refresh** at the top right after you make a change elsewhere to see the up
 These are the items that appear in the top card. They cover the things every organization in your tenant depends on.
 
 * **Activate the tenant** appears on its own when Anthropic has not yet finished provisioning your tenant, or when the tenant has been deactivated. Nothing else can be configured until this clears, and only Anthropic can clear it, so the page shows a waiting state.
-* **Fund the procurement account** checks that at least one billing account linked to an active organization has a positive balance. This is advisory because usage actually draws from each organization’s own credit balance, but while every account sits at zero you will not be able to allocate credits to any organization on the [Billing](/docs/government/tenant-admin/credits) page. Funding is arranged with Anthropic.
-* **Configure the seat pool** checks that at least one billing account has a seat pool set. This is also advisory. Without a pool, seat allocations on the [Seats](/docs/government/tenant-admin/seats) page are accepted without any cap. The pool is configured by Anthropic as part of your contract.
-* **Register a domain** is required. Claude for Government routes users to your tenant by the domain of their email address, so until at least one domain is registered nobody can start a new sign-in. Use **Open Identity and access** to go to the [Identity and access](/docs/government/tenant-admin/identity-and-access) page and add one.
-* **Set up SCIM provisioning** is optional. SCIM lets your directory push users and groups into Claude for Government automatically. If you plan to use it, generate a provisioning token on the [Identity and access](/docs/government/tenant-admin/identity-and-access) page.
-* **Add a routing rule** is required. Routing rules decide which organization each user joins when they sign in. Until at least one rule points at an active organization, every new sign-in is turned away. Use **Open Identity and access** to add a rule. If your tenant has no active organizations yet, the button instead opens the [Organizations](/docs/government/tenant-admin/organizations) page so you can create one first.
+* **Fund the billing account** checks that at least one billing account linked to an active organization has a positive balance. This is advisory because the blocking state is shown on each organization’s own readiness check. Funding is arranged with Anthropic.
+* **Configure the seat pool** checks that at least one billing account has a seat pool set. This is also advisory. Without a pool, seat allocations on the [Seats](https://claude.com/docs/government/tenant-admin/seats) page are accepted without any cap. The pool is configured by Anthropic as part of your contract.
+* **Register a domain** is required. Claude for Government routes users to your tenant by the domain of their email address, so until at least one domain is registered nobody can start a new sign-in. Use **Open Identity and access** to go to the [Identity and access](https://claude.com/docs/government/tenant-admin/identity-and-access) page and add one.
+* **Set up SCIM provisioning** is optional. SCIM lets your directory push users and groups into Claude for Government automatically. If you plan to use it, generate a provisioning token on the [Identity and access](https://claude.com/docs/government/tenant-admin/identity-and-access) page.
+* **Add a routing rule** is required. Routing rules decide which organization each user joins when they sign in. Until at least one rule points at an active organization, every new sign-in is turned away. Use **Open Identity and access** to add a rule. If your tenant has no active organizations yet, the button instead opens the [Organizations](https://claude.com/docs/government/tenant-admin/organizations) page so you can create one first.
 * **Review sign-in failures** is an optional summary of people who tried to sign in and were turned away. The description tells you how many need a routing rule, how many need their email domain registered, and how many conflict with an existing account. Use **Open Identity and access** to resolve them.
 
-If your tenant has a single organization, that organization’s own checks (credits, seats, seat tiers, and products) appear directly in this card below the tenant-level items, so you can work through the whole deployment from one list.
+If your tenant has a single organization, that organization’s own checks (credits, spend caps, seats, seat tiers, and products) appear directly in this card below the tenant-level items, so you can work through the whole deployment from one list.
 
 ##  Organizations
 
 When your tenant has more than one organization, a second card lists each one with a one-line summary: **Ready**, a named blocker with **(fix available)**, or a named blocker with who it is waiting on. The marker beside each row uses the same colors as the checklist above.
-Expanding a row loads that organization’s full checklist inline. The steps are the same ones described on the [organization Readiness page](/docs/government/org-admin/readiness), and any buttons you click here act on that organization, not the one you are currently viewing in the organization admin portal. This lets you clear an organization’s blockers without switching context.
+Expanding a row loads that organization’s full checklist inline. The steps are the same ones described on the [organization Readiness page](https://claude.com/docs/government/org-admin/readiness), and any buttons you click here act on that organization, not the one you are currently viewing in the organization admin portal. This lets you clear an organization’s blockers without switching context.
 Deactivated organizations appear here with their reactivation status. An organization whose billing account is retired cannot be reactivated until the account has settled and Anthropic has assigned a new one, so those rows show a waiting state instead of a button.
+
+##  Things to know
 
 * Every **Open** button goes to the page where the fix belongs, with the right organization already selected when one applies. You make the change there and return here to see it reflected.
 * When a step is something only Anthropic can do, such as funding a billing account or reactivating an organization, the page shows **Waiting on Anthropic**. Contact your Anthropic representative to move it forward.
 * Hover the help icon next to any step’s label for a one-line explanation of what the check looks for.
-
-[Tenant setup wizard](/docs/government/tenant-admin/setup-wizard)[Organizations](/docs/government/tenant-admin/organizations)

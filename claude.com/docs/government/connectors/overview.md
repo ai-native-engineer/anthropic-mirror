@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/government/connectors/overview -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this is for:** Tenant administrators and organization owners who want Claude to reach their agency’s own systems (for example, an internal search service or a ticketing tool) from Claude Desktop and other Claude products.
 
 Use this page to add Model Context Protocol servers for your own systems, choose which Claude products receive each one, and set which of their tools are available to users.
@@ -7,7 +15,7 @@ A **connector** is a link between Claude and an external service. The service ru
 
 ##  The Connectors card
 
-The **Connectors** card appears on your [tenant](/docs/government/tenant-admin/configuration) or [organization](/docs/government/org-admin/configuration) Config page alongside the built-in connector cards. It lists every connector you have added, with each one’s name, address, the products it applies to, and a summary of how many of its tools are allowed. Click **Add connector** to open the wizard, or click the edit icon next to a connector to change it.
+The **Connectors** card appears on your [tenant](https://claude.com/docs/government/tenant-admin/configuration) or [organization](https://claude.com/docs/government/org-admin/configuration) Config page alongside the built-in connector cards. It lists every connector you have added, with each one’s name, address, the products it applies to, and a summary of how many of its tools are allowed. Click **Add connector** to open the wizard, or click the edit icon next to a connector to change it.
 Connectors are set at the tenant or organization level. When you are viewing a group scope, the card is read-only and points you to the organization or tenant settings where connectors are configured.
 
 ##  Adding a connector
@@ -41,5 +49,3 @@ Click **Save** to create the connector. It appears in the **Connectors** card an
 ##  Editing and removing a connector
 
 Click the edit icon next to a connector in the card to open the same wizard with its current values filled in. Changing the authentication method clears any stored secret. Click the remove button next to a connector to delete it; it is withdrawn from every product at the next refresh.
-
-[Config](/docs/government/org-admin/configuration)[Microsoft 365 connector](/docs/government/connectors/microsoft-365)

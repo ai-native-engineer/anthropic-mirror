@@ -42,13 +42,13 @@ Connectors
 
 Read use case
 
-[Read use case](/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Read use case
+[Read use case](https://claude.com/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Read use case
 
 Claude Cowork
 
-[Draft a credit memo from spreads and statements with Claude for Excel](/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Draft a credit memo from spreads and statements with Claude for Excel
+[Draft a credit memo from spreads and statements with Claude for Excel](https://claude.com/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Draft a credit memo from spreads and statements with Claude for Excel
 
-[Text Link](/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)
+[Text Link](https://claude.com/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)
 
 ![Validate reserves and draft filing narrative with Claude for Excel](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69deb4b8db0f7637606138a2_Screenshot%202026-04-14%20at%202.17.56%E2%80%AFPM.png)
 
@@ -76,13 +76,13 @@ Connectors
 
 Read use case
 
-[Read use case](/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Read use case
+[Read use case](https://claude.com/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Read use case
 
 Claude Cowork
 
-[Validate reserves and draft filing narrative with Claude for Excel](/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Validate reserves and draft filing narrative with Claude for Excel
+[Validate reserves and draft filing narrative with Claude for Excel](https://claude.com/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Validate reserves and draft filing narrative with Claude for Excel
 
-[Text Link](/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)
+[Text Link](https://claude.com/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)
 
 ![Update your financial model after earnings](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69caecf29ad8fa2677f41b27_artifact.png)
 
@@ -112,13 +112,13 @@ Skills
 
 Read use case
 
-[Read use case](/resources/use-cases/update-your-financial-model-after-earnings)Read use case
+[Read use case](https://claude.com/resources/use-cases/update-your-financial-model-after-earnings)Read use case
 
 Claude in Excel
 
-[Update your financial model after earnings](/resources/use-cases/update-your-financial-model-after-earnings)Update your financial model after earnings
+[Update your financial model after earnings](https://claude.com/resources/use-cases/update-your-financial-model-after-earnings)Update your financial model after earnings
 
-[Text Link](/resources/use-cases/update-your-financial-model-after-earnings)
+[Text Link](https://claude.com/resources/use-cases/update-your-financial-model-after-earnings)
 
 ![Reconcile transactions across your accounts](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e013b6acb40e5d9d3674_Screenshot%202026-02-05%20at%2010.23.08%E2%80%AFAM.png)
 
@@ -146,13 +146,13 @@ Cowork
 
 Read use case
 
-[Read use case](/resources/use-cases/reconcile-transactions-across-your-accounts)Read use case
+[Read use case](https://claude.com/resources/use-cases/reconcile-transactions-across-your-accounts)Read use case
 
 Claude Cowork
 
-[Reconcile transactions across your accounts](/resources/use-cases/reconcile-transactions-across-your-accounts)Reconcile transactions across your accounts
+[Reconcile transactions across your accounts](https://claude.com/resources/use-cases/reconcile-transactions-across-your-accounts)Reconcile transactions across your accounts
 
-[Text Link](/resources/use-cases/reconcile-transactions-across-your-accounts)
+[Text Link](https://claude.com/resources/use-cases/reconcile-transactions-across-your-accounts)
 
 ![Understand and extend an inherited spreadsheet](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6924b1c3f7f87a471d60e479_Screenshot%202025-11-24%20at%2011.27.36%E2%80%AFAM.png)
 
@@ -180,13 +180,13 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/understand-and-extend-an-inherited-spreadsheet)Read use case
+[Read use case](https://claude.com/resources/use-cases/understand-and-extend-an-inherited-spreadsheet)Read use case
 
 Claude.ai
 
-[Understand and extend an inherited spreadsheet](/resources/use-cases/understand-and-extend-an-inherited-spreadsheet)Understand and extend an inherited spreadsheet
+[Understand and extend an inherited spreadsheet](https://claude.com/resources/use-cases/understand-and-extend-an-inherited-spreadsheet)Understand and extend an inherited spreadsheet
 
-[Text Link](/resources/use-cases/understand-and-extend-an-inherited-spreadsheet)
+[Text Link](https://claude.com/resources/use-cases/understand-and-extend-an-inherited-spreadsheet)
 
 ![Draft investment memos](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690b0f6f22640e561aab082e_Screenshot%202025-11-05%20at%2012.21.00%E2%80%AFAM.png)
 
@@ -218,13 +218,13 @@ Connectors
 
 Read use case
 
-[Read use case](/resources/use-cases/draft-investment-memos)Read use case
+[Read use case](https://claude.com/resources/use-cases/draft-investment-memos)Read use case
 
 Claude.ai
 
-[Draft investment memos](/resources/use-cases/draft-investment-memos)Draft investment memos
+[Draft investment memos](https://claude.com/resources/use-cases/draft-investment-memos)Draft investment memos
 
-[Text Link](/resources/use-cases/draft-investment-memos)
+[Text Link](https://claude.com/resources/use-cases/draft-investment-memos)
 
 ![Build financial models](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690b0cf995f40a50d10d33b8_Screenshot%202025-11-05%20at%2012.22.50%E2%80%AFAM.png)
 
@@ -256,13 +256,13 @@ Connectors
 
 Read use case
 
-[Read use case](/resources/use-cases/build-financial-models)Read use case
+[Read use case](https://claude.com/resources/use-cases/build-financial-models)Read use case
 
 Claude.ai
 
-[Build financial models](/resources/use-cases/build-financial-models)Build financial models
+[Build financial models](https://claude.com/resources/use-cases/build-financial-models)Build financial models
 
-[Text Link](/resources/use-cases/build-financial-models)
+[Text Link](https://claude.com/resources/use-cases/build-financial-models)
 
 ![Organize your business finances](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a788e265ae3505d1af4b0_Screenshot%202025-11-04%20at%202.04.51%E2%80%AFPM.png)
 
@@ -290,13 +290,13 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/organize-your-business-finances)Read use case
+[Read use case](https://claude.com/resources/use-cases/organize-your-business-finances)Read use case
 
 Claude.ai
 
-[Organize your business finances](/resources/use-cases/organize-your-business-finances)Organize your business finances
+[Organize your business finances](https://claude.com/resources/use-cases/organize-your-business-finances)Organize your business finances
 
-[Text Link](/resources/use-cases/organize-your-business-finances)
+[Text Link](https://claude.com/resources/use-cases/organize-your-business-finances)
 
 No posts for those filters
 

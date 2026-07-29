@@ -10,6 +10,7 @@ Discuss and iterate on Magic Patterns designs
 * Used in
 
   [Claude](https://claude.ai/directory/088e0355-cb01-44fa-ba0b-23525fde8d5a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Magic Patterns](https://www.magicpatterns.com)
 
@@ -22,19 +23,19 @@ Discuss and iterate on Magic Patterns designs
   Read & write
 * More
 
-  [Documentation](https://www.magicpatterns.com/docs/documentation/features/mcp-server/overview)[Privacy Policy](https://www.magicpatterns.com/docs/documentation/legal/privacy)[support@magicpatterns.com](mailto:support@magicpatterns.com)
+  [Documentation](https://www.magicpatterns.com/docs/documentation/features/mcp-server/overview)[Privacy Policy](https://www.magicpatterns.com/docs/documentation/legal/privacy)[Support](mailto:support@magicpatterns.com)
 
 Discuss and iterate on Magic Patterns designs directly from Claude. Magic Patterns is an AI agent specialized in frontend design.
 
 You can use Magic Patterns to:
 
-**Iterate on a design:**  
+**Iterate on a design:**
 "Get my latest design from Magic Patterns and suggest improvements to the layout"
 
-**Review design files:**  
+**Review design files:**
 "Read the files in my Magic Patterns project and summarize the component structure"
 
-**Update a design:**  
+**Update a design:**
 "Update my Magic Patterns design to use a dark color scheme with rounded corners"
 
 ## Related connectors
@@ -45,11 +46,11 @@ Claude
 
 May 7, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe for creativity
 
-Ideate, create, and deliver with Adobe pro tools](/connectors/adobe-creativity)
+Ideate, create, and deliver with Adobe pro tools](https://claude.com/connectors/adobe-creativity)
 
 Productivity
 
@@ -61,11 +62,11 @@ Claude Code
 
 May 1, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f518707047601013a4983f_autodesk%20(1).svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d316ce38ed7af0f88414_icon_Autodesk.jpg)
 
 ### Autodesk Product Help
 
-Securely access Autodesk's help documentation](/connectors/autodesk-product-help)
+Securely access Autodesk's help documentation](https://claude.com/connectors/autodesk-product-help)
 
 Design
 
@@ -81,7 +82,7 @@ February 11, 2026
 
 ### Canva
 
-Search, create, autofill, and export Canva designs from a prompt](/connectors/canva)
+Search, create, autofill, and export Canva designs from a prompt](https://claude.com/connectors/canva)
 
 Design
 
@@ -97,4 +98,4 @@ May 28, 2026
 
 ### Descript
 
-Import, edit, or create video with prompts](/connectors/descript)
+Import, edit, or create video with prompts](https://claude.com/connectors/descript)

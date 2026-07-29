@@ -8,6 +8,7 @@ Direct access to LSEG market data and analytics — build DCF models, draft morn
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/financial-services-plugins&plugin=lseg)
+* Made by
 
   [LSEG](https://www.lseg.com/en/solutions/ai-finance-solutions)
 * Installs
@@ -20,32 +21,32 @@ The LSEG plugin gives financial professionals direct access to LSEG's market dat
 
 **Fixed Income & Rates**
 
-**Bond Relative Value:**  
+**Bond Relative Value:**
 Price a bond, decompose its spread into G-spread, credit spread, and residual, then stress test across rate scenarios to determine if it's rich or cheap.
 
-**Swap Curve Strategy:**  
+**Swap Curve Strategy:**
 Build a full swap curve with government and inflation overlays, compute curve metrics like 2s10s slope and butterflies, and get DV01-neutral trade recommendations.
 
-**Bond Futures Basis:**  
+**Bond Futures Basis:**
 Identify the cheapest-to-deliver, compute gross and net basis, compare implied repo to market repo, and assess basis trade opportunities.
 
-**Portfolio Review:**  
+**Portfolio Review:**
 Price an entire bond portfolio, aggregate risk metrics, project cashflows, and run scenario analysis in one step.
 
 **FX & Macro**
 
-**FX Carry Trade:**  
+**FX Carry Trade:**
 Evaluate carry opportunities with spot and forward curves, map carry-to-vol ratios across tenors, and assess vol skew for risk signals.
 
-**Macro & Rates Dashboard:**  
+**Macro & Rates Dashboard:**
 Monitor economic indicators, yield curve shapes, real rate decomposition, and financial conditions for any major economy.
 
 **Equities & Derivatives**
 
-**Equity Research:**  
+**Equity Research:**
 Generate a research snapshot combining IBES consensus estimates, historical fundamentals, price performance, and macro context into an investment thesis.
 
-**Option Volatility:**  
+**Option Volatility:**
 Analyze the vol surface, price specific options with full Greeks, and compare implied versus realized volatility to identify trading opportunities.
 
 ## Related plugins
@@ -56,17 +57,17 @@ Craft production-grade frontends with distinctive design. Generates polished cod
 
 Anthropic verified
 
-948012
+1110438
 
-installs](/plugins/frontend-design)
+installs](https://claude.com/plugins/frontend-design)
 
 [### Superpowers
 
 Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
 
-855112
+987572
 
-installs](/plugins/superpowers)
+installs](https://claude.com/plugins/superpowers)
 
 [### Code Review
 
@@ -74,14 +75,14 @@ AI code review with specialized agents and confidence-based filtering for pull r
 
 Anthropic verified
 
-383892
+430450
 
-installs](/plugins/code-review)
+installs](https://claude.com/plugins/code-review)
 
 [### Context7
 
 Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
 
-377529
+412076
 
-installs](/plugins/context7)
+installs](https://claude.com/plugins/context7)

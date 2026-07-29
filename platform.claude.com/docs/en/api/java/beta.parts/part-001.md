@@ -1,3 +1,4 @@
+<!-- source: https://platform.claude.com/docs/en/api/java/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/java/beta -->
 
 <!-- chunk-start -->
@@ -35771,4 +35772,3 @@ public final class Main {
 **get** `/v1/messages/batches/{message_batch_id}/results`
 
 Streams the results of a Message Batch as a `.jsonl` file.
-

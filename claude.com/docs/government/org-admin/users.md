@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/government/org-admin/users -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this is for:** Organization owners who need to manage individual users’ roles, seat tiers, and usage limits.
 
 Use this page to find a user, change their role or seat tier, check how close they are to their usage limits, and reset those limits when needed.
@@ -56,13 +64,11 @@ If your organization uses directory provisioning with a group-to-tier mapping, t
 ##  Resetting a user’s limits
 
 Every seat tier sets a rolling **5-hour** and **7-day** spend limit for each user. When a user reaches either limit, further requests are refused until the window rolls forward.
-If a user on a self-managed tier has hit a limit and you want them to continue working immediately, use **Reset usage limits** in the **…** menu on their card. This clears both of their current windows so their next request is admitted. The reset does not refund or alter any credits that have already been consumed, and it does not change anything shown on the [Analytics](/docs/government/org-admin/analytics) page; it only clears the per-user counter that enforces the limit.
+If a user on a self-managed tier has hit a limit and you want them to continue working immediately, use **Reset usage limits** in the **…** menu on their card. This clears both of their current windows so their next request is admitted. The reset does not refund or alter any credits that have already been consumed, and it does not change anything shown on the [Analytics](https://claude.com/docs/government/org-admin/analytics) page; it only clears the per-user counter that enforces the limit.
 
 The reset button is disabled for users on Anthropic-managed tiers because those limits are set by Anthropic and are not yours to waive. Additionally, if a user moved off an Anthropic-managed tier within the last seven days, the reset button is temporarily unavailable for them and the tooltip tells you when it becomes available again.
 
 ##  Deactivated users
 
-Accounts are deactivated through your directory’s SCIM provisioning rather than from this page. A deactivated user cannot sign in and does not occupy a seat. Deactivating a user releases their seat immediately, and reactivating them later will attempt to place them back on a seat using the same automatic assignment logic described on the [Seats](/docs/government/org-admin/seats) page.
+Accounts are deactivated through your directory’s SCIM provisioning rather than from this page. A deactivated user cannot sign in and does not occupy a seat. Deactivating a user releases their seat immediately, and reactivating them later will attempt to place them back on a seat using the same automatic assignment logic described on the [Seats](https://claude.com/docs/government/org-admin/seats) page.
 Deactivated users keep their role, but a deactivated Primary Owner does not count toward the “at least one” rule or the limit of three. You must always have at least one *active* Primary Owner.
-
-[Readiness](/docs/government/org-admin/readiness)[Seats](/docs/government/org-admin/seats)

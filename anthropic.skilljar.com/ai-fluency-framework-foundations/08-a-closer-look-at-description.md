@@ -37,11 +37,13 @@ We also emphasize that AI can't read your mind, and how the quality of your resu
 
 **Instructions:**
 
-1. Ask Claude to challenge you with some poorly written prompts for you to improve. 2. Apply your Description thinking to improve each one, considering:
+1. Ask Claude to challenge you with some poorly written prompts for you to improve.
+2. Apply your Description thinking to improve each one, considering:
    * Clear product description (what exactly you want)
    * Process guidance (how you want Claude to approach it)
    * Performance specifications (how you want Claude to behave during your collaboration)
-3. Have a chat about the before/after versions with Claude and ask for feedback on how your improved descriptions would help it provide better responses. 4. After about 5 minutes, switch roles and provide bad prompts for Claude to fix. Notice what information Claude tends to add and how it organizes this information.
+3. Have a chat about the before/after versions with Claude and ask for feedback on how your improved descriptions would help it provide better responses.
+4. After about 5 minutes, switch roles and provide bad prompts for Claude to fix. Notice what information Claude tends to add and how it organizes this information.
 
 ### Reflection
 
@@ -61,7 +63,6 @@ As you progress through the course, we'd love to hear from you about how you are
 #### Acknowledgments and license
 
 *Copyright 2025 Rick Dakan, Joseph Feller, and Anthropic. Released under the CC BY-NC-SA 4.0 license.* *This course is based on The AI Fluency Framework by Dakan and Feller.* *Supported in part by the Higher Education Authority, Ireland, through the National Forum for the Enhancement of Teaching and Learning.*
-
 <!-- youtube: DmgujoZ1mmk -->
 
 [![A Closer Look At Description](https://img.youtube.com/vi/DmgujoZ1mmk/hqdefault.jpg)](https://www.youtube.com/watch?v=DmgujoZ1mmk)

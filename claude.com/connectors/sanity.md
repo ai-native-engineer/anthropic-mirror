@@ -9,6 +9,7 @@ Create, query, and manage structured content in Sanity
 * Used in
 
   [Claude](https://claude.ai/directory/118aa78d-5b78-4e2b-9191-7a6af7cf822e)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Sanity](https://www.sanity.io)
 
@@ -27,22 +28,22 @@ Create, query, and manage your structured content in Sanity directly from Claude
 
 You can use Sanity to:
 
-**Audit content at scale:**  
+**Audit content at scale:**
 "Find all pages missing meta descriptions and list them by last updated date"
 
-**Create and update documents:**  
+**Create and update documents:**
 "Create a new article titled 'Announcing v2.0', set Alexandra as the author, and save it as a draft"
 
-**Look up content:**  
+**Look up content:**
 "Show me the 10 most recently published articles with author info and their top 3 categories"
 
-**Coordinate releases:**  
+**Coordinate releases:**
 "What's in the Q1 launch release and are any required fields missing? Flag problems before we ship"
 
-**Debug content issues:**  
+**Debug content issues:**
 "The careers page isn't showing up on the site – figure out what's wrong"
 
-**Scaffold new projects:**  
+**Scaffold new projects:**
 "Create a Sanity project to store recipes, including title, ingredients, instructions, prep time, and difficulty. Add five sample recipes for Italian dishes"
 
 ## Related connectors
@@ -57,17 +58,17 @@ January 26, 2026
 
 ### AWS Marketplace
 
-Discover, evaluate, and buy solutions for the cloud](/connectors/aws-marketplace)
+Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
 Claude
 
 March 9, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69acdf17420ea818c8dd6df3_only%20icon%20vector%20(1).svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dab482d8b581739e57a7_icon_Base44.jpg)
 
 ### Base44
 
-Build and manage Base44 apps](/connectors/base44)
+Build and manage Base44 apps](https://claude.com/connectors/base44)
 
 Claude
 
@@ -75,11 +76,11 @@ Claude Code
 
 March 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a5cd3d14699b00ee21b969_clerk.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dfa6bc4ff18a740c59aa_icon_Clerk.jpg)
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Claude
 
@@ -93,4 +94,4 @@ February 11, 2026
 
 ### Cloudflare
 
-Build applications with compute, storage, and AI](/connectors/cloudflare)
+Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)

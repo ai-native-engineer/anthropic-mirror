@@ -10,6 +10,7 @@ Bring all your data in one place & connect it to Claude
 * Used in
 
   [Claude](https://claude.ai/directory/b9b882ab-aa77-4fb3-b554-0d2f3b0335cc)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Polar Analytics](https://www.polaranalytics.com/ai/mcp)
 
@@ -28,16 +29,16 @@ Polar is the trusted data layer for commerce brands. Connect your Shopify, Meta,
 
 You can use Polar Analytics to:
 
-**Daily Executive Summary:**  
+**Daily Executive Summary:**
 "Give me an executive summary of my business performance over the last 7 days. Include revenue, orders, ad spend, ROAS, and customer acquisition cost across all channels. Flag anything that changed significantly compared to the prior period."
 
-**Marketing Channel Deep-Dive:**  
+**Marketing Channel Deep-Dive:**
 "Compare my Meta and Google ad performance this month. Break down spend, ROAS, CPA, and conversion rates by campaign. Which campaigns should I scale and which should I pause based on my target CAC?"
 
-**Customer Cohort & LTV Analysis:**  
+**Customer Cohort & LTV Analysis:**
 "Show me cohort retention curves for customers acquired in Q4 vs Q1. What's the projected LTV for each cohort, and how does that compare to our benchmark for brands in our GMV tier?"
 
-**Anomaly Investigation:**  
+**Anomaly Investigation:**
 "My conversion rate dropped 15% yesterday. Help me investigate — was it a traffic quality issue, a site problem, or a specific channel? Pull data across Shopify, Google Analytics, and Meta to identify the root cause."
 
 ## Related connectors
@@ -50,11 +51,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -68,7 +69,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -82,7 +83,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -94,4 +95,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

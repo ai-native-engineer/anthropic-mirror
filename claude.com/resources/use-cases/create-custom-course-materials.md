@@ -107,8 +107,8 @@ I've created your professional calculus textbook chapter on Integration Techniqu
 1. **LaTeX Source Code** View calculus-integration-chapter.tex Complete LaTeX document with all the packages configured for colored boxes, professional fonts, and mathematical notation. You can edit this directly or use it as a template for additional chapters.**‍**
 2. **Compiled PDF**View calculus-integration-chapter.pdf 6-page professional textbook showing the final formatted result with all visual elements rendered.
 
-The document compiles cleanly and matches the visual quality of published calculus textbooks. All your whiteboard content has been converted to proper LaTeX with the colored boxes and professional design you wanted.  
-  
+The document compiles cleanly and matches the visual quality of published calculus textbooks. All your whiteboard content has been converted to proper LaTeX with the colored boxes and professional design you wanted.
+
 **View your PDF**
 
 4
@@ -169,7 +169,7 @@ Use Claude to turn your handwritten notes and whiteboard lectures accessible to 
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a888cf497a9a0ca1b22a8_Screenshot%202025-11-04%20at%203.13.04%E2%80%AFPM.png)
 
@@ -179,34 +179,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Plan your syllabus](/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)Plan your syllabus
+[Plan your syllabus](https://claude.com/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)Plan your syllabus
 
 Plan your syllabus
 
 Use case
 
-[Use case](/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)Use case
+[Use case](https://claude.com/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)Use case
 
-[Work through grant options in chat](/resources/use-cases/work-through-grant-options-in-chat-with-claude)Work through grant options in chat
+[Work through grant options in chat](https://claude.com/resources/use-cases/work-through-grant-options-in-chat-with-claude)Work through grant options in chat
 
 Work through grant options in chat
 
 Use case
 
-[Use case](/resources/use-cases/work-through-grant-options-in-chat-with-claude)Use case
+[Use case](https://claude.com/resources/use-cases/work-through-grant-options-in-chat-with-claude)Use case
 
-[Apply a formula as you learn it](/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Apply a formula as you learn it
+[Apply a formula as you learn it](https://claude.com/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Apply a formula as you learn it
 
 Apply a formula as you learn it
 
 Use case
 
-[Use case](/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Use case
+[Use case](https://claude.com/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Use case
 
-[Map your lit review mid-conversation to surface the underlying debate](/resources/use-cases/map-your-lit-review-mid-conversation)Map your lit review mid-conversation to surface the underlying debate
+[Map your lit review mid-conversation to surface the underlying debate](https://claude.com/resources/use-cases/map-your-lit-review-mid-conversation)Map your lit review mid-conversation to surface the underlying debate
 
 Map your lit review mid-conversation to surface the underlying debate
 
 Use case
 
-[Use case](/resources/use-cases/map-your-lit-review-mid-conversation)Use case
+[Use case](https://claude.com/resources/use-cases/map-your-lit-review-mid-conversation)Use case

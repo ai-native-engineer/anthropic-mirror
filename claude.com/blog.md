@@ -12,421 +12,405 @@ All
 
 1
 
-[## Agents](https://claude.com/blog/category/agents)
+[## Agents](https://claude.com/blog-category/agents)
 
-[## Claude Code](https://claude.com/blog/category/claude-code)
+[## Claude Code](https://claude.com/blog-category/claude-code)
 
-[## Enterprise AI](https://claude.com/blog/category/enterprise-ai)
+[## Enterprise AI](https://claude.com/blog-category/enterprise-ai)
 
-[## Product announcements](https://claude.com/blog/category/announcements)
-
-## Claude Code now supports artifacts
-
-June 18, 2026
-
-[Read more](/blog/artifacts-in-claude-code)Read more
-
-## Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
-
-June 8, 2026
-
-[Read more](/blog/claude-for-foundation-models)Read more
-
-## New in Claude Managed Agents: self-hosted sandboxes and MCP tunnels
-
-May 19, 2026
-
-[Read more](/blog/claude-managed-agents-updates)Read more
-
-## New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration
-
-May 19, 2026
-
-[Read more](/blog/new-in-claude-managed-agents)Read more
-
-## New connectors in Claude for everyday life
-
-April 23, 2026
-
-[Read more](/blog/connectors-for-everyday-life)Read more
-
-## Built-in memory for Claude Managed Agents
-
-April 23, 2026
-
-[Read more](/blog/claude-managed-agents-memory)Read more
-
-## Redesigning Claude Code on desktop for parallel agents
-
-April 14, 2026
-
-[Read more](/blog/claude-code-desktop-redesign)Read more
-
-## Preparing your security program for AI-accelerated offense
-
-April 10, 2026
-
-[Read more](/blog/preparing-your-security-program-for-ai-accelerated-offense)Read more
-
-## Claude Managed Agents: get to production 10x faster
-
-April 8, 2026
-
-[Read more](/blog/claude-managed-agents)Read more
-
-## Harnessing Claude’s intelligence
-
-April 2, 2026
-
-[Read more](/blog/harnessing-claudes-intelligence)Read more
+[## Product announcements](https://claude.com/blog-category/announcements)
 
 ## Claude Code now supports artifacts
 
 June 18, 2026
 
-[Read more](/blog/artifacts-in-claude-code)Read more
+[Read more](https://claude.com/blog/artifacts-in-claude-code)Read more
 
 ## Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
 
 June 8, 2026
 
-[Read more](/blog/claude-for-foundation-models)Read more
+[Read more](https://claude.com/blog/claude-for-foundation-models)Read more
 
 ## New in Claude Managed Agents: self-hosted sandboxes and MCP tunnels
 
 May 19, 2026
 
-[Read more](/blog/claude-managed-agents-updates)Read more
+[Read more](https://claude.com/blog/claude-managed-agents-updates)Read more
 
 ## New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration
 
 May 19, 2026
 
-[Read more](/blog/new-in-claude-managed-agents)Read more
+[Read more](https://claude.com/blog/new-in-claude-managed-agents)Read more
 
 ## New connectors in Claude for everyday life
 
 April 23, 2026
 
-[Read more](/blog/connectors-for-everyday-life)Read more
+[Read more](https://claude.com/blog/connectors-for-everyday-life)Read more
 
 ## Built-in memory for Claude Managed Agents
 
 April 23, 2026
 
-[Read more](/blog/claude-managed-agents-memory)Read more
+[Read more](https://claude.com/blog/claude-managed-agents-memory)Read more
 
 ## Redesigning Claude Code on desktop for parallel agents
 
 April 14, 2026
 
-[Read more](/blog/claude-code-desktop-redesign)Read more
+[Read more](https://claude.com/blog/claude-code-desktop-redesign)Read more
 
 ## Preparing your security program for AI-accelerated offense
 
 April 10, 2026
 
-[Read more](/blog/preparing-your-security-program-for-ai-accelerated-offense)Read more
+[Read more](https://claude.com/blog/preparing-your-security-program-for-ai-accelerated-offense)Read more
 
 ## Claude Managed Agents: get to production 10x faster
 
 April 8, 2026
 
-[Read more](/blog/claude-managed-agents)Read more
+[Read more](https://claude.com/blog/claude-managed-agents)Read more
 
-## Harnessing Claude’s intelligence
+## Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
 
 April 2, 2026
 
-[Read more](/blog/harnessing-claudes-intelligence)Read more
+[Read more](https://claude.com/blog/harnessing-claudes-intelligence)Read more
+
+## Claude Code now supports artifacts
+
+June 18, 2026
+
+[Read more](https://claude.com/blog/artifacts-in-claude-code)Read more
+
+## Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
+
+June 8, 2026
+
+[Read more](https://claude.com/blog/claude-for-foundation-models)Read more
+
+## New in Claude Managed Agents: self-hosted sandboxes and MCP tunnels
+
+May 19, 2026
+
+[Read more](https://claude.com/blog/claude-managed-agents-updates)Read more
+
+## New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration
+
+May 19, 2026
+
+[Read more](https://claude.com/blog/new-in-claude-managed-agents)Read more
+
+## New connectors in Claude for everyday life
+
+April 23, 2026
+
+[Read more](https://claude.com/blog/connectors-for-everyday-life)Read more
+
+## Built-in memory for Claude Managed Agents
+
+April 23, 2026
+
+[Read more](https://claude.com/blog/claude-managed-agents-memory)Read more
+
+## Redesigning Claude Code on desktop for parallel agents
+
+April 14, 2026
+
+[Read more](https://claude.com/blog/claude-code-desktop-redesign)Read more
+
+## Preparing your security program for AI-accelerated offense
+
+April 10, 2026
+
+[Read more](https://claude.com/blog/preparing-your-security-program-for-ai-accelerated-offense)Read more
+
+## Claude Managed Agents: get to production 10x faster
+
+April 8, 2026
+
+[Read more](https://claude.com/blog/claude-managed-agents)Read more
+
+## Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
+
+April 2, 2026
+
+[Read more](https://claude.com/blog/harnessing-claudes-intelligence)Read more
 
 Grid
 
 List
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
 
-Jun 24, 2026
+Jul 28, 2026
 
-Building effective human-agent teams
-
-Enterprise AI
-
-Building effective human-agent teams
-
-June 24, 2026
-
-[Building effective human-agent teams](/blog/building-effective-human-agent-teams)Building effective human-agent teams
-
-[Building effective human-agent teams](#)Building effective human-agent teams
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225588ad176f7c4aafd_abc884c723daea810d2e986455358281a2f94102-1000x1000.svg)
-
-Jun 24, 2026
-
-Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
-
-Claude Code
-
-Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
-
-June 24, 2026
-
-[Agent identity in Claude Tag: a new access model for autonomous, team-wide AI](/blog/agent-identity-access-model)Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
-
-[Agent identity in Claude Tag: a new access model for autonomous, team-wide AI](#)Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22c7f111435762ad994_1b398dbdfa4995ce5ce943aa87d8b78b2c2ba065-1000x1000.svg)
-
-Jun 22, 2026
-
-The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry
-
-Enterprise AI
-
-The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry
-
-June 22, 2026
-
-[The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry](/blog/the-full-claude-desktop-experience-on-aws-google-cloud-and-microsoft-foundry)The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry
-
-[The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry](#)The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d7d4c10df6024f7bc_ee580919acaba2ddc07425f7a7390c8962cadc94-1000x1000.svg)
-
-Jun 18, 2026
-
-Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more
-
-Claude Code
-
-Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more
-
-June 18, 2026
-
-[Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more](/blog/steering-claude-code-skills-hooks-rules-subagents-and-more) Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more
-
-[Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more](#) Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d23008bbc20c0ffaeb6f_43abe7e54b56a891e74a8542944dfbd33f07f49c-1000x1000.svg)
-
-Jun 18, 2026
-
-Centrally manage authorization for MCP connectors
-
-Enterprise AI
-
-Centrally manage authorization for MCP connectors
-
-June 18, 2026
-
-[Centrally manage authorization for MCP connectors](/blog/enterprise-managed-auth) Centrally manage authorization for MCP connectors
-
-[Centrally manage authorization for MCP connectors](#) Centrally manage authorization for MCP connectors
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d0099a66d72e05699_33ddc751e21fb4b116b3f57dd553f0bc55ea09d1-1000x1000.svg)
-
-Jun 18, 2026
-
-Claude Code now supports artifacts
+Bringing MCP 2026-07-28 to Claude
 
 Product announcements
 
-Claude Code now supports artifacts
+Bringing MCP 2026-07-28 to Claude
 
-June 18, 2026
+July 28, 2026
 
-[Claude Code now supports artifacts](/blog/artifacts-in-claude-code)Claude Code now supports artifacts
+[Bringing MCP 2026-07-28 to Claude](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)Bringing MCP 2026-07-28 to Claude
 
-[Claude Code now supports artifacts](#)Claude Code now supports artifacts
+[Bringing MCP 2026-07-28 to Claude](#)Bringing MCP 2026-07-28 to Claude
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6909386cc7ad3ed2a7ec8eed_Object-ThoughtBubble.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224f466b800c4a5a016_a7b8978859371a024139418f3366bb0600ee1675-1000x1000.svg)
 
-Jun 17, 2026
+Jul 24, 2026
 
-Meet the winners of our Claude Opus 4.8 Build Day hackathon
+How the product designer who built Claude Design uses it to explore ideas before building them
+
+Enterprise AI
+
+How the product designer who built Claude Design uses it to explore ideas before building them
+
+July 24, 2026
+
+[How the product designer who built Claude Design uses it to explore ideas before building them](https://claude.com/blog/how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them)How the product designer who built Claude Design uses it to explore ideas before building them
+
+[How the product designer who built Claude Design uses it to explore ideas before building them](#)How the product designer who built Claude Design uses it to explore ideas before building them
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Jul 24, 2026
+
+The new rules of context engineering for Claude 5 generation models
 
 Claude Code
 
-Meet the winners of our Claude Opus 4.8 Build Day hackathon
+The new rules of context engineering for Claude 5 generation models
 
-June 17, 2026
+July 24, 2026
 
-[Meet the winners of our Claude Opus 4.8 Build Day hackathon](/blog/meet-the-winners-of-our-claude-opus-4-8-build-day-hackathon)Meet the winners of our Claude Opus 4.8 Build Day hackathon
+[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
 
-[Meet the winners of our Claude Opus 4.8 Build Day hackathon](#)Meet the winners of our Claude Opus 4.8 Build Day hackathon
+[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22949f86cd1968deb9f_33dbe8f783d4835a838b4c4ae85d3c04e352fee1-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
-Jun 17, 2026
+Jul 24, 2026
 
-Claude Design now stays on brand for daily work
+Claude models explained: choosing the best model for your use case
+
+Enterprise AI
+
+Claude models explained: choosing the best model for your use case
+
+July 24, 2026
+
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
+
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d6ec42bcf1c632f75_52f59749d1e033ff2675c6686a07bcce83fb5046-1000x1000.svg)
+
+Jul 23, 2026
+
+Four role-based certifications for the people who put Claude to work for customers
+
+Enterprise AI
+
+Four role-based certifications for the people who put Claude to work for customers
+
+July 23, 2026
+
+[Four role-based certifications for the people who put Claude to work for customers](https://claude.com/blog/four-role-based-claude-certifications)Four role-based certifications for the people who put Claude to work for customers
+
+[Four role-based certifications for the people who put Claude to work for customers](#)Four role-based certifications for the people who put Claude to work for customers
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d231b45c2193efbb0f02_1869137c9d7f2a38b50e804d707e10e85de05ddb-1000x1000.svg)
+
+Jul 23, 2026
+
+Think through hard problems in voice mode
 
 Product announcements
 
-Claude Design now stays on brand for daily work
+Think through hard problems in voice mode
 
-June 17, 2026
+July 23, 2026
 
-[Claude Design now stays on brand for daily work](/blog/claude-design-stays-on-brand-for-daily-work)Claude Design now stays on brand for daily work
+[Think through hard problems in voice mode](https://claude.com/blog/think-through-hard-problems-in-voice-mode)Think through hard problems in voice mode
 
-[Claude Design now stays on brand for daily work](#)Claude Design now stays on brand for daily work
+[Think through hard problems in voice mode](#)Think through hard problems in voice mode
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224d39f9b8e905d1823_b68cbb43d7c8f56f0b14cc867e8d4d74445f78b0-1000x1000.svg)
 
-Jun 17, 2026
+Jul 22, 2026
 
-Secure access to the Claude Platform with Workload Identity Federation
+Building verification loops in Claude Code with skills
 
-Product announcements
+Claude Code
 
-Secure access to the Claude Platform with Workload Identity Federation
+Building verification loops in Claude Code with skills
 
-June 17, 2026
+July 22, 2026
 
-[Secure access to the Claude Platform with Workload Identity Federation](/blog/workload-identity-federation)Secure access to the Claude Platform with Workload Identity Federation
+[Building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills)Building verification loops in Claude Code with skills
 
-[Secure access to the Claude Platform with Workload Identity Federation](#)Secure access to the Claude Platform with Workload Identity Federation
+[Building verification loops in Claude Code with skills](#)Building verification loops in Claude Code with skills
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
+
+Jul 22, 2026
+
+How Outtake built a cyber investigator on Claude
+
+Agents
+
+How Outtake built a cyber investigator on Claude
+
+July 22, 2026
+
+[How Outtake built a cyber investigator on Claude](https://claude.com/blog/how-outtake-built-a-cyber-investigator-on-claude)How Outtake built a cyber investigator on Claude
+
+[How Outtake built a cyber investigator on Claude](#)How Outtake built a cyber investigator on Claude
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
+
+Jul 21, 2026
+
+How Anthropic secures its AI-native software development lifecycle
+
+Claude Code
+
+How Anthropic secures its AI-native software development lifecycle
+
+July 21, 2026
+
+[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
+
+[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
 
-Jun 15, 2026
+Jul 21, 2026
 
-Meet the winners of the Built with Opus 4.7 Claude Code hackathon
-
-Claude Code
-
-Meet the winners of the Built with Opus 4.7 Claude Code hackathon
-
-June 15, 2026
-
-[Meet the winners of the Built with Opus 4.7 Claude Code hackathon](/blog/meet-the-winners-of-built-with-opus-4-7-claude-code-hackathon)Meet the winners of the Built with Opus 4.7 Claude Code hackathon
-
-[Meet the winners of the Built with Opus 4.7 Claude Code hackathon](#)Meet the winners of the Built with Opus 4.7 Claude Code hackathon
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
-
-Jun 10, 2026
-
-The evolution of agentic surfaces: building with Claude Managed Agents
-
-Agents
-
-The evolution of agentic surfaces: building with Claude Managed Agents
-
-June 10, 2026
-
-[The evolution of agentic surfaces: building with Claude Managed Agents](/blog/building-with-claude-managed-agents)The evolution of agentic surfaces: building with Claude Managed Agents
-
-[The evolution of agentic surfaces: building with Claude Managed Agents](#)The evolution of agentic surfaces: building with Claude Managed Agents
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22a7bb714a55b503cd7_cad034e66b44f7f017c0cb931c403a97d1763758-1000x1000.svg)
-
-Jun 9, 2026
-
-New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
-
-Product announcements
-
-New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
-
-June 9, 2026
-
-[New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults](/blog/whats-new-in-claude-managed-agents)New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
-
-[New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults](#)New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
-
-Jun 8, 2026
-
-Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
-
-Product announcements
-
-Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
-
-June 8, 2026
-
-[Building intelligent apps for Apple platforms with Claude in the Foundation Models framework](/blog/claude-for-foundation-models)Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
-
-[Building intelligent apps for Apple platforms with Claude in the Foundation Models framework](#)Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
-
-Jun 8, 2026
-
-Observability for developers building connectors
-
-Product announcements
-
-Observability for developers building connectors
-
-June 8, 2026
-
-[Observability for developers building connectors](/blog/observability-for-developers-building-connectors)Observability for developers building connectors
-
-[Observability for developers building connectors](#)Observability for developers building connectors
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
-
-Jun 5, 2026
-
-The Claude Cowork product guide
-
-Enterprise AI
-
-The Claude Cowork product guide
-
-June 5, 2026
-
-[The Claude Cowork product guide](/blog/the-claude-cowork-product-guide)The Claude Cowork product guide
-
-[The Claude Cowork product guide](#)The Claude Cowork product guide
-
-[View more](?b7eea976_page=2)
-
-1 / 12
-
-Category
-
-Product
-
-Usecase
-
-### Building effective human-agent teams
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-June 24, 2026
-
-[Building effective human-agent teams](/blog/building-effective-human-agent-teams)Building effective human-agent teams
-
-[Building effective human-agent teams](#)Building effective human-agent teams
-
-### Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
-
-Category
+How Datadog built a “universal machine tool” for Claude Code
 
 Claude Code
 
+How Datadog built a “universal machine tool” for Claude Code
+
+July 21, 2026
+
+[How Datadog built a “universal machine tool” for Claude Code](https://claude.com/blog/how-datadog-built-a-universal-machine-tool-for-claude-code)How Datadog built a “universal machine tool” for Claude Code
+
+[How Datadog built a “universal machine tool” for Claude Code](#)How Datadog built a “universal machine tool” for Claude Code
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f7912d5b05a5c7ed8ae86_Object-CodeChatCode.svg)
+
+Jul 20, 2026
+
+Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
+
+Enterprise AI
+
+Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
+
+July 20, 2026
+
+[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](https://claude.com/blog/working-at-the-frontier-rakuten)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
+
+[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](#)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d7d4c10df6024f7bc_ee580919acaba2ddc07425f7a7390c8962cadc94-1000x1000.svg)
+
+Jul 17, 2026
+
+Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
+
+Enterprise AI
+
+Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
+
+July 17, 2026
+
+[Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems](https://claude.com/blog/working-at-the-frontier-cursor)Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
+
+[Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems](#)Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+
+Jul 17, 2026
+
+Zero risk isn't the job: a CISO's guide to agentic AI
+
+Enterprise AI
+
+Zero risk isn't the job: a CISO's guide to agentic AI
+
+July 17, 2026
+
+[Zero risk isn't the job: a CISO's guide to agentic AI](https://claude.com/blog/ciso-guide-to-agentic-ai)Zero risk isn't the job: a CISO's guide to agentic AI
+
+[Zero risk isn't the job: a CISO's guide to agentic AI](#)Zero risk isn't the job: a CISO's guide to agentic AI
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2260bfc90348429f9c3_cd9cf56a7f049285b7c1c8786c0a600cf3d7f317-1000x1000.svg)
+
+Jul 16, 2026
+
+How Anthropic runs large-scale code migrations with Claude Code
+
+Claude Code
+
+How Anthropic runs large-scale code migrations with Claude Code
+
+July 16, 2026
+
+[How Anthropic runs large-scale code migrations with Claude Code](https://claude.com/blog/ai-code-migration)How Anthropic runs large-scale code migrations with Claude Code
+
+[How Anthropic runs large-scale code migrations with Claude Code](#)How Anthropic runs large-scale code migrations with Claude Code
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d227246bc2b5a3cc3626_9f6a378a1e3592cf8d27447457409ba12284faef-1000x1000.svg)
+
+Jul 16, 2026
+
+Working with Claude Fable 5 in Claude Cowork
+
+Enterprise AI
+
+Working with Claude Fable 5 in Claude Cowork
+
+July 16, 2026
+
+[Working with Claude Fable 5 in Claude Cowork](https://claude.com/blog/working-with-claude-fable-5-in-claude-cowork)Working with Claude Fable 5 in Claude Cowork
+
+[Working with Claude Fable 5 in Claude Cowork](#)Working with Claude Fable 5 in Claude Cowork
+
+[View more](https://claude.com/blog?b7eea976_page=2)
+
+1 / 14
+
+Category
+
 Product
 
 Usecase
 
-June 24, 2026
+### Bringing MCP 2026-07-28 to Claude
 
-[Agent identity in Claude Tag: a new access model for autonomous, team-wide AI](/blog/agent-identity-access-model)Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
+Category
 
-[Agent identity in Claude Tag: a new access model for autonomous, team-wide AI](#)Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
+Product announcements
 
-### The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry
+Product
+
+Usecase
+
+July 28, 2026
+
+[Bringing MCP 2026-07-28 to Claude](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)Bringing MCP 2026-07-28 to Claude
+
+[Bringing MCP 2026-07-28 to Claude](#)Bringing MCP 2026-07-28 to Claude
+
+### How the product designer who built Claude Design uses it to explore ideas before building them
 
 Category
 
@@ -436,13 +420,13 @@ Product
 
 Usecase
 
-June 22, 2026
+July 24, 2026
 
-[The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry](/blog/the-full-claude-desktop-experience-on-aws-google-cloud-and-microsoft-foundry)The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry
+[How the product designer who built Claude Design uses it to explore ideas before building them](https://claude.com/blog/how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them)How the product designer who built Claude Design uses it to explore ideas before building them
 
-[The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry](#)The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry
+[How the product designer who built Claude Design uses it to explore ideas before building them](#)How the product designer who built Claude Design uses it to explore ideas before building them
 
-### Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more
+### The new rules of context engineering for Claude 5 generation models
 
 Category
 
@@ -452,13 +436,13 @@ Product
 
 Usecase
 
-June 18, 2026
+July 24, 2026
 
-[Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more](/blog/steering-claude-code-skills-hooks-rules-subagents-and-more) Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more
+[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
 
-[Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more](#) Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more
+[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
 
-### Centrally manage authorization for MCP connectors
+### Claude models explained: choosing the best model for your use case
 
 Category
 
@@ -468,13 +452,29 @@ Product
 
 Usecase
 
-June 18, 2026
+July 24, 2026
 
-[Centrally manage authorization for MCP connectors](/blog/enterprise-managed-auth) Centrally manage authorization for MCP connectors
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
 
-[Centrally manage authorization for MCP connectors](#) Centrally manage authorization for MCP connectors
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
 
-### Claude Code now supports artifacts
+### Four role-based certifications for the people who put Claude to work for customers
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+July 23, 2026
+
+[Four role-based certifications for the people who put Claude to work for customers](https://claude.com/blog/four-role-based-claude-certifications)Four role-based certifications for the people who put Claude to work for customers
+
+[Four role-based certifications for the people who put Claude to work for customers](#)Four role-based certifications for the people who put Claude to work for customers
+
+### Think through hard problems in voice mode
 
 Category
 
@@ -484,13 +484,13 @@ Product
 
 Usecase
 
-June 18, 2026
+July 23, 2026
 
-[Claude Code now supports artifacts](/blog/artifacts-in-claude-code)Claude Code now supports artifacts
+[Think through hard problems in voice mode](https://claude.com/blog/think-through-hard-problems-in-voice-mode)Think through hard problems in voice mode
 
-[Claude Code now supports artifacts](#)Claude Code now supports artifacts
+[Think through hard problems in voice mode](#)Think through hard problems in voice mode
 
-### Meet the winners of our Claude Opus 4.8 Build Day hackathon
+### Building verification loops in Claude Code with skills
 
 Category
 
@@ -500,61 +500,13 @@ Product
 
 Usecase
 
-June 17, 2026
+July 22, 2026
 
-[Meet the winners of our Claude Opus 4.8 Build Day hackathon](/blog/meet-the-winners-of-our-claude-opus-4-8-build-day-hackathon)Meet the winners of our Claude Opus 4.8 Build Day hackathon
+[Building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills)Building verification loops in Claude Code with skills
 
-[Meet the winners of our Claude Opus 4.8 Build Day hackathon](#)Meet the winners of our Claude Opus 4.8 Build Day hackathon
+[Building verification loops in Claude Code with skills](#)Building verification loops in Claude Code with skills
 
-### Claude Design now stays on brand for daily work
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-June 17, 2026
-
-[Claude Design now stays on brand for daily work](/blog/claude-design-stays-on-brand-for-daily-work)Claude Design now stays on brand for daily work
-
-[Claude Design now stays on brand for daily work](#)Claude Design now stays on brand for daily work
-
-### Secure access to the Claude Platform with Workload Identity Federation
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-June 17, 2026
-
-[Secure access to the Claude Platform with Workload Identity Federation](/blog/workload-identity-federation)Secure access to the Claude Platform with Workload Identity Federation
-
-[Secure access to the Claude Platform with Workload Identity Federation](#)Secure access to the Claude Platform with Workload Identity Federation
-
-### Meet the winners of the Built with Opus 4.7 Claude Code hackathon
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-June 15, 2026
-
-[Meet the winners of the Built with Opus 4.7 Claude Code hackathon](/blog/meet-the-winners-of-built-with-opus-4-7-claude-code-hackathon)Meet the winners of the Built with Opus 4.7 Claude Code hackathon
-
-[Meet the winners of the Built with Opus 4.7 Claude Code hackathon](#)Meet the winners of the Built with Opus 4.7 Claude Code hackathon
-
-### The evolution of agentic surfaces: building with Claude Managed Agents
+### How Outtake built a cyber investigator on Claude
 
 Category
 
@@ -564,61 +516,45 @@ Product
 
 Usecase
 
-June 10, 2026
+July 22, 2026
 
-[The evolution of agentic surfaces: building with Claude Managed Agents](/blog/building-with-claude-managed-agents)The evolution of agentic surfaces: building with Claude Managed Agents
+[How Outtake built a cyber investigator on Claude](https://claude.com/blog/how-outtake-built-a-cyber-investigator-on-claude)How Outtake built a cyber investigator on Claude
 
-[The evolution of agentic surfaces: building with Claude Managed Agents](#)The evolution of agentic surfaces: building with Claude Managed Agents
+[How Outtake built a cyber investigator on Claude](#)How Outtake built a cyber investigator on Claude
 
-### New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
+### How Anthropic secures its AI-native software development lifecycle
 
 Category
 
-Product announcements
+Claude Code
 
 Product
 
 Usecase
 
-June 9, 2026
+July 21, 2026
 
-[New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults](/blog/whats-new-in-claude-managed-agents)New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
+[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
 
-[New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults](#)New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
+[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
 
-### Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
+### How Datadog built a “universal machine tool” for Claude Code
 
 Category
 
-Product announcements
+Claude Code
 
 Product
 
 Usecase
 
-June 8, 2026
+July 21, 2026
 
-[Building intelligent apps for Apple platforms with Claude in the Foundation Models framework](/blog/claude-for-foundation-models)Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
+[How Datadog built a “universal machine tool” for Claude Code](https://claude.com/blog/how-datadog-built-a-universal-machine-tool-for-claude-code)How Datadog built a “universal machine tool” for Claude Code
 
-[Building intelligent apps for Apple platforms with Claude in the Foundation Models framework](#)Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
+[How Datadog built a “universal machine tool” for Claude Code](#)How Datadog built a “universal machine tool” for Claude Code
 
-### Observability for developers building connectors
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-June 8, 2026
-
-[Observability for developers building connectors](/blog/observability-for-developers-building-connectors)Observability for developers building connectors
-
-[Observability for developers building connectors](#)Observability for developers building connectors
-
-### The Claude Cowork product guide
+### Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
 
 Category
 
@@ -628,15 +564,79 @@ Product
 
 Usecase
 
-June 5, 2026
+July 20, 2026
 
-[The Claude Cowork product guide](/blog/the-claude-cowork-product-guide)The Claude Cowork product guide
+[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](https://claude.com/blog/working-at-the-frontier-rakuten)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
 
-[The Claude Cowork product guide](#)The Claude Cowork product guide
+[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](#)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
 
-[View more](?d7430fcd_page=2)
+### Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
 
-1 / 12
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+July 17, 2026
+
+[Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems](https://claude.com/blog/working-at-the-frontier-cursor)Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
+
+[Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems](#)Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
+
+### Zero risk isn't the job: a CISO's guide to agentic AI
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+July 17, 2026
+
+[Zero risk isn't the job: a CISO's guide to agentic AI](https://claude.com/blog/ciso-guide-to-agentic-ai)Zero risk isn't the job: a CISO's guide to agentic AI
+
+[Zero risk isn't the job: a CISO's guide to agentic AI](#)Zero risk isn't the job: a CISO's guide to agentic AI
+
+### How Anthropic runs large-scale code migrations with Claude Code
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+July 16, 2026
+
+[How Anthropic runs large-scale code migrations with Claude Code](https://claude.com/blog/ai-code-migration)How Anthropic runs large-scale code migrations with Claude Code
+
+[How Anthropic runs large-scale code migrations with Claude Code](#)How Anthropic runs large-scale code migrations with Claude Code
+
+### Working with Claude Fable 5 in Claude Cowork
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+July 16, 2026
+
+[Working with Claude Fable 5 in Claude Cowork](https://claude.com/blog/working-with-claude-fable-5-in-claude-cowork)Working with Claude Fable 5 in Claude Cowork
+
+[Working with Claude Fable 5 in Claude Cowork](#)Working with Claude Fable 5 in Claude Cowork
+
+[View more](https://claude.com/blog?d7430fcd_page=2)
+
+1 / 14
 
 No posts for those filters
 
@@ -652,7 +652,8 @@ Webinar
 
 Link
 
-## Building trusted AI in the enterprise
+## Building trusted
+AI in the enterprise
 
 Anthropic’s guide to starting, scaling, and succeeding based on real-world examples and best practices
 

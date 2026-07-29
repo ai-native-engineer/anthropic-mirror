@@ -2,9 +2,60 @@
 
 # Release notes
 
-Updated today
+Updated this week
+
+## July 2026
+
+### July 24, 2026
+
+**Claude Opus 5 launch**
+
+We launched Claude Opus 5, a thoughtful and proactive model that comes close to the frontier intelligence of Claude Fable 5 at half the price. For more information, see our blog post: **[Claude Opus 5](https://www.anthropic.com/news/claude-opus-5)**.
+
+### July 14, 2026
+
+**HIPAA configuration for your Claude organizations is now self-serve**
+
+You can now manage HIPAA readiness for your Claude organizations yourself. This applies to both Claude Enterprise and the Claude Platform (API). In each product, an eligible admin can review the Business Associate Agreement (BAA), download the implementation guide, and enable the HIPAA configuration in a single flow. For more information, refer to **[HIPAA-ready Enterprise plans](https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans)** and **[HIPAA readiness for Claude API](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention#hipaa-readiness)**.
+
+### July 10, 2026
+
+**Updated memory for Claude**
+
+Memory on Claude now works as a set of individual, categorized entries that Claude reads and updates during your conversations, replacing the previous daily memory summary. See **[Use Claude’s chat search and memory to build on previous context](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context)**.
+
+### July 9, 2026
+
+**A new way to reflect with Claude**
+
+Your monthly recap is a new feature at **Settings > Reflect** that shows you the topics you spent time on, your most active day and peak hour, and observations about how you work with Claude. It's in beta on Free, Pro, and Max plans on the web and Claude Desktop, and requires memory to be on. Alongside it, **Settings > Time and focus** lets you set optional break reminders and quiet hours. For more information, refer to **[See your monthly recap](https://support.claude.com/en/articles/15672559)** and **[Set break reminders and quiet hours](https://support.claude.com/en/articles/15672868)**.
+
+### July 7, 2026
+
+**Claude Cowork on web and mobile**
+
+Claude Cowork is now available on web and mobile in addition to desktop. We are rolling this capability out over the next several weeks starting with the Max plan, with more plans to follow. Cowork runs your sessions remotely (in beta), so your sessions and files are saved to your Claude account and go where you go, on any device. Work continues when you close your laptop, and scheduled tasks run with no device online. Chat and Cowork also share one home now, with one place for your projects and artifacts across both. For more information, see **[Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349)**.
+
+**Write tools for the Microsoft 365 connector**
+
+The Microsoft 365 connector now goes beyond search. With write tools enabled, Claude can draft, send, and organize email, manage calendar events, update mailbox settings, and create and update files in OneDrive and SharePoint. Read and search tools work as before, and Teams remains read-only. Before members can use write tools, a Microsoft Entra administrator needs to consent to the updated permission set and an admin needs to enable them for the organization. For more information, see **[Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector#h_a51d877afd)** and **[Connect to Microsoft 365](https://support.claude.com/en/articles/15183774)**.
+
+### July 1, 2026
+
+**Access to Claude Fable 5 and Claude Mythos 5 restored**
+We are restoring access to Claude Fable 5 and Claude Mythos 5. See **[our statement](https://www.anthropic.com/news/redeploying-fable-5)** for more information.
+
+**Model entitlements for Enterprise plans (beta)**
+
+Admins on Enterprise plans can now control what models their users have access to, and what effort level settings they can use. For more information, see **[Manage model access for your organization](https://support.claude.com/en/articles/15694740)**.
 
 ## June 2026
+
+### June 30, 2026
+
+**Claude Sonnet 5 launch**
+
+We launched Claude Sonnet 5, our most agentic Sonnet model yet, with substantial improvements over Sonnet 4.6 in reasoning, tool use, coding, and knowledge work. For more information, see our blog post: **[Introducing Claude Sonnet 5](https://www.anthropic.com/news/claude-sonnet-5)**.
 
 ### June 25, 2026
 
@@ -20,7 +71,13 @@ Team and Enterprise plans can now tag Claude directly in Slack conversations and
 
 ### June 12, 2026
 
+**Access to Claude Fable 5 and Claude Mythos 5 suspended**
+
 We've suspended access to Claude Fable 5 and Claude Mythos 5. We aim to return access as quickly as we can. See **[our statement](https://anthropic.com/news/fable-mythos-access)** for more information.
+
+**Edit Claude’s drafts in place**
+
+When Claude writes a draft in chat or Claude Cowork (a report, a plan, a brief), it opens right beside your chat. Highlight the part you want changed, type the change, and Claude makes the edit right where you marked it. No switching apps, no re-describing paragraphs in chat. For more information, see **[Work with artifacts](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them#h_9cbf05e668)**.
 
 ### June 9, 2026
 
@@ -72,7 +129,7 @@ Our latest model, Claude Opus 4.7, is now generally available. Opus 4.7 shows im
 
 Claude Cowork is now generally available on macOS and Windows through the Claude Desktop app. With this, we’re expanding Claude Cowork with new capabilities:
 
-* **Claude Cowork in the Analytics API.** For more information, see **[Claude Enterprise Analytics API: Access engagement and adoption data](https://support.claude.com/en/articles/13694757-access-engagement-and-adoption-data-with-the-analytics-api)**.
+* **Claude Cowork in the Analytics API.** For more information, see **[Analytics APIs](https://platform.claude.com/docs/en/manage-claude/analytics-api)**.
 * **Usage analytics for Claude Cowork.** For more information, see **[View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)**.
 * **Claude Cowork OpenTelemetry support.** For more information, see **[Monitor Claude Cowork activity with OpenTelemetry](https://support.claude.com/en/articles/14477985-monitor-cowork-activity-with-opentelemetry)**.
 
@@ -433,4 +490,8 @@ Enabled project permissions and sharing for Team and Enterprise plans. See **[Or
 
 **Note:** Refer to **[our docs](https://docs.anthropic.com/en/release-notes/overview)** for historical release notes.
 
-[How up-to-date is Claude's training data?](https://support.claude.com/en/articles/8114494-how-up-to-date-is-claude-s-training-data)[How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)[Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)[Set a default model for your organization](https://support.claude.com/en/articles/15330088-set-a-default-model-for-your-organization)[Enable US-only inference for your organization](https://support.claude.com/en/articles/15422948-enable-us-only-inference-for-your-organization)
+* [How up-to-date is Claude's training data?](https://support.claude.com/en/articles/8114494-how-up-to-date-is-claude-s-training-data)
+* [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
+* [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
+* [Use Claude in Microsoft Foundry](https://support.claude.com/en/articles/12864745-use-claude-in-microsoft-foundry)
+* [Enable US-only inference for your organization](https://support.claude.com/en/articles/15422948-enable-us-only-inference-for-your-organization)

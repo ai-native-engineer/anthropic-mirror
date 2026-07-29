@@ -1,6 +1,8 @@
+<!-- source: https://platform.claude.com/docs/en/api/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/beta -->
 
 <!-- chunk-start -->
+
     - `"message_batch"`
 
 ### Example
@@ -38302,4 +38304,3 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/events/stream \
       - `source: BetaManagedAgentsBase64ImageSource or BetaManagedAgentsURLImageSource or BetaManagedAgentsFileImageSource`
 
         Union type for image source variants.
-

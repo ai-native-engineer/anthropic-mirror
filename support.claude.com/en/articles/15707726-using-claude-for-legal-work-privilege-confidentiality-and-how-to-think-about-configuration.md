@@ -2,9 +2,7 @@
 
 # Using Claude for Legal Work: Privilege, Confidentiality, and How to Think About Configuration
 
-Updated yesterday
-
-Table of contents
+Updated over a month ago
 
 Lawyers and legal teams increasingly want to use Claude for research, drafting, contract review, and litigation prep. One of the most common questions we hear is some version of: *can I do that without putting privilege or client confidentiality at risk?* We think the answer is yes, with the right configuration and the right practices—and we want to be transparent about both how Claude is built and where the law currently stands.
 
@@ -50,18 +48,10 @@ On the second—what survives even when a vendor sees something—two doctrines 
 
 We believe Claude's commercial offerings can be configured by lawyers in a way that maintains privilege and confidentiality, and that the legal profession's experience with email and cloud—initial caution, then a reasonable-care standard, then mainstream adoption—is the likely arc here too. We also think it matters that it goes that way: technology competence is now part of the duty of competence. Rules that scare lawyers away from capable tools don't protect clients and they make representation slower and more expensive in a system where most people already can't afford a lawyer. We'll keep publishing how our systems work, keep our commercial terms aligned with what professional responsibility guidance requires, and keep engaging in the public conversation as the law develops.
 
----
-
 *This document describes Anthropic's products and Anthropic's perspective on publicly available legal authorities as of June 2026. It is not legal advice. Whether any particular configuration meets your confidentiality, privilege, or regulatory obligations is a question for your own counsel.*
 
----
-
-Related Articles
-
-[Using Claude in Chrome safely](https://support.claude.com/en/articles/12902428-using-claude-in-chrome-safely)[Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)[Use Claude for Word](https://support.claude.com/en/articles/14465370-use-claude-for-word)[Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)[Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)
-
-Did this answer your question?
-
-😞😐😃
-
-Table of contents
+* [Use Claude in Chrome safely](https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely)
+* [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
+* [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
+* [Use Claude for Word](https://support.claude.com/en/articles/14465370-use-claude-for-word)
+* [Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)

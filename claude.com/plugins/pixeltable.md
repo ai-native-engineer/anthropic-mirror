@@ -4,7 +4,15 @@
 
 Build multimodal AI apps with Pixeltable -- tables, computed columns, embeddings, UDFs, agents, 25+ AI integrations.
 
+* Install in
+
+  [Claude Code](#)
+* Made by
+
   [Pixeltable](https://pixeltable.com)
+* Installs
+
+  96
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -17,3 +25,41 @@ The plugin includes two specialist agents: a **Pipeline Architect** that designs
 Two slash commands round out the plugin: `/scaffold` generates new Pixeltable projects from templates (knowledge bases, chat agents, audio transcription, video search, and more) and `/add-provider` walks you through wiring up any supported AI provider as a computed column in your tables.
 
 **How to use:** Type `/scaffold` to create a new Pixeltable project from a template. Use `/add-provider` to integrate an AI provider like OpenAI or Anthropic into your pipeline. Ask questions like "design a RAG pipeline for PDF documents", "debug why my computed column returns empty results", or "set up a video search table with embedding indexes" to get expert Pixeltable guidance from the built-in agents.
+
+## Related plugins
+
+[### Frontend Design
+
+Craft production-grade frontends with distinctive design. Generates polished code that avoids generic AI aesthetics.
+
+Anthropic verified
+
+1110438
+
+installs](https://claude.com/plugins/frontend-design)
+
+[### Superpowers
+
+Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
+
+987572
+
+installs](https://claude.com/plugins/superpowers)
+
+[### Code Review
+
+AI code review with specialized agents and confidence-based filtering for pull requests
+
+Anthropic verified
+
+430450
+
+installs](https://claude.com/plugins/code-review)
+
+[### Context7
+
+Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
+
+412076
+
+installs](https://claude.com/plugins/context7)

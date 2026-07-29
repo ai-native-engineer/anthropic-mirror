@@ -57,8 +57,8 @@ Enable the right capabilities for Claude to build interactive tools.
 
 ## Required context
 
-In Settings under [Capabilities](https://claude.ai/settings/capabilities), enable [AI-powered artifacts](https://www.anthropic.com/news/build-artifacts).   
-  
+In Settings under [Capabilities](https://claude.ai/settings/capabilities), enable [AI-powered artifacts](https://www.anthropic.com/news/build-artifacts).
+
 This lets Claude create interactive web applications that use Claude's reasoning—your debate simulator will generate counterarguments and evaluate your responses in real-time, all within the tool itself.
 
 No items found.
@@ -172,7 +172,7 @@ Practice against the strongest opposition before the real debate—Claude resear
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690aa601be4bad32b10eff71_Screenshot%202025-11-04%20at%205.10.27%E2%80%AFPM%201%20(1).png)
 
@@ -182,34 +182,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Map your understanding and build lessons from the gaps](/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Map your understanding and build lessons from the gaps
+[Map your understanding and build lessons from the gaps](https://claude.com/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Map your understanding and build lessons from the gaps
 
 Map your understanding and build lessons from the gaps
 
 Use case
 
-[Use case](/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Use case
+[Use case](https://claude.com/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Use case
 
-[Stress-test your financial plan across scenarios](/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Stress-test your financial plan across scenarios
+[Stress-test your financial plan across scenarios](https://claude.com/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Stress-test your financial plan across scenarios
 
 Stress-test your financial plan across scenarios
 
 Use case
 
-[Use case](/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Use case
+[Use case](https://claude.com/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Use case
 
-[Organize files across your desktop](/resources/use-cases/organize-files-by-whats-in-them)Organize files across your desktop
+[Organize files across your desktop](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)Organize files across your desktop
 
 Organize files across your desktop
 
 Use case
 
-[Use case](/resources/use-cases/organize-files-by-whats-in-them)Use case
+[Use case](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)Use case
 
-[Thoughtful gift giving with Claude](/resources/use-cases/thoughtful-gift-giving-with-claude)Thoughtful gift giving with Claude
+[Thoughtful gift giving with Claude](https://claude.com/resources/use-cases/thoughtful-gift-giving-with-claude)Thoughtful gift giving with Claude
 
 Thoughtful gift giving with Claude
 
 Use case
 
-[Use case](/resources/use-cases/thoughtful-gift-giving-with-claude)Use case
+[Use case](https://claude.com/resources/use-cases/thoughtful-gift-giving-with-claude)Use case

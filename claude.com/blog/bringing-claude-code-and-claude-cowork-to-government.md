@@ -7,11 +7,22 @@
   [Product announcements](https://claude.com/blog/category/announcements)
 
   [Claude Code](https://claude.com/blog/category/claude-code)
+* Product
+
+  Claude Code
 
   Claude Cowork
 * Date
 
   July 7, 2026
+* Reading time
+
+  5
+
+  min
+* Share
+
+  [Copy link](#)
 
   https://claude.com/blog/bringing-claude-code-and-claude-cowork-to-government
 
@@ -51,7 +62,11 @@ Security teams can download the penetration-test artifact through the [following
 
 No items found.
 
+[Prev](#)Prev
+
 0/5
+
+[Next](#)Next
 
 eBook
 
@@ -69,53 +84,61 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
 
-Jul 21, 2026
+Jul 28, 2026
 
-### How Anthropic secures its AI-native software development lifecycle
-
-[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
-
-[How Anthropic secures its AI-native software development lifecycle](/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2260bfc90348429f9c3_cd9cf56a7f049285b7c1c8786c0a600cf3d7f317-1000x1000.svg)
-
-Jul 16, 2026
-
-### How Anthropic runs large-scale code migrations with Claude Code
-
-[How Anthropic runs large-scale code migrations with Claude Code](#)How Anthropic runs large-scale code migrations with Claude Code
-
-[How Anthropic runs large-scale code migrations with Claude Code](/blog/ai-code-migration)How Anthropic runs large-scale code migrations with Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
-
-Jul 21, 2026
-
-### How Datadog built a “universal machine tool” for Claude Code
-
-[How Datadog built a “universal machine tool” for Claude Code](#)How Datadog built a “universal machine tool” for Claude Code
-
-[How Datadog built a “universal machine tool” for Claude Code](/blog/how-datadog-built-a-universal-machine-tool-for-claude-code)How Datadog built a “universal machine tool” for Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a025cf25f0694905405e054_Object-Scale.svg)
-
-May 12, 2026
-
-### Claude for the legal industry
+### Bringing MCP 2026-07-28 to Claude
 
 Product announcements
 
-[Claude for the legal industry](#)Claude for the legal industry
+[Bringing MCP 2026-07-28 to Claude](#)Bringing MCP 2026-07-28 to Claude
 
-[Claude for the legal industry](/blog/claude-for-the-legal-industry)Claude for the legal industry
+[Bringing MCP 2026-07-28 to Claude](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)Bringing MCP 2026-07-28 to Claude
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
+
+Jul 24, 2026
+
+### Claude models explained: choosing the best model for your use case
+
+Enterprise AI
+
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
+
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Jul 24, 2026
+
+### The new rules of context engineering for Claude 5 generation models
+
+Claude Code
+
+[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
+
+[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d231b45c2193efbb0f02_1869137c9d7f2a38b50e804d707e10e85de05ddb-1000x1000.svg)
+
+Jul 23, 2026
+
+### Think through hard problems in voice mode
+
+Product announcements
+
+[Think through hard problems in voice mode](#)Think through hard problems in voice mode
+
+[Think through hard problems in voice mode](https://claude.com/blog/think-through-hard-problems-in-voice-mode)Think through hard problems in voice mode
 
 ## Transform how your organization operates with Claude
 
 See pricing
 
 [See pricing](https://claude.com/pricing#api)See pricing
+
+Contact sales
 
 [Contact sales](https://claude.com/contact-sales)Contact sales
 
@@ -127,25 +150,7 @@ Thank you! You’re subscribed.
 
 Sorry, there was a problem with your submission, please try again later.
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
+Claude Code
 
 Claude Cowork
 

@@ -1,16 +1,32 @@
 <!-- source: https://www.anthropic.com/events/anthropic-at-google-cloud-next-2026 -->
 
+[Skip to main content](#main)[Skip to footer](#footer)
+
 April
 
 22
 
+-
+
 25
+
+,
+
+2026
 
 # Anthropic at Google Cloud Next 2026
 
 Las Vegas, NV | Booth #2021
 
 Find us at Google Cloud Next to learn more about enterprise-ready AI for complex, long-running agents—on your infrastructure, with built-in safety.
+
+[Watch sessions](#event-sessions)Watch sessions
+
+Watch sessions
+
+[Events](https://www.anthropic.com/events)
+
+・
 
 Anthropic at Google Cloud Next 2026
 
@@ -20,11 +36,21 @@ Apr
 
 22
 
+-
+
 24
+
+,
+
+2026
 
 22 Apr 2026
 
+-
+
 2:48 pm
+
+-
 
 6:00 pm
 
@@ -36,9 +62,39 @@ Las Vegas, NV | Booth #2021
 
 Find us at Google Cloud Next to learn more about enterprise-ready AI for complex, long-running agents—on your infrastructure, with built-in safety.
 
+[Register now](#)Register now
+
+Register now
+
+[Register](#register)Register
+
+Register
+
+[Learn more](#intro)Learn more
+
+Learn more
+
+[Stay connected](#stay-connected)Stay connected
+
+Stay connected
+
+[Watch livestream](#livestream-live)Watch livestream
+
+Watch livestream
+
+[Watch sessions](#event-sessions)Watch sessions
+
+Watch sessions
+
+## Watch the livestream
+
+Add to calendar
+
 ![]()
 
 ## Anthropic at Google Cloud Next 2026
+
+Add to calendar
 
 ### Claude on Vertex AI
 
@@ -71,20 +127,56 @@ Our joint customers include enterprises and startups across energy, commerce, so
 * [**Shopify**](https://claude.com/customers/shopify): Shopify powers Sidekick, an AI commerce assistant that helps millions of merchants get expert-level guidance with Claude on Vertex AI[‍](https://www.claude.com/customers/thomson-reuters)
 * [**Augment Code**](https://claude.com/customers/augment-code): Augment Code transforms how developers understand and work with sophisticated codebases with Claude on Vertex AI
 
+‍
+
+No items found.
+
+## Register to attend
+
 Thank you for your interest in Anthropic at Google Cloud Next 2026
 
 Applications for this event are now closed. We invite you to tune into the livestream on Apr 22, 2026 at 2:48pm PST. The livestream will take place right here on this page.
 
+Not able to submit the form? Try loading it directly
+
+[here](#)
+
+.
+
+## Book meeting
+
 Stay connected to get the latest from Anthropic’s presence at Anthropic at Google Cloud Next 2026 and more
+
+## Thank you for contacting us
+
+Got it! If you haven’t yet, you can [get started on the Build Plan](https://console.anthropic.com/settings/plans) and begin using Claude via the API and Workbench now.
+
+## Join the livestream
+
+Add to calendar
+
+## Speakers
+
+No items found.
+
+No items found.
+
+## Agenda
 
 * Apr 22
 * Apr 23
 
+Day 1Day 2Day 3Day 3
+
 ### April
 
+###
+
 ### 22
 
 ### 22
+
+###
 
 ### April
 
@@ -92,7 +184,17 @@ Stay connected to get the latest from Anthropic’s presence at Anthropic at Goo
 
 Multi-agent architectures are powerful but over-applied. In this Anthropic-led session, using examples including Claude on Vertex AI, you'll learn the three scenarios where multi-agent consistently wins (context isolation, parallel execution, specialization), four architecture patterns with concrete trade-offs, and the context-centric decomposition strategy most teams get wrong - plus verification subagents and the pitfalls that undermine even well-designed systems.
 
+Wednesday
+
+,
+
 Apr 22
+
+,
+
+11:15 am
+
+-
 
 12:00 pm
 
@@ -102,9 +204,17 @@ PST
 
 Teams without evals get stuck in reactive loops—catching issues in production, unable to distinguish regressions from noise. Teams that invest early find development accelerates as failures become test cases and metrics replace guesswork. This talk shares what we've learned building evals for Claude Code and deploying them with customers across coding, conversational, and research agents. You'll leave with a roadmap: structuring agent evals, choosing the right graders, balancing capability vs. regression testing, and building a suite you trust.
 
+Wednesday
+
+,
+
 Apr 22
 
+,
+
 1:00 pm
+
+-
 
 1:20 pm
 
@@ -114,9 +224,19 @@ PST
 
 Enterprise software will change more in the next two years than it has in the last twenty. The model is inverting: top-down planning, where organizations define and prioritize what gets built, is giving way to bottom-up execution, where AI agents help teams solve problems as fast as they find them. Anthropic shares what we're seeing at the frontier. Teams are already deploying agents on Vertex AI that define, build, and iterate autonomously. We'll ground the vision in real examples and practical frameworks for readiness.
 
+Wednesday
+
+,
+
 Apr 22
 
+,
+
 2:45 pm
+
+-
+
+3:30 pm
 
 PST
 
@@ -124,9 +244,17 @@ PST
 
 Shopify’s "Sidekick" is an AI-enabled commerce assistant that is deeply competent, helpful, and designed to help merchants of all sizes grow and succeed. In this session, explore how Shopify leverages Claude on Vertex AI to execute multi-step workflows—like improving product listings and pulling performance reports —without sacrificing latency. Learn how the combination of Claude and Vertex AI ensures high reliability, enables model updates in under 24 hours, and empowers merchants to make faster data-driven decisions.
 
+Wednesday
+
+,
+
 Apr 22
 
+,
+
 3:45 pm
+
+-
 
 4:30 pm
 
@@ -134,11 +262,23 @@ Apr 22
 
 ### 22 April 2026
 
+### —
+
+### Wednesday
+
+11:15 am
+
+-
+
 12:00 pm
 
 PST
 
 ### Building Multi-Agent Systems That Actually Work
+
+11:15 am
+
+-
 
 12:00 pm
 
@@ -150,6 +290,8 @@ Multi-agent architectures are powerful but over-applied. In this Anthropic-led s
 
 1:00 pm
 
+-
+
 1:20 pm
 
 PST
@@ -157,6 +299,8 @@ PST
 ### Demystifying Evals at the Frontier of Agentic Development
 
 1:00 pm
+
+-
 
 1:20 pm
 
@@ -168,11 +312,19 @@ Teams without evals get stuck in reactive loops—catching issues in production,
 
 2:45 pm
 
+-
+
+3:30 pm
+
 PST
 
 ### After Software: Anthropic's Vision for the Next Era of Enterprise AI
 
 2:45 pm
+
+-
+
+3:30 pm
 
 PST
 
@@ -182,11 +334,15 @@ Enterprise software will change more in the next two years than it has in the la
 
 3:45 pm
 
+-
+
 4:30 pm
 
 ### Build agents at scale: How Shopify powers Sidekick with Claude on Vertex AI
 
 3:45 pm
+
+-
 
 4:30 pm
 
@@ -196,6 +352,8 @@ Shopify’s "Sidekick" is an AI-enabled commerce assistant that is deeply compet
 
 ### April
 
+###
+
 ### 23
 
 #### Long-Running Agents: Lessons from the Enterprise Frontier
@@ -204,9 +362,15 @@ AI agents that work for hours are already in production and teams deploying them
 
 Thursday
 
+,
+
 Apr 23
 
+,
+
 12:00 pm
+
+-
 
 12:45 pm
 
@@ -214,9 +378,13 @@ PST
 
 ### Apr 23
 
+### —
+
 ### Thursday
 
 12:00 pm
+
+-
 
 12:45 pm
 
@@ -225,6 +393,8 @@ PST
 ### Long-Running Agents: Lessons from the Enterprise Frontier
 
 12:00 pm
+
+-
 
 12:45 pm
 
@@ -234,14 +404,74 @@ PST
 
 AI agents that work for hours are already in production and teams deploying them are pulling ahead. Design patterns for long-running agents are within reach today and will get more powerful as models advance. Anthropic shares lessons from frontier enterprise teams building with Claude, including a framework for long-running agent design applied to two domains: codebase modernization and turning requirements into working applications. You'll see agents in action and learn architectural patterns that make sustained autonomous work reliable.
 
+###
+
+###
+
+###
+
+Agenda details coming soon.
+
+###
+
+### —
+
+###
+
+Agenda details coming soon.
+
+###
+
+###
+
+###
+
+Agenda details coming soon.
+
+###
+
+### —
+
+###
+
+Agenda details coming soon.
+
+## Venue
+
+### Name
+
 Mandalay Bay Conference Center
 
 [Website](https://www.googlecloudevents.com/next-vegas)
+
+### Address
 
 3950 S Las Vegas Blvd, Las Vegas, NV 89119
 
 Las Vegas, NV
 
+### Open doors
+
+## Why attend?
+
+No items found.
+
+### Resources
+
+Access cutting-edge research, connect with our community, and stay informed about the latest developments in responsible AI.
+
 ![](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/67ed6827b32f4c4cdd41ad4c_Nodes-International.svg)
 
+### Discover meetups, workshops, online events, and more
+
+[Browse all events](https://www.anthropic.com/events)Browse all events
+
+Browse all events
+
 ![](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/67ed7c68550b3c546d56e070_Desktop.svg)
+
+### Get expert insight on the latest innovation in the industry
+
+[View all webinars](https://www.anthropic.com/events#webinars)View all webinars
+
+View all webinars

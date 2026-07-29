@@ -29,11 +29,11 @@ Running a small business means working across a lot of tools — your books, you
 
 With the [Claude for Small Business](https://www.anthropic.com/news/claude-for-small-business) plugin installed and set up in [Claude Cowork](https://claude.com/resources/tutorials/get-started-in-claude-cowork-in-three-steps), a short prompt can help run a multi-step workflow for your business.
 
-Below are four examples: what each prompt runs, what Claude does at each step, and what you have when it's done.   
+Below are four examples: what each prompt runs, what Claude does at each step, and what you have when it's done.
 ‍
 
-> ‍***Tip***: To set up the plugin that enables the workflows below and see the full inventory of skills, visit [How to install and use the Claude for Small Business plugin](https://claude.com/resources/tutorials/how-to-install-the-claude-for-small-business-plugin)  
-> ‍  
+> ‍***Tip***: To set up the plugin that enables the workflows below and see the full inventory of skills, visit [How to install and use the Claude for Small Business plugin](https://claude.com/resources/tutorials/how-to-install-the-claude-for-small-business-plugin)
+> ‍
 > **To learn more:** see [Customize Claude Cowork](https://claude.com/resources/tutorials/customize-claude-cowork) and [Customizing plugins in Claude Cowork](https://claude.com/resources/tutorials/how-to-customize-plugins-in-cowork)
 
 In this guide
@@ -229,9 +229,9 @@ A 30-day cash chart, a ranked overdue list with payment history, a reminder for 
 
 ‍
 
-‍  
-***Tip***: To set up the plugin that enables the workflows below and see the full inventory of skills, visit: [How to install and use the Claude for Small Business plugin](https://claude.com/resources/tutorials/how-to-install-the-claude-for-small-business-plugin).  
-‍  
+‍
+***Tip***: To set up the plugin that enables the workflows below and see the full inventory of skills, visit: [How to install and use the Claude for Small Business plugin](https://claude.com/resources/tutorials/how-to-install-the-claude-for-small-business-plugin).
+‍
 To learn more, see [Customize Claude Cowork](https://claude.com/resources/tutorials/customize-claude-cowork) and [Customizing plugins in Claude Cowork](https://claude.com/resources/tutorials/how-to-customize-plugins-in-cowork)
 
 In this guide
@@ -427,10 +427,10 @@ A 30-day cash chart, a ranked overdue list with payment history, a reminder for 
 
 ## Related tutorials
 
-[How to install and use the Claude for Small Business plugin](/resources/tutorials/how-to-install-the-claude-for-small-business-plugin) How to install and use the Claude for Small Business plugin
+[How to install and use the Claude for Small Business plugin](https://claude.com/resources/tutorials/how-to-install-the-claude-for-small-business-plugin) How to install and use the Claude for Small Business plugin
 
 How to install and use the Claude for Small Business plugin
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-install-the-claude-for-small-business-plugin)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-install-the-claude-for-small-business-plugin)Tutorial

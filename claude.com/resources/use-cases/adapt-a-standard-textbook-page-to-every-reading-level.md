@@ -169,7 +169,7 @@ Whenever Claude is rewriting, simplifying, or adapting something you gave it, ad
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e0f28373d7c9dfb19a5768_textbook.png)
 
@@ -179,34 +179,10 @@ Open artifact in new window
 
 ## Related use cases
 
-[Audit a folder of visual assets against your guidelines](/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)Audit a folder of visual assets against your guidelines
+[Audit a folder of visual assets against your guidelines](https://claude.com/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)Audit a folder of visual assets against your guidelines
 
 Audit a folder of visual assets against your guidelines
 
 Use case
 
-[Use case](/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)Use case
-
-[Handle a request while away from your keyboard](/resources/use-cases/handle-a-request-while-away-from-your-keyboard)Handle a request while away from your keyboard
-
-Handle a request while away from your keyboard
-
-Use case
-
-[Use case](/resources/use-cases/handle-a-request-while-away-from-your-keyboard)Use case
-
-[Kick off long-running computer tasks from the Claude mobile app](/resources/use-cases/kick-off-long-running-computer-tasks-from-the-claude-mobile-app)Kick off long-running computer tasks from the Claude mobile app
-
-Kick off long-running computer tasks from the Claude mobile app
-
-Use case
-
-[Use case](/resources/use-cases/kick-off-long-running-computer-tasks-from-the-claude-mobile-app)Use case
-
-[Operate any computer app from your phone with Dispatch](/resources/use-cases/operate-any-computer-app-from-your-phone-with-dispatch)Operate any computer app from your phone with Dispatch
-
-Operate any computer app from your phone with Dispatch
-
-Use case
-
-[Use case](/resources/use-cases/operate-any-computer-app-from-your-phone-with-dispatch)Use case
+[Use case](https://claude.com/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)Use case

@@ -162,6 +162,6 @@ Explore solutions
 
 [Explore solutions](https://claude.com/solutions/financial-services)Explore solutions
 
-[Homepage](/?r=0)Homepage
+[Homepage](https://claude.com/?r=0)Homepage
 
 Terms and Policies

@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/government/tenant-admin/identity-and-access -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this is for:** Tenant administrators who connect the deployment to their agency’s identity provider and control which organization each person belongs to.
 
 Use this page to connect single sign-on, manage the SCIM provisioning token, write the routing rules that place users into organizations, preview how a specific person would be routed, and review people who haven’t been placed yet.
@@ -17,10 +25,14 @@ Three banners can appear at the top of the page:
 
 Claude for Government routes users to your tenant by the domain of their email address, so at least one domain must be registered before anyone can sign in. The **Domains** section lists every domain registered to your tenant, along with whether it is verified and whether it was registered by Anthropic or by you.
 Domains that Anthropic registered on your behalf during onboarding are already verified. To add one yourself, enter the domain in the **Claim a domain** field and click **Claim**. You will be shown a DNS TXT record to publish on that domain; once the record is live, click **Verify now** and the domain becomes active.
+Until at least one domain is verified, the Single sign-on section’s Connect button and the SCIM provisioning section’s **Generate token** button are both unavailable, and each section shows a banner explaining why. Existing tenant administrators can still sign in by email link during this time.
 
 ##  Single sign-on
 
 Every user signs in through your agency’s identity provider (for example, Microsoft Entra, Okta, or ADFS). You register Claude for Government as an application in your identity provider, then enter your provider’s connection details here. Once connected, every sign-in is redirected to your provider, and the temporary bootstrap password issued during onboarding is no longer used.
+
+You need at least one verified domain before you can connect single sign-on. Until then, the Connect button is unavailable and a banner prompts you to verify a domain first. If single sign-on was already connected before your last domain was removed, the existing connection stays editable.
+
 The card header shows a **Connected (OIDC)**, **Connected (SAML)**, or **Not configured** badge so you can see the current state at a glance. Only one protocol is active at a time. Use the **OIDC** and **SAML** tabs to switch between the two forms; saving one replaces the other.
 
 ###  Registering in your identity provider
@@ -59,6 +71,8 @@ Saving a new single sign-on configuration takes effect immediately and applies t
 
 SCIM is the standard protocol identity providers use to push users and groups to a connected service automatically, so that accounts are created, updated, and deactivated in step with your agency’s directory. Connecting SCIM is optional; without it, users are created the first time they sign in.
 
+You need at least one verified domain before you can generate a SCIM token. Until then, **Generate token** is unavailable and a banner prompts you to verify a domain first.
+
 * **SCIM base URL** is the address your identity provider pushes user and group updates to. A copy button sits next to it. You’ll paste this value into your identity provider’s provisioning settings (Okta and Microsoft Entra call this the *Tenant URL*).
 
 ###  SCIM secret token
@@ -72,7 +86,7 @@ Once a token is active and your directory completes its first sync, the provisio
 
 ##  Directory groups
 
-Once your identity provider has pushed groups over SCIM, they appear here with their member counts. Drag the groups into the order you want; this priority is used for group-level configuration overrides on the [Config](/docs/government/tenant-admin/configuration#group-specific-settings) page.
+Once your identity provider has pushed groups over SCIM, they appear here with their member counts. Drag the groups into the order you want; this priority is used for group-level configuration on the [Config](https://claude.com/docs/government/config/overview#group-specific-settings) page.
 
 ##  Routing rules
 
@@ -152,8 +166,8 @@ For rejected sign-ins you can do the following:
 For synced, not routed entries, add a provisioning rule that covers their group. They’ll be placed automatically at the next directory sync; there is nothing to clear.
 Once a person is successfully placed (by signing in through a matching rule or by the next directory sync), their entries in these lists are cleaned up automatically.
 
+##  Things to know
+
 * If two administrators reorder the same rule list at the same time, the second save is rejected with a message that the rules changed in another session. The list refreshes so you can review the current order and try again.
 * A user who was previously deactivated cannot regain access by matching a rule; they are refused with a deactivated-user reason instead.
 * For users managed by your directory, the email address shown in Claude for Government is kept in step with your directory. The sign-in token’s email is ignored for those users so that a provider that sends different values in different fields (a common quirk in Microsoft Entra) does not bounce the address back and forth.
-
-[Organizations](/docs/government/tenant-admin/organizations)[Tenant restrictions](/docs/government/tenant-admin/tenant-restrictions)

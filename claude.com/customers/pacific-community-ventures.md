@@ -8,7 +8,9 @@ Try Claude
 
 [Try Claude](https://claude.ai)Try Claude
 
-[Contact sales](/contact-sales)Contact sales
+Contact sales
+
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4d5437e0a6d096150a027f_logo_pcv-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4d543b4dfd5746c3b7d611_logo_pcv-dark-mode.png)
 
@@ -62,7 +64,11 @@ Q&A
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
 A conversation with Pacific Community Ventures on building AI for fair lending
+
+[Next](#)Next
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -86,13 +92,17 @@ Turn limited resources into lasting impact. Generate grant proposals, track prog
 
 Read more
 
-[Read more](/solutions/nonprofits)Read more
+[Read more](https://claude.com/solutions/nonprofits)Read more
 
 Nonprofits
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
 Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
+
+[Next](#)Next
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -134,6 +144,10 @@ Chief Data Officer, Pacific Community Ventures
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
+[Next](#)Next
+
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ## The outcome
@@ -158,34 +172,34 @@ Chief Data Officer, Pacific Community Ventures
 
 ## Related stories
 
-[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
+[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
 
 The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
 
 Customer story
 
-[Customer story](/customers/epilepsy-foundation)Customer story
+[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
 
-[How the Epilepsy Foundation uses Claude across the organization](/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
+[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
 
 How the Epilepsy Foundation uses Claude across the organization
 
 Customer story
 
-[Customer story](/customers/epilepsy-foundation-qa)Customer story
+[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
 
-[Building dignity-driven AI: A conversation with the National Domestic Workers Alliance](/customers/national-domestic-workers-alliance-qa)Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
+[Building dignity-driven AI: A conversation with the National Domestic Workers Alliance](https://claude.com/customers/national-domestic-workers-alliance-qa)Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
 
 Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
 
 Customer story
 
-[Customer story](/customers/national-domestic-workers-alliance-qa)Customer story
+[Customer story](https://claude.com/customers/national-domestic-workers-alliance-qa)Customer story
 
-[National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude](/customers/national-domestic-workers-alliance)National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude
+[National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude](https://claude.com/customers/national-domestic-workers-alliance)National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude
 
 National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude
 
 Customer story
 
-[Customer story](/customers/national-domestic-workers-alliance)Customer story
+[Customer story](https://claude.com/customers/national-domestic-workers-alliance)Customer story

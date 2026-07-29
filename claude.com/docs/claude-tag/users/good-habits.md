@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-tag/users/good-habits -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Tasks should have a verifiable end state. Claude runs each one in its own thread, and a thread closes when someone can confirm the work is done. A task without that end state produces an open-ended report, and the thread stays open while you decide what to do with it.
 The habits here are for anyone who tags Claude in from Slack.
 
@@ -21,6 +29,22 @@ The phrasing of a task determines whether it has a verifiable end state, what fo
 
 A task like “post the project status and tag me when it’s up” has an end state Claude can verify; “look at this” does not, and invites an open-ended report. Put the verifiable outcome in the first sentence of the task.
 
+###  How much detail to give
+
+Claude [reads the thread you tag it in, can search the workspace’s public channels, and works with the channel’s connections](https://claude.com/docs/claude-tag/users/getting-started#what-claude-can-see). If the background for your task is already in a thread, channel, or connected tool, link to it and state the outcome you want in one sentence. You don’t need to restate the background.
+
+```
+@Claude take over the bug in the thread linked above. Fix it and open a draft PR.
+```
+
+When a mistake would be costly to undo, give Claude more detail. Write the detail as constraints: name the rules the change must respect, the checks that count as verification, and what the work must not touch.
+
+```
+@Claude migrate the export config to the new schema. Hard rules: no behavior change, don't touch the billing module, and every old config key keeps working as an alias. Done means the full test suite passes, not only the export tests.
+```
+
+Constraints in a task steer Claude but don’t restrict Claude from performing a specific action. Anything you type to Claude goes into its working context, where it can be forgotten or overridden. If there are actions Claude must not take, enforce them outside the conversation, with controls like repository permissions, branch protection rules, and required checks.
+
 ###  Give every task a definition of done
 
 Starting a thread costs one sentence. Closing it costs your attention, because you read the output, decide whether it’s right, and reply.
@@ -39,14 +63,28 @@ Two refinements make the table work in practice:
 * **Spell out everything the condition includes.** “Babysit this PR until it merges” can produce a merge the moment approvals arrive, before open review comments are addressed. If the full condition is approvals present, comments resolved, and your final go-ahead, write all three into the task.
 
 For tasks Claude closes itself, ask it to attach proof, such as the source link, the chart, the test output, or the diff. You read the proof, not the transcript.
-For long-running work, make getting the deliverable somewhere durable part of the definition. Post the file to the thread, push the branch, or open the draft pull request as it goes. See [what survives between replies](/docs/claude-tag/concepts/how-it-works#what-survives-between-replies).
+For long-running work, make getting the deliverable somewhere durable part of the definition. Post the file to the thread, push the branch, or open the draft pull request as it goes. See [what survives between replies](https://claude.com/docs/claude-tag/concepts/how-it-works#what-survives-between-replies).
 Calibrate over time. Check everything it produces in a new channel at first, and widen what it closes on its own as its output holds up under review.
+
+###  Say which decisions come back to you
+
+Tell Claude which decisions it can make on its own and which ones it must bring to you before acting. If you don’t, Claude judges each case itself. It may make a change you wanted to see first, or stop to ask so often that it spends most of the task waiting for your replies.
+
+```
+@Claude update the retry logic the way this thread decided. Handle test failures and lint yourself. Come back to me before changing any public interface, and for anything you're not sure is in scope.
+```
+
+These instructions steer Claude but don’t restrict Claude from deciding on its own. A decision that must come back to you needs an enforced control too, such as branch protection for merges.
+
+Once you’ve seen and verified Claude’s output over several tasks, you can let it make more decisions without checking in, the same way you widen [what it closes on its own](#give-every-task-a-definition-of-done).
 
 ###  Specify the output format for anything recurring
 
 A monitor or digest that posts on a schedule posts to the channel repeatedly, so spell out the shape you want each post to take. Say how long each item should be, give it the status legend to use, and tell it what to leave out, so the channel can read every post at a glance.
 
+```
 @Claude every 6 hours, check #alerts and post one line per item: 🔴 needs a person, 🟡 watch, 🟢 fine. Skip 🟢 unless something changed.
+```
 
 Once a post matches the format you want, you can also point at it directly: “use the format from your 9am post going forward.”
 
@@ -54,29 +92,44 @@ Once a post matches the format you want, you can also point at it directly: “u
 
 Claude adapts to instructions, but it won’t guess that you want it to. Tell it how to behave in this channel and ask it to remember. That works in both directions, whether you want more structure or less noise:
 
+```
 @Claude remember for this channel: always format reports as a table, and ask before posting anything longer than a screen.
+```
 
+```
 @Claude remember for this channel: keep replies to three sentences unless someone asks for detail.
+```
 
-Verify what stuck by asking what it remembers about the channel. See [What Claude Tag remembers](/docs/claude-tag/users/memory).
+Verify what stuck by asking what it remembers about the channel. See [What Claude Tag remembers](https://claude.com/docs/claude-tag/users/memory).
 
 ##  Work in the right place
 
 Where you start a thread determines what Claude can reach, who else can pick the work up, and which standing conventions apply.
 
+###  Start a new thread for a new task
+
+Each thread runs its own session, and the session carries the whole conversation into every reply. Keep follow-ups on the same task in the same thread, where Claude already has the context.
+Start a new thread for each new task. The fresh session begins with full room for the work, picks up any configuration changes made since the old thread began, and keeps each piece of work reviewable on its own. A thread that accumulates many tasks eventually [grows past what one session can hold](https://claude.com/docs/claude-tag/users/troubleshooting#this-conversation-is-too-long-for-me-to-process).
+
 ###  Pick the right surface
 
-Channel access belongs to the channel, and DM access belongs to you. The table matches each kind of work to the surface it belongs on.
+Channel access belongs to the channel, and DM access belongs to you. A channel can also be yours alone. Create one with just you and Claude in it, and it works the same way a team channel does. The table compares the three surfaces.
 
-| Use a channel when | Use a DM when |
-| The work is shared, or someone else might pick it up | The work is personal |
-| The task needs the channel’s connections, like the issue tracker, the warehouse, or CI | The task needs your own connections |
-| The result should be visible to the team | You’re handling data that shouldn’t run through a shared channel connection |
-|  | You want a private answer about a public channel |
+|  | A team channel | Your own channel | A DM |
+| --- | --- | --- | --- |
+| Access | The channel’s connections, set by an admin | The channel’s connections, set by an admin | Your own claude.ai connectors |
+| Memory | Channel memory the team builds | Channel memory you build | Outside channel and workspace memory |
+| Who sees the work | Everyone in the channel | You, plus anyone you invite | You |
+| Billing | The organization | The organization | Your seat |
+| Best for | Shared work the team should see and steer | Your own questions, digests, and follow-ups, kept where a teammate can pick them up | Personal tasks on your own connections, or data that shouldn’t run through a shared channel connection |
 
-For that last case, name the channel in the DM: `summarize the last week of #product-feedback`. Claude’s Slack search covers public channels in this workspace from either surface; the DM advantage is privacy of the answer, not broader reach. Reading a channel’s full history directly needs Claude to be a member of it. It can’t reach channels in a different workspace or Slack Connect channels. If it says it can’t read a channel, `/invite @Claude` from inside that channel adds it.
-When either would work, prefer the channel. Work that happens there compounds, because Claude can draw on it in later threads and teammates can find it, redirect it, or build on it.
-If Claude says it can’t reach something in a channel, the channel likely wasn’t granted that access. See [How agent identity works](/docs/claude-tag/concepts/agent-identity).
+[Routines](https://claude.com/docs/claude-tag/users/proactivity) belong to a channel too. You set standing work up in the channel where it should post, and it runs with that channel’s connections. [Work from your own channel](https://claude.com/docs/claude-tag/users/use-cases/your-own-channel) shows what a channel of your own is good for.
+A DM can still answer questions about a public channel when the answer should stay private. Name the channel in the DM, as in `summarize the last week of #product-feedback`. Claude’s Slack search covers public channels in this workspace from a DM the same as from a channel, so the DM advantage is privacy of the answer, not broader reach. Workspace search is unavailable in [channels that include guests](https://claude.com/docs/claude-tag/admins/restrict-access#restrict-guest-channels), so ask from a DM or from a channel without guests.
+Reading a public channel’s full history, rather than what search finds, needs Claude to be a member of that channel. If it says it can’t read a public channel, `/invite @Claude` from inside that channel adds it.
+A private channel is readable only from inside it. Inviting Claude lets it work in that channel, but Claude can’t read the private channel’s messages from any other channel or DM. To ask about a private channel, ask in that channel.
+Channels in a different workspace and Slack Connect channels stay out of reach.
+When more than one surface would work, prefer a channel. Work that happens there compounds, because Claude can draw on it in later threads and teammates can find it, redirect it, or build on it.
+If Claude says it can’t reach something in a channel, the channel likely wasn’t granted that access. See [How agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity).
 
 ###  Teach Claude something that sticks
 
@@ -84,17 +137,27 @@ When Claude gets something wrong, or learns something worth keeping, where you p
 
 | You want Claude to know | Put it in | Who can write it | Reaches |
 | --- | --- | --- | --- |
-| How this channel should behave: format, tone, when to respond | [**Channel memory**](/docs/claude-tag/users/memory) (say it and ask Claude to remember) | Anyone in the channel | This channel (or workspace, from a public channel) |
-| Conventions for one repository: file layout, PR labels, review rules | **`CLAUDE.md`** at the repo root ([loaded when the repo is](/docs/claude-tag/admins/configure-github#what-loads-from-a-repository)) | Anyone with repo write | Any session that works in that repo, from any channel |
-| How to use a tool correctly, or follow a specific process, org-wide | [**A skill**](/docs/claude-tag/admins/skills-repo) in your org’s plugin marketplace | An organization Owner adds it; anyone can ask Claude to open a PR proposing the change | Every channel under the scope it’s attached to |
-| Standing rules for a channel that outrank memory | [**Custom instructions**](/docs/claude-tag/admins/attach-to-scope#add-custom-instructions) on the scope | An organization Owner, in the console | Every session in that scope |
+| How this channel should behave: format, tone, when to respond | [**Channel memory**](https://claude.com/docs/claude-tag/users/memory) (say it and ask Claude to remember) | Anyone in the channel | This channel (or workspace, from a public channel) |
+| Conventions and setup for one repository: file layout, PR labels, dependencies to install | **`CLAUDE.md`** at the repo root ([loaded when the repo is](https://claude.com/docs/claude-tag/admins/configure-github#what-loads-from-a-repository)) | Anyone with repo write | Any session that works in that repo, from any channel |
+| Standing rules for this channel that outrank memory | The [**Configure** page](#configure-claude-for-a-channel), in the **Channel instructions** field | Channel members, unless an admin has [restricted it](https://claude.com/docs/claude-tag/admins/attach-to-scope#restrict-who-can-set-channel-instructions) | This channel |
+| How to use a tool correctly, or follow a specific process, org-wide | [**A skill**](https://claude.com/docs/claude-tag/admins/skills-repo) in your org’s plugin marketplace | An organization Owner adds it; anyone can ask Claude to open a PR proposing the change | Every channel under the scope it’s attached to |
+| Standing rules across many channels | [**Custom instructions**](https://claude.com/docs/claude-tag/admins/attach-to-scope#add-custom-instructions) on a workspace or organization scope | An organization Owner, in the console | Every session in that scope |
 
-The first two are yours to write. For skills and custom instructions, an Owner attaches them, but you can still ask Claude to draft a skill change as a pull request for an admin to review:
+The first three are yours to write. Skills and wider-scope custom instructions are attached by an Owner, but you can still ask Claude to draft a skill change as a pull request for an admin to review:
 
+```
 @Claude that worked. Open a PR to the skills repo so this query pattern is part of the Datadog skill.
+```
 
-See [the admin guide to a skills repository](/docs/claude-tag/admins/skills-repo) for what that setup gives you.
+See [the admin guide to a skills repository](https://claude.com/docs/claude-tag/admins/skills-repo) for what that setup gives you.
+A `CLAUDE.md` carries setup as well as conventions. Sessions run in a sandbox with a standard set of preinstalled tools. If the repository needs more, such as a language runtime or a database client, put the install commands in `CLAUDE.md`, and Claude [runs them when its work needs them](https://claude.com/docs/claude-tag/admins/configure-github#install-project-dependencies).
 A `CLAUDE.md` is guidance; a required status check is a gate. If a pull request must carry a label or pass a check, make that a repository rule rather than a memory note or a skill.
+
+###  Configure Claude for a channel
+
+The **Configure** link in the footer of any Claude reply opens a page where you tailor how Claude behaves in that channel. The page is on claude.ai, so you need to be signed in to your Claude organization to edit it, and an admin can [restrict editing](https://claude.com/docs/claude-tag/admins/attach-to-scope#restrict-who-can-set-channel-instructions) so the page is read-only for members.
+Use the **Channel instructions** field on that page to write standing guidance Claude reads in every new session in the channel: the channel’s purpose, its conventions, the tone replies should take, and anything Claude should do or avoid there. Channel instructions outrank channel memory and sit alongside any instructions an admin has set for the workspace or organization. Save the field and the change applies to new sessions started in the channel.
+The page also shows **Connections**, the services Claude can reach from this channel. Your organization’s admins set that list, so you can see it on this page but not change it.
 
 ##  Keep thread count and review rate matched
 
@@ -104,7 +167,7 @@ Claude runs as many threads as you start. Your capacity to review them doesn’t
 * **Batch your reviews.** Several threads in one sitting costs less than the same number spread across the day, because each return is a context reload.
 * **Mark closed threads.** React ✅ to anything you consider done, and tell your digest routine to skip them.
 
-* [Use case library](/docs/claude-tag/users/use-cases): the full setups these habits make reliable
-* [What Claude Tag remembers](/docs/claude-tag/users/memory): make corrections stick
+##  Related resources
 
-[Control when Claude Tag responds](/docs/claude-tag/users/when-claude-responds)[Set up routines](/docs/claude-tag/users/proactivity)
+* [Use case library](https://claude.com/docs/claude-tag/users/use-cases): the full setups these habits make reliable
+* [What Claude Tag remembers](https://claude.com/docs/claude-tag/users/memory): make corrections stick

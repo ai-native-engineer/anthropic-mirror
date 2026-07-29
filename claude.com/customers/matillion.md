@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/691e3aee403418d70ca8696b_Matillion%20Light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/691e3af1ff5f7ee730c2d247_Matillion%20Dark.svg)
 
@@ -98,13 +98,13 @@ With Claude, Matillion:
 
 ## Selecting the right foundation model
 
-Matillion chose Claude after 18 months of testing across multiple model providers. Their evaluation framework measured three critical capabilities: understanding proprietary domain-specific languages, multi-step reasoning for complex data operations, and reliable tool-calling decisions.Claude consistently outperformed other models across all metrics. Specifically:  
-  
-**• Strong reasoning and tool-calling:** Claude demonstrated sophisticated ability to select the right tools and sequence complex operations—critical for autonomous data pipeline management  
-**• Reliability:** Stable performance across model versions meant Matillion could upgrade to newer Claude releases without re-engineering their entire prompt architecture    
-**• No training required:** Claude understood Matillion's proprietary YAML-based Data Pipeline Language (DPL) immediately, despite having no public training data  
-**• Consistent behavior:** The team found they never had to "fight" the model to achieve desired outcomes  
-  
+Matillion chose Claude after 18 months of testing across multiple model providers. Their evaluation framework measured three critical capabilities: understanding proprietary domain-specific languages, multi-step reasoning for complex data operations, and reliable tool-calling decisions.Claude consistently outperformed other models across all metrics. Specifically:
+
+**• Strong reasoning and tool-calling:** Claude demonstrated sophisticated ability to select the right tools and sequence complex operations—critical for autonomous data pipeline management
+**• Reliability:** Stable performance across model versions meant Matillion could upgrade to newer Claude releases without re-engineering their entire prompt architecture
+**• No training required:** Claude understood Matillion's proprietary YAML-based Data Pipeline Language (DPL) immediately, despite having no public training data
+**• Consistent behavior:** The team found they never had to "fight" the model to achieve desired outcomes
+
 "The decision to choose Claude was entirely data-driven," explains Julian Wiffen, Chief of AI and Data Science at Matillion. "We tested multiple models side by side, and Claude consistently delivered the best results for both accuracy and reliability."
 
 ## The challenge: Data teams drowning in backlogs
@@ -119,8 +119,8 @@ The transformation began when Matillion found that their proprietary Data Pipeli
 
 Matillion built a sophisticated testing framework using three LLMs in concert—one running Maia, another playing the role of tester, and a third acting as judge to verify outcomes. This framework let them measure performance tangibly: tracking time taken, tool selection accuracy, and token consumption across scenario sets.
 
-The evolution from simple auto-documentation to full agentic capabilities took two years, but the results justify the investment. Maia can now access almost the complete functionality of the Data Productivity Cloud through tool calls, performing operations that challenge even expert data engineers.  
-  
+The evolution from simple auto-documentation to full agentic capabilities took two years, but the results justify the investment. Maia can now access almost the complete functionality of the Data Productivity Cloud through tool calls, performing operations that challenge even expert data engineers.
+
 **“**Maia handles everything from legacy ETL migrations to building production-ready pipelines at machine speed, with logic quality we can trust,” said Ammad Baig, Director of Enterprise Data & AI Services at Precision Medicine Group. “It's fundamentally accelerating our workflow while reducing manual overhead.”
 
 ## The outcome: Redefining data team productivity
@@ -157,34 +157,34 @@ Video caption
 
 ## Related stories
 
-[How Vercel built an ecosystem on the open skills standard](/customers/vercel-qa)How Vercel built an ecosystem on the open skills standard
+[Dust enables agents to go deeper at lower cost with Claude](https://claude.com/customers/dust)Dust enables agents to go deeper at lower cost with Claude
+
+Dust enables agents to go deeper at lower cost with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/dust)Customer story
+
+[How Vercel built an ecosystem on the open skills standard](https://claude.com/customers/vercel-qa)How Vercel built an ecosystem on the open skills standard
 
 How Vercel built an ecosystem on the open skills standard
 
 Customer story
 
-[Customer story](/customers/vercel-qa)Customer story
+[Customer story](https://claude.com/customers/vercel-qa)Customer story
 
-[Box builds document creation into its AI agent with Claude](/customers/box)Box builds document creation into its AI agent with Claude
+[Box builds document creation into its AI agent with Claude](https://claude.com/customers/box)Box builds document creation into its AI agent with Claude
 
 Box builds document creation into its AI agent with Claude
 
 Customer story
 
-[Customer story](/customers/box)Customer story
+[Customer story](https://claude.com/customers/box)Customer story
 
-[Juno helps people with chronic illness find patterns in their symptoms with Claude](/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
+[Juno helps people with chronic illness find patterns in their symptoms with Claude](https://claude.com/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
 
 Juno helps people with chronic illness find patterns in their symptoms with Claude
 
 Customer story
 
-[Customer story](/customers/juno)Customer story
-
-[A conversation with Cursor on building coding agents for professional developers](/customers/cursor-qa)A conversation with Cursor on building coding agents for professional developers
-
-A conversation with Cursor on building coding agents for professional developers
-
-Customer story
-
-[Customer story](/customers/cursor-qa)Customer story
+[Customer story](https://claude.com/customers/juno)Customer story

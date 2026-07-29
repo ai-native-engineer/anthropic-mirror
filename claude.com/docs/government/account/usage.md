@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/government/account/usage -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this is for:** Anyone with a Claude for Government account.
 
 Use this page to see how much of your Claude allowance you have used and when it refreshes.
@@ -25,7 +33,7 @@ The paused banner and the navigation indicator only appear while a limit is actu
 
 The page also shows your seat tier name in the top right, so you can tell at a glance which allowance you are on. Below the windows there is a **How do these limits work?** link that expands a short plain-language summary, which can be useful when walking a colleague through the page.
 
-This page shows your personal limits only. If you are on a self-managed seat tier, your organization also has a shared pool of credits that your usage draws from. If that pool runs out, Claude will tell you that your organization is out of credits rather than that you have reached a limit, and nothing on this page will look full. That situation is resolved by an administrator adding credits, not by waiting for a reset.
+This page shows your personal limits only. If you are on a self-managed seat tier, your organization also draws from a shared credit balance. If that balance runs out or your organization reaches a spend cap your tenant administrator set, Claude will tell you that your organization is out of credits rather than that you have reached a limit, and nothing on this page will look full. A spent balance is resolved by Anthropic adding credits to the account. A reached spend cap clears when the rolling window moves forward or when a tenant administrator raises the cap.
 
 ##  Reading the reset times
 
@@ -50,5 +58,3 @@ Separately from changing your tier, an administrator can also reset your usage w
 This message replaces the whole page and only appears when you do not have a seat. If you can see the progress bars, this does not apply to you.
 
 You do not have a seat yet, so there is no allowance to show and you cannot send messages to Claude. Ask your organization owner to assign you one. Once they do, this page will show your limits straight away without you needing to sign out and back in.
-
-[Account](/docs/government/account/profile)[Sessions](/docs/government/account/sessions)

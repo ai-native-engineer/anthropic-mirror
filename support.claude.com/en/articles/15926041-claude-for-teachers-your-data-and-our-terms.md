@@ -2,6 +2,8 @@
 
 # Claude for Teachers: your data and our terms
 
+Updated over 2 weeks ago
+
 ## Overview
 
 **[Claude for Teachers](https://claude.com/solutions/teachers)** is designed for verified US K-12 educators. This offering includes free access to Claude Pro features, teaching skills built for lesson planning and differentiation, a connection to curriculum mapped to academic standards in all 50 states, and terms written for K-12: we don't train on your conversations, and student information is handled under a data processing agreement built around FERPA.

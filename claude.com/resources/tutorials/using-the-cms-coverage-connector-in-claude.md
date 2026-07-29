@@ -1,5 +1,17 @@
 <!-- source: https://claude.com/resources/tutorials/using-the-cms-coverage-connector-in-claude -->
 
+Claude Science beta
+
+[Next](#)Next
+
+Introducing the Claude Science app, your research partner for rigorous science.
+
+Learn more
+
+[Learn more](https://claude.com/product/claude-science)Learn more
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ef89e3431b19c021bf2b_claude-science-og.jpg)
+
 # Using the CMS Coverage Connector in Claude
 
   Healthcare
@@ -33,12 +45,12 @@ This integration connects to the CMS Coverage API v1, providing comprehensive ac
 
 The connector provides multiple tool categories for different coverage research needs:
 
-* National coverage tools include:   
+* National coverage tools include:
   + **search\_ncds** for finding official nationwide coverage policies,
   + **search\_nca\_cals** for tracking coverage analyses and letters
   + **search\_medcac\_meetings** for advisory committee discussions
   + **search\_technology\_assessments** for clinical evidence reviews.
-* Local coverage tools include:   
+* Local coverage tools include:
   + **search\_lcds** for regional coverage policies by Medicare Administrative Contractors (MACs)
   + **search\_proposed\_lcds** for pending policy changes
   + **search\_articles** for detailed billing and coding guidance with CPT/HCPCS codes and ICD-10 requirements.
@@ -88,7 +100,7 @@ Learn about [finding and connecting tools](https://support.claude.com/en/article
 
 * Healthcare providers need to verify Medicare coverage before performing procedures or prescribing equipment to avoid claim denials and ensure patients understand their coverage.
 
-* Sample Prompts:   
+* Sample Prompts:
   + *"Does Medicare cover continuous glucose monitoring for type 2 diabetes patients?"*
   + *"What are the medical necessity criteria for home oxygen therapy in California?"*
   + *"Find the LCD for power wheelchairs in my region and tell me what documentation is required"*
@@ -97,7 +109,7 @@ Learn about [finding and connecting tools](https://support.claude.com/en/article
 **Billing & Coding Compliance**
 
 * Medical coders and billers need specific HCPCS codes, ICD-10 diagnosis codes, and billing requirements to submit clean claims and avoid denials.
-* Sample Prompts:   
+* Sample Prompts:
   + *"What are the covered ICD-10 codes for diabetes self-management training?"*
   + *"Find the billing article for home oxygen equipment and show me the required HCPCS codes"*
   + *"What modifiers are required for billing wheelchair accessories in Texas?"*
@@ -106,7 +118,7 @@ Learn about [finding and connecting tools](https://support.claude.com/en/article
 **Policy Monitoring & Updates**
 
 * Compliance officers and healthcare administrators need to stay current with coverage policy changes that affect their practice or organization.
-* Sample Prompts:   
+* Sample Prompts:
   + *"What Medicare coverage policies have changed in the last 30 days?"*
   + *"Show me recent LCD updates for my Medicare contractor"*
   + *"Have there been any new NCDs published for cardiovascular procedures this quarter?"*
@@ -114,34 +126,34 @@ Learn about [finding and connecting tools](https://support.claude.com/en/article
 
 ## Related tutorials
 
-[How to use the Prior Auth Review sample skill with Claude](/resources/tutorials/how-to-use-the-prior-auth-review-sample-skill-with-claude-2ggy8)How to use the Prior Auth Review sample skill with Claude
+[How to use the Prior Auth Review sample skill with Claude](https://claude.com/resources/tutorials/how-to-use-the-prior-auth-review-sample-skill-with-claude-2ggy8)How to use the Prior Auth Review sample skill with Claude
 
 How to use the Prior Auth Review sample skill with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-prior-auth-review-sample-skill-with-claude-2ggy8)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-prior-auth-review-sample-skill-with-claude-2ggy8)Tutorial
 
-[Using the Function Connector in Claude](/resources/tutorials/using-the-function-connector-in-claude)Using the Function Connector in Claude
+[Using the Function Connector in Claude](https://claude.com/resources/tutorials/using-the-function-connector-in-claude)Using the Function Connector in Claude
 
 Using the Function Connector in Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-the-function-connector-in-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-the-function-connector-in-claude)Tutorial
 
-[Using the HealthEx Connector in Claude](/resources/tutorials/using-the-healthex-connector-in-claude)Using the HealthEx Connector in Claude
+[Using the HealthEx Connector in Claude](https://claude.com/resources/tutorials/using-the-healthex-connector-in-claude)Using the HealthEx Connector in Claude
 
 Using the HealthEx Connector in Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-the-healthex-connector-in-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-the-healthex-connector-in-claude)Tutorial
 
-[How to use the FHIR Developer agent skill with Claude Code](/resources/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)How to use the FHIR Developer agent skill with Claude Code
+[How to use the FHIR Developer agent skill with Claude Code](https://claude.com/resources/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)How to use the FHIR Developer agent skill with Claude Code
 
 How to use the FHIR Developer agent skill with Claude Code
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)Tutorial

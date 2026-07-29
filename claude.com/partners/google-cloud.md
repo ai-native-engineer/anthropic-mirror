@@ -40,7 +40,7 @@ Claude is built for agentic workflows, combining strong reasoning with the conve
 
 Learn more
 
-[Learn more](/solutions/agents)Learn more
+[Learn more](https://claude.com/solutions/agents)Learn more
 
 ### Coding
 
@@ -48,7 +48,7 @@ Claude handles complex engineering tasks that would take hours or days through t
 
 Learn more
 
-[Learn more](/solutions/coding)Learn more
+[Learn more](https://claude.com/solutions/coding)Learn more
 
 ### Customer support
 
@@ -56,7 +56,7 @@ Handle ticket triage, complex inquiries, and multi-step support workflows with t
 
 Learn more
 
-[Learn more](/solutions/customer-support)Learn more
+[Learn more](https://claude.com/solutions/customer-support)Learn more
 
 ### Financial analysis
 
@@ -64,7 +64,7 @@ Take teams from entry-level analysis to advanced predictive modeling, moving bey
 
 Learn more
 
-[Learn more](/solutions/financial-services)Learn more
+[Learn more](https://claude.com/solutions/financial-services)Learn more
 
 Building winning AI with Claude on Google Cloud
 
@@ -112,25 +112,25 @@ Explore webinars
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da9368f2bd228e7080695d_logo_shopify-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da936caa7913237c0589f4_logo_shopify-dark.svg)
 
-“The combination of Claude and Vertex AI helps us empower millions of merchants with our AI-enabled commerce assistant, Sidekick. There’s been a lot of merchants that we’ve talked to that say Sidekick ‘feels like a lifeline for small businesses’ and helps them ‘come out on top.”
+“The combination of Claude and Google Cloud helps us empower millions of merchants with our AI-enabled commerce assistant, Sidekick. There’s been a lot of merchants that we’ve talked to that say Sidekick ‘feels like a lifeline for small businesses’ and helps them ‘come out on top.”
 
 Andrew McNamara, Director of Applied AI
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad4f0fb6998a6283f1dd_Replit_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad55e5f775cb92a97c52_Replit_dark.svg)
 
-“Our AI agent is made more powerful through Anthropic's Claude models running on Vertex AI. This integration allows us to easily connect with other Google Cloud services, like Cloud Run, to work together behind the scenes to help customers turn their ideas into apps.”
+“Our AI agent is made more powerful through Anthropic's Claude models running on Google Cloud. This integration allows us to easily connect with other Google Cloud services, like Cloud Run, to work together behind the scenes to help customers turn their ideas into apps.”
 
 Amjad Masad, Founder and CEO
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bf53e6bbf7c52e005a1176_palo-alto-ventures-light-mode.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bf5812aa32ad62ff26a1a6_palo-alto-ventures-light-mode-1.svg)
 
-“With Claude running on Vertex AI, we saw a 20% to 30% increase in code development velocity… Running Claude on Google Cloud’s Vertex AI not only accelerates development projects, it enables us to hardwire security into code before it ships.”
+“With Claude running on Google Cloud, we saw a 20% to 30% increase in code development velocity… Running Claude on Google Cloud not only accelerates development projects, it enables us to hardwire security into code before it ships.”
 
 Gunjan Patel, Director of Engineering, Office of the CPO
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0da683cc4d0737a03edd9_cs-logo-telus-light-theme.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0da6f0355389e7e84b6fc_cs-logo-telus-dark-theme.svg)
 
-“Getting a model as powerful as Anthropic's Claude on Vertex AI is a win-win that makes life so much easier. We get a model that excels at tool calling on a comprehensive platform that integrates with our core Google Cloud workloads like GKE and Cloud Run — that's the magic.”
+“Getting a model as powerful as Anthropic's Claude on Google Cloud is a win-win that makes life so much easier. We get a model that excels at tool calling on a comprehensive platform that integrates with our core Google Cloud workloads like GKE and Cloud Run — that's the magic.”
 
 Justin Watts, Distinguished Engineer
 

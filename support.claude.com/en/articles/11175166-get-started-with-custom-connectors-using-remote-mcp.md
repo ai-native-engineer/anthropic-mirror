@@ -2,9 +2,9 @@
 
 # Get started with custom connectors using remote MCP
 
-April 2, 2026
+Updated this week
 
-Custom connectors using remote MCP are available on Claude, Cowork, and Claude Desktop for users on Free, Pro, Max, Team, and Enterprise plans. Free users are limited to one custom connector. This feature is currently in beta.
+Custom connectors using remote MCP are available on Claude, Cowork, and Claude Desktop for users on Free, Pro, Max, Team, and Enterprise plans. Free users are limited to one custom connector.
 
 ## What are custom connectors?
 
@@ -15,9 +15,9 @@ You can:
 * Connect Claude to existing remote MCP servers.
 * Build your own remote MCP servers to connect with any tool.
 
-**⚠️ Security and Privacy with Custom Connectors (beta)**
+**Security and privacy with custom connectors**
 
-Be aware that custom connectors allow you to connect Claude to services that have not been verified by Anthropic, and allow Claude to access and take action in these services. For more guidance, review the **[Security and privacy considerations](#h_9088ccdf4d)** section below.
+Custom connectors allow you to connect Claude to services that haven't been verified by Anthropic. Once connected, Claude can access those services and take action in them. For more guidance, review the **[Security and privacy considerations](#h_b79c05dfcd)** section below.
 
 ## What are remote MCP servers?
 
@@ -143,7 +143,7 @@ You can interact with these connectors directly — filtering data, checking off
 
 ### Using Claude with Research
 
-**Note:** **[Advanced Research](https://claude.com/blog/integrations)** is not currently able to invoke tools from local MCP servers.
+**Note: [Advanced Research](https://claude.com/blog/integrations)** is not currently able to invoke tools from local MCP servers.
 
 Research allows Claude to deeply investigate queries by searching through hundreds of internal and external sources. During the research process, Claude can invoke tools from your connectors automatically without further approval.
 
@@ -155,4 +155,8 @@ When using Research with custom connectors:
 
 See **[Using Research on Claude](https://support.claude.com/en/articles/11088861-using-research-on-claude)** for more information about this feature.
 
-[Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)[When to use desktop and web connectors](https://support.claude.com/en/articles/11725091-when-to-use-desktop-and-web-connectors)[Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)[MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)[MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)
+* [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
+* [When to use desktop and web connectors](https://support.claude.com/en/articles/11725091-when-to-use-desktop-and-web-connectors)
+* [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
+* [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
+* [MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)

@@ -11,59 +11,69 @@ This approach solves two challenges as tool libraries scale:
 * **Context efficiency:** Tool definitions can consume large portions of the context window (50 tools can use 10-20K tokens), leaving less room for actual work.
 * **Tool selection accuracy:** Tool selection accuracy degrades with more than 30-50 tools loaded at once.
 
-Tool search is enabled by default. This page covers [how it works](#how-tool-search-works), how to [configure it](#configure-tool-search), and how to [optimize tool discovery](#optimize-tool-discovery).
+Tool search is enabled by default.
 
 ## How tool search works
 
-When tool search is active, tool definitions are withheld from the context window. The agent receives a summary of available tools and searches for relevant ones when the task requires a capability not already loaded. The 3-5 most relevant tools are loaded into context, where they stay available for subsequent turns. If the conversation is long enough that the SDK compacts earlier messages to free space, previously discovered tools may be removed, and the agent searches again as needed.
+When tool search is active, tool definitions are withheld from the context window. The agent receives a summary of available tools and searches for relevant ones when the task requires a capability not already loaded. Up to five of the most relevant tools are loaded into context by default, where they stay available for subsequent turns. If the conversation is long enough that the SDK compacts earlier messages to free space, previously discovered tools may be removed, and the agent searches again as needed.
 
 Tool search adds one extra round-trip the first time Claude discovers a tool (the search step), but for large tool sets this is offset by smaller context on every turn. With fewer than \~10 tools, loading everything upfront is typically faster.
 
 For details on the underlying API mechanism, see [Tool search in the API](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool).
 
 <Note>
-  Tool search is supported on every Claude model except Haiku.
+  Tool search is supported on Claude Sonnet 4.5, Claude Haiku 4.5, Claude Opus 4.5, and later models; see [model compatibility in the API docs](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool#model-compatibility) for the current list. On Google Cloud's Agent Platform, the minimum supported models are Claude Sonnet 4.5 and Claude Opus 4.5.
+
+  Tool search also isn't supported on Microsoft Foundry [deployments hosted on Azure](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry#hosting-options), which reject it server-side: the SDK detects the rejection and loads tool definitions upfront for that deployment instead. [`ENABLE_TOOL_SEARCH`](#configure-tool-search) can't override this, since the rejection comes from the deployment itself.
 </Note>
 
 ## Configure tool search
 
-Tool search is on by default. It is disabled by default on Vertex AI, where it is supported for Claude Sonnet 4.5 and later and Claude Opus 4.5 and later. It is also disabled when `ANTHROPIC_BASE_URL` points to a non-first-party host, since most proxies do not forward `tool_reference` blocks. You can override either default with the `ENABLE_TOOL_SEARCH` environment variable:
+Tool search is on by default. It is disabled by default on Google Cloud's Agent Platform, where it is supported for Claude Sonnet 4.5 and later and Claude Opus 4.5 and later. It is also disabled when `ANTHROPIC_BASE_URL` points to a non-first-party host, since most proxies do not forward `tool_reference` blocks. You can override either default with the `ENABLE_TOOL_SEARCH` environment variable:
 
-| Value    | Behavior                                                                                                                                                                                                                         |
-| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| (unset)  | Tool search is on. Tool definitions are deferred and discovered on demand. Falls back to loading upfront on Vertex AI or a non-first-party `ANTHROPIC_BASE_URL`.                                                                 |
-| `true`   | Tool search is always on. The SDK sends the beta header even on Vertex AI and through proxies. Requests fail on Vertex AI models earlier than Sonnet 4.5 or Opus 4.5, or on proxies that do not support `tool_reference` blocks. |
-| `auto`   | Checks the combined token count of all tool definitions against the model's context window. If they exceed 10%, tool search activates. If they're under 10%, all tools are loaded into context normally.                         |
-| `auto:N` | Same as `auto` with a custom percentage. `auto:5` activates when tool definitions exceed 5% of the context window. Lower values activate sooner.                                                                                 |
-| `false`  | Tool search is off. All tool definitions are loaded into context on every turn.                                                                                                                                                  |
+| Value    | Behavior                                                                                                                                                                                                                                                                                                                                                                                         |
+| :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| (unset)  | Tool search is on. Tool definitions are deferred and discovered on demand. Falls back to loading upfront on Google Cloud's Agent Platform, a non-first-party `ANTHROPIC_BASE_URL`, or a Microsoft Foundry deployment hosted on Azure.                                                                                                                                                            |
+| `true`   | Tool search is always on, except on a Microsoft Foundry deployment hosted on Azure, where the server-side rejection still forces upfront loading. The SDK sends the beta header even on Google Cloud's Agent Platform and through proxies. Requests fail on Google Cloud's Agent Platform models earlier than Sonnet 4.5 or Opus 4.5, or on proxies that do not support `tool_reference` blocks. |
+| `auto`   | Checks the combined token count of all tool definitions against the model's context window. If they exceed 10%, tool search activates. If they're under 10%, all tools are loaded into context normally.                                                                                                                                                                                         |
+| `auto:N` | Same as `auto` with a custom percentage. `auto:5` activates when tool definitions exceed 5% of the context window. Lower values activate sooner.                                                                                                                                                                                                                                                 |
+| `false`  | Tool search is off. All tool definitions are loaded into context on every turn.                                                                                                                                                                                                                                                                                                                  |
 
-Tool search applies to all registered tools, whether they come from remote MCP servers or [custom SDK MCP servers](/en/agent-sdk/custom-tools). When using `auto`, the threshold is based on the combined size of all tool definitions across all servers.
+Setting [`CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS`](/docs/en/env-vars) keeps tool search off, and `ENABLE_TOOL_SEARCH` can't override it. The variable strips the beta header that `defer_loading` tool definitions and `tool_reference` content blocks require.
 
-Set the value in the `env` option on `query()`. This example connects to a remote MCP server that exposes many tools, pre-approves all of them with a wildcard, and uses `auto:5` so tool search activates when their definitions exceed 5% of the context window:
+Tool search applies to all registered tools, whether they come from remote MCP servers or [custom SDK MCP servers](/docs/en/agent-sdk/custom-tools). When using `auto`, the threshold is based on the combined size of all tool definitions across all servers.
+
+Set the value in the `env` option on `query()`. In TypeScript, `env` replaces the subprocess environment, so spread `...process.env` to keep inherited variables. In Python, `env` is merged on top of the inherited environment. This example connects to a remote MCP server that exposes many tools, pre-approves all of them with a wildcard, and uses `auto:5` so tool search activates when their definitions exceed 5% of the context window:
 
 <CodeGroup>
   ```typescript TypeScript theme={null}
   import { query } from "@anthropic-ai/claude-agent-sdk";
 
-  for await (const message of query({
-    prompt: "Find and run the appropriate database query",
-    options: {
-      mcpServers: {
-        "enterprise-tools": {
-          // Connect to a remote MCP server
-          type: "http",
-          url: "https://tools.example.com/mcp"
+  try {
+    for await (const message of query({
+      prompt: "Find and run the appropriate database query",
+      options: {
+        mcpServers: {
+          "enterprise-tools": {
+            // Connect to a remote MCP server
+            type: "http",
+            url: "https://tools.example.com/mcp"
+          }
+        },
+        allowedTools: ["mcp__enterprise-tools__*"], // Wildcard pre-approves all tools from this server
+        env: {
+          ...process.env, // env replaces the subprocess environment, so keep inherited variables
+          ENABLE_TOOL_SEARCH: "auto:5" // Activate tool search when tools exceed 5% of context
         }
-      },
-      allowedTools: ["mcp__enterprise-tools__*"], // Wildcard pre-approves all tools from this server
-      env: {
-        ENABLE_TOOL_SEARCH: "auto:5" // Activate tool search when tools exceed 5% of context
+      }
+    })) {
+      if (message.type === "result" && message.subtype === "success") {
+        console.log(message.result);
       }
     }
-  })) {
-    if (message.type === "result" && message.subtype === "success") {
-      console.log(message.result);
-    }
+  } catch (error) {
+    // A single-shot query() throws after yielding an error result
+    console.log(`Session ended with an error: ${error}`);
   }
   ```
 
@@ -87,16 +97,24 @@ Set the value in the `env` option on `query()`. This example connects to a remot
           },
       )
 
-      async for message in query(
-          prompt="Find and run the appropriate database query",
-          options=options,
-      ):
-          if isinstance(message, ResultMessage) and message.subtype == "success":
-              print(message.result)
+      try:
+          async for message in query(
+              prompt="Find and run the appropriate database query",
+              options=options,
+          ):
+              if isinstance(message, ResultMessage) and message.subtype == "success":
+                  print(message.result)
+      except Exception as error:
+          # A single-shot query() raises after yielding an error result
+          print(f"Session ended with an error: {error}")
 
   asyncio.run(main())
   ```
 </CodeGroup>
+
+To run this example, replace `https://tools.example.com/mcp` with the URL of your own MCP server. On success the result text prints to the console.
+
+Because this is a single-shot `query()` call, the SDK raises after yielding an error result, so the example wraps the loop in a try block. To see why a run failed, check the result message's `subtype`, such as `error_during_execution`, inside the loop. For more on result messages, see [Handle the result](/docs/en/agent-sdk/agent-loop#handle-the-result).
 
 Setting `ENABLE_TOOL_SEARCH` to `"false"` disables tool search and loads all tool definitions into context on every turn. This removes the search round-trip, which can be faster when the tool set is small (fewer than \~10 tools) and the definitions fit comfortably in the context window.
 
@@ -104,22 +122,42 @@ Setting `ENABLE_TOOL_SEARCH` to `"false"` disables tool search and loads all too
 
 The search mechanism matches queries against tool names and descriptions. Names like `search_slack_messages` surface for a wider range of requests than `query_slack`. Descriptions with specific keywords ("Search Slack messages by keyword, channel, or date range") match more queries than generic ones ("Query Slack").
 
-You can also add a system prompt section listing available tool categories. This gives the agent context about what kinds of tools are available to search for:
+You can also add a system prompt section listing available tool categories. This gives the agent context about what kinds of tools are available to search for. Pass the text through the `systemPrompt` option in TypeScript or `system_prompt` in Python, using the `claude_code` preset with `append`, which adds your text to the preset's prompt instead of replacing it:
 
-```text theme={null}
-You can search for tools to interact with Slack, GitHub, and Jira.
-```
+<CodeGroup>
+  ```typescript TypeScript theme={null}
+  options: {
+    systemPrompt: {
+      type: "preset",
+      preset: "claude_code",
+      append: "You can search for tools to interact with Slack, GitHub, and Jira."
+    }
+  }
+  ```
+
+  ```python Python theme={null}
+  options = ClaudeAgentOptions(
+      system_prompt={
+          "type": "preset",
+          "preset": "claude_code",
+          "append": "You can search for tools to interact with Slack, GitHub, and Jira.",
+      }
+  )
+  ```
+</CodeGroup>
+
+For the full set of system prompt options, see [Modifying system prompts](/docs/en/agent-sdk/modifying-system-prompts).
 
 ## Limits
 
 * **Maximum tools:** 10,000 tools in your catalog
-* **Search results:** Returns 3-5 most relevant tools per search
-* **Model support:** every Claude model except Haiku
+* **Search results:** returns up to five most relevant tools per search by default
+* **Model support:** Claude Sonnet 4.5, Claude Haiku 4.5, Claude Opus 4.5, and later models; see [model compatibility in the API docs](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool#model-compatibility) for the current list. On Google Cloud's Agent Platform, Claude Sonnet 4.5 and later and Claude Opus 4.5 and later.
 
 ## Related documentation
 
 * [Tool search in the API](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool): Full API documentation for tool search, including custom implementations
-* [Connect MCP servers](/en/agent-sdk/mcp): Connect to external tools via MCP servers
-* [Custom tools](/en/agent-sdk/custom-tools): Build your own tools with SDK MCP servers
-* [TypeScript SDK reference](/en/agent-sdk/typescript): Full API reference
-* [Python SDK reference](/en/agent-sdk/python): Full API reference
+* [Connect MCP servers](/docs/en/agent-sdk/mcp): Connect to external tools via MCP servers
+* [Custom tools](/docs/en/agent-sdk/custom-tools): Build your own tools with SDK MCP servers
+* [TypeScript SDK reference](/docs/en/agent-sdk/typescript): Full API reference
+* [Python SDK reference](/docs/en/agent-sdk/python): Full API reference

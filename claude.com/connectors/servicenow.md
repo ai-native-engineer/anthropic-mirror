@@ -14,8 +14,6 @@ Trigger, automate, and orchestrate enterprise workflows
 
   [ServiceNow](https://www.servicenow.com/)
 
-[Play video](#)Play video
-
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
@@ -31,16 +29,16 @@ Connect to ServiceNow directly in Claude via ServiceNow Action Fabric. Run gover
 
 You can use ServiceNow to:
 
-**Manage and resolve alerts:**  
+**Manage and resolve alerts:**
 "Get all the critical open alerts"
 
-**Investigate incidents:**  
+**Investigate incidents:**
 "Analyze Alert123456 and tell me what happened"
 
-**Assess impact:**  
+**Assess impact:**
 "What is the impact analysis for Alert123456?"
 
-**Query the enterprise knowledge graph:**  
+**Query the enterprise knowledge graph:**
 "What services depend on the payments database?"
 
 ## Related connectors
@@ -49,17 +47,21 @@ Productivity
 
 Claude
 
+Claude Code
+
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
 Claude
+
+Claude Code
 
 June 9, 2026
 
@@ -67,28 +69,32 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
 Claude
 
+Claude Code
+
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
 Claude
 
+Claude Code
+
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

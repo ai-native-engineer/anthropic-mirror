@@ -1,3 +1,4 @@
+<!-- source: https://platform.claude.com/docs/en/api/go/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/go/beta -->
 
 <!-- chunk-start -->
@@ -30731,4 +30732,3 @@ func main() {
   - `AllowedDomains []string`
 
     List of domains to allow fetching from
-

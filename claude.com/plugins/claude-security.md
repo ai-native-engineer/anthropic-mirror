@@ -5,8 +5,13 @@
 Vulnerability scanning and patch generation with researcher agents and adversarial validation
 
 * Anthropic Verified
+* Install in
+
+  [Claude Code](#)
+* Made by
 
   [Anthropic](https://anthropic.com)
+* Installs
 
   899
 
@@ -25,3 +30,41 @@ Scan Codebase maps your repository's architecture, threat-models every component
 * **Suggest Patches** turns confirmed findings into patches, with an adversarial panel reviewing each one. Output is a .patch file that Claude can apply and open a pull request with
 
 In beta. Scans use the Claude access you already have. [Learn more here.](https://code.claude.com/docs/en/claude-security)
+
+## Related plugins
+
+[### Frontend Design
+
+Craft production-grade frontends with distinctive design. Generates polished code that avoids generic AI aesthetics.
+
+Anthropic verified
+
+1110438
+
+installs](https://claude.com/plugins/frontend-design)
+
+[### Superpowers
+
+Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
+
+987572
+
+installs](https://claude.com/plugins/superpowers)
+
+[### Code Review
+
+AI code review with specialized agents and confidence-based filtering for pull requests
+
+Anthropic verified
+
+430450
+
+installs](https://claude.com/plugins/code-review)
+
+[### Context7
+
+Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
+
+412076
+
+installs](https://claude.com/plugins/context7)

@@ -4,7 +4,15 @@
 
 Create, edit, review, resize, and brand-check Canva designs with the Canva MCP server.
 
+* Install in
+
+  [Claude Code](#)
+* Made by
+
   [Canva](https://www.canva.com)
+* Installs
+
+  863
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -17,3 +25,41 @@ All edits go through a preview-and-approve flow before being committed, so you s
 **How to use:** Once installed, just describe what you want in plain language. Try prompts like `Check this Canva design against my brand kit`, `Resize design DABcd1234ef for all social media platforms`, `Bulk create designs from this spreadsheet using my brand template`, `Edit the headline text in my Canva design`, or `Give me feedback on this design's visual hierarchy`. You can also ask it to read comment threads on a design and apply the suggested changes automatically.
 
 Requires connecting to the Canva MCP server. The bulk-create skill requires a Canva Enterprise plan.
+
+## Related plugins
+
+[### Frontend Design
+
+Craft production-grade frontends with distinctive design. Generates polished code that avoids generic AI aesthetics.
+
+Anthropic verified
+
+1110438
+
+installs](https://claude.com/plugins/frontend-design)
+
+[### Superpowers
+
+Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
+
+987572
+
+installs](https://claude.com/plugins/superpowers)
+
+[### Code Review
+
+AI code review with specialized agents and confidence-based filtering for pull requests
+
+Anthropic verified
+
+430450
+
+installs](https://claude.com/plugins/code-review)
+
+[### Context7
+
+Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
+
+412076
+
+installs](https://claude.com/plugins/context7)

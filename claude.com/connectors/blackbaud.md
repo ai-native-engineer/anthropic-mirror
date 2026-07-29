@@ -1,6 +1,6 @@
 <!-- source: https://claude.com/connectors/blackbaud -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692e4c2509be5a9236dcb73b_blackbaud.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63da42a12ab716a04a1bb4_icon_Blackbaud.jpg)
 
 # Blackbaud
 
@@ -10,6 +10,7 @@ Search, explore, and query Blackbaud data
 * Used in
 
   [Claude](https://claude.ai/directory/69f8fe1e-e212-41e5-9080-ce703bf39c66)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Blackbaud](https://blackbaud.com/)
 
@@ -24,21 +25,21 @@ Search, explore, and query Blackbaud data
 
   [Documentation](https://support.claude.com/en/articles/12923221-using-the-blackbaud-connector-in-claude)[Privacy Policy](https://www.blackbaud.com/company/privacy-policy)[Support](https://www.blackbaud.com/training-support/support/howto)
 
-Query, explore, and combine Blackbaud data directly from Claude. The Blackbaud MCP server brings your nonprofit data into Claude's AI workspace—securely surfacing constituent details, event records, and donation insights without writing a single line of code. Ask natural questions and get live answers, powered by Blackbaud's SKY API and MCP integration.  
-  
-You can use the Blackbaud connector to:   
-  
-Look up donor profiles and giving history:   
-"I'm about to call Robert Hernandez. Can you give me a quick summary of his recent engagement with us?"   
-  
-Access and report on event details:   
-"Tell me who is going to the golf tournament"  
-  
-Generate outreach content using live data:   
-"Write an email for the attendees of the 2004 golf tournament to tell them we're going to do it again"  
-  
-Available on Teams and Enterprise plans only   
-Requires users to install the Blackbaud for Claude Marketplace application  
+Query, explore, and combine Blackbaud data directly from Claude. The Blackbaud MCP server brings your nonprofit data into Claude's AI workspace—securely surfacing constituent details, event records, and donation insights without writing a single line of code. Ask natural questions and get live answers, powered by Blackbaud's SKY API and MCP integration.
+
+You can use the Blackbaud connector to:
+
+Look up donor profiles and giving history:
+"I'm about to call Robert Hernandez. Can you give me a quick summary of his recent engagement with us?"
+
+Access and report on event details:
+"Tell me who is going to the golf tournament"
+
+Generate outreach content using live data:
+"Write an email for the attendees of the 2004 golf tournament to tell them we're going to do it again"
+
+Available on Teams and Enterprise plans only
+Requires users to install the Blackbaud for Claude Marketplace application
 Requires AI features to be enabled within Blackbaud
 
 ## Related connectors
@@ -53,7 +54,7 @@ March 19, 2026
 
 ### Benevity
 
-Find and engage with verified nonprofits](/connectors/benevity)
+Find and engage with verified nonprofits](https://claude.com/connectors/benevity)
 
 Nonprofit
 
@@ -65,7 +66,7 @@ March 19, 2026
 
 ### Candid
 
-Research nonprofits and funders using Candid's data](/connectors/candid)
+Research nonprofits and funders using Candid's data](https://claude.com/connectors/candid)
 
 Nonprofit
 
@@ -81,4 +82,4 @@ March 19, 2026
 
 ### Granted
 
-Discover every grant opportunity in existence.](/connectors/granted)
+Discover every grant opportunity in existence.](https://claude.com/connectors/granted)

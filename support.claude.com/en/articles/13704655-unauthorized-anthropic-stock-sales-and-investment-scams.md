@@ -2,7 +2,7 @@
 
 # Unauthorized Anthropic stock sales and investment scams
 
-Updated over 2 weeks ago
+Updated over a month ago
 
 Originally published: February 11, 2026
 
@@ -26,7 +26,6 @@ Invest at your own risk: if someone offers you a way to participate, even on an 
 
 We are aware of individuals or investment firms purportedly offering access to Anthropic financing rounds, or offering to purchase your Anthropic shares in violation of our transfer restrictions. To be clear, the following firms are *not* authorized to buy or sell Anthropic shares:
 
-* Open Door Partners
 * Unicorns Exchange
 
 **Any sale or transfer of Anthropic stock, or any interest in Anthropic stock, offered by these firms is void and will not be recognized on our books and records.**
@@ -52,7 +51,7 @@ Scammers regularly attempt to carry out fraudulent investment schemes falsely cl
 
 Before investing in any opportunity claiming to offer Anthropic stock, we strongly encourage individuals to verify the legitimacy of the offering through official regulatory databases and to seek independent legal and financial advice.
 
-If you have concerns about someone claiming to sell Anthropic stock or marketing access to Anthropic equity, please email **[[email protected]](mailto:anthropic-equity-alerts@anthropic.com)**. This inbox is only monitored for emails related to stock inquiries.
+If you have concerns about someone claiming to sell Anthropic stock or marketing access to Anthropic equity, please email **[[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#80e1eef4e8f2eff0e9e3ade5f1f5e9f4f9ade1ece5f2f4f3c0e1eef4e8f2eff0e9e3aee3efed)**. This inbox is only monitored for emails related to stock inquiries.
 
 If you believe you have been targeted by a stock scam:
 
@@ -62,4 +61,8 @@ If you believe you have been targeted by a stock scam:
 
 *This article is intended to provide general information about Anthropic's stock transfer restrictions and to warn about potential investment scams. It does not constitute legal or financial advice.*
 
-[Using Claude in Chrome safely](https://support.claude.com/en/articles/12902428-using-claude-in-chrome-safely)[Anthropic Software Directory Terms](https://support.claude.com/en/articles/13145338-anthropic-software-directory-terms)[Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy)[Install financial services plugins](https://support.claude.com/en/articles/13851150-install-financial-services-plugins)[Use Claude for Word](https://support.claude.com/en/articles/14465370-use-claude-for-word)
+* [Use Claude in Chrome safely](https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely)
+* [Anthropic Software Directory Terms](https://support.claude.com/en/articles/13145338-anthropic-software-directory-terms)
+* [Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy)
+* [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
+* [Use Claude for Word](https://support.claude.com/en/articles/14465370-use-claude-for-word)

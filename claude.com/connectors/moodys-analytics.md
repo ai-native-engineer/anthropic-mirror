@@ -10,6 +10,7 @@ Risk insights, analytics, and decision intelligence
 * Used in
 
   [Claude](https://claude.ai/directory/83a7523b-d6c5-45f8-89de-90a2998bae49)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Moody's](https://www.moodys.com/)
 
@@ -22,19 +23,19 @@ Risk insights, analytics, and decision intelligence
   Read
 * More
 
-  [Documentation](https://www.moodys.com/web/en/us/genai/model-context-protocol.html)[Privacy Policy](https://www.moodys.com/web/en/us/legal/privacy-policy.html)[clientservices@moodys.com](mailto:clientservices@moodys.com)
+  [Documentation](https://www.moodys.com/web/en/us/genai/model-context-protocol.html)[Privacy Policy](https://www.moodys.com/web/en/us/legal/privacy-policy.html)[Support](mailto:clientservices@moodys.com)
 
 Get streamlined access to Moody's Ratings proprietary credit ratings, research, and comprehensive entity intelligence. Access high-quality data such as ownership structures, financials, ratings drivers, and scorecards, all structured to optimize a variety of workflows including compliance, credit analysis, M&A, and business development.
 
-You can use the Moody's Analytics connector to:  
-  
-Review historical ratings:  
+You can use the Moody's Analytics connector to:
+
+Review historical ratings:
 "For Ford give ratings for the last 5 years"
 
-Compare company scorecards:  
+Compare company scorecards:
 "Find Ford and Tesla companies and get their scorecards and compare them"
 
-Analyze rating drivers:  
+Analyze rating drivers:
 "Find 3 largest investment grade US tech companies and give me their rating drivers"
 
 ## Related connectors
@@ -51,7 +52,7 @@ June 22, 2026
 
 ### Affinity
 
-Search, update, and prep deals without switching tabs.](/connectors/affinity)
+Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
 
 Financial services
 
@@ -59,11 +60,11 @@ Claude
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd9230df5f81ef095019_Aiera.jpg)
+[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
 
 ### Aiera
 
-Live events, filings, company publications, and more](/connectors/aiera)
+Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
 
 Financial services
 
@@ -73,11 +74,11 @@ Claude Code
 
 February 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977ee686ffe1cb730e94f07_Airwallex%20Mark%20-%20Colour%20-%20Square.png)
+[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
 
 ### Airwallex
 
-Integrate with the Airwallex Platform using Claude](/connectors/airwallex)
+Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
 
 Financial services
 
@@ -87,8 +88,8 @@ Claude Code
 
 April 8, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c05a2e0f10f41c8f005ee0_Aiwyn_Logo_Mark_Square%20(1).svg)
+[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
 
 ### Aiwyn Tax
 
-Estimate your federal & state taxes with Aiwyn's tax engine](/connectors/aiwyn-tax)
+Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)

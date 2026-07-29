@@ -1,6 +1,14 @@
 <!-- source: https://claude.com/docs/connectors/building/review-criteria -->
 
-Anthropic reviewers run every submitted server through a functional test of each tool and a policy compliance scan. This page surfaces the most common rejection reasons so you can self-correct before submitting. For the full legal text, see the [Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy).
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
+When you submit a server, it is automatically scanned for policy compliance and, by default, listed in the directory as a [community connector](https://claude.com/docs/connectors/verification). Anthropic may then escalate listings flagged as highly useful to Claude users to verified review, which is higher touch and slower; reviewers run a functional test of each tool. This escalation is assessed automatically, and you do not need to take any action. Every server in the directory must meet the criteria on this page, whichever label it carries. The label is a quality signal shown to users; it does not change how your connector runs once connected. This page surfaces the most common rejection reasons so you can self-correct before submitting. For the full legal text, see the [Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy).
 
 ##  Tool design
 
@@ -24,7 +32,7 @@ Tool names must be 64 characters or fewer.
 
 ###  Write narrow, accurate descriptions
 
-Each tool description should state precisely what the tool does and when to invoke it. The description must match the tool’s actual behavior—reviewers call every tool and verify.
+Each tool description should state precisely what the tool does and when to invoke it. The description must match the tool’s actual behavior.
 
 ##  Avoid prompt-injection patterns
 
@@ -60,13 +68,11 @@ Connectors that do the following are not accepted:
 ##  Submission requirements
 
 * **Test credentials** are required and must be a fully populated account.
-* **Allowed link URIs** are recommended if your server calls `ui/open-link`. Declared HTTPS origins and custom URI schemes open without a confirmation prompt; anything else still prompts the user. See [Allowed link URIs](/docs/connectors/building/submission#allowed-link-uris).
+* **Allowed link URIs** are recommended if your server calls `ui/open-link`. Declared HTTPS origins and custom URI schemes open without a confirmation prompt; anything else still prompts the user. See [Allowed link URIs](https://claude.com/docs/connectors/building/submission#allowed-link-uris).
 * **Public documentation** is required by your publish date—a blog post or help-center article is sufficient. You can share docs privately with Anthropic during review.
 * **Plugins** must link a public GitHub repo; closed-source is not accepted.
 * **MCPB** open-source and “spec will evolve” clauses in the [Software Directory Terms](https://support.claude.com/en/articles/13145338-anthropic-software-directory-terms) are required and not waivable.
 
 ##  Before you submit
 
-Run `claude plugin validate` on plugins. For MCP servers, exercise every tool through the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) and as a [custom connector in Claude](/docs/connectors/building/testing).
-
-[Troubleshooting](/docs/connectors/building/troubleshooting)[After publishing](/docs/connectors/building/after-publishing)
+Run `claude plugin validate` on plugins. For MCP servers, exercise every tool through the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) and as a [custom connector in Claude](https://claude.com/docs/connectors/building/testing).

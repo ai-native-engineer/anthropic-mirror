@@ -39,8 +39,8 @@ Claude's ability to combine standard information with personalized details, pair
 
 Tell Claude about the new hire (name, role, start date, team, manager) and point to your standard company information. Ask for a first week guide that combines everything they need to know in one place.
 
-Create a first week guide for Sarah Chen, starting as Senior Product Designer on our Design Systems team this Monday, November 4th. Her manager is Michael Torres.   
-  
+Create a first week guide for Sarah Chen, starting as Senior Product Designer on our Design Systems team this Monday, November 4th. Her manager is Michael Torres.
+
 Include:
 
 * Welcome and what to expect their first week
@@ -50,8 +50,8 @@ Include:
 * Tools and access she'll receive
 * Common first-week questions
 
-To find relevant information, search my Google Calendar for onboarding events, her team's slack channel #design-systems, and all the documents I've uploaded.  
-  
+To find relevant information, search my Google Calendar for onboarding events, her team's slack channel #design-systems, and all the documents I've uploaded.
+
 Make it information-dense but beautifully organized—a senior designer should look at this and think "they have great taste here." Use sophisticated typography and layout, not generic HR formatting. She should be able to scan it quickly but find everything she needs.
 
 [Next](#)Next
@@ -190,7 +190,7 @@ Create a first week guide that helps your next hire walk in feeling confident in
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a5dcdbef814c12521fc39_Screenshot%202025-11-04%20at%2012.10.49%E2%80%AFPM.png)
 

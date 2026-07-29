@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/office-agents/fsi-plugins -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 A set of open-source plugins extends Cowork with specialized
 capabilities for financial services workflows: financial modeling,
 equity research, investment banking, private equity, and wealth
@@ -14,6 +22,7 @@ The repository contains a core plugin and several add-on plugins that
 build on it.
 
 | Plugin | What it does |
+| --- | --- |
 | Financial analysis (core) | Build comparable company analyses, DCF models, LBO models, and 3-statement financials. Includes all shared MCP connectors for financial data providers. Install this first. |
 | Investment banking | Draft CIMs, teasers, and process letters. Build buyer lists, run merger models, and create strip profiles. |
 | Equity research | Write earnings updates and initiating coverage reports. Track catalysts and screen for new ideas. |
@@ -84,6 +93,7 @@ AI-generated financial analysis should always be reviewed by a
 qualified professional before being used in decision-making.
 
 | Skill | What it does |
+| --- | --- |
 | `/comps [company]` | Run a comparable company analysis. |
 | `/dcf [company]` | Build a DCF valuation model. |
 | `/earnings [company] [quarter]` | Generate a post-earnings update report. |
@@ -120,5 +130,3 @@ the plugin files directly to match your firm’s workflows.
 
 See the [Cowork and plugins for finance](https://claude.com/blog/cowork-plugins-finance)
 blog post for background on how the plugins were designed.
-
-[Use Claude for M365 with third-party platforms](/docs/office-agents/third-party-platforms)

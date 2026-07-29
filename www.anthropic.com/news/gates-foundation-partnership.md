@@ -8,8 +8,8 @@ May 14, 2026
 
 We’re partnering with the [Gates Foundation](https://www.gatesfoundation.org/ideas/media-center/press-releases/2026/05/ai-anthropic-partnership) to commit $200 million in grant funding, Claude usage credits, and technical support for programs in global health, life sciences, education, and economic mobility over the next four years. These programs will be implemented with partners in the US and around the world.
 
-This commitment is central to Anthropic’s efforts to extend the benefits of AI in areas where markets alone will not. This work is led by our Beneficial Deployments team, which provides Claude credits and engineering support to our partners in the four priority areas mentioned above. The team also develops AI-related public goods, such as public health datasets and evaluation benchmarks, and offers nonprofits and education institutions [discounted access](https://www.anthropic.com/news/claude-for-nonprofits) to Claude. We’re increasing our investment in beneficial deployments, and plan to share more about our approach to this work, and the impact of the programs we’ve supported.   
-  
+This commitment is central to Anthropic’s efforts to extend the benefits of AI in areas where markets alone will not. This work is led by our Beneficial Deployments team, which provides Claude credits and engineering support to our partners in the four priority areas mentioned above. The team also develops AI-related public goods, such as public health datasets and evaluation benchmarks, and offers nonprofits and education institutions [discounted access](https://www.anthropic.com/news/claude-for-nonprofits) to Claude. We’re increasing our investment in beneficial deployments, and plan to share more about our approach to this work, and the impact of the programs we’ve supported.
+
 Below, we outline what’s involved in our partnership with the Gates Foundation, including our new initiatives and the work that's already underway.
 
 ### Global health and life sciences

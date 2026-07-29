@@ -10,6 +10,7 @@ Build powerful communications and customer engagement
 * Used in
 
   [Claude](https://claude.ai/directory/0f28b719-ce6a-4597-83a6-ff5b2d5b17c5)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Twilio](https://twilio.com)
 
@@ -28,19 +29,19 @@ Search Twilio’s APIs and build customer engagement experiences directly from C
 
 You can use Twilio to:
 
-**Search & Discover APIs:**  
+**Search & Discover APIs:**
 "What is the endpoint for sending a WhatsApp message?"
 
-**Generate Integration Code:**  
+**Generate Integration Code:**
 "Write me a Python snippet to search for and purchase a phone number"
 
-**Explore Latest API Capabilities:**  
+**Explore Latest API Capabilities:**
 "How do I set up status callbacks for voice calls?"
 
-**Compare & Contrast APIs:**  
+**Compare & Contrast APIs:**
 "Is there a Conversations v2 API? How does it differ from v1?"
 
-**Debug & Troubleshoot:**  
+**Debug & Troubleshoot:**
 "What does error code 14107 mean?"
 
 ## Related connectors
@@ -59,7 +60,7 @@ February 11, 2026
 
 ### Asana
 
-Connect to Asana to coordinate tasks, projects, and goals](/connectors/asana)
+Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)
 
 Communication
 
@@ -69,11 +70,11 @@ Claude
 
 February 21, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696323e2a1aaf767a84b4ebc_circleback.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dd9120cb996c95c73b28_icon_Circleback.jpg)
 
 ### Circleback
 
-Search and access context from meetings](/connectors/circleback)
+Search and access context from meetings](https://claude.com/connectors/circleback)
 
 Productivity
 
@@ -87,7 +88,7 @@ May 1, 2026
 
 ### Computer by DevRev
 
-Manage your workspace, issues, tickets, customers, and more without leaving Claude.](/connectors/devrev)
+Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
 
 Communication
 
@@ -99,4 +100,4 @@ January 26, 2026
 
 ### Fellow.ai
 
-Chat with your meetings to uncover actionable insights](/connectors/fellow-ai)
+Chat with your meetings to uncover actionable insights](https://claude.com/connectors/fellow-ai)

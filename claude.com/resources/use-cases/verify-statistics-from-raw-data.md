@@ -211,7 +211,7 @@ Upload any paper with its supplementary data files, describe why you're examinin
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a7cc0f2944881ea09581a_Screenshot%202025-11-04%20at%202.22.53%E2%80%AFPM.png)
 
@@ -221,26 +221,26 @@ Open artifact in new window
 
 ## Related use cases
 
-[Surface themes from all your feedback channels](/resources/use-cases/surface-themes-from-all-your-feedback-channels)Surface themes from all your feedback channels
+[Surface themes from all your feedback channels](https://claude.com/resources/use-cases/surface-themes-from-all-your-feedback-channels)Surface themes from all your feedback channels
 
 Surface themes from all your feedback channels
 
 Use case
 
-[Use case](/resources/use-cases/surface-themes-from-all-your-feedback-channels)Use case
+[Use case](https://claude.com/resources/use-cases/surface-themes-from-all-your-feedback-channels)Use case
 
-[Turn transit time into research time](/resources/use-cases/turn-transit-time-into-research-time)Turn transit time into research time
+[Turn transit time into research time](https://claude.com/resources/use-cases/turn-transit-time-into-research-time)Turn transit time into research time
 
 Turn transit time into research time
 
 Use case
 
-[Use case](/resources/use-cases/turn-transit-time-into-research-time)Use case
+[Use case](https://claude.com/resources/use-cases/turn-transit-time-into-research-time)Use case
 
-[Plan your literature review](/resources/use-cases/plan-your-literature-review)Plan your literature review
+[Plan your literature review](https://claude.com/resources/use-cases/plan-your-literature-review)Plan your literature review
 
 Plan your literature review
 
 Use case
 
-[Use case](/resources/use-cases/plan-your-literature-review)Use case
+[Use case](https://claude.com/resources/use-cases/plan-your-literature-review)Use case

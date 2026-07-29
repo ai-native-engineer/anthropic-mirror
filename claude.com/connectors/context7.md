@@ -9,6 +9,7 @@ Up-to-date docs for LLMs and AI code editors
 * Used in
 
   [Claude](https://claude.ai/directory/37153cd7-b17c-470e-8b46-007e2859e0f3)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Context7](https://context7.com)
 
@@ -27,13 +28,13 @@ Context7 fetches up-to-date code examples and documentation right into your LLM'
 
 You can use Context7 to:
 
-**Get up-to-date docs examples:**  
+**Get up-to-date docs examples:**
 "Create a Next.js middleware that checks for a valid JWT in cookies and redirects unauthenticated users to `/login`. use context7"
 
-**No need to research the docs yourself:**  
+**No need to research the docs yourself:**
 "Configure a Cloudflare Worker script to cache JSON API responses for five minutes. use context7"
 
-**Get info about a new framework:**  
+**Get info about a new framework:**
 "How can I migrate from Next.js 15 to Next.js 16? use context7"
 
 ## Related connectors
@@ -48,17 +49,17 @@ January 26, 2026
 
 ### AWS Marketplace
 
-Discover, evaluate, and buy solutions for the cloud](/connectors/aws-marketplace)
+Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
 Claude
 
 March 9, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69acdf17420ea818c8dd6df3_only%20icon%20vector%20(1).svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dab482d8b581739e57a7_icon_Base44.jpg)
 
 ### Base44
 
-Build and manage Base44 apps](/connectors/base44)
+Build and manage Base44 apps](https://claude.com/connectors/base44)
 
 Claude
 
@@ -66,11 +67,11 @@ Claude Code
 
 March 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a5cd3d14699b00ee21b969_clerk.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dfa6bc4ff18a740c59aa_icon_Clerk.jpg)
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Claude
 
@@ -84,4 +85,4 @@ February 11, 2026
 
 ### Cloudflare
 
-Build applications with compute, storage, and AI](/connectors/cloudflare)
+Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)

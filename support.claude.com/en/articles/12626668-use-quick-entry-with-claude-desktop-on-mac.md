@@ -2,6 +2,8 @@
 
 # Use quick entry with Claude Desktop on Mac
 
+March 16, 2026
+
 Quick entry is a redesigned experience for Claude Desktop on Mac that lets you access Claude instantly from anywhere on your computer. With quick entry, you can start chats, capture screenshots, share application windows, and use voice dictation to interact with Claude without navigating away from your current task.
 
 Quick entry is available to all Claude users (free, Pro, Max, Team, and Enterprise plans) using Claude Desktop on macOS.
@@ -35,7 +37,7 @@ When you first open the updated version of Claude Desktop, you'll see a prompt t
 
 Once enabled, double-tapping Option will open a text box where you can type your message and start a new chat. You can also click "New chat" to see your five most recent conversations.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1782460800&signature=50b984719a8eb53f98c5c35bcfa03d4f019fd3d4ab30e8aa2b6e5021da376205&req=dSguFcl2lYJZXPMW1HO4zWggD9xVoJySRC8c%2FcM5c2K0xPqDzT1uT5u3r%2FoC%0AcwmvvvBkN97ibC6tM4I%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1782460800&signature=50b984719a8eb53f98c5c35bcfa03d4f019fd3d4ab30e8aa2b6e5021da376205&req=dSguFcl2lYJZXPMW1HO4zWggD9xVoJySRC8c%2FcM5c2K0xPqDzT1uT5u3r%2FoC%0AcwmvvvBkN97ibC6tM4I%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1785295800&signature=d4ec24f247b63e818b13029a3ba8034ee171f6a7caa08be8b720c1037f066952&req=dSguFcl2lYJZXPMW1HO4zWggD9tTr5mSRC8c%2FcM5c2L%2BUlaW9nYSmMSRx3V2%0AgEqykgbD9PVAPnWQV%2Bw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1785295800&signature=d4ec24f247b63e818b13029a3ba8034ee171f6a7caa08be8b720c1037f066952&req=dSguFcl2lYJZXPMW1HO4zWggD9tTr5mSRC8c%2FcM5c2L%2BUlaW9nYSmMSRx3V2%0AgEqykgbD9PVAPnWQV%2Bw%3D%0A)
 
 ### Enable the voice shortcut (optional)
 
@@ -138,4 +140,8 @@ Yes. You can disable quick entry shortcuts at any time in Settings > General > D
 
 You can customize the quick access shortcut to use Option + Space or create a custom keyboard shortcut that doesn't conflict with your other applications. The voice shortcut can only use Caps Lock or be disabled.
 
-[Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)[Using Claude App Intents, Shortcuts, and Widgets on iOS](https://support.claude.com/en/articles/10263469-using-claude-app-intents-shortcuts-and-widgets-on-ios)[Using the Claude Widget on Android](https://support.claude.com/en/articles/10534883-using-the-claude-widget-on-android)[Deploy Claude Desktop for macOS](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos)[Open Claude Desktop with a link](https://support.claude.com/en/articles/14729294-open-claude-desktop-with-a-link)
+* [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)
+* [Use dictation on Claude Mobile](https://support.claude.com/en/articles/10065434-use-dictation-on-claude-mobile)
+* [Use Claude app intents, shortcuts, and widgets on iOS](https://support.claude.com/en/articles/10263469-use-claude-app-intents-shortcuts-and-widgets-on-ios)
+* [Use the Claude widget on Android](https://support.claude.com/en/articles/10534883-use-the-claude-widget-on-android)
+* [Deploy Claude Desktop for macOS](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos)

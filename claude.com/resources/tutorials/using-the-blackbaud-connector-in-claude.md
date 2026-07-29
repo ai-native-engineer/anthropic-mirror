@@ -4,23 +4,6 @@
 
 Connect Claude to Raiser's Edge NXT to access donor records, gift history, events, and draft personalized communications.
 
-  Nonprofits
-* Product
-
-  Claude.ai
-* Reading time
-
-  Watch time
-
-  5
-
-  min
-
-  min
-* Share
-
-  [Copy link](#)
-
   https://claude.com/resources/tutorials/using-the-blackbaud-connector-in-claude
 
 ![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
@@ -29,16 +12,12 @@ The Blackbaud connector gives Claude secure access to your Raiser's Edge NXT fun
 
 The Blackbaud integration relies on Claude's ability to [use remote connectors](https://support.claude.com/en/articles/11724452-browsing-and-connecting-to-tools-from-the-directory).
 
-## What this connector provides
-
 * **Constituent profiles:** Access detailed donor records including contact information, affiliations, and giving history
 * **Constituent search:** Search donors by full or partial name across your database
 * **Event discovery:** Search fundraising events by name or keyword and retrieve details like dates, locations, and funds raised
 * **Gift records:** View donation amounts, dates, donors, and associated campaigns
 * **Communications:** Draft personalized thank-you notes and donor outreach referencing specific gifts
 * **Real-time data:** Fetch current information directly from Raiser's Edge NXT
-
-## Setting up the connector
 
 #### For Blackbaud marketplace admins
 
@@ -54,8 +33,6 @@ The Blackbaud integration relies on Claude's ability to [use remote connectors](
 4. Search for and select Blackbaud
 5. Select `Add to your team`
 6. Confirm authorization
-
-#### For individual users
 
 1. Log in to Claude with your enterprise account
 2. Access [Settings](https://claude.ai/settings) > Connectors
@@ -103,37 +80,3 @@ The Blackbaud integration relies on Claude's ability to [use remote connectors](
 * Combine multiple requests when helpful
 * Review AI-generated communications before sending, especially with sensitive donor data
 * Claude only accesses data your Blackbaud account authorizes
-
-## Related tutorials
-
-[Using the Candid connector in Claude](/resources/tutorials/using-the-candid-connector-in-claude)Using the Candid connector in Claude
-
-Using the Candid connector in Claude
-
-Tutorial
-
-[Tutorial](/resources/tutorials/using-the-candid-connector-in-claude)Tutorial
-
-[Using the Benevity connector in Claude](/resources/tutorials/using-the-benevity-connector-in-claude)Using the Benevity connector in Claude
-
-Using the Benevity connector in Claude
-
-Tutorial
-
-[Tutorial](/resources/tutorials/using-the-benevity-connector-in-claude)Tutorial
-
-[Claude for nonprofits partnership guide for all users](/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Claude for nonprofits partnership guide for all users
-
-Claude for nonprofits partnership guide for all users
-
-Tutorial
-
-[Tutorial](/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Tutorial
-
-[Claude for nonprofits partnership success guide for admins](/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)Claude for nonprofits partnership success guide for admins
-
-Claude for nonprofits partnership success guide for admins
-
-Tutorial
-
-[Tutorial](/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)Tutorial

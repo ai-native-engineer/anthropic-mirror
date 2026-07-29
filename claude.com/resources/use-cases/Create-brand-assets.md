@@ -66,8 +66,8 @@ Your brand guidelines document tells Claude the specific details to maintain vis
 
 ## Required context
 
-Upload your brand or style guidelines so Claude can match your exact visual identity—typography, colors, spacing, and overall aesthetic.   
-  
+Upload your brand or style guidelines so Claude can match your exact visual identity—typography, colors, spacing, and overall aesthetic.
+
 In this case, the style guide is uploaded as a PDF.
 
 No items found.
@@ -104,12 +104,12 @@ I'll create your Morning Ritual materials following your branding guidelines.
 
 **Your deliverables:**
 
-1. **Business Card PDF** – morning\_ritual\_business\_card.pdf  
+1. **Business Card PDF** – morning\_ritual\_business\_card.pdf
     Print-ready 3.5" × 2" with 1/8" bleeds, crop marks, watercolor-style dispersed background circles (inspired by painterly aesthetics), paper grain texture, layered typography with letterpress-style depth, and an elegant QR code with rounded corners. Specs included for 32pt cardstock with soft-touch coating.
-2. **QR Code** – morning\_ritual\_qr.png  
+2. **QR Code** – morning\_ritual\_qr.png
     High-resolution QR code with rounded corners for organic, elegant appearance. Link to your website.
 
-1. **Promotional Flyer PDF** – morning\_ritual\_poster.pdf  
+1. **Promotional Flyer PDF** – morning\_ritual\_poster.pdf
     Print-ready 18" × 24" with watercolor-inspired dispersed circles, paper grain texture, layered typography with depth, brand values, and complete contact details. CMYK color, 300 DPI, ready for professional printing.
 
 All materials feature painterly watercolor aesthetics with soft dispersed circles, paper grain texture for tactile feel, and layered typography that creates letterpress-style depth. Warm browns (#5F4738, #8B7355), cream backgrounds (#F9F7F3), terracotta and beige accents. No overlapping elements, proper spacing throughout, print-ready specifications included.
@@ -172,7 +172,7 @@ Bring your ideas to Claude and create brand materials you can edit or send to pr
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a416921e3fdb103060959_Group%203%20(1).png)
 
@@ -182,34 +182,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Source insights from your tools to build a deck](/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Source insights from your tools to build a deck
+[Source insights from your tools to build a deck](https://claude.com/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Source insights from your tools to build a deck
 
 Source insights from your tools to build a deck
 
 Use case
 
-[Use case](/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Use case
+[Use case](https://claude.com/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Use case
 
-[Evaluate a company from the science to the balance sheet](/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Evaluate a company from the science to the balance sheet
+[Evaluate a company from the science to the balance sheet](https://claude.com/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Evaluate a company from the science to the balance sheet
 
 Evaluate a company from the science to the balance sheet
 
 Use case
 
-[Use case](/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Use case
+[Use case](https://claude.com/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Use case
 
-[Build analysis from browser charts and folder data](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Build analysis from browser charts and folder data
+[Build analysis from browser charts and folder data](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Build analysis from browser charts and folder data
 
 Build analysis from browser charts and folder data
 
 Use case
 
-[Use case](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Use case
+[Use case](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Use case
 
-[Build a daily briefing across your tools](/resources/use-cases/build-a-daily-briefing-across-your-tools)Build a daily briefing across your tools
+[Build a daily briefing across your tools](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)Build a daily briefing across your tools
 
 Build a daily briefing across your tools
 
 Use case
 
-[Use case](/resources/use-cases/build-a-daily-briefing-across-your-tools)Use case
+[Use case](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)Use case

@@ -9,6 +9,7 @@ The Official GitHub MCP Server
 * Used in
 
   [Claude](https://claude.ai/directory/cdf69311-bafb-4969-996e-c52b2f388265)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [GitHub](https://github.com)
 
@@ -27,16 +28,16 @@ The GitHub MCP Server connects AI tools directly to GitHub's platform. This give
 
 You can use GitHub MCP to:
 
-**Explore a repository:**  
+**Explore a repository:**
 "Summarize the README and recent commits in owner/repo"
 
-**Manage issues:**  
+**Manage issues:**
 "List my open issues labeled bug and draft a triage comment for each"
 
-**Review a pull request:**  
+**Review a pull request:**
 "Review PR #123 in owner/repo and point out anything risky"
 
-**Find code:**  
+**Find code:**
 "Search owner/repo for where the rate limiter is configured"
 
 ## Related connectors
@@ -51,17 +52,17 @@ January 26, 2026
 
 ### AWS Marketplace
 
-Discover, evaluate, and buy solutions for the cloud](/connectors/aws-marketplace)
+Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
 Claude
 
 March 9, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69acdf17420ea818c8dd6df3_only%20icon%20vector%20(1).svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dab482d8b581739e57a7_icon_Base44.jpg)
 
 ### Base44
 
-Build and manage Base44 apps](/connectors/base44)
+Build and manage Base44 apps](https://claude.com/connectors/base44)
 
 Claude
 
@@ -69,11 +70,11 @@ Claude Code
 
 March 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a5cd3d14699b00ee21b969_clerk.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dfa6bc4ff18a740c59aa_icon_Clerk.jpg)
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Claude
 
@@ -87,4 +88,4 @@ February 11, 2026
 
 ### Cloudflare
 
-Build applications with compute, storage, and AI](/connectors/cloudflare)
+Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)

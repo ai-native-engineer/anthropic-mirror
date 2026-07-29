@@ -2,7 +2,7 @@
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abfe0db0d82b0112d1531_1758567129415.jpeg)
 
-# Learning Commons Knowledge Graph
+# Learning Commons
 
 K-12 standards, skills, and learning progressions
 
@@ -10,6 +10,7 @@ K-12 standards, skills, and learning progressions
 * Used in
 
   [Claude](https://claude.ai/directory/6e94f5fc-5dc8-4f0a-9fcf-741bcab4e034)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Learning Commons](https://learningcommons.org/)
 
@@ -22,24 +23,24 @@ K-12 standards, skills, and learning progressions
   Read
 * More
 
-  [Documentation](https://docs.learningcommons.org/knowledge-graph/integrations/claude)[Privacy Policy](https://learningcommons.org/privacy-policy/)[support@learningcommons.org](mailto:support@learningcommons.org)
+  [Documentation](https://docs.learningcommons.org/knowledge-graph/integrations/claude)[Privacy Policy](https://learningcommons.org/privacy-policy/)[Support](mailto:support@learningcommons.org)
 
 Align to all 50 states' academic standards, break them into granular learning components, and trace learning progressions directly from Claude. The Learning Commons Knowledge Graph connects trusted instructional content and learning science into a shared foundation, so Claude can generate more precise, standards-aligned instructional content that supports coherent learning and reflects educational best practices.
 
-You can use the Learning Commons connector to:  
-  
-Generate standards-aligned project ideas:  
+You can use the Learning Commons connector to:
+
+Generate standards-aligned project ideas:
 "I'm a teacher in Iowa. Generate three project ideas that address W.3.4"
 
-Create exit tickets for specific standards:  
+Create exit tickets for specific standards:
 "Today in class we will be covering 111.40.c.3.F. Can you please create an exit ticket for my students?"
 
-Generate practice problems for learning components:  
+Generate practice problems for learning components:
 "I am an 8th grade teacher in Maryland. Please create extra practice problems to address the learning components of 8.F.B.4"
 
-Identify prerequisite skills:  
-"I am a 4th grade teacher in California. A student in my new class is struggling with the concepts related to 4.OA.A.3. Which prerequisites should I focus on with them?"  
-  
+Identify prerequisite skills:
+"I am a 4th grade teacher in California. A student in my new class is struggling with the concepts related to 4.OA.A.3. Which prerequisites should I focus on with them?"
+
 This connector is designed for K-12 educators and curriculum developers.
 
 ## Related connectors
@@ -58,7 +59,7 @@ May 20, 2026
 
 ### bioRxiv
 
-Access to bioRxiv and medRxiv preprint data](/connectors/biorxiv)
+Access to bioRxiv and medRxiv preprint data](https://claude.com/connectors/biorxiv)
 
 Life sciences and healthcare
 
@@ -74,7 +75,7 @@ March 19, 2026
 
 ### PubMed
 
-Search biomedical literature from PubMed](/connectors/pubmed)
+Search biomedical literature from PubMed](https://claude.com/connectors/pubmed)
 
 Life sciences and healthcare
 
@@ -90,4 +91,4 @@ March 19, 2026
 
 ### Scholar Gateway
 
-Enhance responses with scholarly research and citations](/connectors/scholar-gateway)
+Enhance responses with scholarly research and citations](https://claude.com/connectors/scholar-gateway)

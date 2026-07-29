@@ -10,6 +10,7 @@ Query and explore observability data and SLOs
 * Used in
 
   [Claude](https://claude.ai/directory/63125588-06e1-4567-8130-f5a26ed1d20f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Honeycomb](https://www.honeycomb.io/)
 
@@ -24,8 +25,8 @@ Query and explore observability data and SLOs
 
   [Documentation](https://docs.honeycomb.io/troubleshoot/product-lifecycle/beta/mcp/)[Privacy Policy](https://www.honeycomb.io/ai-terms)[Support](https://www.honeycomb.io/support)
 
-Query and explore observability data from OpenTelemetry or dozens of other sources in your honeycomb.io account.  
-  
+Query and explore observability data from OpenTelemetry or dozens of other sources in your honeycomb.io account.
+
 You can use the Honeycomb connector to:
 
 Analyze SLO Performance: **‍**"Analyze my SLO burn rates and investigate the top three contributing factors"
@@ -44,11 +45,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -62,7 +63,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -76,7 +77,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -88,4 +89,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

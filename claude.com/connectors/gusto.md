@@ -10,6 +10,7 @@ Query and analyze your Gusto data
 * Used in
 
   [Claude](https://claude.ai/directory/cf2b53a4-45ef-4541-9425-0116d42286ca)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Gusto](https://gusto.com)
 
@@ -24,22 +25,22 @@ Query and analyze your Gusto data
   Read & write
 * More
 
-  [Documentation](https://docs.gusto.com/app-integrations/docs/mcp)[Privacy Policy](https://gusto.com/legal/privacy)[mcp@gusto.com](mailto:mcp@gusto.com)
+  [Documentation](https://docs.gusto.com/app-integrations/docs/mcp)[Privacy Policy](https://gusto.com/legal/privacy)[Support](mailto:mcp@gusto.com)
 
 Connect Claude to your Gusto account to query and analyze your payroll and people data. Ask questions in natural language, build custom reports, and create charts to uncover trends and insights—no exports or tool-switching required. Eligible customers can also run payroll in Claude.
 
 You can use Gusto to:
 
-**Analyze payroll trends:**  
+**Analyze payroll trends:**
 "Build a dashboard breaking down my last 6 payrolls" or "What was my tax liability on my most recent payroll?"
 
-**Review people data:**  
+**Review people data:**
 "Show me employees with birthdays coming up next month"
 
-**Run payroll (eligible customers):**  
+**Run payroll (eligible customers):**
 "Run my next payroll"
 
-**Get company insights:**  
+**Get company insights:**
 "What are our department-wise compensation trends?"
 
 ## Related connectors
@@ -52,11 +53,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -70,7 +71,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -80,11 +81,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -94,8 +95,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

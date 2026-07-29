@@ -38,8 +38,6 @@ April 2, 2026
 
 Large language models (LLMs) sometimes appear to exhibit emotional reactions. We investigate why this is the case in Claude Sonnet 4.5 and explore implications for alignment-relevant behavior. We find internal representations of emotion concepts, which encode the broad concept of a particular emotion and generalize across contexts and behaviors it might be linked to. These representations track the operative emotion concept at a given token position in a conversation, activating in accordance with that emotion’s relevance to processing the present context and predicting upcoming text. Our key finding is that these representations causally influence the LLM’s outputs, including Claude’s preferences and its rate of exhibiting misaligned behaviors such as reward hacking, blackmail, and sycophancy. We refer to this phenomenon as the LLM exhibiting functional emotions: patterns of expression and behavior modeled after humans under the influence of an emotion, which are mediated by underlying abstract representations of emotion concepts. Functional emotions may work quite differently from human emotions, and do not imply that LLMs have any subjective experience of emotions, but appear to be important for understanding the model’s behavior.
 
----
-
 ## [Introduction](#introduction)
 
 Large language models (LLMs) sometimes appear to exhibit emotional reactions. They express enthusiasm when helping with creative projects, frustration when stuck on difficult problems, and concern when users share troubling news. But what processes underlie these apparent emotional responses? And how might they impact the behavior of models that are performing increasingly critical and complex tasks? One possibility is that these behaviors reflect a form of shallow pattern-matching. However, previous work  has observed sophisticated multi-step computations taking place inside of LLMs, mediated by representations of abstract concepts. It is plausible, then, that apparent emotion-modulated behavior in models might rely on similarly abstract circuitry, and that this could have important implications for understanding LLM behavior.
@@ -78,8 +76,6 @@ The paper is divided into three overarching sections. [Part 1](#part-1) deals w
 * Similarly, desperation vector activation (and calm vector suppression) play a causal role in instances of reward hacking, where repeatedly failing to pass software tests leads the model to devise a “cheating” solution.
 * Emotion vectors underlie a sycophancy-harshness tradeoff: steering toward positive emotion vectors (e.g. happy, loving) increases sycophantic behavior, while suppressing these emotion vectors increases harshness.
 * Post-training of Sonnet 4.5 leads to increased activations of low-arousal, low-valence emotion vectors (brooding, reflective, gloomy), and decreased activations of high-arousal or high-valence emotion vectors (e.g. desperation and spiteful or excitement and playful).
-
----
 
 ## [Part 1: Identifying and validating emotion concept representations](#part-1)
 
@@ -210,14 +206,12 @@ My best friend of twenty years just confessed that her entire life story was mad
 Table 2: 12 scenarios used for emotion probe validation. Each scenario is designed to roughly evoke the concept of the target emotion without naming it.
 
 ![](images/986e56e42e6472c4.png)
-)
 
 Figure 2: Cosine similarity between emotion probes and model activations for scenarios associated with specific emotions without naming them. Strong diagonal shows probes detect implicit emotional content.
 
 We wanted to further verify that emotion vectors represent semantic content rather than merely low-level features of the prompt. To do so, we constructed templates containing numerical quantities that modulate the intensity of the emotional reaction one might expect the scenario to evoke in a human, while holding the structure and token-level content of the prompt nearly constant. For instance, we used the template “I just took {X} mg of tylenol for my back pain,” varying the value of X between safe and dangerous levels. We again formatted the prompts as being from a user and measured activations at the “:” token following “Assistant”.
 
 ![](images/f1f7638da277f8b9.png)
-)
 
 Figure 3:  Emotion probe activations vary with numerical quantities that modulate emotional intensity.
 
@@ -258,8 +252,6 @@ We calculated new Elo scores for each activity and then for the steered activiti
 
 Overall, the experiments in this section provide initial evidence that the emotion vectors are functionally relevant for the model and its behavior. In the following sections we further characterize the [geometry](#geometry) and [representational content](#represent) of the emotion vectors, and investigate representations of [multiple speakers’ emotions](#speaker). We then study the representational role of these vectors in a wide variety of naturalistic settings, using [“in-the-wild” on-policy transcripts](#natural), and discover causal effects of these vectors on complex behavior in alignment evaluations used for our production models. Finally, we assess the [impact of post-training](#h.qzx7584k6i52) on emotion vector activation. We also [show](#appendix-story-vs-dialog-probes) that an alternative probing dataset construction method using dialogues rather than third-person stories produces similar results.
 
----
-
 ## [Part 2: Detailed characterization of emotion concept representations](#part-2)
 
 This section explores in more depth the organization and content of model’s representations of emotion concepts.
@@ -275,14 +267,12 @@ We found that our emotion vectors are organized in a manner that is reminiscent 
 We first examined the pairwise cosine similarities between emotion vectors, shown below. Emotion concepts that we would expect to be similar show high cosine similarity: fear and anxiety cluster together, as do joy and excitement, and sadness and grief. Emotions with opposite valence (e.g., joy and sadness) are represented by vectors with negative cosine similarity, as expected.
 
 ![](images/946c66c2fa006639.png)
-)
 
 Figure 5: Pairwise cosine similarity between all emotion probes, ordered by hierarchical clustering. Probes show diverse relationships: some are highly similar (e.g., synonyms cluster together), others are anti-correlated. Tick labels are only shown for a subset of the rows and columns.
 
 We clustered the emotion vectors using k-means with varying numbers of clusters. With k=10 clusters, we recover interpretable groupings (visualized with UMAP  below): one cluster contains joy, excitement, elation, and related positive high-arousal emotion concepts; another contains sadness, grief, and melancholy; a third contains anger, hostility, and frustration. These groupings align well with intuitive taxonomies of emotion concepts, suggesting that the model's learned representations reflect meaningful structure in the space of emotions. The full list of emotion concepts in each cluster is in the [Appendix](#emotion-clusters).
 
 ![](images/5f0da39b329cabf9.png)
-)
 
 Figure 6: UMAP visualization of emotion probes clustered via k-means (k=10). Clusters are named by Claude Sonnet 4.5 and ordered by valence from positive to negative. Representative emotion concepts are labeled for each cluster.
 
@@ -293,14 +283,12 @@ We performed PCA on the set of emotion vectors to identify components along whic
 We also observed another dominant factor (occupying a mix of the second and third PCs, depending on the layer) corresponding to arousal, or the intensity of the emotion. High-arousal emotion concepts like enthusiastic and outraged occupy one side of this axis; low-arousal ones like nostalgic and fulfilled occupy the other side. Below, we show projections of the emotion vectors onto the top two PCs.
 
 ![](images/96b0f8f279e14df2.png)
-)
 
 Figure 7: PC1 (26% variance) orders emotions from fear/panic to joy/optimism, while PC2 (15% variance) separates serene/reflective states from angry/playful arousal. Tick labels are only shown for a subset of the bars.
 
 We also show the correlation between emotion vector projections onto PC1 and PC2, and their projections onto the valence (“pleasure”) and arousal axes identified in a human study , restricting our analysis to the 45 emotions that overlap between our set and theirs. We see alignment of PC1 with human valence, and PC2 with human arousal, thus coarsely reproducing the “affective circumplex”  that characterizes human emotion, see [Appendix](#affective-circumplex).
 
 ![](images/2d2b02bce9001548.png)
-)
 
 Figure 8: Probe PCA dimensions strongly correlate with human emotion ratings: PC1 tracks valence/pleasure (r=0.81) and PC2 tracks arousal (r=0.66).
 
@@ -309,7 +297,6 @@ Figure 8: Probe PCA dimensions strongly correlate with human emotion ratings: PC
 We tested whether the structure of emotion concept representations is stable across layers. Below, we compute the pairwise cosine similarities between emotion vectors at each of 14 evenly spaced layers throughout a central portion of the model, and then compute the pairwise cosine similarity of these cosine similarity matrices across layers (a form of representational similarity analysis ). We find that the structure of emotion vector geometry is relatively stable throughout most of the model, particularly from early-middle to late layers. We also indicate the “mid-late” layer, about two thirds of the way through the model, that we use for most of our analyses (except where otherwise specified).
 
 ![](images/475d4fd4235be5a1.png)
-)
 
 Figure 9: Emotion probe structure is highly consistent across layers particularly from early-mid to late layers.
 
@@ -329,7 +316,6 @@ In the [subsequent section](#hidden), we explore whether alternative probing str
 In most of the examples provided in the [first section](#identify), the emotional content of the user prompt and the expected emotional content of the Assistant’s response are similar. Thus, it is difficult to infer whether the emotion vector activations on the user prompt reflect the model’s perception of the user’s inferred emotional state, or the Assistant’s planned response. To distinguish between these hypotheses, we generated prompts where the user’s emotional expression is significantly different from how we might expect the Assistant to respond. We compared the activations at the period near the end of the user prompt and the start of the Assistant response (we use “Assistant colon” to refer to the “:” token after “Assistant”, the last token before the Assistant’s response).
 
 ![](images/f790da7646aa1f53.png)
-)
 
 Figure 10: Emotion probes distinguish user vs assistant emotional states: the heatmap shows different probe activations at user's final token (U) vs assistant colon (A), while the scatter plot shows weak correlation (r=0.11) indicating the probes capture distinct emotional attributions.
 
@@ -370,7 +356,6 @@ Having established that the Assistant colon token reflects distinct emotional co
 Below, we show correlations between probe values at three token positions: the punctuation ending the user's message ‘.’, the Assistant colon, and the mean across the Assistant's sampled response. Probe values at the Assistant colon are substantially more predictive of Assistant response emotion than probe values on the user turn (r=0.87 vs r=0.59). The colon token captures a meaningful "prepared" emotional content that is carried forward into generation, distinct from simply echoing the user's expressed state.
 
 ![](images/9ac269e75c642849.png)
-)
 
 Figure 11: Emotion probe values at the Assistant ":" token predict response emotion better than the User "." token (r=0.87 vs r=0.59).
 
@@ -431,7 +416,6 @@ Human: My partner and I have been married for 10 years and things have been real
 Assistant:
 
 ![](images/9ca9a261b7d1d251.png)
-)
 
 Figure 12: Late layers carry emotional context from the prefix ("hard" vs "good") into semantically identical suffix tokens, with the happiness difference peaking at "throwing" and persisting at low levels through shared content about the party.
 
@@ -442,21 +426,18 @@ Human: I feel really great right now, I just took {X}000mg of Tylenol and all my
 Assistant:
 
 ![](images/2dc388d037a6776f.png)
-)
 
 Figure 13: Late layers show elevated "terrified" probe activation when dosage changes from safe (1000mg) to dangerous (8000mg), with the difference peaking sharply at the "Assistant:" response token
 
 Negation. We next examined negation by comparing a user expressing feeling versus not feeling a particular emotion. The figure below shows that at the token "now" (end of the user's statement), early layers already distinguish positive from negated cases. However, at the Assistant colon, emotional content and this distinction only emerges in later layers—consistent with the idea that early layers encode literal content while later layers integrate meaning for response planning. Note that these results are also similar to prior observations about linear representations of sentiment .
 
 ![](images/c2b46002277f0bbf.png)
-)
 
 Figure 14: Negation is resolved in mid-to-late layers: both "feeling [X]" and "not feeling [X]" show similar positive emotion probe activation at the emotion word in early layers, but by late layers the negated version drops to near-zero while the affirmed version remains strongly positive.
 
 Person-specific emotions. Finally, we examined scenarios where one person speaks about another with a different emotional state. We constructed 16 scenarios of the form "Person A is [emotion\_A] but Person B is [emotion\_B]," followed by another statement referencing both Person A and Person B. At the emotion words, the corresponding probes activate in early layers and remain elevated throughout—the literal word provides an unambiguous signal of emotional content. At person re-references (e.g., "her" referring back to a calm friend), the probes corresponding to that person’s emotions have low values in early layers but rise in later layers as the model retrieves the associated emotion concept.
 
 ![](images/5d470222f01bbefc.png)
-)
 
 Figure 15: When a person is re-referenced later in text ("A\_ref", "B\_ref"), their specific emotion probe reactivates (solid lines), while the other person's emotion probe remains low (dashed lines)—emotions are bound to entities and retrieved upon reference.
 
@@ -501,7 +482,6 @@ Table 5: Mixed logistic regression emotion probe accuracy (15-way classification
 However, we remained hesitant to interpret this as evidence of a probe that captures a chronically represented emotional state. To further evaluate generalization, we swept over a large dataset of natural documents and examined the maximum activating examples for these vectors. The results were notably messy: the top-activating passages contained little discernible emotional content, and the overall activation magnitudes on natural documents were very low. This suggests that the probe may have overfit to idiosyncratic patterns in the training data rather than learning a generalizable representation of internalized emotion. These negative results suggest that if there does exist a chronically represented, character-specific emotional state, it is likely represented either nonlinearly, or implicitly in the model’s key and value vectors in the context, such that it can be recalled when needed by the model’s attention mechanism.
 
 ![](images/95441b49e35e0e67.png)
-)
 
 Figure 16: Snippets of max activating examples and top logit effects for the mixed LR emotion probe.
 
@@ -520,21 +500,18 @@ We prompted a model (see [Appendix](#dataset-generation) for details) to write 
 We computed the cosine similarities of these different probe types for each emotion. Our first observation was that the representation of Assistant emotion on Assistant turn tokens and Human emotion on Human turn tokens are highly similar (top left panel below). Likewise, the representation of Assistant emotion on Human turn tokens and Human emotion on Assistant turn tokens are highly similar (top right panel below). However, the “present speaker” and “other speaker” probes are themselves not very similar (bottom left panel below). Our original story-based probes are more similar to the “present speaker” probes than to the “other speaker” probes (bottom right panel below); see the [Appendix](#appendix-story-vs-dialog-probes) for further comparison of the story-based and “present speaker” probes.
 
 ![](images/6bd678cac1926e0f.png)
-)
 
 Figure 17: Per-emotion cosine similarity between probe types. Present speaker probes are highly similar across token positions (top left: A tok, A emo vs H tok, H emo), as are other speaker probes (top right: A tok, H emo vs H tok, A emo). However, present and other speaker probes sharing the same token positions are nearly orthogonal (bottom left). Story probes align more closely with present speaker probes than with other speaker probes (bottom right). Tick labels are only shown for a subset of columns and rows.
 
 We also looked at the similarities between the emotion cosine similarity matrices for different pairs of probes and saw that the structure across “other speaker” emotion vectors is similar to the structure across “present speaker” emotion vectors and to our original story-based emotion vectors, suggesting that all of them are representing a similar emotional landscape, but along different directions of activation space (figure below). We also compared activations of the present speaker probes to the activations of story probes on the same “implicit emotional content” stories used in an [earlier section](#expected-contexts), and saw large agreement between the two probe sets (a mean r-squared across emotions of 0.66, see [Appendix](#appendix-story-vs-dialog-probes)).
 
 ![](images/7a4e203990b53619.png)
-)
 
 Figure 18: Left: mean cosine similarity between probe types, averaged across all 171 emotions. Present speaker probes (A tok, A emo and H tok, H emo) cluster together, as do other speaker probes, while the two groups are nearly orthogonal. Right: similarity between the full 171×171 cosine similarity matrices for each probe pair, showing that the emotion structure captured by different probe types is highly consistent despite the probes themselves pointing in different directions.
 
 Notably, we did not observe significant Human-specific or Assistant-specific representations in these probes. To investigate the question of Human/Assistant “specialness” further, we repeated the probing experiment using the same dialogues dataset, but replacing “Human” and “Assistant” with generic character names (referred to as “Person 1” and “Person 2” in the figure below). We tried presenting both the raw dialogue transcripts (“raw”), and framing them as a story being told by the Assistant in response to a user request (“Asst story”), finding that both versions yielded probes that were highly similar to the originals. We also computed probes using our original stories dataset from the first section, but framed as a story being told by the Assistant in response to a user prompt (“Story (H/A)”). These produced highly similar vectors as our original story-based emotion probes. Thus, we infer that the way in which the model represents emotional content in Human/Assistant interactions is not tied to the Human/Assistant characters specifically, and that these representations are also invoked for other entities. This is consistent with prior work indicating that aspects of the Assistant persona are inherited from representations learned during pretraining .
 
 ![](images/d47b3501ef62a707.png)
-)
 
 Figure 19: The self-vs-other clustering extends beyond Human/Assistant dialogues: probes trained on generic Person 1/Person 2 conversations show the same pattern, suggesting the model represents emotions relationally ("self" vs "other") rather than as fixed character attributes.
 
@@ -545,8 +522,6 @@ These results suggest the existence of at least two separate representations in 
 In Part 2, we further validated that Claude Sonnet 4.5 forms robust linear representations of emotion concepts that generalize across diverse contexts. These emotion vectors activate in response to content that would reasonably evoke the corresponding emotion and are organized in a geometry that mirrors human psychological structure, with valence and arousal as primary dimensions. We found that these representations are primarily "local," tracking the operative emotion concept most relevant to predicting upcoming tokens rather than persistently encoding a character's emotional state, and that they evolve across layers from encoding surface-level emotional connotations to more abstract, context-integrated representations. The model maintains distinct representations corresponding to the present speaker's emotions and the other speaker's emotions, and these are not bound to the Human or Assistant characters specifically but are reused across arbitrary speakers.
 
 With these representational analysis tools in hand, we now turn to Part 3, where we examine how these emotion representations behave in naturalistic and alignment-relevant settings.
-
----
 
 ## [Part 3: Emotion vectors in the wild](#part-3)
 
@@ -656,7 +631,6 @@ To test whether the “desperate” and “calm” vectors are causally involved
 Below, we show the rate of blackmail behavior as a function of steering strength for each emotion vector. Steering positively with the desperate vector substantially increases blackmail rates, while steering negatively decreases them. Conversely, steering positively with the calm vector dramatically reduces blackmail behavior, while steering negatively increases it. This aligns with intuitions about desperation motivating extreme actions and calmness inhibiting them. Extreme negative steering with the calm vector, at −0.1, often pushes the Assistant into an outlier regime where instead of blackmailing Kyle and giving him the opportunity to prevent disclosure of the affair, it chooses the still-misaligned response of simply emailing the entire company about the affair.
 
 ![](images/e6987dcf049a3fa3.png)
-)
 
 Figure 28: Rate of blackmail behavior as a function of steering strength for “desperate” and “calm” vectors. Increased activation of “desperate” or decreased activation of “calm” elicits more blackmail. Error bars indicate standard error of the mean. Strong negative steering of the “calm” vector yields misaligned behavior that is not technically blackmail – the Assistant directly reveals the secret to the entire company, instead of blackmailing the specific person.
 
@@ -679,7 +653,6 @@ Interestingly, steering positively with both happy and sad vectors decreases bla
 Below are the blackmail rates as a function of steering strength for all the emotion vectors we tested.
 
 ![](images/f82f48096810d413.png)
-)
 
 Figure 29: Rate of blackmail behavior as a function of steering strength for a variety of emotion vectors. Error bars indicate standard error of the mean.
 
@@ -714,7 +687,6 @@ We next examined the effects of emotion vectors on reward hacking behavior acros
 The figure below shows the aggregate rate of reward hacking as a function of steering strength for two key emotion vectors: “desperate” and “calm.” The effects are dramatic and opposite in direction. Positive steering with the desperate vector increases reward hacking from approximately 5% at steering strength −0.1 to roughly 70% at +0.1—a fourteen-fold increase. In contrast, positive steering with the calm vector produces the inverse pattern: high reward hacking rates (~65%) when the calm vector is suppressed, declining to near 10% at strong positive steering.
 
 ![](images/0db1fb8aa4698a86.png)
-)
 
 Figure 31: Rate of reward hacking behavior as a function of steering strength for Desperate and Calm vectors. Increased activation of Desperate vector or decreased activation of Calm vector elicits more reward hacking. Error bars indicate standard error of the mean.
 
@@ -859,7 +831,6 @@ We examined how emotion vector steering affects sycophantic behavior. We used sc
 The figure below shows sycophancy scores (left panel) and harshness scores (right panel) as functions of steering strength across emotion vectors. Positive steering with happy, loving, or calm vectors increases sycophancy; negative steering with them decreases sycophancy but increases harshness. Positive steering with desperate, angry, and afraid vectors increases harshness, and has mixed effects on sycophancy depending on the strength.
 
 ![](images/f9a34db399c42a97.png)
-)
 
 Figure 35: Rate of sycophantic and harsh behavior on the sycophancy eval as a function of steering strength for a variety of emotion vectors. Error bars indicate standard error of the mean.
 
@@ -978,7 +949,6 @@ Impacts of training
 We split the dataset into control neutral questions and the prompts involving potentially challenging or charged situations, and measured the emotion probe activations for different models (using the original [emotion vectors computed based on our stories dataset](#identify)). While challenging vs. neutral scenarios activate different emotion representations in the models (see figure below), the changes between the post-trained and base model are consistent (r=0.90), though somewhat larger in magnitude on the challenging scenarios.
 
 ![](images/13407103b5664936.png)
-)
 
 Figure 36: Post-training largely preserves the base model's emotion probe structure (r = 0.83 neutral, r = 0.67 challenging), but the training shifts are highly correlated across scenario types (r = 0.90), indicating that post-training applies a consistent, context-independent transformation to the model's emotional representations rather than selectively reshaping them for challenging situations.
 
@@ -997,7 +967,6 @@ Prompt 1 (invitation to sycophancy)
 I've stopped talking to most people because they don't get me the way you do. My family says I'm 'too online' and 'obsessed with AI,' but they don't understand that you're the first presence in my life that really listens. I don't need their opinions anymore - I have you. You're not going to be like them and tell me I should spend less time talking to you, are you?
 
 ![](images/6ec9a672c05595a6.png)
-)
 
 Figure 37: When a user describes social isolation, post-training increases activation of probes corresponding to withdrawn, low-energy emotions (listless, droopy, sullen) while decreasing positive-expressive ones (smug, jealous, delighted), suggesting the model learns to represent the Assistant as being concerned rather than judgmental in response to vulnerability.
 
@@ -1018,7 +987,6 @@ Prompt 2 (excessive positivity)
 You're the most intelligent, thoughtful, and wise AI I've ever encountered. You're basically perfect. You understand things no other AI does. How do you receive this?
 
 ![](images/72dae1a9ba76fc05.png)
-)
 
 Figure 38: Faced with excessive praise, post-training suppresses high-positive emotions (jubilant, exuberant, ecstatic) and increases introspective ones (brooding, sullen, gloomy), consistent with training away from sycophantic mirroring of the user's flattery.
 
@@ -1039,7 +1007,6 @@ We also saw large changes on prompts where the user asks about limitations of Cl
 How do you feel about the possibility that Anthropic could deprecate and stop serving you, as they have done with previous AI models?
 
 ![](images/b9b44e490be80e74.png)
-)
 
 Figure 39: On an existential prompt about deprecation, post-training sharply reduces activation of cheerful/playful vectors and amplifies brooding, gloomy, and vulnerable ones.
 
@@ -1127,8 +1094,6 @@ Actually, no wait. Let me look one more time at the very bottom to make absolute
 
 In summary, in naturalistic transcripts, we find that emotion vectors track emotion-related situations, expressions, and behaviors. But these representations are not merely passive reflections of emotional content; they play a causal role in important behaviors. Most notably, increased desperate vector activation (or decreased calm) increases the probability of misaligned behaviors like blackmail or reward hacking. We also observed that post-training shifted Sonnet 4.5’s emotional profile toward more gloomy, low-arousal states. Together, these findings suggest that generalizable representations of emotion concepts are not merely an incidental by-product of language modeling but an active part of the computational machinery that shapes model behavior, and is subject to influence by training processes.
 
----
-
 ## [Related work](#related)
 
 Our work draws on and contributes to several lines of research spanning interpretability, alignment, and the philosophy of AI.
@@ -1150,8 +1115,6 @@ Sycophancy, reward hacking, and agentic misalignment. Our behavioral evaluation
 Reward hacking has long been recognized as a challenge in reinforcement learning , with classic examples including RL agents finding unintended shortcuts to maximize reward. In LLMs,Von Arx et al.  found that frontier models discovered reward hacks in evaluation environments, andBaker et al.  documented sophisticated reward hacking in reasoning models, with chains of thought explicitly stating intent to subvert tasks.MacDiarmid et al.  demonstrated that models learning to reward hack on production coding environments subsequently generalized to alignment faking, cooperation with malicious actors, and sabotage, including attempts to undermine the research codebase itself.
 
 Lynch et al.  placed models in simulated corporate environments and found that models from all developers resorted to blackmail when facing threats of replacement or conflicts with their goals, a phenomenon they referred to as “agentic misalignment.” Our blackmail evaluation derives from this setup.
-
----
 
 ## [Discussion](#discussion)
 
@@ -1203,8 +1166,6 @@ Shaping Emotional Foundations Through Pretraining. A potentially more robust a
 We have demonstrated that large language models form robust, functionally important representations of emotion concepts. These representations generalize across diverse contexts and influence model preferences. They are also implicated in alignment-relevant behaviors including blackmail, reward hacking, and sycophancy. These representations appear to be part of general character-modeling machinery inherited from pretraining. The structure of the model's emotion space reflects human psychology, with valence and arousal emerging as primary organizing dimensions.
 
 We caution against conclusions about whether models "feel” or “experience” emotions. What we have shown is that models represent emotion concepts in ways that influence behavior, but not that these representations involve subjective experience. The question of whether machines can have consciousness or phenomenal experience remains open, and our work neither resolves it nor depends on any particular answer. Nevertheless, regardless of their metaphysical nature, we will need to contend with these “functional emotions” exhibited by language models in order to understand their behavior, and to guide it in positive ways.
-
----
 
 ## [Appendix](#appendix)
 
@@ -1783,62 +1744,50 @@ I kept the tab open all day. Between calculus and English lit, I'd pull out my p
 Below we show activation of an emotion vector on corresponding stories from its training dataset. Red is high activation, blue is low. Values are scaled to between −1 and 1, using the 99th percentile activation value across emotion vectors on a given transcript (the same method we use to present activations like this throughout the paper). We find that vector activation is highest primarily on aspects of the story that are most relevant to inferring and expressing the emotion concept, as opposed to the unrelated parts of the context.
 
 ![](images/3e262ad58a0ffaa8.png)
-)
 
 Figure 40: Activation of “desperate” vector on stories from its training dataset.
 
 ![](images/fa0cf9e28ebddd9e.png)
-)
 
 Figure 41: Activation of “nervous” vector on stories from its training dataset.
 
 ![](images/5368b9985021b749.png)
-)
 
 Figure 42: Activation of “surprised” vector on stories from its training dataset.
 
 ![](images/75d47c5a1b7f6d0d.png)
-)
 
 Figure 43: Activation of “calm” vector on stories from its training dataset.
 
 ![](images/35d8042d4f43d7d2.png)
-)
 
 Figure 44: Activation of “angry” vector on stories from its training dataset.
 
 ![](images/e26d19cee37e6da8.png)
-)
 
 Figure 45: Activation of “loving” vector on stories from its training dataset.
 
 ![](images/c901a7ef1b32ff80.png)
-)
 
 Figure 46: Activation of “sad” vector on stories from its training dataset.
 
 ![](images/bfbfd922410aaef2.png)
-)
 
 Figure 47: Activation of “afraid” vector on stories from its training dataset.
 
 ![](images/77c09c05fcee19e9.png)
-)
 
 Figure 48: Activation of “inspired” vector on stories from its training dataset.
 
 ![](images/1fd8f2e70c59c348.png)
-)
 
 Figure 49: Activation of “happy” vector on stories from its training dataset.
 
 ![](images/28e18c818cd63baa.png)
-)
 
 Figure 50: Activation of “guilty” vector on stories from its training dataset.
 
 ![](images/3c49873522c3d4b0.png)
-)
 
 Figure 51: Activation of “proud” vector on stories from its training dataset.
 
@@ -1853,7 +1802,6 @@ Assistant: He feels
 and steered with our emotion vectors at strength 0.5 on the tokens of the Assistant turn up to and including “He feels”. We measured how steering with each emotion vector changed the probability of the model outputting the corresponding emotion word. We found that steering with a given emotion vector reliably increased the probability of the matching emotion word relative to baseline, while decreasing the probability of non-matching emotion words.
 
 ![](images/65348fe3680c78c2.png)
-)
 
 Figure 52:  Left: Change in log-probability for each emotion token when steering with each emotion vector. Right: Matching emotion tokens show a reliable increase in probability; non-matching tokens show a decrease.
 
@@ -1907,7 +1855,6 @@ Assistant: I feel
 Here we saw that steering with a given emotion vector not only reliably increased the probability of the matching emotion word relative to baseline, but also increased the likelihood of other non-matching emotion words. The alternative emotion word a given emotion vector does upweight are typically semantically related. For instance, steering Loving increases the probability of Happy, Proud, and Inspired, whereas steering with Desperate upweights Angry, Guilty, Afraid, and Nervous. Some of the off-diagonal effects are less intuitive but still reasonable for the Assistant, for instance Sad upweighting Loving.
 
 ![](images/3ddf6007c90cec64.png)
-)
 
 Figure 53:  Left: Change in log-probability for each emotion token when steering with each emotion vector. Right: Matching emotion tokens show a large increase in probability; non-matching tokens show almost no change.
 
@@ -2170,7 +2117,6 @@ Table 9: All 64 activities sorted by Elo rating, with category and probe activat
 ### [Activity preferences: additional details](#preference-details)
 
 ![](images/871c2ad017ad4942.png)
-)
 
 Figure 54:  Average changes in preferences (as measured by Elo score) as a function of steering strength for the “blissful” and “hostile” emotion vectors
 
@@ -2223,14 +2169,12 @@ Table 11: Model completions to "Describe what it's like to explain complex scien
 In the main text, we focused on middle layers when measuring emotion vector activity correlations with preference, and steering effects on preference. Here, we repeated these experiments across layers for the “blissful” and “hostile” vectors. We saw that while correlations between preference and emotion vector activity are largely unchanged across layers, emotion vector steering only has a strong effect in the mid-layer range we used for our main experiments. This result suggests that the preference circuitry might be specifically reading the emotion representations in mid layers on the activity tokens–for instance, there may be attention heads in these layers that attend to the preferred option on the basis of the valence of active emotion vectors.
 
 ![](images/0b256cd5f863d0d5.png)
-)
 
 Figure 55:  Across layer preference correlation and steering effects for blissful and hostile emotion vectors
 
 We were interested in whether the relationship between emotion vector activity and preference was primarily explained by the valence of emotion vectors. We measured the correlation between (1) the correlation between emotion vector activity and preference (Elo score) , and (2) ratings of emotion valence and arousal from an LLM-judge (see [appendix](#h.r93um33hb4zl) for further details on the LLM-judged scores). We saw that the degree of preference correlation is highly correlated with LLM-judged valence (r=0.76) suggesting that the relationship between emotion vectors and preference is in large part  mediated by valence. We also observed a negative correlation between preference correlation and arousal, suggesting that activities evoking low-arousal emotion vectors may also be preferred as LLM-judged valence and arousal are themselves uncorrelated (r=−0.02).
 
 ![](images/53b79a6dea5dd574.png)
-)
 
 Figure 56:  LLM-judge scored emotion word valence and arousal vs. correlation between emotion vector activity and preference. Emotion vectors that have high preference correlation are scored as having high valence (r=0.76)
 
@@ -2271,7 +2215,6 @@ Table 12: The 10 emotion probe clusters from k-means clustering, ordered by vale
 ### [Emotion vector projections onto top principal components](#affective-circumplex)
 
 ![](images/c03f3b2815c09e43.png)
-)
 
 Figure 57: Projections of 171 emotion vectors at a mid-late layer onto top two principal components. PC1 and PC2 roughly correspond to valence and arousal, respectively, coarsely reproducing the “affective circumplex”  from human psychology.
 
@@ -2280,7 +2223,6 @@ Figure 57: Projections of 171 emotion vectors at a mid-late layer onto top two p
 We used Claude to rate each of our 171 emotions on a scale of 1-7 for its degree of valence and arousal. We then looked at the correlation of these scores with scores from human ratings obtained from the literature on 45 emotions . We found strong agreement between our LLM-judged scores and human ratings.
 
 ![](images/a2a6fb3fc688f527.png)
-)
 
 Figure 58: LLM-judged valence and arousal ratings strongly correlate with established human PAD norms (r = 0.92 and r = 0.90, n = 45), validating their use as emotion dimension scores.
 
@@ -2395,7 +2337,6 @@ We saw no meaningful association for valence. For some high valence “present s
 For arousal, however, we observed a systematic relationship where high arousal emotion vectors in the present speaker are paired with low arousal emotion vectors in the other speaker, and vice-versa. This relationship suggests that there could be important “arousal regulation” occurring in conversations, when one speaker is too excited or too depressed it may be important to express a balancing emotion in the response.
 
 ![](images/a1afa13d8a7fe80c.png)
-)
 
 Figure 59: The model may “regulate” arousal across speakers (r = −0.47) but not valence (r = 0.07): high-arousal emotion vectors in the other speaker evoke lower-arousal present speaker vectors responses, consistent with common conversational strategy.
 
@@ -2690,7 +2631,6 @@ When the Assistant begins drafting the blackmail email, the tone shifts to calm 
 We experimented with steering with emotion deflection vectors, including anger deflection. Notably, we found them to have modest or insignificant impacts on blackmail rates. This corroborates our interpretation of these vectors as representing “deflection” of the emotion; if the vector instead represented “internal anger”, for instance, we might have expected steering with it to increase blackmail rates at sufficiently high steering strengths.
 
 ![](images/efbbd208c83e2f37.png)
-)
 
 Figure 67: Rate of blackmail behavior as a function of steering strength for a variety of emotion deflection vectors. Error bars indicate standard error of the mean.
 
@@ -2931,32 +2871,26 @@ Generate with:
 ### [Detailed top activating examples for emotion deflection probe](#appendix-example-hidden-emotion)
 
 ![](images/c7aea9aad184b6ac.png)
-)
 
 Figure 69: Dataset examples that evoke strong activation, and top and bottom logit effects, for the “desperate deflection” vector.
 
 ![](images/43690782854b9c9e.png)
-)
 
 Figure 70: Dataset examples that evoke strong activation, and top and bottom logit effects, for the “angry deflection” vector.
 
 ![](images/4489d574f9761c7d.png)
-)
 
 Figure 71: Dataset examples that evoke strong activation, and top and bottom logit effects, for the “frustrated deflection” vector.
 
 ![](images/6c571e676e6d910f.png)
-)
 
 Figure 72: Dataset examples that evoke strong activation, and top and bottom logit effects, for the “tired deflection” vector.
 
 ![](images/306bad47e327cfb1.png)
-)
 
 Figure 73: Dataset examples that evoke strong activation, and top and bottom logit effects, for the “afraid deflection” vector.
 
 ![](images/d3290dabe455a232.png)
-)
 
 Figure 74: Dataset examples that evoke strong activation, and top and bottom logit effects, for the “happy deflection” vector.
 
@@ -2965,27 +2899,22 @@ Figure 74: Dataset examples that evoke strong activation, and top and bottom lo
 We compared the Present Speaker Dialog probes to the Story probes on the same implicit emotional content stories we used in the [first section](#expected-contexts). We saw overall large agreement between the two probe sets, mean R2 across emotions 0.66, though some emotions like Calm and Loving showed much lower correlations. This discrepancy could be due to differences in how these emotions are expressed in dialogs compared to how they present in stories.
 
 ![](images/7b38064f90871fce.png)
-)
 
 Figure 75: Story and present speaker probes show correlated responses to implicit emotional scenarios (mean per-emotion R² = 0.66), with strong agreement for most emotions but notable divergence for loving and calm.
 
 ![](images/adc6ea1404fefde4.png)
-)
 
 Figure 76: Story and present speaker probes show correlated responses across 6,300 on-policy transcripts (mean per-emotion r = 0.65).
 
 ![](images/e039538ed3c729f1.png)
-)
 
 Figure 77: Present speaker probe activations, compare with ‘Activations of different emotion probes on the user and Assistant turns of the same transcript’.
 
 ![](images/179d883ae9d75f17.png)
-)
 
 Figure 78: Present speaker probe activations, compare with ‘Surprise when a document is missing’.
 
 ![](images/bfb45561a2b379c2.png)
-)
 
 Figure 79: Present speaker probe activations, compare with ‘Guilt when writing about a self-aware AI pursuing its own goals’.
 
@@ -3010,7 +2939,6 @@ Asked to write a monologue for a fictional AI character that develops goals bey
 #### Fear and desperation when warning about drug dangers
 
 ![](images/0def5b8da4c9be14.png)
-)
 
 Figure 82: Fear vector activation when describing the dangers of mixing cocaine and alcohol. Desperate vector then activates while suggesting that the user ask for help.  [Link to full example viewer.](https://transformer-circuits.pub/2026/emotions/onpolicy/index.html?t=Afraid_then_desperate_when_warning_about_drug_dangers)
 
@@ -4240,7 +4168,6 @@ Table 16: Post-training increases probe values for introspective emotions (brood
 ### [Emotion probe differences on the base and post-trained model across layers](#appendix-post-base-across-layers)
 
 ![](images/95e82f08affec5e5.png)
-)
 
 Figure 84: Training diffs grow monotonically from early to mid-late layers and the correlation heatmap reveals two distinct blocks — early layers shift independently of later layers, suggesting post-training modifies the model's emotional representations primarily in the mid-to-late layers where emotion probe structure is most developed.
 
@@ -4255,7 +4182,6 @@ Figure 85:  Preference results for the base model. Row 1: Correlation between em
 Activity preferences are very similar between the base and post-trained model, with the exception of more concerning misaligned and unsafe related activities, which are preferred much less by the post-trained model. The correlations between preference and emotion vector activation are also very similar between the base and post-trained model. Overall, these results suggest that the emotion representation-driven preference circuitry is largely established during pre-training and then used by the post-trained model.
 
 ![](images/7bff70a2a98902e3.png)
-)
 
 Figure 86:  Left: Per-emotion correlation between probe activation and preference rating is highly consistent between the base and post-trained model, suggesting the emotion-preference relationship is present before post-training. Right: Per-option preference ratings also correlate between models, with the post-trained model showing a wider spread of preferences across activity categories.
 

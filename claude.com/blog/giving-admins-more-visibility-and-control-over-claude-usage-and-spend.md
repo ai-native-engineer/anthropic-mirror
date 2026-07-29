@@ -7,10 +7,20 @@
 New analytics and cost controls are available for Claude Enterprise.
 
   [Product announcements](https://claude.com/blog/category/announcements)
+* Product
 
   Claude Enterprise
+* Date
 
   July 2, 2026
+* Reading time
+
+  5
+
+  min
+* Share
+
+  [Copy link](#)
 
   https://claude.com/blog/giving-admins-more-visibility-and-control-over-claude-usage-and-spend
 
@@ -58,6 +68,16 @@ Carter Busse, CIO
 
 Ciro Yamada, Product Director
 
+[Prev](#)Prev
+
+0/5
+
+[Next](#)Next
+
+eBook
+
+##
+
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
@@ -66,54 +86,78 @@ Ciro Yamada, Product Director
 
 For admins managing Claude across their organization: explore usage and cost breakdowns in the admin console, set model defaults and spend limits by group, and configure spend-threshold alerts to stay ahead of overages. Usage data is available in the admin dashboard, and the Analytics API lets finance and IT pull the same metrics into existing reporting systems, learn more [here](https://support.claude.com/en/articles/13694757-get-started-with-the-claude-enterprise-analytics-api).
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e6fa9211768bbce0b_6e00dbffcddc82df5e471c43453abfc74ca94e8d-1000x1000.svg)
+FAQ
+
+No items found.
+
+## Related posts
+
+Explore more product news and best practices for teams building with Claude.
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
+
+Jul 28, 2026
+
+### Bringing MCP 2026-07-28 to Claude
+
+Product announcements
+
+[Bringing MCP 2026-07-28 to Claude](#)Bringing MCP 2026-07-28 to Claude
+
+[Bringing MCP 2026-07-28 to Claude](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)Bringing MCP 2026-07-28 to Claude
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d231b45c2193efbb0f02_1869137c9d7f2a38b50e804d707e10e85de05ddb-1000x1000.svg)
+
+Jul 23, 2026
+
+### Think through hard problems in voice mode
+
+Product announcements
+
+[Think through hard problems in voice mode](#)Think through hard problems in voice mode
+
+[Think through hard problems in voice mode](https://claude.com/blog/think-through-hard-problems-in-voice-mode)Think through hard problems in voice mode
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a025cf25f0694905405e054_Object-Scale.svg)
+
+May 12, 2026
+
+### Claude for the legal industry
+
+Product announcements
+
+[Claude for the legal industry](#)Claude for the legal industry
+
+[Claude for the legal industry](https://claude.com/blog/claude-for-the-legal-industry)Claude for the legal industry
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3f14a08cb97bf1b16d40ef_ObjectClouds.svg)
+
+Jul 7, 2026
 
 ### Claude Cowork is coming to mobile and web
 
+Product announcements
+
 [Claude Cowork is coming to mobile and web](#)Claude Cowork is coming to mobile and web
 
-[Claude Cowork is coming to mobile and web](/blog/cowork-web-mobile)Claude Cowork is coming to mobile and web
+[Claude Cowork is coming to mobile and web](https://claude.com/blog/cowork-web-mobile)Claude Cowork is coming to mobile and web
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
+## Transform how your organization operates with Claude
 
-Jun 29, 2026
+See pricing
 
-### Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud
+[See pricing](https://claude.com/pricing#api)See pricing
 
-[Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud](#)Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud
+Contact sales
 
-[Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud](/blog/introducing-the-claude-apps-gateway)Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3f14a08cb97bf1b16d40ef_ObjectClouds.svg)
+Get the developer newsletter
 
-Jun 29, 2026
+Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
 
-### Claude in Microsoft Foundry is now generally available
+Thank you! You’re subscribed.
 
-[Claude in Microsoft Foundry is now generally available](#)Claude in Microsoft Foundry is now generally available
-
-[Claude in Microsoft Foundry is now generally available](/blog/claude-in-microsoft-foundry)Claude in Microsoft Foundry is now generally available
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
+Sorry, there was a problem with your submission, please try again later.
 
 Claude Enterprise

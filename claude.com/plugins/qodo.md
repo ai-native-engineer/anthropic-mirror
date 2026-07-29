@@ -4,7 +4,13 @@
 
 Qodo Skills: AI agent capabilities for code quality, testing, security, and compliance across your SDLC.
 
+* Install in
+
+  [Claude Code](#)
+* Made by
+
   [Qodo.ai](https://www.qodo.ai)
+* Installs
 
   3
 
@@ -19,3 +25,41 @@ The **qodo-get-rules** skill automatically fetches the most relevant coding rule
 The **qodo-pr-resolver** skill fetches AI-generated review comments from Qodo on your current branch's pull request, then lets you fix issues interactively or in batch mode. It supports GitHub, GitLab, Bitbucket, Azure DevOps, and Gerrit. It includes safety features like oscillation prevention (detecting when a fix would reverse a prior decision) and automatic deduplication of findings across multiple review rounds.
 
 **How to use:** Run `/qodo-get-rules` before starting a coding task to load relevant coding standards — the skill also triggers automatically during code generation and refactoring. Use `/qodo-pr-resolver` to pull in Qodo's review comments on your current branch's PR and fix them one by one or all at once. Requires a Qodo API key configured in `~/.qodo/config.json` (get one at [app.qodo.ai](https://app.qodo.ai/account/api-keys)).
+
+## Related plugins
+
+[### Frontend Design
+
+Craft production-grade frontends with distinctive design. Generates polished code that avoids generic AI aesthetics.
+
+Anthropic verified
+
+1110438
+
+installs](https://claude.com/plugins/frontend-design)
+
+[### Superpowers
+
+Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
+
+987572
+
+installs](https://claude.com/plugins/superpowers)
+
+[### Code Review
+
+AI code review with specialized agents and confidence-based filtering for pull requests
+
+Anthropic verified
+
+430450
+
+installs](https://claude.com/plugins/code-review)
+
+[### Context7
+
+Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
+
+412076
+
+installs](https://claude.com/plugins/context7)

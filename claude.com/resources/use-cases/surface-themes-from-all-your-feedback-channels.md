@@ -179,7 +179,7 @@ Use Cowork to connect your feedback sources and discover patterns you'd miss ana
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6978e768f0ec9ed20bbd9989_E%20%E2%80%93%20Illo%201.png)
 
@@ -189,26 +189,26 @@ Open artifact in new window
 
 ## Related use cases
 
-[Turn transit time into research time](/resources/use-cases/turn-transit-time-into-research-time)Turn transit time into research time
+[Turn transit time into research time](https://claude.com/resources/use-cases/turn-transit-time-into-research-time)Turn transit time into research time
 
 Turn transit time into research time
 
 Use case
 
-[Use case](/resources/use-cases/turn-transit-time-into-research-time)Use case
+[Use case](https://claude.com/resources/use-cases/turn-transit-time-into-research-time)Use case
 
-[Verify statistics from raw data](/resources/use-cases/verify-statistics-from-raw-data)Verify statistics from raw data
+[Verify statistics from raw data](https://claude.com/resources/use-cases/verify-statistics-from-raw-data)Verify statistics from raw data
 
 Verify statistics from raw data
 
 Use case
 
-[Use case](/resources/use-cases/verify-statistics-from-raw-data)Use case
+[Use case](https://claude.com/resources/use-cases/verify-statistics-from-raw-data)Use case
 
-[Plan your literature review](/resources/use-cases/plan-your-literature-review)Plan your literature review
+[Plan your literature review](https://claude.com/resources/use-cases/plan-your-literature-review)Plan your literature review
 
 Plan your literature review
 
 Use case
 
-[Use case](/resources/use-cases/plan-your-literature-review)Use case
+[Use case](https://claude.com/resources/use-cases/plan-your-literature-review)Use case

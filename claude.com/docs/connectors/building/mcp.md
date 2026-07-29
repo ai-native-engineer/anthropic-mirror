@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/connectors/building/mcp -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 The Model Context Protocol (MCP) is an open standard created by Anthropic for AI applications to connect with tools and data sources.
 
 ##  What is MCP?
@@ -55,7 +63,7 @@ The [MCP documentation](https://modelcontextprotocol.io/docs) is the source of t
 
 ###  Submitting to directory
 
-Organizations can [submit MCP servers](/docs/connectors/building/submission) to the Connectors Directory for broader availability.
+Organizations can [submit MCP servers](https://claude.com/docs/connectors/building/submission) to the Connectors Directory for broader availability.
 
 ##  Related topics
 
@@ -66,5 +74,3 @@ Connect MCP servers to Claude Code from the command line.
 ## Submit to Directory
 
 Review requirements and submit your connector.
-
-[Authentication](/docs/connectors/building/authentication)[Lazy authentication](/docs/connectors/building/lazy-authentication)

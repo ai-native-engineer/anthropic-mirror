@@ -2,7 +2,7 @@
 
 # Claude Code power user tips
 
-Updated today
+June 25, 2026
 
 This article collects workflow tips from the Claude Code team at Anthropic. These practices cover parallel execution, planning, automation, verification, and customization—the patterns the team uses every day to ship code faster. Everyone’s setup is different, so experiment to see what works for you.
 
@@ -55,10 +55,10 @@ To stay oriented across many sessions, name your worktrees, set up shell aliases
 Subagents can also run in isolated worktrees, which is especially powerful for large batched changes. Add `isolation: worktree` to your agent’s frontmatter:
 
 ```
-# .claude/agents/worktree-worker.md  
-name: worktree-worker  
-model: haiku  
-isolation: worktree  
+# .claude/agents/worktree-worker.md
+name: worktree-worker
+model: haiku
+isolation: worktree
 ```
 
 Then prompt naturally: *“Migrate all sync IO to async. Batch the changes and launch 10 parallel agents with worktree isolation. Each agent should test its changes end to end, then put up a PR.”*
@@ -233,11 +233,11 @@ Hooks let you deterministically run logic at points in the agent lifecycle. Ask 
 Example `PostToolUse` hook for auto-formatting:
 
 ```
-"PostToolUse": [  
-  {  
-    "matcher": "Write|Edit",  
-    "hooks": [{ "type": "command", "command": "bun run format || true" }]  
-  }  
+"PostToolUse": [
+  {
+    "matcher": "Write|Edit",
+    "hooks": [{ "type": "command", "command": "bun run format || true" }]
+  }
 ]
 ```
 
@@ -373,9 +373,9 @@ Claude Code is built to work great out of the box, but when you do customize, **
 By default, `claude -p` (and the TypeScript/Python SDKs) searches for local `CLAUDE.md` files, settings, and MCPs. For non-interactive usage, you usually want to specify these explicitly via `--system-prompt`, `--mcp-config`, `--settings`, etc. Add `--bare` for roughly 10× faster startup:
 
 ```
-claude -p "summarize this codebase" \  
-    --output-format=stream-json \  
-    --verbose \  
+claude -p "summarize this codebase" \
+    --output-format=stream-json \
+    --verbose \
     --bare
 ```
 
@@ -422,4 +422,8 @@ In Claude Code on web and desktop, add a **setup script** that runs before each 
 
 Claude Code ships frequently. Verify version-specific details against **[code.claude.com/docs](https://code.claude.com/docs)** before distributing internally.
 
-[Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)[Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)[Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)[Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)[Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
+* [Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)
+* [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
+* [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)
+* [Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)

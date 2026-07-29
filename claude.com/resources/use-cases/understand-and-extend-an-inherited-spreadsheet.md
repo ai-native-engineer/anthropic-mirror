@@ -67,8 +67,8 @@ Upload the spreadsheet so Claude can read formulas and trace cell references dir
 
 ## Required context
 
-Make sure [file creation](https://support.claude.com/en/articles/11722326-creating-and-editing-documents-spreadsheets-and-presentations) is enabled in settings so Claude can produce an extended version with working formulas.   
-  
+Make sure [file creation](https://support.claude.com/en/articles/11722326-creating-and-editing-documents-spreadsheets-and-presentations) is enabled in settings so Claude can produce an extended version with working formulas.
+
 Click the (+) button in the chat bar to browse through your files or, alternatively, drag and drop the spreadsheet and any additional data files you want to analyze into the chat box area.
 
 No items found.
@@ -198,7 +198,7 @@ Work from previous financial models with clear understanding and logic. Upload i
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6924b1c3f7f87a471d60e479_Screenshot%202025-11-24%20at%2011.27.36%E2%80%AFAM.png)
 
@@ -208,34 +208,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Draft a credit memo from spreads and statements with Claude for Excel](/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Draft a credit memo from spreads and statements with Claude for Excel
+[Draft a credit memo from spreads and statements with Claude for Excel](https://claude.com/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Draft a credit memo from spreads and statements with Claude for Excel
 
 Draft a credit memo from spreads and statements with Claude for Excel
 
 Use case
 
-[Use case](/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Use case
+[Use case](https://claude.com/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Use case
 
-[Validate reserves and draft filing narrative with Claude for Excel](/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Validate reserves and draft filing narrative with Claude for Excel
+[Validate reserves and draft filing narrative with Claude for Excel](https://claude.com/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Validate reserves and draft filing narrative with Claude for Excel
 
 Validate reserves and draft filing narrative with Claude for Excel
 
 Use case
 
-[Use case](/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Use case
+[Use case](https://claude.com/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Use case
 
-[Update your financial model after earnings](/resources/use-cases/update-your-financial-model-after-earnings)Update your financial model after earnings
+[Update your financial model after earnings](https://claude.com/resources/use-cases/update-your-financial-model-after-earnings)Update your financial model after earnings
 
 Update your financial model after earnings
 
 Use case
 
-[Use case](/resources/use-cases/update-your-financial-model-after-earnings)Use case
+[Use case](https://claude.com/resources/use-cases/update-your-financial-model-after-earnings)Use case
 
-[Reconcile transactions across your accounts](/resources/use-cases/reconcile-transactions-across-your-accounts)Reconcile transactions across your accounts
+[Reconcile transactions across your accounts](https://claude.com/resources/use-cases/reconcile-transactions-across-your-accounts)Reconcile transactions across your accounts
 
 Reconcile transactions across your accounts
 
 Use case
 
-[Use case](/resources/use-cases/reconcile-transactions-across-your-accounts)Use case
+[Use case](https://claude.com/resources/use-cases/reconcile-transactions-across-your-accounts)Use case

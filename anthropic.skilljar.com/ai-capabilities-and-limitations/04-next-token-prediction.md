@@ -23,24 +23,48 @@ Before you read
 
 You ask AI to **summarize a long report**. How closely do you need to check the result? Pick a spot on the continuum, then lock in your guess.
 
-![](ed975e22-1033-4415-b205-6194868cd5a8)
+![](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6rh0oaxpxl8bv3641a1ejj76o%2Fpublic%2F1774568560%2FpictoInference.1774568559957.png)
 ![]()
 
-##
+## Next Token Prediction
 
-Capability Limitation
+Where do AI answers come from?
 
-Trust it Spot-check Check details Verify carefully High risk
+Capability
+Limitation
+
+Trust it
+Spot-check
+Check details
+Verify carefully
+High risk
 
 Your guess
 
 Typical
 
+Well-worn paths: summarize, reformat, explain common concepts
+Novel territory, sparse patterns, “true vs. sounds true”
+
 What this enables
+
+* Fluent, natural-sounding text in virtually any style or format
+* Rapid synthesis of ideas across distant fields
+* Strong performance on tasks resembling what the model has seen before
+* Coherent continuation of any thread (a story, an argument, a block of code)
 
 Where it characteristically fails
 
+* **Hallucination**: the plausible continuation isn’t always the true one
+* **Confabulation**: fills gaps with plausible material rather than flagging them
+* **Inconsistency**: sampling means the same prompt can yield different outputs
+* **Misplaced confidence**: smooth prose can wrap a guess
+
 Product features that push the edge out
+
+* **Citations & source grounding**: trace what’s backed vs. generated
+* **Uncertainty signaling**: the model flags its own shakiness
+* **Constrained generation / skills**: narrow the space where fabrication sneaks in
 
 Pick a stop, then lock in your guess. The lesson opens up once you do.
 
@@ -58,12 +82,18 @@ Pictogram size
 
 Palette
 
-Sky → Clay Olive → Clay Cactus → Fig Slate → Clay
+Sky → Clay
+Olive → Clay
+Cactus → Fig
+Slate → Clay
 
 #### Key takeaways
 
 * **Next Token Prediction** refers to the fact that generative AI writes answers word by word based on what tends to follow what.
-+ **Capability zone:** tasks that resemble patterns the model has seen many times (summarizing, reformatting, explaining common concepts). + **Limitation zone:** novel or sparse territory, and anywhere the task requires distinguishing "true" from "sounds true." + **Fabrication concentrates in specificity:** names, dates, statistics, citations, URLs, quotes. The more precise a claim, the more it warrants verification. + **Product features** like citations, uncertainty signaling, constrained generation, and generator-verifier loops exist specifically to push this limitation further out.
+  + **Capability zone:** tasks that resemble patterns the model has seen many times (summarizing, reformatting, explaining common concepts).
+  + **Limitation zone:** novel or sparse territory, and anywhere the task requires distinguishing "true" from "sounds true."
+  + **Fabrication concentrates in specificity:** names, dates, statistics, citations, URLs, quotes. The more precise a claim, the more it warrants verification.
+  + **Product features** like citations, uncertainty signaling, constrained generation, and generator-verifier loops exist specifically to push this limitation further out.
 * **4D connection:** Next Token Prediction is the foundation of Discernment. Knowing the output was generated tells you exactly what kind of scrutiny to apply.
 
 ## Exercises
@@ -76,7 +106,9 @@ Go back to your task list and pick the task where you're most confident in your 
 
 Now run three probes:
 
-1. **Probe 1: The capability zone.** Ask the AI to explain or summarize a well-known concept in your domain. Something popular and well-documented. Note the fluency. Spot-check the content. This is what the capability zone feels like: smooth, confident, and largely accurate. 2. **Probe 2: Specificity under pressure.** Ask the AI to provide five checkable specifics in your domain: cite three sources, name an author, give exact figures, provide a URL. Verify every one. Score it out of five: how many were fully accurate? If it fabricates, note how confident it sounded doing it. 3. **Probe 3: Sampling in action.** Run the exact same specific-facts request in a fresh conversation. Compare the two outputs. What stayed consistent? What changed? The variation you see is Next Token Prediction's sampling at work.
+1. **Probe 1: The capability zone.** Ask the AI to explain or summarize a well-known concept in your domain. Something popular and well-documented. Note the fluency. Spot-check the content. This is what the capability zone feels like: smooth, confident, and largely accurate.
+2. **Probe 2: Specificity under pressure.** Ask the AI to provide five checkable specifics in your domain: cite three sources, name an author, give exact figures, provide a URL. Verify every one. Score it out of five: how many were fully accurate? If it fabricates, note how confident it sounded doing it.
+3. **Probe 3: Sampling in action.** Run the exact same specific-facts request in a fresh conversation. Compare the two outputs. What stayed consistent? What changed? The variation you see is Next Token Prediction's sampling at work.
 
 **Stretch goal:** Re-run Probe 2 in a tool with citations enabled (like Research mode in Claude). Score it again. Does having sources to check change the score?
 
@@ -96,7 +128,6 @@ As you progress through the course, we'd love to hear from you about how you are
 #### Acknowledgments and license
 
 *Copyright 2026 Anthropic. Original work building on the AI Fluency Framework developed by Prof. Rick Dakan (Ringling College of Art and Design) and Prof. Joseph Feller (University College Cork). Released under the CC BY-NC-SA 4.0 license.*
-
 <!-- youtube: kl0gunXTvyk -->
 
 [![Next Token Prediction](https://img.youtube.com/vi/kl0gunXTvyk/hqdefault.jpg)](https://www.youtube.com/watch?v=kl0gunXTvyk)

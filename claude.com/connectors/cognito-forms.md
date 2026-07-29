@@ -10,6 +10,7 @@ Manage entries, analyze submissions, and download files
 * Used in
 
   [Claude](https://claude.ai/directory/3ec0d2b6-b96f-4314-bb2c-ccf6f644946d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Cognito Forms](https://www.cognitoforms.com)
 
@@ -22,26 +23,26 @@ Manage entries, analyze submissions, and download files
   Read & write
 * More
 
-  [Documentation](https://www.cognitoforms.com/support/1038/data-integration/mcp-connector)[Privacy Policy](https://www.cognitoforms.com/legal/privacy)[support@cognitoforms.com](mailto:support@cognitoforms.com)
+  [Documentation](https://www.cognitoforms.com/support/1038/data-integration/mcp-connector)[Privacy Policy](https://www.cognitoforms.com/legal/privacy)[Support](mailto:support@cognitoforms.com)
 
 Connect to Cognito Forms to query submissions, pull files and documents, and make entry changes directly within Claude. Whether you're checking on pending applications or retrieving a signed document, your form data is right there when you need it.
 Available on Pro, Team, and Enterprise plans. Setting up the connector requires Administrator access in your Cognito Forms organization.
 
 You can use Cognito Forms to:
 
-**View Entries:**  
+**View Entries:**
 "Show me entry 14 on the New Client Intake form."
 
-**Create Entries:**  
+**Create Entries:**
 "Create a new entry on the Employee Onboarding form for Sarah Chen. She starts Monday in the Columbia office."
 
-**Retrieve Files and Documents:**  
+**Retrieve Files and Documents:**
 "Download the signed agreement from entry 6 on the Contractor Onboarding form."
 
-**Manage Forms:**  
+**Manage Forms:**
 "Close the Fall Enrollment form and set the message to 'Enrollment is now closed for this term.'"
 
-**Analyze Submissions:**  
+**Analyze Submissions:**
 "How many invoices are still outstanding in the Client Billing form?"
 
 ## Related connectors
@@ -54,11 +55,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -72,7 +73,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -82,11 +83,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -96,8 +97,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

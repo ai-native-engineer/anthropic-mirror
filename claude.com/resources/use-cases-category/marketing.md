@@ -44,13 +44,13 @@ Connectors
 
 Read use case
 
-[Read use case](/resources/use-cases/adapt-content-across-platforms)Read use case
+[Read use case](https://claude.com/resources/use-cases/adapt-content-across-platforms)Read use case
 
 Claude.ai
 
-[Adapt content across platforms](/resources/use-cases/adapt-content-across-platforms)Adapt content across platforms
+[Adapt content across platforms](https://claude.com/resources/use-cases/adapt-content-across-platforms)Adapt content across platforms
 
-[Text Link](/resources/use-cases/adapt-content-across-platforms)
+[Text Link](https://claude.com/resources/use-cases/adapt-content-across-platforms)
 
 ![Analyze campaign performance](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690b9a3ddb512de510ef08ed_Screenshot%202025-11-05%20at%2010.40.36%E2%80%AFAM.png)
 
@@ -78,13 +78,13 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/analyze-campaign-performance)Read use case
+[Read use case](https://claude.com/resources/use-cases/analyze-campaign-performance)Read use case
 
 Claude.ai
 
-[Analyze campaign performance](/resources/use-cases/analyze-campaign-performance)Analyze campaign performance
+[Analyze campaign performance](https://claude.com/resources/use-cases/analyze-campaign-performance)Analyze campaign performance
 
-[Text Link](/resources/use-cases/analyze-campaign-performance)
+[Text Link](https://claude.com/resources/use-cases/analyze-campaign-performance)
 
 No posts for those filters
 

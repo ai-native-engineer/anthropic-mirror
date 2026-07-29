@@ -4,8 +4,6 @@
 
 # Four role-based certifications for the people who put Claude to work for customers
 
-* Category
-
   [Enterprise AI](https://claude.com/blog/category/enterprise-ai)
 * Product
 

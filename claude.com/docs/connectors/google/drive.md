@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/connectors/google/drive -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 The Google Drive integration lets you connect Google Docs directly to Claude on paid Claude.ai plans. You can add documents by pasting URLs or selecting recent files to provide context for your conversations.
 
 Available on Pro, Max, Team, and Enterprise plans.
@@ -68,8 +76,6 @@ For reconnection errors:
 
 For persistent issues, disconnect from Google account connections at [myaccount.google.com](https://myaccount.google.com), search “Claude for Google Drive,” and delete all connections.
 
-All Claude.ai integrations are currently in beta.
-
 ##  Related topics
 
 ## Gmail
@@ -79,5 +85,3 @@ Search and analyze your emails.
 ## Google Calendar
 
 Access your calendar information.
-
-[Troubleshooting](/docs/connectors/building/mcp-apps/troubleshooting)[Gmail integration](/docs/connectors/google/gmail)

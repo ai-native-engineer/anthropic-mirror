@@ -9,6 +9,7 @@ Manage your Stytch Project
 * Used in
 
   [Claude](https://claude.ai/directory/b873d3db-0781-4a3d-9245-9c6213e6d785)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Stytch](https://stytch.com)
 
@@ -21,19 +22,19 @@ Manage your Stytch Project
   Read
 * More
 
-  [Documentation](https://stytch.com/docs/workspace-management/stytch-mcp)[Privacy Policy](https://stytch.com/legal/privacy-policy)[support@stytch.com](mailto:support@stytch.com)
+  [Documentation](https://stytch.com/docs/workspace-management/stytch-mcp)[Privacy Policy](https://stytch.com/legal/privacy-policy)[Support](mailto:support@stytch.com)
 
 The Stytch connector enables Claude to programmatically manage your Stytch Project like Redirect URLs, Email Templates, and more.
 
-You can use the Stytch connector to:  
-  
-Set up new projects with authentication:  
+You can use the Stytch connector to:
+
+Set up new projects with authentication:
 "Create a new Stytch consumer project and configure redirect URLs for my web application callback"
 
-Manage multi-environment configurations:  
+Manage multi-environment configurations:
 "List all my Stytch projects and synchronize email templates across development, staging, and production"
 
-Audit security and compliance settings:  
+Audit security and compliance settings:
 "Review my password strength configuration and check SDK authentication method settings for compliance"
 
 ## Related connectors
@@ -48,17 +49,17 @@ January 26, 2026
 
 ### AWS Marketplace
 
-Discover, evaluate, and buy solutions for the cloud](/connectors/aws-marketplace)
+Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
 Claude
 
 March 9, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69acdf17420ea818c8dd6df3_only%20icon%20vector%20(1).svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dab482d8b581739e57a7_icon_Base44.jpg)
 
 ### Base44
 
-Build and manage Base44 apps](/connectors/base44)
+Build and manage Base44 apps](https://claude.com/connectors/base44)
 
 Claude
 
@@ -66,11 +67,11 @@ Claude Code
 
 March 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a5cd3d14699b00ee21b969_clerk.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dfa6bc4ff18a740c59aa_icon_Clerk.jpg)
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Claude
 
@@ -84,4 +85,4 @@ February 11, 2026
 
 ### Cloudflare
 
-Build applications with compute, storage, and AI](/connectors/cloudflare)
+Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)

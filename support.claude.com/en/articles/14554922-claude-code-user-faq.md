@@ -2,7 +2,7 @@
 
 # Claude Code user FAQ
 
-April 15, 2026
+Updated over a week ago
 
 Short answers to the questions that come up most at office hours, with a link to go deeper. Organized by where you are in your first few weeks.
 
@@ -32,7 +32,7 @@ Five sections follow the arc of a developer’s first weeks: getting started, da
 | --- | --- |
 | **Question** | **Answer** |
 | **2.1 It keeps asking permission for the same commands** | Approvals last for the current session by default. To make them persist: • Pick “always allow” at the prompt • Add the pattern to `permissions.allow` in `.claude/settings.json` • Or run `/permissions` to manage interactively  Reference: **[Permissions](https://code.claude.com/docs/en/permissions)** |
-| **2.2 Permission modes and how to switch** | Press **Shift+Tab** to cycle modes:  * **default** · asks before risky edits or commands * **acceptEdits** · file edits go through; still asks before running commands * **plan** · read-only; proposes a plan and waits for approval * **auto** · auto-approves with a background safety check. Requires your org to enable it *and* you to opt in with claude --enable-auto-mode; available only when authenticated against the Anthropic API (not Bedrock, Vertex, or Foundry).  Reference: **[Permission modes](https://code.claude.com/docs/en/permission-modes)** |
+| **2.2 Permission modes and how to switch** | Press **Shift+Tab** to cycle modes:  * **default** · asks before risky edits or commands * **acceptEdits** · file edits go through; still asks before running commands * **plan** · read-only; proposes a plan and waits for approval * **auto** · auto-approves with a background safety check. Requires your org to enable it *and* you to opt in with claude --enable-auto-mode.  Reference: **[Permission modes](https://code.claude.com/docs/en/permission-modes)** |
 | **2.3 What is /init and when do I run it?** | Run it once, early, in any repo you’ll work in more than once. It scans the project and writes `CLAUDE.md` with build commands, architecture, and conventions. Every future session loads it automatically, so Claude starts with context.  Reference: **[Memory and CLAUDE.md](https://code.claude.com/docs/en/memory)** |
 | **2.4 What goes in CLAUDE.md?** | Things tooling can’t enforce that a new teammate would get wrong on day one: “deploy from `release`, not `main`”, “all IDs are strings”, “never call the DB directly from a route handler.” Keep it under two screens; longer gets skimmed.  Reference: **[Memory and CLAUDE.md](https://code.claude.com/docs/en/memory)** |
 | **2.5 Claude isn’t following my CLAUDE.md** | • Too long or too vague: trim to the rules that actually matter • Buried in prose: put hard rules near the top, use imperative language (“Never X. Always Y.”)  Reference: **[Best practices](https://code.claude.com/docs/en/best-practices)** |
@@ -107,4 +107,8 @@ Five sections follow the arc of a developer’s first weeks: getting started, da
 
 Claude Code ships frequently. Verify version-specific details against **[code.claude.com/docs](https://code.claude.com/docs)** before distributing internally.
 
-[Give Claude context: CLAUDE.md and better prompts](https://support.claude.com/en/articles/14553240-give-claude-context-claude-md-and-better-prompts)[Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)[Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)[Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)[Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)
+* [Give Claude context: CLAUDE.md and better prompts](https://support.claude.com/en/articles/14553240-give-claude-context-claude-md-and-better-prompts)
+* [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
+* [Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
+* [Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)
+* [Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)

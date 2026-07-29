@@ -7,11 +7,12 @@ Search code across codebases, trace references, analyze refactor impact, investi
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Sourcegraph Community](https://github.com/sourcegraph-community/sourcegraph-claudecode-plugin)
 * Installs
 
-  11452
+  13227
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -23,10 +24,10 @@ With twelve integrated tools spanning search, code navigation, and analysis, you
 
 **How to use:** Set your `SOURCEGRAPH_ENDPOINT` and `SOURCEGRAPH_ACCESS_TOKEN` environment variables, then try these commands and prompts:
 
-`/sourcegraph:sg-search` — Run a Sourcegraph search using natural language or keyword syntax (e.g., "find all callers of parseConfig across our Go services").  
-`/sourcegraph:sg-file` — Retrieve and summarize a file from any repository, highlighting key symbols and suggesting related files to explore.  
-"Search for all uses of the deprecated handleAuth function and show me which repos still depend on it."  
-"Find recent commits that modified database migration files across all backend repos."  
+`/sourcegraph:sg-search` — Run a Sourcegraph search using natural language or keyword syntax (e.g., "find all callers of parseConfig across our Go services").
+`/sourcegraph:sg-file` — Retrieve and summarize a file from any repository, highlighting key symbols and suggesting related files to explore.
+"Search for all uses of the deprecated handleAuth function and show me which repos still depend on it."
+"Find recent commits that modified database migration files across all backend repos."
 "Trace where the UserSession type is defined and list every file that references it."
 
 ## Related plugins
@@ -37,17 +38,17 @@ Craft production-grade frontends with distinctive design. Generates polished cod
 
 Anthropic verified
 
-948012
+1110438
 
-installs](/plugins/frontend-design)
+installs](https://claude.com/plugins/frontend-design)
 
 [### Superpowers
 
 Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
 
-855112
+987572
 
-installs](/plugins/superpowers)
+installs](https://claude.com/plugins/superpowers)
 
 [### Code Review
 
@@ -55,14 +56,14 @@ AI code review with specialized agents and confidence-based filtering for pull r
 
 Anthropic verified
 
-383892
+430450
 
-installs](/plugins/code-review)
+installs](https://claude.com/plugins/code-review)
 
 [### Context7
 
 Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
 
-377529
+412076
 
-installs](/plugins/context7)
+installs](https://claude.com/plugins/context7)

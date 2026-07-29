@@ -1,3 +1,4 @@
+<!-- source: https://transformer-circuits.pub/2021/framework/head_dump/larger.html -->
 <!-- part of: https://transformer-circuits.pub/2021/framework/head_dump/larger.html -->
 
 <!-- chunk-start -->
@@ -8715,4 +8716,3 @@ occur in the future context, and thus more likely to end up attending back to th
 ' ###########...' (23.31) ' ###########...' (9.05) 'IES' (7.99) '&nbspproof' (7.87) 'IZATION' (7.57) '############...' (6.94) 'GY' (6.85) '&nbspSearch' (6.43) '-------------' (6.40) 'osity' (6.38) 'RES' (6.26) 'optimizer' (6.23) 'ronic' (6.08) '##' (5.88) '&nbsppurpose' (5.82) 'ICAL' (5.75) 'plt' (5.58) 'ano' (5.54) 'URE' (5.50) 'iful' (5.45)
 
 ['{\\'](#head-0-7-tok-1524)
-

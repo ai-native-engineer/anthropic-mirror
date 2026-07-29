@@ -2,11 +2,9 @@
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229e73ca2d0d73d78f7_682ac293884c9d4ee4ebe2355a2f6c4ecfdd9c1b-1000x1000.svg)
 
-# Getting started with loops
+# Loop engineering: Getting started with loops
 
 Learn how the Claude Code team defines agentic loops, with practical guidance on progressing from turn-based to goal-based, time-based, and proactive loops—and when to use each.
-
-* Category
 
   [Claude Code](https://claude.com/blog/category/claude-code)
 * Product
@@ -26,7 +24,9 @@ Learn how the Claude Code team defines agentic loops, with practical guidance on
 
   https://claude.com/blog/getting-started-with-loops
 
-There’s a lot of talk right now about "designing loops" instead of prompting your coding agent. If you spend some time on X trying to pin down what a loop actually is, you'll come across multiple different answers.
+## Getting started with loops
+
+There’s a lot of talk right now about loop engineering or "designing loops" instead of prompting your coding agent. If you spend some time on X trying to pin down what a loop actually is, you'll come across multiple different answers.
 
 On the Claude Code team, we define **loops as agents repeating cycles of work until a stop condition is met**. We categorize a few different types of loops based on:
 
@@ -75,7 +75,7 @@ eBook
 
 ## **Turn-based loops**
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43eb603762e725a739d98c_8ace2295.png)
+![Di](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43eb603762e725a739d98c_8ace2295.png)
 
 * **Triggered by**: A user prompt.
 * **Stop criteria**: Claude judges it has completed the task or needs additional context.
@@ -86,24 +86,26 @@ Every prompt you send starts a manual loop with you directing each turn. Claude 
 
 For example, ask Claude to create a like button. It reads your code, makes the edit, runs the tests, and hands back something it *believes* works. You then manually check the work, and write the next prompt.
 
-You can improve the verification step by encoding your manual steps as a SKILL.md so Claude can check more of its own work, end-to-end. This should include tools or connectors to allow Claude to *see*, *measure* or *interact* with the result. The more quantitative the checks are, the easier it is for Claude to self-verify.
+You can improve the verification step by encoding your manual steps as a SKILL.md so Claude can check more of its own work, end-to-end. (For choosing between skills, hooks, and subagents for this kind of automation, see our guide to [steering Claude Code](https://claude.com/blog/steering-claude-code-skills-hooks-rules-subagents-and-more).)
+
+This should include tools or connectors to allow Claude to *see*, *measure* or *interact* with the result. The more quantitative the checks are, the easier it is for Claude to self-verify.
 
 For example, in your SKILL.md file you may specify:
 
 ```
---- 
-name: verify-frontend-change 
-description: Verify any UI change end-to-end before declaring it done. 
---- 
+---
+name: verify-frontend-change
+description: Verify any UI change end-to-end before declaring it done.
+---
 
-# Verifying frontend changes 
-Never report a UI change as complete based on a successful edit alone. Verify it the way a human reviewer would: 
+# Verifying frontend changes
+Never report a UI change as complete based on a successful edit alone. Verify it the way a human reviewer would:
 
-1. Start the dev server and open the edited page in the browser. 
+1. Start the dev server and open the edited page in the browser.
 
-2. Interact with the change directly. For a new control (button, input, toggle): click it, confirm the expected state change, and screenshot before/after. 
+2. Interact with the change directly. For a new control (button, input, toggle): click it, confirm the expected state change, and screenshot before/after.
 
-3. Check the browser console: zero new errors or warnings. 
+3. Check the browser console: zero new errors or warnings.
 
 4. Use the Chrome Devtools MCP, run a performance trace and audit Core Web Vitals.
 
@@ -194,6 +196,8 @@ To manage token usage, loops should have clear boundaries:
 * **Don’t run routines more often that you need to:** Match the interval to how often the thing you’re watching changes
 * **Review usage:** The `/usage` command breaks down recent usage by skills, subagents, and MCPs, `/goal` with no arguments shows number of turns and token usage so far, `/workflows` shows each agent’s token usage and you can stop an agent at any time.
 
+Your [model and effort level](https://claude.com/blog/claude-model-and-effort-level-in-claude-code) choices are among the biggest levers on what a loop costs.
+
 ## **Getting started**
 
 To summarize:
@@ -221,53 +225,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6909386cc7ad3ed2a7ec8eed_Object-ThoughtBubble.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
-Jun 17, 2026
+Jul 24, 2026
 
-### Meet the winners of our Claude Opus 4.8 Build Day hackathon
+### Claude models explained: choosing the best model for your use case
 
-Claude Code
+Enterprise AI
 
-[Meet the winners of our Claude Opus 4.8 Build Day hackathon](#)Meet the winners of our Claude Opus 4.8 Build Day hackathon
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
 
-[Meet the winners of our Claude Opus 4.8 Build Day hackathon](/blog/meet-the-winners-of-our-claude-opus-4-8-build-day-hackathon)Meet the winners of our Claude Opus 4.8 Build Day hackathon
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225588ad176f7c4aafd_abc884c723daea810d2e986455358281a2f94102-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
-Jun 24, 2026
+Jul 24, 2026
 
-### Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
-
-Claude Code
-
-[Agent identity in Claude Tag: a new access model for autonomous, team-wide AI](#)Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
-
-[Agent identity in Claude Tag: a new access model for autonomous, team-wide AI](/blog/agent-identity-access-model)Agent identity in Claude Tag: a new access model for autonomous, team-wide AI
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f7912d5b05a5c7ed8ae86_Object-CodeChatCode.svg)
-
-Jun 3, 2026
-
-### Running an AI-native engineering org
+### The new rules of context engineering for Claude 5 generation models
 
 Claude Code
 
-[Running an AI-native engineering org](#)Running an AI-native engineering org
+[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
 
-[Running an AI-native engineering org](/blog/running-an-ai-native-engineering-org)Running an AI-native engineering org
+[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224d39f9b8e905d1823_b68cbb43d7c8f56f0b14cc867e8d4d74445f78b0-1000x1000.svg)
 
-May 12, 2026
+Jul 22, 2026
 
-### How Anthropic's cybersecurity team built a threat detection platform with Claude Code
+### Building verification loops in Claude Code with skills
 
 Claude Code
 
-[How Anthropic's cybersecurity team built a threat detection platform with Claude Code](#)How Anthropic's cybersecurity team built a threat detection platform with Claude Code
+[Building verification loops in Claude Code with skills](#)Building verification loops in Claude Code with skills
 
-[How Anthropic's cybersecurity team built a threat detection platform with Claude Code](/blog/how-anthropic-uses-claude-cybersecurity)How Anthropic's cybersecurity team built a threat detection platform with Claude Code
+[Building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills)Building verification loops in Claude Code with skills
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
+
+Jul 21, 2026
+
+### How Anthropic secures its AI-native software development lifecycle
+
+Claude Code
+
+[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
+
+[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
 
 ## Transform how your organization operates with Claude
 
@@ -286,26 +290,6 @@ Product updates, how-tos, community spotlights, and more. Delivered monthly to y
 Thank you! You’re subscribed.
 
 Sorry, there was a problem with your submission, please try again later.
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 
 Claude Code
 

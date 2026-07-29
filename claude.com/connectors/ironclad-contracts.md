@@ -10,6 +10,7 @@ Plain language search for faster contract answers
 * Used in
 
   [Claude](https://claude.ai/directory/c5504c7c-d299-4637-a012-29ef1a2354a9)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Ironclad, Inc](https://ironcladapp.com)
 
@@ -28,19 +29,19 @@ Ironclad's MCP server lets Claude search your contract repository and workflows 
 
 You can use Ironclad Contracts to:
 
-**Find expiring contracts:**  
+**Find expiring contracts:**
 "Show me all MSAs expiring in the next 90 days."
 
-**Search by clause type:**  
+**Search by clause type:**
 "Find vendor agreements with termination for convenience clauses."
 
-**Locate specific agreements:**  
+**Locate specific agreements:**
 "Is there an active NDA with Acme Corp?"
 
-**Review liability terms:**  
+**Review liability terms:**
 "Show me contracts where we limited liability in the past six months."
 
-**Check contract status:**  
+**Check contract status:**
 "Who still needs to approve the vendor purchase contract?"
 
 ## Related connectors
@@ -53,11 +54,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -71,7 +72,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -81,11 +82,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -95,8 +96,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

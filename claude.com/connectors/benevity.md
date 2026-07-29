@@ -10,6 +10,7 @@ Find and engage with verified nonprofits
 * Used in
 
   [Claude](https://claude.ai/directory/de72cab2-21e3-486f-b774-b35b6dded1d8)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Benevity](https://www.benevity.com/)
 
@@ -22,19 +23,19 @@ Find and engage with verified nonprofits
   Read
 * More
 
-  [Documentation](https://causeshelp.benevity.org/hc/en-us/articles/43364091494164-Benevity-nonprofit-MCP-server)[Privacy Policy](https://benevity.com/privacy-policy/)[support@benevity.com](mailto:support@benevity.com)
+  [Documentation](https://causeshelp.benevity.org/hc/en-us/articles/43364091494164-Benevity-nonprofit-MCP-server)[Privacy Policy](https://benevity.com/privacy-policy/)[Support](mailto:support@benevity.com)
 
-Search for trusted causes to donate to or volunteer with from Benevity's database of more than 2.3 million verified nonprofits.  
-  
-You can use the Benevity connector to:   
-  
-Find nonprofits by location and cause:  
-"Help me find a verified nonprofit in Thousand Oaks, CA focused on mental health and specifically suicide prevention"   
-  
-Discover local organizations addressing specific needs:  
-"Help me find a nonprofit close to me that can help with food insecurity"  
-  
-Search for nearby donation opportunities:  
+Search for trusted causes to donate to or volunteer with from Benevity's database of more than 2.3 million verified nonprofits.
+
+You can use the Benevity connector to:
+
+Find nonprofits by location and cause:
+"Help me find a verified nonprofit in Thousand Oaks, CA focused on mental health and specifically suicide prevention"
+
+Discover local organizations addressing specific needs:
+"Help me find a nonprofit close to me that can help with food insecurity"
+
+Search for nearby donation opportunities:
 "Find animal shelters near me that I can donate to"
 
 ## Related connectors
@@ -45,11 +46,11 @@ Claude
 
 March 19, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692e4c2509be5a9236dcb73b_blackbaud.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63da42a12ab716a04a1bb4_icon_Blackbaud.jpg)
 
 ### Blackbaud
 
-Search, explore, and query Blackbaud data](/connectors/blackbaud)
+Search, explore, and query Blackbaud data](https://claude.com/connectors/blackbaud)
 
 Nonprofit
 
@@ -61,7 +62,7 @@ March 19, 2026
 
 ### Candid
 
-Research nonprofits and funders using Candid's data](/connectors/candid)
+Research nonprofits and funders using Candid's data](https://claude.com/connectors/candid)
 
 Nonprofit
 
@@ -77,4 +78,4 @@ March 19, 2026
 
 ### Granted
 
-Discover every grant opportunity in existence.](/connectors/granted)
+Discover every grant opportunity in existence.](https://claude.com/connectors/granted)

@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-science/monitor-usage -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Claude Science usage counts against each member’s standard weekly quota and uses the same seat as the rest of claude.ai. You can track adoption in the Activity dashboard and through the Admin API.
 
 ##  Analytics in Organization settings
@@ -21,5 +29,3 @@ Per-member metrics (GET /v1/organizations/analytics/users, science\_metrics obje
 | skills\_used\_count | Total number of skill invocations in Claude Science sessions. |
 
 See the Admin API reference for authentication and the full schema.
-
-[Manage on devices](/docs/claude-science/manage-on-devices)[What's not available yet](/docs/claude-science/whats-not-available-yet)

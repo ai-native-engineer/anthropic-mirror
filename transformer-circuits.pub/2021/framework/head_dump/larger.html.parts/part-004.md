@@ -1,6 +1,8 @@
+<!-- source: https://transformer-circuits.pub/2021/framework/head_dump/larger.html -->
 <!-- part of: https://transformer-circuits.pub/2021/framework/head_dump/larger.html -->
 
 <!-- chunk-start -->
+
 '&nbspsentences' (26.92) 'sentence' (22.34) 'sentences' (22.19) '&nbspsentence' (19.92) 'words' (19.14) '&nbspwords' (18.39) '&nbspparagraph' (17.86) 'paragraph' (17.02) 'splitlines' (16.09) '&nbsplanguages' (15.44) 'ManyToManyField' (15.17) '&nbspthem' (15.17) 'LANGU' (14.96) '&nbspspoken' (14.84) '&nbspphrase' (14.78) '&nbsplanguage' (14.30) 'TextField' (14.29) 'lengths' (14.29) 'sent' (14.19) 'word' (13.98)
 
 ['icon'](#head-0-21-tok-3139)
@@ -8380,4 +8382,3 @@
 '&nbspthe' (95.88) '&nbspin' (105.38) '&nbspof' (91.75) '\n       ' (117.94) '&nbspreturn' (124.44) ' =' (102.44) '&nbspThe' (95.00) '&nbspif' (101.81) 'The' (93.62) '&nbspwith' (81.75) '\n           ' (109.06) '\n          &nbsp...' (112.94) '\n   ' (94.12) '&nbspbetween' (97.38) '\n     ' (104.62) '&nbspthat' (73.00) '&nbspa' (66.25) '&nbspfrom' (77.25) '&nbspon' (73.44) '\n          &nbsp...' (111.38)
 
 '&nbspprob' (20.72) 'prob' (10.38) 'probs' (8.83) '&nbspsim' (7.84) '&nbspCounter' (7.27) 'ps' (6.40) '&nbspht' (6.17) '&nbspdiff' (6.16) '&nbsprect' (6.15) '&nbspprod' (5.92) 'cdf' (5.84) 'ment' (5.80) 'ey' (5.75) '&nbspsigma' (5.70) '&nbspdist' (5.68) 'ts' (5.36) 'ye' (5.32) '&nbspsecondary' (5.18) '&nbspexp' (5.13) 'ww' (5.10)
-

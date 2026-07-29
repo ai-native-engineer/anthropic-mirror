@@ -10,6 +10,7 @@ Connect your Notion workspace to search, update, and power workflows across tool
 * Used in
 
   [Claude](http://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Notion](https://notion.com)
 
@@ -22,34 +23,34 @@ Connect your Notion workspace to search, update, and power workflows across tool
   Read & write
 * More
 
-  [Documentation](https://developers.notion.com/docs/mcp)[Privacy Policy](https://www.notion.so/notion/Privacy-Policy-3468d120cf614d4c9014c09f6adc9091)[developers@makenotion.com](mailto:developers@makenotion.com)
+  [Documentation](https://developers.notion.com/docs/mcp)[Privacy Policy](https://www.notion.so/notion/Privacy-Policy-3468d120cf614d4c9014c09f6adc9091)[Support](mailto:developers@makenotion.com)
 
 Create, edit, search and organize Notion content directly from Claude. Get contextual and relevant assistance from Claude, while keeping knowledge organized in Notion.
 
-You can use the Notion connector to:  
-  
-Create pages with structured content:  
+You can use the Notion connector to:
+
+Create pages with structured content:
 "Create a meeting notes page for today's standup with action items"
 
-Check workspace connections:  
+Check workspace connections:
 "Which Notion workspace am I currently connected to?"
 
-Search across pages:  
+Search across pages:
 "Find all project pages that mention 'ready for dev'"
 
-Update page properties:  
-"Change the status of this task from 'In Progress' to 'Complete'"  
-  
-You also combine the Notion Connector with [Skills](https://www.claude.com/blog/skills) to help with:  
-‍  
-• Meeting intelligence: Prepare meeting materials by gathering context from Notion, enriching with Claude research, and creating both an internal pre-read and external agenda saved to Notion.  
-   
-• Research & Documentation: Search across your Notion workspace, synthesize findings from multiple pages, and create a comprehensive research documentation saved as new Notion pages.   
-‍  
-• Knowledge Capture: Turn discussions into durable knowledge in Notion. Capture insights and decisions from chat, format them clearly, and file them to the right wiki or database with smart linking.  
-‍  
-• Spec to Implementation: Turn product or tech specs into concrete Notion tasks that Claude Code can implement.  
-  
+Update page properties:
+"Change the status of this task from 'In Progress' to 'Complete'"
+
+You also combine the Notion Connector with [Skills](https://www.claude.com/blog/skills) to help with:
+‍
+• Meeting intelligence: Prepare meeting materials by gathering context from Notion, enriching with Claude research, and creating both an internal pre-read and external agenda saved to Notion.
+
+• Research & Documentation: Search across your Notion workspace, synthesize findings from multiple pages, and create a comprehensive research documentation saved as new Notion pages.
+‍
+• Knowledge Capture: Turn discussions into durable knowledge in Notion. Capture insights and decisions from chat, format them clearly, and file them to the right wiki or database with smart linking.
+‍
+• Spec to Implementation: Turn product or tech specs into concrete Notion tasks that Claude Code can implement.
+
 See [here](https://notiondevs.notion.site/notion-skills-for-claude) for details on how to use Skills with Notion's connector.
 
 Skills
@@ -136,11 +137,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -154,7 +155,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -164,11 +165,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -178,8 +179,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

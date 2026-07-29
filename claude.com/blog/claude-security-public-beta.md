@@ -73,7 +73,7 @@ With this release, we've also added the ability to target a scan at a particular
 
 Here, organizations who’ve used Claude Security describe their experience:
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa585b66f744445eaec7_Doordash_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa5e900d8af5fd782dd2_Doordash_dark.svg)
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa585b66f744445eaec7_Doordash_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43da4a5ba20a23a30861c7_logo_doordash-dark.svg)
 
 “We are adapting our proactive security efforts through our Anthropic partnership. Claude Security helps us accelerate how we generate and secure new code at the scale and speed of DoorDash— it surfaces deep vulnerabilities accurately, and pipes findings right into our workflows so engineers can act on them in context.”
 
@@ -123,8 +123,8 @@ We're still in the early days of AI-powered security. As our models improve and 
 
 Claude Security is one part of our broader push to put frontier capabilities in defenders' hands. Much of its reach comes through the platforms and services partners teams rely on today.
 
-[CrowdStrike](https://www.crowdstrike.com/en-us/press-releases/crowdstrike-puts-claude-opus-4-7-to-work-across-falcon-platform-project-quiltworks/), Microsoft Security, [Palo Alto Networks](https://www.paloaltonetworks.com/blog/2026/04/ai-driven-defense-anthropics-claude-opus/), [SentinelOne](https://www.sentinelone.com/press/sentinelone-unveils-wayfinder-ai/), [TrendAI](https://newsroom.trendmicro.com/2026-04-30-TrendAI-TM-and-Anthropic-Advance-AI-Powered-Vulnerability-Detection-and-Risk-Mitigation-with-Claude-Opus-4-7), and [Wiz](https://www.wiz.io/blog/red-agent-claude-opus) are integrating Opus 4.7’s capabilities into the security platforms that enterprises already run on today.  
-  
+[CrowdStrike](https://www.crowdstrike.com/en-us/press-releases/crowdstrike-puts-claude-opus-4-7-to-work-across-falcon-platform-project-quiltworks/), Microsoft Security, [Palo Alto Networks](https://www.paloaltonetworks.com/blog/2026/04/ai-driven-defense-anthropics-claude-opus/), [SentinelOne](https://www.sentinelone.com/press/sentinelone-unveils-wayfinder-ai/), [TrendAI](https://newsroom.trendmicro.com/2026-04-30-TrendAI-TM-and-Anthropic-Advance-AI-Powered-Vulnerability-Detection-and-Risk-Mitigation-with-Claude-Opus-4-7), and [Wiz](https://www.wiz.io/blog/red-agent-claude-opus) are integrating Opus 4.7’s capabilities into the security platforms that enterprises already run on today.
+
 Accenture, BCG, Deloitte, Infosys, and PwC are working alongside enterprise security organizations to deploy Claude-integrated security solutions for vulnerability management, secure code review, and incident response programs.
 
 Together, this means organizations can adopt these capabilities through whichever path fits how they already operate: directly in Claude Security, embedded in a platform they trust, or with a services team guiding the rollout.
@@ -147,53 +147,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
 
-Jun 17, 2026
+Jul 28, 2026
 
-### Secure access to the Claude Platform with Workload Identity Federation
-
-Product announcements
-
-[Secure access to the Claude Platform with Workload Identity Federation](#)Secure access to the Claude Platform with Workload Identity Federation
-
-[Secure access to the Claude Platform with Workload Identity Federation](/blog/workload-identity-federation)Secure access to the Claude Platform with Workload Identity Federation
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229a7aa26ac1b6e96c2_a62b6eb169818f14c35b7a192af269e283f8fa93-1000x1000.svg)
-
-May 7, 2026
-
-### Collaborate with Claude across Excel, PowerPoint, Word and Outlook
+### Bringing MCP 2026-07-28 to Claude
 
 Product announcements
 
-[Collaborate with Claude across Excel, PowerPoint, Word and Outlook](#) Collaborate with Claude across Excel, PowerPoint, Word and Outlook
+[Bringing MCP 2026-07-28 to Claude](#)Bringing MCP 2026-07-28 to Claude
 
-[Collaborate with Claude across Excel, PowerPoint, Word and Outlook](/blog/collaborate-with-claude-across-excel-powerpoint-word-and-outlook) Collaborate with Claude across Excel, PowerPoint, Word and Outlook
+[Bringing MCP 2026-07-28 to Claude](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)Bringing MCP 2026-07-28 to Claude
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224ef32980bc807847d_a683fdcfe3e2c7c6532342a0fa4ff789c3fd4852-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d231b45c2193efbb0f02_1869137c9d7f2a38b50e804d707e10e85de05ddb-1000x1000.svg)
 
-May 19, 2026
+Jul 23, 2026
 
-### New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration
-
-Product announcements
-
-[New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration](#)New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration
-
-[New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration](/blog/new-in-claude-managed-agents)New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
-
-Apr 23, 2026
-
-### Built-in memory for Claude Managed Agents
+### Think through hard problems in voice mode
 
 Product announcements
 
-[Built-in memory for Claude Managed Agents](#)Built-in memory for Claude Managed Agents
+[Think through hard problems in voice mode](#)Think through hard problems in voice mode
 
-[Built-in memory for Claude Managed Agents](/blog/claude-managed-agents-memory)Built-in memory for Claude Managed Agents
+[Think through hard problems in voice mode](https://claude.com/blog/think-through-hard-problems-in-voice-mode)Think through hard problems in voice mode
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a025cf25f0694905405e054_Object-Scale.svg)
+
+May 12, 2026
+
+### Claude for the legal industry
+
+Product announcements
+
+[Claude for the legal industry](#)Claude for the legal industry
+
+[Claude for the legal industry](https://claude.com/blog/claude-for-the-legal-industry)Claude for the legal industry
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3f14a08cb97bf1b16d40ef_ObjectClouds.svg)
+
+Jul 7, 2026
+
+### Claude Cowork is coming to mobile and web
+
+Product announcements
+
+[Claude Cowork is coming to mobile and web](#)Claude Cowork is coming to mobile and web
+
+[Claude Cowork is coming to mobile and web](https://claude.com/blog/cowork-web-mobile)Claude Cowork is coming to mobile and web
 
 ## Transform how your organization operates with Claude
 
@@ -212,25 +212,5 @@ Product updates, how-tos, community spotlights, and more. Delivered monthly to y
 Thank you! You’re subscribed.
 
 Sorry, there was a problem with your submission, please try again later.
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 
 Claude Security

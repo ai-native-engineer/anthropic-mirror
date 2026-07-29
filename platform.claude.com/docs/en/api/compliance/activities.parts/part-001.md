@@ -1,3 +1,4 @@
+<!-- source: https://platform.claude.com/docs/en/api/compliance/activities -->
 <!-- part of: https://platform.claude.com/docs/en/api/compliance/activities -->
 
 <!-- chunk-start -->
@@ -38849,4 +38850,3 @@ compliance activities that can be filtered by various criteria.
       Organization ID this activity is associated with
 
     - `organization_uuid: optional string`
-

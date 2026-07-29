@@ -6,11 +6,11 @@ Claude Code helps leading enterprises modernize legacy codebases, assisting with
 
 Speak with sales
 
-[Speak with sales](/contact-sales)Speak with sales
+[Speak with sales](https://claude.com/contact-sales)Speak with sales
 
 Learn more
 
-[Learn more](/product/claude-code/enterprise)Learn more
+[Learn more](https://claude.com/product/claude-code/enterprise)Learn more
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae314813a930db5dbd37_Turing_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae2b07adfc102c0f9836_Turing_dark.svg)
 
@@ -116,10 +116,10 @@ eBook
 
 [eBook](https://resources.anthropic.com/code-modernization-playbook)eBook
 
-[Getting started with Claude Code](https://code.claude.com/docs)Getting started with Claude Code
+[How AI helps break the cost barrier to COBOL modernization](https://claude.com/blog/how-ai-helps-break-cost-barrier-cobol-modernization)How AI helps break the cost barrier to COBOL modernization
 
-Getting started with Claude Code
+How AI helps break the cost barrier to COBOL modernization
 
-Guide
+Blog
 
-[Guide](https://code.claude.com/docs)Guide
+[Blog](https://claude.com/blog/how-ai-helps-break-cost-barrier-cobol-modernization)Blog

@@ -4,7 +4,7 @@
 
 Oct 14, 2025
 
-![Preparing for AI’s economic impact: exploring policy responses](https://www-cdn.anthropic.com/images/4zrzovbb/website/cd4fd51deacd067d4e30aee4f4b149f6cba1b97b-1000x1000.svg)
+![Preparing for AI’s economic impact: exploring policy responses](https://www-cdn.anthropic.com/images/4zrzovbb/website/660c5a1ab7977115cbc75cc03d5a7edd136f723e-1920x1080.jpg)
 
 *How will the arrival of [powerful AI systems](https://www.anthropic.com/news/anthropic-s-recommendations-ostp-u-s-ai-action-plan) change the structure of the economy? We are uncertain, and so are external experts. But as AI systems continue to improve, and are adopted at an ever-larger scale, it’s crucial there is more discussion about the tools policymakers could use to respond to AI's economic impacts—whatever their nature. To help with this, we’re sharing several economic policy ideas that merit further study.*
 
@@ -26,8 +26,8 @@ The rate, scale, and form of AI's economic effects will determine the policy res
 
 **Policy ideas for scenarios with moderate acceleration**, where AI leads to measurable wage declines and job losses for large portions of the workforce. Here, more substantial fiscal support for displaced workers might be needed. To [offset negative externalities](https://www.nber.org/papers/w30154) imposed on displaced workers from rapid automation, taxes on automation might be considered in this scenario.
 
-**Policy ideas for faster-moving scenarios,** potentially involving dramatic job losses and worsening inequality. These proposals are much more ambitious, and are designed to respond to a starkly different economic picture. So far, ideas include using sovereign wealth funds to give citizens stakes in AI revenues, and finding new ways to generate government revenue.  
-  
+**Policy ideas for faster-moving scenarios,** potentially involving dramatic job losses and worsening inequality. These proposals are much more ambitious, and are designed to respond to a starkly different economic picture. So far, ideas include using sovereign wealth funds to give citizens stakes in AI revenues, and finding new ways to generate government revenue.
+
 The proposals below don’t necessarily represent Anthropic's own policy positions. But we’re excited by the breadth of proposals we’ve received, and we hope they encourage further research and debate.
 
 ## **Policies for nearly all scenarios**
@@ -118,18 +118,18 @@ What's clear, though, is that proactive engagement between researchers, policyma
 
 *Most of the policy ideas discussed in this post have emerged from proposals from or conversations with members of Anthropic's Economic Advisory Council, participants in our Economic Futures Symposia, and independent researchers. They do not all necessarily represent Anthropic's policy positions.*
 
-### Project Fetch: Phase two
+### Discovering cryptographic weaknesses with Claude
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+cryptographic algorithms. The first attack significantly weakens HAWK, a digital signature scheme that was built for a future world where quantum computers are able to break existing standards. The second identifies a new way to attack round-reduced AES, the most widely used symmetric cipher.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/discovering-cryptographic-weaknesses)
 
-### Agentic coding and persistent returns to expertise
+### Project Pilot: Can AI control a drone?
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/claude-code-expertise)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Paving the way for agents in biology
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)

@@ -10,6 +10,7 @@ Securely access your documents in NetDocuments
 * Used in
 
   [Claude](https://claude.ai/directory/de658515-71ab-4e82-bf83-0677cbc2f6cd)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [NetDocuments](https://www.netdocuments.com/)
 
@@ -28,22 +29,22 @@ Search and retrieve documents from your NetDocuments repository directly from Cl
 
 You can use NetDocuments to:
 
-**Answer Questions from Your Repository:**  
+**Answer Questions from Your Repository:**
 "What is the governing law in the agreement between Hartwell Industries and Pinnacle Group?"
 
-**Compare Documents:**  
+**Compare Documents:**
 "Find the five lease agreements Meridian Properties entered into and create a table showing the governing law, rental amount, and effective date of each."
 
-**Timeline Generation:**  
+**Timeline Generation:**
 "Go through the pleadings in John Doe v. Lake Properties and create a timeline of key events."
 
-**Draft from Precedent Playbooks:**  
+**Draft from Precedent Playbooks:**
 "Find recently executed NDAs with similar-product carveout provisions and create a playbook for drafting the new NDA for Ventures Inc."
 
-**Research & Summarize:**  
+**Research & Summarize:**
 "Summarize the key terms in the Smith & Co. engagement letter."
 
-**Case Preparation:**  
+**Case Preparation:**
 "Search for all depositions in the Torres matter and summarize what each witness said about the product liability issue."
 
 ## Related connectors
@@ -56,11 +57,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -74,7 +75,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -84,11 +85,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -98,8 +99,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

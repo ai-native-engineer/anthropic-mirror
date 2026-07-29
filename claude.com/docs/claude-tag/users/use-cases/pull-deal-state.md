@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-tag/users/use-cases/pull-deal-state -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 ##  How deal-state prompts work
 
 This page is for sales and customer-success teams. A deal (also called an opportunity) is a sales prospect tracked in a CRM like Salesforce or HubSpot; an account is a customer record. These prompts pull that state into the Slack channel where the team discusses it.
@@ -7,7 +15,7 @@ Each prompt below is a Slack message. You paste it in the account or deal channe
 
 ##  Check the channel’s connections
 
-Check that the channel has the connections below. Ask `@Claude what can you access from this channel?` to check; an admin can [add a connection](/docs/claude-tag/admins/add-connections) the channel is missing.
+Check that the channel has the connections below. Ask `@Claude what can you access from this channel?` to check; an admin can [add a connection](https://claude.com/docs/claude-tag/admins/add-connections) the channel is missing.
 
 | Connection | Examples | Why it matters here |
 | --- | --- | --- |
@@ -19,13 +27,17 @@ Check that the channel has the connections below. Ask `@Claude what can you acce
 
 The reply lists last activity, open items, and who owns the next step for the named account.
 
+```
 @Claude what's the state of the Acme renewal? Last activity, open items, and who owns the next step.
+```
 
 ###  Find stalled deals
 
 The reply lists deals stuck at the named stage and how long each has been there.
 
+```
 @Claude which deals are stuck in stage 3, and how long has each been there?
+```
 
 “How long has each been there” is the actionable half. Aging tells you which deal to work first.
 
@@ -33,15 +45,21 @@ The reply lists deals stuck at the named stage and how long each has been there.
 
 The brief pairs what’s in the system with what was discussed in the channel.
 
+```
 @Claude brief me on Initech before my 2pm: account history, recent activity, and anything discussed in this channel lately.
+```
 
 ###  Schedule a weekly digest
 
 One message sets up a standing digest posted to the team channel every Monday.
 
+```
 @Claude every Monday at 9am, post a pipeline digest: deals that moved stage last week, deals stalled more than two weeks, and renewals due in the next 30 days.
+```
 
-The three lines cover what moved, what’s stuck, and what’s coming due, so the digest reads the same way every Monday. To list or cancel scheduled work later, see [Manage standing work](/docs/claude-tag/users/proactivity#manage-standing-work).
+The three lines cover what moved, what’s stuck, and what’s coming due, so the digest reads the same way every Monday. To list or cancel scheduled work later, see [Manage standing work](https://claude.com/docs/claude-tag/users/proactivity#manage-standing-work).
+
+##  Related resources
 
 ## Answer data questions
 
@@ -50,5 +68,3 @@ When the question is metrics, not accounts
 ## Set up routines
 
 Scheduled digests
-
-[Find answers in your docs](/docs/claude-tag/users/use-cases/find-answers)[Watch monitors and alerts](/docs/claude-tag/users/use-cases/watch-monitors)

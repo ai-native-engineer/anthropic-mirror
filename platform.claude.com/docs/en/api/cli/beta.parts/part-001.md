@@ -1,3 +1,4 @@
+<!-- source: https://platform.claude.com/docs/en/api/cli/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/cli/beta -->
 
 <!-- chunk-start -->
@@ -34568,4 +34569,3 @@ ant beta:messages:batches results \
                 - `beta_base64_pdf_source: object { data, media_type, type }`
 
                   - `data: string`
-

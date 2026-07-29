@@ -2,7 +2,7 @@
 
 # Claude Fable 5 on your plan
 
-Updated yesterday
+Updated over a week ago
 
 We previously ran a promotion that allowed you to use up to 50% of your weekly subscription limit on Claude Fable 5 at no extra cost. After that promotion ends on July 19, 2026 at 11:59:59 PM PT, Fable 5 will still be available to you, and how you access it will depend on your plan.
 

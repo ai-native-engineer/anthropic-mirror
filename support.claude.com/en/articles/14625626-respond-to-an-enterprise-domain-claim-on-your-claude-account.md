@@ -2,7 +2,7 @@
 
 # Respond to an Enterprise domain claim on your Claude account
 
-May 19, 2026
+Updated over a week ago
 
 If your organization has set up Claude Enterprise, they may claim your existing personal Claude account (Free, Pro, or Max) and move it into their workspace. This article explains what to expect and what your options are.
 
@@ -18,12 +18,7 @@ You’ll receive an email and an in-product notification letting you know that y
 
 ### Merge and join
 
-Bring your existing data into a new account within your organization’s Enterprise workspace. The following data transfers to your new account:
-
-* Conversations (including starred conversations and artifacts)
-* Projects
-* Files
-* Memory
+Bring your existing data into a new account within your organization's Enterprise workspace. Some things don't move. Most importantly, custom skills and your connected apps stay behind. For the full list of what does and doesn’t move to your new account, see **[What moves when you migrate](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization#h_4e63ef6e87)**.
 
 After the merge, your personal account is deactivated. **This can’t be undone**—once you merge, your data lives in your Enterprise account and your personal account no longer exists.
 
@@ -85,4 +80,8 @@ If you’re not in your organization’s IdP, you won’t be able to sign in to 
 
 You can migrate your personal account to an existing Enterprise account; data from the individual account will be added to the Enterprise account. If the individual and Enterprise accounts have conflicting settings, the migrated account will use the Enterprise organization’s settings.
 
-[Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)[Export your Claude data](https://support.claude.com/en/articles/9450526-export-your-claude-data)[Claim and migrate accounts on your domain](https://support.claude.com/en/articles/14625619-claim-and-migrate-accounts-on-your-domain)[Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)[Restrict verified-domain connectors to your Enterprise](https://support.claude.com/en/articles/15402193-restrict-verified-domain-connectors-to-your-enterprise)
+* [Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)
+* [Export your Claude data](https://support.claude.com/en/articles/9450526-export-your-claude-data)
+* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
+* [Claim and migrate accounts on your domain](https://support.claude.com/en/articles/14625619-claim-and-migrate-accounts-on-your-domain)
+* [Restrict verified-domain connectors to your Enterprise](https://support.claude.com/en/articles/15402193-restrict-verified-domain-connectors-to-your-enterprise)

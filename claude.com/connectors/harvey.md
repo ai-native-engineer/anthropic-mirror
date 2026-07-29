@@ -10,6 +10,7 @@ Answer legal queries, search vaults, and research
 * Used in
 
   [Claude](https://claude.ai/directory/a428b976-7973-467f-9588-6b72643af755)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Harvey](https://www.harvey.ai/)
 
@@ -22,19 +23,19 @@ Answer legal queries, search vaults, and research
   Read & write
 * More
 
-  [Documentation](https://developers.harvey.ai/guides/harvey_mcp)[Privacy Policy](https://www.harvey.ai/legal/privacy-policy)[support@harvey.ai](mailto:support@harvey.ai)
+  [Documentation](https://developers.harvey.ai/guides/harvey_mcp)[Privacy Policy](https://www.harvey.ai/legal/privacy-policy)[Support](mailto:support@harvey.ai)
 
 Bring Harvey's legal intelligence into Claude. The Harvey MCP server supports general legal inquiries, analysis over Vault projects, and research questions for select knowledge sources. The server also exposes discovery tools to list available Vault projects and knowledge sources, so you always know what is available for access.
 
 You can use Harvey to:
 
-**Legal Research & General Queries:**  
+**Legal Research & General Queries:**
 "What are the components of justiciability and how does the political question doctrine fit in?"
 
-**Vault Search & Content Analysis:**  
+**Vault Search & Content Analysis:**
 "Search my vaults on side letters. Which investor is entitled to designate a non-voting observer to the Advisory Committee?"
 
-**Knowledge Source Queries:**  
+**Knowledge Source Queries:**
 "From 6 April 2024, what are the main Class 1 employee and Class 4 self‑employed NIC rates?"
 
 ## Related connectors
@@ -47,11 +48,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -65,7 +66,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -75,11 +76,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -89,8 +90,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

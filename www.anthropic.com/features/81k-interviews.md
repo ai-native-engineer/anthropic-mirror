@@ -8,8 +8,8 @@ Each dot represents 4 respondents
 
 Jump to story
 
-For the first time, AI has enabled us to collect rich, open‑ended interviews at extraordinary scale.  
-  
+For the first time, AI has enabled us to collect rich, open‑ended interviews at extraordinary scale.
+
 We heard from people across 159 countries in 70 languages. We believe this is the largest and most multilingual qualitative study ever conducted.
 
 AI is already helping people, and inspiring hope…
@@ -270,8 +270,8 @@ Overall, 11% of people saw AI’s productivity benefits as ultimately a way to f
 
 “Personal transformation”—using AI to help one grow or improve their wellbeing as a person—also appeared frequently (14%). Within this category, the desires were diverse, ranging from cognitive partnership and collaboration (24%), to support with mental health (21%) or physical health (8%), and even romantic connection with AI (5%).
 
-The nine clusters may look disparate, but they are underpinned by recognizably human desires. Roughly a third of visions are about making room for life—more time, money, mental bandwidth—by using AI to alleviate current burdens. Another quarter revolves around using AI to help people do better, more fulfilling work (not escaping work, but getting more out of it). About a fifth are about becoming someone better—learning, healing, growing. A smaller share want to make something (“creative expression”) or fix the world (“societal transformation”).  
-  
+The nine clusters may look disparate, but they are underpinned by recognizably human desires. Roughly a third of visions are about making room for life—more time, money, mental bandwidth—by using AI to alleviate current burdens. Another quarter revolves around using AI to help people do better, more fulfilling work (not escaping work, but getting more out of it). About a fifth are about becoming someone better—learning, healing, growing. A smaller share want to make something (“creative expression”) or fix the world (“societal transformation”).
+
 Those that wanted societal transformation from AI often cited a vision for healthcare—people wanted AI to detect cancer earlier, accelerate drug discovery, or enable broad access. Often these desires stemmed from personal experience of losing family members, living with chronic illness, or watching loved ones receive wrong or delayed diagnoses. Transformation in the form of education came next. Respondents in low and middle income countries were quick to cite the possibility that AI might break the association between educational quality and wealth. They pointed to teacher shortages in their countries, or the prohibitive cost of private tutors. Others hoped that AI would, for example, free people from drudgery, help repair broken institutions, or address global crises.
 
 ## Are people getting what they want?
@@ -1068,8 +1068,8 @@ Browse quotes
 
 ### Authorship and acknowledgments
 
-We thank the 80,508 Claude users who gave us their time and candor. Saffron Huang led the project, designed and ran the analysis, and wrote the blog post. Shan Carter led data visualization, prototyped the interactive article, and helped with analysis. Jake Eaton led editorial development, and Sarah Pollack led communications strategy. Dexter Callender III implemented the production article, and Nikki Makagiansar, Maria Gonzalez, and Kelsey Nanan contributed to design. Sylvie Carr advised on editorial. Miles McCain and Kunal Handa helped with analysis. Jerry Hong contributed to design. Grace Yun, AJ Alt, and Thomas Millar implemented Anthropic Interviewer within [Claude.ai](http://Claude.ai). Chelsea Larsson, Jane Leibrock, and Matt Gallivan contributed to survey and experience design. Theodore Sumers contributed to the data processing and clustering infrastructure. Jack Clark, Michael Stern and Deep Ganguli provided critical feedback, direction and organizational support. All authors provided detailed feedback throughout.  
-  
+We thank the 80,508 Claude users who gave us their time and candor. Saffron Huang led the project, designed and ran the analysis, and wrote the blog post. Shan Carter led data visualization, prototyped the interactive article, and helped with analysis. Jake Eaton led editorial development, and Sarah Pollack led communications strategy. Dexter Callender III implemented the production article, and Nikki Makagiansar, Maria Gonzalez, and Kelsey Nanan contributed to design. Sylvie Carr advised on editorial. Miles McCain and Kunal Handa helped with analysis. Jerry Hong contributed to design. Grace Yun, AJ Alt, and Thomas Millar implemented Anthropic Interviewer within [Claude.ai](http://Claude.ai). Chelsea Larsson, Jane Leibrock, and Matt Gallivan contributed to survey and experience design. Theodore Sumers contributed to the data processing and clustering infrastructure. Jack Clark, Michael Stern and Deep Ganguli provided critical feedback, direction and organizational support. All authors provided detailed feedback throughout.
+
 Additionally, we thank David Saunders, Mengyi Xu, Katie Kennedy, Bianca Lindner, Meredith Callan, Tim Belonax, Jen Martinez, Peter McCrory, and Miriam Chaum for their discussion, feedback, and support.
 
 #### If you’d like to cite this post you can use the following Bibtex key:

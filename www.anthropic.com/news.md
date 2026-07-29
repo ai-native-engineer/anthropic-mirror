@@ -38,6 +38,12 @@ Search
 
 DateCategoryTitle
 
+* [Jul 27, 2026Announcements
+
+  Our position on open-weights models](https://www.anthropic.com/news/position-open-weights-models)
+* [Jul 27, 2026Announcements
+
+  Cognizant and Anthropic expand their partnership to bring Claude to enterprise clients](https://www.anthropic.com/news/cognizant-anthropic)
 * [Jul 24, 2026Product
 
   Introducing Claude Opus 5](https://www.anthropic.com/news/claude-opus-5)
@@ -62,11 +68,5 @@ DateCategoryTitle
 * [Jul 9, 2026Case Study
 
   UST is bringing Claude to physical AI](https://www.anthropic.com/news/ust-claude)
-* [Jul 9, 2026Announcements
-
-  Inviting hard questions](https://www.anthropic.com/news/hard-questions)
-* [Jul 9, 2026Announcements
-
-  Ben Bernanke appointed to Anthropic’s Long-Term Benefit Trust](https://www.anthropic.com/news/ben-bernanke)
 
 [See more](#)

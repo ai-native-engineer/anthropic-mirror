@@ -5,10 +5,20 @@
 # A field guide to Claude Fable 5: Finding your unknowns
 
   [Claude Code](https://claude.com/blog/category/claude-code)
+* Product
 
   Claude Code
+* Date
 
   July 6, 2026
+* Reading time
+
+  5
+
+  min
+* Share
+
+  [Copy link](#)
 
   https://claude.com/blog/a-field-guide-to-claude-fable-finding-your-unknowns
 
@@ -25,6 +35,14 @@ Claude Fable is the first model where I find the quality of the work is bottlene
 Importantly, just planning ahead isn’t always enough. You can find unknowns deep in implementation, or your unknowns may point you to the fact that you should actually be solving the problem in a different way altogether.
 
 I’ve found that working with Fable is an iterative process of discovering my unknowns before, during, and after implementation.
+
+No items found.
+
+[Prev](#)Prev
+
+0/5
+
+[Next](#)Next
 
 Get Claude Code
 
@@ -45,6 +63,10 @@ Try Claude Code
 Developer docs
 
 [Developer docs](https://code.claude.com/docs/en/overview)Developer docs
+
+eBook
+
+##
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -219,63 +241,79 @@ So start your next project by asking Claude to help you find your unknowns.
 
 *This article was written by Thariq Shihipar, member of technical staff, Anthropic.*
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e6fa9211768bbce0b_6e00dbffcddc82df5e471c43453abfc74ca94e8d-1000x1000.svg)
+FAQ
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e13864f88ea55c2d8_b5c98d26c46edc43193e7f7e28a00633a538bb9c-1000x1000.svg)
+No items found.
 
-Jun 2, 2026
+## Related posts
 
-### A harness for every task: dynamic workflows in Claude Code
+Explore more product news and best practices for teams building with Claude.
 
-Claude Code
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
-[A harness for every task: dynamic workflows in Claude Code](#) A harness for every task: dynamic workflows in Claude Code
+Jul 24, 2026
 
-[A harness for every task: dynamic workflows in Claude Code](/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code) A harness for every task: dynamic workflows in Claude Code
+### Claude models explained: choosing the best model for your use case
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f783c784823d48ad84175_Object-CodeChatText.svg)
+Enterprise AI
 
-Apr 30, 2026
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
 
-### Lessons from building Claude Code: Prompt caching is everything
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
 
-Claude Code
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
-[Lessons from building Claude Code: Prompt caching is everything](#)Lessons from building Claude Code: Prompt caching is everything
+Jul 24, 2026
 
-[Lessons from building Claude Code: Prompt caching is everything](/blog/lessons-from-building-claude-code-prompt-caching-is-everything)Lessons from building Claude Code: Prompt caching is everything
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d7d4c10df6024f7bc_ee580919acaba2ddc07425f7a7390c8962cadc94-1000x1000.svg)
-
-Jun 18, 2026
-
-### Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more
+### The new rules of context engineering for Claude 5 generation models
 
 Claude Code
 
-[Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more](#) Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more
+[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
 
-[Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more](/blog/steering-claude-code-skills-hooks-rules-subagents-and-more) Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more
+[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
 
-    
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224d39f9b8e905d1823_b68cbb43d7c8f56f0b14cc867e8d4d74445f78b0-1000x1000.svg)
 
-    
+Jul 22, 2026
 
-    
+### Building verification loops in Claude Code with skills
 
-    
+Claude Code
 
-    
+[Building verification loops in Claude Code with skills](#)Building verification loops in Claude Code with skills
 
-    
+[Building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills)Building verification loops in Claude Code with skills
 
-    
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
 
-    
+Jul 21, 2026
 
-    
+### How Anthropic secures its AI-native software development lifecycle
 
-    
+Claude Code
+
+[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
+
+[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
+
+## Transform how your organization operates with Claude
+
+See pricing
+
+[See pricing](https://claude.com/pricing#api)See pricing
+
+Contact sales
+
+[Contact sales](https://claude.com/contact-sales)Contact sales
+
+Get the developer newsletter
+
+Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
+
+Thank you! You’re subscribed.
+
+Sorry, there was a problem with your submission, please try again later.
 
 Claude Code
 

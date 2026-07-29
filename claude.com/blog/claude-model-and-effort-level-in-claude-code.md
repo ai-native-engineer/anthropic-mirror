@@ -5,10 +5,20 @@
 # Choosing a Claude model and effort level in Claude Code
 
   [Claude Code](https://claude.com/blog/category/claude-code)
+* Product
 
   Claude Code
+* Date
 
   July 7, 2026
+* Reading time
+
+  5
+
+  min
+* Share
+
+  [Copy link](#)
 
   https://claude.com/blog/claude-model-and-effort-level-in-claude-code
 
@@ -19,7 +29,7 @@
 * Choose smaller models for more routine tasks and larger models for more complex or ambiguous tasks. Start with default effort levels for each model and tune as a general preference based on the type of work you do rather than task-by-task.
 * If Claude has all the pertinent context, clearly tried, and still got it wrong, that's a signal to pick a more capable model. If Claude got it wrong by skipping a file, not running the tests, or bailing on a refactor partway through, pick a higher effort level.
 
-## **Claude Code effort levels and model selection**
+## **Claude Code effort level and model selection**
 
 Claude Code gives you two settings that appear to "make the answer better": the model setting and the effort level. You may expect that larger models like Claude Fable 5 provide a smarter output than Claude Sonnet, and a higher effort level means Claude thinks longer before it answers.
 
@@ -32,6 +42,14 @@ But effort means more than just "thinking time." Effort level controls how much 
 * How far it pushes through a multi-step task before checking in with you.
 
 At a higher effort, Claude will take more of those actions (for example, read files, run tests, and double-check) before it comes back to you. At lower effort, it would rather ask you for more context than spend tokens figuring something out on its own.
+
+No items found.
+
+[Prev](#)Prev
+
+0/5
+
+[Next](#)Next
 
 Get Claude Code
 
@@ -52,6 +70,10 @@ Try Claude Code
 Developer docs
 
 [Developer docs](https://code.claude.com/docs/en/overview)Developer docs
+
+eBook
+
+##
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -107,7 +129,7 @@ What it doesn't decide is how many tokens get generated. That number can vary a 
 
 This is what **effort** **level** controls: *how much work* Claude decides to do for each turn.
 
-## **How effort works**
+## **How Claude Code effort level works**
 
 When Claude Code is working on a task, the tokens it generates fall into a few categories:
 
@@ -165,8 +187,8 @@ Pick a larger model when the problem is genuinely hard. For example, problems li
 
 Larger models are also better at handling ambiguity, whereas specific instructions directing execution are a better recipe for success on the smaller models.
 
-Pick a smaller model when the work is routine. For example, edits you can describe precisely, mechanical changes, or questions about code that's already in context. There's no reason to pay for capability the task doesn't need.   
-  
+Pick a smaller model when the work is routine. For example, edits you can describe precisely, mechanical changes, or questions about code that's already in context. There's no reason to pay for capability the task doesn't need.
+
 If Claude has all the pertinent context and clearly tried and still got it wrong, that's a signal to pick a larger model. If you're on the larger model and the work has been routine for a while, dropping down will increase speed and typically reduce cost without impacting the quality of the output.
 
 ### **Effort: Claude didn’t try hard enough**
@@ -215,63 +237,79 @@ Most of the time, you shouldn't be thinking about either setting. When a result 
 
 *This article was written by Lydia Hallie, member of technical staff on the Claude Code team.*
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e6fa9211768bbce0b_6e00dbffcddc82df5e471c43453abfc74ca94e8d-1000x1000.svg)
+FAQ
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e13864f88ea55c2d8_b5c98d26c46edc43193e7f7e28a00633a538bb9c-1000x1000.svg)
+No items found.
 
-Jun 2, 2026
+## Related posts
 
-### A harness for every task: dynamic workflows in Claude Code
+Explore more product news and best practices for teams building with Claude.
 
-Claude Code
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
-[A harness for every task: dynamic workflows in Claude Code](#) A harness for every task: dynamic workflows in Claude Code
+Jul 24, 2026
 
-[A harness for every task: dynamic workflows in Claude Code](/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code) A harness for every task: dynamic workflows in Claude Code
+### Claude models explained: choosing the best model for your use case
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f783c784823d48ad84175_Object-CodeChatText.svg)
+Enterprise AI
 
-Apr 30, 2026
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
 
-### Lessons from building Claude Code: Prompt caching is everything
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
 
-Claude Code
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
-[Lessons from building Claude Code: Prompt caching is everything](#)Lessons from building Claude Code: Prompt caching is everything
+Jul 24, 2026
 
-[Lessons from building Claude Code: Prompt caching is everything](/blog/lessons-from-building-claude-code-prompt-caching-is-everything)Lessons from building Claude Code: Prompt caching is everything
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d7d4c10df6024f7bc_ee580919acaba2ddc07425f7a7390c8962cadc94-1000x1000.svg)
-
-Jun 18, 2026
-
-### Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more
+### The new rules of context engineering for Claude 5 generation models
 
 Claude Code
 
-[Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more](#) Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more
+[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
 
-[Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more](/blog/steering-claude-code-skills-hooks-rules-subagents-and-more) Steering Claude Code: CLAUDE.md files, skills, hooks, rules, subagents and more
+[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
 
-    
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224d39f9b8e905d1823_b68cbb43d7c8f56f0b14cc867e8d4d74445f78b0-1000x1000.svg)
 
-    
+Jul 22, 2026
 
-    
+### Building verification loops in Claude Code with skills
 
-    
+Claude Code
 
-    
+[Building verification loops in Claude Code with skills](#)Building verification loops in Claude Code with skills
 
-    
+[Building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills)Building verification loops in Claude Code with skills
 
-    
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
 
-    
+Jul 21, 2026
 
-    
+### How Anthropic secures its AI-native software development lifecycle
 
-    
+Claude Code
+
+[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
+
+[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
+
+## Transform how your organization operates with Claude
+
+See pricing
+
+[See pricing](https://claude.com/pricing#api)See pricing
+
+Contact sales
+
+[Contact sales](https://claude.com/contact-sales)Contact sales
+
+Get the developer newsletter
+
+Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
+
+Thank you! You’re subscribed.
+
+Sorry, there was a problem with your submission, please try again later.
 
 Claude Code
 

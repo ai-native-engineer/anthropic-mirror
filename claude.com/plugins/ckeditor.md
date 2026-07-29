@@ -4,7 +4,13 @@
 
 Install, configure, and integrate CKEditor 5 (free and premium) in any JavaScript project.
 
+* Install in
+
+  [Claude Code](#)
+* Made by
+
   [CKEditor (CKSource)](https://ckeditor.com)
+* Installs
 
   2
 
@@ -17,3 +23,41 @@ Install, configure, and integrate CKEditor 5 in any JavaScript project. This plu
 The plugin encodes CKEditor's official best practices and guards against common pitfalls — like mismatched package versions, deprecated import patterns, duplicate imports, and SSR hydration errors. It knows how to detect your existing project setup (Node version, bundler, framework) and tailors its integration steps accordingly. Premium feature support includes collaborative editing, track changes, and AI writing assistance.
 
 **How to use:** Ask Claude to help with any CKEditor task and the plugin will guide the process. Try prompts like: `Add CKEditor 5 to my React app`, `Set up CKEditor with premium features in my Next.js project`, `Configure the CKEditor toolbar with image upload and markdown support`, or `Troubleshoot my CKEditor integration — the editor isn't rendering`.
+
+## Related plugins
+
+[### Frontend Design
+
+Craft production-grade frontends with distinctive design. Generates polished code that avoids generic AI aesthetics.
+
+Anthropic verified
+
+1110438
+
+installs](https://claude.com/plugins/frontend-design)
+
+[### Superpowers
+
+Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
+
+987572
+
+installs](https://claude.com/plugins/superpowers)
+
+[### Code Review
+
+AI code review with specialized agents and confidence-based filtering for pull requests
+
+Anthropic verified
+
+430450
+
+installs](https://claude.com/plugins/code-review)
+
+[### Context7
+
+Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
+
+412076
+
+installs](https://claude.com/plugins/context7)

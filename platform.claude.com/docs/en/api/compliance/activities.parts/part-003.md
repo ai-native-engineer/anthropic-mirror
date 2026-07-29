@@ -1,6 +1,8 @@
+<!-- source: https://platform.claude.com/docs/en/api/compliance/activities -->
 <!-- part of: https://platform.claude.com/docs/en/api/compliance/activities -->
 
 <!-- chunk-start -->
+
     - `updates: array of object { current_value, previous_value, type }`
 
       - `current_value: string`

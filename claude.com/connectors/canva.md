@@ -10,6 +10,7 @@ Search, create, autofill, and export Canva designs from a prompt
 * Used in
 
   [Claude](http://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Canva](https://canva.com/)
 
@@ -26,24 +27,24 @@ Search, create, autofill, and export Canva designs from a prompt
 
 Browse, summarize, autofill, and even generate new Canva designs directly from Claude. Make Canva a native part of your workflow—helping you create polished visuals faster, with less friction. You can also create presentation outlines and customize branding and design in real-time to produce client-ready decks.
 
-You can use Canva in Claude to:   
-‍  
-Browse, Search & Summarize:   
+You can use Canva in Claude to:
+‍
+Browse, Search & Summarize:
 "Summarize my Q2 product strategy doc"
 
-Create New Designs from Conversation:  
+Create New Designs from Conversation:
 "Generate a pitch deck for our AI launch with 5 slides and a bold tone"
 
-Autofill Charts:  
+Autofill Charts:
 "Add a chart showing monthly signups in NZ for Q1"
 
-Autofill Brand Templates:  
+Autofill Brand Templates:
 "Populate our branded template with content for a product launch presentation, 8 slides, professional tone"
 
-Import Files via Link:  
+Import Files via Link:
 "Import this PDF [insert URL] into Canva"
 
-Resize or Export:  
+Resize or Export:
 "Resize my Instagram post for LinkedIn and export as a PNG"
 
 Skills
@@ -100,11 +101,11 @@ Claude
 
 May 7, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe for creativity
 
-Ideate, create, and deliver with Adobe pro tools](/connectors/adobe-creativity)
+Ideate, create, and deliver with Adobe pro tools](https://claude.com/connectors/adobe-creativity)
 
 Productivity
 
@@ -116,11 +117,11 @@ Claude Code
 
 May 1, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f518707047601013a4983f_autodesk%20(1).svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d316ce38ed7af0f88414_icon_Autodesk.jpg)
 
 ### Autodesk Product Help
 
-Securely access Autodesk's help documentation](/connectors/autodesk-product-help)
+Securely access Autodesk's help documentation](https://claude.com/connectors/autodesk-product-help)
 
 Design
 
@@ -136,7 +137,7 @@ May 28, 2026
 
 ### Descript
 
-Import, edit, or create video with prompts](/connectors/descript)
+Import, edit, or create video with prompts](https://claude.com/connectors/descript)
 
 Design
 
@@ -148,4 +149,4 @@ February 10, 2026
 
 ### Excalidraw
 
-MCP for creating interactive hand-drawn diagrams in Excalidraw](/connectors/excalidraw-app-demo)
+MCP for creating interactive hand-drawn diagrams in Excalidraw](https://claude.com/connectors/excalidraw-app-demo)

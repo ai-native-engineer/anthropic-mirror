@@ -38,7 +38,7 @@ Check-in and breakfast
 
 09:30 – 09:45
 
-[Community general session](/code-with-claude/session/tyo-ext-opening-keynote)
+[Community general session](https://claude.com/code-with-claude/session/tyo-ext-opening-keynote)
 
 ·
 
@@ -56,7 +56,7 @@ morning sessions
 
 10:00 – 10:30
 
-[What happens when domain experts can finally build](/code-with-claude/session/tyo-ext-domain-experts-can-finally-build)
+[What happens when domain experts can finally build](https://claude.com/code-with-claude/session/tyo-ext-domain-experts-can-finally-build)
 
 ·
 
@@ -74,7 +74,7 @@ Jason Tangen
 
 University of Queensland
 
-[Building AI-native across industries with NTT, Mizuho and Mercari](/code-with-claude/session/tyo-ext-ai-native-across-industries)
+[Building AI-native across industries with NTT, Mizuho and Mercari](https://claude.com/code-with-claude/session/tyo-ext-ai-native-across-industries)
 
 ·
 
@@ -102,7 +102,7 @@ Mizuho Financial Group, Inc.
 
 10:00 – 10:45
 
-[How we Claude Code](/code-with-claude/session/tyo-ext-how-we-claude-code)
+[How we Claude Code](https://claude.com/code-with-claude/session/tyo-ext-how-we-claude-code)
 
 ·
 
@@ -122,7 +122,7 @@ Anthropic
 
 10:45 – 11:15
 
-[From Claude prototype to production: How Myrealtrip builds and ships AI workflows](/code-with-claude/session/tyo-ext-myrealtrip-prototype-to-production)
+[From Claude prototype to production: How Myrealtrip builds and ships AI workflows](https://claude.com/code-with-claude/session/tyo-ext-myrealtrip-prototype-to-production)
 
 ·
 
@@ -140,7 +140,7 @@ Wonjin Hur
 
 Myrealtrip
 
-[Code for loved ones: Building customized software to bypass language barriers with my girlfriend](/code-with-claude/session/tyo-ext-code-for-loved-ones)
+[Code for loved ones: Building customized software to bypass language barriers with my girlfriend](https://claude.com/code-with-claude/session/tyo-ext-code-for-loved-ones)
 
 ·
 
@@ -160,7 +160,7 @@ Kyushu University
 
 11:00 – 11:45
 
-[Ship your first Managed Agent](/code-with-claude/session/tyo-ext-ship-your-first-managed-agent)
+[Ship your first Managed Agent](https://claude.com/code-with-claude/session/tyo-ext-ship-your-first-managed-agent)
 
 ·
 
@@ -180,7 +180,7 @@ Anthropic
 
 11:30 – 12:00
 
-[The 1% problem: How domain expertise + Claude let a 2-person team hit #1 on a global classification benchmark](/code-with-claude/session/tyo-ext-federation-1-percent-problem)
+[The 1% problem: How domain expertise + Claude let a 2-person team hit #1 on a global classification benchmark](https://claude.com/code-with-claude/session/tyo-ext-federation-1-percent-problem)
 
 ·
 
@@ -198,7 +198,7 @@ Gahee Seo
 
 Federation
 
-[How to integrate Claude into your daily life](/code-with-claude/session/tyo-ext-integrate-claude-daily-life)
+[How to integrate Claude into your daily life](https://claude.com/code-with-claude/session/tyo-ext-integrate-claude-daily-life)
 
 ·
 
@@ -220,7 +220,7 @@ Determinant, Inc.
 
 12:00 – 12:45
 
-[Agents that remember](/code-with-claude/session/tyo-ext-agents-that-remember)
+[Agents that remember](https://claude.com/code-with-claude/session/tyo-ext-agents-that-remember)
 
 ·
 
@@ -246,7 +246,7 @@ afternoon sessions
 
 13:00 – 13:45
 
-[Evals for taste: Hill-climbing a slide-generation agent](/code-with-claude/session/tyo-ext-evals-for-taste)
+[Evals for taste: Hill-climbing a slide-generation agent](https://claude.com/code-with-claude/session/tyo-ext-evals-for-taste)
 
 ·
 
@@ -266,7 +266,7 @@ Anthropic
 
 13:15 – 13:45
 
-[The last mile is the spec](/code-with-claude/session/tyo-ext-the-spec-isnt-ready)
+[The last mile is the spec](https://claude.com/code-with-claude/session/tyo-ext-the-spec-isnt-ready)
 
 ·
 
@@ -292,7 +292,7 @@ Sumiki Hori
 
 Tsukumo Labs Inc.
 
-[Same model, three different worlds: Japan, India, Australia](/code-with-claude/session/tyo-ext-same-model-three-worlds)
+[Same model, three different worlds: Japan, India, Australia](https://claude.com/code-with-claude/session/tyo-ext-same-model-three-worlds)
 
 ·
 
@@ -324,7 +324,7 @@ Determinant, Inc.
 
 14:00 – 14:30
 
-[Code less, query more with sub-agents and data](/code-with-claude/session/tyo-ext-code-less-query-more)
+[Code less, query more with sub-agents and data](https://claude.com/code-with-claude/session/tyo-ext-code-less-query-more)
 
 ·
 
@@ -346,7 +346,7 @@ Kenta Yamamoto
 
 primeNumber Inc.
 
-[How I built a legal platform for 280 million people at the Claude Code Hackathon](/code-with-claude/session/tyo-ext-legal-platform-280-million)
+[How I built a legal platform for 280 million people at the Claude Code Hackathon](https://claude.com/code-with-claude/session/tyo-ext-legal-platform-280-million)
 
 ·
 
@@ -366,7 +366,7 @@ Pasal.id
 
 14:00 – 14:45
 
-[Tool, skill, or subagent? Decomposing an agent that outgrew its prompt](/code-with-claude/session/tyo-ext-tool-skill-or-subagent)
+[Tool, skill, or subagent? Decomposing an agent that outgrew its prompt](https://claude.com/code-with-claude/session/tyo-ext-tool-skill-or-subagent)
 
 ·
 
@@ -386,7 +386,7 @@ Anthropic
 
 14:45 – 15:15
 
-[Manager 11: How I finally shipped my dream football management game with Claude](/code-with-claude/session/tyo-ext-manager-11)
+[Manager 11: How I finally shipped my dream football management game with Claude](https://claude.com/code-with-claude/session/tyo-ext-manager-11)
 
 ·
 
@@ -404,7 +404,7 @@ Rye Smith
 
 Spruik Co.
 
-[How I shipped a life-saving app with Claude Code](/code-with-claude/session/tyo-ext-blood-code-and-claude)
+[How I shipped a life-saving app with Claude Code](https://claude.com/code-with-claude/session/tyo-ext-blood-code-and-claude)
 
 ·
 
@@ -424,7 +424,7 @@ HaemoLink
 
 15:00 – 15:45
 
-[Agent Battle: Mine the most diamonds in 45 minutes](/code-with-claude/session/tyo-ext-agent-battle)
+[Agent Battle: Mine the most diamonds in 45 minutes](https://claude.com/code-with-claude/session/tyo-ext-agent-battle)
 
 ·
 
@@ -444,7 +444,7 @@ Anthropic
 
 15:30 – 16:00
 
-[Rewriting Bun in Rust](/code-with-claude/session/tyo-ext-rewriting-bun-in-rust)
+[Rewriting Bun in Rust](https://claude.com/code-with-claude/session/tyo-ext-rewriting-bun-in-rust)
 
 ·
 
@@ -528,7 +528,7 @@ Anthropic's developer conference. Live demos of new capabilities, hands-on works
 
 Learn more
 
-[Learn more](/code-with-claude/tokyo)Learn more
+[Learn more](https://claude.com/code-with-claude/tokyo)Learn more
 
 FAQ
 
@@ -552,6 +552,6 @@ Code with Claude: Extended will not be livestreamed. Sessions will be recorded a
 
 No, in-person attendance is free.
 
-[Homepage](/code-with-claude)Homepage
+[Homepage](https://claude.com/code-with-claude)Homepage
 
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](/code-with-claude/code-of-conduct)
+[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)

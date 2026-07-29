@@ -36,7 +36,7 @@ To enable usage credits on your paid Claude plan:
 7. You’ll then need to prepay to cover usage beyond your plan limits. Click “Add funds,” enter the amount you want to purchase in the modal, then click “Purchase.”
 8. You can also enable auto-reload to automatically make a purchase when your balance falls below a threshold you set:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1782459900&signature=65146715caa494adfa4e7313d8f3902a21171bf5211cd8ed309e86d6d3b5acb3&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ARCdoPkxopE7m38YdfdR16yLqUytwUu2%2FNiJ%0AgqDTZ6royOoUP%2BAz5%2Bk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1782459900&signature=65146715caa494adfa4e7313d8f3902a21171bf5211cd8ed309e86d6d3b5acb3&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ARCdoPkxopE7m38YdfdR16yLqUytwUu2%2FNiJ%0AgqDTZ6royOoUP%2BAz5%2Bk%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1785295800&signature=8179c0cbf2c757d4cf1d223f26a17e3c520dbf280f1d11c488c96eaa97d2bf14&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ARebrPUwopE7m38YdfflTdhL43OeXmT2srW7%0Ajqw4Xbi6B6vUodriFJo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1785295800&signature=8179c0cbf2c757d4cf1d223f26a17e3c520dbf280f1d11c488c96eaa97d2bf14&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ARebrPUwopE7m38YdfflTdhL43OeXmT2srW7%0Ajqw4Xbi6B6vUodriFJo%3D%0A)
 
 **Note:** There is a daily redemption limit of $2000.
 
@@ -110,4 +110,8 @@ Yes, the usage dashboard clearly distinguishes between your included plan usage 
 
 Yes, you’ll see a clear notification when approaching and reaching your included usage limits, with a confirmation that you’ll continue with usage credits.
 
-[Usage limit best practices](https://support.claude.com/en/articles/9797557-usage-limit-best-practices)[How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)[Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)[Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)[Buy usage bundles](https://support.claude.com/en/articles/14246112-buy-usage-bundles)
+* [Usage limit best practices](https://support.claude.com/en/articles/9797557-usage-limit-best-practices)
+* [How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)
+* [Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)
+* [Buy usage bundles](https://support.claude.com/en/articles/14246112-buy-usage-bundles)
+* [Claude Fable 5 on your plan](https://support.claude.com/en/articles/15424964-claude-fable-5-on-your-plan)

@@ -2,9 +2,9 @@
 
 # What is the Enterprise plan?
 
-Updated yesterday
+Updated this week
 
-The Enterprise plan is designed for organizations that need advanced security, compliance controls, and scalable AI across their teams. It includes everything in the **[Team plan](https://support.claude.com/en/articles/9266767-what-is-the-team-plan)**, plus additional security and compliance features. Enterprise plan pricing works differently than Team plans: the seat fee covers access only, and all usage is billed separately at API rates.
+The **[Enterprise plan](https://claude.com/solutions/enterprise)** is designed for organizations that need advanced security, compliance controls, and scalable AI across their teams. It includes everything in the **[Team plan](https://support.claude.com/en/articles/9266767-what-is-the-team-plan)**, plus additional security and compliance features. Enterprise plan pricing works differently than Team plans: the seat fee covers access only, and all usage is billed separately at API rates.
 
 For more information on Enterprise plan pricing, refer to **[our pricing page](https://claude.com/pricing/enterprise)**.
 
@@ -35,12 +35,15 @@ Enterprise includes everything in the Team plan, plus the following:
 * **Connectors for workplace tools**
 
   + Connect Claude to Google Drive, Gmail, Google Calendar, GitHub, Microsoft 365, and Slack to search and retrieve context from your existing documents, emails, calendars, and team communications without manual uploads.
+* **HIPAA-readiness**
+
+  + Eligible organizations can enable a HIPAA-ready configuration and accept a BAA from organization settings. Learn more about **[HIPAA-ready Enterprise plans](https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans).**
 
 ## Pricing
 
 Enterprise uses a single seat type, priced per user per month and billed annually. The seat fee gives each user access to Claude on web, desktop, and mobile, plus Claude Code and Cowork.
 
-**Usage isn't included in the seat fee.** Every token your team uses—in chat, Claude Code, or Cowork—is billed at standard API rates on top of your seat cost. For full details on how usage billing works for your plan, see **[How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)**
+**Usage isn't included in the seat fee.** Every token your team uses—in Chat, Claude Code, or Cowork—is billed at standard API rates on top of your seat cost. For full details on how usage billing works for your plan, see **[How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)**
 
 Price and plans are subject to change at Anthropic's discretion.
 
@@ -66,13 +69,13 @@ Both self-serve and sales-assisted Enterprise plans include the same features an
 | **Payment methods** | Credit card, ACH\* | Credit card†, ACH, invoicing |
 | **Accepted currency** | USD only | Multi-currency supported |
 | **Usage billing** | Credits purchased upfront | Billed monthly in arrears |
-| **HIPAA-readiness / BAA** | Not available | Available |
+| **HIPAA-readiness / BAA** | Available | Available |
 
-\*ACH bank transfers are only available when creating new self-serve Enterprise organizations, not when upgrading a Team organization to Enterprise.
+\*New self-serve Enterprise organizations can choose ACH bank transfer, credit card, or debit card at signup. Organizations upgrading from a Team plan start on credit card and can switch to ACH bank transfer afterward in **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**.
 
 †For sales-assisted invoices of $50,000 or more, only bank transfer (ACH or wire) is available. Reach out to your Anthropic Contact to request a card-payment exception.
 
-**When to contact Sales:** If your organization needs invoicing, HIPAA-readiness and a Business Associate Agreement (BAA), dedicated customer success management, or to pay with a currency other than USD, reach out to our **[Sales team](https://claude.com/contact-sales)** to set up a sales-assisted Enterprise plan.
+**When to contact Sales:** If your organization needs invoicing, dedicated customer success management, or to pay with a currency other than USD, reach out to our **[Sales team](https://claude.com/contact-sales)** to set up a sales-assisted Enterprise plan.
 
 ## How to get the Enterprise plan
 
@@ -82,7 +85,7 @@ Visit **[claude.ai/create/enterprise](http://claude.ai/create/enterprise)** to p
 
 **About ACH bank transfers**
 
-New self-serve Enterprise organizations can choose to pay by ACH bank transfer instead of credit card. ACH is a push-based payment method, which means you initiate the transfer from your bank's interface to send funds to Anthropic's virtual bank account number (VBAN). You select your payment method when you create your organization.
+New self-serve Enterprise organizations can choose to pay by ACH bank transfer instead of credit card. ACH is a push-based payment method, which means you initiate the transfer from your bank's interface to send funds to Anthropic's virtual bank account number (VBAN). You select your payment method when you create your organization, and you can switch between ACH bank transfer, credit card, or debit card at any time in **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**.
 
 Here's what to know about ACH payments:
 
@@ -90,7 +93,7 @@ Here's what to know about ACH payments:
 * **No auto-reload for credits:** Auto-reload isn't available with ACH payments. To set up auto-reload for credits, you can add a credit card to your account.
 * **Subscription and credits:** ACH organizations can pay both their subscription invoices and credit purchases via ACH. If you purchase credits with ACH, the credits won't be added to your account until the payment settles.
 * **Adding seats:** If you increase your seat count, we'll generate an invoice for the additional seats, but the new seats are available to use right away.
-* **Upgrading from Team:** ACH isn't currently supported for organizations upgrading from a Team plan to a self-serve Enterprise plan. ACH is only available for new self-serve Enterprise organizations.
+* **Upgrading from Team:** Organizations upgrading from a Team plan pay by credit card during the upgrade. Once the upgrade is complete, you can switch to ACH in **Organization settings > Billing**.
 
 ### Sales-assisted Enterprise plans
 
@@ -122,4 +125,8 @@ Seat-based Enterprise plans haven't changed; your seat types, usage limits, and 
 
 If you're interested in migrating to the current usage-based model, reach out to your Anthropic Contact or **[our Sales team](https://claude.com/contact-sales)**.
 
-[What is the Team plan?](https://support.claude.com/en/articles/9266767-what-is-the-team-plan)[How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)[Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)[HIPAA-ready Enterprise plans](https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans)[Purchase and manage seats on Enterprise plans](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans)
+* [What is the Team plan?](https://support.claude.com/en/articles/9266767-what-is-the-team-plan)
+* [How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)
+* [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
+* [Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)
+* [Purchase and manage seats on Enterprise plans](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans)

@@ -12,6 +12,7 @@ SEO, competitor research, and traffic analysis
 * Used in
 
   [Claude](https://claude.ai/directory/8194f7ea-e733-4e80-bd77-e504fd4ed5e5)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Semrush Holdings, Inc.](https://www.semrush.com)
 
@@ -30,16 +31,16 @@ Semrush data helps you plan and improve SEO, uncover competitor strategies, find
 
 Use Semrush in Claude:
 
-**Find keyword opportunities:**  
+**Find keyword opportunities:**
 "Find keyword opportunities for [your topic] with search volume over 1,000 and low difficulty. Group them by intent."
 
-**Surface competitor gaps:**  
+**Surface competitor gaps:**
 "Find keywords where [competitor] ranks in the top 5 but we do not appear at all. Prioritize by volume."
 
-**Audit a site:**  
+**Audit a site:**
 "Run a technical SEO audit on [domain] and list the top issues blocking crawlability or indexation."
 
-**Uncover paid gaps:**  
+**Uncover paid gaps:**
 "Find high-intent keywords in [niche] with good search volume that competitors are running ads on but we are not."
 
 ## Related connectors
@@ -56,7 +57,7 @@ January 26, 2026
 
 ### ActiveCampaign
 
-Autonomous marketing to transform how you work](/connectors/activecampaign)
+Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
 
 Sales and marketing
 
@@ -66,11 +67,11 @@ Claude Code
 
 June 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1d129f2351bec1d8462bd9_actively.ai.png)
+[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
 
 ### Actively
 
-1:1 account agents for GTM teams](/connectors/actively)
+1:1 account agents for GTM teams](https://claude.com/connectors/actively)
 
 Data
 
@@ -80,11 +81,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Sales and marketing
 
@@ -92,8 +93,8 @@ Claude
 
 May 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Journey Optimizer
 
-Understand and troubleshoot your Journeys and Campaigns](/connectors/adobe-journey-optimizer)
+Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)

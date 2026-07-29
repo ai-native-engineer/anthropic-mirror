@@ -4,247 +4,247 @@ Grid
 
 List
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224f466b800c4a5a016_a7b8978859371a024139418f3366bb0600ee1675-1000x1000.svg)
 
-Jun 24, 2026
+Jul 24, 2026
 
-Building effective human-agent teams
-
-Enterprise AI
-
-Building effective human-agent teams
-
-June 24, 2026
-
-[Building effective human-agent teams](/blog/building-effective-human-agent-teams)Building effective human-agent teams
-
-[Building effective human-agent teams](#)Building effective human-agent teams
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22c7f111435762ad994_1b398dbdfa4995ce5ce943aa87d8b78b2c2ba065-1000x1000.svg)
-
-Jun 22, 2026
-
-The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry
+How the product designer who built Claude Design uses it to explore ideas before building them
 
 Enterprise AI
 
-The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry
+How the product designer who built Claude Design uses it to explore ideas before building them
 
-June 22, 2026
+July 24, 2026
 
-[The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry](/blog/the-full-claude-desktop-experience-on-aws-google-cloud-and-microsoft-foundry)The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry
+[How the product designer who built Claude Design uses it to explore ideas before building them](https://claude.com/blog/how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them)How the product designer who built Claude Design uses it to explore ideas before building them
 
-[The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry](#)The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry
+[How the product designer who built Claude Design uses it to explore ideas before building them](#)How the product designer who built Claude Design uses it to explore ideas before building them
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d23008bbc20c0ffaeb6f_43abe7e54b56a891e74a8542944dfbd33f07f49c-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
-Jun 18, 2026
+Jul 24, 2026
 
-Centrally manage authorization for MCP connectors
-
-Enterprise AI
-
-Centrally manage authorization for MCP connectors
-
-June 18, 2026
-
-[Centrally manage authorization for MCP connectors](/blog/enterprise-managed-auth) Centrally manage authorization for MCP connectors
-
-[Centrally manage authorization for MCP connectors](#) Centrally manage authorization for MCP connectors
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
-
-Jun 5, 2026
-
-The Claude Cowork product guide
+Claude models explained: choosing the best model for your use case
 
 Enterprise AI
 
-The Claude Cowork product guide
+Claude models explained: choosing the best model for your use case
 
-June 5, 2026
+July 24, 2026
 
-[The Claude Cowork product guide](/blog/the-claude-cowork-product-guide)The Claude Cowork product guide
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
 
-[The Claude Cowork product guide](#)The Claude Cowork product guide
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2222403b092e0358b0e_cd4fd51deacd067d4e30aee4f4b149f6cba1b97b-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d6ec42bcf1c632f75_52f59749d1e033ff2675c6686a07bcce83fb5046-1000x1000.svg)
 
-Jun 5, 2026
+Jul 23, 2026
 
-How one Anthropic seller rebuilt his team's workflows with Claude Code
+Four role-based certifications for the people who put Claude to work for customers
+
+Enterprise AI
+
+Four role-based certifications for the people who put Claude to work for customers
+
+July 23, 2026
+
+[Four role-based certifications for the people who put Claude to work for customers](https://claude.com/blog/four-role-based-claude-certifications)Four role-based certifications for the people who put Claude to work for customers
+
+[Four role-based certifications for the people who put Claude to work for customers](#)Four role-based certifications for the people who put Claude to work for customers
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
+
+Jul 21, 2026
+
+How Anthropic secures its AI-native software development lifecycle
 
 Claude Code
 
-How one Anthropic seller rebuilt his team's workflows with Claude Code
+How Anthropic secures its AI-native software development lifecycle
 
-June 5, 2026
+July 21, 2026
 
-[How one Anthropic seller rebuilt his team's workflows with Claude Code](/blog/how-anthropic-uses-claude-gtm-engineering)How one Anthropic seller rebuilt his team's workflows with Claude Code
+[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
 
-[How one Anthropic seller rebuilt his team's workflows with Claude Code](#)How one Anthropic seller rebuilt his team's workflows with Claude Code
+[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22349f86cd1968deab7_f06ca06f9d08ca4a85f26357eb896c3730274507-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
 
-Jun 3, 2026
+Jul 21, 2026
 
-How Anthropic enables self-service data analytics with Claude
+How Datadog built a “universal machine tool” for Claude Code
 
-Enterprise AI
+Claude Code
 
-How Anthropic enables self-service data analytics with Claude
+How Datadog built a “universal machine tool” for Claude Code
 
-June 3, 2026
+July 21, 2026
 
-[How Anthropic enables self-service data analytics with Claude](/blog/how-anthropic-enables-self-service-data-analytics-with-claude)How Anthropic enables self-service data analytics with Claude
+[How Datadog built a “universal machine tool” for Claude Code](https://claude.com/blog/how-datadog-built-a-universal-machine-tool-for-claude-code)How Datadog built a “universal machine tool” for Claude Code
 
-[How Anthropic enables self-service data analytics with Claude](#)How Anthropic enables self-service data analytics with Claude
+[How Datadog built a “universal machine tool” for Claude Code](#)How Datadog built a “universal machine tool” for Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d226da492fb9f7f815ba_1c3d1af62032009538b8bf5864139ca124b06741-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f7912d5b05a5c7ed8ae86_Object-CodeChatCode.svg)
 
-Jun 3, 2026
+Jul 20, 2026
 
-Best practices for getting started with Claude Cowork
-
-Enterprise AI
-
-Best practices for getting started with Claude Cowork
-
-June 3, 2026
-
-[Best practices for getting started with Claude Cowork](/blog/best-practices-for-getting-started-with-claude-cowork)Best practices for getting started with Claude Cowork
-
-[Best practices for getting started with Claude Cowork](#)Best practices for getting started with Claude Cowork
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22753311132c8c37b39_d3dd09ad16c68461dc3fb01df5e84cf7ccafda6c-1000x1000.svg)
-
-May 27, 2026
-
-Using LLMs to secure source code
+Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
 
 Enterprise AI
 
-Using LLMs to secure source code
+Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
 
-May 27, 2026
+July 20, 2026
 
-[Using LLMs to secure source code](/blog/using-llms-to-secure-source-code)Using LLMs to secure source code
+[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](https://claude.com/blog/working-at-the-frontier-rakuten)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
 
-[Using LLMs to secure source code](#)Using LLMs to secure source code
+[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](#)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d7d4c10df6024f7bc_ee580919acaba2ddc07425f7a7390c8962cadc94-1000x1000.svg)
+
+Jul 17, 2026
+
+Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
+
+Enterprise AI
+
+Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
+
+July 17, 2026
+
+[Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems](https://claude.com/blog/working-at-the-frontier-cursor)Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
+
+[Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems](#)Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
 
-May 27, 2026
+Jul 17, 2026
 
-Zero Trust for AI agents
-
-Enterprise AI
-
-Zero Trust for AI agents
-
-May 27, 2026
-
-[Zero Trust for AI agents](/blog/zero-trust-for-ai-agents)Zero Trust for AI agents
-
-[Zero Trust for AI agents](#)Zero Trust for AI agents
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
-
-May 22, 2026
-
-How Anthropic's finance team uses Claude to shape the narrative behind the numbers
+Zero risk isn't the job: a CISO's guide to agentic AI
 
 Enterprise AI
 
-How Anthropic's finance team uses Claude to shape the narrative behind the numbers
+Zero risk isn't the job: a CISO's guide to agentic AI
 
-May 22, 2026
+July 17, 2026
 
-[How Anthropic's finance team uses Claude to shape the narrative behind the numbers](/blog/how-anthropics-finance-team-uses-claude-to-shape-the-narrative-behind-the-numbers)How Anthropic's finance team uses Claude to shape the narrative behind the numbers
+[Zero risk isn't the job: a CISO's guide to agentic AI](https://claude.com/blog/ciso-guide-to-agentic-ai)Zero risk isn't the job: a CISO's guide to agentic AI
 
-[How Anthropic's finance team uses Claude to shape the narrative behind the numbers](#)How Anthropic's finance team uses Claude to shape the narrative behind the numbers
+[Zero risk isn't the job: a CISO's guide to agentic AI](#)Zero risk isn't the job: a CISO's guide to agentic AI
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2260bfc90348429f9c3_cd9cf56a7f049285b7c1c8786c0a600cf3d7f317-1000x1000.svg)
 
-May 21, 2026
+Jul 16, 2026
 
-Claude now works with more security and compliance tools
+How Anthropic runs large-scale code migrations with Claude Code
 
-Enterprise AI
+Claude Code
 
-Claude now works with more security and compliance tools
+How Anthropic runs large-scale code migrations with Claude Code
 
-May 21, 2026
+July 16, 2026
 
-[Claude now works with more security and compliance tools](/blog/compliance-api-security-partners)Claude now works with more security and compliance tools
+[How Anthropic runs large-scale code migrations with Claude Code](https://claude.com/blog/ai-code-migration)How Anthropic runs large-scale code migrations with Claude Code
 
-[Claude now works with more security and compliance tools](#)Claude now works with more security and compliance tools
+[How Anthropic runs large-scale code migrations with Claude Code](#)How Anthropic runs large-scale code migrations with Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22753311132c8c37b39_d3dd09ad16c68461dc3fb01df5e84cf7ccafda6c-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d227246bc2b5a3cc3626_9f6a378a1e3592cf8d27447457409ba12284faef-1000x1000.svg)
 
-May 21, 2026
+Jul 16, 2026
 
-How our partners are putting Opus to work for cybersecurity
-
-Enterprise AI
-
-How our partners are putting Opus to work for cybersecurity
-
-May 21, 2026
-
-[How our partners are putting Opus to work for cybersecurity](/blog/how-our-partners-are-putting-opus-to-work-for-cybersecurity)How our partners are putting Opus to work for cybersecurity
-
-[How our partners are putting Opus to work for cybersecurity](#)How our partners are putting Opus to work for cybersecurity
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22349f86cd1968deab7_f06ca06f9d08ca4a85f26357eb896c3730274507-1000x1000.svg)
-
-May 20, 2026
-
-How an Anthropic sales leader uses Claude Cowork to run a 4,000-account book
+Working with Claude Fable 5 in Claude Cowork
 
 Enterprise AI
 
-How an Anthropic sales leader uses Claude Cowork to run a 4,000-account book
+Working with Claude Fable 5 in Claude Cowork
 
-May 20, 2026
+July 16, 2026
 
-[How an Anthropic sales leader uses Claude Cowork to run a 4,000-account book](/blog/how-an-anthropic-sales-leader-uses-claude-cowork-to-run-a-4-000-account-book)How an Anthropic sales leader uses Claude Cowork to run a 4,000-account book
+[Working with Claude Fable 5 in Claude Cowork](https://claude.com/blog/working-with-claude-fable-5-in-claude-cowork)Working with Claude Fable 5 in Claude Cowork
 
-[How an Anthropic sales leader uses Claude Cowork to run a 4,000-account book](#)How an Anthropic sales leader uses Claude Cowork to run a 4,000-account book
+[Working with Claude Fable 5 in Claude Cowork](#)Working with Claude Fable 5 in Claude Cowork
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+
+Jul 15, 2026
+
+Working at the frontier: Why Base44 trusts Claude Fable 5 with their most challenging engineering work
+
+Enterprise AI
+
+Working at the frontier: Why Base44 trusts Claude Fable 5 with their most challenging engineering work
+
+July 15, 2026
+
+[Working at the frontier: Why Base44 trusts Claude Fable 5 with their most challenging engineering work](https://claude.com/blog/working-at-the-frontier-why-base44-trusts-claude-fable-5-with-their-most-challenging-engineering-work)Working at the frontier: Why Base44 trusts Claude Fable 5 with their most challenging engineering work
+
+[Working at the frontier: Why Base44 trusts Claude Fable 5 with their most challenging engineering work](#)Working at the frontier: Why Base44 trusts Claude Fable 5 with their most challenging engineering work
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2287f90c57df4c9dd97_c1ef4c0b6882dfe985555b52999d370ea88a3c50-1000x1000.svg)
+
+Jul 13, 2026
+
+Working at the frontier: How Hebbia builds AI for financial diligence that can't miss a detail
+
+Enterprise AI
+
+Working at the frontier: How Hebbia builds AI for financial diligence that can't miss a detail
+
+July 13, 2026
+
+[Working at the frontier: How Hebbia builds AI for financial diligence that can't miss a detail](https://claude.com/blog/working-at-the-frontier-how-hebbia-builds-ai-for-financial-diligence-that-cant-miss-a-detail)Working at the frontier: How Hebbia builds AI for financial diligence that can't miss a detail
+
+[Working at the frontier: How Hebbia builds AI for financial diligence that can't miss a detail](#)Working at the frontier: How Hebbia builds AI for financial diligence that can't miss a detail
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22c10cdf166eebe4c84_d4b15045df86e43e5b5dc7b25784321ce8b5dd88-1000x1000.svg)
+
+Jul 10, 2026
+
+Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night
+
+Enterprise AI
+
+Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night
+
+July 10, 2026
+
+[Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night](https://claude.com/blog/working-at-the-frontier-how-cognition-trusts-claude-fable-5-to-work-through-the-night)Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night
+
+[Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night](#)Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e7cc0b92f0562c5e3_a199a67a3347dcc102d63943338e14cb3b4e5405-1000x1000.svg)
 
-May 15, 2026
+Jul 8, 2026
 
-Deploying Claude across the legal industry
-
-Enterprise AI
-
-Deploying Claude across the legal industry
-
-May 15, 2026
-
-[Deploying Claude across the legal industry](/blog/deploying-claude-across-the-legal-industry)Deploying Claude across the legal industry
-
-[Deploying Claude across the legal industry](#)Deploying Claude across the legal industry
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e13864f88ea55c2d8_b5c98d26c46edc43193e7f7e28a00633a538bb9c-1000x1000.svg)
-
-May 14, 2026
-
-How Claude Code works in large codebases: Best practices and where to start
+Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work
 
 Enterprise AI
 
-How Claude Code works in large codebases: Best practices and where to start
+Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work
 
-May 14, 2026
+July 8, 2026
 
-[How Claude Code works in large codebases: Best practices and where to start](/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start)How Claude Code works in large codebases: Best practices and where to start
+[Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work](https://claude.com/blog/working-at-the-frontier-how-thomson-reuters-builds-ai-for-high--stakes-professional-work)Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work
 
-[How Claude Code works in large codebases: Best practices and where to start](#)How Claude Code works in large codebases: Best practices and where to start
+[Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work](#)Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work
 
-[View more](?1e959936_page=2)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2261b7d4c0eae4fdf9b_036c01a9e427ea0f4d1e6c7221e4f6dce2259bf7-1000x1000.svg)
+
+Jul 8, 2026
+
+How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds
+
+Enterprise AI
+
+How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds
+
+July 8, 2026
+
+[How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds](https://claude.com/blog/how-anthropics-marketing-operations-team-uses-claude-cowork-to-automate-reporting-and-campaign-builds)How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds
+
+[How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds](#)How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds
+
+[View more](https://claude.com/blog-category/enterprise-ai?1e959936_page=2)
 
 Category
 
@@ -252,23 +252,7 @@ Product
 
 Usecase
 
-### Building effective human-agent teams
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-June 24, 2026
-
-[Building effective human-agent teams](/blog/building-effective-human-agent-teams)Building effective human-agent teams
-
-[Building effective human-agent teams](#)Building effective human-agent teams
-
-### The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry
+### How the product designer who built Claude Design uses it to explore ideas before building them
 
 Category
 
@@ -278,29 +262,13 @@ Product
 
 Usecase
 
-June 22, 2026
+July 24, 2026
 
-[The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry](/blog/the-full-claude-desktop-experience-on-aws-google-cloud-and-microsoft-foundry)The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry
+[How the product designer who built Claude Design uses it to explore ideas before building them](https://claude.com/blog/how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them)How the product designer who built Claude Design uses it to explore ideas before building them
 
-[The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry](#)The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry
+[How the product designer who built Claude Design uses it to explore ideas before building them](#)How the product designer who built Claude Design uses it to explore ideas before building them
 
-### Centrally manage authorization for MCP connectors
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-June 18, 2026
-
-[Centrally manage authorization for MCP connectors](/blog/enterprise-managed-auth) Centrally manage authorization for MCP connectors
-
-[Centrally manage authorization for MCP connectors](#) Centrally manage authorization for MCP connectors
-
-### The Claude Cowork product guide
+### Claude models explained: choosing the best model for your use case
 
 Category
 
@@ -310,13 +278,29 @@ Product
 
 Usecase
 
-June 5, 2026
+July 24, 2026
 
-[The Claude Cowork product guide](/blog/the-claude-cowork-product-guide)The Claude Cowork product guide
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
 
-[The Claude Cowork product guide](#)The Claude Cowork product guide
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
 
-### How one Anthropic seller rebuilt his team's workflows with Claude Code
+### Four role-based certifications for the people who put Claude to work for customers
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+July 23, 2026
+
+[Four role-based certifications for the people who put Claude to work for customers](https://claude.com/blog/four-role-based-claude-certifications)Four role-based certifications for the people who put Claude to work for customers
+
+[Four role-based certifications for the people who put Claude to work for customers](#)Four role-based certifications for the people who put Claude to work for customers
+
+### How Anthropic secures its AI-native software development lifecycle
 
 Category
 
@@ -326,13 +310,29 @@ Product
 
 Usecase
 
-June 5, 2026
+July 21, 2026
 
-[How one Anthropic seller rebuilt his team's workflows with Claude Code](/blog/how-anthropic-uses-claude-gtm-engineering)How one Anthropic seller rebuilt his team's workflows with Claude Code
+[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
 
-[How one Anthropic seller rebuilt his team's workflows with Claude Code](#)How one Anthropic seller rebuilt his team's workflows with Claude Code
+[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
 
-### How Anthropic enables self-service data analytics with Claude
+### How Datadog built a “universal machine tool” for Claude Code
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+July 21, 2026
+
+[How Datadog built a “universal machine tool” for Claude Code](https://claude.com/blog/how-datadog-built-a-universal-machine-tool-for-claude-code)How Datadog built a “universal machine tool” for Claude Code
+
+[How Datadog built a “universal machine tool” for Claude Code](#)How Datadog built a “universal machine tool” for Claude Code
+
+### Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
 
 Category
 
@@ -342,29 +342,13 @@ Product
 
 Usecase
 
-June 3, 2026
+July 20, 2026
 
-[How Anthropic enables self-service data analytics with Claude](/blog/how-anthropic-enables-self-service-data-analytics-with-claude)How Anthropic enables self-service data analytics with Claude
+[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](https://claude.com/blog/working-at-the-frontier-rakuten)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
 
-[How Anthropic enables self-service data analytics with Claude](#)How Anthropic enables self-service data analytics with Claude
+[Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5](#)Working at the frontier: How Rakuten builds agents overnight with Claude Fable 5
 
-### Best practices for getting started with Claude Cowork
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-June 3, 2026
-
-[Best practices for getting started with Claude Cowork](/blog/best-practices-for-getting-started-with-claude-cowork)Best practices for getting started with Claude Cowork
-
-[Best practices for getting started with Claude Cowork](#)Best practices for getting started with Claude Cowork
-
-### Using LLMs to secure source code
+### Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
 
 Category
 
@@ -374,29 +358,13 @@ Product
 
 Usecase
 
-May 27, 2026
+July 17, 2026
 
-[Using LLMs to secure source code](/blog/using-llms-to-secure-source-code)Using LLMs to secure source code
+[Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems](https://claude.com/blog/working-at-the-frontier-cursor)Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
 
-[Using LLMs to secure source code](#)Using LLMs to secure source code
+[Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems](#)Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems
 
-### Zero Trust for AI agents
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-May 27, 2026
-
-[Zero Trust for AI agents](/blog/zero-trust-for-ai-agents)Zero Trust for AI agents
-
-[Zero Trust for AI agents](#)Zero Trust for AI agents
-
-### How Anthropic's finance team uses Claude to shape the narrative behind the numbers
+### Zero risk isn't the job: a CISO's guide to agentic AI
 
 Category
 
@@ -406,13 +374,29 @@ Product
 
 Usecase
 
-May 22, 2026
+July 17, 2026
 
-[How Anthropic's finance team uses Claude to shape the narrative behind the numbers](/blog/how-anthropics-finance-team-uses-claude-to-shape-the-narrative-behind-the-numbers)How Anthropic's finance team uses Claude to shape the narrative behind the numbers
+[Zero risk isn't the job: a CISO's guide to agentic AI](https://claude.com/blog/ciso-guide-to-agentic-ai)Zero risk isn't the job: a CISO's guide to agentic AI
 
-[How Anthropic's finance team uses Claude to shape the narrative behind the numbers](#)How Anthropic's finance team uses Claude to shape the narrative behind the numbers
+[Zero risk isn't the job: a CISO's guide to agentic AI](#)Zero risk isn't the job: a CISO's guide to agentic AI
 
-### Claude now works with more security and compliance tools
+### How Anthropic runs large-scale code migrations with Claude Code
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+July 16, 2026
+
+[How Anthropic runs large-scale code migrations with Claude Code](https://claude.com/blog/ai-code-migration)How Anthropic runs large-scale code migrations with Claude Code
+
+[How Anthropic runs large-scale code migrations with Claude Code](#)How Anthropic runs large-scale code migrations with Claude Code
+
+### Working with Claude Fable 5 in Claude Cowork
 
 Category
 
@@ -422,29 +406,13 @@ Product
 
 Usecase
 
-May 21, 2026
+July 16, 2026
 
-[Claude now works with more security and compliance tools](/blog/compliance-api-security-partners)Claude now works with more security and compliance tools
+[Working with Claude Fable 5 in Claude Cowork](https://claude.com/blog/working-with-claude-fable-5-in-claude-cowork)Working with Claude Fable 5 in Claude Cowork
 
-[Claude now works with more security and compliance tools](#)Claude now works with more security and compliance tools
+[Working with Claude Fable 5 in Claude Cowork](#)Working with Claude Fable 5 in Claude Cowork
 
-### How our partners are putting Opus to work for cybersecurity
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-May 21, 2026
-
-[How our partners are putting Opus to work for cybersecurity](/blog/how-our-partners-are-putting-opus-to-work-for-cybersecurity)How our partners are putting Opus to work for cybersecurity
-
-[How our partners are putting Opus to work for cybersecurity](#)How our partners are putting Opus to work for cybersecurity
-
-### How an Anthropic sales leader uses Claude Cowork to run a 4,000-account book
+### Working at the frontier: Why Base44 trusts Claude Fable 5 with their most challenging engineering work
 
 Category
 
@@ -454,29 +422,13 @@ Product
 
 Usecase
 
-May 20, 2026
+July 15, 2026
 
-[How an Anthropic sales leader uses Claude Cowork to run a 4,000-account book](/blog/how-an-anthropic-sales-leader-uses-claude-cowork-to-run-a-4-000-account-book)How an Anthropic sales leader uses Claude Cowork to run a 4,000-account book
+[Working at the frontier: Why Base44 trusts Claude Fable 5 with their most challenging engineering work](https://claude.com/blog/working-at-the-frontier-why-base44-trusts-claude-fable-5-with-their-most-challenging-engineering-work)Working at the frontier: Why Base44 trusts Claude Fable 5 with their most challenging engineering work
 
-[How an Anthropic sales leader uses Claude Cowork to run a 4,000-account book](#)How an Anthropic sales leader uses Claude Cowork to run a 4,000-account book
+[Working at the frontier: Why Base44 trusts Claude Fable 5 with their most challenging engineering work](#)Working at the frontier: Why Base44 trusts Claude Fable 5 with their most challenging engineering work
 
-### Deploying Claude across the legal industry
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-May 15, 2026
-
-[Deploying Claude across the legal industry](/blog/deploying-claude-across-the-legal-industry)Deploying Claude across the legal industry
-
-[Deploying Claude across the legal industry](#)Deploying Claude across the legal industry
-
-### How Claude Code works in large codebases: Best practices and where to start
+### Working at the frontier: How Hebbia builds AI for financial diligence that can't miss a detail
 
 Category
 
@@ -486,15 +438,63 @@ Product
 
 Usecase
 
-May 14, 2026
+July 13, 2026
 
-[How Claude Code works in large codebases: Best practices and where to start](/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start)How Claude Code works in large codebases: Best practices and where to start
+[Working at the frontier: How Hebbia builds AI for financial diligence that can't miss a detail](https://claude.com/blog/working-at-the-frontier-how-hebbia-builds-ai-for-financial-diligence-that-cant-miss-a-detail)Working at the frontier: How Hebbia builds AI for financial diligence that can't miss a detail
 
-[How Claude Code works in large codebases: Best practices and where to start](#)How Claude Code works in large codebases: Best practices and where to start
+[Working at the frontier: How Hebbia builds AI for financial diligence that can't miss a detail](#)Working at the frontier: How Hebbia builds AI for financial diligence that can't miss a detail
 
-[View more](?2f226f2c_page=2)
+### Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night
 
-1 / 3
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+July 10, 2026
+
+[Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night](https://claude.com/blog/working-at-the-frontier-how-cognition-trusts-claude-fable-5-to-work-through-the-night)Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night
+
+[Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night](#)Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night
+
+### Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+July 8, 2026
+
+[Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work](https://claude.com/blog/working-at-the-frontier-how-thomson-reuters-builds-ai-for-high--stakes-professional-work)Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work
+
+[Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work](#)Working at the frontier: How Thomson Reuters builds AI for high-stakes professional work
+
+### How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+July 8, 2026
+
+[How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds](https://claude.com/blog/how-anthropics-marketing-operations-team-uses-claude-cowork-to-automate-reporting-and-campaign-builds)How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds
+
+[How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds](#)How Anthropic's marketing operations team uses Claude Cowork to automate reporting and campaign builds
+
+[View more](https://claude.com/blog-category/enterprise-ai?2f226f2c_page=2)
+
+1 / 4
 
 No posts for those filters
 
@@ -506,7 +506,8 @@ Clear all filters
 
 eBook
 
-## Building trusted AI in the enterprise
+## Building trusted
+AI in the enterprise
 
 Anthropic’s guide to starting, scaling, and succeeding based on real-world examples and best practices
 

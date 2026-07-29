@@ -2,7 +2,7 @@
 
 # Use plugins in Claude
 
-Updated over a month ago
+May 29, 2026
 
 Plugins are available to all paid plans (Pro, Max, Team, Enterprise).
 
@@ -37,13 +37,13 @@ In Cowork, open the "Cowork" tab first, then open **Customize**.
 
 You can also upload a custom plugin file if you built one yourself or received one from a colleague. On Claude Desktop and in Cowork, plugins you add yourself are saved locally to your computer.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2100409211/fc01614dde1a616fa31ffaa9cb04/47bacf5b-a810-45b5-a468-9769f1a58ef8?expires=1782460800&signature=40f6776be4794fe50b79f7ab920d6c791d3ec1ab950fcda250c8f70682bf4e76&req=diEnFs1%2BlINeWPMW1HO4zZF3IhfZNfVdxakFVfq5WwzavdpsH5M%2FCYXSFFNl%0ApRCcYrtZ65Mgrw3db2g%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2100409211/fc01614dde1a616fa31ffaa9cb04/47bacf5b-a810-45b5-a468-9769f1a58ef8?expires=1782460800&signature=40f6776be4794fe50b79f7ab920d6c791d3ec1ab950fcda250c8f70682bf4e76&req=diEnFs1%2BlINeWPMW1HO4zZF3IhfZNfVdxakFVfq5WwzavdpsH5M%2FCYXSFFNl%0ApRCcYrtZ65Mgrw3db2g%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2100409211/fc01614dde1a616fa31ffaa9cb04/47bacf5b-a810-45b5-a468-9769f1a58ef8?expires=1785295800&signature=7e25aafef73e972e85b350f67c184224d14b321984a9bc60d89180cf694aa1a0&req=diEnFs1%2BlINeWPMW1HO4zZF3IhDfOvBdxakFVfq5WwxTl%2BLrntHPCHR27591%0At3s2Ma3ndhwWKQSF4L0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2100409211/fc01614dde1a616fa31ffaa9cb04/47bacf5b-a810-45b5-a468-9769f1a58ef8?expires=1785295800&signature=7e25aafef73e972e85b350f67c184224d14b321984a9bc60d89180cf694aa1a0&req=diEnFs1%2BlINeWPMW1HO4zZF3IhDfOvBdxakFVfq5WwxTl%2BLrntHPCHR27591%0At3s2Ma3ndhwWKQSF4L0%3D%0A)
 
 ## Use skills from plugins
 
 Each plugin you install adds skills you can use while working with Claude. Type "/" or click the "+" button to see the available skills from your installed plugins, in chat and in Cowork. Click any skill to see its details.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2157396844/4a790e10f5b88df770783df1d7e9/image.png?expires=1782460800&signature=767528a53f344a26e3333ea73d3b28ad213789e8b3bcc8da4c87b4f97ba12486&req=diEiEcp3m4lbXfMW1HO4zf4NBPT4hUCcmKUxugP2BQt3DjFkpl%2B2ZLy3xBCG%0Aaa%2B2xFqovVzdNd0U0bY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2157396844/4a790e10f5b88df770783df1d7e9/image.png?expires=1782460800&signature=767528a53f344a26e3333ea73d3b28ad213789e8b3bcc8da4c87b4f97ba12486&req=diEiEcp3m4lbXfMW1HO4zf4NBPT4hUCcmKUxugP2BQt3DjFkpl%2B2ZLy3xBCG%0Aaa%2B2xFqovVzdNd0U0bY%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2157396844/4a790e10f5b88df770783df1d7e9/image.png?expires=1785295800&signature=ae04aa937734638ba84087432b828ba788367dc7e77e5f115d12f133b0dca8ec&req=diEiEcp3m4lbXfMW1HO4zf4NBPP%2BikWcmKUxugP2BQvzp6i0HzHq7pr1GAa7%0AHLGHtPnbsre9IDSFntE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2157396844/4a790e10f5b88df770783df1d7e9/image.png?expires=1785295800&signature=ae04aa937734638ba84087432b828ba788367dc7e77e5f115d12f133b0dca8ec&req=diEiEcp3m4lbXfMW1HO4zf4NBPP%2BikWcmKUxugP2BQvzp6i0HzHq7pr1GAa7%0AHLGHtPnbsre9IDSFntE%3D%0A)
 
 ## Customize a plugin
 
@@ -87,4 +87,8 @@ On Enterprise plans, your admin may customize which plugins are available to you
 
 For guidance on setting up and managing plugins organization-wide, see **[Manage plugins for your organization](https://support.claude.com/en/articles/13837433-)**.
 
-[Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)[Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)[Manage plugins for your organization](https://support.claude.com/en/articles/13837433-manage-plugins-for-your-organization)[Install financial services plugins](https://support.claude.com/en/articles/13851150-install-financial-services-plugins)[Browse skills, connectors, and plugins in one directory](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory)
+* [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
+* [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
+* [Manage plugins for your organization](https://support.claude.com/en/articles/13837433-manage-plugins-for-your-organization)
+* [Browse skills, connectors, and plugins in one directory](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory)
+* [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)

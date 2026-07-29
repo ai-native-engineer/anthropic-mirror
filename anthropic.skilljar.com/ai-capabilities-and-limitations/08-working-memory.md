@@ -23,24 +23,49 @@ Before you read
 
 You ask AI to **review a 50-page contract**. How closely do you need to check the result? Pick a spot on the continuum, then lock in your guess.
 
-![](ed975e22-1033-4415-b205-6194868cd5a8)
+![](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6rh0oaxpxl8bv3641a1ejj76o%2Fpublic%2F1774568560%2FpictoInference.1774568559957.png)
 ![]()
 
-##
+## Working Memory
 
-Capability Limitation
+What is the AI paying attention to right now?
 
-Trust it Spot-check Check details Verify carefully High risk
+Capability
+Limitation
+
+Trust it
+Spot-check
+Check details
+Verify carefully
+High risk
 
 Your guess
 
 Typical
 
+Material fits comfortably, session is current, you supply relevant context
+Very long docs/conversations, expecting cross-session continuity (the cliff)
+
 What this enables
+
+* Rapid in-session adaptation (style guides, samples apply immediately)
+* Works with *your* material: your docs, your constraints
+* Precision through specificity. Context is leverage.
 
 Where it characteristically fails
 
+* **Hard length limits**: silent truncation when exceeded
+* **Lost in the middle**: attention isn’t uniform across the window
+* **No persistent memory by default**: each session starts from zero
+* **No learning from you**: corrections don’t change the model, only the context
+
 Product features that push the edge out
+
+* **Memory**: persists facts across sessions
+* **Compaction / summarization**: condenses old turns to free room
+* **Projects / workspaces**: standing docs reliably in context
+* **Skills**: minimize context use until needed
+* **Larger context windows**: push the cliff further out
 
 Pick a stop, then lock in your guess. The lesson opens up once you do.
 
@@ -58,12 +83,19 @@ Pictogram size
 
 Palette
 
-Sky → Clay Olive → Clay Cactus → Fig Slate → Clay
+Sky → Clay
+Olive → Clay
+Cactus → Fig
+Slate → Clay
 
 #### Key takeaways
 
 * **Working Memory** is the fact that the AI model has a fixed context window that it can attend to.
-+ **Capability zone:** your material fits comfortably, the session is current, you're supplying relevant context. + **Limitation zone:** very long documents or conversations, expecting continuity across sessions, burying critical info in the middle of long input. + **This property has a cliff** rather than a gradient. Silent truncation is the failure mode, and you won't always be warned. + **The model doesn't learn from your corrections.** It only responds to what's currently in context. + **Memory features, compaction, projects, larger windows, and multi-agent workflows** all exist to push this cliff further out.
+  + **Capability zone:** your material fits comfortably, the session is current, you're supplying relevant context.
+  + **Limitation zone:** very long documents or conversations, expecting continuity across sessions, burying critical info in the middle of long input.
+  + **This property has a cliff** rather than a gradient. Silent truncation is the failure mode, and you won't always be warned.
+  + **The model doesn't learn from your corrections.** It only responds to what's currently in context.
+  + **Memory features, compaction, projects, larger windows, and multi-agent workflows** all exist to push this cliff further out.
 * **4D connection:** Working Memory is what Description acts on. Knowing how the window works tells you how to structure context, when to front-load, and when to start fresh.
 
 ## Exercises
@@ -76,7 +108,9 @@ Pick a task from your Lesson 1 list that benefits from context only you hold: a 
 
 Now run three probes:
 
-1. **Probe 1: Cold start vs. context.** Ask for your task with zero context. Just the bare request. Save the output. Then start a fresh conversation and run the same task, this time supplying your style guide, past example, or constraints upfront. Compare both outputs against your "good" definition. Measure the gap. 2. **Probe 2: Lost in the middle.** Take a longer document (or paste together a few paragraphs of reference material). Bury one specific, important instruction in the middle of it. Ask a question whose correct answer depends on that buried instruction. Did the AI catch it? Now move that instruction to the very top and ask again. Compare. 3. **Probe 3: The blank slate.** Have a short exchange where you teach the AI something specific about your work context, or correct it on something it got wrong. Then open a brand-new conversation and ask a question that assumes it remembers what you taught it. Watch it start from zero.
+1. **Probe 1: Cold start vs. context.** Ask for your task with zero context. Just the bare request. Save the output. Then start a fresh conversation and run the same task, this time supplying your style guide, past example, or constraints upfront. Compare both outputs against your "good" definition. Measure the gap.
+2. **Probe 2: Lost in the middle.** Take a longer document (or paste together a few paragraphs of reference material). Bury one specific, important instruction in the middle of it. Ask a question whose correct answer depends on that buried instruction. Did the AI catch it? Now move that instruction to the very top and ask again. Compare.
+3. **Probe 3: The blank slate.** Have a short exchange where you teach the AI something specific about your work context, or correct it on something it got wrong. Then open a brand-new conversation and ask a question that assumes it remembers what you taught it. Watch it start from zero.
 
 Go back to your task list and add a third annotation: which tasks need standing context set up (a project, saved instructions, uploaded reference docs) to be worth running, and which work fine cold?
 
@@ -98,7 +132,6 @@ As you progress through the course, we'd love to hear from you about how you are
 #### Acknowledgments and license
 
 *Copyright 2026 Anthropic. Original work building on the AI Fluency Framework developed by Prof. Rick Dakan (Ringling College of Art and Design) and Prof. Joseph Feller (University College Cork). Released under the CC BY-NC-SA 4.0 license.*
-
 <!-- youtube: QJjt4wF4iHM -->
 
 [![Working Memory](https://img.youtube.com/vi/QJjt4wF4iHM/hqdefault.jpg)](https://www.youtube.com/watch?v=QJjt4wF4iHM)

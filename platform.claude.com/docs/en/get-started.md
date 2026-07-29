@@ -8,8 +8,8 @@ Make your first API call to Claude and build a simple web search assistant.
 
 ## Prerequisites
 
-- An Anthropic [Console account](/)
-- An [API key](/settings/keys)
+* A [Claude Console account](https://platform.claude.com)
+* An [API key](/settings/keys)
 
 ## Call the API
 
@@ -33,7 +33,7 @@ Make your first API call to Claude and build a simple web search assistant.
           -H "x-api-key: $ANTHROPIC_API_KEY" \
           -H "anthropic-version: 2023-06-01" \
           -d '{
-            "model": "claude-opus-4-8",
+            "model": "claude-opus-5",
             "max_tokens": 1000,
             "messages": [
               {
@@ -48,10 +48,10 @@ Make your first API call to Claude and build a simple web search assistant.
 
         ```json Output
         {
+          "model": "claude-opus-5",
           "id": "msg_013mHbppMPd2PrVJzGMZPt2D",
           "type": "message",
           "role": "assistant",
-          "model": "claude-opus-4-8",
           "content": [
             {
               "type": "text",
@@ -59,6 +59,8 @@ Make your first API call to Claude and build a simple web search assistant.
             }
           ],
           "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "stop_details": null,
           "usage": {
             "input_tokens": 21,
             "output_tokens": 305
@@ -102,7 +104,7 @@ Make your first API call to Claude and build a simple web search assistant.
 
         ```bash CLI
         ant messages create \
-          --model claude-opus-4-8 \
+          --model claude-opus-5 \
           --max-tokens 1000 \
           --message '{
             role: user,
@@ -114,10 +116,10 @@ Make your first API call to Claude and build a simple web search assistant.
 
         ```json Output
         {
+          "model": "claude-opus-5",
           "id": "msg_01N1ycuCkM5Mzd7WhTU4fwST",
           "type": "message",
           "role": "assistant",
-          "model": "claude-opus-4-8",
           "content": [
             {
               "type": "text",
@@ -125,6 +127,8 @@ Make your first API call to Claude and build a simple web search assistant.
             }
           ],
           "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "stop_details": null,
           "usage": { "input_tokens": 21, "output_tokens": 305 }
         }
         ```
@@ -159,7 +163,7 @@ Make your first API call to Claude and build a simple web search assistant.
         client = anthropic.Anthropic()
 
         message = client.messages.create(
-            model="claude-opus-4-8",
+            model="claude-opus-5",
             max_tokens=1000,
             messages=[
                 {
@@ -168,7 +172,10 @@ Make your first API call to Claude and build a simple web search assistant.
                 }
             ],
         )
-        print(message.content)
+
+        for block in message.content:
+            if block.type == "text":
+                print(block.text)
         ```
       </Step>
 
@@ -177,8 +184,12 @@ Make your first API call to Claude and build a simple web search assistant.
         python quickstart.py
         ```
 
-        ```text Output
-        [TextBlock(citations=None, text='Here are some effective search strategies to find the latest developments in renewable energy:\n\n## General Search Terms\n- "Renewable energy news 2025"\n- ...', type='text')]
+        ```text Output wrap
+        Here are some effective search strategies to find the latest developments in renewable energy:
+
+        ## General Search Terms
+        - "Renewable energy news 2025"
+        - ...
         ```
       </Step>
     </Steps>
@@ -212,7 +223,7 @@ Make your first API call to Claude and build a simple web search assistant.
         const client = new Anthropic();
 
         const message = await client.messages.create({
-          model: "claude-opus-4-8",
+          model: "claude-opus-5",
           max_tokens: 1000,
           messages: [
             {
@@ -221,7 +232,12 @@ Make your first API call to Claude and build a simple web search assistant.
             }
           ]
         });
-        console.log(message.content);
+
+        for (const block of message.content) {
+          if (block.type === "text") {
+            console.log(block.text);
+          }
+        }
         ```
       </Step>
 
@@ -230,17 +246,12 @@ Make your first API call to Claude and build a simple web search assistant.
         npx tsx quickstart.ts
         ```
 
-        ```text Output
-        [
-          {
-            type: 'text',
-            text: 'Here are some effective search strategies to find the latest developments in renewable energy:\n' +
-              '\n' +
-              '## General Search Terms\n' +
-              '- "Renewable energy news 2025"\n' +
-              '- ...'
-          }
-        ]
+        ```text Output wrap
+        Here are some effective search strategies to find the latest developments in renewable energy:
+
+        ## General Search Terms
+        - "Renewable energy news 2025"
+        - ...
         ```
       </Step>
     </Steps>
@@ -277,7 +288,7 @@ Make your first API call to Claude and build a simple web search assistant.
 
         var message = await client.Messages.Create(new MessageCreateParams
         {
-            Model = Model.ClaudeOpus4_8,
+            Model = Model.ClaudeOpus5,
             MaxTokens = 1000,
             Messages =
             [
@@ -291,7 +302,10 @@ Make your first API call to Claude and build a simple web search assistant.
 
         foreach (var block in message.Content)
         {
-            Console.WriteLine(block);
+            if (block.TryPickText(out var textBlock))
+            {
+                Console.WriteLine(textBlock.Text);
+            }
         }
         ```
       </Step>
@@ -301,11 +315,12 @@ Make your first API call to Claude and build a simple web search assistant.
         dotnet run
         ```
 
-        ```text Output
-        {
-          "type": "text",
-          "text": "Here are some effective search strategies to find the latest developments in renewable energy:\n\n## General Search Terms\n- \"Renewable energy news 2025\"\n- ..."
-        }
+        ```text Output wrap
+        Here are some effective search strategies to find the latest developments in renewable energy:
+
+        ## General Search Terms
+        - "Renewable energy news 2025"
+        - ...
         ```
       </Step>
     </Steps>
@@ -349,7 +364,7 @@ Make your first API call to Claude and build a simple web search assistant.
         	client := anthropic.NewClient()
 
         	message, err := client.Messages.New(context.Background(), anthropic.MessageNewParams{
-        		Model:     anthropic.ModelClaudeOpus4_8,
+        		Model:     anthropic.ModelClaudeOpus5,
         		MaxTokens: 1000,
         		Messages: []anthropic.MessageParam{
         			anthropic.NewUserMessage(anthropic.NewTextBlock("What should I search for to find the latest developments in renewable energy?")),
@@ -359,7 +374,11 @@ Make your first API call to Claude and build a simple web search assistant.
         		log.Fatal(err)
         	}
 
-        	fmt.Println(message.JSON.Content.Raw())
+        	for _, block := range message.Content {
+        		if textBlock, ok := block.AsAny().(anthropic.TextBlock); ok {
+        			fmt.Println(textBlock.Text)
+        		}
+        	}
         }
         ```
       </Step>
@@ -369,8 +388,12 @@ Make your first API call to Claude and build a simple web search assistant.
         go run .
         ```
 
-        ```text Output
-        [{"type":"text","text":"Here are some effective search strategies to find the latest developments in renewable energy:\n\n## General Search Terms\n- \"Renewable energy news 2025\"\n- ..."}]
+        ```text Output wrap
+        Here are some effective search strategies to find the latest developments in renewable energy:
+
+        ## General Search Terms
+        - "Renewable energy news 2025"
+        - ...
         ```
       </Step>
     </Steps>
@@ -415,7 +438,7 @@ Make your first API call to Claude and build a simple web search assistant.
             }
 
             dependencies {
-                implementation("com.anthropic:anthropic-java:2.40.0")
+                implementation("com.anthropic:anthropic-java:2.52.0")
             }
 
             application {
@@ -423,6 +446,7 @@ Make your first API call to Claude and build a simple web search assistant.
             }
             ```
           </Tab>
+
           <Tab title="Maven">
             Save this as `pom.xml`:
 
@@ -440,7 +464,7 @@ Make your first API call to Claude and build a simple web search assistant.
                 <dependency>
                   <groupId>com.anthropic</groupId>
                   <artifactId>anthropic-java</artifactId>
-                  <version>2.40.0</version>
+                  <version>2.52.0</version>
                 </dependency>
               </dependencies>
             </project>
@@ -462,7 +486,7 @@ Make your first API call to Claude and build a simple web search assistant.
             var client = AnthropicOkHttpClient.fromEnv();
 
             var params = MessageCreateParams.builder()
-                .model(Model.CLAUDE_OPUS_4_8)
+                .model(Model.CLAUDE_OPUS_5)
                 .maxTokens(1000)
                 .addUserMessage(
                     "What should I search for to find the latest developments in renewable energy?"
@@ -470,7 +494,9 @@ Make your first API call to Claude and build a simple web search assistant.
                 .build();
 
             Message message = client.messages().create(params);
-            IO.println(message.content());
+            for (var block : message.content()) {
+                block.text().ifPresent(textBlock -> IO.println(textBlock.text()));
+            }
         }
         ```
       </Step>
@@ -482,6 +508,7 @@ Make your first API call to Claude and build a simple web search assistant.
             gradle run
             ```
           </Tab>
+
           <Tab title="Maven">
             ```bash
             mvn compile exec:java -Dexec.mainClass=QuickStart
@@ -489,12 +516,12 @@ Make your first API call to Claude and build a simple web search assistant.
           </Tab>
         </Tabs>
 
-        ```text Output
-        [ContentBlock{text=TextBlock{citations=, text=Here are some effective search strategies to find the latest developments in renewable energy:
+        ```text Output wrap
+        Here are some effective search strategies to find the latest developments in renewable energy:
 
         ## General Search Terms
         - "Renewable energy news 2025"
-        - ..., type=text, additionalProperties={}}}]
+        - ...
         ```
       </Step>
     </Steps>
@@ -526,11 +553,12 @@ Make your first API call to Claude and build a simple web search assistant.
 
         use Anthropic\Client;
         use Anthropic\Messages\Model;
+        use Anthropic\Messages\TextBlock;
 
         $client = new Client();
 
         $message = $client->messages->create(
-            model: Model::CLAUDE_OPUS_4_8,
+            model: Model::CLAUDE_OPUS_5,
             maxTokens: 1000,
             messages: [
                 [
@@ -540,7 +568,11 @@ Make your first API call to Claude and build a simple web search assistant.
             ],
         );
 
-        print_r($message->content);
+        foreach ($message->content as $block) {
+            if ($block instanceof TextBlock) {
+                echo $block->text . PHP_EOL;
+            }
+        }
         ```
       </Step>
 
@@ -549,21 +581,12 @@ Make your first API call to Claude and build a simple web search assistant.
         php quickstart.php
         ```
 
-        ```text Output
-        Array
-        (
-            [0] => Anthropic\Messages\TextBlock Object
-                (
-                    [type] => text
-                    [citations] =>
-                    [text] => Here are some effective search strategies to find the latest developments in renewable energy:
+        ```text Output wrap
+        Here are some effective search strategies to find the latest developments in renewable energy:
 
         ## General Search Terms
         - "Renewable energy news 2025"
         - ...
-                )
-
-        )
         ```
       </Step>
     </Steps>
@@ -596,7 +619,7 @@ Make your first API call to Claude and build a simple web search assistant.
         client = Anthropic::Client.new
 
         message = client.messages.create(
-          model: Anthropic::Model::CLAUDE_OPUS_4_8,
+          model: Anthropic::Model::CLAUDE_OPUS_5,
           max_tokens: 1000,
           messages: [
             {
@@ -606,7 +629,9 @@ Make your first API call to Claude and build a simple web search assistant.
           ]
         )
 
-        pp message.content
+        message.content.each do |block|
+          puts block.text if block.type == :text
+        end
         ```
       </Step>
 
@@ -615,8 +640,12 @@ Make your first API call to Claude and build a simple web search assistant.
         bundle exec ruby quickstart.rb
         ```
 
-        ```text Output
-        [#<Anthropic::Models::TextBlock:0xc8 {text: "Here are some effective search strategies to find the latest developments in renewable energy:\n\n## General Search Terms\n- \"Renewable energy news 2025\"\n- ...", type: :text}>]
+        ```text Output wrap
+        Here are some effective search strategies to find the latest developments in renewable energy:
+
+        ## General Search Terms
+        - "Renewable energy news 2025"
+        - ...
         ```
       </Step>
     </Steps>
@@ -637,9 +666,11 @@ Once you're comfortable with the basics, explore further:
   <Card title="Models overview" icon="brain" href="/docs/en/about-claude/models/overview">
     Compare Claude models by capability and cost.
   </Card>
+
   <Card title="Features overview" icon="list" href="/docs/en/build-with-claude/overview">
     Browse all Claude capabilities: tools, context management, structured outputs, and more.
   </Card>
+
   <Card title="Client SDKs" icon="code-brackets" href="/docs/en/cli-sdks-libraries/overview">
     Reference documentation for Python, TypeScript, C#, and other client libraries.
   </Card>

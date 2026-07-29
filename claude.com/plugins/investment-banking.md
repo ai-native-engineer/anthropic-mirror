@@ -8,6 +8,7 @@ Build deal materials, strip profiles, pitch decks, and merger models
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/financial-services-plugins&plugin=investment-banking)
+* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs
@@ -20,16 +21,16 @@ Build deal materials, strip profiles, pitch decks, and merger models for investm
 
 You can use Investment Banking to:
 
-**CIM Builder:**  
+**CIM Builder:**
 "Draft a Confidential Information Memorandum for a mid-market healthcare company"
 
-**Strip Profile:**  
+**Strip Profile:**
 "Generate a one-page strip profile for Target Corp for our pitch book"
 
-**Merger Model:**  
+**Merger Model:**
 "Run an accretion/dilution analysis for a $5B all-stock acquisition"
 
-**Buyer List:**  
+**Buyer List:**
 "Build a universe of strategic and financial buyers for a B2B SaaS company"
 
 ## Related plugins
@@ -40,17 +41,17 @@ Craft production-grade frontends with distinctive design. Generates polished cod
 
 Anthropic verified
 
-948012
+1110438
 
-installs](/plugins/frontend-design)
+installs](https://claude.com/plugins/frontend-design)
 
 [### Superpowers
 
 Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
 
-855112
+987572
 
-installs](/plugins/superpowers)
+installs](https://claude.com/plugins/superpowers)
 
 [### Code Review
 
@@ -58,14 +59,14 @@ AI code review with specialized agents and confidence-based filtering for pull r
 
 Anthropic verified
 
-383892
+430450
 
-installs](/plugins/code-review)
+installs](https://claude.com/plugins/code-review)
 
 [### Context7
 
 Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
 
-377529
+412076
 
-installs](/plugins/context7)
+installs](https://claude.com/plugins/context7)

@@ -10,6 +10,7 @@ Manage your personal finances using Claude
 * Used in
 
   [Claude](https://claude.ai/directory/bfe1a594-962f-45db-9113-f5e9b6d1f070)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Tinwell Labs Inc, DBA Era](https://era.app)
 
@@ -22,25 +23,25 @@ Manage your personal finances using Claude
   Interactive
 * More
 
-  [Documentation](https://era.app/help/mcp-server-era-context/)[Privacy Policy](https://era.app/privacy)[support@era.app](mailto:support@era.app)
+  [Documentation](https://era.app/help/mcp-server-era-context/)[Privacy Policy](https://era.app/privacy)[Support](mailto:support@era.app)
 
 Era Context is a secure place to manage your finances. Set up automations, fix overspending, figure out your portfolio, or tell Claude a goal and get your full financial life in context.
 
 You can use Era Context to:
 
-**Spending Automation:**  
+**Spending Automation:**
 "Analyze my finances and suggest rules to automatically categorize and tidy up my transactions."
 
-**Credit Card Optimization:**  
+**Credit Card Optimization:**
 "Analyze my credit card spending and tell me how to maximize my rewards points based on where I spend the most."
 
-**Subscription Audit:**  
+**Subscription Audit:**
 "Am I overpaying for any of my subscriptions? Check if I have duplicate charges or if cheaper alternatives exist."
 
-**Financial Goal Setting:**  
+**Financial Goal Setting:**
 "I want to save $10,000 by the end of the year — based on my income and spending habits, tell me if that's realistic and what I need to change."
 
-**Smart Spending:**  
+**Smart Spending:**
 "Based on how much I spend on gas, which fuel rewards program would save me the most money?"
 
 ## Related connectors
@@ -57,7 +58,7 @@ June 22, 2026
 
 ### Affinity
 
-Search, update, and prep deals without switching tabs.](/connectors/affinity)
+Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
 
 Financial services
 
@@ -65,11 +66,11 @@ Claude
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd9230df5f81ef095019_Aiera.jpg)
+[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
 
 ### Aiera
 
-Live events, filings, company publications, and more](/connectors/aiera)
+Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
 
 Financial services
 
@@ -79,11 +80,11 @@ Claude Code
 
 February 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977ee686ffe1cb730e94f07_Airwallex%20Mark%20-%20Colour%20-%20Square.png)
+[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
 
 ### Airwallex
 
-Integrate with the Airwallex Platform using Claude](/connectors/airwallex)
+Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
 
 Financial services
 
@@ -93,8 +94,8 @@ Claude Code
 
 April 8, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c05a2e0f10f41c8f005ee0_Aiwyn_Logo_Mark_Square%20(1).svg)
+[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
 
 ### Aiwyn Tax
 
-Estimate your federal & state taxes with Aiwyn's tax engine](/connectors/aiwyn-tax)
+Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)

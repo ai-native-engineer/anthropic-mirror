@@ -2,10 +2,12 @@
 
 # Enable and use web search
 
-Updated over 2 weeks ago
+Updated this week
 
 You can have Claude search the internet to provide you with up-to-date information and insights when using the following models:
 
+* Opus 5
+* Sonnet 5
 * Fable 5
 * Opus 4.8
 * Opus 4.7
@@ -19,7 +21,7 @@ Web search expands Claude's knowledge with real-time data, helping you make bett
 
 An Owner or Primary Owner must first enable web search for the entire workspace. This can be found in **[Admin settings > Capabilities](https://claude.ai/admin-settings/capabilities)**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2032032614/ad907328c4d9a26ee4bd9ca27a52/CleanShot+2026-02-05+at+09_01_42%402x.png?expires=1782459900&signature=a8e2789be6ebf71b90850b4a7fe13e13a34a9f14fdf69083d9a367e06dfbac32&req=diAkFMl9n4deXfMW1HO4zetvyrC%2BHcdZUJIbgsqS2%2BNT6MFS4fvxbnWYA7tL%0A%2BXuNpq7Vlu5VDGRUMqk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2032032614/ad907328c4d9a26ee4bd9ca27a52/CleanShot+2026-02-05+at+09_01_42%402x.png?expires=1782459900&signature=a8e2789be6ebf71b90850b4a7fe13e13a34a9f14fdf69083d9a367e06dfbac32&req=diAkFMl9n4deXfMW1HO4zetvyrC%2BHcdZUJIbgsqS2%2BNT6MFS4fvxbnWYA7tL%0A%2BXuNpq7Vlu5VDGRUMqk%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2032032614/ad907328c4d9a26ee4bd9ca27a52/CleanShot+2026-02-05+at+09_01_42%402x.png?expires=1785295800&signature=0caf5d47f27876c2e9a8257f2135ea994b6d6a223753de36a6c9723fc5a77d36&req=diAkFMl9n4deXfMW1HO4zetvyre4EctYUJIbgsqS2%2BPAGmBbUD5Dq%2F9ksUIM%0AHU8agk0opkROB1isJpY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2032032614/ad907328c4d9a26ee4bd9ca27a52/CleanShot+2026-02-05+at+09_01_42%402x.png?expires=1785295800&signature=0caf5d47f27876c2e9a8257f2135ea994b6d6a223753de36a6c9723fc5a77d36&req=diAkFMl9n4deXfMW1HO4zetvyre4EctYUJIbgsqS2%2BPAGmBbUD5Dq%2F9ksUIM%0AHU8agk0opkROB1isJpY%3D%0A)
 
 Once this is enabled at the workspace level, any member of the organization can switch it on while starting a chat by clicking the “+” button in the lower left corner of the chat window and selecting “Web search." Users can toggle this off for chats that don’t require web search capabilities.
 
@@ -112,4 +114,8 @@ You can re-enable it anytime you need current information.
 * For web search questions or support, please visit our **[Online Safety Contacts](https://support.claude.com/en/articles/11174660-online-safety-contacts)** page.
 * For content removal requests, please visit our **[Blocking and Removing Content from Claude](https://support.claude.com/en/articles/10684638-reporting-blocking-and-removing-content-from-claude)** page.
 
-[How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)[Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)[Use enterprise search](https://support.claude.com/en/articles/12489464-use-enterprise-search)[MCP: Web Search](https://support.claude.com/en/articles/14503775-mcp-web-search)[Enable US-only inference for your organization](https://support.claude.com/en/articles/15422948-enable-us-only-inference-for-your-organization)
+* [How up-to-date is Claude's training data?](https://support.claude.com/en/articles/8114494-how-up-to-date-is-claude-s-training-data)
+* [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
+* [How large is the Claude API’s context window?](https://support.claude.com/en/articles/8606395-how-large-is-the-claude-api-s-context-window)
+* [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
+* [Why Claude switched models in your conversation with Opus 5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5)

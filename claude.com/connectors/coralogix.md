@@ -10,6 +10,7 @@ Explore and debug your Coralogix observability data
 * Used in
 
   [Claude](https://claude.ai/directory/a1d8f399-3c9f-44ca-aa70-8959be5c9f9c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Coralogix](https://coralogix.com/)
 
@@ -22,22 +23,22 @@ Explore and debug your Coralogix observability data
   Read & write
 * More
 
-  [Documentation](https://coralogix.com/docs/user-guides/mcp-server/overview/)[Privacy Policy](https://coralogix.com/privacy-policy/)[support@coralogix.com](mailto:support@coralogix.com)
+  [Documentation](https://coralogix.com/docs/user-guides/mcp-server/overview/)[Privacy Policy](https://coralogix.com/privacy-policy/)[Support](mailto:support@coralogix.com)
 
 Bring Coralogix into your AI workflow. Enable Claude to work with your logs, metrics, and traces so you can explore and debug issues through natural language - run queries, inspect incidents and alert details, and ground answers in the data your team already relies on. Spend less time jumping between tools and more time understanding what your telemetry is telling you.
 
 You can use Coralogix to:
 
-**Investigate an incident:**  
+**Investigate an incident:**
 "Show me the error logs and traces for service checkout-api in the last hour"
 
-**Query metrics:**  
+**Query metrics:**
 "Plot the p95 latency for the payment service over the past 24 hours"
 
-**Debug an alert:**  
+**Debug an alert:**
 "What triggered alert ID 4417 and which services were affected?"
 
-**Explore schemas:**  
+**Explore schemas:**
 "List the log fields available for the orders dataset"
 
 ## Related connectors
@@ -50,11 +51,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -68,7 +69,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -82,7 +83,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -94,4 +95,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

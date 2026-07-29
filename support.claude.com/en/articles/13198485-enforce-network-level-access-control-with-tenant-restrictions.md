@@ -2,6 +2,8 @@
 
 # Enforce network-level access control with Tenant Restrictions
 
+Updated over 2 weeks ago
+
 Tenant Restrictions are available for members of Enterprise plans and Console organizations.
 
 Tenant Restrictions enable IT administrators on Enterprise plans to enforce network-level access control for Claude. This feature ensures that users on corporate networks can only access approved organizational accounts, preventing unauthorized use of personal accounts.
@@ -29,9 +31,25 @@ anthropic-allowed-org-ids: <org-uuid-1>,<org-uuid-2>,...
 **Example:**
 
 ```
-anthropic-allowed-org-ids: 550e8400-e29b-41d4-a716-446655440000,6ba7b810-  
+anthropic-allowed-org-ids: 550e8400-e29b-41d4-a716-446655440000,6ba7b810-
 9dad-11d1-80b4-00c04fd430c8
 ```
+
+## Split large allowlists across multiple headers
+
+If your allowlist is too long for a single header line on your proxy platform, split it across numbered continuation headers. Append `;n=K` to the base header to declare the total number of header lines, then add the remaining UUIDs in headers `anthropic-allowed-org-ids1` through `anthropic-allowed-org-ids{K-1}`.
+
+```
+anthropic-allowed-org-ids: <org-uuid>,<org-uuid>,...;n=K
+anthropic-allowed-org-ids1: <org-uuid>,<org-uuid>,...
+...
+anthropic-allowed-org-ids{K-1}: <org-uuid>,<org-uuid>,...
+```
+
+* Maximum of 10 header lines (`K` ≤ 10)
+* Maximum of 500 organization UUIDs total across all lines
+* Your proxy must send every declared slot. If you set `;n=3`, all three headers must be present on the request.
+* Configure your proxy to overwrite these headers on every request rather than add them only if absent.
 
 ## Configuration steps
 
@@ -49,11 +67,11 @@ Members of Console organizations can find this in **[Settings > Organization](ht
 Configure your proxy to inject the header for Claude traffic:
 
 ```
-Rule: Claude Tenant Restriction  
-Application: claude.ai, api.anthropic.com, claude.com, anthropic.com  
-Action: Inject Header  
-Header Name: anthropic-allowed-org-ids  
-Header Value:   
+Rule: Claude Tenant Restriction
+Application: claude.ai, api.anthropic.com, claude.com, anthropic.com
+Action: Inject Header
+Header Name: anthropic-allowed-org-ids
+Header Value:
 TLS Inspection: Required
 ```
 
@@ -62,28 +80,37 @@ TLS Inspection: Required
 From restricted network, test with your org's API key:
 
 ```
-curl https://api.anthropic.com/v1/messages \  
-  -H "x-api-key: $CLAUDE_API_KEY" \  
-  -H "anthropic-version: 2023-06-01" \  
-  -H "content-type: application/json" \  
-  -d '{"model":"claude-sonnet-4-6","max_tokens":1024,"messages":  
+curl https://api.anthropic.com/v1/messages \
+  -H "x-api-key: $CLAUDE_API_KEY" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "content-type: application/json" \
+  -d '{"model":"claude-sonnet-4-6","max_tokens":1024,"messages":
  [{"role":"user","content":"Hello"}]}'
 ```
 
-## Error response
+## Error responses
 
-When access is blocked, users receive the following error:
+### Access blocked
+
+When a user's organization isn't on the allowlist, they receive a 403 error:
 
 ```
-{  
-  "type": "error",  
-  "error": {  
-    "type": "permission_error",  
-    "message": "Access restricted by network policy. Contact IT Administrator.",  
-    "error_code": "tenant_restriction_violation"  
-  }  
+{
+  "type": "error",
+  "error": {
+    "type": "permission_error",
+    "message": "Access restricted by network policy. Contact IT Administrator.",
+    "error_code": "tenant_restriction_violation"
+  }
 }
 ```
+
+### Header configuration errors
+
+If your proxy sends the headers incorrectly, requests fail with a 400 status and one of these messages:
+
+* Multiple `anthropic-allowed-org-ids` headers: A header name appeared more than once on the same request. Configure your proxy to overwrite each header rather than append a duplicate.
+* Malformed `anthropic-allowed-org-ids` headers: The `;n=K` value is invalid, a declared continuation slot is missing or extra, or the total allowlist exceeds 500 UUIDs.
 
 ## Supported proxy platforms
 
@@ -114,4 +141,8 @@ When access is blocked, users receive the following error:
 * Standard authentication continues for unmanaged networks.
 * Existing API key authentication remains unchanged.
 
-[Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)[Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)[Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)[Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)[MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
+* [Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
+* [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
+* [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
+* [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)
+* [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)

@@ -1,6 +1,8 @@
+<!-- source: https://transformer-circuits.pub/2021/framework/head_dump/small_a.html -->
 <!-- part of: https://transformer-circuits.pub/2021/framework/head_dump/small_a.html -->
 
 <!-- chunk-start -->
+
 'ander' (0.93) '\r\n       ' (0.91) 'pn' (0.88) 'Gate' (0.88) 'rient' (0.87) '�' (\xa7) (0.86) 'ically' (0.81) 'esian' (0.81) 'Clock' (0.81) 'iese' (0.78) '############...' (0.78) 'ALL' (0.78) 'ium' (0.77) 'Category' (0.77) 'metrics' (0.77) 'PROCESS' (0.75) 'ians' (0.75) 'dm' (0.75) '\r\n        ' (0.74) '&nbspWhether' (0.73)
 
 ['\r\n\r\n           '](#head-0-7-tok-9168)

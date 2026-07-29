@@ -1,5 +1,17 @@
 <!-- source: https://claude.com/customers/garvan-institute-qa -->
 
+Claude Science beta
+
+[Next](#)Next
+
+Introducing the Claude Science app, your research partner for rigorous science.
+
+Learn more
+
+[Learn more](https://claude.com/product/claude-science)Learn more
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ef89e3431b19c021bf2b_claude-science-og.jpg)
+
 Q&A | Claude
 
 # How the Garvan Institute is changing the way it does science with Claude
@@ -10,7 +22,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a20a3b05a2e775b9030f21e_logo_garvan-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a20a3b4d95709c4930c47bc_logo_garvan-dark-mode.png)
 
@@ -48,7 +60,7 @@ Accelerate science, from discovery through translation. Move faster with Claude 
 
 Read more
 
-[Read more](/solutions/life-sciences)Read more
+[Read more](https://claude.com/solutions/life-sciences)Read more
 
 Life sciences
 
@@ -104,8 +116,8 @@ And there's a compounding problem. If your first test doesn't give an answer, yo
 
 ## How are you using Claude specifically to tackle that?
 
-**MacArthur:** Our team is working with Anthropic, as well as researchers and engineers at the Murdoch Children’s Research Institute and the Victorian Clinical Genetics Service, on building a multi-agent approach to make this process much faster. These are teams of AI agents, each specialised to search for a particular type of information relevant to a patient's diagnosis. One might check population databases. Another searches clinical registries. Another monitors the published literature. What we’re building towards is teams of agents that work together 24 hours a day, constantly looking at the latest information and updating human curators any time there's something that could be relevant to a particular child's case.   
-  
+**MacArthur:** Our team is working with Anthropic, as well as researchers and engineers at the Murdoch Children’s Research Institute and the Victorian Clinical Genetics Service, on building a multi-agent approach to make this process much faster. These are teams of AI agents, each specialised to search for a particular type of information relevant to a patient's diagnosis. One might check population databases. Another searches clinical registries. Another monitors the published literature. What we’re building towards is teams of agents that work together 24 hours a day, constantly looking at the latest information and updating human curators any time there's something that could be relevant to a particular child's case.
+
 The power of tools like Claude is that they allow us to take all of these different complex types of information and weave them together in ways that human experts can instantly make use of, and that provide easy approaches to validate against the evidence. The goal here isn’t to replace expert human labor, but to allow clinical curators to make more sense of more data at the right time. We think the model of AI tools empowering human expertise is the only way to make this work at scale.
 
 ## Sarah, you're overseeing the institute's broader adoption of Claude. How is it changing the way research gets done?
@@ -190,34 +202,34 @@ Video caption
 
 ## Related stories
 
-[MagicSchool on building a safety layer for millions of student conversations](/customers/magicschool-qa)MagicSchool on building a safety layer for millions of student conversations
+[How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
 
-MagicSchool on building a safety layer for millions of student conversations
-
-Customer story
-
-[Customer story](/customers/magicschool-qa)Customer story
-
-[How YMCA South Australia is building an AI-powered nonprofit with Claude](/customers/ymca-south-australia)How YMCA South Australia is building an AI-powered nonprofit with Claude
-
-How YMCA South Australia is building an AI-powered nonprofit with Claude
+How can a medical lab keep patients at the center of its work while the caseload keeps growing?
 
 Customer story
 
-[Customer story](/customers/ymca-south-australia)Customer story
+[Customer story](https://claude.com/customers/arkana-labs)Customer story
 
-[How Syracuse University deployed Claude to every student, faculty member, and staff](/customers/syracuse)How Syracuse University deployed Claude to every student, faculty member, and staff
+[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
 
-How Syracuse University deployed Claude to every student, faculty member, and staff
-
-Customer story
-
-[Customer story](/customers/syracuse)Customer story
-
-[How a philanthropy veteran built an AI fundraising tool for nonprofits with Claude Code](/customers/kindora)How a philanthropy veteran built an AI fundraising tool for nonprofits with Claude Code
-
-How a philanthropy veteran built an AI fundraising tool for nonprofits with Claude Code
+The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
 
 Customer story
 
-[Customer story](/customers/kindora)Customer story
+[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
+
+[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
+
+How the Epilepsy Foundation uses Claude across the organization
+
+Customer story
+
+[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
+
+[Building dignity-driven AI: A conversation with the National Domestic Workers Alliance](https://claude.com/customers/national-domestic-workers-alliance-qa)Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
+
+Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
+
+Customer story
+
+[Customer story](https://claude.com/customers/national-domestic-workers-alliance-qa)Customer story

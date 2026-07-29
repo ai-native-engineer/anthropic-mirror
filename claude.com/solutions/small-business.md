@@ -22,7 +22,7 @@ Claude for small business gets to work for you on day one. Connect to tools you 
 
 Get started
 
-[Get started](/pricing)Get started
+[Get started](https://claude.com/pricing)Get started
 
 Take AI fluency course
 
@@ -315,7 +315,7 @@ Download plugin
 
 Download desktop app
 
-[Download desktop app](/download)Download desktop app
+[Download desktop app](https://claude.com/download)Download desktop app
 
 ### Connect your tools
 
@@ -323,7 +323,7 @@ Claude works with QuickBooks, PayPal, Hubspot, Docusign, and the rest of your st
 
 Explore connectors
 
-[Explore connectors](/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fe0a1430f205fd827a739b_img_smb-connectores.webp)
 
@@ -364,17 +364,7 @@ Location
 
 Date
 
-IN
-
-Indianapolis | Claude SMB Workshop
-
-Indianapolis, IN
-
-June 26, 2026
-
-Indianapolis
-
-[Indianapolis | Claude SMB Workshop](https://anthropic.swoogo.com/smb-workshop-indianapolis-2026/rta)Indianapolis | Claude SMB Workshop
+No items found.
 
 Course
 
@@ -420,4 +410,4 @@ Take AI fluency course
 
 Get started
 
-[Get started](/contact-sales)Get started
+[Get started](https://claude.com/contact-sales)Get started

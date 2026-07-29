@@ -10,6 +10,7 @@ Search and manage transaction, merchant, and payment data
 * Used in
 
   [Claude](http://claude.ai/directory/25d61b20-3ba1-4477-b51a-a743d1ca65fb)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Square, Inc.](https://squareup.com/)
 
@@ -26,15 +27,15 @@ Search and manage transaction, merchant, and payment data
 
 Access Square's commerce platform to view transaction data, manage customer profiles, track inventory, process payments, and analyze sales patterns. Handle point-of-sale operations, generate financial reports, and manage business operations through Claude's natural language interface for streamlined commerce management.
 
-You can use the Square connector to:  
-  
-Create invoices:  
-"Create an invoice charging Jane Smith ([[email protected]](mailto:jane@example.com)) for 2 hours at $250/hr for 'Consulting on the Square MCP Server'"
+You can use the Square connector to:
 
-Update business hours:  
+Create invoices:
+"Create an invoice charging Jane Smith ([jane@example.com](mailto:jane@example.com)) for 2 hours at $250/hr for 'Consulting on the Square MCP Server'"
+
+Update business hours:
 "Update my business hours to be 9am - 5pm Monday through Friday, 10am - 2pm on Saturday, and closed on Sunday"
 
-Analyze sales data:  
+Analyze sales data:
 "Tell me what my top 3 most sold items from the last month according to my orders"
 
 ## Related connectors
@@ -51,7 +52,7 @@ June 22, 2026
 
 ### Affinity
 
-Search, update, and prep deals without switching tabs.](/connectors/affinity)
+Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
 
 Financial services
 
@@ -59,11 +60,11 @@ Claude
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd9230df5f81ef095019_Aiera.jpg)
+[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
 
 ### Aiera
 
-Live events, filings, company publications, and more](/connectors/aiera)
+Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
 
 Financial services
 
@@ -73,11 +74,11 @@ Claude Code
 
 February 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977ee686ffe1cb730e94f07_Airwallex%20Mark%20-%20Colour%20-%20Square.png)
+[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
 
 ### Airwallex
 
-Integrate with the Airwallex Platform using Claude](/connectors/airwallex)
+Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
 
 Financial services
 
@@ -87,8 +88,8 @@ Claude Code
 
 April 8, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c05a2e0f10f41c8f005ee0_Aiwyn_Logo_Mark_Square%20(1).svg)
+[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
 
 ### Aiwyn Tax
 
-Estimate your federal & state taxes with Aiwyn's tax engine](/connectors/aiwyn-tax)
+Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)

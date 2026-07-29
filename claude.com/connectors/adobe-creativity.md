@@ -1,6 +1,6 @@
 <!-- source: https://claude.com/connectors/adobe-creativity -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 # Adobe for creativity
 
@@ -10,6 +10,7 @@ Ideate, create, and deliver with Adobe pro tools
 * Used in
 
   [Claude](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Adobe Inc.](https://www.adobe.com/)
 
@@ -24,28 +25,28 @@ Ideate, create, and deliver with Adobe pro tools
 
   [Documentation](https://developer.adobe.com/adobe-for-creativity/)[Privacy Policy](https://www.adobe.com/privacy/policy.html)[Support](https://discord.gg/tppGPapr2e)
 
-Adobe for creativity brings Photoshop, Lightroom, Illustrator, Firefly, Premiere, Express, InDesign, and Stock capabilities directly into Claude. Create, edit, and design with natural language, without switching apps. Edit multiple photos, create assets, and refine video for polished results. Sign in with your Adobe account for higher usage limits and saved work across sessions.   
+Adobe for creativity brings Photoshop, Lightroom, Illustrator, Firefly, Premiere, Express, InDesign, and Stock capabilities directly into Claude. Create, edit, and design with natural language, without switching apps. Edit multiple photos, create assets, and refine video for polished results. Sign in with your Adobe account for higher usage limits and saved work across sessions.
 ‍
 
-Key capabilities:  
-  
-• Edit and transform images: Adjust color and lighting, remove/blur backgrounds, and expand or crop images.   
-• Create and animate assets: Start from a template, trim video, and license stock.   
-• Search, organize, and summarize: Find assets, summarize content, and manage files.   
+Key capabilities:
+
+• Edit and transform images: Adjust color and lighting, remove/blur backgrounds, and expand or crop images.
+• Create and animate assets: Start from a template, trim video, and license stock.
+• Search, organize, and summarize: Find assets, summarize content, and manage files.
 ‍
 
 You can use Adobe for creativity to:
 
-**Edit a photo with words:**  
+**Edit a photo with words:**
 "Remove the background from this product photo, then expand the canvas to 1920x1080 with a soft gradient fill."
 
-**Create on-brand assets:**  
+**Create on-brand assets:**
 "Using my brand colors and fonts, generate three social banner variations for the spring sale."
 
-**Refine a video:**  
+**Refine a video:**
 "Trim this clip to the best 15 seconds, enhance the speech audio, and resize it for vertical Reels."
 
-**Find and license stock:**  
+**Find and license stock:**
 "Search Adobe Stock for minimalist desk-setup photos and license the top result into my assets."
 
 ## Related connectors
@@ -60,11 +61,11 @@ Claude Code
 
 May 1, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f518707047601013a4983f_autodesk%20(1).svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d316ce38ed7af0f88414_icon_Autodesk.jpg)
 
 ### Autodesk Product Help
 
-Securely access Autodesk's help documentation](/connectors/autodesk-product-help)
+Securely access Autodesk's help documentation](https://claude.com/connectors/autodesk-product-help)
 
 Design
 
@@ -80,7 +81,7 @@ February 11, 2026
 
 ### Canva
 
-Search, create, autofill, and export Canva designs from a prompt](/connectors/canva)
+Search, create, autofill, and export Canva designs from a prompt](https://claude.com/connectors/canva)
 
 Design
 
@@ -96,7 +97,7 @@ May 28, 2026
 
 ### Descript
 
-Import, edit, or create video with prompts](/connectors/descript)
+Import, edit, or create video with prompts](https://claude.com/connectors/descript)
 
 Design
 
@@ -108,4 +109,4 @@ February 10, 2026
 
 ### Excalidraw
 
-MCP for creating interactive hand-drawn diagrams in Excalidraw](/connectors/excalidraw-app-demo)
+MCP for creating interactive hand-drawn diagrams in Excalidraw](https://claude.com/connectors/excalidraw-app-demo)

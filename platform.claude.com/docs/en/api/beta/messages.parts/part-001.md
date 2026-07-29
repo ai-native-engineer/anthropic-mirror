@@ -1,3 +1,4 @@
+<!-- source: https://platform.claude.com/docs/en/api/beta/messages -->
 <!-- part of: https://platform.claude.com/docs/en/api/beta/messages -->
 
 <!-- chunk-start -->
@@ -36285,4 +36286,3 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `type: "mcp_tool_use"`
 
               - `"mcp_tool_use"`
-

@@ -1,6 +1,6 @@
 <!-- source: https://claude.com/connectors/slidesgpt -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 # Agentic Presentations by SlidesGPT
 
@@ -10,6 +10,7 @@ Make presentations and slides, export to PowerPoint
 * Used in
 
   [Claude](https://claude.ai/directory/59eafa91-020f-435e-b8a4-1bfcd7a957d8)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Lightstone GmbH](https://slidesgpt.com)
 
@@ -22,19 +23,19 @@ Make presentations and slides, export to PowerPoint
   Interactive
 * More
 
-  [Documentation](https://slidesgpt.com/mcp-docs/claude)[Privacy Policy](https://slidesgpt.com/privacy)[team@slidesgpt.com](mailto:team@slidesgpt.com)
+  [Documentation](https://slidesgpt.com/mcp-docs/claude)[Privacy Policy](https://slidesgpt.com/privacy)[Support](mailto:team@slidesgpt.com)
 
 Use SlidesGPT to generate presentations with AI. First, name a topic that the presentation should be about. SlidesGPT will generate your presentation slides. Finally you can export to PowerPoint. Available features include: generate a structure and outline for a presentation, choose layouts and themes, refine slide content in a chat-based conversation, export and download as PowerPoint, Google Slides, PDF, and more.
 
 You can use Agentic Presentations by SlidesGPT to:
 
-**Generate a deck:**  
+**Generate a deck:**
 "Create a 10-slide presentation on Q3 product roadmap highlights"
 
-**Apply branding:**  
+**Apply branding:**
 "Apply our corporate theme to the presentation and export it as PowerPoint"
 
-**Build from notes:**  
+**Build from notes:**
 "Turn these meeting notes into a 5-slide executive summary"
 
 ## Related connectors
@@ -47,11 +48,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -65,7 +66,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -75,11 +76,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
 
 Productivity
 
@@ -95,4 +96,4 @@ February 11, 2026
 
 ### Asana
 
-Connect to Asana to coordinate tasks, projects, and goals](/connectors/asana)
+Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)

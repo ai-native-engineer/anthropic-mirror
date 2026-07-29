@@ -34,11 +34,11 @@ Cowork
 
 Read use case
 
-[Read use case](/resources/tutorials/using-claude-for-your-small-business)Read use case
+[Read use case](https://claude.com/resources/tutorials/using-claude-for-your-small-business)Read use case
 
-[Using Claude Cowork for your small business](/resources/tutorials/using-claude-for-your-small-business)Using Claude Cowork for your small business
+[Using Claude Cowork for your small business](https://claude.com/resources/tutorials/using-claude-for-your-small-business)Using Claude Cowork for your small business
 
-[Text Link](/resources/tutorials/using-claude-for-your-small-business)
+[Text Link](https://claude.com/resources/tutorials/using-claude-for-your-small-business)
 
 Small Business
 
@@ -62,11 +62,11 @@ Cowork
 
 Read use case
 
-[Read use case](/resources/tutorials/how-to-install-the-claude-for-small-business-plugin)Read use case
+[Read use case](https://claude.com/resources/tutorials/how-to-install-the-claude-for-small-business-plugin)Read use case
 
-[How to install and use the Claude for Small Business plugin](/resources/tutorials/how-to-install-the-claude-for-small-business-plugin) How to install and use the Claude for Small Business plugin
+[How to install and use the Claude for Small Business plugin](https://claude.com/resources/tutorials/how-to-install-the-claude-for-small-business-plugin) How to install and use the Claude for Small Business plugin
 
-[Text Link](/resources/tutorials/how-to-install-the-claude-for-small-business-plugin)
+[Text Link](https://claude.com/resources/tutorials/how-to-install-the-claude-for-small-business-plugin)
 
 Small Business
 

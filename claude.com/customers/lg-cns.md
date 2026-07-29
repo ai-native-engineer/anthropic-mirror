@@ -8,7 +8,9 @@ Try Claude
 
 [Try Claude](https://claude.ai)Try Claude
 
-[Contact sales](/contact-sales)Contact sales
+Contact sales
+
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4fc121f28f7c3e0b3bc1b8_logo_lg2-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4fc124c395704f7f63d30a_logo_lg2-dark-mode.png)
 
@@ -21,6 +23,8 @@ Company size:
 Large
 
 Product:
+
+Claude Code
 
 Partner:
 
@@ -60,7 +64,11 @@ Claude on Amazon Bedrock
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
 Build innovative AI applications with safer systems from Anthropic, supported by secure infrastructure from AWS.
+
+[Next](#)Next
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -80,19 +88,29 @@ Conventional delivery would have taken at least twice the available time and mon
 
 ## The solution
 
+Claude Code
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f525504b02eec936ac51b_68c469d41149ace562bfd24d_og-claude-product-claude-code.jpeg)
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
 Read more
 
-[Read more](/product/claude-code)Read more
+[Read more](https://claude.com/product/claude-code)Read more
+
+Claude Code
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+[Next](#)Next
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
+[Next](#)Next
+
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+Claude Code
 
 Anthropic's agentic coding tool. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.
 
@@ -128,6 +146,10 @@ Director and Head of Build Center, LG CNS
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
+[Next](#)Next
+
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ## The outcome
@@ -156,34 +178,34 @@ Director and Head of Build Center, LG CNS
 
 ## Related stories
 
-[Caylent turns months of migration work into days with Claude Agent SDK](/customers/caylent)Caylent turns months of migration work into days with Claude Agent SDK
+[Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)Caylent turns months of migration work into days with Claude Agent SDK
 
 Caylent turns months of migration work into days with Claude Agent SDK
 
 Customer story
 
-[Customer story](/customers/caylent)Customer story
+[Customer story](https://claude.com/customers/caylent)Customer story
 
-[How can a two-person fabrication studio make room for problems it’s never solved before?](/customers/bla-studios)How can a two-person fabrication studio make room for problems it’s never solved before?
+[How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)How can a two-person fabrication studio make room for problems it’s never solved before?
 
 How can a two-person fabrication studio make room for problems it’s never solved before?
 
 Customer story
 
-[Customer story](/customers/bla-studios)Customer story
+[Customer story](https://claude.com/customers/bla-studios)Customer story
 
-[How Blank Metal, a lean professional services firm, runs on Claude Cowork](/customers/blank-metal-qa)How Blank Metal, a lean professional services firm, runs on Claude Cowork
+[How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)How Blank Metal, a lean professional services firm, runs on Claude Cowork
 
 How Blank Metal, a lean professional services firm, runs on Claude Cowork
 
 Customer story
 
-[Customer story](/customers/blank-metal-qa)Customer story
+[Customer story](https://claude.com/customers/blank-metal-qa)Customer story
 
-[Quantium scales Claude across Australia's largest enterprises](/customers/quantium-qa)Quantium scales Claude across Australia's largest enterprises
+[Quantium scales Claude across Australia's largest enterprises](https://claude.com/customers/quantium-qa)Quantium scales Claude across Australia's largest enterprises
 
 Quantium scales Claude across Australia's largest enterprises
 
 Customer story
 
-[Customer story](/customers/quantium-qa)Customer story
+[Customer story](https://claude.com/customers/quantium-qa)Customer story

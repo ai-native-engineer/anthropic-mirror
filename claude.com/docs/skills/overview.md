@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/skills/overview -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Skills are directories containing instructions, scripts, and resources that Claude dynamically loads to handle specific tasks. Each skill has a `SKILL.md` file that defines when it should be activated and what instructions Claude should follow.
 
 ##  Availability
@@ -26,8 +34,9 @@ This approach prevents context window overload while providing specialized capab
 ##  Skills vs. other features
 
 | Feature | Purpose |
+| --- | --- |
 | **Skills** | Task-specific procedures that load dynamically |
-| **[Plugins](/docs/plugins/overview)** | Shareable packages that bundle skills, connectors, slash commands, and sub-agents |
+| **[Plugins](https://claude.com/docs/plugins/overview)** | Shareable packages that bundle skills, connectors, slash commands, and sub-agents |
 | **Projects** | Static background knowledge always loaded in specific chats |
 | **MCP** | Connects Claude to external services |
 | **Custom Instructions** | Broad preferences applied to all conversations |
@@ -35,7 +44,7 @@ This approach prevents context window overload while providing specialized capab
 ##  Open standard
 
 Skills follow the [Agent Skills specification](https://agentskills.io/specification), a platform-agnostic standard. Skills you create can work across any platform adopting the standard.
-See [Creating custom skills](/docs/skills/how-to) to learn how to build your own, or bundle skills into [plugins](/docs/plugins/overview) to share them with your team.
+See [Creating custom skills](https://claude.com/docs/skills/how-to) to learn how to build your own, or bundle skills into [plugins](https://claude.com/docs/plugins/overview) to share them with your team.
 
 ##  Related topics
 
@@ -46,5 +55,3 @@ Create, install, and invoke skills from the Claude Code CLI.
 ## Plugins
 
 Bundle skills with connectors and commands.
-
-[Create skills](/docs/skills/how-to)

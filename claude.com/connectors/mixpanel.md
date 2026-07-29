@@ -10,6 +10,7 @@ Analyze, query, and manage your Mixpanel data
 * Used in
 
   [Claude](https://claude.ai/directory/29d60a67-6f16-489b-8a1e-efdcece8d1f6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Mixpanel](https://mixpanel.com/)
 
@@ -28,16 +29,16 @@ Query and analyze your Mixpanel data directly in Claude. Run segmentation, funne
 
 You can use Mixpanel to:
 
-**Create Dashboards:**  
+**Create Dashboards:**
 "Can you create a dashboard of customer purchase behaviors?"
 
-**Quick Analysis:**  
+**Quick Analysis:**
 "How many sign ups did we have in January?"
 
-**Govern Your Data:**  
+**Govern Your Data:**
 "Can you update my Lexicon event descriptions?"
 
-**Event Analysis:**  
+**Event Analysis:**
 "Show me the conversion funnel for our checkout process"
 
 ## Related connectors
@@ -50,11 +51,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -68,7 +69,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -82,7 +83,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -94,4 +95,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

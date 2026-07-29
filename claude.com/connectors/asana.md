@@ -12,6 +12,7 @@ Connect to Asana to coordinate tasks, projects, and goals
 * Used in
 
   [Claude](http://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Asana](https://asana.com/)
 
@@ -28,18 +29,18 @@ Connect to Asana to coordinate tasks, projects, and goals
 
 Access Asana's Work Graph directly from Claude to search, create, update, and track tasks, projects, and goals. Coordinate work across teams while connecting Claude's insights to real deliverables—and turn chats into projects, tasks, and timelines your team can see and execute. Complements your Asana workspace with 30+ tools for seamless work management alongside your team's existing workflows.
 
-You can use Asana in Claude to:  
-  
-View daily tasks:  
+You can use Asana in Claude to:
+
+View daily tasks:
 "What tasks in Asana are due today?"
 
-Check project status:  
+Check project status:
 "What's going on with Project Moonshot?"
 
-Create campaigns with tasks:  
+Create campaigns with tasks:
 "Create a marketing campaign with tasks and milestones based on our key messages"
 
-Turn conversations into actionable plans:   
+Turn conversations into actionable plans:
 "Take this discussion and create a project in Asana with tasks, owners, and a timeline"
 
 ## Related connectors
@@ -52,11 +53,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -70,7 +71,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -80,11 +81,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -94,8 +95,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

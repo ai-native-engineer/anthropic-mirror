@@ -10,6 +10,7 @@ Surface call insights and missed opportunities
 * Used in
 
   [Claude](https://claude.ai/directory/5b1d1665-4793-4a8c-98cf-909e00e97a29)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Quo](https://quo.com/)
 
@@ -28,16 +29,16 @@ Quo is a next-generation business phone system that helps teams engage customers
 
 You can use Quo to:
 
-**Spot why deals stall:**  
+**Spot why deals stall:**
 "Pull my Quo call transcripts from the last two weeks and summarize the top objections that came up before a deal went cold."
 
-**Hear what customers love:**  
+**Hear what customers love:**
 "Search my Quo messages and calls for positive feedback this month and group it by theme."
 
-**Follow up instantly:**  
+**Follow up instantly:**
 "Draft and send a text to the contact from my 3pm call recapping next steps."
 
-**Keep contacts current:**  
+**Keep contacts current:**
 "Create a Quo contact for the lead who texted yesterday about pricing, and add a note with what they asked."
 
 ## Related connectors
@@ -56,7 +57,7 @@ February 11, 2026
 
 ### Asana
 
-Connect to Asana to coordinate tasks, projects, and goals](/connectors/asana)
+Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)
 
 Communication
 
@@ -66,11 +67,11 @@ Claude
 
 February 21, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696323e2a1aaf767a84b4ebc_circleback.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dd9120cb996c95c73b28_icon_Circleback.jpg)
 
 ### Circleback
 
-Search and access context from meetings](/connectors/circleback)
+Search and access context from meetings](https://claude.com/connectors/circleback)
 
 Productivity
 
@@ -84,7 +85,7 @@ May 1, 2026
 
 ### Computer by DevRev
 
-Manage your workspace, issues, tickets, customers, and more without leaving Claude.](/connectors/devrev)
+Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
 
 Communication
 
@@ -96,4 +97,4 @@ January 26, 2026
 
 ### Fellow.ai
 
-Chat with your meetings to uncover actionable insights](/connectors/fellow-ai)
+Chat with your meetings to uncover actionable insights](https://claude.com/connectors/fellow-ai)

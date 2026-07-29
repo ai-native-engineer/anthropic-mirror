@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/government/account/sessions -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this is for:** Anyone with a Claude for Government account.
 
 Use this page to see every place you are currently signed in to Claude for Government and to sign out of any of them remotely.
@@ -41,5 +49,3 @@ Signing out here versus signing out from the footer behave differently at the id
 ##  If you see a session you don’t recognize
 
 Sign it out from here right away. You can use **Sign out *N* other sessions** if you want to be certain you have cleared everything. If an unrecognized session reappears after you have done so, or anything else about the list looks wrong, report it to your organization’s administrator so they can investigate through your agency’s identity system.
-
-[Usage](/docs/government/account/usage)

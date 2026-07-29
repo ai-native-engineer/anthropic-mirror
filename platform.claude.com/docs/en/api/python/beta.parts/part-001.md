@@ -1,3 +1,4 @@
+<!-- source: https://platform.claude.com/docs/en/api/python/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/python/beta -->
 
 <!-- chunk-start -->
@@ -37078,4 +37079,3 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"files-api-2025-04-14"`
 
     - `"mcp-client-2025-04-04"`
-

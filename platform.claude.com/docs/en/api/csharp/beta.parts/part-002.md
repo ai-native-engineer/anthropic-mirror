@@ -1,6 +1,8 @@
+<!-- source: https://platform.claude.com/docs/en/api/csharp/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/csharp/beta -->
 
 <!-- chunk-start -->
+
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"unavailable"Unavailable`
@@ -39007,4 +39009,3 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       - `"deny"Deny`
 
     - `string? SessionThreadID`
-

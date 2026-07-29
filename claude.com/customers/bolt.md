@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f26e70e1444e31742ca027_logo_boltupdatedlogo-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f26e76cdf0245458a77c3f_logo_boltupdatedlogo-dark-mode.svg)
 
@@ -93,7 +93,7 @@ Anthropic's agentic coding tool. Claude Code understands your codebase, edits fi
 
 Read more
 
-[Read more](/product/claude-code)Read more
+[Read more](https://claude.com/product/claude-code)Read more
 
 Claude Code
 
@@ -157,34 +157,34 @@ StackBlitz is focused on broader adoption among companies shipping production co
 
 ## Related stories
 
-[How Vercel built an ecosystem on the open skills standard](/customers/vercel-qa)How Vercel built an ecosystem on the open skills standard
+[Dust enables agents to go deeper at lower cost with Claude](https://claude.com/customers/dust)Dust enables agents to go deeper at lower cost with Claude
+
+Dust enables agents to go deeper at lower cost with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/dust)Customer story
+
+[How Vercel built an ecosystem on the open skills standard](https://claude.com/customers/vercel-qa)How Vercel built an ecosystem on the open skills standard
 
 How Vercel built an ecosystem on the open skills standard
 
 Customer story
 
-[Customer story](/customers/vercel-qa)Customer story
+[Customer story](https://claude.com/customers/vercel-qa)Customer story
 
-[Box builds document creation into its AI agent with Claude](/customers/box)Box builds document creation into its AI agent with Claude
+[Box builds document creation into its AI agent with Claude](https://claude.com/customers/box)Box builds document creation into its AI agent with Claude
 
 Box builds document creation into its AI agent with Claude
 
 Customer story
 
-[Customer story](/customers/box)Customer story
+[Customer story](https://claude.com/customers/box)Customer story
 
-[Juno helps people with chronic illness find patterns in their symptoms with Claude](/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
+[Juno helps people with chronic illness find patterns in their symptoms with Claude](https://claude.com/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
 
 Juno helps people with chronic illness find patterns in their symptoms with Claude
 
 Customer story
 
-[Customer story](/customers/juno)Customer story
-
-[A conversation with Cursor on building coding agents for professional developers](/customers/cursor-qa)A conversation with Cursor on building coding agents for professional developers
-
-A conversation with Cursor on building coding agents for professional developers
-
-Customer story
-
-[Customer story](/customers/cursor-qa)Customer story
+[Customer story](https://claude.com/customers/juno)Customer story

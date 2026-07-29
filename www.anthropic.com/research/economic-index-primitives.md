@@ -10,7 +10,7 @@ Jan 15, 2026
 
 Is artificial intelligence really making people faster at work? What sort of tasks does AI support best? And how might it change the nature of people’s occupations?
 
-At Anthropic, we’re measuring real-world AI use on an ongoing basis to answer questions exactly like these. Our privacy-preserving [analysis method](https://www.anthropic.com/research/clio) allows us to learn more about conversations on [Claude.ai](http://claude.ai/redirect/website.v1.d50c583e-d694-4a6c-bf9f-6c39f804f84a) (capturing uses by consumers) and our first-party API (mostly capturing uses by businesses).1 In past reports, we’ve assessed AI tasks by [occupation and wage level](https://www.anthropic.com/news/the-anthropic-economic-index), looked more closely at [software development](https://www.anthropic.com/research/impact-software-development), and studied AI use [by country and by US state](https://www.anthropic.com/research/economic-index-geography).
+At Anthropic, we’re measuring real-world AI use on an ongoing basis to answer questions exactly like these. Our privacy-preserving [analysis method](https://www.anthropic.com/research/clio) allows us to learn more about conversations on [Claude.ai](http://claude.ai/redirect/website.v1.f1c62c95-930b-4207-94d7-ac764a582512) (capturing uses by consumers) and our first-party API (mostly capturing uses by businesses).1 In past reports, we’ve assessed AI tasks by [occupation and wage level](https://www.anthropic.com/news/the-anthropic-economic-index), looked more closely at [software development](https://www.anthropic.com/research/impact-software-development), and studied AI use [by country and by US state](https://www.anthropic.com/research/economic-index-geography).
 
 We’re now adding a new level of detail to our Economic Index. In our fourth report, we’re introducing what we’ve called **economic primitives**: a set of five simple, foundational measurements to track the economic impacts of Claude over time. Our initial set includes task complexity, skill level, purpose (work, education, or personal use), AI autonomy, and success.2 We derive these primitives from asking Claude to answer a common set of questions about every conversation in our sample for this report.
 
@@ -38,7 +38,7 @@ This same trend holds—albeit in weaker form—when we adjust for tasks’ succ
 
 [METR](https://metr.org/)’s measure of AI’s [task horizons](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/) shows that longer tasks are harder for AI models to complete. But the length of time over which AI models can work is steadily increasing as models get better: this measure has now become a key indicator of AI progress.
 
-We’re able to complement METR’s analysis using our economic primitives. In the graph below, we show Claude’s task-level success rates relative to the amount of time a human would take to do the same task, both on [Claude.ai](http://claude.ai/redirect/website.v1.d50c583e-d694-4a6c-bf9f-6c39f804f84a) and on our API:
+We’re able to complement METR’s analysis using our economic primitives. In the graph below, we show Claude’s task-level success rates relative to the amount of time a human would take to do the same task, both on [Claude.ai](http://claude.ai/redirect/website.v1.f1c62c95-930b-4207-94d7-ac764a582512) and on our API:
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/bf18bd0b6c14a07cff03bad97dc720183a0ac507-3840x2800.png)
 
@@ -88,7 +88,7 @@ We’re not necessarily *predicting* that this deskilling will occur: it’s pos
 
 In our earlier research, we [estimated](https://www.anthropic.com/research/estimating-productivity-gains) that the widespread adoption of AI could increase US labor productivity growth by 1.8 percentage points per year over the next ten years—around double the trend rate. Our new primitives allow us to revisit this analysis.
 
-Based on our estimates of task speedups alone, we replicated our earlier finding of a 1.8 percentage point increase (even when we added in our API data). But when we account for task *reliability*—that is, when we adjust our estimate of task-level time savings by the probability that the task is *successful*, our estimate falls by about one-third for tasks completed on [Claude.ai](http://claude.ai/redirect/website.v1.d50c583e-d694-4a6c-bf9f-6c39f804f84a) (to 1.2 percentage points per year), and by slightly more (to 1.0 percentage points) for the typically more challenging tasks completed on our API.
+Based on our estimates of task speedups alone, we replicated our earlier finding of a 1.8 percentage point increase (even when we added in our API data). But when we account for task *reliability*—that is, when we adjust our estimate of task-level time savings by the probability that the task is *successful*, our estimate falls by about one-third for tasks completed on [Claude.ai](http://claude.ai/redirect/website.v1.f1c62c95-930b-4207-94d7-ac764a582512) (to 1.2 percentage points per year), and by slightly more (to 1.0 percentage points) for the typically more challenging tasks completed on our API.
 
 Even a 1 percentage point increase in annual labor productivity growth would still be notable: it would return US productivity growth to the rates of the late 1990s and early 2000s. And, as we mentioned in our [earlier research](https://www.anthropic.com/research/estimating-productivity-gains), this top-line estimate does not account for the possibilities that AI models become much more powerful, or that the use of AI at work becomes much more sophisticated—which could push the number much higher. Indeed, since our survey, Claude has become substantially more powerful, with the release of Claude Opus 4.5.
 
@@ -98,7 +98,7 @@ In addition to our primitives, we collected a new round of data on the measures 
 
 First, we find that the use of Claude has remained highly concentrated among certain tasks: even though our sample includes 3,000 unique work tasks on Claude.ai, the top ten account for 24% of the set, which has steadily increased from 21% in January 2025. More specifically, computer and mathematical tasks continue to dominate Claude use: they’re about a third of all conversations on Claude.ai, and nearly half of our API traffic.
 
-Second, our new report finds that augmentation (52% of conversations) has overtaken automation (45%) as the most popular pattern of interaction with Claude on [Claude.ai](http://claude.ai/redirect/website.v1.d50c583e-d694-4a6c-bf9f-6c39f804f84a). This is a reversal of what we saw in our August sample (when automation led by 49% to 47%), but, when we assess this question over a longer time-frame, we still see a slow rise in *automation*’s share of tasks: augmentation led by 55% to 41% in January of last year, and by 55% to 42% in March.
+Second, our new report finds that augmentation (52% of conversations) has overtaken automation (45%) as the most popular pattern of interaction with Claude on [Claude.ai](http://claude.ai/redirect/website.v1.f1c62c95-930b-4207-94d7-ac764a582512). This is a reversal of what we saw in our August sample (when automation led by 49% to 47%), but, when we assess this question over a longer time-frame, we still see a slow rise in *automation*’s share of tasks: augmentation led by 55% to 41% in January of last year, and by 55% to 42% in March.
 
 Third, our latest analysis shows that the geographic concentration of AI use (as we [discussed last time](https://www.anthropic.com/research/economic-index-geography)) remains evident. The US, India, Japan, the UK, and South Korea still lead in overall Claude.ai use, and adoption remains well-explained by GDP per capita. That said, in the US, we’ve observed greater changes: Claude use has become noticeably more evenly distributed across US states. In fact, if this trend was sustained, our model predicts that Claude use would be equalized across the country within two to five years. We discuss this model in more detail [in the report](https://www.anthropic.com/research/anthropic.com/research/anthropic-economic-index-january-2026-report).
 
@@ -106,7 +106,7 @@ Third, our latest analysis shows that the geographic concentration of AI use (as
 
 The most immediate conclusion from our latest Economic Index report is that the impact of AI on the global workforce remains a highly uneven one: AI use remains concentrated in specific countries and occupations, and it affects some occupations in a very different way to others, as the evidence on task coverage suggests.
 
-More generally, this report has given us a new baseline against which to compare our future surveys. As Claude improves, we expect it’ll be asked to take on harder tasks, and that it’ll likely find greater success. We also expect that tasks might move from [Claude.ai](http://claude.ai/redirect/website.v1.d50c583e-d694-4a6c-bf9f-6c39f804f84a) to the API (that is, from predominantly consumers to predominantly businesses) as they become more reliable—and if this happens, it’ll give us another possible indication of coming economic impacts, given the importance of business adoption for AI’s effect on productivity. Through our primitives, we’ll be able to measure how changes like these are beginning to impact real-world outcomes, including the nature of people’s work, and which people (and where) are likely to be most affected during this period of rapid technological transition.
+More generally, this report has given us a new baseline against which to compare our future surveys. As Claude improves, we expect it’ll be asked to take on harder tasks, and that it’ll likely find greater success. We also expect that tasks might move from [Claude.ai](http://claude.ai/redirect/website.v1.f1c62c95-930b-4207-94d7-ac764a582512) to the API (that is, from predominantly consumers to predominantly businesses) as they become more reliable—and if this happens, it’ll give us another possible indication of coming economic impacts, given the importance of business adoption for AI’s effect on productivity. Through our primitives, we’ll be able to measure how changes like these are beginning to impact real-world outcomes, including the nature of people’s work, and which people (and where) are likely to be most affected during this period of rapid technological transition.
 
 In the meantime, researchers, journalists, and the public can use our data to inform their own research and thinking, and to provide an empirical foundation for the potential policy responses we might need. For much more detail on each of the areas we’ve discussed above, see our [full report](https://www.anthropic.com/research/anthropic-economic-index-january-2026-report).
 
@@ -121,6 +121,12 @@ In the meantime, researchers, journalists, and the public can use our data to in
    5. **Task success** measures Claude’s assessment of whether Claude completes tasks successfully. Task success helps assess whether tasks can be automated effectively (can a task be automated at all?) and efficiently (how many attempts would it take to automate a task?). That is, task success matters for both the feasibility and the cost of automating labor tasks.
 3. Indeed, some [historical evidence](https://www.michaelwebb.co/webb_ai.pdf) suggests that when technologies automating job tasks appear in patent data, employment and wages subsequently fall for exposed occupations.
 
+### Discovering cryptographic weaknesses with Claude
+
+cryptographic algorithms. The first attack significantly weakens HAWK, a digital signature scheme that was built for a future world where quantum computers are able to break existing standards. The second identifies a new way to attack round-reduced AES, the most widely used symmetric cipher.
+
+[Read more](https://www.anthropic.com/research/discovering-cryptographic-weaknesses)
+
 ### Project Pilot: Can AI control a drone?
 
 Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
@@ -130,7 +136,3 @@ Working with Andon Labs, we’ve developed a new series of evaluations that asse
 ### How Canada uses Claude: Findings from the Anthropic Economic Index
 
 [Read more](https://www.anthropic.com/research/how-canada-uses-claude)
-
-### Claude’s values across models and languages
-
-[Read more](https://www.anthropic.com/research/claude-values-models-languages)

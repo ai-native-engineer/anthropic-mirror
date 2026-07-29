@@ -1,6 +1,8 @@
+<!-- source: https://platform.claude.com/docs/en/api/csharp/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/csharp/beta -->
 
 <!-- chunk-start -->
+
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `class BetaManagedAgentsAgentMcpToolResultEvent:`

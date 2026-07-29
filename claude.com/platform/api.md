@@ -18,6 +18,48 @@ See developer docs
 
 Michael Truell, CEO and Co-founder
 
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb8193497afd3b2cd24_brand-logo-cognition-black.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb952fed1bad85c342c_brand-logo-cognition-white.svg)
+
+"Claude Fable 5 is the highest-scoring model on FrontierBench, Cognition's frontier coding eval. It excels at long-horizon reasoning and generalizes to unfamiliar tools out of the box."
+
+Scott Wu, CEO
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8c287936531790c85c4_box_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8bdc1ea299a1a768655_box_dark.svg)
+
+“Claude Opus 5 delivers the industry intelligence and accuracy that is essential for the analysis of specialized enterprise content. Box found that Opus 5 outperforms Opus 4.8 by 8% and delivers notable performance gains in the data analysis (11% improvement) and due diligence (17% improvement) workflows that technology, healthcare, and public sector organizations rely on daily.”
+
+Ben Kus, CTO
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa863c8a450480170023_Factory_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa8cfc7e786bb0781067_Factory_dark.svg)
+
+“Claude Opus 5’s judgment is what stands out. Handing off a PR, it doesn’t rush to publish: it verifies the branches, checks the template, and thinks through test implications so the handoff is clean. The older models tended to jump ahead and get caught on our checks.”
+
+Zimu Li, Member of Technical Staff
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad4f0fb6998a6283f1dd_Replit_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad55e5f775cb92a97c52_Replit_dark.svg)
+
+"On ViBench, our end-to-end vibe-coding benchmark, Claude Fable 5 is the highest-performing model we've tested — nearly saturating our base use cases and building apps in less time with fewer tokens."
+
+Michele Catasta, President & Head of AI
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aedd1d4ccaa7aaecee72_zapier_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aed89af0a9a659d820f0_zapier_dark.svg)
+
+“Claude Opus 5 topped Zapier’s AutomationBench leaderboard without spending more tokens than prior Claude models. It took a raw account-health workbook and ran a full churn-prevention sequence end to end: flagging at-risk accounts, alerting the right owner, and summarizing for retention ops. Previous models didn’t pass; Opus 5 hit 100%.”
+
+Wade Foster, CEO
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a185746b1e4c275dd8cd47b_logo_genspark_sidebar_dark.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1857471fdaacf23f5598bc_logo_genspark_sidebar_light.svg)
+
+"Claude Fable 5 came out #1 on our evals, winning head-to-head against every model we tested. It was significantly stronger on the hardest tasks in the set — UI design and game coding."
+
+Kay Zhu, Co-founder & CTO
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c024045f129ad1fd87a3d7_Group.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0240a3029ad76b17b6e21_Clip%20path%20group.svg)
+
+“Claude Opus 5 is a clear step up in performance on legal agent work compared to prior Opus models, and we saw the biggest gains in practice areas like corporate governance and arbitration. We were also impressed with Opus 5’s ability to maintain quality at lower reasoning levels, achieving similar performance while generating 26% fewer tokens on average compared to Opus 4.8 at max reasoning.”
+
+Niko Grupen, Head of Applied Research
+
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae12c8fde8379f187f2b_Stubhub_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae0ce20f30193a817bb3_Stubhub_dark.svg)
 
 “The decision to choose Claude was entirely data-driven. We tested multiple model providers side by side, and Claude consistently delivered the best results for case resolution rates and customer satisfaction scores.”
@@ -28,12 +70,6 @@ Read story
 
 Timothy Addison, Engineering Org Chief of Staff
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a185746b1e4c275dd8cd47b_logo_genspark_sidebar_dark.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1857471fdaacf23f5598bc_logo_genspark_sidebar_light.svg)
-
-"Claude Fable 5 came out #1 on our evals, winning head-to-head against every model we tested. It was significantly stronger on the hardest tasks in the set — UI design and game coding."
-
-Kay Zhu, Co-founder & CTO
-
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ba1577e91d8296653388ca_Group%202055245285.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a186e574d077d020536326e_thomson_reuters_logo_white.svg)
 
 “The partnership with Anthropic has been exceptional—their guidance and support have helped our engineering teams maximize the models.”
@@ -43,30 +79,6 @@ Read story
 [Read story](https://claude.com/customers/thomson-reuters)Read story
 
 Joel Hron, CTO
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb8193497afd3b2cd24_brand-logo-cognition-black.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb952fed1bad85c342c_brand-logo-cognition-white.svg)
-
-"Claude Fable 5 is the highest-scoring model on FrontierBench, Cognition's frontier coding eval. It excels at long-horizon reasoning and generalizes to unfamiliar tools out of the box."
-
-Scott Wu, CEO
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa2faa897b0e63d332ef_databrick_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa27a195c4190413c57a_databrick_dark.svg)
-
-“Claude Opus 4.8 sets a new bar for enterprise AI. In Genie, Databricks' AI agent for data and knowledge work, the new Opus model unlocks a step change in agentic reasoning, tackling deeper, multi-step questions faster than any prior Opus. Its multimodal strength also lets Genie reason directly over PDFs, diagrams, and other unstructured content at 61% cheaper token cost than Opus 4.7.”
-
-Hanlin Tang, CTO - Neural Networks
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad4f0fb6998a6283f1dd_Replit_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad55e5f775cb92a97c52_Replit_dark.svg)
-
-"On ViBench, our end-to-end vibe-coding benchmark, Claude Fable 5 is the highest-performing model we've tested — nearly saturating our base use cases and building apps in less time with fewer tokens."
-
-Michele Catasta, President & Head of AI
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8cfcc9195782f0851f0_Bridgewater_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8d35cc7b57f838f9679_Bridgewater_dark.svg)
-
-“On our long-running evals, Claude Opus 4.8’s analysis was consistently higher quality than prior Opus models. It finished faster and produced richer, more information dense outputs. Overall, a noticeably better signal to noise ratio. The biggest differentiator was Opus 4.8’s tendency to proactively flag issues with the inputs and outputs of an analysis, something other models routinely missed and left to the users to catch.”
-
-Michael Ran, Sr. Investment Associate
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e00d3d23a6405ccacc5a9b_logo_balyasny-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e00d5ab84a10161c27ce2e_logo_balyasny-dark.svg)
 
@@ -83,12 +95,6 @@ Read story
 [Read story](https://www.claude.com/customers/intercom)Read story
 
 Fergal Reid, VP of AI
-
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aedd1d4ccaa7aaecee72_zapier_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aed89af0a9a659d820f0_zapier_dark.svg)
-
-"Claude Fable 5 is the new leader on AutomationBench, consistently higher than Opus 4.8 — and more autonomous. Where Opus stops to ask, Fable 5 keeps looking."
-
-Wade Foster, CEO
 
 [Prev](#)Prev
 
@@ -125,7 +131,7 @@ Need custom rate limits or hands-on help? Contact our sales team for:
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ## Claude models
 
@@ -149,8 +155,6 @@ Batch processing
 
 Next generation intelligence for long-running agents
 
-Claude Fable 5 is unavailable. [Learn more](https://www.anthropic.com/news/fable-mythos-access)
-
 Input
 
 $10 / MTok
@@ -167,7 +171,7 @@ Read
 
 $1.00 / MTok
 
-### Opus 4.8
+### Opus 5
 
 Ideal for complex agentic coding and enterprise work
 
@@ -187,25 +191,27 @@ Read
 
 $0.50 / MTok
 
-### Sonnet 4.6
+### Sonnet 5
 
-Optimal balance of intelligence, cost, and speed
+High-performance model for coding and agents
 
-Input
+Input\*
 
-$3 / MTok
+$2 / MTok
 
-Output
+Output\*
 
-$15 / MTok
+$10 / MTok
 
 Prompt caching
 
-$3.75 / MTok
+$2.50 / MTok
 
 Read
 
-$0.30 / MTok
+$0.20 / MTok
+
+\*Introductory pricing of $2/$10 per million input/output tokens through August 31, 2026; **$3/$15 standard pricing thereafter.**
 
 ### Haiku 4.5
 
@@ -229,7 +235,7 @@ $0.10 / MTok
 
 **For workloads that need to run in the US, US-only inference is available at 1.1x pricing for input and output tokens.** [**Learn more**](https://platform.claude.com/docs/en/build-with-claude/data-residency)**.**
 
-Get up to 2.5x faster speeds with fast mode for Opus 4.8 at 2x standard pricing. [Learn more](https://platform.claude.com/docs/en/about-claude/pricing#fast-mode-pricing).
+Get up to 2.5x faster speeds with fast mode for Opus 5 at 2x standard pricing. [Learn more](https://platform.claude.com/docs/en/about-claude/pricing#fast-mode-pricing).
 
 Prompt caching pricing reflects 5-minute TTL. Learn about [extended prompt caching](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#1-hour-cache-duration).
 
@@ -305,12 +311,12 @@ Integrate Claude’s powerful AI capabilities into your apps and deliver product
 
 Existing prompt
 
-Classify all customer support tickets into the most relevant category.  
-  
-Here is the list of categories to choose from:  
-{{CATEGORY\_LIST}}  
-  
-Here is the content of the support ticket:  
+Classify all customer support tickets into the most relevant category.
+
+Here is the list of categories to choose from:
+{{CATEGORY\_LIST}}
+
+Here is the content of the support ticket:
 {{TICKET\_CONTENT}}
 
 What would you like to improve?
@@ -321,34 +327,34 @@ You are an AI assistant specialized in classifying customer support tickets. You
 
 First, let's review the available categories:
 
-<category\_list>  
-{{CATEGORY\_LIST}}  
+<category\_list>
+{{CATEGORY\_LIST}}
 </category\_list>
 
 Now, here is the content of the support ticket you need to classify:
 
-<ticket\_content>  
-{{TICKET\_CONTENT}}  
+<ticket\_content>
+{{TICKET\_CONTENT}}
 </ticket\_content>
 
-Please follow these steps to complete the task:  
-– Carefully read and analyze the ticket content.  
-– Consider how the content relates to each of the available categories.  
-– Choose the most appropriate category for the ticket.  
+Please follow these steps to complete the task:
+– Carefully read and analyze the ticket content.
+– Consider how the content relates to each of the available categories.
+– Choose the most appropriate category for the ticket.
 – Provide a detailed explanation of your reasoning process.
 
-Use the following structure for your response:  
-<classification\_analysis>  
-In this section, break down your thought process:  
-– Quote the most relevant parts of the ticket content.  
-– List each category and note how it relates to the ticket content.  
-– For each category, provide arguments for and against classifying the ticket into that category.  
-– Rank the top 3 most likely categories.  
+Use the following structure for your response:
+<classification\_analysis>
+In this section, break down your thought process:
+– Quote the most relevant parts of the ticket content.
+– List each category and note how it relates to the ticket content.
+– For each category, provide arguments for and against classifying the ticket into that category.
+– Rank the top 3 most likely categories.
 </classification\_analysis>
 
-<classification>  
-<category>Your chosen category goes here</category>  
-<reasoning>A concise summary of your reasoning for choosing this category</reasoning>  
+<classification>
+<category>Your chosen category goes here</category>
+<reasoning>A concise summary of your reasoning for choosing this category</reasoning>
 </classification>
 
 Remember to be thorough in your analysis and clear in your explanation. Your goal is to provide an accurate classification with well-supported reasoning.
@@ -369,7 +375,7 @@ Our models are constantly improving on coding, math, and reasoning. Claude can c
 
 Learn more
 
-[Learn more](/solutions/coding)Learn more
+[Learn more](https://claude.com/solutions/coding)Learn more
 
 ### Agents
 
@@ -377,7 +383,7 @@ Claude offers superior instruction following, tool selection, error correction, 
 
 Learn more
 
-[Learn more](/solutions/agents)Learn more
+[Learn more](https://claude.com/solutions/agents)Learn more
 
 ### Productivity
 
@@ -389,7 +395,7 @@ Claude can handle ticket triage, on-demand complex inquiries using rich context 
 
 Learn more
 
-[Learn more](/solutions/customer-support)Learn more
+[Learn more](https://claude.com/solutions/customer-support)Learn more
 
 ## Start building
 

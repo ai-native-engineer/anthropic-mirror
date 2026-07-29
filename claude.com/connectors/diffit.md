@@ -14,8 +14,6 @@ Quality, classroom-ready resources for anything
 
   [Diffit](https://web.diffit.me)
 
-[Play video](#)Play video
-
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
@@ -31,16 +29,16 @@ Get quality supplemental resources and differentiation support for any topic, sk
 
 You can use Diffit to:
 
-**Supplement your curriculum:**  
+**Supplement your curriculum:**
 "Station rotations focusing on main idea and character development in The Great Gatsby."
 
-**Differentiate content:**  
+**Differentiate content:**
 "Adapt this primary source document into 3rd, 5th, and 7th grade reading level versions."
 
-**Get sub plans:**  
+**Get sub plans:**
 "I need a sub plan that gives my students additional practice on CCSS.MATH.CONTENT.5.NF.A.2. Include a teacher guide with answer key, and some station rotations with engaging hooks."
 
-**Create quick activities:**  
+**Create quick activities:**
 "I want a crossword puzzle I can print with key terms about mitosis."
 
 ## Related connectors
@@ -49,17 +47,21 @@ Productivity
 
 Claude
 
+Claude Code
+
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
 Claude
+
+Claude Code
 
 June 9, 2026
 
@@ -67,28 +69,32 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
 Claude
 
+Claude Code
+
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
 Claude
 
+Claude Code
+
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

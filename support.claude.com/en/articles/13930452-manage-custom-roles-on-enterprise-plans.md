@@ -2,9 +2,9 @@
 
 # Manage custom roles on Enterprise plans
 
-Updated today
+Updated over 2 weeks ago
 
-Custom roles are available for Enterprise plan organizations. Owners, Primary Owners, and custom roles with the Identity & Access permission set to Manage can manage custom roles in **[Organization settings > Roles](https://claude.ai/admin-settings/roles)**.
+Custom roles are available for Enterprise plan organizations. Owners, Primary Owners, and custom roles with the **Identity & Access** permission set to "Can manage" can go to **[Organization settings > Roles](https://claude.ai/admin-settings/roles)** to manage custom roles.
 
 ## What are custom roles?
 
@@ -51,15 +51,24 @@ Each custom role can grant or restrict access to the following capabilities:
 | Claude Cowork | Access to Claude Cowork. |
 | Claude for Chrome | Access to Claude for Chrome, the browser extension that lets Claude browse and act on web pages on the user's behalf. |
 
-\*Claude Code dynamic workflows turn on for your whole organization by default on June 8, 2026. Because a single run can last for hours and use more tokens than a typical session, decide who should have access before that date. For members on custom roles, this capability follows the additive model like any other—a role must grant it for those members to use it. To restrict a specific group, leave this capability off in their role.
+\*Claude Code dynamic workflows are on for your whole organization by default. Because a single run can last for hours and use more tokens than a typical session, decide which roles should have access. For members on custom roles, this capability follows the additive model like any other—a role must grant it for those members to use it. To restrict a specific group, leave this capability off in their role.
 
-This can be disabled organization-wide via `managed-settings.json` by adding `"disableWorkflows": true` to your managed settings. This holds before and after June 8.
+This can be disabled organization-wide via `managed-settings.json` by adding `"disableWorkflows": true` to your managed settings.
 
-Once this goes live on June 8, an owner can turn it off across your entire organization by going to **[Organization settings > Claude Code](https://claude.ai/admin-settings/claude-code)** and toggling **Workflows** off.
+An owner can turn it off across your entire organization by going to **[Organization settings > Claude Code](https://claude.ai/admin-settings/claude-code)** and toggling **Workflows** off.
 
-Custom roles also govern access to admin permissions and connectors, which are configured on separate **Permissions** and **Connectors** tabs in the role editor. See **[Admin permissions](#h_fde60b08bd)** and **[Connector permissions](#h_979e558d00)** below.
+Custom roles also govern admin permissions, connectors, and model access, which are configured on separate **Permissions**, **Connectors**, and **Models** tabs in the role editor. See **[Admin permissions](#h_fde60b08bd)**, **[Connector permissions](#h_979e558d00)**, and **[Model access](#h_fca0f9a6b5)** below.
 
 **Note:** Chat is enabled by default for all custom roles, including ones created before this capability was added. If you want to restrict chat for a specific role, toggle it off when editing the role.
+
+### Grant all capabilities at once
+
+Instead of toggling capabilities individually, you can grant a role every capability. When creating or editing a role, choose an option on the **Capabilities** tab for **Capability access**:
+
+* **All capabilities:** Grants the role every capability, including capabilities in beta and research preview.
+* **All generally available:** Grants the role every generally available capability.
+
+Roles set to either option pick up new capabilities automatically as they launch. Roles set to “Only selected” only include the capabilities you select.
 
 ## Create a custom role
 
@@ -67,19 +76,20 @@ Custom roles also govern access to admin permissions and connectors, which are c
 2. Click “Add role.”
 3. Enter a name for the role (for example, “Developer,” “Standard Access,” or “Restricted”).
 4. Select the groups you want to assign to the role.
-5. Toggle each capability on or off to define what this role grants.
+5. Toggle each capability on or off to define what this role grants, or choose "All capabilities" or "All generally available" to grant every capability at once.
 6. Configure permissions. You can choose No access, Can view, and Can manage for each admin setting.
-7. Configure connectors. You can choose Always allowed, Ask, and Blocked for all connectors, or customize per connector or connector tool.
-8. Click “Save role.”
+7. Configure connectors. You can choose Always allow, Needs approval, or Blocked for all connectors, or customize per connector or connector tool.
+8. Configure models. Select which models this role can use, optionally set a maximum effort level per model, and optionally choose a default model for the role.
+9. Click “Save role.”
 
 ## Edit a custom role
 
 1. Navigate to **[Organization settings > Roles](https://claude.ai/admin-settings/roles)**.
 2. Click the role you want to edit.
-3. Update the name and groups, or toggle capabilities, permissions, and connectors as needed.
+3. Update the name and groups, or toggle capabilities, permissions, connectors, and models as needed.
 4. Click “Save role” to save your changes.
 
-Capability and connector changes take effect within one minute. Admin permission changes can take up to 15 minutes, and members may need to refresh their browser. All members in groups assigned to this role are affected.
+Role changes may take up to 15 minutes to take effect, and members may need to refresh their browser. All members in groups assigned to this role are affected.
 
 ## Delete a custom role
 
@@ -104,13 +114,31 @@ This means you can't use one role to remove a permission granted by another role
 
 **Example:** A member is in two groups. The "All Users" group is assigned a "Standard Access" role with web search and memory. The "Engineering" group is assigned a "Developer" role with Cowork and Claude Code. The member gets all four: web search, memory, Cowork, and Claude Code.
 
+## See a member or group's effective role
+
+When a member belongs to several groups whose roles grant different capabilities, it can be hard to tell what they can actually do. The "View effective role" option shows the combined result: every capability, admin permission, and connector the member has, with the role that grants each one.
+
+1. Navigate to **[Organization settings > Members](https://claude.ai/admin-settings/members)** (or **[Organization settings > Groups](https://claude.ai/admin-settings/groups)**).
+2. Find the member or group and open the "⋮" menu on the right side of their row.
+3. Select "View effective role."
+
+The modal lists the member's assigned roles and three tabs:
+
+* **Capabilities:** each capability with a "Granted by *[role name]*" label showing which role turned it on.
+* **Permissions:** each admin permission area with its effective level (No access, Can view, or Can manage) and which role grants it.
+* **Connectors:** each connector's effective permission level and which role grants it.
+
+This view is read-only. To change what a member can do, edit the roles assigned to their groups.
+
+**Note:** "View effective role" appears only for members whose role is set to "Custom" and who have at least one custom role assigned through a group. Members with a built-in role (User, Admin, Owner, or Primary Owner) get their permissions from that role directly, so there's nothing to compute.
+
 ## Admin permissions
 
 Custom roles can grant admin permissions in addition to capabilities and connector permissions. Admin permissions give members access to specific administrative areas, like billing or privacy, without making them Owners. You can configure admin permissions in the **Permissions** tab of the role editor.
 
 **Note:** Admin permissions only apply to members whose role is set to "Custom." Members with the User, Admin, Owner, or Primary Owner roles keep the access those roles grant.
 
-### **Admin permission levels**
+### Admin permission levels
 
 On the **Permissions** tab, you set each permission area to one of three levels:
 
@@ -120,7 +148,7 @@ On the **Permissions** tab, you set each permission area to one of three levels:
 
 Within an area, you grant all of View or all of Manage. You can't grant or restrict individual pages or settings.
 
-### **Available admin permissions**
+### Available admin permissions
 
 There are seven admin permission areas:
 
@@ -135,9 +163,9 @@ There are seven admin permission areas:
 | Libraries | Not available | Add, edit, and remove organization-shared skills, plugins, and connectors. Also includes directory management. |
 | Directory management | Not available | Submit and manage directory listings, and view observability for listings your organization has published |
 
-**Note:** A role with Identity & Access set to Manage can create and edit groups and roles, including its own role definition. Members with this permission can expand their own access, so reserve it for trusted security and IT administrators.
+**Note:** A role with **Identity & Access** set to "Can manage" can create and edit groups and roles, including its own role definition. Members with this permission can expand their own access, so reserve it for trusted security and IT administrators.
 
-### **Available organization settings pages for each permission**
+### Available organization settings pages for each permission
 
 |  |  |  |
 | --- | --- | --- |
@@ -147,6 +175,7 @@ There are seven admin permission areas:
 | Members | User Management (Manage) | No view-only mode |
 | Groups | Identity & Access (View or Manage) |  |
 | Roles | Identity & Access (View or Manage) |  |
+| Models | Identity & Access (View or Manage) | Default model and model access |
 | Organization and access (partial) | Identity & Access (View or Manage) | Unlocks single sign-on (SSO/SAML, group mappings, provisioning), verified domains and domain memberships, IP allowlist, session settings, restrict organization creation, and organization merger requests. Other sections on this page, like the organization name, default capability settings, and the organization-wide system prompt, still require the Owner role |
 | Data and privacy | Privacy (View or Manage) |  |
 | Analytics | Analytics (View) | Reached through Analytics in the user menu, not organization settings |
@@ -195,6 +224,8 @@ A connector or tool passes through several layers before a member can use it, ev
 
 For members using Claude Code, one more layer applies: Managed Settings policies and connector permissions compose by most-restrictive. A tool is callable without a prompt only when both allow it. For more information, see **[Claude Code settings](https://code.claude.com/docs/en/settings#settings-files)**.
 
+For members using Claude Cowork, write-capable connector tools pass through one more gate. See **[Cowork approval setting for write tools](#h_85bd7c30e9)** below.
+
 This table shows how the organization-wide tool policy and a member’s role grant combine:
 
 |  |  |  |  |
@@ -206,6 +237,10 @@ This table shows how the organization-wide tool policy and a member’s role gra
 | Needs approval | Always allow | Needs approval | Ask, Never |
 | Needs approval | Blocked | Blocked | Tool grayed out |
 | Blocked | Any | Blocked | Tool grayed out |
+
+### Cowork approval setting for write tools
+
+Claude Cowork has a separate organization setting, **Allow "Always allow" for connector tools**, that gates write-capable connector tools. It's off by default, and custom role grants can't override it: even when the organization-wide tool policy and every role grant are set to "Always allow," members approve these tools per task in Cowork until the setting is turned on. Learn more about **[connector tool approvals in Cowork](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans#h_1bd1fa754d)**.
 
 ### Where connector permissions apply
 
@@ -229,13 +264,22 @@ Connector permissions govern connectors your organization has added under **[Org
 | A connector is blocked for their role | The connector doesn’t appear in their connector menu. |
 | A tool is blocked on a visible connector | The tool is grayed out in their connector settings, with the message “This tool is not enabled for your role. Contact your administrator.” |
 | A tool is capped at “Needs approval” | The tool works, but the personal approval menu offers only “Ask” and “Never,” and Claude asks before each call. |
+| The Cowork “Allow “Always allow” for connector tools” setting is off | In Cowork, write-capable tools work, but "Allow for all tasks" is grayed out and members approve each task. |
 | Connector permissions can’t load briefly | A banner reports that connectors couldn’t load, with a retry. No blocked tool ever reaches the connected service. Access fails toward denying, never toward granting. |
 
 Members can’t tell which layer restricted a tool. The message is the same whether the limit comes from the organization-wide tool policy, a role grant, or both. To find the source, compare the organization-wide policy with the member’s role grants.
 
+## Model access
+
+Custom roles also control which Claude models a role can use and the maximum effort level members can select on each one. You set these on the **Models** tab of the role editor, alongside the role's default model.
+
+The organization-level model setting is the ceiling. A role can't grant a model that's disabled at the organization level. Across a member's roles, model access is additive and effort limits take the highest cap any role allows. Haiku models are always available and can't be disabled.
+
+For setup steps and what members see, see **[Manage model access for your organization](https://support.claude.com/en/articles/15694740)**. For default model behavior, see **[Set a default model for your organization](https://support.claude.com/en/articles/15330088)**.
+
 ## What members see when capability access is restricted
 
-When a capability is restricted, here’s what members see. For connector and tool restrictions, see **Connector permissions** above.
+When a capability is restricted, here’s what members see. For connector and tool restrictions, see **[Connector permissions](#h_979e558d00)** above.
 
 |  |  |
 | --- | --- |
@@ -244,4 +288,8 @@ When a capability is restricted, here’s what members see. For connector and to
 | Member's roles don't grant the feature | The feature appears greyed out or hidden, with the message "Contact your admin to request access to this feature." |
 | Member's roles don't grant any product access | The member lands on their settings page when they sign in, with no products available to use. |
 
-[Claude Console roles and permissions](https://support.claude.com/en/articles/10186004-claude-console-roles-and-permissions)[Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)[Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)[Manage groups and group spend limits on Enterprise plans](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans)[Set up role-based permissions on Enterprise plans](https://support.claude.com/en/articles/13930458-set-up-role-based-permissions-on-enterprise-plans)
+* [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
+* [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
+* [Manage groups and group spend limits on Enterprise plans](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans)
+* [Set up role-based permissions on Enterprise plans](https://support.claude.com/en/articles/13930458-set-up-role-based-permissions-on-enterprise-plans)
+* [Claude Design admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans)

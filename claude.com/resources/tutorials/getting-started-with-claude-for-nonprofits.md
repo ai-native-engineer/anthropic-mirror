@@ -4,23 +4,6 @@
 
 Learn how to access Claude's nonprofit pricing, connect to fundraising and donor management tools, and get your team started.
 
-  Nonprofits
-* Product
-
-  Claude.ai
-* Reading time
-
-  Watch time
-
-  5
-
-  min
-
-  min
-* Share
-
-  [Copy link](#)
-
   https://claude.com/resources/tutorials/getting-started-with-claude-for-nonprofits
 
 ![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
@@ -34,7 +17,7 @@ Claude for nonprofits is available on two plans:
 * **Team plan:** $8/user/month
 * **Enterprise plan:** $10/user/month
 
-Both plans include access to Claude Sonnet 4.5 and Haiku 4.5, with a minimum of 2 seats for teams under 150.
+Both plans include access to the same models as our Team and Enterprise offerings, with a minimum of 2 seats for teams under 150.
 
 To get started, verify your nonprofit status through our partner Goodstack by completing [this short form](https://validate.poweredbypercent.com/anthropic). The verification process takes 2–3 minutes for Team plans. For Enterprise pricing, [contact our sales team](https://claude.com/contact-sales/nonprofits).
 
@@ -61,8 +44,6 @@ Explore the full [nonprofit use case library](https://claude.com/resources/use-c
 * Data visualization and reporting
 * Grant writing and donor communications
 * Research and landscape analysis
-
-## Frequently asked questions
 
 #### Who is eligible?
 
@@ -106,37 +87,3 @@ Visit the [use case library](https://claude.com/resources/use-cases/category/non
 * **Team plan option greyed out:** Make sure you're signed in to the correct account and have admin permissions
 * **Email domain questions:** All team members don't need the same domain. Learn about [allowed email domains](https://support.claude.com/en/articles/13325567-account-management-faqs#h_b54c41c86c).
 * **Connecting tools:** Learn how to [browse and connect tools from the directory](https://support.claude.com/en/articles/11724452-using-the-connectors-directory-to-extend-claude-s-capabilities).
-
-## Related tutorials
-
-[Using the Candid connector in Claude](/resources/tutorials/using-the-candid-connector-in-claude)Using the Candid connector in Claude
-
-Using the Candid connector in Claude
-
-Tutorial
-
-[Tutorial](/resources/tutorials/using-the-candid-connector-in-claude)Tutorial
-
-[Using the Blackbaud connector in Claude](/resources/tutorials/using-the-blackbaud-connector-in-claude)Using the Blackbaud connector in Claude
-
-Using the Blackbaud connector in Claude
-
-Tutorial
-
-[Tutorial](/resources/tutorials/using-the-blackbaud-connector-in-claude)Tutorial
-
-[Using the Benevity connector in Claude](/resources/tutorials/using-the-benevity-connector-in-claude)Using the Benevity connector in Claude
-
-Using the Benevity connector in Claude
-
-Tutorial
-
-[Tutorial](/resources/tutorials/using-the-benevity-connector-in-claude)Tutorial
-
-[Claude for nonprofits partnership guide for all users](/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Claude for nonprofits partnership guide for all users
-
-Claude for nonprofits partnership guide for all users
-
-Tutorial
-
-[Tutorial](/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Tutorial

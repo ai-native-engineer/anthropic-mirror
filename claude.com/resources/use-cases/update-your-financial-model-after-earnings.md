@@ -126,8 +126,8 @@ Management didn't guide FY28 on the call. Baird asked about out-year margin dura
 
 With the Claude for Excel add-in installed, paste this into the sidebar with the workbook open:
 
-Q4 print: rev $2.72B (beat), GM 45.7% vs my 42.4%.  
-  
+Q4 print: rev $2.72B (beat), GM 45.7% vs my 42.4%.
+
 Flag on Assumptions!C7 — FY28E GM at 43.0%, mgmt didn't guide past FY27. Walk me through C7, then build best/base/worst scenarios on the margin range.
 
 Once you've signed off on the cells, open the deck in Claude for PowerPoint. The conversation carries from Excel, so the page build already knows what changed.
@@ -200,7 +200,7 @@ Try it on your next earnings print. Attach your model folder in Cowork, ask what
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69caecf29ad8fa2677f41b27_artifact.png)
 
@@ -210,34 +210,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Draft a credit memo from spreads and statements with Claude for Excel](/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Draft a credit memo from spreads and statements with Claude for Excel
+[Draft a credit memo from spreads and statements with Claude for Excel](https://claude.com/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Draft a credit memo from spreads and statements with Claude for Excel
 
 Draft a credit memo from spreads and statements with Claude for Excel
 
 Use case
 
-[Use case](/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Use case
+[Use case](https://claude.com/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Use case
 
-[Validate reserves and draft filing narrative with Claude for Excel](/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Validate reserves and draft filing narrative with Claude for Excel
+[Validate reserves and draft filing narrative with Claude for Excel](https://claude.com/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Validate reserves and draft filing narrative with Claude for Excel
 
 Validate reserves and draft filing narrative with Claude for Excel
 
 Use case
 
-[Use case](/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Use case
+[Use case](https://claude.com/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Use case
 
-[Reconcile transactions across your accounts](/resources/use-cases/reconcile-transactions-across-your-accounts)Reconcile transactions across your accounts
+[Reconcile transactions across your accounts](https://claude.com/resources/use-cases/reconcile-transactions-across-your-accounts)Reconcile transactions across your accounts
 
 Reconcile transactions across your accounts
 
 Use case
 
-[Use case](/resources/use-cases/reconcile-transactions-across-your-accounts)Use case
+[Use case](https://claude.com/resources/use-cases/reconcile-transactions-across-your-accounts)Use case
 
-[Understand and extend an inherited spreadsheet](/resources/use-cases/understand-and-extend-an-inherited-spreadsheet)Understand and extend an inherited spreadsheet
+[Understand and extend an inherited spreadsheet](https://claude.com/resources/use-cases/understand-and-extend-an-inherited-spreadsheet)Understand and extend an inherited spreadsheet
 
 Understand and extend an inherited spreadsheet
 
 Use case
 
-[Use case](/resources/use-cases/understand-and-extend-an-inherited-spreadsheet)Use case
+[Use case](https://claude.com/resources/use-cases/understand-and-extend-an-inherited-spreadsheet)Use case

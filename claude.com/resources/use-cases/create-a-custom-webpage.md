@@ -97,8 +97,8 @@ From Claude
 
 I've created your portfolio site. The design pulls from the editorial, hand-crafted aesthetic in your inspiration files—I avoided symmetrical layouts and corporate templates in favor of something that feels more organic. The tape effects you mentioned appear on project cards, and I added subtle scroll animations that activate as you move through the page.
 
-Your resume information structures the About section, while your project descriptions each get their own showcase area with space for images and details. The typography uses a serif-sans pairing that matches the sophisticated tone you wanted, and the color palette comes from analyzing your design references.  
-  
+Your resume information structures the About section, while your project descriptions each get their own showcase area with space for images and details. The typography uses a serif-sans pairing that matches the sophisticated tone you wanted, and the color palette comes from analyzing your design references.
+
 [**View your portfolio webpage**](https://claude.ai/public/artifacts/b7659aff-fe0a-4777-9d3b-3c2bc7f33f6d)
 
 You can open this in any browser to see how it looks. If you want to adjust colors, change project order, or modify any of the text, let me know what you'd like different.
@@ -163,7 +163,7 @@ Work with Claude to build a portfolio page that represents your work and learn t
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a9cc7903f3b39c2087d35_Screenshot%202025-11-04%20at%204.39.28%E2%80%AFPM.png)
 
@@ -173,34 +173,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Map your understanding and build lessons from the gaps](/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Map your understanding and build lessons from the gaps
+[Map your understanding and build lessons from the gaps](https://claude.com/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Map your understanding and build lessons from the gaps
 
 Map your understanding and build lessons from the gaps
 
 Use case
 
-[Use case](/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Use case
+[Use case](https://claude.com/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Use case
 
-[Stress-test your financial plan across scenarios](/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Stress-test your financial plan across scenarios
+[Stress-test your financial plan across scenarios](https://claude.com/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Stress-test your financial plan across scenarios
 
 Stress-test your financial plan across scenarios
 
 Use case
 
-[Use case](/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Use case
+[Use case](https://claude.com/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Use case
 
-[Organize files across your desktop](/resources/use-cases/organize-files-by-whats-in-them)Organize files across your desktop
+[Organize files across your desktop](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)Organize files across your desktop
 
 Organize files across your desktop
 
 Use case
 
-[Use case](/resources/use-cases/organize-files-by-whats-in-them)Use case
+[Use case](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)Use case
 
-[Thoughtful gift giving with Claude](/resources/use-cases/thoughtful-gift-giving-with-claude)Thoughtful gift giving with Claude
+[Thoughtful gift giving with Claude](https://claude.com/resources/use-cases/thoughtful-gift-giving-with-claude)Thoughtful gift giving with Claude
 
 Thoughtful gift giving with Claude
 
 Use case
 
-[Use case](/resources/use-cases/thoughtful-gift-giving-with-claude)Use case
+[Use case](https://claude.com/resources/use-cases/thoughtful-gift-giving-with-claude)Use case

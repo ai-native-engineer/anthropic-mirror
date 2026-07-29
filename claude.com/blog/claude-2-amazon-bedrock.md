@@ -33,26 +33,26 @@ Here are a few examples of teams building with the newly available Claude 2 on A
 
 ## LexisNexis and AI-assisted legal services
 
-LexisNexis Legal & Professional is a leading global provider of information and analytics serving customers in more than 150 countries across law firms, corporate, government, and academic markets, and is committed to responsibly developing AI solutions with human oversight. Claude 2 via Amazon Bedrock will help power LexisNexis’ legal AI capabilities.  
-  
+LexisNexis Legal & Professional is a leading global provider of information and analytics serving customers in more than 150 countries across law firms, corporate, government, and academic markets, and is committed to responsibly developing AI solutions with human oversight. Claude 2 via Amazon Bedrock will help power LexisNexis’ legal AI capabilities.
+
 “It’s important to understand AI’s capabilities and limitations, and to work with partners that deliver data security and provide best-in-class training of large language models. Legal use cases also require high-quality technical analysis, long context windows for processing detailed documents, and fast outputs. That’s why we’ve chosen Claude 2 on Amazon Bedrock as an important part of our AI strategy,” said Jeff Reihl, Executive Vice President & Chief Technology Officer at LexisNexis Legal & Professional.
 
 ### Lonely Planet and AI-supported travel planning
 
-Lonely Planet is one of the world’s most trusted sources of travel information. Its team is using Claude 2 on Amazon Bedrock to unlock decades of travel content and help customers plan memorable trips.  
-  
+Lonely Planet is one of the world’s most trusted sources of travel information. Its team is using Claude 2 on Amazon Bedrock to unlock decades of travel content and help customers plan memorable trips.
+
 “We’ve turned to Claude 2 on Amazon Bedrock to integrate generative AI in a scalable, reliable, and secure way, making it easier than ever for our customers to access our world-class travel content when and how they want,” said Chris Whyde, Senior Vice President of Engineering and Data Science at Lonely Planet.
 
 ### Ricoh USA and AI-driven operations
 
-Ricoh USA offers workplace solutions and digital transformation services designed to manage and optimize the flow of information across businesses. It’s using Claude 2 on Amazon Bedrock to infuse generative AI into its operations.  
-  
+Ricoh USA offers workplace solutions and digital transformation services designed to manage and optimize the flow of information across businesses. It’s using Claude 2 on Amazon Bedrock to infuse generative AI into its operations.
+
 “We wanted to integrate a large language model that could produce high-quality training datasets while preserving data integrity and customer security. We selected Claude 2 on Amazon Bedrock for its proficiency in generating this data, as well as its adherence to stringent standards including HIPAA and SOC II,” said Ashok Shenoy, Vice President of Portfolio Development at Ricoh USA.
 
 ### Getting started
 
-To learn more about building next-generation AI applications with Claude on Amazon Bedrock, please visit [aws.amazon.com/bedrock/claude](https://aws.amazon.com/bedrock/claude/).  
-  
+To learn more about building next-generation AI applications with Claude on Amazon Bedrock, please visit [aws.amazon.com/bedrock/claude](https://aws.amazon.com/bedrock/claude/).
+
 We’re grateful for the interest in this important collaboration, and we look forward to making our safer, more reliable AI models even more accessible through Amazon Bedrock in the future.
 
 No items found.
@@ -79,53 +79,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
 
-Jun 17, 2026
+Jul 28, 2026
 
-### Secure access to the Claude Platform with Workload Identity Federation
-
-Product announcements
-
-[Secure access to the Claude Platform with Workload Identity Federation](#)Secure access to the Claude Platform with Workload Identity Federation
-
-[Secure access to the Claude Platform with Workload Identity Federation](/blog/workload-identity-federation)Secure access to the Claude Platform with Workload Identity Federation
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229a7aa26ac1b6e96c2_a62b6eb169818f14c35b7a192af269e283f8fa93-1000x1000.svg)
-
-May 7, 2026
-
-### Collaborate with Claude across Excel, PowerPoint, Word and Outlook
+### Bringing MCP 2026-07-28 to Claude
 
 Product announcements
 
-[Collaborate with Claude across Excel, PowerPoint, Word and Outlook](#) Collaborate with Claude across Excel, PowerPoint, Word and Outlook
+[Bringing MCP 2026-07-28 to Claude](#)Bringing MCP 2026-07-28 to Claude
 
-[Collaborate with Claude across Excel, PowerPoint, Word and Outlook](/blog/collaborate-with-claude-across-excel-powerpoint-word-and-outlook) Collaborate with Claude across Excel, PowerPoint, Word and Outlook
+[Bringing MCP 2026-07-28 to Claude](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)Bringing MCP 2026-07-28 to Claude
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224ef32980bc807847d_a683fdcfe3e2c7c6532342a0fa4ff789c3fd4852-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d231b45c2193efbb0f02_1869137c9d7f2a38b50e804d707e10e85de05ddb-1000x1000.svg)
 
-May 19, 2026
+Jul 23, 2026
 
-### New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration
-
-Product announcements
-
-[New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration](#)New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration
-
-[New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration](/blog/new-in-claude-managed-agents)New in Claude Managed Agents: dreaming, outcomes, and multiagent orchestration
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
-
-Apr 30, 2026
-
-### Claude Security is now in public beta
+### Think through hard problems in voice mode
 
 Product announcements
 
-[Claude Security is now in public beta](#)Claude Security is now in public beta
+[Think through hard problems in voice mode](#)Think through hard problems in voice mode
 
-[Claude Security is now in public beta](/blog/claude-security-public-beta)Claude Security is now in public beta
+[Think through hard problems in voice mode](https://claude.com/blog/think-through-hard-problems-in-voice-mode)Think through hard problems in voice mode
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a025cf25f0694905405e054_Object-Scale.svg)
+
+May 12, 2026
+
+### Claude for the legal industry
+
+Product announcements
+
+[Claude for the legal industry](#)Claude for the legal industry
+
+[Claude for the legal industry](https://claude.com/blog/claude-for-the-legal-industry)Claude for the legal industry
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3f14a08cb97bf1b16d40ef_ObjectClouds.svg)
+
+Jul 7, 2026
+
+### Claude Cowork is coming to mobile and web
+
+Product announcements
+
+[Claude Cowork is coming to mobile and web](#)Claude Cowork is coming to mobile and web
+
+[Claude Cowork is coming to mobile and web](https://claude.com/blog/cowork-web-mobile)Claude Cowork is coming to mobile and web
 
 ## Transform how your organization operates with Claude
 
@@ -144,25 +144,5 @@ Product updates, how-tos, community spotlights, and more. Delivered monthly to y
 Thank you! You’re subscribed.
 
 Sorry, there was a problem with your submission, please try again later.
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 
 Business

@@ -10,6 +10,7 @@ Search and analyze customer feedback
 * Used in
 
   [Claude](https://claude.ai/directory/92d00407-7fa7-49bc-8d90-55a59434099c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Unwrap AI](https://www.unwrap.ai/)
 
@@ -22,22 +23,22 @@ Search and analyze customer feedback
   Read
 * More
 
-  [Documentation](https://docs.unwrap.ai/articles/6412771011-unwrap-mcp)[Privacy Policy](https://www.unwrap.ai/legal/privacy-policy)[contact@unwrap.ai](mailto:contact@unwrap.ai)
+  [Documentation](https://docs.unwrap.ai/articles/6412771011-unwrap-mcp)[Privacy Policy](https://www.unwrap.ai/legal/privacy-policy)[Support](mailto:contact@unwrap.ai)
 
 Search and analyze your customer feedback with Unwrap. Pull in customer feedback themes and anecdotes, filter by metadata and analyze trends with issues over time. Use your customers feedback to build data backed roadmaps, PRD's, and more!
 
 You can use Unwrap to:
 
-**Example Use Case 1:**  
+**Example Use Case 1:**
 "Get me the top issues in the last 90 days"
 
-**Example Use Case 2:**  
+**Example Use Case 2:**
 "Show me how issue X has been trending over the last year"
 
-**Example Use Case 3:**  
+**Example Use Case 3:**
 "Build me a PRD around issue X, using customer verbatims to back up the issues."
 
-**Example Use Case 4:**  
+**Example Use Case 4:**
 "Show me feedback related to X."
 
 ## Related connectors
@@ -50,11 +51,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -68,7 +69,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -82,7 +83,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -94,4 +95,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

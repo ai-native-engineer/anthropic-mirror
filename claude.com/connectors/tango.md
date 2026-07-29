@@ -10,6 +10,7 @@ Search for US Government Contracting Data
 * Used in
 
   [Claude](https://claude.ai/directory/af83346b-0499-4fcc-ae7c-22235705bdcd)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [MakeGov Inc](https://makegov.com/)
 
@@ -22,22 +23,22 @@ Search for US Government Contracting Data
   Read
 * More
 
-  [Documentation](https://tango.makegov.com/docs/mcp/)[Privacy Policy](https://tango.makegov.com/privacy)[support@makegov.com](mailto:support@makegov.com)
+  [Documentation](https://tango.makegov.com/docs/mcp/)[Privacy Policy](https://tango.makegov.com/privacy)[Support](mailto:support@makegov.com)
 
 The Tango server gives AI agents access to reliable, LLM-friendly federal procurement competitive intelligence so that procurement professionals can focus on delivering on mission.
 
 You can use Tango to:
 
-**Government contract analysis:**  
+**Government contract analysis:**
 "Who are the primary players on SPRUCE and what are they winning?"
 
-**Agency contract research:**  
+**Agency contract research:**
 "What were SAMHSA's largest contracts in FY25?"
 
-**Opportunity identification:**  
+**Opportunity identification:**
 "Can you identify any expiring vehicles at the DOJ for professional services or training?"
 
-**Active opportunity search:**  
+**Active opportunity search:**
 "What are live opportunities for NLP in SAM.gov?"
 
 ## Related connectors

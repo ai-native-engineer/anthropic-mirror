@@ -1,9 +1,17 @@
 <!-- source: https://claude.com/docs/claude-tag/admins/connections/bigquery -->
 
-Connections are added inside an [Access bundle](/docs/claude-tag/admins/add-connections#your-first-access-bundle). At [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), open **Access bundles** in the left navigation, click into a bundle (or **Create** one), and go to its **Credentials** tab.
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
+Connections are added inside an [Access bundle](https://claude.com/docs/claude-tag/admins/add-connections#your-first-access-bundle). At [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), open **Access bundles** in the left navigation, click into a bundle (or **Create** one), and go to its **Credentials** tab.
 
 Connecting BigQuery lets Claude run queries against your datasets from any channel under the bundle’s scope. Add it as a custom credential with **Connect another tool**; BigQuery has no preset button in the picker.
-This is an HTTP API connection, not a personal claude.ai connector. Pair it with a plugin that covers BigQuery so Claude knows how to form and run queries; without one, Claude can reach the API but has to work out the request shape on its own. See [Attach plugins](/docs/claude-tag/admins/add-connections#attach-plugins).
+This is an HTTP API connection, not a personal claude.ai connector. Pair it with a plugin that covers BigQuery so Claude knows how to form and run queries; without one, Claude can reach the API but has to work out the request shape on its own. See [Attach plugins](https://claude.com/docs/claude-tag/admins/add-connections#attach-plugins).
 
 ##  Create the credential in Google Cloud
 
@@ -29,20 +37,24 @@ In the bundle, click **Connect another tool** and choose **GCP access token (wit
 | Scopes (optional) | `https://www.googleapis.com/auth/bigquery`. The field is labeled optional, but leave it empty and the token defaults to a broader scope. BigQuery’s query endpoints don’t accept a read-only scope; the dataset roles in the section above are what keep the connection read-only. |
 | Allowed websites | `bigquery.googleapis.com` |
 
-Agent Proxy exchanges the service-account key for an access token and injects it at the network boundary; the model and the sandbox are not given the key. See [how Agent Proxy works](/docs/claude-tag/concepts/agent-identity#agent-proxy).
+Agent Proxy exchanges the service-account key for an access token and injects it at the network boundary; the model and the sandbox are not given the key. See [how Agent Proxy works](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-proxy).
 
 ##  Verify the connection
 
 In a channel under the bundle’s scope, in a new thread:
 
+```
 @Claude what can you access from this channel?
+```
 
-BigQuery appears in the list once the connection is live. New connections apply to new threads only.
+BigQuery appears in the list once the connection is live. New threads pick up the connection on their own; in an existing thread, ask Claude to use the service by name.
 Then confirm a query runs against a dataset you granted:
 
+```
 @Claude how many rows are in <dataset>.<table>?
+```
 
-* [What this connection adds](/docs/claude-tag/users/use-cases/answer-data-questions): warehouse questions answered with charts in the thread
-* [Give Claude access](/docs/claude-tag/admins/add-connections): the full credential-type and allowed-hosts reference
+##  Related resources
 
-[Jira and Confluence](/docs/claude-tag/admins/connections/atlassian)[Datadog](/docs/claude-tag/admins/connections/datadog)
+* [What this connection adds](https://claude.com/docs/claude-tag/users/use-cases/answer-data-questions): warehouse questions answered with charts in the thread
+* [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connections): the full credential-type and allowed-hosts reference

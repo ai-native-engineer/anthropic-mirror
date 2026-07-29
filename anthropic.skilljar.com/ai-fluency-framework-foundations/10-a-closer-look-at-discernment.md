@@ -77,7 +77,9 @@ Drawing on your expertise, carefully evaluate each explanation provided by Claud
 
 Based on your evaluation:
 
-1. Identify the strongest explanation and specifically tell Claude specifically why it's effective 2. Identify the weakest explanation and provide specific feedback on what makes it problematic 3. Work with Claude to create an improved version that addresses the issues you identified
+1. Identify the strongest explanation and specifically tell Claude specifically why it's effective
+2. Identify the weakest explanation and provide specific feedback on what makes it problematic
+3. Work with Claude to create an improved version that addresses the issues you identified
 
 **Step 5: Reflection**
 
@@ -110,7 +112,6 @@ As you progress through the course, we'd love to hear from you about how you are
 *Copyright 2025 Rick Dakan, Joseph Feller, and Anthropic. Released under the CC BY-NC-SA 4.0 license.*
 
 *This course is based on The AI Fluency Framework by Dakan and Feller.* *Supported in part by the Higher Education Authority, Ireland, through the National Forum for the Enhancement of Teaching and Learning.*
-
 <!-- youtube: Y0KidGr9Z2Y -->
 
 [![A Closer Look At Discernment](https://img.youtube.com/vi/Y0KidGr9Z2Y/hqdefault.jpg)](https://www.youtube.com/watch?v=Y0KidGr9Z2Y)

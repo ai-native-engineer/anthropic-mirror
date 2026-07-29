@@ -189,7 +189,7 @@ Point Opus 4.6 at your quarter.
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698446deb44156e33889f4f8_Screenshot%202026-02-04%20at%2011.29.30%E2%80%AFPM.png)
 
@@ -199,34 +199,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Evaluate a company from the science to the balance sheet](/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Evaluate a company from the science to the balance sheet
+[Evaluate a company from the science to the balance sheet](https://claude.com/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Evaluate a company from the science to the balance sheet
 
 Evaluate a company from the science to the balance sheet
 
 Use case
 
-[Use case](/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Use case
+[Use case](https://claude.com/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Use case
 
-[Build analysis from browser charts and folder data](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Build analysis from browser charts and folder data
+[Build analysis from browser charts and folder data](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Build analysis from browser charts and folder data
 
 Build analysis from browser charts and folder data
 
 Use case
 
-[Use case](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Use case
+[Use case](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Use case
 
-[Build a daily briefing across your tools](/resources/use-cases/build-a-daily-briefing-across-your-tools)Build a daily briefing across your tools
+[Build a daily briefing across your tools](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)Build a daily briefing across your tools
 
 Build a daily briefing across your tools
 
 Use case
 
-[Use case](/resources/use-cases/build-a-daily-briefing-across-your-tools)Use case
+[Use case](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)Use case
 
-[Process batches of vendors with Cowork](/resources/use-cases/process-batches-of-vendors-with-cowork)Process batches of vendors with Cowork
+[Process batches of vendors with Cowork](https://claude.com/resources/use-cases/process-batches-of-vendors-with-cowork)Process batches of vendors with Cowork
 
 Process batches of vendors with Cowork
 
 Use case
 
-[Use case](/resources/use-cases/process-batches-of-vendors-with-cowork)Use case
+[Use case](https://claude.com/resources/use-cases/process-batches-of-vendors-with-cowork)Use case

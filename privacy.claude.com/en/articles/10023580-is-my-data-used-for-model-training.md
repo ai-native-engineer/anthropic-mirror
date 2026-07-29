@@ -24,7 +24,7 @@ We de-link your feedback from your user ID (e.g. email address) before it’s us
 
 Here’s an example of what you’ll see when using the thumbs up / down button to provide a feedback report:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486990077/3e3aca2c94d3fb363c58829a5112/image.png?expires=1785136500&signature=616007fd86c5211bfe61ac98c88b93bbfba15ae1043e59dcd7f850d84bc3df0e&req=dSQvEMB3nYFYXvMW1HO4zdLW1HKgDDPdS2MKBI2FW5VLK7WX0B9xwyQw0rig%0AnlsC29HHG4HZHDeERAk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486990077/3e3aca2c94d3fb363c58829a5112/image.png?expires=1785136500&signature=616007fd86c5211bfe61ac98c88b93bbfba15ae1043e59dcd7f850d84bc3df0e&req=dSQvEMB3nYFYXvMW1HO4zdLW1HKgDDPdS2MKBI2FW5VLK7WX0B9xwyQw0rig%0AnlsC29HHG4HZHDeERAk%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486990077/3e3aca2c94d3fb363c58829a5112/image.png?expires=1785295800&signature=79af8f338827efc5ae3c30ba88b05a1def4fd17dce41cd5b88e25d625ded44a4&req=dSQvEMB3nYFYXvMW1HO4zdLW1HKjBjDQS2MKBI2FW5UnhtnwPS3GP%2BzxRVj0%0ADas1BSMFP2xUq%2F7P6vo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1486990077/3e3aca2c94d3fb363c58829a5112/image.png?expires=1785295800&signature=79af8f338827efc5ae3c30ba88b05a1def4fd17dce41cd5b88e25d625ded44a4&req=dSQvEMB3nYFYXvMW1HO4zdLW1HKjBjDQS2MKBI2FW5UnhtnwPS3GP%2BzxRVj0%0ADas1BSMFP2xUq%2F7P6vo%3D%0A)
 
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
 * [How do you use personal data in model training?](https://privacy.claude.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training)

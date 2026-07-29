@@ -25,8 +25,8 @@ Build a Claude Cowork plugin from scratch to encode your team's workflows, insti
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a5bbbe653abc69c4ee2f9a_Screenshot%202026-03-02%20at%208.32.55%E2%80%AFAM.png)
 
-A Cowork plugin is a group of files that can teach Claude how to do a specific job — encoding your methodology, your workflows, your tool connections.   
-  
+A Cowork plugin is a group of files that can teach Claude how to do a specific job — encoding your methodology, your workflows, your tool connections.
+
 Anthropic publishes [pre-built plugins](https://claude.com/plugins) for common roles like [Sales](https://claude.com/plugins/sales), [Finance](https://claude.com/plugins/finance), and [Legal](https://claude.com/plugins/legal). Customizing those with your company's context can help tailor the plugin to your needs. Building from scratch is for when your team has workflows, processes, or institutional knowledge that existing plugins don't cover.
 
 *To learn more about installing and using plugins in Cowork,* [*visit here*](https://support.claude.com/en/articles/13837440-use-plugins-in-cowork)*.*
@@ -63,7 +63,7 @@ Understanding the components within a plugin can give you a framework for what t
 
 In Cowork, describe the plugin you want to build — even a sentence is enough to start.
 
-![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b8460843a447d8ca18de65_699fb4b80c990fef020d939d_699fadff328117154b6b0dd6_Screenshot%2525202026-02-25%252520at%2525206.20.40%2525E2%252580%2525AFPM.png)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b8460843a447d8ca18de65_699fb4b80c990fef020d939d_699fadff328117154b6b0dd6_Screenshot%2525202026-02-25%252520at%2525206.20.40%2525E2%252580%2525AFPM.png)
 
 A simpler start works too — Claude will follow up with questions about your workflow, your tools, your standards, and how you handle edge cases.
 
@@ -118,8 +118,6 @@ With detailed instructions, Claude can handle many of these workflows. A plugin 
 * **Plugins live on your machine.** They don't sync across devices or to teammates automatically. You can share them as a compressed file, host them on GitHub for automatic updates, or have an admin provision them across your org. [*Learn more about sharing plugins.*](https://support.claude.com/en/articles/13837440-use-plugins-in-cowork)
 * **Skills and connectors can also live outside plugins.** If you have personal context that applies across everything you do in Cowork — not tied to one plugin — you can add standalone skills and connectors in settings.
 
-*Cowork with plugins is available as a research preview for all paid Claude plans (Pro, Max, Team, Enterprise) on macOS and Windows. Browse* [*available plugins*](https://claude.com/plugins)*.*
-
 ## Learn more
 
 * ‍[Getting started with Cowork](https://support.claude.com/en/articles/13345190-getting-started-with-cowork)
@@ -128,34 +126,34 @@ With detailed instructions, Claude can handle many of these workflows. A plugin 
 
 ## Related tutorials
 
-[Tasks to try with @Claude in your workspace](/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tasks to try with @Claude in your workspace
+[Delegating and scheduling tasks in Claude Cowork](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Delegating and scheduling tasks in Claude Cowork
+
+Delegating and scheduling tasks in Claude Cowork
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Tutorial
+
+[Tasks to try with @Claude in your workspace](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tasks to try with @Claude in your workspace
 
 Tasks to try with @Claude in your workspace
 
 Tutorial
 
-[Tutorial](/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tutorial
 
-[Best practices for using @Claude](/resources/tutorials/best-practices-using-claude-tag)Best practices for using @Claude
+[Best practices for using @Claude](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Best practices for using @Claude
 
 Best practices for using @Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/best-practices-using-claude-tag)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Tutorial
 
-[Using Claude Cowork for legal: answer fast questions on past decisions](/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Using Claude Cowork for legal: answer fast questions on past decisions
+[Using Claude Cowork for legal: answer fast questions on past decisions](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Using Claude Cowork for legal: answer fast questions on past decisions
 
 Using Claude Cowork for legal: answer fast questions on past decisions
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial
-
-[Using Claude Cowork for marketing ops: run a weekly review that preps itself](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Tutorial
-
-[Tutorial](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial

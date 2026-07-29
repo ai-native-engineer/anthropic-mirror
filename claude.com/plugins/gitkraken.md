@@ -4,7 +4,13 @@
 
 Access your Git repos: commits, branches, PRs, issues. Supports GitHub, GitLab, Azure DevOps, Bitbucket, Jira.
 
+* Install in
+
+  [Claude Code](#)
+* Made by
+
   [GitKraken](https://www.gitkraken.com)
+* Installs
 
   9
 
@@ -23,3 +29,41 @@ Powered by the GitKraken MCP server, the plugin gives Claude access to cross-pla
 * "Who last modified this file?"
 * "Summarize recent commits on the main branch"
 * "What's the status of my open pull requests across all repos?"
+
+## Related plugins
+
+[### Frontend Design
+
+Craft production-grade frontends with distinctive design. Generates polished code that avoids generic AI aesthetics.
+
+Anthropic verified
+
+1110438
+
+installs](https://claude.com/plugins/frontend-design)
+
+[### Superpowers
+
+Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
+
+987572
+
+installs](https://claude.com/plugins/superpowers)
+
+[### Code Review
+
+AI code review with specialized agents and confidence-based filtering for pull requests
+
+Anthropic verified
+
+430450
+
+installs](https://claude.com/plugins/code-review)
+
+[### Context7
+
+Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
+
+412076
+
+installs](https://claude.com/plugins/context7)

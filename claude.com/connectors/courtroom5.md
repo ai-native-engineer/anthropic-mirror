@@ -10,6 +10,7 @@ Civil legal guidance for self-represented litigants
 * Used in
 
   [Claude](https://claude.ai/directory/295eaac1-7469-4c28-8fda-dbd2a0f76219)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Courtroom5](https://courtroom5.com/)
 
@@ -22,19 +23,19 @@ Civil legal guidance for self-represented litigants
   Read
 * More
 
-  [Documentation](https://courtroom5.com/claude)[Privacy Policy](https://courtroom5.com/privacy)[support@courtroom5.com](mailto:support@courtroom5.com)
+  [Documentation](https://courtroom5.com/claude)[Privacy Policy](https://courtroom5.com/privacy)[Support](mailto:support@courtroom5.com)
 
 Courtroom5 provides legal guidance to the 80% of civil litigants who appear in court without an attorney. Three jurisdiction-aware tools cover serious civil matters across all 50 US states: a case intake assessment that identifies viable claims and first steps; a deadline calculator that returns precise procedural deadlines and miss-consequences by state and court level; and next-step guidance for users mid-litigation.
 
 You can use Courtroom5 to:
 
-**Case intake for a self-represented worker:**  
+**Case intake for a self-represented worker:**
 "I was fired from my job in Texas three weeks ago, two days after I reported safety violations to OSHA. My employer says I was terminated for 'performance issues' but my last review six months ago was excellent. I think this is retaliation. I can't afford a lawyer — what are my options?"
 
-**Multi-tool guidance for a homeowner facing foreclosure:**  
+**Multi-tool guidance for a homeowner facing foreclosure:**
 "My mortgage company in Florida filed a foreclosure lawsuit against me last month after I fell behind on payments during a medical emergency. I got served two weeks ago and I'm panicking. What can I even do at this point?"
 
-**Next-step guidance for a defendant mid-discovery:**  
+**Next-step guidance for a defendant mid-discovery:**
 "I'm a defendant in a contract dispute in North Carolina. I filed my answer two weeks ago. What should I be doing right now to prepare?"
 
 ## Related connectors
@@ -47,11 +48,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -65,7 +66,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -75,11 +76,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -89,8 +90,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

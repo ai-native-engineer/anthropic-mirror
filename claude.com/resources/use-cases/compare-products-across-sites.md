@@ -98,53 +98,53 @@ From Claude
 
  Here's the comparison based on the specs you care about:
 
- Price  
-  - Dell XPS 15: $1,499  
-  - MacBook Pro 14": $1,999  
-  - ThinkPad X1: $1,649  
-  - HP Spectre: $1,399  
+ Price
+  - Dell XPS 15: $1,499
+  - MacBook Pro 14": $1,999
+  - ThinkPad X1: $1,649
+  - HP Spectre: $1,399
  *- Winner: HP Spectre*
 
- Processor  
-  - Dell XPS 15: Intel i7-13700H  
-  - MacBook Pro 14": Apple M3 Pro  
-  - ThinkPad X1: Intel i7-1365U  
-  - HP Spectre: Intel i7-1360P  
+ Processor
+  - Dell XPS 15: Intel i7-13700H
+  - MacBook Pro 14": Apple M3 Pro
+  - ThinkPad X1: Intel i7-1365U
+  - HP Spectre: Intel i7-1360P
   *- Winner: MacBook (M3 Pro)*
 
- RAM  
-  - Dell XPS 15: 16 GB  
-  - MacBook Pro 14": 18 GB  
-  - ThinkPad X1: 16 GB  
-  - HP Spectre: 16 GB  
+ RAM
+  - Dell XPS 15: 16 GB
+  - MacBook Pro 14": 18 GB
+  - ThinkPad X1: 16 GB
+  - HP Spectre: 16 GB
  *- Winner: MacBook (18 GB)*
 
- Storage  
-  - Dell XPS 15: 512 GB SSD  
-  - MacBook Pro 14": 512 GB SSD  
-  - ThinkPad X1: 512 GB SSD  
-  - HP Spectre: 1 TB SSD  
+ Storage
+  - Dell XPS 15: 512 GB SSD
+  - MacBook Pro 14": 512 GB SSD
+  - ThinkPad X1: 512 GB SSD
+  - HP Spectre: 1 TB SSD
   - *Winner: HP Spectre (1 TB)*
 
- Screen  
-  - Dell XPS 15: 15.6" OLED  
-  - MacBook Pro 14": 14.2" Liquid Retina  
-  - ThinkPad X1: 14" IPS  
-  - HP Spectre: 13.5" OLED  
+ Screen
+  - Dell XPS 15: 15.6" OLED
+  - MacBook Pro 14": 14.2" Liquid Retina
+  - ThinkPad X1: 14" IPS
+  - HP Spectre: 13.5" OLED
  *- Winner: Dell (15.6" OLED)*
 
- Battery  
-  - Dell XPS 15: 13 hours  
-  - MacBook Pro 14": 17 hours  
-  - ThinkPad X1: 15 hours  
-  - HP Spectre: 12 hours  
+ Battery
+  - Dell XPS 15: 13 hours
+  - MacBook Pro 14": 17 hours
+  - ThinkPad X1: 15 hours
+  - HP Spectre: 12 hours
  *- Winner: MacBook (17 hrs)*
 
- Weight  
-  - Dell XPS 15: 4.2 lbs  
-  - MacBook Pro 14": 3.4 lbs  
-  - ThinkPad X1: 2.48 lbs  
-  - HP Spectre: 3.01 lbs  
+ Weight
+  - Dell XPS 15: 4.2 lbs
+  - MacBook Pro 14": 3.4 lbs
+  - ThinkPad X1: 2.48 lbs
+  - HP Spectre: 3.01 lbs
  *- Winner: ThinkPad (2.48 lbs)*
 
 **Quick Notes**
@@ -225,7 +225,7 @@ Claude in Chrome is available to all paid plan subscribers. Install the extensio
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69433656958ac4e8cb0beab9_product.png)
 
@@ -235,34 +235,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Pull metrics from analytics dashboards](/resources/use-cases/pull-metrics-from-analytics-dashboards)Pull metrics from analytics dashboards
+[Pull metrics from analytics dashboards](https://claude.com/resources/use-cases/pull-metrics-from-analytics-dashboards)Pull metrics from analytics dashboards
 
 Pull metrics from analytics dashboards
 
 Use case
 
-[Use case](/resources/use-cases/pull-metrics-from-analytics-dashboards)Use case
+[Use case](https://claude.com/resources/use-cases/pull-metrics-from-analytics-dashboards)Use case
 
-[Prepare and plan from your calendar](/resources/use-cases/prepare-and-plan-from-your-calendar)Prepare and plan from your calendar
+[Prepare and plan from your calendar](https://claude.com/resources/use-cases/prepare-and-plan-from-your-calendar)Prepare and plan from your calendar
 
 Prepare and plan from your calendar
 
 Use case
 
-[Use case](/resources/use-cases/prepare-and-plan-from-your-calendar)Use case
+[Use case](https://claude.com/resources/use-cases/prepare-and-plan-from-your-calendar)Use case
 
-[Log sales calls to your CRM](/resources/use-cases/log-sales-calls-to-your-crm)Log sales calls to your CRM
+[Log sales calls to your CRM](https://claude.com/resources/use-cases/log-sales-calls-to-your-crm)Log sales calls to your CRM
 
 Log sales calls to your CRM
 
 Use case
 
-[Use case](/resources/use-cases/log-sales-calls-to-your-crm)Use case
+[Use case](https://claude.com/resources/use-cases/log-sales-calls-to-your-crm)Use case
 
-[Clean up promotional emails](/resources/use-cases/clean-up-promotional-emails)Clean up promotional emails
+[Clean up promotional emails](https://claude.com/resources/use-cases/clean-up-promotional-emails)Clean up promotional emails
 
 Clean up promotional emails
 
 Use case
 
-[Use case](/resources/use-cases/clean-up-promotional-emails)Use case
+[Use case](https://claude.com/resources/use-cases/clean-up-promotional-emails)Use case

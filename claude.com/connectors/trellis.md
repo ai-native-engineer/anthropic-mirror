@@ -12,6 +12,7 @@ Claude for Trial Court Litigators
 * Used in
 
   [Claude](https://claude.ai/directory/0a45d87b-7a46-4e43-a0ce-113eb0e9f002)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Trellis](https://trellis.law)
 
@@ -32,19 +33,19 @@ Trellis — Claude for Trial Court Litigators gives Claude direct access to the 
 
 You can use Trellis to:
 
-**Judge Research:**  
+**Judge Research:**
 "Pull a report on Judge Schulman's ruling history on summary judgment motions in employment cases."
 
-**Opposing Counsel Profiling:**  
+**Opposing Counsel Profiling:**
 "Profile opposing counsel at Wilson Elser — what types of cases do they take and how do they typically litigate?"
 
-**Expert Witness Vetting:**  
+**Expert Witness Vetting:**
 "Find expert witnesses commonly used in insurance bad faith cases in California and flag any Daubert challenges."
 
-**Motion Drafting:**  
+**Motion Drafting:**
 "Draft a motion to dismiss for a breach of contract case before Judge Torres, based on how similar motions have succeeded in this jurisdiction."
 
-**Early Case Assessment:**  
+**Early Case Assessment:**
 "Give me a case strategy report for a newly filed slip-and-fall case in Cook County."
 
 ## Related connectors
@@ -57,11 +58,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Productivity
 
@@ -71,11 +72,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -89,7 +90,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -99,8 +100,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)

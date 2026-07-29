@@ -10,6 +10,7 @@ MCP for creating interactive hand-drawn diagrams in Excalidraw
 * Used in
 
   [Claude](https://claude.ai/directory/934bf25a-e0d1-43ff-a488-b2c5567ec956)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Excalidraw](https://github.com/excalidraw)
 
@@ -28,16 +29,16 @@ The official Excalidraw MCP app allowing you to build interactive visual applica
 
 You can use Excalidraw to:
 
-**Neural network visualizations:**  
+**Neural network visualizations:**
 "Show how a neural network forward pass works"
 
-**Component lifecycle diagrams:**  
+**Component lifecycle diagrams:**
 "Map out the React component lifecycle"
 
-**Git branching strategy:**  
+**Git branching strategy:**
 "Draw a Git branching strategy with feature, develop, and main"
 
-**Decision trees:**  
+**Decision trees:**
 "Create a decision tree for choosing a database"
 
 ## Related connectors
@@ -48,11 +49,11 @@ Claude
 
 May 7, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe for creativity
 
-Ideate, create, and deliver with Adobe pro tools](/connectors/adobe-creativity)
+Ideate, create, and deliver with Adobe pro tools](https://claude.com/connectors/adobe-creativity)
 
 Productivity
 
@@ -64,11 +65,11 @@ Claude Code
 
 May 1, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f518707047601013a4983f_autodesk%20(1).svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d316ce38ed7af0f88414_icon_Autodesk.jpg)
 
 ### Autodesk Product Help
 
-Securely access Autodesk's help documentation](/connectors/autodesk-product-help)
+Securely access Autodesk's help documentation](https://claude.com/connectors/autodesk-product-help)
 
 Design
 
@@ -84,7 +85,7 @@ February 11, 2026
 
 ### Canva
 
-Search, create, autofill, and export Canva designs from a prompt](/connectors/canva)
+Search, create, autofill, and export Canva designs from a prompt](https://claude.com/connectors/canva)
 
 Design
 
@@ -100,4 +101,4 @@ May 28, 2026
 
 ### Descript
 
-Import, edit, or create video with prompts](/connectors/descript)
+Import, edit, or create video with prompts](https://claude.com/connectors/descript)

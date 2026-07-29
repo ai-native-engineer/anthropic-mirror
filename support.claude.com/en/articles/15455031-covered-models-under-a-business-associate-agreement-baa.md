@@ -2,9 +2,7 @@
 
 # Covered Models under a Business Associate Agreement (BAA)
 
-Updated over a week ago
-
-**Update June 12:** We've suspended access to Claude Fable 5 and Claude Mythos 5. **[Learn more here](https://anthropic.com/news/fable-mythos-access)**.
+Updated over 4 weeks ago
 
 This article is for organizations that use Anthropic's HIPAA-ready services under a Business Associate Agreement (BAA). It explains which configurations are Eligible Services under the BAA and whether you can access Covered Models. **Your organization is responsible for ensuring its use of these services complies with applicable legal obligations.** Learn about **[Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)** and **[Covered Models](https://support.claude.com/en/articles/15425695-covered-models)**.
 
@@ -36,7 +34,7 @@ Each row in the table is a configuration: a product, how you access it, and whet
 | Claude API (1P API) | Regular API | Zero data retention | ✅ Yes | ❌ No |
 | Claude API (1P API) | Regular API | Standard retention | ❌ No | ✅ Yes |
 
-\*Anthropic's BAA doesn't apply to services purchased through a third-party cloud provider. For questions about coverage on these platforms, contact your cloud provider and your Anthropic account team.  
+\*Anthropic's BAA doesn't apply to services purchased through a third-party cloud provider. For questions about coverage on these platforms, contact your cloud provider and your Anthropic account team.
 ​
 
 Requests to a Covered Model from a ZDR-enabled organization or workspace return an error.
@@ -71,4 +69,8 @@ Some organizations may consider setting up a separate, non-ZDR organization to a
 * **Cowork is not an Eligible Service under Anthropic's BAA in any configuration**, regardless of retention settings or the model in use, and shouldn't be used with PHI.
 * **If your teams work across multiple organizations with different coverage, you're responsible for ensuring PHI is only submitted through Eligible Services**, configured according to the **[Implementation Guide for HIPAA Entities](https://trust.anthropic.com/resources?s=rgirr4qe8u7ek8c2igx3&name=claude-for-enterprise-hipaa-ready-offering-implementation-guide)**.
 
-[Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)[HIPAA-ready Enterprise plans](https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans)[Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)[Covered Models](https://support.claude.com/en/articles/15425695-covered-models)[Data retention practices for Mythos-class models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-mythos-class-models)
+* [Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
+* [HIPAA-ready Enterprise plans](https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans)
+* [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
+* [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
+* [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)

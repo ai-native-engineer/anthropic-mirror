@@ -1,6 +1,14 @@
 <!-- source: https://claude.com/docs/government/org-admin/overview -->
 
-> **Who this portal is for:** Organization owners. If you manage multiple organizations across your agency, see the [Tenant administration](/docs/government/tenant-admin/overview) guide instead.
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
+> **Who this portal is for:** Organization owners. If you manage multiple organizations across your agency, see the [Tenant administration](https://claude.com/docs/government/tenant-admin/overview) guide instead.
 
 The organization admin portal is where you manage the people, seats, and settings for a single organization in Claude for Government. It covers the day-to-day work of administering who has access, how much they can use, and how the Claude products behave for your users.
 
@@ -11,7 +19,7 @@ Your agency’s deployment is a **tenant**, which is the top-level container tha
 Every person in an organization holds a **role**, which determines whether they can reach this portal at all, and occupies a **seat** on a **seat tier**, which determines which Claude models they can use and how much they can use them. Seat tiers come in two kinds:
 
 * **Anthropic-managed tiers** that are supplied to you as a fixed number of seats.
-* **Self-managed tiers** that your organization defines itself and funds from a prepaid **credit** balance.
+* **Self-managed tiers** that your organization defines itself and that draw from the billing account’s balance.
 
 ##  Who can access it
 
@@ -22,7 +30,7 @@ You can reach the organization admin portal if your role in the organization is 
 
 The portal header shows your organization’s name, and a navigation bar below it gives you access to each admin page.
 
-If your organization’s credit balance crosses a warning threshold, a banner appears just below the navigation on every page of this portal. The banner tells you the percentage of credits used and stays in place until more credits are added to your organization. It escalates in color and wording if usage crosses a higher threshold. Every owner sees the banner, including when funding is managed centrally and the Billing tab is hidden, so that you always know when your organization is running low.
+If the account your organization draws from crosses a warning threshold, a banner appears just below the navigation on every page of this portal. The banner tells you the percentage of credits used and stays in place until more credits are added to the account. It escalates in color and wording if usage crosses a higher threshold. Every owner sees the banner, including when the Billing tab is hidden, so that you always know when your organization is running low.
 
 > **For owners and tenant administrators:** You can reach the user view from the **Switch to user view** link in the page footer. If you are also a tenant administrator, the footer additionally offers **Switch to tenant view**.
 
@@ -33,34 +41,32 @@ The navigation groups the pages into three sections.
 
 | Page | What it’s for |
 | --- | --- |
-| [Users](/docs/government/org-admin/users) | Find users, change their role or seat tier, check their usage, and reset their rate limits. |
-| [Seats](/docs/government/org-admin/seats) | See how many seats of each tier your organization has and how many are currently in use. |
-| [Tiers](/docs/government/org-admin/seat-tiers) | Review the Anthropic-managed seat tiers and create your own tiers with custom model access and spend limits. |
-| [Group mappings](/docs/government/org-admin/provisioning) | Map directory groups to seat tiers and roles so that users added through your directory land in the right place automatically. |
+| [Users](https://claude.com/docs/government/org-admin/users) | Find users, change their role or seat tier, check their usage, and reset their rate limits. |
+| [Seats](https://claude.com/docs/government/org-admin/seats) | See how many seats of each tier your organization has and how many are currently in use. |
+| [Tiers](https://claude.com/docs/government/org-admin/seat-tiers) | Review the Anthropic-managed seat tiers and create your own tiers with custom model access and spend limits. |
+| [Group mappings](https://claude.com/docs/government/org-admin/provisioning) | Map directory groups to seat tiers and roles so that users added through your directory land in the right place automatically. |
 
 **Usage**
 
 | Page | What it’s for |
 | --- | --- |
-| [Analytics](/docs/government/org-admin/analytics) | Review requests, tokens, spend, top users, and credit balance over time across your organization. |
-| [Compliance API](/docs/government/org-admin/compliance-api) | Create and manage read-only API keys that stream your organization’s audit events to a SIEM or log management system. |
-| [Billing](/docs/government/org-admin/billing) | See the billing account that funds your organization, distribute credits, and adjust your seat allocation. |
+| [Analytics](https://claude.com/docs/government/org-admin/analytics) | Review requests, tokens, spend, top users, and credit balance over time across your organization. |
+| [Compliance API](https://claude.com/docs/government/org-admin/compliance-api) | Create and manage read-only API keys that stream your organization’s audit events to a SIEM or log management system. |
+| [Billing](https://claude.com/docs/government/org-admin/billing) | See the billing account that funds your organization, its balance and any spend caps, and adjust your seat allocation. |
 
 **Settings**
 
 | Page | What it’s for |
 | --- | --- |
-| [Config](/docs/government/org-admin/configuration) | Adjust product settings such as telemetry, the desktop banner, and enabled tabs for everyone in your organization. |
-| [Readiness](/docs/government/org-admin/readiness) | See what is blocking users from using Claude and where each item is resolved. |
+| [Config](https://claude.com/docs/government/org-admin/configuration) | Adjust product settings such as telemetry, the desktop banner, and enabled tabs for everyone in your organization. |
+| [Readiness](https://claude.com/docs/government/org-admin/readiness) | See what is blocking users from using Claude and where each item is resolved. |
 
-The **Billing** tab only appears if you have permission to manage the billing account that funds your organization, the account is active, and your own organization is active on it. If you don’t see it, your tenant administrators manage funding centrally and you should contact them to request changes to credits or seat counts.
+The **Billing** tab only appears when the billing account is active and your own organization is active on it. If you don’t see it, contact your tenant administrators about credits or spend caps.
 
 The **Group mappings** tab only appears if automatic directory provisioning has been set up for your tenant. If you don’t see it, your tenant administrator has not connected a directory, and users are placed by the tenant’s routing rules alone.
 
-Single sign-on and the SCIM provisioning connection are configured at the tenant level, so they are managed on the [tenant portal’s Identity and access page](/docs/government/tenant-admin/identity-and-access) rather than here.
+Single sign-on and the SCIM provisioning connection are configured at the tenant level, so they are managed on the [tenant portal’s Identity and access page](https://claude.com/docs/government/tenant-admin/identity-and-access) rather than here.
 
 ##  How changes take effect
 
 Most changes you make in this portal take effect immediately. Changing a user’s seat tier, updating a spend limit, or resetting a user’s rate limits applies to their very next request. Product configuration changes are picked up the next time a user’s Claude application refreshes its settings, which happens when the application is launched or when the user signs in. Group mapping changes trigger an immediate re-sync so you do not need to wait for a scheduled cycle.
-
-[Admins](/docs/government/tenant-admin/admins)[Setup wizard](/docs/government/org-admin/setup-wizard)

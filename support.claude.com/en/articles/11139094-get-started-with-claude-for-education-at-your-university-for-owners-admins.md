@@ -2,9 +2,11 @@
 
 # Get started with Claude for Education at your university (for Owners/Admins)
 
-May 22, 2026
+Updated over 2 weeks ago
 
 This guide helps Admins, Owners, and Primary Owners set up and manage Claude for Education at universities. Account users can find more information in our [FAQs for student, faculty, and other users](https://support.claude.com/en/articles/11139144-faqs-on-using-claude-for-education-at-your-university).
+
+**K-12 educator?** Claude for Teachers is built for you. [Get started](https://claude.com/solutions/teachers).
 
 ## Get started
 
@@ -21,7 +23,7 @@ When enforcing SSO on your Education account, there are two distinct categories 
 1. Users with existing Free/Pro/Team accounts who ARE added to your SSO application
 
    * These users will maintain access to their existing Free/Pro/Team accounts
-   * They will have the ability to toggle between the Education account and their previous accounts by clicking the profile icon with their initials in the bottom left corner  
+   * They will have the ability to toggle between the Education account and their previous accounts by clicking the profile icon with their initials in the bottom left corner
      ​
 2. Users with existing Free/Pro/Team accounts who are NOT added to your SSO application
 
@@ -67,4 +69,8 @@ Visit our [Privacy Center](https://privacy.claude.com/en/collections/10663361-co
 * Terms of service details
 * Privacy controls information
 
-[FAQs on Using Claude for Education at Your University](https://support.claude.com/en/articles/11139144-faqs-on-using-claude-for-education-at-your-university)[Switching to a different Identity Provider (IdP)](https://support.claude.com/en/articles/13443687-switching-to-a-different-identity-provider-idp)[Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)[Okta SSO setup](https://support.claude.com/en/articles/13917894-okta-sso-setup)[Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)
+* [Use Claude for Education at your university](https://support.claude.com/en/articles/11139144-use-claude-for-education-at-your-university)
+* [Switching to a different Identity Provider (IdP)](https://support.claude.com/en/articles/13443687-switching-to-a-different-identity-provider-idp)
+* [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
+* [Okta SSO setup](https://support.claude.com/en/articles/13917894-okta-sso-setup)
+* [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)

@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![StubHub logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae12c8fde8379f187f2b_Stubhub_light.svg)![StubHub logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae0ce20f30193a817bb3_Stubhub_dark.svg)
 
@@ -140,34 +140,34 @@ Video caption
 
 ## Related stories
 
-[Audience Strategies expands the electronic music industry's policy influence with Claude](/customers/audience-strategies)Audience Strategies expands the electronic music industry's policy influence with Claude
+[Audience Strategies expands the electronic music industry's policy influence with Claude](https://claude.com/customers/audience-strategies)Audience Strategies expands the electronic music industry's policy influence with Claude
 
 Audience Strategies expands the electronic music industry's policy influence with Claude
 
 Customer story
 
-[Customer story](/customers/audience-strategies)Customer story
+[Customer story](https://claude.com/customers/audience-strategies)Customer story
 
-[Orange localizes manga at an unprecedented scale with Claude](/customers/orange)Orange localizes manga at an unprecedented scale with Claude
+[Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)Orange localizes manga at an unprecedented scale with Claude
 
 Orange localizes manga at an unprecedented scale with Claude
 
 Customer story
 
-[Customer story](/customers/orange)Customer story
+[Customer story](https://claude.com/customers/orange)Customer story
 
-[WRTN pioneers AI entertainment and storytelling across Asia with Claude](/customers/wrtn)WRTN pioneers AI entertainment and storytelling across Asia with Claude
+[WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)WRTN pioneers AI entertainment and storytelling across Asia with Claude
 
 WRTN pioneers AI entertainment and storytelling across Asia with Claude
 
 Customer story
 
-[Customer story](/customers/wrtn)Customer story
+[Customer story](https://claude.com/customers/wrtn)Customer story
 
-[Lex streamlines the writing process with Claude](/customers/lex)Lex streamlines the writing process with Claude
+[Lex streamlines the writing process with Claude](https://claude.com/customers/lex)Lex streamlines the writing process with Claude
 
 Lex streamlines the writing process with Claude
 
 Customer story
 
-[Customer story](/customers/lex)Customer story
+[Customer story](https://claude.com/customers/lex)Customer story

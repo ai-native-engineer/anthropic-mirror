@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-tag/users/models -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Every Claude Tag reply in Slack comes from one Claude model, and you choose which one by asking Claude for it in plain language, the same way you hand it any other task. The footer of each reply names the model that handled it, so you can confirm a switch took effect.
 Which models you can ask for depends on your organization; see [which models you can use](#which-models-you-can-use).
 
@@ -7,19 +15,23 @@ Which models you can ask for depends on your organization; see [which models you
 
 Tell Claude which model you want, in your own words, in the thread.
 
+```
 @Claude switch to Claude Opus 4.8 for the rest of this thread.
+```
 
-The switch takes effect from Claude’s next reply; check that reply’s footer to confirm. It applies only to the thread you asked in. To change what new threads in the channel start on, set a [default model for the channel](#set-a-default-model-for-the-channel) instead.
+To confirm the switch, check the reply footers. The reply that acknowledges the switch still names the previous model, because Claude writes it before the switch takes effect; the new model appears in the footer of the reply after it. Asking in a thread changes the model for that thread only. To change what new threads in the channel start on, set a [default model for the channel](#set-a-default-model-for-the-channel) instead.
 The same request works in a direct message, where it applies to that conversation only.
 
 ##  Set a default model for the channel
 
 To change what new threads in a channel start on, ask for the channel, not just the thread.
 
+```
 @Claude use Sonnet for this thread, and make it the default model for this channel.
+```
 
 Claude sets the channel’s default model, which applies to new threads in that channel. Threads already underway keep the model they started with until someone in them asks Claude to switch.
-Admins set the same default from claude.ai, per workspace or channel; see [choose the model for a scope](/docs/claude-tag/admins/customize#choose-the-model-for-a-scope).
+Admins set the same default from claude.ai, per workspace or channel; see [choose the model for a scope](https://claude.com/docs/claude-tag/admins/customize#choose-the-model-for-a-scope).
 
 ##  Choose the model for your direct messages
 
@@ -31,11 +43,13 @@ The selector doesn’t change a conversation already underway. To change one of 
 Anthropic manages the list of models on offer, and your organization’s settings narrow it. The options include Opus and Sonnet models, drawn from what’s available to your organization. Every list you see in Slack, the direct message selector and the models Claude offers to switch to, is already filtered to that set.
 To see the current list, ask in the thread.
 
+```
 @Claude what models can I use here?
+```
 
 If you ask for a model that isn’t on the list, Claude tells you it isn’t available, and the thread stays on the model it was already using.
 
-* [Get started](/docs/claude-tag/users/getting-started): what else the reply footer links to
-* [Customize Claude Tag](/docs/claude-tag/admins/customize#choose-the-model-for-a-scope): how admins set a default model per workspace or channel, and how the organization’s model policy applies
+##  Related resources
 
-[What Claude Tag remembers](/docs/claude-tag/users/memory)[Prompt library](/docs/claude-tag/users/prompt-library)
+* [Get started](https://claude.com/docs/claude-tag/users/getting-started): what else the reply footer links to
+* [Customize Claude Tag](https://claude.com/docs/claude-tag/admins/customize#choose-the-model-for-a-scope): how admins set a default model per workspace or channel, and how the organization’s model policy applies

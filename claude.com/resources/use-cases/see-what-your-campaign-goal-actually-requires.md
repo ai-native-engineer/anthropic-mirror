@@ -153,7 +153,7 @@ Try it on the campaign number someone floated in a board meeting. Type the goal 
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b28c90803ff07e4f3c4b31_Screenshot%202026-03-12%20at%202.51.09%E2%80%AFAM.png)
 
@@ -163,34 +163,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[See budget futures side by side, in chat with Claude](/resources/use-cases/see-budget-futures-side-by-side)See budget futures side by side, in chat with Claude
+[See budget futures side by side, in chat with Claude](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)See budget futures side by side, in chat with Claude
 
 See budget futures side by side, in chat with Claude
 
 Use case
 
-[Use case](/resources/use-cases/see-budget-futures-side-by-side)Use case
+[Use case](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)Use case
 
-[See why donor retention beats acquisition, in chat with Claude](/resources/use-cases/see-why-donor-retention-beats-acquisition)See why donor retention beats acquisition, in chat with Claude
+[See why donor retention beats acquisition, in chat with Claude](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)See why donor retention beats acquisition, in chat with Claude
 
 See why donor retention beats acquisition, in chat with Claude
 
 Use case
 
-[Use case](/resources/use-cases/see-why-donor-retention-beats-acquisition)Use case
+[Use case](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)Use case
 
-[See your theory of change in chat with Claude](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)See your theory of change in chat with Claude
+[See your theory of change in chat with Claude](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)See your theory of change in chat with Claude
 
 See your theory of change in chat with Claude
 
 Use case
 
-[Use case](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)Use case
+[Use case](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)Use case
 
-[Workflow improvement planner](/resources/use-cases/workflow-improvement-planner)Workflow improvement planner
+[Workflow improvement planner](https://claude.com/resources/use-cases/workflow-improvement-planner)Workflow improvement planner
 
 Workflow improvement planner
 
 Use case
 
-[Use case](/resources/use-cases/workflow-improvement-planner)Use case
+[Use case](https://claude.com/resources/use-cases/workflow-improvement-planner)Use case

@@ -225,3 +225,7 @@ As you progress through the course, we'd love to hear how you're using concepts 
 #### Acknowledgments and license
 
 *Copyright 2026 Anthropic. All rights reserved.*
+
+<!-- yt-pending: v5IOHK5xFlc -->
+
+_(영상 자막 없음 또는 추출 실패)_

@@ -10,6 +10,7 @@ Search for and use scientific templates and icons
 * Used in
 
   [Claude](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8720)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](https://support.claude.com/en/articles/12614768-getting-started-with-claude-for-life-sciences)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Biorender](https://www.biorender.com/)
 
@@ -22,19 +23,19 @@ Search for and use scientific templates and icons
   Read
 * More
 
-  [Documentation](https://help.biorender.com/hc/en-gb/articles/30870978672157-How-to-use-the-BioRender-MCP-connector)[Privacy Policy](https://www.biorender.com/privacy)[support@biorender.com](mailto:support@biorender.com)
+  [Documentation](https://help.biorender.com/hc/en-gb/articles/30870978672157-How-to-use-the-BioRender-MCP-connector)[Privacy Policy](https://www.biorender.com/privacy)[Support](mailto:support@biorender.com)
 
-Provides access to BioRender template and icon search for scientists.  
-  
-You can use the BioRender connector to:  
-  
-Create CRISPR mechanism graphics:  
-‍"I need to create a graphical abstract showing how CRISPR-Cas9 gene editing works in plant cells for my NSF grant proposal. I want to show the Cas9 protein, guide RNA, DNA double-strand break, and then the DNA repair process. Can you find me templates for CRISPR mechanisms and plant cell structures?"  
-  
-Design cell therapy figures:   
-"I'm working on a figure for a paper about CAR-T cell therapy targeting solid tumors. I need to illustrate: T cells being engineered with chimeric antigen receptors, the CAR-T cells trafficking through blood vessels to the tumor site, and then binding to tumor antigens. Can you help me find templates or icons that show T cell activation, tumor microenvironment, and cell-cell interactions?"  
-  
-Visual experimental workflows:   
+Provides access to BioRender template and icon search for scientists.
+
+You can use the BioRender connector to:
+
+Create CRISPR mechanism graphics:
+‍"I need to create a graphical abstract showing how CRISPR-Cas9 gene editing works in plant cells for my NSF grant proposal. I want to show the Cas9 protein, guide RNA, DNA double-strand break, and then the DNA repair process. Can you find me templates for CRISPR mechanisms and plant cell structures?"
+
+Design cell therapy figures:
+"I'm working on a figure for a paper about CAR-T cell therapy targeting solid tumors. I need to illustrate: T cells being engineered with chimeric antigen receptors, the CAR-T cells trafficking through blood vessels to the tumor site, and then binding to tumor antigens. Can you help me find templates or icons that show T cell activation, tumor microenvironment, and cell-cell interactions?"
+
+Visual experimental workflows:
 "I'm presenting our latest RNA-seq results at an upcoming lab meeting and need to explain the experimental workflow to new graduate students. Can you find icons and templates showing: tissue sample collection, RNA extraction, library preparation, sequencing, and bioinformatics analysis pipeline?"
 
 ## Related connectors
@@ -51,7 +52,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -65,7 +66,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Life sciences and healthcare
 
@@ -79,20 +80,18 @@ February 11, 2026
 
 ### Benchling
 
-Connect to R&D data, source experiments, and notebooks](/connectors/benchling)
+Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
 
 Life sciences and healthcare
-
-Education
 
 Claude
 
 Claude Code
 
-May 20, 2026
+June 30, 2026
 
-[![biorxiv_logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3f052f1932d948bc6d21_biorx.jpg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43716940e4a2c2f530fb2c_biomni.jpeg)
 
-### bioRxiv
+### Biomni Lab
 
-Access to bioRxiv and medRxiv preprint data](/connectors/biorxiv)
+Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)

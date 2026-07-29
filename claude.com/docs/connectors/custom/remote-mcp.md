@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/connectors/custom/remote-mcp -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Custom connectors enable you to link Claude directly to your essential tools and data sources using the Model Context Protocol (MCP).
 
 ##  What are third party connectors?
@@ -12,7 +20,7 @@ You can:
 
 ###  Finding connectors
 
-Browse the [Connectors Directory](/docs/connectors/directory) to discover verified and reviewed third-party MCP servers that are ready to use across all Claude products.
+Browse the [Connectors Directory](https://claude.com/docs/connectors/directory) to discover third-party MCP servers that are ready to use across all Claude products. Some are verified by Anthropic and others are community connectors; see [connector verification](https://claude.com/docs/connectors/verification).
 
 ##  Adding custom connectors
 
@@ -47,6 +55,34 @@ You can manually add any third-party connector to Claude as long as you have the
 ###  Enabling connectors in chat
 
 Use the ”+” button in your chat interface to access “Connectors,” where you can enable/disable connectors per conversation.
+
+##  Authenticating with request headers
+
+Request header authentication is in beta. This feature is being slowly rolled out to customers; contact Anthropic for early access.
+
+If your MCP server authenticates with an API key, bearer token, or other fixed credential instead of OAuth, you can configure it in the **Request headers** section of the Add custom connector dialog. Claude stores each header value securely, does not show it again after you save, and sends it on every request to your server.
+Request headers suit services where everyone in your organization shares one credential, such as an internal tool or a service account. If each person needs to sign in with their own account, use OAuth instead.
+You can also use request headers in addition to OAuth, including OAuth with your own pre-registered client credentials. Headers configured on an OAuth connection are sent on every request alongside the OAuth bearer token. This is useful for verifying where a request came from, passing additional client metadata, or working with tunnels and gateways that need their own routing header. The one exception is `Authorization`: OAuth owns that header, so it cannot be configured as a request header on an OAuth connection.
+
+###  Adding a request header
+
+1. In the Add custom connector dialog, open **Request headers**.
+2. Select a header name from the list, or enter one manually. Claude accepts a fixed set of standard authentication and routing header names such as `authorization`, `x-api-key`, and `x-auth-token`. Header names are restricted to this allowlist for security reasons: each name is reviewed before Claude will send it to a third-party server, which prevents connector configuration from being used to send arbitrary header names. To request an addition to the allowlist, contact your Anthropic representative.
+3. Enter the header value exactly as your server expects to receive it.
+4. Choose whether the header is **Required**. When a required header has no stored value at connection time, the connection fails. When an optional header has no value, Claude simply omits it from the request.
+5. Repeat for any additional headers your server needs (you can add up to four), then click **Add**.
+
+###  Enter the full header value
+
+Claude sends the value exactly as you enter it. It does not add an authentication scheme or any other prefix.
+For an `Authorization` header, include the scheme in the value:
+
+| You enter | Claude sends |
+| --- | --- |
+| `Bearer your-token` | `Authorization: Bearer your-token` |
+| `your-token` | `Authorization: your-token` |
+
+Most servers that use bearer tokens reject the second form. If your server’s documentation shows `Authorization: Bearer YOUR_TOKEN`, enter `Bearer`  followed by your token, including the space. The same applies to Basic authentication: enter `Basic`  followed by the base64-encoded credentials.
 
 ##  Managing connectors
 
@@ -105,5 +141,3 @@ Deploy enterprise-grade MCP servers.
 ## MCP in Claude Code
 
 Add the same server to Claude Code from the command line.
-
-[Connectors directory](/docs/connectors/directory)[Desktop extensions](/docs/connectors/custom/desktop-extensions)

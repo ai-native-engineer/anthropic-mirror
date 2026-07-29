@@ -36,7 +36,7 @@ Claude Community Events are hosted globally by Claude Community Ambassadors. Mee
 
 Learn more
 
-[Learn more](/community)Learn more
+[Learn more](https://claude.com/community)Learn more
 
 ## Our ambassadors
 

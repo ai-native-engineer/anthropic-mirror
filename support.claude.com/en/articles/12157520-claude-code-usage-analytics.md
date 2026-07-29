@@ -2,6 +2,8 @@
 
 # Claude Code usage analytics
 
+Updated over 4 weeks ago
+
 This feature allows Console users and owners of Team and Enterprise plans to monitor how their organization uses Claude Code, tracking productivity metrics and adoption patterns across teams.
 
 Claude Code usage analytics are available to:
@@ -10,13 +12,14 @@ Claude Code usage analytics are available to:
 * **Enterprise plans:** Owners, Primary Owners, and Admins (requires a Chat + Claude Code seat for usage-based plans or Premium seat for seat-based plans)
 * **API Console:** Admin, Billing, and Developer roles
 
-## Accessing Claude Code analytics
+## Access Claude Code analytics
 
 ### Team and Enterprise plans
 
 1. Log in to your Owner or Primary Owner account.
 2. Click your initials or name in the lower left corner.
-3. Navigate to **[Analytics > Claude Code](https://claude.ai/analytics/claude-code)** to view **Usage**.
+3. Navigate to **[Analytics > Claude Code](https://claude.ai/analytics/claude-code)**.
+4. Select the “Usage” or “Value”tab.
 
 ### API Console users
 
@@ -25,9 +28,9 @@ Claude Code usage analytics are available to:
 3. Click “Claude Code” under **Analytics**.
 4. View Claude Code usage analytics on **[Settings > Claude Code](https://platform.claude.com/claude-code)**.
 
-## Available metrics
+## Usage tab
 
-The Claude Code Usage page displays the following metrics for your organization:
+The **Usage** tab displays the following metrics for your organization. Data on this tab refreshes daily.
 
 ### Organization-level metrics
 
@@ -35,20 +38,23 @@ The Claude Code Usage page displays the following metrics for your organization:
 * **Suggestion accept rate**: Percentage of Claude Code suggestions that your team accepts.
 * **Activity trends**: Daily view of active users and sessions over time.
 * **Lines accepted over time**: Daily breakdown of accepted code lines.
+* **Top commands**: The Claude Code commands used most often across your organization.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1782460800&signature=dc4033a5f880fc24bc96215f247948c8331399897b1ef9481908890d2ac8c4fe&req=dScmEcx5lINYXvMW1HO4zfiEP6RUiXnGCX9h5MbdDjMrTOF6t80%2F%2F3E2A4pP%0A2t403tDMHYwwvtuKzQc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1782460800&signature=dc4033a5f880fc24bc96215f247948c8331399897b1ef9481908890d2ac8c4fe&req=dScmEcx5lINYXvMW1HO4zfiEP6RUiXnGCX9h5MbdDjMrTOF6t80%2F%2F3E2A4pP%0A2t403tDMHYwwvtuKzQc%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1785295800&signature=57c40e196ea6ecb1f1fbe121d5e387c99df2dd6a7753fdfc5239ca18596773d6&req=dScmEcx5lINYXvMW1HO4zfiEP6NShnzGCX9h5MbdDjP5iBRtf0kEcQwxYmST%0AxtBPX%2FU4nBbYv51sSH0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1785295800&signature=57c40e196ea6ecb1f1fbe121d5e387c99df2dd6a7753fdfc5239ca18596773d6&req=dScmEcx5lINYXvMW1HO4zfiEP6NShnzGCX9h5MbdDjP5iBRtf0kEcQwxYmST%0AxtBPX%2FU4nBbYv51sSH0%3D%0A)
 
 ### User-level metrics
 
 **Individual usage**: View each team member's email address and their total lines of code accepted for the current month. You can search for specific users or click the “Export” button to generate a CSV of members’ email addresses and total lines of code.
 
-## Understanding the metrics
+## Value tab
 
-**Lines of code accepted** measures the actual code your team incorporates into their work from Claude Code suggestions, helping you understand the tool's practical impact on development productivity.
+The **Value** tab summarizes usage and cost data to help you understand what Claude Code is returning to your organization at a glance.
 
-**Suggestion accept rate** indicates how relevant and useful Claude Code's suggestions are for your team's specific coding needs and practices.
+* **Estimated productivity lift**
+* **Cost per commit**
+* **Estimated annual value**
 
-**Activity trends** show adoption patterns and help identify peak usage periods, allowing you to understand how Claude Code fits into your team's workflow.
+Every formula used on this tab is shown inline. Click any input to adjust it to match your organization's assumptions, and the estimates recalculate.
 
 ## Contribution metrics (beta)
 
@@ -58,13 +64,13 @@ Contribution metrics require GitHub Cloud and are not available to Console users
 
 For a more in-depth look at contribution metrics, see **[our Claude Code docs](https://code.claude.com/docs/en/analytics#enable-contribution-metrics)**.
 
-### Setting up contribution metrics
+### Set up contribution metrics
 
 Contribution metrics require a few steps beyond the base analytics setup:
 
 1. Install the **[Claude GitHub App](https://github.com/apps/claude)** on your organization's GitHub account.
 2. Log in with an Owner or Primary Owner account.
-3. Navigate to **[Admin settings > Claude Code](https://claude.ai/admin-settings/claude-code)**.
+3. Navigate to **[Organization settings > Claude Code](https://claude.ai/admin-settings/claude-code)**.
 4. Enable the Claude Code analytics feature if you haven't already.
 5. Toggle on **GitHub analytics**.
 6. Select the GitHub organization(s) you want included in the comparison.
@@ -87,7 +93,7 @@ Data is collected by correlating Claude Code session activity with GitHub commit
 
 Usage metrics display data for the current calendar month and reset at the beginning of each month. Historical data visualization shows daily granularity for tracking trends over time.
 
-## Using analytics to optimize Claude Code adoption
+## Use analytics to optimize Claude Code adoption
 
 Review your organization's code acceptance rate to understand if teams are finding Claude Code's suggestions valuable. If rates are lower than expected, consider providing additional training on effective prompting techniques.
 
@@ -101,7 +107,7 @@ Track activity trends to understand when your team uses Claude Code most effecti
 
 Claude Code usage analytics are not available to individual Pro or Max plans at this time.
 
-### I'm looking for specific user but they're missing from the reports.
+### I'm looking for a specific user but they're missing from the reports.
 
 If you notice that a specific user isn't showing up in your analytics, you should have them update Claude Code to the most recent version. The first Claude Code version to support this feature is **version 2.0.28**, so users should run `claude update` to manually update Claude Code if needed.
 
@@ -109,4 +115,8 @@ If you notice that a specific user isn't showing up in your analytics, you shoul
 
 See **[Analytics](https://code.claude.com/docs/en/analytics)** in our Claude Code docs for more information.
 
-[Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)[View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)[Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)[Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)[Use analytics chat to ask Claude about usage](https://support.claude.com/en/articles/14729354-use-analytics-chat-to-ask-claude-about-usage)
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
+* [View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)
+* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
+* [Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)
+* [Use analytics chat to ask Claude about usage](https://support.claude.com/en/articles/14729354-use-analytics-chat-to-ask-claude-about-usage)

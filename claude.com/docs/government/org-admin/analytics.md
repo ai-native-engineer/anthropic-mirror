@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/government/org-admin/analytics -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this is for:** Organization owners who need to understand how their organization is using Claude and how quickly it is consuming credits.
 
 Use this page to review requests, tokens, spend, top users, and credit balance over time across your organization.
@@ -11,13 +19,13 @@ Usage figures on this page are compiled from the same metering that enforces you
 
 ##  Managed and self-managed views
 
-A control at the top switches between **Anthropic-managed tiers** and **Self-managed tiers**. The two are shown separately because their economics differ: managed-tier seats are purchased as seats, while **self-managed tiers** (tiers your organization created itself on the [Tiers](/docs/government/org-admin/seat-tiers) page) draw down your credit balance. Spend figures and the credit panel are therefore shown only in the **Self-managed** view. If your organization has only one kind of tier, only that tab is shown.
+A control at the top switches between **Anthropic-managed tiers** and **Self-managed tiers**. The two are shown separately because their economics differ: managed-tier seats are purchased as seats, while **self-managed tiers** (tiers your organization created itself on the [Tiers](https://claude.com/docs/government/org-admin/seat-tiers) page) draw down the billing account’s balance. Spend figures and the credit panel are therefore shown only in the **Self-managed** view. If your organization has only one kind of tier, only that tab is shown.
 
 ##  Credits (self-managed view only)
 
 The credit panel and burndown chart only appear in the **Self-managed tiers** view, and only once credit data is available for your organization. The runway estimate within the panel only appears once there has been enough recent activity to compute a burn rate.
 
-When your organization has credits allocated, the credit panel shows your prepaid position as of right now. It displays the **Credits remaining** out of the total procured, with a progress bar marked at the 70 percent and 90 percent warning thresholds. It also shows a runway estimate that tells you roughly how many days remain at your trailing 7-day burn rate, and it adds a **Depleted**, **Low balance**, or **Approaching limit** badge when one of those conditions applies.
+When credit data is available, the credit panel shows the current position of the account your organization draws from as of right now. It displays the **Credits remaining** out of the total added to the account, with a progress bar marked at the 70 percent and 90 percent warning thresholds. It also shows a runway estimate that tells you roughly how many days remain at your trailing 7-day burn rate, and it adds a **Depleted**, **Low balance**, or **Approaching limit** badge when one of those conditions applies.
 The runway figure divides your remaining balance by your average daily spend over the last seven complete days. It is shown as “less than 1 day” when the balance is nearly exhausted and as “more than 180 days” when spend is low enough that a longer projection would not be meaningful. If there has been no spend at all in the last seven days, no runway is shown.
 Below the panel, the **Credit burndown** chart plots your balance over the last 30 days, with markers on the days credits were added, and projects forward to the date you are estimated to reach $0.
 
@@ -37,9 +45,9 @@ The **By product** table breaks usage down by which Claude product it came from 
 The **By model** table lists each model used in the window along with its request count, input tokens, output tokens, and, in the self-managed view, its spend.
 The **Top users** table lists the most active users in the window with the same columns. The table starts with ten rows, and you can click **Show more** to reveal additional users. Up to 100 users are listed individually, and beyond that a note tells you how many more are not listed.
 
-* A user counts as **active** in the selected window if they made at least one request in it, regardless of which seat tier they were on at the time.
-* The **spend** column appears only in the self-managed view and is the amount debited from your organization’s credit balance. The managed view has no spend column because managed-tier usage is covered by the seat price rather than by credit drawdown.
-* If the credit panel is missing from the self-managed view, your organization has either never been allocated credits or its credit data is temporarily unavailable. The rest of the page will still load.
-* Usage that was cleared with **Reset usage limits** on the [Users](/docs/government/org-admin/users) page still appears here. The reset only clears the counter that enforces a user’s limit; it does not remove the activity from analytics.
+##  Things to know
 
-[Group mappings](/docs/government/org-admin/provisioning)[Compliance API](/docs/government/org-admin/compliance-api)
+* A user counts as **active** in the selected window if they made at least one request in it, regardless of which seat tier they were on at the time.
+* The **spend** column appears only in the self-managed view and is the amount debited from your billing account’s balance. The managed view has no spend column because managed-tier usage is covered by the seat price rather than by credit drawdown.
+* If the credit panel is missing from the self-managed view, credit data for your organization’s billing account is unavailable. The rest of the page will still load.
+* Usage that was cleared with **Reset usage limits** on the [Users](https://claude.com/docs/government/org-admin/users) page still appears here. The reset only clears the counter that enforces a user’s limit; it does not remove the activity from analytics.

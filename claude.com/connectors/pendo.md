@@ -10,6 +10,7 @@ Connect to Pendo for product and user insights
 * Used in
 
   [Claude](https://claude.ai/directory/2a884a14-5f1e-4742-8ee0-7ebe9cb69ac7)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Pendo](https://www.pendo.io/)
 
@@ -28,22 +29,22 @@ The Pendo connector brings product analytics and behavioral data to AI environme
 
 You can use the Pendo connector to:
 
-Analyze page activity:  
+Analyze page activity:
 "Show me the most active Pages in our app over the last 30 days"
 
-Review segment engagement:  
+Review segment engagement:
 "What are the engagement metrics for accounts in the Enterprise segment?"
 
-Track feature adoption:  
+Track feature adoption:
 "Analyze feature adoption for Feature X since launch and identify any drop-offs"
 
-Query visitor behavior:  
+Query visitor behavior:
 "Find all visitors who completed onboarding in the last week"
 
-Review session replays:  
+Review session replays:
 "Show me session replays for users who encountered errors yesterday"
 
-Check product engagement scores:  
+Check product engagement scores:
 "What's the overall product engagement score for our Enterprise customers?"
 
 ## Related connectors
@@ -56,11 +57,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -74,7 +75,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -88,7 +89,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -100,4 +101,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

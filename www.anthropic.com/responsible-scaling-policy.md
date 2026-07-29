@@ -1,14 +1,14 @@
 <!-- source: https://www.anthropic.com/responsible-scaling-policy -->
 
-# Anthropic's Responsible Scaling Policy
+# Anthropic’s Responsible Scaling Policy
 
 Anticipating and securing against emerging threats that accompany increasingly powerful models
 
-Last updated May 26, 2026
+Last updated Jul 8, 2026
 
 Related:
 
-[Read Anthropic's Responsible Scaling Policy](https://cdn.sanity.io/files/4zrzovbb/website/c11e84981d0a7281a1b229f3fa6af0da66eaf43f.pdf)
+[Read Anthropic's Responsible Scaling Policy](https://cdn.sanity.io/files/4zrzovbb/website/0bacdc8440ea96e62a8766d99ebe1d4eea6d5f3a.pdf)
 
 As frontier AI models advance, we believe they will bring about transformative benefits for our society and economy. AI could accelerate scientific discoveries, revolutionize healthcare, enhance our education system, and create entirely new domains for human creativity and innovation. Frontier AI models also, however, present new challenges and risks that warrant careful study and effective safeguards.
 
@@ -20,7 +20,7 @@ In September 2023, we released the first version of our Responsible Scaling Poli
 
 ### Read the current version of the RSP
 
-See the pdf](https://cdn.sanity.io/files/4zrzovbb/website/c11e84981d0a7281a1b229f3fa6af0da66eaf43f.pdf)
+See the pdf](https://cdn.sanity.io/files/4zrzovbb/website/0bacdc8440ea96e62a8766d99ebe1d4eea6d5f3a.pdf)
 
 [![Large spiral-bound notebook with detailed graphic representation of pages and binding](https://www-cdn.anthropic.com/images/4zrzovbb/website/928166e443bc1b1f19ebadf4fd11b7c45fce4153-1000x1000.svg)
 
@@ -28,6 +28,7 @@ See the pdf](https://cdn.sanity.io/files/4zrzovbb/website/c11e84981d0a7281a1b229
 
 See the PDF](https://www-cdn.anthropic.com/b7a5629e40b391b2adfb4cc8c0888ac9d6bfddf6/RSP Noncompliance Reporting and Anti-Retaliation Policy.pdf)
 
+* [Version 3.4](https://cdn.sanity.io/files/4zrzovbb/website/0bacdc8440ea96e62a8766d99ebe1d4eea6d5f3a.pdf) and [redline](https://cdn.sanity.io/files/4zrzovbb/website/fbfdce5e4e825a3e089085205a842a9ae8ffac99.pdf) (effective July 8, 2026)
 * [Version 3.3](https://cdn.sanity.io/files/4zrzovbb/website/c11e84981d0a7281a1b229f3fa6af0da66eaf43f.pdf) and [redline](https://cdn.sanity.io/files/4zrzovbb/website/dd0ec579bee2cd144069c478ede3e35ea080ad02.pdf) (effective May 26, 2026)
 * [Version 3.2](https://cdn.sanity.io/files/4zrzovbb/website/28c6241900d90410628a8a2003a5572faae4365a.pdf) and [redline](https://cdn.sanity.io/files/4zrzovbb/website/7c534a9e7a82d4411dd568d85ffbcd14ac243a62.pdf) (effective April 29, 2026)
 * [Version 3.1](https://www-cdn.anthropic.com/files/4zrzovbb/website/bf04581e4f329735fd90634f6a1962c13c0bd351.pdf) and [redline](https://cdn.sanity.io/files/4zrzovbb/website/64cb0ac5eb0f8030187131f490827323e3d53308.pdf) (effective April 2, 2026)
@@ -36,6 +37,10 @@ See the PDF](https://www-cdn.anthropic.com/b7a5629e40b391b2adfb4cc8c0888ac9d6bfd
 * [Version 2.1](https://www-cdn.anthropic.com/17310f6d70ae5627f55313ed067afc1a762a4068.pdf) (effective March 31, 2025)
 * [Version 2.0](https://www-cdn.anthropic.com/616dee633636e5bd309cb73aed8622e80fe47839.pdf) (effective October 15, 2024)
 * [Version 1.0](https://www-cdn.anthropic.com/1adf000c8f675958c2ee23805d91aaade1cd4613/responsible-scaling-policy.pdf) (effective September 19, 2023)
+
+## July 8, 2026
+
+This version 3.4 update does the following: 1) revises our threshold for automated R&D to better track the threat model of concern; 2) revises our requirement to share fully unredacted Risk Reports internally (we no longer require sharing with all regular-clearance Anthropic staff, and instead require sharing with at least 200 Anthropic employees); 3) allows Risk Reports to analyze risks as of a given coverage date, rather than necessarily as of the date of publication (to avoid requiring rushed analysis of particularly recent changes); 4) requires public Risk Reports to contain indications of where material was redacted; 5) clarifies that external review of our Risk Reports can involve multiple external reviewers reviewing different unredacted sections of the Risk Report, so long as all parts of the unredacted report are evaluated by at least one external reviewer.
 
 ## May 26, 2026
 
@@ -64,14 +69,14 @@ We posted an update to our RSP Noncompliance Reporting and Anti-Retaliation Poli
 
 ## February 24, 2026
 
-Version 3.0 is a comprehensive rewrite of the RSP. The reasoning behind the rewrite can be found [here](https://anthropic.com/news/responsible-scaling-policy-v3).  
-  
+Version 3.0 is a comprehensive rewrite of the RSP. The reasoning behind the rewrite can be found [here](https://anthropic.com/news/responsible-scaling-policy-v3).
+
 This new version of the RSP involves the publication of [Frontier Safety Roadmaps](https://anthropic.com/responsible-scaling-policy/roadmap) with detailed safety goals, and [Risk Reports](https://anthropic.com/feb-2026-risk-report) that quantify risk across all our deployed models.
 
 ## February 10, 2026
 
-Our RSP requires that once models cross the AI R&D-4 capability threshold, we develop an affirmative case identifying the most immediate and relevant misalignment risks from models pursuing misaligned goals and explaining how we have mitigated them. Our determination is that Claude Opus 4.6 does not cross this threshold.  
-  
+Our RSP requires that once models cross the AI R&D-4 capability threshold, we develop an affirmative case identifying the most immediate and relevant misalignment risks from models pursuing misaligned goals and explaining how we have mitigated them. Our determination is that Claude Opus 4.6 does not cross this threshold.
+
 However, as we noted in the [Claude Opus 4.5 System Card](https://anthropic.com/claude-opus-4-5-system-card) and the [Claude Opus 4.6 System Card](https://anthropic.com/claude-opus-4-6-system-card), confidently ruling out this threshold is becoming increasingly difficult, and doing so requires assessments that are more subjective than we would like. Rather than rely solely on those assessments, we committed during the launch of Claude Opus 4.5 to writing sabotage risk reports for all future frontier models clearly exceeding Opus 4.5's capabilities. Today, consistent with that commitment, we are publishing the external-facing version of the Sabotage Risk Report we prepared for Claude Opus 4.6.
 
 [Read the Sabotage Risk Report](https://anthropic.com/claude-opus-4-6-risk-report)

@@ -2,6 +2,8 @@
 
 # Claude Code on the web
 
+March 16, 2026
+
 Claude Code on the web runs Claude Code tasks remotely, working with code from your GitHub repositories. This article explains how it works, when to use it instead of running Claude Code in your terminal or IDE, and what workflows it enables.
 
 ## What Claude Code on the web provides
@@ -12,7 +14,7 @@ This feature works with repositories you may not have on your local machine. You
 
 Claude Code for web enables asynchronous development workflows. With Claude Code in your terminal or editor, you typically work synchronously: you make a request, wait for Claude to respond, review the changes, then make another request. Synchronous work like this gives you fine-grained control but requires your attention throughout the process. Claude Code on the web handles this differently: you can assign a larger task, let Claude work independently, and return later to review the completed work.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1786446157/07ec74cd46317f8278083a317841/6448f3ee-c6df-4417-8a13-90d8c2ca3d55?expires=1782460800&signature=1ccf64c617fb3bfb08c2cd8e12f4d2f037a196ccaa0d445b207cd333c1d61199&req=dScvEM16m4BaXvMW1HO4zR8%2BAFGERJ1%2B7XrRA1YwWGtcFTkTEa6eqZgHcDla%0AMazgi%2B8lCDyL0%2FLunaE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1786446157/07ec74cd46317f8278083a317841/6448f3ee-c6df-4417-8a13-90d8c2ca3d55?expires=1782460800&signature=1ccf64c617fb3bfb08c2cd8e12f4d2f037a196ccaa0d445b207cd333c1d61199&req=dScvEM16m4BaXvMW1HO4zR8%2BAFGERJ1%2B7XrRA1YwWGtcFTkTEa6eqZgHcDla%0AMazgi%2B8lCDyL0%2FLunaE%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1786446157/07ec74cd46317f8278083a317841/6448f3ee-c6df-4417-8a13-90d8c2ca3d55?expires=1785295800&signature=12ece5c7eb1b9974732aa07ccb04e1172a97dddd5538f3588e009a0b3caf6add&req=dScvEM16m4BaXvMW1HO4zR8%2BAFaCS5h%2B7XrRA1YwWGsWha2ld0VzLdmSCxwQ%0AtGfvrfEYwTPMgn5UubA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1786446157/07ec74cd46317f8278083a317841/6448f3ee-c6df-4417-8a13-90d8c2ca3d55?expires=1785295800&signature=12ece5c7eb1b9974732aa07ccb04e1172a97dddd5538f3588e009a0b3caf6add&req=dScvEM16m4BaXvMW1HO4zR8%2BAFaCS5h%2B7XrRA1YwWGsWha2ld0VzLdmSCxwQ%0AtGfvrfEYwTPMgn5UubA%3D%0A)
 
 You can also run multiple tasks in parallel. Since each task runs in its own isolated environment, you can have Claude working on several different issues or repositories simultaneously. Each task proceeds independently and creates its own pull request when complete. More than one task can work on the same repository at the same time.
 
@@ -20,13 +22,13 @@ You can also run multiple tasks in parallel. Since each task runs in its own iso
 
 When you start a task, Claude Code on the web creates an isolated virtual machine for your work. Your GitHub repository is cloned into this environment, which comes pre-configured with common development tools and language ecosystems.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1786446158/c092f1383826cb871493f74169d4/97b7cb98-5da2-438e-a920-e170b8b9790e?expires=1782460800&signature=be56b400cd8886708b71bd765f16ecc9b575bc002ad1a867f686d7c35415576c&req=dScvEM16m4BaUfMW1HO4zcR0rZQwienI7DtpMiX%2FBYkKgmfRkwSIYlSSm0V%2F%0ALeg8AckzTAsvSzQuyTc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1786446158/c092f1383826cb871493f74169d4/97b7cb98-5da2-438e-a920-e170b8b9790e?expires=1782460800&signature=be56b400cd8886708b71bd765f16ecc9b575bc002ad1a867f686d7c35415576c&req=dScvEM16m4BaUfMW1HO4zcR0rZQwienI7DtpMiX%2FBYkKgmfRkwSIYlSSm0V%2F%0ALeg8AckzTAsvSzQuyTc%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1786446158/c092f1383826cb871493f74169d4/97b7cb98-5da2-438e-a920-e170b8b9790e?expires=1785295800&signature=cc1391cde824466e37ebeb4aaff3e5b463c5630ae080c7c652d868c5b7222bc3&req=dScvEM16m4BaUfMW1HO4zcR0rZM2huzI7DtpMiX%2FBYmlAcDEKhksy7WSxsDM%0AEAZdyOPDgoK7xd1QxEU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1786446158/c092f1383826cb871493f74169d4/97b7cb98-5da2-438e-a920-e170b8b9790e?expires=1785295800&signature=cc1391cde824466e37ebeb4aaff3e5b463c5630ae080c7c652d868c5b7222bc3&req=dScvEM16m4BaUfMW1HO4zcR0rZM2huzI7DtpMiX%2FBYmlAcDEKhksy7WSxsDM%0AEAZdyOPDgoK7xd1QxEU%3D%0A)
 
 Claude prepares the environment by running any setup commands you've defined in your repository's configuration. This includes installing dependencies, setting up databases, or running other initialization steps your project needs. If your task requires network access, maybe to install packages or fetch data, you can configure the level of internet access the environment has.
 
 Once the environment is ready, Claude begins working on your task. Claude reads your code, makes changes, writes tests, and runs commands to verify the work. You can monitor progress and provide guidance through the web interface if needed.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1786446156/83ecf0a5b98eddc9ffc9694c50f7/353589ce-b678-441d-8909-71b45fa2d065?expires=1782460800&signature=13e1d8da01fd33fa77663af2f5b0d5a1a2f5b4c266320d47ab19f8e1602bb684&req=dScvEM16m4BaX%2FMW1HO4zVbcTGGH5cTGUQl3YqgIJdbTb7dwo6DuSnGNbMFb%0ArUU%2Bdhpwse0feYFssic%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1786446156/83ecf0a5b98eddc9ffc9694c50f7/353589ce-b678-441d-8909-71b45fa2d065?expires=1782460800&signature=13e1d8da01fd33fa77663af2f5b0d5a1a2f5b4c266320d47ab19f8e1602bb684&req=dScvEM16m4BaX%2FMW1HO4zVbcTGGH5cTGUQl3YqgIJdbTb7dwo6DuSnGNbMFb%0ArUU%2Bdhpwse0feYFssic%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1786446156/83ecf0a5b98eddc9ffc9694c50f7/353589ce-b678-441d-8909-71b45fa2d065?expires=1785295800&signature=3526d5de847227139b46f841a1df0e8d6d7b6f0c601a9e51bafb60cfa2449feb&req=dScvEM16m4BaX%2FMW1HO4zVbcTGaB6sHGUQl3YqgIJdas8i3sXOoqHNIX%2B%2Fun%0AkVbwCxMzQPGsUt25nQQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1786446156/83ecf0a5b98eddc9ffc9694c50f7/353589ce-b678-441d-8909-71b45fa2d065?expires=1785295800&signature=3526d5de847227139b46f841a1df0e8d6d7b6f0c601a9e51bafb60cfa2449feb&req=dScvEM16m4BaX%2FMW1HO4zVbcTGaB6sHGUQl3YqgIJdas8i3sXOoqHNIX%2B%2Fun%0AkVbwCxMzQPGsUt25nQQ%3D%0A)
 
 When Claude completes the task, it pushes the changes to a new branch in your GitHub repository. You receive a notification and can review the changes, then create a pull request directly from the interface. The pull request includes all of Claude's work, ready for your review and any additional changes you want to make.
 
@@ -59,14 +61,14 @@ Let Claude write tests that define the expected behavior, then implement the cod
 **Example prompt:**
 
 ```
-Add rate limiting to the /api/search endpoint.   
-  
-The rate limiter should:   
-- Allow 100 requests per minute per API key   
-- Return 429 status when limit exceeded   
-- Reset limits after 60 seconds   
-- Track different API keys independently   
-  
+Add rate limiting to the /api/search endpoint.
+
+The rate limiter should:
+- Allow 100 requests per minute per API key
+- Return 429 status when limit exceeded
+- Reset limits after 60 seconds
+- Track different API keys independently
+
 Use a TDD approach: write comprehensive tests first, then implement the rate limiting logic to pass them.
 ```
 
@@ -81,9 +83,9 @@ Generate or update technical documentation such as README files, API documentati
 **Example prompt:**
 
 ```
-Update CHANGELOG.md with all changes since the v2.3.0 release:  
-  - Review commits on main branch since that tag.   
-  - Categorize changes into "Added, "Changed, "Fixed", and "Removed" sections.   
+Update CHANGELOG.md with all changes since the v2.3.0 release:
+  - Review commits on main branch since that tag.
+  - Categorize changes into "Added, "Changed, "Fixed", and "Removed" sections.
   - Include the commit hash for each entry.
 ```
 
@@ -98,12 +100,12 @@ Restructure code to improve organization or readability when you can define clea
 **Example prompt:**
 
 ```
-The UserService class in /src/services/user.go has 800 lines long.  
-Split it into three focused services:   
-  - UserAuthService (login/logout/sessions)   
-  - UserProfileService (profile CRUD operations)  
-  - UserPreferencesService (settings/preferences)  
-  
+The UserService class in /src/services/user.go has 800 lines long.
+Split it into three focused services:
+  - UserAuthService (login/logout/sessions)
+  - UserProfileService (profile CRUD operations)
+  - UserPreferencesService (settings/preferences)
+
 Ensure all tests still pass.
 ```
 
@@ -120,4 +122,8 @@ Ensure all tests still pass.
 * If you're thinking "I'll need to see how this goes first," consider using your terminal instead
 * Use "Open in CLI" if you realize mid-task that you need to provide guidance
 
-[Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)[Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)[Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)[Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)[Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)
+* [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
+* [Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
+* [Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)
+* [Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)
+* [Use Claude Code CLI with a screen reader](https://support.claude.com/en/articles/15924927-use-claude-code-cli-with-a-screen-reader)

@@ -10,7 +10,7 @@ Start building
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a7fb13f83687640d3f1c_Assembled_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a7f55cc7b57f838f49e4_Assembled_dark.svg)
 
@@ -26,7 +26,7 @@ Contact sales
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0d97ec6302de3b8bbcce1_cs-logo-gradient-labs-light-theme.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0d983542ad5692f508690_cs-logo-gradient-labs-dark-theme.svg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa585b66f744445eaec7_Doordash_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa5e900d8af5fd782dd2_Doordash_dark.svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa585b66f744445eaec7_Doordash_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43da4a5ba20a23a30861c7_logo_doordash-dark.svg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad7358ee49cc337e342a_sk%20telecom_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad77976700940e3b3d59_sk%20telecom_dark.svg)
 
@@ -34,26 +34,32 @@ Contact sales
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ab9e976700940e3a69c6_Kodif_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ab986a8c0ce4957d8624_Kodif_dark.svg)
 
-## Transform support  experiences with Claude
+## Transform support
+experiences with Claude
 
-Claude listens carefully, follows instructions precisely,  and thinks through complex problems.
+Claude listens carefully, follows instructions precisely,
+and thinks through complex problems.
 
-### Help customers faster  with intelligent  conversation routing
+### Help customers faster
+with intelligent
+conversation routing
 
-### Deliver personalized  responses in any language, across any channel
+### Deliver personalized
+responses in any language, across any channel
 
 ### Cut resolution times and support costs while increasing customer satisfaction‍
 
-## Get to production faster with  the Claude Developer Platform
+## Get to production faster with
+the Claude Developer Platform
 
 One platform to build, test, and iterate on your AI deployment.
 
 Prompt
 
-Classify all customer support tickets into the most relevant category.  
-  
-Here is the list of categories to choose from:{{CATEGORY\_LIST}}  
-  
+Classify all customer support tickets into the most relevant category.
+
+Here is the list of categories to choose from:{{CATEGORY\_LIST}}
+
 Here is the content of the support ticket:{{TICKET\_CONTENT}}
 
 What would you like to improve?
@@ -66,40 +72,40 @@ You are an AI assistant specialized in classifying customer support tickets. You
 
 First, let's review the available categories:
 
-<category\_list>  
-{{CATEGORY\_LIST}}  
+<category\_list>
+{{CATEGORY\_LIST}}
 </category\_list>
 
 Now, here is the content of the support ticket you need to classify:
 
-<ticket\_content>  
-{{TICKET\_CONTENT}}  
+<ticket\_content>
+{{TICKET\_CONTENT}}
 </ticket\_content>
 
 ‍
 
-Please follow these steps to complete the task:  
-– Carefully read and analyze the ticket content.  
-– Consider how the content relates to each of the available categories.  
-– Choose the most appropriate category for the ticket.  
+Please follow these steps to complete the task:
+– Carefully read and analyze the ticket content.
+– Consider how the content relates to each of the available categories.
+– Choose the most appropriate category for the ticket.
 – Provide a detailed explanation of your reasoning process.
 
 ‍
 
-Use the following structure for your response:  
+Use the following structure for your response:
 <classification\_analysis>
 
-‍  
-In this section, break down your thought process:  
-– Quote the most relevant parts of the ticket content.  
-– List each category and note how it relates to the ticket content.  
-– For each category, provide arguments for and against classifying the ticket into that category.  
-– Rank the top 3 most likely categories.  
+‍
+In this section, break down your thought process:
+– Quote the most relevant parts of the ticket content.
+– List each category and note how it relates to the ticket content.
+– For each category, provide arguments for and against classifying the ticket into that category.
+– Rank the top 3 most likely categories.
 </classification\_analysis>
 
-<classification>  
-<category>Your chosen category goes here</category>  
-<reasoning>A concise summary of your reasoning for choosing this category</reasoning>  
+<classification>
+<category>Your chosen category goes here</category>
+<reasoning>A concise summary of your reasoning for choosing this category</reasoning>
 </classification>
 
 ‍
@@ -202,7 +208,7 @@ Quickstart
 
 [Quickstart](https://github.com/anthropics/anthropic-quickstarts/tree/main/customer-support-agent)Quickstart
 
-[See how other companies are powering customer support agents with Claude](/customers)See how other companies are powering customer support agents with Claude
+[See how other companies are powering customer support agents with Claude](https://claude.com/customers)See how other companies are powering customer support agents with Claude
 
 See how other companies are powering customer support agents with Claude
 

@@ -1,6 +1,8 @@
+<!-- source: https://platform.claude.com/docs/en/api/go/beta/messages -->
 <!-- part of: https://platform.claude.com/docs/en/api/go/beta/messages -->
 
 <!-- chunk-start -->
+
         - `const BetaWebSearchToolResultErrorCodeUnavailable BetaWebSearchToolResultErrorCode = "unavailable"`
 
         - `const BetaWebSearchToolResultErrorCodeMaxUsesExceeded BetaWebSearchToolResultErrorCode = "max_uses_exceeded"`

@@ -187,7 +187,7 @@ Next time gift-giving stress hits, open Claude and describe who you're shopping 
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/694593a68178099a5c9e9814_stocking-stuffers.png)
 
@@ -197,34 +197,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Map your understanding and build lessons from the gaps](/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Map your understanding and build lessons from the gaps
+[Map your understanding and build lessons from the gaps](https://claude.com/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Map your understanding and build lessons from the gaps
 
 Map your understanding and build lessons from the gaps
 
 Use case
 
-[Use case](/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Use case
+[Use case](https://claude.com/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Use case
 
-[Stress-test your financial plan across scenarios](/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Stress-test your financial plan across scenarios
+[Stress-test your financial plan across scenarios](https://claude.com/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Stress-test your financial plan across scenarios
 
 Stress-test your financial plan across scenarios
 
 Use case
 
-[Use case](/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Use case
+[Use case](https://claude.com/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Use case
 
-[Organize files across your desktop](/resources/use-cases/organize-files-by-whats-in-them)Organize files across your desktop
+[Organize files across your desktop](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)Organize files across your desktop
 
 Organize files across your desktop
 
 Use case
 
-[Use case](/resources/use-cases/organize-files-by-whats-in-them)Use case
+[Use case](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)Use case
 
-[Build interactive diagram tools](/resources/use-cases/build-interactive-diagram-tools)Build interactive diagram tools
+[Build interactive diagram tools](https://claude.com/resources/use-cases/build-interactive-diagram-tools)Build interactive diagram tools
 
 Build interactive diagram tools
 
 Use case
 
-[Use case](/resources/use-cases/build-interactive-diagram-tools)Use case
+[Use case](https://claude.com/resources/use-cases/build-interactive-diagram-tools)Use case

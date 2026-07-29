@@ -2,7 +2,7 @@
 
 # Set up your design system in Claude Design
 
-Updated over a week ago
+June 17, 2026
 
 Creating a design system allows Claude Design to produce outputs that fit your specifications. It extracts reusable components, colors, typography, and patterns from the assets you provide—codebases, slide decks, or other design references—and uses them as the foundation for every project created within your account.
 
@@ -60,7 +60,7 @@ To validate your design system, create a test project and see if the output matc
 
 Once you’re satisfied with the design system quality, make sure the “Published” toggle is switched on. After publishing, any projects created from the Claude Design homescreen while in your organization will use your design system instead of the default.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1782460800&signature=031a614147b34362413f0c088ceb8c3871b78d5f6305e3551cb606d5f693d927&req=diIvEcx8moFfXvMW1HO4zWNHF%2FCPCDsfIQKNMXlu0T9aN%2FZYO5ZlxWTxYis8%0AnhgQolqxhdjFJ4uEoAM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1782460800&signature=031a614147b34362413f0c088ceb8c3871b78d5f6305e3551cb606d5f693d927&req=diIvEcx8moFfXvMW1HO4zWNHF%2FCPCDsfIQKNMXlu0T9aN%2FZYO5ZlxWTxYis8%0AnhgQolqxhdjFJ4uEoAM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1785295800&signature=c7d5d572abfa8caa78aacd49d8cb485fb8098bc99196afeeb3f9633eddf460f5&req=diIvEcx8moFfXvMW1HO4zWNHF%2FeJBz4fIQKNMXlu0T8hLAKaILDj9JLue4Ym%0A0EpNjjrle1O1S4PUjd0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1785295800&signature=c7d5d572abfa8caa78aacd49d8cb485fb8098bc99196afeeb3f9633eddf460f5&req=diIvEcx8moFfXvMW1HO4zWNHF%2FeJBz4fIQKNMXlu0T8hLAKaILDj9JLue4Ym%0A0EpNjjrle1O1S4PUjd0%3D%0A)
 
 ## Tips for best results
 
@@ -71,4 +71,8 @@ Once you’re satisfied with the design system quality, make sure the “Publish
 
 Brands evolve. When your design system changes, you can update it within Claude Design. From your Claude Design organization settings, click the “Open” button next to the design system you want to edit. Click the “Remix” button in the upper right corner to open the chat interface on the left side of the window. From here, you can work with Claude to change your design system.
 
-[Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)[Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)[Claude Design admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans)[Get started with Claude Design](https://support.claude.com/en/articles/14604416-get-started-with-claude-design)[Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
+* [Use Claude for PowerPoint](https://support.claude.com/en/articles/13521390-use-claude-for-powerpoint)
+* [Claude Design admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans)
+* [Get started with Claude Design](https://support.claude.com/en/articles/14604416-get-started-with-claude-design)
+* [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)

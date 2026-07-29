@@ -10,6 +10,7 @@ Create and iterate 3D models for use in SketchUp
 * Used in
 
   [Claude](https://claude.ai/directory/b982ecd1-ee51-45f0-99d9-9330a0dd8b0c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Trimble SketchUp](https://sketchup.trimble.com)
 
@@ -30,16 +31,16 @@ Upon setting up the connector, ask Claude to create a SketchUp model from text p
 
 You can use Trimble SketchUp to:
 
-**Model from a description:**  
+**Model from a description:**
 "Build a SketchUp model of a 12x16 ft backyard shed with a gable roof and double doors."
 
-**Iterate on a design:**  
+**Iterate on a design:**
 "Take that shed model and add two windows on the long wall, then save the new version."
 
-**Prototype furniture:**  
+**Prototype furniture:**
 "Create a simple mid-century coffee table in SketchUp — 48 in wide, 18 in tall, walnut top."
 
-**Learn the API:**  
+**Learn the API:**
 "Show me the SketchUp Ruby API docs for drawing a face from an array of points."
 
 ## Related connectors
@@ -50,11 +51,11 @@ Claude
 
 May 7, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe for creativity
 
-Ideate, create, and deliver with Adobe pro tools](/connectors/adobe-creativity)
+Ideate, create, and deliver with Adobe pro tools](https://claude.com/connectors/adobe-creativity)
 
 Productivity
 
@@ -66,11 +67,11 @@ Claude Code
 
 May 1, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f518707047601013a4983f_autodesk%20(1).svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d316ce38ed7af0f88414_icon_Autodesk.jpg)
 
 ### Autodesk Product Help
 
-Securely access Autodesk's help documentation](/connectors/autodesk-product-help)
+Securely access Autodesk's help documentation](https://claude.com/connectors/autodesk-product-help)
 
 Design
 
@@ -86,7 +87,7 @@ February 11, 2026
 
 ### Canva
 
-Search, create, autofill, and export Canva designs from a prompt](/connectors/canva)
+Search, create, autofill, and export Canva designs from a prompt](https://claude.com/connectors/canva)
 
 Design
 
@@ -102,4 +103,4 @@ May 28, 2026
 
 ### Descript
 
-Import, edit, or create video with prompts](/connectors/descript)
+Import, edit, or create video with prompts](https://claude.com/connectors/descript)

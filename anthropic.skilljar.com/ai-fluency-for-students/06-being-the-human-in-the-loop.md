@@ -1,5 +1,21 @@
 <!-- https://anthropic.skilljar.com/ai-fluency-for-students/327248 -->
 
+Anthropic
+
+Open in Claude
+
+
+
+Anthropic
+
+Open in Claude
+
+Ask questions about this course
+
+Copy notes
+
+Copy full course notes for LLMs
+
 *Estimated time: 40 minutes*
 
 ## What you'll learn
@@ -31,9 +47,9 @@ This comprehensive exercise helps you develop a thoughtful, practical policy for
 
 Go offline to consider everything you’ve learned in this course and jot down your initial thoughts.
 
-**Exploring your values and boundaries:**
+**Exploring your values and boundaries:** 
 
-Think through:
+Think through: 
 
 * Your core values around learning, integrity, and achievement
 * Situations where you absolutely will not use AI (your "red lines")
@@ -41,7 +57,7 @@ Think through:
 * How you want others to perceive your AI use
 * What kind of professional you want to become
 
-In addition, consider the perspectives of others:
+In addition, consider the perspectives of others: 
 
 * How would you want your classmates to use AI?
 * What would you think if your professor used AI in different ways?
@@ -102,7 +118,9 @@ Review your draft policy with the AI:
 * How will you maintain accountability?
 * Practice applying the policy to a few real scenarios (a course revision, an assignment, a job application, even just a little personal project)
 * Ask the AI to help format this as a clear, professional document
-+ Keep it concise enough to actually reference + Include date created and plan for updates + Save in multiple places for easy access
+  + Keep it concise enough to actually reference
+  + Include date created and plan for updates
+  + Save in multiple places for easy access
 * Use it and maybe share it and discuss it with a friend
 
 ## What's next
@@ -123,7 +141,6 @@ As you progress through the course, we'd love to hear from you about how you are
 #### Acknowledgements
 
 *Copyright 2025 Rick Dakan, Joseph Feller, and Anthropic. Released under the CC BY-NC-SA 4.0 license. This course is based on The AI Fluency Framework by Dakan and Feller.Supported in part by the Higher Education Authority, Ireland, through the National Forum for the Enhancement of Teaching and Learning.*
-
 <!-- youtube: UlkRm95PmXg -->
 
 [![Being The Human In The Loop](https://img.youtube.com/vi/UlkRm95PmXg/hqdefault.jpg)](https://www.youtube.com/watch?v=UlkRm95PmXg)

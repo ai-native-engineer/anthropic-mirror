@@ -2,6 +2,8 @@
 
 # Team plan billing FAQs
 
+March 16, 2026
+
 ## What payment methods can I use to pay for the Team plan?
 
 Accepted payment methods are credit, debit, or prepaid cards. Other forms of payment, including ACH bank transfers, are not accepted at this time.
@@ -20,7 +22,7 @@ Your organization's billing address determines where your invoices are sent. You
 
 If you want to use a name other than the one tied to your payment method, an organization Owner should check the "Use a different name on invoices" box when adding or updating your payment method in **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1782460800&signature=a392a89dd95b5965d1a218846091306abbc85f1b26e465e548446cdcb77806cf&req=dSklFMh6mINaWvMW1HO4zRZTxFjFvcvbKAqLF4ERnlXH%2FOXiZf%2BkBKdBf3KC%0Ah4ddnpY1wd0o0Ahmqsk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1782460800&signature=a392a89dd95b5965d1a218846091306abbc85f1b26e465e548446cdcb77806cf&req=dSklFMh6mINaWvMW1HO4zRZTxFjFvcvbKAqLF4ERnlXH%2FOXiZf%2BkBKdBf3KC%0Ah4ddnpY1wd0o0Ahmqsk%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1785295800&signature=d14c6f66492d6c195edc3a59d12767f606c87c4ca33cb717c21d1ba1a30d4b1e&req=dSklFMh6mINaWvMW1HO4zRZTxF%2FDss7bKAqLF4ERnlX%2FmHwtFmrvfsick%2Bje%0AwoPg%2BDp6rJc%2F%2FIYXfCY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1785295800&signature=d14c6f66492d6c195edc3a59d12767f606c87c4ca33cb717c21d1ba1a30d4b1e&req=dSklFMh6mINaWvMW1HO4zRZTxF%2FDss7bKAqLF4ERnlX%2FmHwtFmrvfsick%2Bje%0AwoPg%2BDp6rJc%2F%2FIYXfCY%3D%0A)
 
 ## When will I be billed?
 
@@ -48,4 +50,8 @@ Please click on the message icon in the bottom right of our Help Center to conta
 
 An organization owner can resubscribe for Team plan access by navigating to **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**.
 
-[Paid Plan Billing FAQs](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs)[How is my Team plan bill calculated?](https://support.claude.com/en/articles/9267289-how-is-my-team-plan-bill-calculated)[Add or update your Team plan's tax or VAT ID](https://support.claude.com/en/articles/9927624-add-or-update-your-team-plan-s-tax-or-vat-id)[How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)[Understanding your billing address and tax calculation](https://support.claude.com/en/articles/12997130-understanding-your-billing-address-and-tax-calculation)
+* [Paid plan billing FAQs](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs)
+* [How is my Team plan bill calculated?](https://support.claude.com/en/articles/9267289-how-is-my-team-plan-bill-calculated)
+* [Add or update your Team plan's tax or VAT ID](https://support.claude.com/en/articles/9927624-add-or-update-your-team-plan-s-tax-or-vat-id)
+* [How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)
+* [Understanding your billing address and tax calculation](https://support.claude.com/en/articles/12997130-understanding-your-billing-address-and-tax-calculation)

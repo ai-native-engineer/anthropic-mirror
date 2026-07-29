@@ -1,3 +1,4 @@
+<!-- source: https://platform.claude.com/docs/en/api/python/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/python/beta -->
 
 <!-- chunk-start -->

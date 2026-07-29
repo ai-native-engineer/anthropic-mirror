@@ -1,6 +1,8 @@
+<!-- source: https://platform.claude.com/docs/en/api/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/beta -->
 
 <!-- chunk-start -->
+
         - `BetaManagedAgentsBase64ImageSource object { data, media_type, type }`
 
           Base64-encoded image data.

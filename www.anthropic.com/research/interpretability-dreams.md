@@ -8,22 +8,22 @@ May 24, 2023
 
 ## Abstract
 
-Our present research aims to create a foundation for mechanistic interpretability research. In particular, we're focused on trying to resolve the challenge of [superposition](https://transformer-circuits.pub/2022/toy_model/index.html). In doing so, it's important to keep sight of what we're trying to lay the foundations for. This essay summarizes those motivating aspirations – the exciting directions we hope will be possible if we can overcome the present challenges.  
-  
+Our present research aims to create a foundation for mechanistic interpretability research. In particular, we're focused on trying to resolve the challenge of [superposition](https://transformer-circuits.pub/2022/toy_model/index.html). In doing so, it's important to keep sight of what we're trying to lay the foundations for. This essay summarizes those motivating aspirations – the exciting directions we hope will be possible if we can overcome the present challenges.
+
 We aim to offer insight into our vision for addressing mechanistic interpretability's other challenges, especially scalability. Because we have focused on foundational issues, our longer-term path to scaling interpretability and tackling other challenges has often been obscure. By articulating this vision, we hope to clarify how we might resolve limitations, like analyzing massive neural networks, that might naively seem intractable in a mechanistic approach.
 
-### Project Fetch: Phase two
+### Discovering cryptographic weaknesses with Claude
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+cryptographic algorithms. The first attack significantly weakens HAWK, a digital signature scheme that was built for a future world where quantum computers are able to break existing standards. The second identifies a new way to attack round-reduced AES, the most widely used symmetric cipher.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/discovering-cryptographic-weaknesses)
 
-### Agentic coding and persistent returns to expertise
+### Project Pilot: Can AI control a drone?
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/claude-code-expertise)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Paving the way for agents in biology
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)

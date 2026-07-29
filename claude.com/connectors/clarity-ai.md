@@ -10,6 +10,7 @@ Simulate fund classifications under proposed SFDR 2.0
 * Used in
 
   [Claude](https://claude.ai/directory/3bb23b8e-f796-4156-991b-e3f4e0b25fff)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Clarity AI](https://clarity.ai/)
 
@@ -28,16 +29,16 @@ Assess how investment funds may be classified under the European Commission's pr
 
 You can use Clarity AI to:
 
-**Forward-looking Fund Classification:**  
+**Forward-looking Fund Classification:**
 "How would the Nordea 1 Global Climate and Environment Fund likely be classified under the proposed SFDR 2.0 rules?"
 
-**Portfolio Transition Planning:**  
+**Portfolio Transition Planning:**
 "Search for some Pictet funds and show me their simulated SFDR 2.0 classifications — I need to assess how our portfolio might be affected by the regulatory change"
 
-**Regulatory Preparedness Reporting:**  
+**Regulatory Preparedness Reporting:**
 "For ISIN LU0996182563, check the SFDR 2.0 flags and explain what the simulated classification means for our compliance team"
 
-**ESG Fund Analysis:**  
+**ESG Fund Analysis:**
 "Search for ESG-focused mutual funds and compare their simulated SFDR 2.0 classifications to help with investment decisions"
 
 ## Related connectors
@@ -54,7 +55,7 @@ June 22, 2026
 
 ### Affinity
 
-Search, update, and prep deals without switching tabs.](/connectors/affinity)
+Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
 
 Financial services
 
@@ -62,11 +63,11 @@ Claude
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd9230df5f81ef095019_Aiera.jpg)
+[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
 
 ### Aiera
 
-Live events, filings, company publications, and more](/connectors/aiera)
+Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
 
 Financial services
 
@@ -76,11 +77,11 @@ Claude Code
 
 February 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977ee686ffe1cb730e94f07_Airwallex%20Mark%20-%20Colour%20-%20Square.png)
+[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
 
 ### Airwallex
 
-Integrate with the Airwallex Platform using Claude](/connectors/airwallex)
+Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
 
 Financial services
 
@@ -90,8 +91,8 @@ Claude Code
 
 April 8, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c05a2e0f10f41c8f005ee0_Aiwyn_Logo_Mark_Square%20(1).svg)
+[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
 
 ### Aiwyn Tax
 
-Estimate your federal & state taxes with Aiwyn's tax engine](/connectors/aiwyn-tax)
+Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)

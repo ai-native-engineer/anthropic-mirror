@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/office-agents/excel -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Claude for Excel is an add-in that brings Claude into Excel. Ask questions
 about open workbooks, adjust assumptions while preserving formula
 relationships, debug errors, and build or populate models, all without
@@ -38,7 +46,7 @@ Claude for Excel runs on the following Excel builds.
 
 Open the marketplace listing
 
-Go to the [Claude for Excel listing on Microsoft AppSource](https://marketplace.microsoft.com/en-us/product/office/WA200009404).
+Go to the [Claude for Microsoft 365 listing on Microsoft AppSource](https://marketplace.microsoft.com/en-us/product/office/WA200010725?tab=Overview).
 
 2
 
@@ -75,7 +83,7 @@ Go to Settings, Integrated apps, Add-ins.
 
 Find the add-in
 
-Search for “Claude by Anthropic for Excel” in Microsoft AppSource.
+Search for “Claude for Microsoft 365” in Microsoft AppSource.
 
 4
 
@@ -85,13 +93,24 @@ Assign the add-in to your organization or to specific users or
 groups. Share [Microsoft’s deployment guide](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-deployment-of-add-ins)
 with your team for activation steps.
 
+If your organization uses Microsoft Entra Privileged Identity
+Management (PIM) for admin roles, the Integrated apps page does not
+recognize roles activated through PIM, so deployment fails. This is a
+[known Microsoft issue](https://learn.microsoft.com/en-us/office/dev/add-ins/resources/resources-office-add-in-known-issues),
+tracking ID 11126536. To work around it, deploy from an admin account
+with the required role assigned as permanently active rather than
+PIM-eligible. See
+[Microsoft’s troubleshooting guidance](https://learn.microsoft.com/en-us/troubleshoot/microsoft-365/admin/miscellaneous/cannot-deploy-add-in-integrated-apps-menu).
+Individual users can still
+[install the add-in themselves](#install-for-yourself).
+
 After deployment, users can activate the Claude add-in from Tools,
 Add-ins on Mac or Home, Add-ins on Windows, sign in, and start working.
 For environments where “Let users access the Office Store” is disabled,
 deploy using the custom manifest XML file instead. Download the
 [Excel manifest XML file](https://pivot.claude.ai/manifest-excel.xml),
 then follow
-[Deploy with a custom manifest](/docs/office-agents/word#deploy-with-a-custom-manifest)
+[Deploy with a custom manifest](https://claude.com/docs/office-agents/word#deploy-with-a-custom-manifest)
 for the upload steps. The flow is identical apart from which manifest
 file you upload in Step 1.
 
@@ -100,7 +119,7 @@ file you upload in Step 1.
 If your organization routes AI traffic through Amazon Bedrock, Google Cloud
 Vertex AI, Azure AI Foundry, or an LLM gateway, your admin can deploy
 the add-in without individual Claude accounts. See
-[Use Claude for M365 with third-party platforms](/docs/office-agents/third-party-platforms).
+[Use Claude for M365 with third-party platforms](https://claude.com/docs/office-agents/third-party-platforms).
 
 ##  Key features
 
@@ -152,7 +171,7 @@ directly.
 
 Claude for Excel supports connectors for pulling external context into
 your workbook, and Skills for applying reusable task recipes. See
-[Connectors and Skills](/docs/office-agents/connectors-and-skills) for
+[Connectors and Skills](https://claude.com/docs/office-agents/connectors-and-skills) for
 details.
 
 ##  Set persistent instructions
@@ -171,7 +190,7 @@ from Instructions you set in PowerPoint or Word.
 Claude for Excel shares context with Claude for PowerPoint, Word, and
 Outlook, so a single conversation can span your open workbook,
 presentation, document, and inbox. See
-[Work across M365 apps](/docs/office-agents/work-across-apps).
+[Work across M365 apps](https://claude.com/docs/office-agents/work-across-apps).
 
 ##  Context and session management
 
@@ -191,6 +210,17 @@ account and is subject to the same usage limits.
 
 You can switch between Claude Opus 4.7, Claude Opus 4.6, and Claude
 Sonnet 4.6 when using the add-in.
+Claude for M365 offers a curated subset of the Claude models: the ones
+that work best for Office tasks, so the list here can be shorter than
+what you see in Claude.ai. Your organization’s model access settings
+also apply, and a model appears here only if your role permits it. See
+[Manage model access for your organization](https://support.claude.com/en/articles/15694740-manage-model-access-for-your-organization)
+for how those settings interact with each product. If you connect
+through Amazon Bedrock, Google Cloud Vertex AI, Azure AI Foundry, or an
+LLM gateway, the available models come from that platform and your
+admin’s configuration instead of your Claude.ai model access settings.
+See [Use Claude for M365 with third-party platforms](https://claude.com/docs/office-agents/third-party-platforms)
+for details.
 
 ##  Data handling
 
@@ -202,6 +232,9 @@ context in recently closed workbooks.
 Chat history is stored locally in your browser using IndexedDB.
 Conversations are not stored on Anthropic’s servers, are not synced
 across devices, and can be cleared from Settings at any time.
+Reinstalling the add-in or switching between Claude add-ins does not
+remove it. See [Data storage and retention](https://claude.com/docs/office-agents/data-storage)
+for where it sits on disk and how long it is kept.
 Claude for Excel does not inherit custom data retention settings your
 organization might have set. Activity is not included in Enterprise
 audit logs or the Compliance API.
@@ -256,5 +289,3 @@ Follow these guidelines to use Claude for Excel safely and effectively.
 * Be specific about what you want changed.
 * Verify that outputs match your organization’s standards and your own
   judgment.
-
-[Overview](/docs/office-agents/overview)[Use Claude for PowerPoint](/docs/office-agents/powerpoint)

@@ -6,14 +6,13 @@
 
 Yale's harmonized US public health surveillance data
 
-* Category
-
   Life sciences and healthcare
 
   Data
 * Used in
 
   [Claude](https://claude.ai/directory/cd7d9174-5546-440a-822d-1e9026e7334c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Yale School of Public Health](https://www.pophive.org)
 
@@ -32,16 +31,16 @@ PopHIVE provides harmonized US public health surveillance data from the Yale Sch
 
 You can use PopHIVE to:
 
-**Track respiratory disease activity:**  
+**Track respiratory disease activity:**
 "How is flu trending in the US right now?"
 
-**Compare chronic disease prevalence by geography:**  
+**Compare chronic disease prevalence by geography:**
 "Which US states have the highest diabetes prevalence?"
 
-**Monitor injury trends:**  
+**Monitor injury trends:**
 "Show overdose trends in Ohio counties over the last year."
 
-**Check childhood vaccination coverage:**  
+**Check childhood vaccination coverage:**
 "What's MMR vaccination coverage by state?"
 
 ## Related connectors
@@ -58,7 +57,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -72,7 +71,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Data
 
@@ -82,11 +81,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -100,4 +99,4 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)

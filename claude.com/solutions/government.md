@@ -36,6 +36,14 @@ Read story
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68ba0c117280c710085e4185_guy.webp)
 
+Claude for Government Desktop, now in public beta
+
+Claude Code and Claude Cowork are live in public beta, built on the same application our commercial customers use and delivered through a FedRAMP High authorized environment.
+
+Learn more
+
+[Learn more](https://claude.com/blog/bringing-claude-code-and-claude-cowork-to-government)Learn more
+
 ## Why agencies choose Claude
 
 ### Intelligence for government complexity
@@ -96,7 +104,7 @@ In pilot
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 [See the latest updates to Claude for Government](https://docs.claude.com/en/docs/intro)See the latest updates to Claude for Government
 
@@ -122,7 +130,8 @@ Trust center
 
 [Trust center](https://trust.anthropic.com/)Trust center
 
-## Explore the  latest releases
+## Explore the
+latest releases
 
 [Lawrence Livermore National Laboratory expands Claude for Enterprise use to empower scientists and researchers](https://www.anthropic.com/news/lawrence-livermore-national-laboratory-expands-claude-for-enterprise-to-empower-scientists-and)Lawrence Livermore National Laboratory expands Claude for Enterprise use to empower scientists and researchers
 
@@ -132,9 +141,12 @@ Announcements
 
 [Announcements](https://www.anthropic.com/news/lawrence-livermore-national-laboratory-expands-claude-for-enterprise-to-empower-scientists-and)Announcements
 
-[Claude Gov models for U.S. national  security customers](https://www.anthropic.com/news/claude-gov-models-for-u-s-national-security-customers)Claude Gov models for U.S. national  security customers
+[Claude Gov models for U.S. national
+security customers](https://www.anthropic.com/news/claude-gov-models-for-u-s-national-security-customers)Claude Gov models for U.S. national
+security customers
 
-Claude Gov models for U.S. national  security customers
+Claude Gov models for U.S. national
+security customers
 
 Announcements
 

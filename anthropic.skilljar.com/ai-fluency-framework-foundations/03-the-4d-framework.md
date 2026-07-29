@@ -23,9 +23,14 @@ We explore how these competencies work together across different ways of engagin
 
 * AI Fluency means engaging with AI in ways that are effective, efficient, ethical, and safe
 * There are three primary ways we engage with AI:
-+ Automation: AI executes specific tasks based on your instructions + Augmentation: You and AI collaborate as creative thinking and task execution partners + Agency: You guide AI to work independently on your behalf, shaping its knowledge and behavior rather than specific actions
+  + Automation: AI executes specific tasks based on your instructions
+  + Augmentation: You and AI collaborate as creative thinking and task execution partners
+  + Agency: You guide AI to work independently on your behalf, shaping its knowledge and behavior rather than specific actions
 * The AI Fluency Framework consists of four core competencies (the 4Ds):
-+ Delegation: Deciding what work to do with AI vs. yourself + Description: Communicating effectively with AI systems + Discernment: Evaluating AI outputs critically + Diligence: Ensuring responsible AI collaboration
+  + Delegation: Deciding what work to do with AI vs. yourself
+  + Description: Communicating effectively with AI systems
+  + Discernment: Evaluating AI outputs critically
+  + Diligence: Ensuring responsible AI collaboration
 * These competencies apply across all three ways of working with AI
 * Developing these competencies prepares you for evolving AI capabilities
 
@@ -72,7 +77,9 @@ Spend 5-10 minutes chatting with Claude about a topic you're passionate about an
 
 Instructions:
 
-1. Choose a topic you know well and enjoy discussing such as a hobby, professional interest, favorite book series, etc. 2. Have a natural conversation with Claude about this topic, like you would with someone who shares your interest. 3. Try to notice moments where:
+1. Choose a topic you know well and enjoy discussing such as a hobby, professional interest, favorite book series, etc.
+2. Have a natural conversation with Claude about this topic, like you would with someone who shares your interest.
+3. Try to notice moments where:
    * Claude enhances your thinking
    * You need to clarify or correct the Claude's understanding
    * Your expertise leads you to evaluate the Claude's responses
@@ -85,7 +92,9 @@ Spend 5-10 minutes asking Claude to teach you about a topic you're unfamiliar wi
 
 Instructions:
 
-1. Choose a topic you'd like to learn more about. 2. Engage Claude in a conversation to help you understand the basics of this topic. Don't worry about prompting the "wrong way" or the "right way." Just ask Claude to teach you. 3. Try to notice moments where the Claude:
+1. Choose a topic you'd like to learn more about.
+2. Engage Claude in a conversation to help you understand the basics of this topic. Don't worry about prompting the "wrong way" or the "right way." Just ask Claude to teach you.
+3. Try to notice moments where the Claude:
    * Offers helpful explanations
    * Provides examples that make abstract ideas concrete
    * Responds naturally to your questions as they arise
@@ -112,7 +121,6 @@ As you progress through the course, we'd love to hear from you about how you are
 *Copyright 2025 Rick Dakan, Joseph Feller, and Anthropic. Released under the CC BY-NC-SA 4.0 license.* *This course is based on The AI Fluency Framework by Dakan and Feller.*
 
 *Supported in part by the Higher Education Authority, Ireland, through the National Forum for the Enhancement of Teaching and Learning.*
-
 <!-- youtube: W4Ua6XFfX9w -->
 
 [![The 4d Framework](https://img.youtube.com/vi/W4Ua6XFfX9w/hqdefault.jpg)](https://www.youtube.com/watch?v=W4Ua6XFfX9w)

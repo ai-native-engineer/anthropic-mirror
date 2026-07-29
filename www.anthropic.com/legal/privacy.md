@@ -1,7 +1,5 @@
 <!-- source: https://www.anthropic.com/legal/privacy -->
 
-*This policy was published on June 8, 2026 with an effective date of July 8, 2026.*
-
 Anthropic is an AI safety and research company working to build reliable, interpretable, and steerable AI systems.
 
 This Privacy Policy explains how we collect, use, disclose, and process your personal data when you use our website, Claude.ai, or other Anthropic products and services (the “Services”). This Privacy Policy does not apply to content that we process on behalf of customers of our business offerings, such as our Enterprise accounts. Our use of that data is governed by our customer agreements covering access to and use of those offerings.
@@ -10,7 +8,7 @@ Please see our [Non-User Privacy Policy](https://anthropic.com/legal/non-user-pr
 
 This Privacy Policy also describes your privacy rights. More information about your rights, and how to exercise them, is set out in Section 4 (“Rights and Choices”).
 
-If you are located in Canada, Brazil, or the Republic of Korea, please read the relevant [Regional Supplemental Disclosure](/legal/privacy#11-regional-supplemental-disclosures) which applies to you.
+If you are located in Canada, Brazil, or the Republic of Korea, please read the relevant [Regional Supplemental Disclosure](https://www.anthropic.com/legal/privacy#11-regional-supplemental-disclosures) which applies to you.
 
 If you are located in Washington or a state with similar consumer health data laws, please read our [Consumer Health Data Privacy Policy](https://anthropic.com/legal/consumer-health-data-privacy-policy) which applies to you if you integrate third party health applications with Claude.
 
@@ -108,11 +106,11 @@ We will respond to your request within the period required by the data protectio
 * Correction: the right to request that we correct inaccurate personal data Anthropic retains about you, subject to certain exceptions. Please note that we cannot guarantee the factual accuracy of Outputs. If Outputs contain factually inaccurate personal data relating to you, you can submit a correction request and we will make a reasonable effort to correct this information—but due to the technical complexity of our large language models, it may not always be possible for us to do so.
 * Objection: the right to object to processing of your personal data, including profiling conducted on grounds of public or legitimate interest. In places where such a right applies, we will no longer process the personal data in case of such objection unless we demonstrate compelling legitimate grounds for the processing which override your interests, rights, and freedoms, or for the establishment, exercise or defense of legal claims. If we use your information for direct marketing, you can object and opt out of future direct marketing messages using the unsubscribe link in such communications.
 * Restriction: the right to restrict our processing of your personal data in certain circumstances.
-* Withdrawal of consent: Where Anthropic’s processing of your personal data is based on consent, you have the right to withdraw your consent. For example, you can disconnect your health app integration and withdraw your consent in your [settings](https://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5/settings/connectors). The withdrawal of consent will not affect the lawfulness of processing based on consent before its withdrawal.
+* Withdrawal of consent: Where Anthropic’s processing of your personal data is based on consent, you have the right to withdraw your consent. For example, you can disconnect your health app integration and withdraw your consent in your [settings](https://claude.ai/redirect/website.v1.bae693a1-0b61-4365-8f57-25fe3d658ac6/settings/connectors). The withdrawal of consent will not affect the lawfulness of processing based on consent before its withdrawal.
 * Automated decision-making: Anthropic does not engage in decision making based solely on automated processing or profiling in a manner which produces a legal effect (i.e., impacts your legal rights) or significantly affects you in a similar way (e.g., significantly affects your financial circumstances or ability to access essential goods or services).
 * Sale & targeted Anthropic marketing of its products and services: Anthropic does not “sell” your personal data as that term is defined by applicable laws and regulations. You can opt-out of sharing your personal data for targeted advertising to promote our products and services, and we will honor global privacy controls. To learn more, [click here](https://www.anthropic.com/legal/cookies).
 
-Anthropic gives you access to a variety of tools to help you manage your data. You can access these in your [Privacy Settings](https://claude.ai/redirect/website.v1.1310cf07-eccd-4de7-82b9-33dfa5d2e1a5/new#settings/data-privacy-controls).
+Anthropic gives you access to a variety of tools to help you manage your data. You can access these in your [Privacy Settings](https://claude.ai/redirect/website.v1.bae693a1-0b61-4365-8f57-25fe3d658ac6/new#settings/data-privacy-controls).
 
 ## 5. Data Transfers
 

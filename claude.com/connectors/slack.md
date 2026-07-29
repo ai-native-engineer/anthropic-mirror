@@ -10,6 +10,7 @@ Send messages, create canvases, and fetch Slack data!
 * Used in
 
   [Claude](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Slack](https://slack.com/)
 
@@ -22,19 +23,19 @@ Send messages, create canvases, and fetch Slack data!
   Interactive
 * More
 
-  [Documentation](https://docs.slack.dev/ai/mcp-server)[Privacy Policy](https://slack.com/trust/privacy/privacy-policy)[feedback@slack.com](mailto:feedback@slack.com)
+  [Documentation](https://docs.slack.dev/ai/mcp-server)[Privacy Policy](https://slack.com/trust/privacy/privacy-policy)[Support](mailto:feedback@slack.com)
 
-Connect to Slack to share messages and create canvases directly to simplify collaboration and boost productivity. Search and retrieve messages, channels, threads, files, and users, giving Claude the context to streamline your work. Generate message drafts, format them your way, and review before you post.  
-‍  
-You can use Slack in Claude to:  
-  
-Create and share canvases:  
+Connect to Slack to share messages and create canvases directly to simplify collaboration and boost productivity. Search and retrieve messages, channels, threads, files, and users, giving Claude the context to streamline your work. Generate message drafts, format them your way, and review before you post.
+‍
+You can use Slack in Claude to:
+
+Create and share canvases:
 "Create a canvas in Slack and share it to #acme-project"
 
-Draft and refine messages:   
+Draft and refine messages:
 "Draft a message for Jason asking him to review and leave comments" → then edit inline before sending
 
-Schedule messages for later:   
+Schedule messages for later:
 "Schedule a message to #marketing for tomorrow at 9am about the product launch" → message will be posted at the specified time (note: once scheduled, use Slack's "Drafts and sent" feature to edit or reschedule)
 
 ## Related connectors
@@ -53,7 +54,7 @@ February 11, 2026
 
 ### Asana
 
-Connect to Asana to coordinate tasks, projects, and goals](/connectors/asana)
+Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)
 
 Communication
 
@@ -63,11 +64,11 @@ Claude
 
 February 21, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696323e2a1aaf767a84b4ebc_circleback.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dd9120cb996c95c73b28_icon_Circleback.jpg)
 
 ### Circleback
 
-Search and access context from meetings](/connectors/circleback)
+Search and access context from meetings](https://claude.com/connectors/circleback)
 
 Productivity
 
@@ -81,7 +82,7 @@ May 1, 2026
 
 ### Computer by DevRev
 
-Manage your workspace, issues, tickets, customers, and more without leaving Claude.](/connectors/devrev)
+Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
 
 Communication
 
@@ -93,4 +94,4 @@ January 26, 2026
 
 ### Fellow.ai
 
-Chat with your meetings to uncover actionable insights](/connectors/fellow-ai)
+Chat with your meetings to uncover actionable insights](https://claude.com/connectors/fellow-ai)

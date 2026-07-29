@@ -171,7 +171,7 @@ Work through your literature review process with Claude, from discovery to synth
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a7dd9b9eeb755886614c0_researchwithpubmed1.png)
 
@@ -181,26 +181,26 @@ Open artifact in new window
 
 ## Related use cases
 
-[Surface themes from all your feedback channels](/resources/use-cases/surface-themes-from-all-your-feedback-channels)Surface themes from all your feedback channels
+[Surface themes from all your feedback channels](https://claude.com/resources/use-cases/surface-themes-from-all-your-feedback-channels)Surface themes from all your feedback channels
 
 Surface themes from all your feedback channels
 
 Use case
 
-[Use case](/resources/use-cases/surface-themes-from-all-your-feedback-channels)Use case
+[Use case](https://claude.com/resources/use-cases/surface-themes-from-all-your-feedback-channels)Use case
 
-[Turn transit time into research time](/resources/use-cases/turn-transit-time-into-research-time)Turn transit time into research time
+[Turn transit time into research time](https://claude.com/resources/use-cases/turn-transit-time-into-research-time)Turn transit time into research time
 
 Turn transit time into research time
 
 Use case
 
-[Use case](/resources/use-cases/turn-transit-time-into-research-time)Use case
+[Use case](https://claude.com/resources/use-cases/turn-transit-time-into-research-time)Use case
 
-[Verify statistics from raw data](/resources/use-cases/verify-statistics-from-raw-data)Verify statistics from raw data
+[Verify statistics from raw data](https://claude.com/resources/use-cases/verify-statistics-from-raw-data)Verify statistics from raw data
 
 Verify statistics from raw data
 
 Use case
 
-[Use case](/resources/use-cases/verify-statistics-from-raw-data)Use case
+[Use case](https://claude.com/resources/use-cases/verify-statistics-from-raw-data)Use case

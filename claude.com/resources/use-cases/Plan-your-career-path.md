@@ -91,8 +91,8 @@ DOC
 
 ## Optional context
 
-Turn on [Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking) to allow Claude extra time to reason through your career planning and produce high quality outputs.  
-  
+Turn on [Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking) to allow Claude extra time to reason through your career planning and produce high quality outputs.
+
 Make sure [Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) is enabled so Claude can search the web for current information.
 
 Extended Thinking
@@ -205,7 +205,7 @@ Work with Claude to discover how to navigate your ideal career path and create a
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690960c25b3328fe61a5f72b_careeractiontracker.png)
 
@@ -215,34 +215,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Plan your syllabus](/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)Plan your syllabus
+[Plan your syllabus](https://claude.com/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)Plan your syllabus
 
 Plan your syllabus
 
 Use case
 
-[Use case](/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)Use case
+[Use case](https://claude.com/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)Use case
 
-[Work through grant options in chat](/resources/use-cases/work-through-grant-options-in-chat-with-claude)Work through grant options in chat
+[Work through grant options in chat](https://claude.com/resources/use-cases/work-through-grant-options-in-chat-with-claude)Work through grant options in chat
 
 Work through grant options in chat
 
 Use case
 
-[Use case](/resources/use-cases/work-through-grant-options-in-chat-with-claude)Use case
+[Use case](https://claude.com/resources/use-cases/work-through-grant-options-in-chat-with-claude)Use case
 
-[Apply a formula as you learn it](/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Apply a formula as you learn it
+[Apply a formula as you learn it](https://claude.com/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Apply a formula as you learn it
 
 Apply a formula as you learn it
 
 Use case
 
-[Use case](/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Use case
+[Use case](https://claude.com/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Use case
 
-[Map your lit review mid-conversation to surface the underlying debate](/resources/use-cases/map-your-lit-review-mid-conversation)Map your lit review mid-conversation to surface the underlying debate
+[Map your lit review mid-conversation to surface the underlying debate](https://claude.com/resources/use-cases/map-your-lit-review-mid-conversation)Map your lit review mid-conversation to surface the underlying debate
 
 Map your lit review mid-conversation to surface the underlying debate
 
 Use case
 
-[Use case](/resources/use-cases/map-your-lit-review-mid-conversation)Use case
+[Use case](https://claude.com/resources/use-cases/map-your-lit-review-mid-conversation)Use case

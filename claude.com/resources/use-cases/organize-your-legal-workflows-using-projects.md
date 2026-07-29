@@ -197,7 +197,7 @@ Upload your NDA playbook and get started with your first Project. Once you've ca
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/693ebce7bf5a038de8acaadd_image2.png)
 
@@ -207,26 +207,26 @@ Open artifact in new window
 
 ## Related use cases
 
-[Prep scattered documents for a compliance audit](/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)Prep scattered documents for a compliance audit
+[Prep scattered documents for a compliance audit](https://claude.com/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)Prep scattered documents for a compliance audit
 
 Prep scattered documents for a compliance audit
 
 Use case
 
-[Use case](/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)Use case
+[Use case](https://claude.com/resources/use-cases/prep-scattered-documents-for-a-compliance-audit)Use case
 
-[Track discovery timelines and analyze patterns](/resources/use-cases/track-discovery-timelines-and-analyze-patterns)Track discovery timelines and analyze patterns
+[Track discovery timelines and analyze patterns](https://claude.com/resources/use-cases/track-discovery-timelines-and-analyze-patterns)Track discovery timelines and analyze patterns
 
 Track discovery timelines and analyze patterns
 
 Use case
 
-[Use case](/resources/use-cases/track-discovery-timelines-and-analyze-patterns)Use case
+[Use case](https://claude.com/resources/use-cases/track-discovery-timelines-and-analyze-patterns)Use case
 
-[Contract redlining and negotiation](/resources/use-cases/contract-redlining-and-negotiation)Contract redlining and negotiation
+[Contract redlining and negotiation](https://claude.com/resources/use-cases/contract-redlining-and-negotiation)Contract redlining and negotiation
 
 Contract redlining and negotiation
 
 Use case
 
-[Use case](/resources/use-cases/contract-redlining-and-negotiation)Use case
+[Use case](https://claude.com/resources/use-cases/contract-redlining-and-negotiation)Use case

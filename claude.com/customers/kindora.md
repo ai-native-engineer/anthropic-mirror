@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69de7d7e057338cd30b80dab_logo_kindra-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69de7d7c5f71f7e3d4d93209_logo_kindra-dark-mode.png)
 
@@ -91,7 +91,7 @@ Turn limited resources into lasting impact. Generate grant proposals, track prog
 
 Read more
 
-[Read more](/solutions/nonprofits)Read more
+[Read more](https://claude.com/solutions/nonprofits)Read more
 
 Nonprofits
 
@@ -163,34 +163,34 @@ Co-founder, Kindora
 
 ## Related stories
 
-[How the Garvan Institute is changing the way it does science with Claude](/customers/garvan-institute-qa)How the Garvan Institute is changing the way it does science with Claude
+[The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude](https://claude.com/customers/epilepsy-foundation)The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
 
-How the Garvan Institute is changing the way it does science with Claude
-
-Customer story
-
-[Customer story](/customers/garvan-institute-qa)Customer story
-
-[MagicSchool on building a safety layer for millions of student conversations](/customers/magicschool-qa)MagicSchool on building a safety layer for millions of student conversations
-
-MagicSchool on building a safety layer for millions of student conversations
+The Epilepsy Foundation turns years of expert content into a personal epilepsy assistant with Claude
 
 Customer story
 
-[Customer story](/customers/magicschool-qa)Customer story
+[Customer story](https://claude.com/customers/epilepsy-foundation)Customer story
 
-[How YMCA South Australia is building an AI-powered nonprofit with Claude](/customers/ymca-south-australia)How YMCA South Australia is building an AI-powered nonprofit with Claude
+[How the Epilepsy Foundation uses Claude across the organization](https://claude.com/customers/epilepsy-foundation-qa)How the Epilepsy Foundation uses Claude across the organization
 
-How YMCA South Australia is building an AI-powered nonprofit with Claude
-
-Customer story
-
-[Customer story](/customers/ymca-south-australia)Customer story
-
-[How Syracuse University deployed Claude to every student, faculty member, and staff](/customers/syracuse)How Syracuse University deployed Claude to every student, faculty member, and staff
-
-How Syracuse University deployed Claude to every student, faculty member, and staff
+How the Epilepsy Foundation uses Claude across the organization
 
 Customer story
 
-[Customer story](/customers/syracuse)Customer story
+[Customer story](https://claude.com/customers/epilepsy-foundation-qa)Customer story
+
+[Building dignity-driven AI: A conversation with the National Domestic Workers Alliance](https://claude.com/customers/national-domestic-workers-alliance-qa)Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
+
+Building dignity-driven AI: A conversation with the National Domestic Workers Alliance
+
+Customer story
+
+[Customer story](https://claude.com/customers/national-domestic-workers-alliance-qa)Customer story
+
+[National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude](https://claude.com/customers/national-domestic-workers-alliance)National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude
+
+National Domestic Workers Alliance helps domestic workers advocate for better pay with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/national-domestic-workers-alliance)Customer story

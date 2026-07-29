@@ -10,6 +10,7 @@ Give your teams powerful behavioral insights
 * Used in
 
   [Claude](https://claude.ai/directory/8e40fa13-4654-4387-bbad-12b8ecc81351)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Amplitude](https://amplitude.com/)
 
@@ -22,22 +23,22 @@ Give your teams powerful behavioral insights
   Interactive
 * More
 
-  [Documentation](https://amplitude.com/docs/analytics/amplitude-mcp)[Privacy Policy](https://amplitude.com/privacy)[mcp+feedback@amplitude.com](mailto:mcp+feedback@amplitude.com)
+  [Documentation](https://amplitude.com/docs/analytics/amplitude-mcp)[Privacy Policy](https://amplitude.com/privacy)[Support](mailto:mcp+feedback@amplitude.com)
 
 Connect your workflows to Amplitude's powerful behavior analytics and experimentation platform. The Amplitude connector enables seamless integration between Claude and your product data, allowing you to search, analyze, and query charts, dashboards, experiments, feature flags, and metrics directly from your chat interface—then build new charts and explore trends interactively to uncover hidden insights.
 
-You can use Amplitude in Claude to:  
-  
-Build and explore analytics charts:   
-"Create a chart showing weekly active users over the last 90 days" or "Adjust this chart to break down by user segment"  
-  
-Search for popular events:  
+You can use Amplitude in Claude to:
+
+Build and explore analytics charts:
+"Create a chart showing weekly active users over the last 90 days" or "Adjust this chart to break down by user segment"
+
+Search for popular events:
 "Search for the most popular events in Amplitude"
 
-Retrieve chart results:  
+Retrieve chart results:
 "Give me the results of the most popular chart in Amplitude"
 
-View active experiments:  
+View active experiments:
 "Give me all active experiments in Amplitude"
 
 ## Related connectors
@@ -50,11 +51,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -68,7 +69,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -82,7 +83,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -92,8 +93,8 @@ Claude Code
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdf0757d9241e42ce447_Aura.jpg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b2a2eb3325e73b42b98c_icon_Aura.jpg)
 
 ### Aura
 
-Company intelligence & workforce analytics](/connectors/aura)
+Company intelligence & workforce analytics](https://claude.com/connectors/aura)

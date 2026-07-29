@@ -75,7 +75,6 @@ As you progress through the course, we'd love to hear from you about how you are
 *Copyright 2025 Rick Dakan, Joseph Feller, and Anthropic. Released under the CC BY-NC-SA 4.0 license.*
 
 *This course is based on The AI Fluency Framework by Dakan and Feller.* *Supported in part by the Higher Education Authority, Ireland, through the National Forum for the Enhancement of Teaching and Learning.*
-
 <!-- youtube: ytEN_iAk09c -->
 
 [![Conclusion](https://img.youtube.com/vi/ytEN_iAk09c/hqdefault.jpg)](https://www.youtube.com/watch?v=ytEN_iAk09c)

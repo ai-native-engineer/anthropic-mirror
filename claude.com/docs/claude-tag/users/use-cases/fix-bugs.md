@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-tag/users/use-cases/fix-bugs -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 ##  How bug-fix prompts work
 
 This page is for engineering teams. A pull request is a proposed code change opened for review; Claude opens them under its own GitHub identity, so they appear in your review queue like any other pull request.
@@ -7,7 +15,7 @@ Each prompt below is a Slack message. You paste it in the channel or thread wher
 
 ##  Check the channel’s connections
 
-Check that the channel has the connections below. Ask `@Claude what can you access from this channel?` to check; an admin can [add a connection](/docs/claude-tag/admins/add-connections) the channel is missing.
+Check that the channel has the connections below. Ask `@Claude what can you access from this channel?` to check; an admin can [add a connection](https://claude.com/docs/claude-tag/admins/add-connections) the channel is missing.
 
 | Connection | Examples | Why it matters here |
 | --- | --- | --- |
@@ -19,24 +27,30 @@ Check that the channel has the connections below. Ask `@Claude what can you acce
 
 A bug report arrives with reproduction steps and nobody free to take it. This gets you a draft pull request with the fix, linked back to the thread. Name the repository in the prompt so it’s cloned before work starts.
 
+```
 @Claude in acme/data-pipeline, reproduce the bug in this thread, fix it, and open a draft PR. Done means CI is green and the PR links back here.
+```
 
 The done definition, CI green and the PR linking back, gives the session a finish line it can check itself against.
-The pull request appears under the Claude GitHub App and links back to the Slack thread it came from. See [how agent identity works](/docs/claude-tag/concepts/agent-identity#agent-access).
+The pull request appears under the Claude GitHub App and links back to the Slack thread it came from. See [how agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-access).
 
 ###  Watch a bug channel
 
 Reports arrive faster than the team triages them. The standing form watches the channel and opens drafts for anything reproducible.
 
+```
 @Claude when a bug report lands in this channel, try to reproduce it. If you can, open a draft PR and tag the area owner; if you can't, reply with what you tried.
+```
 
-With the if/can’t branch, every report gets a reply, either a draft or a list of what was tried. To list or cancel scheduled work later, see [Manage standing work](/docs/claude-tag/users/proactivity#manage-standing-work).
+With the if/can’t branch, every report gets a reply, either a draft or a list of what was tried. To list or cancel scheduled work later, see [Manage standing work](https://claude.com/docs/claude-tag/users/proactivity#manage-standing-work).
 
 ###  Diagnose a failure without a fix
 
 Not every failure needs a pull request. Ask for the diagnosis alone, and the decision about what to do with it stays with the team.
 
+```
 @Claude why is this failing? Trace it to a cause and post what you find — diagnosis only, no fix.
+```
 
 Naming the deliverable, a cause rather than a patch, keeps the session from jumping ahead to code changes nobody asked for.
 
@@ -44,10 +58,14 @@ Naming the deliverable, a cause rather than a patch, keeps the session from jump
 
 Once a pull request exists, one Claude opened or one a person did, Claude can watch it instead of you refreshing the page. It subscribes to that pull request and posts when CI status changes.
 
+```
 @Claude watch PR #482 in acme/data-pipeline. When CI finishes, post the result here, and tag me if anything failed.
+```
 
 “Tag me if anything failed” is the filter. Green runs land quietly in the thread, and only a failure interrupts you.
-For repository conventions that should hold across every session that touches the code, like where files go or what a pull request must include, see [Make repo conventions stick](/docs/claude-tag/users/good-habits#teach-claude-something-that-sticks).
+For repository conventions that should hold across every session that touches the code, like where files go or what a pull request must include, see [Make repo conventions stick](https://claude.com/docs/claude-tag/users/good-habits#teach-claude-something-that-sticks).
+
+##  Related resources
 
 ## Watch monitors and alerts
 
@@ -56,5 +74,3 @@ Catching the problem before the bug report
 ## Good habits
 
 Definitions of done for code tasks
-
-[Watch monitors and alerts](/docs/claude-tag/users/use-cases/watch-monitors)

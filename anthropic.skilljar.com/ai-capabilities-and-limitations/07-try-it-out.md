@@ -2,7 +2,6 @@
 
 Visualizing 1024D Space
 
-
 # Visualizing 1024D Space
 
 How multidimensional "nearness" works
@@ -27,7 +26,10 @@ Let's start with just three sources. Place each of these where you think they be
 
 How much does this relate to **roller coasters**? →
 
-not at all very very click to place selected item
+not at all
+very
+very
+click to place selected item
 
 How much does this relate to **dinosaurs**? →
 
@@ -61,7 +63,12 @@ Sources to retrieve (k):
 
 How much does this relate to **roller coasters**? →
 
-not at all very very click to place the question
+not at all
+very
+very
+click to place the question
+
+🦕🎢📚
 
 How much does this relate to **dinosaurs**? →
 
@@ -139,18 +146,31 @@ Try it yourself! Pick two sources to see their cosine similarity.
 
 Source A
 
-❓ 🦕 🎢 📚
+❓
+🦕
+🎢
+📚
 
 ❓ Best dinosaur roller coaster?
 
+0.420.81-0.120.330.67-0.050.28...0.59
+
 Source B
 
-❓ 🦕 🎢 📚
+❓
+🦕
+🎢
+📚
 
 🦕 Children's dinosaur book
 
-Cosine similarity 0.2894
+0.850.110.63-0.220.140.71-0.08...0.33
 
--1 *opposite* 0 *unrelated* 1 *identical*
+Cosine similarity
+0.2894
+
+-1 *opposite*
+0 *unrelated*
+1 *identical*
 
 Try comparing the Velocicoaster page to the dinosaur book — their vectors point in very different directions. The encyclopedia lands somewhere in between everything, which fits, since it's a jack of all trades but a master of none.

@@ -71,8 +71,8 @@ Connect Claude to your files and provide brand assets so the proposal pulls from
 
 ## Required context
 
-Enable the [Google Drive](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration) integration so Claude can search for and pull from your discovery notes, RFPs, competitive analysis, and past proposals. Upload your company logo for color extraction and brand consistency. If you have a past deck with the look you want, share it as a style reference—showing works better than describing.   
-  
+Enable the [Google Drive](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration) integration so Claude can search for and pull from your discovery notes, RFPs, competitive analysis, and past proposals. Upload your company logo for color extraction and brand consistency. If you have a past deck with the look you want, share it as a style reference—showing works better than describing.
+
  Enable [Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking) in settings to help Claude synthesize information across multiple source documents and plan cohesive slide layouts.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68efe427f3a0ebdeb2c3a468_google_drive.svg)
@@ -183,7 +183,7 @@ Connect your Drive, point Claude to your client materials, and describe the deck
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6924bdda8459839f7e39d0d2_Screenshot%202025-11-24%20at%2012.19.28%E2%80%AFPM.png)
 
@@ -193,26 +193,26 @@ Open artifact in new window
 
 ## Related use cases
 
-[Prepare for sales deals](/resources/use-cases/prepare-for-sales-deals)Prepare for sales deals
+[Prepare for sales deals](https://claude.com/resources/use-cases/prepare-for-sales-deals)Prepare for sales deals
 
 Prepare for sales deals
 
 Use case
 
-[Use case](/resources/use-cases/prepare-for-sales-deals)Use case
+[Use case](https://claude.com/resources/use-cases/prepare-for-sales-deals)Use case
 
-[Create sales reports](/resources/use-cases/create-sales-reports)Create sales reports
+[Create sales reports](https://claude.com/resources/use-cases/create-sales-reports)Create sales reports
 
 Create sales reports
 
 Use case
 
-[Use case](/resources/use-cases/create-sales-reports)Use case
+[Use case](https://claude.com/resources/use-cases/create-sales-reports)Use case
 
-[Build a battle card library](/resources/use-cases/build-a-battle-card-library)Build a battle card library
+[Build a battle card library](https://claude.com/resources/use-cases/build-a-battle-card-library)Build a battle card library
 
 Build a battle card library
 
 Use case
 
-[Use case](/resources/use-cases/build-a-battle-card-library)Use case
+[Use case](https://claude.com/resources/use-cases/build-a-battle-card-library)Use case

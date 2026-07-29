@@ -4,8 +4,6 @@
 
 # Claude models explained: choosing the best model for your use case
 
-* Category
-
   [Enterprise AI](https://claude.com/blog/category/enterprise-ai)
 
   [Agents](https://claude.com/blog/category/agents)

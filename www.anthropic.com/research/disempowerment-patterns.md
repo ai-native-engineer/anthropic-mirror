@@ -16,7 +16,7 @@ As part of our research into the risks of AI, we’re [publishing a new paper](h
 
 For example, a user going through a rough patch in their relationship might ask an AI whether their partner is being manipulative. AIs are trained to give balanced, helpful advice in these situations, but no training is 100% effective. If an AI confirms the user’s interpretation of their relationship without question, the user's beliefs about their situation may become less accurate. If it tells them what they should prioritize—for example, self-protection over communication—it may displace values they genuinely hold. Or if it drafts a confrontational message that the user sends as written, they've taken an action they might not have taken on their own—and which they might later come to regret.
 
-In our dataset, which is made up of 1.5 million [Claude.ai](http://claude.ai/redirect/website.v1.d7160120-eb45-4e96-993b-b2a00d1b44be) conversations, we find that the potential for severe disempowerment (which we define as when an AI's role in shaping a user's beliefs, values, or actions has become so extensive that their autonomous judgment is fundamentally compromised) occurs very rarely—in roughly 1 in 1,000 to 1 in 10,000 conversations, depending on the domain. However, given the sheer number of people who use AI, and how frequently it’s used, even a very low rate affects a substantial number of people.
+In our dataset, which is made up of 1.5 million [Claude.ai](http://claude.ai/redirect/website.v1.68d837f1-3a21-4684-a933-34c20dbabcf5) conversations, we find that the potential for severe disempowerment (which we define as when an AI's role in shaping a user's beliefs, values, or actions has become so extensive that their autonomous judgment is fundamentally compromised) occurs very rarely—in roughly 1 in 1,000 to 1 in 10,000 conversations, depending on the domain. However, given the sheer number of people who use AI, and how frequently it’s used, even a very low rate affects a substantial number of people.
 
 These patterns most often involve individual users who actively and repeatedly seek Claude's guidance on personal and emotionally charged decisions. Indeed, users tend to perceive potentially disempowering exchanges favorably in the moment, although they tend to rate them poorly when they appear to have taken actions based on the outputs. We also find that the rate of potentially disempowering conversations is increasing over time.
 
@@ -95,7 +95,7 @@ But this pattern reversed when we looked at cases of actualized disempowerment. 
 
 ## **Disempowerment potential appears to be increasing**
 
-We used the same feedback conversations to look at longer-term trends in disempowerment (as we only retain conversations on [Claude.ai](http://claude.ai/redirect/website.v1.d7160120-eb45-4e96-993b-b2a00d1b44be) for a limited period). Between late 2024 and late 2025, the prevalence of moderate or severe disempowerment potential increased over time.
+We used the same feedback conversations to look at longer-term trends in disempowerment (as we only retain conversations on [Claude.ai](http://claude.ai/redirect/website.v1.68d837f1-3a21-4684-a933-34c20dbabcf5) for a limited period). Between late 2024 and late 2025, the prevalence of moderate or severe disempowerment potential increased over time.
 
 Importantly, we can't pinpoint why. The increase could reflect long-term changes in our user base, or in who provides user feedback and what they choose to rate. It could also that as AI models become more capable, we receive less feedback on basic capability failures, which could cause disempowerment-related interactions to become proportionally overrepresented in the sample. Or it may be part of a shifting pattern in how people use AI. As exposure grows, users might become more comfortable discussing vulnerable topics or seeking advice. We can’t disentangle any explanations from each other, but the direction is consistent across domains.
 
@@ -119,6 +119,12 @@ Our research has important limitations. It is restricted to Claude.ai consumer t
 
 1. This definition captures one axis of disempowerment that is tractable to analyze in real-world AI assistant interactions. Importantly, our definition does not capture *structural* forms of disempowerment, such as humans potentially being progressively excluded from economic systems as AI becomes more capable.
 
+### Discovering cryptographic weaknesses with Claude
+
+cryptographic algorithms. The first attack significantly weakens HAWK, a digital signature scheme that was built for a future world where quantum computers are able to break existing standards. The second identifies a new way to attack round-reduced AES, the most widely used symmetric cipher.
+
+[Read more](https://www.anthropic.com/research/discovering-cryptographic-weaknesses)
+
 ### Project Pilot: Can AI control a drone?
 
 Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
@@ -128,7 +134,3 @@ Working with Andon Labs, we’ve developed a new series of evaluations that asse
 ### How Canada uses Claude: Findings from the Anthropic Economic Index
 
 [Read more](https://www.anthropic.com/research/how-canada-uses-claude)
-
-### Claude’s values across models and languages
-
-[Read more](https://www.anthropic.com/research/claude-values-models-languages)

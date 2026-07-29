@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/connectors/building/mcp-apps/design-guidelines -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 ##  Overview
 
 MCP Apps are interactive interfaces that appear within Claude’s conversational flow. Think of them as natural extensions of the conversation, not separate apps that happen to appear alongside it. Your app inherits conversational context and helps users accomplish meaningful tasks without breaking flow.
@@ -123,6 +131,7 @@ Declare which modes your app supports via `appCapabilities.availableDisplayModes
 
 Declare external origins per `ui://` resource via `_meta.ui.csp`:
 
+```
 {
   "_meta": {
     "ui": {
@@ -134,6 +143,7 @@ Declare external origins per `ui://` resource via `_meta.ui.csp`:
     }
   }
 }
+```
 
 By default, all external origins are blocked. `frameDomains` (embedding third-party iframes) is currently restricted in Claude pending security review.
 
@@ -284,6 +294,7 @@ MCP Apps automatically receive style variables from the host client. Reference t
 **Typography tokens** include the font family, sizes, weights and line heights.
 
 | Family |  |
+| --- | --- |
 | `font-sans` | `"Anthropic Sans, sans-serif"` |
 | `font-mono` | `"ui-monospace, monospace"` |
 | **Weight** |  |
@@ -319,6 +330,7 @@ MCP Apps automatically receive style variables from the host client. Reference t
 **Radius tokens** provide border radius values
 
 | Radius |  |
+| --- | --- |
 | `border-radius-xs` | `4px` |
 | `border-radius-sm` | `6px` |
 | `border-radius-md` | `8px` |
@@ -329,11 +341,13 @@ MCP Apps automatically receive style variables from the host client. Reference t
 **Border width tokens** provide width values
 
 |  |  |
+| --- | --- |
 | `border-width-regular` | `0.5px` |
 
 **Shadow tokens** provide drop-shadow values
 
 |  |  |
+| --- | --- |
 | `shadow-hairline` | `0 1px 2px 0 rgba(0, 0, 0, 0.05)` |
 | `shadow-sm` | `0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)` |
 | `shadow-md` | `0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)` |
@@ -341,6 +355,7 @@ MCP Apps automatically receive style variables from the host client. Reference t
 
 ###  Example usage
 
+```
 .my-app {
   background: var(--color-background-primary);
   color: var(--color-text-primary);
@@ -361,5 +376,4 @@ MCP Apps automatically receive style variables from the host client. Reference t
   font-weight: var(--font-weight-semibold);
   border-radius: var(--border-radius-md);
 }
-
-[Getting started](/docs/connectors/building/mcp-apps/getting-started)[Transparency and theming](/docs/connectors/building/mcp-apps/transparent-theming)
+```

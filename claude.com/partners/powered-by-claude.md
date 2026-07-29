@@ -6,7 +6,7 @@ A curated list of businesses that use Claude to build better, faster, and safer.
 
 Build with Claude
 
-[Build with Claude](/platform/api)Build with Claude
+[Build with Claude](https://claude.com/platform/api)Build with Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c4449cbdd758b4b0b599ec_logo_anything-light-mode%20(1).png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c444a5414f5966382739f3_logo_anything-dark-mode%20(1).png)
 
@@ -537,6 +537,16 @@ Vanta integrates with Claude via the Model Context Protocol to provide a natural
 Cybersecurity
 
 [See solution](https://www.vanta.com/)
+
+![Zapier logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aedd1d4ccaa7aaecee72_zapier_light.svg)![Zapier logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aed89af0a9a659d820f0_zapier_dark.svg)
+
+Zapier uses Claude to power natural language workflow creation, autonomous AI agents, and an embedded copilot across its 9000+ connected apps: Claude's reasoning enables businesses to describe what they need in plain language, while Zapier's action layer executes it across CRMs, databases, communication tools, and more.
+
+Communications
+
+Data and analytics
+
+[See solution](https://zapier.com/)
 
 ![Zed logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c00908652a3133aa6c11e0_686411833bd45dfe9fce545e_logo-zed.svg)![Zed logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c00908652a3133aa6c11e0_686411833bd45dfe9fce545e_logo-zed.svg)
 

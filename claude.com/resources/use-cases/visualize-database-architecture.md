@@ -182,7 +182,7 @@ Point Claude to your repository and it creates interactive diagrams showing how 
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690aabe08e365f3c40a1f03f_databaseschema.png)
 

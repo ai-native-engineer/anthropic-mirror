@@ -47,7 +47,7 @@ Here's what it looks like in practice — the prompt, the response, and the visu
 
 ### Seeing the explanation drawn out
 
-A concept from lecture, a dense passage from a textbook, a thing you keep hearing about but can't picture— drawn so you can see what it actually means.  
+A concept from lecture, a dense passage from a textbook, a thing you keep hearing about but can't picture— drawn so you can see what it actually means.
 ‍
 
 Imagine embed — turkish
@@ -119,8 +119,8 @@ Pick one first
 
 What the test was doing
 
-The question asked about **speed** (a rate) but the y-axis plots **distance** (a cumulative amount). When the axis is a total, **rate lives in the slope**, not in how high the curve sits.  
-  
+The question asked about **speed** (a rate) but the y-axis plots **distance** (a cumulative amount). When the axis is a total, **rate lives in the slope**, not in how high the curve sits.
+
 This swap recurs everywhere: total revenue vs. growth, total downloads vs. daily downloads, water level vs. fill rate. Different labels, same trick.
 
 Show heights
@@ -223,4 +223,18 @@ Next time something isn't clicking, ask Claude to imagine it with you. Claude dr
 
 ## Related tutorials
 
-No items found.
+[Claude for Teachers in action](https://claude.com/resources/tutorials/claude-for-teachers-in-action)Claude for Teachers in action
+
+Claude for Teachers in action
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/claude-for-teachers-in-action)Tutorial
+
+[Getting started with Claude for Teachers](https://claude.com/resources/tutorials/getting-started-with-claude-for-teachers)Getting started with Claude for Teachers
+
+Getting started with Claude for Teachers
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/getting-started-with-claude-for-teachers)Tutorial

@@ -1,5 +1,17 @@
 <!-- source: https://claude.com/resources/tutorials/using-the-npi-registry-connector-in-claude -->
 
+Claude Science beta
+
+[Next](#)Next
+
+Introducing the Claude Science app, your research partner for rigorous science.
+
+Learn more
+
+[Learn more](https://claude.com/product/claude-science)Learn more
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ef89e3431b19c021bf2b_claude-science-og.jpg)
+
 # Using the NPI Registry Connector in Claude
 
   Healthcare
@@ -75,7 +87,7 @@ Learn about [finding and connecting tools](https://support.claude.com/en/article
 **Provider Credential Verification**
 
 * Validate the credentials, specialty, and practice location of a healthcare provider before onboarding, contracting, or referral.
-* Sample Prompts:   
+* Sample Prompts:
   + *"Validate NPI 1043248818 and show me their credentials and specialty"*
   + *"Look up the provider with NPI 1679576722 and tell me if they're actively licensed"*
   + *"Check if NPI 1234567893 is valid and what type of provider it belongs to"*
@@ -83,7 +95,7 @@ Learn about [finding and connecting tools](https://support.claude.com/en/article
 **Provider Discovery by Specialty and Location**
 
 * Find healthcare providers in specific geographic areas by their medical specialty to build networks, identify referral partners, or analyze provider availability.
-* Sample Prompts:   
+* Sample Prompts:
   + *"Find all cardiologists practicing in Boston, Massachusetts"*
   + *"Search for nurse practitioners in ZIP code 90210"*
   + *"Show me orthopedic surgeons in California with their practice addresses"*
@@ -92,41 +104,41 @@ Learn about [finding and connecting tools](https://support.claude.com/en/article
 **Clinical Trial Investigator Verification**
 
 * Verify that clinical trial investigators are legitimate US healthcare providers with appropriate credentials and active status.
-* Sample Prompts:   
+* Sample Prompts:
   + *"I have a clinical trial investigator named Dr. Sarah Johnson in Minnesota. Can you find her NPI and verify her credentials?"*
   + *"Verify that the principal investigator John Smith, MD is a licensed oncologist in Texas"*
   + *"Find the NPI and specialty for Dr. Robert Chen who lists Mayo Clinic as his affiliation"*
 
 ## Related tutorials
 
-[How to use the Prior Auth Review sample skill with Claude](/resources/tutorials/how-to-use-the-prior-auth-review-sample-skill-with-claude-2ggy8)How to use the Prior Auth Review sample skill with Claude
+[How to use the Prior Auth Review sample skill with Claude](https://claude.com/resources/tutorials/how-to-use-the-prior-auth-review-sample-skill-with-claude-2ggy8)How to use the Prior Auth Review sample skill with Claude
 
 How to use the Prior Auth Review sample skill with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-prior-auth-review-sample-skill-with-claude-2ggy8)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-prior-auth-review-sample-skill-with-claude-2ggy8)Tutorial
 
-[Using the Function Connector in Claude](/resources/tutorials/using-the-function-connector-in-claude)Using the Function Connector in Claude
+[Using the Function Connector in Claude](https://claude.com/resources/tutorials/using-the-function-connector-in-claude)Using the Function Connector in Claude
 
 Using the Function Connector in Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-the-function-connector-in-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-the-function-connector-in-claude)Tutorial
 
-[Using the HealthEx Connector in Claude](/resources/tutorials/using-the-healthex-connector-in-claude)Using the HealthEx Connector in Claude
+[Using the HealthEx Connector in Claude](https://claude.com/resources/tutorials/using-the-healthex-connector-in-claude)Using the HealthEx Connector in Claude
 
 Using the HealthEx Connector in Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-the-healthex-connector-in-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-the-healthex-connector-in-claude)Tutorial
 
-[How to use the FHIR Developer agent skill with Claude Code](/resources/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)How to use the FHIR Developer agent skill with Claude Code
+[How to use the FHIR Developer agent skill with Claude Code](https://claude.com/resources/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)How to use the FHIR Developer agent skill with Claude Code
 
 How to use the FHIR Developer agent skill with Claude Code
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)Tutorial

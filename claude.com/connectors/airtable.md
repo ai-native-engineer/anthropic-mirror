@@ -10,6 +10,7 @@ Bring your structured data to Claude
 * Used in
 
   [Claude](https://claude.ai/directory/cb504fab-e494-490f-bff8-bb3ab23a2209)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Airtable](https://airtable.com/)
 
@@ -28,16 +29,16 @@ Bring operational data and context into the flow of your Claude conversations. Y
 
 You can use Airtable to:
 
-**Search and analyze data:**  
+**Search and analyze data:**
 "Show me all customers from our CRM base who haven't been contacted in the last 30 days"
 
-**Create records:**  
+**Create records:**
 "Add these 5 new project tasks to my Project Tracker base"
 
-**Update existing records:**  
+**Update existing records:**
 "Update the status of task #123 to Complete"
 
-**Get insights:**  
+**Get insights:**
 "What are the top 5 most common feature requests in our feedback tracker?"
 
 ## Related connectors
@@ -50,11 +51,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -68,7 +69,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -80,7 +81,7 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
 
 Data
 
@@ -90,8 +91,8 @@ Claude Code
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdf0757d9241e42ce447_Aura.jpg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b2a2eb3325e73b42b98c_icon_Aura.jpg)
 
 ### Aura
 
-Company intelligence & workforce analytics](/connectors/aura)
+Company intelligence & workforce analytics](https://claude.com/connectors/aura)

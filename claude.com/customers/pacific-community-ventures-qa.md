@@ -8,7 +8,9 @@ Try Claude
 
 [Try Claude](https://claude.ai)Try Claude
 
-[Contact sales](/contact-sales)Contact sales
+Contact sales
+
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4d5437e0a6d096150a027f_logo_pcv-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4d543b4dfd5746c3b7d611_logo_pcv-dark-mode.png)
 
@@ -26,15 +28,23 @@ Case Study
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
 Pacific Community Ventures scales worker feedback 10x with Claude
 
 Video caption
+
+[Next](#)Next
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 Case Study
 
 Pacific Community Ventures scales worker feedback 10x with Claude
+
+[Prev](#)Prev
+
+[Next](#)Next
 
 [Pacific Community Ventures](https://www.pacificcommunityventures.org/) (PCV) is a community development financial institution (CDFI) based in the Bay Area, a mission-driven lender that backs small business owners overlooked by traditional banks to create good jobs, with research and data work that reaches nationally. PCV uses Claude across that work, from a voice survey tool that gathers candid feedback from workers to an underwriting co-pilot in early development. Chief Data Officer Sachi Shenoy and CEO and President Bulbul Gupta sat down with Anthropic in June 2026 to talk about why a community lender is building its own AI rather than adopting the credit risk models built for traditional finance, the national data commons they are starting, and the mission that drives the work.
 
@@ -76,15 +86,19 @@ Turn limited resources into lasting impact. Generate grant proposals, track prog
 
 Read more
 
-[Read more](/solutions/nonprofits)Read more
+[Read more](https://claude.com/solutions/nonprofits)Read more
 
 Nonprofits
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
 Turn limited resources into lasting impact. Generate grant proposals, track program outcomes, and free your team to focus on serving your community.
 
 Video caption
+
+[Next](#)Next
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -116,9 +130,17 @@ President, Pacific Community Ventures
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
+[Next](#)Next
+
 Video caption
 
+[Next](#)Next
+
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+[Prev](#)Prev
+
+[Next](#)Next
 
 ## Related stories
 

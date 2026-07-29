@@ -10,6 +10,7 @@ Search, edit and get insights on your Box content
 * Used in
 
   [Claude](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Box](https://www.box.com/)
 
@@ -22,28 +23,28 @@ Search, edit and get insights on your Box content
   Interactive
 * More
 
-  [Documentation](https://box.dev/guides/box-mcp/remote/)[Privacy Policy](https://www.box.com/legal/privacypolicy)[support@box.com](mailto:support@box.com)
+  [Documentation](https://box.dev/guides/box-mcp/remote/)[Privacy Policy](https://www.box.com/legal/privacypolicy)[Support](mailto:support@box.com)
 
 Connect Claude to your content stored in Box. Enable Claude to search and access files, use AI to query documents, create or update content, extract metadata fields, and more, while enforcing existing Box security and access policies.
 
 You can use the Box connector to:
 
-**Search, locate and share files:**  
+**Search, locate and share files:**
 "Find the marketing budget proposal for Q3 2024 and add our CMO as a collaborator to that file"
 
-**Read & summarize documents:**  
+**Read & summarize documents:**
 "Summarize the key technical constraints associated with Project Alpha from the requirements document."
 
-**Get answers from a single file, multiple files, or a Box Hub:**  
+**Get answers from a single file, multiple files, or a Box Hub:**
 "Find the Service Level Agreement for BlueStar LLC and explain when a client can terminate the contract early. Tell me if that termination clause is consistent across our Service Level Agreements with other customers."
 
-**Extract key details from documents and save them as a part of the file's metadata:**  
+**Extract key details from documents and save them as a part of the file's metadata:**
 "Extract the expiration date for all of the contracts in the 'Contract Intake' folder and save the expiration date as metadata for each contract."
 
-**Preview Files:**  
+**Preview Files:**
 "Pull up the pitch deck for Acme Inc so I can review the graph in the appendix."
 
-**Create files or folders and generate shared links:**  
+**Create files or folders and generate shared links:**
 "Check if a folder exists for 'New Hire: John Doe'. If not, create it in the 'Onboarding' directory and generate an external link for me to share with John."
 
 ## Related connectors
@@ -56,11 +57,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -74,7 +75,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -88,7 +89,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -100,4 +101,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

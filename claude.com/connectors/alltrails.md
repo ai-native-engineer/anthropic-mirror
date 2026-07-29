@@ -10,6 +10,7 @@ Find your next hike
 * Used in
 
   [Claude](https://claude.ai/directory/2aab1516-4acf-49b3-a85f-ff16c5d8fbb0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [AllTrails](https://www.alltrails.com)
 
@@ -30,13 +31,13 @@ Find your next outdoor adventure with AllTrails, directly in Claude. AllTrails i
 
 You can use AllTrails to:
 
-**Find nearby trails:**  
+**Find nearby trails:**
 "Find moderate hiking trails within 30 minutes of Boulder with waterfalls"
 
-**Check trail conditions:**  
+**Check trail conditions:**
 "What's the weather and trail status for the Mist Trail in Yosemite this weekend?"
 
-**Plan a route:**  
+**Plan a route:**
 "Suggest a dog-friendly loop trail under 5 miles near Asheville"
 
 ## Related connectors
@@ -53,7 +54,7 @@ May 26, 2026
 
 ### Alma
 
-Your nutrition data, inside every Claude conversation.](/connectors/alma)
+Your nutrition data, inside every Claude conversation.](https://claude.com/connectors/alma)
 
 Life sciences and healthcare
 
@@ -69,7 +70,7 @@ May 20, 2026
 
 ### CMS Coverage
 
-Access the CMS Coverage Database](/connectors/cms-coverage)
+Access the CMS Coverage Database](https://claude.com/connectors/cms-coverage)
 
 Health and wellness
 
@@ -77,11 +78,11 @@ Claude
 
 February 24, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696146b3ef7f8280dc6a91ff_function-health.jpg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b65491867dfbfc64b0a4_icon_function-health.jpg)
 
 ### Function (beta)
 
-View lab test results summaries, get nutrition plans](/connectors/function)
+View lab test results summaries, get nutrition plans](https://claude.com/connectors/function)
 
 Health and wellness
 
@@ -93,4 +94,4 @@ January 26, 2026
 
 ### HealthEx (beta)
 
-Connect your health records for personalized insights](/connectors/healthex)
+Connect your health records for personalized insights](https://claude.com/connectors/healthex)

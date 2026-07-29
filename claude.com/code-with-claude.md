@@ -10,7 +10,7 @@ LondonMay 19
 
 TokyoJune 10
 
-[Attend virtually](/code-with-claude/register-livestream)
+[Attend virtually](https://claude.com/code-with-claude/register-livestream)
 
 Learn more
 
@@ -54,6 +54,6 @@ Yes, the San Francisco (May 6), London (19 May) and Tokyo (10 June) events will 
 
 No, both in-person attendance and the livestream access are free.
 
-[Homepage](/code-with-claude)Homepage
+[Homepage](https://claude.com/code-with-claude)Homepage
 
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](/code-with-claude/code-of-conduct)
+[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)

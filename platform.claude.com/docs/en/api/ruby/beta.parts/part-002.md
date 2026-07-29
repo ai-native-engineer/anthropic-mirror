@@ -1,6 +1,8 @@
+<!-- source: https://platform.claude.com/docs/en/api/ruby/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/ruby/beta -->
 
 <!-- chunk-start -->
+
                 Tool invocation directly from the model.
 
               - `class BetaServerToolCaller`
@@ -41141,4 +41143,3 @@ puts(beta_managed_agents_session_thread)
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
-

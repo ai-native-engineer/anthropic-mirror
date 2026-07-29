@@ -1,10 +1,18 @@
 <!-- source: https://claude.com/docs/claude-science/run-on-remote-linux-server -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Claude Science runs on a remote Linux server (a cloud VM or a lab machine) the same way it runs on a workstation: the application and your data stay on the server, and you use the web app from your computer’s browser through an SSH tunnel. Setup takes about five minutes, plus a few minutes of environment setup on first launch.
 
-This page covers running all of Claude Science on a remote machine. To keep Claude Science on your own computer and have it run jobs on a machine you reach over SSH, see [Remote compute clusters](/docs/claude-science/remote-compute-clusters).
+This page covers running all of Claude Science on a remote machine. To keep Claude Science on your own computer and have it run jobs on a machine you reach over SSH, see [Remote compute clusters](https://claude.com/docs/claude-science/remote-compute-clusters).
 
-The server needs x64 Linux on a glibc-based distribution (arm64 and musl-based distributions such as Alpine aren’t supported), about 5 GB of free disk space, and the system packages below. Your Claude account needs a Pro, Max, Team, or Enterprise plan; see [Requirements](/docs/claude-science/overview#requirements).
+The server needs x64 Linux on a glibc-based distribution (arm64 and musl-based distributions such as Alpine aren’t supported), about 5 GB of free disk space, and the system packages below. Your Claude account needs a Pro, Max, Team, or Enterprise plan; see [Requirements](https://claude.com/docs/claude-science/overview#requirements).
 
 ##  Install dependencies
 
@@ -54,11 +62,11 @@ To run it in the background instead, use `claude-science serve --no-browser --de
 ##  Sign in
 
 Open the printed link in your computer’s browser. The link is single-use and expires about three minutes after it’s printed; run `claude-science url` on the server to print a fresh one at any time. Restarting with `claude-science stop` then `claude-science serve --no-browser` also prints a fresh link.
-Sign in with your Claude account. If the sign-in redirect can’t find its way back through the tunnel, choose **Paste a code** on the sign-in screen. Then complete the setup wizard as described in [Get started](/docs/claude-science/get-started).
+Sign in with your Claude account. If the sign-in redirect can’t find its way back through the tunnel, choose **Paste a code** on the sign-in screen. Then complete the setup wizard as described in [Get started](https://claude.com/docs/claude-science/get-started).
 
 ##  Keep it up to date
 
-`claude-science update` checks for and installs updates. See [Command line settings](/docs/claude-science/command-line-settings) for the full command reference, including `logs` and the `serve` flags.
+`claude-science update` checks for and installs updates. See [Command line settings](https://claude.com/docs/claude-science/command-line-settings) for the full command reference, including `logs` and the `serve` flags.
 
 ##  Troubleshooting
 
@@ -68,9 +76,7 @@ Sign in with your Claude account. If the sign-in redirect can’t find its way b
 | An error mentioning `bwrap too old` | The server’s bubblewrap is older than 0.8.0. Upgrade it, or use a distribution that ships a newer version, such as Ubuntu 24.04 or later. |
 | An error mentioning `cannot create unprivileged user namespaces` | The kernel or an AppArmor profile blocks the sandbox from creating user namespaces; some Ubuntu 24.04 images restrict this. The error message names the exact setting to change for your distribution. |
 | The sign-in link shows an expired-link page | Links are single-use and valid for about three minutes. Run `claude-science url` on the server and open the fresh link; restarting with `claude-science stop` then `claude-science serve --no-browser` also prints one. |
-| Sign-in stops at claude.ai | The redirect couldn’t return through the tunnel (choose **Paste a code**), your account is on the Free plan (an upgrade is required), or your Team or Enterprise organization hasn’t [enabled Claude Science](/docs/claude-science/enable-claude-science) yet. |
+| Sign-in stops at claude.ai | The redirect couldn’t return through the tunnel (choose **Paste a code**), your account is on the Free plan (an upgrade is required), or your Team or Enterprise organization hasn’t [enabled Claude Science](https://claude.com/docs/claude-science/enable-claude-science) yet. |
 | Interactive HTML previews render as static snapshots after a short delay (charts don’t respond) | The tunnel isn’t forwarding the preview port. Add the second `-L` forward; the preview port is the web app port plus one (8001 by default). |
 | The browser can’t reach `localhost:8000` | The tunnel isn’t up; rerun the `ssh -L` command. If the tunnel is up, confirm Claude Science is running on the server with `claude-science status`. |
 | The installer reports no binary for your platform | Claude Science on Linux needs x64 with glibc. arm64 servers and musl-based distributions such as Alpine aren’t supported. |
-
-[Run on Windows (WSL)](/docs/claude-science/run-on-windows-wsl)[Core concepts](/docs/claude-science/core-concepts)

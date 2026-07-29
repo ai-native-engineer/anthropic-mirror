@@ -2,11 +2,15 @@
 
 # Creating and managing Workspaces in the Claude Console
 
+Updated over a month ago
+
 This guide will walk you through the process of creating, editing, and managing Workspaces in your Claude Console organization.
 
 ## What are Workspaces?
 
 Workspaces are collaborative spaces within Console organizations where teams can separate API resources by use case.
+
+If you need to create a fully separate organization with its own members, billing, and Workspaces, see **[Creating a separate Console organization](#h_816b6c2559)** below.
 
 ## How to create a new Workspace
 
@@ -119,4 +123,36 @@ Every organization has a default Workspace that cannot be renamed, archived, or 
 
 **Note:** You can view your default Workspace’s limits from the [Limits settings](https://platform.claude.com/settings/limits).
 
-[Cost and Usage Reporting in the Claude Console](https://support.claude.com/en/articles/9534590-cost-and-usage-reporting-in-the-claude-console)[Claude Console roles and permissions](https://support.claude.com/en/articles/10186004-claude-console-roles-and-permissions)[Sharing Prompts in the Claude Console](https://support.claude.com/en/articles/10722177-sharing-prompts-in-the-claude-console)[Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)[Inviting members to the Claude Console](https://support.claude.com/en/articles/13443764-inviting-members-to-the-claude-console)
+## Creating a separate Console organization
+
+A single email address can create only one Console organization. If you've already created an organization with your email, signing up again routes you back to that organization instead of starting a new one. You can still be invited to other organizations and switch between them on the same email, but you can only create one yourself.
+
+### When you need a separate organization
+
+You might need a fully separate organization for a different legal entity or for separate billing. A separate organization is independent of your existing one, with its own members, billing, and Workspaces.
+
+To create a new organization, sign up with a work email address that isn't already registered with Anthropic.
+
+### How to create a new organization
+
+The person who will own the new organization should complete these steps. Whoever signs up becomes the organization's Primary Owner.
+
+1. Go to **[Claude Console](https://platform.claude.com/)**.
+2. Sign up with a work email address using Google or Microsoft single sign-on (SSO), or an email and password.
+3. Verify the email address using the link sent to that inbox.
+4. Complete the organization details form, including organization name, entity type, country, and intended use, then choose "Complete setup."
+
+The new organization is created automatically with a default Workspace, and the person who signed up is taken to the Console for that organization.
+
+### After setup
+
+From **Settings > Organization**, the Primary Owner can:
+
+* Invite members and assign roles (such as Admin, Billing, and Developer) under "Members."
+* Add a payment method in billing settings.
+
+* [Cost and Usage Reporting in the Claude Console](https://support.claude.com/en/articles/9534590-cost-and-usage-reporting-in-the-claude-console)
+* [Claude Console roles and permissions](https://support.claude.com/en/articles/10186004-claude-console-roles-and-permissions)
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
+* [Inviting members to the Claude Console](https://support.claude.com/en/articles/13443764-inviting-members-to-the-claude-console)
+* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)

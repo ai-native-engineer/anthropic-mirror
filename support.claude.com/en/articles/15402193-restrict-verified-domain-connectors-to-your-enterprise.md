@@ -14,7 +14,25 @@ When you turn on **Restrict verified-domain connectors to your enterprise**, onl
 
 This check relies on the connected service sharing the account's identity during the connection process. For supported connectors, Claude can confirm the email domain of the account being connected and enforce the restriction. When a service doesn't share account identity, Claude can't perform the check and the connection proceeds normally.
 
-**Note:** This setting applies only to specific supported connectors, which you can view in **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)**.
+This setting applies to the following connectors:
+
+* Airtable
+* Asana
+* Atlassian
+* Canva
+* Figma
+* Gmail
+* Google Calendar
+* Google Drive
+* HubSpot
+* Linear
+* Microsoft 365
+* Miro
+* Notion
+* Slack
+* Smartsheet
+
+You can also view the current list in **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)**. Contact **[our support team](https://support.claude.com/en/articles/9015913-how-to-get-support)** to request additional connectors.
 
 For example, someone has two Claude accounts: a personal account using their personal email, and a work account using their work email. The work email is on a domain your Enterprise organization has verified.
 
@@ -61,4 +79,12 @@ No. That setting applies only to Claude in Slack. This setting covers the connec
 
 Sign in to your organization's Claude account and make the connection there. Anyone who doesn't have a Claude account in your organization should contact their admin for access.
 
-[Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)[Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)[Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)[Claim and migrate accounts on your domain](https://support.claude.com/en/articles/14625619-claim-and-migrate-accounts-on-your-domain)[Respond to an Enterprise domain claim on your Claude account](https://support.claude.com/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account)
+### Are all connections on a supported connector covered?
+
+Coverage depends on the identity information each service provides. In a small number of cases (for example, some Canva Education (.edu) accounts) the service does not share the identity details needed to apply the restriction, and those connections are allowed as normal. Where the restriction can't be evaluated, the connection is allowed rather than blocked.
+
+* [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)
+* [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
+* [Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)
+* [Claim and migrate accounts on your domain](https://support.claude.com/en/articles/14625619-claim-and-migrate-accounts-on-your-domain)
+* [Respond to an Enterprise domain claim on your Claude account](https://support.claude.com/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account)

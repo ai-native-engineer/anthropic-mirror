@@ -2,7 +2,7 @@
 
 # Find and join a Team or Enterprise organization
 
-Updated over 2 weeks ago
+Updated over a week ago
 
 Organization discovery allows you to find and join your company's existing Team or Enterprise plan organization when you start the sign-up flow with a work email address. Instead of creating a separate personal account, you can request to join—or be added automatically—depending on your organization's configuration.
 
@@ -49,13 +49,18 @@ When someone signs up for Claude with a work email address that matches a discov
 * If the organization uses **instant approval**, they're added right away.
 * If the organization uses **request + approve**, a request is sent to the admin. The requester can choose to continue with a personal account (as long as "Restrict organization creation" is disabled) until the request is approved or denied.
 
-If multiple organizations share the same email domain and are all discoverable, users will see all of them and can choose which one to join.
+If multiple organizations share the same email domain and are all discoverable, users will see all of them and can choose which one to join. You can be a member of multiple Team or Enterprise organizations at the same time.
 
 ## Join when you already have a personal Claude account
 
-If you have a Free, Pro, or Max account on the same email address as the organization you're joining, you can choose what to do with it: keep both accounts or bring your work into the organization. On Team plans, you're prompted when you accept the invite. On Team and Enterprise plans, you can start the migration from **[Settings > Account](https://claude.ai/settings/account)** at any time after joining.
+If you have a Free, Pro, or Max account on the same email address as the organization you're joining, you can choose what to do with it:
 
-For details on each option, refund handling, and Apple App Store limitations, see **[Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)**.
+* **Keep both accounts.** Your personal account stays active, and you switch between it and your organization account from your account menu.
+* **Use your organization account only.** Your personal account closes. You choose whether to bring your data with you or delete it.
+
+Some things don't move either way, including custom skills and your connected apps. Before you choose, review **[Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)**.
+
+On Team plans, you're prompted when you accept the invite. On Team and Enterprise plans, you can start the migration from **[Settings > Account](https://claude.ai/settings/account)** at any time after joining. Start from your organization account rather than your personal one—if you're signed in to the personal account, switch first by clicking your initials or name in the lower left corner.
 
 ## Other ways to join an organization
 
@@ -73,4 +78,8 @@ Organization discovery is not available for organizations with single sign-on en
 
 If you'd like to enable organization discovery, SSO must be turned off first.
 
-[Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)[Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)[Join an organization via invite link](https://support.claude.com/en/articles/13776697-join-an-organization-via-invite-link)[Migrate your organization from Team to Enterprise](https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise)[Find and join a Console organization](https://support.claude.com/en/articles/14793921-find-and-join-a-console-organization)
+* [Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)
+* [Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)
+* [Join an organization via invite link](https://support.claude.com/en/articles/13776697-join-an-organization-via-invite-link)
+* [Migrate your organization from Team to Enterprise](https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise)
+* [Find and join a Console organization](https://support.claude.com/en/articles/14793921-find-and-join-a-console-organization)

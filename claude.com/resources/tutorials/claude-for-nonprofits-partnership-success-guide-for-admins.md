@@ -4,23 +4,6 @@
 
 A phased implementation framework to help nonprofit admins launch, scale, and sustain Claude adoption across their organization.
 
-  Nonprofits
-* Product
-
-  Claude.ai
-* Reading time
-
-  Watch time
-
-  5
-
-  min
-
-  min
-* Share
-
-  [Copy link](#)
-
   https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins
 
 ![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
@@ -108,37 +91,3 @@ The framework below is flexible and self-paced. Move through the phases at whate
 Sustainable adoption means building internal expertise. As AI becomes embedded in role expectations rather than remaining optional, your trained champions become the peer support network that scales organizational impact.
 
 *Note: There's no "right" timeline for implementation. Whether you're moving quickly toward organization-wide adoption or taking a measured, department-specific approach, we're here to support your journey.*
-
-## Related tutorials
-
-[Using the Candid connector in Claude](/resources/tutorials/using-the-candid-connector-in-claude)Using the Candid connector in Claude
-
-Using the Candid connector in Claude
-
-Tutorial
-
-[Tutorial](/resources/tutorials/using-the-candid-connector-in-claude)Tutorial
-
-[Using the Blackbaud connector in Claude](/resources/tutorials/using-the-blackbaud-connector-in-claude)Using the Blackbaud connector in Claude
-
-Using the Blackbaud connector in Claude
-
-Tutorial
-
-[Tutorial](/resources/tutorials/using-the-blackbaud-connector-in-claude)Tutorial
-
-[Using the Benevity connector in Claude](/resources/tutorials/using-the-benevity-connector-in-claude)Using the Benevity connector in Claude
-
-Using the Benevity connector in Claude
-
-Tutorial
-
-[Tutorial](/resources/tutorials/using-the-benevity-connector-in-claude)Tutorial
-
-[Claude for nonprofits partnership guide for all users](/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Claude for nonprofits partnership guide for all users
-
-Claude for nonprofits partnership guide for all users
-
-Tutorial
-
-[Tutorial](/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users)Tutorial

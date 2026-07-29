@@ -10,6 +10,7 @@ The connected ERP for private capital
 * Used in
 
   [Claude](https://claude.ai/directory/4b463f8b-6db0-4d0e-9693-8b39f37e4447)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Carta](https://carta.com)
 
@@ -22,19 +23,19 @@ The connected ERP for private capital
   Interactive
 * More
 
-  [Documentation](https://docs.carta.com/api-platform/docs/claude-plugins-setup)[Privacy Policy](https://carta.com/legal/privacy/privacy-policy/)[plugins@carta.com](mailto:plugins@carta.com)
+  [Documentation](https://docs.carta.com/api-platform/docs/claude-plugins-setup)[Privacy Policy](https://carta.com/legal/privacy/privacy-policy/)[Support](mailto:plugins@carta.com)
 
 Access cap table and investor data directly to your AI workflow. Cap table customers can pull cap table ownership, 409A valuations, and stakeholder details. Model pro-forma rounds and analyze exit scenarios. For investors, access investment metrics, fund performance, accounting data, and company financials instantly. Ask questions, run scenarios, and uncover insights without context switching—your Carta data remains secure and integrated.
 
 You can use Carta to:
 
-**Ownership & Structure:**  
+**Ownership & Structure:**
 "Show me the current cap table for Acme Inc with all shareholders and their ownership percentages."
 
-**Fundraising Materials:**  
+**Fundraising Materials:**
 "Build a presentation showing our Fund II performance compared to Carta benchmarks and top 5 investments by deal IRR."
 
-**LP Reporting:**  
+**LP Reporting:**
 "Generate tear sheets for all my portfolio companies in Fund I as of 1/31/26."
 
 ## Related connectors
@@ -51,7 +52,7 @@ June 22, 2026
 
 ### Affinity
 
-Search, update, and prep deals without switching tabs.](/connectors/affinity)
+Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
 
 Financial services
 
@@ -59,11 +60,11 @@ Claude
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd9230df5f81ef095019_Aiera.jpg)
+[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
 
 ### Aiera
 
-Live events, filings, company publications, and more](/connectors/aiera)
+Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
 
 Financial services
 
@@ -73,11 +74,11 @@ Claude Code
 
 February 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977ee686ffe1cb730e94f07_Airwallex%20Mark%20-%20Colour%20-%20Square.png)
+[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
 
 ### Airwallex
 
-Integrate with the Airwallex Platform using Claude](/connectors/airwallex)
+Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
 
 Financial services
 
@@ -87,8 +88,8 @@ Claude Code
 
 April 8, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c05a2e0f10f41c8f005ee0_Aiwyn_Logo_Mark_Square%20(1).svg)
+[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
 
 ### Aiwyn Tax
 
-Estimate your federal & state taxes with Aiwyn's tax engine](/connectors/aiwyn-tax)
+Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)

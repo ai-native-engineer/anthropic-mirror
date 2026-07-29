@@ -35,8 +35,8 @@ Try in Claude
 
 ## Describe the task
 
-Compiling campaign data across multiple channels into a unified view takes hours of work. Claude handles the consolidation and analysis together, processing multiple data sources to spot channel patterns, identify reallocation opportunities, and deliver actionable recommendations.  
-  
+Compiling campaign data across multiple channels into a unified view takes hours of work. Claude handles the consolidation and analysis together, processing multiple data sources to spot channel patterns, identify reallocation opportunities, and deliver actionable recommendations.
+
 Tell Claude to analyze your data and create Excel dashboards and Word documents. Be explicit that you need actionable recommendations for next quarter, not just historical summaries. Ask Claude to identify patterns and opportunities in the data—what's working, what's not, and where to reallocate resources.
 
 I'm running three campaigns targeting different customer segments. I have Q3 data showing impressions, clicks, conversions, and spend across social, search, and email.
@@ -97,8 +97,8 @@ Claude analyzes your marketing data and turns it into a strategic review that te
 
 From Claude
 
-I've analyzed the Q3 campaign data across three campaigns, three channels, and three customer segments to identify performance patterns and budget optimization opportunities.   
-  
+I've analyzed the Q3 campaign data across three campaigns, three channels, and three customer segments to identify performance patterns and budget optimization opportunities.
+
 I created an Excel dashboard with executive metrics, campaign rankings using performance-based color coding, and channel breakdowns, plus a detailed analysis document detailing what's working, what's not, hidden opportunities like the enterprise-email synergy, and specific Q4 budget reallocation recommendations projected to increase net profit by $185K.
 
 **Excel Performance Dashboard:**
@@ -173,7 +173,7 @@ Work with Claude to transform campaign data into strategic recommendations that 
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690b9a3ddb512de510ef08ed_Screenshot%202025-11-05%20at%2010.40.36%E2%80%AFAM.png)
 
@@ -183,18 +183,18 @@ Open artifact in new window
 
 ## Related use cases
 
-[Adapt content across platforms](/resources/use-cases/adapt-content-across-platforms)Adapt content across platforms
+[Adapt content across platforms](https://claude.com/resources/use-cases/adapt-content-across-platforms)Adapt content across platforms
 
 Adapt content across platforms
 
 Use case
 
-[Use case](/resources/use-cases/adapt-content-across-platforms)Use case
+[Use case](https://claude.com/resources/use-cases/adapt-content-across-platforms)Use case
 
-[Build customer personas](/resources/use-cases/build-customer-personas)Build customer personas
+[Build customer personas](https://claude.com/resources/use-cases/build-customer-personas)Build customer personas
 
 Build customer personas
 
 Use case
 
-[Use case](/resources/use-cases/build-customer-personas)Use case
+[Use case](https://claude.com/resources/use-cases/build-customer-personas)Use case

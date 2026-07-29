@@ -14,6 +14,62 @@ Category
 
 Product
 
+![How AI gets its character](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a55978c2a3fad32a041cdd0_Thumb%20v1_L3.png)
+
+How AI gets its character
+
+AI Fluency
+
+Author
+
+AI Fluency
+
+Author
+
+AI Fluency
+
+Author
+
+No items found.
+
+Read use case
+
+[Read use case](https://claude.com/resources/tutorials/how-ai-gets-its-character)Read use case
+
+[How AI gets its character](https://claude.com/resources/tutorials/how-ai-gets-its-character)How AI gets its character
+
+[Text Link](https://claude.com/resources/tutorials/how-ai-gets-its-character)
+
+AI Fluency
+
+![Understanding knowledge gaps in AI models](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5596ef9f246cc63671bc8d_Thumb%20v1_L5.png)
+
+Understanding knowledge gaps in AI models
+
+AI Fluency
+
+Author
+
+AI Fluency
+
+Author
+
+AI Fluency
+
+Author
+
+No items found.
+
+Read use case
+
+[Read use case](https://claude.com/resources/tutorials/understanding-knowledge-gaps-in-ai-models)Read use case
+
+[Understanding knowledge gaps in AI models](https://claude.com/resources/tutorials/understanding-knowledge-gaps-in-ai-models)Understanding knowledge gaps in AI models
+
+[Text Link](https://claude.com/resources/tutorials/understanding-knowledge-gaps-in-ai-models)
+
+AI Fluency
+
 ![The 4 Ds of AI Fluency — Behavioral Indicators](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0bb416058c7ec65b197661_Screenshot%202026-05-18%20at%205.51.25%E2%80%AFPM.png)
 
 The 4 Ds of AI Fluency — Behavioral Indicators
@@ -34,11 +90,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators)Read use case
+[Read use case](https://claude.com/resources/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators)Read use case
 
-[The 4 Ds of AI Fluency — Behavioral Indicators](/resources/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators)The 4 Ds of AI Fluency — Behavioral Indicators
+[The 4 Ds of AI Fluency — Behavioral Indicators](https://claude.com/resources/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators)The 4 Ds of AI Fluency — Behavioral Indicators
 
-[Text Link](/resources/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators)
+[Text Link](https://claude.com/resources/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators)
 
 AI Fluency
 
@@ -62,11 +118,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/what-is-sycophancy-in-ai-models)Read use case
+[Read use case](https://claude.com/resources/tutorials/what-is-sycophancy-in-ai-models)Read use case
 
-[What is sycophancy in AI models?](/resources/tutorials/what-is-sycophancy-in-ai-models)What is sycophancy in AI models?
+[What is sycophancy in AI models?](https://claude.com/resources/tutorials/what-is-sycophancy-in-ai-models)What is sycophancy in AI models?
 
-[Text Link](/resources/tutorials/what-is-sycophancy-in-ai-models)
+[Text Link](https://claude.com/resources/tutorials/what-is-sycophancy-in-ai-models)
 
 AI Fluency
 
@@ -90,11 +146,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/why-do-ai-models-hallucinate)Read use case
+[Read use case](https://claude.com/resources/tutorials/why-do-ai-models-hallucinate)Read use case
 
-[Why do AI models hallucinate?](/resources/tutorials/why-do-ai-models-hallucinate)Why do AI models hallucinate?
+[Why do AI models hallucinate?](https://claude.com/resources/tutorials/why-do-ai-models-hallucinate)Why do AI models hallucinate?
 
-[Text Link](/resources/tutorials/why-do-ai-models-hallucinate)
+[Text Link](https://claude.com/resources/tutorials/why-do-ai-models-hallucinate)
 
 AI Fluency
 
@@ -118,11 +174,39 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/getting-good-at-claude-a-research-backed-curriculum)Read use case
+[Read use case](https://claude.com/resources/tutorials/getting-good-at-claude-a-research-backed-curriculum)Read use case
 
-[Getting good at Claude: A research-backed curriculum](/resources/tutorials/getting-good-at-claude-a-research-backed-curriculum)Getting good at Claude: A research-backed curriculum
+[Getting good at Claude: A research-backed curriculum](https://claude.com/resources/tutorials/getting-good-at-claude-a-research-backed-curriculum)Getting good at Claude: A research-backed curriculum
 
-[Text Link](/resources/tutorials/getting-good-at-claude-a-research-backed-curriculum)
+[Text Link](https://claude.com/resources/tutorials/getting-good-at-claude-a-research-backed-curriculum)
+
+AI Fluency
+
+![The four properties of AI ](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a04d60264912fa007c89415_Screenshot%202026-05-13%20at%2012.50.18%E2%80%AFPM.png)
+
+The four properties of AI
+
+AI Fluency
+
+Author
+
+AI Fluency
+
+Author
+
+AI Fluency
+
+Author
+
+No items found.
+
+Read use case
+
+[Read use case](https://claude.com/resources/tutorials/the-4-properties-of-ai)Read use case
+
+[The four properties of AI](https://claude.com/resources/tutorials/the-4-properties-of-ai) The four properties of AI
+
+[Text Link](https://claude.com/resources/tutorials/the-4-properties-of-ai)
 
 AI Fluency
 
@@ -146,39 +230,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/why-does-bias-exist-in-ai-models)Read use case
+[Read use case](https://claude.com/resources/tutorials/why-does-bias-exist-in-ai-models)Read use case
 
-[Why does bias exist in AI models?](/resources/tutorials/why-does-bias-exist-in-ai-models)Why does bias exist in AI models?
+[Why does bias exist in AI models?](https://claude.com/resources/tutorials/why-does-bias-exist-in-ai-models)Why does bias exist in AI models?
 
-[Text Link](/resources/tutorials/why-does-bias-exist-in-ai-models)
-
-AI Fluency
-
-![The 4 Properties of AI](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a04d60264912fa007c89415_Screenshot%202026-05-13%20at%2012.50.18%E2%80%AFPM.png)
-
-The 4 Properties of AI
-
-AI Fluency
-
-Author
-
-AI Fluency
-
-Author
-
-AI Fluency
-
-Author
-
-No items found.
-
-Read use case
-
-[Read use case](/resources/tutorials/the-4-properties-of-ai)Read use case
-
-[The 4 Properties of AI](/resources/tutorials/the-4-properties-of-ai)The 4 Properties of AI
-
-[Text Link](/resources/tutorials/the-4-properties-of-ai)
+[Text Link](https://claude.com/resources/tutorials/why-does-bias-exist-in-ai-models)
 
 AI Fluency
 
@@ -200,11 +256,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/writing-an-ai-diligence-statement)Read use case
+[Read use case](https://claude.com/resources/tutorials/writing-an-ai-diligence-statement)Read use case
 
-[Writing an AI diligence statement](/resources/tutorials/writing-an-ai-diligence-statement)Writing an AI diligence statement
+[Writing an AI diligence statement](https://claude.com/resources/tutorials/writing-an-ai-diligence-statement)Writing an AI diligence statement
 
-[Text Link](/resources/tutorials/writing-an-ai-diligence-statement)
+[Text Link](https://claude.com/resources/tutorials/writing-an-ai-diligence-statement)
 
 AI Fluency
 
@@ -228,11 +284,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/a-discussion-guide-for-the-ai-fluency-index)Read use case
+[Read use case](https://claude.com/resources/tutorials/a-discussion-guide-for-the-ai-fluency-index)Read use case
 
-[A discussion guide for the AI Fluency Index](/resources/tutorials/a-discussion-guide-for-the-ai-fluency-index)A discussion guide for the AI Fluency Index
+[A discussion guide for the AI Fluency Index](https://claude.com/resources/tutorials/a-discussion-guide-for-the-ai-fluency-index)A discussion guide for the AI Fluency Index
 
-[Text Link](/resources/tutorials/a-discussion-guide-for-the-ai-fluency-index)
+[Text Link](https://claude.com/resources/tutorials/a-discussion-guide-for-the-ai-fluency-index)
 
 AI Fluency
 

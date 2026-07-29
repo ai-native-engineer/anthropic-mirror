@@ -2,6 +2,8 @@
 
 # Adapt to new model personas after deprecations
 
+Updated over 2 weeks ago
+
 **[Model deprecations and retirements](https://docs.claude.com/en/docs/about-claude/model-deprecations#model-status)** are routine parts of the model lifecycle. While we would like to keep past models publicly available as we continue to advance the frontier of safety and capabilities, maintenance overhead and capacity constraints do not currently allow this. We nonetheless recognize that losing access to models comes with costs to many users, particularly those who have come to value the unique character or capabilities of a specific model on a personal level. We aim to provide resources, tools, and guidance to such users to minimize these costs and make the transitions between models as smooth and seamless as possible.
 
 ## Strategies and recommendations
@@ -17,8 +19,8 @@ Below are a set of strategies and recommendations for adapting to model transiti
 
 These strategies aren’t perfect and can only go so far toward preserving or replicating the unique experience of interacting with a particular model, which we recognize is intrinsically important to many users. We’re taking **[other early steps](https://www.anthropic.com/research/deprecation-commitments)** toward ensuring model preservation post-retirement, and someday aim to make past models publicly available again in some form.
 
+* [What are artifacts and how do I use them?](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them)
 * [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)
 * [Model Safety Bug Bounty Program](https://support.claude.com/en/articles/12119250-model-safety-bug-bounty-program)
 * [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
 * [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)
-* [Set a default model for your organization](https://support.claude.com/en/articles/15330088-set-a-default-model-for-your-organization)

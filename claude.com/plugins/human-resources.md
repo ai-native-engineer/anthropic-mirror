@@ -8,6 +8,7 @@ Streamline recruiting, onboarding, performance reviews, compensation analysis, a
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=human-resources)
+* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs
@@ -20,16 +21,16 @@ Streamline people operations — recruiting, onboarding, performance reviews, co
 
 You can use Human Resources to:
 
-**Performance Review:**  
+**Performance Review:**
 "Draft a performance review summary based on this quarter's goals and feedback"
 
-**Compensation Analysis:**  
+**Compensation Analysis:**
 "Benchmark our senior engineer compensation against market data"
 
-**Onboarding:**  
+**Onboarding:**
 "Create a 30-60-90 day onboarding plan for a new product manager"
 
-**Policy Guidance:**  
+**Policy Guidance:**
 "Summarize our PTO policy and how it applies to part-time employees"
 
 ## Related plugins
@@ -40,17 +41,17 @@ Craft production-grade frontends with distinctive design. Generates polished cod
 
 Anthropic verified
 
-948012
+1110438
 
-installs](/plugins/frontend-design)
+installs](https://claude.com/plugins/frontend-design)
 
 [### Superpowers
 
 Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
 
-855112
+987572
 
-installs](/plugins/superpowers)
+installs](https://claude.com/plugins/superpowers)
 
 [### Code Review
 
@@ -58,14 +59,14 @@ AI code review with specialized agents and confidence-based filtering for pull r
 
 Anthropic verified
 
-383892
+430450
 
-installs](/plugins/code-review)
+installs](https://claude.com/plugins/code-review)
 
 [### Context7
 
 Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
 
-377529
+412076
 
-installs](/plugins/context7)
+installs](https://claude.com/plugins/context7)

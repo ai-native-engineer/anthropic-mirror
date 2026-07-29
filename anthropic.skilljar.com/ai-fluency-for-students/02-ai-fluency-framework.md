@@ -1,5 +1,21 @@
 <!-- https://anthropic.skilljar.com/ai-fluency-for-students/326791 -->
 
+Anthropic
+
+Open in Claude
+
+
+
+Anthropic
+
+Open in Claude
+
+Ask questions about this course
+
+Copy notes
+
+Copy full course notes for LLMs
+
 *Estimated time: 30 minutes*
 
 ## What you'll learn
@@ -110,7 +126,6 @@ As you progress through the course, we'd love to hear from you about how you are
 #### Acknowledgements
 
 *Copyright 2025 Rick Dakan, Joseph Feller, and Anthropic. Released under the CC BY-NC-SA 4.0 license. This course is based on The AI Fluency Framework by Dakan and Feller.Supported in part by the Higher Education Authority, Ireland, through the National Forum for the Enhancement of Teaching and Learning.*
-
 <!-- youtube: 7tR7modJioQ -->
 
 [![AI Fluency Framework](https://img.youtube.com/vi/7tR7modJioQ/hqdefault.jpg)](https://www.youtube.com/watch?v=7tR7modJioQ)

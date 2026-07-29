@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-science/connectors-and-skills -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Connectors give Claude access to external data sources during an analysis. Skills are written instructions Claude loads when relevant, covering how to run a method, which tools to use, and what to verify. Both are managed in Settings and apply across all projects.
 
 ##  Featured connectors
@@ -38,6 +46,4 @@ The databases behind Featured connectors are on the network allowlist in groups 
 
 **Settings > Skills** lists the skills Claude can load. Featured science skills include literature review, indication dossier, and model-specific skills for AlphaFold2, Boltz-2, Chai-1, ESMFold2, OpenFold3, ProteinMPNN (with LigandMPNN and SolubleMPNN), DiffDock, ESM-2, Evo 2, Borzoi, scGPT, and scvi-tools.
 Claude loads a skill automatically when the work calls for it. Type **/** in the composer to open the skill picker and insert one explicitly.
-**Add skill** lets you create your own via **Chat with Claude**, **Write from scratch**, **Upload a skill**, or **Import from GitHub**. You can also ask Claude to distill a workflow from an existing session into a skill.
-
-[Tools and environments](/docs/claude-science/tools-and-environments)[Remote compute clusters](/docs/claude-science/remote-compute-clusters)
+**Add skill** lets you create your own via **Chat with Claude**, **Write from scratch**, **Upload a skill**, or **Import from GitHub**. **Import from GitHub** works with private repositories too, once you add a GitHub token under **Settings > Credentials**. You can also ask Claude to distill a workflow from an existing session into a skill.

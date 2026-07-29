@@ -1,5 +1,17 @@
 <!-- source: https://claude.com/resources/tutorials/using-the-biorender-connector-in-claude -->
 
+Claude Science beta
+
+[Next](#)Next
+
+Introducing the Claude Science app, your research partner for rigorous science.
+
+Learn more
+
+[Learn more](https://claude.com/product/claude-science)Learn more
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ef89e3431b19c021bf2b_claude-science-og.jpg)
+
 # Using the BioRender Connector in Claude
 
 Set up and use the BioRender integration with Claude to search scientific figure templates and icon collections.
@@ -44,7 +56,7 @@ This integration provides access to BioRender’s scientific Icons and Template,
 * The BioRender integration is available to all BioRender users with an active account.
 * Users must log in using their BioRender credentials to authenticate the connection.
 * Once connected, they can search BioRender’s scientific icon and template library directly.
-* Access to specific icons and templates will depend on the user’s subscription tier:  
+* Access to specific icons and templates will depend on the user’s subscription tier:
   + Free and Individual Plans - Access to a limited set of icons and templates
   + Premium and Team Plans - Access to the full BioRender library, including advanced templates and specialized scientific content
 * No additional licensing or set up fees are required to access the BioRender integration
@@ -79,43 +91,43 @@ Technical details of the BioRender integration can be found in [BioRender’s MC
 
 ## Common use cases
 
-* **Grant proposal figures** - describe your research or experimental design and get relevant template and icon suggestions to create clear proposal figures for reviewers  
+* **Grant proposal figures** - describe your research or experimental design and get relevant template and icon suggestions to create clear proposal figures for reviewers
   + “*I'm working on a figure for a grant proposal about chimeric CAR T cell therapy targeting solid tumors. I need two panels: 1. T cells engineered with chimeric antigen receptors 2. CAR T cells mediate cancer cell death. Can you help me find templates that show CAR T cells receptors and CAR T cells trafficking and targeting cancer cells?”***‍**
-* ‍**Journal figures & graphical abstracts** - use the text of your paper’s key findings to get template and icon suggestions for creating publication visuals  
+* ‍**Journal figures & graphical abstracts** - use the text of your paper’s key findings to get template and icon suggestions for creating publication visuals
   + “*I need to create a graphical abstract about CRISPR-Cas9 gene editing in plant cells. I want to show the Cas9 protein, guide RNA, DNA double-strand break, and the DNA repair process. Can you find me templates for CRISPR mechanisms and plant cell structures?”***‍**
-* **Presentations for conferences & internal lab meetings** - describe your experimental workflow or steps to get icon and template recommendations for use in internal lab teams meetings and for creating presentations and posters for use at conferences  
+* **Presentations for conferences & internal lab meetings** - describe your experimental workflow or steps to get icon and template recommendations for use in internal lab teams meetings and for creating presentations and posters for use at conferences
   + “*I need to explain the experimental workflow for protein crystallization during a presentation. Can you find templates showing the process, including protein expression and purification, protein crystallization, and X-ray diffraction?”*
 
 ## Related tutorials
 
-[How to use the Nextflow Deployment agent skill with Claude Code](/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)How to use the Nextflow Deployment agent skill with Claude Code
+[How to use the Nextflow Deployment agent skill with Claude Code](https://claude.com/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)How to use the Nextflow Deployment agent skill with Claude Code
 
 How to use the Nextflow Deployment agent skill with Claude Code
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)Tutorial
 
-[How to use the Instrument Data to Allotrope Skill with Claude](/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)How to use the Instrument Data to Allotrope Skill with Claude
+[How to use the Instrument Data to Allotrope Skill with Claude](https://claude.com/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)How to use the Instrument Data to Allotrope Skill with Claude
 
 How to use the Instrument Data to Allotrope Skill with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)Tutorial
 
-[How to use the Scientific Problem Selection Skill with Claude](/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)How to use the Scientific Problem Selection Skill with Claude
+[How to use the Scientific Problem Selection Skill with Claude](https://claude.com/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)How to use the Scientific Problem Selection Skill with Claude
 
 How to use the Scientific Problem Selection Skill with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)Tutorial
 
-[How to use the scVI-Tools bioinformatics skill bundle with Claude](/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)How to use the scVI-Tools bioinformatics skill bundle with Claude
+[How to use the scVI-Tools bioinformatics skill bundle with Claude](https://claude.com/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)How to use the scVI-Tools bioinformatics skill bundle with Claude
 
 How to use the scVI-Tools bioinformatics skill bundle with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)Tutorial

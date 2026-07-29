@@ -10,6 +10,7 @@ Securely access and analyze Egnyte content.
 * Used in
 
   [Claude](https://claude.ai/directory/5b938bac-8286-4844-bc51-d303f7c6cbde)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Egnyte](https://egnyte.com)
 
@@ -22,31 +23,31 @@ Securely access and analyze Egnyte content.
   Read
 * More
 
-  [Documentation](https://developers.egnyte.com/docs/Remote_MCP_Server)[Privacy Policy](https://www.egnyte.com/privacy-policy)[support@egnyte.com](mailto:support@egnyte.com)
+  [Documentation](https://developers.egnyte.com/docs/Remote_MCP_Server)[Privacy Policy](https://www.egnyte.com/privacy-policy)[Support](mailto:support@egnyte.com)
 
-Securely search, retrieve, and analyze content stored in any Egnyte domain. The Egnyte Connector wraps Egnyte’s public APIs and enforces native permissions, compliance rules, and audit logging.  
-  
-You can use the Egnyte connector to:  
-  
-Analyze financial reports with visuals:  
+Securely search, retrieve, and analyze content stored in any Egnyte domain. The Egnyte Connector wraps Egnyte’s public APIs and enforces native permissions, compliance rules, and audit logging.
+
+You can use the Egnyte connector to:
+
+Analyze financial reports with visuals:
 "What are the main findings in the MSFT Q4 financial data? Create a report with charts"
 
-Review contract risks:  
+Review contract risks:
 "Can you analyze the risk factors mentioned in the Intellectual Property Rights Agreement?"
 
-Get policy summaries with Copilot:  
+Get policy summaries with Copilot:
 "Ask Copilot to summarize our company's key HR policies"
 
-Check project status:  
+Check project status:
 "Get the current status and details for the Marshall School project from Egnyte"
 
-Summarize documents:  
+Summarize documents:
 "Summarize the key points from the 'Travel Policy' document"
 
-Get folder insights and statistics:  
+Get folder insights and statistics:
 "How much space is used by our 'Project ABC' folder?"
 
-List shared links:  
+List shared links:
 "List all shared links for files in the 'Large PowerPoint PPT' folder"
 
 ## Related connectors
@@ -63,7 +64,7 @@ June 22, 2026
 
 ### Affinity
 
-Search, update, and prep deals without switching tabs.](/connectors/affinity)
+Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
 
 Financial services
 
@@ -71,11 +72,11 @@ Claude
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd9230df5f81ef095019_Aiera.jpg)
+[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
 
 ### Aiera
 
-Live events, filings, company publications, and more](/connectors/aiera)
+Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
 
 Financial services
 
@@ -85,11 +86,11 @@ Claude Code
 
 February 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977ee686ffe1cb730e94f07_Airwallex%20Mark%20-%20Colour%20-%20Square.png)
+[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
 
 ### Airwallex
 
-Integrate with the Airwallex Platform using Claude](/connectors/airwallex)
+Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
 
 Financial services
 
@@ -99,8 +100,8 @@ Claude Code
 
 April 8, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c05a2e0f10f41c8f005ee0_Aiwyn_Logo_Mark_Square%20(1).svg)
+[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
 
 ### Aiwyn Tax
 
-Estimate your federal & state taxes with Aiwyn's tax engine](/connectors/aiwyn-tax)
+Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)

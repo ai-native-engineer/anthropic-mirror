@@ -10,6 +10,7 @@ Data & AI observability
 * Used in
 
   [Claude](https://claude.ai/directory/54c8ca93-5e6e-4f30-89ca-207c3d3a438b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Monte Carlo](https://www.montecarlodata.com)
 
@@ -22,22 +23,22 @@ Data & AI observability
   Read & write
 * More
 
-  [Documentation](https://docs.getmontecarlo.com/docs/mcp-server)[Privacy Policy](https://www.montecarlodata.com/privacy-policy)[support@montecarlodata.com](mailto:support@montecarlodata.com)
+  [Documentation](https://docs.getmontecarlo.com/docs/mcp-server)[Privacy Policy](https://www.montecarlodata.com/privacy-policy)[Support](mailto:support@montecarlodata.com)
 
 The Monte Carlo MCP server gives Claude direct access to your data & AI observability platform. Query alerts, explore lineage, create monitors, and evaluate AI agent performance across your entire data stack.
 
 You can use Monte Carlo to:
 
-**Triage alerts:**  
+**Triage alerts:**
 "Are there any alerts assigned to me in the past day?"
 
-**Explore lineage:**  
+**Explore lineage:**
 "What BI dashboards and reports depend on this table?"
 
-**Create monitors:**  
+**Create monitors:**
 "Create a validation monitor for table X to check that revenue > 0"
 
-**Investigate impact:**  
+**Investigate impact:**
 "What assets and reports would this data issue impact?"
 
 ## Related connectors
@@ -50,11 +51,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -68,7 +69,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -82,7 +83,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -94,4 +95,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

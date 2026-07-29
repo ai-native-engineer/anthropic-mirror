@@ -12,7 +12,7 @@ Start building
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa863c8a450480170023_Factory_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa8cfc7e786bb0781067_Factory_dark.svg)
 
@@ -74,12 +74,12 @@ Integrate Claude’s powerful AI capabilities into your apps and deliver product
 
 Existing prompt
 
-Classify all customer support tickets into the most relevant category.  
-  
-Here is the list of categories to choose from:  
-{{CATEGORY\_LIST}}  
-  
-Here is the content of the support ticket:  
+Classify all customer support tickets into the most relevant category.
+
+Here is the list of categories to choose from:
+{{CATEGORY\_LIST}}
+
+Here is the content of the support ticket:
 {{TICKET\_CONTENT}}
 
 What would you like to improve?
@@ -90,39 +90,40 @@ You are an AI assistant specialized in classifying customer support tickets. You
 
 First, let's review the available categories:
 
-<category\_list>  
-{{CATEGORY\_LIST}}  
+<category\_list>
+{{CATEGORY\_LIST}}
 </category\_list>
 
 Now, here is the content of the support ticket you need to classify:
 
-<ticket\_content>  
-{{TICKET\_CONTENT}}  
+<ticket\_content>
+{{TICKET\_CONTENT}}
 </ticket\_content>
 
-Please follow these steps to complete the task:  
-– Carefully read and analyze the ticket content.  
-– Consider how the content relates to each of the available categories.  
-– Choose the most appropriate category for the ticket.  
+Please follow these steps to complete the task:
+– Carefully read and analyze the ticket content.
+– Consider how the content relates to each of the available categories.
+– Choose the most appropriate category for the ticket.
 – Provide a detailed explanation of your reasoning process.
 
-Use the following structure for your response:  
-<classification\_analysis>  
-In this section, break down your thought process:  
-– Quote the most relevant parts of the ticket content.  
-– List each category and note how it relates to the ticket content.  
-– For each category, provide arguments for and against classifying the ticket into that category.  
-– Rank the top 3 most likely categories.  
+Use the following structure for your response:
+<classification\_analysis>
+In this section, break down your thought process:
+– Quote the most relevant parts of the ticket content.
+– List each category and note how it relates to the ticket content.
+– For each category, provide arguments for and against classifying the ticket into that category.
+– Rank the top 3 most likely categories.
 </classification\_analysis>
 
-<classification>  
-<category>Your chosen category goes here</category>  
-<reasoning>A concise summary of your reasoning for choosing this category</reasoning>  
+<classification>
+<category>Your chosen category goes here</category>
+<reasoning>A concise summary of your reasoning for choosing this category</reasoning>
 </classification>
 
 Remember to be thorough in your analysis and clear in your explanation. Your goal is to provide an accurate classification with well-supported reasoning.
 
-### Deliver more effective AI agents
+### Deliver more effective
+AI agents
 
 * Build agents and workflows with our API
 * Test and refine prompts in the Workbench
@@ -137,13 +138,14 @@ Claude Code is an agentic tool. Developers work with Claude directly from their 
 
 Explore Claude Code
 
-[Explore Claude Code](/product/claude-code)Explore Claude Code
+[Explore Claude Code](https://claude.com/product/claude-code)Explore Claude Code
 
 Explore for Enterprise
 
-[Explore for Enterprise](/product/claude-code/enterprise)Explore for Enterprise
+[Explore for Enterprise](https://claude.com/product/claude-code/enterprise)Explore for Enterprise
 
-## See why industry leaders choose Claude
+## See why industry leaders
+choose Claude
 
 Start building
 
@@ -151,7 +153,13 @@ Start building
 
 See customer stories
 
-[See customer stories](/customers)See customer stories
+[See customer stories](https://claude.com/customers)See customer stories
+
+![Cursor (Opus 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e4bce42081e89a8bec1f_logo_cursor-light.svg)![Cursor (Opus 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e4bafffa19b5e3366ebc_logo_cursor-dark.svg)
+
+“Claude Opus 5 delivers near Fable 5 intelligence at Opus speed and cost. On CursorBench it’s just under Fable 5 and has many of the same behaviors. We are excited to see how developers use it in Cursor.”
+
+Sualeh Asif, Co-Founder
 
 ![Walleye Capital (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f8f2c296e72da5d0c16c64_walleye-capital-light.svg)![Walleye Capital (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f8f2c707f624aa6506e323_walleye-capital-dark.svg)
 
@@ -165,19 +173,13 @@ Luke Anderson, CTO
 
 Scott Wu, CEO
 
-![BrowserBase (Opus 4.8)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a17890e390d07357c12beba_logo_browserbase-light.svg)![BrowserBase (Opus 4.8)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a17891ccfcb6c4d6dcb3ce0_logo_browserbase-dark.svg)
-
-“Claude Opus 4.8 is the strongest computer-use and browser-agent model we've tested, scoring 84% on Online-Mind2Web which is a meaningful jump over both Opus 4.7 and GPT-5.5. It stays reflective and on-task in the way our customers' agent workloads need to be reliable end-to-end.”
-
-Niko Grupen, Head of Applied Research
-
 ## AI agent resources
 
 Start building
 
 [Start building](https://platform.claude.com/)Start building
 
-[See how other companies are building AI agents with Claude](/customers)See how other companies are building AI agents with Claude
+[See how other companies are building AI agents with Claude](https://claude.com/customers)See how other companies are building AI agents with Claude
 
 See how other companies are building AI agents with Claude
 

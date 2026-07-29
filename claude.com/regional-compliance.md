@@ -6,7 +6,7 @@ Claude is available globally with regional data residency and inference, compreh
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 Visit Trust Center
 
@@ -108,7 +108,8 @@ Microsoft Foundry
 
 [Specifications](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)
 
-Understand data residency  and inference
+Understand data residency
+and inference
 
 Claude gives you control over where your data is stored, requests are processed, and responses are generated.
 
@@ -120,7 +121,8 @@ Inference residency
 
 Controls where Claude processes requests and generates responses.
 
-## Trusted across  regulated sectors
+## Trusted across
+regulated sectors
 
 Organizations in financial services, healthcare, life sciences, government, and legal services accelerate sensitive, mission-critical workflows with Claude while maintaining compliance standards.
 
@@ -229,4 +231,4 @@ Visit Trust Center
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales

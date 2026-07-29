@@ -191,7 +191,7 @@ Audit at the scale and pace your team can act on: high-confidence violations go 
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e0f43d1c2d161e71093d61_mktgassets_thumbnail.png)
 
@@ -201,34 +201,10 @@ Open artifact in new window
 
 ## Related use cases
 
-[Adapt a standard textbook page to every reading level](/resources/use-cases/adapt-a-standard-textbook-page-to-every-reading-level)Adapt a standard textbook page to every reading level
+[Adapt a standard textbook page to every reading level](https://claude.com/resources/use-cases/adapt-a-standard-textbook-page-to-every-reading-level)Adapt a standard textbook page to every reading level
 
 Adapt a standard textbook page to every reading level
 
 Use case
 
-[Use case](/resources/use-cases/adapt-a-standard-textbook-page-to-every-reading-level)Use case
-
-[Handle a request while away from your keyboard](/resources/use-cases/handle-a-request-while-away-from-your-keyboard)Handle a request while away from your keyboard
-
-Handle a request while away from your keyboard
-
-Use case
-
-[Use case](/resources/use-cases/handle-a-request-while-away-from-your-keyboard)Use case
-
-[Kick off long-running computer tasks from the Claude mobile app](/resources/use-cases/kick-off-long-running-computer-tasks-from-the-claude-mobile-app)Kick off long-running computer tasks from the Claude mobile app
-
-Kick off long-running computer tasks from the Claude mobile app
-
-Use case
-
-[Use case](/resources/use-cases/kick-off-long-running-computer-tasks-from-the-claude-mobile-app)Use case
-
-[Operate any computer app from your phone with Dispatch](/resources/use-cases/operate-any-computer-app-from-your-phone-with-dispatch)Operate any computer app from your phone with Dispatch
-
-Operate any computer app from your phone with Dispatch
-
-Use case
-
-[Use case](/resources/use-cases/operate-any-computer-app-from-your-phone-with-dispatch)Use case
+[Use case](https://claude.com/resources/use-cases/adapt-a-standard-textbook-page-to-every-reading-level)Use case

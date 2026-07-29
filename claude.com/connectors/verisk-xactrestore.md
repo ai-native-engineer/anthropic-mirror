@@ -10,6 +10,7 @@ Natural-language estimating for XactRestore
 * Used in
 
   [Claude](https://claude.ai/directory/ca0cd7ba-6a50-4aba-a1c9-45367fc80cc2)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Verisk Analytics, Inc.](https://verisk.com)
 
@@ -30,13 +31,13 @@ Connect Claude to Verisk's XactRestore so restoration and remodeling professiona
 
 You can use Verisk XactRestore to:
 
-**Generate Rebuild Estimates with Upgrade Options:**  
+**Generate Rebuild Estimates with Upgrade Options:**
 "Create a full kitchen rebuild estimate after water damage with standard, high, and premium options"
 
-**Generate Roofing Estimates from Basic Inputs:**  
+**Generate Roofing Estimates from Basic Inputs:**
 "Create a roofing estimate for a 25 square architectural shingle roof with moderate pitch"
 
-**Modify Estimates with Real-Time Pricing:**  
+**Modify Estimates with Real-Time Pricing:**
 "What does it cost to add a premium pot filler above the stove in this kitchen remodel?"
 
 ## Related connectors
@@ -53,7 +54,7 @@ June 22, 2026
 
 ### Affinity
 
-Search, update, and prep deals without switching tabs.](/connectors/affinity)
+Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
 
 Financial services
 
@@ -61,11 +62,11 @@ Claude
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd9230df5f81ef095019_Aiera.jpg)
+[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
 
 ### Aiera
 
-Live events, filings, company publications, and more](/connectors/aiera)
+Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
 
 Financial services
 
@@ -75,11 +76,11 @@ Claude Code
 
 February 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977ee686ffe1cb730e94f07_Airwallex%20Mark%20-%20Colour%20-%20Square.png)
+[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
 
 ### Airwallex
 
-Integrate with the Airwallex Platform using Claude](/connectors/airwallex)
+Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
 
 Financial services
 
@@ -89,8 +90,8 @@ Claude Code
 
 April 8, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c05a2e0f10f41c8f005ee0_Aiwyn_Logo_Mark_Square%20(1).svg)
+[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
 
 ### Aiwyn Tax
 
-Estimate your federal & state taxes with Aiwyn's tax engine](/connectors/aiwyn-tax)
+Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)

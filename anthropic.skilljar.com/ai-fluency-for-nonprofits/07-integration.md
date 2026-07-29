@@ -102,7 +102,6 @@ We'd love to hear from you about how you're using concepts from this course in y
 #### Acknowledgments and license
 
 *Copyright 2025 Anthropic and Giving Tuesday. Based on the AI Fluency Framework developed by Prof. Rick Dakan (Ringling College of Art and Design) and Prof. Joseph Feller (University College Cork). Released under the CC BY-NC-SA 4.0 license.*
-
 <!-- youtube: rl8lEM-uyrQ -->
 
 [![Integration](https://img.youtube.com/vi/rl8lEM-uyrQ/hqdefault.jpg)](https://www.youtube.com/watch?v=rl8lEM-uyrQ)

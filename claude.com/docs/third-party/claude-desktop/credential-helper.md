@@ -1,7 +1,17 @@
 <!-- source: https://claude.com/docs/third-party/claude-desktop/credential-helper -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 A credential helper is an executable on the user’s machine that prints an inference token to stdout. Claude Desktop on 3P runs it whenever it needs a credential for the configured inference provider, caches the result for a configurable time, and re-runs it when the credential expires. Use a helper when your token comes from an internal secret broker, a CLI, or an SSO flow that the built-in interactive sign-in options don’t cover.
-Configure the helper with the `inferenceCredentialHelper` key; see the [Configuration reference](/docs/third-party/claude-desktop/configuration#inferencecredentialhelper) for the full list of helper-related keys.
+Configure the helper with the `inferenceCredentialHelper` key; see the [Configuration reference](https://claude.com/docs/third-party/claude-desktop/configuration#inferencecredentialhelper) for the full list of helper-related keys.
+
+`inferenceCredentialHelper` supplies credentials for the inference connection only. An MCP server deployed through [`managedMcpServers`](https://claude.com/docs/third-party/claude-desktop/configuration#managedmcpservers) uses the separate per-server `headersHelper` key, which follows the same execution model but prints a flat JSON header map and has its own cache and renewal settings (`headersHelperTtlSec`, default 300, versus `inferenceCredentialHelperTtlSec`, default 3600). See [Short-lived credentials with a headers helper](https://claude.com/docs/third-party/claude-desktop/extensions#short-lived-credentials-with-a-headers-helper).
 
 ##  What the helper must do
 
@@ -11,15 +21,18 @@ Stdout must contain exactly one of the following, with no banners, prompts, or l
 * **A single bare token.** The whole trimmed stdout becomes the bearer token.
 * **A JSON object**, when per-request headers are needed:
 
+  ```
   { "token": "...", "headers": { "X-Org-Route": "prod" } }
+  ```
 
-  Headers from the JSON object are merged over [`inferenceCustomHeaders`](/docs/third-party/claude-desktop/configuration#inferencecustomheaders); the helper’s value wins on a conflict.
+  Headers from the JSON object are merged over [`inferenceCustomHeaders`](https://claude.com/docs/third-party/claude-desktop/configuration#inferencecustomheaders); the helper’s value wins on a conflict.
 
 ##  When the helper runs
 
 Claude Desktop sets the `CLAUDE_HELPER_CONTEXT` environment variable on every invocation so the script can decide whether interactive authentication (opening a browser, prompting for a device code) is appropriate.
 
 | Value | Meaning |
+| --- | --- |
 | `interactive` | The user started a session and is present. Interactive sign-in is acceptable. |
 | `mid-session-refresh` | A running session’s credential expired. Prefer a silent refresh; the user is waiting on a turn. |
 | `scheduled-task` | A scheduled task started with no user present. |
@@ -38,5 +51,3 @@ Each run is bounded by `inferenceCredentialHelperTimeoutSec` seconds (default 60
 ##  Turn off mid-session re-runs
 
 By default, when a running session’s credential is rejected, Claude Desktop re-runs the helper with `CLAUDE_HELPER_CONTEXT=mid-session-refresh` to recover without interrupting the user. If your helper can’t run safely outside the `interactive` context, set `inferenceCredentialHelperSilentRefreshEnabled` to `false`. Claude Desktop then keeps the cached credential until the next session start and surfaces an expiry prompt instead of re-running the helper mid-session.
-
-[Per-user configuration with a bootstrap server](/docs/third-party/claude-desktop/bootstrap)[LLM gateway](/docs/third-party/claude-desktop/gateway)

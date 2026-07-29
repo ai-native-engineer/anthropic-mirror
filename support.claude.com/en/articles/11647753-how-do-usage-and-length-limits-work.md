@@ -2,7 +2,7 @@
 
 # How do usage and length limits work?
 
-Updated over 3 weeks ago
+Updated over 2 weeks ago
 
 When working with Claude, you may encounter two different types of limits that work in distinct ways: **usage limits** and **length limits**. Understanding the difference between these can help you use Claude more effectively.
 
@@ -32,7 +32,7 @@ For strategies to maximize your message allotment, see **[Usage limit best pract
 
 Length limits relate to Claude's context window—the amount of information Claude can work with in a single chat. Think of the context window as Claude's working memory that determines how much content it can process and remember at once.
 
-Claude's context window size is 200K tokens across all models and paid plans, except for Enterprise plans, which have a 500K context window on some models. For more information, refer to **[What is the Enterprise plan?](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan)**
+**Note**: The context window size depends on which model you're using. On paid plans, the newest models support up to a 1M token context window, while others support 500K or 200K tokens. A portion of the context window is always reserved for Claude's response, so the longest possible conversation is slightly smaller than the full window. For the current per-model breakdown, refer to **[How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)**
 
 ## Automatic context management
 
@@ -63,4 +63,8 @@ The main distinction is that usage limits control *how much* you can use Claude 
 
 If you hit your usage limit, you'll need to wait for it to reset, upgrade your plan, or purchase usage credits. If you hit a length limit, you can start a new conversation or use **[features like projects](https://support.claude.com/en/articles/9517075-what-are-projects)** to work with larger amounts of information more efficiently.
 
-[Get started with Claude](https://support.claude.com/en/articles/8114491-get-started-with-claude)[How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)[Usage limit best practices](https://support.claude.com/en/articles/9797557-usage-limit-best-practices)[Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)[Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)
+* [Get started with Claude](https://support.claude.com/en/articles/8114491-get-started-with-claude)
+* [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
+* [Usage limit best practices](https://support.claude.com/en/articles/9797557-usage-limit-best-practices)
+* [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
+* [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)

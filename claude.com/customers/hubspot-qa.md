@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6989420bd171609a4d78b31e_logo_hubspot-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6989420ff5d1708aeefc4396_logo_hubspot-dark-mode.svg)
 
@@ -72,8 +72,8 @@ HubSpot reclaims time for creativity with Claude
 
 ## How did your teams first start using Claude Cowork, and what were you hoping it would help with?
 
-**Chloe Tambe, Director, AI Transformation:** The HubSpot Marketing team didn't come to Cowork as strangers to Claude. We were already extensive Claude users: individual chats, shared projects, artifacts, integrations woven into daily work. So when Cowork came along, the question wasn't "should we try this?" It was "how fast can we go further?"   
-  
+**Chloe Tambe, Director, AI Transformation:** The HubSpot Marketing team didn't come to Cowork as strangers to Claude. We were already extensive Claude users: individual chats, shared projects, artifacts, integrations woven into daily work. So when Cowork came along, the question wasn't "should we try this?" It was "how fast can we go further?"
+
 Cowork's automation really appeals to the Marketing Team. We have hundreds of marketers with very different jobs, and the administrative load is real. Cowork gives us the ability to schedule and run tasks even when people are offline, taking busywork off their plates so they can focus on actually being marketers. A thought partner that works alongside the team, not just on demand, is a meaningful shift.
 
 **Kathie Lui, Product Manager, Central AI:** The specific pain point was connector sprawl. As Claude Cowork rolled out across HubSpot, I was managing requests to add new tool integrations through ServiceNow requests and Asana tickets, while simultaneously fielding questions in Slack, tracking approvals in Google Sheets, and coordinating with our security review team. It was the same kind of work happening in four different places. Cowork didn't just help with one workflow. It was the first tool that could sit on top of all the others. For someone who collaborates across a lot of different teams and platforms, that continuity is a big shift.
@@ -124,7 +124,7 @@ Give Claude access to your local files and let it complete tasks autonomously. A
 
 Read more
 
-[Read more](/product/cowork)Read more
+[Read more](https://claude.com/product/cowork)Read more
 
 Cowork
 
@@ -194,34 +194,34 @@ Where do Skills fit in the Claude stack alongside prompts, Projects, MCP, and su
 
 ## Related stories
 
-[How Vercel built an ecosystem on the open skills standard](/customers/vercel-qa)How Vercel built an ecosystem on the open skills standard
+[Dust enables agents to go deeper at lower cost with Claude](https://claude.com/customers/dust)Dust enables agents to go deeper at lower cost with Claude
+
+Dust enables agents to go deeper at lower cost with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/dust)Customer story
+
+[How Vercel built an ecosystem on the open skills standard](https://claude.com/customers/vercel-qa)How Vercel built an ecosystem on the open skills standard
 
 How Vercel built an ecosystem on the open skills standard
 
 Customer story
 
-[Customer story](/customers/vercel-qa)Customer story
+[Customer story](https://claude.com/customers/vercel-qa)Customer story
 
-[Box builds document creation into its AI agent with Claude](/customers/box)Box builds document creation into its AI agent with Claude
+[Box builds document creation into its AI agent with Claude](https://claude.com/customers/box)Box builds document creation into its AI agent with Claude
 
 Box builds document creation into its AI agent with Claude
 
 Customer story
 
-[Customer story](/customers/box)Customer story
+[Customer story](https://claude.com/customers/box)Customer story
 
-[Juno helps people with chronic illness find patterns in their symptoms with Claude](/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
+[Juno helps people with chronic illness find patterns in their symptoms with Claude](https://claude.com/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
 
 Juno helps people with chronic illness find patterns in their symptoms with Claude
 
 Customer story
 
-[Customer story](/customers/juno)Customer story
-
-[A conversation with Cursor on building coding agents for professional developers](/customers/cursor-qa)A conversation with Cursor on building coding agents for professional developers
-
-A conversation with Cursor on building coding agents for professional developers
-
-Customer story
-
-[Customer story](/customers/cursor-qa)Customer story
+[Customer story](https://claude.com/customers/juno)Customer story

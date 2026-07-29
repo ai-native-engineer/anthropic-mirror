@@ -10,6 +10,7 @@ Compare hotels, then book direct
 * Used in
 
   [Claude](https://claude.ai/directory/97369a45-f230-4124-9b9b-2944a26bca46)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [DirectBooker, Inc](https://www.directbooker.ai)
 
@@ -22,22 +23,22 @@ Compare hotels, then book direct
   Read
 * More
 
-  [Documentation](https://www.directbooker.ai/products/mcp-server-documentation)[Privacy Policy](https://www.directbooker.ai/policy/privacy-policy)[hello@directbooker.ai](mailto:hello@directbooker.ai)
+  [Documentation](https://www.directbooker.ai/products/mcp-server-documentation)[Privacy Policy](https://www.directbooker.ai/policy/privacy-policy)[Support](mailto:hello@directbooker.ai)
 
 Direct is best—for better rates and better service. DirectBooker helps you discover and compare hotels at your destination: the right neighborhood, the right vibe, the amenities you need. See real-time rates, access member prices and special packages only available when you book direct, then go straight to the hotel's official site to reserve. Pay with cash or points while keeping all your loyalty perks—points earned, elite benefits, and exclusive offers.
 
 You can use DirectBooker to:
 
-**Search for hotels by location and dates:**  
+**Search for hotels by location and dates:**
 "Find me a hotel in San Francisco for March 15-17"
 
-**Compare hotels with specific amenities:**  
+**Compare hotels with specific amenities:**
 "Show me hotels in Chicago with fitness centers and free WiFi"
 
-**Get direct booking rates and benefits:**  
+**Get direct booking rates and benefits:**
 "What are the member rates and loyalty benefits for booking the Marriott downtown directly?"
 
-**Find hotels near specific venues:**  
+**Find hotels near specific venues:**
 "Find hotels near Madison Square Garden for a concert next month"
 
 ## Related connectors

@@ -1,6 +1,6 @@
 <!-- source: https://claude.com/connectors/clarivate-compumark -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265feb827167b18e5849ed_clarivate.png)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63df5f340c3434d3089b04_icon_Clarivate.jpg)
 
 # Clarivate IPOne CompuMark Trademarks
 
@@ -10,6 +10,7 @@ Trusted Trademark Intelligence from Clarivate CompuMark
 * Used in
 
   [Claude](https://claude.ai/directory/d68d9615-8525-4b27-94c0-2497a64ee6d0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Clarivate](https://clarivate.com/)
 
@@ -22,19 +23,19 @@ Trusted Trademark Intelligence from Clarivate CompuMark
   Read
 * More
 
-  [Documentation](https://ipone.clarivate.com/trademarks/mcp/docs)[Privacy Policy](https://clarivate.com/privacy-center/notices-policies/)[compumark.api.support@clarivate.com](mailto:compumark.api.support@clarivate.com)
+  [Documentation](https://ipone.clarivate.com/trademarks/mcp/docs)[Privacy Policy](https://clarivate.com/privacy-center/notices-policies/)[Support](mailto:compumark.api.support@clarivate.com)
 
 Clarivate IPOne CompuMark Trademark MCP helps teams search, review, and validate trademarks faster across global trademark registers. It combines broad jurisdiction coverage with flexible search options for mark names, phonetic variations, applicants, classes, goods and services, and filing details. Users can quickly assess result volumes, retrieve record details, access goods text, and open full-text records—making the server a strong fit for brand clearance, watch support, and trademark research workflows.
 
 You can use Clarivate IPOne CompuMark Trademarks to:
 
-**Prelim screening search:**  
+**Prelim screening search:**
 "Conduct a trademark screening search for trademarks in France, EU and WIPO designating France that contain 'LLAMALUSH' in class 3 (include plurals and phonetic variations) or are exact matches in any class. Highlight the closest conflicts."
 
-**Knock-out searching:**  
+**Knock-out searching:**
 "Run a knock-out search for VELORA in France, Germany, the EU, and WIPO designating France and Germany. Identify any exact-match or highly similar marks that would be immediate filing obstacles."
 
-**Portfolio review:**  
+**Portfolio review:**
 "Review the first 20 active records for applicant name containing NOVA in the UK. Group by status."
 
 ## Related connectors
@@ -47,11 +48,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -65,7 +66,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -79,7 +80,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -91,4 +92,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

@@ -40,13 +40,13 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)Read use case
+[Read use case](https://claude.com/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)Read use case
 
 Claude Cowork
 
-[Audit a folder of visual assets against your guidelines](/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)Audit a folder of visual assets against your guidelines
+[Audit a folder of visual assets against your guidelines](https://claude.com/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)Audit a folder of visual assets against your guidelines
 
-[Text Link](/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)
+[Text Link](https://claude.com/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)
 
 ![Adapt a standard textbook page to every reading level](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e0f28373d7c9dfb19a5768_textbook.png)
 
@@ -74,155 +74,13 @@ Cowork
 
 Read use case
 
-[Read use case](/resources/use-cases/adapt-a-standard-textbook-page-to-every-reading-level)Read use case
+[Read use case](https://claude.com/resources/use-cases/adapt-a-standard-textbook-page-to-every-reading-level)Read use case
 
 Claude Cowork
 
-[Adapt a standard textbook page to every reading level](/resources/use-cases/adapt-a-standard-textbook-page-to-every-reading-level)Adapt a standard textbook page to every reading level
+[Adapt a standard textbook page to every reading level](https://claude.com/resources/use-cases/adapt-a-standard-textbook-page-to-every-reading-level)Adapt a standard textbook page to every reading level
 
-[Text Link](/resources/use-cases/adapt-a-standard-textbook-page-to-every-reading-level)
-
-![Remote control your computer with Dispatch](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69de735c9e466c972b821bf9_Screenshot%202026-04-14%20at%2010.03.17%E2%80%AFAM.png)
-
-Remote control your computer with Dispatch
-
-Use Dispatch in Claude Cowork to send instructions from your phone. Claude runs the task on your computer — reading files, pulling data, searching the web — and the result is waiting when you sit down.
-
-Anthropic
-
-Cowork
-
-Author
-
-Anthropic
-
-Category
-
-Cowork
-
-Model
-
-Sonnet 4.6
-
-Cowork
-
-Connectors
-
-Read use case
-
-[Read use case](/resources/use-cases/remote-control-your-computer-with-dispatch)Read use case
-
-Claude Cowork
-
-[Remote control your computer with Dispatch](/resources/use-cases/remote-control-your-computer-with-dispatch)Remote control your computer with Dispatch
-
-[Text Link](/resources/use-cases/remote-control-your-computer-with-dispatch)
-
-![Kick off long-running computer tasks from the Claude mobile app](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69de77952d4c85bc23f8b79f_Screenshot%202026-04-14%20at%2010.21.20%E2%80%AFAM.png)
-
-Kick off long-running computer tasks from the Claude mobile app
-
-Check progress on a running task, give Claude Cowork the next instruction, and keep work moving — all from the Claude mobile app, without returning to your desk.
-
-Anthropic
-
-Cowork
-
-Author
-
-Anthropic
-
-Category
-
-Cowork
-
-Model
-
-Sonnet 4.6
-
-Cowork
-
-Read use case
-
-[Read use case](/resources/use-cases/kick-off-long-running-computer-tasks-from-the-claude-mobile-app)Read use case
-
-Claude Cowork
-
-[Kick off long-running computer tasks from the Claude mobile app](/resources/use-cases/kick-off-long-running-computer-tasks-from-the-claude-mobile-app)Kick off long-running computer tasks from the Claude mobile app
-
-[Text Link](/resources/use-cases/kick-off-long-running-computer-tasks-from-the-claude-mobile-app)
-
-![Handle a request while away from your keyboard](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69de771df969adffff67d2ac_Screenshot%202026-04-14%20at%2010.19.17%E2%80%AFAM.png)
-
-Handle a request while away from your keyboard
-
-Use Dispatch in Claude Cowork to respond to requests from the Claude mobile app using everything on your computer. Claude finds the file, drafts the reply, and waits for your approval before sending.
-
-Anthropic
-
-Cowork
-
-Author
-
-Anthropic
-
-Category
-
-Cowork
-
-Model
-
-Sonnet 4.6
-
-Connectors
-
-Cowork
-
-Read use case
-
-[Read use case](/resources/use-cases/handle-a-request-while-away-from-your-keyboard)Read use case
-
-Claude Cowork
-
-[Handle a request while away from your keyboard](/resources/use-cases/handle-a-request-while-away-from-your-keyboard)Handle a request while away from your keyboard
-
-[Text Link](/resources/use-cases/handle-a-request-while-away-from-your-keyboard)
-
-![Operate any computer app from your phone with Dispatch](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69de741a2d9547fe8fce8037_Screenshot%202026-04-14%20at%2010.06.28%E2%80%AFAM.png)
-
-Operate any computer app from your phone with Dispatch
-
-In Claude Cowork, Dispatch with computer use lets Claude control your computer's mouse and keyboard from the Claude mobile app to work in apps that have no other interface Claude could reach.
-
-Anthropic
-
-Cowork
-
-Author
-
-Anthropic
-
-Category
-
-Cowork
-
-Model
-
-Sonnet 4.6
-
-Connectors
-
-Cowork
-
-Read use case
-
-[Read use case](/resources/use-cases/operate-any-computer-app-from-your-phone-with-dispatch)Read use case
-
-Claude Cowork
-
-[Operate any computer app from your phone with Dispatch](/resources/use-cases/operate-any-computer-app-from-your-phone-with-dispatch)Operate any computer app from your phone with Dispatch
-
-[Text Link](/resources/use-cases/operate-any-computer-app-from-your-phone-with-dispatch)
+[Text Link](https://claude.com/resources/use-cases/adapt-a-standard-textbook-page-to-every-reading-level)
 
 ![Draft a credit memo from spreads and statements with Claude for Excel](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69deb4db4aa7783f5f10f101_Screenshot%202026-04-14%20at%202.18.08%E2%80%AFPM.png)
 
@@ -250,13 +108,13 @@ Connectors
 
 Read use case
 
-[Read use case](/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Read use case
+[Read use case](https://claude.com/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Read use case
 
 Claude Cowork
 
-[Draft a credit memo from spreads and statements with Claude for Excel](/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Draft a credit memo from spreads and statements with Claude for Excel
+[Draft a credit memo from spreads and statements with Claude for Excel](https://claude.com/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)Draft a credit memo from spreads and statements with Claude for Excel
 
-[Text Link](/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)
+[Text Link](https://claude.com/resources/use-cases/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel)
 
 ![Validate reserves and draft filing narrative with Claude for Excel](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69deb4b8db0f7637606138a2_Screenshot%202026-04-14%20at%202.17.56%E2%80%AFPM.png)
 
@@ -284,13 +142,13 @@ Connectors
 
 Read use case
 
-[Read use case](/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Read use case
+[Read use case](https://claude.com/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Read use case
 
 Claude Cowork
 
-[Validate reserves and draft filing narrative with Claude for Excel](/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Validate reserves and draft filing narrative with Claude for Excel
+[Validate reserves and draft filing narrative with Claude for Excel](https://claude.com/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)Validate reserves and draft filing narrative with Claude for Excel
 
-[Text Link](/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)
+[Text Link](https://claude.com/resources/use-cases/validate-reserves-and-draft-filing-narrative-with-claude-for-excel)
 
 ![See your theory of change in chat with Claude](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b28dd5f91088334eb0662e_Screenshot%202026-03-12%20at%202.56.34%E2%80%AFAM.png)
 
@@ -318,13 +176,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)Read use case
+[Read use case](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)Read use case
 
 Claude.ai
 
-[See your theory of change in chat with Claude](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)See your theory of change in chat with Claude
+[See your theory of change in chat with Claude](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)See your theory of change in chat with Claude
 
-[Text Link](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)
+[Text Link](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)
 
 ![Plan your syllabus](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b2f012d8309f2f28885b51_Screenshot%202026-03-12%20at%209.55.37%E2%80%AFAM.png)
 
@@ -352,13 +210,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)Read use case
+[Read use case](https://claude.com/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)Read use case
 
 Claude.ai
 
-[Plan your syllabus](/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)Plan your syllabus
+[Plan your syllabus](https://claude.com/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)Plan your syllabus
 
-[Text Link](/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)
+[Text Link](https://claude.com/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)
 
 ![Work through grant options in chat](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b2f22cab09d954e34c3414_Screenshot%202026-03-12%20at%2010.04.40%E2%80%AFAM.png)
 
@@ -386,13 +244,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/work-through-grant-options-in-chat-with-claude)Read use case
+[Read use case](https://claude.com/resources/use-cases/work-through-grant-options-in-chat-with-claude)Read use case
 
 Claude.ai
 
-[Work through grant options in chat](/resources/use-cases/work-through-grant-options-in-chat-with-claude)Work through grant options in chat
+[Work through grant options in chat](https://claude.com/resources/use-cases/work-through-grant-options-in-chat-with-claude)Work through grant options in chat
 
-[Text Link](/resources/use-cases/work-through-grant-options-in-chat-with-claude)
+[Text Link](https://claude.com/resources/use-cases/work-through-grant-options-in-chat-with-claude)
 
 ![Apply a formula as you learn it](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b2f1ea8b4b9ec661af1484_Screenshot%202026-03-12%20at%2010.03.32%E2%80%AFAM.png)
 
@@ -420,13 +278,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Read use case
+[Read use case](https://claude.com/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Read use case
 
 Claude.ai
 
-[Apply a formula as you learn it](/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Apply a formula as you learn it
+[Apply a formula as you learn it](https://claude.com/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Apply a formula as you learn it
 
-[Text Link](/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)
+[Text Link](https://claude.com/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)
 
 ![Bring your whiteboard lesson to life](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b2ee2967323abbda7ff173_Screenshot%202026-03-12%20at%209.47.32%E2%80%AFAM.png)
 
@@ -454,13 +312,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/bring-your-whiteboard-lesson-to-life)Read use case
+[Read use case](https://claude.com/resources/use-cases/bring-your-whiteboard-lesson-to-life)Read use case
 
 Claude.ai
 
-[Bring your whiteboard lesson to life](/resources/use-cases/bring-your-whiteboard-lesson-to-life)Bring your whiteboard lesson to life
+[Bring your whiteboard lesson to life](https://claude.com/resources/use-cases/bring-your-whiteboard-lesson-to-life)Bring your whiteboard lesson to life
 
-[Text Link](/resources/use-cases/bring-your-whiteboard-lesson-to-life)
+[Text Link](https://claude.com/resources/use-cases/bring-your-whiteboard-lesson-to-life)
 
 ![Visualize the mechanism behind an explanation mid-chat](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b2f19a19dad9159beec971_Screenshot%202026-03-12%20at%2010.02.11%E2%80%AFAM.png)
 
@@ -488,13 +346,13 @@ Custom visuals
 
 Read use case
 
-[Read use case](/resources/use-cases/visualize-the-mechanism-behind-an-explanation-mid-chat)Read use case
+[Read use case](https://claude.com/resources/use-cases/visualize-the-mechanism-behind-an-explanation-mid-chat)Read use case
 
 Claude.ai
 
-[Visualize the mechanism behind an explanation mid-chat](/resources/use-cases/visualize-the-mechanism-behind-an-explanation-mid-chat)Visualize the mechanism behind an explanation mid-chat
+[Visualize the mechanism behind an explanation mid-chat](https://claude.com/resources/use-cases/visualize-the-mechanism-behind-an-explanation-mid-chat)Visualize the mechanism behind an explanation mid-chat
 
-[Text Link](/resources/use-cases/visualize-the-mechanism-behind-an-explanation-mid-chat)
+[Text Link](https://claude.com/resources/use-cases/visualize-the-mechanism-behind-an-explanation-mid-chat)
 
 ![Update your financial model after earnings](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69caecf29ad8fa2677f41b27_artifact.png)
 
@@ -524,17 +382,153 @@ Skills
 
 Read use case
 
-[Read use case](/resources/use-cases/update-your-financial-model-after-earnings)Read use case
+[Read use case](https://claude.com/resources/use-cases/update-your-financial-model-after-earnings)Read use case
 
 Claude in Excel
 
-[Update your financial model after earnings](/resources/use-cases/update-your-financial-model-after-earnings)Update your financial model after earnings
+[Update your financial model after earnings](https://claude.com/resources/use-cases/update-your-financial-model-after-earnings)Update your financial model after earnings
 
-[Text Link](/resources/use-cases/update-your-financial-model-after-earnings)
+[Text Link](https://claude.com/resources/use-cases/update-your-financial-model-after-earnings)
 
-[View more](?8adb0641_page=2)
+![See what your campaign goal actually requires](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b28c90803ff07e4f3c4b31_Screenshot%202026-03-12%20at%202.51.09%E2%80%AFAM.png)
 
-1 / 7
+See what your campaign goal actually requires
+
+Type a campaign goal and Claude draws the gift pyramid inline, tiered from the lead gift down, with each tier showing how many gifts you need and how many qualified prospects that realistically takes. Drag the goal and the whole shape rebuilds. For when you're wondering whether a campaign is feasible before you say yes to it.
+
+Anthropic
+
+Nonprofits
+
+Author
+
+Anthropic
+
+Category
+
+Nonprofits
+
+Model
+
+Sonnet 4.6
+
+Custom visuals
+
+Read use case
+
+[Read use case](https://claude.com/resources/use-cases/see-what-your-campaign-goal-actually-requires)Read use case
+
+Claude.ai
+
+[See what your campaign goal actually requires](https://claude.com/resources/use-cases/see-what-your-campaign-goal-actually-requires)See what your campaign goal actually requires
+
+[Text Link](https://claude.com/resources/use-cases/see-what-your-campaign-goal-actually-requires)
+
+![See budget futures side by side, in chat with Claude](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b28c4c242d1fb4203497c2_Screenshot%202026-03-12%20at%202.49.59%E2%80%AFAM.png)
+
+See budget futures side by side, in chat with Claude
+
+Type your budget split and the thing that might change, and Claude draws three scenarios next to each other with a toggle between dollars and percentages. Click any scenario for a one-line read on where the real pressure lands.
+
+Anthropic
+
+Nonprofits
+
+Author
+
+Anthropic
+
+Category
+
+Nonprofits
+
+Model
+
+Sonnet 4.6
+
+Custom visuals
+
+Read use case
+
+[Read use case](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)Read use case
+
+Claude.ai
+
+[See budget futures side by side, in chat with Claude](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)See budget futures side by side, in chat with Claude
+
+[Text Link](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)
+
+![See why donor retention beats acquisition, in chat with Claude](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b28c20b40356d5f9c3e410_Screenshot%202026-03-12%20at%202.49.17%E2%80%AFAM.png)
+
+See why donor retention beats acquisition, in chat with Claude
+
+Claude builds a five-year donor projection with sliders for retention and acquisition. Drag either one and the curve redraws, and it becomes clear fairly quickly why a modest retention bump does more than doubling the acquisition spend.
+
+Anthropic
+
+Nonprofits
+
+Author
+
+Anthropic
+
+Category
+
+Nonprofits
+
+Model
+
+Sonnet 4.6
+
+Custom visuals
+
+Read use case
+
+[Read use case](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)Read use case
+
+Claude.ai
+
+[See why donor retention beats acquisition, in chat with Claude](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)See why donor retention beats acquisition, in chat with Claude
+
+[Text Link](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)
+
+![Map your lit review mid-conversation to surface the underlying debate](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b28b698ef6b19644650a2a_Screenshot%202026-03-12%20at%202.46.06%E2%80%AFAM.png)
+
+Map your lit review mid-conversation to surface the underlying debate
+
+Claude reads your stack of papers and draws the argument structure inline — clusters by claim, tension lines where camps disagree, blind spots per group. A reading of the debate you test against your own, as you work through the set.
+
+Anthropic
+
+Education
+
+Author
+
+Anthropic
+
+Category
+
+Education
+
+Model
+
+Sonnet 4.6
+
+Custom visuals
+
+Read use case
+
+[Read use case](https://claude.com/resources/use-cases/map-your-lit-review-mid-conversation)Read use case
+
+Claude.ai
+
+[Map your lit review mid-conversation to surface the underlying debate](https://claude.com/resources/use-cases/map-your-lit-review-mid-conversation)Map your lit review mid-conversation to surface the underlying debate
+
+[Text Link](https://claude.com/resources/use-cases/map-your-lit-review-mid-conversation)
+
+[View more](https://claude.com/resources/use-cases?8adb0641_page=2)
+
+1 / 6
 
 No posts for those filters
 

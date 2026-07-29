@@ -44,6 +44,11 @@ Start with verification. Build the skill, check it into your project's `.claude/
 
 <!-- youtube: soLPOXXAc1w -->
 
-## 자막 (영상 전사)
+[![Verification Skills](https://img.youtube.com/vi/soLPOXXAc1w/hqdefault.jpg)](https://www.youtube.com/watch?v=soLPOXXAc1w)
+
+<details>
+<summary>자막: Verification Skills</summary>
 
 As your project continues to grow and grow, you want to automate the work that's constantly repeated. You already know that skills are great for this, but here are some tips on how you can use skills to help you verify your work. So this example is the skill that's worth building first. Ask Claw to refactor something and when it finishes, the description matches, task that edited code and the skill fires. It runs a suite, reads a diff, checks that no test has weakened to pass, and reports pass or fail with the evidence attached. Checking the work no longer depends on you remembering to ask for it. The same shape carries any procedure your team repeats, a release checklist or a migration recipe. If you've typed the same multi-step instruction twice, well, that's a skill. Now a skill folder can hold more than just a skill.md file. Drop a reference.md beside it for detailed material and link it from that skill. Cloud reads it only when it needs the depth. Cloud executes scripts in the folder rather than loading them. So a skill can carry its own tooling. So keep your skill.md file itself lean and push the heavy material into those side files. So a quick way to keep the three instruction surfaces straight, conventions that apply all the time go into your Cloud.md file and procedures or reference materials tied to a kind of task go into a skill. A rule Cloud must not be able to skip belongs in a hook because Cloud.md and skills are both instructions that Cloud follows rather than code that runs. A skill is a folder with a skill.md, a name, a description that triggers it, and the procedure itself. Only descriptions load until a skill is needed, so package every procedure you repeat. Start with verification and check it into the Claude skills, and your team inherits the same move.
+
+</details>

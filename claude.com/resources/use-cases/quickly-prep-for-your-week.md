@@ -37,8 +37,8 @@ Try in Claude
 
 ## Describe the task
 
-Planning your week typically means opening your calendar, scanning your inbox, maybe checking a few documents—then trying to mentally synthesize which meetings need prep, what's urgent, and how to distribute your time. Claude can read through your calendar and inbox simultaneously, identify connections you'd miss while context-switching between tools, and create a structured overview showing what needs attention and when you actually have time to handle it.  
-  
+Planning your week typically means opening your calendar, scanning your inbox, maybe checking a few documents—then trying to mentally synthesize which meetings need prep, what's urgent, and how to distribute your time. Claude can read through your calendar and inbox simultaneously, identify connections you'd miss while context-switching between tools, and create a structured overview showing what needs attention and when you actually have time to handle it.
+
 To start, tell Claude which dates to analyze, where to search, and what the format for the output document.
 
 Help me plan my upcoming week: October 27-31.
@@ -95,21 +95,21 @@ Done! I've searched your calendar and found **10 events** through October 21-25
 
 Monday 10/21:
 
-* Engineering Sync - 10:00 AM to 10:30 AM (30 minutes)   
+* Engineering Sync - 10:00 AM to 10:30 AM (30 minutes)
   + Notes: No prep needed
 * Marketing Planning - 2:00 PM to 3:00 PM (60 minutes)
 
 Tuesday 10/22:
 
-* Product Strategy - 11:00 AM to 12:30 PM (90 minutes)   
+* Product Strategy - 11:00 AM to 12:30 PM (90 minutes)
   + Notes: Q4 resource allocation, 12-page pre-read unread
 * VP Check-in - 3:00 PM to 3:30 PM (30 minutes)
 
 Wednesday 10/23:
 
-* Board Meeting - 9:00 AM to 11:00 AM (2 hours)   
+* Board Meeting - 9:00 AM to 11:00 AM (2 hours)
   + Notes: Presenting budget section
-* Customer Success - 1:00 PM to 1:45 PM (45 minutes)   
+* Customer Success - 1:00 PM to 1:45 PM (45 minutes)
   + Notes: Can reschedule if needed
 
 Thursday 10/24:
@@ -218,7 +218,7 @@ Connect Claude to your Microsoft 365 workspaces and prepare for the week ahead. 
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a8c91ae1fafb1070fe1f6_Screenshot%202025-11-04%20at%203.30.20%E2%80%AFPM.png)
 
@@ -228,34 +228,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Source insights from your tools to build a deck](/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Source insights from your tools to build a deck
+[Source insights from your tools to build a deck](https://claude.com/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Source insights from your tools to build a deck
 
 Source insights from your tools to build a deck
 
 Use case
 
-[Use case](/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Use case
+[Use case](https://claude.com/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Use case
 
-[Evaluate a company from the science to the balance sheet](/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Evaluate a company from the science to the balance sheet
+[Evaluate a company from the science to the balance sheet](https://claude.com/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Evaluate a company from the science to the balance sheet
 
 Evaluate a company from the science to the balance sheet
 
 Use case
 
-[Use case](/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Use case
+[Use case](https://claude.com/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Use case
 
-[Build analysis from browser charts and folder data](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Build analysis from browser charts and folder data
+[Build analysis from browser charts and folder data](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Build analysis from browser charts and folder data
 
 Build analysis from browser charts and folder data
 
 Use case
 
-[Use case](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Use case
+[Use case](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Use case
 
-[Build a daily briefing across your tools](/resources/use-cases/build-a-daily-briefing-across-your-tools)Build a daily briefing across your tools
+[Build a daily briefing across your tools](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)Build a daily briefing across your tools
 
 Build a daily briefing across your tools
 
 Use case
 
-[Use case](/resources/use-cases/build-a-daily-briefing-across-your-tools)Use case
+[Use case](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)Use case

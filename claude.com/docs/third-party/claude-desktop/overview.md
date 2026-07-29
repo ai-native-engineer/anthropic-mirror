@@ -1,20 +1,26 @@
 <!-- source: https://claude.com/docs/third-party/claude-desktop/overview -->
 
-**Beta.** Claude Desktop on 3P is under active development. These docs will be updated with new product features. General availability is targeted for July 9, 2026.
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
 
-Claude Desktop on third-party (3P) is a deployment mode of Claude Desktop (Chat, Cowork, and Code tabs) that routes all model inference through a provider you configure: Google Cloud’s Vertex AI, Amazon Bedrock, Microsoft Foundry, any compatible gateway you operate, or the Anthropic API directly. The app runs from a bundled local web application, and conversation history is stored on the user’s device.
+[Skip to main content](#content-area)
+
+Claude Desktop on third-party (3P) is generally available as of July 9, 2026.
+
+Claude Desktop on third-party (3P) is a deployment mode of Claude Desktop (Chat, Cowork, and Code tabs) that routes all model inference through a provider you configure: Google Cloud’s Agent Platform, Amazon Bedrock, Microsoft Foundry, any compatible gateway you operate, or the Anthropic API directly. The app runs from a bundled local web application, and conversation history is stored on the user’s device.
 You get the full Claude Desktop experience (the Chat, Cowork, and Code tabs, including file creation, multi-step research, and sub-agent coordination) with inference and billing handled by the provider you choose.
-
-The data-residency, compliance, and “no conversation data sent to Anthropic” statements throughout these pages apply when `inferenceProvider` is `vertex` or `bedrock`. They also apply when `inferenceProvider` is `gateway`, provided your gateway does not route inference to Anthropic infrastructure (directly or via Microsoft Foundry). They do not apply when using Microsoft Foundry, or when `inferenceProvider` is `anthropic`, which sends prompts directly to the Anthropic API.**Microsoft Foundry (preview):** In this preview platform integration, Claude models run on Anthropic’s infrastructure. This is a commercial integration for billing and access through Azure. As an independent processor for Microsoft, customers using Claude through Microsoft Foundry are subject to Anthropic’s data use terms. Anthropic continues to provide its industry-leading safety and data commitments, including zero data retention availability.
 
 ##  Who it’s for
 
 Claude Desktop on 3P is designed for organizations whose security, regulatory, or contractual requirements prevent them from sending data to Anthropic’s first-party infrastructure. Typical deployments include:
 
-* **Highly regulated enterprises on 3P only** — organizations that use third-party inference for regulatory or security reasons
-* **International enterprises with data residency requirements** — organizations that require in-region data residency and cannot send conversation data to the United States
+* **Highly regulated enterprises on 3P only:** organizations that use third-party inference for regulatory or security reasons
+* **International enterprises with data residency requirements:** organizations that require in-region data residency and cannot send conversation data to the United States
 
-If your organization can use Anthropic’s first-party products directly, standard Claude Desktop with [Cowork](/docs/cowork/overview) on a Team or Enterprise plan is simpler to deploy, offers an in-app UI for user management, analytics, and RBAC, and releases new features more quickly than Claude Desktop on 3P. Choose Claude Desktop on 3P when routing inference through Anthropic’s API is not an option.
+If your organization can use Anthropic’s first-party products directly, standard Claude Desktop with [Cowork](https://claude.com/docs/cowork/overview) on a Team or Enterprise plan is simpler to deploy, offers an in-app UI for user management, analytics, and RBAC, and releases new features more quickly than Claude Desktop on 3P. Choose Claude Desktop on 3P when routing inference through Anthropic’s API is not an option.
 
 ##  Architecture
 
@@ -22,7 +28,7 @@ Claude Desktop on 3P keeps the standard feature set and relocates inference to t
 
 | Component | Standard Claude Desktop | Claude Desktop on 3P |
 | --- | --- | --- |
-| Model inference | Anthropic API | Your Vertex AI / Bedrock / Foundry / gateway endpoint, or the Anthropic API |
+| Model inference | Anthropic API | Your configured provider endpoint (Google Cloud’s Agent Platform, Amazon Bedrock, Microsoft Foundry, or gateway), or the Anthropic API |
 | Web application | Loaded from claude.ai | Bundled inside the desktop app |
 | User identity | Anthropic account | Local device identity only |
 | Conversation storage | Anthropic backend | Local disk on the user’s machine |
@@ -33,31 +39,31 @@ The desktop app detects 3P mode at launch from the configured inference provider
 
 ###  Security posture
 
-* **No conversation egress to Anthropic** (Vertex AI and Bedrock only). Prompts, responses, files, and tool outputs are sent only to your configured inference endpoint and stored only on the local machine.
+* **Conversation content goes only to your configured endpoint.** Prompts, responses, files, and tool outputs are sent only to your configured inference endpoint and stored only on the local machine; data handling at the provider is governed by your inference provider. For Microsoft Foundry deployments hosted on Azure, prompts and completions remain within Azure; only usage metadata and content flagged by Anthropic’s safety systems egress to Anthropic.
 * **Sandboxed tool execution.** Shell commands run in the hardened Cowork VM; file access is scoped to your allowed folders and web fetches to your egress allowlist.
-* **Auditable telemetry.** Crash reports and product analytics are scrubbed of conversation and user data before being sent to Anthropic, and can be fully disabled via configuration keys. Independently, you can export full session activity (prompts, tool calls, token counts) to your own OpenTelemetry collector.
+* **Auditable telemetry.** Crash reports and product analytics are scrubbed of conversation and user data before being sent to Anthropic, and can be fully disabled via configuration keys. Independently, you can export session activity to your own OpenTelemetry collector. The export is metadata only by default, with prompt and tool content available as an explicit opt-in.
 * **Centrally managed.** All configuration is delivered via your existing MDM (Jamf, Intune, Workspace ONE, Group Policy) and cannot be overridden by end users when an admin profile is present.
 
-For a detailed treatment of the threat model, sandbox boundaries, and data flows, request access to the [Claude Cowork Desktop Security Architecture Overview](https://trust.anthropic.com/resources?s=2a7bbzo1lyymvdt551q7kl&name=claude-cowork-desktop-security-architecture-overview) on Anthropic’s Trust Center. For architecture, telemetry, and controls information specific to Claude Desktop on 3P, see the [Claude Cowork Security Overview (Third-Party Platforms)](https://trust.anthropic.com/resources?s=0c8rx4s7mm5ierz8ppetfs&name=claude-cowork-security-overview-(third-party-platforms)) on the Trust Center.
+For a detailed treatment of the threat model, sandbox boundaries, and data flows, request access to the [Claude Cowork Desktop Security Architecture Overview](https://trust.anthropic.com/resources?s=2a7bbzo1lyymvdt551q7kl&name=claude-cowork-desktop-security-architecture-overview) on Anthropic’s Trust Center. For architecture, telemetry, and controls information specific to Claude Desktop on 3P, see the [Claude Desktop Security Overview (Third-party platforms)](https://trust.anthropic.com/resources?s=0c8rx4s7mm5ierz8ppetfs&name=claude-cowork-security-overview-(third-party-platforms)) on the Trust Center.
 
 ##  Data residency and international deployment
 
-**Google Cloud Vertex AI and Amazon Bedrock:** Inference requests go directly from the user’s machine to the regional endpoint you configure. Conversation data goes only to that endpoint, to local disk, and optionally to your configured OpenTelemetry collector. Residency is determined by:
+**Google Cloud’s Agent Platform and Amazon Bedrock:** Inference requests go directly from the user’s machine to the regional endpoint you configure. Conversation data goes only to that endpoint, to local disk, and optionally to your configured OpenTelemetry collector. Residency is determined by:
 
 1. The cloud region you select for inference
 2. The physical location of the user’s device, where conversations are persisted
 
-For multi-region organizations, deploy distinct MDM configuration profiles per geography so each user population points at an in-region endpoint. Vertex AI and Bedrock each offer Claude models in the EU, UK, and Asia/Pacific regions; consult your provider’s model-availability documentation for the current list.
+For multi-region organizations, deploy distinct MDM configuration profiles per geography so each user population points at an in-region endpoint. Google Cloud’s Agent Platform and Amazon Bedrock each offer Claude models in the EU, UK, and Asia/Pacific regions; consult your provider’s model-availability documentation for the current list.
 
 ##  Public sector and highly regulated environments
 
-This section applies when using Vertex AI or Bedrock.
+This section applies when using Google Cloud’s Agent Platform or Amazon Bedrock.
 Because inference runs in your cloud tenant, Claude Desktop on 3P operates inside whatever compliance boundary your provider and region give you. The desktop application itself contacts Anthropic-operated hosts only to download the VM workspace bundle and Claude CLI binary (always required), and for crash reporting, product analytics, non-essential services (connector favicons, artifact previews, and the MCP registry), and auto-updates. Each of the latter four can be disabled independently via managed configuration.
-With Anthropic-bound telemetry, non-essential services, and updates all disabled, the only remaining Anthropic-operated egress is `downloads.claude.ai` for the VM bundle at session start. Beyond that, the compliance posture of your deployment is determined by your inference provider. See [Telemetry and egress](/docs/third-party/claude-desktop/telemetry) for the full set of network paths and how to lock them down.
+With Anthropic-bound telemetry, non-essential services, and updates all disabled, the only remaining Anthropic-operated egress is `downloads.claude.ai` for the VM bundle at session start. Beyond that, the compliance posture of your deployment is determined by your inference provider. See [Telemetry and egress](https://claude.com/docs/third-party/claude-desktop/telemetry) for the full set of network paths and how to lock them down.
 
 ##  HIPAA
 
-This section applies when using Vertex AI or Bedrock.
+This section applies when using Google Cloud’s Agent Platform or Amazon Bedrock.
 Claude Desktop on 3P does not process user data, prompts, or completions. As such, Anthropic does not interact with PHI the user may upload to Claude Desktop on 3P; that data is transmitted only to the customer’s cloud service provider or any remote MCP servers they optionally choose to configure. For a HIPAA-compliant solution, customers should ensure they have a BAA in place with their CSP and review any MCP servers for HIPAA compliance before connecting them to Claude Desktop on 3P.
 Disabling telemetry is not required to run Claude Desktop on 3P in a HIPAA-compliant way, since Anthropic’s telemetry does not collect user data, prompts, or completions, only redacted crash reporting and aggregated usage metrics that do not reveal sensitive data.
 
@@ -78,5 +84,3 @@ Deploy MCP servers, plugins, skills, and hooks across your fleet.
 ## Telemetry and egress
 
 What the app sends to Anthropic, how to turn it off, and the firewall allowlist you’ll need.
-
-[Features](/docs/third-party/claude-desktop/feature-matrix)

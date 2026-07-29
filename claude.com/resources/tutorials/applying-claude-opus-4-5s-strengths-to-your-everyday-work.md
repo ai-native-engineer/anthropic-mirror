@@ -40,7 +40,7 @@ Claude Opus 4.5 is the most intelligent Claude model to date. The difference sho
 
 Some projects unfold over many messages. You research, then analyze, then draft, then revise—each phase building on what came before. Previously, long conversations would hit context limits, forcing you to start over in a new chat or re-explain everything Claude should already know.
 
-Opus 4.5 introduces infinite-length conversations (with compaction) through intelligent context management. As conversations grow, you can continue working without interruptions. The conversation can continue as long as the work requires. If you know a task will be long and complex, consider using Opus 4.5.  
+Opus 4.5 introduces infinite-length conversations (with compaction) through intelligent context management. As conversations grow, you can continue working without interruptions. The conversation can continue as long as the work requires. If you know a task will be long and complex, consider using Opus 4.5.
 This means staying in the same conversation through:
 
 * Research that spans many tools and sources
@@ -95,8 +95,8 @@ Notice the difference when Claude creates visual artifacts. Frontends and compon
 
 Opus 4.5 prioritizes depth and quality over speed. Individual responses take longer—but Opus is more efficient in how it reasons, getting to answers more directly. This is especially true for coding and technical work. We've adjusted limits to give you space to experience its capabilities.
 
-‍  
-​Most users switch between models based on the task. Reserve Opus for complex reasoning and work where quality matters most. Use Sonnet 4.5 for everyday conversations and routine tasks—it's fast and capable for most work. Haiku 4.5 is faster still, best for quick questions and simple tasks.  
+‍
+​Most users switch between models based on the task. Reserve Opus for complex reasoning and work where quality matters most. Use Sonnet 4.5 for everyday conversations and routine tasks—it's fast and capable for most work. Haiku 4.5 is faster still, best for quick questions and simple tasks.
 ​You can monitor your usage at [claude.ai/settings/usage](https://claude.ai/settings/usage).
 
 #### Start with Opus 4.5 when:
@@ -119,34 +119,34 @@ Opus 4.5 prioritizes depth and quality over speed. Individual responses take lon
 
 ## Related tutorials
 
-[Tasks to try with @Claude in your workspace](/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tasks to try with @Claude in your workspace
+[Delegating and scheduling tasks in Claude Cowork](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Delegating and scheduling tasks in Claude Cowork
+
+Delegating and scheduling tasks in Claude Cowork
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Tutorial
+
+[Tasks to try with @Claude in your workspace](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tasks to try with @Claude in your workspace
 
 Tasks to try with @Claude in your workspace
 
 Tutorial
 
-[Tutorial](/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tutorial
 
-[Best practices for using @Claude](/resources/tutorials/best-practices-using-claude-tag)Best practices for using @Claude
+[Best practices for using @Claude](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Best practices for using @Claude
 
 Best practices for using @Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/best-practices-using-claude-tag)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Tutorial
 
-[Using Claude Cowork for legal: answer fast questions on past decisions](/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Using Claude Cowork for legal: answer fast questions on past decisions
+[Using Claude Cowork for legal: answer fast questions on past decisions](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Using Claude Cowork for legal: answer fast questions on past decisions
 
 Using Claude Cowork for legal: answer fast questions on past decisions
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial
-
-[Using Claude Cowork for marketing ops: run a weekly review that preps itself](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Tutorial
-
-[Tutorial](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial

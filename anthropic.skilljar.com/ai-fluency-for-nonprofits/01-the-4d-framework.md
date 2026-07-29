@@ -18,9 +18,11 @@ This video introduces the 4D Framework—four interconnected competencies that f
 #### Key takeaways
 
 * The Delegation-Diligence loop guides higher-level decisions about when to use AI
-+ **Delegation** involves deciding what work should be done by humans versus AI. It includes Problem Awareness (understanding your goals), Platform Awareness (knowing your tools' capabilities and limitations), and Task Delegation (distributing work thoughtfully) + **Diligence** means taking responsibility for how you use AI. It includes Creation Diligence (being intentional about which tools you use), Transparency Diligence (being honest about AI's role), and Deployment Diligence (verifying and vouching for outputs)
+  + **Delegation** involves deciding what work should be done by humans versus AI. It includes Problem Awareness (understanding your goals), Platform Awareness (knowing your tools' capabilities and limitations), and Task Delegation (distributing work thoughtfully)
+  + **Diligence** means taking responsibility for how you use AI. It includes Creation Diligence (being intentional about which tools you use), Transparency Diligence (being honest about AI's role), and Deployment Diligence (verifying and vouching for outputs)
 * The **Description-Discernment loop** guides effective day-to-day interactions
-+ **Description** is how you communicate effectively with AI systems. It includes Product Description (defining outputs), Process Description (guiding the approach), and Performance Description (shaping AI behavior during collaboration) + **Discernment** means critically evaluating AI's work. It includes Product Discernment (evaluating quality), Process Discernment (evaluating how AI arrived at outputs), and Performance Discernment (evaluating AI behavior)
+  + **Description** is how you communicate effectively with AI systems. It includes Product Description (defining outputs), Process Description (guiding the approach), and Performance Description (shaping AI behavior during collaboration)
+  + **Discernment** means critically evaluating AI's work. It includes Product Discernment (evaluating quality), Process Discernment (evaluating how AI arrived at outputs), and Performance Discernment (evaluating AI behavior)
 
 ## Exercises
 
@@ -28,7 +30,9 @@ This video introduces the 4D Framework—four interconnected competencies that f
 
 *Why? This exercise reveals which AI competencies you're already thinking about and which ones need attention, so you can strategically direct your energy where it matters most.*
 
-1. *Self-Reflection:* Write a list of your questions and concerns about using AI 2. *Collaboration:* Open up a conversation with AI. Ask AI "Can you help me understand where each of these questions and concerns fits within the AI Fluency 4D framework?" 3. *Reflection:* Which of the 4 competencies did most of your questions and concerns fall into?
+1. *Self-Reflection:* Write a list of your questions and concerns about using AI
+2. *Collaboration:* Open up a conversation with AI. Ask AI "Can you help me understand where each of these questions and concerns fits within the AI Fluency 4D framework?"
+3. *Reflection:* Which of the 4 competencies did most of your questions and concerns fall into?
    * This pattern reveals where you're currently focusing your attention. Is this where you most need to develop, or are you avoiding a harder competency that would unlock more progress?
    * Based on the competency you identified to prioritize first, what's one specific thing you'll do differently the next time you use AI?
 
@@ -59,7 +63,6 @@ As you progress through the course, we'd love to hear from you about how you are
 #### Acknowledgments and license
 
 *Copyright 2025 Anthropic and Giving Tuesday. Based on the AI Fluency Framework developed by Prof. Rick Dakan (Ringling College of Art and Design) and Prof. Joseph Feller (University College Cork). Released under the CC BY-NC-SA 4.0 license.*
-
 <!-- youtube: EgF7VcznCOc -->
 
 [![The 4d Framework](https://img.youtube.com/vi/EgF7VcznCOc/hqdefault.jpg)](https://www.youtube.com/watch?v=EgF7VcznCOc)

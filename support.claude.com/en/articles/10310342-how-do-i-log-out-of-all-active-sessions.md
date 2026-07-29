@@ -2,6 +2,8 @@
 
 # How do I log out of all active sessions?
 
+March 16, 2026
+
 If you need to sign out of your Claude account across all devices, you can do this through [Settings > Account](https://claude.ai/settings/account) on the web version of Claude. This is particularly useful if you've forgotten to log out on a shared device or suspect unauthorized access to your account.
 
 **Note:** This option is not currently available in the Claude mobile apps for iOS or Android.
@@ -32,10 +34,14 @@ To regain access to your account on any device, you'll need to authenticate agai
 
 If you used your Claude account to authenticate into Claude Code, you can manage your authorization tokens by navigating to [Settings > Claude Code](http://claude.ai/settings/claude-code). To remove a token and log out of Claude Code, click the trash can icon.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1608263923/b4fa7d6f6f08f2adffb4ea63bc58/image+%287%29.png?expires=1782460800&signature=30dc761277cdd86e8b349bcd5b4c47e2f8446d4b7c63d3ee949cde5c606b00bd&req=dSYnHst4nohdWvMW1HO4zVuHih750GezAQofdwM8qVcwinQMooS3YrcGZKSO%0AdPtj1ohAn7rYqxuKshE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1608263923/b4fa7d6f6f08f2adffb4ea63bc58/image+%287%29.png?expires=1782460800&signature=30dc761277cdd86e8b349bcd5b4c47e2f8446d4b7c63d3ee949cde5c606b00bd&req=dSYnHst4nohdWvMW1HO4zVuHih750GezAQofdwM8qVcwinQMooS3YrcGZKSO%0AdPtj1ohAn7rYqxuKshE%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1608263923/b4fa7d6f6f08f2adffb4ea63bc58/image+%287%29.png?expires=1785295800&signature=57fa25f00790e04044b8af7518685d7b5f3972e64980a7a34a3834fa986ce74d&req=dSYnHst4nohdWvMW1HO4zVuHihn%2F32KzAQofdwM8qVdf8ELyznucSSbA4vYP%0Av0ocEjm0GRtS3X%2FeCFk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1608263923/b4fa7d6f6f08f2adffb4ea63bc58/image+%287%29.png?expires=1785295800&signature=57fa25f00790e04044b8af7518685d7b5f3972e64980a7a34a3834fa986ce74d&req=dSYnHst4nohdWvMW1HO4zVuHihn%2F32KzAQofdwM8qVdf8ELyznucSSbA4vYP%0Av0ocEjm0GRtS3X%2FeCFk%3D%0A)
 
 ## Unable to access your account?
 
 If you're unable to sign into your account to log out of all sessions, contact our Support team by clicking on the message icon in the bottom right of any Help Center page. See [How to Get Support](https://support.claude.com/en/articles/9015913-how-to-get-support) for additional information.
 
-[How do I cancel my paid Claude subscription?](https://support.claude.com/en/articles/8325617-how-do-i-cancel-my-paid-claude-subscription)[Managing your active sessions](https://support.claude.com/en/articles/13124001-managing-your-active-sessions)[Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)[Logging in to your Console account](https://support.claude.com/en/articles/13371040-logging-in-to-your-console-account)[Open the Claude mobile app with a link](https://support.claude.com/en/articles/14898120-open-the-claude-mobile-app-with-a-link)
+* [How do I sign up for the Pro plan?](https://support.claude.com/en/articles/8325609-how-do-i-sign-up-for-the-pro-plan)
+* [Managing your active sessions](https://support.claude.com/en/articles/13124001-managing-your-active-sessions)
+* [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
+* [Logging in to your Console account](https://support.claude.com/en/articles/13371040-logging-in-to-your-console-account)
+* [Open the Claude mobile app with a link](https://support.claude.com/en/articles/14898120-open-the-claude-mobile-app-with-a-link)

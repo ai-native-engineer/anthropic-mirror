@@ -10,6 +10,7 @@ Query your Ontra data directly from any AI tool
 * Used in
 
   [Claude](https://claude.ai/directory/44c1fc8d-e5df-4846-be1d-a57db7070783)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Ontra](https://www.ontra.ai/)
 
@@ -22,19 +23,19 @@ Query your Ontra data directly from any AI tool
   Read
 * More
 
-  [Documentation](https://customer.ontra.ai/hc/en-us/articles/45957572721037-Set-up-your-Atlas-MCP)[Privacy Policy](https://www.ontra.ai/privacy-policy)[customer.care@ontra.ai](mailto:customer.care@ontra.ai)
+  [Documentation](https://customer.ontra.ai/hc/en-us/articles/45957572721037-Set-up-your-Atlas-MCP)[Privacy Policy](https://www.ontra.ai/privacy-policy)[Support](mailto:customer.care@ontra.ai)
 
 The Ontra MCP Server lets you query your Ontra data directly from Claude and other AI tools — no need to switch between applications. Ask questions about legal entities, ownership structures, funds, people, agreements, tax classifications, jurisdictions, and more. Results respect your existing Ontra permissions, so users only see data they already have access to. Setup takes about a minute via a quick OAuth flow with your Ontra credentials.
 
 You can use Ontra to:
 
-**Entity lookup:**  
+**Entity lookup:**
 "List all legal entities under our Fund IV structure and their jurisdictions."
 
-**Ownership tracing:**  
+**Ownership tracing:**
 "Show me the ownership chain from Ontra for Acme Holdings LLC up to its ultimate parent."
 
-**Obligation check:**  
+**Obligation check:**
 "Which side letters in Fund III include MFN provisions?"
 
 ## Related connectors
@@ -51,7 +52,7 @@ June 22, 2026
 
 ### Affinity
 
-Search, update, and prep deals without switching tabs.](/connectors/affinity)
+Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
 
 Financial services
 
@@ -59,11 +60,11 @@ Claude
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd9230df5f81ef095019_Aiera.jpg)
+[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
 
 ### Aiera
 
-Live events, filings, company publications, and more](/connectors/aiera)
+Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
 
 Financial services
 
@@ -73,11 +74,11 @@ Claude Code
 
 February 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977ee686ffe1cb730e94f07_Airwallex%20Mark%20-%20Colour%20-%20Square.png)
+[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
 
 ### Airwallex
 
-Integrate with the Airwallex Platform using Claude](/connectors/airwallex)
+Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
 
 Financial services
 
@@ -87,8 +88,8 @@ Claude Code
 
 April 8, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c05a2e0f10f41c8f005ee0_Aiwyn_Logo_Mark_Square%20(1).svg)
+[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
 
 ### Aiwyn Tax
 
-Estimate your federal & state taxes with Aiwyn's tax engine](/connectors/aiwyn-tax)
+Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)

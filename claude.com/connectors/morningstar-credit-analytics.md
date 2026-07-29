@@ -12,6 +12,7 @@ Structured credit insights and analytics
 * Used in
 
   [Claude](https://claude.ai/directory/740dd9b1-b6ea-46b2-936f-6b9c6f19a366)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Morningstar Credit Analytics](https://credit.morningstar.com/)
 
@@ -26,22 +27,22 @@ Structured credit insights and analytics
   Interactive
 * More
 
-  [Documentation](https://www.morningstar.com/business/products/direct-ai-solutions)[Privacy Policy](https://www.morningstar.com/company/privacy-center/privacy-policy)[analytics.support@dealx.com](mailto:analytics.support@dealx.com)
+  [Documentation](https://www.morningstar.com/business/products/direct-ai-solutions)[Privacy Policy](https://www.morningstar.com/company/privacy-center/privacy-policy)[Support](mailto:analytics.support@dealx.com)
 
 Integrate Morningstar's comprehensive investment data and independent research directly into your AI workflows. Through our MCP-powered connector, clients can explore cross-asset coverage—including funds, equities, and beyond, enhanced by forward-looking insights from our global analyst teams. Access trusted, unbiased intelligence to support investment decisions, due diligence, and portfolio strategy in one seamless experience.
 
 You can use Morningstar Credit Analytics to:
 
-**Pull a deal summary:**  
+**Pull a deal summary:**
 "Pull the deal summary for JPMCC 2019-COR4"
 
-**Screen for delinquent loans:**  
+**Screen for delinquent loans:**
 "Show me the top 10 active office loans that are delinquent, sorted by balance"
 
-**Run portfolio surveillance:**  
+**Run portfolio surveillance:**
 "Run portfolio surveillance for CMBX17"
 
-**Get the loss forecast:**  
+**Get the loss forecast:**
 "What is the loss forecast for BMARK 2022-B34?"
 
 ## Related connectors
@@ -54,11 +55,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Financial services
 
@@ -72,7 +73,7 @@ June 22, 2026
 
 ### Affinity
 
-Search, update, and prep deals without switching tabs.](/connectors/affinity)
+Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
 
 Financial services
 
@@ -80,11 +81,11 @@ Claude
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd9230df5f81ef095019_Aiera.jpg)
+[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
 
 ### Aiera
 
-Live events, filings, company publications, and more](/connectors/aiera)
+Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
 
 Data
 
@@ -98,4 +99,4 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)

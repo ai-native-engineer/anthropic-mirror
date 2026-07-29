@@ -24,12 +24,16 @@ While single-agent systems handle most enterprise workflows effectively, multi-a
 
   https://claude.com/blog/building-multi-agent-systems-when-and-how-to-use-them
 
-A multi-agent system is an architecture where multiple LLM instances run with separate conversation contexts, coordinated through code. Multiple coordination patterns exist (agent swarms, capability-based systems, and message bus architectures), but this article focuses on the orchestrator-subagent pattern: a hierarchical model where a lead agent spawns and manages specialized subagents for specific subtasks. This pattern offers a straightforward coordination model and is a good starting point for teams new to multi-agent systems. We'll explore other patterns in detail in our next article.
+## What is a multi-agent system?
+
+A multi-agent system is an architecture where multiple LLM instances run with separate conversation contexts, coordinated through code. Each agent handles a distinct slice of a task — a subagent researches while an orchestrator plans, for example — which protects context, enables parallel work, and allows specialization a single agent can't sustain.
+
+Multiple coordination patterns exist (agent swarms, capability-based systems, and message bus architectures), but this article focuses on the orchestrator-subagent pattern: a hierarchical model where a lead agent spawns and manages specialized subagents for specific subtasks. This pattern offers a straightforward coordination model and is a good starting point for teams new to multi-agent systems. We'll explore other patterns in detail in our next article.
 
 Today, multi-agent systems are often applied in situations where a single agent would perform better, though this calculus continues to evolve as models improve. At Anthropic, we’ve seen teams invest months building elaborate multi-agent architectures only to discover that improved prompting on a single agent achieved equivalent results.
 
-After building multi-agent systems and working with teams deploying them in production, we've identified three situations where multiple agents consistently outperform a single agent: when context pollution degrades performance, when tasks can run in parallel, and when specialization improves tool selection or task focus. Outside these situations, the coordination costs typically exceed the benefits.  
-  
+After building multi-agent systems and working with teams deploying them in production, we've identified three situations where multiple agents consistently outperform a single agent: when context pollution degrades performance, when tasks can run in parallel, and when specialization improves tool selection or task focus. Outside these situations, the coordination costs typically exceed the benefits.
+
 In this article, we share how to recognize single-agent limits, identify the three scenarios where multi-agent systems excel, and avoid common implementation mistakes.
 
 ## The case for starting with a single agent
@@ -42,7 +46,7 @@ We've observed teams build elaborate multi-agent systems with separate agents fo
 
 ## A decision framework for multi-agent systems
 
-Multi-agent architectures provide value when they address specific constraints that a single agent cannot overcome. This means multi-agent architectures should be reserved for cases where they provide clear benefits that justify the additional cost.
+Multi-agent architectures provide value when they address specific constraints that a single agent cannot overcome. This means multi-agent architectures should be reserved for cases where they provide clear benefits that justify the additional cost. Managed infrastructure can also handle this for you (see [multiagent orchestration in Claude Managed Agents)](https://claude.com/blog/new-in-claude-managed-agents).
 
 The patterns below represent cases where we consistently observe positive returns on this investment.
 
@@ -102,7 +106,7 @@ class SupportAgent:
             order_summary = OrderLookupAgent().lookup_order(order_id)
             # Inject compact summary, not full context
             context = f"Order {order_id}: {order_summary['status']}, purchased {order_summary['date']}"
-        
+
         # Main agent context stays clean
         messages = [
             {"role": "user", "content": f"{context}\n\nUser issue: {user_message}"}
@@ -123,7 +127,7 @@ Context isolation is most effective when subtasks generate high context volume (
 
 Running multiple agents in parallel allows you to explore a larger search space than a single agent can cover. This pattern has proven particularly valuable for search and research tasks.
 
-Our [Research feature](https://www.anthropic.com/engineering/multi-agent-research-system) uses this approach. A lead agent analyzes a query and spawns multiple subagents to investigate different facets in parallel. Each subagent searches independently, then returns distilled findings. Multi-agent search has shown substantial accuracy improvements over single-agent approaches by allowing exploration across larger information spaces.
+Anthropic's research team documented this in [how we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system). A lead agent analyzes a query and spawns multiple subagents to investigate different facets in parallel. Each subagent searches independently, then returns distilled findings. Multi-agent search has shown substantial accuracy improvements over single-agent approaches by allowing exploration across larger information spaces.
 
 The core implementation decomposes a question into independent facets, runs subagents concurrently, then synthesizes the results.
 
@@ -136,14 +140,14 @@ client = AsyncAnthropic()
 async def research_topic(query: str) -> dict:
     # Lead agent breaks query into research facets
     facets = await lead_agent.decompose_query(query)
-    
+
     # Spawn subagents to research each facet in parallel
     tasks = [
-        research_subagent(facet) 
+        research_subagent(facet)
         for facet in facets
     ]
     results = await asyncio.gather(*tasks)
-    
+
     # Lead agent synthesizes findings
     return await lead_agent.synthesize(results)
 
@@ -181,6 +185,8 @@ When an agent has access to too many tools, performance suffers. Three signals i
 
 Different tasks sometimes require different personas, constraints, or instructions that conflict when combined. A customer support agent needs to be empathetic and patient; a code review agent needs to be precise and critical. A compliance-checking agent needs rigid rule-following; a brainstorming agent needs creative flexibility. When a single agent must switch between conflicting behavioral modes, separating into specialized agents with tailored system prompts produces more consistent results.
 
+Each specialized agent is only as good as its instructions — the same [prompt engineering best practices](https://claude.com/blog/best-practices-for-prompt-engineering) that improve a single agent's outputs apply to every subagent's system prompt.
+
 #### **Domain expertise specialization**
 
 Some tasks benefit from deep domain context that would overwhelm a generalist agent. A legal analysis agent might need extensive context about case law and regulatory frameworks. A medical research agent might need specialized knowledge about clinical trial methodology. Rather than loading all domain context into a single agent, specialized agents can carry focused expertise relevant to their specific responsibilities.
@@ -195,8 +201,8 @@ client = Anthropic()
 # Specialized agents with focused toolsets and tailored prompts
 class CRMAgent:
     """Handles customer relationship management operations"""
-    system_prompt = """You are a CRM specialist. You manage contacts, 
-    opportunities, and account records. Always verify record ownership 
+    system_prompt = """You are a CRM specialist. You manage contacts,
+    opportunities, and account records. Always verify record ownership
     before updates and maintain data integrity across related records."""
     tools = [
         crm_get_contacts,
@@ -206,8 +212,8 @@ class CRMAgent:
 
 class MarketingAgent:
     """Handles marketing automation operations"""
-    system_prompt = """You are a marketing automation specialist. You 
-    manage campaigns, lead scoring, and email sequences. Prioritize 
+    system_prompt = """You are a marketing automation specialist. You
+    manage campaigns, lead scoring, and email sequences. Prioritize
     data hygiene and respect contact preferences."""
     tools = [
         marketing_get_campaigns,
@@ -279,7 +285,7 @@ It's worth noting that more capable orchestrator models (like Claude Opus 4.5) a
 
 Verification subagents succeed because they sidestep the telephone game problem. Verification requires minimal context transfer by nature, so a verifier can blackbox-test a system without needing the full history of how it was built.
 
-### Implementation
+### Implementating a multi-agent system
 
 The main agent completes a unit of work. Before proceeding, it spawns a verification subagent with the artifact to verify, clear success criteria, and tools to perform verification.
 
@@ -344,16 +350,16 @@ def implement_with_verification(requirements: str, max_attempts: int = 3):
             requirements,
             result['files_changed']
         )
-        
+
         if verification['passed']:
             return result
-        
+
         requirements += f"\n\nPrevious attempt failed: {verification['issues']}"
-    
+
     raise Exception(f"Failed verification after {max_attempts} attempts")
 ```
 
-### Applications
+### Multi-agent system applications
 
 Verification subagents are effective for:
 
@@ -373,7 +379,7 @@ Mitigation strategies include:
 * **Negative tests.** Direct the verifier to attempt inputs that should fail and confirm they do.
 * **Explicit instructions.** The instruction "You MUST run the complete test suite before marking as passed" is essential. Without explicit requirements for comprehensive validation, verification agents take shortcuts.
 
-## Moving forward
+## Choosing between single-agent and multi-agent systems
 
 Multi-agent systems are powerful, but not universally appropriate. Before adding the complexity of multiple coordinated agents, confirm that:
 
@@ -413,53 +419,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e13864f88ea55c2d8_b5c98d26c46edc43193e7f7e28a00633a538bb9c-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
-Mar 5, 2026
+Jul 24, 2026
 
-### Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
+### Claude models explained: choosing the best model for your use case
+
+Enterprise AI
+
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
+
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Jul 24, 2026
+
+### The new rules of context engineering for Claude 5 generation models
+
+Claude Code
+
+[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
+
+[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
+
+Jul 21, 2026
+
+### How Anthropic secures its AI-native software development lifecycle
+
+Claude Code
+
+[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
+
+[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
+
+Jul 22, 2026
+
+### How Outtake built a cyber investigator on Claude
 
 Agents
 
-[Skills explained: How Skills compares to prompts, Projects, MCP, and subagents](#) Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
+[How Outtake built a cyber investigator on Claude](#)How Outtake built a cyber investigator on Claude
 
-[Skills explained: How Skills compares to prompts, Projects, MCP, and subagents](/blog/skills-explained) Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
-
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-Oct 31, 2025
-
-### What is Model Context Protocol? Connect AI to your world
-
-Agents
-
-[What is Model Context Protocol? Connect AI to your world](#)What is Model Context Protocol? Connect AI to your world
-
-[What is Model Context Protocol? Connect AI to your world](/blog/what-is-model-context-protocol)What is Model Context Protocol? Connect AI to your world
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2319ef2161fcf9ba649_ddad92700787ec1bf1d80359c0c5e6ca305682b0-1000x1000.svg)
-
-Oct 30, 2025
-
-### Building AI agents for financial services
-
-Agents
-
-[Building AI agents for financial services](#)Building AI agents for financial services
-
-[Building AI agents for financial services](/blog/building-ai-agents-in-financial-services)Building AI agents for financial services
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228c83775fcc75f4e6d_74409af25137110ac04cc39e4d5ea0a2fbcea421-1000x1000.svg)
-
-Oct 30, 2025
-
-### Building AI agents for healthcare and life sciences
-
-Agents
-
-[Building AI agents for healthcare and life sciences](#)Building AI agents for healthcare and life sciences
-
-[Building AI agents for healthcare and life sciences](/blog/building-ai-agents-in-healthcare-and-life-sciences)Building AI agents for healthcare and life sciences
+[How Outtake built a cyber investigator on Claude](https://claude.com/blog/how-outtake-built-a-cyber-investigator-on-claude)How Outtake built a cyber investigator on Claude
 
 ## Transform how your organization operates with Claude
 
@@ -478,25 +484,5 @@ Product updates, how-tos, community spotlights, and more. Delivered monthly to y
 Thank you! You’re subscribed.
 
 Sorry, there was a problem with your submission, please try again later.
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 
 Claude Code

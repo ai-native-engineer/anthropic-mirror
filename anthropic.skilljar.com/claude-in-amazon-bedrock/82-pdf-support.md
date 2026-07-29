@@ -4,6 +4,9 @@
 
 <!-- jwplayer-srt: https://cdn.jwplayer.com/tracks/4Cr18uLT.srt -->
 
-## 자막 (영상 전사)
+<details>
+<summary>자막: PDF support</summary>
 
 Besides reading images, Claude can also very easily read the contents of a PDF document as well. Let me show you a quick example of this. First, attach this lecture. You'll find a PDF file named earth.pdf. This is a printout of the first three pages of the Wikipedia article on earth. So it just has a couple of different facts around earth and our entire planet and whatnot. Make sure you download this attachment and put it in the same directory as your notebook. So if my notebook is inside this directory right here, I should see earth.pdf right next to it. Then to read the contents of that PDF and chat with it, all we do is change a couple of different properties in this exact same code that we have right here. So first, rather than opening up that image, I'm going to instead open up .slash.earth.pdf. Then just to kind of do things right here, we shouldn't really call this image bytes anymore, I'm going to rename it to be file bytes. And I'll make sure that I update the name down here as well. Now here's the only tricky part. We need to make a couple of updates to the structure right here, specifically the image part. So I'm going to first change image to document. I'm going to change the format to PDF. And then right after the format PDF, I'm going to add in another key value pair with a name of Earth. So the idea here is that this is supposed to be the name of the file that you are attaching, but without any extension. So there should not be a earth.pdf. It's just earth by itself. Then we can update our prompt. I'm going to put in a hard code string right here. I'll ask Claude to summarize this document in one sentence. Then I'm going to run this and we'll see what we get. All right, so clearly, Claude was able to read that PDF, take a look at all the content inside of it, and give us some reasonable response. Reading the contents of a PDF can be incredibly useful, especially when you combine it with another feature that we'll take a look at in just a moment called citations.
+
+</details>

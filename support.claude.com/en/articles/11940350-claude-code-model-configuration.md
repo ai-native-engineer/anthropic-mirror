@@ -2,7 +2,7 @@
 
 # Claude Code model configuration
 
-Updated over 2 weeks ago
+Updated this week
 
 This guide shows you three ways to change which Claude model you're using with Claude Code: the quick `/model` command for instant changes, the `--model` flag for one-time session changes, and environment variables to set your preferred model as the permanent default.
 
@@ -18,6 +18,8 @@ The simplest way to change models is to use the /model command directly within C
 
 ## Supported models
 
+* Opus 5, `claude-opus-5`
+* Sonnet 5, `claude-sonnet-5`
 * Fable 5, `claude-fable-5`
 * Opus 4.8, `claude-opus-4-8`
 * Opus 4.7, `claude-opus-4-7`
@@ -34,6 +36,8 @@ Use the `--model` flag when starting Claude Code.
 1. Start a fresh Terminal session.
 2. Enter the following commands (depending on the model you’d like to use for that session):
 
+   * **For Opus 5**: `claude --model claude-opus-5`
+   * **For Sonnet 5**: `claude --model claude-sonnet-5`
    * **For Fable 5**: `claude --model claude-fable-5`
    * **For Opus 4.8**: `claude --model claude-opus-4-8`
    * **For Opus 4.7**: `claude --model claude-opus-4-7`
@@ -54,6 +58,8 @@ Use the `--model` flag when starting Claude Code.
 
 ### For ZSH users (macOS)
 
+* Opus 5: `echo 'export ANTHROPIC_MODEL="claude-opus-5"' >> ~/.zshrc`
+* Sonnet 5: `echo 'export ANTHROPIC_MODEL="claude-sonnet-5"' >> ~/.zshrc`
 * Fable 5: `echo 'export ANTHROPIC_MODEL="claude-fable-5"' >> ~/.zshrc`
 * Opus 4.8: `echo 'export ANTHROPIC_MODEL="claude-opus-4-8"' >> ~/.zshrc`
 * Opus 4.7: `echo 'export ANTHROPIC_MODEL="claude-opus-4-7"' >> ~/.zshrc`
@@ -65,6 +71,8 @@ Use the `--model` flag when starting Claude Code.
 
 ### For BASH users (Linux)
 
+* Opus 5: `echo 'export ANTHROPIC_MODEL="claude-opus-5"' >> ~/.bashrc`
+* Sonnet 5: `echo 'export ANTHROPIC_MODEL="claude-sonnet-5"' >> ~/.bashrc`
 * Fable 5: `echo 'export ANTHROPIC_MODEL="claude-fable-5"' >> ~/.bashrc`
 * Opus 4.8: `echo 'export ANTHROPIC_MODEL="claude-opus-4-8"' >> ~/.bashrc`
 * Opus 4.7: `echo 'export ANTHROPIC_MODEL="claude-opus-4-7"' >> ~/.bashrc`
@@ -85,4 +93,8 @@ Use the `--model` flag when starting Claude Code.
 
 Now your chosen model will be the default for all future Claude Code sessions.
 
-[How up-to-date is Claude's training data?](https://support.claude.com/en/articles/8114494-how-up-to-date-is-claude-s-training-data)[How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)[How large is the Claude API’s context window?](https://support.claude.com/en/articles/8606395-how-large-is-the-claude-api-s-context-window)[Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)[Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)
+* [How up-to-date is Claude's training data?](https://support.claude.com/en/articles/8114494-how-up-to-date-is-claude-s-training-data)
+* [How large is the Claude API’s context window?](https://support.claude.com/en/articles/8606395-how-large-is-the-claude-api-s-context-window)
+* [Use Claude in Microsoft Foundry](https://support.claude.com/en/articles/12864745-use-claude-in-microsoft-foundry)
+* [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)
+* [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)

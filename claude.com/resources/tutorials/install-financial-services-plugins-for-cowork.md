@@ -3,21 +3,8 @@
 # Install financial services plugins for Claude Cowork
 
   Finance
-* Product
 
   Claude Cowork
-* Reading time
-
-  Watch time
-
-  5
-
-  min
-
-  min
-* Share
-
-  [Copy link](#)
 
   https://claude.com/resources/tutorials/install-financial-services-plugins-for-cowork
 
@@ -96,36 +83,26 @@ These plugins are designed as starting points. You can customize them to match y
 
 See our blog post for more information: [**Cowork and plugins for finance**](https://claude.com/blog/cowork-plugins-finance).
 
-## Related tutorials
-
-[How to build a plugin from scratch in Claude Cowork](/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)How to build a plugin from scratch in Claude Cowork
+[How to build a plugin from scratch in Claude Cowork](https://claude.com/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)How to build a plugin from scratch in Claude Cowork
 
 How to build a plugin from scratch in Claude Cowork
 
-Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)Tutorial
 
-[Tutorial](/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)Tutorial
-
-[Getting started with Claude in Excel](/resources/tutorials/getting-started-with-claude-in-excel)Getting started with Claude in Excel
+[Getting started with Claude in Excel](https://claude.com/resources/tutorials/getting-started-with-claude-in-excel)Getting started with Claude in Excel
 
 Getting started with Claude in Excel
 
-Tutorial
+[Tutorial](https://claude.com/resources/tutorials/getting-started-with-claude-in-excel)Tutorial
 
-[Tutorial](/resources/tutorials/getting-started-with-claude-in-excel)Tutorial
-
-[How to use Claude in Excel for accounting: Revenue model validation](/resources/tutorials/how-to-use-claude-in-excel-for-accounting-revenue-model-validation)How to use Claude in Excel for accounting: Revenue model validation
+[How to use Claude in Excel for accounting: Revenue model validation](https://claude.com/resources/tutorials/how-to-use-claude-in-excel-for-accounting-revenue-model-validation)How to use Claude in Excel for accounting: Revenue model validation
 
 How to use Claude in Excel for accounting: Revenue model validation
 
-Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-claude-in-excel-for-accounting-revenue-model-validation)Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-claude-in-excel-for-accounting-revenue-model-validation)Tutorial
-
-[How to use Claude in Excel for HR: Headcount planning](/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)How to use Claude in Excel for HR: Headcount planning
+[How to use Claude in Excel for HR: Headcount planning](https://claude.com/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)How to use Claude in Excel for HR: Headcount planning
 
 How to use Claude in Excel for HR: Headcount planning
 
-Tutorial
-
-[Tutorial](/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)Tutorial

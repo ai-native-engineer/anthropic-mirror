@@ -62,10 +62,10 @@ Connect tools where your support and feedback lives using connectors so Claude c
 
 ## Required context
 
-In [Settings > Connectors](https://claude.ai/setting/connectors), find and enable your [Intercom](http://claude.ai/directory/b2def8dc-ae47-4d46-877a-19b6a6ebb771) connector.  
-  
-Upload supplementary feedback that lives outside your tools—NPS responses, interview transcripts, feedback forms, user research notes.   
-  
+In [Settings > Connectors](https://claude.ai/setting/connectors), find and enable your [Intercom](http://claude.ai/directory/b2def8dc-ae47-4d46-877a-19b6a6ebb771) connector.
+
+Upload supplementary feedback that lives outside your tools—NPS responses, interview transcripts, feedback forms, user research notes.
+
 Click the (+) button in the chat bar to browse through your files, or alternatively, drag and drop files into the chat box area.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a2fe71448b6428d2f7044_intercom.svg)
@@ -179,7 +179,7 @@ Collaborate with Claude to source and analyze user feedback, so you can get to i
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a78cf9db6602a3d9b94a5_Screenshot%202025-11-04%20at%202.05.57%E2%80%AFPM.png)
 
@@ -189,34 +189,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Source insights from your tools to build a deck](/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Source insights from your tools to build a deck
+[Source insights from your tools to build a deck](https://claude.com/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Source insights from your tools to build a deck
 
 Source insights from your tools to build a deck
 
 Use case
 
-[Use case](/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Use case
+[Use case](https://claude.com/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Use case
 
-[Evaluate a company from the science to the balance sheet](/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Evaluate a company from the science to the balance sheet
+[Evaluate a company from the science to the balance sheet](https://claude.com/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Evaluate a company from the science to the balance sheet
 
 Evaluate a company from the science to the balance sheet
 
 Use case
 
-[Use case](/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Use case
+[Use case](https://claude.com/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Use case
 
-[Build analysis from browser charts and folder data](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Build analysis from browser charts and folder data
+[Build analysis from browser charts and folder data](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Build analysis from browser charts and folder data
 
 Build analysis from browser charts and folder data
 
 Use case
 
-[Use case](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Use case
+[Use case](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Use case
 
-[Build a daily briefing across your tools](/resources/use-cases/build-a-daily-briefing-across-your-tools)Build a daily briefing across your tools
+[Build a daily briefing across your tools](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)Build a daily briefing across your tools
 
 Build a daily briefing across your tools
 
 Use case
 
-[Use case](/resources/use-cases/build-a-daily-briefing-across-your-tools)Use case
+[Use case](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)Use case

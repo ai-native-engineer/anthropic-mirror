@@ -10,6 +10,7 @@ Explore Kpler's maritime and commodities intelligence
 * Used in
 
   [Claude](https://claude.ai/directory/da9095ee-b79c-4e1c-a43f-6d82f9125429)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Kpler](https://www.kpler.com)
 
@@ -22,22 +23,22 @@ Explore Kpler's maritime and commodities intelligence
   Read
 * More
 
-  [Documentation](https://developers.kpler.com/tutorials/mcp/what-is-kpler-mcp)[Privacy Policy](https://developers.kpler.com/tutorials/mcp/kpler-mcp-privacy-and-security)[support@kpler.com](mailto:support@kpler.com)
+  [Documentation](https://developers.kpler.com/tutorials/mcp/what-is-kpler-mcp)[Privacy Policy](https://developers.kpler.com/tutorials/mcp/kpler-mcp-privacy-and-security)[Support](mailto:support@kpler.com)
 
 The Kpler MCP connector gives Claude read-only access to Kpler's maritime and commodities intelligence — analyst-verified trade flows, AIS vessel tracking, port calls, refinery operations, freight markets, compliance risk, and supply/demand balances. Ask questions in plain English instead of writing API calls or SQL. Built for the analysts, traders, compliance officers, and operators who already use Kpler day-to-day. All operations are read-only; the connector cannot modify any data in Kpler's systems.
 
 You can use Kpler to:
 
-**Track trade flows and cargo movements:**  
+**Track trade flows and cargo movements:**
 "What crude oil trades from Saudi Arabia to China are scheduled for next month?"
 
-**Follow vessels and shipments in real time:**  
+**Follow vessels and shipments in real time:**
 "Track recent LNG cargoes leaving Qatar and show me where those carriers are now."
 
-**Screen vessels for compliance and ownership risk:**  
+**Screen vessels for compliance and ownership risk:**
 "Check the compliance risk and beneficial owners of the tankers that loaded crude in Venezuela over the past month."
 
-**Monitor onshore asset operations:**  
+**Monitor onshore asset operations:**
 "Which LNG terminals in the US Gulf had outages in the last 30 days?"
 
 ## Related connectors
@@ -50,11 +51,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -68,7 +69,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -82,7 +83,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -94,4 +95,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

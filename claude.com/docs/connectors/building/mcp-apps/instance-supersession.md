@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/connectors/building/mcp-apps/instance-supersession -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Each time Claude calls a tool that renders an MCP App, a separate iframe is mounted in the conversation. There is no host API to unmount earlier instances when a newer one appears, so by default you end up with several live copies of the same widget, each independently pushing [model-context updates](https://modelcontextprotocol.github.io/ext-apps/api/classes/app.App.html#updatemodelcontext) (data the widget feeds into Claude’s context for the next turn) and [messages](https://modelcontextprotocol.github.io/ext-apps/api/classes/app.App.html#sendmessage) to Claude.
 If your widget represents a single piece of state, such as a shopping cart or a dashboard, only the most recent instance should remain interactive. You can use [`BroadcastChannel`](https://developer.mozilla.org/docs/Web/API/BroadcastChannel) to make earlier instances disable themselves.
 The snippets on this page assume you have registered a UI resource and tool and created an `App` instance from `@modelcontextprotocol/ext-apps`. See the [SDK Quickstart](https://modelcontextprotocol.github.io/ext-apps/api/documents/Quickstart.html) if you haven’t.
@@ -17,6 +25,7 @@ The pattern has three parts:
 
 Use [`registerAppTool`](https://modelcontextprotocol.github.io/ext-apps/api/functions/server-helpers.registerAppTool.html) to register the tool, and return the key in `structuredContent` alongside your normal tool output. A per-process counter works for a demo; a production server should derive the key from something durable, such as a database row ID or a version number on the underlying record.
 
+```
 import { registerAppTool } from "@modelcontextprotocol/ext-apps/server";
 import { z } from "zod";
 
@@ -43,6 +52,7 @@ registerAppTool(
     };
   },
 );
+```
 
 ###  Why not use client-side `Date.now()`?
 
@@ -56,6 +66,7 @@ The four snippets in this section form a single module; paste them in order into
 
 Connect and read the values you need from the host: your instance ID from [`hostContext.toolInfo`](https://modelcontextprotocol.github.io/ext-apps/api/interfaces/app.McpUiHostContext.html#toolinfo), and the server-minted key from the `toolresult` event. The event’s `structuredContent` is typed `Record<string, unknown>`, so cast it to the shape your server returns.
 
+```
 import { App } from "@modelcontextprotocol/ext-apps";
 
 type CartResult = { items?: string[]; createdAt?: number; seq?: number };
@@ -82,11 +93,13 @@ app.addEventListener("toolresult", (params) => {
 await app.connect();
 const hostContext = app.getHostContext();
 const instanceId = hostContext?.toolInfo?.id ?? crypto.randomUUID();
+```
 
 ###  Broadcast and compare on a shared channel
 
 Broadcast the key and compare against every sibling you hear from. The comparison is `createdAt`, tie-broken by `seq`, then by instance ID for determinism. Ignore inbound messages until your own key is finalized so you never reply with an undefined key.
 
+```
 const channel = new BroadcastChannel("my-app-cart-supersede");
 const peers = new Map<string, { orderKey: number; seq?: number; instanceId: string }>();
 
@@ -117,11 +130,13 @@ function announce() {
   channel.postMessage({ type: "hello", instanceId, orderKey, seq });
   channel.postMessage({ type: "born", instanceId, orderKey, seq });
 }
+```
 
 ###  Gate host-mutating calls on `!superseded`
 
 The election only matters if superseded instances actually stop talking to Claude. Guard every call to [`updateModelContext`](https://modelcontextprotocol.github.io/ext-apps/api/classes/app.App.html#updatemodelcontext) or [`sendMessage`](https://modelcontextprotocol.github.io/ext-apps/api/classes/app.App.html#sendmessage):
 
+```
 // addButton, card, badge: elements in your widget's DOM.
 // pickRandomItem: your own helper that returns a string.
 
@@ -138,16 +153,19 @@ addButton.onclick = () => {
   render();
   updateModelContext();
 };
+```
 
 ###  Reflect the state in the UI
 
 In your render function, disable buttons and show a banner that points the user to the newest instance:
 
+```
 function render() {
   card.classList.toggle("superseded", superseded);
   badge.textContent = superseded ? "Superseded" : "Live";
   addButton.disabled = superseded;
 }
+```
 
 ##  Special considerations
 
@@ -164,6 +182,7 @@ The election above covers the common case. A production widget should also handl
 
 The main snippet above waits for the `toolresult` event before announcing. If you want the widget to participate in the election even when that event is slow to arrive, replace that listener with one that resolves a promise, and race the promise against a short timeout after `connect()`:
 
+```
 let resolveServerKey!: (k: { orderKey: number; seq?: number }) => void;
 const serverKeyReady = new Promise<{ orderKey: number; seq?: number }>(
   (r) => (resolveServerKey = r),
@@ -188,6 +207,7 @@ orderKey = serverKey?.orderKey ?? Date.now();
 seq = serverKey?.seq;
 keyFinalized = true;
 announce();
+```
 
 If the server key arrives after the timeout, adopt it, recompute `superseded` against the peers you have already heard from, and re-announce so siblings update their view of you. The recomputed result may flip the instance back to live.
 
@@ -195,6 +215,7 @@ If the server key arrives after the timeout, adopt it, recompute `superseded` ag
 
 This applies only if you implemented the fallback above. If you fall back to a client-side `Date.now()` while waiting for the server key, tag the key with its source and refuse to compare a client value against a server value. A server `createdAt` from a tool call made hours ago will always be smaller than a fresh client timestamp, which would wrongly hand “live” to whichever instance happened to fall back. Include `keySource` in the broadcast payload (`announce()` and the `born` reply) and in the `peers` Map value type so siblings can read it:
 
+```
 type KeySource = "server" | "client";
 let keySource: KeySource = "client";
 
@@ -205,6 +226,7 @@ function isYounger(other: { orderKey: number; seq?: number; instanceId: string; 
   if (other.seq != null && seq != null && other.seq !== seq) return other.seq > seq;
   return String(other.instanceId) > String(instanceId);
 }
+```
 
 ###  Caching the key across remounts
 
@@ -213,11 +235,9 @@ Treat this as an optimization rather than a correctness guarantee. On Claude iOS
 
 ###  If you bypass the SDK `App` class
 
-The snippets on this page use the SDK’s [`App`](https://modelcontextprotocol.github.io/ext-apps/api/classes/app.App.html) class. If you instead hand-roll a minimal `postMessage` bridge, it will silently drop requests sent from the host to the widget, such as `ping` (a liveness check) and [`ui/resource-teardown`](https://modelcontextprotocol.github.io/ext-apps/api/types/app.McpUiResourceTeardownRequest.html) (the host asking the widget to clean up before unmount). Claude.ai web does not currently send either to widgets, and Claude iOS sends `ui/resource-teardown` only when the user navigates away from the conversation, so ignoring them is harmless today. The `App` class handles the full request surface and is recommended for production.
+The snippets on this page use the SDK’s [`App`](https://modelcontextprotocol.github.io/ext-apps/api/classes/app.App.html) class. If you instead hand-roll a minimal `postMessage` bridge, it will silently drop requests sent from the host to the widget, such as `ping` (a liveness check) and [`ui/resource-teardown`](https://apps.extensions.modelcontextprotocol.io/api/interfaces/app.McpUiResourceTeardownRequest.html) (the host asking the widget to clean up before unmount). Claude.ai web does not currently send either to widgets, and Claude iOS sends `ui/resource-teardown` only when the user navigates away from the conversation, so ignoring them is harmless today. The `App` class handles the full request surface and is recommended for production.
 
 ##  Related topics
 
-* [Cross-platform compatibility](/docs/connectors/building/mcp-apps/cross-compatibility#domain-handling) for how `_meta.ui.domain` is computed on Claude.
+* [Cross-platform compatibility](https://claude.com/docs/connectors/building/mcp-apps/cross-compatibility#domain-handling) for how `_meta.ui.domain` is computed on Claude.
 * [SDK API reference](https://modelcontextprotocol.github.io/ext-apps/api/index.html) for `registerAppTool`, `App`, and `McpUiResourceMeta`.
-
-[Transparency and theming](/docs/connectors/building/mcp-apps/transparent-theming)[Cross-platform compatibility](/docs/connectors/building/mcp-apps/cross-compatibility)

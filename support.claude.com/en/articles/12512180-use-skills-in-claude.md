@@ -2,7 +2,7 @@
 
 # Use skills in Claude
 
-Updated over a month ago
+Updated over a week ago
 
 Skills are available for users on Free, Pro, Max, Team, and Enterprise plans. This feature requires **[code execution to be enabled](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_1c99382190)**. Skills are also available in beta for Claude Code users and for all API users using the code execution tool.
 
@@ -90,7 +90,7 @@ You can toggle the skill off again at any time, or delete it from your list enti
 
 ### Install a skill from your organization's directory
 
-1. In Cowork, click **Customize** in the left sidebar, then click [placeholder: the "+" button] to open the directory.
+1. In Cowork, click **Customize** in the left sidebar, then click the "+" button to open the directory.
 2. Click the **Skills** tab.
 3. Find the skill you want and click "Install."
 
@@ -131,7 +131,7 @@ To remove a custom skill you've uploaded:
 3. Use the toggle in the upper right corner to disable the skill.
 4. To delete the custom skill entirely, click the "..." button next to the toggle, then select "Delete":
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1782460800&signature=bbac86ea21581a709f25815857b259c3f8c0abc4ebaf6e6de1a4a9b63c62aa81&req=diEnE8p3nINYWvMW1HO4zSOgDyksxOalH%2BdCnFXB0ujwiZIzEM50tUUjzgnr%0AlBIf%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1782460800&signature=bbac86ea21581a709f25815857b259c3f8c0abc4ebaf6e6de1a4a9b63c62aa81&req=diEnE8p3nINYWvMW1HO4zSOgDyksxOalH%2BdCnFXB0ujwiZIzEM50tUUjzgnr%0AlBIf%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1785295800&signature=c26f8428969263888d2bfeb56655c86008956e5b07165dc4de8e6af2053dd27c&req=diEnE8p3nINYWvMW1HO4zSOgDy4qy%2BOlH%2BdCnFXB0uhHq05KVBcqtLkNfYy2%0AXsoa%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1785295800&signature=c26f8428969263888d2bfeb56655c86008956e5b07165dc4de8e6af2053dd27c&req=diEnE8p3nINYWvMW1HO4zSOgDy4qy%2BOlH%2BdCnFXB0uhHq05KVBcqtLkNfYy2%0AXsoa%0A)
 5. Click "Delete" in the confirmation prompt.
 
 If you change your mind, you can add the skill again by re-uploading the file.
@@ -194,4 +194,8 @@ Skill sharing for Team and Enterprise plans is off by default. An organization o
 
 For more information and video demonstrations, refer to **[Teach Claude your way of working using skills](https://claude.com/resources/tutorials/teach-claude-your-way-of-working-using-skills).**
 
-[Create and edit files with Claude](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude)[What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)[How to create custom skills](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)[Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization)[Browse skills, connectors, and plugins in one directory](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory)
+* [Create and edit files with Claude](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude)
+* [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)
+* [Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization)
+* [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
+* [Browse skills, connectors, and plugins in one directory](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory)

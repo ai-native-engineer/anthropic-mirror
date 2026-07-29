@@ -14,8 +14,8 @@ The Max plan is designed for users who collaborate with Claude frequently and ne
 * **No more interruptions**: Stay in flow when it matters most with higher usage limits that allow for deeper, more extensive work with Claude.
 * **Scale as needed**: Choose the usage tier that matches your workflow, with the flexibility to adjust as your needs change.
 * **Priority access**: Be among the first to experience new models, features, and products.
-* **Access to Claude Code: [Use Claude Code](https://support.claude.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan)** for your terminal-based coding workflows with one unified subscription.
-* **Access to Cowork:** Hand off complex, multi-step tasks to Claude in Claude Desktop. See this article for more information: **[Get started with Cowork](https://support.claude.com/en/articles/13345190-getting-started-with-local-agent-mode)**.
+* **Access to Claude Code: [Use Claude Code](https://support.claude.com/en/articles/11145838)** for your terminal-based coding workflows with one unified subscription.
+* **Access to Cowork:** Hand off complex, multi-step tasks to Claude in Claude Desktop. See this article for more information: **[Get started with Claude Cowork](https://support.claude.com/en/articles/13345190)**.
 
 ## How much does the Max plan cost?
 
@@ -38,6 +38,7 @@ Price and plans are subject to change at Anthropic's discretion.
 
   + To receive your credit, the billing address used to purchase your Max plan must be the same as your previous subscription’s billing address.
   + If your billing address has changed, you will need to cancel your Pro subscription and wait for the subscription end date before signing up for a new Max subscription with a new billing address.
+  + If you subscribed through Google Play, you're charged the full price of your new plan when you upgrade. The unused value of your previous plan is converted into extra days on your new plan, so your renewal date will land a few days later than a full month.
 
 ### How can I get a free or discounted Max plan?
 
@@ -59,4 +60,8 @@ In addition, to manage capacity and ensure fair access to all users, we may limi
 
 For more information about usage and length limits, refer to **[Understanding usage and length limits](https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits)**. For guidance on using your Max capacity efficiently, we also have **[Usage limit best practices](https://support.claude.com/en/articles/9797557-usage-limit-best-practices)**.
 
-[How do I sign up for the Max plan?](https://support.claude.com/en/articles/11049752-how-do-i-sign-up-for-the-max-plan)[Choose a Claude plan](https://support.claude.com/en/articles/11049762-choose-a-claude-plan)[Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)[Holiday 2025 Usage Promotion](https://support.claude.com/en/articles/13163666-holiday-2025-usage-promotion)[Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)
+* [How do I sign up for the Max plan?](https://support.claude.com/en/articles/11049752-how-do-i-sign-up-for-the-max-plan)
+* [Choose a Claude plan](https://support.claude.com/en/articles/11049762-choose-a-claude-plan)
+* [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+* [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
+* [Holiday 2025 Usage Promotion](https://support.claude.com/en/articles/13163666-holiday-2025-usage-promotion)

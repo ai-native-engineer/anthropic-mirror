@@ -149,7 +149,7 @@ Try it on the syllabus where the middle keeps moving around — attach it, ask w
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b2f012d8309f2f28885b51_Screenshot%202026-03-12%20at%209.55.37%E2%80%AFAM.png)
 
@@ -159,34 +159,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Work through grant options in chat](/resources/use-cases/work-through-grant-options-in-chat-with-claude)Work through grant options in chat
+[Work through grant options in chat](https://claude.com/resources/use-cases/work-through-grant-options-in-chat-with-claude)Work through grant options in chat
 
 Work through grant options in chat
 
 Use case
 
-[Use case](/resources/use-cases/work-through-grant-options-in-chat-with-claude)Use case
+[Use case](https://claude.com/resources/use-cases/work-through-grant-options-in-chat-with-claude)Use case
 
-[Apply a formula as you learn it](/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Apply a formula as you learn it
+[Apply a formula as you learn it](https://claude.com/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Apply a formula as you learn it
 
 Apply a formula as you learn it
 
 Use case
 
-[Use case](/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Use case
+[Use case](https://claude.com/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)Use case
 
-[Map your lit review mid-conversation to surface the underlying debate](/resources/use-cases/map-your-lit-review-mid-conversation)Map your lit review mid-conversation to surface the underlying debate
+[Map your lit review mid-conversation to surface the underlying debate](https://claude.com/resources/use-cases/map-your-lit-review-mid-conversation)Map your lit review mid-conversation to surface the underlying debate
 
 Map your lit review mid-conversation to surface the underlying debate
 
 Use case
 
-[Use case](/resources/use-cases/map-your-lit-review-mid-conversation)Use case
+[Use case](https://claude.com/resources/use-cases/map-your-lit-review-mid-conversation)Use case
 
-[Chart your data in conversation with Claude before you commit to a reading](/resources/use-cases/chart-your-data-before-you-commit)Chart your data in conversation with Claude before you commit to a reading
+[Chart your data in conversation with Claude before you commit to a reading](https://claude.com/resources/use-cases/chart-your-data-before-you-commit)Chart your data in conversation with Claude before you commit to a reading
 
 Chart your data in conversation with Claude before you commit to a reading
 
 Use case
 
-[Use case](/resources/use-cases/chart-your-data-before-you-commit)Use case
+[Use case](https://claude.com/resources/use-cases/chart-your-data-before-you-commit)Use case

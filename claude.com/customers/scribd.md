@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![Scribd logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1dc04294e05b14386518d_cs-logo-scribd-light-theme.svg)![Scribd logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1dc0b249a3aba94a368e2_cs-logo-scribd-dark-theme.svg)
 
@@ -140,34 +140,34 @@ Video caption
 
 ## Related stories
 
-[StubHub transforms live event ticketing with Claude](/customers/stubhub)StubHub transforms live event ticketing with Claude
+[StubHub transforms live event ticketing with Claude](https://claude.com/customers/stubhub)StubHub transforms live event ticketing with Claude
 
 StubHub transforms live event ticketing with Claude
 
 Customer story
 
-[Customer story](/customers/stubhub)Customer story
+[Customer story](https://claude.com/customers/stubhub)Customer story
 
-[Audience Strategies expands the electronic music industry's policy influence with Claude](/customers/audience-strategies)Audience Strategies expands the electronic music industry's policy influence with Claude
+[Audience Strategies expands the electronic music industry's policy influence with Claude](https://claude.com/customers/audience-strategies)Audience Strategies expands the electronic music industry's policy influence with Claude
 
 Audience Strategies expands the electronic music industry's policy influence with Claude
 
 Customer story
 
-[Customer story](/customers/audience-strategies)Customer story
+[Customer story](https://claude.com/customers/audience-strategies)Customer story
 
-[Orange localizes manga at an unprecedented scale with Claude](/customers/orange)Orange localizes manga at an unprecedented scale with Claude
+[Orange localizes manga at an unprecedented scale with Claude](https://claude.com/customers/orange)Orange localizes manga at an unprecedented scale with Claude
 
 Orange localizes manga at an unprecedented scale with Claude
 
 Customer story
 
-[Customer story](/customers/orange)Customer story
+[Customer story](https://claude.com/customers/orange)Customer story
 
-[WRTN pioneers AI entertainment and storytelling across Asia with Claude](/customers/wrtn)WRTN pioneers AI entertainment and storytelling across Asia with Claude
+[WRTN pioneers AI entertainment and storytelling across Asia with Claude](https://claude.com/customers/wrtn)WRTN pioneers AI entertainment and storytelling across Asia with Claude
 
 WRTN pioneers AI entertainment and storytelling across Asia with Claude
 
 Customer story
 
-[Customer story](/customers/wrtn)Customer story
+[Customer story](https://claude.com/customers/wrtn)Customer story

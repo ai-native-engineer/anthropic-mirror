@@ -1,6 +1,6 @@
 <!-- source: https://www.anthropic.com/engineering/swe-bench-sonnet -->
 
-[Engineering at Anthropic](/engineering)
+[Engineering at Anthropic](https://www.anthropic.com/engineering)
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/290e18c396589364580e2432e96d7d96724338a7-2554x2554.svg)
 
@@ -207,7 +207,7 @@ n = 100
 x = np.random.randn(n, 30)
 y = np.random.normal(size = n)
 
-rr = lm.RidgeClassifierCV(alphas = np.arange(0.1, 1000, 0.1), normalize = True, 
+rr = lm.RidgeClassifierCV(alphas = np.arange(0.1, 1000, 0.1), normalize = True,
                                          store_cv_values = True).fit(x, y)
 
 #### Expected Results
@@ -277,7 +277,7 @@ n = 100
 x = np.random.randn(n, 30)
 y = np.random.normal(size = n)
 
-rr = lm.RidgeClassifierCV(alphas=np.arange(0.1, 1000, 0.1), normalize=True, 
+rr = lm.RidgeClassifierCV(alphas=np.arange(0.1, 1000, 0.1), normalize=True,
                          store_cv_values=True).fit(x, y)
 
 OBSERVATION:

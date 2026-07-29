@@ -10,6 +10,7 @@ Put your meetings to work
 * Used in
 
   [Claude](https://claude.ai/directory/a034aa1a-a6b5-418e-9fa3-43cf80e2a611)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Grain](https://grain.com)
 
@@ -22,25 +23,25 @@ Put your meetings to work
   Read
 * More
 
-  [Documentation](https://developers.grain.com/mcp)[Privacy Policy](https://grain.com/privacy-policy)[help@grain.com](mailto:help@grain.com)
+  [Documentation](https://developers.grain.com/mcp)[Privacy Policy](https://grain.com/privacy-policy)[Support](mailto:help@grain.com)
 
 Grain captures and transcribes your meetings where you have them: Meet, Zoom, Teams, Slack, and more. Grain builds an AI Meeting Data Layer of transcripts, notes, and enriched context that Claude uses to power your work.
 
 You can use Grain to:
 
-**Work across meetings:**  
+**Work across meetings:**
 "Draft a proposal for AcmeCo using context from every call we've had with them."
 
-**Spot patterns:**  
+**Spot patterns:**
 "What pain points came up most across our user interviews this month?"
 
-**Get up to speed:**  
+**Get up to speed:**
 "Summarize the team meetings I missed this week and flag anything I should weigh in on."
 
-**Create clips for sharing:**  
+**Create clips for sharing:**
 "Find and clip recent moments where customers pushed back on pricing to share with sales."
 
-**Organize meetings into a project:**  
+**Organize meetings into a project:**
 "Create a project for AcmeCo with every meeting we've had with them so I can prep for our QBR."
 
 ## Related connectors
@@ -53,11 +54,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -71,7 +72,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -81,11 +82,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -95,8 +96,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

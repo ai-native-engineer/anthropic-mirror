@@ -64,8 +64,8 @@ Upload your program data as a XLSX or CSV file with columns for metrics you trac
 
 ## Required context
 
-In addition to the raw data files containing the information you are looking to analyze and discuss, enable the [Google Drive integration](https://support.claude.com/en/articles/10166901-using-the-google-drive-integrationhttps://support.claude.com/en/articles/10166901-using-the-google-drive-integrationhttps://support.claude.com/en/articles/10166901-using-the-google-drive-integrationhttps://support.claude.com/en/articles/10166901-using-the-google-drive-integration) to provide Claude with more information.  
-‍  
+In addition to the raw data files containing the information you are looking to analyze and discuss, enable the [Google Drive integration](https://support.claude.com/en/articles/10166901-using-the-google-drive-integrationhttps://support.claude.com/en/articles/10166901-using-the-google-drive-integrationhttps://support.claude.com/en/articles/10166901-using-the-google-drive-integrationhttps://support.claude.com/en/articles/10166901-using-the-google-drive-integration) to provide Claude with more information.
+‍
 Click the (+) button in the chat bar to browse files that contain additional information you may want to include:
 
 * Context about your audience Board members? Funders? Staff? This shapes visualization complexity and emphasis
@@ -209,7 +209,7 @@ Start with a single dashboard covering your most important program or campaign. 
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6920b1127fd72710ce1deb05_image3.png)
 
@@ -219,34 +219,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[See what your campaign goal actually requires](/resources/use-cases/see-what-your-campaign-goal-actually-requires)See what your campaign goal actually requires
+[See what your campaign goal actually requires](https://claude.com/resources/use-cases/see-what-your-campaign-goal-actually-requires)See what your campaign goal actually requires
 
 See what your campaign goal actually requires
 
 Use case
 
-[Use case](/resources/use-cases/see-what-your-campaign-goal-actually-requires)Use case
+[Use case](https://claude.com/resources/use-cases/see-what-your-campaign-goal-actually-requires)Use case
 
-[See budget futures side by side, in chat with Claude](/resources/use-cases/see-budget-futures-side-by-side)See budget futures side by side, in chat with Claude
+[See budget futures side by side, in chat with Claude](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)See budget futures side by side, in chat with Claude
 
 See budget futures side by side, in chat with Claude
 
 Use case
 
-[Use case](/resources/use-cases/see-budget-futures-side-by-side)Use case
+[Use case](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)Use case
 
-[See why donor retention beats acquisition, in chat with Claude](/resources/use-cases/see-why-donor-retention-beats-acquisition)See why donor retention beats acquisition, in chat with Claude
+[See why donor retention beats acquisition, in chat with Claude](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)See why donor retention beats acquisition, in chat with Claude
 
 See why donor retention beats acquisition, in chat with Claude
 
 Use case
 
-[Use case](/resources/use-cases/see-why-donor-retention-beats-acquisition)Use case
+[Use case](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)Use case
 
-[See your theory of change in chat with Claude](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)See your theory of change in chat with Claude
+[See your theory of change in chat with Claude](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)See your theory of change in chat with Claude
 
 See your theory of change in chat with Claude
 
 Use case
 
-[Use case](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)Use case
+[Use case](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)Use case

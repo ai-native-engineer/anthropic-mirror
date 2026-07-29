@@ -6,8 +6,6 @@
 
 How Outtake ensures multi-hour agent sessions stay on track to uncover attack network operations
 
-* Category
-
   [Agents](https://claude.com/blog/category/agents)
 
   [Claude Code](https://claude.com/blog/category/claude-code)

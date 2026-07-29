@@ -1,13 +1,23 @@
 <!-- source: https://claude.com/docs/government/overview -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this guide is for:** Administrators who set up and manage Claude for Government for their agency.
 
 > **Find your section:**
+>
+>
 > | If you are… | Start with |
 > | --- | --- |
-> | A tenant administrator | [Tenant administration](/docs/government/tenant-admin/overview) |
-> | An organization owner | [Organization administration](/docs/government/org-admin/overview) |
-> | Any user | [Your account](/docs/government/account/overview) |
+> | A tenant administrator | [Tenant administration](https://claude.com/docs/government/tenant-admin/overview) |
+> | An organization owner | [Organization administration](https://claude.com/docs/government/org-admin/overview) |
+> | Any user | [Your account](https://claude.com/docs/government/account/overview) |
 
 This guide covers the portals used to manage Claude for Government: how access, seats, and usage are organized, and who is responsible for each part.
 If you just want to use Claude for Government, you don’t need this guide. You can simply sign in and start a conversation, and come back here when you need to manage other people’s access or understand why something is configured the way it is.
@@ -20,14 +30,14 @@ Claude for Government is organized as a three-level hierarchy:
 ###  Tenant
 
 The tenant is the top level, and it represents your agency’s overall deployment. There is exactly one tenant per agency, and it holds the things that are shared across everyone: your connection to your identity provider for single sign-on, automatic user provisioning (where your directory system creates and updates accounts for you), the list of verified email domains, and the pool of credits and seats issued to you by Anthropic.
-The tenant is managed by a short list of **tenant administrators**. They create organizations, decide how credits and seats are divided among them, and set policies that apply across the whole agency.
+The tenant is managed by a short list of **tenant administrators**. They create organizations, decide how seats are divided among them and what spend caps are set, and set policies that apply across the whole agency.
 
 ###  Organizations
 
-An organization is a group of users who share a pool of seats, a credit balance, and a set of policies. You might create one organization for each bureau, office, or program, or you might run the whole agency as a single organization.
+An organization is a group of users who share a pool of seats and a set of policies, with its own spend caps. You might create one organization for each bureau, office, or program, or you might run the whole agency as a single organization.
 Most agencies start with a single organization. You would create more when you need any of the following:
 
-* Separate billing boundaries so one group’s usage never draws down another’s credits.
+* Separate billing accounts so one group’s usage never draws down another group’s balance.
 * Separate usage reporting for each bureau or program.
 * Different product settings, seat tiers, or access rules for different parts of your agency.
 
@@ -45,7 +55,7 @@ A user never belongs to more than one organization at a time. Moving a person be
 ##  Billing accounts
 
 A **billing account** is where your agency’s credits and seats live. Anthropic sets up one or more billing accounts with your agency, and each one holds a prepaid credit balance (a dollar amount that is drawn down as people use Claude) and a pool of seats (a fixed number of seats in each tier).
-Every organization is linked to exactly one billing account, and that account supplies the organization’s credits and seats. Several organizations can share the same billing account, or each organization can have its own, depending on how your agency wants to separate spending. In either arrangement, tenant administrators decide how each billing account’s credits and seats are divided among the organizations it funds.
+Every organization is linked to exactly one billing account, and usage by that organization draws directly from the account’s balance. Several organizations can share the same billing account, or each organization can have its own. Tenant administrators divide each billing account’s seat pool among the organizations it funds, and can set per-organization spend caps to control how much any one organization draws from a shared balance.
 
 ##  The three views
 
@@ -53,9 +63,9 @@ The portal has three views. Which ones you can reach depends on your role, and y
 
 | View | Who has it | What it’s for |
 | --- | --- | --- |
-| [**Tenant**](/docs/government/tenant-admin/overview) | Tenant administrators | Creating organizations, configuring identity and access (single sign-on, provisioning, and routing rules), distributing credits and seats, and managing who else is a tenant administrator. |
-| [**Organization admin**](/docs/government/org-admin/overview) | Organization owners and tenant administrators | Managing users and seats, setting usage tiers, viewing analytics, and configuring organization-level settings. |
-| [**Account**](/docs/government/account/overview) | Everyone | Viewing your own profile, checking your usage limits, and managing where you’re signed in. |
+| [**Tenant**](https://claude.com/docs/government/tenant-admin/overview) | Tenant administrators | Creating organizations, configuring identity and access (single sign-on, provisioning, and routing rules), distributing seats, setting spend caps, and managing who else is a tenant administrator. |
+| [**Organization admin**](https://claude.com/docs/government/org-admin/overview) | Organization owners and tenant administrators | Managing users and seats, setting usage tiers, viewing analytics, and configuring organization-level settings. |
+| [**Account**](https://claude.com/docs/government/account/overview) | Everyone | Viewing your own profile, checking your usage limits, and managing where you’re signed in. |
 
 When you sign in, you land on the most relevant view for you. Organization owners land on the organization admin view, and everyone else lands on their account view. This includes tenant administrators who are not also an organization owner; they start on their account view and can use the **Switch to admin view** link in the page footer, and from there switch to the tenant view.
 
@@ -66,7 +76,7 @@ Being a tenant administrator is separate from the role you hold inside an organi
 
 ##  How people get access
 
-Users reach your deployment in one of two ways, both of which are configured by a tenant administrator on the [Identity and access](/docs/government/tenant-admin/identity-and-access) page:
+Users reach your deployment in one of two ways, both of which are configured by a tenant administrator on the [Identity and access](https://claude.com/docs/government/tenant-admin/identity-and-access) page:
 
 * **Single sign-on.** The user enters their agency email address and is redirected to your identity provider (for example, Microsoft Entra, Okta, or ADFS). When they return authenticated, Claude for Government evaluates your tenant’s routing rules to decide which organization they belong in.
 * **Directory provisioning.** If your identity provider supports SCIM, which is a standard way for directory systems to keep accounts in sync with other applications, you can connect it so that your directory pushes users and group memberships to Claude for Government automatically. Routing rules then place each provisioned user in an organization based on their group membership.
@@ -75,8 +85,6 @@ Routing rules are the only way in. A new person who does not match any rule cann
 
 ##  Where to go next
 
-* Read [**Tenant administration**](/docs/government/tenant-admin/overview) if you’re a tenant administrator managing the overall deployment.
-* Read [**Organization administration**](/docs/government/org-admin/overview) if you’re an owner managing a single organization.
-* Read [**Your account**](/docs/government/account/overview) if you want to understand your own profile, usage, and sessions.
-
-[Overview](/docs/government/tenant-admin/overview)
+* Read [**Tenant administration**](https://claude.com/docs/government/tenant-admin/overview) if you’re a tenant administrator managing the overall deployment.
+* Read [**Organization administration**](https://claude.com/docs/government/org-admin/overview) if you’re an owner managing a single organization.
+* Read [**Your account**](https://claude.com/docs/government/account/overview) if you want to understand your own profile, usage, and sessions.

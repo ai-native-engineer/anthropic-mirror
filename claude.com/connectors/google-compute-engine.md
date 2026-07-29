@@ -9,6 +9,7 @@ MCP server for Google Compute Engine
 * Used in
 
   [Claude](https://claude.ai/directory/3afecfe4-46be-4f31-9050-9b8a67909028)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Google](https://cloud.google.com/products/compute)
 
@@ -27,13 +28,13 @@ Enables you to agentically manage your cloud compute infrastructure spanning dep
 
 You can use Google Compute Engine to:
 
-**Change machine type:**  
+**Change machine type:**
 "For 'instance1' in project 'project-1', apply the 'n2-standard-2' machine type now and tell me when it's back online"
 
-**Reset VM and verify accelerator attachment:**  
+**Reset VM and verify accelerator attachment:**
 "My training job on 'gpu-vm-1' in project 'project-1' froze. Reset it and confirm it still has its 4 T4 GPUs"
 
-**Create VM with centos:**  
+**Create VM with centos:**
 "Create a VM 'instance-1' in zone 'us-central1a' in project 'project-1' with image family 'centos-stream-10' and image project 'centos-cloud'"
 
 ## Related connectors
@@ -48,17 +49,17 @@ January 26, 2026
 
 ### AWS Marketplace
 
-Discover, evaluate, and buy solutions for the cloud](/connectors/aws-marketplace)
+Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
 Claude
 
 March 9, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69acdf17420ea818c8dd6df3_only%20icon%20vector%20(1).svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dab482d8b581739e57a7_icon_Base44.jpg)
 
 ### Base44
 
-Build and manage Base44 apps](/connectors/base44)
+Build and manage Base44 apps](https://claude.com/connectors/base44)
 
 Claude
 
@@ -66,11 +67,11 @@ Claude Code
 
 March 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a5cd3d14699b00ee21b969_clerk.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dfa6bc4ff18a740c59aa_icon_Clerk.jpg)
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Claude
 
@@ -84,4 +85,4 @@ February 11, 2026
 
 ### Cloudflare
 
-Build applications with compute, storage, and AI](/connectors/cloudflare)
+Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)

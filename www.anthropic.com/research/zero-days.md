@@ -4,7 +4,7 @@
 
 Feb 5, 2026
 
-*Nicholas Carlini\*, Keane Lucas\*, Evyatar Ben Asher\*, Newton Cheng, Hasnain Lakhani, David Forsythe, and Kyla Guru  
+*Nicholas Carlini\*, Keane Lucas\*, Evyatar Ben Asher\*, Newton Cheng, Hasnain Lakhani, David Forsythe, and Kyla Guru
 \*indicates equal contribution*
 
 Claude Opus 4.6, [released today](http://anthropic.com/news/claude-opus-4-6), continues a [trajectory of meaningful improvements](https://www.anthropic.com/claude-opus-4-6-system-card) in AI models’ cybersecurity capabilities. Last fall, we wrote that we believed we were at an [inflection point for AI's impact on cybersecurity](https://red.anthropic.com/2025/ai-for-cyber-defenders/)—that progress could become quite fast, and now was the moment to accelerate defensive use of AI. The evidence since then has only reinforced that view. AI models can now find high-severity vulnerabilities at scale. Our view is this is a moment to move quickly—to empower defenders and secure as much code as possible while the window exists.
@@ -127,21 +127,21 @@ This is ongoing work, and we'll have more to share soon—including what we're l
 
 ####
 
-### Project Fetch: Phase two
+### Discovering cryptographic weaknesses with Claude
 
-We report results from our latest test of whether Claude can help Anthropic employees perform sophisticated robotics tasks. We found that Claude Opus 4.7, operating without human assistance, was about 20 times faster than the fastest human team at all tasks completed by participants less than a year ago.
+cryptographic algorithms. The first attack significantly weakens HAWK, a digital signature scheme that was built for a future world where quantum computers are able to break existing standards. The second identifies a new way to attack round-reduced AES, the most widely used symmetric cipher.
 
-[Read more](/research/project-fetch-phase-two)
+[Read more](https://www.anthropic.com/research/discovering-cryptographic-weaknesses)
 
-### Agentic coding and persistent returns to expertise
+### Project Pilot: Can AI control a drone?
 
-This report provides evidence on how Claude Code is used in practice, based on a privacy-preserving analysis of around 400,000 interactive sessions from around 235,000 people between October 2025 and April 2026.
+Working with Andon Labs, we’ve developed a new series of evaluations that assess AI models’ ability to use a flying drone, culminating in a new benchmark: Drone-Bench.
 
-[Read more](/research/claude-code-expertise)
+[Read more](https://www.anthropic.com/research/project-pilot)
 
-### Paving the way for agents in biology
+### How Canada uses Claude: Findings from the Anthropic Economic Index
 
-[Read more](/research/agents-in-biology)
+[Read more](https://www.anthropic.com/research/how-canada-uses-claude)
 
 ## Subscribe to the Frontier Red Team newsletter
 

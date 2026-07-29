@@ -8,6 +8,7 @@ Build DCF models, run comps analysis, structure LBOs, and review pitch decks
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/financial-services-plugins&plugin=financial-analysis)
+* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs
@@ -20,16 +21,16 @@ Build DCF models, run comparable company analysis, structure LBOs, and review fi
 
 You can use Financial Analysis to:
 
-**DCF Model:**  
+**DCF Model:**
 "Build a discounted cash flow model for Tesla with a 5-year projection"
 
-**Comps Analysis:**  
+**Comps Analysis:**
 "Run a comparable company analysis for Stripe against public fintech peers"
 
-**LBO Model:**  
+**LBO Model:**
 "Structure an LBO for a $2B enterprise software company at 6x EBITDA"
 
-**Deck Review:**  
+**Deck Review:**
 "Review this pitch deck for errors, inconsistencies, and missing data"
 
 ## Related plugins
@@ -40,17 +41,17 @@ Craft production-grade frontends with distinctive design. Generates polished cod
 
 Anthropic verified
 
-948012
+1110438
 
-installs](/plugins/frontend-design)
+installs](https://claude.com/plugins/frontend-design)
 
 [### Superpowers
 
 Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
 
-855112
+987572
 
-installs](/plugins/superpowers)
+installs](https://claude.com/plugins/superpowers)
 
 [### Code Review
 
@@ -58,14 +59,14 @@ AI code review with specialized agents and confidence-based filtering for pull r
 
 Anthropic verified
 
-383892
+430450
 
-installs](/plugins/code-review)
+installs](https://claude.com/plugins/code-review)
 
 [### Context7
 
 Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
 
-377529
+412076
 
-installs](/plugins/context7)
+installs](https://claude.com/plugins/context7)

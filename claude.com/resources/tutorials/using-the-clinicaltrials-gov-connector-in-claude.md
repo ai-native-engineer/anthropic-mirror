@@ -1,5 +1,17 @@
 <!-- source: https://claude.com/resources/tutorials/using-the-clinicaltrials-gov-connector-in-claude -->
 
+Claude Science beta
+
+[Next](#)Next
+
+Introducing the Claude Science app, your research partner for rigorous science.
+
+Learn more
+
+[Learn more](https://claude.com/product/claude-science)Learn more
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ef89e3431b19c021bf2b_claude-science-og.jpg)
+
 # Using the ClinicalTrials.gov Connector in Claude
 
   Life Sciences
@@ -95,7 +107,7 @@ Technical details of the ClinicalTrials.gov integration can be found in the [Cli
 **Clinical Trial Recruitment & Eligibility Screening**
 
 * Scenario: Research coordinators and recruitment professionals identifying eligible trial candidates from their institutional patient populations
-* Sample Prompts:   
+* Sample Prompts:
   + *"Find recruiting Phase 3 diabetes trials with HbA1c eligibility criteria between 7-10% for our Boston research site"*
   + *"What breast cancer trials are accepting BRCA-positive candidates at academic medical centers in California?"*
   + *"Search for Alzheimer's trials with MMSE score requirements that match our memory clinic population"*
@@ -106,7 +118,7 @@ Technical details of the ClinicalTrials.gov integration can be found in the [Cli
 **Competitive Intelligence & Pipeline Analysis**
 
 * Scenario: Analyzing pharmaceutical company development programs and therapeutic landscapes
-* Sample Prompts:   
+* Sample Prompts:
   + *"What Phase 3 oncology trials is Pfizer currently running? Show their cancer pipeline"*
   + *"Find all GLP-1 agonist trials for obesity. Who are the main sponsors and what endpoints are they measuring?"*
   + *"Show me Moderna's active clinical trials and their development phases"*
@@ -117,7 +129,7 @@ Technical details of the ClinicalTrials.gov integration can be found in the [Cli
 **Systematic Protocol Design & Endpoint Benchmarking**
 
 * Scenario: Designing new trial protocols based on industry standards and precedent studies
-* Sample Prompts:   
+* Sample Prompts:
   + *"What are the most common primary endpoints used in Phase 3 diabetes trials?"*
   + *"Analyze endpoints for completed heart failure trials - what timeframes do they use?"*
   + *"Find principal investigators at academic medical centers conducting immunotherapy trials"*
@@ -127,34 +139,34 @@ Learn more at How to use the Clinical Trial Protocol skill with Claude
 
 ## Related tutorials
 
-[How to use the Nextflow Deployment agent skill with Claude Code](/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)How to use the Nextflow Deployment agent skill with Claude Code
+[How to use the Nextflow Deployment agent skill with Claude Code](https://claude.com/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)How to use the Nextflow Deployment agent skill with Claude Code
 
 How to use the Nextflow Deployment agent skill with Claude Code
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)Tutorial
 
-[How to use the Instrument Data to Allotrope Skill with Claude](/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)How to use the Instrument Data to Allotrope Skill with Claude
+[How to use the Instrument Data to Allotrope Skill with Claude](https://claude.com/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)How to use the Instrument Data to Allotrope Skill with Claude
 
 How to use the Instrument Data to Allotrope Skill with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)Tutorial
 
-[How to use the Scientific Problem Selection Skill with Claude](/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)How to use the Scientific Problem Selection Skill with Claude
+[How to use the Scientific Problem Selection Skill with Claude](https://claude.com/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)How to use the Scientific Problem Selection Skill with Claude
 
 How to use the Scientific Problem Selection Skill with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)Tutorial
 
-[How to use the scVI-Tools bioinformatics skill bundle with Claude](/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)How to use the scVI-Tools bioinformatics skill bundle with Claude
+[How to use the scVI-Tools bioinformatics skill bundle with Claude](https://claude.com/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)How to use the scVI-Tools bioinformatics skill bundle with Claude
 
 How to use the scVI-Tools bioinformatics skill bundle with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)Tutorial

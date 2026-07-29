@@ -1,3 +1,4 @@
+<!-- source: https://platform.claude.com/docs/en/api/typescript/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/typescript/beta -->
 
 <!-- chunk-start -->
@@ -41168,4 +41169,3 @@ console.log(betaManagedAgentsSessionThread.id);
       Unique identifier for this event.
 
     - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
-

@@ -92,19 +92,19 @@ From Claude
 
  5 found — Here's the status:
 
-**9:00 AM — Intro call - Acme Corp**  - Salesforce match: Sarah Chen (VP Ops)  
+**9:00 AM — Intro call - Acme Corp**  - Salesforce match: Sarah Chen (VP Ops)
   - Status: Ready to log
 
-**10:30 AM — Demo - TechStart**  - Salesforce match: Marcus Johnson  
+**10:30 AM — Demo - TechStart**  - Salesforce match: Marcus Johnson
   - Status: Ready to log
 
-**1:00 PM — Follow-up - Blue Sky**  - Salesforce match: Rachel Torres  
+**1:00 PM — Follow-up - Blue Sky**  - Salesforce match: Rachel Torres
   - Status: Ready to log
 
-**2:30 PM — Pricing - Orion Systems**  - Salesforce match: James Park  
+**2:30 PM — Pricing - Orion Systems**  - Salesforce match: James Park
   - Status: Ready to log
 
-**4:00 PM — Discovery - NewCo**  - Salesforce match: No match found  
+**4:00 PM — Discovery - NewCo**  - Salesforce match: No match found
   - Status: Needs input
 
 **Ready to Log (4 calls)**
@@ -115,30 +115,30 @@ From Claude
 
  You: "Good discovery call. Evaluating us vs Competitor X. Pain point is reporting—current tool takes 2 hours for what should take 5 minutes. Decision by end of Q1. Next step is technical demo with ops team."
 
- Draft Activity Log:  
-  - Subject: Discovery Call - Acme Corp  
-  - Type: Call  
+ Draft Activity Log:
+  - Subject: Discovery Call - Acme Corp
+  - Type: Call
   - Related To: Acme Corp - New Business
 
 **Description:**
 
  Discovery call with Sarah Chen (VP Operations).
 
-**Discussion:**  - Evaluating our solution against Competitor X  
-  - Primary pain point: reporting inefficiency (2 hours for reports that should take 5 minutes)  
+**Discussion:**  - Evaluating our solution against Competitor X
+  - Primary pain point: reporting inefficiency (2 hours for reports that should take 5 minutes)
   - Decision timeline: End of Q1
 
-**Next Steps:**  - Schedule technical demo with operations team  
+**Next Steps:**  - Schedule technical demo with operations team
   - Send competitive comparison materials
 
 **Needs Your Input**
 
 **5. NewCo Discovery**
 
- No contact found matching the attendee email ([[email protected]](/cdn-cgi/l/email-protection)).
+ No contact found matching the attendee email (alex@newco.io).
 
-**Options:**  - Create a new contact record  
-  - Log the activity against the Account only  
+**Options:**  - Create a new contact record
+  - Log the activity against the Account only
   - Skip this one
 
  Once you confirm and give me the remaining summaries, I'll show the complete batch for final review.
@@ -207,7 +207,7 @@ Claude in Chrome is available to all paid plan users. Install the extension, log
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/694336496e647f7737a583c8_salesforce.png)
 
@@ -217,34 +217,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Pull metrics from analytics dashboards](/resources/use-cases/pull-metrics-from-analytics-dashboards)Pull metrics from analytics dashboards
+[Pull metrics from analytics dashboards](https://claude.com/resources/use-cases/pull-metrics-from-analytics-dashboards)Pull metrics from analytics dashboards
 
 Pull metrics from analytics dashboards
 
 Use case
 
-[Use case](/resources/use-cases/pull-metrics-from-analytics-dashboards)Use case
+[Use case](https://claude.com/resources/use-cases/pull-metrics-from-analytics-dashboards)Use case
 
-[Prepare and plan from your calendar](/resources/use-cases/prepare-and-plan-from-your-calendar)Prepare and plan from your calendar
+[Prepare and plan from your calendar](https://claude.com/resources/use-cases/prepare-and-plan-from-your-calendar)Prepare and plan from your calendar
 
 Prepare and plan from your calendar
 
 Use case
 
-[Use case](/resources/use-cases/prepare-and-plan-from-your-calendar)Use case
+[Use case](https://claude.com/resources/use-cases/prepare-and-plan-from-your-calendar)Use case
 
-[Compare products across sites](/resources/use-cases/compare-products-across-sites)Compare products across sites
+[Compare products across sites](https://claude.com/resources/use-cases/compare-products-across-sites)Compare products across sites
 
 Compare products across sites
 
 Use case
 
-[Use case](/resources/use-cases/compare-products-across-sites)Use case
+[Use case](https://claude.com/resources/use-cases/compare-products-across-sites)Use case
 
-[Clean up promotional emails](/resources/use-cases/clean-up-promotional-emails)Clean up promotional emails
+[Clean up promotional emails](https://claude.com/resources/use-cases/clean-up-promotional-emails)Clean up promotional emails
 
 Clean up promotional emails
 
 Use case
 
-[Use case](/resources/use-cases/clean-up-promotional-emails)Use case
+[Use case](https://claude.com/resources/use-cases/clean-up-promotional-emails)Use case

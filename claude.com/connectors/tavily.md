@@ -10,6 +10,7 @@ Connect your AI agents to the web
 * Used in
 
   [Claude](https://claude.ai/directory/d8a25d2a-e5ea-4860-b990-277244df5417)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Tavily](https://www.tavily.com)
 
@@ -22,22 +23,22 @@ Connect your AI agents to the web
   Read
 * More
 
-  [Documentation](https://docs.tavily.com/documentation/mcp)[Privacy Policy](https://www.tavily.com/terms)[support@tavily.com](mailto:support@tavily.com)
+  [Documentation](https://docs.tavily.com/documentation/mcp)[Privacy Policy](https://www.tavily.com/terms)[Support](mailto:support@tavily.com)
 
 Give Claude real-time web access with Tavily. One API for search, extraction, and research. Built for the accuracy, speed, and security production agents require. You can use Tavily to ground answers in live data, optimize token usage by extracting relevant content, and ship with security built in with PII redaction and prompt injection protection.
 
 You can use Tavily to:
 
-**Real-time web search:**  
+**Real-time web search:**
 "What are the latest developments in AI regulation in the EU"
 
-**Extract structured content:**  
+**Extract structured content:**
 "Extract the key points from this article: https://example.com/article"
 
-**Research across sources:**  
+**Research across sources:**
 "Research the impact of AI agents on software engineering productivity and provide a summary with sources"
 
-**Website analysis:**  
+**Website analysis:**
 "Map the structure of this website: https://example.com"
 
 ## Related connectors
@@ -50,11 +51,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -68,7 +69,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -78,11 +79,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -92,8 +93,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

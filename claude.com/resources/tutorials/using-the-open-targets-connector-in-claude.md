@@ -1,5 +1,17 @@
 <!-- source: https://claude.com/resources/tutorials/using-the-open-targets-connector-in-claude -->
 
+Claude Science beta
+
+[Next](#)Next
+
+Introducing the Claude Science app, your research partner for rigorous science.
+
+Learn more
+
+[Learn more](https://claude.com/product/claude-science)Learn more
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ef89e3431b19c021bf2b_claude-science-og.jpg)
+
 # Using the Open Targets Connector in Claude
 
   Life Sciences
@@ -86,51 +98,51 @@ Technical details of the Open Targets integration can be found in [Open Targets�
 
 ## **Example use cases**
 
-* **Target Discovery Researcher Studying a Disease**   
-  + A neuroscience researcher at a pharmaceutical company’s early discovery team, exploring novel therapeutic targets for Alzheimer’s disease. They need to assess which targets show the strongest evidence of association with the disease and understand the types of supporting evidence. They may then want to further prioritize targets based on the evidence.   
+* **Target Discovery Researcher Studying a Disease**
+  + A neuroscience researcher at a pharmaceutical company’s early discovery team, exploring novel therapeutic targets for Alzheimer’s disease. They need to assess which targets show the strongest evidence of association with the disease and understand the types of supporting evidence. They may then want to further prioritize targets based on the evidence.
     - Example Prompt: *"What are the top five targets associated with Alzheimer disease?"*
   + The Platform provides a ranked list of targets based on overall association scores and a breakdown of the evidence across multiple data types. From there, they can ask further questions about the targets and the evidence.
 
-* **Statistical Geneticist Browsing Studies**   
-  + A statistical geneticist at an academic research institute is investigating genetic variants associated with early onset Alzheimer’s disease. They are reviewing existing genetic evidence for PSEN1 and need to understand what genome wide association studies (GWAS) have been conducted and the most likely causal variants, which populations were studied, and how these findings compare across studies.   
+* **Statistical Geneticist Browsing Studies**
+  + A statistical geneticist at an academic research institute is investigating genetic variants associated with early onset Alzheimer’s disease. They are reviewing existing genetic evidence for PSEN1 and need to understand what genome wide association studies (GWAS) have been conducted and the most likely causal variants, which populations were studied, and how these findings compare across studies.
     - Example Prompt: *"Do you have any GWAS evidence for PSEN1? What studies are there?"*
   + The Platform can provide a list of studies and credible sets containing PSEN1 with variant-level information and study metadata, and links to original publications. The user can further query the information in these studies and credible sets.
 
-* **Target Prioritisation Using Safety Data**   
-  + A translational scientist on a target selection committee is evaluating potential drug targets for an anti-inflammatory programme. They need to understand the safety profile associated with targeting this protein to inform risk-benefit discussions, including known adverse events and safety issues, evidence from clinical trials, post-marketing surveillance, and genetic studies.    
+* **Target Prioritisation Using Safety Data**
+  + A translational scientist on a target selection committee is evaluating potential drug targets for an anti-inflammatory programme. They need to understand the safety profile associated with targeting this protein to inform risk-benefit discussions, including known adverse events and safety issues, evidence from clinical trials, post-marketing surveillance, and genetic studies.
     - Example Prompt: *"Are there known safety events associated with targeting PTGS2?"*
   + The Platform provides comprehensive safety information from multiple sources, which the user can explore in more detail, and compare information for different targets.
 
 ## Related tutorials
 
-[How to use the Nextflow Deployment agent skill with Claude Code](/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)How to use the Nextflow Deployment agent skill with Claude Code
+[How to use the Nextflow Deployment agent skill with Claude Code](https://claude.com/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)How to use the Nextflow Deployment agent skill with Claude Code
 
 How to use the Nextflow Deployment agent skill with Claude Code
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)Tutorial
 
-[How to use the Instrument Data to Allotrope Skill with Claude](/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)How to use the Instrument Data to Allotrope Skill with Claude
+[How to use the Instrument Data to Allotrope Skill with Claude](https://claude.com/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)How to use the Instrument Data to Allotrope Skill with Claude
 
 How to use the Instrument Data to Allotrope Skill with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)Tutorial
 
-[How to use the Scientific Problem Selection Skill with Claude](/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)How to use the Scientific Problem Selection Skill with Claude
+[How to use the Scientific Problem Selection Skill with Claude](https://claude.com/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)How to use the Scientific Problem Selection Skill with Claude
 
 How to use the Scientific Problem Selection Skill with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)Tutorial
 
-[How to use the scVI-Tools bioinformatics skill bundle with Claude](/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)How to use the scVI-Tools bioinformatics skill bundle with Claude
+[How to use the scVI-Tools bioinformatics skill bundle with Claude](https://claude.com/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)How to use the scVI-Tools bioinformatics skill bundle with Claude
 
 How to use the scVI-Tools bioinformatics skill bundle with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)Tutorial

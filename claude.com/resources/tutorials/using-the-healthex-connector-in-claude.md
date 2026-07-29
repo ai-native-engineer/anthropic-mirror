@@ -1,5 +1,17 @@
 <!-- source: https://claude.com/resources/tutorials/using-the-healthex-connector-in-claude -->
 
+Claude Science beta
+
+[Next](#)Next
+
+Introducing the Claude Science app, your research partner for rigorous science.
+
+Learn more
+
+[Learn more](https://claude.com/product/claude-science)Learn more
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ef89e3431b19c021bf2b_claude-science-og.jpg)
+
 # Using the HealthEx Connector in Claude
 
   Healthcare
@@ -84,24 +96,24 @@ Technical details of the HealthEx integration can be found in [HealthEx’s MCP 
 Setup can take a few minutes. Users will need a phone, a valid US government ID, and logins for health portals.
 
 1. Click get started
-2. Begin with identity verification by clicking Verify with CLEAR   
+2. Begin with identity verification by clicking Verify with CLEAR
    1. You will typically need to enter a phone number, email address, take a selfie, and take a picture of the front and back of your valid US government ID.
    2. CLEAR will transition you to your phone from the desktop via a text code or QR code. Once you are done, you will automatically be transitioned back to the HealthEx Connector experience on the desktop.
-3. Next, you will be asked to consent to access and connect your health records     
+3. Next, you will be asked to consent to access and connect your health records
    1. You will authorize HealthEx to access your records on your behalf for up to 1 year. You have the ability to withdraw your consent at any time.
    2. You will authorize that Claude can connect to your data for up to 1 year for any conversations that will access the HealthEx MCP server. You can disconnect the HealthEx Connector at any time and/or withdraw consent at any time.
-4. Next, you will review and log in to health systems where records were automatically found    
+4. Next, you will review and log in to health systems where records were automatically found
    1. You can login to your health portals one by one.
    2. If you do not have a specific login available or do not want to include a set of records, you can choose Skip Records from this Provider
-   3. When you login to each portal, you will be asked to consent for your provider to give HealthEx access–this is expected.    
+   3. When you login to each portal, you will be asked to consent for your provider to give HealthEx access–this is expected.
       1. For EPIC sites, data sets are checked by default and you can unselect any items you wish to not include. Then you will need to select a duration–you can select any timeframe here.
-5. Next, you have the option to Add a Provider to create a complete set of your health records.    
+5. Next, you have the option to Add a Provider to create a complete set of your health records.
    1. Search for a clinic name or health system where you have received care. The ones closest to you will populate at the top of the search results
    2. Select one and login. You will do this with each provider you add.
    3. Add as many providers to create your complete list
-6. Next, you will review your complete list and click Access Records   
+6. Next, you will review your complete list and click Access Records
    1. In the background, HealthEx will be retrieving records and preparing them for use in Claude. This can take anywhere from 10-30 minutes given the types and size of the health records.
-7. Lastly, click Finish and Return to Claude   
+7. Lastly, click Finish and Return to Claude
    1. You are done with your part. We will notify you via email as soon as your records are connected to Claude so you can begin your first conversation.
 
 ## **How does Claude protect my data privacy and safety?**
@@ -130,34 +142,34 @@ Claude is designed to help you better understand and take ownership of your heal
 
 ## Related tutorials
 
-[How to use the Prior Auth Review sample skill with Claude](/resources/tutorials/how-to-use-the-prior-auth-review-sample-skill-with-claude-2ggy8)How to use the Prior Auth Review sample skill with Claude
+[How to use the Prior Auth Review sample skill with Claude](https://claude.com/resources/tutorials/how-to-use-the-prior-auth-review-sample-skill-with-claude-2ggy8)How to use the Prior Auth Review sample skill with Claude
 
 How to use the Prior Auth Review sample skill with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-prior-auth-review-sample-skill-with-claude-2ggy8)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-prior-auth-review-sample-skill-with-claude-2ggy8)Tutorial
 
-[Using the Function Connector in Claude](/resources/tutorials/using-the-function-connector-in-claude)Using the Function Connector in Claude
+[Using the Function Connector in Claude](https://claude.com/resources/tutorials/using-the-function-connector-in-claude)Using the Function Connector in Claude
 
 Using the Function Connector in Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-the-function-connector-in-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-the-function-connector-in-claude)Tutorial
 
-[How to use the FHIR Developer agent skill with Claude Code](/resources/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)How to use the FHIR Developer agent skill with Claude Code
+[How to use the FHIR Developer agent skill with Claude Code](https://claude.com/resources/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)How to use the FHIR Developer agent skill with Claude Code
 
 How to use the FHIR Developer agent skill with Claude Code
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-fhir-developer-agent-skill-with-claude-code)Tutorial
 
-[Using the NPI Registry Connector in Claude](/resources/tutorials/using-the-npi-registry-connector-in-claude)Using the NPI Registry Connector in Claude
+[Using the NPI Registry Connector in Claude](https://claude.com/resources/tutorials/using-the-npi-registry-connector-in-claude)Using the NPI Registry Connector in Claude
 
 Using the NPI Registry Connector in Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-the-npi-registry-connector-in-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-the-npi-registry-connector-in-claude)Tutorial

@@ -10,6 +10,7 @@ Organize Data. Discover the Truth. Act on It.
 * Used in
 
   [Claude](https://claude.ai/directory/05bc8b45-fc66-4a11-bfaa-24c60bedce1a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Relativity](https://relativity.com)
 
@@ -22,28 +23,28 @@ Organize Data. Discover the Truth. Act on It.
   Read & write
 * More
 
-  [Documentation](https://help.relativity.com/topic.html?t=GLJ39)[Privacy Policy](https://help.relativity.com/topic.html?t=3DCBF)[support@relativity.com](mailto:support@relativity.com)
+  [Documentation](https://help.relativity.com/topic.html?t=GLJ39)[Privacy Policy](https://help.relativity.com/topic.html?t=3DCBF)[Support](mailto:support@relativity.com)
 
 Stand up matters, manage workspaces, govern access, and analyze usage in RelativityOne.
 
 You can use Relativity to:
 
-**Stand Up a New Matter End-to-End:**  
+**Stand Up a New Matter End-to-End:**
 "I'm kicking off a new bribery litigation for BigThorium. Create the client and matter BigThorium v. Atlantis, recommend the best workspace template, and spin up the workspace."
 
-**Configure Workspace Schema in One Pass:**  
+**Configure Workspace Schema in One Pass:**
 "Create an Organization object type in the BigThorium workspace with all the appropriate fields and choices based on this Organization list CSV file."
 
-**Grant Group Access to a New Workspace:**  
+**Grant Group Access to a New Workspace:**
 "Give the same user groups that have access to the BigThorium v. Kalmeris Power Corp. workspace access to the BigThorium v. Atlantis workspace."
 
-**Audit User Access Across Matters:**  
+**Audit User Access Across Matters:**
 "Generate a report of what external users have access to my workspaces, and which ones."
 
-**Generate and Export a Usage Report:**  
+**Generate and Export a Usage Report:**
 "Pull AI usage across all workspaces for the last 6 months and chart it for me."
 
-**Build a Client QBR Report:**  
+**Build a Client QBR Report:**
 "I'm preparing a QBR with BigThorium. Generate a usage report showing their workspaces, peak hosted size, Relativity aiR usage, and user activity for the last quarter."
 
 ## Related connectors
@@ -56,11 +57,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -74,7 +75,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -84,11 +85,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -98,8 +99,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

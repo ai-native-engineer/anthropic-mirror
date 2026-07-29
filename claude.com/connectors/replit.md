@@ -9,6 +9,7 @@ Turn ideas into apps and websites instantly
 * Used in
 
   [Claude](https://claude.ai/directory/b952bcd7-554a-460e-9c8a-a81074f9d430)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Replit](https://replit.com)
 
@@ -21,25 +22,25 @@ Turn ideas into apps and websites instantly
   Interactive
 * More
 
-  [Documentation](https://docs.replit.com/platforms/mcp-server)[Privacy Policy](https://replit.com/privacy-policy)[support@replit.com](mailto:support@replit.com)
+  [Documentation](https://docs.replit.com/platforms/mcp-server)[Privacy Policy](https://replit.com/privacy-policy)[Support](mailto:support@replit.com)
 
 Replit's MCP server lets users create, update, and manage full-stack web and mobile applications directly from Claude using natural language. Powered by Replit Agent, it transforms prompts into live, deployed apps — complete with databases, authentication, and custom domains. Users can iterate on their apps conversationally, ask the Agent questions about their project, and access a live preview URL as the app builds. No coding experience required. The server supports OAuth 2.0 authentication and Streamable HTTP transport, integrating seamlessly with Replit's cloud development platform.
 
 You can use Replit to:
 
-**Build a full-stack web app from a description:**  
+**Build a full-stack web app from a description:**
 "Build me a task management app with user authentication, a Kanban board, and a dark mode toggle."
 
-**Turn a document or idea into a working website:**  
+**Turn a document or idea into a working website:**
 "Create a portfolio website for a photographer with a gallery grid, contact form, and an about page"
 
-**Create business tools and internal dashboards:**  
+**Create business tools and internal dashboards:**
 "Build a CRM dashboard that tracks customer interactions, shows sales pipeline metrics, and lets me export reports to CSV"
 
-**Build and iterate on mobile apps:**  
+**Build and iterate on mobile apps:**
 "Create a native mobile app for a restaurant that lets users browse the menu, place orders, and track delivery status"
 
-**Prototype and ship automations:**  
+**Prototype and ship automations:**
 "Build a web scraper that monitors competitor pricing on 5 URLs and sends me a daily email summary with any changes"
 
 ## Related connectors
@@ -54,17 +55,17 @@ January 26, 2026
 
 ### AWS Marketplace
 
-Discover, evaluate, and buy solutions for the cloud](/connectors/aws-marketplace)
+Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
 Claude
 
 March 9, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69acdf17420ea818c8dd6df3_only%20icon%20vector%20(1).svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dab482d8b581739e57a7_icon_Base44.jpg)
 
 ### Base44
 
-Build and manage Base44 apps](/connectors/base44)
+Build and manage Base44 apps](https://claude.com/connectors/base44)
 
 Claude
 
@@ -72,11 +73,11 @@ Claude Code
 
 March 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a5cd3d14699b00ee21b969_clerk.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dfa6bc4ff18a740c59aa_icon_Clerk.jpg)
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Claude
 
@@ -90,4 +91,4 @@ February 11, 2026
 
 ### Cloudflare
 
-Build applications with compute, storage, and AI](/connectors/cloudflare)
+Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)

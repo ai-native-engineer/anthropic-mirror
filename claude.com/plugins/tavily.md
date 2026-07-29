@@ -4,7 +4,15 @@
 
 Build AI applications with real-time web data using Tavily's search, extract, crawl, and research APIs.
 
+* Install in
+
+  [Claude Code](#)
+* Made by
+
   [Tavily](https://www.tavily.com/)
+* Installs
+
+  319
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -17,3 +25,41 @@ Key features include domain and time-range filtering, multiple search depths (ul
 **How to use:** Ask Claude to search the web and it will use Tavily automatically — try prompts like "search for the latest developments in quantum computing", "extract the content from this URL", "crawl the docs at docs.example.com and save them locally", "map all the URLs on example.com", or "research the competitive landscape for AI code editors and cite your sources". You can also use the skills directly: `/tavily-search`, `/tavily-extract`, `/tavily-crawl`, `/tavily-map`, and `/tavily-research`.
 
 Requires a Tavily API key from tavily.com. After installing, authenticate with the Tavily CLI to get started.
+
+## Related plugins
+
+[### Frontend Design
+
+Craft production-grade frontends with distinctive design. Generates polished code that avoids generic AI aesthetics.
+
+Anthropic verified
+
+1110438
+
+installs](https://claude.com/plugins/frontend-design)
+
+[### Superpowers
+
+Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
+
+987572
+
+installs](https://claude.com/plugins/superpowers)
+
+[### Code Review
+
+AI code review with specialized agents and confidence-based filtering for pull requests
+
+Anthropic verified
+
+430450
+
+installs](https://claude.com/plugins/code-review)
+
+[### Context7
+
+Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
+
+412076
+
+installs](https://claude.com/plugins/context7)

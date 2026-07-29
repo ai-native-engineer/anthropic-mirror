@@ -110,7 +110,7 @@ Claude for Excel, PowerPoint, and Word are now generally available on all paid p
 
 Read blog
 
-[Read blog](/blog/collaborate-with-claude-across-excel-powerpoint-word-and-outlook)Read blog
+[Read blog](https://claude.com/blog/collaborate-with-claude-across-excel-powerpoint-word-and-outlook)Read blog
 
 ### What customers are saying
 
@@ -170,7 +170,7 @@ When a process is right, save it as a skill. The team can use it the same way in
 
 Learn more
 
-[Learn more](/skills)Learn more
+[Learn more](https://claude.com/skills)Learn more
 
 ### Type or talk, whichever is faster
 
@@ -182,7 +182,7 @@ Pull context from outside sources directly from the sidebar.
 
 Learn more
 
-[Learn more](/connectors)Learn more
+[Learn more](https://claude.com/connectors)Learn more
 
 ## FAQ
 

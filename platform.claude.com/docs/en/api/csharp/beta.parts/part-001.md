@@ -1,3 +1,4 @@
+<!-- source: https://platform.claude.com/docs/en/api/csharp/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/csharp/beta -->
 
 <!-- chunk-start -->
@@ -34891,4 +34892,3 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `class BetaBashCodeExecutionToolResultError:`
 
                 - `required ErrorCode ErrorCode`
-

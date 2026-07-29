@@ -123,3 +123,7 @@ As you progress through the course, we'd love to hear from you about how you are
 #### Acknowledgments and license
 
 *Copyright 2025 Anthropic. All rights reserved.*
+
+<!-- yt-pending: LpGpwhORWr0 -->
+
+_(영상 자막 없음 또는 추출 실패)_

@@ -9,6 +9,7 @@ Build applications with compute, storage, and AI
 * Used in
 
   [Claude](http://claude.ai/directory/2d60210c-dd92-4be0-b09c-3662f10445c9)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Cloudflare](https://www.cloudflare.com/)
 
@@ -23,17 +24,17 @@ Build applications with compute, storage, and AI
 
   [Documentation](https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/)[Privacy Policy](https://www.cloudflare.com/privacypolicy/)[Support](https://github.com/cloudflare/mcp-server-cloudflare/tree/main/apps/workers-bindings)
 
-Manage Workers deployments, D1 databases, R2 storage, and KV stores directly through Claude. Access real-time logs, configure security rules, monitor performance metrics, and deploy applications using Cloudflare’s edge infrastructure, all through natural language commands for streamlined development workflows.  
-  
-You can use the Cloudflare connector to:  
-  
-Deploy code to production:  
+Manage Workers deployments, D1 databases, R2 storage, and KV stores directly through Claude. Access real-time logs, configure security rules, monitor performance metrics, and deploy applications using Cloudflare’s edge infrastructure, all through natural language commands for streamlined development workflows.
+
+You can use the Cloudflare connector to:
+
+Deploy code to production:
 "Deploy code to Worker called 'my-project'"
 
-Create KV storage:  
+Create KV storage:
 "Create a new KV namespace called 'my-kv-store'"
 
-Query databases:  
+Query databases:
 "Run the query 'SELECT \* FROM customers LIMIT 10;' on D1 database 'YOUR\_D1\_DB\_ID'"
 
 Skills
@@ -80,17 +81,17 @@ January 26, 2026
 
 ### AWS Marketplace
 
-Discover, evaluate, and buy solutions for the cloud](/connectors/aws-marketplace)
+Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
 Claude
 
 March 9, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69acdf17420ea818c8dd6df3_only%20icon%20vector%20(1).svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dab482d8b581739e57a7_icon_Base44.jpg)
 
 ### Base44
 
-Build and manage Base44 apps](/connectors/base44)
+Build and manage Base44 apps](https://claude.com/connectors/base44)
 
 Claude
 
@@ -98,11 +99,11 @@ Claude Code
 
 March 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a5cd3d14699b00ee21b969_clerk.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dfa6bc4ff18a740c59aa_icon_Clerk.jpg)
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Data
 
@@ -116,4 +117,4 @@ February 11, 2026
 
 ### Cloudinary
 
-Manage, transform and deliver your images & videos](/connectors/cloudinary)
+Manage, transform and deliver your images & videos](https://claude.com/connectors/cloudinary)

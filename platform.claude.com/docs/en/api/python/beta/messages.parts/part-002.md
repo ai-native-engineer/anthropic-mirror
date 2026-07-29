@@ -1,6 +1,8 @@
+<!-- source: https://platform.claude.com/docs/en/api/python/beta/messages -->
 <!-- part of: https://platform.claude.com/docs/en/api/python/beta/messages -->
 
 <!-- chunk-start -->
+
                 - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 14 more]`
 
                   The model that will complete your prompt.

@@ -35,7 +35,9 @@ We also emphasize why effective Delegation requires both expertise in your field
 
 Instructions:
 
-1. Pick a simple task from your work or personal life (something fairly small like drafting an email, outlining a presentation, or planning a meeting or event). 2. Start a conversation with Claude 3. With Claude, share the task you are thinking about doing.
+1. Pick a simple task from your work or personal life (something fairly small like drafting an email, outlining a presentation, or planning a meeting or event).
+2. Start a conversation with Claude
+3. With Claude, share the task you are thinking about doing.
    * E.g. "Hi Claude, I'm preparing how to [insert task] and want to discuss with you what a delegation plan may look like for figuring out which parts I should delegate to an AI like you vs. not. Can you help me with this?"
 4. Together, explore these questions:
    * What is the overall vision for the task? What does a good result look like?
@@ -62,7 +64,6 @@ As you progress through the course, we'd love to hear from you about how you are
 #### Acknowledgments and license
 
 *Copyright 2025 Rick Dakan, Joseph Feller, and Anthropic. Released under the CC BY-NC-SA 4.0 license.* *This course is based on The AI Fluency Framework by Dakan and Feller.* *Supported in part by the Higher Education Authority, Ireland, through the National Forum for the Enhancement of Teaching and Learning.*
-
 <!-- youtube: EljzyfdYkrc -->
 
 [![A Closer Look At Delegation](https://img.youtube.com/vi/EljzyfdYkrc/hqdefault.jpg)](https://www.youtube.com/watch?v=EljzyfdYkrc)

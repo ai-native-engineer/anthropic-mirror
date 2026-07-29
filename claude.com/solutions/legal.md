@@ -22,17 +22,17 @@ Claude handles research, drafting, and the assembly of legal work, so your team 
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 Try it now
 
 [Try it now](https://claude.ai/)Try it now
 
-[](https://assets.claude.ai/brand/videos/claude-for-legal-thumbnail.webm)
+[](https://assets.claude.ai/brand/videos/solutions/claude-for-legal-thumbnail.webm)
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a276efd30d797636373e936_logo_crosby-legal-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a276f22ffe36ff8dedff1ca_logo_crosby-legal-dark.svg)
 
-"Claude Fable 5 feels materially different. In blind review, our lawyers found its redlines matched or beat our current model every time."
+“Claude Fable 5 feels materially different. In blind review, our lawyers found its redlines matched or beat our current model every time.”
 
 Aveek Duttagupta, Member of Technical Staff
 
@@ -42,7 +42,7 @@ Aveek Duttagupta, Member of Technical Staff
 
 Allan Thygesen, CEO
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fe2ebadc1e72c50e5d0b58_%20freshfields-logo.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fe2ef753731a11ac1e2910_courtroom5-logo-dark.svg)
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a628c786b09b4f2392e96f3_logo_freshfields-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a628c8a7203c6cb4010f6a4_logo_freshfields-dark.svg)
 
 “Our approach in the Freshfields Lab has always been to build on the best available technology. Claude’s capabilities have become an essential part of our proprietary AI-powered solutions. With this collaboration, we are going further: co-developing agentic workflows with Anthropic that can handle multi-step legal tasks end-to-end. For our clients, that translates into faster, more precise and more scalable legal services.”
 
@@ -84,6 +84,12 @@ Jake Lauritzen, CTO
 
 Manfred Gabriel, Partner
 
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5e5b97ed26f0736cd8ef5b_evenup_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5e5b9a67ae5f64f19fc17e_evenup_dark.svg)
+
+“PI law presents some of the toughest challenges for AI: reasoning across large volumes of medical records and billing data, identifying critical facts, and executing complex workflows with consistency and accuracy. Claude Opus 4.8 delivers a new level of reasoning, reliability, and long-context performance. EvenUp adds proprietary PI data, domain expertise, and purpose-built workflows on top.”
+
+Rami Karabibar, CEO and CoFounder
+
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a1f5b54d02bb219730f388_logo_solveintelligence-light-mode.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a1f5b87bdeab28825abf01_logo_solveintelligence-dark-mode.svg)
 
 "At Solve Intelligence, we benchmark every frontier model on the hardest parts of patent work: multi-step reasoning over long technical documents, chemical structure recognition, and complex diagram interpretation. Claude Opus 4.7 is a clear step up — and it's how we keep raising the bar across drafting, prosecution, search, and litigation-grade claim charting."
@@ -122,7 +128,8 @@ Use Claude for Word, Outlook, and the document management systems your team alre
 
 Enterprise security, full audit trails, no training on your data by default on Team and Enterprise plans. Claude clears the bar for sensitive matters and privileged work, so your team can focus on strategy and high-stakes work, worry-free.
 
-How Anthropic uses Claude  in legal
+How Anthropic uses Claude
+in legal
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fa5033ba9fc3dc86611fa1_how-anthropic-uses-claude-in-legal.webp)
 
@@ -190,15 +197,15 @@ CoCounsel Legal
 
 Providers of high-risk AI systems must meet the following data and governance requirements. Each item is pinned to its source paragraph for verification.
 
-* Datasets must be relevant, representative, and as error-free as possible.**‍**  
+* Datasets must be relevant, representative, and as error-free as possible.**‍**
   + **Verified** Reg. (EU) 2024/1689, Art. 10(3)
-* Dataset origin, governance, and preparation steps must be documented.**‍**  
+* Dataset origin, governance, and preparation steps must be documented.**‍**
   + **Verified** Reg. (EU) 2024/1689, Art. 10(2)(a)–(c)
-* Datasets must be examined for biases affecting health, safety, or fundamental rights.**‍**  
+* Datasets must be examined for biases affecting health, safety, or fundamental rights.**‍**
   + ‍**Verified** Reg. (EU) 2024/1689, Art. 10(2)(f)–(g)
-* Special-category data permitted for bias correction only where strictly necessary.**‍**  
+* Special-category data permitted for bias correction only where strictly necessary.**‍**
   + **Confirm** Rg. (EU) 2024/1689, Art. 10(5); cross-ref. GDPR Art. 9(2)(g)
-* Operates alongside GDPR Art. 5(1)(c) — does not displace minimization.**‍**  
+* Operates alongside GDPR Art. 5(1)(c) — does not displace minimization.**‍**
   + **Verified** AI Act Recital 67; cross-ref. Reg. (EU) 2016/679, Art. 5(1)(c)
 
 *Art. 10 obligations cascade into Art. 9 (risk management) and Art. 17 (quality management). Defined terms "training data," "validation data," and "testing data" (Art. 3) carry through; verify consistency where source materials predate the final adopted text.*
@@ -235,11 +242,11 @@ Providers of high-risk AI systems must meet the following data and governance re
 
 ###### Recent enforcement — last 12 months
 
-* ‍**Garante (Italy).** Training-data lawfulness in generative AI deployment. Penalty amount — confirm before relying.  
+* ‍**Garante (Italy).** Training-data lawfulness in generative AI deployment. Penalty amount — confirm before relying.
   + ‍**Verified** Garante decision, 2024 (registry no. — confirm)**‍**
-* **CNIL (France).** Sanction on dataset documentation and lawful basis. Penalty amount — confirm before relying.  
+* **CNIL (France).** Sanction on dataset documentation and lawful basis. Penalty amount — confirm before relying.
   + ‍**Confirm** CNIL deliberation — reference not located**‍**
-* ‍**EDPB.** Opinion on AI training data and GDPR minimization — guidance instrument.  
+* ‍**EDPB.** Opinion on AI training data and GDPR minimization — guidance instrument.
   + ‍**Verified** EPB Opinion 28/2024 (confirm number)
 
 ‍
@@ -294,10 +301,6 @@ iManage Work
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fe3a22c5204e580b088032_ironclad.svg)
 
 Ironclad Contracts
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fe40f9122d032e5d47c50b_outlook.png)
-
-Outlook
 
 ### Statement of Work
 
@@ -432,7 +435,7 @@ Word is where legal work gets done. Claude handles full redlining with tracked c
 
 Learn more
 
-[Learn more](/claude-for-microsoft-365)Learn more
+[Learn more](https://claude.com/claude-for-microsoft-365)Learn more
 
 ### Claude Cowork
 
@@ -440,7 +443,7 @@ Hand off multi-document matter tasks: drafting a memo against pleadings, prepari
 
 Learn more
 
-[Learn more](/product/cowork)Learn more
+[Learn more](https://claude.com/product/cowork)Learn more
 
 ### Plugins
 
@@ -456,11 +459,11 @@ Integrate Claude directly into your CLM, matter management, or e-discovery syste
 
 Learn more
 
-[Learn more](/platform/api)Learn more
+[Learn more](https://claude.com/platform/api)Learn more
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6998e8defaa12a843a37084c_docusign.jpeg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fe38fa3c274a3e3c621df2_thomson-reuters.svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b606388d0d4d87093ac4_icon_thomson-reuters.jpg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe6914fb83099a240fa4_Box.jpg)
 
@@ -482,7 +485,7 @@ Matter management, research platforms, contract tools, and data rooms: finally a
 
 Explore connectors
 
-[Explore connectors](/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 ## Legal resources
 
@@ -540,7 +543,7 @@ Whether you're an in-house team looking to scale or a firm building on Claude, w
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 Try it now
 

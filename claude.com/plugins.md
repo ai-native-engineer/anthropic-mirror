@@ -28,9 +28,9 @@ Craft production-grade frontends with distinctive design. Generates polished cod
 
 Anthropic verified
 
-948012
+1110438
 
-installs](/plugins/frontend-design)
+installs](https://claude.com/plugins/frontend-design)
 
 Claude Code
 
@@ -40,9 +40,9 @@ This is some text inside of a div block.
 
 Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
 
-855112
+987572
 
-installs](/plugins/superpowers)
+installs](https://claude.com/plugins/superpowers)
 
 Claude Code
 
@@ -54,9 +54,9 @@ AI code review with specialized agents and confidence-based filtering for pull r
 
 Anthropic verified
 
-383892
+430450
 
-installs](/plugins/code-review)
+installs](https://claude.com/plugins/code-review)
 
 Claude Code
 
@@ -66,9 +66,9 @@ This is some text inside of a div block.
 
 Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
 
-377529
+412076
 
-installs](/plugins/context7)
+installs](https://claude.com/plugins/context7)
 
 Claude Code
 
@@ -80,9 +80,9 @@ Create, improve, and measure skills. Use for creating, updating, evaluating, and
 
 Anthropic verified
 
-324277
+376492
 
-installs](/plugins/skill-creator)
+installs](https://claude.com/plugins/skill-creator)
 
 Claude Code
 
@@ -94,9 +94,9 @@ Code clarity agent: simplifies and refines recently modified code while preservi
 
 Anthropic verified
 
-311070
+341666
 
-installs](/plugins/code-simplifier)
+installs](https://claude.com/plugins/code-simplifier)
 
 Claude Code
 
@@ -106,9 +106,9 @@ This is some text inside of a div block.
 
 Official GitHub MCP server for repo management. Create issues, manage PRs, review code, search repos, and access GitHub's API from Claude Code.
 
-285052
+314133
 
-installs](/plugins/github)
+installs](https://claude.com/plugins/github)
 
 Claude Code
 
@@ -118,9 +118,9 @@ This is some text inside of a div block.
 
 Browser automation and end-to-end testing MCP server by Microsoft. Enables Claude to interact with web pages, take screenshots, fill forms, and automate testing workflows.
 
-277253
+313808
 
-installs](/plugins/playwright)
+installs](https://claude.com/plugins/playwright)
 
 Claude Code
 
@@ -132,9 +132,9 @@ Tools to maintain CLAUDE.md - audit quality, capture learnings, and keep project
 
 Anthropic verified
 
-250441
+282075
 
-installs](/plugins/claude-md-management)
+installs](https://claude.com/plugins/claude-md-management)
 
 Claude Code
 
@@ -146,9 +146,9 @@ Feature development workflow with agents for exploration, design, and review
 
 Anthropic verified
 
-233860
+252869
 
-installs](/plugins/feature-dev)
+installs](https://claude.com/plugins/feature-dev)
 
 Claude Code
 
@@ -160,9 +160,21 @@ Security hook warns about command injection, XSS, and unsafe code patterns when 
 
 Anthropic verified
 
-209119
+235822
 
-installs](/plugins/security-guidance)
+installs](https://claude.com/plugins/security-guidance)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Vercel
+
+Vercel integration for Claude Code. Manage deployments, builds, logs, domains, and frontend infrastructure directly.
+
+219372
+
+installs](https://claude.com/plugins/vercel)
 
 Claude Code
 
@@ -174,9 +186,9 @@ TypeScript/JavaScript language server for enhanced code intelligence
 
 Anthropic verified
 
-191681
+209264
 
-installs](/plugins/typescript-lsp)
+installs](https://claude.com/plugins/typescript-lsp)
 
 Claude Code
 
@@ -188,21 +200,9 @@ Interactive AI loops for iterative development using the Ralph Wiggum technique:
 
 Anthropic verified
 
-184186
+194979
 
-installs](/plugins/ralph-loop)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Vercel
-
-Vercel integration for Claude Code. Manage deployments, builds, logs, domains, and frontend infrastructure directly.
-
-174315
-
-installs](/plugins/vercel)
+installs](https://claude.com/plugins/ralph-loop)
 
 Claude Code
 
@@ -214,9 +214,9 @@ Analyze codebases and recommend tailored Claude Code automations such as hooks, 
 
 Anthropic verified
 
-167888
+191507
 
-installs](/plugins/claude-code-setup)
+installs](https://claude.com/plugins/claude-code-setup)
 
 Claude Code
 
@@ -228,9 +228,9 @@ Commands for git commit workflows including commit, push, and PR creation
 
 Anthropic verified
 
-156164
+169125
 
-installs](/plugins/commit-commands)
+installs](https://claude.com/plugins/commit-commands)
 
 Claude Code
 
@@ -240,9 +240,9 @@ This is some text inside of a div block.
 
 Figma integration: access design files, extract components, read tokens, translate to code. Bridge design-development gap.
 
-148576
+164735
 
-installs](/plugins/figma)
+installs](https://claude.com/plugins/figma)
 
 Claude Code
 
@@ -252,9 +252,9 @@ This is some text inside of a div block.
 
 Supabase MCP: Database ops, auth, storage, real-time. Manage projects, run SQL, interact with your backend.
 
-108064
+117179
 
-installs](/plugins/supabase)
+installs](https://claude.com/plugins/supabase)
 
 Claude Code
 
@@ -266,9 +266,9 @@ PR review agents for comments, tests, errors, types, quality, and simplification
 
 Anthropic verified
 
-104100
+113300
 
-installs](/plugins/pr-review-toolkit)
+installs](https://claude.com/plugins/pr-review-toolkit)
 
 Claude Code
 
@@ -280,33 +280,9 @@ Python language server (Pyright) for type checking and code intelligence
 
 Anthropic verified
 
-98767
+108029
 
-installs](/plugins/pyright-lsp)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### telegram
-
-Telegram messaging bridge with built-in access control. Manage pairing, allowlists, and policy via /telegram:access.
-
-89952
-
-installs](/plugins/telegram)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Serena
-
-Semantic code analysis MCP server for intelligent code understanding, refactoring, and navigation via language server protocol.
-
-84277
-
-installs](/plugins/serena)
+installs](https://claude.com/plugins/pyright-lsp)
 
 Claude Code
 
@@ -316,9 +292,21 @@ This is some text inside of a div block.
 
 Control and inspect a live Chrome browser from your coding agent. Record performance traces, analyze network requests...
 
-82580
+99626
 
-installs](/plugins/chrome-devtools-mcp)
+installs](https://claude.com/plugins/chrome-devtools-mcp)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### telegram
+
+Telegram messaging bridge with built-in access control. Manage pairing, allowlists, and policy via /telegram:access.
+
+98828
+
+installs](https://claude.com/plugins/telegram)
 
 Claude Code
 
@@ -328,9 +316,9 @@ This is some text inside of a div block.
 
 Connect to Jira & Confluence. Search/create issues, access docs, manage sprints, integrate development workflows.
 
-81060
+90605
 
-installs](/plugins/atlassian)
+installs](https://claude.com/plugins/atlassian)
 
 Cowork
 
@@ -344,23 +332,21 @@ Official Slack MCP server for interactive and collaborative workflows. Surface i
 
 Anthropic verified
 
-78607
+89997
 
-installs](/plugins/slack)
+installs](https://claude.com/plugins/slack)
 
 Claude Code
 
 This is some text inside of a div block.
 
-[### Agent SDK Dev
+[### Serena
 
-Development kit for working with the Claude Agent SDK
+Semantic code analysis MCP server for intelligent code understanding, refactoring, and navigation via language server protocol.
 
-Anthropic verified
+88505
 
-62019
-
-installs](/plugins/agent-sdk-dev)
+installs](https://claude.com/plugins/serena)
 
 Claude Code
 
@@ -372,9 +358,23 @@ Claude Code plugin toolkit: 7 expert skills for hooks, MCP, commands, agents, va
 
 Anthropic verified
 
-61692
+66811
 
-installs](/plugins/plugin-dev)
+installs](https://claude.com/plugins/plugin-dev)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Agent SDK Dev
+
+Development kit for working with the Claude Agent SDK
+
+Anthropic verified
+
+66007
+
+installs](https://claude.com/plugins/agent-sdk-dev)
 
 Claude Code
 
@@ -386,9 +386,9 @@ Adds educational insights on implementation choices and codebase patterns (mimic
 
 Anthropic verified
 
-59521
+63688
 
-installs](/plugins/explanatory-output-style)
+installs](https://claude.com/plugins/explanatory-output-style)
 
 Claude Code
 
@@ -400,9 +400,9 @@ Interactive HTML playgrounds with visual controls, live preview, and prompt outp
 
 Anthropic verified
 
-57012
+63162
 
-installs](/plugins/playground)
+installs](https://claude.com/plugins/playground)
 
 Claude Code
 
@@ -414,21 +414,9 @@ Create custom hooks via markdown to prevent unwanted behaviors from conversation
 
 Anthropic verified
 
-55021
+59624
 
-installs](/plugins/hookify)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Greptile
-
-AI-powered codebase search. Query repositories in natural language to find code, understand dependencies, and explore architecture.
-
-52894
-
-installs](/plugins/greptile)
+installs](https://claude.com/plugins/hookify)
 
 Claude Code
 
@@ -438,21 +426,21 @@ This is some text inside of a div block.
 
 Stripe development plugin for Claude
 
-43526
+58690
 
-installs](/plugins/stripe)
+installs](https://claude.com/plugins/stripe)
 
 Claude Code
 
 This is some text inside of a div block.
 
-[### Linear
+[### Greptile
 
-Linear integration: create issues, manage projects, update statuses, search workspaces, and streamline your development workflow.
+AI-powered codebase search. Query repositories in natural language to find code, understand dependencies, and explore architecture.
 
-43086
+56096
 
-installs](/plugins/linear)
+installs](https://claude.com/plugins/greptile)
 
 Claude Code
 
@@ -462,9 +450,21 @@ This is some text inside of a div block.
 
 Continuous memory for Claude Code: extracts, summarizes, compresses conversations into tiered daily logs.
 
-39792
+49814
 
-installs](/plugins/remember)
+installs](https://claude.com/plugins/remember)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Linear
+
+Linear integration: create issues, manage projects, update statuses, search workspaces, and streamline your development workflow.
+
+47273
+
+installs](https://claude.com/plugins/linear)
 
 Claude Code
 
@@ -476,9 +476,9 @@ C# language server for code intelligence
 
 Anthropic verified
 
-39268
+43074
 
-installs](/plugins/csharp-lsp)
+installs](https://claude.com/plugins/csharp-lsp)
 
 Claude Code
 
@@ -490,9 +490,9 @@ Interactive learning mode requesting meaningful code contributions at key decisi
 
 Anthropic verified
 
-38939
+41792
 
-installs](/plugins/learning-output-style)
+installs](https://claude.com/plugins/learning-output-style)
 
 Claude Code
 
@@ -504,9 +504,9 @@ Go language server for code intelligence and refactoring
 
 Anthropic verified
 
-37905
+41095
 
-installs](/plugins/gopls-lsp)
+installs](https://claude.com/plugins/gopls-lsp)
 
 Claude Code
 
@@ -516,21 +516,9 @@ This is some text inside of a div block.
 
 GitLab integration for repositories, merge requests, CI/CD pipelines, issues, and wikis with full DevOps lifecycle access.
 
-36511
+40164
 
-installs](/plugins/gitlab)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Sentry
-
-Sentry error monitoring: Access error reports, analyze stack traces, search issues, and debug production errors in your IDE.
-
-34974
-
-installs](/plugins/sentry)
+installs](https://claude.com/plugins/gitlab)
 
 Claude Code
 
@@ -540,9 +528,21 @@ This is some text inside of a div block.
 
 Firecrawl: Convert websites to LLM-ready markdown/data. Scrape pages, crawl sites, search web, extract structured info. Includes AI agent for autonomous data gathering.
 
-34076
+38560
 
-installs](/plugins/firecrawl)
+installs](https://claude.com/plugins/firecrawl)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Sentry
+
+Sentry error monitoring: Access error reports, analyze stack traces, search issues, and debug production errors in your IDE.
+
+38198
+
+installs](https://claude.com/plugins/sentry)
 
 Claude Code
 
@@ -554,9 +554,9 @@ Rust language server for code intelligence and analysis
 
 Anthropic verified
 
-32638
+35438
 
-installs](/plugins/rust-analyzer-lsp)
+installs](https://claude.com/plugins/rust-analyzer-lsp)
 
 Claude Code
 
@@ -566,9 +566,9 @@ This is some text inside of a div block.
 
 Build, train, evaluate, and use open source AI models, datasets, and spaces.
 
-31091
+34088
 
-installs](/plugins/huggingface-skills)
+installs](https://claude.com/plugins/huggingface-skills)
 
 Claude Code
 
@@ -580,61 +580,9 @@ Java language server (Eclipse JDT.LS) for code intelligence
 
 Anthropic verified
 
-30373
+33275
 
-installs](/plugins/jdtls-lsp)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### PHP LSP
-
-PHP language server (Intelephense) for code intelligence
-
-Anthropic verified
-
-29754
-
-installs](/plugins/php-lsp)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### CodeRabbit
-
-CodeRabbit: AI code review with 40+ analyzers, AST parsing, security checks, and auto-integrated project guidelines.
-
-28897
-
-installs](/plugins/coderabbit)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### discord
-
-Discord messaging bridge with built-in access control. Manage pairing, allowlists, and policy via /discord:access.
-
-28556
-
-installs](/plugins/discord)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Clangd LSP
-
-C/C++ language server (clangd) for code intelligence
-
-Anthropic verified
-
-26810
-
-installs](/plugins/clangd-lsp)
+installs](https://claude.com/plugins/jdtls-lsp)
 
 Claude Code
 
@@ -646,21 +594,61 @@ Design and build MCP servers for Claude. Learn deployment (HTTP, MCPB, local), t
 
 Anthropic verified
 
-24571
+32654
 
-installs](/plugins/mcp-server-dev)
+installs](https://claude.com/plugins/mcp-server-dev)
 
 Claude Code
 
 This is some text inside of a div block.
 
-[### Firebase
+[### PHP LSP
 
-Firebase MCP integration. Manage Firestore, authentication, functions, hosting, and storage from your development workflow.
+PHP language server (Intelephense) for code intelligence
 
-23694
+Anthropic verified
 
-installs](/plugins/firebase)
+32396
+
+installs](https://claude.com/plugins/php-lsp)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### CodeRabbit
+
+CodeRabbit: AI code review with 40+ analyzers, AST parsing, security checks, and auto-integrated project guidelines.
+
+31875
+
+installs](https://claude.com/plugins/coderabbit)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### discord
+
+Discord messaging bridge with built-in access control. Manage pairing, allowlists, and policy via /discord:access.
+
+31749
+
+installs](https://claude.com/plugins/discord)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Clangd LSP
+
+C/C++ language server (clangd) for code intelligence
+
+Anthropic verified
+
+29418
+
+installs](https://claude.com/plugins/clangd-lsp)
 
 Claude Code
 
@@ -670,9 +658,21 @@ This is some text inside of a div block.
 
 Access official Microsoft documentation, API references, and code samples for Azure, .NET, Windows, and more.
 
-21835
+26051
 
-installs](/plugins/microsoft-docs)
+installs](https://claude.com/plugins/microsoft-docs)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Firebase
+
+Firebase MCP integration. Manage Firestore, authentication, functions, hosting, and storage from your development workflow.
+
+25816
+
+installs](https://claude.com/plugins/firebase)
 
 Claude Code
 
@@ -684,9 +684,9 @@ Kotlin language server for code intelligence
 
 Anthropic verified
 
-21709
+23751
 
-installs](/plugins/kotlin-lsp)
+installs](https://claude.com/plugins/kotlin-lsp)
 
 Claude Code
 
@@ -698,9 +698,9 @@ Swift language server (SourceKit-LSP) for code intelligence
 
 Anthropic verified
 
-21273
+23070
 
-installs](/plugins/swift-lsp)
+installs](https://claude.com/plugins/swift-lsp)
 
 Claude Code
 
@@ -710,21 +710,9 @@ This is some text inside of a div block.
 
 Laravel MCP server for intelligent Artisan commands, Eloquent queries, routing, migrations, and framework-specific code generation.
 
-20302
+21710
 
-installs](/plugins/laravel-boost)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Semgrep
-
-Semgrep catches security vulnerabilities in real-time and guides Claude to write secure code from the start.
-
-17255
-
-installs](/plugins/semgrep)
+installs](https://claude.com/plugins/laravel-boost)
 
 Claude Code
 
@@ -734,9 +722,21 @@ This is some text inside of a div block.
 
 Full API lifecycle management for Claude Code. Sync collections, generate client code, discover APIs, run tests, crea...
 
-17031
+19957
 
-installs](/plugins/postman)
+installs](https://claude.com/plugins/postman)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Semgrep
+
+Semgrep catches security vulnerabilities in real-time and guides Claude to write secure code from the start.
+
+19194
+
+installs](https://claude.com/plugins/semgrep)
 
 Claude Code
 
@@ -746,9 +746,45 @@ This is some text inside of a div block.
 
 Build AI agents with the Atomic Agents framework. Includes specialized tools and best practice validation.
 
-14419
+17077
 
-installs](/plugins/atomic-agents)
+installs](https://claude.com/plugins/atomic-agents)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### cloudflare
+
+Skills for the Cloudflare developer platform: Workers, Durable Objects, Agents SDK, MCP servers, Wrangler CLI, and we...
+
+16795
+
+installs](https://claude.com/plugins/cloudflare)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Data Engineering
+
+Data engineering plugin - warehouse exploration, pipeline authoring, Airflow integration
+
+16393
+
+installs](https://claude.com/plugins/data-engineering)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### iMessage
+
+iMessage messaging bridge with built-in access control. Reads chat.db directly, sends via AppleScript. Manage pairing...
+
+15449
+
+installs](https://claude.com/plugins/imessage)
 
 Claude Code
 
@@ -760,93 +796,9 @@ Lua language server for code intelligence
 
 Anthropic verified
 
-14297
+15420
 
-installs](/plugins/lua-lsp)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### iMessage
-
-iMessage messaging bridge with built-in access control. Reads chat.db directly, sends via AppleScript. Manage pairing...
-
-13780
-
-installs](/plugins/imessage)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Data Engineering
-
-Data engineering plugin - warehouse exploration, pipeline authoring, Airflow integration
-
-13336
-
-installs](/plugins/data-engineering)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### cloudflare
-
-Skills for the Cloudflare developer platform: Workers, Durable Objects, Agents SDK, MCP servers, Wrangler CLI, and we...
-
-12080
-
-installs](/plugins/cloudflare)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### PostHog
-
-Connect Claude Code to PostHog. Query analytics, manage flags, run A/B tests, track errors, analyze LLM costs via natural language. 10+ commands, OAuth, EU/US/self-hosted.
-
-11820
-
-installs](/plugins/posthog)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Circleback
-
-Circleback conversational context integration. Search and access meetings, emails, calendar events, and more.
-
-11582
-
-installs](/plugins/circleback)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Sourcegraph
-
-Search code across codebases, trace references, analyze refactor impact, investigate incidents, run security sweeps.
-
-11452
-
-installs](/plugins/sourcegraph)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Qodo Skills
-
-Qodo Skills: AI agents that integrate code quality, testing, security, and compliance checks into your SDLC.
-
-10986
-
-installs](/plugins/qodo-skills)
+installs](https://claude.com/plugins/lua-lsp)
 
 Claude Code
 
@@ -856,45 +808,69 @@ This is some text inside of a div block.
 
 Official Expo skills for building, deploying, upgrading, and debugging React Native apps with Expo. Covers UI develop...
 
-10866
+15049
 
-installs](/plugins/expo)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Asana
-
-Asana integration: Create and manage tasks, search projects, update assignments, track progress in your development workflow.
-
-9864
-
-installs](/plugins/asana)
+installs](https://claude.com/plugins/expo)
 
 Claude Code
 
 This is some text inside of a div block.
 
-[### Pinecone
+[### Datadog
 
-Pinecone vector database integration for managing indexes, querying, and rapid prototyping with slash commands and MCP server support.
+Use Datadog directly in Claude Code through a preconfigured Datadog MCP server. Query logs, metrics, traces, dashboar...
 
-9588
+14409
 
-installs](/plugins/pinecone)
+installs](https://claude.com/plugins/datadog)
 
 Claude Code
 
 This is some text inside of a div block.
 
-[### Deploy on AWS
+[### Sourcegraph
 
-Deploy applications to AWS with architecture recommendations, cost estimates, and IaC deployment.
+Search code across codebases, trace references, analyze refactor impact, investigate incidents, run security sweeps.
 
-8801
+13227
 
-installs](/plugins/deploy-on-aws)
+installs](https://claude.com/plugins/sourcegraph)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### PostHog
+
+Connect Claude Code to PostHog. Query analytics, manage flags, run A/B tests, track errors, analyze LLM costs via natural language. 10+ commands, OAuth, EU/US/self-hosted.
+
+13207
+
+installs](https://claude.com/plugins/posthog)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Circleback
+
+Circleback conversational context integration. Search and access meetings, emails, calendar events, and more.
+
+12297
+
+installs](https://claude.com/plugins/circleback)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Qodo Skills
+
+Qodo Skills: AI agents that integrate code quality, testing, security, and compliance checks into your SDLC.
+
+11759
+
+installs](https://claude.com/plugins/qodo-skills)
 
 Claude Code
 
@@ -906,9 +882,45 @@ Generate an explorable HTML report of Claude Code session usage — tokens, cach
 
 Anthropic verified
 
-8655
+11256
 
-installs](/plugins/session-report)
+installs](https://claude.com/plugins/session-report)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Asana
+
+Asana integration: Create and manage tasks, search projects, update assignments, track progress in your development workflow.
+
+10665
+
+installs](https://claude.com/plugins/asana)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Pinecone
+
+Pinecone vector database integration for managing indexes, querying, and rapid prototyping with slash commands and MCP server support.
+
+10232
+
+installs](https://claude.com/plugins/pinecone)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Deploy on AWS
+
+Deploy applications to AWS with architecture recommendations, cost estimates, and IaC deployment.
+
+10213
+
+installs](https://claude.com/plugins/deploy-on-aws)
 
 Claude Code
 
@@ -918,9 +930,9 @@ This is some text inside of a div block.
 
 Terraform MCP Server: seamless integration with Terraform ecosystem for advanced IaC automation and interaction.
 
-8083
+9985
 
-installs](/plugins/terraform)
+installs](https://claude.com/plugins/terraform)
 
 Claude Code
 
@@ -932,21 +944,9 @@ Ruby language server for code intelligence and analysis
 
 Anthropic verified
 
-7828
+8760
 
-installs](/plugins/ruby-lsp)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Datadog
-
-Use Datadog directly in Claude Code through a preconfigured Datadog MCP server. Query logs, metrics, traces, dashboar...
-
-7557
-
-installs](/plugins/datadog)
+installs](https://claude.com/plugins/ruby-lsp)
 
 Claude Code
 
@@ -956,33 +956,9 @@ This is some text inside of a div block.
 
 Design, build, deploy, test, and debug serverless applications with AWS Serverless services.
 
-7400
+8558
 
-installs](/plugins/aws-serverless)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Sonatype Guide
-
-Sonatype Guide MCP: supply chain intelligence & dependency security analysis with vulnerability detection and version recommendations.
-
-6989
-
-installs](/plugins/sonatype-guide)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### fakechat
-
-Localhost web chat for testing the channel notification flow. No tokens, no access control, no third-party service.
-
-6984
-
-installs](/plugins/fakechat)
+installs](https://claude.com/plugins/aws-serverless)
 
 Claude Code
 
@@ -992,9 +968,33 @@ This is some text inside of a div block.
 
 Official Claude plugin for MongoDB (MCP Server + Skills). Connect to databases, explore data, manage collections, opt...
 
-6726
+8447
 
-installs](/plugins/mongodb)
+installs](https://claude.com/plugins/mongodb)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### fakechat
+
+Localhost web chat for testing the channel notification flow. No tokens, no access control, no third-party service.
+
+7764
+
+installs](https://claude.com/plugins/fakechat)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Prisma
+
+Prisma MCP for Postgres: database management, migrations, SQL queries, and data interaction.
+
+7682
+
+installs](https://claude.com/plugins/prisma)
 
 Cowork
 
@@ -1006,33 +1006,45 @@ Write SQL, explore datasets, and generate insights. Build visualizations and das
 
 Anthropic verified
 
-6588
+7514
 
-installs](/plugins/data)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Prisma
-
-Prisma MCP for Postgres: database management, migrations, SQL queries, and data interaction.
-
-6443
-
-installs](/plugins/prisma)
+installs](https://claude.com/plugins/data)
 
 Claude Code
 
 This is some text inside of a div block.
 
-[### SearchFit SEO
+[### Sonatype Guide
 
-Free AI SEO toolkit: audit, strategy, optimize, markup, keywords, visibility. Works everywhere.
+Sonatype Guide MCP: supply chain intelligence & dependency security analysis with vulnerability detection and version recommendations.
 
-6181
+7418
 
-installs](/plugins/searchfit-seo)
+installs](https://claude.com/plugins/sonatype-guide)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### azure
+
+Transform Claude into an Azure expert. This plugin integrates the Azure MCP server and specialized Azure skills to mo...
+
+7031
+
+installs](https://claude.com/plugins/azure)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Aikido Security
+
+Aikido Security scanning for Claude Code — SAST, secrets, and IaC vulnerability detection by Aikido MCP server.
+
+7030
+
+installs](https://claude.com/plugins/aikido)
 
 Claude Code
 
@@ -1044,9 +1056,9 @@ Build beautiful documentation with Mintlify: convert to MDX, modify content, aut
 
 Anthropic verified
 
-6039
+6813
 
-installs](/plugins/mintlify)
+installs](https://claude.com/plugins/mintlify)
 
 Claude Code
 
@@ -1056,69 +1068,9 @@ This is some text inside of a div block.
 
 Deploy and manage apps, databases, and infrastructure on Railway. Covers project setup, deploys, environment configur...
 
-5470
+6669
 
-installs](/plugins/railway)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Product Tracking Skills
-
-AI agents making SaaS products data-ready—scan codebase, build tracking plan, generate code
-
-5423
-
-installs](/plugins/product-tracking-skills)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Aikido Security
-
-Aikido Security scanning for Claude Code — SAST, secrets, and IaC vulnerability detection by Aikido MCP server.
-
-5403
-
-installs](/plugins/aikido)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### azure
-
-Transform Claude into an Azure expert. This plugin integrates the Azure MCP server and specialized Azure skills to mo...
-
-4697
-
-installs](/plugins/azure)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### sonarqube
-
-Automatically enforce SonarQube code quality and security in the agent coding loop.
-
-4444
-
-installs](/plugins/sonarqube)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### PagerDuty Pre-Commit Risk Score
-
-Score pre-commit diffs against PagerDuty incident history and surface deployment risk before you ship.
-
-4357
-
-installs](/plugins/pagerduty)
+installs](https://claude.com/plugins/railway)
 
 Claude Code
 
@@ -1128,69 +1080,45 @@ This is some text inside of a div block.
 
 MCP server for terminal commands, process management, and file operations across text, code, PDF, DOCX, Excel, images...
 
-4261
+6627
 
-installs](/plugins/desktop-commander)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### shopify-ai-toolkit
-
-Shopify's AI Toolkit provides 18 development skills for building on the Shopify platform, covering documentation sear...
-
-3896
-
-installs](/plugins/shopify-ai-toolkit)
+installs](https://claude.com/plugins/desktop-commander)
 
 Claude Code
 
 This is some text inside of a div block.
 
-[### pydantic-ai
+[### SearchFit SEO
 
-Write accurate Pydantic AI code from the start. Up-to-date patterns, decision trees, and common gotchas for agents, t...
+Free AI SEO toolkit: audit, strategy, optimize, markup, keywords, visibility. Works everywhere.
 
-3842
+6214
 
-installs](/plugins/pydantic-ai)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Endor Labs
-
-Set up endorctl and use Endor Labs to scan, prioritize, and fix security risks across your software supply chain
-
-3731
-
-installs](/plugins/ai-plugins)
+installs](https://claude.com/plugins/searchfit-seo)
 
 Claude Code
 
 This is some text inside of a div block.
 
-[### Netlify Skills
+[### sonarqube
 
-Netlify platform skills for Claude Code — functions, edge functions, blobs, database, image CDN, forms, config, CLI, ...
+Automatically enforce SonarQube code quality and security in the agent coding loop.
 
-3728
+6131
 
-installs](/plugins/netlify-skills)
+installs](https://claude.com/plugins/sonarqube)
 
 Claude Code
 
 This is some text inside of a div block.
 
-[### GoodMem
+[### aws-core
 
-GoodMem: AI memory infrastructure. Python SDK and MCP tools manage embedders, spaces, memories via natural language.
+Build, deploy, and operate applications on AWS. Skills to author infrastructure-as-code, use core services, and compl...
 
-3622
+5876
 
-installs](/plugins/goodmem)
+installs](https://claude.com/plugins/aws-core)
 
 Claude Code
 
@@ -1202,33 +1130,45 @@ Modernize legacy codebases (COBOL, legacy Java/C++, monolith web apps) with a st
 
 Anthropic verified
 
-3518
+5520
 
-installs](/plugins/code-modernization)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Optibot Code Review
-
-AI code review that catches production bugs, business logic issues & security vulnerabilities in Claude Code.
-
-3462
-
-installs](/plugins/optibot)
+installs](https://claude.com/plugins/code-modernization)
 
 Claude Code
 
 This is some text inside of a div block.
 
-[### LegalZoom
+[### Product Tracking Skills
 
-AI reviews legal documents for risks and advises when to hire an attorney. Connects to legal professionals when needed.
+AI agents making SaaS products data-ready—scan codebase, build tracking plan, generate code
 
-3337
+5447
 
-installs](/plugins/legalzoom)
+installs](https://claude.com/plugins/product-tracking-skills)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### shopify-ai-toolkit
+
+Shopify's AI Toolkit provides 18 development skills for building on the Shopify platform, covering documentation sear...
+
+5139
+
+installs](https://claude.com/plugins/shopify-ai-toolkit)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### pydantic-ai
+
+Write accurate Pydantic AI code from the start. Up-to-date patterns, decision trees, and common gotchas for agents, t...
+
+5064
+
+installs](https://claude.com/plugins/pydantic-ai)
 
 Claude Code
 
@@ -1238,21 +1178,57 @@ This is some text inside of a div block.
 
 Exa AI web search, deep research, and content extraction. Provides MCP tools and research skills for comprehensive we...
 
-3251
+4934
 
-installs](/plugins/exa)
+installs](https://claude.com/plugins/exa)
 
 Claude Code
 
 This is some text inside of a div block.
 
-[### neon
+[### PagerDuty Pre-Commit Risk Score
 
-Manage your Neon projects and databases with the neon-postgres agent skill and the Neon MCP Server.
+Score pre-commit diffs against PagerDuty incident history and surface deployment risk before you ship.
 
-3020
+4902
 
-installs](/plugins/neon)
+installs](https://claude.com/plugins/pagerduty)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Endor Labs
+
+Set up endorctl and use Endor Labs to scan, prioritize, and fix security risks across your software supply chain
+
+4492
+
+installs](https://claude.com/plugins/ai-plugins)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Netlify Skills
+
+Netlify platform skills for Claude Code — functions, edge functions, blobs, database, image CDN, forms, config, CLI, ...
+
+4464
+
+installs](https://claude.com/plugins/netlify-skills)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Auth0
+
+Enterprise-grade auth, easy to implement. Add login, SSO, MFA, and access control to any app with framework-aware guidance.
+
+4380
+
+installs](https://claude.com/plugins/auth0)
 
 Claude Code
 
@@ -1262,37 +1238,61 @@ This is some text inside of a div block.
 
 Liquid language fundamentals, CSS/JS/HTML coding standards, and WCAG accessibility patterns for Shopify themes
 
-2966
+4225
 
-installs](/plugins/liquid-skills)
-
-Claude Code
-
-This is some text inside of a div block.
-
-[### Adspirer Ads Agent
-
-Ad management for Google, Meta, TikTok & LinkedIn. 91 tools for keyword research, campaigns, analysis & optimization.
-
-2929
-
-installs](/plugins/adspirer-ads-agent)
+installs](https://claude.com/plugins/liquid-skills)
 
 Claude Code
 
 This is some text inside of a div block.
 
-[### Wix
+[### LegalZoom
 
-Build, manage, and deploy Wix sites and apps. CLI development skills for dashboard extensions, backend APIs, site wid...
+AI reviews legal documents for risks and advises when to hire an attorney. Connects to legal professionals when needed.
 
-2926
+4201
 
-installs](/plugins/wix)
+installs](https://claude.com/plugins/legalzoom)
 
-[View more](?cc61befa_page=2)
+Claude Code
 
-1 / 3
+This is some text inside of a div block.
+
+[### neon
+
+Manage your Neon projects and databases with the neon-postgres agent skill and the Neon MCP Server.
+
+3910
+
+installs](https://claude.com/plugins/neon)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### Miro
+
+Secure access to Miro boards. Read board context, create new boards, generate diagrams, docs, and tables, and turn designs into code from Claude Code.
+
+3822
+
+installs](https://claude.com/plugins/miro)
+
+Claude Code
+
+This is some text inside of a div block.
+
+[### GoodMem
+
+GoodMem: AI memory infrastructure. Python SDK and MCP tools manage embedders, spaces, memories via natural language.
+
+3638
+
+installs](https://claude.com/plugins/goodmem)
+
+[View more](https://claude.com/plugins?cc61befa_page=2)
+
+1 / 4
 
 No plugins for those filters
 

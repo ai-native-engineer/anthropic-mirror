@@ -1,6 +1,6 @@
 <!-- source: https://claude.com/connectors/adobe-cja -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 # Adobe Customer Journey Analytics
 
@@ -10,6 +10,7 @@ Run reports using your metrics, dimensions, and segments
 * Used in
 
   [Claude](https://claude.ai/directory/a1b63edd-c598-4b04-b7b0-22dd02c328a3)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Adobe](https://business.adobe.com/products/adobe-analytics/customer-journey-analytics.html)
 
@@ -28,16 +29,16 @@ Access your Adobe Customer Journey Analytics data directly in Claude. Query metr
 
 You can use Adobe Customer Journey Analytics to:
 
-**Understand what's driving traffic and revenue:**  
+**Understand what's driving traffic and revenue:**
 "Show me the top 20 pages by page views for the last 7 days"
 
-**Discover user journeys and behavior:**  
+**Discover user journeys and behavior:**
 "Which pages have the highest exit rates this month?"
 
-**Compare metric performance across time periods:**  
+**Compare metric performance across time periods:**
 "Compare daily revenue and orders week-over-week for the past month"
 
-**Create segments or calculated metrics:**  
+**Create segments or calculated metrics:**
 "Create a segment for mobile users who viewed a product but didn't purchase in the last 90 days"
 
 ## Related connectors
@@ -54,7 +55,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -68,7 +69,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -80,7 +81,7 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
 
 Data
 
@@ -90,8 +91,8 @@ Claude Code
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdf0757d9241e42ce447_Aura.jpg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b2a2eb3325e73b42b98c_icon_Aura.jpg)
 
 ### Aura
 
-Company intelligence & workforce analytics](/connectors/aura)
+Company intelligence & workforce analytics](https://claude.com/connectors/aura)

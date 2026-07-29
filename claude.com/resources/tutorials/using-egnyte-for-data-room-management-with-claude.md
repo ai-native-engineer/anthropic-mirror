@@ -148,11 +148,11 @@ Claude would provide a comprehensive summary of all project deliverables with ke
 
 ## Tips for Using Egnyte
 
-* Be specific about file locations and criteria when searching. Including folder paths, date ranges, and file types helps Claude locate the exact documents you need.  
+* Be specific about file locations and criteria when searching. Including folder paths, date ranges, and file types helps Claude locate the exact documents you need.
   + Example: Instead of “Find the contract”, try “Search for PDF contracts in the Legal/Vendor folder from 2024”
-* Use natural language when asking questions about documents. The ask\_document and Copilot tools understand conversational queries.  
+* Use natural language when asking questions about documents. The ask\_document and Copilot tools understand conversational queries.
   + Example: “What are the payment terms?” or “Summarize the main risks outlined in this document”
-* Leverage Knowledge Bases for frequently accessed information. If your organization has created Knowledge Bases, reference them for faster access to curated content.  
+* Leverage Knowledge Bases for frequently accessed information. If your organization has created Knowledge Bases, reference them for faster access to curated content.
   + Example: “Query the HR Knowledge Base for our vacation policy”
 * Remember that all access respects your Egnyte permissions. Claude can only access files and folders you have permission to view, ensuring security and proper access control.
 * For complex analyses involving multiple documents, consider providing folder paths or specific file IDs to help Claude locate the right content efficiently.
@@ -160,34 +160,34 @@ Claude would provide a comprehensive summary of all project deliverables with ke
 
 ## Related tutorials
 
-[Install financial services plugins for Claude Cowork](/resources/tutorials/install-financial-services-plugins-for-cowork)Install financial services plugins for Claude Cowork
+[Install financial services plugins for Claude Cowork](https://claude.com/resources/tutorials/install-financial-services-plugins-for-cowork)Install financial services plugins for Claude Cowork
 
 Install financial services plugins for Claude Cowork
 
 Tutorial
 
-[Tutorial](/resources/tutorials/install-financial-services-plugins-for-cowork)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/install-financial-services-plugins-for-cowork)Tutorial
 
-[How to build a plugin from scratch in Claude Cowork](/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)How to build a plugin from scratch in Claude Cowork
+[How to build a plugin from scratch in Claude Cowork](https://claude.com/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)How to build a plugin from scratch in Claude Cowork
 
 How to build a plugin from scratch in Claude Cowork
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)Tutorial
 
-[Getting started with Claude in Excel](/resources/tutorials/getting-started-with-claude-in-excel)Getting started with Claude in Excel
+[Getting started with Claude in Excel](https://claude.com/resources/tutorials/getting-started-with-claude-in-excel)Getting started with Claude in Excel
 
 Getting started with Claude in Excel
 
 Tutorial
 
-[Tutorial](/resources/tutorials/getting-started-with-claude-in-excel)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/getting-started-with-claude-in-excel)Tutorial
 
-[How to use Claude in Excel for accounting: Revenue model validation](/resources/tutorials/how-to-use-claude-in-excel-for-accounting-revenue-model-validation)How to use Claude in Excel for accounting: Revenue model validation
+[How to use Claude in Excel for accounting: Revenue model validation](https://claude.com/resources/tutorials/how-to-use-claude-in-excel-for-accounting-revenue-model-validation)How to use Claude in Excel for accounting: Revenue model validation
 
 How to use Claude in Excel for accounting: Revenue model validation
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-claude-in-excel-for-accounting-revenue-model-validation)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-claude-in-excel-for-accounting-revenue-model-validation)Tutorial

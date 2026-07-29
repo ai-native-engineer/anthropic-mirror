@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/connectors/building/mcp-apps/cross-compatibility -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 MCP Apps can run in both Claude and ChatGPT from a single codebase. The SDK auto-detects the host environment and uses the appropriate transport, though some platform-specific behaviors require attention.
 
 ##  How it works
@@ -21,10 +29,12 @@ While the SDK handles most cross-platform concerns automatically, some behaviors
 The [`Resource._meta.ui.domain`](https://modelcontextprotocol.github.io/ext-apps/api/interfaces/app.McpUiResourceMeta.html#domain) field format and validation rules are determined by each host platform. For example, hosts may use hash-based subdomains, URL-derived patterns, or other formats.
 For Claude, compute the `Resource._meta.ui.domain` value by running this command, replacing `https://example.com/mcp` with your server URL:
 
+```
 node -e 'const yourServerUrl = "https://example.com/mcp"; console.log(require("crypto").createHash("sha256").update(yourServerUrl).digest("hex").slice(0,32) + ".claudemcpcontent.com")'
+```
 
 Example output for `https://example.com/mcp`:
 
+```
 c3d80a4ed901ee05b21755a88273b4a4.claudemcpcontent.com
-
-[Superseding older widgets](/docs/connectors/building/mcp-apps/instance-supersession)[External links](/docs/connectors/building/mcp-apps/external-links)
+```

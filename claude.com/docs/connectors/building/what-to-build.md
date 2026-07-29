@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/connectors/building/what-to-build -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Most partners ship two things: a remote MCP server and a plugin that wraps it. They serve different purposes, and together they give users the best experience.
 
 ##  The recommendation
@@ -51,5 +59,3 @@ Start with the MCP building guide.
 ## Build a plugin
 
 Bundle skills and connectors together.
-
-[Overview](/docs/connectors/building)[Authentication](/docs/connectors/building/authentication)

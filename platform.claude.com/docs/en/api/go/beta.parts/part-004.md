@@ -1,6 +1,8 @@
+<!-- source: https://platform.claude.com/docs/en/api/go/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/go/beta -->
 
 <!-- chunk-start -->
+
       IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
 
     - `Type BetaManagedAgentsScheduleType`

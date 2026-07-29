@@ -8,7 +8,7 @@ The Web Search connector gives Claude the ability to search the public internet 
 
 For questions about web search in commercial Claude, see **[Enabling and using web search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)**.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1782459900&signature=0b399cd292179b803cabffd278d11b3103c25562fa8445e3dd3b20bd04b23b78&req=diIiEMh8nYZZWvMW1HO4zQvFLLBXiM3xM%2Fw5SJgC29HyoKblRKavZdWXNFxd%0A5lUgdSiq%2BfbmwWgU81Q%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1782459900&signature=0b399cd292179b803cabffd278d11b3103c25562fa8445e3dd3b20bd04b23b78&req=diIiEMh8nYZZWvMW1HO4zQvFLLBXiM3xM%2Fw5SJgC29HyoKblRKavZdWXNFxd%0A5lUgdSiq%2BfbmwWgU81Q%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1785295800&signature=0d745794d9bc8a7bd0893bc6558d2aac5dc386fd8457886547c84d444ef6e168&req=diIiEMh8nYZZWvMW1HO4zQvFLLdRhMHwM%2Fw5SJgC29ELBRjB1gMKWXc4RFid%0Au5FzZwEqr1Mmc0qIy8w%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1785295800&signature=0d745794d9bc8a7bd0893bc6558d2aac5dc386fd8457886547c84d444ef6e168&req=diIiEMh8nYZZWvMW1HO4zQvFLLdRhMHwM%2Fw5SJgC29ELBRjB1gMKWXc4RFid%0Au5FzZwEqr1Mmc0qIy8w%3D%0A)
 
 ## How Web Search differs for Claude for Government
 
@@ -73,4 +73,8 @@ No. Per-query approval is a required control in Claude for Government and cannot
 
 No. The Remote MCP framework was authorized as a feature, which covers individual connectors including Web Search. Your agency's responsibility is to evaluate whether the specific data-handling characteristics of this connector (queries to a non-FedRAMP third party) are appropriate for your use case.
 
-[Enable and use web search](https://support.claude.com/en/articles/10684626-enable-and-use-web-search)[Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)[Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)[MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)[MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)
+* [Enable and use web search](https://support.claude.com/en/articles/10684626-enable-and-use-web-search)
+* [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
+* [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
+* [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
+* [MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)

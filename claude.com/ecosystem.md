@@ -20,11 +20,11 @@ Connectors bring your apps and data into Claude to complete tasks. Plugins combi
 
 Browse connectors
 
-[Browse connectors](/connectors)Browse connectors
+[Browse connectors](https://claude.com/connectors)Browse connectors
 
 Explore plugins
 
-[Explore plugins](/plugins)Explore plugins
+[Explore plugins](https://claude.com/plugins)Explore plugins
 
 ### Bring your tools to Claude
 
@@ -78,11 +78,11 @@ No retrofitting required. Connect the tools you use everyday.
 
 Explore connectors
 
-[Explore connectors](/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 Browse plugins
 
-[Browse plugins](/plugins)Browse plugins
+[Browse plugins](https://claude.com/plugins)Browse plugins
 
 ## How teams use connectors
 
@@ -144,10 +144,10 @@ Claude claude-sonnet-4-6 · ~/projects/acme-web
 
 ‍
 
-ISSUE-4821 TypeError: Cannot read properties of undefined (reading 'data')  
- Project: acme-web · Environment: production  
- First seen: 2026-06-15 22:14 UTC · Last seen: 2026-06-16 07:03 UTC  
- Events: 1,847 · Users affected: 312  
+ISSUE-4821 TypeError: Cannot read properties of undefined (reading 'data')
+ Project: acme-web · Environment: production
+ First seen: 2026-06-15 22:14 UTC · Last seen: 2026-06-16 07:03 UTC
+ Events: 1,847 · Users affected: 312
  Culprit: src/components/Dashboard/MetricsPanel.tsx line 94
 
 ‍
@@ -156,12 +156,12 @@ ISSUE-4821 TypeError: Cannot read properties of undefined (reading 'data')
 
 ‍
 
-TypeError: Cannot read properties of undefined (reading 'data')  
- at MetricsPanel.tsx:94:28 — processChartData(response)  
- at MetricsPanel.tsx:61:12 — useEffect(callback)  
+TypeError: Cannot read properties of undefined (reading 'data')
+ at MetricsPanel.tsx:94:28 — processChartData(response)
+ at MetricsPanel.tsx:61:12 — useEffect(callback)
  at react-dom/cjs/react-dom.development.js:22794
 
-Most recent breadcrumb:  
+Most recent breadcrumb:
  → GET /api/v2/metrics?range=7d → 200 OK (response.metrics was null)
 
 ‍
@@ -170,20 +170,20 @@ Most recent breadcrumb:
 
 ‍
 
-Line 90–98:  
- 90 │ const processChartData = (response: ApiResponse) => {  
- 91 │ const { metrics } = response  
- 92 │ // metrics can be null when no data for the selected range  
- 93 │ return metrics.data.map((m: Metric) => ({  
- 94 │ label: m.label,  
- 95 │ value: m.value ?? 0,  
- 96 │ }))  
+Line 90–98:
+ 90 │ const processChartData = (response: ApiResponse) => {
+ 91 │ const { metrics } = response
+ 92 │ // metrics can be null when no data for the selected range
+ 93 │ return metrics.data.map((m: Metric) => ({
+ 94 │ label: m.label,
+ 95 │ value: m.value ?? 0,
+ 96 │ }))
  97 │ }
 
 ‍
 
-● Root cause identified.  
- API returns { metrics: null } when the selected range has no data. Line 93  
+● Root cause identified.
+ API returns { metrics: null } when the selected range has no data. Line 93
  dereferences metrics.data without a null guard, throwing at runtime.
 
 ‍
@@ -196,88 +196,88 @@ On branch main · nothing to commit, working tree clean
 
 ● Creating fix branch…
 
-$ git checkout -b fix/metrics-panel-null-data-sentry-4821  
+$ git checkout -b fix/metrics-panel-null-data-sentry-4821
  Switched to a new branch 'fix/metrics-panel-null-data-sentry-4821'
 
 ‍
 
 ● Applying fix to src/components/Dashboard/MetricsPanel.tsx…
 
-@@ -90,8 +90,8 @@  
- const processChartData = (response: ApiResponse) => {  
- const { metrics } = response  
- - return metrics.data.map((m: Metric) => ({  
- + if (!metrics?.data) return []  
- + return metrics.data.map((m: Metric) => ({  
- label: m.label,  
- value: m.value ?? 0,  
+@@ -90,8 +90,8 @@
+ const processChartData = (response: ApiResponse) => {
+ const { metrics } = response
+ - return metrics.data.map((m: Metric) => ({
+ + if (!metrics?.data) return []
+ + return metrics.data.map((m: Metric) => ({
+ label: m.label,
+ value: m.value ?? 0,
  }))
 
 ‍
 
 ● Also updating src/components/Dashboard/MetricsPanel.tsx render guard…
 
-@@ -61,6 +61,7 @@  
- useEffect(() => {  
- fetchMetrics(range).then((response) => {  
- + if (!response?.metrics) { setChartData([]); return }  
- setChartData(processChartData(response))  
- })  
+@@ -61,6 +61,7 @@
+ useEffect(() => {
+ fetchMetrics(range).then((response) => {
+ + if (!response?.metrics) { setChartData([]); return }
+ setChartData(processChartData(response))
+ })
  }, [range])
 
 ‍
 
 ● Running tests…
 
-$ pnpm test --testPathPattern=MetricsPanel  
- PASS src/components/Dashboard/\_\_tests\_\_/MetricsPanel.test.tsx  
- ✓ renders loading state (12ms)  
- ✓ renders chart when data present (34ms)  
- ✓ renders empty state when metrics is null (8ms)  
+$ pnpm test --testPathPattern=MetricsPanel
+ PASS src/components/Dashboard/\_\_tests\_\_/MetricsPanel.test.tsx
+ ✓ renders loading state (12ms)
+ ✓ renders chart when data present (34ms)
+ ✓ renders empty state when metrics is null (8ms)
  ✓ renders empty state when metrics.data is empty array (6ms)
 
-Test Suites: 1 passed, 1 total  
+Test Suites: 1 passed, 1 total
  Tests: 4 passed, 4 total
 
 ‍
 
 ● Committing…
 
-$ git add src/components/Dashboard/MetricsPanel.tsx  
+$ git add src/components/Dashboard/MetricsPanel.tsx
  $ git commit -m "fix(dashboard): guard against null metrics.data in MetricsPanel
 
 Fixes Sentry ISSUE-4821 (1,847 events, 312 users).
 
-The /api/v2/metrics endpoint returns { metrics: null } when no data  
-exists for the requested range. processChartData() dereferenced  
+The /api/v2/metrics endpoint returns { metrics: null } when no data
+exists for the requested range. processChartData() dereferenced
 metrics.data without a null check, causing a TypeError at runtime.
 
-- Add early return guard in processChartData(): if !metrics?.data return []  
-- Add response guard in useEffect to short-circuit setChartData call  
+- Add early return guard in processChartData(): if !metrics?.data return []
+- Add response guard in useEffect to short-circuit setChartData call
 - Affected users would see a blank panel crash; now renders empty state
 
 Sentry: ISSUE-4821"
 
-[fix/metrics-panel-null-data-sentry-4821 a3f9c12] fix(dashboard): guard against null metrics.data...  
+[fix/metrics-panel-null-data-sentry-4821 a3f9c12] fix(dashboard): guard against null metrics.data...
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 ‍
 
 ● Pushing branch and opening PR…
 
-$ git push -u origin fix/metrics-panel-null-data-sentry-4821  
- Enumerating objects: 9, done.  
- Counting objects: 100% (9/9), done.  
- Writing objects: 100% (5/5), 1.02 KiB | 1.02 MiB/s, done.  
+$ git push -u origin fix/metrics-panel-null-data-sentry-4821
+ Enumerating objects: 9, done.
+ Counting objects: 100% (9/9), done.
+ Writing objects: 100% (5/5), 1.02 KiB | 1.02 MiB/s, done.
  Branch 'fix/metrics-panel-null-data-sentry-4821' set up to track remote.
 
-$ gh pr create \  
- --title "fix(dashboard): guard against null metrics.data in MetricsPanel" \  
- --body "..." \  
- --base main \  
+$ gh pr create \
+ --title "fix(dashboard): guard against null metrics.data in MetricsPanel" \
+ --body "..." \
+ --base main \
  --label "bug,sentry"
 
-✓ Pull request created:  
+✓ Pull request created:
  https://github.com/acme-org/acme-web/pull/1138
 
 ‍
@@ -286,7 +286,7 @@ $ gh pr create \
 
 ‍
 
-Done. PR #1138 opened · 2 lines changed · 4 tests passing  
+Done. PR #1138 opened · 2 lines changed · 4 tests passing
  Sentry ISSUE-4821 will auto-resolve once the deploy goes out.
 
 ‍
@@ -421,7 +421,7 @@ Apply your existing Anthropic commitment across the tools your team already uses
 
 Explore marketplace
 
-[Explore marketplace](/platform/marketplace)Explore marketplace
+[Explore marketplace](https://claude.com/platform/marketplace)Explore marketplace
 
 ### Consolidated AI spend
 

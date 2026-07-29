@@ -34,11 +34,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/using-claude-design-for-prototypes-and-ux)Read use case
+[Read use case](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)Read use case
 
-[Using Claude Design for prototypes and UX](/resources/tutorials/using-claude-design-for-prototypes-and-ux)Using Claude Design for prototypes and UX
+[Using Claude Design for prototypes and UX](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)Using Claude Design for prototypes and UX
 
-[Text Link](/resources/tutorials/using-claude-design-for-prototypes-and-ux)
+[Text Link](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)
 
 Professional
 
@@ -64,11 +64,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/what-is-claude-managed-agents)Read use case
+[Read use case](https://claude.com/resources/tutorials/what-is-claude-managed-agents)Read use case
 
-[What is Claude Managed Agents?](/resources/tutorials/what-is-claude-managed-agents)What is Claude Managed Agents?
+[What is Claude Managed Agents?](https://claude.com/resources/tutorials/what-is-claude-managed-agents)What is Claude Managed Agents?
 
-[Text Link](/resources/tutorials/what-is-claude-managed-agents)
+[Text Link](https://claude.com/resources/tutorials/what-is-claude-managed-agents)
 
 Engineering
 
@@ -92,11 +92,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/using-claude-code-remote-control)Read use case
+[Read use case](https://claude.com/resources/tutorials/using-claude-code-remote-control)Read use case
 
-[Using Claude Code Remote Control](/resources/tutorials/using-claude-code-remote-control)Using Claude Code Remote Control
+[Using Claude Code Remote Control](https://claude.com/resources/tutorials/using-claude-code-remote-control)Using Claude Code Remote Control
 
-[Text Link](/resources/tutorials/using-claude-code-remote-control)
+[Text Link](https://claude.com/resources/tutorials/using-claude-code-remote-control)
 
 Engineering
 
@@ -120,11 +120,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/how-skills-compare-to-other-claude-code-features)Read use case
+[Read use case](https://claude.com/resources/tutorials/how-skills-compare-to-other-claude-code-features)Read use case
 
-[How skills compare to other Claude Code features](/resources/tutorials/how-skills-compare-to-other-claude-code-features)How skills compare to other Claude Code features
+[How skills compare to other Claude Code features](https://claude.com/resources/tutorials/how-skills-compare-to-other-claude-code-features)How skills compare to other Claude Code features
 
-[Text Link](/resources/tutorials/how-skills-compare-to-other-claude-code-features)
+[Text Link](https://claude.com/resources/tutorials/how-skills-compare-to-other-claude-code-features)
 
 Engineering
 
@@ -148,11 +148,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/what-are-skills)Read use case
+[Read use case](https://claude.com/resources/tutorials/what-are-skills)Read use case
 
-[What are skills?](/resources/tutorials/what-are-skills)What are skills?
+[What are skills?](https://claude.com/resources/tutorials/what-are-skills)What are skills?
 
-[Text Link](/resources/tutorials/what-are-skills)
+[Text Link](https://claude.com/resources/tutorials/what-are-skills)
 
 Engineering
 
@@ -176,11 +176,11 @@ Connectors
 
 Read use case
 
-[Read use case](/resources/tutorials/using-the-github-integration)Read use case
+[Read use case](https://claude.com/resources/tutorials/using-the-github-integration)Read use case
 
-[Using the GitHub integration](/resources/tutorials/using-the-github-integration)Using the GitHub integration
+[Using the GitHub integration](https://claude.com/resources/tutorials/using-the-github-integration)Using the GitHub integration
 
-[Text Link](/resources/tutorials/using-the-github-integration)
+[Text Link](https://claude.com/resources/tutorials/using-the-github-integration)
 
 Professional
 
@@ -206,11 +206,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/troubleshooting-skills)Read use case
+[Read use case](https://claude.com/resources/tutorials/troubleshooting-skills)Read use case
 
-[Troubleshooting skills](/resources/tutorials/troubleshooting-skills)Troubleshooting skills
+[Troubleshooting skills](https://claude.com/resources/tutorials/troubleshooting-skills)Troubleshooting skills
 
-[Text Link](/resources/tutorials/troubleshooting-skills)
+[Text Link](https://claude.com/resources/tutorials/troubleshooting-skills)
 
 Engineering
 
@@ -234,11 +234,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/sharing-skills)Read use case
+[Read use case](https://claude.com/resources/tutorials/sharing-skills)Read use case
 
-[Sharing skills](/resources/tutorials/sharing-skills)Sharing skills
+[Sharing skills](https://claude.com/resources/tutorials/sharing-skills)Sharing skills
 
-[Text Link](/resources/tutorials/sharing-skills)
+[Text Link](https://claude.com/resources/tutorials/sharing-skills)
 
 Engineering
 
@@ -262,11 +262,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/configuration-and-multi-file-skills)Read use case
+[Read use case](https://claude.com/resources/tutorials/configuration-and-multi-file-skills)Read use case
 
-[Configuration and multi-file skills](/resources/tutorials/configuration-and-multi-file-skills)Configuration and multi-file skills
+[Configuration and multi-file skills](https://claude.com/resources/tutorials/configuration-and-multi-file-skills)Configuration and multi-file skills
 
-[Text Link](/resources/tutorials/configuration-and-multi-file-skills)
+[Text Link](https://claude.com/resources/tutorials/configuration-and-multi-file-skills)
 
 Engineering
 
@@ -290,11 +290,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/creating-your-first-skill)Read use case
+[Read use case](https://claude.com/resources/tutorials/creating-your-first-skill)Read use case
 
-[Creating your first skill](/resources/tutorials/creating-your-first-skill)Creating your first skill
+[Creating your first skill](https://claude.com/resources/tutorials/creating-your-first-skill)Creating your first skill
 
-[Text Link](/resources/tutorials/creating-your-first-skill)
+[Text Link](https://claude.com/resources/tutorials/creating-your-first-skill)
 
 Engineering
 
@@ -318,11 +318,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/claude-for-engineering)Read use case
+[Read use case](https://claude.com/resources/tutorials/claude-for-engineering)Read use case
 
-[Claude for Engineering](/resources/tutorials/claude-for-engineering)Claude for Engineering
+[Claude for Engineering](https://claude.com/resources/tutorials/claude-for-engineering)Claude for Engineering
 
-[Text Link](/resources/tutorials/claude-for-engineering)
+[Text Link](https://claude.com/resources/tutorials/claude-for-engineering)
 
 Engineering
 

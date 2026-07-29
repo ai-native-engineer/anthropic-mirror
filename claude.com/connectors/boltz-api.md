@@ -6,12 +6,11 @@
 
 Predict molecular structures and binding interactions, screen libraries, and design binders with the Boltz API.
 
-* Category
-
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/8c1da671-b40e-465b-9bc4-bff40398221f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Boltz](https://boltz.bio/)
 
@@ -24,19 +23,19 @@ Predict molecular structures and binding interactions, screen libraries, and des
   Read & write
 * More
 
-  [Documentation](https://api.boltz.bio/docs)[Privacy Policy](https://boltz.bio/privacy)[support@boltz.bio](mailto:support@boltz.bio)
+  [Documentation](https://api.boltz.bio/docs)[Privacy Policy](https://boltz.bio/privacy)[Support](mailto:support@boltz.bio)
 
 The official Model Context Protocol server for the Boltz API. Predict molecular structures and binding interactions, screen small-molecule and protein libraries against a target, and design small molecules and protein binders — all from chat. Each workflow estimates cost before running, then downloads structured results to your workspace when the job completes.
 
 You can use Boltz API to:
 
-**Predict structure and binding:**  
+**Predict structure and binding:**
 "Predict EGFR L858R binding to osimertinib."
 
-**Design protein binders:**  
+**Design protein binders:**
 "Design nanobodies for a SARS-CoV-2 RBD epitope."
 
-**Screen small-molecule binders:**  
+**Screen small-molecule binders:**
 "Design selective JAK2 binders from Enamine REAL."
 
 ## Related connectors
@@ -53,7 +52,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -67,7 +66,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Life sciences and healthcare
 
@@ -81,7 +80,7 @@ February 11, 2026
 
 ### Benchling
 
-Connect to R&D data, source experiments, and notebooks](/connectors/benchling)
+Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
 
 Life sciences and healthcare
 
@@ -95,4 +94,4 @@ June 30, 2026
 
 ### Biomni Lab
 
-Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](/connectors/biomni-lab)
+Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)

@@ -26,7 +26,7 @@ Justin Cohen, VP Malaria & NTDs
 
 Sekhar Paladugu, CEO
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692e1e68ed4f559a5652d436_epilepsy-foundation-llight.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692e1e6a80892d216fe486ea_epilepsy-foundation-dark.svg)
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5f65c6fd705dd371878f31_Epilepsy-foundation_light.png)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5f65bf5bef5e4e2da75b45_epilepsy-foundation_dark.png)
 
 "With AWS and Claude, we built Sage—an AI companion trained on 25,000+ pages of epilepsy expertise, now available 24/7 in 5 languages to 3.4 million Americans living with epilepsy. It embodies our promise that no one should ever have to face epilepsy alone."
 
@@ -140,7 +140,7 @@ CSV
 
 ##### Proposal to the Westbrook Foundation
 
-Youth Innovation Grant Program  
+Youth Innovation Grant Program
 Requested amount: $75,000
 
 ‍
@@ -149,9 +149,9 @@ Submitted by:
 
 ##### Community Pathways Initiative
 
-123 Community Drive, Metro City, ST 12345  
-Contact: Maria Rodriguez, Executive Director  
-[[email protected]](/cdn-cgi/l/email-protection) | (555) 234-5678 *March 15, 2025*
+123 Community Drive, Metro City, ST 12345
+Contact: Maria Rodriguez, Executive Director
+mrodriguez@communitypathways.org | (555) 234-5678 *March 15, 2025*
 
 ‍
 
@@ -258,7 +258,7 @@ Draft foundation proposals in hours instead of days. Claude pulls from your exis
 
 Learn more
 
-[Learn more](/resources/use-cases/grant-proposal-assembly-line)Learn more
+[Learn more](https://claude.com/resources/use-cases/grant-proposal-assembly-line)Learn more
 
 Prompt
 
@@ -456,7 +456,7 @@ Build complete year-end campaigns with donor segmentation, email sequences, and 
 
 Learn more
 
-[Learn more](/resources/use-cases/build-a-fundraising-campaign)Learn more
+[Learn more](https://claude.com/resources/use-cases/build-a-fundraising-campaign)Learn more
 
 [](https://www-cdn.anthropic.com/2d8fcd0519b6da79c2abb424da92848da895be44.mp4)
 
@@ -466,7 +466,7 @@ Develop complete program frameworks with logic models, evaluation plans, and res
 
 Learn more
 
-[Learn more](/resources/use-cases/develop-a-program-toolkit)Learn more
+[Learn more](https://claude.com/resources/use-cases/develop-a-program-toolkit)Learn more
 
 Prompt
 
@@ -657,7 +657,7 @@ Generate role descriptions, onboarding guides, and hour tracking systems in one 
 
 Learn more
 
-[Learn more](/resources/use-cases/create-a-volunteer-management-system)Learn more
+[Learn more](https://claude.com/resources/use-cases/create-a-volunteer-management-system)Learn more
 
 [](https://www-cdn.anthropic.com/79bf5401230043931ec8366a8e5e2c127e7bacb2.mp4)
 
@@ -667,7 +667,7 @@ Transform satisfaction surveys and program statistics into board presentations. 
 
 Learn more
 
-[Learn more](/resources/use-cases/visualize-program-data)Learn more
+[Learn more](https://claude.com/resources/use-cases/visualize-program-data)Learn more
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6921e81fe187bbf1a8592c83_Blackbaud.jpg)
 
@@ -699,7 +699,7 @@ Work across your donor database, productivity suite, and research tools all in o
 
 Explore connectors
 
-[Explore connectors](/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 ## AI Fluency for nonprofits
 
@@ -723,9 +723,9 @@ $8 /user
 
 Per month
 
-Verify with Goodstack
+Chat with buying specialist
 
-[Verify with Goodstack](https://validate.poweredbypercent.com/anthropic)Verify with Goodstack
+[Chat with buying specialist](https://claude.ai/buying-specialist?src=dotcom_nonprofit_teams)Chat with buying specialist
 
 * Nonprofit connectors
 * Single sign-on (SSO) and domain capture
@@ -739,9 +739,9 @@ Verify with Goodstack
 
 For organizations operating at scale
 
-Contact sales
+Chat with buying specialist
 
-[Contact sales](/contact-sales/nonprofits)Contact sales
+[Chat with buying specialist](https://claude.ai/buying-specialist?src=dotcom_nonprofit_enterprise)Chat with buying specialist
 
 Everything in Pro, plus:
 

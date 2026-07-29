@@ -41,11 +41,11 @@ I run development for a regional nonprofit with 25-30 annual fundraising events 
 
 I'm uploading our fundraising data from the past two years, broken down by channel and quarter. The data includes revenue, costs, donor counts, and event-specific details for our major galas, community events, and smaller donor appreciation gatherings.
 
-**Here's what I need to understand:**‍  
-1. Which channels deserve increased investment based on ROI?  
-2. Where can we reallocate inefficient spending?  
-3. Which event types generate the best returns?  
-4. What's our donor acquisition cost by channel?  
+**Here's what I need to understand:**‍
+1. Which channels deserve increased investment based on ROI?
+2. Where can we reallocate inefficient spending?
+3. Which event types generate the best returns?
+4. What's our donor acquisition cost by channel?
 5. Which high-performing channels are currently underfunded?
 
 **Deliverable:** Comprehensive Excel workbook with consulting-firm quality—I'm presenting this to our board, so visual sophistication matters as much as analytical rigor.
@@ -185,7 +185,7 @@ Gather your fundraising data by channel and let Claude transform it into strateg
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6924cd607e5b2426c2e28f2b_Screenshot%202025-11-24%20at%201.25.45%E2%80%AFPM.png)
 
@@ -195,34 +195,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[See what your campaign goal actually requires](/resources/use-cases/see-what-your-campaign-goal-actually-requires)See what your campaign goal actually requires
+[See what your campaign goal actually requires](https://claude.com/resources/use-cases/see-what-your-campaign-goal-actually-requires)See what your campaign goal actually requires
 
 See what your campaign goal actually requires
 
 Use case
 
-[Use case](/resources/use-cases/see-what-your-campaign-goal-actually-requires)Use case
+[Use case](https://claude.com/resources/use-cases/see-what-your-campaign-goal-actually-requires)Use case
 
-[See budget futures side by side, in chat with Claude](/resources/use-cases/see-budget-futures-side-by-side)See budget futures side by side, in chat with Claude
+[See budget futures side by side, in chat with Claude](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)See budget futures side by side, in chat with Claude
 
 See budget futures side by side, in chat with Claude
 
 Use case
 
-[Use case](/resources/use-cases/see-budget-futures-side-by-side)Use case
+[Use case](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)Use case
 
-[See why donor retention beats acquisition, in chat with Claude](/resources/use-cases/see-why-donor-retention-beats-acquisition)See why donor retention beats acquisition, in chat with Claude
+[See why donor retention beats acquisition, in chat with Claude](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)See why donor retention beats acquisition, in chat with Claude
 
 See why donor retention beats acquisition, in chat with Claude
 
 Use case
 
-[Use case](/resources/use-cases/see-why-donor-retention-beats-acquisition)Use case
+[Use case](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)Use case
 
-[See your theory of change in chat with Claude](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)See your theory of change in chat with Claude
+[See your theory of change in chat with Claude](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)See your theory of change in chat with Claude
 
 See your theory of change in chat with Claude
 
 Use case
 
-[Use case](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)Use case
+[Use case](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)Use case

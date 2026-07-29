@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![Harvey logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c024045f129ad1fd87a3d7_Group.svg)![Harvey logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0240a3029ad76b17b6e21_Clip%20path%20group.svg)
 
@@ -135,34 +135,34 @@ Video caption
 
 ## Related stories
 
-[GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](/customers/gc-ai)GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
+[Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
+
+Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/eve-legal)Customer story
+
+[GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude](https://claude.com/customers/gc-ai)GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
 
 GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week with Claude
 
 Customer story
 
-[Customer story](/customers/gc-ai)Customer story
+[Customer story](https://claude.com/customers/gc-ai)Customer story
 
-[Thomson Reuters CTO on piloting Cowork with Claude Enterprise](/customers/thomson-reuters-qa)Thomson Reuters CTO on piloting Cowork with Claude Enterprise
+[Thomson Reuters CTO on piloting Cowork with Claude Enterprise](https://claude.com/customers/thomson-reuters-qa)Thomson Reuters CTO on piloting Cowork with Claude Enterprise
 
 Thomson Reuters CTO on piloting Cowork with Claude Enterprise
 
 Customer story
 
-[Customer story](/customers/thomson-reuters-qa)Customer story
+[Customer story](https://claude.com/customers/thomson-reuters-qa)Customer story
 
-[Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows](/customers/wordsmith)Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows
+[Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows](https://claude.com/customers/wordsmith)Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows
 
 Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows
 
 Customer story
 
-[Customer story](/customers/wordsmith)Customer story
-
-[Legora helps lawyers work more efficiently with Claude](/customers/legora)Legora helps lawyers work more efficiently with Claude
-
-Legora helps lawyers work more efficiently with Claude
-
-Customer story
-
-[Customer story](/customers/legora)Customer story
+[Customer story](https://claude.com/customers/wordsmith)Customer story

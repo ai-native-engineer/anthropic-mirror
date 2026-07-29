@@ -4,7 +4,7 @@ Offer your solution on the Claude Marketplace
 
 Building a product powered by Claude? Register your interest to join the partner waitlist.
 
-Looking to buy through Marketplace instead? [Request to buy](/marketplace-contact-sales)
+Looking to buy through Marketplace instead? [Request to buy](https://claude.com/marketplace-contact-sales)
 
 ## FAQ
 

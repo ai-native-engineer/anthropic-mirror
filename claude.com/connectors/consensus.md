@@ -12,6 +12,7 @@ Explore scientific research
 * Used in
 
   [Claude](https://claude.ai/directory/65247229-f0c7-49df-9044-fcbb8b3894c6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Consensus](https://consensus.app/)
 
@@ -34,16 +35,16 @@ Built for researchers, students, faculty, and clinicians across biomedical, soci
 
 You can use Consensus to:
 
-**Evidence-Based Health Research:**  
+**Evidence-Based Health Research:**
 "Use Consensus to find out what research say about the effectiveness of intermittent fasting for weight loss?"
 
-**Academic Literature Review:**  
+**Academic Literature Review:**
 "Find recent studies from 2022-2024 on Consensus regarding machine learning in drug discovery from top-tier journals"
 
-**Policy and Decision Support:**  
+**Policy and Decision Support:**
 "Ask Consensus about what peer-reviewed research exists on carbon pricing effectiveness?"
 
-**Clinical Research:**  
+**Clinical Research:**
 "Search for human studies on CBT for insomnia with at least 50 participants using Consensus"
 
 ## Related connectors
@@ -60,7 +61,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -74,7 +75,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Data
 
@@ -84,11 +85,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -102,4 +103,4 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)

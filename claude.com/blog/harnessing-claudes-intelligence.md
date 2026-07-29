@@ -2,7 +2,7 @@
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225588ad176f7c4aafd_abc884c723daea810d2e986455358281a2f94102-1000x1000.svg)
 
-# Harnessing Claude’s intelligence
+# Agent Harness Design: 3 Patterns for Harnessing Claude's Intelligence
 
 *Building applications that balance intelligence, latency, and cost.*
 
@@ -25,11 +25,13 @@
 
 One of Anthropic’s co-founders, Chris Olah, [says](https://www.darioamodei.com/post/the-urgency-of-interpretability) that generative AI systems like Claude are grown more than they are built. Researchers set the conditions to direct growth, but the exact structure or capabilities that emerge aren’t always predictable.
 
-This creates a challenge for building with Claude: [agent harnesses encode assumptions](https://www.anthropic.com/engineering/harness-design-long-running-apps) about what Claude can’t do on its own, but those assumptions grow stale as Claude gets more capable. Even lessons shared in articles like this deserve frequent revisiting.
+This creates a challenge for building with Claude: [agent harnesses encode assumptions](https://www.anthropic.com/engineering/harness-design-long-running-apps) about what Claude can’t do on its own, but those assumptions grow stale as Claude gets more capable.
+
+An agent harness is the software scaffolding around a model: the loop, tools, context management, and guardrails that turn raw intelligence into a working agent. [Agent harness design](https://claude.com/blog/harnessing-claudes-intelligence) is the practice of deciding what belongs in that scaffolding and, as models improve, what you can take out.
 
 In this article, we share three patterns that teams should use when building applications that keep pace with Claude’s evolving intelligence while balancing latency and cost: use what it already knows, ask what you can stop doing, and carefully set boundaries with the agent harness.
 
-### **1. Use what Claude knows**
+### **1. Lean on the model, not the harness: use what Claude knows**
 
 We suggest building applications using tools that Claude understands well.
 
@@ -45,7 +47,7 @@ We've seen Claude compose these general tools into patterns that solve different
 
 *Programmatic tool calling, skills, and memory are compositions of our bash and text editor tools.*
 
-### **2. Ask ‘what can I stop doing?’**
+### **2. Strip your agent harness down: ask what you can stop doing**
 
 [Agent harnesses encode assumptions](https://www.anthropic.com/engineering/harness-design-long-running-apps) about what Claude can’t do on its own. As Claude gets more capable, those assumptions should be tested.
 
@@ -2128,7 +2130,7 @@ Later models wrote tactical notes. Opus 4.6, at the same step count, had 10 file
 - B1F y=16 wall CONFIRMED SOLID at ALL x=9-28 (step 14557)
 ```
 
-### **3. Set boundaries carefully**
+### **3. Set boundaries carefully in your harness design**
 
 Agent harnesses provide structure around Claude to enforce UX, cost, or security.
 
@@ -2164,7 +2166,7 @@ Finally, tools are useful for observability. When the action is a typed tool, th
 
 The decision to promote actions to tools should be continually re-evaluated. For example, Claude Code's [auto-mode](https://www.anthropic.com/engineering/claude-code-auto-mode) (in research mode at the time of publication) provides a security boundary around the bash tool: it has a second Claude read the command string and judge whether it's safe. This pattern can *limit* the need for dedicated tools, and should only be used for tasks where users trust the general direction. Dedicated tools can still earn their place for certain high-stakes actions.
 
-### Looking forward
+### The future of agent harness design
 
 The frontier of Claude’s intelligence is always changing. Assumptions about what Claude can’t do need to be re-tested with each step change in its capability.
 
@@ -2202,53 +2204,53 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e13864f88ea55c2d8_b5c98d26c46edc43193e7f7e28a00633a538bb9c-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
-Mar 5, 2026
+Jul 24, 2026
 
-### Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
+### Claude models explained: choosing the best model for your use case
+
+Enterprise AI
+
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
+
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Jul 24, 2026
+
+### The new rules of context engineering for Claude 5 generation models
+
+Claude Code
+
+[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
+
+[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
+
+Jul 21, 2026
+
+### How Anthropic secures its AI-native software development lifecycle
+
+Claude Code
+
+[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
+
+[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
+
+Jul 22, 2026
+
+### How Outtake built a cyber investigator on Claude
 
 Agents
 
-[Skills explained: How Skills compares to prompts, Projects, MCP, and subagents](#) Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
+[How Outtake built a cyber investigator on Claude](#)How Outtake built a cyber investigator on Claude
 
-[Skills explained: How Skills compares to prompts, Projects, MCP, and subagents](/blog/skills-explained) Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
-
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-Oct 31, 2025
-
-### What is Model Context Protocol? Connect AI to your world
-
-Agents
-
-[What is Model Context Protocol? Connect AI to your world](#)What is Model Context Protocol? Connect AI to your world
-
-[What is Model Context Protocol? Connect AI to your world](/blog/what-is-model-context-protocol)What is Model Context Protocol? Connect AI to your world
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2319ef2161fcf9ba649_ddad92700787ec1bf1d80359c0c5e6ca305682b0-1000x1000.svg)
-
-Oct 30, 2025
-
-### Building AI agents for financial services
-
-Agents
-
-[Building AI agents for financial services](#)Building AI agents for financial services
-
-[Building AI agents for financial services](/blog/building-ai-agents-in-financial-services)Building AI agents for financial services
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228c83775fcc75f4e6d_74409af25137110ac04cc39e4d5ea0a2fbcea421-1000x1000.svg)
-
-Oct 30, 2025
-
-### Building AI agents for healthcare and life sciences
-
-Agents
-
-[Building AI agents for healthcare and life sciences](#)Building AI agents for healthcare and life sciences
-
-[Building AI agents for healthcare and life sciences](/blog/building-ai-agents-in-healthcare-and-life-sciences)Building AI agents for healthcare and life sciences
+[How Outtake built a cyber investigator on Claude](https://claude.com/blog/how-outtake-built-a-cyber-investigator-on-claude)How Outtake built a cyber investigator on Claude
 
 ## Transform how your organization operates with Claude
 

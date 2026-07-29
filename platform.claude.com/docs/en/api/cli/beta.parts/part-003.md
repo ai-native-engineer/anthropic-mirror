@@ -1,6 +1,8 @@
+<!-- source: https://platform.claude.com/docs/en/api/cli/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/cli/beta -->
 
 <!-- chunk-start -->
+
     An incremental update to an event that is still being streamed. Deltas are best-effort and may stop early; when the buffered event with id == event_id is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no buffered event — its terminal span.model_request_end closes the preview. Only sent on stream connections that opt in via event_deltas; never appears in event history.
 
     - `delta: object { content, type, index }`

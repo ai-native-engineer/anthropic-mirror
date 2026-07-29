@@ -1,5 +1,17 @@
 <!-- source: https://claude.com/resources/tutorials/using-the-tooluniverse-extension-in-claude -->
 
+Claude Science beta
+
+[Next](#)Next
+
+Introducing the Claude Science app, your research partner for rigorous science.
+
+Learn more
+
+[Learn more](https://claude.com/product/claude-science)Learn more
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ef89e3431b19c021bf2b_claude-science-og.jpg)
+
 # Using the ToolUniverse Extension in Claude
 
   Life Sciences
@@ -174,7 +186,7 @@ Technical details of the ToolUniverse integration can be found in [ToolUniverse‚
 
 * Therapeutic discovery and target-to-candidate workflows
 * **Sample Prompt:** ‚Äú*Identify targets for hypercholesterolemia, prioritize one using evidence from OpenTargets and literature, then screen known drugs and close analogs, and rank candidates by predicted binding and ADMET tradeoffs. Provide intermediate evidence and a final shortlist.*‚Äù
-* **Workflow:** ToolUniverse-powered AI scientists:   
+* **Workflow:** ToolUniverse-powered AI scientists:
   + Query disease-target associations using OpenTargets API
   + Retrieve protein structures from RCSB PDB
   + Analyze molecular interactions with ChEMBL compound data
@@ -187,7 +199,7 @@ Technical details of the ToolUniverse integration can be found in [ToolUniverse‚
 
 * Human genetics to mechanism (variant-to-gene-to-pathway)
 * **Sample Prompt:** ‚Äú*From GWAS hits for type 2 diabetes, map variants to candidate genes, summarize functional annotations and tissue expression, and return enriched pathways with supporting references and links to primary sources.*‚Äù
-* **Workflow:** ToolUniverse-powered AI scientists:   
+* **Workflow:** ToolUniverse-powered AI scientists:
   + Search GWAS catalog for disease-associated genetic variants
   + Map SNPs to genes using Ensembl and NCBI databases
   + Retrieve functional annotations from Gene Ontology
@@ -199,7 +211,7 @@ Technical details of the ToolUniverse integration can be found in [ToolUniverse‚
 **Literature and Multimodal Evidence Synthesis**
 
 * **Sample Prompt:** ‚Äú*Search PubMed and Europe PMC for recent CRISPR off-target detection methods, extract key experimental settings and reported failure modes, and produce a structured comparison table with citations.*‚Äù
-* **Workflow:** ToolUniverse-powered AI scientists:   
+* **Workflow:** ToolUniverse-powered AI scientists:
   + Multi-database literature searches (PubMed, Europe PMC, bioRxiv)
   + Automated paper summarization and key finding extraction
   + Citation network analysis using Semantic Scholar
@@ -211,7 +223,7 @@ Technical details of the ToolUniverse integration can be found in [ToolUniverse‚
 **Chemical and Molecular Analysis**
 
 * **Sample Prompt:** "*Using ToolUniverse's OpenFDA and ADMET-AI tools, analyze the molecular properties of FDA-approved drugs for hypertension, predict their ADMET profiles, and identify potential side effect patterns.*"
-* Workflow: ToolUniverse-powered AI scientists:   
+* Workflow: ToolUniverse-powered AI scientists:
   + Query FDA drug databases for approved medications
   + Calculate molecular descriptors and properties
   + Predict pharmacokinetic profiles using ADMET-AI models
@@ -223,7 +235,7 @@ Technical details of the ToolUniverse integration can be found in [ToolUniverse‚
 **Scientific Discovery and Automation for Multi-Tool Studies**
 
 * **Sample Prompt:** "*Build a reusable workflow that runs multiple literature searches in parallel, consolidates results, and produces a reproducible report. Return the workflow as a composed tool with clear inputs and outputs. Using ToolUniverse's UniProt, PRIDE, and KEGG pathway tools, design a complete proteomics workflow: from protein identification using mass spectrometry data to functional analysis and pathway mapping.*"
-* **Workflow:** ToolUniverse-powered AI scientists:   
+* **Workflow:** ToolUniverse-powered AI scientists:
   + Integrate multimodal proteomics databases (UniProt, PRIDE)
   + Automate data processing and quality control of proteomics readouts
   + Annotate protein functions and perform pathway analysis
@@ -265,34 +277,34 @@ Access community resources through our [Slack Community](https://join.slack.com/
 
 ## Related tutorials
 
-[How to use the Nextflow Deployment agent skill with Claude Code](/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)How to use the Nextflow Deployment agent skill with Claude Code
+[How to use the Nextflow Deployment agent skill with Claude Code](https://claude.com/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)How to use the Nextflow Deployment agent skill with Claude Code
 
 How to use the Nextflow Deployment agent skill with Claude Code
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)Tutorial
 
-[How to use the Instrument Data to Allotrope Skill with Claude](/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)How to use the Instrument Data to Allotrope Skill with Claude
+[How to use the Instrument Data to Allotrope Skill with Claude](https://claude.com/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)How to use the Instrument Data to Allotrope Skill with Claude
 
 How to use the Instrument Data to Allotrope Skill with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)Tutorial
 
-[How to use the Scientific Problem Selection Skill with Claude](/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)How to use the Scientific Problem Selection Skill with Claude
+[How to use the Scientific Problem Selection Skill with Claude](https://claude.com/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)How to use the Scientific Problem Selection Skill with Claude
 
 How to use the Scientific Problem Selection Skill with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)Tutorial
 
-[How to use the scVI-Tools bioinformatics skill bundle with Claude](/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)How to use the scVI-Tools bioinformatics skill bundle with Claude
+[How to use the scVI-Tools bioinformatics skill bundle with Claude](https://claude.com/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)How to use the scVI-Tools bioinformatics skill bundle with Claude
 
 How to use the scVI-Tools bioinformatics skill bundle with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)Tutorial

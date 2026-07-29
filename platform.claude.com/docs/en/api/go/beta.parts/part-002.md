@@ -1,6 +1,8 @@
+<!-- source: https://platform.claude.com/docs/en/api/go/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/go/beta -->
 
 <!-- chunk-start -->
+
   - `BlockedDomains []string`
 
     List of domains to block fetching from
@@ -30636,4 +30638,3 @@ func main() {
           - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
 
             Powerful intelligence for long-running agents and coding
-

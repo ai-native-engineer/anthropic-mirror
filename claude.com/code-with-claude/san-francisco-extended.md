@@ -36,7 +36,7 @@ Check-in and breakfast
 
 09:30AM – 09:45AM
 
-[Community general session](/code-with-claude/session/sf-ext-community-general-session)
+[Community general session](https://claude.com/code-with-claude/session/sf-ext-community-general-session)
 
 Claude Code
 
@@ -54,7 +54,7 @@ morning sessions
 
 10:00AM – 10:30AM
 
-[Do agents dream of data models?](/code-with-claude/session/sf-ext-do-agents-dream-of-data-models)
+[Do agents dream of data models?](https://claude.com/code-with-claude/session/sf-ext-do-agents-dream-of-data-models)
 
 Founder stage
 
@@ -64,7 +64,7 @@ Caitlin Colgrove
 
 Hex
 
-[Claude and Sol the trophy tomato](/code-with-claude/session/sf-ext-claude-and-sol-the-trophy-tomato)
+[Claude and Sol the trophy tomato](https://claude.com/code-with-claude/session/sf-ext-claude-and-sol-the-trophy-tomato)
 
 Builder stage
 
@@ -76,7 +76,7 @@ AutonCorp
 
 10:00AM – 10:45AM
 
-[How we Claude Code](/code-with-claude/session/sf-ext-how-we-claude-code)
+[How we Claude Code](https://claude.com/code-with-claude/session/sf-ext-how-we-claude-code)
 
 (Workshop)
 
@@ -90,7 +90,7 @@ Anthropic
 
 10:45AM – 11:15AM
 
-[Designing multi-agent systems: When to split, when to sandbox, what to ship](/code-with-claude/session/sf-ext-designing-multi-agent-systems-when-to-split-when-to-sandbox-what-to-ship)
+[Designing multi-agent systems: When to split, when to sandbox, what to ship](https://claude.com/code-with-claude/session/sf-ext-designing-multi-agent-systems-when-to-split-when-to-sandbox-what-to-ship)
 
 Builder stage
 
@@ -100,7 +100,7 @@ Nick Khami
 
 Mintlify
 
-[postvisit.ai - How a practicing cardiologist built a working patient followup platform in 7 days](/code-with-claude/session/sf-ext-postvisit-ai-how-a-practicing-cardiologist-built-a-working-patient-followup-platform-in-7-days)
+[postvisit.ai - How a practicing cardiologist built a working patient followup platform in 7 days](https://claude.com/code-with-claude/session/sf-ext-postvisit-ai-how-a-practicing-cardiologist-built-a-working-patient-followup-platform-in-7-days)
 
 Founder stage
 
@@ -112,7 +112,7 @@ postvisit.ai
 
 11:00AM – 11:45AM
 
-[Ship your first Managed Agent](/code-with-claude/session/sf-ext-ship-your-first-managed-agent)
+[Ship your first Managed Agent](https://claude.com/code-with-claude/session/sf-ext-ship-your-first-managed-agent)
 
 (Workshop)
 
@@ -126,7 +126,7 @@ Anthropic
 
 11:30AM – 12:00PM
 
-[Building AI-native: What three founders bet on and what they'd change](/code-with-claude/session/sf-ext-building-ai-native-what-three-founders-bet-on-and-what-theyd-change)
+[Building AI-native: What three founders bet on and what they'd change](https://claude.com/code-with-claude/session/sf-ext-building-ai-native-what-three-founders-bet-on-and-what-theyd-change)
 
 Founder stage
 
@@ -148,7 +148,7 @@ Lauren Reeder
 
 Sequoia Capital
 
-[Evals for subjective, stateful agents](/code-with-claude/session/sf-ext-evals-for-subjective-stateful-agents)
+[Evals for subjective, stateful agents](https://claude.com/code-with-claude/session/sf-ext-evals-for-subjective-stateful-agents)
 
 Builder stage
 
@@ -170,7 +170,7 @@ afternoon sessions
 
 12:00PM – 12:45PM
 
-[Agents that remember](/code-with-claude/session/sf-ext-agents-that-remember)
+[Agents that remember](https://claude.com/code-with-claude/session/sf-ext-agents-that-remember)
 
 (Workshop)
 
@@ -184,7 +184,7 @@ Anthropic
 
 01:00PM – 01:45PM
 
-[Evals for Taste: Hill-Climbing a Slide-Generation Agent](/code-with-claude/session/sf-ext-eval-driven-agent-development)
+[Evals for Taste: Hill-Climbing a Slide-Generation Agent](https://claude.com/code-with-claude/session/sf-ext-eval-driven-agent-development)
 
 (Workshop)
 
@@ -198,7 +198,7 @@ Anthropic
 
 01:20PM – 01:50PM
 
-[Measure twice, cut once: Closing the gap between AI intent and execution](/code-with-claude/session/sf-ext-measure-twice-cut-once-closing-the-gap-between-ai-intent-and-execution)
+[Measure twice, cut once: Closing the gap between AI intent and execution](https://claude.com/code-with-claude/session/sf-ext-measure-twice-cut-once-closing-the-gap-between-ai-intent-and-execution)
 
 Founder stage
 
@@ -208,7 +208,7 @@ David Loker
 
 CodeRabbit
 
-[The cigar company's accidental engineer](/code-with-claude/session/sf-ext-13-years-to-24-hours-how-i-used-claude-to-solve-a-problem-i-had-no-business-solving)
+[The cigar company's accidental engineer](https://claude.com/code-with-claude/session/sf-ext-13-years-to-24-hours-how-i-used-claude-to-solve-a-problem-i-had-no-business-solving)
 
 Builder stage
 
@@ -220,7 +220,7 @@ SZ Wholesale
 
 02:00PM – 02:45PM
 
-[Tool, skill, or subagent? Decomposing an agent that outgrew its prompt](/code-with-claude/session/sf-ext-compose-multi-agent-systems-with-skills-and-mcp)
+[Tool, skill, or subagent? Decomposing an agent that outgrew its prompt](https://claude.com/code-with-claude/session/sf-ext-compose-multi-agent-systems-with-skills-and-mcp)
 
 (Workshop)
 
@@ -234,7 +234,7 @@ Anthropic
 
 02:05PM – 02:35PM
 
-[Listen first. Then, keep thinking](/code-with-claude/session/sf-ext-listen-first-then-keep-thinking)
+[Listen first. Then, keep thinking](https://claude.com/code-with-claude/session/sf-ext-listen-first-then-keep-thinking)
 
 Founder stage
 
@@ -244,7 +244,7 @@ Mike Brown
 
 CrossBeam
 
-[Coherence at Claude Code speed](/code-with-claude/session/sf-ext-coherence-at-claude-code-speed)
+[Coherence at Claude Code speed](https://claude.com/code-with-claude/session/sf-ext-coherence-at-claude-code-speed)
 
 Builder stage
 
@@ -256,7 +256,7 @@ Coracle
 
 02:50PM – 03:20PM
 
-[Claude can code. Experts still matter: Building BioKEA's biodiversity stack](/code-with-claude/session/sf-ext-claude-can-code-experts-still-matter-building-biokeas-biodiversity-stack)
+[Claude can code. Experts still matter: Building BioKEA's biodiversity stack](https://claude.com/code-with-claude/session/sf-ext-claude-can-code-experts-still-matter-building-biokeas-biodiversity-stack)
 
 Founder stage
 
@@ -266,7 +266,7 @@ Sean Jungbluth
 
 BioKEA
 
-[Era Online: Resurrecting a 1999 MMORPG with Claude Code](/code-with-claude/session/sf-ext-era-online-resurrecting-a-1999-mmorpg-with-claude-code)
+[Era Online: Resurrecting a 1999 MMORPG with Claude Code](https://claude.com/code-with-claude/session/sf-ext-era-online-resurrecting-a-1999-mmorpg-with-claude-code)
 
 Builder stage
 
@@ -278,7 +278,7 @@ Delve Group
 
 03:00PM – 03:45PM
 
-[Agent Battle: Mine the most diamonds in 45 minutes](/code-with-claude/session/sf-ext-agent-battle-mine-the-most-diamonds-in-45-minutes)
+[Agent Battle: Mine the most diamonds in 45 minutes](https://claude.com/code-with-claude/session/sf-ext-agent-battle-mine-the-most-diamonds-in-45-minutes)
 
 (Workshop)
 
@@ -292,7 +292,7 @@ Anthropic
 
 03:35PM – 04:05PM
 
-[Claude & the self-driving company](/code-with-claude/session/sf-ext-claude-the-self-driving-company)
+[Claude & the self-driving company](https://claude.com/code-with-claude/session/sf-ext-claude-the-self-driving-company)
 
 Founder stage
 
@@ -368,7 +368,7 @@ Keynotes, demos, and conversations with the teams behind Claude. Recorded at Cod
 
 Browse recordings
 
-[Learn more](/code-with-claude/san-francisco)Learn more
+[Learn more](https://claude.com/code-with-claude/san-francisco)Learn more
 
 FAQ
 
@@ -392,6 +392,6 @@ Code with Claude: Extended will not be livestreamed. Sessions will be recorded a
 
 No, in-person attendance is free.
 
-[Homepage](/code-with-claude)Homepage
+[Homepage](https://claude.com/code-with-claude)Homepage
 
-[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](/code-with-claude/code-of-conduct)
+[PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)

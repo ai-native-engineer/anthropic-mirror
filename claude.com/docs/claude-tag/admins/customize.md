@@ -1,13 +1,21 @@
 <!-- source: https://claude.com/docs/claude-tag/admins/customize -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Claude Tag’s behavior is shaped by four layers, each set in a different place:
 
 | Layer | What it is | Who sets it | Where |
 | --- | --- | --- | --- |
-| **Connections** | Credentials for the systems Claude can reach (GitHub, Drive, Datadog, your APIs) | Owner | [Access bundles](/docs/claude-tag/admins/add-connections) |
-| **Plugins and skills** | Instructions that teach Claude how to use a tool or follow a process. A plugin bundles one or more [skills](https://code.claude.com/docs/en/skills). | Owner | [Bundle Plugins tab](/docs/claude-tag/admins/add-connections#attach-plugins) or a [skills repository](/docs/claude-tag/admins/skills-repo) |
-| **Custom instructions** | Standing guidance read in every session at a scope (team conventions, output formats). Outranks channel memory. | Owner | [Per-scope instructions](/docs/claude-tag/admins/attach-to-scope#add-custom-instructions) |
-| **Channel memory** | Facts Claude saves while working in a channel | Anyone in the channel | By [telling Claude](/docs/claude-tag/users/memory) |
+| **Connections** | Credentials for the systems Claude can reach (GitHub, Drive, Datadog, your APIs) | Owner | [Access bundles](https://claude.com/docs/claude-tag/admins/add-connections) |
+| **Plugins and skills** | Instructions that teach Claude how to use a tool or follow a process. A plugin bundles one or more [skills](https://code.claude.com/docs/en/skills). | Owner | [Bundle Plugins tab](https://claude.com/docs/claude-tag/admins/add-connections#attach-plugins) or a [skills repository](https://claude.com/docs/claude-tag/admins/skills-repo) |
+| **Custom instructions** | Standing guidance read in every session at a scope (team conventions, output formats). Outranks channel memory. | Owner for any scope; channel members for the channel scope, from the [Configure page](https://claude.com/docs/claude-tag/users/good-habits#configure-claude-for-a-channel) | [Per-scope instructions](https://claude.com/docs/claude-tag/admins/attach-to-scope#add-custom-instructions) |
+| **Channel memory** | Facts Claude saves while working in a channel | Anyone in the channel | By [telling Claude](https://claude.com/docs/claude-tag/users/memory) |
 
 Connections and plugins decide what Claude *can do*; instructions and memory shape *how it does it*.
 
@@ -17,37 +25,74 @@ Access and organization-wide behavior are set at [`claude.ai/admin-settings/clau
 
 | Setting | What it does | More |
 | --- | --- | --- |
-| Custom instructions | Standing guidance read in every session on a scope, like team conventions. Outranks channel memory. | [Add custom instructions](/docs/claude-tag/admins/attach-to-scope#add-custom-instructions) |
-| Plugins | Bundles of skills that teach Claude how to use a specific tool | [Attach plugins](/docs/claude-tag/admins/add-connections#attach-plugins) |
-| Connections | Which systems it can reach from each channel | [Add connections](/docs/claude-tag/admins/add-connections) |
-| Claude in Slack version | Which generation answers (New, Legacy, or Off) in a scope | [Migrate from the earlier Claude in Slack](/docs/claude-tag/admins/restrict-access#migrate-from-the-earlier-claude-in-slack) |
+| Custom instructions | Standing guidance read in every session on a scope, like team conventions. Outranks channel memory. | [Add custom instructions](https://claude.com/docs/claude-tag/admins/attach-to-scope#add-custom-instructions) |
+| Plugins | Bundles of skills that teach Claude how to use a specific tool | [Attach plugins](https://claude.com/docs/claude-tag/admins/add-connections#attach-plugins) |
+| Connections | Which systems it can reach from each channel | [Add connections](https://claude.com/docs/claude-tag/admins/add-connections) |
+| Default model | Which Claude model handles sessions in a scope | [Choose the model for a scope](#choose-the-model-for-a-scope) |
+| Auto mode allow rules | Actions pre-approved in a scope’s sessions that Claude’s permission checker would otherwise flag or stop | [Auto mode allow rules](#auto-mode-allow-rules) |
+| Environment | Which cloud environment a scope’s sessions run in. Only [organization-shared environments](https://code.claude.com/docs/en/cloud-environments#organization-shared-environments) appear in the picker, because Claude runs channel sessions with no user account attached. | [Channel environment troubleshooting](https://claude.com/docs/claude-tag/admins/troubleshooting#channel-sessions-use-the-wrong-environment-or-can%E2%80%99t-find-one) |
+| Claude Tag version | Which generation answers (New, Legacy, or Off) in a scope | [Migrate from the earlier Claude in Slack](https://claude.com/docs/claude-tag/admins/restrict-access#migrate-from-the-earlier-claude-in-slack) |
 
 ###  Channel connections are separate from personal connectors
 
-An Owner configures Claude’s connections, plugins, and skills, and they apply per scope. They are separate from the connectors, skills, or MCP servers an individual user has set up in their own claude.ai or Claude Desktop account. A user’s personal connectors are not available to Claude in a channel, and the channel’s connections are not visible in that user’s claude.ai.
-To give Claude access to a tool that is not in the built-in connection list, including a custom MCP server, see [add a custom connection](/docs/claude-tag/admins/connections/custom).
+An Owner configures Claude’s connections, plugins, and skills, and they apply per scope. They are separate from the connectors, skills, or MCP servers an individual user has set up in their own claude.ai or Claude Desktop account. A user’s personal connectors are not available to Claude in a channel, and the channel’s connections are not listed among that user’s personal connectors in claude.ai.
+To give Claude access to a tool that is not in the built-in connection list, including a custom MCP server, see [add a custom connection](https://claude.com/docs/claude-tag/admins/connections/custom).
 
 ##  Change behavior from the channel
 
-Everything below is open to channel members, with no admin involved. Members tell Claude in the channel and the instruction saves to channel memory.
+Everything in the table below is open to channel members, with no admin involved.
 
 | To change | Say something like | More |
 | --- | --- | --- |
-| How Claude formats output | ”remember for this channel: post reports as a table” | [Memory](/docs/claude-tag/users/memory) |
-| How chatty Claude is | ”ask before posting anything longer than a screen” | [Memory](/docs/claude-tag/users/memory) |
-| When Claude follows a thread | ”stay quiet in this thread unless someone tags you” | [Control when Claude Tag responds](/docs/claude-tag/users/when-claude-responds) |
-| What Claude does on a schedule | ”every morning at 9, post a digest of open threads” | [Set up routines](/docs/claude-tag/users/proactivity) |
-| What Claude remembers | ”what do you remember about this channel?” then correct it | [Memory](/docs/claude-tag/users/memory) |
+| How Claude formats output | ”remember for this channel: post reports as a table” | [Memory](https://claude.com/docs/claude-tag/users/memory) |
+| How chatty Claude is | ”ask before posting anything longer than a screen” | [Memory](https://claude.com/docs/claude-tag/users/memory) |
+| When Claude follows a thread | ”stay quiet in this thread unless someone tags you” | [Control when Claude Tag responds](https://claude.com/docs/claude-tag/users/when-claude-responds) |
+| What Claude does on a schedule | ”every morning at 9, post a digest of open threads” | [Set up routines](https://claude.com/docs/claude-tag/users/proactivity) |
+| What Claude remembers | ”what do you remember about this channel?” then correct it | [Memory](https://claude.com/docs/claude-tag/users/memory) |
 
-Channel changes are saved to channel memory, so verify one stuck by asking what it remembers.
+Changes in the table above are saved to channel memory; verify one stuck by asking what it remembers.
+Members can also tailor how Claude works in the channel from the **Configure** link in the footer of any Claude reply. The link opens a claude.ai page where anyone in the channel who is also a member of your Claude organization can edit settings for that channel, unless an admin has [restricted editing to admins](https://claude.com/docs/claude-tag/admins/attach-to-scope#restrict-who-can-set-channel-instructions). The **Channel instructions** field on that page holds standing guidance that outranks memory. See [configure Claude for a channel](https://claude.com/docs/claude-tag/users/good-habits#configure-claude-for-a-channel).
+
+##  Choose the model for a scope
+
+Each scope carries a **Default model** setting in its **Advanced** section, alongside the [environment](https://claude.com/docs/claude-tag/concepts/glossary#environment) and guest controls. It sets the model new channel sessions in that scope start on; the options are drawn from the models available to your organization, such as Opus and Sonnet models. A scope without its own setting inherits from its parent, and a channel’s setting overrides its workspace’s. The **Inherit** option shows which model the scope resolves to.
+To keep sessions on a model you chose, set a specific model at the organization scope rather than leaving the setting unset; every scope without an override then follows it.
+The setting applies to new sessions; threads already underway keep the model they started with. The footer of each Claude reply in Slack names the model that handled it, so you can confirm what a scope is running.
+Channel members can also change the model from Slack, with no admin involved. Asking Claude in a thread switches that thread, and asking it to make a model the channel default changes what new threads in the channel start on. See [choose the model Claude Tag uses](https://claude.com/docs/claude-tag/users/models).
+
+###  Models your organization allows
+
+Claude Tag’s model lists come from the models your organization makes available for Claude Code, set in the Claude admin console, leaving out any that Claude Tag doesn’t support. A model you see in Claude Code can be absent in Slack for that reason. The allowed list applies in two places.
+
+* **Model lists in Slack.** The models Claude offers when someone asks it to switch, and the model selector for direct messages, show only allowed models. Claude declines a request to switch to a model outside the list.
+* **Configured defaults.** If your organization also enforces the policy on defaults and a workspace or channel’s **Default model** isn’t allowed by your organization’s Claude Code model policy, Claude declines to start the session and posts a notice in the thread asking the requester to contact an admin. A model excluded by your organization’s plan entitlements works differently. Claude starts the session on a fallback model the plan includes, and declines only when the plan excludes every fallback. The footer of the first reply names the model that served it, so check there to see which model the session started on.
+
+A change to the allowed list applies to new sessions, like a change to the **Default model**; a thread already underway keeps its model until someone in it asks Claude to switch.
+
+##  Auto mode allow rules
+
+Sessions run in [auto mode](https://code.claude.com/docs/en/permission-modes#eliminate-prompts-with-auto-mode), where Claude’s permission checker reviews each action Claude is about to take and can flag or stop it. When you add an auto mode allow rule to a scope, you pre-approve one action in that scope’s sessions, so Claude runs it there without the checker stopping it. The checker keeps reviewing every other action.
+A rule is a plain sentence that describes work you approve in the scope, such as “Deploying to our staging cluster from a session in this channel is a normal, approved workflow.” To add one:
+
+1. On [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), open the **Slack** tab under **Claude Tag’s access** and find the scope you want to change (**Default Slack access**, a workspace, or a channel).
+2. Open the scope’s **Advanced** section and find **Auto mode allow rules**, below the [**Default model**](#choose-the-model-for-a-scope) setting.
+3. Select **Add rule** and write the rule as one plain sentence.
+
+The rules list has three properties:
+
+* **Limits:** a scope holds up to 50 rules, and each rule can be up to 1,024 characters
+* **Inheritance:** rules you set on a workspace or on [Default Slack access](https://claude.com/docs/claude-tag/admins/attach-to-scope#how-scopes-inherit) (the organization-wide root) carry down to the channels beneath, the way [custom instructions](https://claude.com/docs/claude-tag/admins/attach-to-scope#custom-instructions) stack. A channel’s own rules add to those and never replace them, so put a rule on a single channel’s scope to pre-approve an action there without changing any other channel.
+* **Access:** you edit the list with the same admin access as the scope’s other **Advanced** settings
+
+Once you add an allow rule, Claude runs the actions it names in every channel the scope covers without anyone approving them in the moment. Keep each rule narrow: name the tool, the action, and the environment it allows, and put rules that unlock sensitive systems on the narrowest scope that needs them.
 
 ##  Settings no one can change
 
 * The Claude app’s name, @-handle, and avatar in Slack are the same in every workspace; there is no rename or rebrand setting.
-* Channel sessions run on Claude Opus, with no setting to switch to Sonnet or Haiku. See [current limits](/docs/claude-tag/admins/restrict-access#controls-that-arent-available).
 
-* [What Claude Tag remembers](/docs/claude-tag/users/memory): how channel instructions are stored, shared, and corrected
-* [Good habits for working with Claude Tag](/docs/claude-tag/users/good-habits): phrasings that make recurring output consistent
-* [How agent identity works](/docs/claude-tag/concepts/agent-identity): why access is set per channel
+##  Related resources
 
-[Vercel](/docs/claude-tag/admins/connections/vercel)[Add custom skills](/docs/claude-tag/admins/skills-repo)
+* [Settings map](https://claude.com/docs/claude-tag/concepts/settings-map): every settings surface, including spend limits and personal connectors
+* [What Claude Tag remembers](https://claude.com/docs/claude-tag/users/memory): how channel instructions are stored, shared, and corrected
+* [Good habits for working with Claude Tag](https://claude.com/docs/claude-tag/users/good-habits): phrasings that make recurring output consistent
+* [How agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity): why access is set per channel

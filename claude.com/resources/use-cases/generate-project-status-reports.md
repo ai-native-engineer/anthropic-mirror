@@ -53,8 +53,8 @@ For each task, I need to see:
 * Any blockers and how long they've been stuck
 * Notes from their updates about plans and challenges
 
-Create an Excel tracker and include these features: visual status indicators, cell comments with context from sources (so I can hover and see the details), dropdown menus for status and priority (to make updates easy), and data bars showing progress visually.   
-  
+Create an Excel tracker and include these features: visual status indicators, cell comments with context from sources (so I can hover and see the details), dropdown menus for status and priority (to make updates easy), and data bars showing progress visually.
+
 The tracker should make it obvious at a glance where the problems are and who needs help.
 
 [Next](#)Next
@@ -71,8 +71,8 @@ Enable [connectors](https://claude.com/blog/connectors-directory) and [integrati
 
 ## Required context
 
-Once you’ve connected your [Google Drive](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration), [Gmail, Google Calendar](https://support.claude.com/en/articles/11088742-using-the-gmail-and-google-calendar-integrations?q=googel+driv), and [Slack](https://www.claude.com/claude-and-slack) tools, make sure they are toggled on in the chat bar settings.   
-  
+Once you’ve connected your [Google Drive](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration), [Gmail, Google Calendar](https://support.claude.com/en/articles/11088742-using-the-gmail-and-google-calendar-integrations?q=googel+driv), and [Slack](https://www.claude.com/claude-and-slack) tools, make sure they are toggled on in the chat bar settings.
+
 Claude can then access your email threads, Drive file updates, calendar events, and Slack conversations to piece together what's actually happening with your project.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68efe427f3a0ebdeb2c3a468_google_drive.svg)
@@ -178,7 +178,7 @@ Work with Claude to consolidate information between your project tools so you ca
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a4d605ca4e2de836aac23_Screenshot%202025-11-04%20at%2011.00.43%E2%80%AFAM.png)
 
@@ -188,34 +188,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Source insights from your tools to build a deck](/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Source insights from your tools to build a deck
+[Source insights from your tools to build a deck](https://claude.com/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Source insights from your tools to build a deck
 
 Source insights from your tools to build a deck
 
 Use case
 
-[Use case](/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Use case
+[Use case](https://claude.com/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Use case
 
-[Evaluate a company from the science to the balance sheet](/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Evaluate a company from the science to the balance sheet
+[Evaluate a company from the science to the balance sheet](https://claude.com/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Evaluate a company from the science to the balance sheet
 
 Evaluate a company from the science to the balance sheet
 
 Use case
 
-[Use case](/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Use case
+[Use case](https://claude.com/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Use case
 
-[Build analysis from browser charts and folder data](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Build analysis from browser charts and folder data
+[Build analysis from browser charts and folder data](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Build analysis from browser charts and folder data
 
 Build analysis from browser charts and folder data
 
 Use case
 
-[Use case](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Use case
+[Use case](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Use case
 
-[Build a daily briefing across your tools](/resources/use-cases/build-a-daily-briefing-across-your-tools)Build a daily briefing across your tools
+[Build a daily briefing across your tools](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)Build a daily briefing across your tools
 
 Build a daily briefing across your tools
 
 Use case
 
-[Use case](/resources/use-cases/build-a-daily-briefing-across-your-tools)Use case
+[Use case](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)Use case

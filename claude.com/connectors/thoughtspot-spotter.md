@@ -10,6 +10,7 @@ Your AI data analyst, from question to trusted insights
 * Used in
 
   [Claude](https://claude.ai/directory/576048a9-f4be-43c6-8cdb-787897c49b03)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [ThoughtSpot](https://www.thoughtspot.com/)
 
@@ -22,19 +23,19 @@ Your AI data analyst, from question to trusted insights
   Read & write
 * More
 
-  [Documentation](https://developers.thoughtspot.com/docs/mcp-integration#_add_mcp_server_to_the_mcp_clients_config)[Privacy Policy](https://www.thoughtspot.com/privacy-statement)[helpdesk@thoughtspot.com](mailto:helpdesk@thoughtspot.com)
+  [Documentation](https://developers.thoughtspot.com/docs/mcp-integration#_add_mcp_server_to_the_mcp_clients_config)[Privacy Policy](https://www.thoughtspot.com/privacy-statement)[Support](mailto:helpdesk@thoughtspot.com)
 
 From everyday data questions to high-level strategic analyses, Spotter by ThoughtSpot helps business and data teams get answers and insights they can trust, validate, and act on, enabling everyone to use data to drive the business forward.
 
 You can use ThoughtSpot Spotter to:
 
-**Ask data questions:**  
+**Ask data questions:**
 "What were last quarter's top 5 products by revenue?"
 
-**Spot trends:**  
+**Spot trends:**
 "Show me weekly active users over the last 6 months"
 
-**Validate a number:**  
+**Validate a number:**
 "Does the dashboard's churn rate match the underlying table?"
 
 ## Related connectors
@@ -47,11 +48,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -65,7 +66,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -79,7 +80,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -91,4 +92,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

@@ -16,7 +16,9 @@ This video examines what generative AI can and cannot do effectively at this poi
 
 * Generative AI creates new content (text, images, code) rather than just analyzing existing data
 * Modern systems like LLMs were made possible by three key developments:
-+ Algorithmic and architectural breakthroughs (especially the transformer architecture) + Vast amounts of digital training data + Dramatic increases in computational power
+  + Algorithmic and architectural breakthroughs (especially the transformer architecture)
+  + Vast amounts of digital training data
+  + Dramatic increases in computational power
 * Generative AI learns through two stages: pre-training (analyzing patterns across billions of examples) and fine-tuning (learning to follow instructions and provide helpful responses)
 * Current capabilities include versatility across tasks, conversational awareness, and the ability to connect with external tools
 * Current limitations include knowledge cutoff dates, potential for hallucinations, context window constraints, and challenges with complex reasoning
@@ -42,7 +44,6 @@ As you progress through the course, we'd love to hear from you about how you are
 #### Acknowledgments and license
 
 *Copyright 2025 Rick Dakan, Joseph Feller, and Anthropic. Released under the CC BY-NC-SA 4.0 license.* *This course is based on The AI Fluency Framework by Dakan and Feller.* *Supported in part by the Higher Education Authority, Ireland, through the National Forum for the Enhancement of Teaching and Learning.*
-
 <!-- youtube: W5cga7xipRI -->
 
 [![Capabilities Limitations](https://img.youtube.com/vi/W5cga7xipRI/hqdefault.jpg)](https://www.youtube.com/watch?v=W5cga7xipRI)

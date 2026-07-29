@@ -7,11 +7,12 @@ Firecrawl: Convert websites to LLM-ready markdown/data. Scrape pages, crawl site
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Firecrawl](https://firecrawl.dev)
 * Installs
 
-  34076
+  38560
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -23,10 +24,10 @@ The plugin includes an AI agent for autonomous multi-source data gathering. Just
 
 **How to use:** After installing, run `/firecrawl:setup` to configure your API key. Then use these commands to get started:
 
-`/firecrawl:scrape` — Extract a single webpage as clean markdown.  
-`/firecrawl:crawl` — Crawl and extract content from an entire website.  
-`/firecrawl:search` — Search the web and get scraped results.  
-`/firecrawl:map` — Discover all URLs on a site.  
+`/firecrawl:scrape` — Extract a single webpage as clean markdown.
+`/firecrawl:crawl` — Crawl and extract content from an entire website.
+`/firecrawl:search` — Search the web and get scraped results.
+`/firecrawl:map` — Discover all URLs on a site.
 `/firecrawl:agent` — Describe what data you need and let the AI agent autonomously find and extract it.
 
 You can also use Firecrawl's tools directly in conversation: ask Claude to scrape a URL, search the web for information, or gather competitive research across multiple sites. Supports self-hosted Firecrawl instances via custom API endpoint configuration.
@@ -39,17 +40,17 @@ Craft production-grade frontends with distinctive design. Generates polished cod
 
 Anthropic verified
 
-948012
+1110438
 
-installs](/plugins/frontend-design)
+installs](https://claude.com/plugins/frontend-design)
 
 [### Superpowers
 
 Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
 
-855112
+987572
 
-installs](/plugins/superpowers)
+installs](https://claude.com/plugins/superpowers)
 
 [### Code Review
 
@@ -57,14 +58,14 @@ AI code review with specialized agents and confidence-based filtering for pull r
 
 Anthropic verified
 
-383892
+430450
 
-installs](/plugins/code-review)
+installs](https://claude.com/plugins/code-review)
 
 [### Context7
 
 Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
 
-377529
+412076
 
-installs](/plugins/context7)
+installs](https://claude.com/plugins/context7)

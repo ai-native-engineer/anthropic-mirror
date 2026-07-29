@@ -4,6 +4,8 @@
 
 Claude Console (API) → Claude Enterprise
 
+Updated over 2 weeks ago
+
 ## Overview
 
 This guide is built for teams migrating from Console-based Claude Code access to Claude Enterprise. Note that individual users don’t need to migrate session history for CLI sessions since these are stored locally. You only need to provision Claude Enterprise accounts for each user, and then users should switch their login method from Console to Claude Enterprise.

@@ -175,7 +175,7 @@ Pick something you've been meaning to understand. Claude builds the tool; you do
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6924a785986e6eef5ac26cb2_Screenshot%202025-11-24%20at%2010.44.16%E2%80%AFAM.png)
 
@@ -185,34 +185,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Map your understanding and build lessons from the gaps](/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Map your understanding and build lessons from the gaps
+[Map your understanding and build lessons from the gaps](https://claude.com/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Map your understanding and build lessons from the gaps
 
 Map your understanding and build lessons from the gaps
 
 Use case
 
-[Use case](/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Use case
+[Use case](https://claude.com/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Use case
 
-[Stress-test your financial plan across scenarios](/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Stress-test your financial plan across scenarios
+[Stress-test your financial plan across scenarios](https://claude.com/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Stress-test your financial plan across scenarios
 
 Stress-test your financial plan across scenarios
 
 Use case
 
-[Use case](/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Use case
+[Use case](https://claude.com/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Use case
 
-[Organize files across your desktop](/resources/use-cases/organize-files-by-whats-in-them)Organize files across your desktop
+[Organize files across your desktop](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)Organize files across your desktop
 
 Organize files across your desktop
 
 Use case
 
-[Use case](/resources/use-cases/organize-files-by-whats-in-them)Use case
+[Use case](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)Use case
 
-[Thoughtful gift giving with Claude](/resources/use-cases/thoughtful-gift-giving-with-claude)Thoughtful gift giving with Claude
+[Thoughtful gift giving with Claude](https://claude.com/resources/use-cases/thoughtful-gift-giving-with-claude)Thoughtful gift giving with Claude
 
 Thoughtful gift giving with Claude
 
 Use case
 
-[Use case](/resources/use-cases/thoughtful-gift-giving-with-claude)Use case
+[Use case](https://claude.com/resources/use-cases/thoughtful-gift-giving-with-claude)Use case

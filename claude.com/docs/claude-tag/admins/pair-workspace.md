@@ -1,10 +1,18 @@
 <!-- source: https://claude.com/docs/claude-tag/admins/pair-workspace -->
 
-[1 · Pair workspace](/docs/claude-tag/admins/pair-workspace)[2 · Give access](/docs/claude-tag/admins/add-connections)[3 · Spend limit](/docs/claude-tag/admins/set-spend-limit)[4 · Test it](/docs/claude-tag/admins/test-it)
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
+[1 · Pair workspace](https://claude.com/docs/claude-tag/admins/pair-workspace)[2 · Give access](https://claude.com/docs/claude-tag/admins/add-connections)[3 · Spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit)[4 · See it work](https://claude.com/docs/claude-tag/admins/test-it)
 
 Role you needOwner in your Claude organization, plus a Slack workspace admin to install the app and generate the pairing code. These can be the same person or two people.
 
-Before this stepThe [prerequisites](/docs/claude-tag/admins/setup-overview#before-you-start): confirm your role and decide where you’ll pilot
+Before this stepThe [prerequisites](https://claude.com/docs/claude-tag/admins/setup-overview#before-you-start): confirm your role and decide where you’ll pilot
 
 Do I need this?RequiredNothing else in setup works until a workspace is paired.
 
@@ -22,48 +30,66 @@ Open [claude.com/claude-for-slack](https://claude.com/claude-for-slack), click *
 
 Run @Claude connect in Slack
 
-Send `@Claude connect` in any channel or in a DM with `@Claude`. Claude replies with a pairing code. Only a Slack workspace admin (or Grid org admin) can run this command; if that’s not you, [send them the install request](#send-the-install-request-to-your-slack-admin) and have them return the code.If your install is missing a permission, the reply names it (and may still issue a code with a warning); see [the section below](#if-claude-connect-says-the-installation-is-out-of-date).
+Send `@Claude connect` in any channel, with no other text, either as a new top-level message or in a thread where Claude isn’t already working. In a DM with Claude, send `connect` on its own; `link` works in place of `connect` in both cases. Claude replies with a pairing code valid for 15 minutes. In a thread where Claude is already working, it treats the message as a normal request instead.Only a Slack workspace admin (or Grid org admin) can run this command. If that’s not you, [send them the install request](#send-the-install-request-to-your-slack-admin) and have them return the code.If your install is missing a permission, the reply names it (and may still issue a code with a warning); see [the section below](#if-@claude-connect-says-the-installation-is-out-of-date).
 
 3
 
-In the console: run the setup wizard
+In the console: complete the pairing step
 
-At [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), select **Set up** (or **+ Connect** next to **Where Claude Tag works** if a workspace is already paired) to open the **Set up Claude Tag for your workspace** wizard. Paste the code, choose whether to enable Claude for the whole workspace or specific channels, and click **Next**.
+At [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), setup opens as a full page until your first workspace is paired; click **Start setup** to reach **Pair your Slack workspace**. Paste the code, choose where Claude can reply (**Entire workspace (recommended)** or **Specific channel**), and click **Pair workspace**. To pair a workspace after your first, select **+ Connect** next to **Where Claude Tag works** instead, as described in [Manage workspaces](https://claude.com/docs/claude-tag/admins/workspaces#pair-another-workspace).
 
-The wizard moves straight on to giving Claude access, so there’s nothing to check at this point; continue with [Give Claude access](/docs/claude-tag/admins/add-connections). After the wizard finishes, the Slack row under **Where Claude Tag works** shows your workspace as connected, and a [scope](/docs/claude-tag/concepts/glossary#scope) for it (the entry where you’ll bind tool access) appears on the **Slack** tab under **Claude Tag’s access**.
+Setup confirms the pairing and moves on to choosing Claude’s tools, so there’s nothing to check at this point; continue with [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connections). After setup finishes, the Slack row under **Where Claude Tag works** shows your workspace as connected, and a [scope](https://claude.com/docs/claude-tag/concepts/glossary#scope) for it (the entry where you’ll bind tool access) appears on the **Slack** tab under **Claude Tag’s access**.
 
 ##  Send the install request to your Slack admin
 
 Steps 1–2 above need a Slack workspace admin; step 3 needs an Owner in your Claude organization. If those are two people, send the Slack admin this and have them return the code:
 
-Please install the Claude app (https://claude.com/claude-for-slack) in [workspace], then run "@Claude connect" in any channel and send me the code it returns. What it can access: https://claude.com/docs/claude-tag/admins/for-slack-admins
+```
+Please install the Claude app (https://claude.com/claude-for-slack) in [workspace]. When that's done, let me know a time that works for the next part: you post "@Claude connect" in any channel with no other text and send me the code it returns. The code expires 15 minutes after Claude posts it, so I'll redeem it right away. What it can access: https://claude.com/docs/claude-tag/admins/for-slack-admins
+```
 
 ###  If `@Claude` doesn’t respond at all
 
-On Enterprise Grid, an earlier install can lose its connection and stop responding in every workspace. Don’t uninstall the app. Have a Slack Org Owner or Org Admin, while signed in to one of the workspaces (not the org-level admin page), open [claude.com/claude-for-slack](https://claude.com/claude-for-slack), select **Add to Slack**, and choose **Install to entire organization**. This refreshes the connection in place. Then run `@Claude connect` again.
+On Enterprise Grid, an earlier install can lose its connection and stop responding in every workspace. Don’t uninstall the app. Have a Slack Org Owner or Org Admin, while signed in to one of the workspaces (not the org-level admin page), open [claude.com/claude-for-slack](https://claude.com/claude-for-slack), select **Add to Slack**, and choose **Install to entire organization**. This refreshes the connection in place. Then send `@Claude connect` again in a channel of that workspace.
 
 ###  If `@Claude connect` says the installation is out of date
 
-Your Slack install predates a permission the app now requests. The reply names the missing scope and includes a **reinstalls the Claude app** link. A Slack workspace admin clicks that link (or opens [claude.com/claude-for-slack](https://claude.com/claude-for-slack) and clicks **Add to Slack** again), approves the consent screen Slack shows, then runs `@Claude connect` again. This installs over the existing app; do not uninstall first.
-Slack’s **Manage apps** page lists the scopes the app requests, not the scopes your workspace has granted, so seeing a permission listed there does not mean it is approved. The grant happens on the consent screen.
+Your Slack install predates a permission the app now requests. The workspace keeps its old grant until a Slack admin approves the update. Replies name the missing permissions until then. The reply links both remedies; either one clears the error.
+
+* **Approve the updated permissions.** A Slack workspace admin opens Slack’s installed-apps page, `https://app.slack.com/apps-manage/<team-id>/integrations/installed`, finds the Claude app, and approves its requested permissions. The **approves its updated permissions** link in the reply lands on that page directly. On Enterprise Grid with an org-wide install, a Slack org admin uses `https://app.slack.com/manage/<grid-id>/integrations/installed` instead.
+* **Reinstall the app.** A Slack workspace admin clicks the **reinstalls the Claude app** link in the reply and approves the consent screen Slack shows. Opening [claude.com/claude-for-slack](https://claude.com/claude-for-slack) and clicking **Add to Slack** again does the same thing. This installs over the existing app with the current permissions; do not uninstall first.
+
+Then run `@Claude connect` again. Slack’s **Manage apps** page lists the scopes the app requests, not the scopes your workspace has granted. Seeing a permission listed there does not by itself mean it is approved. The grant happens when an admin approves the update or completes the consent screen.
+
+###  If Claude says Claude in Slack is not available for your organization
+
+The reply “Claude in Slack is not available for your organization” means your Slack workspace is paired to a Claude organization with a restricted compliance configuration, such as Zero Data Retention (ZDR). Claude Tag retains channel memory and session transcripts, so it can’t run under that configuration.
+Check which Claude organization the workspace is paired to. If your company has more than one, for example a trial org alongside the main one, the workspace may be paired to the wrong one. An Owner in that organization can [revoke the pairing](https://claude.com/docs/claude-tag/admins/workspaces#revoke-a-pairing) so you can pair the workspace to the right one here.
+If the pairing already points to the intended organization, no admin setting lifts the restriction; contact your account team.
+If the reply instead says Claude Tag has been turned off for your Claude organization, the cause is the **Enable Claude Tag for your organization** toggle, and an Owner can turn it back on. See [Claude Tag is turned off for your organization](https://claude.com/docs/claude-tag/admins/troubleshooting#claude-tag-is-turned-off-for-your-organization).
 
 ###  If the console says “already connected to a different organization”
 
-A Slack workspace can pair with only one Claude organization at a time, and this one is already paired elsewhere. An Owner in the Claude organization that currently holds the pairing must [disconnect it](/docs/claude-tag/admins/workspaces#revoke-a-pairing) from their **Connected workspaces** list before your code can be redeemed here. If your company has more than one Claude organization, check the others; the existing pairing is often in a test or trial org.
+A Slack workspace can pair with only one Claude organization at a time, and this one is already paired elsewhere. An Owner in the Claude organization that currently holds the pairing must [disconnect it](https://claude.com/docs/claude-tag/admins/workspaces#revoke-a-pairing) from their **Connected workspaces** list before your code can be redeemed here. If your company has more than one Claude organization, check the others; the existing pairing is often in a test or trial org.
 
 ###  If the console says “claim code is invalid, expired, or already used”
 
-Pairing codes are single-use and expire after a short window. Ask the Slack admin to send `@Claude connect` again and paste the fresh code; reinstalling the app is not required. On Enterprise Grid, a Grid org admin’s reply includes a Grid-wide code alongside the workspace code.
+Pairing codes are single-use and expire 15 minutes after they’re issued. Ask the Slack admin to send `@Claude connect` again and paste the fresh code; reinstalling the app is not required. On Enterprise Grid, a Grid org admin’s reply includes a Grid-wide code (starting with `enterprise_`) alongside the workspace code (starting with `workspace_`).
+
+###  If DMs never respond on Enterprise Grid
+
+On Enterprise Grid, direct messages with Claude follow each user’s home workspace, not the workspace you paired. When a user is homed in a grid workspace the pairing doesn’t cover, their DMs answer with a redirect to setup instructions even after their account connects, while channels in the paired workspace work normally.
+The fix is to pair the whole grid rather than one workspace. Claude’s reply to a Grid Org Owner or Org Admin’s `@Claude connect` includes two codes; redeem the one starting with `enterprise_` (not the `workspace_` one) in the pairing step to cover DMs for users in every workspace of the grid.
 
 ##  After pairing: where Claude is enabled
 
-Once a workspace is paired, where Claude responds depends on what you chose in the wizard (whole workspace or specific channels), the **Turn on Claude Tag** toggle, and your [Members](/docs/claude-tag/admins/restrict-access#members) setting.
+Once a workspace is paired, where Claude responds depends on what you chose when pairing (entire workspace or specific channels), the **Turn on Claude Tag** toggle, and your [access restriction](https://claude.com/docs/claude-tag/admins/restrict-access#members) setting.
 
-* **What Claude can reach** in each channel depends on which Access bundles you bind; see [Configure per-channel access](/docs/claude-tag/admins/attach-to-scope).
-* **Nothing runs until usage is funded** on Team plans; see [Set a spend limit](/docs/claude-tag/admins/set-spend-limit).
-* **DMs work separately** from channels and run on each user’s own claude.ai account; pairing isn’t what enables DMs.
+* **What Claude can reach** in each channel depends on which Access bundles you bind; see [Configure per-channel access](https://claude.com/docs/claude-tag/admins/attach-to-scope).
+* **Nothing runs until usage is funded** on Team plans; see [Set a spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit).
+* **DMs work separately** from channels and run on each user’s own claude.ai account. On Enterprise Grid, DMs follow each user’s home workspace; see [If DMs never respond on Enterprise Grid](#if-dms-never-respond-on-enterprise-grid).
 
-* [Give Claude access](/docs/claude-tag/admins/add-connections): create an Access bundle and add connections
-* [What the Claude Slack app can access](/docs/claude-tag/admins/for-slack-admins): the page to send a Slack admin who’s approving the install
+##  Related resources
 
-[Set up Claude Tag](/docs/claude-tag/admins/setup-overview)[2. Give Claude access](/docs/claude-tag/admins/add-connections)
+* [Give Claude access](https://claude.com/docs/claude-tag/admins/add-connections): create an Access bundle and add connections
+* [What the Claude Slack app can access](https://claude.com/docs/claude-tag/admins/for-slack-admins): the page to send a Slack admin who’s approving the install

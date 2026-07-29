@@ -1,3 +1,4 @@
+<!-- source: https://platform.claude.com/docs/en/api/go/beta/messages -->
 <!-- part of: https://platform.claude.com/docs/en/api/go/beta/messages -->
 
 <!-- chunk-start -->
@@ -30408,4 +30409,3 @@ func main() {
       - `ErrorCode BetaWebSearchToolResultErrorCode`
 
         - `const BetaWebSearchToolResultErrorCodeInvalidToolInput BetaWebSearchToolResultErrorCode = "invalid_tool_input"`
-

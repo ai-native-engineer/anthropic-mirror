@@ -1,5 +1,17 @@
 <!-- source: https://claude.com/resources/tutorials/using-the-owkin-connector-in-claude -->
 
+Claude Science beta
+
+[Next](#)Next
+
+Introducing the Claude Science app, your research partner for rigorous science.
+
+Learn more
+
+[Learn more](https://claude.com/product/claude-science)Learn more
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ef89e3431b19c021bf2b_claude-science-og.jpg)
+
 # Using the Owkin Connector in Claude
 
   Life Sciences
@@ -149,13 +161,13 @@ Technical details of the Owkin integration can be found in [Owkin’s MCP Server
 
 ## **Example use cases**
 
-* **Refine patient stratification.** Identify patient subgroups that generalist models miss through granular profiling of 6 distinct cell types (including understudied populations like neutrophils and eosinophils). Leverage spatial organization analysis to characterize TME structures and phenotypes beyond simple counts.   
+* **Refine patient stratification.** Identify patient subgroups that generalist models miss through granular profiling of 6 distinct cell types (including understudied populations like neutrophils and eosinophils). Leverage spatial organization analysis to characterize TME structures and phenotypes beyond simple counts.
   + Example prompt: *"I'm looking for Lung Adenocarcinoma patients that might be resistant to immunotherapy. Are there cases with low immune infiltration in the TCGA cohort?"*
-* **Visualize whole-slide images.** Build confidence in the model output by retrieving whole-slide images directly within the chat interface.   
+* **Visualize whole-slide images.** Build confidence in the model output by retrieving whole-slide images directly within the chat interface.
   + Example prompt: *"Find the slide the most enriched in eosinophils from cohort TCGA\_BRCA and plot it."*
-* **Assess prognostic value of H&E based markers.** Test clinical hypotheses by performing survival analysis on your cohorts, by splitting patients based on features such as specific cell densities or spatial scores.   
+* **Assess prognostic value of H&E based markers.** Test clinical hypotheses by performing survival analysis on your cohorts, by splitting patients based on features such as specific cell densities or spatial scores.
   + Example prompt: *"Is the density of plasmocytes associated with overall survival in bladder carcinoma?"*
-* **Extract quantitative evidence for reproducibility.** Build trust in AI-generated insights by retrieving the underlying raw data for independent verification or downstream analysis.   
+* **Extract quantitative evidence for reproducibility.** Build trust in AI-generated insights by retrieving the underlying raw data for independent verification or downstream analysis.
   + Example prompt: *"Export the breakdown of all cell types for patient TCGA-A2-A0YI-01Z-00-DX1.1CF2EC2D-C722-467F-8832-409B823E8D8F.svs in parquet format, so I can reproduce this analysis."*
 * **Understand Owkin’s Pathology Explorer capabilities and context.** Gain transparency into the model by querying its technical specifications directly. Learn about the supported cell types, the pan-cancer training dataset and more, to ensure the model is appropriate for your research question.
 
@@ -163,34 +175,34 @@ Example prompt: *"Can you provide an overview of Owkin’s Pathology Explorer mo
 
 ## Related tutorials
 
-[How to use the Nextflow Deployment agent skill with Claude Code](/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)How to use the Nextflow Deployment agent skill with Claude Code
+[How to use the Nextflow Deployment agent skill with Claude Code](https://claude.com/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)How to use the Nextflow Deployment agent skill with Claude Code
 
 How to use the Nextflow Deployment agent skill with Claude Code
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)Tutorial
 
-[How to use the Instrument Data to Allotrope Skill with Claude](/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)How to use the Instrument Data to Allotrope Skill with Claude
+[How to use the Instrument Data to Allotrope Skill with Claude](https://claude.com/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)How to use the Instrument Data to Allotrope Skill with Claude
 
 How to use the Instrument Data to Allotrope Skill with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)Tutorial
 
-[How to use the Scientific Problem Selection Skill with Claude](/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)How to use the Scientific Problem Selection Skill with Claude
+[How to use the Scientific Problem Selection Skill with Claude](https://claude.com/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)How to use the Scientific Problem Selection Skill with Claude
 
 How to use the Scientific Problem Selection Skill with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)Tutorial
 
-[How to use the scVI-Tools bioinformatics skill bundle with Claude](/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)How to use the scVI-Tools bioinformatics skill bundle with Claude
+[How to use the scVI-Tools bioinformatics skill bundle with Claude](https://claude.com/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)How to use the scVI-Tools bioinformatics skill bundle with Claude
 
 How to use the scVI-Tools bioinformatics skill bundle with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)Tutorial

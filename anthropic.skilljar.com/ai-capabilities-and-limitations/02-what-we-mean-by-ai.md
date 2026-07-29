@@ -69,7 +69,10 @@ Short, concrete, verifiable instructions ("respond as a table," "under 100 words
 
 *Why? You just learned that generative AI is fundamentally different from the AI that filters your spam and recommends your next video. Now you're going to use that distinction on your own experience.*
 
-1. **List five AI-powered features you've interacted with this week.** Cast a wide net: autocomplete, photo tagging, spam filtering, chatbot answers, translation, product recommendations, voice assistants. 2. **For each one, jot down your call:** is it producing new content, or is it sorting, ranking, and classifying existing content? 3. **Share your list with an AI and ask it to check your calls.** For any you got wrong (or weren't sure about), ask it to explain the distinction in one sentence. Then ask: "Which of these five is most likely to have a failure mode this course will help me understand?" 4. **Go back to your Lesson 1 task list.** For each task, tag it with the property question that feels most relevant right now:
+1. **List five AI-powered features you've interacted with this week.** Cast a wide net: autocomplete, photo tagging, spam filtering, chatbot answers, translation, product recommendations, voice assistants.
+2. **For each one, jot down your call:** is it producing new content, or is it sorting, ranking, and classifying existing content?
+3. **Share your list with an AI and ask it to check your calls.** For any you got wrong (or weren't sure about), ask it to explain the distinction in one sentence. Then ask: "Which of these five is most likely to have a failure mode this course will help me understand?"
+4. **Go back to your Lesson 1 task list.** For each task, tag it with the property question that feels most relevant right now:
    * Where do the answers come from? (Next Token Prediction)
    * What does it know? (Knowledge)
    * What's it paying attention to? (Working Memory)
@@ -93,7 +96,6 @@ As you progress through the course, we'd love to hear from you about how you are
 #### Acknowledgments and license
 
 *Copyright 2026 Anthropic. Original work building on the AI Fluency Framework developed by Prof. Rick Dakan (Ringling College of Art and Design) and Prof. Joseph Feller (University College Cork). Released under the CC BY-NC-SA 4.0 license.*
-
 <!-- youtube: AiiiyYiEJa4 -->
 
 [![What We Mean By AI](https://img.youtube.com/vi/AiiiyYiEJa4/hqdefault.jpg)](https://www.youtube.com/watch?v=AiiiyYiEJa4)

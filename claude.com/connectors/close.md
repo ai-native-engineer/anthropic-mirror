@@ -10,6 +10,7 @@ Securely connect Claude to your Close data
 * Used in
 
   [Claude](https://claude.ai/directory/3e12bb5c-11e5-409c-8e73-64d4b625b498)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Close](https://close.com)
 
@@ -22,25 +23,25 @@ Securely connect Claude to your Close data
   Read & write
 * More
 
-  [Documentation](https://help.close.com/v1/docs/en/mcp-server)[Privacy Policy](https://www.close.com/security)[support@close.com](mailto:support@close.com)
+  [Documentation](https://help.close.com/v1/docs/en/mcp-server)[Privacy Policy](https://www.close.com/security)[Support](mailto:support@close.com)
 
 The Close connector is a secure, standardized interface that lets Claude directly access and interact with your Close data. Core functionality with Claude: Connects Close to Claude via the Model Context Protocol so Claude can use Close as a trusted system of record. Read data (e.g., leads, contacts, opportunities, activities) based on your Close permissions. Optionally write data — you can allow only safe writes (e.g., create a lead) or full writes (e.g., edit/delete) during setup. Enables Claude to answer questions, summarize information, and perform actions in Close.
 
-You can use the Close connector to:  
-  
-Prioritize your pipeline:  
+You can use the Close connector to:
+
+Prioritize your pipeline:
 "What are the deals in Close I should focus on today?"
 
-Manage leads and contacts:  
+Manage leads and contacts:
 "Create a new Contact in Close with the following information: [Name, Email, Phone, Company]"
 
-Get performance insights:  
+Get performance insights:
 "How is my opportunity close rate trending over time?"
 
-Automate workflows and tasks:  
+Automate workflows and tasks:
 "Add this lead to my 'Follow-Up in 7 Days' workflow"
 
-Coordinate scheduling:  
+Coordinate scheduling:
 "Find my available scheduling link and share it with this lead"
 
 ## Related connectors
@@ -57,7 +58,7 @@ January 26, 2026
 
 ### ActiveCampaign
 
-Autonomous marketing to transform how you work](/connectors/activecampaign)
+Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
 
 Sales and marketing
 
@@ -67,11 +68,11 @@ Claude Code
 
 June 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1d129f2351bec1d8462bd9_actively.ai.png)
+[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
 
 ### Actively
 
-1:1 account agents for GTM teams](/connectors/actively)
+1:1 account agents for GTM teams](https://claude.com/connectors/actively)
 
 Sales and marketing
 
@@ -79,11 +80,11 @@ Claude
 
 May 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Journey Optimizer
 
-Understand and troubleshoot your Journeys and Campaigns](/connectors/adobe-journey-optimizer)
+Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
 
 Sales and marketing
 
@@ -93,8 +94,8 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Marketing Agent
 
-Marketing campaign and audience insights from Adobe](/connectors/adobe-marketing-agent)
+Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)

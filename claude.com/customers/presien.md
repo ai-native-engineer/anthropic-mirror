@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a05f852751968314e440dac_PresienLogo-Primary-Black%20(1).svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a05f8782d771beca1be7e9e_logo_presien-dark-mode.svg)
 
@@ -119,8 +119,8 @@ Presien provides end users with starter instructions and pre-built Skills that t
 
 Presien's computer vision models run on the machines themselves, generating a continuous stream of detection events: a worker in a blind spot, an excavator operating too close to a boundary, a vehicle moving without a spotter. Those events flow to the cloud, where Presien's vision-language model processes them and stores them alongside machine telemetry, company safety policies, and government regulations.
 
-Claude connects to this data through MCP servers. When /loop identifies a cluster of high-risk detections on a site, Claude pulls the relevant events, cross-references them against the company's documentation, and determines what action is needed. Or a safety manager can query /loop directly: "Where are my highest risk activities across all sites this week and what should I do about it?"  
-  
+Claude connects to this data through MCP servers. When /loop identifies a cluster of high-risk detections on a site, Claude pulls the relevant events, cross-references them against the company's documentation, and determines what action is needed. Or a safety manager can query /loop directly: "Where are my highest risk activities across all sites this week and what should I do about it?"
+
 /loop runs continuously, 24 hours a day, reviewing events as they happen. Critical detections trigger immediate attention; others are queued for morning review. By the time the safety manager starts their day, the analysis is ready.
 
 "Not as a chatbot layer sitting on top of our data, but as the reasoning engine at the heart of our intelligence platform."
@@ -167,34 +167,34 @@ CEO, Presien
 
 ## Related stories
 
-[How Vercel built an ecosystem on the open skills standard](/customers/vercel-qa)How Vercel built an ecosystem on the open skills standard
+[Dust enables agents to go deeper at lower cost with Claude](https://claude.com/customers/dust)Dust enables agents to go deeper at lower cost with Claude
+
+Dust enables agents to go deeper at lower cost with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/dust)Customer story
+
+[How Vercel built an ecosystem on the open skills standard](https://claude.com/customers/vercel-qa)How Vercel built an ecosystem on the open skills standard
 
 How Vercel built an ecosystem on the open skills standard
 
 Customer story
 
-[Customer story](/customers/vercel-qa)Customer story
+[Customer story](https://claude.com/customers/vercel-qa)Customer story
 
-[Box builds document creation into its AI agent with Claude](/customers/box)Box builds document creation into its AI agent with Claude
+[Box builds document creation into its AI agent with Claude](https://claude.com/customers/box)Box builds document creation into its AI agent with Claude
 
 Box builds document creation into its AI agent with Claude
 
 Customer story
 
-[Customer story](/customers/box)Customer story
+[Customer story](https://claude.com/customers/box)Customer story
 
-[Juno helps people with chronic illness find patterns in their symptoms with Claude](/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
+[Juno helps people with chronic illness find patterns in their symptoms with Claude](https://claude.com/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
 
 Juno helps people with chronic illness find patterns in their symptoms with Claude
 
 Customer story
 
-[Customer story](/customers/juno)Customer story
-
-[A conversation with Cursor on building coding agents for professional developers](/customers/cursor-qa)A conversation with Cursor on building coding agents for professional developers
-
-A conversation with Cursor on building coding agents for professional developers
-
-Customer story
-
-[Customer story](/customers/cursor-qa)Customer story
+[Customer story](https://claude.com/customers/juno)Customer story

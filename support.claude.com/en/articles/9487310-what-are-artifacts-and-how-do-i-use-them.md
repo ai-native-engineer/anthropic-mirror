@@ -2,7 +2,7 @@
 
 # What are artifacts and how do I use them?
 
-Updated today
+Updated over a week ago
 
 Accessing artifacts in the sidebar and Claude-powered artifacts are supported on Free, Pro, Max, Team, and Enterprise plans. Artifacts are available in Claude Code on Team and Enterprise plans.
 
@@ -50,7 +50,7 @@ To enable artifacts organization-wide on a Team or Enterprise plan:
 You can access all your artifacts through the dedicated **[Artifacts](https://claude.ai/artifacts)** section in your Claude sidebar. This space allows you to:
 
 * View all your creations in one organized location
-* Create new artifacts from scratch or by customizing existing ones
+* Create new artifacts from scratch
 * Manage and organize your artifact collection
 
 **Note:** Artifacts you create in a conversation don't appear in your sidebar automatically. To add an artifact to your **Artifacts** section, open it and click "Publish." Learn more about **[publishing and sharing artifacts](https://support.claude.com/en/articles/9547008)**.
@@ -75,8 +75,10 @@ When Claude creates an artifact, you'll see the content displayed in a dedicated
 In the lower right corner of the artifact window, you can:
 
 * View the underlying code of any artifact
-* Copy content to your clipboard
+* Copy content to your clipboard, including the code behind an artifact
 * Download files to use outside the conversation
+
+Copying the code is also how you build on an artifact someone else published. Learn more about **[building on a published artifact](https://support.claude.com/en/articles/9547008-publish-and-share-artifacts#h_eb779b5c95)**.
 
 ### Multiple artifacts
 
@@ -153,4 +155,8 @@ To learn how to create, update, and share artifacts in Claude Code, see the **[a
 
 To share your artifacts publicly, embed them on websites, or discover artifacts created by others, see **[Publish and share artifacts](https://support.claude.com/en/articles/9547008)**.
 
-[Publish and share artifacts](https://support.claude.com/en/articles/9547008-publish-and-share-artifacts)[Share and unshare chats](https://support.claude.com/en/articles/10593882-share-and-unshare-chats)[Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)[Create and edit files with Claude](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude)[Use live artifacts in Claude Cowork](https://support.claude.com/en/articles/14729249-use-live-artifacts-in-claude-cowork)
+* [Publish and share artifacts](https://support.claude.com/en/articles/9547008-publish-and-share-artifacts)
+* [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
+* [Create and edit files with Claude](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude)
+* [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
+* [Use live artifacts in Claude Cowork](https://support.claude.com/en/articles/14729249-use-live-artifacts-in-claude-cowork)

@@ -2,7 +2,7 @@
 
 # Use Claude Cowork on web, desktop, and mobile
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
 
 Claude Cowork is now available on web and mobile in addition to desktop. Cowork runs your sessions remotely (in beta), so your sessions and files live with your Claude account and go where you go, on any device. This article explains how to start a Cowork session and what's available on each surface.
 
@@ -77,5 +77,5 @@ When Claude finishes a task or needs your input, you'll get a notification on yo
 * [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
+* [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
 * [Assign tasks from anywhere in Claude Cowork](https://support.claude.com/en/articles/13947068-assign-tasks-from-anywhere-in-claude-cowork)
-* [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)

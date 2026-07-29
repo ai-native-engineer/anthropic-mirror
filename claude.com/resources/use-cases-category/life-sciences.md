@@ -44,13 +44,13 @@ Extended Thinking
 
 Read use case
 
-[Read use case](/resources/use-cases/genomic-data-analysis)Read use case
+[Read use case](https://claude.com/resources/use-cases/genomic-data-analysis)Read use case
 
 Claude.ai
 
-[Genomic data analysis](/resources/use-cases/genomic-data-analysis)Genomic data analysis
+[Genomic data analysis](https://claude.com/resources/use-cases/genomic-data-analysis)Genomic data analysis
 
-[Text Link](/resources/use-cases/genomic-data-analysis)
+[Text Link](https://claude.com/resources/use-cases/genomic-data-analysis)
 
 ![Preclinical study analysis](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69161daf8088fbfd76d586f2_Screenshot%202025-11-13%20at%2010.04.28%E2%80%AFAM.png)
 
@@ -78,13 +78,13 @@ Connectors
 
 Read use case
 
-[Read use case](/resources/use-cases/preclinical-study-analysis)Read use case
+[Read use case](https://claude.com/resources/use-cases/preclinical-study-analysis)Read use case
 
 Claude.ai
 
-[Preclinical study analysis](/resources/use-cases/preclinical-study-analysis)Preclinical study analysis
+[Preclinical study analysis](https://claude.com/resources/use-cases/preclinical-study-analysis)Preclinical study analysis
 
-[Text Link](/resources/use-cases/preclinical-study-analysis)
+[Text Link](https://claude.com/resources/use-cases/preclinical-study-analysis)
 
 No posts for those filters
 

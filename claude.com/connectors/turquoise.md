@@ -10,6 +10,7 @@ Query Turquoise's proprietary healthcare pricing data
 * Used in
 
   [Claude](https://claude.ai/directory/78e4613c-7869-4be4-b58f-3794060c704e)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Turquoise Health](https://turquoise.health/)
 
@@ -22,19 +23,19 @@ Query Turquoise's proprietary healthcare pricing data
   Read
 * More
 
-  [Documentation](https://turquoise.health/resources/blog/guide-to-the-turquoise-connector-mcp)[Privacy Policy](https://turquoise.health/legal/privacy-policy)[ai@turquoise.health](mailto:ai@turquoise.health)
+  [Documentation](https://turquoise.health/resources/blog/guide-to-the-turquoise-connector-mcp)[Privacy Policy](https://turquoise.health/legal/privacy-policy)[Support](mailto:ai@turquoise.health)
 
 Connect Turquoise to Claude to explore Turquoise Health's healthcare pricing data. You can search across healthcare entities, explore how they relate to each other, and analyze in-network rates across service categories. Useful for benchmarking reimbursement rates, sizing markets, understanding what a payer pays in a given geography, or comparing rates across providers and plans.
 
 You can use Turquoise to:
 
-**Benchmark reimbursement rates:**  
+**Benchmark reimbursement rates:**
 "What's the median in-network rate for a knee replacement (HCPCS 27447) in Los Angeles across major commercial payers?"
 
-**Compare rates across payers or providers:**  
+**Compare rates across payers or providers:**
 "Compare what Aetna, Cigna, and United Healthcare pay Sutter Amador Hospital for a screening colonoscopy."
 
-**Explore payer–provider networks:**  
+**Explore payer–provider networks:**
 "Which hospitals in California have negotiated rates with BlueShield of California, and which health systems do they belong to?"
 
 ## Related connectors
@@ -51,7 +52,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -65,7 +66,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Life sciences and healthcare
 
@@ -79,7 +80,7 @@ February 11, 2026
 
 ### Benchling
 
-Connect to R&D data, source experiments, and notebooks](/connectors/benchling)
+Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
 
 Life sciences and healthcare
 
@@ -87,10 +88,10 @@ Claude
 
 Claude Code
 
-February 11, 2026
+June 30, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe5cecad201acb193aa2_BioRender.jpg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43716940e4a2c2f530fb2c_biomni.jpeg)
 
-### BioRender
+### Biomni Lab
 
-Search for and use scientific templates and icons](/connectors/biorender)
+Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)

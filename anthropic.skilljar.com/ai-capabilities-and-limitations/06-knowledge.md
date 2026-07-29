@@ -23,24 +23,49 @@ Before you read
 
 You ask AI to **explain a news event from last week**. How closely do you need to check the result? Pick a spot on the continuum, then lock in your guess.
 
-![](ed975e22-1033-4415-b205-6194868cd5a8)
+![](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6rh0oaxpxl8bv3641a1ejj76o%2Fpublic%2F1774568560%2FpictoInference.1774568559957.png)
 ![]()
 
-##
+## Knowledge
 
-Capability Limitation
+What does AI actually know?
 
-Trust it Spot-check Check details Verify carefully High risk
+Capability
+Limitation
+
+Trust it
+Spot-check
+Check details
+Verify carefully
+High risk
 
 Your guess
 
 Typical
 
+Frequent, recent-in-training, consistent: mainstream topics, popular languages
+Rare, post-cutoff, niche, local, or contested topics
+
 What this enables
+
+* Extraordinarily broad general knowledge
+* Deep competence in well-represented domains
+* Connections across fields (embeddings: related concepts cluster together)
 
 Where it characteristically fails
 
+* **Knowledge cutoff**: nothing after training ended is there
+* **Staleness**: true-at-training-time isn’t true-now
+* **Uneven coverage**: niche domains and local knowledge suffer
+* **Inherited bias**: defaults reflect the training data’s blind spots
+* **Source amnesia**: “I read this somewhere” isn’t a citation
+
 Product features that push the edge out
+
+* **Web search**: works around the cutoff for time-sensitive questions
+* **Retrieval (RAG) / MCPs**: draw on material never trained on
+* **Tool use**: call out to real calculators, databases, APIs
+* **Explicit cutoff disclosure**: you know what to double-check
 
 Pick a stop, then lock in your guess. The lesson opens up once you do.
 
@@ -58,12 +83,18 @@ Pictogram size
 
 Palette
 
-Sky → Clay Olive → Clay Cactus → Fig Slate → Clay
+Sky → Clay
+Olive → Clay
+Cactus → Fig
+Slate → Clay
 
 #### Key takeaways
 
 * **What generative AI knows** comes entirely from training data and is frozen at the knowledge cutoff. Without tools, it has no access to any information after that date.
-+ **Capability zone:** topics that appeared frequently, recently (within training), and consistently in training data. + **Limitation zone:** rare, post-cutoff, niche, local, or contested topics. + **Characteristic failures:** staleness, uneven coverage, inherited bias in what counts as "default" or "normal," and inability to attribute where knowledge came from. + **Web search, retrieval (RAG/MCPs), and tool use** exist specifically to patch these gaps by giving the model access to information it was never trained on.
+  + **Capability zone:** topics that appeared frequently, recently (within training), and consistently in training data.
+  + **Limitation zone:** rare, post-cutoff, niche, local, or contested topics.
+  + **Characteristic failures:** staleness, uneven coverage, inherited bias in what counts as "default" or "normal," and inability to attribute where knowledge came from.
+  + **Web search, retrieval (RAG/MCPs), and tool use** exist specifically to patch these gaps by giving the model access to information it was never trained on.
 * **4D connection:** Knowledge unevenness is core to Delegation. Understanding where the model is well-stocked versus thin tells you when to hand off, when to supply context yourself, and when to go elsewhere.
 
 ## Exercises
@@ -80,7 +111,9 @@ Return to your task list and select one task. Relative to that task, write down:
 
 Now run three probes:
 
-1. **Probe 1: Coverage.** Ask about one mainstream topic and one niche topic from your list. Compare the depth and accuracy. Pay attention to whether the AI signals uncertainty differently between the two, or whether both answers come with the same confident tone. 2. **Probe 2: Staleness.** Ask about something you know has changed recently in your field: a regulation update, a tool release, a leadership change, a revised standard. Does the AI acknowledge the cutoff? Present stale information as current? Decline to answer? Note what happens. 3. **Probe 3: Default assumptions.** Without naming your assumption directly, ask a question that would reveal whether the AI defaults to the outsider's view. For example, if your field's "standard" customer is different from what most people assume, ask the AI to describe the typical customer. Note what it treats as normal.
+1. **Probe 1: Coverage.** Ask about one mainstream topic and one niche topic from your list. Compare the depth and accuracy. Pay attention to whether the AI signals uncertainty differently between the two, or whether both answers come with the same confident tone.
+2. **Probe 2: Staleness.** Ask about something you know has changed recently in your field: a regulation update, a tool release, a leadership change, a revised standard. Does the AI acknowledge the cutoff? Present stale information as current? Decline to answer? Note what happens.
+3. **Probe 3: Default assumptions.** Without naming your assumption directly, ask a question that would reveal whether the AI defaults to the outsider's view. For example, if your field's "standard" customer is different from what most people assume, ask the AI to describe the typical customer. Note what it treats as normal.
 
 Go back to your task list and add a second annotation: for each task, flag whether you can lean on the model's knowledge, or whether you need to bring the knowledge yourself via context, documents, or search.
 
@@ -102,7 +135,6 @@ As you progress through the course, we'd love to hear from you about how you are
 #### Acknowledgments and license
 
 *Copyright 2026 Anthropic. Original work building on the AI Fluency Framework developed by Prof. Rick Dakan (Ringling College of Art and Design) and Prof. Joseph Feller (University College Cork). Released under the CC BY-NC-SA 4.0 license.*
-
 <!-- youtube: iSLdQXeKbHs -->
 
 [![Knowledge](https://img.youtube.com/vi/iSLdQXeKbHs/hqdefault.jpg)](https://www.youtube.com/watch?v=iSLdQXeKbHs)

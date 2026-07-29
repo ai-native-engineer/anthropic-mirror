@@ -10,6 +10,7 @@ Secure, production-ready AI orchestration for privacy
 * Used in
 
   [Claude](https://claude.ai/directory/0478ee53-a253-4655-98ee-affd0f9cf9a6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [DataGrail, Inc.](https://datagrail.io/)
 
@@ -22,22 +23,22 @@ Secure, production-ready AI orchestration for privacy
   Read & write
 * More
 
-  [Documentation](https://docs.datagrail.io/docs/vera/vera-mcp/introduction-and-use)[Privacy Policy](https://www.datagrail.io/privacy-policy/)[support@datagrail.io](mailto:support@datagrail.io)
+  [Documentation](https://docs.datagrail.io/docs/vera/vera-mcp/introduction-and-use)[Privacy Policy](https://www.datagrail.io/privacy-policy/)[Support](mailto:support@datagrail.io)
 
 Automate privacy operations tasks—such as data subject reporting, syncing ticket status information into other project tools, etc—using agentic workflows within Claude, transforming privacy into a connected, high-impact operational system. Built on a "No-Compromise" architecture, it ensures single-tenant isolation, human-governed actions, and zero training on customer data.
 
 You can use DataGrail to:
 
-**Project Management Integration:**  
+**Project Management Integration:**
 "Check the status of privacy tickets in DataGrail and update the corresponding tickets within my project management tool with the latest progress."
 
-**Analytics and Reporting:**  
+**Analytics and Reporting:**
 "Analyze the last quarter's privacy ticket analytics and push a summary report to the reporting dashboard."
 
-**System Management:**  
+**System Management:**
 "Create a new system entry for 'Acme Corp' based on the recently signed contract and pre-fill any system metadata within my data map."
 
-**Data Operations:**  
+**Data Operations:**
 "Search for all open privacy requests related to a specific customer and generate a compliance status report."
 
 ## Related connectors
@@ -50,11 +51,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -68,7 +69,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -82,7 +83,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -94,4 +95,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

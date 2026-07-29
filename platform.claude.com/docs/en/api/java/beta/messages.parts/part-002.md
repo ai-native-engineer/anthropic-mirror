@@ -1,6 +1,8 @@
+<!-- source: https://platform.claude.com/docs/en/api/java/beta/messages -->
 <!-- part of: https://platform.claude.com/docs/en/api/java/beta/messages -->
 
 <!-- chunk-start -->
+
                 The policy category that triggered a refusal.
 
                 - `CYBER("cyber")`

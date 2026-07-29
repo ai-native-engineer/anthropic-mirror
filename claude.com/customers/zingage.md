@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69bb0ad3c98c8996d09c0689_logo_zingage-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69bb0ad3c98c8996d09c0689_logo_zingage-light-mode.svg)
 
@@ -172,34 +172,34 @@ CEO, Zingage
 
 ## Related stories
 
-[A conversation with Seth Hain about Epic’s internal AI adoption](/customers/epic-systems)A conversation with Seth Hain about Epic’s internal AI adoption
+[How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
+
+How can a medical lab keep patients at the center of its work while the caseload keeps growing?
+
+Customer story
+
+[Customer story](https://claude.com/customers/arkana-labs)Customer story
+
+[A conversation with Seth Hain about Epic’s internal AI adoption](https://claude.com/customers/epic-systems)A conversation with Seth Hain about Epic’s internal AI adoption
 
 A conversation with Seth Hain about Epic’s internal AI adoption
 
 Customer story
 
-[Customer story](/customers/epic-systems)Customer story
+[Customer story](https://claude.com/customers/epic-systems)Customer story
 
-[Medgate accelerates healthcare innovation with Claude Code](/customers/medgate)Medgate accelerates healthcare innovation with Claude Code
+[Medgate accelerates healthcare innovation with Claude Code](https://claude.com/customers/medgate)Medgate accelerates healthcare innovation with Claude Code
 
 Medgate accelerates healthcare innovation with Claude Code
 
 Customer story
 
-[Customer story](/customers/medgate)Customer story
+[Customer story](https://claude.com/customers/medgate)Customer story
 
-[Carta Healthcare cuts clinical data processing time by 66% with Claude](/customers/carta-healthcare)Carta Healthcare cuts clinical data processing time by 66% with Claude
+[Carta Healthcare cuts clinical data processing time by 66% with Claude](https://claude.com/customers/carta-healthcare)Carta Healthcare cuts clinical data processing time by 66% with Claude
 
 Carta Healthcare cuts clinical data processing time by 66% with Claude
 
 Customer story
 
-[Customer story](/customers/carta-healthcare)Customer story
-
-[Elation Health delivers faster clinical insights with Claude](/customers/elation-health)Elation Health delivers faster clinical insights with Claude
-
-Elation Health delivers faster clinical insights with Claude
-
-Customer story
-
-[Customer story](/customers/elation-health)Customer story
+[Customer story](https://claude.com/customers/carta-healthcare)Customer story

@@ -10,6 +10,7 @@ Clean Public Equity Fundamental Data
 * Used in
 
   [Claude](https://claude.ai/directory/9620ff48-f0d9-4f7f-bda0-4d7240894538)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Fiscal.ai](https://fiscal.ai/)
 
@@ -22,16 +23,16 @@ Clean Public Equity Fundamental Data
   Read
 * More
 
-  [Documentation](https://docs.fiscal.ai/docs/guides/mcp-integration)[Privacy Policy](https://fiscal.ai/privacy-policy/)[info@fiscal.ai](mailto:info@fiscal.ai)
+  [Documentation](https://docs.fiscal.ai/docs/guides/mcp-integration)[Privacy Policy](https://fiscal.ai/privacy-policy/)[Support](mailto:info@fiscal.ai)
 
 Access institutional-grade financial data directly within Claude. Fiscal.ai delivers fundamental metrics and ratios minutes after earnings are reported, with every figure verifiable via direct links to the source filing. Beyond core financials, the server provides company-specific KPIs, revenue segments, and adjusted metrics. Combined with historical and current market quotes, it enables grounded, audit-ready equity research with unmatched speed.
 
 You can use Fiscal.ai to:
 
-**Ask a question:**  
+**Ask a question:**
 "What can you help me do with Fiscal.ai?"
 
-**Explore your data:**  
+**Explore your data:**
 "Summarize the most recent activity in Fiscal.ai."
 
 ## Related connectors
@@ -48,7 +49,7 @@ June 22, 2026
 
 ### Affinity
 
-Search, update, and prep deals without switching tabs.](/connectors/affinity)
+Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
 
 Financial services
 
@@ -56,11 +57,11 @@ Claude
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd9230df5f81ef095019_Aiera.jpg)
+[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
 
 ### Aiera
 
-Live events, filings, company publications, and more](/connectors/aiera)
+Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
 
 Financial services
 
@@ -70,11 +71,11 @@ Claude Code
 
 February 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977ee686ffe1cb730e94f07_Airwallex%20Mark%20-%20Colour%20-%20Square.png)
+[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
 
 ### Airwallex
 
-Integrate with the Airwallex Platform using Claude](/connectors/airwallex)
+Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
 
 Financial services
 
@@ -84,8 +85,8 @@ Claude Code
 
 April 8, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c05a2e0f10f41c8f005ee0_Aiwyn_Logo_Mark_Square%20(1).svg)
+[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
 
 ### Aiwyn Tax
 
-Estimate your federal & state taxes with Aiwyn's tax engine](/connectors/aiwyn-tax)
+Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)

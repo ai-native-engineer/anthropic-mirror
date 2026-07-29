@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c45b6b966afc685cf34e_cs-logo-micro1-light-theme.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c46030418e834f58d8e4_cs-logo-micro1-dark-theme.svg)
 
@@ -141,26 +141,26 @@ Video caption
 
 ## Related stories
 
-[Fountain accelerates frontline workforce hiring and management with Claude](/customers/fountain)Fountain accelerates frontline workforce hiring and management with Claude
+[Fountain accelerates frontline workforce hiring and management with Claude](https://claude.com/customers/fountain)Fountain accelerates frontline workforce hiring and management with Claude
 
 Fountain accelerates frontline workforce hiring and management with Claude
 
 Customer story
 
-[Customer story](/customers/fountain)Customer story
+[Customer story](https://claude.com/customers/fountain)Customer story
 
-[Skillfully transforms hiring through AI-powered skill simulations with Claude](/customers/skillfully)Skillfully transforms hiring through AI-powered skill simulations with Claude
+[Skillfully transforms hiring through AI-powered skill simulations with Claude](https://claude.com/customers/skillfully)Skillfully transforms hiring through AI-powered skill simulations with Claude
 
 Skillfully transforms hiring through AI-powered skill simulations with Claude
 
 Customer story
 
-[Customer story](/customers/skillfully)Customer story
+[Customer story](https://claude.com/customers/skillfully)Customer story
 
-[Braintrust revolutionizes talent acquisition and career growth with Claude](/customers/braintrust)Braintrust revolutionizes talent acquisition and career growth with Claude
+[Braintrust revolutionizes talent acquisition and career growth with Claude](https://claude.com/customers/braintrust)Braintrust revolutionizes talent acquisition and career growth with Claude
 
 Braintrust revolutionizes talent acquisition and career growth with Claude
 
 Customer story
 
-[Customer story](/customers/braintrust)Customer story
+[Customer story](https://claude.com/customers/braintrust)Customer story

@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69024ccbf55f348e93fa53da_logo_NBIM-light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69024cd21320bee289fca342_logo_NBIM-dark.svg)
 
@@ -98,8 +98,8 @@ NBIM's goal was to create an environment where any user could prototype and depl
 
 NBIM built human-in-the-loop evaluations to test model capabilities in finance-specific domains. Claude Sonnet 4.5 with extended thinking scored highest. It excelled in complex instruments requiring deep analysis, had superior risk assessment, and provided strategic recommendations with investment-grade documentation quality. Claude showed particular strength in risk analysis and commodities arbitrage—the nuanced financial decisionmaking that NBIM's portfolio managers handle daily.
 
-Claude’s ability to maintain context during extended multi-context sessions was crucial for NBIM’s investment research needs. Other deciding factors: Claude signals uncertainty rather than hallucinating results, an LLM safety principle that reinforces NBIM's fiduciary responsibilities. Additionally, Claude's multilingual capabilities support NBIM’s operations around the globe.   
-  
+Claude’s ability to maintain context during extended multi-context sessions was crucial for NBIM’s investment research needs. Other deciding factors: Claude signals uncertainty rather than hallucinating results, an LLM safety principle that reinforces NBIM's fiduciary responsibilities. Additionally, Claude's multilingual capabilities support NBIM’s operations around the globe.
+
 Anthropic's focus on responsible AI development matched NBIM's values and transparency expectations as a public entity. Anthropic's partnership approach was equally important. The two companies regularly consult on financial services capabilities, test new features, and get feedback on safety and enterprise controls. “Our institutional requirements inform their roadmap,” Kirkeberg says. “Anthropic is the ideal AI partner for us as a financial institution.”
 
 ## Establishing AI literacy across the organization
@@ -146,34 +146,34 @@ Video caption
 
 ## Related stories
 
-[How Satispay's engineers write 75% of their code with Claude](/customers/satispay)How Satispay's engineers write 75% of their code with Claude
+[How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)How Satispay's engineers write 75% of their code with Claude
 
 How Satispay's engineers write 75% of their code with Claude
 
 Customer story
 
-[Customer story](/customers/satispay)Customer story
+[Customer story](https://claude.com/customers/satispay)Customer story
 
-[OffDeal powers every stage of M&A advisory with one Claude-based agent](/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
+[OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
 
 OffDeal powers every stage of M&A advisory with one Claude-based agent
 
 Customer story
 
-[Customer story](/customers/offdeal)Customer story
+[Customer story](https://claude.com/customers/offdeal)Customer story
 
-[Money Forward builds an AI-native engineering organization with Claude Code](/customers/money-forward)Money Forward builds an AI-native engineering organization with Claude Code
+[Money Forward builds an AI-native engineering organization with Claude Code](https://claude.com/customers/money-forward)Money Forward builds an AI-native engineering organization with Claude Code
 
 Money Forward builds an AI-native engineering organization with Claude Code
 
 Customer story
 
-[Customer story](/customers/money-forward)Customer story
+[Customer story](https://claude.com/customers/money-forward)Customer story
 
-[Nevis accelerates advisor productivity with Claude](/customers/nevis)Nevis accelerates advisor productivity with Claude
+[Nevis accelerates advisor productivity with Claude](https://claude.com/customers/nevis)Nevis accelerates advisor productivity with Claude
 
 Nevis accelerates advisor productivity with Claude
 
 Customer story
 
-[Customer story](/customers/nevis)Customer story
+[Customer story](https://claude.com/customers/nevis)Customer story

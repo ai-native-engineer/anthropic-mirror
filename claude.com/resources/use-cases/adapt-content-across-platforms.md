@@ -39,8 +39,8 @@ Try in Claude
 
 ## Describe the task
 
-Claude understands how different platforms work—the tone that resonates on social media, the brevity needed for email subject lines, the conversational style for podcasts. You bring the core ideas and strategic thinking; Claude helps you adjust the format and tone for each channel. Together, you can reshape content for different platforms without starting over each time.  
-  
+Claude understands how different platforms work—the tone that resonates on social media, the brevity needed for email subject lines, the conversational style for podcasts. You bring the core ideas and strategic thinking; Claude helps you adjust the format and tone for each channel. Together, you can reshape content for different platforms without starting over each time.
+
 Ask Claude to repurpose your blog post, whitepaper, or presentation into multi-channel copy and create an interactive artifact where you can see all the outputs. Include additional reference files or  context so Claude creates copy that feels cohesive to your brand and audience.
 
 Repurpose this blog post about AI-powered marketing analytics into multi-channel content:
@@ -186,7 +186,7 @@ Work with Claude to learn how to adapt content strategically across platforms—
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a7730d1d7914199893bf8_contentrepurpose.png)
 
@@ -196,18 +196,18 @@ Open artifact in new window
 
 ## Related use cases
 
-[Analyze campaign performance](/resources/use-cases/analyze-campaign-performance)Analyze campaign performance
+[Analyze campaign performance](https://claude.com/resources/use-cases/analyze-campaign-performance)Analyze campaign performance
 
 Analyze campaign performance
 
 Use case
 
-[Use case](/resources/use-cases/analyze-campaign-performance)Use case
+[Use case](https://claude.com/resources/use-cases/analyze-campaign-performance)Use case
 
-[Build customer personas](/resources/use-cases/build-customer-personas)Build customer personas
+[Build customer personas](https://claude.com/resources/use-cases/build-customer-personas)Build customer personas
 
 Build customer personas
 
 Use case
 
-[Use case](/resources/use-cases/build-customer-personas)Use case
+[Use case](https://claude.com/resources/use-cases/build-customer-personas)Use case

@@ -10,6 +10,7 @@ Instant air cargo rates, quotes & tracking
 * Used in
 
   [Claude](https://claude.ai/directory/7faad730-e6ed-4eef-8e43-cb76c88399ce)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [CargoAi](https://www.cargoai.co)
 
@@ -22,19 +23,19 @@ Instant air cargo rates, quotes & tracking
   Read & write
 * More
 
-  [Documentation](https://cargoai.readme.io/reference/cargoai-mcp-connector-setup-documentation)[Privacy Policy](https://www.cargoai.co/privacy-policy/)[support@cargoai.co](mailto:support@cargoai.co)
+  [Documentation](https://cargoai.readme.io/reference/cargoai-mcp-connector-setup-documentation)[Privacy Policy](https://www.cargoai.co/privacy-policy/)[Support](mailto:support@cargoai.co)
 
 Browse rates and track air cargo directly from Claude. Make CargoAi a native part of your AI workflow — an AI-powered freight agent that helps forwarders get instant quotes and monitor shipments faster, with less friction. Bring your CargoMart operations into the conversation.
 
 You can use CargoAi to:
 
-**Get instant rates:**  
+**Get instant rates:**
 "Get me air cargo rates for 500kg of general cargo from FRA to JFK departing next week."
 
-**Track a shipment:**  
+**Track a shipment:**
 "Track AWB 020-12345678 and tell me its current location and ETA."
 
-**Compare carriers:**  
+**Compare carriers:**
 "Compare quotes from three carriers for 2 pallets HKG to LAX and recommend the best balance of price and transit time."
 
 ## Related connectors
@@ -47,11 +48,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -65,7 +66,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -75,11 +76,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -89,8 +90,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

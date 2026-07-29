@@ -2,7 +2,7 @@
 
 # Export your Claude data
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
 
 Data exports are available to individual Claude users on Free, Pro, and Max plans. Data exports include conversation data and the user data for your account.
 

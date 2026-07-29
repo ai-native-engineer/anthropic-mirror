@@ -2,7 +2,7 @@
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6909386cc7ad3ed2a7ec8eed_Object-ThoughtBubble.svg)
 
-# Best practices for prompt engineering
+# Best practices for prompt engineering for 2026
 
 Get better AI results with prompt engineering techniques from the team behind Claude.
 
@@ -24,11 +24,13 @@ Get better AI results with prompt engineering techniques from the team behind Cl
 
   https://claude.com/blog/best-practices-for-prompt-engineering
 
-[Context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) has emerged as an increasingly important part of working with LLMs, with prompt engineering as its essential building block.
+## What is prompt engineering?
 
-[Prompt engineering](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices) is the craft of structuring instructions to get better outputs from AI models. It's how you phrase queries, specify style, provide context, and guide the model's behavior to achieve your goals.
+[Prompt engineering](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) is the craft of structuring instructions to get better outputs from AI models. It's how you phrase queries, specify style, provide context, and guide the model's behavior to achieve your goals.
 
 The difference between a vague instruction and a well-crafted prompt can mean the gap between generic outputs and exactly what you need. A poorly structured prompt might require multiple back-and-forth exchanges to clarify intent, while a well-engineered prompt gets you there in one shot.
+
+It's also the essential building block of [context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents), which has emerged as an increasingly important part of working with LLMs. A poorly structured prompt might require multiple back-and-forth exchanges to clarify intent, while a well-engineered prompt gets you there in one shot.
 
 To help you get started, we've assembled some of our team's best practices, including practical methods designed to improve your results right away. We'll start with simple habits you can use today, then scale up to advanced methods for complex projects.
 
@@ -411,7 +413,7 @@ Remember to use prompt engineering techniques when they make sense and justify t
 
 **Strategy**: When working with long contexts, structure your information clearly with the most critical details at the beginning or end. When working with complex tasks, consider whether breaking them into focused subtasks would improve the quality and reliability of each component.
 
-### What does a good prompt look like?
+### Prompt engineering examples: what a good prompt looks like
 
 Prompt engineering is a skill, and it's going to take a few tries before you master it. The only way to know if you're doing it right is to test it and see. The first step is to just try it yourself. You'll see right away the differences between queries with and without the prompting techniques we covered here.
 
@@ -430,13 +432,15 @@ Prompt engineering is ultimately about communication: speaking the language that
 
 Remember: the best prompt isn't the longest or most complex. It's the one that achieves your goals reliably with the minimum necessary structure. As you practice, you'll develop an intuition for which techniques suit which situations.
 
-The shift toward context engineering doesn't diminish prompt engineering's importance. In fact, prompt engineering is a fundamental building block within context engineering. Every well-crafted prompt becomes part of the larger context that shapes AI behavior, working alongside conversation history, attached files, and system instructions to create better outcomes.
+For instructions you want applied to every session rather than every prompt, move them into [CLAUDE.md files, skills, or other steering methods](https://claude.com/blog/steering-claude-code-skills-hooks-rules-subagents-and-more). However, the shift toward context engineering doesn't diminish prompt engineering's importance.
+
+In fact, prompt engineering is a fundamental building block within context engineering. Every well-crafted prompt becomes part of the larger context that shapes AI behavior, working alongside conversation history, attached files, and system instructions to create better outcomes.
 
 [Start prompting](https://preview.claude.ai/new) in Claude today.
 
 ## Additional resources
 
-* [Prompt engineering documentation](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview)
+* [Prompt engineering documentation](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview)
 * [Interactive prompt engineering tutorial](https://github.com/anthropics/prompt-eng-interactive-tutorial)
 * [Prompt engineering course](https://anthropic.skilljar.com/claude-with-the-anthropic-api)
 * [Context engineering guide](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
@@ -469,53 +473,53 @@ Start prompting in Claude today.
 
 Explore more product news and best practices for teams building with Claude.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e13864f88ea55c2d8_b5c98d26c46edc43193e7f7e28a00633a538bb9c-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
-Mar 5, 2026
+Jul 24, 2026
 
-### Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
+### Claude models explained: choosing the best model for your use case
+
+Enterprise AI
+
+[Claude models explained: choosing the best model for your use case](#)Claude models explained: choosing the best model for your use case
+
+[Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Jul 24, 2026
+
+### The new rules of context engineering for Claude 5 generation models
+
+Claude Code
+
+[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
+
+[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
+
+Jul 21, 2026
+
+### How Anthropic secures its AI-native software development lifecycle
+
+Claude Code
+
+[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
+
+[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
+
+Jul 22, 2026
+
+### How Outtake built a cyber investigator on Claude
 
 Agents
 
-[Skills explained: How Skills compares to prompts, Projects, MCP, and subagents](#) Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
+[How Outtake built a cyber investigator on Claude](#)How Outtake built a cyber investigator on Claude
 
-[Skills explained: How Skills compares to prompts, Projects, MCP, and subagents](/blog/skills-explained) Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
-
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-Oct 31, 2025
-
-### What is Model Context Protocol? Connect AI to your world
-
-Agents
-
-[What is Model Context Protocol? Connect AI to your world](#)What is Model Context Protocol? Connect AI to your world
-
-[What is Model Context Protocol? Connect AI to your world](/blog/what-is-model-context-protocol)What is Model Context Protocol? Connect AI to your world
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2319ef2161fcf9ba649_ddad92700787ec1bf1d80359c0c5e6ca305682b0-1000x1000.svg)
-
-Oct 30, 2025
-
-### Building AI agents for financial services
-
-Agents
-
-[Building AI agents for financial services](#)Building AI agents for financial services
-
-[Building AI agents for financial services](/blog/building-ai-agents-in-financial-services)Building AI agents for financial services
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228c83775fcc75f4e6d_74409af25137110ac04cc39e4d5ea0a2fbcea421-1000x1000.svg)
-
-Oct 30, 2025
-
-### Building AI agents for healthcare and life sciences
-
-Agents
-
-[Building AI agents for healthcare and life sciences](#)Building AI agents for healthcare and life sciences
-
-[Building AI agents for healthcare and life sciences](/blog/building-ai-agents-in-healthcare-and-life-sciences)Building AI agents for healthcare and life sciences
+[How Outtake built a cyber investigator on Claude](https://claude.com/blog/how-outtake-built-a-cyber-investigator-on-claude)How Outtake built a cyber investigator on Claude
 
 ## Transform how your organization operates with Claude
 
@@ -534,26 +538,6 @@ Product updates, how-tos, community spotlights, and more. Delivered monthly to y
 Thank you! You’re subscribed.
 
 Sorry, there was a problem with your submission, please try again later.
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 
 Claude apps
 

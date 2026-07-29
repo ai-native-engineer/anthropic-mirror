@@ -9,6 +9,7 @@ Record screen and collect automatic context for issues
 * Used in
 
   [Claude](https://claude.ai/directory/923fb14b-ed65-4e41-8dd5-4c2c38c00457)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Jam](https://jam.dev)
 
@@ -21,19 +22,19 @@ Record screen and collect automatic context for issues
   Read
 * More
 
-  [Documentation](https://jam.dev/docs/debug-a-jam/mcp)[Privacy Policy](https://jam.dev/privacy)[hello@jam.dev](mailto:hello@jam.dev)
+  [Documentation](https://jam.dev/docs/debug-a-jam/mcp)[Privacy Policy](https://jam.dev/privacy)[Support](mailto:hello@jam.dev)
 
 The fast lane between Jam recordings and your dev tools. Drop a Jam link into Claude and the whole recording – video, console, network, logs – arrives pre-packaged. No hand-typing repro steps, no copy-paste stack traces, no screen-share drama. Claude gets instant context, you stay in flow.
 
-You can use the Jam connector to:  
-  
-Analyze bugs and create implementation plans:  
+You can use the Jam connector to:
+
+Analyze bugs and create implementation plans:
 "Review this Jam <Jam Link> and analyze the problem, cross-reference it with the existing codebase, and prepare a detailed plan for implementation"
 
-Perform root-cause analysis and organize work:  
+Perform root-cause analysis and organize work:
 "Analyze these Jams, perform root-cause analysis, and organize them into efficient work packages to minimize engineers' context switching; create Linear tickets from the analysis. <Jam Link>"
 
-Turn product feedback into action plans:  
+Turn product feedback into action plans:
 "I recorded product feedback in a Jam. Create an implementation plan for the changes requested in this Jam: <Jam Link>"
 
 ## Related connectors
@@ -48,17 +49,17 @@ January 26, 2026
 
 ### AWS Marketplace
 
-Discover, evaluate, and buy solutions for the cloud](/connectors/aws-marketplace)
+Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
 Claude
 
 March 9, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69acdf17420ea818c8dd6df3_only%20icon%20vector%20(1).svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dab482d8b581739e57a7_icon_Base44.jpg)
 
 ### Base44
 
-Build and manage Base44 apps](/connectors/base44)
+Build and manage Base44 apps](https://claude.com/connectors/base44)
 
 Claude
 
@@ -66,11 +67,11 @@ Claude Code
 
 March 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a5cd3d14699b00ee21b969_clerk.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dfa6bc4ff18a740c59aa_icon_Clerk.jpg)
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Claude
 
@@ -84,4 +85,4 @@ February 11, 2026
 
 ### Cloudflare
 
-Build applications with compute, storage, and AI](/connectors/cloudflare)
+Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)

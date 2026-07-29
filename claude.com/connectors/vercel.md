@@ -9,6 +9,7 @@ Analyze, debug, and manage projects and deployments
 * Used in
 
   [Claude](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Vercel](https://vercel.com)
 
@@ -25,18 +26,18 @@ Analyze, debug, and manage projects and deployments
 
 The Vercel connector allows you to search and navigate documentation, manage projects and deployments, and analyze deployment logs—all in one place.
 
-You can use the Vercel connector to:  
-  
-Search Vercel documentation:  
+You can use the Vercel connector to:
+
+Search Vercel documentation:
 "What is Vercel Fluid compute?"
 
-Manage projects and deployments:  
+Manage projects and deployments:
 "List all my Vercel projects and show their latest deployments"
 
-Fix failed deployments:  
+Fix failed deployments:
 "Show me the build logs for deployment dpl\_123abc and suggest how to fix the error"
 
-Analyze deployment logs:  
+Analyze deployment logs:
 "Analyze the logs for my latest production deployment"
 
 Skills
@@ -71,17 +72,17 @@ January 26, 2026
 
 ### AWS Marketplace
 
-Discover, evaluate, and buy solutions for the cloud](/connectors/aws-marketplace)
+Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
 Claude
 
 March 9, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69acdf17420ea818c8dd6df3_only%20icon%20vector%20(1).svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dab482d8b581739e57a7_icon_Base44.jpg)
 
 ### Base44
 
-Build and manage Base44 apps](/connectors/base44)
+Build and manage Base44 apps](https://claude.com/connectors/base44)
 
 Claude
 
@@ -89,11 +90,11 @@ Claude Code
 
 March 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a5cd3d14699b00ee21b969_clerk.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dfa6bc4ff18a740c59aa_icon_Clerk.jpg)
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Claude
 
@@ -107,4 +108,4 @@ February 11, 2026
 
 ### Cloudflare
 
-Build applications with compute, storage, and AI](/connectors/cloudflare)
+Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)

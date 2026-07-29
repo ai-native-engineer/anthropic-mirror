@@ -1,12 +1,20 @@
 <!-- source: https://claude.com/docs/government/tenant-admin/admins -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this is for:** Tenant administrators who manage who else has tenant-level administrative access.
 
 Use this page to view, add, and remove the people who can use the tenant admin portal.
 
 ##  How tenant admin access works
 
-**Tenant administrator** is a specific membership list, separate from any role someone holds inside an organization. Being on this list grants access to every page in the tenant admin portal: creating organizations, configuring sign-in and provisioning, writing routing rules, distributing seats and credits, and setting tenant-wide configuration. It also lets the person open any organization’s admin view and act on that organization’s behalf.
+**Tenant administrator** is a specific membership list, separate from any role someone holds inside an organization. Being on this list grants access to every page in the tenant admin portal: creating organizations, configuring sign-in and provisioning, writing routing rules, distributing seats, setting spend caps, and setting tenant-wide configuration. It also lets the person open any organization’s admin view and act on that organization’s behalf.
 Tenant admin membership is not tied to any organization role. Adding someone here doesn’t make them an owner of any organization, and making someone an organization owner doesn’t put them on this list.
 > **For organization owners:** Being an organization’s owner does not make you a tenant administrator, and being a tenant administrator doesn’t grant any particular role inside an organization. The two are independent.
 
@@ -25,8 +33,8 @@ Click **Remove** next to a name to revoke their tenant admin access. The change 
 
 You can’t remove the last remaining tenant administrator. The button is disabled when only one is left. This protects your tenant from losing all administrative access.
 
+##  Things to know
+
 * You cannot remove yourself from the list. If your own access needs to be removed, ask another tenant administrator to do it.
 * There is no upper limit on the number of tenant administrators, but because the access is broad, keep the list as short as your operational needs allow.
 * If the only person on this list leaves your agency or loses account access, contact Anthropic to have a new tenant administrator appointed.
-
-[Config](/docs/government/tenant-admin/configuration)[Overview](/docs/government/org-admin/overview)

@@ -2,6 +2,8 @@
 
 # Enabling and using the desktop extension allowlist
 
+March 16, 2026
+
 The desktop extension allowlist is available for Owners and Primary Owners of Team and Enterprise plans.
 
 This article introduces a desktop extension allowlist that Team and Enterprise plan Owners can use to manage their organization’s access to extensions.
@@ -19,10 +21,10 @@ The desktop extension allowlist is disabled by default, so an organization Owner
 3. Navigate to Organization settings > Connectors
 4. Switch to the "Desktop" tab:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1781755172/63c92550571842577ad435860ec5/6f5cc4e1-ff7d-48de-863a-c4e6184d4605?expires=1782460800&signature=9e5ebd4d9c781eb6c5b8198a0ee0c417d30cd8e57f2bf2c1054043119cc47c2f&req=dScvF857mIBYW%2FMW1HO4zQ9pXUgO%2BXDT0ugSQm1MFW9hRZf6GDcOeBtW681h%0A5uDa%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1781755172/63c92550571842577ad435860ec5/6f5cc4e1-ff7d-48de-863a-c4e6184d4605?expires=1782460800&signature=9e5ebd4d9c781eb6c5b8198a0ee0c417d30cd8e57f2bf2c1054043119cc47c2f&req=dScvF857mIBYW%2FMW1HO4zQ9pXUgO%2BXDT0ugSQm1MFW9hRZf6GDcOeBtW681h%0A5uDa%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1781755172/63c92550571842577ad435860ec5/6f5cc4e1-ff7d-48de-863a-c4e6184d4605?expires=1785295800&signature=cf0ba93ec395ac69b8fc9f974614ef8362e23c6662ee0e4d923ce75ec3a40747&req=dScvF857mIBYW%2FMW1HO4zQ9pXU8I9nXT0ugSQm1MFW8e8NmkPjhV3qsJJH1p%0AAs%2Fb%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1781755172/63c92550571842577ad435860ec5/6f5cc4e1-ff7d-48de-863a-c4e6184d4605?expires=1785295800&signature=cf0ba93ec395ac69b8fc9f974614ef8362e23c6662ee0e4d923ce75ec3a40747&req=dScvF857mIBYW%2FMW1HO4zQ9pXU8I9nXT0ugSQm1MFW8e8NmkPjhV3qsJJH1p%0AAs%2Fb%0A)
 5. Toggle **Allowlist** on:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1781755578/a6bafff5f084dc86ae463703fd3d/6cf0ee18-4e71-4129-98e8-cc08174e3c3a?expires=1782460800&signature=43c43f13658efcb9d703b9c7d32eb9d9972f5ad428b01f8b8991be030f5ebc5b&req=dScvF857mIRYUfMW1HO4zaj0BHMvT6cMTAorLxpdoc9VWHMBagJt0xj0XUpH%0Az5f7%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1781755578/a6bafff5f084dc86ae463703fd3d/6cf0ee18-4e71-4129-98e8-cc08174e3c3a?expires=1782460800&signature=43c43f13658efcb9d703b9c7d32eb9d9972f5ad428b01f8b8991be030f5ebc5b&req=dScvF857mIRYUfMW1HO4zaj0BHMvT6cMTAorLxpdoc9VWHMBagJt0xj0XUpH%0Az5f7%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1781755578/a6bafff5f084dc86ae463703fd3d/6cf0ee18-4e71-4129-98e8-cc08174e3c3a?expires=1785295800&signature=61f457f6e12dbfc94e0c627784fce788d2044d89d390105d03e4caa027546c09&req=dScvF857mIRYUfMW1HO4zaj0BHQpQKIMTAorLxpdoc8omFPumMDmPLJWqPp7%0AJuq6%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1781755578/a6bafff5f084dc86ae463703fd3d/6cf0ee18-4e71-4129-98e8-cc08174e3c3a?expires=1785295800&signature=61f457f6e12dbfc94e0c627784fce788d2044d89d390105d03e4caa027546c09&req=dScvF857mIRYUfMW1HO4zaj0BHQpQKIMTAorLxpdoc8omFPumMDmPLJWqPp7%0AJuq6%0A)
 
 ## What happens after enabling the allowlist?
 
@@ -38,7 +40,7 @@ Consider completing the allowlist setup during off-hours to minimize disruption 
 
 **Important:** The allowlist requires Claude Desktop version 0.13.91 or higher, so users should update the desktop app by clicking “Claude”, then either “Check for updates” or “Restart to update to Claude 0.13.91”:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1781756960/ad18af50c83d35f2673656c23e00/a7ee450f-0c7d-42d6-a75f-fb1bc088cb52?expires=1782460800&signature=b5f19457f68e1337511dd3879c4f56e2390248c0c247a4afb489750c5878607a&req=dScvF857m4hZWfMW1HO4zYUJqYGuDDLjCEDZ5AdBjIZzrCXmtRpMFM8QD%2FYs%0AOUYW40o%2F0nBJanDZDSA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1781756960/ad18af50c83d35f2673656c23e00/a7ee450f-0c7d-42d6-a75f-fb1bc088cb52?expires=1782460800&signature=b5f19457f68e1337511dd3879c4f56e2390248c0c247a4afb489750c5878607a&req=dScvF857m4hZWfMW1HO4zYUJqYGuDDLjCEDZ5AdBjIZzrCXmtRpMFM8QD%2FYs%0AOUYW40o%2F0nBJanDZDSA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1781756960/ad18af50c83d35f2673656c23e00/a7ee450f-0c7d-42d6-a75f-fb1bc088cb52?expires=1785295800&signature=0f80022c94bdf4885272c671ef857bc9a420d9f700dbb0e880b656f6c753c2a7&req=dScvF857m4hZWfMW1HO4zYUJqYaoAzfjCEDZ5AdBjIaZAGjVbhQ4dASXEdMd%0AMn%2FHqMszq0gf0kPceQY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1781756960/ad18af50c83d35f2673656c23e00/a7ee450f-0c7d-42d6-a75f-fb1bc088cb52?expires=1785295800&signature=0f80022c94bdf4885272c671ef857bc9a420d9f700dbb0e880b656f6c753c2a7&req=dScvF857m4hZWfMW1HO4zYUJqYaoAzfjCEDZ5AdBjIaZAGjVbhQ4dASXEdMd%0AMn%2FHqMszq0gf0kPceQY%3D%0A)
 
 ## Managing allowed extensions
 
@@ -52,7 +54,7 @@ After enabling the allowlist, you can choose which extensions to allow:
 
 If you want to remove an extension from the allowlist, click the “...” button and “Remove from allowlist.”
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1781751250/6558c0f59aea7976bd44b0213d76/e750f02b-cd0d-437e-a83f-9ac362cdf456?expires=1782460800&signature=4ead9c0dd6914fb9585e30d311038ee835350a82eb3199f8361fb37558e30d13&req=dScvF857nINaWfMW1HO4zTrxBaot%2BVedqXridZhfx1LpeTARVR%2FSeT9HC7GA%0AHWvgzq3ZCJDEtCNpJjQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1781751250/6558c0f59aea7976bd44b0213d76/e750f02b-cd0d-437e-a83f-9ac362cdf456?expires=1782460800&signature=4ead9c0dd6914fb9585e30d311038ee835350a82eb3199f8361fb37558e30d13&req=dScvF857nINaWfMW1HO4zTrxBaot%2BVedqXridZhfx1LpeTARVR%2FSeT9HC7GA%0AHWvgzq3ZCJDEtCNpJjQ%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1781751250/6558c0f59aea7976bd44b0213d76/e750f02b-cd0d-437e-a83f-9ac362cdf456?expires=1785295800&signature=b9a26a4ee4f19a2fd4fa8a46ae28df4a99125f33dc9571fe26e229d23810dd6b&req=dScvF857nINaWfMW1HO4zTrxBa0r9lKdqXridZhfx1IYUja8od4TtexHBumP%0A9oXcGTjurdgSBy%2BpvPU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1781751250/6558c0f59aea7976bd44b0213d76/e750f02b-cd0d-437e-a83f-9ac362cdf456?expires=1785295800&signature=b9a26a4ee4f19a2fd4fa8a46ae28df4a99125f33dc9571fe26e229d23810dd6b&req=dScvF857nINaWfMW1HO4zTrxBa0r9lKdqXridZhfx1IYUja8od4TtexHBumP%0A9oXcGTjurdgSBy%2BpvPU%3D%0A)
 
 ## Uploading custom extensions
 
@@ -73,4 +75,8 @@ We’ve also introduced the ability to update previously-installed custom extens
 
 You can update a new MCPB version by making changes to manifest.json, ensuring the version field for the update candidate is incremented from the current uploaded version, and that you leave the name value unchanged. Changing the name will create a new custom desktop extension rather than uploading a new version. Then navigate to the custom upload pane, select "Upload new version" via the kebab menu, and upload the new file.
 
-[Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)[Getting Started with Local MCP Servers on Claude Desktop](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop)[Deploy Claude Desktop for macOS](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos)[Enterprise configuration for Claude Desktop](https://support.claude.com/en/articles/12622667-enterprise-configuration-for-claude-desktop)[Deploying enterprise-grade MCP servers with desktop extensions](https://support.claude.com/en/articles/12702546-deploying-enterprise-grade-mcp-servers-with-desktop-extensions)
+* [Getting Started with Local MCP Servers on Claude Desktop](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop)
+* [Deploy Claude Desktop for macOS](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos)
+* [Enterprise configuration for Claude Desktop](https://support.claude.com/en/articles/12622667-enterprise-configuration-for-claude-desktop)
+* [Deploying enterprise-grade MCP servers with desktop extensions](https://support.claude.com/en/articles/12702546-deploying-enterprise-grade-mcp-servers-with-desktop-extensions)
+* [Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)

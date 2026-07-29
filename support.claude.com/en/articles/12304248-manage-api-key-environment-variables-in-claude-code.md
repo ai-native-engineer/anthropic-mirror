@@ -79,19 +79,19 @@ $env:ANTHROPIC_API_KEY="your-api-key-here"
 macOS/Linux:
 
 ```
-For zsh (default on macOS):  
-bash  
-# Add to shell config file  
-echo 'export ANTHROPIC_API_KEY="your-api-key-here"' >> ~/.zshrc  
-  
-# Apply changes  
-source ~/.zshrc  
-For bash:  
-bash  
-# Add to shell config file  
-echo 'export ANTHROPIC_API_KEY="your-api-key-here"' >> ~/.bash_profile  
-  
-# Apply changes  
+For zsh (default on macOS):
+bash
+# Add to shell config file
+echo 'export ANTHROPIC_API_KEY="your-api-key-here"' >> ~/.zshrc
+
+# Apply changes
+source ~/.zshrc
+For bash:
+bash
+# Add to shell config file
+echo 'export ANTHROPIC_API_KEY="your-api-key-here"' >> ~/.bash_profile
+
+# Apply changes
 source ~/.bash_profile
 ```
 
@@ -114,8 +114,8 @@ unset ANTHROPIC_API_KEY
 macOS (permanent):
 
 ```
-# Remove from config file  
-sed -i '' '/ANTHROPIC_API_KEY/d' ~/.zshrc  
+# Remove from config file
+sed -i '' '/ANTHROPIC_API_KEY/d' ~/.zshrc
 source ~/.zshrc
 ```
 
@@ -147,4 +147,8 @@ Windows (permanent): Delete the variable from System Environment Variables setti
 
 If you have any questions, please **[contact our Support team](https://support.claude.com/en/articles/9015913-how-to-get-support)**.
 
-[Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)[Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)[Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)[Your first day in Claude Code](https://support.claude.com/en/articles/14552382-your-first-day-in-claude-code)[Troubleshoot Claude Code installation and authentication](https://support.claude.com/en/articles/14552646-troubleshoot-claude-code-installation-and-authentication)
+* [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)
+* [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
+* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
+* [Your first day in Claude Code](https://support.claude.com/en/articles/14552382-your-first-day-in-claude-code)
+* [Troubleshoot Claude Code installation and authentication](https://support.claude.com/en/articles/14552646-troubleshoot-claude-code-installation-and-authentication)

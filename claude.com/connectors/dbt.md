@@ -10,6 +10,7 @@ Explore, query, and build with dbt projects
 * Used in
 
   [Claude](https://claude.ai/directory/16e6608d-6830-48b2-b6a2-519f323bf8e3)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [dbt Labs](https://www.getdbt.com/)
 
@@ -28,22 +29,22 @@ Discover, query, run, and manage your dbt projects directly from Claude. Browse 
 
 You can use dbt to:
 
-**Explore your project:**  
+**Explore your project:**
 "Show me the lineage for the orders model and which exposures depend on it."
 
-**Answer questions from your data:**  
+**Answer questions from your data:**
 "What was weekly revenue by region for the last quarter, split by customer segment?"
 
-**Debug failed jobs:**  
+**Debug failed jobs:**
 "Why did last night's production run fail on the dbt platform? Pull the error and the failing model."
 
-**Investigate model health and performance:**  
+**Investigate model health and performance:**
 "Which mart models have failed tests in the last week, and which are slowest to build?"
 
-**Understand a metric:**  
+**Understand a metric:**
 "How is gross\_revenue defined, and what dimensions can I slice it by?"
 
-**Onboard to a new project:**  
+**Onboard to a new project:**
 "Give me a tour of this dbt project — what are the main marts and which teams consume them?"
 
 ## Related connectors
@@ -56,11 +57,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -74,7 +75,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -88,7 +89,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -100,4 +101,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

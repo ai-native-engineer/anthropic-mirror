@@ -1,17 +1,224 @@
 <!-- source: https://claude.com/docs/third-party/claude-desktop/configuration-changelog -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Configuration keys by Claude Desktop release. Each section lists keys added in that release, with the MDM key name (for plist/registry deployment) and the equivalent JSON shape (for local-file or bootstrap remote configuration).
 
-1.15962
+v1.24012.9
+
+2026-07-24
 
 | MDM key | Type | Description |
 | --- | --- | --- |
-| [`otlpContentCapture`](/docs/third-party/claude-desktop/configuration#otlpcontentcapture) | `enum[]` | Content capture categories |
-| [`disableBundledSkills`](/docs/third-party/claude-desktop/configuration#disablebundledskills) | `boolean` | Disable bundled skills and workflows |
-| [`managedMcpServers[].server`](/docs/third-party/claude-desktop/configuration#managedmcpservers) | `enum` | Gained `"websearch"` — managed web search (Brave, Tavily, Exa or custom) |
+| [`mcpPersistentAlwaysAllowEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#mcppersistentalwaysallowenabled) | `boolean` | Allow persistent tool approvals |
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "mcp": {
+    "persistentAlwaysAllowEnabled": "<boolean>"
+  }
+}
+```
+
+v1.24012.0
+
+2026-07-21
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`enduserAttribution`](https://claude.com/docs/third-party/claude-desktop/configuration#enduserattribution) | `boolean` | End-user attribution |
+| [`userContentRendererUrl`](https://claude.com/docs/third-party/claude-desktop/configuration#usercontentrendererurl) | `string` | Artifact preview iframe origin |
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "deploymentDisplayName": "<string>",
+  "deploymentDisplaySubtitle": "<string>",
+  "enduserAttribution": "<boolean>",
+  "userContentRendererUrl": "<string>"
+}
+```
+
+v1.22209.3
+
+2026-07-19
+
+No configuration changes in this release.
+
+v1.22209.0
+
+2026-07-16
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`otlpTracesEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#otlptracesenabled) | `boolean` | Export traces (beta) |
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "otlp": {
+    "tracesEnabled": "<boolean>"
+  }
+}
+```
+
+v1.21459.3
+
+2026-07-16
+
+No configuration changes in this release.
+
+v1.21459.0
+
+2026-07-14
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`disableFeatureDiscovery`](https://claude.com/docs/third-party/claude-desktop/configuration#disablefeaturediscovery) | `boolean` | Hide feature announcements |
+| [`inferenceModels[].prefer1m`](https://claude.com/docs/third-party/claude-desktop/configuration#inferencemodels) | `boolean` | New subfield: make the 1M-context variant the default picker selection when this model is the default entry. |
+| [`managedMcpServers[].envHelper`](https://claude.com/docs/third-party/claude-desktop/configuration#managedmcpservers) | `string` | New subfield: helper executable that prints environment variables as JSON for a managed stdio server. |
+| [`managedMcpServers[].envHelperTtlSec`](https://claude.com/docs/third-party/claude-desktop/configuration#managedmcpservers) | `integer` | New subfield: maximum age in seconds of a cached `envHelper` result (default 300). |
+| [`managedMcpServers[].headersHelperRefreshBufferSec`](https://claude.com/docs/third-party/claude-desktop/configuration#managedmcpservers) | `integer` | New subfield: how many seconds before credential expiry the `headersHelper` re-runs (default 60). |
+| [`toolSearchEnabled`](https://claude.com/docs/third-party/claude-desktop/configuration#toolsearchenabled) | `boolean` | Enable tool search |
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "featureDiscovery": {
+    "disabled": "<boolean>"
+  },
+  "workspace": {
+    "toolSearchEnabled": "<boolean>"
+  }
+}
+```
+
+**Changed:**
+
+* `chatTabEnabled` and `chatAdvancedFileAnalysisEnabled` are no longer Beta: the Chat tab and advanced file analysis are generally available. Availability and defaults are unchanged, and both remain opt-in.
+* `orgPluginSettings[].tools.permission` accepts a new `ask-session` value. In this release the value is accepted but behaves as `ask` (a prompt on every use); the once-per-session approval flow is not yet enabled.
+
+v1.20186.9
+
+2026-07-14
+
+No configuration changes in this release.
+
+v1.20186.0
+
+2026-07-09
+
+No configuration changes in this release.
+
+v1.19367.0
+
+2026-07-07
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`inferenceFoundryAuthFlow`](https://claude.com/docs/third-party/claude-desktop/configuration#inferencefoundryauthflow) | `enum` | Entra ID sign-in flow |
+| [`microsoftAuthBroker`](https://claude.com/docs/third-party/claude-desktop/configuration#microsoftauthbroker) | `enum` | Microsoft 365 native sign-in broker |
+| [`managedMcpServers[].startupTimeoutSec`](https://claude.com/docs/third-party/claude-desktop/configuration#managedmcpservers) | `integer` | New subfield: maximum wait in seconds for the server to start and list its tools. |
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "inference": {
+    "credential": {
+      "authFlow": "<device-code|browser>"
+    }
+  },
+  "authentication": {
+    "microsoftAuthBroker": "<auto|disabled>"
+  }
+}
+```
+
+**Changed:**
+
+* `isDesktopExtensionEnabled` — default changed from `true` to `false`: Desktop Extensions (`.dxt`, `.mcpb`) no longer load unless explicitly enabled.
+* `allowedPluginMarketplaces` (beta) — can now be delivered per-user through the bootstrap server; previously MDM-only.
+
+v1.18286.2
+
+2026-07-07
+
+No configuration changes in this release.
+
+v1.18286.0
+
+2026-07-02
+
+**Removed:**
+
+* `disableDefaultPlugins` — third-party deployments always skip the default plugin marketplaces and standard deployments always include them, so the key no longer has an effect.
+
+v1.17377.2
+
+2026-07-01
+
+No configuration changes in this release.
+
+v1.17377.1
+
+2026-06-30
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`allowedPluginMarketplaces`](https://claude.com/docs/third-party/claude-desktop/configuration#allowedpluginmarketplaces) | `object[]` | Admin-configured plugin marketplace git URLs appear under the Directory’s Organization tab. (MDM-only; not settable via bootstrap JSON.) |
+| [`inferenceVertexWorkforceOidc.omitOfflineAccess`](https://claude.com/docs/third-party/claude-desktop/configuration#inferencevertexworkforceoidc) | `boolean` | New subfield: omit `offline_access` from the OIDC scope request. |
 
 **JSON (Non-MDM User, Bootstrap Remote):**
 
+```
+{
+  "inference": {
+    "credential": {
+      "oidc": {
+        "omitOfflineAccess": "<boolean>"
+      }
+    }
+  }
+}
+```
+
+v1.15962.2
+
+2026-06-30
+
+No configuration changes in this release.
+
+v1.15962.1
+
+2026-06-26
+
+No configuration changes in this release.
+
+v1.15962.0
+
+2026-06-25
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`otlpContentCapture`](https://claude.com/docs/third-party/claude-desktop/configuration#otlpcontentcapture) | `enum[]` | Content capture categories |
+| [`disableBundledSkills`](https://claude.com/docs/third-party/claude-desktop/configuration#disablebundledskills) | `boolean` | Disable bundled skills and workflows |
+| [`managedMcpServers[].server`](https://claude.com/docs/third-party/claude-desktop/configuration#managedmcpservers) | `enum` | Gained `"websearch"` — managed web search (Brave, Tavily, Exa or custom) |
+
+**JSON (Non-MDM User, Bootstrap Remote):**
+
+```
 {
   "otlp": {
     "contentCapture": [
@@ -33,12 +240,17 @@ Configuration keys by Claude Desktop release. Each section lists keys added in t
     ]
   }
 }
+```
 
-1.15200
+v1.15200.0
+
+2026-06-23
 
 No configuration changes in this release.
 
-1.14271
+v1.14271.0
+
+2026-06-18
 
 | MDM key | Type | Description |
 | --- | --- | --- |
@@ -47,6 +259,7 @@ No configuration changes in this release.
 
 **JSON (Non-MDM User, Bootstrap Remote):**
 
+```
 {
   "chatSurface": {
     "advancedFileAnalysis": "<boolean>"
@@ -55,12 +268,15 @@ No configuration changes in this release.
     "sessionLifetimeSec": "<integer>"
   }
 }
+```
 
 **Deprecated:**
 
 * `betaFeaturesEnabled` — Allow beta features (added and deprecated in this release)
 
-1.13576
+v1.13576.0
+
+2026-06-16
 
 | MDM key | Type | Description |
 | --- | --- | --- |
@@ -69,6 +285,7 @@ No configuration changes in this release.
 
 **JSON (Non-MDM User, Bootstrap Remote):**
 
+```
 {
   "chatSurface": {
     "enabled": "<boolean>"
@@ -79,8 +296,11 @@ No configuration changes in this release.
     }
   }
 }
+```
 
-1.12603
+v1.12603.0
+
+2026-06-11
 
 | MDM key | Type | Description |
 | --- | --- | --- |
@@ -88,6 +308,7 @@ No configuration changes in this release.
 
 **JSON (Non-MDM User, Bootstrap Remote):**
 
+```
 {
   "inference": {
     "credential": {
@@ -95,8 +316,11 @@ No configuration changes in this release.
     }
   }
 }
+```
 
-1.10628
+v1.10628.0
+
+2026-06-03
 
 | MDM key | Type | Description |
 | --- | --- | --- |
@@ -112,6 +336,7 @@ No configuration changes in this release.
 
 **JSON (Non-MDM User, Bootstrap Remote):**
 
+```
 {
   "inference": {
     "credential": {
@@ -129,8 +354,11 @@ No configuration changes in this release.
     }
   }
 }
+```
 
-1.9659
+v1.9659.0
+
+2026-06-02
 
 | MDM key | Type | Description |
 | --- | --- | --- |
@@ -138,13 +366,17 @@ No configuration changes in this release.
 
 **JSON (Non-MDM User, Bootstrap Remote):**
 
+```
 {
   "coworkSurface": {
     "enabled": "<boolean>"
   }
 }
+```
 
-1.9255
+v1.9255.0
+
+2026-05-27
 
 | MDM key | Type | Description |
 | --- | --- | --- |
@@ -154,6 +386,7 @@ No configuration changes in this release.
 
 **JSON (Non-MDM User, Bootstrap Remote):**
 
+```
 {
   "otlp": {
     "desktopLogLevel": "<off|error|warn|info|debug>"
@@ -165,8 +398,11 @@ No configuration changes in this release.
     }
   }
 }
+```
 
-1.8555
+v1.8555.0
+
+2026-05-25
 
 | MDM key | Type | Description |
 | --- | --- | --- |
@@ -174,6 +410,7 @@ No configuration changes in this release.
 
 **JSON (Non-MDM User, Bootstrap Remote):**
 
+```
 {
   "inference": {
     "credential": {
@@ -181,8 +418,11 @@ No configuration changes in this release.
     }
   }
 }
+```
 
-1.8089
+v1.8089.0
+
+2026-05-19
 
 | MDM key | Type | Description |
 | --- | --- | --- |
@@ -195,6 +435,7 @@ No configuration changes in this release.
 
 **JSON (Non-MDM User, Bootstrap Remote):**
 
+```
 {
   "inference": {
     "credential": {
@@ -204,14 +445,19 @@ No configuration changes in this release.
     "customHeaders": "<object>"
   }
 }
+```
 
-1.7196
+v1.7196.0
+
+2026-05-16
 
 | MDM key | Type | Description |
 | --- | --- | --- |
 | `banner` | `object` | Organization banner |
 
-1.6889
+v1.6889.0
+
+2026-05-08
 
 | MDM key | Type | Description |
 | --- | --- | --- |
@@ -220,6 +466,7 @@ No configuration changes in this release.
 
 **JSON (Non-MDM User, Bootstrap Remote):**
 
+```
 {
   "inference": {
     "credential": {
@@ -236,8 +483,11 @@ No configuration changes in this release.
     }
   }
 }
+```
 
-1.6259
+v1.6259.0
+
+2026-05-06
 
 | MDM key | Type | Description |
 | --- | --- | --- |
@@ -248,6 +498,7 @@ No configuration changes in this release.
 
 **JSON (Non-MDM User, Bootstrap Remote):**
 
+```
 {
   "inference": {
     "credential": {
@@ -258,8 +509,11 @@ No configuration changes in this release.
     }
   }
 }
+```
 
-1.5354
+v1.5354.0
+
+2026-04-29
 
 | MDM key | Type | Description |
 | --- | --- | --- |
@@ -267,13 +521,17 @@ No configuration changes in this release.
 
 **JSON (Non-MDM User, Bootstrap Remote):**
 
+```
 {
   "otlp": {
     "resourceAttributes": "<object>"
   }
 }
+```
 
-1.5186
+v1.5186.0
+
+2026-04-28
 
 | MDM key | Type | Description |
 | --- | --- | --- |
@@ -281,19 +539,25 @@ No configuration changes in this release.
 
 **JSON (Non-MDM User, Bootstrap Remote):**
 
+```
 {
   "inference": {
     "serviceTier": "<flex|priority>"
   }
 }
+```
 
-1.3834
+v1.3834.0
+
+2026-04-21
 
 | MDM key | Type | Description |
 | --- | --- | --- |
 | `disableDeploymentModeChooser` | `boolean` | Disable Claude.ai sign-in |
 
-1.3036
+v1.3036.0
+
+2026-04-16
 
 | MDM key | Type | Description |
 | --- | --- | --- |
@@ -301,6 +565,7 @@ No configuration changes in this release.
 
 **JSON (Non-MDM User, Bootstrap Remote):**
 
+```
 {
   "inference": {
     "credential": {
@@ -308,6 +573,7 @@ No configuration changes in this release.
     }
   }
 }
+```
 
 Baseline
 
@@ -356,5 +622,3 @@ Baseline
 **Deprecated:**
 
 * `requireCoworkFullVmSandbox` — Require full VM sandbox
-
-[Configuration reference](/docs/third-party/claude-desktop/configuration)[Per-user configuration with a bootstrap server](/docs/third-party/claude-desktop/bootstrap)

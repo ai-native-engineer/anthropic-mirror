@@ -33,12 +33,12 @@ Try in Claude
 
 ## Describe the task
 
-Comparing vendor proposals means reading through multiple PDFs, tracking different pricing structures, noting what's included versus add-ons, and catching the differences in contract terms buried in fine print. Claude reads all the proposals, extracts the details you need for decision-making, and creates a comparison spreadsheet.  
-  
+Comparing vendor proposals means reading through multiple PDFs, tracking different pricing structures, noting what's included versus add-ons, and catching the differences in contract terms buried in fine print. Claude reads all the proposals, extracts the details you need for decision-making, and creates a comparison spreadsheet.
+
 Upload your vendor proposals and tell Claude what matters for your decision. Claude identifies pricing structures, highlights meaningful differences, and flags terms that need attention.
 
-I'm evaluating three payroll providers and need to decide by Friday. I've uploaded proposals from PayFlow Pro, TeamSync HR, and WorkForce Central.   
-  
+I'm evaluating three payroll providers and need to decide by Friday. I've uploaded proposals from PayFlow Pro, TeamSync HR, and WorkForce Central.
+
 Extract and compare base monthly costs and fees, onboarding timelines, contract lengths and terms, key feature differences, and support options. Create a comparison spreadsheet that shows everything side-by-side. Make it easy to scan—I need to present this to our CFO and we need to make a decision fast. Flag anything important I should know: hidden fees, concerning contract terms, major feature gaps.
 
 This spreadsheet should be extremely well-designed. Think: professional not playful, expert-grade execution, and surgical precision and craft.
@@ -175,7 +175,7 @@ Claude reads unstructured documents, extracts what matters for your decision, an
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a86259dd1cbe8a2ee0ce7_Screenshot%202025-11-04%20at%203.02.57%E2%80%AFPM.png)
 
@@ -185,34 +185,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Source insights from your tools to build a deck](/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Source insights from your tools to build a deck
+[Source insights from your tools to build a deck](https://claude.com/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Source insights from your tools to build a deck
 
 Source insights from your tools to build a deck
 
 Use case
 
-[Use case](/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Use case
+[Use case](https://claude.com/resources/use-cases/source-insights-from-your-tools-to-build-a-deck)Use case
 
-[Evaluate a company from the science to the balance sheet](/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Evaluate a company from the science to the balance sheet
+[Evaluate a company from the science to the balance sheet](https://claude.com/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Evaluate a company from the science to the balance sheet
 
 Evaluate a company from the science to the balance sheet
 
 Use case
 
-[Use case](/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Use case
+[Use case](https://claude.com/resources/use-cases/evaluate-a-company-from-the-science-to-the-balance-sheet)Use case
 
-[Build analysis from browser charts and folder data](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Build analysis from browser charts and folder data
+[Build analysis from browser charts and folder data](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Build analysis from browser charts and folder data
 
 Build analysis from browser charts and folder data
 
 Use case
 
-[Use case](/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Use case
+[Use case](https://claude.com/resources/use-cases/build-analysis-from-browser-charts-and-folder-data)Use case
 
-[Build a daily briefing across your tools](/resources/use-cases/build-a-daily-briefing-across-your-tools)Build a daily briefing across your tools
+[Build a daily briefing across your tools](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)Build a daily briefing across your tools
 
 Build a daily briefing across your tools
 
 Use case
 
-[Use case](/resources/use-cases/build-a-daily-briefing-across-your-tools)Use case
+[Use case](https://claude.com/resources/use-cases/build-a-daily-briefing-across-your-tools)Use case

@@ -6,12 +6,11 @@
 
 Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research
 
-* Category
-
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/528b2299-2768-471a-bbc9-ac151b42fd09)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Phylo](https://phylo.bio/)
 
@@ -30,13 +29,13 @@ Biomni Lab is the first Integrated Biology Environment (IBE), a unified workspac
 
 You can use Biomni Lab to:
 
-**Start a research task:**  
+**Start a research task:**
 "Start a new task in my Genomics project to predict the structure of TP53 using AlphaFold."
 
-**Upload data and run analysis:**  
+**Upload data and run analysis:**
 "Upload this FASTQ file to the project, then start a task to run differential expression analysis."
 
-**Check results:**  
+**Check results:**
 "Is my variant classification task done? Show me the result files."
 
 ## Related connectors
@@ -53,7 +52,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -67,7 +66,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Life sciences and healthcare
 
@@ -81,7 +80,7 @@ February 11, 2026
 
 ### Benchling
 
-Connect to R&D data, source experiments, and notebooks](/connectors/benchling)
+Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
 
 Life sciences and healthcare
 
@@ -95,4 +94,4 @@ February 11, 2026
 
 ### BioRender
 
-Search for and use scientific templates and icons](/connectors/biorender)
+Search for and use scientific templates and icons](https://claude.com/connectors/biorender)

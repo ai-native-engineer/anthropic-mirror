@@ -1,6 +1,14 @@
 <!-- source: https://claude.com/docs/plugins/overview -->
 
-Plugins are reusable capability packages that extend Claude with custom functionality. They bundle together [MCP connectors](/docs/connectors/overview), [skills](/docs/skills/overview), slash commands, and sub-agents into a single shareable unit — turning Claude into a specialist tailored to your role, team, and company.
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
+Plugins are reusable capability packages that extend Claude with custom functionality. They bundle together [MCP connectors](https://claude.com/docs/connectors/overview), [skills](https://claude.com/docs/skills/overview), slash commands, and sub-agents into a single shareable unit — turning Claude into a specialist tailored to your role, team, and company.
 
 ##  What plugins do
 
@@ -12,6 +20,7 @@ As your team builds and shares plugins, Claude becomes a cross-functional expert
 To help you get started, Anthropic has open-sourced 11 plugins built and used internally:
 
 | Plugin | What it does |
+| --- | --- |
 | **Productivity** | Manage tasks, calendars, and daily workflows |
 | **Enterprise search** | Find information across your company’s tools and docs |
 | **Sales** | Research prospects, prep deals, and follow your sales process |
@@ -51,10 +60,11 @@ A sales plugin, for example, could connect Claude to your CRM and knowledge base
 Plugin support in Cowork is available as a beta for all paid Claude users. Plugins are currently saved locally to your machine. Org-wide sharing and management are coming in the weeks ahead.
 
 | Platform | Plugin support |
+| --- | --- |
 | **Claude Code** | Full plugin support — create, install, and use plugins |
 | **Claude Cowork** | Full plugin support — plugins extend agentic, multi-step workflows |
 
-Looking to submit your own plugin? See [Submitting your plugin](/docs/plugins/submit#submitting-your-plugin).
+Looking to submit your own plugin? See [Submitting your plugin](https://claude.com/docs/plugins/submit#submitting-your-plugin).
 
 ##  Next steps
 
@@ -73,5 +83,3 @@ Learn how skills work as a core plugin component.
 ## Connectors overview
 
 Understand MCP connectors that plugins can bundle.
-
-[Submit your plugin](/docs/plugins/submit)

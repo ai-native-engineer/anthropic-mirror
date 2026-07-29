@@ -2,7 +2,7 @@
 
 # Get started with Claude for Government
 
-April 9, 2026
+Updated over 2 weeks ago
 
 ## What is Claude for Government?
 
@@ -19,7 +19,7 @@ Claude for Government is built on the same foundation as Claude Enterprise but o
 * **FedRAMP High authorization.** Claude for Government operates under a FedRAMP High Authorization to Operate, meeting stringent federal security control baselines. Claude Enterprise operates on Anthropic's commercial infrastructure.
 * **Dedicated government environment.** Claude for Government is logically isolated from commercial tenants and hosted through Anthropic's government-authorized partner infrastructure. This supports agency data residency and boundary requirements.
 * **Classification banner support.** Claude for Government includes classification banner display at the application level for environments that require it—not available on the commercial Enterprise plan.
-* **Feature availability.** Core Enterprise features—projects (500K context), artifacts, integrations, audit logs, admin controls—are available in Claude for Government. New features are often available in Claude for Government shortly following their launch in the enterprise environment. In some cases, however, new features may either require additional compliance review or may not be supported in Claude for Government.
+* **Feature availability.** Core Enterprise features—projects, artifacts, integrations, audit logs, admin controls—are available in Claude for Government. New features are often available in Claude for Government shortly following their launch in the enterprise environment. In some cases, however, new features may either require additional compliance review or may not be supported in Claude for Government.
 
 ## Which product is right for you?
 
@@ -53,4 +53,8 @@ Claude for Government is licensed on an annual, per-seat basis. A limited-time p
 
 Contact the public sector Sales team for current pricing for state, local, and non-federal public sector customers.
 
-[How to get support for Claude for Government](https://support.claude.com/en/articles/13047024-how-to-get-support-for-claude-for-government)[Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)[Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)[MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)[Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)
+* [How to get support for Claude for Government](https://support.claude.com/en/articles/13047024-how-to-get-support-for-claude-for-government)
+* [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
+* [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)
+* [MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)
+* [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)

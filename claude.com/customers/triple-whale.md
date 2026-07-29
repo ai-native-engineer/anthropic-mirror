@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![Triple Whale logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bf960c9aab8d530d871e39_triple-whale.svg)![Triple Whale logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bf9605ccb55eaa14364a1e_triple-whale%20(1).svg)
 
@@ -143,34 +143,34 @@ Video caption
 
 ## Related stories
 
-[Reversia translates e-commerce stores across 110+ languages with Claude](/customers/reversia)Reversia translates e-commerce stores across 110+ languages with Claude
+[Reversia translates e-commerce stores across 110+ languages with Claude](https://claude.com/customers/reversia)Reversia translates e-commerce stores across 110+ languages with Claude
 
 Reversia translates e-commerce stores across 110+ languages with Claude
 
 Customer story
 
-[Customer story](/customers/reversia)Customer story
+[Customer story](https://claude.com/customers/reversia)Customer story
 
-[Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](/customers/rakuten-qa)Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
+[Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents](https://claude.com/customers/rakuten-qa)Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
 
 Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
 
 Customer story
 
-[Customer story](/customers/rakuten-qa)Customer story
+[Customer story](https://claude.com/customers/rakuten-qa)Customer story
 
-[Rakuten accelerates development with Claude Code](/customers/rakuten)Rakuten accelerates development with Claude Code
+[Rakuten accelerates development with Claude Code](https://claude.com/customers/rakuten)Rakuten accelerates development with Claude Code
 
 Rakuten accelerates development with Claude Code
 
 Customer story
 
-[Customer story](/customers/rakuten)Customer story
+[Customer story](https://claude.com/customers/rakuten)Customer story
 
-[How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](/customers/shopify)How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
+[How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick](https://claude.com/customers/shopify)How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
 
 How Shopify uses Anthropic’s Claude on Google Cloud to supercharge Sidekick
 
 Customer story
 
-[Customer story](/customers/shopify)Customer story
+[Customer story](https://claude.com/customers/shopify)Customer story

@@ -12,13 +12,13 @@ Claude Builder Clubs
 
 If you’re passionate about building student communities, the Claude Builder Club program is for you.
 
-* Collaborate with Anthropic to set up an organization for AI builders on your campus  
+* Collaborate with Anthropic to set up an organization for AI builders on your campus
   ‍
-* Organize technical and non-technical workshops featuring Anthropic guest speakers  
+* Organize technical and non-technical workshops featuring Anthropic guest speakers
   ‍
-* Run hackathons and demo nights for student builders  
+* Run hackathons and demo nights for student builders
   ‍
-* Share regular updates, tips and resources (like API credits) with members  
+* Share regular updates, tips and resources (like API credits) with members
   ‍
 * Paid program stipend
 

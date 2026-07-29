@@ -29,7 +29,7 @@ Learn how Claude Skills let you package proven work approaches so Claude automat
 
 Think about the last time you created something with Claude that turned out really well. Maybe it was a presentation, an analysis, or a report. What made it work? Claude brought intelligence and capability, but you also played a crucial part—you explained your standards, you described the structure that works for your needs, you provided examples showing what you wanted, and you caught and fixed things that weren't quite right.
 
-‍  
+‍
 Instead of having to repeat this process the next time you complete a similar task, Skills let you package what you've learned. Then, whenever the context matches, Claude applies the expertise automatically. You're not explaining the same standards repeatedly. You're not hunting for that document with your guidelines. You're not fixing generic output to match what you know works. Claude recognizes the situation, loads your approach, and applies it.
 
 ## Why skills matter for your work
@@ -97,10 +97,10 @@ Even occasional work might require gathering multiple files or tools, explaining
 
 ## Ready to create a skill?
 
-Skills are available as a preview to all paid plans. To get started, navigate to `Settings` > `Capabilities` > `Skills` and toggle on some of the pre-built example skills. From there, when you describe a task to Claude that references a skill’s name or description, Claude recognizes it and loads the skill automatically.  
-‍  
-Learn how to write your own [custom skills](https://support.claude.com/en/articles/12512198-creating-custom-skills), incorporating guidance from our [skills best practices](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/best-practices) to understand the principles that make skills most effective.   
-‍  
+Skills are available as a preview to all paid plans. To get started, navigate to `Settings` > `Capabilities` > `Skills` and toggle on some of the pre-built example skills. From there, when you describe a task to Claude that references a skill’s name or description, Claude recognizes it and loads the skill automatically.
+‍
+Learn how to write your own [custom skills](https://support.claude.com/en/articles/12512198-creating-custom-skills), incorporating guidance from our [skills best practices](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/best-practices) to understand the principles that make skills most effective.
+‍
 You also don’t have to be technical to start creating skills. Try [creating skills using Claude](https://support.claude.com/en/articles/12599426-how-to-create-a-skill-with-claude-through-conversation). Start by identifying a well-suited task and describing it for Claude to turn into a skill. Claude will build and structure it into a properly formatted skill file.
 
 ## Additional Resources
@@ -118,34 +118,34 @@ You also don’t have to be technical to start creating skills. Try [creating sk
 
 ## Related tutorials
 
-[Tasks to try with @Claude in your workspace](/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tasks to try with @Claude in your workspace
+[Delegating and scheduling tasks in Claude Cowork](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Delegating and scheduling tasks in Claude Cowork
+
+Delegating and scheduling tasks in Claude Cowork
+
+Tutorial
+
+[Tutorial](https://claude.com/resources/tutorials/delegating-and-scheduling-tasks-in-claude-cowork)Tutorial
+
+[Tasks to try with @Claude in your workspace](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tasks to try with @Claude in your workspace
 
 Tasks to try with @Claude in your workspace
 
 Tutorial
 
-[Tutorial](/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/tasks-to-try-with-claude-tag-in-your-workspace)Tutorial
 
-[Best practices for using @Claude](/resources/tutorials/best-practices-using-claude-tag)Best practices for using @Claude
+[Best practices for using @Claude](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Best practices for using @Claude
 
 Best practices for using @Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/best-practices-using-claude-tag)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/best-practices-using-claude-tag)Tutorial
 
-[Using Claude Cowork for legal: answer fast questions on past decisions](/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Using Claude Cowork for legal: answer fast questions on past decisions
+[Using Claude Cowork for legal: answer fast questions on past decisions](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Using Claude Cowork for legal: answer fast questions on past decisions
 
 Using Claude Cowork for legal: answer fast questions on past decisions
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial
-
-[Using Claude Cowork for marketing ops: run a weekly review that preps itself](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Using Claude Cowork for marketing ops: run a weekly review that preps itself
-
-Tutorial
-
-[Tutorial](/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-claude-cowork-for-legal-question-briefing)Tutorial

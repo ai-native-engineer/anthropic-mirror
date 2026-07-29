@@ -1,5 +1,17 @@
 <!-- source: https://claude.com/resources/tutorials/using-the-biorxiv-and-medrxiv-connector-in-claude -->
 
+Claude Science beta
+
+[Next](#)Next
+
+Introducing the Claude Science app, your research partner for rigorous science.
+
+Learn more
+
+[Learn more](https://claude.com/product/claude-science)Learn more
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ef89e3431b19c021bf2b_claude-science-og.jpg)
+
 # Using the bioRxiv and medRxiv Connector in Claude
 
   Life Sciences
@@ -91,7 +103,7 @@ Learn about [finding and connecting tools](https://support.claude.com/en/article
 **Literature Monitoring & Early Research Discovery**
 
 * Scenario: Staying current with rapidly evolving research areas before formal publication
-* Sample Prompts:   
+* Sample Prompts:
   + *"Find all neuroscience preprints posted in the last 30 days related to Alzheimer's disease"*
   + *"Search medRxiv for recent COVID-19 clinical trial preprints from the past week"*
   + *"Show me the latest CRISPR gene editing preprints in the molecular biology category"*
@@ -102,7 +114,7 @@ Learn about [finding and connecting tools](https://support.claude.com/en/article
 **Publication Tracking & Impact Analysis**
 
 * Scenario: Analyzing which preprints successfully transition to peer-reviewed journals
-* Sample Prompts:   
+* Sample Prompts:
   + *"Which bioRxiv preprints have been published in Nature journals in the past 6 months?"*
   + *"Track preprints that were published in high-impact journals with DOI prefix 10.1126 (Science)"*
   + *"Show me recent genomics preprints that have been formally published and compare preprint vs publication dates"*
@@ -113,7 +125,7 @@ Learn about [finding and connecting tools](https://support.claude.com/en/article
 **Funding Agency Research Output Monitoring**
 
 * Scenario: Tracking research productivity and outputs from specific funding organizations
-* Sample Prompts:   
+* Sample Prompts:
   + *"Find all preprints funded by the NIH (ROR ID: 021nxhr62) in the past year"*
   + *"What research has the European Commission (ROR: 02mhbdp94) funded that's been posted as preprints?"*
   + *"Show me bioRxiv preprints funded by the Wellcome Trust and track their publication outcomes"*
@@ -123,34 +135,34 @@ Learn about [finding and connecting tools](https://support.claude.com/en/article
 
 ## Related tutorials
 
-[How to use the Nextflow Deployment agent skill with Claude Code](/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)How to use the Nextflow Deployment agent skill with Claude Code
+[How to use the Nextflow Deployment agent skill with Claude Code](https://claude.com/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)How to use the Nextflow Deployment agent skill with Claude Code
 
 How to use the Nextflow Deployment agent skill with Claude Code
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-nextflow-deployment-agent-skill-with-claude-code)Tutorial
 
-[How to use the Instrument Data to Allotrope Skill with Claude](/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)How to use the Instrument Data to Allotrope Skill with Claude
+[How to use the Instrument Data to Allotrope Skill with Claude](https://claude.com/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)How to use the Instrument Data to Allotrope Skill with Claude
 
 How to use the Instrument Data to Allotrope Skill with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-instrument-data-to-allotrope-skill-with-claude)Tutorial
 
-[How to use the Scientific Problem Selection Skill with Claude](/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)How to use the Scientific Problem Selection Skill with Claude
+[How to use the Scientific Problem Selection Skill with Claude](https://claude.com/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)How to use the Scientific Problem Selection Skill with Claude
 
 How to use the Scientific Problem Selection Skill with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-scientific-problem-selection-skill-with-claude)Tutorial
 
-[How to use the scVI-Tools bioinformatics skill bundle with Claude](/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)How to use the scVI-Tools bioinformatics skill bundle with Claude
+[How to use the scVI-Tools bioinformatics skill bundle with Claude](https://claude.com/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)How to use the scVI-Tools bioinformatics skill bundle with Claude
 
 How to use the scVI-Tools bioinformatics skill bundle with Claude
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-the-scvi-tools-bioinformatics-skill-bundle-with-claude)Tutorial

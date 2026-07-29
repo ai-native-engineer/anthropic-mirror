@@ -4,23 +4,6 @@
 
 A self-paced guide to help nonprofit staff build confidence with Claude and discover practical applications for their role.
 
-  Nonprofits
-* Product
-
-  Claude.ai
-* Reading time
-
-  Watch time
-
-  5
-
-  min
-
-  min
-* Share
-
-  [Copy link](#)
-
   https://claude.com/resources/tutorials/claude-for-nonprofits-partnership-guide-for-all-users
 
 ![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
@@ -92,37 +75,3 @@ Welcome to the Claude for nonprofits community. This guide is a pathway to help 
 *Note: There's no single "right" way to integrate Claude into your work. Whether you're adopting quickly or taking a measured approach, Claude helps you focus more energy on the people and programs that matter most.*
 
 For support, visit the [Claude help center](https://support.claude.com/en/), reach out to your internal Claude champions, or use your organization's support channels.
-
-## Related tutorials
-
-[Using the Candid connector in Claude](/resources/tutorials/using-the-candid-connector-in-claude)Using the Candid connector in Claude
-
-Using the Candid connector in Claude
-
-Tutorial
-
-[Tutorial](/resources/tutorials/using-the-candid-connector-in-claude)Tutorial
-
-[Using the Blackbaud connector in Claude](/resources/tutorials/using-the-blackbaud-connector-in-claude)Using the Blackbaud connector in Claude
-
-Using the Blackbaud connector in Claude
-
-Tutorial
-
-[Tutorial](/resources/tutorials/using-the-blackbaud-connector-in-claude)Tutorial
-
-[Using the Benevity connector in Claude](/resources/tutorials/using-the-benevity-connector-in-claude)Using the Benevity connector in Claude
-
-Using the Benevity connector in Claude
-
-Tutorial
-
-[Tutorial](/resources/tutorials/using-the-benevity-connector-in-claude)Tutorial
-
-[Claude for nonprofits partnership success guide for admins](/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)Claude for nonprofits partnership success guide for admins
-
-Claude for nonprofits partnership success guide for admins
-
-Tutorial
-
-[Tutorial](/resources/tutorials/claude-for-nonprofits-partnership-success-guide-for-admins)Tutorial

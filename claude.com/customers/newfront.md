@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![Newfront logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c16a4de3906007873ff8_cs-logo-newfront-light-theme.svg)![Newfront logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c16dbe59e07298cd58c6_cs-logo-newfront-dark-theme.svg)
 

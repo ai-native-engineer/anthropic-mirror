@@ -10,6 +10,7 @@ Search 23M+ legal docs in 160+ jurisdictions.
 * Used in
 
   [Claude](https://claude.ai/directory/a38cc6ae-c7fb-4136-b50e-cf49a4ded4b3)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [GoodLegal](https://legaldatahunter.com)
 
@@ -22,22 +23,22 @@ Search 23M+ legal docs in 160+ jurisdictions.
   Read
 * More
 
-  [Documentation](https://legaldatahunter.com/docs)[Privacy Policy](https://legaldatahunter.com/privacy)[zacharie@goodlegal.fr](mailto:zacharie@goodlegal.fr)
+  [Documentation](https://legaldatahunter.com/docs)[Privacy Policy](https://legaldatahunter.com/privacy)[Support](mailto:zacharie@goodlegal.fr)
 
 Legal Data Hunter is building the world's first omni-jurisdictional legal database, giving Claude access to 23M+ documents from 160+ jurisdictions in one MCP server. We ingest directly from official registries: Légifrance, EUR-Lex, BOE, RIS, the Bundesgerichtshof, the European Court of Human Rights, and 180+ more, covering EU consolidated law, supreme and constitutional court case law, and official doctrine. Resolve loose citations (ECLI, CELEX, case numbers), search with hybrid semantic + keyword filters, and fetch full document text. Authoritative primary sources only, no scraped web copy.
 
 You can use Legal Data Hunter to:
 
-**Compare case law across jurisdictions:**  
+**Compare case law across jurisdictions:**
 "Find recent EU Supreme Court decisions about platform-worker employment status from the last two years."
 
-**Explore source coverage:**  
+**Explore source coverage:**
 "What legal data sources do you have for Spain? How many laws and how many decisions?"
 
-**Retrieve legislation across jurisdictions:**  
+**Retrieve legislation across jurisdictions:**
 "Show me the GDPR Article 6 text and the equivalent French data protection provision."
 
-**Filter by court and date:**  
+**Filter by court and date:**
 "Search Austrian administrative court rulings about asylum from 2024."
 
 ## Related connectors
@@ -50,11 +51,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -68,7 +69,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -78,11 +79,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -92,8 +93,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

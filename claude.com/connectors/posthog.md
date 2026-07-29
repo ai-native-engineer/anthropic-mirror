@@ -9,6 +9,7 @@ Query, analyze, and manage your PostHog insights
 * Used in
 
   [Claude](https://claude.ai/directory/50688846-553c-4a12-bc21-df94d2173734)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [PostHog](https://posthog.com)
 
@@ -29,16 +30,16 @@ Connect to PostHog and work with your product data through natural conversation.
 
 You can use PostHog to:
 
-**Query your analytics:**  
+**Query your analytics:**
 "How many unique users signed up in the last 7 days, broken down by day?"
 
-**Investigate errors:**  
+**Investigate errors:**
 "What are the top 5 errors in my project this week?"
 
-**Manage feature flags:**  
+**Manage feature flags:**
 "Create a feature flag called new-checkout enabled for 10% of users"
 
-**Run experiments:**  
+**Run experiments:**
 "Create an A/B test for the pricing page that measures conversion to checkout"
 
 ## Related connectors
@@ -53,17 +54,17 @@ January 26, 2026
 
 ### AWS Marketplace
 
-Discover, evaluate, and buy solutions for the cloud](/connectors/aws-marketplace)
+Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
 Claude
 
 March 9, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69acdf17420ea818c8dd6df3_only%20icon%20vector%20(1).svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dab482d8b581739e57a7_icon_Base44.jpg)
 
 ### Base44
 
-Build and manage Base44 apps](/connectors/base44)
+Build and manage Base44 apps](https://claude.com/connectors/base44)
 
 Claude
 
@@ -71,11 +72,11 @@ Claude Code
 
 March 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a5cd3d14699b00ee21b969_clerk.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dfa6bc4ff18a740c59aa_icon_Clerk.jpg)
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Claude
 
@@ -89,4 +90,4 @@ February 11, 2026
 
 ### Cloudflare
 
-Build applications with compute, storage, and AI](/connectors/cloudflare)
+Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)

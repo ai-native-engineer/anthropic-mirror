@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/office-agents/third-party-platforms -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Organizations using Amazon Bedrock, Google Cloud Vertex AI, Azure AI
 Foundry, or an LLM gateway can deploy Claude’s Office add-ins without
 requiring individual Claude accounts. The add-in connects through your
@@ -12,6 +20,7 @@ Four connection paths are available. Your IT admin selects one during
 deployment. End users see the same interface regardless.
 
 | Path | How it works |
+| --- | --- |
 | LLM gateway | Requests route through your gateway (LiteLLM, Portkey, Kong, and others) to your chosen provider. Matches the pattern used by Claude Code. |
 | Bedrock direct | The add-in authenticates via Microsoft Entra ID and calls Amazon Bedrock directly without intermediaries. |
 | Vertex AI direct | The add-in authenticates through Google OAuth and calls Vertex AI directly. |
@@ -29,6 +38,7 @@ All paths need:
   Anthropic’s app or your own Entra app registration.
 
 | Path | Additional requirements |
+| --- | --- |
 | LLM gateway | Gateway URL and API token from your IT team. |
 | Bedrock direct | AWS account with Claude model access enabled in target region. IAM OIDC identity provider and role configured to trust Microsoft Entra ID tokens. |
 | Vertex AI direct | Google Cloud project with Vertex AI API enabled and Claude model access. Google OAuth client configured with the add-in’s redirect URI. |
@@ -102,22 +112,30 @@ from the financial services marketplace, then run the setup wizard
 from inside Claude.
 Add the marketplace in your shell:
 
+```
 claude plugin marketplace add anthropics/financial-services
+```
 
 Install the plugin:
 
+```
 claude plugin install claude-for-msft-365-install@claude-for-financial-services
+```
 
 Keep the plugin current before each deployment. List installed plugins
 with `claude plugin list` and compare your version against the
 [latest published version](https://github.com/anthropics/financial-services/blob/main/claude-for-msft-365-install/.claude-plugin/plugin.json).
 If yours is older, update it:
 
+```
 claude plugin update claude-for-msft-365-install@claude-for-financial-services
+```
 
 Then, from inside Claude, run the setup wizard:
 
+```
 /claude-for-msft-365-install:setup
+```
 
 The wizard walks you through the path you chose:
 
@@ -141,12 +159,14 @@ missing.
 The plugin exposes the following slash commands once installed.
 
 | Command | Function |
+| --- | --- |
 | `/claude-for-msft-365-install:setup` | Interactive wizard: provisions cloud resources, handles admin consent, writes manifest. |
 | `/claude-for-msft-365-install:manifest` | Generates a customized add-in manifest XML. |
 | `/claude-for-msft-365-install:consent` | Generates the Azure admin-consent URL for the add-in’s app registration. |
 | `/claude-for-msft-365-install:update-user-attrs` | Writes per-user configuration via Microsoft Graph extension attributes. |
 | `/claude-for-msft-365-install:bootstrap` | Builds a bootstrap endpoint for per-user MCP servers, skills, and dynamic config. |
 | `/claude-for-msft-365-install:debug` | Diagnoses deployment issues: stale config after a manifest update, connection failures, an add-in that does not appear, sign-in or admin-consent loops, and reading the add-in’s error paste. |
+| `/claude-for-msft-365-install:export-data` | Makes a read-only copy of a user’s chat history, skills, connector registrations, and settings before a device is rebuilt. See [Data storage and retention](https://claude.com/docs/office-agents/data-storage). |
 
 Run `/claude-for-msft-365-install:debug` whenever a connection or sign-in
 does not behave as expected. It triages from the symptom, reads the “Copy
@@ -160,6 +180,7 @@ The setup wizard creates resources in your cloud account based on the
 connection path you choose.
 
 | Path | Provisioned resources |
+| --- | --- |
 | LLM gateway | None. Collects your gateway URL and token, then generates the manifest. |
 | Bedrock direct | IAM OIDC identity provider trusting Microsoft Entra ID tokens, role with `bedrock:InvokeModel` and `bedrock:InvokeModelWithResponseStream` permissions, trust policy scoped to the Claude add-in’s application ID. |
 | Vertex AI direct | Walks through creating a Google OAuth client in the GCP Console (not automatable via CLI), enables the Vertex AI API, captures client ID and secret for the manifest. |
@@ -179,6 +200,8 @@ different settings.
 
 ![The add-in resolves each configuration key from a bootstrap endpoint, then Entra ID extension attributes, then manifest parameters.](https://mintcdn.com/claude-ai/-4jzPa4NasvobarI/images/office-agents/architecture/config-discovery.png?fit=max&auto=format&n=-4jzPa4NasvobarI&q=85&s=b6c750272cf3ad9765ec2563af436806)
 
+Configuration resolution at add-in load: bootstrap, Entra ID attributes, then manifest parameters.
+
 ###  Deploy to Outlook
 
 Outlook requires a separate manifest file from Excel, PowerPoint, and
@@ -190,7 +213,7 @@ own custom app in the steps below.
 Claude for Outlook reads mail and calendar data through Microsoft Graph,
 which requires a one-time tenant-wide grant from a Global Administrator
 regardless of which platform serves the model. Complete the
-[Microsoft Graph admin consent](/docs/office-agents/outlook#grant-microsoft-graph-consent)
+[Microsoft Graph admin consent](https://claude.com/docs/office-agents/outlook#grant-microsoft-graph-consent)
 step before deployment so users are not prompted individually. The Graph
 token stays in the user’s Outlook client and is never sent to your
 gateway or to Anthropic.
@@ -198,7 +221,7 @@ If your organization’s policy does not permit consenting to a third-party
 multi-tenant application, register your own single-tenant Entra
 application with the same delegated Graph permissions and provide its
 client ID to the setup wizard as `graph_client_id`. See
-[Use your own Entra app instead](/docs/office-agents/outlook#use-your-own-entra-app-instead).
+[Use your own Entra app instead](https://claude.com/docs/office-agents/outlook#use-your-own-entra-app-instead).
 
 Amazon Bedrock is not currently supported for Claude for Outlook. Bedrock
 remains supported for Claude for Excel, PowerPoint, and Word. Claude for
@@ -293,6 +316,8 @@ which forwards it to the provider you configured.
 
 ![Requests flow from the add-in to your LLM gateway, which forwards them to the configured model provider.](https://mintcdn.com/claude-ai/-4jzPa4NasvobarI/images/office-agents/architecture/gateway.png?fit=max&auto=format&n=-4jzPa4NasvobarI&q=85&s=287ef25266391992109b8673f97e3f93)
 
+LLM gateway request flow: the add-in calls your gateway, which routes to your chosen provider.
+
 ###  Bedrock, Vertex AI, or Foundry direct
 
 1
@@ -332,10 +357,14 @@ then calls Amazon Bedrock.
 
 ![The add-in uses a Microsoft Entra ID token to assume an AWS role and call Amazon Bedrock directly.](https://mintcdn.com/claude-ai/-4jzPa4NasvobarI/images/office-agents/architecture/bedrock-direct.png?fit=max&auto=format&n=-4jzPa4NasvobarI&q=85&s=51c8233f704717f0ff1c3897356621cd)
 
+Bedrock direct flow: the add-in exchanges an Entra ID token for an AWS role, then calls Bedrock.
+
 Vertex AI direct authenticates through Google OAuth, then calls Vertex
 AI.
 
 ![The add-in authenticates through Google OAuth and calls Google Cloud Vertex AI directly.](https://mintcdn.com/claude-ai/-4jzPa4NasvobarI/images/office-agents/architecture/vertex-direct.png?fit=max&auto=format&n=-4jzPa4NasvobarI&q=85&s=a33063abcecbfc36e346621f735453ef)
+
+Vertex AI direct flow: the add-in authenticates with Google OAuth, then calls Vertex AI.
 
 ###  Change or update your gateway connection
 
@@ -373,12 +402,14 @@ speaks.
 **`gateway_api_format: anthropic` (default):**
 
 | Endpoint | Description |
+| --- | --- |
 | `POST /v1/messages` | Send messages to Claude; supports both streaming and non-streaming responses. |
 | `GET /v1/models` | List available models. |
 
 **`gateway_api_format: bedrock`:**
 
 | Endpoint | Description |
+| --- | --- |
 | `POST /model/{model-id}/invoke` | Send message and receive complete response. |
 | `POST /model/{model-id}/invoke-with-response-stream` | Send message and receive streaming response. |
 
@@ -387,6 +418,7 @@ the pass-through prefix, for example `https://litellm.example.com/bedrock`.
 **`gateway_api_format: vertex`:**
 
 | Endpoint | Description |
+| --- | --- |
 | `POST /projects/{project}/locations/{region}/publishers/anthropic/models/{model-id}:rawPredict` | Send message and receive complete response. |
 | `POST /projects/{project}/locations/{region}/publishers/anthropic/models/{model-id}:streamRawPredict` | Send message and receive streaming response. |
 
@@ -450,6 +482,7 @@ LiteLLM to Anthropic, Bedrock, Vertex AI, or Azure.
 
 Use this `config.yaml` to point the gateway at the Anthropic API.
 
+```
 model_list:
   - model_name: claude-opus-4-7
     litellm_params:
@@ -458,11 +491,13 @@ model_list:
 
 litellm_settings:
   drop_params: true
+```
 
 ###  Route to Amazon Bedrock
 
 Use this `config.yaml` to route requests through Amazon Bedrock.
 
+```
 model_list:
   - model_name: claude-opus-4-7
     litellm_params:
@@ -471,11 +506,13 @@ model_list:
 
 litellm_settings:
   drop_params: true
+```
 
 ###  Route to Google Cloud Vertex AI
 
 Use this `config.yaml` to route requests through Vertex AI.
 
+```
 model_list:
   - model_name: claude-opus-4-7
     litellm_params:
@@ -485,11 +522,13 @@ model_list:
 
 litellm_settings:
   drop_params: true
+```
 
 ###  Route to Azure
 
 Use this `config.yaml` to route requests through Azure AI Foundry.
 
+```
 model_list:
   - model_name: claude-opus-4-7
     litellm_params:
@@ -501,6 +540,7 @@ model_list:
 
 litellm_settings:
   drop_params: true
+```
 
 For detailed setup instructions, see
 [LiteLLM’s Anthropic format documentation](https://docs.litellm.ai/).
@@ -527,6 +567,15 @@ contact your IT team.
 To route a full audit trail, including prompts, tool inputs, tool
 outputs, and document references, to your own infrastructure, see
 [Configure a custom OpenTelemetry collector for Claude for M365](https://support.claude.com/en/articles/14447276-configure-a-custom-opentelemetry-collector-for-office-agents).
+The prompt, tool-input, and tool-output span attributes in that audit
+trail are truncated in the add-in at 4,000 characters each by default,
+marked with a trailing `…[truncated]`.
+To change the cap, set the `otlp_attr_max_chars` configuration key, for
+example as a manifest parameter, to a positive integer. Values are
+clamped to between 256 and 32,000. Before raising the cap, confirm that
+your collector and tracing backend accept attribute values of the
+configured size: many backends truncate or drop over-limit attributes at
+ingest, and a dropped span is lost from the audit trail entirely.
 
 ##  Why sign-in redirects through pivot.claude.ai
 
@@ -539,9 +588,10 @@ redirect carries in each flow and why the page cannot obtain a token.
 
 ###  OAuth authorization-code redirects
 
-Google sign-in for Vertex AI, Anthropic sign-in, and MCP connector
-authorization all use the OAuth 2.0 authorization-code grant. When the
-identity provider redirects to `pivot.claude.ai/auth/callback`, the URL
+Google sign-in for Vertex AI and Anthropic sign-in use the OAuth 2.0
+authorization-code grant and redirect to `pivot.claude.ai/auth/callback`.
+MCP connector authorization uses the same grant with a dedicated
+`pivot.claude.ai/auth/gateway-callback` redirect. In each case the URL
 contains two query parameters:
 
 * `code`: a one-time authorization code, not an access token
@@ -591,7 +641,7 @@ displaying the code for you to paste back into the add-in.
 ###  Microsoft admin-consent redirects
 
 The Microsoft Graph consent link in
-[Grant Microsoft Graph consent](/docs/office-agents/outlook#grant-microsoft-graph-consent)
+[Grant Microsoft Graph consent](https://claude.com/docs/office-agents/outlook#grant-microsoft-graph-consent)
 uses Microsoft’s
 [admin-consent endpoint](https://learn.microsoft.com/en-us/entra/identity-platform/v2-admin-consent).
 By Microsoft’s specification, the redirect back to
@@ -613,12 +663,14 @@ You can confirm every claim above with a network capture on a test
 machine:
 
 * The redirect to `pivot.claude.ai/auth/callback` carries `code` and
-  `state`, or `admin_consent` and `tenant`, in the query string. No
-  `access_token` parameter appears.
+  `state`, or `admin_consent` and `tenant`, in the query string. For an
+  MCP connector the redirect to `pivot.claude.ai/auth/gateway-callback`
+  carries `code` and `state`. No `access_token` parameter appears.
 * The `POST` that exchanges the code goes to `oauth2.googleapis.com` for
-  Vertex AI or to `claude.ai` for Anthropic sign-in, originates from the
-  add-in frame, and includes the `code_verifier` or `client_secret` that
-  never appeared in any request to `pivot.claude.ai`.
+  Vertex AI, to `claude.ai` for Anthropic sign-in, or to the connector
+  gateway’s own origin for an MCP connector, originates from the add-in
+  frame, and includes the `code_verifier` or `client_secret` that never
+  appeared in any request to `pivot.claude.ai`.
 * Microsoft Graph calls go directly to `graph.microsoft.com` with a
   bearer token that was issued by `login.microsoftonline.com` and never
   transited an Anthropic domain.
@@ -713,5 +765,3 @@ prevents streaming responses from reaching the add-in.
 Connectors, Skills, file uploads, dictation, and working across apps are
 not available through third-party platforms yet. If you need these, ask your
 admin about signing in with a Claude account instead.
-
-[Security, admin auditability, and analytics](/docs/office-agents/enterprise-readiness)[Install financial services plugins for Cowork](/docs/office-agents/fsi-plugins)

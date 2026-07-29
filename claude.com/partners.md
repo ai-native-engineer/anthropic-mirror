@@ -28,7 +28,8 @@ Learn more
 
 [Learn more](https://www.anthropic.com/learn)Learn more
 
-## Flexible deployment for  any environment
+## Flexible deployment for
+any environment
 
 ### Cloud partners
 
@@ -36,7 +37,7 @@ Many of the world's leading companies access frontier Claude models on AWS, Goog
 
 AWS
 
-[AWS](/partners/amazon-bedrock)AWS
+[AWS](https://claude.com/partners/amazon-bedrock)AWS
 
 Google Cloud
 
@@ -50,7 +51,7 @@ Looking for expert partners to help with your AI strategy, consulting, or Claude
 
 Learn more
 
-[Learn more](/partners/services)Learn more
+[Learn more](https://claude.com/partners/services)Learn more
 
 ### Powered by Claude directory
 
@@ -58,7 +59,7 @@ See the list of businesses that use Claude to build better, faster, and safer pr
 
 Learn more
 
-[Learn more](/partners/powered-by-claude)Learn more
+[Learn more](https://claude.com/partners/powered-by-claude)Learn more
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abda0aebae637a39b8031_Airtable.jpg)
 
@@ -116,7 +117,7 @@ Claude can work with your tools, databases, and applications—and give you more
 
 Explore connectors
 
-[Explore connectors](/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 ## Partner news
 

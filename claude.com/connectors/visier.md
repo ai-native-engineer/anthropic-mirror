@@ -10,6 +10,7 @@ Find people, productivity and business impact insights
 * Used in
 
   [Claude](https://claude.ai/directory/269911aa-9456-45c8-839f-c8d079fe0a5d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Visier](https://www.visier.com/)
 
@@ -26,26 +27,26 @@ Find people, productivity and business impact insights
 
 Ask Vee questions about your people and work data in Visier. Get insights on work performance, employee satisfaction, attrition predictions, and retention of key team members. Requires a Vee subscription.
 
-Coaching Sales Representatives:  
-"Which sales representatives have the biggest opportunities right now? Focus on the Top 10 only"   
-  
-Sales Meeting Review:   
-"Do I have upcoming meetings with any of these representatives where we intend to discuss their strategies for landing these opportunities?" (with Google Calendar connector is enabled)   
-  
-Hiring Efficiency and Trends:   
-"How many vacancies do we currently have in the organization, and how long does it typically take to fill similar positions?"   
-  
-"Which departments are taking the longest to fill their vacancies?"   
-  
-"What recommendations would you make to improve time to fill for Technical Roles specifically?"  
-  
-Diversity and Inclusion:   
-"Create an infographic showing the ethnicity of our workforce by region."   
-  
-"For the North American region, what is the overlap between ethnicity and both veteran and disability status?"  
-  
-"How do the veteran and disability ratios compare across all regions in the company?"  
-  
+Coaching Sales Representatives:
+"Which sales representatives have the biggest opportunities right now? Focus on the Top 10 only"
+
+Sales Meeting Review:
+"Do I have upcoming meetings with any of these representatives where we intend to discuss their strategies for landing these opportunities?" (with Google Calendar connector is enabled)
+
+Hiring Efficiency and Trends:
+"How many vacancies do we currently have in the organization, and how long does it typically take to fill similar positions?"
+
+"Which departments are taking the longest to fill their vacancies?"
+
+"What recommendations would you make to improve time to fill for Technical Roles specifically?"
+
+Diversity and Inclusion:
+"Create an infographic showing the ethnicity of our workforce by region."
+
+"For the North American region, what is the overlap between ethnicity and both veteran and disability status?"
+
+"How do the veteran and disability ratios compare across all regions in the company?"
+
 "Considering the high veteran rates in specific cities, what engagement strategies would you recommend?"
 
 ## Related connectors
@@ -58,11 +59,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -76,7 +77,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -86,11 +87,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -100,8 +101,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

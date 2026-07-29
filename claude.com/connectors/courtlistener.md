@@ -10,6 +10,7 @@ Legal research across millions of court records
 * Used in
 
   [Claude](https://claude.ai/directory/58d5cff1-20b3-4bb8-9c51-9ac3e6bd0dac)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Free Law Project](https://free.law/)
 
@@ -28,22 +29,22 @@ Connects Claude to CourtListener, the Free Law Project's legal research platform
 
 You can use CourtListener to:
 
-**Search & Summarize Case Law:**  
+**Search & Summarize Case Law:**
 "Summarize the majority and dissenting opinions in Dobbs v. Jackson Women's Health Organization."
 
-**Verify Citations & Catch Hallucinations:**  
+**Verify Citations & Catch Hallucinations:**
 "Check every case citation in this brief and flag any that don't exist in CourtListener."
 
-**Research Judges & Build Profiles:**  
+**Research Judges & Build Profiles:**
 "Build a profile of Justice Sonia Sotomayor: judicial career, ABA ratings, education, and political affiliations."
 
-**Monitor High-Profile Dockets:**  
+**Monitor High-Profile Dockets:**
 "Subscribe me to the United States v. Google LLC antitrust docket (1:20-cv-03010, D.D.C.) and alert me on new filings."
 
-**Access RECAP (free PACER archive):**  
+**Access RECAP (free PACER archive):**
 "Show me the RECAP filings from the Sam Bankman-Fried criminal case."
 
-**Trace Citation Impact:**  
+**Trace Citation Impact:**
 "How many opinions have cited Miranda v. Arizona, and what are the most recent?"
 
 ## Related connectors
@@ -56,11 +57,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -74,7 +75,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -84,11 +85,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -98,8 +99,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

@@ -1,6 +1,8 @@
+<!-- source: https://platform.claude.com/docs/en/api/beta/messages -->
 <!-- part of: https://platform.claude.com/docs/en/api/beta/messages -->
 
 <!-- chunk-start -->
+
           - `BetaMCPToolResultBlock object { content, is_error, tool_use_id, type }`
 
             - `content: string or array of BetaTextBlock`

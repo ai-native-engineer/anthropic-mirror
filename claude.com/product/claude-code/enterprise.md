@@ -1,6 +1,8 @@
 <!-- source: https://claude.com/product/claude-code/enterprise -->
 
-# The enterprise coding agent for every environment
+# The enterprise
+coding agent for
+every environment
 
 Claude Code for enterprise autonomously writes, debugs, and refactors code with support for terminal and any IDE to help teams ship faster.
 
@@ -110,7 +112,7 @@ Read story
 
 [Read story](https://claude.com/customers/shopify)Read story
 
-![Wiz (Quote)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69cc1a95a6ba3eb3b970a550_New_Logo_Blue%201.svg)![Wiz (Quote)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69cc1a9cc702022153c8556b_logo_wiz-dark-mode%201.svg)
+![Wiz (Quote)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62992a26768fd09893ec9f_logo_wiz-light.svg)![Wiz (Quote)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a629937ba76a79d9b30127d_logo_wiz-dark.svg)
 
 Read story
 
@@ -168,7 +170,7 @@ Claude Code helps leading enterprises modernize legacy codebases, assisting with
 
 Learn more
 
-[Learn more](/solutions/code-modernization)Learn more
+[Learn more](https://claude.com/solutions/code-modernization)Learn more
 
 ## Built for enterprise engineering
 
@@ -208,7 +210,8 @@ Encrypted everywhere
 
 TLS 1.3 in transit, AES-256 at rest. All data encrypted end-to-end with your keys if needed.
 
-## Solve problems that slow developers down
+## Solve problems that
+slow developers down
 
 Get Enterprise plan
 
@@ -254,7 +257,7 @@ Get Enterprise plan
 
 Talk to sales
 
-[Talk to sales](/contact-sales)Talk to sales
+[Talk to sales](https://claude.com/contact-sales)Talk to sales
 
 ### Team
 
@@ -262,15 +265,15 @@ Claude Code is included with Team plan. Includes self-serve seat management and 
 
 $100
 
-Per person / month. Minimum 5 members.
+Per person / month. Minimum 2 members.
 
 Get Team plan
 
-[Get Team plan](https://claude.ai/redirect/upgrade)Get Team plan
+[Get Team plan](https://claude.ai/upgrade?initialPlanType=team)Get Team plan
 
 Learn more
 
-[Learn more](/archive/team)Learn more
+[Learn more](https://claude.com/archive/team)Learn more
 
 [Usage limits](https://support.anthropic.com/en/articles/9797557-usage-limit-best-practices) apply. Prices shown don’t include applicable tax. Price and plans are subject to change at Anthropic's discretion.
 
@@ -368,7 +371,8 @@ accuracy on complex code modifications
 
 [Next](#)Next
 
-## Get the technical  rundown
+## Get the technical
+rundown
 
 [Claude Code documentation](https://code.claude.com/docs/en/overview)Claude Code documentation
 
@@ -394,13 +398,13 @@ Case study
 
 [Case study](https://www-cdn.anthropic.com/58284b19e702b49db9302d5b6f135ad8871e7658.pdf)Case study
 
-[Claude Code: AI-powered coding assistant for developers](/product/claude-code)Claude Code: AI-powered coding assistant for developers
+[Claude Code: AI-powered coding assistant for developers](https://claude.com/product/claude-code)Claude Code: AI-powered coding assistant for developers
 
 Claude Code: AI-powered coding assistant for developers
 
 Website
 
-[Website](/product/claude-code)Website
+[Website](https://claude.com/product/claude-code)Website
 
 ## Transform how your organization operates with Claude
 
@@ -410,4 +414,4 @@ Get Enterprise plan
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales

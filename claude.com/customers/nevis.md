@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6939e575f5e0118dc24b9698_logo_nevis_light.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6939e57b6e6f91c2baecb90c_logo_nevis_dark.png)
 
@@ -154,34 +154,34 @@ Video caption
 
 ## Related stories
 
-[How Satispay's engineers write 75% of their code with Claude](/customers/satispay)How Satispay's engineers write 75% of their code with Claude
+[How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)How Satispay's engineers write 75% of their code with Claude
 
 How Satispay's engineers write 75% of their code with Claude
 
 Customer story
 
-[Customer story](/customers/satispay)Customer story
+[Customer story](https://claude.com/customers/satispay)Customer story
 
-[OffDeal powers every stage of M&A advisory with one Claude-based agent](/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
+[OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
 
 OffDeal powers every stage of M&A advisory with one Claude-based agent
 
 Customer story
 
-[Customer story](/customers/offdeal)Customer story
+[Customer story](https://claude.com/customers/offdeal)Customer story
 
-[Money Forward builds an AI-native engineering organization with Claude Code](/customers/money-forward)Money Forward builds an AI-native engineering organization with Claude Code
+[Money Forward builds an AI-native engineering organization with Claude Code](https://claude.com/customers/money-forward)Money Forward builds an AI-native engineering organization with Claude Code
 
 Money Forward builds an AI-native engineering organization with Claude Code
 
 Customer story
 
-[Customer story](/customers/money-forward)Customer story
+[Customer story](https://claude.com/customers/money-forward)Customer story
 
-[How Parcha built a universal customer diligence agent in two weeks with Claude Agent SDK](/customers/parcha)How Parcha built a universal customer diligence agent in two weeks with Claude Agent SDK
+[How Parcha built a universal customer diligence agent in two weeks with Claude Agent SDK](https://claude.com/customers/parcha)How Parcha built a universal customer diligence agent in two weeks with Claude Agent SDK
 
 How Parcha built a universal customer diligence agent in two weeks with Claude Agent SDK
 
 Customer story
 
-[Customer story](/customers/parcha)Customer story
+[Customer story](https://claude.com/customers/parcha)Customer story

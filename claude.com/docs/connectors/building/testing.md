@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/connectors/building/testing -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Test your server against the real Claude client before submitting. There is no separate staging environment—you test in production using a custom connector.
 
 ##  Test as a custom connector
@@ -20,7 +28,9 @@ Use the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) to
 
 Claude identifies itself in the MCP `initialize` handshake via `clientInfo`, but the exact value depends on the surface and the request path. You may see `"name": "claude-ai"`, `"name": "Anthropic"` (sometimes with a service suffix), or `"name": "claude-code"`:
 
+```
 { "clientInfo": { "name": "Anthropic", "version": "1.0.0" } }
+```
 
 Don’t gate behavior on an exact `name` or `version` string — both vary across surfaces, request paths, and releases. Use `clientInfo` for telemetry and coarse feature detection only, and remember it’s unauthenticated: any client can claim any name, so it must never feed an authorization decision.
 
@@ -30,8 +40,6 @@ Directory submission requires test credentials. Provide a **fully populated acco
 
 ##  Debugging
 
-Partner-visible error logs are in development. In the meantime, use server-side logging on your end and the MCP Inspector to diagnose connection failures. Common causes of `initialize` timeouts include slow OAuth endpoints (keep discovery, registration, and token responses under ten seconds; see [endpoint latency](/docs/connectors/building/authentication#endpoint-latency)), overly strict `Origin`-header validation rejecting Anthropic’s requests, and firewalls dropping Anthropic’s egress traffic.
-If your infrastructure logs show `403 Forbidden` responses your application didn’t generate, your CDN or WAF is likely blocking Anthropic’s traffic. See [firewall or WAF blocks Anthropic’s traffic](/docs/connectors/building/troubleshooting#2-firewall-or-waf-blocks-anthropics-traffic) for the fix.
-For a structured walkthrough of “Couldn’t reach the MCP server” and “Authorization failed” errors, including DNS resolution checks, OAuth discovery diagnostics, and how to find the `ofid_` reference ID to include in a support request, see [troubleshooting connectors](/docs/connectors/building/troubleshooting).
-
-[Directory vs custom](/docs/connectors/building/directory-vs-custom)[Troubleshooting](/docs/connectors/building/troubleshooting)
+Partner-visible error logs are in development. In the meantime, use server-side logging on your end and the MCP Inspector to diagnose connection failures. Common causes of `initialize` timeouts include slow OAuth endpoints (keep discovery, registration, and token responses under ten seconds; see [endpoint latency](https://claude.com/docs/connectors/building/authentication#endpoint-latency)), overly strict `Origin`-header validation rejecting Anthropic’s requests, and firewalls dropping Anthropic’s egress traffic.
+If your infrastructure logs show `403 Forbidden` responses your application didn’t generate, your CDN or WAF is likely blocking Anthropic’s traffic. See [firewall or WAF blocks Anthropic’s traffic](https://claude.com/docs/connectors/building/troubleshooting#2-firewall-or-waf-blocks-anthropic%E2%80%99s-traffic) for the fix.
+For a structured walkthrough of “Couldn’t reach the MCP server” and “Authorization failed” errors, including DNS resolution checks, OAuth discovery diagnostics, and how to find the `ofid_` reference ID to include in a support request, see [troubleshooting connectors](https://claude.com/docs/connectors/building/troubleshooting).

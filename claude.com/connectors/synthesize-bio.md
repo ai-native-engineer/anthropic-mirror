@@ -10,6 +10,7 @@ Generate gene expression from a virtual human
 * Used in
 
   [Claude](https://claude.ai/directory/ef243b27-ec39-440b-8bb2-c407871c3bc6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Synthesize Bio](https://www.synthesize.bio/)
 
@@ -22,22 +23,22 @@ Generate gene expression from a virtual human
   Read
 * More
 
-  [Documentation](https://app.synthesize.bio/mcp/docs)[Privacy Policy](https://www.synthesize.bio/privacy)[support@synthesize.bio](mailto:support@synthesize.bio)
+  [Documentation](https://app.synthesize.bio/mcp/docs)[Privacy Policy](https://www.synthesize.bio/privacy)[Support](mailto:support@synthesize.bio)
 
 Synthesize Bio lets Claude generate and analyze gene expression data from a virtual human from a natural language prompt. Describe any experiment — "tumor vs normal lung tissue" or "KRAS knockout vs control" — and the platform generates realistic human expression profiles using its Gene Expression Model (GEM). You can use this gene expression data just as if you had done a laboratory experiment on human samples. Supports both bulk and single-cell RNA-seq modalities. See https://www.synthesize.bio/ to learn more about virtual humans, GEM, and to register for an account.
 
 You can use Synthesize Bio to:
 
-**Analyze tumor vs normal tissue:**  
+**Analyze tumor vs normal tissue:**
 "Use the Synthesize Bio connector to analyze lung adenocarcinoma tumor vs normal lung tissue."
 
-**Compare cell types in single-cell mode:**  
+**Compare cell types in single-cell mode:**
 "Analyze CD4+ T cells vs CD8+ T cells in single-cell RNA-seq mode using Synthesize Bio."
 
-**Compare drug toxicity signatures:**  
+**Compare drug toxicity signatures:**
 "Use Synthesize Bio to predict how hepatocytes respond to doxorubicin vs. valproic acid and compare their toxicity signatures."
 
-**Find druggable targets:**  
+**Find druggable targets:**
 "Use Synthesize Bio to find druggable targets in idiopathic pulmonary fibrosis by comparing fibrotic vs. healthy alveolar epithelial cells."
 
 ## Related connectors
@@ -54,7 +55,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -68,7 +69,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Life sciences and healthcare
 
@@ -82,7 +83,7 @@ February 11, 2026
 
 ### Benchling
 
-Connect to R&D data, source experiments, and notebooks](/connectors/benchling)
+Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
 
 Life sciences and healthcare
 
@@ -90,10 +91,10 @@ Claude
 
 Claude Code
 
-February 11, 2026
+June 30, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe5cecad201acb193aa2_BioRender.jpg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43716940e4a2c2f530fb2c_biomni.jpeg)
 
-### BioRender
+### Biomni Lab
 
-Search for and use scientific templates and icons](/connectors/biorender)
+Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)

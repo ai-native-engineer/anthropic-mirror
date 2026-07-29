@@ -14,8 +14,6 @@ Create classroom-ready K-12 math diagrams in Claude
 
   [Coteach](https://coteach.ai)
 
-[Play video](#)Play video
-
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
@@ -31,16 +29,16 @@ Coteach helps K-12 math educators create classroom-ready diagrams directly in Cl
 
 You can use Coteach to:
 
-**Create a single instructional diagram:**  
+**Create a single instructional diagram:**
 "Use Coteach to create a tape diagram for the equation 3x + 4 = 16."
 
-**Generate multiple representations of the same concept:**  
+**Generate multiple representations of the same concept:**
 "Use Coteach to make 4 tape diagrams where students solve for x, like 3x + 4 = 16."
 
-**Build student-facing worksheet visuals:**  
+**Build student-facing worksheet visuals:**
 "Use Coteach to create clean tape diagrams for a worksheet on solving one-step and two-step equations."
 
-**Support lesson planning and scaffolding:**  
+**Support lesson planning and scaffolding:**
 "Use Coteach to create 4 diagrams that progress in difficulty from 2x + 5 = 13 to 5x + 2 = 22."
 
 ## Related connectors
@@ -49,17 +47,21 @@ Productivity
 
 Claude
 
+Claude Code
+
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
 Claude
+
+Claude Code
 
 June 9, 2026
 
@@ -67,28 +69,32 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
 Claude
 
+Claude Code
+
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
 Claude
 
+Claude Code
+
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

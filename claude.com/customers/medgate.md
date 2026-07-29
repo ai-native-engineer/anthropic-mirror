@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977fe750b0b246036d8f847_logo_medgate-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977fe7a8320977d30ea0414_logo_medgate-dark-mode.png)
 
@@ -183,34 +183,34 @@ Claude helps healthcare organizations move faster without sacrificing accuracy, 
 
 ## Related stories
 
-[How Zingage automates care coordination for 400+ home care agencies with Claude](/customers/zingage)How Zingage automates care coordination for 400+ home care agencies with Claude
+[How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
+
+How can a medical lab keep patients at the center of its work while the caseload keeps growing?
+
+Customer story
+
+[Customer story](https://claude.com/customers/arkana-labs)Customer story
+
+[How Zingage automates care coordination for 400+ home care agencies with Claude](https://claude.com/customers/zingage)How Zingage automates care coordination for 400+ home care agencies with Claude
 
 How Zingage automates care coordination for 400+ home care agencies with Claude
 
 Customer story
 
-[Customer story](/customers/zingage)Customer story
+[Customer story](https://claude.com/customers/zingage)Customer story
 
-[A conversation with Seth Hain about Epic’s internal AI adoption](/customers/epic-systems)A conversation with Seth Hain about Epic’s internal AI adoption
+[A conversation with Seth Hain about Epic’s internal AI adoption](https://claude.com/customers/epic-systems)A conversation with Seth Hain about Epic’s internal AI adoption
 
 A conversation with Seth Hain about Epic’s internal AI adoption
 
 Customer story
 
-[Customer story](/customers/epic-systems)Customer story
+[Customer story](https://claude.com/customers/epic-systems)Customer story
 
-[Carta Healthcare cuts clinical data processing time by 66% with Claude](/customers/carta-healthcare)Carta Healthcare cuts clinical data processing time by 66% with Claude
+[Carta Healthcare cuts clinical data processing time by 66% with Claude](https://claude.com/customers/carta-healthcare)Carta Healthcare cuts clinical data processing time by 66% with Claude
 
 Carta Healthcare cuts clinical data processing time by 66% with Claude
 
 Customer story
 
-[Customer story](/customers/carta-healthcare)Customer story
-
-[Elation Health delivers faster clinical insights with Claude](/customers/elation-health)Elation Health delivers faster clinical insights with Claude
-
-Elation Health delivers faster clinical insights with Claude
-
-Customer story
-
-[Customer story](/customers/elation-health)Customer story
+[Customer story](https://claude.com/customers/carta-healthcare)Customer story

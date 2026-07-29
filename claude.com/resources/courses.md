@@ -18,6 +18,106 @@ Length
 
 Quizzes
 
+![AI Fluency for pK-12 Educators](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a565f567d84b691d002f44d_Object-Book.png)
+
+AI Fluency for pK-12 Educators
+
+8
+
+Lectures
+
+1 hr
+
+of video
+
+1
+
+Quizzes
+
+AI Fluency
+
+Product
+
+AI Fluency
+
+Category
+
+Professional
+
+Lectures
+
+8
+
+Length
+
+1 hr
+
+Quizzes
+
+1
+
+View course
+
+[View course](https://claude.com/courses/ai-fluency-for-pk-12-educators)View course
+
+Professional
+
+[AI Fluency for pK-12 Educators](https://anthropic.skilljar.com/path/ai-fluency-for-pk-12-educators)AI Fluency for pK-12 Educators
+
+[Text Link](https://claude.com/courses/ai-fluency-for-pk-12-educators)
+
+No items found.
+
+![AI Fluency for Builders](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a55484884c6340b56edccc0_Object-CodeCheck.png)
+
+AI Fluency for Builders
+
+10
+
+Lectures
+
+1 hour
+
+of video
+
+1
+
+Quizzes
+
+AI Fluency
+
+Product
+
+AI Fluency
+
+Category
+
+Professional
+
+Lectures
+
+10
+
+Length
+
+1 hour
+
+Quizzes
+
+1
+
+View course
+
+[View course](https://claude.com/courses/ai-fluency-for-builders)View course
+
+Professional
+
+[AI Fluency for Builders](https://anthropic.skilljar.com/ai-fluency-for-builders)AI Fluency for Builders
+
+[Text Link](https://claude.com/courses/ai-fluency-for-builders)
+
+No items found.
+
 ![Claude Platform 101](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a28b82d19cbe9d4739e6cd7_Object-LaptopCode.png)
 
 Claude Platform 101
@@ -54,13 +154,13 @@ Quizzes
 
 View course
 
-[View course](/courses/claude-platform-101)View course
+[View course](https://claude.com/courses/claude-platform-101)View course
 
 Engineering
 
 [Claude Platform 101](https://anthropic.skilljar.com/claude-platform-101)Claude Platform 101
 
-[Text Link](/courses/claude-platform-101)
+[Text Link](https://claude.com/courses/claude-platform-101)
 
 No items found.
 
@@ -104,19 +204,19 @@ Quizzes
 
 View course
 
-[View course](/courses/ai-fluency-for-small-businesses)View course
+[View course](https://claude.com/courses/ai-fluency-for-small-businesses)View course
 
 Professional
 
 [AI Fluency for Small Businesses](https://anthropic.skilljar.com/ai-fluency-for-small-businesses)AI Fluency for Small Businesses
 
-[Text Link](/courses/ai-fluency-for-small-businesses)
+[Text Link](https://claude.com/courses/ai-fluency-for-small-businesses)
 
 No items found.
 
-![AI Capabilities and Limitations](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f0d7f06cd4d16d58edda2f_slack-imgs.png)
+![AI capabilities and limitations](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f0d7f06cd4d16d58edda2f_slack-imgs.png)
 
-AI Capabilities and Limitations
+AI capabilities and limitations
 
 13
 
@@ -154,13 +254,13 @@ Quizzes
 
 View course
 
-[View course](/courses/ai-capabilities-and-limitations)View course
+[View course](https://claude.com/courses/ai-capabilities-and-limitations)View course
 
 Education
 
-[AI Capabilities and Limitations](https://anthropic.skilljar.com/ai-capabilities-and-limitations)AI Capabilities and Limitations
+[AI capabilities and limitations](https://anthropic.skilljar.com/ai-capabilities-and-limitations)AI capabilities and limitations
 
-[Text Link](/courses/ai-capabilities-and-limitations)
+[Text Link](https://claude.com/courses/ai-capabilities-and-limitations)
 
 No items found.
 
@@ -200,13 +300,13 @@ Quizzes
 
 View course
 
-[View course](/courses/claude-code-101)View course
+[View course](https://claude.com/courses/claude-code-101)View course
 
 Engineering
 
 [Claude Code 101](https://anthropic.skilljar.com/claude-code-101)Claude Code 101
 
-[Text Link](/courses/claude-code-101)
+[Text Link](https://claude.com/courses/claude-code-101)
 
 No items found.
 
@@ -246,13 +346,13 @@ Quizzes
 
 View course
 
-[View course](/courses/introduction-to-subagents)View course
+[View course](https://claude.com/courses/introduction-to-subagents)View course
 
 Engineering
 
 [Introduction to subagents](https://anthropic.skilljar.com/introduction-to-subagents)Introduction to subagents
 
-[Text Link](/courses/introduction-to-subagents)
+[Text Link](https://claude.com/courses/introduction-to-subagents)
 
 No items found.
 
@@ -284,13 +384,13 @@ Quizzes
 
 View course
 
-[View course](/courses/introduction-to-claude-cowork)View course
+[View course](https://claude.com/courses/introduction-to-claude-cowork)View course
 
 Professional
 
 [Introduction to Claude Cowork](https://anthropic.skilljar.com/introduction-to-claude-cowork)Introduction to Claude Cowork
 
-[Text Link](/courses/introduction-to-claude-cowork)
+[Text Link](https://claude.com/courses/introduction-to-claude-cowork)
 
 No items found.
 
@@ -330,19 +430,19 @@ Quizzes
 
 View course
 
-[View course](/courses/introduction-to-agent-skills)View course
+[View course](https://claude.com/courses/introduction-to-agent-skills)View course
 
 Engineering
 
 [Introduction to agent skills](https://anthropic.skilljar.com/introduction-to-agent-skills)Introduction to agent skills
 
-[Text Link](/courses/introduction-to-agent-skills)
+[Text Link](https://claude.com/courses/introduction-to-agent-skills)
 
 No items found.
 
-![AI Fluency: Framework & Foundations](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6972942f340342d11b4a5b76_Hand-Blocks.svg)
+![AI fluency: Framework and foundations](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6972942f340342d11b4a5b76_Hand-Blocks.svg)
 
-AI Fluency: Framework & Foundations
+AI fluency: Framework and foundations
 
 14
 
@@ -380,13 +480,13 @@ Quizzes
 
 View course
 
-[View course](/courses/ai-fluency-framework-foundations)View course
+[View course](https://claude.com/courses/ai-fluency-framework-foundations)View course
 
 Professional
 
-[AI Fluency: Framework & Foundations](https://anthropic.skilljar.com/ai-fluency-framework-foundations)AI Fluency: Framework & Foundations
+[AI fluency: Framework and foundations](https://anthropic.skilljar.com/ai-fluency-framework-foundations)AI fluency: Framework and foundations
 
-[Text Link](/courses/ai-fluency-framework-foundations)
+[Text Link](https://claude.com/courses/ai-fluency-framework-foundations)
 
 No items found.
 
@@ -426,13 +526,13 @@ Quizzes
 
 View course
 
-[View course](/courses/ai-fluency-for-educators)View course
+[View course](https://claude.com/courses/ai-fluency-for-educators)View course
 
 Education
 
 [AI Fluency for Educators](https://anthropic.skilljar.com/ai-fluency-for-educators)AI Fluency for Educators
 
-[Text Link](/courses/ai-fluency-for-educators)
+[Text Link](https://claude.com/courses/ai-fluency-for-educators)
 
 No items found.
 
@@ -472,13 +572,13 @@ Quizzes
 
 View course
 
-[View course](/courses/ai-fluency-for-students)View course
+[View course](https://claude.com/courses/ai-fluency-for-students)View course
 
 Education
 
 [AI Fluency for Students](https://anthropic.skilljar.com/ai-fluency-for-students)AI Fluency for Students
 
-[Text Link](/courses/ai-fluency-for-students)
+[Text Link](https://claude.com/courses/ai-fluency-for-students)
 
 No items found.
 
@@ -518,13 +618,13 @@ Quizzes
 
 View course
 
-[View course](/courses/building-with-the-claude-api)View course
+[View course](https://claude.com/courses/building-with-the-claude-api)View course
 
 Engineering
 
 [Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api)Building with the Claude API
 
-[Text Link](/courses/building-with-the-claude-api)
+[Text Link](https://claude.com/courses/building-with-the-claude-api)
 
 No items found.
 
@@ -568,13 +668,13 @@ Quizzes
 
 View course
 
-[View course](/courses/claude-code-in-action)View course
+[View course](https://claude.com/courses/claude-code-in-action)View course
 
 Engineering
 
 [Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action)Claude Code in Action
 
-[Text Link](/courses/claude-code-in-action)
+[Text Link](https://claude.com/courses/claude-code-in-action)
 
 No items found.
 
@@ -618,13 +718,13 @@ Quizzes
 
 View course
 
-[View course](/courses/introduction-to-model-context-protocol)View course
+[View course](https://claude.com/courses/introduction-to-model-context-protocol)View course
 
 Engineering
 
 [Introduction to Model Context Protocol](https://anthropic.skilljar.com/introduction-to-model-context-protocol)Introduction to Model Context Protocol
 
-[Text Link](/courses/introduction-to-model-context-protocol)
+[Text Link](https://claude.com/courses/introduction-to-model-context-protocol)
 
 No items found.
 
@@ -668,13 +768,13 @@ Quizzes
 
 View course
 
-[View course](/courses/model-context-protocol-advanced-topics)View course
+[View course](https://claude.com/courses/model-context-protocol-advanced-topics)View course
 
 Engineering
 
 [Model Context Protocol: Advanced Topics](https://anthropic.skilljar.com/model-context-protocol-advanced-topics)Model Context Protocol: Advanced Topics
 
-[Text Link](/courses/model-context-protocol-advanced-topics)
+[Text Link](https://claude.com/courses/model-context-protocol-advanced-topics)
 
 No items found.
 
@@ -714,13 +814,13 @@ Quizzes
 
 View course
 
-[View course](/courses/claude-with-amazon-bedrock)View course
+[View course](https://claude.com/courses/claude-with-amazon-bedrock)View course
 
 Engineering
 
 [Claude with Amazon Bedrock](https://anthropic.skilljar.com/claude-in-amazon-bedrock)Claude with Amazon Bedrock
 
-[Text Link](/courses/claude-with-amazon-bedrock)
+[Text Link](https://claude.com/courses/claude-with-amazon-bedrock)
 
 No items found.
 
@@ -760,13 +860,13 @@ Quizzes
 
 View course
 
-[View course](/courses/claude-with-google-clouds-vertex-ai)View course
+[View course](https://claude.com/courses/claude-with-google-clouds-vertex-ai)View course
 
 Engineering
 
 [Claude with Google Cloud's Vertex AI](https://anthropic.skilljar.com/claude-with-google-vertex)Claude with Google Cloud's Vertex AI
 
-[Text Link](/courses/claude-with-google-clouds-vertex-ai)
+[Text Link](https://claude.com/courses/claude-with-google-clouds-vertex-ai)
 
 No items found.
 
@@ -810,13 +910,13 @@ Quizzes
 
 View course
 
-[View course](/courses/teaching-ai-fluency)View course
+[View course](https://claude.com/courses/teaching-ai-fluency)View course
 
 Education
 
 [Teaching AI Fluency](https://anthropic.skilljar.com/teaching-ai-fluency)Teaching AI Fluency
 
-[Text Link](/courses/teaching-ai-fluency)
+[Text Link](https://claude.com/courses/teaching-ai-fluency)
 
 No items found.
 
@@ -860,13 +960,13 @@ Quizzes
 
 View course
 
-[View course](/courses/ai-fluency-for-nonprofits)View course
+[View course](https://claude.com/courses/ai-fluency-for-nonprofits)View course
 
 Nonprofits
 
 [AI Fluency for nonprofits](https://anthropic.skilljar.com/ai-fluency-for-nonprofits)AI Fluency for nonprofits
 
-[Text Link](/courses/ai-fluency-for-nonprofits)
+[Text Link](https://claude.com/courses/ai-fluency-for-nonprofits)
 
 No items found.
 
@@ -906,13 +1006,13 @@ Quizzes
 
 View course
 
-[View course](/courses/claude-101)View course
+[View course](https://claude.com/courses/claude-101)View course
 
 Professional
 
 [Claude 101](https://anthropic.skilljar.com/claude-101)Claude 101
 
-[Text Link](/courses/claude-101)
+[Text Link](https://claude.com/courses/claude-101)
 
 No items found.
 
@@ -928,4 +1028,4 @@ Clear all filters
 
 Get certified
 
-[Get certified](/resources/certifications)Get certified
+[Get certified](https://claude.com/resources/certifications)Get certified

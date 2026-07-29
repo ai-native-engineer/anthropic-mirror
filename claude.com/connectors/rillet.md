@@ -10,6 +10,7 @@ Query your live GL and financials in plain English
 * Used in
 
   [Claude](https://claude.ai/directory/48437749-3dd3-4811-b0d5-80984473903d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Rillet](https://www.rillet.com/)
 
@@ -22,19 +23,19 @@ Query your live GL and financials in plain English
   Read & write
 * More
 
-  [Documentation](https://docs.api.rillet.com/docs/mcp)[Privacy Policy](https://www.rillet.com/privacy-policy)[mcp-support@rillet.com](mailto:mcp-support@rillet.com)
+  [Documentation](https://docs.api.rillet.com/docs/mcp)[Privacy Policy](https://www.rillet.com/privacy-policy)[Support](mailto:mcp-support@rillet.com)
 
 Rillet is an AI-native ERP built for scaling companies. Connect Claude to your live general ledger to query financials in plain English, analyze revenue trends and SaaS metrics, and create journal entries by prompt. Rillet runs on real-time architecture, not batch processing, so every answer Claude surfaces comes from your live books, not last month's data. Ask about your top customers, monthly burn, missing accruals, or cash runway. Get answers from your books, not a spreadsheet.
 
 You can use Rillet to:
 
-**Query your GL:**  
+**Query your GL:**
 "What was our gross margin last quarter compared to the prior quarter?"
 
-**Manage AR:**  
+**Manage AR:**
 "List all open invoices over 60 days past due, grouped by customer"
 
-**Run a report:**  
+**Run a report:**
 "Pull the trial balance for March and flag any accounts with unusual variance"
 
 ## Related connectors
@@ -51,7 +52,7 @@ June 22, 2026
 
 ### Affinity
 
-Search, update, and prep deals without switching tabs.](/connectors/affinity)
+Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
 
 Financial services
 
@@ -59,11 +60,11 @@ Claude
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd9230df5f81ef095019_Aiera.jpg)
+[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
 
 ### Aiera
 
-Live events, filings, company publications, and more](/connectors/aiera)
+Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
 
 Financial services
 
@@ -73,11 +74,11 @@ Claude Code
 
 February 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977ee686ffe1cb730e94f07_Airwallex%20Mark%20-%20Colour%20-%20Square.png)
+[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
 
 ### Airwallex
 
-Integrate with the Airwallex Platform using Claude](/connectors/airwallex)
+Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
 
 Financial services
 
@@ -87,8 +88,8 @@ Claude Code
 
 April 8, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c05a2e0f10f41c8f005ee0_Aiwyn_Logo_Mark_Square%20(1).svg)
+[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
 
 ### Aiwyn Tax
 
-Estimate your federal & state taxes with Aiwyn's tax engine](/connectors/aiwyn-tax)
+Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)

@@ -85,19 +85,19 @@ Claude remembers everything from your conversation. Circle back to issues it fla
 
 ## What to notice
 
-**Claude reads before it answers.**   
+**Claude reads before it answers.**
 When you ask about the model, Claude doesn't guess—it reads all six sheets first, then explains how they connect. This prevents errors from incomplete context and gives Claude the baseline it needs for follow-up questions.
 
-**Issues surface together.**   
+**Issues surface together.**
 Instead of discovering problems one at a time as you click through tabs, Claude presents everything it found upfront: the reconciliation gap, the duplicate, the missing entry, the flagged items. You decide what to tackle first.
 
-**Changes require confirmation.**   
+**Changes require confirmation.**
 Claude shows the math, explains what will change, and waits for your "yes, go ahead" before modifying anything. You see exactly what's happening and can verify the logic.
 
-**Context carries through the conversation.**   
+**Context carries through the conversation.**
 When you say "let's go back to the issues you identified," Claude remembers what it flagged earlier. You don't need to re-explain or re-read the model.
 
-**Claude learns patterns from your data.**   
+**Claude learns patterns from your data.**
 When adding September journal entries, Claude analyzed the existing July and August entries, identified that revenue splits 80% Platform / 12% Support / 8% Services, and applied that same logic. The new entries follow your established pattern.
 
 ## Next steps
@@ -117,34 +117,34 @@ This tutorial shows one use case: validating an ASC 606 revenue model with recon
 
 ## Related tutorials
 
-[Install financial services plugins for Claude Cowork](/resources/tutorials/install-financial-services-plugins-for-cowork)Install financial services plugins for Claude Cowork
+[Install financial services plugins for Claude Cowork](https://claude.com/resources/tutorials/install-financial-services-plugins-for-cowork)Install financial services plugins for Claude Cowork
 
 Install financial services plugins for Claude Cowork
 
 Tutorial
 
-[Tutorial](/resources/tutorials/install-financial-services-plugins-for-cowork)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/install-financial-services-plugins-for-cowork)Tutorial
 
-[How to build a plugin from scratch in Claude Cowork](/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)How to build a plugin from scratch in Claude Cowork
+[How to build a plugin from scratch in Claude Cowork](https://claude.com/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)How to build a plugin from scratch in Claude Cowork
 
 How to build a plugin from scratch in Claude Cowork
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-build-a-plugin-from-scratch-in-cowork)Tutorial
 
-[Getting started with Claude in Excel](/resources/tutorials/getting-started-with-claude-in-excel)Getting started with Claude in Excel
+[Getting started with Claude in Excel](https://claude.com/resources/tutorials/getting-started-with-claude-in-excel)Getting started with Claude in Excel
 
 Getting started with Claude in Excel
 
 Tutorial
 
-[Tutorial](/resources/tutorials/getting-started-with-claude-in-excel)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/getting-started-with-claude-in-excel)Tutorial
 
-[How to use Claude in Excel for HR: Headcount planning](/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)How to use Claude in Excel for HR: Headcount planning
+[How to use Claude in Excel for HR: Headcount planning](https://claude.com/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)How to use Claude in Excel for HR: Headcount planning
 
 How to use Claude in Excel for HR: Headcount planning
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)Tutorial

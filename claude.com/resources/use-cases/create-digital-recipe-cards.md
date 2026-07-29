@@ -61,7 +61,7 @@ Provide the recipe so Claude can read the handwriting, interpret abbreviations, 
 
 ## Required context
 
-Upload a photo or file of your recipe card.   
+Upload a photo or file of your recipe card.
 Click the (+) button in the chat bar to browse through your files, or alternatively, drag and drop files into the chat box area. Claude supports various [upload formats](https://support.claude.com/en/articles/8241126-what-kinds-of-documents-can-i-upload-to-claude).
 
 ‍
@@ -179,7 +179,7 @@ Work with Claude to transform handwritten family recipes into beautifully format
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690bed244695fe6235255bee_Screenshot%202025-11-05%20at%2011.50.38%E2%80%AFAM.png)
 
@@ -189,34 +189,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Map your understanding and build lessons from the gaps](/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Map your understanding and build lessons from the gaps
+[Map your understanding and build lessons from the gaps](https://claude.com/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Map your understanding and build lessons from the gaps
 
 Map your understanding and build lessons from the gaps
 
 Use case
 
-[Use case](/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Use case
+[Use case](https://claude.com/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Use case
 
-[Stress-test your financial plan across scenarios](/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Stress-test your financial plan across scenarios
+[Stress-test your financial plan across scenarios](https://claude.com/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Stress-test your financial plan across scenarios
 
 Stress-test your financial plan across scenarios
 
 Use case
 
-[Use case](/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Use case
+[Use case](https://claude.com/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Use case
 
-[Organize files across your desktop](/resources/use-cases/organize-files-by-whats-in-them)Organize files across your desktop
+[Organize files across your desktop](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)Organize files across your desktop
 
 Organize files across your desktop
 
 Use case
 
-[Use case](/resources/use-cases/organize-files-by-whats-in-them)Use case
+[Use case](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)Use case
 
-[Thoughtful gift giving with Claude](/resources/use-cases/thoughtful-gift-giving-with-claude)Thoughtful gift giving with Claude
+[Thoughtful gift giving with Claude](https://claude.com/resources/use-cases/thoughtful-gift-giving-with-claude)Thoughtful gift giving with Claude
 
 Thoughtful gift giving with Claude
 
 Use case
 
-[Use case](/resources/use-cases/thoughtful-gift-giving-with-claude)Use case
+[Use case](https://claude.com/resources/use-cases/thoughtful-gift-giving-with-claude)Use case

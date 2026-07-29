@@ -10,6 +10,7 @@ Query live data about deals, engagement, and pipeline
 * Used in
 
   [Claude](https://claude.ai/directory/b88a0129-d984-4c48-87a1-acf028e9f035)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Salesloft](https://www.salesloft.com/)
 
@@ -22,19 +23,19 @@ Query live data about deals, engagement, and pipeline
   Read
 * More
 
-  [Documentation](https://help.salesloft.com/s/article/Salesloft-MCP-Server)[Privacy Policy](https://www.salesloft.com/legal/platform-privacy-notice)[support@salesloft.com](mailto:support@salesloft.com)
+  [Documentation](https://help.salesloft.com/s/article/Salesloft-MCP-Server)[Privacy Policy](https://www.salesloft.com/legal/platform-privacy-notice)[Support](mailto:support@salesloft.com)
 
 Access your live Salesloft data directly inside Claude. Ask about deals, accounts, contacts, conversations, and pipeline status — and get answers grounded in real engagement data, call transcripts, and deal activity. Secured with OAuth 2.0 and role-scoped permissions so you only see your own data.
 
 You can use Salesloft to:
 
-**Summarize pipeline status:**  
+**Summarize pipeline status:**
 "What's our current pipeline of open deals, broken down by segment?"
 
-**Find specific deal information:**  
+**Find specific deal information:**
 "What was the average deal size last quarter?"
 
-**Surface stalled activity:**  
+**Surface stalled activity:**
 "Which of my open deals haven't had any activity in the last 10 days?"
 
 ## Related connectors
@@ -51,7 +52,7 @@ January 26, 2026
 
 ### ActiveCampaign
 
-Autonomous marketing to transform how you work](/connectors/activecampaign)
+Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
 
 Sales and marketing
 
@@ -61,11 +62,11 @@ Claude Code
 
 June 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1d129f2351bec1d8462bd9_actively.ai.png)
+[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
 
 ### Actively
 
-1:1 account agents for GTM teams](/connectors/actively)
+1:1 account agents for GTM teams](https://claude.com/connectors/actively)
 
 Sales and marketing
 
@@ -73,11 +74,11 @@ Claude
 
 May 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Journey Optimizer
 
-Understand and troubleshoot your Journeys and Campaigns](/connectors/adobe-journey-optimizer)
+Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
 
 Sales and marketing
 
@@ -87,8 +88,8 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Marketing Agent
 
-Marketing campaign and audience insights from Adobe](/connectors/adobe-marketing-agent)
+Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)

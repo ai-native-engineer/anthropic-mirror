@@ -32,11 +32,11 @@ No items found.
 
 Read use case
 
-[Read use case](/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)Read use case
+[Read use case](https://claude.com/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)Read use case
 
-[How to use Claude in Excel for HR: Headcount planning](/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)How to use Claude in Excel for HR: Headcount planning
+[How to use Claude in Excel for HR: Headcount planning](https://claude.com/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)How to use Claude in Excel for HR: Headcount planning
 
-[Text Link](/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)
+[Text Link](https://claude.com/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)
 
 HR
 
@@ -64,11 +64,11 @@ Projects
 
 Read use case
 
-[Read use case](/resources/tutorials/claude-for-human-resources)Read use case
+[Read use case](https://claude.com/resources/tutorials/claude-for-human-resources)Read use case
 
-[Claude for Human Resources](/resources/tutorials/claude-for-human-resources)Claude for Human Resources
+[Claude for Human Resources](https://claude.com/resources/tutorials/claude-for-human-resources)Claude for Human Resources
 
-[Text Link](/resources/tutorials/claude-for-human-resources)
+[Text Link](https://claude.com/resources/tutorials/claude-for-human-resources)
 
 HR
 

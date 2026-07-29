@@ -55,8 +55,8 @@ To enable this workflow, you'll need Claude connected to your research data mana
 
 ## Required context
 
-To pull data directly from your Benchling workspace, use the [Benchling connector.](https://claude.ai/directory/ant.dir.ant.benchling.mcp-server) This connector requires you to have [Claude for Desktop](https://www.claude.com/download).   
-  
+To pull data directly from your Benchling workspace, use the [Benchling connector.](https://claude.ai/directory/ant.dir.ant.benchling.mcp-server) This connector requires you to have [Claude for Desktop](https://www.claude.com/download).
+
 After connecting, Claude will be able to access your electronic lab notebooks, experimental protocols, and study data.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a4e493fb1c580f099edf6_benchling.svg)
@@ -201,7 +201,7 @@ What used to take days of compiling and validating across tools now happens in m
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69161daf8088fbfd76d586f2_Screenshot%202025-11-13%20at%2010.04.28%E2%80%AFAM.png)
 
@@ -211,10 +211,10 @@ Open artifact in new window
 
 ## Related use cases
 
-[Genomic data analysis](/resources/use-cases/genomic-data-analysis)Genomic data analysis
+[Genomic data analysis](https://claude.com/resources/use-cases/genomic-data-analysis)Genomic data analysis
 
 Genomic data analysis
 
 Use case
 
-[Use case](/resources/use-cases/genomic-data-analysis)Use case
+[Use case](https://claude.com/resources/use-cases/genomic-data-analysis)Use case

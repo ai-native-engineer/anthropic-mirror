@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/office-agents/enterprise-readiness -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Enterprise administrators deploying Claude for Excel, PowerPoint, Word,
 and Outlook can review the security architecture for their chosen deployment
 mode and connect audit logs, usage analytics, and spend tracking to
@@ -20,9 +28,9 @@ matches your deployment mode before rollout.
   third-party architecture diagram is listed alongside the first-party
   one in the [Trust Center resources](https://trust.anthropic.com/resources?s=e3n7pvyjnxjyahmdmqujcx);
   filter for “Claude for Excel, PowerPoint, Word”.
-  [Use Claude for M365 with third-party platforms](/docs/office-agents/third-party-platforms)
-  has per-mode request-flow diagrams for the [LLM gateway](/docs/office-agents/third-party-platforms#llm-gateway)
-  and [Bedrock, Vertex AI, or Foundry direct](/docs/office-agents/third-party-platforms#bedrock-vertex-ai-or-foundry-direct)
+  [Use Claude for M365 with third-party platforms](https://claude.com/docs/office-agents/third-party-platforms)
+  has per-mode request-flow diagrams for the [LLM gateway](https://claude.com/docs/office-agents/third-party-platforms#llm-gateway)
+  and [Bedrock, Vertex AI, or Foundry direct](https://claude.com/docs/office-agents/third-party-platforms#bedrock-vertex-ai-or-foundry-direct)
   paths, plus deployment guidance.
 
 ##  Audit and observability
@@ -31,12 +39,31 @@ Forward Claude for M365 activity to your existing observability stack with
 a custom OpenTelemetry collector endpoint. When a custom collector is
 configured, spans are exported unfiltered to that endpoint and include
 the full audit trail: session identifiers, surface, tool inputs and
-outputs, and prompt and response content. Treat the endpoint as
+outputs, prompt content, and document references. Treat the endpoint as
 containing prompt and document content when scoping access controls
 and retention.
 Only spans sent to Anthropic’s own collector are allowlist-filtered to
 strip sensitive attributes; that path is bypassed entirely when a
 custom endpoint is set.
+The add-in exports its telemetry from each user’s browser: the taskpane
+at `https://pivot.claude.ai` posts directly to the custom collector
+endpoint, so every export is a cross-origin request and the endpoint
+must support CORS. The endpoint must answer the `OPTIONS` preflight
+with `Access-Control-Allow-Origin` covering `https://pivot.claude.ai`
+and `Access-Control-Allow-Headers` covering `Content-Type` plus any
+headers you configure for the export, such as `Authorization`. It must
+also return the same `Access-Control-Allow-Origin` header on the `POST`
+response. The [CORS requirements for an LLM gateway](https://claude.com/docs/office-agents/third-party-platforms#cors-requirements)
+describe the same browser behavior in more detail.
+Managed OTLP ingest endpoints such as Grafana Cloud are designed for
+server-to-server export and generally do not answer browser CORS
+preflights, so the browser blocks the export before it sends any
+authentication header. Point the collector endpoint at an OpenTelemetry
+Collector that you run, configure the `cors` block on its OTLP HTTP
+receiver, and have the collector forward to your backend. The collector
+makes the authenticated call to your backend, so no credential needs to
+appear in the export headers, which reach every signed-in user’s
+browser.
 See [Configure a custom OpenTelemetry collector for Claude for M365](https://support.claude.com/en/articles/14447276-configure-a-custom-opentelemetry-collector-for-office-agents)
 for the manifest parameters and endpoint requirements.
 
@@ -68,7 +95,6 @@ for the steps to generate and download a report.
 The pages below cover deployment paths and plugins relevant to
 enterprise admins.
 
-* [Use Claude for M365 with third-party platforms](/docs/office-agents/third-party-platforms)
-* [Install financial services plugins for Cowork](/docs/office-agents/fsi-plugins)
-
-[Connectors and Skills](/docs/office-agents/connectors-and-skills)[Use Claude for M365 with third-party platforms](/docs/office-agents/third-party-platforms)
+* [Data storage and retention](https://claude.com/docs/office-agents/data-storage)
+* [Use Claude for M365 with third-party platforms](https://claude.com/docs/office-agents/third-party-platforms)
+* [Install financial services plugins for Cowork](https://claude.com/docs/office-agents/fsi-plugins)

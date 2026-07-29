@@ -1,6 +1,8 @@
+<!-- source: https://transformer-circuits.pub/2021/framework/head_dump/larger.html -->
 <!-- part of: https://transformer-circuits.pub/2021/framework/head_dump/larger.html -->
 
 <!-- chunk-start -->
+
 ['&nbspvals'](#head-0-28-tok-10353)
 
 '&nbspin' (139.38) '&nbspof' (107.38) '&nbspthe' (101.00) '\n       ' (142.50) '&nbspreturn' (146.25) '\n   ' (123.75) ' =' (116.31) '\n           ' (131.00) '\n          &nbsp...' (135.25) '&nbspif' (107.94) '&nbspThe' (96.75) '&nbspwith' (91.25) '&nbspfrom' (95.94) '\n     ' (122.50) '(' (95.25) '&nbspbetween' (108.50) '\n ' (105.25) ' +' (104.44) '&nbspthat' (82.50) '&nbspon' (85.88)

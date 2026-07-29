@@ -4,7 +4,7 @@
 
 # Get back to why you started teaching
 
-Focus on students instead of planning, prep, and paperwork. US K-12 educators get free access to premium Claude features, like teaching skills and a connection to evidence-based curricula, aligned to state standards.
+Focus on students instead of paperwork. US K-12 educators get free access to premium Claude features, like teaching skills and a connection to evidence-based curricula, aligned to state standards.
 
 Get verified
 
@@ -32,21 +32,21 @@ Ask Claude for a lesson or quiz and it drafts in minutes. You review, adjust, an
 
 You can connect to Learning Commons, which gives Claude access to academic standards across all 50 states and grounds lesson plans in evidence-based curricula.
 
-### Safe with student data
+### Built to protect student data
 
-Privacy is a priority. No model training on your content by default and student data stays protected.
+No model training on your content by default and student data stays protected.
 
 Use current teaching tools
 
 ![thumbnail](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a4ef88e7161b262509a5e17_teachers-tutorial-1.jpg)
-
-[Play video](#)Play video
 
 Claude works across the tools you already use to give you faster, more in depth feedback.
 
 Learn more
 
 [Learn more](https://claude.com/resources/tutorials/claude-for-teachers-in-action)Learn more
+
+[Next](#)Next
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a4ef88e7161b262509a5e17_teachers-tutorial-1.jpg)
 
@@ -114,6 +114,8 @@ Learning Commons
 
 Give Claude context about your class, like reading levels, English language learner status, and specific accommodations. It produces varied materials for students working below, at, and above grade level.
 
+Whether and how educational data may be used in Claude for Teachers is determined by your district and state policies. You can read more about our K-12 data privacy standards for Claude for Teachers [here](https://support.claude.com/en/articles/15926041).
+
 Prompt
 
 Create a 10-question formative assessment for 8th grade science on photosynthesis, aligned to NGSS MS-LS1-6. Include two levels of difficulty and an answer key.
@@ -130,7 +132,7 @@ Brisk Teaching
 
 ## Photosynthesis Check-In
 
-*Formative Assessment · 8th Grade Science  
+*Formative Assessment · 8th Grade Science
 Standard: NGSS MS-LS1-6*
 
 ‍
@@ -419,7 +421,7 @@ Claude connects to trusted curriculum sources so you can build lesson plans grou
 
 Explore connectors
 
-[Explore connectors](/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 AI fluency for pK-12 teachers
 
@@ -429,7 +431,7 @@ Start the course
 
 [Start the course](https://anthropic.skilljar.com/path/ai-fluency-for-pk-12-educators)Start the course
 
-## Safe with student data
+## Secure K-12 workspace
 
 Protecting student data matters. Claude for Teachers is built to meet that bar.
 
@@ -463,7 +465,7 @@ Cut down on repetitive work. Set a task up once and Claude handles it on a sched
 
 Learn more
 
-[Learn more](/product/cowork)Learn more
+[Learn more](https://claude.com/product/cowork)Learn more
 
 ### Claude Design
 
@@ -471,7 +473,7 @@ Turn lesson ideas into polished materials. Describe a handout, slide deck, or wo
 
 Learn more
 
-[Learn more](/product/design)Learn more
+[Learn more](https://claude.com/product/design)Learn more
 
 ### Claude for Chrome
 
@@ -479,7 +481,7 @@ Research anything without copying and pasting: Claude reads pages on the web in 
 
 Learn more
 
-[Learn more](/claude-for-chrome)Learn more
+[Learn more](https://claude.com/claude-for-chrome)Learn more
 
 ### Claude Skills
 
@@ -487,19 +489,19 @@ Lesson planning and differentiation Skills are already built in. But you can fur
 
 Learn more
 
-[Learn more](/skills)Learn more
+[Learn more](https://claude.com/skills)Learn more
 
 Build performance plans
 
 ![thumbnail](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a4ef89311177e5831258f84_teachers-tutorial-2.jpg)
-
-[Play video](#)Play video
 
 Analyze and plan with a holistic view of student performance.
 
 Learn more
 
 [Learn more](https://claude.com/resources/tutorials/claude-for-teachers-in-action)Learn more
+
+[Next](#)Next
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a4ef89311177e5831258f84_teachers-tutorial-2.jpg)
 
@@ -526,6 +528,10 @@ Pull updated reading comprehension questions for a class discussion on some of t
 Ask Claude
 
 [Ask Claude](#)Ask Claude
+
+[Prev](#)Prev
+
+[Next](#)Next
 
 ![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
@@ -557,7 +563,7 @@ Support university students with tools to engage them in deeper critical thinkin
 
 Learn more
 
-[Learn more](/solutions/education)Learn more
+[Learn more](https://claude.com/solutions/education)Learn more
 
 ## Get started with Claude for K-12 educators
 
@@ -576,7 +582,7 @@ Verify now
 
 [Verify now](https://claude.ai/teachers)Verify now
 
-Sign up by June 30, 2027 for your full year of free access. Claude for Teachers is for individual educators—a dedicated offering for schools and districts is coming soon. In the meantime, K-12 schools and districts interested in Claude can continue using [Claude for Nonprofits](https://claude.com/solutions/nonprofits) as they do today.  
+Sign up by June 30, 2027 for your full year of free access. Claude for Teachers is for individual educators—a dedicated offering for schools and districts is coming soon. In the meantime, K-12 schools and districts interested in Claude can continue using [Claude for Nonprofits](https://claude.com/solutions/nonprofits) as they do today.
 \*Extra usage limits apply. Prices shown don’t include applicable tax. Price and plans are subject to change at Anthropic’s discretion.
 
 [Usage limits](https://support.anthropic.com/en/articles/9797557-usage-limit-best-practices) apply. Price and plans are subject to change at Anthropic's discretion.

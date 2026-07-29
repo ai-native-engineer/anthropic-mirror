@@ -149,26 +149,26 @@ When you arrive, the data is there and the candidates are named. The focus call 
 
 ## Related tutorials
 
-[Using Claude Design for prototypes and UX](/resources/tutorials/using-claude-design-for-prototypes-and-ux)Using Claude Design for prototypes and UX
+[Using Claude Design for prototypes and UX](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)Using Claude Design for prototypes and UX
 
 Using Claude Design for prototypes and UX
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-claude-design-for-prototypes-and-ux)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)Tutorial
 
-[Using Claude Design for presentations and slide decks](/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)Using Claude Design for presentations and slide decks
+[Using Claude Design for presentations and slide decks](https://claude.com/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)Using Claude Design for presentations and slide decks
 
 Using Claude Design for presentations and slide decks
 
 Tutorial
 
-[Tutorial](/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)Tutorial
 
-[Claude for Marketing](/resources/tutorials/claude-for-marketing)Claude for Marketing
+[Claude for Marketing](https://claude.com/resources/tutorials/claude-for-marketing)Claude for Marketing
 
 Claude for Marketing
 
 Tutorial
 
-[Tutorial](/resources/tutorials/claude-for-marketing)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/claude-for-marketing)Tutorial

@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![Quantium logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad2a3bc17a074ec7604a_quantium_light.svg)![Quantium logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad33a51ccb23802c611d_quantium_dark.svg)
 
@@ -50,7 +50,7 @@ Give Claude access to your local files and let it complete tasks autonomously. A
 
 Read more
 
-[Read more](/product/cowork)Read more
+[Read more](https://claude.com/product/cowork)Read more
 
 Cowork
 
@@ -122,7 +122,7 @@ Anthropic's agentic coding tool. Claude Code understands your codebase, edits fi
 
 Read more
 
-[Read more](/product/claude-code)Read more
+[Read more](https://claude.com/product/claude-code)Read more
 
 Claude Code
 
@@ -182,34 +182,34 @@ Video caption
 
 ## Related stories
 
-[JAKALA brings production AI agents to enterprise clients across Europe with Claude](/customers/jakala)JAKALA brings production AI agents to enterprise clients across Europe with Claude
+[Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)Caylent turns months of migration work into days with Claude Agent SDK
 
-JAKALA brings production AI agents to enterprise clients across Europe with Claude
-
-Customer story
-
-[Customer story](/customers/jakala)Customer story
-
-[How Brainlabs gave 1k+ marketers at its media agency an AI coworker with Claude Cowork and skills](/customers/brainlabs)How Brainlabs gave 1k+ marketers at its media agency an AI coworker with Claude Cowork and skills
-
-How Brainlabs gave 1k+ marketers at its media agency an AI coworker with Claude Cowork and skills
+Caylent turns months of migration work into days with Claude Agent SDK
 
 Customer story
 
-[Customer story](/customers/brainlabs)Customer story
+[Customer story](https://claude.com/customers/caylent)Customer story
 
-[How PwC trained 400 consultants on Claude Code in a single session](/customers/pwc-qa)How PwC trained 400 consultants on Claude Code in a single session
+[How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)How can a two-person fabrication studio make room for problems it’s never solved before?
 
-How PwC trained 400 consultants on Claude Code in a single session
-
-Customer story
-
-[Customer story](/customers/pwc-qa)Customer story
-
-[TRY accelerates creative excellence with Claude](/customers/try)TRY accelerates creative excellence with Claude
-
-TRY accelerates creative excellence with Claude
+How can a two-person fabrication studio make room for problems it’s never solved before?
 
 Customer story
 
-[Customer story](/customers/try)Customer story
+[Customer story](https://claude.com/customers/bla-studios)Customer story
+
+[LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)LG CNS modernizes 20-year-old enterprise systems with Claude
+
+LG CNS modernizes 20-year-old enterprise systems with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/lg-cns)Customer story
+
+[How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)How Blank Metal, a lean professional services firm, runs on Claude Cowork
+
+How Blank Metal, a lean professional services firm, runs on Claude Cowork
+
+Customer story
+
+[Customer story](https://claude.com/customers/blank-metal-qa)Customer story

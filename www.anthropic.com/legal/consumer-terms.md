@@ -72,8 +72,8 @@ We appreciate feedback, including ideas and suggestions for improvement or ratin
 
 If you purchase access to our Services or features of our Services, you must provide complete and accurate billing information (“**Payment Method**”). You agree that we may charge the Payment Method for any applicable fees listed on our Services and any applicable tax. If the fees for these Services or features are specified to be recurring or based on usage, you agree that we may charge these fees and applicable taxes to the Payment Method on a periodic basis.
 
-If you purchase access to our Services through a distributor (e.g. an app store) (**“App Distributor”**), then you will make payment to the App Distributor, and the App Distributor’s terms in relation to payment methods, billing, and refunds will apply instead of these Terms.  
-  
+If you purchase access to our Services through a distributor (e.g. an app store) (**“App Distributor”**), then you will make payment to the App Distributor, and the App Distributor’s terms in relation to payment methods, billing, and refunds will apply instead of these Terms.
+
 Except as expressly provided in these Terms or where required by law, all payments are non-refundable. Please check your order carefully before confirming it, and see below for additional information about recurring charges for our subscriptions.
 
 **Additional fees.** We may increase fees for our Services. If we charge additional fees in connection with our Services, we will give you an opportunity to review and accept the additional fees before you are charged. Also, additional fees may apply for additional Services or features of the Services that we may make available. If you do not accept any such additional fees, we may discontinue your access to the Services or features.

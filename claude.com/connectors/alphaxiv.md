@@ -10,6 +10,7 @@ Fast search and full-text access over arXiv pre-prints
 * Used in
 
   [Claude](https://claude.ai/directory/fa0fb2e1-c3ba-4486-b576-0881432c5a4e)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [alphaXiv](https://www.alphaxiv.org/)
 
@@ -28,13 +29,13 @@ Fast retrieval (both keyword and embedding search) tools across the millions of 
 
 You can use alphaXiv to:
 
-**Conduct literature reviews:**  
+**Conduct literature reviews:**
 "Give me an in-depth literature review of using RLVR vs Rubrics for training multi-turn retrieval agents"
 
-**Ask grounded research queries:**  
+**Ask grounded research queries:**
 "Should I add a KL penalty to my GRPO loss here?"
 
-**Implement papers:**  
+**Implement papers:**
 "How to implement MaxRL in this codebase"
 
 ## Related connectors
@@ -47,11 +48,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -65,7 +66,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -77,7 +78,7 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
 
 Data
 
@@ -87,8 +88,8 @@ Claude Code
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdf0757d9241e42ce447_Aura.jpg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b2a2eb3325e73b42b98c_icon_Aura.jpg)
 
 ### Aura
 
-Company intelligence & workforce analytics](/connectors/aura)
+Company intelligence & workforce analytics](https://claude.com/connectors/aura)

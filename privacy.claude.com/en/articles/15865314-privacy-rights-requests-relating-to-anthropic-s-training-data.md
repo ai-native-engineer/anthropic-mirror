@@ -2,7 +2,7 @@
 
 # Privacy rights requests relating to Anthropic’s training data
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
 
 *This article is about our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code. For our commercial products such as Claude for Work and the Anthropic API, see [here](https://privacy.anthropic.com/en/collections/10663361-commercial-customers).*
 

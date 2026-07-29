@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-science/run-on-windows-wsl -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Claude Science doesn’t ship a native Windows build yet, but the Linux binary runs well under Windows Subsystem for Linux (WSL 2). Setup takes about five minutes.
 
 ##  Enable WSL
@@ -51,7 +59,11 @@ First launch prints progress to the terminal and ends with a local URL. Copy tha
 claude-science url
 ```
 
-Then sign in with your Claude account and complete the setup wizard as described in [Get started](/docs/claude-science/get-started).
+Then sign in with your Claude account and complete the setup wizard as described in [Get started](https://claude.com/docs/claude-science/get-started).
+
+##  First launch
+
+On first launch, Claude Science sets up its starter Python and R environments and the bundled connectors for scientific databases and tools. On a fresh install this takes several minutes, and longer on a slow connection. While setup runs, some connectors can show a load error; most clear on their own once setup finishes. If a connector’s error says its automatic retries are paused, turn the connector off and on again in **Settings** > **Connectors**, or restart Claude Science (`claude-science stop`, then the `serve` command above), to retry it.
 
 ##  Keep it running
 
@@ -77,5 +89,3 @@ claude-science serve --port 8765 --no-browser --detached
 | `daemon already running on port 8765` | Claude Science is already running. Run `claude-science url` and open the printed link; there’s no need to start it again. |
 | `port 8765 is already in use` | A different program holds that port. Pick another with `--port 8080`. |
 | The browser can’t reach `localhost:8765` | Confirm the daemon is still running in WSL. If you use a custom `.wslconfig` network mode, try the WSL address (run `hostname -I` inside Ubuntu) instead of `localhost`. |
-
-[Get started](/docs/claude-science/get-started)[Core concepts](/docs/claude-science/core-concepts)

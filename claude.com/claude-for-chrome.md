@@ -62,7 +62,7 @@ Pair Claude for Chrome with Cowork to turn web research into polished content. C
               dig_deeper();
               connect_dots(unexpected);
 
-              if (stuck) {         
+              if (stuck) {
                 keep_thinking();
               }
             }
@@ -150,7 +150,7 @@ Pair Claude for Chrome with Cowork to turn research and action on the web into p
 
 See what Cowork can do
 
-[See what Cowork can do](/product/cowork)See what Cowork can do
+[See what Cowork can do](https://claude.com/product/cowork)See what Cowork can do
 
 ### Chrome
 

@@ -7,11 +7,12 @@ Build and manage websites with Flint's AI website builder through natural conver
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Flint](https://tryflint.com)
 * Installs
 
-  1065
+  1071
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -23,9 +24,9 @@ The plugin runs background agents that make changes to your Flint-managed sites,
 
 **How to use:** After installing, authenticate via `/mcp` and select "Authenticate" for Flint. Then make requests conversationally or use the skill directly:
 
-`/flint:edit-site Add a pricing page with three tiers to my site`  
-`Update the hero section to say 'Welcome to the Future'`  
-`Add a contact form with name, email, and message fields`  
+`/flint:edit-site Add a pricing page with three tiers to my site`
+`Update the hero section to say 'Welcome to the Future'`
+`Add a contact form with name, email, and message fields`
 `Publish my site`
 
 For best results, describe your goals and intent rather than technical specifics — Flint excels when given creative freedom. You can also provide code examples or reference materials, and state specific constraints when you have them like colors or layout preferences.
@@ -38,17 +39,17 @@ Craft production-grade frontends with distinctive design. Generates polished cod
 
 Anthropic verified
 
-948012
+1110438
 
-installs](/plugins/frontend-design)
+installs](https://claude.com/plugins/frontend-design)
 
 [### Superpowers
 
 Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
 
-855112
+987572
 
-installs](/plugins/superpowers)
+installs](https://claude.com/plugins/superpowers)
 
 [### Code Review
 
@@ -56,14 +57,14 @@ AI code review with specialized agents and confidence-based filtering for pull r
 
 Anthropic verified
 
-383892
+430450
 
-installs](/plugins/code-review)
+installs](https://claude.com/plugins/code-review)
 
 [### Context7
 
 Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
 
-377529
+412076
 
-installs](/plugins/context7)
+installs](https://claude.com/plugins/context7)

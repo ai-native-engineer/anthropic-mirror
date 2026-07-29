@@ -1,6 +1,8 @@
+<!-- source: https://platform.claude.com/docs/en/api/cli/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/cli/beta -->
 
 <!-- chunk-start -->
+
                   - `media_type: "application/pdf"`
 
                   - `type: "base64"`
@@ -37338,4 +37340,3 @@ Stream Session Thread Events
       - `"event_start"`
 
   - `beta_managed_agents_delta_event: object { delta, event_id, type }`
-

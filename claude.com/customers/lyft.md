@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69df9bdf814b30f55161a777_lyft-logo.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69df9bdf814b30f55161a777_lyft-logo.svg)
 
@@ -44,7 +44,7 @@ Build AI support agents with a more human touch and transform your customer expe
 
 Read more
 
-[Read more](/solutions/customer-support)Read more
+[Read more](https://claude.com/solutions/customer-support)Read more
 
 Customer support
 

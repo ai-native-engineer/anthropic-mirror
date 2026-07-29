@@ -2,9 +2,7 @@
 
 # Covered Models
 
-Updated over a week ago
-
-**Update June 12:** We've suspended access to Claude Fable 5 and Claude Mythos 5. **[Learn more here](https://anthropic.com/news/fable-mythos-access)**.
+Updated over 4 weeks ago
 
 Anthropic may designate certain models as “Covered Models” when they cross capability thresholds that warrant additional safeguards or other treatment. This page lists the models currently designated as Covered Models and describes the data handling, privacy, and access policies that apply to them.
 
@@ -21,8 +19,8 @@ Anthropic may designate certain models as "Covered Models" when their capabiliti
 |  |  |  |  |
 | --- | --- | --- | --- |
 | **Model** | **Designation date** | **Status** | **Availability** |
-| Claude Mythos 5 | June 9, 2026    June 12, 2026 | Limited availability    Suspended access (**[More](https://www.anthropic.com/news/fable-mythos-access)**.) | Limited access (approved partners) |
-| Claude Fable 5 | June 9, 2026    June 12, 2026 | Generally available    Suspended access (**[More](https://www.anthropic.com/news/fable-mythos-access)**.) | Claude applications, Claude Platform, Amazon Bedrock, Google Cloud Agent Platform, Microsoft Foundry |
+| Claude Mythos 5 | June 9, 2026 | Limited availability | Limited access (approved partners) |
+| Claude Fable 5 | June 9, 2026 | Generally available | Claude applications, Claude Platform, Amazon Bedrock, Google Cloud Agent Platform, Microsoft Foundry |
 
 *We will update this list as new models are designated or as existing designations change.*
 
@@ -53,4 +51,8 @@ The following policies apply to every Covered Model listed above, on every platf
 * **Enablement.** Contact your Anthropic account team to inquire about limited-availability models or grants or our security and privacy controls.
 * **BAA customers.** If your organization uses Anthropic’s HIPAA-ready services under a Business Associate Agreement (BAA), see **[Covered Models under Anthropic’s BAA](https://support.claude.com/en/articles/15455031)** for which configurations can access Covered Models as Eligible Services.
 
-[Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)[HIPAA-ready Enterprise plans](https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans)[Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)[Data retention practices for Mythos-class models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-mythos-class-models)[Covered Models under a Business Associate Agreement (BAA)](https://support.claude.com/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa)
+* [Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
+* [HIPAA-ready Enterprise plans](https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans)
+* [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
+* [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
+* [Covered Models under a Business Associate Agreement (BAA)](https://support.claude.com/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa)

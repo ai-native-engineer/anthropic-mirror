@@ -2,7 +2,7 @@
 
 # Claude Enterprise Admin API reference guide
 
-Updated yesterday
+June 24, 2026
 
 This guide covers **spend limits** and **spend limit increase requests** for your Claude Enterprise organization using the Claude Enterprise Admin API. Spend limits let you cap each member's usage credit spending over a recurring period, see where each member's limit is inherited from, and review or act on members' requests for a higher limit.
 
@@ -146,15 +146,15 @@ By default, Anthropic emails the member when their request is approved or denied
 A configured limit at one scope level.
 
 ```
-{  
-  "type": "spend_limit",  
-  "id": "spl_01AbCdEfGhIjKlMnOpQrSt",  
-  "created_at": "2026-05-01T12:00:00Z",  
-  "updated_at": "2026-05-03T09:14:11Z",  
-  "scope": { "type": "user", "user_id": "user_01AbCdEfGh" },  
-  "amount": "50000",  
-  "currency": "USD",  
-  "period": "monthly"  
+{
+  "type": "spend_limit",
+  "id": "spl_01AbCdEfGhIjKlMnOpQrSt",
+  "created_at": "2026-05-01T12:00:00Z",
+  "updated_at": "2026-05-03T09:14:11Z",
+  "scope": { "type": "user", "user_id": "user_01AbCdEfGh" },
+  "amount": "50000",
+  "currency": "USD",
+  "period": "monthly"
 }
 ```
 
@@ -175,14 +175,14 @@ A configured limit at one scope level.
 A computed per-member report row: the member's effective limit, where it came from, and their period-to-date spend. Not an addressable resource (no `id`).
 
 ```
-{  
-  "scope": { "type": "user", "user_id": "user_01AbCdEfGh" },  
-  "amount": "50000",  
-  "currency": "USD",  
-  "period": "monthly",  
-  "source": { "type": "seat_tier", "seat_tier": "enterprise_standard" },  
-  "spend_limit_id": "spl_01XyZaBcDeFgHiJkLmNoPq",  
-  "period_to_date_spend": "31402.5"  
+{
+  "scope": { "type": "user", "user_id": "user_01AbCdEfGh" },
+  "amount": "50000",
+  "currency": "USD",
+  "period": "monthly",
+  "source": { "type": "seat_tier", "seat_tier": "enterprise_standard" },
+  "spend_limit_id": "spl_01XyZaBcDeFgHiJkLmNoPq",
+  "period_to_date_spend": "31402.5"
 }
 ```
 
@@ -200,28 +200,28 @@ A computed per-member report row: the member's effective limit, where it came fr
 ## The SpendLimitIncreaseRequest object
 
 ```
-{  
-  "type": "spend_limit_increase_request",  
-  "id": "slir_01AbCdEfGhIjKlMnOpQrSt",  
-  "created_at": "2026-05-04T16:22:09Z",  
-  "status": "pending",  
-  "resolved_at": null,  
-  "resolved_by": null,  
-  "actor": {  
-    "type": "user_actor",  
-    "user_id": "user_01AbCdEfGh",  
-    "name": "Jane Smith",  
-    "email_address": "[email protected]"  
-  },  
-  "spend_summary": {  
-    "scope": { "type": "user", "user_id": "user_01AbCdEfGh" },  
-    "amount": "50000",  
-    "currency": "USD",  
-    "period": "monthly",  
-    "source": { "type": "seat_tier", "seat_tier": "enterprise_standard" },  
-    "spend_limit_id": "spl_01XyZaBcDeFgHiJkLmNoPq",  
-    "period_to_date_spend": "48900"  
-  }  
+{
+  "type": "spend_limit_increase_request",
+  "id": "slir_01AbCdEfGhIjKlMnOpQrSt",
+  "created_at": "2026-05-04T16:22:09Z",
+  "status": "pending",
+  "resolved_at": null,
+  "resolved_by": null,
+  "actor": {
+    "type": "user_actor",
+    "user_id": "user_01AbCdEfGh",
+    "name": "Jane Smith",
+    "email_address": "[email protected]"
+  },
+  "spend_summary": {
+    "scope": { "type": "user", "user_id": "user_01AbCdEfGh" },
+    "amount": "50000",
+    "currency": "USD",
+    "period": "monthly",
+    "source": { "type": "seat_tier", "seat_tier": "enterprise_standard" },
+    "spend_limit_id": "spl_01XyZaBcDeFgHiJkLmNoPq",
+    "period_to_date_spend": "48900"
+  }
 }
 ```
 
@@ -280,26 +280,26 @@ Requires scope: `read:spend_limits.`
 #### Example request
 
 ```
-curl "https://api.anthropic.com/v1/organizations/spend_limits/effective?limit=20" \  
+curl "https://api.anthropic.com/v1/organizations/spend_limits/effective?limit=20" \
   -H "x-api-key: $ANTHROPIC_ADMIN_KEY"
 ```
 
 #### Example response
 
 ```
-{  
-  "data": [  
-    {  
-      "scope": { "type": "user", "user_id": "user_01AbCdEfGh" },  
-      "amount": "50000",  
-      "currency": "USD",  
-      "period": "monthly",  
-      "source": { "type": "seat_tier", "seat_tier": "enterprise_standard" },  
-      "spend_limit_id": "spl_01XyZaBcDeFgHiJkLmNoPq",  
-      "period_to_date_spend": "31402.5"  
-    }  
-  ],  
-  "next_page": "page_..."  
+{
+  "data": [
+    {
+      "scope": { "type": "user", "user_id": "user_01AbCdEfGh" },
+      "amount": "50000",
+      "currency": "USD",
+      "period": "monthly",
+      "source": { "type": "seat_tier", "seat_tier": "enterprise_standard" },
+      "spend_limit_id": "spl_01XyZaBcDeFgHiJkLmNoPq",
+      "period_to_date_spend": "31402.5"
+    }
+  ],
+  "next_page": "page_..."
 }
 ```
 
@@ -341,7 +341,7 @@ A SpendLimit object.
 #### Example request
 
 ```
-curl "https://api.anthropic.com/v1/organizations/spend_limits/spl_01AbCdEfGhIjKlMnOpQrSt" \  
+curl "https://api.anthropic.com/v1/organizations/spend_limits/spl_01AbCdEfGhIjKlMnOpQrSt" \
   -H "x-api-key: $ANTHROPIC_ADMIN_KEY"
 ```
 
@@ -384,24 +384,24 @@ A SpendLimit object reflecting the written override.
 #### Example request
 
 ```
-curl -X POST "https://api.anthropic.com/v1/organizations/spend_limits" \  
-  -H "x-api-key: $ANTHROPIC_ADMIN_KEY" \  
-  -H "content-type: application/json" \  
+curl -X POST "https://api.anthropic.com/v1/organizations/spend_limits" \
+  -H "x-api-key: $ANTHROPIC_ADMIN_KEY" \
+  -H "content-type: application/json" \
   -d '{"scope": {"type": "user", "user_id": "user_01AbCdEfGh"}, "amount": "75000"}'
 ```
 
 #### Example response
 
 ```
-{  
-  "type": "spend_limit",  
-  "id": "spl_01RsTuVwXyZaBcDeFgHiJk",  
-  "created_at": "2026-05-11T10:02:44Z",  
-  "updated_at": "2026-05-11T10:02:44Z",  
-  "scope": { "type": "user", "user_id": "user_01AbCdEfGh" },  
-  "amount": "75000",  
-  "currency": "USD",  
-  "period": "monthly"  
+{
+  "type": "spend_limit",
+  "id": "spl_01RsTuVwXyZaBcDeFgHiJk",
+  "created_at": "2026-05-11T10:02:44Z",
+  "updated_at": "2026-05-11T10:02:44Z",
+  "scope": { "type": "user", "user_id": "user_01AbCdEfGh" },
+  "amount": "75000",
+  "currency": "USD",
+  "period": "monthly"
 }
 ```
 
@@ -444,7 +444,7 @@ Requires scope: `write:spend_limits`.
 #### Example request
 
 ```
-curl -X DELETE "https://api.anthropic.com/v1/organizations/spend_limits/spl_01RsTuVwXyZaBcDeFgHiJk" \  
+curl -X DELETE "https://api.anthropic.com/v1/organizations/spend_limits/spl_01RsTuVwXyZaBcDeFgHiJk" \
   -H "x-api-key: $ANTHROPIC_ADMIN_KEY"
 ```
 
@@ -493,40 +493,40 @@ Requires scope: `read:spend_limits`.
 #### Example request
 
 ```
-curl "https://api.anthropic.com/v1/organizations/spend_limit_increase_requests?status[]=pending&limit=50" \  
+curl "https://api.anthropic.com/v1/organizations/spend_limit_increase_requests?status[]=pending&limit=50" \
   -H "x-api-key: $ANTHROPIC_ADMIN_KEY"
 ```
 
 #### Example response
 
 ```
-{  
-  "data": [  
-    {  
-      "type": "spend_limit_increase_request",  
-      "id": "slir_01AbCdEfGhIjKlMnOpQrSt",  
-      "created_at": "2026-05-04T16:22:09Z",  
-      "status": "pending",  
-      "resolved_at": null,  
-      "resolved_by": null,  
-      "actor": {  
-        "type": "user_actor",  
-        "user_id": "user_01AbCdEfGh",  
-        "name": "Jane Smith",  
-        "email_address": "[email protected]"  
-      },  
-      "spend_summary": {  
-        "scope": { "type": "user", "user_id": "user_01AbCdEfGh" },  
-        "amount": "50000",  
-        "currency": "USD",  
-        "period": "monthly",  
-        "source": { "type": "seat_tier", "seat_tier": "enterprise_standard" },  
-        "spend_limit_id": "spl_01XyZaBcDeFgHiJkLmNoPq",  
-        "period_to_date_spend": "48900"  
-      }  
-    }  
-  ],  
-  "next_page": null  
+{
+  "data": [
+    {
+      "type": "spend_limit_increase_request",
+      "id": "slir_01AbCdEfGhIjKlMnOpQrSt",
+      "created_at": "2026-05-04T16:22:09Z",
+      "status": "pending",
+      "resolved_at": null,
+      "resolved_by": null,
+      "actor": {
+        "type": "user_actor",
+        "user_id": "user_01AbCdEfGh",
+        "name": "Jane Smith",
+        "email_address": "[email protected]"
+      },
+      "spend_summary": {
+        "scope": { "type": "user", "user_id": "user_01AbCdEfGh" },
+        "amount": "50000",
+        "currency": "USD",
+        "period": "monthly",
+        "source": { "type": "seat_tier", "seat_tier": "enterprise_standard" },
+        "spend_limit_id": "spl_01XyZaBcDeFgHiJkLmNoPq",
+        "period_to_date_spend": "48900"
+      }
+    }
+  ],
+  "next_page": null
 }
 ```
 
@@ -567,7 +567,7 @@ A SpendLimitIncreaseRequest object.
 #### Example request
 
 ```
-curl "https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/slir_01AbCdEfGhIjKlMnOpQrSt" \  
+curl "https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/slir_01AbCdEfGhIjKlMnOpQrSt" \
   -H "x-api-key: $ANTHROPIC_ADMIN_KEY"
 ```
 
@@ -614,42 +614,42 @@ The SpendLimitIncreaseRequest in status `approved`, with an additional `spend_li
 #### Example request
 
 ```
-curl -X POST "https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/slir_01AbCdEfGhIjKlMnOpQrSt/approve" \  
-  -H "x-api-key: $ANTHROPIC_ADMIN_KEY" \  
-  -H "content-type: application/json" \  
+curl -X POST "https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/slir_01AbCdEfGhIjKlMnOpQrSt/approve" \
+  -H "x-api-key: $ANTHROPIC_ADMIN_KEY" \
+  -H "content-type: application/json" \
   -d '{"amount": "75000", "suppress_notification": true}'
 ```
 
 #### Example response
 
 ```
-{  
-  "type": "spend_limit_increase_request",  
-  "id": "slir_01AbCdEfGhIjKlMnOpQrSt",  
-  "created_at": "2026-05-04T16:22:09Z",  
-  "status": "approved",  
-  "resolved_at": "2026-05-11T10:05:02Z",  
-  "resolved_by": {  
-    "type": "scoped_api_key_actor",  
-    "scoped_api_key_id": "apikey_01ZyXwVuTsRqPoNmLkJiHg"  
-  },  
-  "actor": {  
-    "type": "user_actor",  
-    "user_id": "user_01AbCdEfGh",  
-    "name": "Jane Smith",  
-    "email_address": "[email protected]"  
-  },  
-  "spend_summary": null,  
-  "spend_limit": {  
-    "type": "spend_limit",  
-    "id": "spl_01RsTuVwXyZaBcDeFgHiJk",  
-    "created_at": "2026-05-11T10:05:02Z",  
-    "updated_at": "2026-05-11T10:05:02Z",  
-    "scope": { "type": "user", "user_id": "user_01AbCdEfGh" },  
-    "amount": "75000",  
-    "currency": "USD",  
-    "period": "monthly"  
-  }  
+{
+  "type": "spend_limit_increase_request",
+  "id": "slir_01AbCdEfGhIjKlMnOpQrSt",
+  "created_at": "2026-05-04T16:22:09Z",
+  "status": "approved",
+  "resolved_at": "2026-05-11T10:05:02Z",
+  "resolved_by": {
+    "type": "scoped_api_key_actor",
+    "scoped_api_key_id": "apikey_01ZyXwVuTsRqPoNmLkJiHg"
+  },
+  "actor": {
+    "type": "user_actor",
+    "user_id": "user_01AbCdEfGh",
+    "name": "Jane Smith",
+    "email_address": "[email protected]"
+  },
+  "spend_summary": null,
+  "spend_limit": {
+    "type": "spend_limit",
+    "id": "spl_01RsTuVwXyZaBcDeFgHiJk",
+    "created_at": "2026-05-11T10:05:02Z",
+    "updated_at": "2026-05-11T10:05:02Z",
+    "scope": { "type": "user", "user_id": "user_01AbCdEfGh" },
+    "amount": "75000",
+    "currency": "USD",
+    "period": "monthly"
+  }
 }
 ```
 
@@ -697,9 +697,9 @@ A SpendLimitIncreaseRequest in status denied.
 #### Example request
 
 ```
-curl -X POST "https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/slir_01AbCdEfGhIjKlMnOpQrSt/deny" \  
-  -H "x-api-key: $ANTHROPIC_ADMIN_KEY" \  
-  -H "content-type: application/json" \  
+curl -X POST "https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/slir_01AbCdEfGhIjKlMnOpQrSt/deny" \
+  -H "x-api-key: $ANTHROPIC_ADMIN_KEY" \
+  -H "content-type: application/json" \
   -d '{"suppress_notification": true}'
 ```
 
@@ -715,4 +715,8 @@ curl -X POST "https://api.anthropic.com/v1/organizations/spend_limit_increase_re
 | Organization is not on an Enterprise plan | 400 | `this endpoint is not supported for this organization type` |
 | Usage credits not enabled | 400 | `overage billing is not enabled for this organization` |
 
-[Creating and managing Workspaces in the Claude Console](https://support.claude.com/en/articles/9796807-creating-and-managing-workspaces-in-the-claude-console)[Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)[Enterprise configuration for Claude Desktop](https://support.claude.com/en/articles/12622667-enterprise-configuration-for-claude-desktop)[Claude Design admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans)[Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)
+* [Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)
+* [Enterprise configuration for Claude Desktop](https://support.claude.com/en/articles/12622667-enterprise-configuration-for-claude-desktop)
+* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
+* [Claude Design admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans)
+* [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)

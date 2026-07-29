@@ -9,6 +9,7 @@ Build, Ship and Secure your apps on Harness Platform
 * Used in
 
   [Claude](https://claude.ai/directory/b98c06f8-3945-46ff-a81d-14233c0bc9a6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Harness.io](https://www.harness.io)
 
@@ -21,19 +22,19 @@ Build, Ship and Secure your apps on Harness Platform
   Read & write
 * More
 
-  [Documentation](https://github.com/harness/mcp-server)[Privacy Policy](https://www.harness.io/legal/privacy)[support@harness.io](mailto:support@harness.io)
+  [Documentation](https://github.com/harness/mcp-server)[Privacy Policy](https://www.harness.io/legal/privacy)[Support](mailto:support@harness.io)
 
 Ask Claude to ship a build, trace a failed deployment, toggle a feature flag, or check cloud costs. It acts directly on Harness, no tab switching required. Numerous resource types across CI/CD, GitOps, security, and FinOps, all through conversation.
 
 You can use Harness to:
 
-**Ship a build:**  
+**Ship a build:**
 "Trigger the staging deploy for the api-gateway pipeline"
 
-**Trace a failure:**  
+**Trace a failure:**
 "Why did the last prod deployment fail?"
 
-**Check costs:**  
+**Check costs:**
 "What's our cloud spend this month vs last?"
 
 ## Related connectors
@@ -48,17 +49,17 @@ January 26, 2026
 
 ### AWS Marketplace
 
-Discover, evaluate, and buy solutions for the cloud](/connectors/aws-marketplace)
+Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
 Claude
 
 March 9, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69acdf17420ea818c8dd6df3_only%20icon%20vector%20(1).svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dab482d8b581739e57a7_icon_Base44.jpg)
 
 ### Base44
 
-Build and manage Base44 apps](/connectors/base44)
+Build and manage Base44 apps](https://claude.com/connectors/base44)
 
 Claude
 
@@ -66,11 +67,11 @@ Claude Code
 
 March 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a5cd3d14699b00ee21b969_clerk.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dfa6bc4ff18a740c59aa_icon_Clerk.jpg)
 
 ### Clerk
 
-Add authentication, organizations, and billing](/connectors/clerk)
+Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Claude
 
@@ -84,4 +85,4 @@ February 11, 2026
 
 ### Cloudflare
 
-Build applications with compute, storage, and AI](/connectors/cloudflare)
+Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)

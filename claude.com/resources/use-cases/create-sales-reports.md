@@ -186,7 +186,7 @@ Connect your CRM, describe the information you need to display, and let Claude h
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a869bed4d79bcb158854e_Screenshot%202025-11-04%20at%203.04.55%E2%80%AFPM.png)
 
@@ -196,26 +196,26 @@ Open artifact in new window
 
 ## Related use cases
 
-[Create a sales proposal presentation](/resources/use-cases/create-a-sales-proposal-presentation)Create a sales proposal presentation
+[Create a sales proposal presentation](https://claude.com/resources/use-cases/create-a-sales-proposal-presentation)Create a sales proposal presentation
 
 Create a sales proposal presentation
 
 Use case
 
-[Use case](/resources/use-cases/create-a-sales-proposal-presentation)Use case
+[Use case](https://claude.com/resources/use-cases/create-a-sales-proposal-presentation)Use case
 
-[Prepare for sales deals](/resources/use-cases/prepare-for-sales-deals)Prepare for sales deals
+[Prepare for sales deals](https://claude.com/resources/use-cases/prepare-for-sales-deals)Prepare for sales deals
 
 Prepare for sales deals
 
 Use case
 
-[Use case](/resources/use-cases/prepare-for-sales-deals)Use case
+[Use case](https://claude.com/resources/use-cases/prepare-for-sales-deals)Use case
 
-[Build a battle card library](/resources/use-cases/build-a-battle-card-library)Build a battle card library
+[Build a battle card library](https://claude.com/resources/use-cases/build-a-battle-card-library)Build a battle card library
 
 Build a battle card library
 
 Use case
 
-[Use case](/resources/use-cases/build-a-battle-card-library)Use case
+[Use case](https://claude.com/resources/use-cases/build-a-battle-card-library)Use case

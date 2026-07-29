@@ -6,12 +6,11 @@
 
 Natural language access to Signals electronic notebook
 
-* Category
-
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/0bdf51f6-dd5d-40b8-854d-1bd2825cefe9)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Revvity Signals](https://revvitysignals.com)
 
@@ -30,13 +29,13 @@ Connect Claude.AI assistants to the Revvity Signals scientific intelligence plat
 
 You can use Revvity Signals AI to:
 
-**Search notebook entries:**  
+**Search notebook entries:**
 "Find all experiments in my Signals notebook related to compound synthesis from last month"
 
-**Summarize results:**  
+**Summarize results:**
 "Summarize the assay results recorded in notebook entry NB-2024-117"
 
-**Cross-reference data:**  
+**Cross-reference data:**
 "Which notebook entries reference the same reagent lot as experiment EXP-4412?"
 
 ## Related connectors
@@ -53,7 +52,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -67,7 +66,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Life sciences and healthcare
 
@@ -81,7 +80,7 @@ February 11, 2026
 
 ### Benchling
 
-Connect to R&D data, source experiments, and notebooks](/connectors/benchling)
+Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
 
 Life sciences and healthcare
 
@@ -95,4 +94,4 @@ June 30, 2026
 
 ### Biomni Lab
 
-Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](/connectors/biomni-lab)
+Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)

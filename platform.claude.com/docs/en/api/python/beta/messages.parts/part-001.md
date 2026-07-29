@@ -1,3 +1,4 @@
+<!-- source: https://platform.claude.com/docs/en/api/python/beta/messages -->
 <!-- part of: https://platform.claude.com/docs/en/api/python/beta/messages -->
 
 <!-- chunk-start -->
@@ -36791,4 +36792,3 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-

@@ -42,7 +42,7 @@ These capabilities make it easy to produce professional documents by simply chat
 
 To give Claude access to external data sources, toggle **Allow network egress** on:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2054774005/25bcfffba6c249cd128d6c3f6d52/CleanShot+2026-02-11+at+16_34_47%402x.png?expires=1782459900&signature=53832cc9613dede5f61398786b47eed51bd4e6fb21a05689966e1b960990b7be&req=diAiEs55mYFfXPMW1HO4zYFJyw9BCZDHPQVowIiib2m%2FOBWroowVCwv7Lbqg%0AY8lWYzTrmEIyGjrAh4k%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2054774005/25bcfffba6c249cd128d6c3f6d52/CleanShot+2026-02-11+at+16_34_47%402x.png?expires=1782459900&signature=53832cc9613dede5f61398786b47eed51bd4e6fb21a05689966e1b960990b7be&req=diAiEs55mYFfXPMW1HO4zYFJyw9BCZDHPQVowIiib2m%2FOBWroowVCwv7Lbqg%0AY8lWYzTrmEIyGjrAh4k%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2054774005/25bcfffba6c249cd128d6c3f6d52/CleanShot+2026-02-11+at+16_34_47%402x.png?expires=1785295800&signature=ee46c36c5ed8cd1ea87e43f703dddea2377e469d434990f83f0267af94bb559e&req=diAiEs55mYFfXPMW1HO4zYFJywhHBZzGPQVowIiib2kSh8k%2Bo90NzDd%2ByXfg%0AfJQu5D32UzPH0gqWk6k%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2054774005/25bcfffba6c249cd128d6c3f6d52/CleanShot+2026-02-11+at+16_34_47%402x.png?expires=1785295800&signature=ee46c36c5ed8cd1ea87e43f703dddea2377e469d434990f83f0267af94bb559e&req=diAiEs55mYFfXPMW1HO4zYFJywhHBZzGPQVowIiib2kSh8k%2Bo90NzDd%2ByXfg%0AfJQu5D32UzPH0gqWk6k%3D%0A)
 
 ### Enabling on Claude Mobile
 
@@ -56,11 +56,11 @@ Team and Enterprise organization owners can control network access settings in *
 * **Allow network egress to package managers only (default):** Claude can access approved package managers (npm, PyPI, GitHub, etc.) to install necessary software packages. This balances functionality with security, but some advanced features may be limited.
 * **Allow network egress to package managers and specific domains:** Claude can access package managers plus additional domains you specify. Add domains individually to whitelist specific resources your organization needs:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945362/ad72504d5429960f369b8b91b43c/86f06c0e-6eaa-4574-a4cb-2c38b273613a?expires=1782459900&signature=f50c14f4f38b5dc28f6082a2d362ae8ba00725dd7a8af08267e7735ff0dd0779&req=dScvH8B6mIJZW%2FMW1HO4zXJcBm9HkCBCpMW6Iph6YZd2GxoIrPjxnqAvvDLu%0AzdN560ckdmNfG%2BbKBj0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945362/ad72504d5429960f369b8b91b43c/86f06c0e-6eaa-4574-a4cb-2c38b273613a?expires=1782459900&signature=f50c14f4f38b5dc28f6082a2d362ae8ba00725dd7a8af08267e7735ff0dd0779&req=dScvH8B6mIJZW%2FMW1HO4zXJcBm9HkCBCpMW6Iph6YZd2GxoIrPjxnqAvvDLu%0AzdN560ckdmNfG%2BbKBj0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945362/ad72504d5429960f369b8b91b43c/86f06c0e-6eaa-4574-a4cb-2c38b273613a?expires=1785295800&signature=35547dea77f6c4cdcc48b1e168e513a5892ed6b67493df1c48d6de68cbdd83d2&req=dScvH8B6mIJZW%2FMW1HO4zXJcBmhBnCxDpMW6Iph6YZc%2F1rqKjzlTnroGvlNM%0ASDEVfbLawf5wp3BZscU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945362/ad72504d5429960f369b8b91b43c/86f06c0e-6eaa-4574-a4cb-2c38b273613a?expires=1785295800&signature=35547dea77f6c4cdcc48b1e168e513a5892ed6b67493df1c48d6de68cbdd83d2&req=dScvH8B6mIJZW%2FMW1HO4zXJcBmhBnCxDpMW6Iph6YZc%2F1rqKjzlTnroGvlNM%0ASDEVfbLawf5wp3BZscU%3D%0A)
 
 **All domains:** Claude has full internet access except for domains on Anthropic's legal blocklist. While this provides maximum flexibility for file creation and analysis tasks, it’s also the riskiest option. Please review the **[security considerations below](#h_0ee9d698a1)** before enabling “All domains”:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945361/e3188cb8edb9ca7c303615da6378/f1c99a7d-5956-48d5-9ec7-b7ae6c8c3d28?expires=1782459900&signature=746b74fa3bf1451817911301ad1ad6b6b87efa2f78a05439d072caabae59c948&req=dScvH8B6mIJZWPMW1HO4zdnseBaW6zarqgKIA6CM1toCMJlCKBjhdz41xd4y%0As%2FFV4kTWWbmKHFMuZXE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945361/e3188cb8edb9ca7c303615da6378/f1c99a7d-5956-48d5-9ec7-b7ae6c8c3d28?expires=1782459900&signature=746b74fa3bf1451817911301ad1ad6b6b87efa2f78a05439d072caabae59c948&req=dScvH8B6mIJZWPMW1HO4zdnseBaW6zarqgKIA6CM1toCMJlCKBjhdz41xd4y%0As%2FFV4kTWWbmKHFMuZXE%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945361/e3188cb8edb9ca7c303615da6378/f1c99a7d-5956-48d5-9ec7-b7ae6c8c3d28?expires=1785295800&signature=37d740a68ad1b0c21e065ec591afd3cc1887d129128a00e4c600058ee5b3ab9b&req=dScvH8B6mIJZWPMW1HO4zdnseBGQ5zqqqgKIA6CM1tqHIPn3HdOaQlfUEzUw%0AF1TwFOPkFwrRN9gYy44%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945361/e3188cb8edb9ca7c303615da6378/f1c99a7d-5956-48d5-9ec7-b7ae6c8c3d28?expires=1785295800&signature=37d740a68ad1b0c21e065ec591afd3cc1887d129128a00e4c600058ee5b3ab9b&req=dScvH8B6mIJZWPMW1HO4zdnseBGQ5zqqqgKIA6CM1tqHIPn3HdOaQlfUEzUw%0AF1TwFOPkFwrRN9gYy44%3D%0A)
 
 ## How does disabling network access address security concerns with code execution and file creation?
 
@@ -193,7 +193,7 @@ When network access is enabled, Claude can access the following approved domains
 Generate spreadsheets with working formulas and calculations by describing your needs. Try:
 
 ```
-Create a monthly budget tracker with income, expenses categories, and   
+Create a monthly budget tracker with income, expenses categories, and
 automatic calculations for savings.
 ```
 
@@ -204,7 +204,7 @@ Claude will produce an Excel file with proper formulas, formatting, and even cha
 Combine data analysis with document creation by providing your information and requirements. Try:
 
 ```
-Create a quarterly sales report using this CSV data, including trend   
+Create a quarterly sales report using this CSV data, including trend
 analysis and recommendations.
 ```
 
@@ -231,7 +231,7 @@ Claude can even support workflows requiring multiple file format conversions. Fo
 Upload a PDF containing tables or forms and ask Claude to extract the information. Try:
 
 ```
-Extract all the data from this PDF into an Excel spreadsheet and create a   
+Extract all the data from this PDF into an Excel spreadsheet and create a
 summary chart.
 ```
 
@@ -263,4 +263,8 @@ File creation is supported on Claude for iOS and Android. Note that when you tap
 
 Yes you are still able to create artifacts (e.g., HTML or react apps, markdown documents, mermaid diagrams, SVGs) with file creation on. Claude now uses the computing environment to create artifacts so the user experience may look slightly different than users are used to. Please report any issues or feedback using the thumbs up/down functionality when chatting with Claude.
 
-[Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)[Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)[Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)[Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)[Claude Cowork desktop architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-desktop-architecture-overview)
+* [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)
+* [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
+* [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
+* [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
+* [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)

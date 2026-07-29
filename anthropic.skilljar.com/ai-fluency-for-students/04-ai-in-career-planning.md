@@ -1,5 +1,21 @@
 <!-- https://anthropic.skilljar.com/ai-fluency-for-students/326793 -->
 
+Anthropic
+
+Open in Claude
+
+
+
+Anthropic
+
+Open in Claude
+
+Ask questions about this course
+
+Copy notes
+
+Copy full course notes for LLMs
+
 *Estimated time: 55 minutes*
 
 ## What you'll learn
@@ -74,7 +90,9 @@ Now practice this systematic CV/resume improvement workflow:
 * Provide a specific job spec (either an opportunity you are currently targeting or one representative of your general target)
 * Ask the AI to
 
-+ Analyze the job spec: What skills, experiences, etc are they looking for? Given the general role, are there other criteria that are not mentioned but are relevant. + Analyze your CV/resume **in the context of this particular job spec** + Provide a specific to-do list of improvements for you to consider. Get the AI to focus on what's missing, what's unclear, and what doesn't align with the role.
++ Analyze the job spec: What skills, experiences, etc are they looking for? Given the general role, are there other criteria that are not mentioned but are relevant.
++ Analyze your CV/resume **in the context of this particular job spec**
++ Provide a specific to-do list of improvements for you to consider. Get the AI to focus on what's missing, what's unclear, and what doesn't align with the role.
 
 * Discuss these analyses and to-do list to make sure you understand them all - YOU are applying for this job, not the AI
 
@@ -102,11 +120,15 @@ Now practice this systematic CV/resume improvement workflow:
 * Then get the AI to ask you these questions, referencing details from your CV/resume when appropriate.
 * Important: Specify you want the AI to:
 
-+ ask only one question at a time, and to wait for an answer + ask at most one follow up question if needed and wait for an answer + Then to move on to the next question
++ ask only one question at a time, and to wait for an answer
++ ask at most one follow up question if needed and wait for an answer
++ Then to move on to the next question
 
 * Answer each question as if in a real interview
 
-+ Try to include specific examples from your experience + Bonus: practice explaining any AI-assisted projects honestly - flex your AI Fluency + Focus on demonstrating understanding, not just reciting prepared answers
++ Try to include specific examples from your experience
++ Bonus: practice explaining any AI-assisted projects honestly - flex your AI Fluency
++ Focus on demonstrating understanding, not just reciting prepared answers
 
 * At the end, ask the AI to critique each of your answers in terms of content, clarity, style and relevance
 
@@ -129,7 +151,6 @@ As you progress through the course, we'd love to hear from you about how you are
 #### Acknowledgements
 
 *Copyright 2025 Rick Dakan, Joseph Feller, and Anthropic. Released under the CC BY-NC-SA 4.0 license. This course is based on The AI Fluency Framework by Dakan and Feller.Supported in part by the Higher Education Authority, Ireland, through the National Forum for the Enhancement of Teaching and Learning.*
-
 <!-- youtube: XFVBp3eQnuQ -->
 
 [![AI In Career Planning](https://img.youtube.com/vi/XFVBp3eQnuQ/hqdefault.jpg)](https://www.youtube.com/watch?v=XFVBp3eQnuQ)

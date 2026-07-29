@@ -1,6 +1,8 @@
+<!-- source: https://platform.claude.com/docs/en/api/python/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/python/beta -->
 
 <!-- chunk-start -->
+
     - `"mcp-client-2025-11-20"`
 
     - `"dev-full-thinking-2025-05-14"`

@@ -1,6 +1,8 @@
+<!-- source: https://platform.claude.com/docs/en/api/compliance/activities -->
 <!-- part of: https://platform.claude.com/docs/en/api/compliance/activities -->
 
 <!-- chunk-start -->
+
       Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
 
     - `type: optional "claude_project_document_deleted"`
@@ -38866,4 +38868,3 @@ curl https://api.anthropic.com/v1/compliance/activities \
     - `federation_issuer_id: string`
 
       Tagged ID of the updated issuer
-

@@ -2,6 +2,8 @@
 
 # Understanding your billing address and tax calculation
 
+June 26, 2026
+
 Your billing address determines how taxes are calculated on your Claude purchases. This address should represent the primary place of business receiving the product.
 
 ## How billing addresses work by plan type
@@ -14,7 +16,7 @@ Your billing address is automatically set to match your payment method's billing
 
 You can update your billing address directly in Settings → Billing → Billing Addresses. Changes take effect immediately for future invoices.
 
-### API (usage tier 1-4 / self-serve)
+### API (usage tiers / self-serve)
 
 Your billing address is tied to your payment method. Update your payment method by navigating to [Settings > Billing in the Claude Console](https://platform.claude.com/settings/billing) and clicking the pencil icon to the right of your current card number to change your billing address.
 
@@ -31,4 +33,8 @@ If you need a billing address that differs from your payment method address, con
 
 Once verified, your billing address won't automatically update when you change payment methods.
 
-[How do I pay for my Claude API usage?](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage)[Add or update your paid Claude account’s tax or VAT ID](https://support.claude.com/en/articles/9889408-add-or-update-your-paid-claude-account-s-tax-or-vat-id)[Add or update your Claude Console organization's tax or VAT ID](https://support.claude.com/en/articles/9889428-add-or-update-your-claude-console-organization-s-tax-or-vat-id)[Add or update your Team plan's tax or VAT ID](https://support.claude.com/en/articles/9927624-add-or-update-your-team-plan-s-tax-or-vat-id)[Team plan billing FAQs](https://support.claude.com/en/articles/12997503-team-plan-billing-faqs)
+* [Paid plan billing FAQs](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs)
+* [Add or update your paid Claude account’s tax or VAT ID](https://support.claude.com/en/articles/9889408-add-or-update-your-paid-claude-account-s-tax-or-vat-id)
+* [Add or update your Claude Console organization's tax or VAT ID](https://support.claude.com/en/articles/9889428-add-or-update-your-claude-console-organization-s-tax-or-vat-id)
+* [Add or update your Team plan's tax or VAT ID](https://support.claude.com/en/articles/9927624-add-or-update-your-team-plan-s-tax-or-vat-id)
+* [Team plan billing FAQs](https://support.claude.com/en/articles/12997503-team-plan-billing-faqs)

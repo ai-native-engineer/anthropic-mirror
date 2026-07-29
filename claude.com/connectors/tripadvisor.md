@@ -10,6 +10,7 @@ Find your perfect hotel based on Tripadvisor reviews
 * Used in
 
   [Claude](https://claude.ai/directory/1ddc28c1-c1f8-4894-9a85-f6dc8add9c89)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Tripadvisor](https://www.tripadvisor.com)
 
@@ -24,19 +25,19 @@ Find your perfect hotel based on Tripadvisor reviews
   Interactive
 * More
 
-  [Documentation](https://www.tripadvisor.com)[Privacy Policy](https://tripadvisor.mediaroom.com/US-privacy-policy-2019)[TripadvisorDataSupport@tripadvisor.com](mailto:TripadvisorDataSupport@tripadvisor.com)
+  [Documentation](https://www.tripadvisor.com)[Privacy Policy](https://tripadvisor.mediaroom.com/US-privacy-policy-2019)[Support](mailto:TripadvisorDataSupport@tripadvisor.com)
 
 This server provides tools to query the Tripadvisor hotels data, with functions to search for hotels in an area and to retrieve hotel details, photos, reviews, review ratings, availability, pricing, and nearby points of interest. It should be invoked for user queries involving hotel research, comparison, rating checks, or gathering contextual data about a hotel's surroundings (e.g., attractions, amenities). The tools operate on specific Tripadvisor location or hotel IDs; follow-up requests should re-use these identifiers to refine results accurately. The model must handle edge cases like ambiguous location names (e.g., "Springfield") by seeking clarification before executing a search. This tool's primary function is to ground accommodation planning in factual, real-time data along with opinions from other travelers.
 
 You can use Tripadvisor to:
 
-**Find a hotel:**  
+**Find a hotel:**
 "Find the highest-rated boutique hotels in Kyoto for under $250/night"
 
-**Compare stays:**  
+**Compare stays:**
 "Compare the top 3 family resorts in Maui based on traveler reviews"
 
-**Dig into details:**  
+**Dig into details:**
 "What do recent reviews say about breakfast and Wi-Fi at Hotel Artemide in Rome?"
 
 ## Related connectors
@@ -49,11 +50,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -67,7 +68,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -77,11 +78,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -91,8 +92,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

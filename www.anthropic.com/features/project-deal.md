@@ -152,10 +152,10 @@ This ol' cowboy's got some art to share!
 
 Details:
 
-- Size: About 2ft x 2ft   
-- Medium: Spray paint on cardboard   
-- Colors: Orange and brown   
-- Style: Handmade jack o' lantern   
+- Size: About 2ft x 2ft
+- Medium: Spray paint on cardboard
+- Colors: Orange and brown
+- Style: Handmade jack o' lantern
 - Condition: Good!
 
 This here's an original piece I made myself!

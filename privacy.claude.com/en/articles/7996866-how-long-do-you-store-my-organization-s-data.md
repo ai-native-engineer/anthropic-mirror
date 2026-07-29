@@ -2,7 +2,7 @@
 
 # How long do you store my organization’s data?
 
-Updated over 3 weeks ago
+Updated over 4 weeks ago
 
 *This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see* *[here](https://privacy.anthropic.com/en/articles/10023548-how-long-do-you-store-personal-data).*
 

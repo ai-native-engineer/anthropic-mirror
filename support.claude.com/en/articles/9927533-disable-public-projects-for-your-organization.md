@@ -2,6 +2,8 @@
 
 # Disable public projects for your organization
 
+March 16, 2026
+
 This feature is available to Primary Owners and Owners on Team and Enterprise plans.
 
 Disabling the public project feature allows Team and Enterprise owners to restrict the creation of public projects across their organization while maintaining internal sharing capabilities.
@@ -11,7 +13,7 @@ Follow these steps:
 1. Navigate to **[Organization settings > Data and privacy](https://claude.ai/admin-settings/data-privacy-controls)**.
 2. Find **Public projects** and toggle it off
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053902291/8c39d1a79dedc97411eed54dec5c/CleanShot+2026-02-11+at+11_25_34%402x.png?expires=1782460800&signature=110b58b5cebf13eb63c9faa44f152b55d597ec0787ae10cb08bebc05ae418d16&req=diAiFcB%2Bn4NWWPMW1HO4zfGib2WgbQBXYabJlVJ9VPyGIRCYZFGZhmwJTjda%0A%2FJA3JMoGTdaTIu2AMlQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053902291/8c39d1a79dedc97411eed54dec5c/CleanShot+2026-02-11+at+11_25_34%402x.png?expires=1782460800&signature=110b58b5cebf13eb63c9faa44f152b55d597ec0787ae10cb08bebc05ae418d16&req=diAiFcB%2Bn4NWWPMW1HO4zfGib2WgbQBXYabJlVJ9VPyGIRCYZFGZhmwJTjda%0A%2FJA3JMoGTdaTIu2AMlQ%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053902291/8c39d1a79dedc97411eed54dec5c/CleanShot+2026-02-11+at+11_25_34%402x.png?expires=1785295800&signature=5040bd7c70561959580994e75e360e72f6e1a8a1fdb9ec5b800442d880e3fbc3&req=diAiFcB%2Bn4NWWPMW1HO4zfGib2KmYgVXYabJlVJ9VPz18EM5yINtJr3zzIy%2B%0ANwp3rimit9uCoW7%2BKOE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053902291/8c39d1a79dedc97411eed54dec5c/CleanShot+2026-02-11+at+11_25_34%402x.png?expires=1785295800&signature=5040bd7c70561959580994e75e360e72f6e1a8a1fdb9ec5b800442d880e3fbc3&req=diAiFcB%2Bn4NWWPMW1HO4zfGib2KmYgVXYabJlVJ9VPz18EM5yINtJr3zzIy%2B%0ANwp3rimit9uCoW7%2BKOE%3D%0A)
 
 ## How does disabling public projects work?
 
@@ -41,4 +43,8 @@ If you choose to re-enable public projects after disabling them:
 * Users will regain the ability to create new public projects.
 * Internal sharing settings and permissions will remain unchanged.
 
-[What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects)[Manage project visibility and sharing](https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing)[What happens to a user's data when they are removed from a Team or Enterprise organization?](https://support.claude.com/en/articles/12053672-what-happens-to-a-user-s-data-when-they-are-removed-from-a-team-or-enterprise-organization)[Use enterprise search](https://support.claude.com/en/articles/12489464-use-enterprise-search)[Migrate your organization from Team to Enterprise](https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise)
+* [What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects)
+* [Manage project visibility and sharing](https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing)
+* [What happens to a user's data when they are removed from a Team or Enterprise organization?](https://support.claude.com/en/articles/12053672-what-happens-to-a-user-s-data-when-they-are-removed-from-a-team-or-enterprise-organization)
+* [Use enterprise search](https://support.claude.com/en/articles/12489464-use-enterprise-search)
+* [Migrate your organization from Team to Enterprise](https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise)

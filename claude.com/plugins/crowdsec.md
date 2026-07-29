@@ -4,7 +4,13 @@
 
 Operational skill for installing, configuring, operating, and debugging CrowdSec (cscli, LAPI/CAPI, hub, bouncers, WA...
 
+* Install in
+
+  [Claude Code](#)
+* Made by
+
   [CrowdSec](https://www.crowdsec.net)
+* Installs
 
   5
 
@@ -17,3 +23,41 @@ An operational skill that turns Claude into a hands-on CrowdSec operator. Instal
 The skill automatically detects your environment, verifies you're running an up-to-date version from the official repository, and routes your requests to the right operational workflow. It enforces safety confirmations before destructive operations like purging all decisions or mutating firewall state. Covers troubleshooting for parsing failures, missing alerts, and blocking issues with structured diagnostic steps.
 
 **How to use:** Simply describe what you need in natural language. Try prompts like `"Install CrowdSec and set up the nginx bouncer"`, `"Enroll my Kubernetes cluster in the CrowdSec Console"`, `"Enable the WAF/AppSec component for my web app"`, `"Why isn't CrowdSec detecting SSH brute-force attacks?"`, `"Migrate my fail2ban setup to CrowdSec"`, or `"Check CrowdSec health and show me current metrics"`.
+
+## Related plugins
+
+[### Frontend Design
+
+Craft production-grade frontends with distinctive design. Generates polished code that avoids generic AI aesthetics.
+
+Anthropic verified
+
+1110438
+
+installs](https://claude.com/plugins/frontend-design)
+
+[### Superpowers
+
+Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
+
+987572
+
+installs](https://claude.com/plugins/superpowers)
+
+[### Code Review
+
+AI code review with specialized agents and confidence-based filtering for pull requests
+
+Anthropic verified
+
+430450
+
+installs](https://claude.com/plugins/code-review)
+
+[### Context7
+
+Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
+
+412076
+
+installs](https://claude.com/plugins/context7)

@@ -10,6 +10,7 @@ Get answers from unified feedback of your customers.
 * Used in
 
   [Claude](https://claude.ai/directory/ce5cb342-4965-4ab1-b725-48ba06b72bbc)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Enterpret Inc](https://enterpret.com)
 
@@ -22,16 +23,16 @@ Get answers from unified feedback of your customers.
   Read
 * More
 
-  [Documentation](https://helpcenter.enterpret.com/en/articles/12665166-wisdom-mcp-server)[Privacy Policy](https://www.enterpret.com/privacy-commitment)[integrations@enterpret.com](mailto:integrations@enterpret.com)
+  [Documentation](https://helpcenter.enterpret.com/en/articles/12665166-wisdom-mcp-server)[Privacy Policy](https://www.enterpret.com/privacy-commitment)[Support](mailto:integrations@enterpret.com)
 
 Turn customer feedback into answers you can act on, directly in Claude. Query your Enterpret knowledge graph across support tickets, Gong calls, app reviews, NPS surveys, Slack, and more. Every insight is traced back to real customer conversations with direct links. Just ask a question in plain language. No query language or setup needed.
 
 You can use Enterpret to:
 
-**Ask a question:**  
+**Ask a question:**
 "What can you help me do with Enterpret?"
 
-**Explore your data:**  
+**Explore your data:**
 "Summarize the most recent activity in Enterpret."
 
 ## Related connectors
@@ -44,11 +45,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Data
 
@@ -62,7 +63,7 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)
 
 Data
 
@@ -76,7 +77,7 @@ June 22, 2026
 
 ### alphaXiv
 
-Fast search and full-text access over arXiv pre-prints](/connectors/alphaxiv)
+Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
 
 Data
 
@@ -88,4 +89,4 @@ February 3, 2026
 
 ### Amplitude
 
-Give your teams powerful behavioral insights](/connectors/amplitude)
+Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)

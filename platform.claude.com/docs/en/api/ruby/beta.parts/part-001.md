@@ -1,3 +1,4 @@
+<!-- source: https://platform.claude.com/docs/en/api/ruby/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/ruby/beta -->
 
 <!-- chunk-start -->
@@ -39107,4 +39108,3 @@ puts(beta_message_batch_individual_response)
               Tool invocation directly from the model.
 
               - `class BetaDirectCaller`
-

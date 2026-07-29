@@ -2,7 +2,9 @@
 
 # Law Enforcement Requests
 
-Anthropic PBC discloses account records solely in accordance with our Terms of Service and applicable law. For more information about Anthropic’s policies for handling governmental requests for user information, see [here](https://support.anthropic.com/en/articles/9519291-what-is-anthropic-s-policy-for-handling-governmental-requests-for-user-information). If you are a law enforcement agent who is authorized to gather evidence in connection with an official investigation, you may request records from Anthropic by emailing [[email protected]](mailto:law-enforcement-requests@anthropic.com).
+March 16, 2026
+
+Anthropic PBC discloses account records solely in accordance with our Terms of Service and applicable law. For more information about Anthropic’s policies for handling governmental requests for user information, see [here](https://support.anthropic.com/en/articles/9519291-what-is-anthropic-s-policy-for-handling-governmental-requests-for-user-information). If you are a law enforcement agent who is authorized to gather evidence in connection with an official investigation, you may request records from Anthropic by emailing [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#bfd3dec892dad1d9d0cddcdad2dad1cb92cddacecadacccbccffded1cbd7cdd0cfd6dc91dcd0d2).
 
 Please include the following information with your request:
 
@@ -20,4 +22,8 @@ Please include the following information with your request:
 * Attach Any Relevant Documentation (e.g., Subpoena, Warrant)
 * NCMEC Report Identifier (If Applicable)
 
-[I think a user is infringing my copyright or other intellectual property. How do I report it?](https://support.claude.com/en/articles/10023646-i-think-a-user-is-infringing-my-copyright-or-other-intellectual-property-how-do-i-report-it)[Claude 4 Invite Sweepstakes Official Rules](https://support.claude.com/en/articles/11140763-claude-4-invite-sweepstakes-official-rules)[Online Safety Contacts](https://support.claude.com/en/articles/11174660-online-safety-contacts)[Unauthorized Anthropic stock sales and investment scams](https://support.claude.com/en/articles/13704655-unauthorized-anthropic-stock-sales-and-investment-scams)[Child safety guidance for developers](https://support.claude.com/en/articles/15591275-child-safety-guidance-for-developers)
+* [I think a user is infringing my copyright or other intellectual property. How do I report it?](https://support.claude.com/en/articles/10023646-i-think-a-user-is-infringing-my-copyright-or-other-intellectual-property-how-do-i-report-it)
+* [Claude 4 Invite Sweepstakes Official Rules](https://support.claude.com/en/articles/11140763-claude-4-invite-sweepstakes-official-rules)
+* [Online Safety Contacts](https://support.claude.com/en/articles/11174660-online-safety-contacts)
+* [Unauthorized Anthropic stock sales and investment scams](https://support.claude.com/en/articles/13704655-unauthorized-anthropic-stock-sales-and-investment-scams)
+* [Child safety guidance for developers](https://support.claude.com/en/articles/15591275-child-safety-guidance-for-developers)

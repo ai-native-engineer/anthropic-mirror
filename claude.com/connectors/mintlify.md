@@ -10,6 +10,7 @@ Search, read, and edit your documentation
 * Used in
 
   [Claude](https://claude.ai/directory/b66b1fcc-a173-4cc4-8060-a7cf0e971a9c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Mintlify](https://mintlify.com)
 
@@ -22,22 +23,22 @@ Search, read, and edit your documentation
   Read & write
 * More
 
-  [Documentation](https://www.mintlify.com/docs/ai/mintlify-mcp)[Privacy Policy](https://mintlify.com/legal/privacy)[support@mintlify.com](mailto:support@mintlify.com)
+  [Documentation](https://www.mintlify.com/docs/ai/mintlify-mcp)[Privacy Policy](https://mintlify.com/legal/privacy)[Support](mailto:support@mintlify.com)
 
 Connect Mintlify to Claude to keep your documentation accurate and up to date without leaving your conversations. Claude can search across every page, read and edit content directly, and ship changes. Perfect for fixing outdated pages after a product change, reorganizing sections as your product grows, or drafting new content alongside the code it documents.
 
 You can use Mintlify to:
 
-**Keep docs in sync with code:**  
+**Keep docs in sync with code:**
 "Update the API reference for the /v2/users endpoint to match the new schema in this PR."
 
-**Draft new pages from specs:**  
+**Draft new pages from specs:**
 "Read the spec at this URL and create a guide under /tutorials/ explaining how to set up custom domains."
 
-**Triage support into a docs fix:**  
+**Triage support into a docs fix:**
 "This ticket says the OAuth setup section confused a user. Read /quickstart and /authentication, rewrite the steps with concrete examples, and submit as a PR."
 
-**Batch content fixes:**  
+**Batch content fixes:**
 "Replace every instance of 'API key' with 'access token' across the docs."
 
 ## Related connectors
@@ -50,11 +51,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -68,7 +69,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -78,11 +79,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -92,8 +93,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

@@ -2,9 +2,7 @@
 
 # What are skills?
 
-Updated over 3 weeks ago
-
-**Important:** Styles are migrating to skills. For more information on this change, refer to **[Styles are moving to skills](https://support.claude.com/en/articles/10181068-styles-are-moving-to-skills)**.
+Updated over 2 weeks ago
 
 Skills are folders of instructions, scripts, and resources that Claude loads dynamically to improve performance on specialized tasks. Skills teach Claude how to complete specific tasks in a repeatable way, whether that's creating documents with your company's brand guidelines, analyzing data using your organization's specific workflows, or automating personal tasks.
 
@@ -81,4 +79,8 @@ To discover available skills, check out the directory by clicking "Customize" in
 
 For more details about how skills work, see **[Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)** in our Claude Docs.
 
-[Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)[How to create custom skills](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)[Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy)[Install financial services plugins](https://support.claude.com/en/articles/13851150-install-financial-services-plugins)[Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
+* [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
+* [How to create custom skills](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)
+* [Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy)
+* [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)
+* [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)

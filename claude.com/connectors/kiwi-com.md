@@ -10,6 +10,7 @@ Search flights in Claude
 * Used in
 
   [Claude](https://claude.ai/directory/01c311c4-53cb-452a-90a8-1d524c9b97d6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Kiwi.com](https://kiwi.com/)
 
@@ -24,8 +25,8 @@ Search flights in Claude
 
   [Documentation](https://mcp-install-instructions.alpic.cloud/servers/kiwi-com-flight-search)[Privacy Policy](https://www.kiwi.com/en/pages/content/privacy/)[Support](https://www.kiwi.com/us/help/contact/)
 
-Brings flight search directly into Claude. The Kiwi connector supports one-way/round-trip, flexible dates, multiple passengers, all cabin classes. Works with Claude and Claude Desktop.  
-  
+Brings flight search directly into Claude. The Kiwi connector supports one-way/round-trip, flexible dates, multiple passengers, all cabin classes. Works with Claude and Claude Desktop.
+
 You can use the Kiwi connector to:
 
 Find Last-Minute Weekend Getaways: **‍**"Find cheap flights this weekend from Vienna to somewhere warm, under €150"

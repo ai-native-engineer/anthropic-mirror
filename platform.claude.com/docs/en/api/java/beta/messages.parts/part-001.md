@@ -1,3 +1,4 @@
+<!-- source: https://platform.claude.com/docs/en/api/java/beta/messages -->
 <!-- part of: https://platform.claude.com/docs/en/api/java/beta/messages -->
 
 <!-- chunk-start -->
@@ -35463,4 +35464,3 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               What caused the `from` model to hand over at this hop.
 
               - `Optional<Category> category`
-

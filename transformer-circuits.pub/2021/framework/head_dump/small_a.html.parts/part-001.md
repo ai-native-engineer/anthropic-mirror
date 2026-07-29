@@ -1,3 +1,4 @@
+<!-- source: https://transformer-circuits.pub/2021/framework/head_dump/small_a.html -->
 <!-- part of: https://transformer-circuits.pub/2021/framework/head_dump/small_a.html -->
 
 <!-- chunk-start -->
@@ -9107,4 +9108,3 @@ occur in the future context, and thus more likely to end up attending back to th
 ['\r\n     '](#head-0-7-tok-6133)
 
 '):' (199.50) ':' (127.06) ']:' (182.38) '){' (138.25) '">' (141.25) ']):' (213.88) ' {' (121.31) '":' (127.94) "'):" (202.88) '():' (173.88) '"):' (209.75) ')):' (201.12) "']:" (213.38) '"]:' (188.88) "')):" (206.38) ' ):' (159.50) ' :' (100.25) "':" (118.00) '()):' (182.88) ' "":' (177.88)
-

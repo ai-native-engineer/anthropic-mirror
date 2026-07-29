@@ -1,6 +1,8 @@
+<!-- source: https://platform.claude.com/docs/en/api/java/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/java/beta -->
 
 <!-- chunk-start -->
+
 Each line in the file is a JSON object containing the result of a single request in the Message Batch. Results are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
 Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
@@ -39299,4 +39301,3 @@ Delete Session Resource
     - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
 
     - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
-

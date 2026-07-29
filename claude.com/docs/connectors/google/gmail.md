@@ -1,8 +1,24 @@
 <!-- source: https://claude.com/docs/connectors/google/gmail -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 The Gmail integration enables Claude to search your emails and provide answers based on your email content, reducing time spent retrieving information.
 
-Available on Pro, Max, Team, and Enterprise plans. All Claude integrations are currently in beta.
+Available on Pro, Max, Team, and Enterprise plans.
+
+##  Connect Gmail
+
+1. In claude.ai, go to **Settings > Connectors**.
+2. Find Gmail and click **Connect**.
+3. Sign in to your Google account and grant the requested permissions.
+
+On Team and Enterprise plans, an Owner or Primary Owner must enable the integration for your organization before it appears in your connector list. For the full walkthrough, including troubleshooting, see [Get started with connectors](https://claude.com/docs/connectors/getting-started).
 
 ##  How to use Gmail integration
 
@@ -63,5 +79,3 @@ Access your calendar information.
 ## Google Drive
 
 Connect your documents.
-
-[Google Drive integration](/docs/connectors/google/drive)[Google Calendar integration](/docs/connectors/google/calendar)

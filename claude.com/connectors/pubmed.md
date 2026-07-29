@@ -12,6 +12,7 @@ Search biomedical literature from PubMed
 * Used in
 
   [Claude](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](https://support.claude.com/en/articles/12614801-using-the-pubmed-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Anthropic](https://anthropic.com)
 
@@ -28,15 +29,15 @@ Search biomedical literature from PubMed
 
 Provides access to PubMed's biomedical citations and PubMed Central's full-text archive. Search articles, retrieve metadata and abstracts, access full-text content (when available in PMC), find related research, and more.
 
-You can use the PubMed connector to:  
-  
-Search recent publications:  
+You can use the PubMed connector to:
+
+Search recent publications:
 "How many cancer research articles have been published this month?"
 
-Summarize research papers:  
+Summarize research papers:
 "Summarize the research paper 'Nucleoporin-mediated regulation of cell identity genes'"
 
-Query scientific mechanisms:  
+Query scientific mechanisms:
 "What is known about the mechanisms of DNA repair including the roles of Rad51 and Brca1 in PubMed?"
 
 ## Related connectors
@@ -53,7 +54,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -67,7 +68,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Life sciences and healthcare
 
@@ -81,7 +82,7 @@ February 11, 2026
 
 ### Benchling
 
-Connect to R&D data, source experiments, and notebooks](/connectors/benchling)
+Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
 
 Life sciences and healthcare
 
@@ -89,10 +90,10 @@ Claude
 
 Claude Code
 
-February 11, 2026
+June 30, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe5cecad201acb193aa2_BioRender.jpg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43716940e4a2c2f530fb2c_biomni.jpeg)
 
-### BioRender
+### Biomni Lab
 
-Search for and use scientific templates and icons](/connectors/biorender)
+Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)

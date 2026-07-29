@@ -29,10 +29,10 @@ Explore several examples of how Claude can be used by human resources teams.
 
 ## Related tutorials
 
-[How to use Claude in Excel for HR: Headcount planning](/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)How to use Claude in Excel for HR: Headcount planning
+[How to use Claude in Excel for HR: Headcount planning](https://claude.com/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)How to use Claude in Excel for HR: Headcount planning
 
 How to use Claude in Excel for HR: Headcount planning
 
 Tutorial
 
-[Tutorial](/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)Tutorial
+[Tutorial](https://claude.com/resources/tutorials/how-to-use-claude-in-excel-for-hr-headcount-planning)Tutorial

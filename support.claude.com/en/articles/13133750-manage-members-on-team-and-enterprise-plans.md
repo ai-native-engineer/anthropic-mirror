@@ -2,11 +2,11 @@
 
 # Manage members on Team and Enterprise plans
 
-April 23, 2026
+Updated over 2 weeks ago
 
 This guide covers how to add, remove, and manage the people on your Team or Enterprise plan.
 
-**Permissions note:** Organization Admins can manage members in **[Organization settings > Members](http://claude.ai/admin-settings/members)**, but only Owners and Primary Owners can access [**Organization**](https://claude.ai/admin-settings/organization) **[settings > Billing](https://claude.ai/admin-settings/billing)**. For more information, see our article about [**roles and permissions**](https://support.claude.com/en/articles/9267276-roles-and-permissions).
+**Permissions note:** Organization Admins can manage members in **[Organization settings > Members](http://claude.ai/admin-settings/members)**, but only Owners and Primary Owners can access **[Organization](https://claude.ai/admin-settings/organization) [settings > Billing](https://claude.ai/admin-settings/billing)**. For more information, see our article about **[roles and permissions](https://support.claude.com/en/articles/9267276-roles-and-permissions)**.
 
 For information on purchasing seats or adjusting your plan's seat allocation, see our guides for **[Team plans](https://support.claude.com/en/articles/12004354-purchasing-and-managing-seats)** and **[Enterprise plans](https://support.claude.com/en/articles/13393991-purchasing-and-managing-seats-on-enterprise-plans)**.
 
@@ -18,19 +18,19 @@ For information on purchasing seats or adjusting your plan's seat allocation, se
 
 Admins and above can add members by following these steps:
 
-1. Navigate to**[Organization settings > Members](http://claude.ai/admin-settings/members)** and click “Add member.”
+1. Navigate to **[Organization settings > Members](http://claude.ai/admin-settings/members)** and click “Add member.”
 2. Enter the person's email address (it must use one of your organization's **[allowed email domains](https://support.claude.com/en/articles/13325567-account-management-faqs#h_b54c41c86c)**).
 3. Select the appropriate seat type.
 4. Set the role and permissions for the member.
 
-   1. **Note:** On Enterprise plans, you can also select “Custom roles” as a member’s role. Members set to this role have their access controlled through group memberships and custom roles. For additional details, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)**.
+   1. **Note:** On Enterprise plans, you can also select “Custom” as a member’s role. Members set to this role have their access controlled through group memberships and custom roles. To see exactly what a custom role member can access, open the “**⋮**” menu on the right side of their row and select "View effective role." For details, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)**.
 5. Click “Add members.”
 
 This sends an email invitation to the person. The invitation expires after 21 days, so you'll need to re-invite them if they don't accept within that time period.
 
 **Add multiple members at once:** You can invite multiple members by clicking "Bulk add" and typing or pasting email addresses separated by commas or new lines.
 
-**Note:** If you don't have an available seat of the selected type, you'll be prompted to purchase one. See our guides for **[Team plans](https://support.claude.com/en/articles/12004354-purchasing-and-managing-seats)** and **[Enterprise plans](https://support.claude.com/en/articles/13393991-purchasing-and-managing-seats-on-enterprise-plans)** for more information.
+**Note:** The seat type selector only shows seat types your plan already owns. If all seats of the selected type are assigned, you'll be prompted to purchase one. See our guides for **[Team plans](https://support.claude.com/en/articles/12004354)** and **[Enterprise plans](https://support.claude.com/en/articles/13393991)** for more information.
 
 ### Add members via organization discovery
 
@@ -46,7 +46,7 @@ Admins and above can generate a shareable invite link and distribute it to teamm
 * **Enterprise plans (non-SSO):** Invite links are disabled by default. Admins can enable them in **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)**.
 * **SSO organizations:** Invite links are not available. Member provisioning is managed through your Identity Provider.
 
-To find and copy your invite link, navigate to [**Organization settings > Organization and access**](https://claude.ai/admin-settings/organization). New members who join via link are assigned to the lowest available seat tier, defaulting to a standard seat if none are available.
+To find and copy your invite link, navigate to **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)**. New members who join via link are assigned to the lowest available seat tier, defaulting to a standard seat if none are available.
 
 Admins can disable the link at any time—this immediately invalidates all existing links. Regenerating the link also invalidates the previous one.
 
@@ -83,8 +83,6 @@ Invites sent by members follow the same domain restrictions as other join method
 
 Admins can enable or disable member-to-member invites from the admin settings. When disabled, only admins can send invitations. Invitees added through member invites are assigned the default member role and placed in the lowest available seat tier.
 
-##
-
 ## Remove members
 
 You can remove a member by navigating to **[Organization settings > Members](http://claude.ai/admin-settings/members)**, clicking the menu button to the right of the member, then selecting "Remove from team."
@@ -109,20 +107,19 @@ The export includes member details such as name, email address, role, and seat t
 
 To export:
 
-1. Navigate to**[Organization settings > Members](http://claude.ai/admin-settings/members)**.
-2. Find the **Members** section.
-3. Click the "Export CSV" button.
-4. A CSV file will download to your device.
+1. Navigate to **[Organization settings > Members](http://claude.ai/admin-settings/members)**.
+2. Click the "Export CSV" button at the top of the **Members** section.
+3. A CSV file will download to your device.
 
 ## Manage invitations
 
 ### Resend an expired invitation
 
-You can resend an invite from**[Organization settings > Members](http://claude.ai/admin-settings/members)**. Click the “Pending” tab, find the member, and select to resend the invite.
+You can resend an invite from **[Organization settings > Members](http://claude.ai/admin-settings/members)**. Click the “Pending” tab, find the member, and select to resend the invite.
 
 ### Revoke a pending invitation
 
-You can revoke a pending invite from**[Organization settings > Members](http://claude.ai/admin-settings/members)**. Click the “Pending” tab, find the member, and select "Remove from team."
+You can revoke a pending invite from **[Organization settings > Members](http://claude.ai/admin-settings/members)**. Click the “Pending” tab, find the member, and select "Remove from team."
 
 ## Frequently asked questions
 
@@ -138,7 +135,7 @@ To add a member that you previously removed, follow the same steps as adding a n
 
 The current Primary Owner can transfer ownership by:
 
-1. Navigate to**[Organization settings > Members](http://claude.ai/admin-settings/members)**.
+1. Navigate to **[Organization settings > Members](http://claude.ai/admin-settings/members)**.
 2. Click the Role dropdown next to the new user and select "Primary Owner."
 3. Type the new Primary Owner's email address in the modal to confirm and transfer ownership.
 
@@ -148,4 +145,8 @@ The current Primary Owner can transfer ownership by:
 
 When Anthropic provides a new Enterprise organization and invites the Primary Owner, the same 21-day expiration period applies to that initial invitation. If your invitation has expired, please reach out to your account manager.
 
-[Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)[Purchase and manage seats on Enterprise plans](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans)[Find and join a Team or Enterprise organization](https://support.claude.com/en/articles/13566435-find-and-join-a-team-or-enterprise-organization)[Migrate your organization from Team to Enterprise](https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise)
+* [Roles and permissions](https://support.claude.com/en/articles/9267276-roles-and-permissions)
+* [Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)
+* [Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)
+* [Purchase and manage seats on Enterprise plans](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans)
+* [Find and join a Team or Enterprise organization](https://support.claude.com/en/articles/13566435-find-and-join-a-team-or-enterprise-organization)

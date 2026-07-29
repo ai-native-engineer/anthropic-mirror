@@ -10,6 +10,7 @@ SEO & AI search analytics
 * Used in
 
   [Claude](https://claude.ai/directory/098cb32a-ba21-4770-97dd-78bb54655419)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Ahrefs Pte. Ltd.](https://ahrefs.com/)
 
@@ -22,22 +23,22 @@ SEO & AI search analytics
   Read
 * More
 
-  [Documentation](https://docs.ahrefs.com/docs/mcp/reference/introduction)[Privacy Policy](https://ahrefs.com/legal/privacy-policy)[support@ahrefs.com](mailto:support@ahrefs.com)
+  [Documentation](https://docs.ahrefs.com/docs/mcp/reference/introduction)[Privacy Policy](https://ahrefs.com/legal/privacy-policy)[Support](mailto:support@ahrefs.com)
 
 Research keywords, analyze backlinks, track rankings, and monitor brand visibility across traditional search and AI platforms. Discover keyword opportunities, compare competitor performance, audit link profiles, and measure share of voice in LLM responses. Claude combines multiple Ahrefs analyses in a single conversation — asking clarifying questions, cross-referencing data points, and turning complex SEO metrics into actionable insights.
 
 You can use Ahrefs to:
 
-**Keyword Research:**  
+**Keyword Research:**
 "Find high-volume, low-competition keywords for my tech blog"
 
-**Competitor Analysis:**  
+**Competitor Analysis:**
 "Show me my competitors' top-performing pages and their backlink profiles"
 
-**Backlink Analysis:**  
+**Backlink Analysis:**
 "Analyze my website's backlink quality and find link-building opportunities"
 
-**AI Search Monitoring:**  
+**AI Search Monitoring:**
 "Track how often my brand is mentioned in AI responses and who gets cited"
 
 ## Related connectors
@@ -54,7 +55,7 @@ January 26, 2026
 
 ### ActiveCampaign
 
-Autonomous marketing to transform how you work](/connectors/activecampaign)
+Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
 
 Sales and marketing
 
@@ -64,11 +65,11 @@ Claude Code
 
 June 2, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1d129f2351bec1d8462bd9_actively.ai.png)
+[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
 
 ### Actively
 
-1:1 account agents for GTM teams](/connectors/actively)
+1:1 account agents for GTM teams](https://claude.com/connectors/actively)
 
 Sales and marketing
 
@@ -76,11 +77,11 @@ Claude
 
 May 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Journey Optimizer
 
-Understand and troubleshoot your Journeys and Campaigns](/connectors/adobe-journey-optimizer)
+Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
 
 Sales and marketing
 
@@ -90,8 +91,8 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Marketing Agent
 
-Marketing campaign and audience insights from Adobe](/connectors/adobe-marketing-agent)
+Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)

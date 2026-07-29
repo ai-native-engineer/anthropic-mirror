@@ -1,6 +1,6 @@
 <!-- source: https://claude.com/connectors/aiera -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd9230df5f81ef095019_Aiera.jpg)
+![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
 
 # Aiera
 
@@ -10,6 +10,7 @@ Live events, filings, company publications, and more
 * Used in
 
   [Claude](https://claude.ai/directory/4ef6cb78-9212-4b0e-b067-bb30e4d27a6f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Aiera](https://aiera.com/)
 
@@ -26,21 +27,21 @@ Live events, filings, company publications, and more
 
 Access Aiera's comprehensive financial data APIs, including live earnings calls and investor events, SEC filings, company press releases, ESG reports, and analyst insights. Stay ahead of market-moving information with real-time access to corporate events and financial disclosures.
 
-You can use the Aiera connector to:  
-‍  
-Track upcoming corporate events:  
+You can use the Aiera connector to:
+‍
+Track upcoming corporate events:
 "Are any of the companies in the S&P 500 hosting events this week?"
 
-Analyze earnings call content:  
+Analyze earnings call content:
 "What are the key analyst questions in the most recent Amazon earnings call?"
 
-Monitor ESG publications:  
+Monitor ESG publications:
 "Any new ESG publications this week from the Russell 1000?"
 
-Compare financial filings:  
+Compare financial filings:
 "Can you grab the last two Netflix 10-Qs and build me a table comparing reported metrics?"
 
-Monitor watchlist events:  
+Monitor watchlist events:
 "Are any companies in my primary watchlist hosting events this month?"
 
 ## Related connectors
@@ -57,7 +58,7 @@ June 22, 2026
 
 ### Affinity
 
-Search, update, and prep deals without switching tabs.](/connectors/affinity)
+Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
 
 Financial services
 
@@ -67,11 +68,11 @@ Claude Code
 
 February 26, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977ee686ffe1cb730e94f07_Airwallex%20Mark%20-%20Colour%20-%20Square.png)
+[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
 
 ### Airwallex
 
-Integrate with the Airwallex Platform using Claude](/connectors/airwallex)
+Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
 
 Financial services
 
@@ -81,11 +82,11 @@ Claude Code
 
 April 8, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c05a2e0f10f41c8f005ee0_Aiwyn_Logo_Mark_Square%20(1).svg)
+[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
 
 ### Aiwyn Tax
 
-Estimate your federal & state taxes with Aiwyn's tax engine](/connectors/aiwyn-tax)
+Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)
 
 Financial services
 
@@ -97,4 +98,4 @@ March 19, 2026
 
 ### Bigdata.com
 
-Access real-time financial data](/connectors/bigdata)
+Access real-time financial data](https://claude.com/connectors/bigdata)

@@ -2,6 +2,8 @@
 
 # Use Claude for Education at your university
 
+Updated over 2 weeks ago
+
 This guide helps you use Claude for Education through your university-sponsored account. Find resources and answers to frequently asked questions about getting started, optimizing usage, and troubleshooting issues.
 
 ## What features are included in my university-sponsored education plan?

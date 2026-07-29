@@ -98,8 +98,8 @@ Use the `claude-in-office` plugin to configure and deploy the add-in across your
 **[Install the plugin](https://github.com/anthropics/financial-services/tree/main/claude-for-msft-365-install)** and run the interactive setup wizard:
 
 ```
-claude plugin marketplace add anthropics/financial-services-plugins  
-claude plugin install claude-in-office@financial-services-plugins  
+claude plugin marketplace add anthropics/financial-services-plugins
+claude plugin install claude-in-office@financial-services-plugins
 /claude-in-office:setup
 ```
 
@@ -306,13 +306,13 @@ Many organizations use **LiteLLM** as their gateway. Below is a minimal litellm\
 **yaml**
 
 ```
-model_list:  
-  - model_name: claude-sonnet-4-5-20250929  
-    litellm_params:  
-      model: claude-sonnet-4-5-20250929  
-      api_key: os.environ/ANTHROPIC_API_KEY  
-  
-litellm_settings:  
+model_list:
+  - model_name: claude-sonnet-4-5-20250929
+    litellm_params:
+      model: claude-sonnet-4-5-20250929
+      api_key: os.environ/ANTHROPIC_API_KEY
+
+litellm_settings:
   drop_params: true
 ```
 
@@ -321,13 +321,13 @@ litellm_settings:
 **yaml**
 
 ```
-model_list:  
-  - model_name: claude-sonnet-4-5-20250929  
-    litellm_params:  
-      model: bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0  
-      aws_region_name: us-east-1  
-  
-litellm_settings:  
+model_list:
+  - model_name: claude-sonnet-4-5-20250929
+    litellm_params:
+      model: bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0
+      aws_region_name: us-east-1
+
+litellm_settings:
   drop_params: true
 ```
 
@@ -336,14 +336,14 @@ litellm_settings:
 **yaml**
 
 ```
-model_list:  
-  - model_name: claude-sonnet-4-5-20250929  
-    litellm_params:  
-      model: vertex_ai/claude-sonnet-4-5-20250929  
-      vertex_project: your-gcp-project-id  
-      vertex_location: us-east5  
-  
-litellm_settings:  
+model_list:
+  - model_name: claude-sonnet-4-5-20250929
+    litellm_params:
+      model: vertex_ai/claude-sonnet-4-5-20250929
+      vertex_project: your-gcp-project-id
+      vertex_location: us-east5
+
+litellm_settings:
   drop_params: true
 ```
 
@@ -352,16 +352,16 @@ litellm_settings:
 **yaml**
 
 ```
-model_list:  
-  - model_name: claude-sonnet-4-5-20250929  
-    litellm_params:  
-      model: azure_ai/claude-sonnet-4-5-20250929  
-      api_base: https://your-resource.services.ai.azure.com/anthropic  
-      api_key: os.environ/AZURE_API_KEY  
-      extra_headers:  
-        x-api-key: os.environ/AZURE_API_KEY  
-  
-litellm_settings:  
+model_list:
+  - model_name: claude-sonnet-4-5-20250929
+    litellm_params:
+      model: azure_ai/claude-sonnet-4-5-20250929
+      api_base: https://your-resource.services.ai.azure.com/anthropic
+      api_key: os.environ/AZURE_API_KEY
+      extra_headers:
+        x-api-key: os.environ/AZURE_API_KEY
+
+litellm_settings:
   drop_params: true
 ```
 
@@ -446,4 +446,8 @@ Verify that your gateway supports Server-Sent Events (SSE) pass-through. Some pr
 
 Connectors, skills, file uploads, and Working Across Apps aren't available through third-party platforms yet. If you need these, ask your admin about signing in with a Claude account instead.
 
-[Use Claude in Microsoft Foundry](https://support.claude.com/en/articles/12864745-use-claude-in-microsoft-foundry)[Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)[Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)[Real-time cyber safeguards on Claude](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude)[Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
+* [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
+* [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)
+* [Real-time cyber safeguards on Claude Opus and Sonnet](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet)
+* [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)

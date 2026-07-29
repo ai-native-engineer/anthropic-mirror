@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![Block logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8f5833964b86f792d52_block_light.svg)![Block logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8f18c96a87aa8c7e1ac_block_dark.svg)
 
@@ -146,34 +146,34 @@ Video caption
 
 ## Related stories
 
-[How Satispay's engineers write 75% of their code with Claude](/customers/satispay)How Satispay's engineers write 75% of their code with Claude
+[How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)How Satispay's engineers write 75% of their code with Claude
 
 How Satispay's engineers write 75% of their code with Claude
 
 Customer story
 
-[Customer story](/customers/satispay)Customer story
+[Customer story](https://claude.com/customers/satispay)Customer story
 
-[OffDeal powers every stage of M&A advisory with one Claude-based agent](/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
+[OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
 
 OffDeal powers every stage of M&A advisory with one Claude-based agent
 
 Customer story
 
-[Customer story](/customers/offdeal)Customer story
+[Customer story](https://claude.com/customers/offdeal)Customer story
 
-[Money Forward builds an AI-native engineering organization with Claude Code](/customers/money-forward)Money Forward builds an AI-native engineering organization with Claude Code
+[Money Forward builds an AI-native engineering organization with Claude Code](https://claude.com/customers/money-forward)Money Forward builds an AI-native engineering organization with Claude Code
 
 Money Forward builds an AI-native engineering organization with Claude Code
 
 Customer story
 
-[Customer story](/customers/money-forward)Customer story
+[Customer story](https://claude.com/customers/money-forward)Customer story
 
-[Nevis accelerates advisor productivity with Claude](/customers/nevis)Nevis accelerates advisor productivity with Claude
+[Nevis accelerates advisor productivity with Claude](https://claude.com/customers/nevis)Nevis accelerates advisor productivity with Claude
 
 Nevis accelerates advisor productivity with Claude
 
 Customer story
 
-[Customer story](/customers/nevis)Customer story
+[Customer story](https://claude.com/customers/nevis)Customer story

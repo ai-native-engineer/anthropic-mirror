@@ -2,7 +2,7 @@
 
 # Claude Enterprise consumption guide
 
-Updated today
+Updated this week
 
 Claude Enterprise gives your organization access to powerful AI across chat, Claude Code, and Claude Cowork. With that access comes the responsibility of managing consumption effectively—ensuring your team gets maximum value while keeping usage predictable and within budget.
 
@@ -106,11 +106,12 @@ Effort level is a second consumption lever. Users can choose how much thinking C
 |  |  |  |  |
 | --- | --- | --- | --- |
 | **Model** | **Best for** | **Token intensity** | **Recommended use** |
-| Claude Sonnet | Everyday tasks, writing, analysis, Q&A | Moderate | Default model for all users—set as your org-wide default (see below) |
+| Claude Fable | Days-long agentic coding work and reasoning tasks | Very High | Reserve for your highest-value, most complex agentic work. Premium pricing and faster usage draw than Opus. |
 | Claude Opus | Complex reasoning, research, multi-step tasks | High | Reserve for power users or specific workflows only |
+| Claude Sonnet | Everyday tasks, writing, analysis, Q&A | Moderate | Default model for all users—set as your org-wide default (see below) |
 | Claude Haiku | Simple lookups, summaries, fast responses | Low | High-volume, lightweight automation tasks |
 
-### Setting your organization's default model (beta)
+### Set your organization's default model (beta)
 
 Beyond guiding users toward the right model, you can set the model that new conversations start with for everyone in your org. This is one of the most direct consumption levers available—the default shapes what the majority of users run day to day.
 
@@ -126,6 +127,31 @@ You can also set model defaults by role through Custom Roles, so different group
 **How to configure:** Organization settings → Models.
 
 **Note:** Users' current model selection for new conversations may be cleared, so they'll pick up the org default on their next conversation.
+
+### Manage model access for your organization
+
+Beyond setting a default, you can restrict which models are available at all—a firmer lever than guidance alone. This works at two levels:
+
+* **Organization level:** each model is enabled or disabled for everyone, including Owners and Admins. Disabling a model here removes it from every picker org-wide.
+* **Custom role level:** for members on Custom roles, each role grants access to a *subset* of what's enabled at the org level. A role can't grant a model the org has disabled — the org setting is always the ceiling.
+
+**Note:** Haiku models are always available to every member and can't be disabled, so there's always a fallback model.
+
+If a member belongs to multiple groups with different custom roles, access is **additive** — they get every model any of their roles grants (as long as it's enabled org-wide).
+
+**Capping effort level by role**
+
+Beyond restricting which models a role can use, you can cap the **maximum effort level** members on that role can select per model — a more granular version of the effort guidance already covered above. This only applies to Custom roles, not at the org level. If a member has multiple roles, the highest effort cap across those roles wins.
+
+**Admin tip: Pair model + effort restrictions**
+
+If model guidance (the "Sonnet is your default" messaging) isn't landing and you're still seeing heavy Opus consumption, restricting Opus access to specific roles—or capping effort to Medium/High instead of Max for non-power-user roles—is the next lever. Reserve full access for the roles where deep reasoning actually pays off.
+
+**Where this applies**
+
+Model access and effort restrictions are enforced in chat (web, desktop, mobile), Claude Cowork, Office Agents, and Claude Code (CLI 2.1.199+—earlier versions still show restricted options but requests using them are rejected). Claude in Chrome, Claude Design, and Claude Security don't support this yet.
+
+**How to configure:** Organization settings → Roles → select a role → Models tab. Set model access, an optional effort cap per model, and an optional role-level default model. To manage configuration across the org, go to **Organization settings → Models**.More details in **[Manage model access for your organization](https://support.claude.com/en/articles/15694740)**.
 
 ### Admin configuration recommendations
 
@@ -154,7 +180,19 @@ A few ways you can use Org Preferences to manage consumption and usage patterns:
 
 ### Analytics page
 
-The Analytics page within the user menu (**claude.ai/analytics**) is the fastest way to get a read on your org. It shows weekly active users, seat utilization, top connectors, total spend (MTD/QTD/YTD), spend by model, and a top-10 users-by-spend leaderboard. Product-specific views for Claude.ai, Claude Code, and Cowork break down activity for each surface. **[Learn more](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)**.
+The Analytics page within the user menu (**claude.ai/analytics**) is the fastest way to get a read on your org. It shows weekly active users, seat utilization, top connectors, total spend (MTD/QTD/YTD), spend by model, and a top-10 users-by-spend leaderboard. Product-specific views for Chat, Claude Code, Claude Design, and Cowork break down activity for each surface. **[Learn more](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)**.
+
+### Skills analytics and per-skill ROI
+
+Each skill represents a repeatable workflow—prepping a sales call, reviewing a contract—so its cost can be weighed directly against what that workflow is worth. The Skills view in Analytics shows users, cost per use, and total uses for every skill in your org, filterable by group ("what skills is my legal team using?") or product surface.
+
+To run an ROI analysis:
+
+1. Export the skills table to CSV from the Skills view.
+2. Assign a value per run to each skill—a rough estimate of what the completed task is worth, such as the employee time it replaces (e.g., "prepping a sales call is worth ~$20 to us").
+3. Compute in your spreadsheet: (value per run − cost per use) × total uses gives the net value each skill has generated.
+
+The calculation currently happens outside the product, but the CSV export makes it a quick spreadsheet exercise. Even rough estimates tell a compelling story: a call-prep skill costing $0.90 per run against $20 of value returns 20x on every use.
 
 ### Spend report CSV export
 
@@ -199,4 +237,8 @@ When you onboard users, share the following:
 * If a user hits their individual cap, they can contact their group owner or the IT/admin team to request an increase.
 * They won't lose work in progress—Claude will complete the current turn before limiting further usage.
 
-[How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)[Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)[Release notes](https://support.claude.com/en/articles/12138966-release-notes)[Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)[Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)
+* [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
+* [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
+* [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
+* [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)
+* [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)

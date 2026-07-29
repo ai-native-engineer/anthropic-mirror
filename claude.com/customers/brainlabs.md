@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10b2c64ec0843006d9968b_logo_brainlabs-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10b2d4179a46a1609d518f_logo_brainlabs-dark-mode.svg)
 
@@ -125,8 +125,8 @@ The library spans the agency’s full range of work. Two examples Brainlabs has 
 
 Keeping the quality bar high as the library grew into the hundreds required a second piece, and Brainlabs built it as a skill itself: an auditor that reviews every other skill for duplication, overlapping instructions, and token inefficiency, then proposes consolidations and rewrites. “The skills auditor checks: have you done this in a clean way, is it concise?” Vincent explained. “We built it after versions 2, 3, and 4 of the library got unwieldy from over-enthusiastic agent creation across the company.” The team is also using the analytics API to see which skills are actually getting used inside chains of thought, so the library can grow on the basis of evidence rather than enthusiasm.
 
-Security and governance were handled the same way, cautiously, and in stages. Data stays isolated by design: a Skill only pulls what the person running it is already authorized to access. Every skill also has a designated owner who reviews and approves changes before it goes live, so quality and access controls keep pace as the library grows.  
-  
+Security and governance were handled the same way, cautiously, and in stages. Data stays isolated by design: a Skill only pulls what the person running it is already authorized to access. Every skill also has a designated owner who reviews and approves changes before it goes live, so quality and access controls keep pace as the library grows.
+
 The newest addition sits on top of all of this. Brainlabs is one of the early customers running Managed Agents inside Notion. "We use actions. We get them to look at the Notion boards, and when something is happening it fires off to Claude," Vincent said. One example is a task agent called Get Stuff Done that works tickets on a Kanban-style board: a Notion agent tags a task with “Claude” when it judges the work complex enough, and the managed agent picks it up from there, drawing on the company’s skills library and connectors to Slack, Google Calendar, and other platforms to produce outputs like PowerPoints and research documents.
 
 The team has put the agent to work on its own projects, including managing the Cowork rollout itself. The team is also evaluating the Claude Agent SDK for more complex server-side agents that would sit alongside the Notion-hosted ones.
@@ -169,34 +169,34 @@ CTO, Brainlabs
 
 ## Related stories
 
-[Quantium scales Claude across Australia's largest enterprises](/customers/quantium-qa)Quantium scales Claude across Australia's largest enterprises
+[Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)Caylent turns months of migration work into days with Claude Agent SDK
 
-Quantium scales Claude across Australia's largest enterprises
-
-Customer story
-
-[Customer story](/customers/quantium-qa)Customer story
-
-[JAKALA brings production AI agents to enterprise clients across Europe with Claude](/customers/jakala)JAKALA brings production AI agents to enterprise clients across Europe with Claude
-
-JAKALA brings production AI agents to enterprise clients across Europe with Claude
+Caylent turns months of migration work into days with Claude Agent SDK
 
 Customer story
 
-[Customer story](/customers/jakala)Customer story
+[Customer story](https://claude.com/customers/caylent)Customer story
 
-[How PwC trained 400 consultants on Claude Code in a single session](/customers/pwc-qa)How PwC trained 400 consultants on Claude Code in a single session
+[How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)How can a two-person fabrication studio make room for problems it’s never solved before?
 
-How PwC trained 400 consultants on Claude Code in a single session
-
-Customer story
-
-[Customer story](/customers/pwc-qa)Customer story
-
-[TRY accelerates creative excellence with Claude](/customers/try)TRY accelerates creative excellence with Claude
-
-TRY accelerates creative excellence with Claude
+How can a two-person fabrication studio make room for problems it’s never solved before?
 
 Customer story
 
-[Customer story](/customers/try)Customer story
+[Customer story](https://claude.com/customers/bla-studios)Customer story
+
+[LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)LG CNS modernizes 20-year-old enterprise systems with Claude
+
+LG CNS modernizes 20-year-old enterprise systems with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/lg-cns)Customer story
+
+[How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)How Blank Metal, a lean professional services firm, runs on Claude Cowork
+
+How Blank Metal, a lean professional services firm, runs on Claude Cowork
+
+Customer story
+
+[Customer story](https://claude.com/customers/blank-metal-qa)Customer story

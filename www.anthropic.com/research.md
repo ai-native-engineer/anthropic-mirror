@@ -58,6 +58,9 @@ Search
 
 DateCategoryTitle
 
+* [Jul 28, 2026Frontier Red Team
+
+  Discovering cryptographic weaknesses with Claude](https://www.anthropic.com/research/discovering-cryptographic-weaknesses)
 * [Jul 24, 2026Frontier Red Team
 
   Project Pilot: Can AI control a drone?](https://www.anthropic.com/research/project-pilot)
@@ -85,11 +88,10 @@ DateCategoryTitle
 * [Jun 16, 2026Economic Research
 
   Agentic coding and persistent returns to expertise](https://www.anthropic.com/research/claude-code-expertise)
-* [Jun 8, 2026Science
-
-  Paving the way for agents in biology](https://www.anthropic.com/research/agents-in-biology)
 
 [See more](#)
+
+![Discovering cryptographic weaknesses with Claude](https://www-cdn.anthropic.com/images/4zrzovbb/website/802260d34a0653f23fd4944fae43064df367aa44-1000x1000.svg)
 
 Join the Research team
 

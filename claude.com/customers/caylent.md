@@ -127,7 +127,7 @@ Each workflow Accelerate runs for a customer is now a pipeline of stages assigne
 
 Everything stays inside the customer's AWS account: no data transit to external systems, no customer data used for model training, and an AWS CloudTrail audit log capturing every AI-assisted action. Accelerate also runs before a contract is signed. In hours rather than weeks, it produces a complexity breakdown, a time estimate, and projected savings, so the first sales conversation starts from evidence.
 
-"Claude is core to how we operate."
+"Caylent runs on Claude."
 
 Randall Hunt,
 

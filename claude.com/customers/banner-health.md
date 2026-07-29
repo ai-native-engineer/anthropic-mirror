@@ -1,5 +1,17 @@
 <!-- source: https://claude.com/customers/banner-health -->
 
+Claude Science beta
+
+[Next](#)Next
+
+Introducing the Claude Science app, your research partner for rigorous science.
+
+Learn more
+
+[Learn more](https://claude.com/product/claude-science)Learn more
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43ef89e3431b19c021bf2b_claude-science-og.jpg)
+
 Case study | Claude Platform
 
 # Banner Health battles physician burnout with Claude-powered AI platform
@@ -10,7 +22,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 Get started
 
@@ -196,34 +208,34 @@ Tune in to watch Anthropic CEO and Co-founder Dario Amodei share his vision for 
 
 ## Related stories
 
-[How Zingage automates care coordination for 400+ home care agencies with Claude](/customers/zingage)How Zingage automates care coordination for 400+ home care agencies with Claude
+[How can a medical lab keep patients at the center of its work while the caseload keeps growing?](https://claude.com/customers/arkana-labs)How can a medical lab keep patients at the center of its work while the caseload keeps growing?
+
+How can a medical lab keep patients at the center of its work while the caseload keeps growing?
+
+Customer story
+
+[Customer story](https://claude.com/customers/arkana-labs)Customer story
+
+[How Zingage automates care coordination for 400+ home care agencies with Claude](https://claude.com/customers/zingage)How Zingage automates care coordination for 400+ home care agencies with Claude
 
 How Zingage automates care coordination for 400+ home care agencies with Claude
 
 Customer story
 
-[Customer story](/customers/zingage)Customer story
+[Customer story](https://claude.com/customers/zingage)Customer story
 
-[A conversation with Seth Hain about Epic’s internal AI adoption](/customers/epic-systems)A conversation with Seth Hain about Epic’s internal AI adoption
+[A conversation with Seth Hain about Epic’s internal AI adoption](https://claude.com/customers/epic-systems)A conversation with Seth Hain about Epic’s internal AI adoption
 
 A conversation with Seth Hain about Epic’s internal AI adoption
 
 Customer story
 
-[Customer story](/customers/epic-systems)Customer story
+[Customer story](https://claude.com/customers/epic-systems)Customer story
 
-[Medgate accelerates healthcare innovation with Claude Code](/customers/medgate)Medgate accelerates healthcare innovation with Claude Code
+[Medgate accelerates healthcare innovation with Claude Code](https://claude.com/customers/medgate)Medgate accelerates healthcare innovation with Claude Code
 
 Medgate accelerates healthcare innovation with Claude Code
 
 Customer story
 
-[Customer story](/customers/medgate)Customer story
-
-[Carta Healthcare cuts clinical data processing time by 66% with Claude](/customers/carta-healthcare)Carta Healthcare cuts clinical data processing time by 66% with Claude
-
-Carta Healthcare cuts clinical data processing time by 66% with Claude
-
-Customer story
-
-[Customer story](/customers/carta-healthcare)Customer story
+[Customer story](https://claude.com/customers/medgate)Customer story

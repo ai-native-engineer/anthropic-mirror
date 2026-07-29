@@ -2,7 +2,7 @@
 
 # Child safety guidance for developers
 
-Updated today
+June 26, 2026
 
 ## **Our commitments to child safety**
 
@@ -34,4 +34,8 @@ There is no single correct architecture for a child safety program. The viable a
 
 *This page is provided for informational purposes only and does not constitute legal advice or endorsement by Anthropic. Consult your own legal counsel regarding your specific obligations.*
 
-[Our Approach to User Safety](https://support.claude.com/en/articles/8106465-our-approach-to-user-safety)[CSAM Detection and Reporting](https://support.claude.com/en/articles/9020328-csam-detection-and-reporting)[Law Enforcement Requests](https://support.claude.com/en/articles/9035075-law-enforcement-requests)[Responsible Use of Anthropic's Models: Guidelines for Organizations Serving Minors](https://support.claude.com/en/articles/9307344-responsible-use-of-anthropic-s-models-guidelines-for-organizations-serving-minors)[Model Safety Bug Bounty Program](https://support.claude.com/en/articles/12119250-model-safety-bug-bounty-program)
+* [Our Approach to User Safety](https://support.claude.com/en/articles/8106465-our-approach-to-user-safety)
+* [CSAM Detection and Reporting](https://support.claude.com/en/articles/9020328-csam-detection-and-reporting)
+* [Law Enforcement Requests](https://support.claude.com/en/articles/9035075-law-enforcement-requests)
+* [Responsible Use of Anthropic's Models: Guidelines for Organizations Serving Minors](https://support.claude.com/en/articles/9307344-responsible-use-of-anthropic-s-models-guidelines-for-organizations-serving-minors)
+* [Model Safety Bug Bounty Program](https://support.claude.com/en/articles/12119250-model-safety-bug-bounty-program)

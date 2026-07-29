@@ -53,9 +53,9 @@ Prompt
 > use the scRNA-qc skill to perform QC and filtering on the raw\_feature\_matrix from my experiment
 
 * Now let me run the QC analysis on the raw feature matrix:
-* Bash(python3 scripts/qc\_analysis.pypbmc\_test\_data/raw\_feature\_bc\_matrix.h5)  
-  ↳===========================================================  
-  Single-Cell RNA-seq Quality Control AnalysisFollowing scVerse Best Practices  
+* Bash(python3 scripts/qc\_analysis.pypbmc\_test\_data/raw\_feature\_bc\_matrix.h5)
+  ↳===========================================================
+  Single-Cell RNA-seq Quality Control AnalysisFollowing scVerse Best Practices
   … +60 lines (ctrl+o to expand)
 
 * Excellent! The QC analysis completed successfully. Let me update the visualizations:
@@ -177,7 +177,7 @@ Work across your literature databases, lab platforms, and productivity tools in 
 
 Explore connectors
 
-[Explore connectors](/connectors)Explore connectors
+[Explore connectors](https://claude.com/connectors)Explore connectors
 
 ## Why scientists choose Claude
 

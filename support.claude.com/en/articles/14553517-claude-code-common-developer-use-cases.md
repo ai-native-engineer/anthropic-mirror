@@ -66,11 +66,11 @@ Use cases are ordered roughly by how early most developers encounter them. Selec
 **Example prompt:**
 
 ```
-<table class="prompt"> <colgroup> <col style="width: 100%" /> </colgroup>  
-<tbody> <tr class="odd"> <td>&gt; getting this in production:<br />  
-TypeError: Cannot read properties of undefined (reading 'sessionId')<br />      
-at validateSession (src/auth/session.ts:47)<br />     at middleware  
-(src/auth/middleware.ts:12)<br /> what's going on?</td> </tr> </tbody>  
+<table class="prompt"> <colgroup> <col style="width: 100%" /> </colgroup>
+<tbody> <tr class="odd"> <td>&gt; getting this in production:<br />
+TypeError: Cannot read properties of undefined (reading 'sessionId')<br />
+at validateSession (src/auth/session.ts:47)<br />     at middleware
+(src/auth/middleware.ts:12)<br /> what's going on?</td> </tr> </tbody>
 </table>
 ```
 
@@ -113,7 +113,7 @@ at validateSession (src/auth/session.ts:47)<br />     at middleware
 **Example prompt:**
 
 ```
-> /pr https://github.com/example/api/pull/4471  
+> /pr https://github.com/example/api/pull/4471
 > is the error handling solid?
 ```
 
@@ -126,9 +126,9 @@ at validateSession (src/auth/session.ts:47)<br />     at middleware
 **Example prompt:**
 
 ```
-<table class="prompt"> <colgroup> <col style="width: 100%" /> </colgroup>  
-<tbody> <tr class="odd"> <td>&gt; /init<br /> &gt; give me a tour of this  
-codebase — where's the entry point, how is it structured, what should I  
+<table class="prompt"> <colgroup> <col style="width: 100%" /> </colgroup>
+<tbody> <tr class="odd"> <td>&gt; /init<br /> &gt; give me a tour of this
+codebase — where's the entry point, how is it structured, what should I
 read first</td> </tr> </tbody> </table>
 ```
 
@@ -145,8 +145,8 @@ read first</td> </tr> </tbody> </table>
 **Example prompt:**
 
 ```
-<table class="prompt"> <colgroup> <col style="width: 100%" /> </colgroup>  
-<tbody> <tr class="odd"> <td>&gt; what's the top-priority issue assigned  
+<table class="prompt"> <colgroup> <col style="width: 100%" /> </colgroup>
+<tbody> <tr class="odd"> <td>&gt; what's the top-priority issue assigned
 to me?<br /> &gt; go ahead and fix it</td> </tr> </tbody> </table>
 ```
 
@@ -199,4 +199,8 @@ to me?<br /> &gt; go ahead and fix it</td> </tr> </tbody> </table>
 
 For details on `/init`, @-references, permission modes, skills, MCP, and hooks, see **[code.claude.com/docs](https://code.claude.com/docs)**. Claude Code ships frequently—verify version-specific details against **[code.claude.com/docs](https://code.claude.com/docs)** before distributing internally.
 
-[Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)[Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)[Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)[Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)[Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
+* [Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)
+* [Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)
+* [Claude Code champion kit](https://support.claude.com/en/articles/14555399-claude-code-champion-kit)
+* [Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)

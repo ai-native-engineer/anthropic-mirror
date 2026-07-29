@@ -1,3 +1,4 @@
+<!-- source: https://platform.claude.com/docs/en/api/beta -->
 <!-- part of: https://platform.claude.com/docs/en/api/beta -->
 
 <!-- chunk-start -->
@@ -36575,4 +36576,3 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     Object type.
 
     For Message Batches, this is always `"message_batch"`.
-

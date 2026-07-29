@@ -10,6 +10,7 @@ AI visibility and local search intelligence platform
 * Used in
 
   [Claude](https://claude.ai/directory/30b72fda-c127-4a95-b7a3-f18476e0a06f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Local Falcon](https://www.localfalcon.com/)
 
@@ -30,19 +31,19 @@ Local Falcon gives Claude access to real-time local search data across Google Ma
 
 You can use Local Falcon to:
 
-**Local Search Rank Tracking:**  
+**Local Search Rank Tracking:**
 "Show me my latest scan for Holbrook House in SF"
 
-**AI Search Visibility Analysis:**  
+**AI Search Visibility Analysis:**
 "How visible is my restaurant location in AI search results for 'healthy food options near me'?"
 
-**Competitive Intelligence:**  
+**Competitive Intelligence:**
 "Compare my Google Maps rankings for Holbrook House against their top 3 competitors"
 
-**Google Business Profile Monitoring:**  
+**Google Business Profile Monitoring:**
 "Check if Holbrook House has had changes to their business hours this week"
 
-**Credit & Campaign Management:**  
+**Credit & Campaign Management:**
 "How many Local Falcon scan credits do I have left? Also, can you show me all scheduled scans?"
 
 ## Related connectors

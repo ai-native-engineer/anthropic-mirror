@@ -81,9 +81,9 @@ Set these per-user with a Graph PATCH against the user object. Azure encodes dir
 If your deployment uses a bootstrap endpoint (a JSON endpoint your organization hosts that the add-in calls at startup), include the keys in the response body:
 
 ```
-{  
-  "otlp_endpoint": "https://otel-collector.your-domain.com",  
-  "otlp_headers": "Authorization=Bearer <token>"  
+{
+  "otlp_endpoint": "https://otel-collector.your-domain.com",
+  "otlp_headers": "Authorization=Bearer <token>"
 }
 ```
 
@@ -281,4 +281,8 @@ The add-in has no Claude.ai user identity in this mode, so spans carry no `user.
 
 This produces a complete, ordered transcript of the interaction in both deployment modes.
 
-[Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)[Microsoft Entra ID SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917829-microsoft-entra-id-sso-scim-email-mismatch)[Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)[Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)[Monitor Claude Cowork activity with OpenTelemetry](https://support.claude.com/en/articles/14477985-monitor-claude-cowork-activity-with-opentelemetry)
+* [Microsoft Entra ID SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917829-microsoft-entra-id-sso-scim-email-mismatch)
+* [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
+* [Ping Identity SSO setup](https://support.claude.com/en/articles/13917902-ping-identity-sso-setup)
+* [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
+* [Monitor Claude Cowork activity with OpenTelemetry](https://support.claude.com/en/articles/14477985-monitor-claude-cowork-activity-with-opentelemetry)

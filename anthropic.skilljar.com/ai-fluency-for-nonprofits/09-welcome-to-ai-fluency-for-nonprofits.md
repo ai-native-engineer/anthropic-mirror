@@ -34,7 +34,10 @@ This video introduces our AI Fluency for nonprofits course. It acknowledges the 
 
 Answer the following questions:
 
-1. What is the mission and vision of your organization? 2. Describe your workplace situation and your specific role - constraints, strengths, opportunities, etc. 3. What are the core values and philosophy that shape your work? 4. 'If AI could help me \_\_\_\_\_\_\_, I would be able to spend more time \_\_\_\_\_\_\_.' Focus on how AI efficiency could free you up for higher-impact, human-centered activities.
+1. What is the mission and vision of your organization?
+2. Describe your workplace situation and your specific role - constraints, strengths, opportunities, etc.
+3. What are the core values and philosophy that shape your work?
+4. 'If AI could help me \_\_\_\_\_\_\_, I would be able to spend more time \_\_\_\_\_\_\_.' Focus on how AI efficiency could free you up for higher-impact, human-centered activities.
 
 **Part II: Collaboration (with AI)**
 
@@ -89,7 +92,6 @@ As you progress through the course, we'd love to hear from you about how you are
 #### Acknowledgments and license
 
 *Copyright 2025 Anthropic and Giving Tuesday. Based on the AI Fluency Framework developed by Prof. Rick Dakan (Ringling College of Art and Design) and Prof. Joseph Feller (University College Cork). Released under the CC BY-NC-SA 4.0 license.*
-
 <!-- youtube: qrhPJNbRT-Q -->
 
 [![Welcome To AI Fluency For Nonprofits](https://img.youtube.com/vi/qrhPJNbRT-Q/hqdefault.jpg)](https://www.youtube.com/watch?v=qrhPJNbRT-Q)

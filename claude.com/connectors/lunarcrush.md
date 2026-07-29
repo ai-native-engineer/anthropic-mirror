@@ -12,6 +12,7 @@ Add real-time social media data to your searches
 * Used in
 
   [Claude](https://claude.ai/directory/837cceff-9820-4510-823f-9bdc5ef21f3a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [LunarCrush](https://lunarcrush.com/)
 
@@ -24,22 +25,22 @@ Add real-time social media data to your searches
   Read
 * More
 
-  [Documentation](https://lunarcrush.com/developers/api/ai)[Privacy Policy](https://lunarcrush.com/privacy)[contact@lunarcrush.com](mailto:contact@lunarcrush.com)
+  [Documentation](https://lunarcrush.com/developers/api/ai)[Privacy Policy](https://lunarcrush.com/privacy)[Support](mailto:contact@lunarcrush.com)
 
 Access comprehensive social analytics and market intelligence for companies, brands, stocks, and cryptocurrencies through LunarCrush's AI-data platform. Stream real-time social metrics, sentiment analysis, trending topics, and market data directly into your AI workflows.
 
 You can use LunarCrush to:
 
-**Sentiment Analysis:  
+**Sentiment Analysis:
 ‍**"What's the current social sentiment around Tesla stock?"
 
-**Crypto Trends:  
+**Crypto Trends:
 ‍**"Show me the top trending cryptocurrencies by social engagement this week"
 
-**Creator Analytics:  
+**Creator Analytics:
 ‍**"Find the most influential crypto creators discussing Bitcoin"
 
-**Historical Data:  
+**Historical Data:
 ‍**"Get the social volume time series for Ethereum over the past 30 days"
 
 ## Related connectors
@@ -52,11 +53,11 @@ Claude Code
 
 June 4, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Customer Journey Analytics
 
-Run reports using your metrics, dimensions, and segments](/connectors/adobe-cja)
+Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
 
 Financial services
 
@@ -70,7 +71,7 @@ June 22, 2026
 
 ### Affinity
 
-Search, update, and prep deals without switching tabs.](/connectors/affinity)
+Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
 
 Financial services
 
@@ -78,11 +79,11 @@ Claude
 
 February 11, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd9230df5f81ef095019_Aiera.jpg)
+[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
 
 ### Aiera
 
-Live events, filings, company publications, and more](/connectors/aiera)
+Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
 
 Data
 
@@ -96,4 +97,4 @@ May 11, 2026
 
 ### Airtable
 
-Bring your structured data to Claude](/connectors/airtable)
+Bring your structured data to Claude](https://claude.com/connectors/airtable)

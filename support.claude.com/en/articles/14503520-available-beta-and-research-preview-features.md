@@ -2,7 +2,7 @@
 
 # Available beta and research preview features
 
-April 23, 2026
+Updated over 3 weeks ago
 
 Claude offers some features in beta or research preview before they become generally available. This article explains what those labels mean, which features they apply to, and what to expect when you use them.
 
@@ -40,7 +40,6 @@ This table below lists the beta and research preview features currently availabl
 | **[Claude Code web (CCR)](https://support.claude.com/en/articles/12618689-claude-code-on-the-web)** | Claude Code | Research preview |
 | **[Code review](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)** | Claude Code | Research preview |
 | **[Claude for Word](https://support.claude.com/en/articles/14465370-use-claude-for-word)** | Integrations | Beta |
-| **[Claude in Chrome](https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome)** | Integrations | Beta |
 | **[GitHub integration](https://support.claude.com/en/articles/10167454-using-the-github-integration)** | Integrations | Beta |
 
 **Note:** Availability varies by plan. Check each linked article to confirm which plans support the feature.
@@ -49,4 +48,8 @@ This table below lists the beta and research preview features currently availabl
 
 Feedback on beta and research preview features helps inform our decisions. You can share feedback with **[our Support team](https://support.claude.com/en/articles/9015913-how-to-get-support)**.
 
-[Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)[Use research on Claude](https://support.claude.com/en/articles/11088861-use-research-on-claude)[When should I use web search, extended thinking, and research?](https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research)[Use Claude in Xcode](https://support.claude.com/en/articles/12293051-use-claude-in-xcode)[Use Claude in Slack](https://support.claude.com/en/articles/12461605-use-claude-in-slack)
+* [Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
+* [Use research on Claude](https://support.claude.com/en/articles/11088861-use-research-on-claude)
+* [When should I use web search, extended thinking, and research?](https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research)
+* [Use Claude in Xcode](https://support.claude.com/en/articles/12293051-use-claude-in-xcode)
+* [Use Claude in Slack](https://support.claude.com/en/articles/12461605-use-claude-in-slack)

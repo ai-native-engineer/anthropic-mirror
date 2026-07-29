@@ -6,12 +6,11 @@
 
 State-of-the-art ADMET prediction models for drug discovery
 
-* Category
-
   Life sciences and healthcare
 * Used in
 
   [Claude](https://claude.ai/directory/b3dd180f-5722-4194-af20-b253347d4f7b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Inductive Bio](https://inductive.bio/)
 
@@ -24,19 +23,19 @@ State-of-the-art ADMET prediction models for drug discovery
   Read
 * More
 
-  [Documentation](https://www.inductive.bio/mcp-connector)[Privacy Policy](https://www.inductive.bio/mcp-privacy-policy)[mcp-user-support@inductive.bio](mailto:mcp-user-support@inductive.bio)
+  [Documentation](https://www.inductive.bio/mcp-connector)[Privacy Policy](https://www.inductive.bio/mcp-privacy-policy)[Support](mailto:mcp-user-support@inductive.bio)
 
 Inductive Bio's absorption, distribution, metabolism, excretion, and toxicity (ADMET) models predict the chemical and pharmacokinetic properties that determine whether a molecule can become a viable drug. When these predictions are surfaced directly in conversation, scientists can evaluate compounds, triage ideas, and prioritize which molecules to synthesize, without leaving their existing workflow.
 
 You can use Inductive Bio to:
 
-**Screen NSAIDs by lipophilicity:**  
+**Screen NSAIDs by lipophilicity:**
 "Get LogD predictions for the top 10 reported NSAIDs. Which ones are most likely to be able to get into the brain?"
 
-**Compare ACE-inhibitor pKa:**  
+**Compare ACE-inhibitor pKa:**
 "Get the predicted acidic and basic pKas for captopril, enalapril, and lisinopril and explain what that means for absorption."
 
-**Triage candidate modifications:**  
+**Triage candidate modifications:**
 "Predict LogD for these SMILES strings and tell me which modification to pursue."
 
 ## Related connectors
@@ -53,7 +52,7 @@ February 11, 2026
 
 ### 10x Genomics Cloud
 
-Interact with 10x Genomics Cloud platform](/connectors/10x-genomics-cloud)
+Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
 
 Life sciences and healthcare
 
@@ -67,7 +66,7 @@ May 1, 2026
 
 ### AdisInsight
 
-Pharmaceutical drug & clinical trial intelligence](/connectors/adisinsight)
+Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
 
 Life sciences and healthcare
 
@@ -81,7 +80,7 @@ February 11, 2026
 
 ### Benchling
 
-Connect to R&D data, source experiments, and notebooks](/connectors/benchling)
+Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
 
 Life sciences and healthcare
 
@@ -95,4 +94,4 @@ June 30, 2026
 
 ### Biomni Lab
 
-Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](/connectors/biomni-lab)
+Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)

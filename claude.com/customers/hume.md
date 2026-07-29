@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![Hume logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c0139e2f4f9aa657285c_cs-logo-hume-light-theme.svg)![Hume logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c1c0153774b1920d4465c4_cs-logo-hume-dark-theme.svg)
 
@@ -120,8 +120,8 @@ The integration of Claude with EVI has driven remarkable adoption and engagement
 
 > "Our users say that they love Claude 3.5 Sonnet, and find its personality fits really well with EVI. One customer is using EVI for immersive coaching simulations, helping managers practice delivering feedback to a defensive direct report. They've found Sonnet through EVI adapts to complex personality traits throughout a long conversation,” said Cowen.
 
-The technical benefits have been equally impressive. Prompt caching has helped Hume reduce costs by 80% and decrease latency by 10% or more. Hume encourages their customers to look beyond traditional metrics to measure impact through the lens of user wellbeing. They track not just customer satisfaction but also how interactions affect users’ overall experience over time.  
-  
+The technical benefits have been equally impressive. Prompt caching has helped Hume reduce costs by 80% and decrease latency by 10% or more. Hume encourages their customers to look beyond traditional metrics to measure impact through the lens of user wellbeing. They track not just customer satisfaction but also how interactions affect users’ overall experience over time.
+
  Hume encourages their customers to look beyond traditional metrics to measure impact through the lens of user wellbeing. They track not just customer satisfaction but also how interactions affect users' overall experience over time.
 
 ## Looking ahead to a voice-first future
@@ -150,34 +150,34 @@ Video caption
 
 ## Related stories
 
-[How Vercel built an ecosystem on the open skills standard](/customers/vercel-qa)How Vercel built an ecosystem on the open skills standard
+[Dust enables agents to go deeper at lower cost with Claude](https://claude.com/customers/dust)Dust enables agents to go deeper at lower cost with Claude
+
+Dust enables agents to go deeper at lower cost with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/dust)Customer story
+
+[How Vercel built an ecosystem on the open skills standard](https://claude.com/customers/vercel-qa)How Vercel built an ecosystem on the open skills standard
 
 How Vercel built an ecosystem on the open skills standard
 
 Customer story
 
-[Customer story](/customers/vercel-qa)Customer story
+[Customer story](https://claude.com/customers/vercel-qa)Customer story
 
-[Box builds document creation into its AI agent with Claude](/customers/box)Box builds document creation into its AI agent with Claude
+[Box builds document creation into its AI agent with Claude](https://claude.com/customers/box)Box builds document creation into its AI agent with Claude
 
 Box builds document creation into its AI agent with Claude
 
 Customer story
 
-[Customer story](/customers/box)Customer story
+[Customer story](https://claude.com/customers/box)Customer story
 
-[Juno helps people with chronic illness find patterns in their symptoms with Claude](/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
+[Juno helps people with chronic illness find patterns in their symptoms with Claude](https://claude.com/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
 
 Juno helps people with chronic illness find patterns in their symptoms with Claude
 
 Customer story
 
-[Customer story](/customers/juno)Customer story
-
-[A conversation with Cursor on building coding agents for professional developers](/customers/cursor-qa)A conversation with Cursor on building coding agents for professional developers
-
-A conversation with Cursor on building coding agents for professional developers
-
-Customer story
-
-[Customer story](/customers/cursor-qa)Customer story
+[Customer story](https://claude.com/customers/juno)Customer story

@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-science/admin-controls -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Members sign in to Claude Science with their Claude account, so your identity and billing controls apply automatically. Because the app stores conversations on each member’s computer rather than on Anthropic’s servers, most of the data-handling controls Anthropic provides don’t reach that data today. The tables show, for each admin setting, whether it governs Claude Science in beta. Status values describe Claude Science specifically; other Claude products may differ.
 Legend: Supported / Partial / Not available / Not applicable
 
@@ -27,7 +35,7 @@ Legend: Supported / Partial / Not available / Not applicable
 | Skills allowlist | Partial | Org-published skills appear, but members can also install local skills without restriction. Adding admin control is on the roadmap. |
 | Web search | Not available | The app offers web search regardless of this setting. Adding admin control is on the roadmap. |
 | Code execution | Not available | This setting controls Chat’s hosted code sandbox only. Claude Science runs code locally regardless of this setting; that’s core to the product. |
-| Code execution network allowlist | Not available | This setting controls Chat’s hosted code sandbox only. Claude Science’s local sandbox keeps its own allowlist, maintained by the member. Adding admin control is on the roadmap. |
+| Code execution network allowlist | Not available | This setting controls Chat’s hosted code sandbox only and is not yet available for Claude Science in Organization settings. Claude Science’s local sandbox keeps its own allowlist, which members manage in the app and administrators can extend per device with the sandbox network keys in the [configuration file reference](https://claude.com/docs/claude-science/configuration-file-reference). |
 | Location metadata | Not applicable | The app doesn’t derive, store, or send any geolocation data. |
 | Memory | Not applicable | The claude.ai Memory setting doesn’t control memory in Claude Science. The app keeps its own memory locally on the member’s device, and it’s off by default. |
 | Projects | Not applicable | No Projects integration; the app uses local workspaces instead. |
@@ -75,5 +83,3 @@ Legend: Supported / Partial / Not available / Not applicable
 | --- | --- | --- |
 | Offboarding (local data) | Not available | Removing a member doesn’t wipe data already on their computer. |
 | Local deletion signal | Not available | Deleting local data doesn’t notify Anthropic to drop the matching server-side record early. This is on the roadmap. |
-
-[How Claude Science works with your data](/docs/claude-science/how-claude-science-works-with-your-data)[Manage on devices](/docs/claude-science/manage-on-devices)

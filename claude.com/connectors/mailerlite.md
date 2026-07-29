@@ -10,6 +10,7 @@ Turn Claude into your email marketing assistant
 * Used in
 
   [Claude](https://claude.ai/directory/5807a545-cd93-4e71-bb21-f3727bf34df1)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [MailerLite](https://www.mailerlite.com)
 
@@ -28,16 +29,16 @@ Connect Claude with MailerLite to create your very own email assistant. Use it t
 
 You can use MailerLite to:
 
-**Campaign Analysis:**  
+**Campaign Analysis:**
 "Please analyze my past campaigns to see what resonates most with my subscribers. Then, make suggestions for future campaign ideas."
 
-**Automation Optimization:**  
+**Automation Optimization:**
 "Please analyze my welcome emails automation. Tell me which email has the highest drop-off and any other issues you spot."
 
-**Performance Comparison:**  
+**Performance Comparison:**
 "Please analyze my most recent campaign, tell me how the performance compares to other emails, and make suggestions to improve next time."
 
-**Subscriber Management:**  
+**Subscriber Management:**
 "Show me my most engaged subscribers and help me create a targeted campaign for them."
 
 ## Related connectors
@@ -56,7 +57,7 @@ February 11, 2026
 
 ### Asana
 
-Connect to Asana to coordinate tasks, projects, and goals](/connectors/asana)
+Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)
 
 Communication
 
@@ -66,11 +67,11 @@ Claude
 
 February 21, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696323e2a1aaf767a84b4ebc_circleback.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dd9120cb996c95c73b28_icon_Circleback.jpg)
 
 ### Circleback
 
-Search and access context from meetings](/connectors/circleback)
+Search and access context from meetings](https://claude.com/connectors/circleback)
 
 Productivity
 
@@ -84,7 +85,7 @@ May 1, 2026
 
 ### Computer by DevRev
 
-Manage your workspace, issues, tickets, customers, and more without leaving Claude.](/connectors/devrev)
+Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
 
 Communication
 
@@ -96,4 +97,4 @@ January 26, 2026
 
 ### Fellow.ai
 
-Chat with your meetings to uncover actionable insights](/connectors/fellow-ai)
+Chat with your meetings to uncover actionable insights](https://claude.com/connectors/fellow-ai)

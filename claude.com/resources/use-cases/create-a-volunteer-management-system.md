@@ -39,7 +39,7 @@ I run a nonprofit that provides tutoring and reading programs to elementary stud
 
 I need a complete volunteer program infrastructure that includes:
 
-Role descriptions for:  
+Role descriptions for:
 Reading Tutors (work one-on-one with students weekly)
 
 * Reading Tutors (work one-on-one with students weekly)
@@ -137,13 +137,13 @@ I've created a comprehensive volunteer program infrastructure with 4 core delive
 
 This document includes detailed descriptions for all four volunteer positions—Reading Tutors, Reading Buddies, Event Coordinators, and Administrative Volunteers. Each role includes purpose, key responsibilities, time commitment, qualifications, training requirements, and benefits. The descriptions are specific enough to set clear expectations while remaining welcoming to diverse applicants.
 
-**Complete Onboarding Guide**  
+**Complete Onboarding Guide**
 The onboarding guide provides a step-by-step process from initial inquiry through first assignment. It includes welcome materials, the full 4-week onboarding timeline with phase-by-phase activities, background check procedures, training modules, and a 15-page volunteer handbook covering policies, procedures, safety protocols, and program information.
 
-**Communication Templates**  
+**Communication Templates**
 This template library includes 12 ready-to-use email and message templates covering welcome sequences, training reminders, monthly newsletters, check-in requests, appreciation messages, event invitations, and emergency communications. Each template includes customization guidance and suggested sending schedules.
 
-**Volunteer Tracking System**  
+**Volunteer Tracking System**
 The Excel workbook provides a professional database system with five interconnected tabs: Volunteer Directory (contact info and roles), Hours Tracking (monthly logs with auto-calculations), Training Tracker (certification status with conditional formatting), Impact Dashboard (summary metrics and charts), and Reference Data (dropdown lists and lookup tables). The system includes formulas for automatic totals, visual indicators for status, and filtered views for easy reporting.
 
 Together, these documents create a professional volunteer management system that scales with your program growth.
@@ -212,7 +212,7 @@ Transform your volunteer program from scattered systems to professional infrastr
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6920abb69d9f4c36f445b37e_image1.png)
 
@@ -222,34 +222,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[See what your campaign goal actually requires](/resources/use-cases/see-what-your-campaign-goal-actually-requires)See what your campaign goal actually requires
+[See what your campaign goal actually requires](https://claude.com/resources/use-cases/see-what-your-campaign-goal-actually-requires)See what your campaign goal actually requires
 
 See what your campaign goal actually requires
 
 Use case
 
-[Use case](/resources/use-cases/see-what-your-campaign-goal-actually-requires)Use case
+[Use case](https://claude.com/resources/use-cases/see-what-your-campaign-goal-actually-requires)Use case
 
-[See budget futures side by side, in chat with Claude](/resources/use-cases/see-budget-futures-side-by-side)See budget futures side by side, in chat with Claude
+[See budget futures side by side, in chat with Claude](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)See budget futures side by side, in chat with Claude
 
 See budget futures side by side, in chat with Claude
 
 Use case
 
-[Use case](/resources/use-cases/see-budget-futures-side-by-side)Use case
+[Use case](https://claude.com/resources/use-cases/see-budget-futures-side-by-side)Use case
 
-[See why donor retention beats acquisition, in chat with Claude](/resources/use-cases/see-why-donor-retention-beats-acquisition)See why donor retention beats acquisition, in chat with Claude
+[See why donor retention beats acquisition, in chat with Claude](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)See why donor retention beats acquisition, in chat with Claude
 
 See why donor retention beats acquisition, in chat with Claude
 
 Use case
 
-[Use case](/resources/use-cases/see-why-donor-retention-beats-acquisition)Use case
+[Use case](https://claude.com/resources/use-cases/see-why-donor-retention-beats-acquisition)Use case
 
-[See your theory of change in chat with Claude](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)See your theory of change in chat with Claude
+[See your theory of change in chat with Claude](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)See your theory of change in chat with Claude
 
 See your theory of change in chat with Claude
 
 Use case
 
-[Use case](/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)Use case
+[Use case](https://claude.com/resources/use-cases/see-your-theory-of-change-in-chat-with-claude)Use case

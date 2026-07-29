@@ -63,10 +63,10 @@ Claude needs details about your product, your competitor, and your typical sales
 
 ## Required context
 
-Connect your CRM, like [HubSpot](https://claude.ai/directory/dba65f24-3bd2-4d72-a86c-62b7c5290a5f), so Claude can pull your closed-lost deals automatically.   
-  
-Make sure [Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) is turned on so Claude can research competitor sites and reviews.   
-  
+Connect your CRM, like [HubSpot](https://claude.ai/directory/dba65f24-3bd2-4d72-a86c-62b7c5290a5f), so Claude can pull your closed-lost deals automatically.
+
+Make sure [Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) is turned on so Claude can research competitor sites and reviews.
+
 Upload a screenshot of your website or sales materials if you want the battlecard to match your brand's colors and fonts.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690521c787c00d0be10cf408_hubspot.svg)
@@ -174,7 +174,7 @@ Equip your sales team with unified competitive intelligence. Work with Claude to
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a952dc912c9f54405c30f_compintel.png)
 
@@ -184,26 +184,26 @@ Open artifact in new window
 
 ## Related use cases
 
-[Create a sales proposal presentation](/resources/use-cases/create-a-sales-proposal-presentation)Create a sales proposal presentation
+[Create a sales proposal presentation](https://claude.com/resources/use-cases/create-a-sales-proposal-presentation)Create a sales proposal presentation
 
 Create a sales proposal presentation
 
 Use case
 
-[Use case](/resources/use-cases/create-a-sales-proposal-presentation)Use case
+[Use case](https://claude.com/resources/use-cases/create-a-sales-proposal-presentation)Use case
 
-[Prepare for sales deals](/resources/use-cases/prepare-for-sales-deals)Prepare for sales deals
+[Prepare for sales deals](https://claude.com/resources/use-cases/prepare-for-sales-deals)Prepare for sales deals
 
 Prepare for sales deals
 
 Use case
 
-[Use case](/resources/use-cases/prepare-for-sales-deals)Use case
+[Use case](https://claude.com/resources/use-cases/prepare-for-sales-deals)Use case
 
-[Create sales reports](/resources/use-cases/create-sales-reports)Create sales reports
+[Create sales reports](https://claude.com/resources/use-cases/create-sales-reports)Create sales reports
 
 Create sales reports
 
 Use case
 
-[Use case](/resources/use-cases/create-sales-reports)Use case
+[Use case](https://claude.com/resources/use-cases/create-sales-reports)Use case

@@ -2,6 +2,8 @@
 
 # Getting Started with Local MCP Servers on Claude Desktop
 
+Updated over a month ago
+
 The Model Context Protocol (MCP) is an open protocol that enables seamless integration between LLM applications and external data sources and tools. With the introduction of desktop extensions, installing and managing local MCP servers has become significantly easier.
 
 ## Desktop Extensions
@@ -43,7 +45,7 @@ for specific instructions.
 
 Custom desktop extensions uploads allow Team and Enterprise plans to leverage organization-specific workflows that aren’t available in the public directory. After creating a custom desktop extension, Owners and Primary Owners can navigate to Settings > Extensions within Claude Desktop and click “Advanced settings” to access the **Extension Developer** section:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1681607607/ba6e379d2769d190f0970a0adaed/AD_4nXd4aZkqjJFpiXMPF28Pih7HmSJ9pPsnoWAfVgiLdFRFiTkO92YtXteIjvDHaPl7T0tjfpRTBOlyrMbQ_aciCNDgfIuEvV3szmKvt72x5O51DMSClXOYWk1JIRIzylwkj3joXqZcLw?expires=1782459900&signature=4bd30de5c9b3d417dcfeff6d50e1ad40e6d61fa55c2a245b764ef1d1fe7b4cd9&req=dSYvF89%2BmodfXvMW1HO4zWbPxEJ7MjQ7Hn9K2IaIG2LT35njniSBHiwXgRYd%0ArLXP2aWtc%2FJXx9HmG2Q%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1681607607/ba6e379d2769d190f0970a0adaed/AD_4nXd4aZkqjJFpiXMPF28Pih7HmSJ9pPsnoWAfVgiLdFRFiTkO92YtXteIjvDHaPl7T0tjfpRTBOlyrMbQ_aciCNDgfIuEvV3szmKvt72x5O51DMSClXOYWk1JIRIzylwkj3joXqZcLw?expires=1782459900&signature=4bd30de5c9b3d417dcfeff6d50e1ad40e6d61fa55c2a245b764ef1d1fe7b4cd9&req=dSYvF89%2BmodfXvMW1HO4zWbPxEJ7MjQ7Hn9K2IaIG2LT35njniSBHiwXgRYd%0ArLXP2aWtc%2FJXx9HmG2Q%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1681607607/ba6e379d2769d190f0970a0adaed/AD_4nXd4aZkqjJFpiXMPF28Pih7HmSJ9pPsnoWAfVgiLdFRFiTkO92YtXteIjvDHaPl7T0tjfpRTBOlyrMbQ_aciCNDgfIuEvV3szmKvt72x5O51DMSClXOYWk1JIRIzylwkj3joXqZcLw?expires=1785295800&signature=d18a69676d530a5c24dac9bdb38afcbd5c980a77c9cb785f010df19e76f89cf1&req=dSYvF89%2BmodfXvMW1HO4zWbPxEV9Pjg6Hn9K2IaIG2IfAGLSoO5P%2FeHMyV5n%0Ar1SjcpS7tU%2B2%2B32ImOg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1681607607/ba6e379d2769d190f0970a0adaed/AD_4nXd4aZkqjJFpiXMPF28Pih7HmSJ9pPsnoWAfVgiLdFRFiTkO92YtXteIjvDHaPl7T0tjfpRTBOlyrMbQ_aciCNDgfIuEvV3szmKvt72x5O51DMSClXOYWk1JIRIzylwkj3joXqZcLw?expires=1785295800&signature=d18a69676d530a5c24dac9bdb38afcbd5c980a77c9cb785f010df19e76f89cf1&req=dSYvF89%2BmodfXvMW1HO4zWbPxEV9Pjg6Hn9K2IaIG2IfAGLSoO5P%2FeHMyV5n%0Ar1SjcpS7tU%2B2%2B32ImOg%3D%0A)
 
 Click “Install Extension…” and select the .mcpb file. Follow the prompts to install and configure your custom desktop extension. For more in-depth information, please refer to our [desktop extension developer documentation](https://github.com/anthropics/mcpb).
 
@@ -76,7 +78,7 @@ For controlling desktop extensions through system policies, please refer to our 
 ### Permission or security errors
 
 * On macOS, check System Preferences > Security & Privacy if you receive security warnings.
-* On Windows, ensure Claude Desktop has necessary permissions to access required directories.
+* On Windows and Linux, ensure Claude Desktop has necessary permissions to access required directories.
 * For enterprise environments, verify that desktop extensions are enabled through your organization's policies.
 
 ## Developer FAQ
@@ -97,7 +99,7 @@ Desktop extensions support Node.js, Python, and binary MCP servers. Claude Deskt
 
 ### How do I handle sensitive configuration like API keys?
 
-Mark configuration fields as "sensitive": true in your manifest.json. Claude Desktop will automatically encrypt these values using the operating system's secure storage (Keychain on macOS, Credential Manager on Windows).
+Mark configuration fields as "sensitive": true in your manifest.json. Claude Desktop will automatically encrypt these values using the operating system's secure storage (Keychain on macOS, Credential Manager on Windows, and your distro’s keychain manager on Linux).
 
 ### Can I distribute my custom desktop extension privately?
 
@@ -121,4 +123,8 @@ For more in-depth information on building your own MCP clients and servers, we r
 
 If you need further guidance, visit our guide on [How to Get Support](https://support.claude.com/en/articles/9015913-how-to-get-support) for additional support options.
 
-[Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)[Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)[Deploy Claude Desktop for macOS](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos)[Deploy Claude Desktop for Windows](https://support.claude.com/en/articles/12622703-deploy-claude-desktop-for-windows)[Deploying enterprise-grade MCP servers with desktop extensions](https://support.claude.com/en/articles/12702546-deploying-enterprise-grade-mcp-servers-with-desktop-extensions)
+* [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)
+* [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
+* [Deploy Claude Desktop for macOS](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos)
+* [Enterprise configuration for Claude Desktop](https://support.claude.com/en/articles/12622667-enterprise-configuration-for-claude-desktop)
+* [Deploying enterprise-grade MCP servers with desktop extensions](https://support.claude.com/en/articles/12702546-deploying-enterprise-grade-mcp-servers-with-desktop-extensions)

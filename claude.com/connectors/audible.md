@@ -1,6 +1,6 @@
 <!-- source: https://claude.com/connectors/audible -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f517b944431173c96c6735_audible%20-%20Audible%20(1).svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b3f9eb3325e73b43048a_icon_audible.jpg)
 
 # Audible
 
@@ -10,6 +10,7 @@ Ask for audiobook recommendations & preview audiobooks
 * Used in
 
   [Claude](https://claude.ai/directory/ca8bc23f-101c-4ff2-9f03-26a43302e2d0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Audible](https://www.audible.com/)
 
@@ -32,13 +33,13 @@ Note: If you're outside the United States, results may redirect you to your loca
 
 You can use the Audible Connector to:
 
-**Discover audiobooks by genre, mood, or theme:**  
+**Discover audiobooks by genre, mood, or theme:**
 "recommend something dark and twisty — like a psychological thriller audiobook"
 
-**Find audiobooks by a specific author or narrator:**  
+**Find audiobooks by a specific author or narrator:**
 "what Stephen King audiobooks are good?"
 
-**Get recommendations for a specific situation or listener:**  
+**Get recommendations for a specific situation or listener:**
 "family friendly light-hearted audiobooks for a 12 hour road trip for kids 10 and 12"
 
 **Listen to audiobook previews**
@@ -53,11 +54,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -71,7 +72,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -81,11 +82,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -95,8 +96,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

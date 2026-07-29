@@ -17,7 +17,12 @@ This video explores practical skills for crafting effective prompts when working
 
 * Effective prompting combines clear communication principles with AI-specific techniques
 * Six foundational prompting techniques:
-+ Give context: Be specific about what you want, why you want it, and relevant background + Show examples: Demonstrate the output style or format you're looking for + Specify constraints: Clearly define format, length, and other output requirements + Break complex tasks into steps: Guide the AI through multi-step reasoning + Ask the AI to think first: Give space for the AI to work through its process + Define the AI's role or tone: Specify how you want the AI to communicate
+  + Give context: Be specific about what you want, why you want it, and relevant background
+  + Show examples: Demonstrate the output style or format you're looking for
+  + Specify constraints: Clearly define format, length, and other output requirements
+  + Break complex tasks into steps: Guide the AI through multi-step reasoning
+  + Ask the AI to think first: Give space for the AI to work through its process
+  + Define the AI's role or tone: Specify how you want the AI to communicate
 * The "secret weapon": Ask the AI itself to help improve your prompt
 * Successful prompting is iterative (and perhaps also collaborative with the AI!). Expect to refine your approach based on results
 * Common successful patterns include providing clear task overviews, format specifications, explicit constraints, and relevant background information
@@ -45,7 +50,6 @@ As you progress through the course, we'd love to hear from you about how you are
 #### Acknowledgments and license
 
 *Copyright 2025 Rick Dakan, Joseph Feller, and Anthropic. Released under the CC BY-NC-SA 4.0 license.* *This course is based on The AI Fluency Framework by Dakan and Feller.**Supported in part by the Higher Education Authority, Ireland, through the National Forum for the Enhancement of Teaching and Learning.*
-
 <!-- youtube: 2YCaBqP8muw -->
 
 [![Effective Prompting Techniques](https://img.youtube.com/vi/2YCaBqP8muw/hqdefault.jpg)](https://www.youtube.com/watch?v=2YCaBqP8muw)

@@ -10,6 +10,7 @@ Thomson Reuters CoCounsel Legal, in Claude
 * Used in
 
   [Claude](https://claude.ai/directory/084ce5af-6b81-471a-a754-d1a50d3f61a1)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Made by
 
   [Thomson Reuters](https://www.thomsonreuters.com/en)
 
@@ -24,19 +25,19 @@ Thomson Reuters CoCounsel Legal, in Claude
   Interactive
 * More
 
-  [Documentation](https://legal-mcp.thomsonreuters.com/docs/connector-guide)[Privacy Policy](https://www.thomsonreuters.com/en/privacy-statement)[cocounselsupport@tr.com](mailto:cocounselsupport@tr.com)
+  [Documentation](https://legal-mcp.thomsonreuters.com/docs/connector-guide)[Privacy Policy](https://www.thomsonreuters.com/en/privacy-statement)[Support](mailto:cocounselsupport@tr.com)
 
 CoCounsel Legal delivers comprehensive Westlaw Deep Research reports with inline, linked citations to Westlaw and Practical Law sources.
 
 You can use CoCounsel Legal to:
 
-**Run deep legal research for fully cited memos linked to Westlaw:**  
+**Run deep legal research for fully cited memos linked to Westlaw:**
 "Research how California courts have treated non-compete agreements for executive employees since 2020."
 
-**Return to a completed research conversation and retrieve the report later:**  
+**Return to a completed research conversation and retrieve the report later:**
 "I asked you to research California non-competes earlier. Can you now retrieve the full report?"
 
-**Ask follow-up questions in the same conversation without restarting research:**  
+**Ask follow-up questions in the same conversation without restarting research:**
 "Follow up on that research: how does Texas law differ on executive non-competes for the same period?"
 
 ## Related connectors
@@ -49,11 +50,11 @@ Claude Code
 
 April 29, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20(3)%20-%20Sarah%20Xu.svg)
+[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
 
 ### Adobe Experience Manager
 
-Manage your Adobe Experience Manager content](/connectors/adobe-experience-manager)
+Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
 
 Productivity
 
@@ -67,7 +68,7 @@ June 9, 2026
 
 ### Adobe Workfront
 
-Manage planning, projects, tasks, and approvals](/connectors/adobe-workfront)
+Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
 
 Productivity
 
@@ -77,11 +78,11 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35947a710836831987ac85_slidesgpt.png)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
 
 ### Agentic Presentations by SlidesGPT
 
-Make presentations and slides, export to PowerPoint](/connectors/slidesgpt)
+Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
 
 Productivity
 
@@ -91,8 +92,8 @@ Claude Code
 
 June 22, 2026
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359b43f139279efd583821_AppFolio.svg)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
 
 ### AppFolio Realm-X
 
-Operate your portfolio directly from Claude](/connectors/appfolio-realm-x)
+Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)

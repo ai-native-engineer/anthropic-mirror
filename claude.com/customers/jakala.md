@@ -10,7 +10,7 @@ Try Claude
 
 Contact sales
 
-[Contact sales](/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)Contact sales
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a19c9b64163b9c9a70e5a2c_logo_jakala-light-mode%20(1).png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a19c9b84d1c1fd8844ba654_logo_jakala-dark-mode%20(1).png)
 
@@ -167,34 +167,34 @@ Global Managing Director, JAKALA
 
 ## Related stories
 
-[Quantium scales Claude across Australia's largest enterprises](/customers/quantium-qa)Quantium scales Claude across Australia's largest enterprises
+[Caylent turns months of migration work into days with Claude Agent SDK](https://claude.com/customers/caylent)Caylent turns months of migration work into days with Claude Agent SDK
 
-Quantium scales Claude across Australia's largest enterprises
-
-Customer story
-
-[Customer story](/customers/quantium-qa)Customer story
-
-[How Brainlabs gave 1k+ marketers at its media agency an AI coworker with Claude Cowork and skills](/customers/brainlabs)How Brainlabs gave 1k+ marketers at its media agency an AI coworker with Claude Cowork and skills
-
-How Brainlabs gave 1k+ marketers at its media agency an AI coworker with Claude Cowork and skills
+Caylent turns months of migration work into days with Claude Agent SDK
 
 Customer story
 
-[Customer story](/customers/brainlabs)Customer story
+[Customer story](https://claude.com/customers/caylent)Customer story
 
-[How PwC trained 400 consultants on Claude Code in a single session](/customers/pwc-qa)How PwC trained 400 consultants on Claude Code in a single session
+[How can a two-person fabrication studio make room for problems it’s never solved before?](https://claude.com/customers/bla-studios)How can a two-person fabrication studio make room for problems it’s never solved before?
 
-How PwC trained 400 consultants on Claude Code in a single session
-
-Customer story
-
-[Customer story](/customers/pwc-qa)Customer story
-
-[TRY accelerates creative excellence with Claude](/customers/try)TRY accelerates creative excellence with Claude
-
-TRY accelerates creative excellence with Claude
+How can a two-person fabrication studio make room for problems it’s never solved before?
 
 Customer story
 
-[Customer story](/customers/try)Customer story
+[Customer story](https://claude.com/customers/bla-studios)Customer story
+
+[LG CNS modernizes 20-year-old enterprise systems with Claude](https://claude.com/customers/lg-cns)LG CNS modernizes 20-year-old enterprise systems with Claude
+
+LG CNS modernizes 20-year-old enterprise systems with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/lg-cns)Customer story
+
+[How Blank Metal, a lean professional services firm, runs on Claude Cowork](https://claude.com/customers/blank-metal-qa)How Blank Metal, a lean professional services firm, runs on Claude Cowork
+
+How Blank Metal, a lean professional services firm, runs on Claude Cowork
+
+Customer story
+
+[Customer story](https://claude.com/customers/blank-metal-qa)Customer story

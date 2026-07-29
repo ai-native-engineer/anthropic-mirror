@@ -1,6 +1,14 @@
 <!-- source: https://claude.com/docs/claude-science/the-reviewer -->
 
-The reviewer is a built-in verification step that independently re-reads Claude’s recent responses, the approved plan, saved artifacts, and the execution record, then checks whether Claude’s claims match what actually ran. It runs automatically after responses and periodically during long work (Max, Team, and Enterprise plans), and you can trigger it any time with **Request review**. On the Pro plan, only **Request review** is available.
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
+The reviewer is a built-in verification step that independently re-reads Claude’s recent responses, the approved plan, saved artifacts, and the execution record, then checks whether Claude’s claims match what actually ran. It runs automatically after responses and periodically during long work, and you can trigger it any time with **Request review**. Automatic review is on by default on Max, Team, and Enterprise plans; on the Pro plan it starts off, and you can turn it on per session.
 
 ##  Examples of what the reviewer checks
 
@@ -23,6 +31,4 @@ In **Settings** > **Specialists**, open **Reviewer** and add checks in the **Ins
 
 ##  Controls
 
-Auto-review is a per-session toggle in the session settings menu and is on by default. Reviews run against your plan’s usage.
-
-[Annotations](/docs/claude-science/annotations)[Tools and environments](/docs/claude-science/tools-and-environments)
+Auto-review is a per-session toggle in the session settings menu. It starts on for Max, Team, and Enterprise plans and off for the Pro plan. Reviews run against your plan’s usage.

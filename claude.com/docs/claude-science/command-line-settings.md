@@ -1,6 +1,14 @@
 <!-- source: https://claude.com/docs/claude-science/command-line-settings -->
 
-Reference for the claude-science command: every subcommand, the serve flags, the single-use login link, and the two environment variables Claude Science reads.  
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
+Reference for the claude-science command: every subcommand, the serve flags, the single-use login link, and the environment variables Claude Science reads.
 claude-science serve starts Claude Science and opens the web app in your browser at a single-use login link. Everyday use is that one command. The others manage the running program: they mint login links, report status, follow logs, install updates, and merge data directories.
 
 ##  Commands
@@ -31,7 +39,7 @@ These two work on every command.
 
 ##  The login link
 
-When serve starts, it prints a line of the form `Web UI -> http://localhost:<port>/?nonce=...`. The nonce is a one-time password: it signs one browser tab in and then expires, about three minutes after it is printed. The signed-in tab stays signed in until you restart the program.  
+When serve starts, it prints a line of the form `Web UI -> http://localhost:<port>/?nonce=...`. The nonce is a one-time password: it signs one browser tab in and then expires, about three minutes after it is printed. The signed-in tab stays signed in until you restart the program.
 You never need to keep a link. claude-science open mints a fresh one and opens it in your browser whenever you want to sign in again. For a machine you reach over SSH, claude-science url prints a fresh link alone on standard output: run it there, then open the printed link through your tunnel. The app listens on 127.0.0.1 unless you change —host, so it is reachable only from your own machine.
 
 ##  Flags for serve
@@ -46,6 +54,7 @@ You never need to keep a link. claude-science open mints a fresh one and opens i
 | `--base-path` `</prefix>` | unset | Serve the app under a URL prefix behind a reverse proxy. |
 | `--allow-origin` `<url>` | unset | An extra browser Origin allowed to connect; repeat the flag for more than one. It does not change which sites Claude can reach. |
 | `--sandbox-port` `<n>` | port + 1 | The separate origin that previews of generated HTML are served from, so a previewed page cannot read your session. |
+| `--verbose` | off | Show startup and info log lines on the console; by default they go only to the log file. |
 
 ##  Dangerous flags
 
@@ -53,12 +62,10 @@ You never need to keep a link. claude-science open mints a fresh one and opens i
 
 ##  Environment variables
 
-`DO_NOT_TRACK`, set to any value, turns usage analytics off. It is the same switch as `disable_telemetry = true` in the configuration file. `GITHUB_TOKEN` is optional and is used only against `api.github.com`, to lift the rate limit when you install a skill from a GitHub repository. Settings belong in the configuration file; an environment variable never overrides one.
+`DO_NOT_TRACK`, set to any value, turns usage analytics off. It is the same switch as `disable_telemetry = true` in the configuration file. `GITHUB_TOKEN` is optional and is used only against `api.github.com`, to lift the rate limit when you install a skill from a GitHub repository. Claude Science also reads the standard proxy variables (`HTTPS_PROXY`, `HTTP_PROXY`, `NO_PROXY`, and `ALL_PROXY`); see [Use Claude Science on a corporate network](https://claude.com/docs/claude-science/corporate-networks#connect-through-an-outbound-proxy). The proxy address variables are the one case where the environment overrides the configuration file, and `NO_PROXY` is merged with the `no_proxy` key rather than replacing it. Every other setting belongs in the configuration file.
 
 ##  See also
 
 ## Remote compute clusters
 
 Connect an SSH host and run jobs on it.
-
-[Glossary](/docs/claude-science/glossary)[Changelog](/docs/claude-science/changelog)

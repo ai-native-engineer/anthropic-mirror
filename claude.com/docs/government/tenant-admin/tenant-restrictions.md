@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/government/tenant-admin/tenant-restrictions -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 > **Who this is for:** IT and network administrators who operate their agency’s outbound web proxy or secure web gateway and want to prevent users on that network from signing in to Claude for Government with a different agency’s account.
 
 Tenant restrictions let you limit which Claude for Government tenants can be reached from your network. Your network appliance adds a header to every outbound request listing the tenants you allow, and Claude for Government refuses any request that authenticates as a tenant not on that list.
@@ -14,10 +22,9 @@ The check covers every way a user can reach Claude for Government:
 
 * The web application, including the tenant and organization admin portals
 * The desktop application
-* Claude Code
 * The Claude for Microsoft 365 add-ins
 * Direct API calls
-* SCIM directory provisioning and the [Compliance API](/docs/government/org-admin/compliance-api)
+* SCIM directory provisioning and the [Compliance API](https://claude.com/docs/government/org-admin/compliance-api)
 
 The same check applies at sign-in, so a user signing in to a tenant that is not on the list sees the refusal at the sign-in screen rather than after authentication completes.
 
@@ -77,5 +84,3 @@ You can confirm the restriction is working before rolling it out broadly.
 To confirm a block, temporarily set the proxy’s allowlist to a tenant ID you do not own (any validly formatted ID works), then sign in to your own tenant from a browser that routes through the proxy. You should see the **This account isn’t permitted from this network** refusal page. A direct API request in the same configuration should return HTTP 403 with the error code `tenant_restriction_violation`.
 To confirm normal access, set the proxy’s allowlist to your real tenant ID and repeat the request. It should succeed.
 To confirm the appliance is overwriting rather than appending, have the test client send its own `Anthropic-Allowed-Tenant-Ids` header with your real tenant ID while the proxy’s allowlist is set to an ID you do not own. The request should still return 403 (the proxy’s value wins), not 400 (two headers reached the server) or 200 (the client’s value reached the server).
-
-[Identity and access](/docs/government/tenant-admin/identity-and-access)[Seats](/docs/government/tenant-admin/seats)

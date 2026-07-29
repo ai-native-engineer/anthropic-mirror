@@ -14,7 +14,7 @@ This week, senior leaders from Anthropic traveled to Seoul to open the office an
 
 ## **Supporting Korea’s AI ambitions**
 
-## 
+##
 
 Anthropic has signed an MOU with Korea’s Ministry of Science and ICT to support the safe and responsible adoption of AI across the public sector. Together, we’ll collaborate on AI safety and cybersecurity, including evaluating model safety in the Korean language with the Korea AI Safety Institute, and exchanging information on AI-enabled cyber threats.
 
@@ -45,7 +45,3 @@ This week, we co-hosted [Claude Build Day](https://luma.com/ht1jlnwy) with BASS 
 Our Seoul office—led by [KiYoung Choi](https://www.anthropic.com/news/kiyoung-choi-representative-director-anthropic-korea), who brings three decades of experience leading technology businesses across Korea—is now open and hiring across a range of roles. To learn more about joining the team, visit our [careers page](https://www.anthropic.com/careers).
 
 *Updated June 18 to add details on MOU with the Korean government.*
-
-### Results from the first Anthropic Public Record
-
-[Read more](/news/anthropic-public-record)

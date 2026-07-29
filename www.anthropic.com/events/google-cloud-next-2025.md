@@ -24,7 +24,7 @@ At Anthropic, we develop large-scale AI systems, and our research teams help us 
 
 Watch sessions
 
-[Events](/events)
+[Events](https://www.anthropic.com/events)
 
 ・
 
@@ -149,13 +149,13 @@ Day 1Day 2Day 3Day 3
 
 ### April
 
-### 
+###
 
 ### 9
 
 ### 9
 
-### 
+###
 
 ### April
 
@@ -359,7 +359,7 @@ Expo Breakout 3
 
 ### April
 
-### 
+###
 
 ### 10
 
@@ -553,15 +553,15 @@ Discover Google's latest developments in GKE that enable unprecedented scale and
 
 South Seas B
 
-### 
+###
 
-### 
+###
 
 ###
 
 Agenda details coming soon.
 
-### 
+###
 
 ### —
 
@@ -569,15 +569,15 @@ Agenda details coming soon.
 
 Agenda details coming soon.
 
-### 
+###
 
-### 
+###
 
 ###
 
 Agenda details coming soon.
 
-### 
+###
 
 ### —
 
@@ -613,7 +613,7 @@ Access cutting-edge research, connect with our community, and stay informed abou
 
 ### Discover meetups, workshops, online events, and more
 
-[Browse all events](/events)Browse all events
+[Browse all events](https://www.anthropic.com/events)Browse all events
 
 Browse all events
 
@@ -621,6 +621,6 @@ Browse all events
 
 ### Get expert insight on the latest innovation in the industry
 
-[View all webinars](/events#webinars)View all webinars
+[View all webinars](https://www.anthropic.com/events#webinars)View all webinars
 
 View all webinars

@@ -41,12 +41,12 @@ Using [model context protocol](https://claude.com/blog/what-is-model-context-pro
 
 Point Claude to a message thread. It'll find the relevant conversation, research solutions, and then write to your notes for structured, organized information you can access anywhere.
 
-I just got a text from Sarah asking me to bring dessert to Saturday's potluck—there will be about 15 people.   
-  
+I just got a text from Sarah asking me to bring dessert to Saturday's potluck—there will be about 15 people.
+
 Can you read my Messages to see the full context, then help me figure out what to make? I need something that's impressive but not too complicated, travels well, and can be made Friday night since Saturday morning I'll be busy.
 
-Research dessert options that fit those criteriasave recipe opping list to my Notes app—group the shopping list by store section so I'm not running back and forth, and include any technique tips that'll help me nail it.  
-  
+Research dessert options that fit those criteriasave recipe opping list to my Notes app—group the shopping list by store section so I'm not running back and forth, and include any technique tips that'll help me nail it.
+
 To ensure correct formatting in my notes, using HTML tags to create natural line breaks. Use abbreviations and concise language so the note isn't overly long.
 
 [Next](#)Next
@@ -63,11 +63,11 @@ Claude can connect to Messages to understand the full thread context, search the
 
 ## Required context
 
-To access system-level connectors, download [Claude for Desktop.](https://claude.com/download)   
+To access system-level connectors, download [Claude for Desktop.](https://claude.com/download)
 ‍
 
-Then, in [Settings > Connectors](http://claude.ai/settings/connectors), click ‘Browse Connectors’, and enable the [Messages](https://support.claude.com/en/articles/11869619-using-claude-with-ios-apps) and [Notes](https://support.claude.com/en/articles/11869619-using-claude-with-ios-apps) connectors under ‘Desktop extensions’.    
-  
+Then, in [Settings > Connectors](http://claude.ai/settings/connectors), click ‘Browse Connectors’, and enable the [Messages](https://support.claude.com/en/articles/11869619-using-claude-with-ios-apps) and [Notes](https://support.claude.com/en/articles/11869619-using-claude-with-ios-apps) connectors under ‘Desktop extensions’.
+
 Turn on [Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) in the chat bar so Claude can search for recipes and reviews online as a next step.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a5f3477d184225a9f02da_ios_messages.svg)
@@ -100,13 +100,13 @@ Claude analyzes your messages for key details within conversation threads, then 
 
 From Claude
 
-Got it! I read through your messages with Sarah and picked up the important stuff—there are a couple vegetarians coming, one person needs gluten-free, and it's a casual backyard thing on Saturday afternoon.   
-  
-So I looked up desserts that travel well and can be prepped ahead, since you mentioned you're busy Saturday morning. Salted Caramel Swirl Brownies would be perfect here. They're the kind of thing that looks impressive but isn't actually complicated, they taste even better the next day (so Friday night baking works great), and you can easily make a small separate batch for your gluten-free guest.   
-  
+Got it! I read through your messages with Sarah and picked up the important stuff—there are a couple vegetarians coming, one person needs gluten-free, and it's a casual backyard thing on Saturday afternoon.
+
+So I looked up desserts that travel well and can be prepped ahead, since you mentioned you're busy Saturday morning. Salted Caramel Swirl Brownies would be perfect here. They're the kind of thing that looks impressive but isn't actually complicated, they taste even better the next day (so Friday night baking works great), and you can easily make a small separate batch for your gluten-free guest.
+
 ✓I've saved a note to your Apple Notes:
 
-‍**"Brownies - Sarah's Party"  
+‍**"Brownies - Sarah's Party"
 ‍**‍ **‍**All your ingredients are organized by where you'll find them in the store—baking aisle, then dairy, then condiments. No running back and forth. I noted quantities and threw in some optional touches if you want to make them extra nice. Should be about 50 minutes of hands-on work plus 30 minutes in the oven. And honestly, letting them sit overnight makes them even fudgier, so Friday night timing is actually ideal. You can check your Notes app whenever you're ready to shop or bake.
 
 Below the shopping list is the step-by-step recipe with timing notes so you know what to expect. I included tips on getting that swirl pattern right and how to test when they're done. Also added a mini-recipe for the gluten-free version using almond flour.
@@ -175,7 +175,7 @@ Next time you're juggling requests and scattered information, point Claude to yo
 
 Try in Claude
 
-[Try in Claude](/download)Try in Claude
+[Try in Claude](https://claude.com/download)Try in Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a78103d26e3c2a33c8053_Screenshot%202025-11-04%20at%202.02.46%E2%80%AFPM.png)
 
@@ -185,34 +185,34 @@ Open artifact in new window
 
 ## Related use cases
 
-[Map your understanding and build lessons from the gaps](/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Map your understanding and build lessons from the gaps
+[Map your understanding and build lessons from the gaps](https://claude.com/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Map your understanding and build lessons from the gaps
 
 Map your understanding and build lessons from the gaps
 
 Use case
 
-[Use case](/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Use case
+[Use case](https://claude.com/resources/use-cases/map-your-understanding-and-build-lessons-from-the-gaps)Use case
 
-[Stress-test your financial plan across scenarios](/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Stress-test your financial plan across scenarios
+[Stress-test your financial plan across scenarios](https://claude.com/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Stress-test your financial plan across scenarios
 
 Stress-test your financial plan across scenarios
 
 Use case
 
-[Use case](/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Use case
+[Use case](https://claude.com/resources/use-cases/stress-test-your-financial-plan-across-scenarios)Use case
 
-[Organize files across your desktop](/resources/use-cases/organize-files-by-whats-in-them)Organize files across your desktop
+[Organize files across your desktop](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)Organize files across your desktop
 
 Organize files across your desktop
 
 Use case
 
-[Use case](/resources/use-cases/organize-files-by-whats-in-them)Use case
+[Use case](https://claude.com/resources/use-cases/organize-files-by-whats-in-them)Use case
 
-[Thoughtful gift giving with Claude](/resources/use-cases/thoughtful-gift-giving-with-claude)Thoughtful gift giving with Claude
+[Thoughtful gift giving with Claude](https://claude.com/resources/use-cases/thoughtful-gift-giving-with-claude)Thoughtful gift giving with Claude
 
 Thoughtful gift giving with Claude
 
 Use case
 
-[Use case](/resources/use-cases/thoughtful-gift-giving-with-claude)Use case
+[Use case](https://claude.com/resources/use-cases/thoughtful-gift-giving-with-claude)Use case
