@@ -13,6 +13,7 @@ import tempfile
 ALLOWED_ROOTS = {
     "alignment.anthropic.com",
     "alignment.anthropic.com.md",
+    "anthropic.com",
     "anthropic-partners.skilljar.com",
     "anthropic.skilljar.com",
     "assets.anthropic.com",
@@ -181,6 +182,7 @@ def self_test():
         "anthropic.skilljar.com/course/x.md": b"<!-- https://anthropic.skilljar.com/course/x -->\n",
         "youtube.com/anthropic-ai.md": b"# anthropic-ai (YouTube)\n",
         "youtube.com/anthropic-ai/x.md": b"---\ntitle: x\n---\n",
+        "anthropic.com/document/x.pdf": b"%PDF-test",
         "assets.anthropic.com/x.pdf": b"%PDF-test",
         "trust.anthropic.com/resources.md": b"<!-- source: https://trust.anthropic.com/resources -->\n",
         "platform.claude.com/docs/en/x.parts/part-001.md": (

@@ -102,6 +102,10 @@ def redirected(requested, final):
     return normalized(requested) != normalized(final)
 
 
+def same_host(requested, final):
+    return urlsplit(requested).netloc == urlsplit(final).netloc
+
+
 def sitemap_urls(sm):
     """sitemap(또는 sitemap 인덱스) -> URL 집합. 인덱스면 자식 sitemap을 한 단계 펼친다."""
     try:
@@ -226,6 +230,8 @@ def fetch_docs_md(url):
         canonical = final or url
         if canonical.endswith(".md"):
             canonical = canonical[:-3]
+        if not same_host(url, canonical):
+            return canonical, "", "stale=redirect"
         return canonical, absolutize_markdown_images(strip_docs_index(t.strip()), canonical), ""
     except Exception as e:
         return url, "", str(e)[:80]
@@ -499,6 +505,8 @@ def main():
             assert html_to_md("<main><p>x  </p></main>") == "x"
             assert redirected(url, "https://example.com/other")
             assert not redirected(url, url + "/")
+            assert same_host(url, url + "/other")
+            assert not same_host(url, "https://other.example/page")
         print("self-test ok")
         return
 
