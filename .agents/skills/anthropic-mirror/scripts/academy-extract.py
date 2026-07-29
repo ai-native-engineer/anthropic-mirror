@@ -19,6 +19,7 @@ skilljar 레슨 페이지는 1MB로 무거워 브라우저 크롤이 페이지�
   모든 레슨을 검사하고 실제 본문이 달라진 파일만 갱신.
   출력: <out_dir>/anthropic.skilljar.com/<course>/<NN>-<title>.md (레슨별, A 트랙과 같은 도메인 트리)
 """
+
 import asyncio, json, os, re, sys
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -28,8 +29,11 @@ from markdownify import markdownify as md
 
 BASE = os.environ.get("SKILLJAR_BASE", "https://anthropic.skilljar.com").rstrip("/")
 _HOST = BASE.split("://")[-1]
-STATE = os.path.expanduser("~/.crawl4ai/academy_state.json" if _HOST == "anthropic.skilljar.com"
-                           else f"~/.crawl4ai/skilljar-{_HOST}.json")
+STATE = os.path.expanduser(
+    "~/.crawl4ai/academy_state.json"
+    if _HOST == "anthropic.skilljar.com"
+    else f"~/.crawl4ai/skilljar-{_HOST}.json"
+)
 
 
 def slug(t):
@@ -39,10 +43,17 @@ def slug(t):
 
 def extract(html):
     soup = BeautifulSoup(html, "html.parser")
-    title = soup.title.get_text(strip=True) if soup.title else ""  # 레슨명은 <title>이 정확(본문 첫 헤딩은 "Learning Objectives"류라 부정확)
+    title = (
+        soup.title.get_text(strip=True) if soup.title else ""
+    )  # 레슨명은 <title>이 정확(본문 첫 헤딩은 "Learning Objectives"류라 부정확)
     # 영상 레슨은 .course-text-content가 "Video" 몇 자뿐이라 첫 매칭만 쓰면 본문(article/#lesson-main-content)을 놓친다 -> 후보 중 가장 긴 본문을 고른다.
     best = ""
-    for sel in (".course-text-content", ".clp__main-content", "#lesson-main-content", "article"):
+    for sel in (
+        ".course-text-content",
+        ".clp__main-content",
+        "#lesson-main-content",
+        "article",
+    ):
         el = soup.select_one(sel)
         if not el:
             continue
@@ -59,9 +70,15 @@ async def main():
     courses = sys.argv[2:]
     out.mkdir(parents=True, exist_ok=True)
     state = json.load(open(STATE))
-    ck = {c["name"]: c["value"] for c in state["cookies"] if "skilljar" in c.get("domain", "")}
+    ck = {
+        c["name"]: c["value"]
+        for c in state["cookies"]
+        if "skilljar" in c.get("domain", "")
+    }
     UA = {"User-Agent": "Mozilla/5.0"}
-    async with httpx.AsyncClient(cookies=ck, headers=UA, timeout=45, follow_redirects=True) as c:
+    async with httpx.AsyncClient(
+        cookies=ck, headers=UA, timeout=45, follow_redirects=True
+    ) as c:
         sem = asyncio.Semaphore(8)
 
         async def get(u):
@@ -73,18 +90,46 @@ async def main():
                     return u, "", ""
 
         _, root, _ = await get(f"{BASE}/")
-        if "auth/logout" not in root:
-            print("[!] 비로그인 상태 - login-academy.py로 쿠키를 먼저 갱신하세요.")
+        # 로그인 판정은 /accounts/ 착지점으로 한다. sj_sessionid는 익명 세션에도 발급되고
+        # 루트의 'auth/logout' 문자열도 로그아웃 상태에 남아 있어 둘 다 판별에 못 쓴다.
+        # 비로그인으로 진행하면 전 레슨이 코스 랜딩으로 튕겨 소개글이 본문으로 저장된다.
+        _, _, acct = await get(f"{BASE}/accounts/")
+        if "/accounts/login" in acct or not acct:
+            print("[!] 비로그인 상태 - login-academy.py로 로그인하세요.")
             return
         if not courses:
-            skip = {"auth", "accounts", "page", "catalog", "paths", "plans", "courses", "lessons"}
-            courses = sorted(set(m for m in re.findall(r'href="/([a-z0-9][a-z0-9-]+)/?"', root) if m not in skip))
+            skip = {
+                "auth",
+                "accounts",
+                "page",
+                "catalog",
+                "paths",
+                "plans",
+                "courses",
+                "lessons",
+            }
+            courses = sorted(
+                set(
+                    m
+                    for m in re.findall(r'href="/([a-z0-9][a-z0-9-]+)/?"', root)
+                    if m not in skip
+                )
+            )
         for course in courses:
             _, ch, _ = await get(f"{BASE}/{course}")
-            ids = sorted(set(i for i in re.findall(rf"/{re.escape(course)}/(\d+)", ch) if len(i) >= 5), key=int)
+            ids = sorted(
+                set(
+                    i
+                    for i in re.findall(rf"/{re.escape(course)}/(\d+)", ch)
+                    if len(i) >= 5
+                ),
+                key=int,
+            )
             titles = {}
             for item in BeautifulSoup(ch, "html.parser").select("li[data-url]"):
-                m = re.fullmatch(rf"/{re.escape(course)}/(\d{{5,}})", item.get("data-url", ""))
+                m = re.fullmatch(
+                    rf"/{re.escape(course)}/(\d{{5,}})", item.get("data-url", "")
+                )
                 label = item.select_one(".lesson-wrapper > div")
                 if m and label:
                     titles[m.group(1)] = next(label.stripped_strings, "")
@@ -92,7 +137,9 @@ async def main():
             by_source = {}
             if cdir.exists():
                 for path in cdir.glob("*.md"):
-                    first = path.open(encoding="utf-8", errors="ignore").readline().strip()
+                    first = (
+                        path.open(encoding="utf-8", errors="ignore").readline().strip()
+                    )
                     m = re.fullmatch(r"<!-- (https?://\S+) -->", first)
                     if m:
                         by_source[m.group(1)] = path
@@ -102,28 +149,47 @@ async def main():
             for n, lid in enumerate(ids, 1):
                 u = f"{BASE}/{course}/{lid}"
                 (ltitle, b), final = bodies.get(u, (("", ""), ""))
-                title = slug(titles.get(lid) or ltitle) if titles.get(lid) or ltitle else lid
+                title = (
+                    slug(titles.get(lid) or ltitle)
+                    if titles.get(lid) or ltitle
+                    else lid
+                )
                 path = by_source.get(u, cdir / f"{n:02d}-{title}.md")
-                if final and urlsplit(final).path.rstrip("/") != urlsplit(u).path.rstrip("/"):
+                if final and urlsplit(final).path.rstrip("/") != urlsplit(
+                    u
+                ).path.rstrip("/"):
                     cdir.mkdir(parents=True, exist_ok=True)
                     if not path.exists():
                         label = titles.get(lid) or ltitle or f"Lesson {lid}"
-                        path.write_text(f"<!-- {u} -->\n\n# {label}\n\n_(등록 또는 권한이 필요한 레슨)_\n", encoding="utf-8")
+                        path.write_text(
+                            f"<!-- {u} -->\n\n# {label}\n\n_(등록 또는 권한이 필요한 레슨)_\n",
+                            encoding="utf-8",
+                        )
                         changed += 1
                     continue
                 # 영상 레슨은 본문 컨테이너에 placeholder가 잡혀 50자 필터를 통과한다 -> 마커로 스킵
-                if len(b) < 50 or "This video is still being processed" in b or "Skilljar is a learning management system that hosts our educational content" in b:
+                if (
+                    len(b) < 50
+                    or "This video is still being processed" in b
+                    or "Skilljar is a learning management system that hosts our educational content"
+                    in b
+                ):
                     continue
                 cdir.mkdir(parents=True, exist_ok=True)
                 existing = path.read_text(encoding="utf-8") if path.exists() else ""
-                tail = re.search(r"\n<!-- (?:youtube|vimeo|jwplayer(?:-srt)?): .*\Z", existing, re.S)
+                tail = re.search(
+                    r"\n<!-- (?:youtube|vimeo|jwplayer(?:-srt)?): .*\Z", existing, re.S
+                )
                 preserved = tail.group(0).rstrip() if tail else ""
                 content = f"<!-- {u} -->\n\n{b}"
                 updated = f"{content}{preserved}\n" if preserved else f"{content}\n"
                 if updated != existing:
                     path.write_text(updated, encoding="utf-8")
                     changed += 1
-            print(f"{course}: {len(ids)} lessons inspected, {changed} bodies changed", flush=True)
+            print(
+                f"{course}: {len(ids)} lessons inspected, {changed} bodies changed",
+                flush=True,
+            )
 
 
 asyncio.run(main())
