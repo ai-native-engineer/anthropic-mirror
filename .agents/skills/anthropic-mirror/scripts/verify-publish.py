@@ -144,6 +144,7 @@ def validate_change(repo, status, path, allow_deletes=False, strict_paths=False)
     elif path.endswith(".md"):
         with open(fp, encoding="utf-8", errors="replace") as f:
             first = f.readline().rstrip("\n")
+            second = f.readline().rstrip("\n")
         if path in {"youtube.com/anthropic-ai.md", "youtube.com/claude.md"}:
             if not first.startswith("# "):
                 issues.append(f"YouTube 인덱스 헤더 불일치: {path}")
@@ -154,7 +155,9 @@ def validate_change(repo, status, path, allow_deletes=False, strict_paths=False)
             if not first.startswith("<!-- https://"):
                 issues.append(f"Academy source 헤더 누락: {path}")
             issues.extend(course_duplicate_issues(fp, path))
-        elif ".parts/" in path and not first.startswith("<!-- part of: https://"):
+        elif ".parts/" in path and not any(
+            line.startswith("<!-- part of: https://") for line in (first, second)
+        ):
             issues.append(f"split part 헤더 누락: {path}")
         elif ".parts/" not in path and not first.startswith("<!-- source: https://"):
             issues.append(f"source 헤더 누락: {path}")
@@ -180,7 +183,10 @@ def self_test():
         "youtube.com/anthropic-ai/x.md": b"---\ntitle: x\n---\n",
         "assets.anthropic.com/x.pdf": b"%PDF-test",
         "trust.anthropic.com/resources.md": b"<!-- source: https://trust.anthropic.com/resources -->\n",
-        "platform.claude.com/docs/en/x.parts/part-001.md": b"<!-- part of: https://platform.claude.com/docs/en/x -->\n",
+        "platform.claude.com/docs/en/x.parts/part-001.md": (
+            b"<!-- source: https://platform.claude.com/docs/en/x -->\n"
+            b"<!-- part of: https://platform.claude.com/docs/en/x -->\n"
+        ),
         "transformer-circuits.pub/x/images/x.png": b"\x89PNG\r\n\x1a\n",
         "transformer-circuits.pub/x/images/x.jpg": b"\xff\xd8test",
         "www.anthropic.com/events/images/x.svg": b"<svg xmlns='http://www.w3.org/2000/svg'></svg>",
