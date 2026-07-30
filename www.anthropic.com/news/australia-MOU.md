@@ -27,3 +27,5 @@ On Monday, we also announced that we are launching our first deep tech startup A
 These investments reflect the advanced work Australian researchers and startups are already doing with Claude, and directly contribute to supporting the goals outlined in Australia’s National AI Plan.
 
 The visit to Australia marks the beginning of long-term collaboration and investment into the Asia-Pacific region. We’ll share more about our local team and leadership in the coming weeks as we prepare to open our Sydney office. You can read the details of the Australian government’s MOU with Anthropic [here](https://www.industry.gov.au/publications/memorandum-understanding-between-australian-government-and-anthropic-collaboration-ai-opportunities).
+
+Australian government and Anthropic sign MOU for AI safety and research \ Anthropic

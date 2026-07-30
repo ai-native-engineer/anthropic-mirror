@@ -24,7 +24,7 @@ Claude in Slack gives you AI assistance right where your team collaborates. This
 5. When you close the AI assistant panel, the conversation moves to your history.
 6. Access previous conversations by clicking the clock icon.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755150661/a1a13c73bda421f6ee906650cfc9/22907223-e523-4a93-a6d2-3199a8368991?expires=1785295800&signature=488233343eb478fd2a4a94e90fad168aacfc271cb66a4814ec68115f7e57131f&req=dSciE8h7nYdZWPMW1HO4zXK26hRM4TQWVfOC%2FRy97LXxGlJ982H%2B9czmnWf1%0AR37AZSHwmMgv9SKB2Fg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755150661/a1a13c73bda421f6ee906650cfc9/22907223-e523-4a93-a6d2-3199a8368991?expires=1785295800&signature=488233343eb478fd2a4a94e90fad168aacfc271cb66a4814ec68115f7e57131f&req=dSciE8h7nYdZWPMW1HO4zXK26hRM4TQWVfOC%2FRy97LXxGlJ982H%2B9czmnWf1%0AR37AZSHwmMgv9SKB2Fg%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755150661/a1a13c73bda421f6ee906650cfc9/22907223-e523-4a93-a6d2-3199a8368991?expires=1785371400&signature=bb11c1ee13c63cae71047cba563398841923ed309101d2727c39f5efdc5121ab&req=dSciE8h7nYdZWPMW1HO4zXK26hRN7zAaVfOC%2FRy97LX3s6Ch7VJObiyZh5RN%0AyG7iGMj%2BYOZFoov3D9Y%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755150661/a1a13c73bda421f6ee906650cfc9/22907223-e523-4a93-a6d2-3199a8368991?expires=1785371400&signature=bb11c1ee13c63cae71047cba563398841923ed309101d2727c39f5efdc5121ab&req=dSciE8h7nYdZWPMW1HO4zXK26hRN7zAaVfOC%2FRy97LX3s6Ch7VJObiyZh5RN%0AyG7iGMj%2BYOZFoov3D9Y%3D%0A)
 
 ## Mention @Claude in a thread or channel
 
@@ -195,7 +195,7 @@ This message appears when you try to continue a conversation in Slack that has a
 
 Start a new conversation to continue.
 
-* [Use Claude for Education at your university](https://support.claude.com/en/articles/11139144-use-claude-for-education-at-your-university)
+* [Use research on Claude](https://support.claude.com/en/articles/11088861-use-research-on-claude)
 * [Get started with Claude in Slack](https://support.claude.com/en/articles/11506255-get-started-with-claude-in-slack)
 * [Assign tasks from anywhere in Claude Cowork](https://support.claude.com/en/articles/13947068-assign-tasks-from-anywhere-in-claude-cowork)
 * [Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)

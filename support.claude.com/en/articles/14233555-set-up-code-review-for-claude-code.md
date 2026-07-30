@@ -2,7 +2,7 @@
 
 # Set up Code Review for Claude Code
 
-May 19, 2026
+Updated over 2 weeks ago
 
 Code Review analyzes your GitHub pull requests and posts findings as inline comments on the lines of code where it found issues. A fleet of specialized agents examine the code changes in the context of your full codebase, looking for logic errors, security vulnerabilities, broken edge cases, and regressions.
 
@@ -126,7 +126,7 @@ If you’ve installed the Claude GitHub App but your repositories don’t appear
 
 1. Confirm the Claude GitHub App has access to the repositories you expect. Go to your GitHub organization’s settings, find the Claude GitHub App under **Installed GitHub Apps**, and check whether it has access to all repositories or only selected ones.
 2. If your organization uses GitHub Enterprise Cloud with Enterprise Managed Users (EMU), make sure the Claude GitHub OAuth App is authorized at the enterprise level. EMU enterprises can restrict which OAuth apps are approved, and the Claude app must be explicitly allowed.
-3. Try disconnecting and reconnecting the GitHub integration. Go to **[Organization settings > Claude Code](https://claude.ai/admin-settings/claude-code)**, remove the repository configuration, and run through setup again.
+3. Try disconnecting and reconnecting your GitHub account in Claude. Go to **[Customize > Connectors](https://claude.ai/customize/connectors)**, disconnect GitHub, and connect it again. Which repositories the App can access is managed on GitHub's side, covered in step 1.
 4. If the issue persists, **[contact our Support team](https://support.claude.com/en/articles/9015913-how-to-get-support)** with your organization name and GitHub organization name so we can investigate.
 
 ### Code Review doesn’t start on a new PR
@@ -163,4 +163,8 @@ No, Code Review is not available to add to a **[custom role](https://support.cla
 * **[GitHub Actions](https://code.claude.com/docs/en/github-actions)** — Run Claude in your own GitHub Actions workflows for custom automation beyond Code Review.
 * **[GitLab CI/CD](https://code.claude.com/docs/en/gitlab-ci-cd)** — Self-hosted Claude integration for GitLab pipelines.
 
-[Automated Security Reviews in Claude Code](https://support.claude.com/en/articles/11932705-automated-security-reviews-in-claude-code)[Claude Code usage analytics](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics)[Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)[Claude Code on the web](https://support.claude.com/en/articles/12618689-claude-code-on-the-web)[Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
+* [Automated Security Reviews in Claude Code](https://support.claude.com/en/articles/11932705-automated-security-reviews-in-claude-code)
+* [Claude Code usage analytics](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics)
+* [Claude Code on the web](https://support.claude.com/en/articles/12618689-claude-code-on-the-web)
+* [Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
+* [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)

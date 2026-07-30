@@ -23,3 +23,5 @@ The decision to acquire Bun is in line with our strategic, disciplined approach 
 Bun will be instrumental in helping us build the infrastructure for the next generation of software. Together, we will continue to make Claude the platform of choice for coders and anyone who relies on AI for important work. Bun will remain open source and MIT-licensed, and we will continue to invest in making it the runtime, bundler, package manager, and test runner of choice for JavaScript and TypeScript developers.
 
 If you’re interested in joining Anthropic’s engineering team, visit our [careers page](https://www.anthropic.com/jobs?team=4050633008).
+
+Anthropic acquires Bun as Claude Code reaches $1B milestone \ Anthropic

@@ -46,7 +46,7 @@ On average, conversations with iteration and refinement exhibit 2.67 additional 
 
 ### **When creating outputs, users become more directive but less evaluative**
 
-12.3% of conversations in our sample involved [artifacts](https://claude.ai/redirect/website.v1.69b031b4-4c68-4e14-96ec-181279e67571/catalog/artifacts), including code, documents, interactive tools, and other outputs. In these conversations, people collaborated with AI quite differently.
+12.3% of conversations in our sample involved [artifacts](https://claude.ai/redirect/website.v1.6da5f10f-91f1-4ff7-ba70-262db316d470/catalog/artifacts), including code, documents, interactive tools, and other outputs. In these conversations, people collaborated with AI quite differently.
 
 Specifically, we found substantially higher rates of behaviors that fall within the broader themes of “description” and “delegation.” For instance, these conversations are more likely to see users clarify their goal (+14.7pp), specify a format (+14.5pp), provide examples (+13.4pp), and iterate (+9.7pp) compared to non-artifact conversations. In other words, they’re doing more to direct AI at the outset of their work.
 
@@ -72,7 +72,7 @@ Developing your own AI fluency
 
 This research comes with important caveats:
 
-* **Sample limitations:** Our sample reflects Claude.ai users who engaged in multi-turn conversations during a single week in January 2026. Since we think this is still relatively early on in the diffusion of AI tools, these users likely skew towards early adopters who are already comfortable with AI—i.e., who may not represent the broader population. Our sample should be understood as providing a baseline for *this* population, not as a universal benchmark. Because the data comes from a single week, it is also unable to capture any seasonal or longitudinal effects. And because it’s focused on [Claude.ai](http://claude.ai/redirect/website.v1.69b031b4-4c68-4e14-96ec-181279e67571), we don’t capture how users interact with other AI platforms.
+* **Sample limitations:** Our sample reflects Claude.ai users who engaged in multi-turn conversations during a single week in January 2026. Since we think this is still relatively early on in the diffusion of AI tools, these users likely skew towards early adopters who are already comfortable with AI—i.e., who may not represent the broader population. Our sample should be understood as providing a baseline for *this* population, not as a universal benchmark. Because the data comes from a single week, it is also unable to capture any seasonal or longitudinal effects. And because it’s focused on [Claude.ai](http://claude.ai/redirect/website.v1.6da5f10f-91f1-4ff7-ba70-262db316d470), we don’t capture how users interact with other AI platforms.
 * **Partial framework coverage:** In this study, we only assessed the 11 of the 24 behavioral indicators that are directly observable in conversations on Claude.ai. All behaviors related to the responsible and ethical use of AI outputs occur outside of these conversations, and are not captured.
 * **Binary classification:** For each conversation in our sample, we classify each behavior as either present or absent. But this likely misses significant nuance—like arguable or partial demonstrations of behaviors, or overlapping signals between them.
 * **Implicit behaviors:** Users might demonstrate fluency behaviors mentally (such as fact-checking Claude’s claims against their own knowledge) without expressing these behaviors in conversation. This seems especially relevant for our data on artifacts—users might be evaluating Claude’s outputs through testing and practical use, rather than through conversation-visible behaviors.
@@ -84,7 +84,7 @@ This study offers us a baseline that we can use to assess how AI fluency is chan
 
 In future work, we plan to extend our analysis in several directions. First, we plan to conduct “cohort analyses,” comparing new users to experienced ones in order to understand how familiarity with AI is correlated with fluency development. Second, we plan to use qualitative research methods to assess the behaviors that aren’t directly observable in Claude.ai conversations. And third, we aim to explore the *causal* questions that this work raises—like whether encouraging iterative conversations leads to greater critical evaluation, or whether there are other interventions that could encourage this more effectively.
 
-In addition, we’d like to explore AI fluency behaviors in Claude Code, a platform mostly used by software developers. In preparation for this study, we conducted some initial analysis that found consistency between Claude Code conversations and ones in [Claude.ai](http://claude.ai/redirect/website.v1.69b031b4-4c68-4e14-96ec-181279e67571). But this is still preliminary, and Claude Code’s very different user base and functionality implies that more substantial research is necessary.
+In addition, we’d like to explore AI fluency behaviors in Claude Code, a platform mostly used by software developers. In preparation for this study, we conducted some initial analysis that found consistency between Claude Code conversations and ones in [Claude.ai](http://claude.ai/redirect/website.v1.6da5f10f-91f1-4ff7-ba70-262db316d470). But this is still preliminary, and Claude Code’s very different user base and functionality implies that more substantial research is necessary.
 
 We expect that the nature of AI fluency will develop and evolve substantially over time. With this and future research, we’re aiming to make that development visible, measurable, and actionable.
 
@@ -129,3 +129,5 @@ Working with Andon Labs, we’ve developed a new series of evaluations that asse
 ### How Canada uses Claude: Findings from the Anthropic Economic Index
 
 [Read more](https://www.anthropic.com/research/how-canada-uses-claude)
+
+Anthropic Education Report: The AI Fluency Index \ Anthropic

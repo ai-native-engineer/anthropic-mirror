@@ -49,4 +49,8 @@ The same Code routes are also reachable via **<https://claude.ai/code/>...** uni
 | **<https://claude.ai/code/{session-id}>** | Existing session |
 | **<https://claude.ai/code/new?q=Fix%20the%20failing%20test&repo=anthropics%2Fclaude-code&branch=main>** | New-session composer, prefilled with the GitHub repository, branch, and "Fix the failing test." |
 
-[Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)[Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)[Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)[Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)[Open Claude Desktop with a link](https://support.claude.com/en/articles/14729294-open-claude-desktop-with-a-link)
+* [Claude Code usage analytics](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics)
+* [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)
+* [Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)
+* [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)
+* [Open Claude Desktop with a link](https://support.claude.com/en/articles/14729294-open-claude-desktop-with-a-link)

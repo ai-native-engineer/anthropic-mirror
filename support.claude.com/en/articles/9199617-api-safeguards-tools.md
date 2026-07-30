@@ -21,7 +21,7 @@ Whether you are just starting the process of setting up safeguards for your API 
 * Create customization frameworks that restrict end-user interactions with Claude to a limited set of prompts or only allow Claude to review a specific knowledge corpus that you already have, which will decrease the ability of users to engage in violative behavior.
 * Enable additional safety filters - free real-time moderation tooling built by Anthropic for helping detect potentially harmful prompts and managing real-time actions to reduce harm
 
-  + For more information about how to enable our additional safety filters, please reach out to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#8bfef8eef9f8eaedeefff2cbeae5ffe3f9e4fbe2e8a5e8e4e6).
+  + For more information about how to enable our additional safety filters, please reach out to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#b6c3c5d3c4c5d7d0d3c2cff6d7d8c2dec4d9c6dfd598d5d9db).
 * *For Bedrock Customers:*
 
   + Activate your private S3 bucket in order to store prompts and completions for your own evaluation
@@ -39,4 +39,4 @@ Whether you are just starting the process of setting up safeguards for your API 
 * [Safeguards warnings and appeals](https://support.claude.com/en/articles/8241253-safeguards-warnings-and-appeals)
 * [Responsible Use of Anthropic's Models: Guidelines for Organizations Serving Minors](https://support.claude.com/en/articles/9307344-responsible-use-of-anthropic-s-models-guidelines-for-organizations-serving-minors)
 * [Real-time cyber safeguards on Claude Opus and Sonnet](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet)
-* [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
+* [Child safety guidance for developers](https://support.claude.com/en/articles/15591275-child-safety-guidance-for-developers)

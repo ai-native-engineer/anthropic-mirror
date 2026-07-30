@@ -11,7 +11,7 @@ We encourage you to read our updated [Terms of Service](https://anthropic.com/te
 * **Software updates.** We clarified our terms about software updates, including that we may offer automatic updates to our software to ensure our users have access to the latest version.
 * **Open Source.** We have also clarified that our software may include open source software and describe how open source license terms interact with our Consumer Terms of Service.
 
-* [How do I view and sign your Data Processing Addendum (DPA)?](https://privacy.claude.com/en/articles/7996862-how-do-i-view-and-sign-your-data-processing-addendum-dpa)
+* [Where are your servers located? Do you host your models on EU servers?](https://privacy.claude.com/en/articles/7996890-where-are-your-servers-located-do-you-host-your-models-on-eu-servers)
 * [Consumer Terms of Service Updates](https://privacy.claude.com/en/articles/9264813-consumer-terms-of-service-updates)
 * [Who owns and manages the data of my team?](https://privacy.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)
 * [Updates to our Acceptable Use Policy (now “Usage Policy”), Consumer Terms of Service, and Privacy Policy](https://privacy.claude.com/en/articles/9301722-updates-to-our-acceptable-use-policy-now-usage-policy-consumer-terms-of-service-and-privacy-policy)

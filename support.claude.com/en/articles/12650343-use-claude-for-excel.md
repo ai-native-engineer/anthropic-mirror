@@ -263,7 +263,7 @@ Users can approve all of Claude’s actions via a confirmation pop-up that appea
 * File system access: IMAGE, FILES, DIRECTORY, FOPEN, FWRITE, FCLOSE
 * System information: REGISTER.ID, RTD, INFO
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1785295800&signature=7045ca1c2785bf3660859b76213cba57f3c069e5e5fc9d82fcd8dfc80c0a9784&req=dSgjH819nIJeWfMW1HO4zYWKaOdpK996qAsRdssXCyAiw%2BIgL%2BmEVbWz0oIG%0Aa5yGu%2BFxpjxztARhhnc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1785295800&signature=7045ca1c2785bf3660859b76213cba57f3c069e5e5fc9d82fcd8dfc80c0a9784&req=dSgjH819nIJeWfMW1HO4zYWKaOdpK996qAsRdssXCyAiw%2BIgL%2BmEVbWz0oIG%0Aa5yGu%2BFxpjxztARhhnc%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1785371400&signature=0a2cd99cba4b8f229fadc2226e660b673065bd73c903c38ca74e7ecb80bb0084&req=dSgjH819nIJeWfMW1HO4zYWKaOdoJdt2qAsRdssXCyASj18S%2BkIiZjnFbafW%0AiuELl2e%2FLHG2WLBsteo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1785371400&signature=0a2cd99cba4b8f229fadc2226e660b673065bd73c903c38ca74e7ecb80bb0084&req=dSgjH819nIJeWfMW1HO4zYWKaOdoJdt2qAsRdssXCyASj18S%2BkIiZjnFbafW%0AiuELl2e%2FLHG2WLBsteo%3D%0A)
 
 While we continue to develop our offerings and improve safety measures to reduce these risks, users should exercise caution when using Claude for Excel and should not use it with spreadsheets from external, untrusted sources.
 

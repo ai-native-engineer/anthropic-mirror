@@ -2,6 +2,8 @@
 
 # Use Claude app intents, shortcuts, and widgets on iOS
 
+Updated over 3 weeks ago
+
 The features described in this guide are available on iOS 18 and above.
 
 Claude for iOS supports multiple powerful features: the Claude widget, the "Analyze Photo with Claude" control, the "Ask Claude" App Intent, and the ability to use this intent within iOS Shortcuts. This guide will explain these features and show you how to make the most of them.

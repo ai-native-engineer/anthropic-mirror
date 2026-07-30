@@ -32,7 +32,7 @@ The app reaches `bedrock-mantle.<region>.api.aws` (or the host in `inferenceBedr
 
 ##  Configure the app
 
-Open the in-app configuration window (**Developer → Configure Third-Party Inference…**). In the **Connection** section, set **Inference provider** to **Bedrock Mantle**, then fill in the credentials card:
+Open the [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration#open-the-configuration-window) (**Developer → Configure Third-Party Inference…**). In the **Connection** section, set **Inference provider** to **Bedrock Mantle**, then fill in the credentials card:
 
 | Field | Value |
 | --- | --- |

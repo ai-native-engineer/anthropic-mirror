@@ -160,7 +160,7 @@ The app always requests the `offline_access` scope so that the IdP returns a ref
 
 ##  Configure the app
 
-With Google Cloud set up and devices prepared, open the in-app configuration window (**Developer → Configure Third-Party Inference…**) on an evaluation device. In the **Connection** section, set **Inference provider** to **Vertex AI** and fill in the **Vertex AI credentials** card with the values for whichever authentication approach you chose:
+With Google Cloud set up and devices prepared, open the [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration#open-the-configuration-window) (**Developer → Configure Third-Party Inference…**) on an evaluation device. In the **Connection** section, set **Inference provider** to **Vertex AI** and fill in the **Vertex AI credentials** card with the values for whichever authentication approach you chose:
 
 | Field | Service-account key | In-app Google sign-in |
 | --- | --- | --- |

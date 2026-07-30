@@ -2,7 +2,7 @@
 
 # Use Claude in Chrome safely
 
-Updated over a week ago
+Updated over 2 weeks ago
 
 This article explains the risks of using Claude in Chrome and provides best practices for protecting yourself and your data.
 
@@ -55,7 +55,7 @@ For your safety, Claude cannot access sensitive, high-risk sites such as:
 
 Claude asks for permission before accessing financial sites.
 
-It’s unlikely that we’ve captured all sites in these categories, so please report any omissions to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#7e0b0d1b0c0d1f181b0a073e1f100a160c110e171d501d1113).
+It’s unlikely that we’ve captured all sites in these categories, so please report any omissions to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#2a5f594f58594b4c4f5e536a4b445e4258455a434904494547).
 
 ## Protecting yourself from malicious attackers
 

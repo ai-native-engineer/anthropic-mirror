@@ -4,13 +4,13 @@
 
 > Cap each developer's spend through the Claude apps gateway by day, week, or month. Set limits with an Admin API and the gateway enforces them live on every request.
 
-Spend limits cap how much each developer can spend through your [Claude apps gateway](/en/claude-apps-gateway) in a given day, week, or month. When a developer passes their cap, the gateway returns `429` on their next request and blocks them until the period resets or an admin raises the cap. Use spend limits to give each developer, group, or the whole organization a ceiling on a credential everyone shares.
+Spend limits cap how much each developer can spend through your [Claude apps gateway](/docs/en/claude-apps-gateway) in a given day, week, or month. When a developer passes their cap, the gateway returns `429` on their next request and blocks them until the period resets or an admin raises the cap. Use spend limits to give each developer, group, or the whole organization a ceiling on a credential everyone shares.
 
 A Claude apps gateway forwards all inference through one shared upstream credential, so your provider's bill attributes everything to that credential, not to individual developers. Without per-developer limits, one runaway agent fleet can spend the organization's entire commitment. Spend limits are the gateway's per-developer view and circuit breaker on top of that shared bill.
 
 ## Set a cap
 
-With the [`admin:`](/en/claude-apps-gateway-config#admin) block configured in `gateway.yaml`, the gateway serves an admin API at `/v1/organizations/spend_limits` and enforces caps live on every inference request. Caps themselves are set through that API, not in `gateway.yaml`; each `POST /v1/organizations/spend_limits` request creates or replaces one cap from `{scope, amount, period}`. The API mirrors the wire shapes of Anthropic's public [Admin API](https://platform.claude.com/docs/en/manage-claude/admin-api) spend-limits endpoints, so an HTTP client written against that contract can target the gateway by changing its base URL.
+With the [`admin:`](/docs/en/claude-apps-gateway-config#admin) block configured in `gateway.yaml`, the gateway serves an admin API at `/v1/organizations/spend_limits` and enforces caps live on every inference request. Caps themselves are set through that API, not in `gateway.yaml`; each `POST /v1/organizations/spend_limits` request creates or replaces one cap from `{scope, amount, period}`. The API mirrors the wire shapes of Anthropic's public [Admin API](https://platform.claude.com/docs/en/manage-claude/admin-api) spend-limits endpoints, so an HTTP client written against that contract can target the gateway by changing its base URL.
 
 This request sets an org-wide default of \$500 per month for every developer:
 
@@ -32,36 +32,42 @@ curl -sS https://claude-gateway.internal.example.com/v1/organizations/spend_limi
 
 | Field        | Values                                      | Description                                                                                                                                                                                                                                                                                                                                                                                   |
 | ------------ | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `scope.type` | `user`, `rbac_group`, `organization`        | `user` targets one developer by their OpenID Connect (OIDC) `sub`, the stable user ID your identity provider assigns; pass it as `scope.user_id`. `rbac_group` targets an [IdP group](/en/claude-apps-gateway-config#managed) by name; pass it as `scope.rbac_group_id`. `organization` is the org-wide default. The gateway accepts all three; Anthropic's public `POST` is user-only today. |
+| `scope.type` | `user`, `rbac_group`, `organization`        | `user` targets one developer by their OpenID Connect (OIDC) `sub`, the stable user ID your identity provider assigns; pass it as `scope.user_id`. `rbac_group` targets an [IdP group](/docs/en/claude-apps-gateway-config#managed) by name; pass it as `scope.rbac_group_id`. `organization` is the org-wide default. The gateway accepts all three; Anthropic's public `POST` is user-only today. |
 | `amount`     | Whole-number string of USD cents, or `null` | `null` is unlimited. `"0"` is a zero cap, which blocks every request.                                                                                                                                                                                                                                                                                                                         |
 | `period`     | `daily`, `weekly`, `monthly`                | A scope can hold one cap per period, and each enforces independently: a developer is blocked if over any of them.                                                                                                                                                                                                                                                                             |
 
-A group or organization cap is a per-seat default that each member inherits, not a shared pool. Per period, a developer's effective cap resolves in this order: a per-user override, then the most restrictive of their group caps, then the org default, then unlimited. [`admin.group_limit_mode: max`](/en/claude-apps-gateway-config#admin) flips the multi-group tie-break to least-restrictive instead.
+A group or organization cap is a per-seat default that each member inherits, not a shared pool. Per period, a developer's effective cap resolves in this order: a per-user override, then the most restrictive of their group caps, then the org default, then unlimited. [`admin.group_limit_mode: max`](/docs/en/claude-apps-gateway-config#admin) flips the multi-group tie-break to least-restrictive instead.
 
 ### Authenticate to the admin API
 
 Send one of:
 
-* An `x-api-key` header matching a key in [`admin.write_keys`](/en/claude-apps-gateway-config#admin) for full access, or `admin.read_keys` for `GET`-only access. Each key carries an `id` that appears in the audit log as `admin-key:<id>`, so give Terraform, CI, and each automation its own.
-* A gateway bearer token whose `groups` claim includes one of [`admin.admin_groups`](/en/claude-apps-gateway-config#admin). This is full access and audits as `oidc:<sub>`, so prefer it for human admins.
+* An `x-api-key` header matching a key in [`admin.write_keys`](/docs/en/claude-apps-gateway-config#admin) for full access, or `admin.read_keys` for `GET`-only access. Each key carries an `id` that appears in the audit log as `admin-key:<id>`, so give Terraform, CI, and each automation its own.
+* A gateway bearer token whose `groups` claim includes one of [`admin.admin_groups`](/docs/en/claude-apps-gateway-config#admin). This is full access and audits as `oidc:<sub>`, so prefer it for human admins.
 
 ## How enforcement works
 
-On each `/v1/messages` request, the gateway resolves the developer's caps and period-to-date spend in one Postgres query. If they're over any cap, the request returns `429` with `error.type: billing_error` and the header `x-should-retry: false`. The message is `spend limit reached`, followed by your [`admin.blocked_message`](/en/claude-apps-gateway-config#admin) if set.
+On each `/v1/messages` request, the gateway resolves the developer's caps and period-to-date spend in one Postgres query. If they're over any cap, the request returns `429` with `error.type: billing_error` and the header `x-should-retry: false`. The message is `spend limit reached`, followed by your [`admin.blocked_message`](/docs/en/claude-apps-gateway-config#admin) if set.
 
 `/v1/messages/count_tokens` is exempt. Token counting is free, so it runs regardless of cap state.
 
 After each response, a usage meter reads token counts off the response as it streams to the client, prices them at USD list price, and increments Postgres counters for all three period buckets. The meter is a single reader on the stream, so the client's bytes are untouched and a metering failure doesn't break the response.
 
-Spend limits estimate spend from token counts at USD list price; they're a circuit breaker, not an invoice. For authoritative billing, reconcile against your provider's own usage reporting, such as the Anthropic Usage & Cost Admin API, invocation logs on Bedrock, or Cloud Monitoring on Google Cloud.
+Spend limits estimate spend from token counts at USD list price; they're a circuit breaker, not an invoice. For authoritative billing, reconcile against your provider's own usage reporting, such as the Anthropic Usage & Cost Admin API, invocation logs on Amazon Bedrock, or Cloud Monitoring on Google Cloud.
 
-Pricing uses the same table the Claude Code CLI uses for its own cost display, with the same model-ID canonicalization across Anthropic, Bedrock (`us.anthropic.…-v1:0`), Agent Platform (`claude-…@date`), and Foundry ID forms. A model ID the table can't place, such as a Foundry deployment name or an inference-profile ARN, is priced at the unknown-model default tier of \$5/\$25 per million input/output tokens rather than zero, so an unrecognized ID can't bypass a cap by going unmetered. The gateway warns at boot and once per ID at runtime when a model prices through the fallback.
+Pricing uses the same table the Claude Code CLI uses for its own cost display, with the same model-ID canonicalization across Anthropic, Amazon Bedrock, Google Cloud's Agent Platform, and Microsoft Foundry ID forms, such as Bedrock's `us.anthropic.…-v1:0` and Agent Platform's `claude-…@date`. The meter resolves each request's rate tier in order:
+
+1. Exact rates for the upstream model ID, the model string the gateway sends to the provider. When the table recognizes it, such as `us.anthropic.claude-…`, the meter prices the request by the model that served it.
+2. {/* min-version: 2.1.218 */}Rates for the configured [`models[].id`](/docs/en/claude-apps-gateway-config#models) you mapped to the upstream ID. This step covers upstream strings that carry no model name, such as an Amazon Bedrock application-inference-profile ARN or a Microsoft Foundry deployment name, and requires Claude Code v2.1.218 or later on the gateway server.
+3. The unknown-model default tier of \$5/\$25 per million input/output tokens. The meter prices an ID that neither the table nor your `models` config can place, including a `models[].id` that is itself a custom alias, at this tier rather than zero, so an unrecognized ID can't bypass a cap by going unmetered.
+
+The gateway warns at boot and once per ID at runtime when it prices a model at the unknown-model tier. Before v2.1.218, the meter skipped step 2: it priced any upstream ID the table couldn't place at the unknown-model tier and warned about it even when the configured ID's rates were known.
 
 Client aborts are billed too. The upstream reports output tokens only in the stream's terminal frame, so an aborted stream doesn't carry them. The meter keeps a conservative floor estimate from the streamed content size, about four characters per token, and bills it when and only when the terminal usage frame is missing. A complete stream always bills the upstream-reported count. Without this, a capped developer could stream output and abort each request immediately before the end, spending without ever being counted.
 
 ### Postgres availability
 
-The pre-check queries Postgres with a two-second timeout. If the store is unreachable or times out, enforcement fails open by default: the request proceeds and the gateway logs a warning. Set [`enforcement.fail_closed_on_error: true`](/en/claude-apps-gateway-config#enforcement) to fail closed instead, which returns the same `429 billing_error` with the message `spend limit unavailable`. Fail-open keeps a store outage from becoming an inference outage; fail-closed guarantees no unmetered spend.
+The pre-check queries Postgres with a two-second timeout. If the store is unreachable or times out, enforcement fails open by default: the request proceeds and the gateway logs a warning. Set [`enforcement.fail_closed_on_error: true`](/docs/en/claude-apps-gateway-config#enforcement) to fail closed instead, which returns the same `429 billing_error` with the message `spend limit unavailable`. Fail-open keeps a store outage from becoming an inference outage; fail-closed guarantees no unmetered spend.
 
 ## Admin API reference
 
@@ -125,10 +131,10 @@ The gateway holds four spend-related tables; an hourly sweep enforces the retent
 
 | Table              | Contents                                                                      | Retention                                                                                               |
 | ------------------ | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `spend`            | Per-principal period-to-date counters in cents                                | [`admin.spend_retention_months`](/en/claude-apps-gateway-config#admin), default 13                      |
+| `spend`            | Per-principal period-to-date counters in cents                                | [`admin.spend_retention_months`](/docs/en/claude-apps-gateway-config#admin), default 13                      |
 | `spend_limits`     | The configured caps                                                           | Until deleted via the API                                                                               |
-| `admin_audit`      | The mutation trail                                                            | [`admin.audit_retention_days`](/en/claude-apps-gateway-config#admin), default 365                       |
-| `principal_emails` | Each principal's last-seen email, display name, and IdP groups. Contains PII. | [`admin.identity_retention_days`](/en/claude-apps-gateway-config#admin) since last activity, default 90 |
+| `admin_audit`      | The mutation trail                                                            | [`admin.audit_retention_days`](/docs/en/claude-apps-gateway-config#admin), default 365                       |
+| `principal_emails` | Each principal's last-seen email, display name, and IdP groups. Contains PII. | [`admin.identity_retention_days`](/docs/en/claude-apps-gateway-config#admin) since last activity, default 90 |
 
 `identity_retention_days` is deliberately shorter than `spend_retention_months`: a deprovisioned identity stops refreshing and ages out, while its anonymous spend counters remain for year-over-year reporting.
 
@@ -136,5 +142,5 @@ When a developer leaves, delete any per-user cap via `DELETE /v1/organizations/s
 
 ## Related
 
-* [`admin` and `enforcement` configuration](/en/claude-apps-gateway-config#admin): enabling the admin API and tuning retention
-* [Deployment guide](/en/claude-apps-gateway-deploy#postgres): Postgres schema and backup guidance
+* [`admin` and `enforcement` configuration](/docs/en/claude-apps-gateway-config#admin): enabling the admin API and tuning retention
+* [Deployment guide](/docs/en/claude-apps-gateway-deploy#postgres): Postgres schema and backup guidance

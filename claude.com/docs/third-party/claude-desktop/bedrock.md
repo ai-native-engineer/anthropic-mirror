@@ -139,7 +139,7 @@ If your AWS configuration files are not at the default location, set `inferenceB
 
 ##  Configure the app
 
-With AWS set up and devices prepared, open the in-app configuration window (**Developer → Configure Third-Party Inference…**) on an evaluation device. In the **Connection** section, set **Inference provider** to **Bedrock** and fill in the **Bedrock credentials** card with the values for whichever authentication approach you chose:
+With AWS set up and devices prepared, open the [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration#open-the-configuration-window) (**Developer → Configure Third-Party Inference…**) on an evaluation device. In the **Connection** section, set **Inference provider** to **Bedrock** and fill in the **Bedrock credentials** card with the values for whichever authentication approach you chose:
 
 | Field | Bearer token | In-app AWS sign-in | Named profile |
 | --- | --- | --- | --- |

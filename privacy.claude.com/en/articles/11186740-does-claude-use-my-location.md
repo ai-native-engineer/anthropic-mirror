@@ -14,8 +14,8 @@ You can disable usage of location data to enhance product features like web sear
 
 Anthropic uses IP address and other signals to infer coarse-grained location (country/region level) in order to ensure usage of Claude complies with our terms, prevent abuse, and show users features available in their region. This use is necessary to protect our users and business and cannot be toggled off. Please refer to our [Privacy Policy](https://www.anthropic.com/legal/privacy) to learn more.
 
-* [Does Anthropic Act as a Data Processor or Controller?](https://privacy.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
+* [I have a zero data retention agreement with Anthropic. What products does it apply to?](https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to)
+* [Who owns and manages the data of my team?](https://privacy.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)
 * [Updates to our Acceptable Use Policy (now “Usage Policy”), Consumer Terms of Service, and Privacy Policy](https://privacy.claude.com/en/articles/9301722-updates-to-our-acceptable-use-policy-now-usage-policy-consumer-terms-of-service-and-privacy-policy)
-* [How does Anthropic protect the personal data of Claude users?](https://privacy.claude.com/en/articles/10458704-how-does-anthropic-protect-the-personal-data-of-claude-users)
 * [Does Claude use my team members’ location?](https://privacy.claude.com/en/articles/11186730-does-claude-use-my-team-members-location)
 * [Who owns and manages the data of my Claude for Education account?](https://privacy.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account)

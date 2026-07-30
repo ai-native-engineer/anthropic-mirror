@@ -29,6 +29,8 @@ If you use Claude Code over SSH, set the environment variable or setting on the 
 When the mode is on, the first thing Claude Code prints is a confirmation line naming the method that turned it on: `[Screen Reader Mode: on via flag]`, `[Screen Reader Mode: on via env]`, or `[Screen Reader Mode: on via settings]`. The method-naming format requires Claude Code v2.1.206 or later. When Claude Code relaunches itself, for example to finish installing an update, the new process inherits the mode through the `CLAUDE_AX_SCREEN_READER` environment variable, so its confirmation line reads `[Screen Reader Mode: on via env]` regardless of which method you used.
 {/* max-version: 2.1.205 */}Earlier versions print `[Accessible screen reader mode: on]`.
 
+After printing the confirmation line, Claude Code holds the rest of the interface back for three seconds so your screen reader can finish speaking the line, then renders the first prompt. Press any key to end the hold early. To change the hold's length, set the `CLAUDE_AX_STARTUP_QUIET_MS` environment variable to a number of milliseconds. The default is `3000`; set it to `0` to skip the hold. Claude Code caps the hold at `600000` milliseconds, 10 minutes. Requires Claude Code v2.1.217 or later.
+
 ## Turn off screen reader mode
 
 Reverse whichever method turned the mode on: start without the flag, unset the environment variable, or set `axScreenReader` to `false`. Setting `CLAUDE_AX_SCREEN_READER=0` keeps the mode off even when the setting is `true`.
@@ -59,6 +61,16 @@ Each message in the transcript starts with a label your screen reader announces,
 | `Cost:`                | The session cost summary when Claude Code exits, if your account [shows costs](/docs/en/costs) |
 
 The terminal cursor follows the input caret, so a screen reader's read-current-line command answers "where am I" with the prompt you're editing.
+
+{/* min-version: 2.1.219 */}As you type at the end of the input line, Claude Code writes only the characters you type, so your screen reader echoes only those characters. Requires Claude Code v2.1.219 or later; earlier versions rewrite the whole input line on every keystroke, so the screen reader re-reads it as you type.
+
+{/* min-version: 2.1.218 */}When you delete a word or a line in the input, Claude Code announces the deleted text. Requires Claude Code v2.1.218 or later. The announcement covers:
+
+* Deleting a word with `Ctrl+W`, `Option+Delete` on macOS, or `Ctrl+Backspace` on Windows
+* Deleting to the start of the line with `Ctrl+U` or `Cmd+Backspace`
+* Deleting to the end of the line with `Ctrl+K`
+
+See the [text editing shortcuts](/docs/en/interactive-mode#text-editing) for what each key does.
 
 {/* min-version: 2.1.210 */}Cycling [permission modes](/docs/en/permission-modes) with `Shift+Tab` announces the mode you land on, such as `[plan mode on]` or `[accept edits on]`. Claude Code prints the announcement once and doesn't repeat it on later redraws. Requires Claude Code v2.1.210 or later.
 
@@ -96,7 +108,7 @@ The bell is your terminal's standard alert. To silence it, change the bell setti
 
 These options address accessibility needs outside of screen reader mode. All of them work alongside it.
 
-* The `CLAUDE_CODE_ACCESSIBILITY` [environment variable](/docs/en/env-vars) is for screen magnifiers. Set `CLAUDE_CODE_ACCESSIBILITY=1` to keep the native terminal cursor visible so that magnifiers, such as macOS Zoom, can track the cursor position.
+* The `CLAUDE_CODE_ACCESSIBILITY` [environment variable](/docs/en/env-vars) is for screen magnifiers. Set `CLAUDE_CODE_ACCESSIBILITY=1` to keep the native terminal cursor visible so that magnifiers, such as macOS Zoom, can track the cursor position. The cursor follows keyboard focus: the input caret while you type, and the highlighted row as you move through menus and panels, such as `/config` and `/plugin`, with the arrow keys. {/* min-version: 2.1.218 */}Row tracking in menus and panels requires Claude Code v2.1.218 or later.
 * The `prefersReducedMotion` [setting](/docs/en/settings#available-settings) reduces or disables spinners, shimmer, and other animations without changing the rest of the interface.
 * The `theme` [setting](/docs/en/settings#available-settings) selects the interface colors, including the colorblind-friendly `dark-daltonized` and `light-daltonized` themes.
 

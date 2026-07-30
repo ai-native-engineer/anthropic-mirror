@@ -10,9 +10,9 @@ Location
 
 ## AI Research & Engineering
 
-80 Open Roles
+79 Open Roles
 
-80 Open Roles
+79 Open Roles
 
 [[Expression of Interest] Research Manager, Interpretability
 
@@ -246,11 +246,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5139654008)[Research Oper
 
 San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5304242008)[Research Operations, Discovery
-
-San Francisco, CA | New York City, NY
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5188237008)[Research Scientist, Interpretability
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5304242008)[Research Scientist, Interpretability
 
 San Francisco, CA
 
@@ -462,9 +458,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5208278008)
 
 ## Compute
 
-9 Open Roles
+8 Open Roles
 
-9 Open Roles
+8 Open Roles
 
 [Data Center Architect, CSA
 
@@ -486,11 +482,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5227845008)[Data Center M
 
 Sydney, Australia
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5227413008)[Data Center OFE Strategic Sourcing Lead (Mechanical)
-
-San Francisco, CA | New York City, NY
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5215121008)[Operations Sourcing Manager, Data Center
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5227413008)[Operations Sourcing Manager, Data Center
 
 Remote-Friendly, United States
 
@@ -682,9 +674,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5289450008)
 
 ## Finance
 
-28 Open Roles
+29 Open Roles
 
-28 Open Roles
+29 Open Roles
 
 [Capital Markets - Infrastructure Financing
 
@@ -702,7 +694,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5184585008)[Director, Com
 
 San Francisco, CA | New York City, NY
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5234538008)[Director, Infrastructure & Energy Accounting
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5234538008)[Director, Global Order-to-Cash Transformation
+
+San Francisco, CA | New York City, NY
+
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5205735008)[Director, Infrastructure & Energy Accounting
 
 San Francisco, CA | Seattle, WA
 
@@ -1230,9 +1226,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5074937008)
 
 ## Sales
 
-60 Open Roles
+51 Open Roles
 
-60 Open Roles
+51 Open Roles
 
 [Account Executive, Public Sector
 
@@ -1350,11 +1346,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5171187008)[Head of Progr
 
 San Francisco, CA | Seattle, WA | New York City, NY | Washington, DC
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5153580008)[Industry Principal, Life Sciences
-
-San Francisco, CA | New York City, NY
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5254908008)[Manager– Growth Sales (AI-Native)
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5153580008)[Manager– Growth Sales (AI-Native)
 
 San Francisco, CA
 
@@ -1426,43 +1418,11 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5166398008)[Startup Partn
 
 San Francisco, CA | New York City, NY
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5235692008)[Strategic Account Executive, Asset & Wealth Management - FSI
-
-San Francisco, CA | New York City, NY
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5203506008)[Strategic Account Executive, CANADA Financial Services - FSI
-
-Ontario, CAN
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5288436008)[Strategic Account Executive, Cybersecurity
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5235692008)[Strategic Account Executive, Cybersecurity
 
 San Francisco, CA
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5075093008)[Strategic Account Executive, GSI
-
-New York City, NY; San Francisco, CA
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5176036008)[Strategic Account Executive, Healthcare
-
-San Francisco, CA | New York City, NY
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5288441008)[Strategic Account Executive, Insurance - FSI
-
-San Francisco, CA | New York City, NY
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5288247008)[Strategic Account Executive, Investment Banking & Capital Markets - FSI
-
-San Francisco, CA | New York City, NY
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5288245008)[Strategic Account Executive, Life Sciences
-
-San Francisco, CA | New York City, NY
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5288446008)[Strategic Account Executive, Retail & Commercial Banking - FSI
-
-San Francisco, CA | New York City, NY
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5288241008)[Strategic Account Executive, Tech
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5075093008)[Strategic Account Executive, Tech
 
 San Francisco, CA
 

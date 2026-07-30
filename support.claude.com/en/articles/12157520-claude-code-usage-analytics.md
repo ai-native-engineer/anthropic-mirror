@@ -40,7 +40,7 @@ The **Usage** tab displays the following metrics for your organization. Data on 
 * **Lines accepted over time**: Daily breakdown of accepted code lines.
 * **Top commands**: The Claude Code commands used most often across your organization.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1785295800&signature=57c40e196ea6ecb1f1fbe121d5e387c99df2dd6a7753fdfc5239ca18596773d6&req=dScmEcx5lINYXvMW1HO4zfiEP6NShnzGCX9h5MbdDjP5iBRtf0kEcQwxYmST%0AxtBPX%2FU4nBbYv51sSH0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1785295800&signature=57c40e196ea6ecb1f1fbe121d5e387c99df2dd6a7753fdfc5239ca18596773d6&req=dScmEcx5lINYXvMW1HO4zfiEP6NShnzGCX9h5MbdDjP5iBRtf0kEcQwxYmST%0AxtBPX%2FU4nBbYv51sSH0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1785371400&signature=49947d3462937f8dff727373d373e6d5a371f2095c9154a95b4e4c8132f106e9&req=dScmEcx5lINYXvMW1HO4zfiEP6NTiHjKCX9h5MbdDjM86H0dbDY5SMEasUlt%0AOBE8wF7rrCJXMyvH0lY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1785371400&signature=49947d3462937f8dff727373d373e6d5a371f2095c9154a95b4e4c8132f106e9&req=dScmEcx5lINYXvMW1HO4zfiEP6NTiHjKCX9h5MbdDjM86H0dbDY5SMEasUlt%0AOBE8wF7rrCJXMyvH0lY%3D%0A)
 
 ### User-level metrics
 

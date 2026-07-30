@@ -2,6 +2,8 @@
 
 # See your monthly recap
 
+Updated over 3 weeks ago
+
 Your monthly recap shows you how you’ve been using Claude—the topics you spent time on, when you tend to reach for it, and where you might try something new. It’s designed to reflect your patterns back without judgment so you can decide what, if anything, you’d like to change.
 
 The monthly recap is in beta for users with Free, Pro, and Max plans using Claude on the web or Claude Desktop. It only appears when memory is turned on, and isn't available on Team or Enterprise plans. It's available in all regions where Claude is offered.

@@ -64,7 +64,9 @@ The response is a JSON envelope containing a page of events and the cursors for 
         "type": "user_actor",
         "user_id": "usr_00000000-0000-0000-0000-000000000000",
         "email_address": "person@agency.example.com"
-      }
+      },
+      "user_id": "usr_00000000-0000-0000-0000-000000000000",
+      "user_email": "person@agency.example.com"
     }
   ],
   "has_more": true,
@@ -80,6 +82,39 @@ The `actor` object identifies who performed the action. Its `type` is one of:
 * `anthropic_actor` for an action performed by Anthropic personnel or systems on your behalf, such as initial provisioning. No individual identity is included.
 
 Each event also carries fields specific to its type, such as the role a user was changed to or the name of a key that was created.
+
+###  Identifying users
+
+When one of your own users performs an action, `actor.user_id` and `actor.email_address` name them, including on sign-in events. Actions taken by Anthropic personnel or automated systems appear as `anthropic_actor` with no individual identity, by design.
+On every `user.*` activity, two top-level fields identify the user the event is about, so your SIEM can map events back to people in your directory without a separate lookup.
+
+| Field | Description |
+| --- | --- |
+| `user_id` | The Claude for Government user ID, in the same `usr_` format as `actor.user_id`. |
+| `user_email` | The user’s email address at the time of the event. |
+
+The user an event is about is not always the actor. When an owner changes someone’s role, the `actor` block names the owner and these fields name the user whose role changed.
+
+```
+{
+  "id": "activity_01js1example000000000000",
+  "type": "user.role_changed",
+  "created_at": "2026-07-02T09:18:33.205Z",
+  "organization_id": "org_00000000-0000-0000-0000-000000000000",
+  "organization_uuid": "00000000-0000-0000-0000-000000000000",
+  "actor": {
+    "type": "user_actor",
+    "user_id": "usr_00000000-0000-0000-0000-000000000001",
+    "email_address": "owner@agency.example.com"
+  },
+  "user_id": "usr_00000000-0000-0000-0000-000000000002",
+  "user_email": "person@agency.example.com",
+  "old": "user",
+  "new": "owner"
+}
+```
+
+The top-level `user_id` and `user_email` fields appear on activities recorded after they were added to the API. Earlier activities are not updated, so your collector should treat these fields as optional.
 
 ###  Activity types
 

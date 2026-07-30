@@ -2,17 +2,11 @@
 
 # Real-time cyber safeguards on Claude Opus and Sonnet
 
-Updated yesterday
-
-Table of contents
+Updated over a week ago
 
 **Note**: This article applies only to Opus and Sonnet class models.
 
-As part of our ongoing safety commitments, we are rolling out new real-time cyber safeguards on Claude Opus and Sonnet models. These safeguards are designed to automatically detect and block requests that may indicate prohibited or high-risk cybersecurity usage based on our Usage Policy.
-
-We continuously evaluate our models against emerging threats and evolve our defenses accordingly. After extensive capability and safety testing, we believe a stronger, real-time layer of cyber defense is now warranted.
-
-This work is ongoing. We'll continue to test, refine, and evolve safeguards over time.
+As part of our ongoing safety commitments, we have real-time cyber safeguards on Claude Opus and Sonnet models. These safeguards are designed to automatically detect and block requests that may indicate prohibited or high-risk cybersecurity usage based on our Usage Policy.
 
 ## How this works
 
@@ -27,7 +21,7 @@ Many cybersecurity practitioners do legitimate work that overlaps with the dual 
 
 If your use case has a legitimate defensive purpose and is being affected by these safeguards, we encourage you to apply for the CVP. See **How to apply** below for the right path based on how you access Claude.
 
-Organizations on Zero Data Retention (ZDR) are not currently eligible to participate in the CVP. If you have a Sales Managed ZDR account, please contact your Anthropic Sales Representative for more information.
+CVP requires data retention to be enabled. If your API organization uses Zero Data Retention (ZDR), you can set up a separate workspace with data retention turned on. If you have a sales-managed Claude Enterprise or Claude Teams account, contact your Anthropic Sales Representative to get started.
 
 ## How to apply
 
@@ -36,14 +30,15 @@ How you apply depends on how you access Claude. Once you submit your application
 |  |  |
 | --- | --- |
 | **How you access Claude** | **How to apply** |
-| **Anthropic first-party** (Claude.ai, Claude Code, the Anthropic API) | Find your Organization ID under **Settings > Account** or **Settings > Organization**, then fill out the **[Cyber Use Case Form](https://claude.com/form/cyber-use-case)**.    **Note:** Applications must be submitted by an authorized admin of your organization. |
-| **Third-party platform** (coding tools and other apps powered by Claude) | Reach out to your platform directly to check if Anthropic CVP is available and if so request access to the Cyber Use Case Form through the platform. Not all platforms participate in the CVP at this time. |
-| **Microsoft Foundry** | Find both your Azure Tenant ID and Subscription ID in your Azure Portal (See instructions **[here](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id)**). Choose ‘Azure’ under the ‘Surface’ field in the **[Cyber Use Case Form](https://claude.com/form/cyber-use-case)**. |
+| **Anthropic first-party** (Claude.ai, Claude Code, the Anthropic API) | Navigate to the **[Verification Portal](http://portal.anthropic.com/programs/cvp)** to apply for access to the Cyber Verification Program.    **Note:** Only authorized admins will see this option. |
+| **Microsoft Foundry** | Find both your Azure Tenant ID and Subscription ID in your Azure Portal (see instructions **[here](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id)**). Choose "Azure" under the **Surface** field in the **[Cyber Use Case Form](https://claude.com/form/cyber-use-case)**. |
 | **Amazon Bedrock** | The Cyber Verification Program is not available on Bedrock at this time. |
+| **Claude Platform on AWS** | Navigate to the **[Verification Portal](http://portal.anthropic.com/link?account_source=aws&program=cvp)** to apply for access to the Cyber Verification Program. You will need to create or log into an Anthropic account, then link your AWS account. ​  **Note:** Only authorized admins will be able to apply. |
 | **Google Vertex AI** | The Cyber Verification Program is not available on Vertex at this time. |
+| **Third-party platform** (coding tools and other apps powered by Claude) | Reach out to your platform directly to check if Anthropic CVP is available and if so request access to the Cyber Use Case Form through the platform. Not all platforms participate in the CVP at this time. |
 | **Bring your own key (BYOK) Customers** | Follow instructions under **Anthropic first-party** |
 
-[Cyber Use Case Form](https://claude.com/form/cyber-use-case)
+[Verification Portal](http://portal.anthropic.com/programs/cvp)
 
 **Are you a platform owner?** If you use Claude to power products or services available to your customers and want to learn whether your platform is eligible to participate in the Cyber Verification Program, please **[fill out this Platform CVP Interest Form](https://claude.com/form/platform-cvp-interest)**.
 
@@ -59,14 +54,8 @@ If you’re encountering one of these issues, we recommend checking the followin
 
 If you've checked both and still believe something is wrong, you can **[submit a report or appeal form](https://claude.com/form/cyber-block-false-positive-report-cvp-rejection-appeal)**. Your feedback helps us refine these safeguards.
 
----
-
-Related Articles
-
-[Release notes](https://support.claude.com/en/articles/12138966-release-notes)[Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)[Getting started with Claude for Nonprofits](https://support.claude.com/en/articles/12893767-getting-started-with-claude-for-nonprofits)[Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)[Why Claude switched models in your conversation with Fable 5](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5)
-
-Did this answer your question?
-
-😞😐😃
-
-Table of contents
+* [API Safeguards Tools](https://support.claude.com/en/articles/9199617-api-safeguards-tools)
+* [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
+* [Why Claude switched models in your conversation with Fable 5](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5)
+* [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
+* [Why Claude switched models in your conversation with Opus 5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5)

@@ -2,13 +2,13 @@
 
 # Purchase and manage seats on Team plans
 
-Updated today
+Updated over 3 weeks ago
 
 Seat management allows Team plan owners to control their organization's seat allocation, assign users to different seat types, and manage billing. For pricing and billing details, see **[How is my Team plan bill calculated?](https://support.claude.com/en/articles/9267289-how-is-my-team-plan-bill-calculated)**
 
 **Permissions note:** Only Owners and Primary Owners can purchase seats and access **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**. Admins and above can reassign seat types for members in **[Organization settings > Members](https://claude.ai/admin-settings/members)**.
 
-For information on adding and removing members from your organization, see **[Managing members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-managing-members-on-team-and-enterprise-plans)**.
+For information on adding and removing members from your organization, see **[Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750)**.
 
 ## Understanding seat types
 
@@ -24,9 +24,9 @@ Organizations can mix and match seat types based on team needs. Assign Premium s
 
 Your plan has a total seat allocation (e.g., 30 Standard seats and 10 Premium seats). Within that allocation, you can assign and reassign users to different seat types as needed.
 
-## Purchasing new seats
+## Purchase new seats
 
-**Important:** If you want to upgrade an existing member from Standard to Premium, you don't need to purchase a new seat. Use the seat tier reassignment in **[Organization settings > Members](https://claude.ai/admin-settings/members)** instead — see **[Upgrading a Standard seat to Premium](#h_e7a7f4f396)** below.
+**Important:** If you want to upgrade an existing member from Standard to Premium and already have Premium seats available, you don't need to purchase a new seat. Use the seat tier reassignment in **[Organization settings > Members](https://claude.ai/admin-settings/members)** instead. See **[Upgrade a Standard seat to Premium](#h_e7a7f4f396)** below.
 
 Follow these steps to add seats to your plan's total allocation:
 
@@ -39,9 +39,9 @@ Follow these steps to add seats to your plan's total allocation:
 7. Check the confirmation box before continuing.
 8. Click "Confirm & purchase" to complete the transaction.
 
-**Note:** You can also purchase seats while adding a new member. If you don't have an available seat of the selected type, you'll be prompted to purchase one.
+**Note:** You can also purchase seats while adding a new member. The seat type selector only shows seat types your plan already owns—if all seats of the selected type are assigned, you'll be prompted to purchase one.
 
-## Reducing your seat allocation
+## Reduce your seat allocation
 
 You can reduce the total number of seats on your Team plan:
 
@@ -54,7 +54,7 @@ You can reduce the total number of seats on your Team plan:
 7. Click “Next” to review the changes.
 8. Check the confirmation box and click "Confirm & purchase" to complete the change.
 
-## Assigning and reassigning seat types
+## Assign and reassign seat types
 
 You can move users between Standard and Premium seats within your existing allocation.
 
@@ -67,9 +67,11 @@ To reassign a user's seat type:
 
 Members moved from Premium to Standard will have lower usage limits, and vice versa.
 
-## Upgrading a Standard seat to Premium
+## Upgrade a Standard seat to Premium
 
 Upgrading a member from Standard to Premium is a reassignment, not a new purchase. You don't need to buy an additional seat unless your Premium allocation is already full.
+
+**Note:** The **Tier** dropdown only shows seat types your plan already owns. If your plan has zero Premium seats, Premium won't appear as an option yet. First add at least one Premium seat by following the steps in **[Purchase new seats](#h_f05a756e78)** above. Once your plan includes a Premium seat, you can select "Premium" from the dropdown.
 
 1. Go to **[Organization settings > Members](https://claude.ai/admin-settings/members)**.
 
@@ -79,13 +81,11 @@ Upgrading a member from Standard to Premium is a reassignment, not a new purchas
 
 4. Select "Premium."
 
-If you have no available Premium seats, you'll be prompted to purchase one at this point.
-
-The upgrade is prorated based on your billing cycle, and you'll be charged the price difference immediately.
+If your plan includes Premium seats but they're all assigned, you'll be prompted to purchase an additional one at this point. The upgrade is prorated based on your billing cycle, and you'll be charged the price difference immediately.
 
 ### What if I don't have an available seat?
 
-If you try to reassign a user to Premium but don't have any available Premium seats, you'll then be prompted to purchase an additional Premium seat.
+If your plan includes Premium seats but they're all assigned, reassigning another user to Premium will prompt you to purchase an additional Premium seat. If your plan has no Premium seats at all, see **[Purchase new seats](#h_f05a756e78)** above to add one first.
 
 ## Swap users between seat types
 
@@ -114,4 +114,8 @@ You can also enable group mappings with JIT or SCIM to provision users directly 
 
 For detailed billing calculations and examples, see **[How is my Team plan bill calculated?](https://support.claude.com/en/articles/9267289-how-is-my-team-plan-bill-calculated)**
 
-[What is the Team plan?](https://support.claude.com/en/articles/9266767-what-is-the-team-plan)[How is my Team plan bill calculated?](https://support.claude.com/en/articles/9267289-how-is-my-team-plan-bill-calculated)[Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)[Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)[Purchase and manage seats on Enterprise plans](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans)
+* [What is the Team plan?](https://support.claude.com/en/articles/9266767-what-is-the-team-plan)
+* [How is my Team plan bill calculated?](https://support.claude.com/en/articles/9267289-how-is-my-team-plan-bill-calculated)
+* [Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)
+* [Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)
+* [Purchase and manage seats on Enterprise plans](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans)

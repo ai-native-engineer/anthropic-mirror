@@ -2,7 +2,7 @@
 
 # Get started with Claude in Chrome
 
-Updated over a week ago
+Updated over 2 weeks ago
 
 Claude in Chrome is available for all paid plans (Pro, Max, Team, and Enterprise). It's generally available in Claude Cowork and Claude Code, and in beta in the Chrome browser.
 
@@ -33,7 +33,7 @@ Follow these steps to enable the Claude in Chrome connector in your desktop app:
 3. Find **Claude in Chrome** in the list and click “Configure.”
 4. Toggle the connector on, then download and install the extension if you haven’t already.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1892696502/a23969725f631e99b9e4c47ec6e9/89803b8f-4f3c-4983-8b4d-63aec687ea1a?expires=1785295800&signature=05db6fa1d57fa998d9185cd144b995db80c7d4c3862949c5df986a1d32c6e182&req=dSguFM93m4RfW%2FMW1HO4zdOezI5e4bZxhnw73Y7ib%2BchhFefNunFpQH3Dc4K%0AzSSXLdCvZO9Lh%2Fc4Xi4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1892696502/a23969725f631e99b9e4c47ec6e9/89803b8f-4f3c-4983-8b4d-63aec687ea1a?expires=1785295800&signature=05db6fa1d57fa998d9185cd144b995db80c7d4c3862949c5df986a1d32c6e182&req=dSguFM93m4RfW%2FMW1HO4zdOezI5e4bZxhnw73Y7ib%2BchhFefNunFpQH3Dc4K%0AzSSXLdCvZO9Lh%2Fc4Xi4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1892696502/a23969725f631e99b9e4c47ec6e9/89803b8f-4f3c-4983-8b4d-63aec687ea1a?expires=1785371400&signature=98c46d3ad2695e1bd080c1908f9da4662bcbe8ca91e98d6c51b2bc779c512584&req=dSguFM93m4RfW%2FMW1HO4zdOezI5f77J9hnw73Y7ib%2BcOCZt6HyE1GFgWjjyI%0Ar8AuZ1yKCdYH0Q40V2Y%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1892696502/a23969725f631e99b9e4c47ec6e9/89803b8f-4f3c-4983-8b4d-63aec687ea1a?expires=1785371400&signature=98c46d3ad2695e1bd080c1908f9da4662bcbe8ca91e98d6c51b2bc779c512584&req=dSguFM93m4RfW%2FMW1HO4zdOezI5f77J9hnw73Y7ib%2BcOCZt6HyE1GFgWjjyI%0Ar8AuZ1yKCdYH0Q40V2Y%3D%0A)
 
 Completing these steps will add Claude in Chrome to the “Connectors” drop-down on your chats with Claude. This is disabled by default, so you’ll need to enable it manually for each conversation.
 
@@ -169,4 +169,4 @@ If you're unable to install or use the extension, contact your organization's ad
 * [Use Claude in Chrome safely](https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely)
 * [Claude in Chrome permissions guide](https://support.claude.com/en/articles/12902446-claude-in-chrome-permissions-guide)
 * [Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)
-* [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
+* [Get started with 1Password for Claude](https://support.claude.com/en/articles/15936181-get-started-with-1password-for-claude)

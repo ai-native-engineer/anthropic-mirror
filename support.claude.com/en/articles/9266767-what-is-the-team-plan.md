@@ -2,7 +2,7 @@
 
 # What is the Team plan?
 
-Updated over a week ago
+Updated over 2 weeks ago
 
 The Team plan is a paid plan for our Claude chat experience built for ambitious teams. It is currently available in certain **[supported locations](https://support.claude.com/en/articles/8461763-where-can-i-access-claude)**.
 

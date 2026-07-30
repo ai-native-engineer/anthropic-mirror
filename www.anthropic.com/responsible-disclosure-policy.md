@@ -93,3 +93,5 @@ If you, in our sole determination, make a good faith effort to research and disc
 ## Changes to this Policy
 
 We reserve the right to make changes to this Policy at any time by publishing a new policy and amending the date of last update. Vulnerabilities disclosed prior to any update of this Policy will remain subject to the then-current policy in effect.
+
+Responsible Disclosure Policy \ Anthropic

@@ -8,7 +8,7 @@ Please note, if you are a Claude Pro user, you will need to [cancel your Claude 
 
 Once you are logged in, click your initials or name in the lower left corner and select "Settings." From the Settings page, select "Account":
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817473474/419847779240b53f017096a3f8fe/490e6793-63e2-405b-9d2b-1a8d31845349?expires=1785295800&signature=4036553a101e211e85012136fa7473082ec8b62152662f02f782a2e561b7694c&req=dSgmEc15noVYXfMW1HO4zfQEjyHhlbiAJEX4YnuemtaDMae8uBncV5qURMS9%0A3HSeCK%2FMDNqVWe%2FtqQg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817473474/419847779240b53f017096a3f8fe/490e6793-63e2-405b-9d2b-1a8d31845349?expires=1785295800&signature=4036553a101e211e85012136fa7473082ec8b62152662f02f782a2e561b7694c&req=dSgmEc15noVYXfMW1HO4zfQEjyHhlbiAJEX4YnuemtaDMae8uBncV5qURMS9%0A3HSeCK%2FMDNqVWe%2FtqQg%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817473474/419847779240b53f017096a3f8fe/490e6793-63e2-405b-9d2b-1a8d31845349?expires=1785371400&signature=7fdf8b3eafcfa5f2b86eb7d0ee4b03e2e2c9d77591770d98cea11a7b8b870215&req=dSgmEc15noVYXfMW1HO4zfQEjyHgm7yMJEX4Ynuemtbq%2F606N4JY%2BPHbUA22%0AyJlICPtyANJW1rypey4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817473474/419847779240b53f017096a3f8fe/490e6793-63e2-405b-9d2b-1a8d31845349?expires=1785371400&signature=7fdf8b3eafcfa5f2b86eb7d0ee4b03e2e2c9d77591770d98cea11a7b8b870215&req=dSgmEc15noVYXfMW1HO4zfQEjyHgm7yMJEX4Ynuemtbq%2F606N4JY%2BPHbUA22%0AyJlICPtyANJW1rypey4%3D%0A)
 
 ## Considerations for paid Claude accounts
 
@@ -25,7 +25,7 @@ If you have multiple accounts associated with the same email address, you'll nee
 
 There are some scenarios where you will need to [contact our team](https://support.anthropic.com/en/articles/9015913-how-can-i-contact-support) to delete your account. If this is the case, it will be noted in your account:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817473475/62241bab3db3428b9c08ec1b331f/f2979807-cd69-4f32-9995-15c8cd9660ee?expires=1785295800&signature=36197401a12c187c496f1033fbd9cc543e69f7d84962b2a3c220535f29bb5f64&req=dSgmEc15noVYXPMW1HO4zba6j0HqzTZ%2BiC%2FRrnocm7b5Dg7w3L1GukqRCmcn%0AifhM7uwtHD63nw8zZ5A%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817473475/62241bab3db3428b9c08ec1b331f/f2979807-cd69-4f32-9995-15c8cd9660ee?expires=1785295800&signature=36197401a12c187c496f1033fbd9cc543e69f7d84962b2a3c220535f29bb5f64&req=dSgmEc15noVYXPMW1HO4zba6j0HqzTZ%2BiC%2FRrnocm7b5Dg7w3L1GukqRCmcn%0AifhM7uwtHD63nw8zZ5A%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817473475/62241bab3db3428b9c08ec1b331f/f2979807-cd69-4f32-9995-15c8cd9660ee?expires=1785371400&signature=fd8de2036d5e3e0c06422bac145a345d7af9ecde1ea7b82b3de7fe0274833e70&req=dSgmEc15noVYXPMW1HO4zba6j0HrwzJyiC%2FRrnocm7bKNUhj2AULnX9aboT8%0AWeegr4o9pGcHyBRCWbw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817473475/62241bab3db3428b9c08ec1b331f/f2979807-cd69-4f32-9995-15c8cd9660ee?expires=1785371400&signature=fd8de2036d5e3e0c06422bac145a345d7af9ecde1ea7b82b3de7fe0274833e70&req=dSgmEc15noVYXPMW1HO4zba6j0HrwzJyiC%2FRrnocm7bKNUhj2AULnX9aboT8%0AWeegr4o9pGcHyBRCWbw%3D%0A)
 
 ## Third-Party Services
 

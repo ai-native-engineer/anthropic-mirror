@@ -31,8 +31,8 @@ To explore comprehensive documentation regarding line markers, list navigation, 
 
 **Note:** One setting that's easy to mix up: `CLAUDE_CODE_ACCESSIBILITY=1` is a different, unrelated setting—it keeps the terminal cursor visible for screen magnifiers and does not turn on screen reader mode. For a screen reader, use the methods above.
 
-* [Claude Code on the web](https://support.claude.com/en/articles/12618689-claude-code-on-the-web)
 * [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
+* [Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
 * [Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)
 * [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)
 * [Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)

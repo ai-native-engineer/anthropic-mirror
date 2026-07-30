@@ -83,7 +83,7 @@ The sign-in flow reaches `login.microsoftonline.com` in addition to your Microso
 
 ##  Configure the app
 
-Open the in-app configuration window (**Developer → Configure Third-Party Inference…**). In the **Connection** section, set **Inference provider** to **Foundry**, then fill in the **Foundry credentials** card with the values for whichever authentication approach you chose:
+Open the [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration#open-the-configuration-window) (**Developer → Configure Third-Party Inference…**). In the **Connection** section, set **Inference provider** to **Foundry**, then fill in the **Foundry credentials** card with the values for whichever authentication approach you chose:
 
 | Field | API key | In-app Entra ID sign-in |
 | --- | --- | --- |

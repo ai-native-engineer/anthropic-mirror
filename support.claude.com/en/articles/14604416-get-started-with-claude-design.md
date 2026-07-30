@@ -125,7 +125,7 @@ Use the “Export” button in the upper right corner when viewing your project 
   + Send to local coding agent
   + Send to Claude Code Web
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1785295800&signature=2ed5cab7c8377c9dce589ef8a472385871f8f2b691fd5a0c76b22bace5acc1f5&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4SlYkmh8nfz9ljnuyXRSgD1V%2B81AQJ7NyCp0%0ARt3wQxarXWsYOQUydIs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1785295800&signature=2ed5cab7c8377c9dce589ef8a472385871f8f2b691fd5a0c76b22bace5acc1f5&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4SlYkmh8nfz9ljnuyXRSgD1V%2B81AQJ7NyCp0%0ARt3wQxarXWsYOQUydIs%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1785371400&signature=b68bd1106da05e1ab057b3d66e35abd8812c0bb3323f036537b88601167c8eb3&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4SlZnGxwnfz9ljnuyXSs6DEFAkRVMfUt%2FX1b%0ARNnxZilij6dU5o%2FHKO4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1785371400&signature=b68bd1106da05e1ab057b3d66e35abd8812c0bb3323f036537b88601167c8eb3&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4SlZnGxwnfz9ljnuyXSs6DEFAkRVMfUt%2FX1b%0ARNnxZilij6dU5o%2FHKO4%3D%0A)
 
 You can also share projects within your organization using a shareable link. Sharing options include view-only, comment, and edit access.
 
@@ -159,7 +159,7 @@ Claude Design is now available in beta. A few things to be aware of:
 * **Design system import:** Design system import is only as good as its source. A messy codebase or an incomplete file will show up in the output.
 
 * [Get started with Claude](https://support.claude.com/en/articles/8114491-get-started-with-claude)
-* [Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
+* [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Set up your design system in Claude Design](https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design)
 * [Claude Design admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans)
 * [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)

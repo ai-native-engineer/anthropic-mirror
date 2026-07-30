@@ -2,7 +2,7 @@
 
 # Manage members on Team and Enterprise plans
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
 
 This guide covers how to add, remove, and manage the people on your Team or Enterprise plan.
 
@@ -149,4 +149,4 @@ When Anthropic provides a new Enterprise organization and invites the Primary Ow
 * [Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)
 * [Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)
 * [Purchase and manage seats on Enterprise plans](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans)
-* [Find and join a Team or Enterprise organization](https://support.claude.com/en/articles/13566435-find-and-join-a-team-or-enterprise-organization)
+* [Migrate your organization from Team to Enterprise](https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise)

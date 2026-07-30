@@ -8,7 +8,7 @@ AI will be one of the most transformative technologies in history. We work with 
 
 AI is advancing at exponential speed, and the policymaking process was built for a slower world. We’re sharing policy proposals to prepare our institutions for AI progress.
 
-[Read more](/policy-on-the-ai-exponential)
+[Read more](https://www.anthropic.com/policy-on-the-ai-exponential)
 
 ### Economic Policy Framework
 
@@ -26,7 +26,7 @@ We’re publishing Anthropic's Advanced AI Framework, our proposal for how gover
 
 Our views on the AI competition between the US and China.
 
-[Read more](/news/2028-ai-leadership)
+[Read more](https://www.anthropic.com/news/2028-ai-leadership)
 
 ## Philosophy & approach
 
@@ -93,3 +93,5 @@ AI will reshape work across nearly every sector of the economy. We have an oblig
 The [Anthropic Economic Index](https://www.anthropic.com/economic-index) analyzes millions of anonymized Claude conversations to show how AI is impacting tasks, occupations, and industries, and our [labor market research framework](https://www.anthropic.com/research/labor-market-impacts) studies where we see potential signals of job disruption. Our [Anthropic Economic Futures Program](https://www.anthropic.com/economic-futures) funds independent researchers to study AI’s potential labor market and macroeconomic effects, identifies policy responses, and brings researchers, policymakers, and civil society together in dialogue. Our [Economic Advisory Council](https://www.anthropic.com/news/introducing-the-anthropic-economic-advisory-council) brings perspectives from leading economists and practitioners to our work.
 
 Forecasting economic changes is challenging, and proactively responding to them is even harder. Our [Economic Policy Framework](http://anthropic.com/news/preparing-for-ais-impact-on-work) lays out how the US can prepare for AI’s impact on work by measuring its effects and modernizing support systems to deliver support quickly. It also describes our best current assessment of promising policy approaches at different levels of AI-driven economic impact and disruption. We are ready to evolve these proposals as we continue to learn. Much more research is needed, which is why we’re investing $350 million in policy trials, partnerships across government, and nonprofits and academic partners.
+
+AI policy \ Anthropic

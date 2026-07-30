@@ -30,7 +30,7 @@ Nevertheless, both results show the potential for frontier AI models to help dis
 
 Mythos Preview achieved these results mostly autonomously and mostly without human intervention. Over the course of a week, one Anthropic researcher worked together with Claude to develop the HAWK attack, and another researcher built a scaffold4 that allowed Claude to fully autonomously discover the AES attack.5 Each of the results cost roughly $100,000 in API cost to develop. After seeing these results, we broadened our search and began to discover other attacks. We discuss some of these follow-ups below.
 
-In order to make it easier for others to continue studying the cryptanalytic ability of LLMs, we partnered with academics at ETH Zurich, Tel Aviv University, and University of Haifa to build [CryptanalysisBench](https://arxiv.org/abs/2607.18538), a benchmark that packages together many cryptographic ciphers and makes it easy for others to evaluate the capabilities of LLMs on this important topic.
+In order to make it easier for others to continue studying the cryptanalytic ability of LLMs, we partnered with academics at ETH Zurich, Tel Aviv University, and TU Berlin to build [CryptanalysisBench](https://arxiv.org/abs/2607.18538), a benchmark that packages together many cryptographic ciphers and makes it easy for others to evaluate the capabilities of LLMs on this important topic.
 
 Throughout the research process, we followed responsible disclosure procedures, and consulted with academics to confirm the validity of our findings. We also shared advance copies with US government and industry partners, and held discussions on the implications of this research. In the case of our HAWK finding, we shared our attack with the authors of HAWK in June and coordinated disclosure to the public NIST mailing list at the same time our results were released.
 
@@ -133,6 +133,8 @@ Read the [full paper on HAWK](https://anthropic.com/document/hawk_key_recovery.p
 Read the [full paper on AES](https://anthropic.com/document/aes_mobius_bridge.pdf), and the associated [chain of thought](https://anthropic.com/document/aes_mobius_bridge_cot.pdf).
 
 Read the paper [introducing CryptanalysisBench](https://arxiv.org/abs/2607.18538).
+
+*Edit 29 July: Updated an academic affiliation.*
 
 #### Footnotes
 

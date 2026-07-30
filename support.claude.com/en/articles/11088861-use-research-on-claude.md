@@ -2,7 +2,7 @@
 
 # Use research on Claude
 
-Updated over 3 weeks ago
+June 2, 2026
 
 Research is available for users with paid Claude plans (Pro, Max, Team, or Enterprise) using Claude on the web, Claude Desktop, or Claude Mobile.
 
@@ -38,4 +38,8 @@ To see an overview of Claude's research capabilities with the Google Workspace i
 
 Research is subject to the same limits as standard Claude conversations. However, research sessions can use up your limits faster due to Claude retrieving multiple sources and providing comprehensive responses.
 
-[When should I use web search, extended thinking, and research?](https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research)[FAQs on Using Claude for Education at Your University](https://support.claude.com/en/articles/11139144-faqs-on-using-claude-for-education-at-your-university)[Use Claude in Slack](https://support.claude.com/en/articles/12461605-use-claude-in-slack)[Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)[What is Claude Tag?](https://support.claude.com/en/articles/15594475-what-is-claude-tag)
+* [When should I use web search, extended thinking, and research?](https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research)
+* [Use Claude for Education at your university](https://support.claude.com/en/articles/11139144-use-claude-for-education-at-your-university)
+* [Use Claude in Slack](https://support.claude.com/en/articles/12461605-use-claude-in-slack)
+* [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
+* [What is Claude Tag?](https://support.claude.com/en/articles/15594475-what-is-claude-tag)

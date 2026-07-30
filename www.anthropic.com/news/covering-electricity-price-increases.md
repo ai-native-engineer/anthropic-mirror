@@ -22,3 +22,5 @@ Where we work with partners to develop data centers for handling our own workloa
 Of course, company-level action isn't enough. Keeping electricity affordable also requires systemic change. We support [federal policies](https://www.anthropic.com/news/build-ai-in-america)—including permitting reform and efforts to speed up transmission development and grid interconnection—that make it faster and cheaper to bring new energy online for everyone.
 
 Done right, AI infrastructure can be a catalyst for the broader energy investment the country needs. These commitments are the beginning of our efforts to address data centers’ impact on energy costs. We have more to do, and we’ll continue to share updates as this work develops.
+
+Covering electricity price increases from our data centers \ Anthropic

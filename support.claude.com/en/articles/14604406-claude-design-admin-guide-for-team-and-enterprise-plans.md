@@ -21,7 +21,7 @@ Team and Enterprise plan admins can enable this organization-wide by following t
 1. Go to **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)**.
 2. Find the **Claude Design** toggle under **Anthropic Labs** and switch it on.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1785295800&signature=43422eb8c832068735cb896d7075333bb3457d1aa559f22e08667ffc118f14d2&req=diIvH8t6nYFdXPMW1HO4zahp3ecKEOMtDIPtKBLQ9H%2FeVErc8ij%2FYxpgkGHt%0A3Faur4Bw5TrjOV2sE28%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1785295800&signature=43422eb8c832068735cb896d7075333bb3457d1aa559f22e08667ffc118f14d2&req=diIvH8t6nYFdXPMW1HO4zahp3ecKEOMtDIPtKBLQ9H%2FeVErc8ij%2FYxpgkGHt%0A3Faur4Bw5TrjOV2sE28%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1785371400&signature=da9d783679d101c9067e519a2a3621b53ad674552a4f6f3c1777d908fa460900&req=diIvH8t6nYFdXPMW1HO4zahp3ecLHuchDIPtKBLQ9H97d7fx6jiTaeMOmLO%2B%0AwmJCyy4ALAqvUAJEiqs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1785371400&signature=da9d783679d101c9067e519a2a3621b53ad674552a4f6f3c1777d908fa460900&req=diIvH8t6nYFdXPMW1HO4zahp3ecLHuchDIPtKBLQ9H97d7fx6jiTaeMOmLO%2B%0AwmJCyy4ALAqvUAJEiqs%3D%0A)
 
 ##
 
@@ -196,6 +196,6 @@ Claude Design currently supports export to HTML bundles, PPTX, PDF, and hand-off
 
 * [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
 * [Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)
-* [Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)
 * [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
+* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
 * [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)

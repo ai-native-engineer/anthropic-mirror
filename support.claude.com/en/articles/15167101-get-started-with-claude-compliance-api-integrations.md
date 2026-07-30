@@ -128,8 +128,8 @@ For Claude Platform, contact your Anthropic sales team. Review **[Compliance API
 * **Zenity:** Zenity automatically discovers and inventories all Claude agents, MCP servers, connected resources, and non-human identities—mapping their relationships and security posture from the moment a session starts. To set up this integration, see the **[Zenity setup guide](https://zenity.io/use-cases/platform/claude-enterprise)**.
 * **Zscaler:** By integrating with the Claude Compliance API, Zscaler is now able to provide deep visibility and granular control over every Claude prompt created by an enterprise user. Zscaler Data Security and DLP workflows help administrators strengthen their data protection programs through detailed analysis of organizational data and activity logs extracted from Claude. This solution enables faster enforcement actions to prevent data loss across multiple exfiltration channels. To set up this integration, see the **[Zscaler setup guide](https://www.zscaler.com/products-and-solutions/data-security)**.
 
-* [Getting started with Claude for Nonprofits](https://support.claude.com/en/articles/12893767-getting-started-with-claude-for-nonprofits)
 * [Access the Compliance API](https://support.claude.com/en/articles/13015708-access-the-compliance-api)
 * [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
+* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
 * [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
 * [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)

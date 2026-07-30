@@ -2,7 +2,7 @@
 
 # Migrate your organization from Team to Enterprise
 
-Updated over a month ago
+June 29, 2026
 
 When upgrading from a Team plan to an Enterprise plan, we recommend you keep the same Team organization and follow the upgrade path to change it to Enterprise. This will allow you to preserve your data (memberships/roles, conversations, and projects) and some of the settings from your Team plan organization. If you create a brand new Enterprise organization, then you'll need to set up everything from scratch.
 

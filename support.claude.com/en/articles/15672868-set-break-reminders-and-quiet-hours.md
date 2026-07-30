@@ -2,6 +2,8 @@
 
 # Set break reminders and quiet hours
 
+Updated over 3 weeks ago
+
 Break reminders and quiet hours are optional controls you can enable in your Claude settings. A break reminder gives you a gentle nudge after you’ve spent a set amount of time with Claude in a day. Quiet hours add light friction during windows you’ve set aside for something else. Neither is a hard lock, so you can always continue past them.
 
 Break reminders and quiet hours are in beta on Free, Pro, and Max plans. You set them in Claude on the web or Claude Desktop, and they apply across the web, Claude Desktop, and Claude Mobile.
@@ -32,7 +34,7 @@ These controls also appear as a "Set quiet hours and breaks" link on your monthl
 **Note:** Break reminders and quiet hours are boundaries you choose for yourself. They’re separate from your plan’s usage limits. For information on plan usage, see **[How do usage and length limits work?](https://support.claude.com/en/articles/11647753)**
 
 * [Usage limit best practices](https://support.claude.com/en/articles/9797557-usage-limit-best-practices)
-* [Use voice mode](https://support.claude.com/en/articles/11101966-use-voice-mode)
 * [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
 * [Troubleshoot Claude error messages](https://support.claude.com/en/articles/12466728-troubleshoot-claude-error-messages)
+* [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)
 * [See your monthly recap](https://support.claude.com/en/articles/15672559-see-your-monthly-recap)

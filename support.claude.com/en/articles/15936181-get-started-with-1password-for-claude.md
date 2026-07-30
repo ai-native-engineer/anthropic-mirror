@@ -2,7 +2,7 @@
 
 # Get started with 1Password for Claude
 
-Updated over a week ago
+Updated over 2 weeks ago
 
 1Password for Claude lets Claude complete browser tasks that require signing in, using logins you've stored in 1Password. 1Password fills the credential directly on the page, so Claude never sees your password or one-time code.
 
@@ -46,7 +46,7 @@ Once the requirements are in place, you can set up 1Password from a few places i
 3. Toggle on **Enable for your team** if it isn't already on.
 4. Toggle on **Password managers**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1785295800&signature=c5a5d8d7428435b43be2703b0f35c3eeff65fd749956738465c7738f98b2cbd2&req=diUjEMh8m4RWX%2FMW1HO4zU5lnm5spMBrGkiu4hEpcPXr%2Fh%2FVjdWH4%2BDTGkH%2F%0AaJItxT4YBnJn%2FIXzL%2BE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1785295800&signature=c5a5d8d7428435b43be2703b0f35c3eeff65fd749956738465c7738f98b2cbd2&req=diUjEMh8m4RWX%2FMW1HO4zU5lnm5spMBrGkiu4hEpcPXr%2Fh%2FVjdWH4%2BDTGkH%2F%0AaJItxT4YBnJn%2FIXzL%2BE%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1785371400&signature=04a9c00791bf18a3b5c3b286c6f8ce49e77f767b13a9d0db9ffca2c758e34276&req=diUjEMh8m4RWX%2FMW1HO4zU5lnm5tqsRnGkiu4hEpcPXKFCgPo%2FAYxdcVkyhE%0A6R2nh3VywNAJg6Ja6Bk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1785371400&signature=04a9c00791bf18a3b5c3b286c6f8ce49e77f767b13a9d0db9ffca2c758e34276&req=diUjEMh8m4RWX%2FMW1HO4zU5lnm5tqsRnGkiu4hEpcPXKFCgPo%2FAYxdcVkyhE%0A6R2nh3VywNAJg6Ja6Bk%3D%0A)
 
 Once enabled, eligible users will see the discovery options above. Users still need to install and set up the required apps and extensions themselves.
 

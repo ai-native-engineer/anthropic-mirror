@@ -30,5 +30,3 @@ Anthropic may designate certain models available through the Services as “Cove
 
 1. Customer agrees that Anthropic may retain and perform safety reviews on Inputs, Outputs, and other data regarding Customer’s use of the Covered Models. For clarity, this supersedes any modified retention commitments (e.g., ZDR) provided by Anthropic that may otherwise apply to Customer’s use of the Services.
 2. For Inputs, Outputs, and other data regarding Customer’s use of the Covered Models via a Cloud Platform, Anthropic will process such data on Customer's behalf in accordance with the [Anthropic Data Processing Agreement](https://www.anthropic.com/legal/data-processing-addendum) (or other applicable data processing agreement between the parties) consistent with the terms governing the processing of Customer Data. Customer will affirm the same to the relevant Marketplace Provider.
-
-Service Specific Terms \ Anthropic
