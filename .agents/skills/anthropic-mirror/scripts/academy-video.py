@@ -47,6 +47,36 @@ def anonymous_landing(final_url):
     return "/accounts/login" in (final_url or "")
 
 
+def fetch_page(url, ck, timeout=30):
+    """Skilljar의 일시적인 연결 실패를 세 번 재시도한다."""
+    for attempt in range(3):
+        try:
+            return httpx.get(
+                url,
+                cookies=ck,
+                headers={"User-Agent": UA},
+                follow_redirects=True,
+                timeout=timeout,
+            )
+        except httpx.HTTPError as exc:
+            if attempt == 2:
+                print(f"[!] Skilljar 요청 실패: {url} ({exc})", flush=True)
+                return None
+            time.sleep(attempt + 1)
+
+
+async def open_lesson(pg, url):
+    """레슨 탐색 실패는 한 번 재시도하고, 계속 실패하면 해당 레슨만 건너뛴다."""
+    for attempt in range(2):
+        try:
+            await pg.goto(url, wait_until="domcontentloaded")
+            return True
+        except Exception as exc:
+            if attempt == 1:
+                print(f"[!] 레슨 탐색 실패, 건너뜀: {url} ({exc})", flush=True)
+    return False
+
+
 def signed_in(ck):
     """실제 로그인 여부.
 
@@ -54,15 +84,8 @@ def signed_in(ck):
     로그아웃 상태에도 남아 있다. 둘 중 어느 것으로 판정해도 비로그인 세션이 통과하며,
     그 상태로 수집하면 모든 레슨이 코스 랜딩으로 튕겨 소개글이 본문으로 저장된다.
     """
-    try:
-        r = httpx.get(
-            f"{BASE}/accounts/",
-            cookies=ck,
-            headers={"User-Agent": UA},
-            follow_redirects=True,
-            timeout=25,
-        )
-    except Exception:
+    r = fetch_page(f"{BASE}/accounts/", ck, timeout=25)
+    if r is None:
         return False
     return not anonymous_landing(str(r.url))
 
@@ -187,13 +210,9 @@ async def rendered_body(pg):
 
 async def lesson_videos(pg, course, ck, cdir, state):
     # 목차 레슨 ID는 httpx SSR로 잡는다(일부 코스는 playwright 렌더가 목차 링크를 비운다 - 예: ai-fluency-for-builders)
-    cr = httpx.get(
-        f"{BASE}/{course}",
-        cookies=ck,
-        headers={"User-Agent": UA},
-        follow_redirects=True,
-        timeout=30,
-    )
+    cr = fetch_page(f"{BASE}/{course}", ck)
+    if cr is None:
+        return [], 0, 0, 0
     ids = sorted(
         set(int(x) for x in re.findall(rf"/{re.escape(course)}/(\d{{5,}})", cr.text))
     )
@@ -219,7 +238,8 @@ async def lesson_videos(pg, course, ck, cdir, state):
             continue
         listed_title = titles.get(lid) or f"Lesson {lid}"
         listed_path = by_source.get(url, cdir / f"{n:02d}-{slug(listed_title)}.md")
-        await pg.goto(url, wait_until="domcontentloaded")
+        if not await open_lesson(pg, url):
+            continue
         if urlsplit(pg.url).path.rstrip("/") != urlsplit(url).path.rstrip("/"):
             cdir.mkdir(parents=True, exist_ok=True)
             if not listed_path.exists():
@@ -322,6 +342,17 @@ async def main():
         assert urlsplit("https://x/course/123").path.rstrip("/") == urlsplit(
             "https://x/course/123/"
         ).path.rstrip("/")
+        class FlakyPage:
+            calls = 0
+
+            async def goto(self, *_args, **_kwargs):
+                self.calls += 1
+                if self.calls == 1:
+                    raise RuntimeError("temporary")
+
+        flaky = FlakyPage()
+        assert await open_lesson(flaky, "https://example.com/lesson")
+        assert flaky.calls == 2
         print("self-test ok")
         return
     if len(sys.argv) < 2:
@@ -350,15 +381,13 @@ async def main():
         return
     if not courses:
         catalogs = [
-            httpx.get(
-                f"{BASE}{path}",
-                cookies=ck,
-                headers={"User-Agent": UA},
-                follow_redirects=True,
-                timeout=30,
-            ).text
+            response.text
             for path in ("/", "/page/all-courses")
+            if (response := fetch_page(f"{BASE}{path}", ck)) is not None
         ]
+        if not catalogs:
+            print("[!] Academy 카탈로그를 가져오지 못했습니다.", flush=True)
+            return
         skip = {
             "auth",
             "accounts",
