@@ -2,7 +2,7 @@
 
 # What are projects?
 
-Updated this week
+Updated over a week ago
 
 Projects are available to all users, including those with free Claude accounts. Free users can create a maximum of five projects.
 

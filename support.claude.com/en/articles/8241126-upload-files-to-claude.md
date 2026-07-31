@@ -2,7 +2,7 @@
 
 # Upload files to Claude
 
-Updated this week
+Updated over a week ago
 
 This article explains how to upload documents and images to Claude, including supported file types, size limits, and how to get started.
 

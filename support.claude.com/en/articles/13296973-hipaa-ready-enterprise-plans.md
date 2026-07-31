@@ -2,7 +2,7 @@
 
 # HIPAA-ready Enterprise plans
 
-Updated this week
+Updated over a week ago
 
 This feature is available for Enterprise plans only (both self-serve and sales-assisted).
 

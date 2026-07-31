@@ -2,7 +2,7 @@
 
 # Use Claude with iOS apps
 
-Updated this week
+Updated over a week ago
 
 Claude can now connect with your iOS device's system apps to help you take action directly from your conversations. When you chat with Claude, it can draft messages, emails, or calendar events, find locations, manage reminders, and analyze your health and fitness data — all seamlessly integrated with your mobile apps.
 

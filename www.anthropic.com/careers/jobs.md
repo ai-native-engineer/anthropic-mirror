@@ -334,9 +334,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/4720576008)
 
 ## Applied AI
 
-21 Open Roles
+20 Open Roles
 
-21 Open Roles
+20 Open Roles
 
 [Applied AI Architect
 
@@ -366,11 +366,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/4461444008)[Applied AI Ar
 
 Munich, Germany
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/4977624008)[Applied AI Architect, Industries
-
-London, UK
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5278230008)[Applied AI Architect, Partnerships
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/4977624008)[Applied AI Architect, Partnerships
 
 San Francisco, CA | New York City, NY
 
@@ -674,9 +670,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5289450008)
 
 ## Finance
 
-29 Open Roles
+28 Open Roles
 
-29 Open Roles
+28 Open Roles
 
 [Capital Markets - Infrastructure Financing
 
@@ -754,11 +750,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5365524008)[Infrastructur
 
 Remote-Friendly (Travel-Required) | San Francisco, CA | New York City, NY
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5123851008)[Product Finance & Strategy, Monetization
-
-San Francisco, CA
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5115051008)[Senior Business Systems Analyst, Finance Systems
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5123851008)[Senior Business Systems Analyst, Finance Systems
 
 San Francisco, CA | Seattle, WA
 
@@ -798,9 +790,9 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5205723008)
 
 ## Legal
 
-16 Open Roles
+15 Open Roles
 
-16 Open Roles
+15 Open Roles
 
 [AI Compliance Officer
 
@@ -846,11 +838,7 @@ Apply](https://job-boards.greenhouse.io/anthropic/jobs/5271063008)[Contracts Man
 
 London, UK
 
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5264820008)[Corporate Legal Specialist
-
-San Francisco, CA
-
-Apply](https://job-boards.greenhouse.io/anthropic/jobs/5194899008)[IP Counsel, Copyright
+Apply](https://job-boards.greenhouse.io/anthropic/jobs/5264820008)[IP Counsel, Copyright
 
 San Francisco, CA | Seattle, WA | New York City, NY | Washington, DC
 

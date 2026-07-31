@@ -2,7 +2,7 @@
 
 # What is the Enterprise plan?
 
-Updated this week
+Updated over a week ago
 
 The **[Enterprise plan](https://claude.com/solutions/enterprise)** is designed for organizations that need advanced security, compliance controls, and scalable AI across their teams. It includes everything in the **[Team plan](https://support.claude.com/en/articles/9266767-what-is-the-team-plan)**, plus additional security and compliance features. Enterprise plan pricing works differently than Team plans: the seat fee covers access only, and all usage is billed separately at API rates.
 

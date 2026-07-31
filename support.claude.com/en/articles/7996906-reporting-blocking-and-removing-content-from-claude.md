@@ -10,7 +10,7 @@ Please note, we reserve the right to suspend users who frequently provide manife
 
 ## How to report safety issues
 
-We welcome reports concerning safety issues so that we can enhance the safety and harmlessness of our models. We would also like to hear from you if you identify our safety mechanisms causing any user experience issues. Please report such issues to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#fa8f899f88899b9c9f8e83ba9b948e9288958a9399d4999597) with enough detail for us to replicate the issue.
+We welcome reports concerning safety issues so that we can enhance the safety and harmlessness of our models. We would also like to hear from you if you identify our safety mechanisms causing any user experience issues. Please report such issues to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#334640564140525556474a73525d475b415c435a501d505c5e) with enough detail for us to replicate the issue.
 
 ### Help us improve AI safety by reporting universal jailbreaks
 

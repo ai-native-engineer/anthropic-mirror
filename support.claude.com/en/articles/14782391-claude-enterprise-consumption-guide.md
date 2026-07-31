@@ -2,7 +2,7 @@
 
 # Claude Enterprise consumption guide
 
-Updated this week
+Updated over a week ago
 
 Claude Enterprise gives your organization access to powerful AI across chat, Claude Code, and Claude Cowork. With that access comes the responsibility of managing consumption effectively—ensuring your team gets maximum value while keeping usage predictable and within budget.
 

@@ -33,5 +33,3 @@ Anthropic may update this Cookie Policy from time to time. We will notify you of
 ## Contact Us
 
 If you have any questions or comments, please contact us via [privacy@anthropic.com](mailto:privacy@anthropic.com).
-
-Cookie Policy \ Anthropic

@@ -2,7 +2,7 @@
 
 # Creating and managing Workspaces in the Claude Console
 
-Updated over a month ago
+June 30, 2026
 
 This guide will walk you through the process of creating, editing, and managing Workspaces in your Claude Console organization.
 

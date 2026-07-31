@@ -4,7 +4,7 @@
 
 March 16, 2026
 
-Anthropic PBC discloses account records solely in accordance with our Terms of Service and applicable law. For more information about Anthropic’s policies for handling governmental requests for user information, see [here](https://support.anthropic.com/en/articles/9519291-what-is-anthropic-s-policy-for-handling-governmental-requests-for-user-information). If you are a law enforcement agent who is authorized to gather evidence in connection with an official investigation, you may request records from Anthropic by emailing [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#1c707d6b3179727a736e7f7971797268316e796d69796f686f5c7d7268746e736c757f327f7371).
+Anthropic PBC discloses account records solely in accordance with our Terms of Service and applicable law. For more information about Anthropic’s policies for handling governmental requests for user information, see [here](https://support.anthropic.com/en/articles/9519291-what-is-anthropic-s-policy-for-handling-governmental-requests-for-user-information). If you are a law enforcement agent who is authorized to gather evidence in connection with an official investigation, you may request records from Anthropic by emailing [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#3f535e48125a5159504d5c5a525a514b124d5a4e4a5a4c4b4c7f5e514b574d504f565c115c5052).
 
 Please include the following information with your request:
 

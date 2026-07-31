@@ -2,7 +2,7 @@
 
 # Using Claude for Legal Work: Privilege, Confidentiality, and How to Think About Configuration
 
-Updated over a month ago
+June 30, 2026
 
 Lawyers and legal teams increasingly want to use Claude for research, drafting, contract review, and litigation prep. One of the most common questions we hear is some version of: *can I do that without putting privilege or client confidentiality at risk?* We think the answer is yes, with the right configuration and the right practices—and we want to be transparent about both how Claude is built and where the law currently stands.
 

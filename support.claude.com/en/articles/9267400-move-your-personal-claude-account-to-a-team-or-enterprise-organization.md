@@ -2,7 +2,7 @@
 
 # Move your personal Claude account to a Team or Enterprise organization
 
-Updated this week
+Updated over a week ago
 
 If you're using Claude with a personal account (Free, Pro, or Max) tied to your work email, you may be able to move that account into your organization's Team or Enterprise workspace. There are two paths: you can start a migration yourself (Team and Enterprise) or your admin can claim accounts on your domain (Enterprise only).
 
@@ -93,7 +93,7 @@ For the full walkthrough of your options, deadlines, and what happens to your su
 
 You may have both a personal account and an organization account tied to the same email address. You can switch between them by clicking your initials or name in the lower left corner of the screen.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1785371400&signature=147bbe70328e393db9aa17a77ca9d60af581ee6b82e05a18d03f912222676d27&req=diMmFMh3noJbXvMW1HO4zXhPndU1zx5lufhmlOXMdYZ5pIvoAWlDbj9Qo6Jw%0AXKUjwYjhnBBjn26xPdA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1785371400&signature=147bbe70328e393db9aa17a77ca9d60af581ee6b82e05a18d03f912222676d27&req=diMmFMh3noJbXvMW1HO4zXhPndU1zx5lufhmlOXMdYZ5pIvoAWlDbj9Qo6Jw%0AXKUjwYjhnBBjn26xPdA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1785462300&signature=a57a0ad1094ef5bb3d5e9c9467df2fce05762b0ce7bb6c95f2f8e6a341ccf509&req=diMmFMh3noJbXvMW1HO4zXhPndUyzh1iufhmlOXMdYZ0nDEz3fkmTzN71nMR%0AvK8Z9dqNLg9PHs9PdXI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1785462300&signature=a57a0ad1094ef5bb3d5e9c9467df2fce05762b0ce7bb6c95f2f8e6a341ccf509&req=diMmFMh3noJbXvMW1HO4zXhPndUyzh1iufhmlOXMdYZ0nDEz3fkmTzN71nMR%0AvK8Z9dqNLg9PHs9PdXI%3D%0A)
 
 A blue checkmark shows which account you're currently using. Click the other account to switch to it and access its separate conversations and projects.
 

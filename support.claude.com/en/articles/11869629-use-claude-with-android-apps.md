@@ -2,7 +2,7 @@
 
 # Use Claude with Android apps
 
-Updated this week
+Updated over a week ago
 
 Claude can now connect with your Android device's system apps to help you take action directly from your conversations. When you chat with Claude, it can draft messages, emails, calendar events, set alarms and timers, find locations, and more—all through your everyday apps without copy-paste.
 
@@ -167,7 +167,7 @@ Permission requirements vary by feature:
 
 For features requiring permissions (like location or calendar access), Claude will request permission contextually with clear explanations of why the access is needed. You’ll be prompted to approve the action with three options: Allow once, Always allow, or Don't allow.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1785371400&signature=eaaf2feece51d706da320b5d31d2a39c5b65bc4942738ee39357cf035002c5b2&req=dScnEcp7nIdeXfMW1HO4zQe5GlqM3CTwS5x65TIld%2FB9e0kD%2FGdpQAddU1CS%0AjR8QCjdYn9yo3LqFhf8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1785371400&signature=eaaf2feece51d706da320b5d31d2a39c5b65bc4942738ee39357cf035002c5b2&req=dScnEcp7nIdeXfMW1HO4zQe5GlqM3CTwS5x65TIld%2FB9e0kD%2FGdpQAddU1CS%0AjR8QCjdYn9yo3LqFhf8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1785462300&signature=bdfb834446ef04176f87b5e0063b544baea6857c7b56ec4a528b44377edd7abb&req=dScnEcp7nIdeXfMW1HO4zQe5GlqL3Sf3S5x65TIld%2FAVg3%2B4K0jBuAjub0Hi%0A8ooL7DGfCB5JZ1CskL0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1785462300&signature=bdfb834446ef04176f87b5e0063b544baea6857c7b56ec4a528b44377edd7abb&req=dScnEcp7nIdeXfMW1HO4zQe5GlqL3Sf3S5x65TIld%2FAVg3%2B4K0jBuAjub0Hi%0A8ooL7DGfCB5JZ1CskL0%3D%0A)
 
 These permissions can be managed at any time in your device settings by going to Settings > Apps > Claude > Permissions. Click into each permission listed under **Allowed** and **Not allowed** to make changes. You can toggle between “Allow only while using the app” or “Ask every time” to change Claude’s access, or remove permissions by choosing “Don’t allow.” Claude will only request permissions if needed for specific features, and you can always choose to decline while still using other capabilities.
 

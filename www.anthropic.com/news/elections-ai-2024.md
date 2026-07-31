@@ -46,3 +46,9 @@ Claude response after system prompt changes (Sonnet 3.5 new)
 ### Looking forward
 
 Protecting election integrity requires constant vigilance and adaptation as AI technology evolves. We remain committed to developing sophisticated testing systems, strengthening industry collaboration, and maintaining transparent communication about our findings as we work to protect democratic processes.
+
+### Introducing Claude Opus 5
+
+Opus 5 is a step change improvement for the Opus tier powering long-running agents while delivering improvements in coding and professional work.
+
+[Read more](https://www.anthropic.com/news/claude-opus-5)

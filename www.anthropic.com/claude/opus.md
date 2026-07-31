@@ -18,6 +18,7 @@ Hybrid reasoning model built for serious coding and AI agents, featuring a 1M co
 
   A step-change improvement for the Opus tier: stronger coding, more capable agents, and sharper professional work.
 
+  [Read more](https://www.anthropic.com/news/claude-opus-5)
 * Claude Opus 4.8
 
   May 28, 2026

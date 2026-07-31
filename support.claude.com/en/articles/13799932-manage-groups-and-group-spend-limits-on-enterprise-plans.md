@@ -2,7 +2,7 @@
 
 # Manage groups and group spend limits on Enterprise plans
 
-Updated this week
+Updated over a week ago
 
 Groups and group spend limits are available for Enterprise plan organizations. Owners, Primary Owners, and custom roles with the **Identity & Access** permission set to "Can manage" can go to **[Organization settings > Groups](http://claude.ai/admin-settings/groups)** to manage groups. Owners, Primary Owners, and custom roles with the **Billing** permission set to "Can manage" can go to **[Organization settings > Usage](https://claude.ai/admin-settings/usage)** to manage group spend limits. Group visibility settings are currently in beta.
 

@@ -2,7 +2,7 @@
 
 # Claude Design admin guide for Team and Enterprise plans
 
-Updated this week
+Updated over a week ago
 
 Claude Design lets your team create on-brand designs, prototypes, presentations, and interactive microsites through conversation with Claude.
 
@@ -21,7 +21,7 @@ Team and Enterprise plan admins can enable this organization-wide by following t
 1. Go to **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)**.
 2. Find the **Claude Design** toggle under **Anthropic Labs** and switch it on.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1785371400&signature=da9d783679d101c9067e519a2a3621b53ad674552a4f6f3c1777d908fa460900&req=diIvH8t6nYFdXPMW1HO4zahp3ecLHuchDIPtKBLQ9H97d7fx6jiTaeMOmLO%2B%0AwmJCyy4ALAqvUAJEiqs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1785371400&signature=da9d783679d101c9067e519a2a3621b53ad674552a4f6f3c1777d908fa460900&req=diIvH8t6nYFdXPMW1HO4zahp3ecLHuchDIPtKBLQ9H97d7fx6jiTaeMOmLO%2B%0AwmJCyy4ALAqvUAJEiqs%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1785461400&signature=762306f453ef4c06c7650c98f23e17c862732d309bb971f3cd2c3ecf7dfb5187&req=diIvH8t6nYFdXPMW1HO4zahp3ecMH%2BchDIPtKBLQ9H9En0Hz%2F7RQXvffES9l%0A53%2BFZaI2xb%2FiTazsstg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1785461400&signature=762306f453ef4c06c7650c98f23e17c862732d309bb971f3cd2c3ecf7dfb5187&req=diIvH8t6nYFdXPMW1HO4zahp3ecMH%2BchDIPtKBLQ9H9En0Hz%2F7RQXvffES9l%0A53%2BFZaI2xb%2FiTazsstg%3D%0A)
 
 ##
 

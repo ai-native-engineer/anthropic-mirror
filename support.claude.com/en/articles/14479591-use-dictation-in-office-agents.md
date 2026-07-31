@@ -2,7 +2,7 @@
 
 # Use dictation in Office agents
 
-Updated this week
+Updated over a week ago
 
 Dictation lets you speak your prompts instead of typing them when using Office agents. Click the microphone icon in the chat input, speak, and your words appear in the composer as you talk.
 

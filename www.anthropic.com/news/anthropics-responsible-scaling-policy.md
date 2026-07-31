@@ -38,5 +38,3 @@ The full document can be read [here](https://anthropic.com/responsible-scaling-p
 **Footnotes**
 
 1. As a general matter, Anthropic has consistently found that working with frontier AI models is an essential ingredient in developing new methods to mitigate the risk of AI.
-
-Announcing Anthropic's Responsible Scaling Policy \ Anthropic

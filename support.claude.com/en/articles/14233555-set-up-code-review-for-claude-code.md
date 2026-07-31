@@ -2,7 +2,7 @@
 
 # Set up Code Review for Claude Code
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
 
 Code Review analyzes your GitHub pull requests and posts findings as inline comments on the lines of code where it found issues. A fleet of specialized agents examine the code changes in the context of your full codebase, looking for logic errors, security vulnerabilities, broken edge cases, and regressions.
 

@@ -2,7 +2,7 @@
 
 # Understanding Claude's personalization features
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
 
 Claude offers several ways to personalize your experience: profile instructions, project instructions, and styles. Each serves a different purpose in helping Claude better understand and meet your needs.
 

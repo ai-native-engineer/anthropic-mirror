@@ -2,7 +2,7 @@
 
 # Install Claude Desktop
 
-Updated over a month ago
+June 30, 2026
 
 The Claude desktop apps bring Claude's capabilities directly to your computer, allowing for seamless integration with your workflow.
 

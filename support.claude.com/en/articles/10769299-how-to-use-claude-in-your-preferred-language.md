@@ -2,7 +2,7 @@
 
 # How to use Claude in your preferred language
 
-Updated this week
+Updated over a week ago
 
 Claude is available in multiple languages on web and desktop applications.
 

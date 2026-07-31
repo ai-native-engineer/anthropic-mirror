@@ -2,7 +2,7 @@
 
 # Get started with Claude Design
 
-Updated over a month ago
+June 30, 2026
 
 **[Claude Design](http://claude.ai/design)** lets you create designs, interactive prototypes, presentations, and more by having a conversation with Claude. This guide walks you through creating your first project, iterating on designs, and getting the most out of the tool.
 
@@ -125,7 +125,7 @@ Use the “Export” button in the upper right corner when viewing your project 
   + Send to local coding agent
   + Send to Claude Code Web
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1785371400&signature=b68bd1106da05e1ab057b3d66e35abd8812c0bb3323f036537b88601167c8eb3&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4SlZnGxwnfz9ljnuyXSs6DEFAkRVMfUt%2FX1b%0ARNnxZilij6dU5o%2FHKO4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1785371400&signature=b68bd1106da05e1ab057b3d66e35abd8812c0bb3323f036537b88601167c8eb3&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4SlZnGxwnfz9ljnuyXSs6DEFAkRVMfUt%2FX1b%0ARNnxZilij6dU5o%2FHKO4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1785462300&signature=772391ad85506bd4e7c48bca4ed7c4332f7c79aef0593ea96668f91deb1ad193&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4SlenW93nfz9ljnuyXRFIk5UE%2BMvAuBi0K3y%0A0qdkSSyX%2Bc3U248fPnw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1785462300&signature=772391ad85506bd4e7c48bca4ed7c4332f7c79aef0593ea96668f91deb1ad193&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4SlenW93nfz9ljnuyXRFIk5UE%2BMvAuBi0K3y%0A0qdkSSyX%2Bc3U248fPnw%3D%0A)
 
 You can also share projects within your organization using a shareable link. Sharing options include view-only, comment, and edit access.
 

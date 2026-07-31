@@ -2,7 +2,7 @@
 
 # Use dictation on Claude Mobile
 
-Updated this week
+Updated over a week ago
 
 Dictation is available to all Claude users (Free, Pro, Max, Team, and Enterprise plans). Support for languages other than English is in beta.
 

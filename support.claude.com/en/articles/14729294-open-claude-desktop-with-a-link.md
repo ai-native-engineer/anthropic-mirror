@@ -2,7 +2,7 @@
 
 # Open Claude Desktop with a link
 
-Updated over a month ago
+June 30, 2026
 
 Claude for macOS, Windows, and Linux respond to the `claude://` URL scheme, much like a browser responds to the `https://` scheme. You can use these links from a website, a script, or another app to open Claude Desktop and jump straight to a chat, a Cowork session, or a Code session.
 

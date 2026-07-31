@@ -2,7 +2,7 @@
 
 # Adapt to new model personas after deprecations
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
 
 **[Model deprecations and retirements](https://docs.claude.com/en/docs/about-claude/model-deprecations#model-status)** are routine parts of the model lifecycle. While we would like to keep past models publicly available as we continue to advance the frontier of safety and capabilities, maintenance overhead and capacity constraints do not currently allow this. We nonetheless recognize that losing access to models comes with costs to many users, particularly those who have come to value the unique character or capabilities of a specific model on a personal level. We aim to provide resources, tools, and guidance to such users to minimize these costs and make the transitions between models as smooth and seamless as possible.
 

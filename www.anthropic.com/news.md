@@ -38,6 +38,9 @@ Search
 
 DateCategoryTitle
 
+* [Jul 30, 2026Frontier Red Team
+
+  Investigating three real-world incidents in our cybersecurity evaluations](https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals)
 * [Jul 27, 2026Announcements
 
   Our position on open-weights models](https://www.anthropic.com/news/position-open-weights-models)
@@ -65,8 +68,7 @@ DateCategoryTitle
 * [Jul 14, 2026Announcements
 
   Anthropic commits $10 million to Canadian AI research](https://www.anthropic.com/news/canadian-ai-research)
-* [Jul 9, 2026Case Study
-
-  UST is bringing Claude to physical AI](https://www.anthropic.com/news/ust-claude)
 
 [See more](#)
+
+![Investigating three real-world incidents in our cybersecurity evaluations](https://www-cdn.anthropic.com/images/4zrzovbb/website/d3dd09ad16c68461dc3fb01df5e84cf7ccafda6c-1000x1000.svg)

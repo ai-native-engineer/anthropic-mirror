@@ -30,8 +30,8 @@ The company uses what it learns internally to shape how it brings Claude to clie
 
 To learn more about the Claude Partner Network, visit [anthropic.com/partners](https://www.anthropic.com/partners).
 
-### A research agenda for the Economic Futures Research Fund
+### Introducing Claude Opus 5
 
-We’re sharing the research agenda for the Anthropic Economic Futures Research Fund.
+Opus 5 is a step change improvement for the Opus tier powering long-running agents while delivering improvements in coding and professional work.
 
-[Read more](https://www.anthropic.com/news/economic-futures-research-fund-agenda)
+[Read more](https://www.anthropic.com/news/claude-opus-5)
