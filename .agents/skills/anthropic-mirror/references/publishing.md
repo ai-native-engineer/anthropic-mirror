@@ -30,9 +30,15 @@ git commit -m "Update mirror: <changed area> (YYYY-MM-DD)"
 
 `README.md`, `README.ko.md`, `AGENTS.md`, `.agents/` 같은 source 변경은 생성물 갱신 commit과 분리한다. 생성물 diff가 없으면 빈 commit을 만들지 않는다.
 
-## push gate
+## push와 완료 확인
 
-`git push`는 public repo 발행이다. 로컬 commit SHA와 `git diff --stat HEAD~1`을 사용자에게 보여주고 명시 승인을 받은 뒤 push한다.
+이 스킬로 일반 갱신·재생성을 요청한 것은 현재 branch의 검증된 미전송 미러 관련 commit을 public repo에 push하는 승인까지 포함한다. 별도 확인을 위해 중단하지 않는다.
+
+1. `git log --oneline @{upstream}..HEAD`와 `git diff --stat @{upstream}..HEAD`로 전송될 전체 범위를 확인한다.
+2. 미러 갱신 관련 commit만 있으면 `git push`한다. 새 diff가 없어도 검증된 미전송 commit이 있으면 push한다.
+3. `git rev-parse HEAD`와 `git rev-parse @{upstream}`이 같은지 확인한 뒤 완료를 보고한다.
+
+예상 밖 commit, 불명확한 upstream, 검증 실패가 있으면 push하지 않고 정확한 범위를 보고한다. force push는 사용하지 않는다.
 
 ## 삭제 반영
 
