@@ -2,7 +2,7 @@
 
 # Use analytics chat to ask Claude about usage
 
-Updated over 4 weeks ago
+July 1, 2026
 
 Analytics chat lets you ask Claude questions about your organization’s usage in plain language. Instead of clicking through dashboard tabs or exporting data, type a question. Claude runs the right query against your organization’s data and responds with a chart and a short summary of what it found.
 

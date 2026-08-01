@@ -196,3 +196,5 @@ In the coming months, we will organize conversations where policymakers, researc
 8. As a check on judge bias, we ran the same test on a separate set of 127 moments where the human’s next move was already strong (as opposed to the original set, where the human’s direction had room for improvement). There, the models’ suggestions were judged better only about 20% of the time.
 
 \* Quotes from Anthropic employees throughout this article are drawn from internal discussions and used with permission. They reflect individual views as of May 2026, not official company positions.
+
+When AI builds itself \ Anthropic

@@ -2,7 +2,7 @@
 
 # Restrict verified-domain connectors to your Enterprise
 
-Updated this week
+Updated over a week ago
 
 This article explains how to prevent Claude accounts outside your Enterprise organization from connecting certain services, like Gmail and Slack, using an email address on your verified domains. Use the **Restrict verified-domain connectors to your enterprise** setting to keep company data from reaching personal Claude accounts through connectors.
 

@@ -2,7 +2,7 @@
 
 # Change the model, effort, and thinking settings
 
-Updated this week
+Updated over a week ago
 
 The model menu next to the send button controls three settings: which Claude model you're chatting with, how much effort it puts into each response, and whether it uses extended thinking. This article explains how to change each one and when to use them.
 

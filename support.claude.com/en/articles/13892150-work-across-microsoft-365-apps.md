@@ -31,13 +31,13 @@ Open each app and activate the add-in at least once before using the cross-app f
 
 Go to **Settings** in each of the add-ins and toggle **Let Claude work across files** on:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152216540/23e9f22eca1109ec09f2c6138191/2ef697a8-3a60-4193-bbd7-639ed91b20e9?expires=1785462300&signature=c21206e13e02c7c1416b3172b6c49da9bc4a420038a5c0ce5d56391bbdd37032&req=diEiFMt%2Fm4RbWfMW1HO4ze%2BVVHHxVgxcQEr1GSm7Lk24RyEN2jf2gVtyiZNC%0AfX9bNu%2BNoTuh%2BTc9zMI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152216540/23e9f22eca1109ec09f2c6138191/2ef697a8-3a60-4193-bbd7-639ed91b20e9?expires=1785462300&signature=c21206e13e02c7c1416b3172b6c49da9bc4a420038a5c0ce5d56391bbdd37032&req=diEiFMt%2Fm4RbWfMW1HO4ze%2BVVHHxVgxcQEr1GSm7Lk24RyEN2jf2gVtyiZNC%0AfX9bNu%2BNoTuh%2BTc9zMI%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152216540/23e9f22eca1109ec09f2c6138191/2ef697a8-3a60-4193-bbd7-639ed91b20e9?expires=1785544200&signature=0605603ddb1ad762261f008bede0014cf636c90a570c7529f4d902fcc1484b07&req=diEiFMt%2Fm4RbWfMW1HO4ze%2BVVHHwVApdQEr1GSm7Lk2L9XtW8A%2FxS2xJXVbJ%0AuJJzr9r4zve1Ro27cHA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152216540/23e9f22eca1109ec09f2c6138191/2ef697a8-3a60-4193-bbd7-639ed91b20e9?expires=1785544200&signature=0605603ddb1ad762261f008bede0014cf636c90a570c7529f4d902fcc1484b07&req=diEiFMt%2Fm4RbWfMW1HO4ze%2BVVHHwVApdQEr1GSm7Lk2L9XtW8A%2FxS2xJXVbJ%0AuJJzr9r4zve1Ro27cHA%3D%0A)
 
 **Note:** This setting is default on for Pro and Max plans and default off for Team and Enterprise plans.
 
 You'll see connected file indicators when Excel, PowerPoint, Word, or Outlook files are linked to your session:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152215013/db0cfd2aa4034975480d82218aad/8f11dc16-2173-4b34-a05a-e31a53b58cc2?expires=1785462300&signature=54a4dcb85e0a7728bc713500d26f1c6937a6060ed09507b19fd40969ca4884a8&req=diEiFMt%2FmIFeWvMW1HO4zZtV3miy3dBiGgi4PNaz7vWwZV5L1hqWrTlNZAgD%0AvIleAYxgYrYNQKKUeRo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152215013/db0cfd2aa4034975480d82218aad/8f11dc16-2173-4b34-a05a-e31a53b58cc2?expires=1785462300&signature=54a4dcb85e0a7728bc713500d26f1c6937a6060ed09507b19fd40969ca4884a8&req=diEiFMt%2FmIFeWvMW1HO4zZtV3miy3dBiGgi4PNaz7vWwZV5L1hqWrTlNZAgD%0AvIleAYxgYrYNQKKUeRo%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152215013/db0cfd2aa4034975480d82218aad/8f11dc16-2173-4b34-a05a-e31a53b58cc2?expires=1785544200&signature=e0de44e019f8a0a94403cbb14735167e0513b2c5b56e3dbe7cf99e625b20d536&req=diEiFMt%2FmIFeWvMW1HO4zZtV3miz39ZjGgi4PNaz7vVbCiPOsAyiCMj1dH4r%0AqPUbs4%2F%2F7AkTsDMolD8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152215013/db0cfd2aa4034975480d82218aad/8f11dc16-2173-4b34-a05a-e31a53b58cc2?expires=1785544200&signature=e0de44e019f8a0a94403cbb14735167e0513b2c5b56e3dbe7cf99e625b20d536&req=diEiFMt%2FmIFeWvMW1HO4zZtV3miz39ZjGgi4PNaz7vVbCiPOsAyiCMj1dH4r%0AqPUbs4%2F%2F7AkTsDMolD8%3D%0A)
 
 ##
 

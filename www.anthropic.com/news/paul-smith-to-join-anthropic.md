@@ -13,3 +13,5 @@ Confirmation of Paul's appointment comes at a moment of exceptional growth for A
 "Anthropic's growth is unprecedented, and yet most enterprises are still in the early stages of AI adoption. The potential ahead is massive,” said Paul. “Throughout my career, I've been fortunate to build teams that have guided companies through transformative technology shifts. And I could not be more excited by the opportunity to help customers navigate AI—the biggest shift of all—with Anthropic.”
 
 AI is fundamentally restructuring how businesses create and capture value. Paul's expertise will help us support more organizations in navigating this transition thoughtfully, as we work to become the most trusted AI partner for businesses.
+
+Paul Smith to join Anthropic as Chief Commercial Officer \ Anthropic

@@ -37,7 +37,7 @@ Use this table to help decide which provisioning mode is right for your organiza
 
 Both JIT and SCIM can be combined with **Enable group mappings** to control role or seat tier assignment based on IdP group membership. If you select either of these options for your provisioning mode, **Enable group mappings** will appear within the **User provisioning** section:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1785461400&signature=024a58eab081e0cf1944dd1e278b8e4c3bbbeb90efabbbe2e66949e11ac859b0&req=diMmFM5%2Bm4FWUPMW1HO4zXBDQ65QC1tyxFMG%2BIEvQSeHVFqtKLWE9%2BJOz%2BvF%0AGHVjXj6mrKkNRkMhJqo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1785461400&signature=024a58eab081e0cf1944dd1e278b8e4c3bbbeb90efabbbe2e66949e11ac859b0&req=diMmFM5%2Bm4FWUPMW1HO4zXBDQ65QC1tyxFMG%2BIEvQSeHVFqtKLWE9%2BJOz%2BvF%0AGHVjXj6mrKkNRkMhJqo%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1785544200&signature=91ef5cccb16d551f6037318584494cd0142a1c83dfb15ba483c6832ae6f68085&req=diMmFM5%2Bm4FWUPMW1HO4zXBDQ65RCV50xFMG%2BIEvQScEkACRjATaEbBOabEj%0AJVA2mZm7XgY%2B6cq1Cts%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1785544200&signature=91ef5cccb16d551f6037318584494cd0142a1c83dfb15ba483c6832ae6f68085&req=diMmFM5%2Bm4FWUPMW1HO4zXBDQ65RCV50xFMG%2BIEvQScEkACRjATaEbBOabEj%0AJVA2mZm7XgY%2B6cq1Cts%3D%0A)
 
 ### Available roles and seat tiers
 
@@ -100,7 +100,7 @@ Once your IdP is connected, continue to Step 3.
 3. Return to your **Organization and access** or **Identity and access** settings in Claude or Console, and find **User provisioning**.
 4. Toggle **Enable group mappings** on (if it’s not already):
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1785461400&signature=ff5cc30596e4babfbe1ff2392deeca6450be23b17be8c113c7762a3b91c3631f&req=diMmFM5%2FmYdcXPMW1HO4zeBEbsDckftMyb72rapuHpOLVxcnjpB5gxvULUet%0ANmjO%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1785461400&signature=ff5cc30596e4babfbe1ff2392deeca6450be23b17be8c113c7762a3b91c3631f&req=diMmFM5%2FmYdcXPMW1HO4zeBEbsDckftMyb72rapuHpOLVxcnjpB5gxvULUet%0ANmjO%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1785544200&signature=77a3c68b71b0ee8d660769e9602d1670950edb2f4a822e66aea7284f4e233daa&req=diMmFM5%2FmYdcXPMW1HO4zeBEbsDdk%2F5Kyb72rapuHpN%2FTdap%2FiSDa0Ad02Vf%0A7Qyq%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1785544200&signature=77a3c68b71b0ee8d660769e9602d1670950edb2f4a822e66aea7284f4e233daa&req=diMmFM5%2FmYdcXPMW1HO4zeBEbsDdk%2F5Kyb72rapuHpN%2FTdap%2FiSDa0Ad02Vf%0A7Qyq%0A)
 5. In the **Enable group mappings** section, click “Add” next to each role and select the corresponding group from your IdP in the dropdown.
 
    1. When using group mappings, you *must* assign all users to a role-based group in order to ensure they’re provisioned an account. Assigning users to seat-tier based groups is optional.
@@ -138,7 +138,7 @@ Verify you have enough seats purchased and available to add members to your org.
 3. **For JIT:** The user needs to log out and log back in for role changes to take effect.
 4. **For SCIM:** Click "Sync" to prompt an immediate sync, or wait for the automatic sync cycle:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1785461400&signature=2c1b685f6a30fa2076c5abb4517e2b24a21aa2633392a9e20a7adfc03c227940&req=diMmFM5%2FmoVdWPMW1HO4zZ9La1ipH8vG5hujYvMis4d%2BsO9mD0jmBADjR5E7%0AeJsC%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1785461400&signature=2c1b685f6a30fa2076c5abb4517e2b24a21aa2633392a9e20a7adfc03c227940&req=diMmFM5%2FmoVdWPMW1HO4zZ9La1ipH8vG5hujYvMis4d%2BsO9mD0jmBADjR5E7%0AeJsC%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1785544200&signature=e5599070636438dd68d0ad2e75119a334784f82bfbf240b0608bb55dd8220f04&req=diMmFM5%2FmoVdWPMW1HO4zZ9La1ioHc7A5hujYvMis4dfOO2nO3yMzB3HnPnz%0AoU5g%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1785544200&signature=e5599070636438dd68d0ad2e75119a334784f82bfbf240b0608bb55dd8220f04&req=diMmFM5%2FmoVdWPMW1HO4zZ9La1ioHc7A5hujYvMis4dfOO2nO3yMzB3HnPnz%0AoU5g%0A)
 
 ### I lost Admin/Owner access after enabling group mappings
 

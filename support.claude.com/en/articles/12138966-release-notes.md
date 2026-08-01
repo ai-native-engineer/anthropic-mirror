@@ -2,7 +2,7 @@
 
 # Release notes
 
-Updated this week
+Updated over a week ago
 
 ## July 2026
 

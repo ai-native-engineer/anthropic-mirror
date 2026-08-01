@@ -24,19 +24,19 @@ Voice mode transforms how you interact with Claude by:
 1. Log in to your Claude account and start a new chat.
 2. Tap the sound wave symbol in the lower right corner of the chat window to activate voice mode:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2042358620/1bf2311353615c1c494da1312a17/124b93a8-0a9b-4c84-9d1f-ede6ca3498dd?expires=1785461400&signature=913e874da55b6b7eb05c81b0e67e644b77cd79a301f552eca43f169c9c1ae4d2&req=diAjFMp7lYddWfMW1HO4zZyGrst2vVYUF6uXnTLMvvCdOp6BdhnQEi8yC9Q0%0AOVfi%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2042358620/1bf2311353615c1c494da1312a17/124b93a8-0a9b-4c84-9d1f-ede6ca3498dd?expires=1785461400&signature=913e874da55b6b7eb05c81b0e67e644b77cd79a301f552eca43f169c9c1ae4d2&req=diAjFMp7lYddWfMW1HO4zZyGrst2vVYUF6uXnTLMvvCdOp6BdhnQEi8yC9Q0%0AOVfi%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2042358620/1bf2311353615c1c494da1312a17/124b93a8-0a9b-4c84-9d1f-ede6ca3498dd?expires=1785544200&signature=6c767055c032b1a899810cb835b4a988c0cfc2650204f682f57779cc4d015556&req=diAjFMp7lYddWfMW1HO4zZyGrst3v1MSF6uXnTLMvvDr1PZ1hwi%2FmhbSknZr%0ANPnJ%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2042358620/1bf2311353615c1c494da1312a17/124b93a8-0a9b-4c84-9d1f-ede6ca3498dd?expires=1785544200&signature=6c767055c032b1a899810cb835b4a988c0cfc2650204f682f57779cc4d015556&req=diAjFMp7lYddWfMW1HO4zZyGrst3v1MSF6uXnTLMvvDr1PZ1hwi%2FmhbSknZr%0ANPnJ%0A)
 3. Start talking and see your prompt automatically populate in the chat input.
 4. Once you finish telling Claude your prompt, it will respond to continue the conversation.
 5. Claude will remain in voice mode until you click the “Stop” button in the lower right corner of the chat window:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2042352060/162f9e61f7fbeb689201dfc1cac1/6a7fafb2-31df-43be-a43f-0059d735e3c4?expires=1785461400&signature=297a9baf2e09c6bdf287451f330376c0bdccae9cdcca3867b1522f81e94ea36c&req=diAjFMp7n4FZWfMW1HO4zU6VRfjOTr1txNdRzYWrfF7efvpMSGJgpZFTfZKc%0AxSzanwubXDPq4E6FAyM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2042352060/162f9e61f7fbeb689201dfc1cac1/6a7fafb2-31df-43be-a43f-0059d735e3c4?expires=1785461400&signature=297a9baf2e09c6bdf287451f330376c0bdccae9cdcca3867b1522f81e94ea36c&req=diAjFMp7n4FZWfMW1HO4zU6VRfjOTr1txNdRzYWrfF7efvpMSGJgpZFTfZKc%0AxSzanwubXDPq4E6FAyM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2042352060/162f9e61f7fbeb689201dfc1cac1/6a7fafb2-31df-43be-a43f-0059d735e3c4?expires=1785544200&signature=73f3128f73a9f65fb18df7ea295b0e2750ed25e8c4275d1741f8d30c07baec3f&req=diAjFMp7n4FZWfMW1HO4zU6VRfjPTLhrxNdRzYWrfF5Q64fhONIjAYznJk2b%0A4w3qRcvBo9Osrb5K9Nc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2042352060/162f9e61f7fbeb689201dfc1cac1/6a7fafb2-31df-43be-a43f-0059d735e3c4?expires=1785544200&signature=73f3128f73a9f65fb18df7ea295b0e2750ed25e8c4275d1741f8d30c07baec3f&req=diAjFMp7n4FZWfMW1HO4zU6VRfjPTLhrxNdRzYWrfF5Q64fhONIjAYznJk2b%0A4w3qRcvBo9Osrb5K9Nc%3D%0A)
 
 ### On mobile (iOS and Android)
 
 1. Open the Claude app on your device.
 2. Tap the voice mode icon (sound wave symbol next to the microphone icon) in the text input field:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2042359690/68879db64559ecf87991f73ce058/671ff972-9e08-4686-bc04-955dab4b2de3?expires=1785461400&signature=abfecab234f63ad5dfaf9fc242f94a617c6880f6857c840b347c2ac7829484eb&req=diAjFMp7lIdWWfMW1HO4zQTUIfF%2BltlKD%2FRXAPlQ7LYD5VbmtA2h%2FMKElqiK%0As7h7%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2042359690/68879db64559ecf87991f73ce058/671ff972-9e08-4686-bc04-955dab4b2de3?expires=1785461400&signature=abfecab234f63ad5dfaf9fc242f94a617c6880f6857c840b347c2ac7829484eb&req=diAjFMp7lIdWWfMW1HO4zQTUIfF%2BltlKD%2FRXAPlQ7LYD5VbmtA2h%2FMKElqiK%0As7h7%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2042359690/68879db64559ecf87991f73ce058/671ff972-9e08-4686-bc04-955dab4b2de3?expires=1785544200&signature=2afb3fa4bb0d35d267a96b86a5cbb1f3c4bcc9745dbc28c8d061841e93d9170e&req=diAjFMp7lIdWWfMW1HO4zQTUIfF%2FlNxMD%2FRXAPlQ7LYS5buX4T9qYLr0J8Jd%0A22qy%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2042359690/68879db64559ecf87991f73ce058/671ff972-9e08-4686-bc04-955dab4b2de3?expires=1785544200&signature=2afb3fa4bb0d35d267a96b86a5cbb1f3c4bcc9745dbc28c8d061841e93d9170e&req=diAjFMp7lIdWWfMW1HO4zQTUIfF%2FlNxMD%2FRXAPlQ7LYS5buX4T9qYLr0J8Jd%0A22qy%0A)
 3. Choose a voice to personalize your experience.
 4. Start speaking to begin your conversation.
 
@@ -69,7 +69,7 @@ To change the voice later:
 * **On the web and desktop:** Go to **[Settings > General](https://claude.ai/new#settings/general)** and scroll down to **Voice settings**. Select your preferred voice from the options. You’ll hear a preview when you click each option; click it again to stop the preview.
 * **On mobile:** Click the settings button in the bottom left corner while chatting with Claude in voice mode, then tap your preferred voice and pace:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2042352063/25eca25bcfd573ecab30dd53158c/074454a6-fa5a-4c49-8b19-02d434b4ca50?expires=1785461400&signature=11f9dca5f3871881764be8b71828db38b189e0696fcd76ffa22440dbcb934ef2&req=diAjFMp7n4FZWvMW1HO4zZ3%2FGG%2BRZlEOy8OQfYsvK3x1D73q%2BVyI8kAuFs4E%0AdmMtz8XdJkzbqTCpm3s%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2042352063/25eca25bcfd573ecab30dd53158c/074454a6-fa5a-4c49-8b19-02d434b4ca50?expires=1785461400&signature=11f9dca5f3871881764be8b71828db38b189e0696fcd76ffa22440dbcb934ef2&req=diAjFMp7n4FZWvMW1HO4zZ3%2FGG%2BRZlEOy8OQfYsvK3x1D73q%2BVyI8kAuFs4E%0AdmMtz8XdJkzbqTCpm3s%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2042352063/25eca25bcfd573ecab30dd53158c/074454a6-fa5a-4c49-8b19-02d434b4ca50?expires=1785544200&signature=5377af712c5078067aeb9e804bdcbfa97f4d285e02ca31b738a473af554e4e20&req=diAjFMp7n4FZWvMW1HO4zZ3%2FGG%2BQZFQIy8OQfYsvK3xmouyF6vkZY0hqvPji%0A1QGsMuQnHhVYSuf7kag%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2042352063/25eca25bcfd573ecab30dd53158c/074454a6-fa5a-4c49-8b19-02d434b4ca50?expires=1785544200&signature=5377af712c5078067aeb9e804bdcbfa97f4d285e02ca31b738a473af554e4e20&req=diAjFMp7n4FZWvMW1HO4zZ3%2FGG%2BQZFQIy8OQfYsvK3xmouyF6vkZY0hqvPji%0A1QGsMuQnHhVYSuf7kag%3D%0A)
 
 ## Choose a model
 

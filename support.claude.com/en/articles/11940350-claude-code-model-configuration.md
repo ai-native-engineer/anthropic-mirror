@@ -2,7 +2,7 @@
 
 # Claude Code model configuration
 
-Updated this week
+Updated over a week ago
 
 This guide shows you three ways to change which Claude model you're using with Claude Code: the quick `/model` command for instant changes, the `--model` flag for one-time session changes, and environment variables to set your preferred model as the permanent default.
 

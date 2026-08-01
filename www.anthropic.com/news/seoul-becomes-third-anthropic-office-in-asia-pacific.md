@@ -21,3 +21,5 @@ Korean companies aren't just adopting AI—they're defining how entire industrie
 Our focus in Korea will be closely aligned with Korea's national strategy to become a global AI leader. We look forward to working closely with Korean government agencies, research institutions, and industry partners to advance responsible AI development and deployment across key sectors.
 
 We're building a comprehensive local team focused on supporting Korea's unique business landscape and technological needs. For information about career opportunities at our new Seoul office, visit [anthropic.com/careers](https://www.anthropic.com/careers).
+
+Seoul becomes Anthropic’s third office in Asia-Pacific as we continue our international growth \ Anthropic

@@ -2,7 +2,7 @@
 
 # Claude in Chrome permissions guide
 
-Updated over a week ago
+Updated over 2 weeks ago
 
 Claude in Chrome is available for all paid plans (Pro, Max, Team, and Enterprise). It's generally available in Claude Cowork and Claude Code, and in beta in the Chrome browser.
 
@@ -22,7 +22,7 @@ Claude in Chrome uses a multi-layered permission system to give you control over
 
 Choose "Manually approve" to have Claude create a plan from your prompt, which you can approve and allow Claude to execute. The plan will specify which websites you’re allowing Claude to access, as well as the approach it will follow:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843320727/8d1c859ae9b8e0cdb536d024bf40/9bc3d239-8eb6-4bae-a032-a236f88ee606?expires=1785462300&signature=9479d50749dd27fc9a3d5cf94e7821721719421d4b1da15814c8ca25a5da2967&req=dSgjFcp8nYZdXvMW1HO4zYqyZcdJ%2BoC0gN0ADj5oqFBTcl72%2FDhdYI8iRr%2B8%0A9PRnuoI7zdFMgHyzVeo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843320727/8d1c859ae9b8e0cdb536d024bf40/9bc3d239-8eb6-4bae-a032-a236f88ee606?expires=1785462300&signature=9479d50749dd27fc9a3d5cf94e7821721719421d4b1da15814c8ca25a5da2967&req=dSgjFcp8nYZdXvMW1HO4zYqyZcdJ%2BoC0gN0ADj5oqFBTcl72%2FDhdYI8iRr%2B8%0A9PRnuoI7zdFMgHyzVeo%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843320727/8d1c859ae9b8e0cdb536d024bf40/9bc3d239-8eb6-4bae-a032-a236f88ee606?expires=1785544200&signature=9be61357353053df48ed21d9b922517d9e5614104b8b784b9588af60f202c83c&req=dSgjFcp8nYZdXvMW1HO4zYqyZcdI%2BIa1gN0ADj5oqFDrGJ9ZpNp3usCvIFiE%0Aek736aJPeZ7Ai0ls6E8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843320727/8d1c859ae9b8e0cdb536d024bf40/9bc3d239-8eb6-4bae-a032-a236f88ee606?expires=1785544200&signature=9be61357353053df48ed21d9b922517d9e5614104b8b784b9588af60f202c83c&req=dSgjFcp8nYZdXvMW1HO4zYqyZcdI%2BIa1gN0ADj5oqFDrGJ9ZpNp3usCvIFiE%0Aek736aJPeZ7Ai0ls6E8%3D%0A)
 
 Note that Claude will only use the websites listed in the plan, so you’ll need to manually approve any additional access requests.
 
@@ -44,7 +44,7 @@ When you choose "Skip all approvals," Claude doesn't pause to ask, and nothing c
 
 There are some websites on which Claude requires approval for every action. If you navigate to one of these sites, a **Permission required** prompt will appear in the extension side panel, Claude Cowork, or Claude Code where Claude will ask for permission before accessing the page or taking any action.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1847222875/162eb012ebe473ed2b852b97e223/0209db51-6057-4ec4-a9b7-8358287d46a3?expires=1785462300&signature=396b8d3cccc88c6e8ed6104a62bb1f801f5d4edcb80d262b7bb72cc4ae6361c9&req=dSgjEct8n4lYXPMW1HO4zeoCY8MvpXZ8JCxYSFHKWIiCbPJyQAYS98Cbws%2FR%0ArS8gHPuVa%2BOr%2F6jbmC8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1847222875/162eb012ebe473ed2b852b97e223/0209db51-6057-4ec4-a9b7-8358287d46a3?expires=1785462300&signature=396b8d3cccc88c6e8ed6104a62bb1f801f5d4edcb80d262b7bb72cc4ae6361c9&req=dSgjEct8n4lYXPMW1HO4zeoCY8MvpXZ8JCxYSFHKWIiCbPJyQAYS98Cbws%2FR%0ArS8gHPuVa%2BOr%2F6jbmC8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1847222875/162eb012ebe473ed2b852b97e223/0209db51-6057-4ec4-a9b7-8358287d46a3?expires=1785544200&signature=f6b88601faac624f21cbe1abf65edac58165155ecae2d263a8fd0a3ff3b1ed8d&req=dSgjEct8n4lYXPMW1HO4zeoCY8Mup3B9JCxYSFHKWIg5IeYk1T2P0q7WwWm%2B%0A4R%2FVXc0Z9F6ayDpZJ0w%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1847222875/162eb012ebe473ed2b852b97e223/0209db51-6057-4ec4-a9b7-8358287d46a3?expires=1785544200&signature=f6b88601faac624f21cbe1abf65edac58165155ecae2d263a8fd0a3ff3b1ed8d&req=dSgjEct8n4lYXPMW1HO4zeoCY8Mup3B9JCxYSFHKWIg5IeYk1T2P0q7WwWm%2B%0A4R%2FVXc0Z9F6ayDpZJ0w%3D%0A)
 
 ### Permission options
 

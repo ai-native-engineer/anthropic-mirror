@@ -141,7 +141,7 @@ If your proxy sends the headers incorrectly, requests fail with a 400 status and
 * Standard authentication continues for unmanaged networks.
 * Existing API key authentication remains unchanged.
 
-* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
+* [Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
 * [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
 * [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
 * [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)

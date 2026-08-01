@@ -17,3 +17,5 @@ In connection with the Series C round, Yasmin Razavi, a General Partner at Spark
 In addition to our technical work, during the past year we have been further refining our governance structure to better achieve our Public Benefit orientation. We are glad to have the support of our investors in developing different approaches to corporate governance, and we will have more to share about this in the coming months.
 
 We are excited to use the new funding to grow our world-class team across product and research, and aim to meet increasing demand for AI technologies that are reliable and trustworthy. Please get in touch if you’re interested in working with Claude.
+
+Anthropic Raises $450 Million in Series C Funding to Scale Reliable AI Products \ Anthropic

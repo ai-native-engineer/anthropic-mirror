@@ -2,7 +2,7 @@
 
 # Covered Models
 
-Updated over 4 weeks ago
+July 1, 2026
 
 Anthropic may designate certain models as “Covered Models” when they cross capability thresholds that warrant additional safeguards or other treatment. This page lists the models currently designated as Covered Models and describes the data handling, privacy, and access policies that apply to them.
 

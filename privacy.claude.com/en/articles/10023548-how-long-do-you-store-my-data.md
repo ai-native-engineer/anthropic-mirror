@@ -2,7 +2,7 @@
 
 # How long do you store my data?
 
-Updated over 4 weeks ago
+July 1, 2026
 
 *This article is about our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code. For our commercial products such as Claude for Work and the Anthropic API, see* *[here](https://privacy.anthropic.com/en/articles/7996866-how-long-do-you-store-personal-data).*
 

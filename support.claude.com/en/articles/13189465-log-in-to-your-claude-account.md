@@ -6,7 +6,7 @@ May 19, 2026
 
 When you open Claude on a web browser ([claude.ai](http://claude.ai)), the desktop app, or a mobile app, you will see two different options for logging in to your Claude account.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893216804/f2209c3ec6cf4fc2e803d13bbc9d/40520c9e-ff82-4a7c-adca-5a064fe18d8c?expires=1785461400&signature=28260787b1d416748b54a8f9fe68a76aa03f19bc5ddd60c6612a35cf42cd1cbf&req=dSguFct%2Fm4lfXfMW1HO4zXg5BoeI5ROwzWhrqpWiTMnHOJgdduOK7GMBP4xt%0AWffHY4YAV6T6pLiv%2FOI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893216804/f2209c3ec6cf4fc2e803d13bbc9d/40520c9e-ff82-4a7c-adca-5a064fe18d8c?expires=1785461400&signature=28260787b1d416748b54a8f9fe68a76aa03f19bc5ddd60c6612a35cf42cd1cbf&req=dSguFct%2Fm4lfXfMW1HO4zXg5BoeI5ROwzWhrqpWiTMnHOJgdduOK7GMBP4xt%0AWffHY4YAV6T6pLiv%2FOI%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893216804/f2209c3ec6cf4fc2e803d13bbc9d/40520c9e-ff82-4a7c-adca-5a064fe18d8c?expires=1785544200&signature=85830249ba8135e34ee18799ced37b02f612a193af2885311fc4b9af9312b52c&req=dSguFct%2Fm4lfXfMW1HO4zXg5BoeJ5xa2zWhrqpWiTMnBfgy4Uw4r2IDSEL7A%0AC1uaPgzCiPuYJ9e9JNw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893216804/f2209c3ec6cf4fc2e803d13bbc9d/40520c9e-ff82-4a7c-adca-5a064fe18d8c?expires=1785544200&signature=85830249ba8135e34ee18799ced37b02f612a193af2885311fc4b9af9312b52c&req=dSguFct%2Fm4lfXfMW1HO4zXg5BoeJ5xa2zWhrqpWiTMnBfgy4Uw4r2IDSEL7A%0AC1uaPgzCiPuYJ9e9JNw%3D%0A)
 
 ## Continue with Google
 

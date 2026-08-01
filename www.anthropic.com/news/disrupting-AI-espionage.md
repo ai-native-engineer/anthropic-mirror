@@ -68,3 +68,5 @@ Read [the full report](https://assets.anthropic.com/m/ec212e6566a0d47/original/D
 
 * *Added an additional hyperlink to the full report in the initial section*
 * *Corrected an error about the speed of the attack: not "thousands of requests per second" but "thousands of requests, often multiple per second"*
+
+Disrupting the first reported AI-orchestrated cyber espionage campaign \ Anthropic

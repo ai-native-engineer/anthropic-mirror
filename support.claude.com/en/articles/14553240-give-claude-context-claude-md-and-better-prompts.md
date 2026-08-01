@@ -121,7 +121,7 @@ If the first answer is off, you do not need to rephrase the whole request. Simpl
 | Reference a specific file in a prompt | `@path/to/file` |
 
 * [Your first day in Claude Code](https://support.claude.com/en/articles/14552382-your-first-day-in-claude-code)
-* [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)
 * [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
 * [Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
 * [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)
+* [Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)

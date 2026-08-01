@@ -2,7 +2,7 @@
 
 # Why Claude switched models in your conversation with Fable 5
 
-Updated over 4 weeks ago
+July 1, 2026
 
 This article explains why a request might be blocked, what happens when your conversation switches to a different Claude model, and how to manage automatic switching.
 

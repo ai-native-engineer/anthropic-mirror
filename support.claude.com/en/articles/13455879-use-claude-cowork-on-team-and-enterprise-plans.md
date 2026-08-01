@@ -2,7 +2,7 @@
 
 # Use Claude Cowork on Team and Enterprise plans
 
-Updated this week
+Updated over a week ago
 
 This article explains important limitations and considerations for Team and Enterprise organizations using Claude Cowork.
 

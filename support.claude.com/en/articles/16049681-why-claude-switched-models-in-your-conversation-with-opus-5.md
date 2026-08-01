@@ -2,7 +2,7 @@
 
 # Why Claude switched models in your conversation with Opus 5
 
-Updated this week
+Updated over a week ago
 
 This article explains why a request might fallback on Claude Opus 5, what happens when your conversation switches to another model, and how to manage automatic switching.
 

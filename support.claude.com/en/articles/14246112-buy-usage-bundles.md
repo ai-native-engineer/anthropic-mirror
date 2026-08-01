@@ -64,5 +64,5 @@ No. Your plan's included usage works the same as before. Bundle credits only app
 * [What is the Pro plan?](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan)
 * [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
 * [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
-* [Holiday 2025 Usage Promotion](https://support.claude.com/en/articles/13163666-holiday-2025-usage-promotion)
+* [Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)
 * [Claude Fable 5 on your plan](https://support.claude.com/en/articles/15424964-claude-fable-5-on-your-plan)

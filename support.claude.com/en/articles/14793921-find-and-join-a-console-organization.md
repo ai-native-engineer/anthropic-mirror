@@ -54,7 +54,7 @@ In addition to organization discovery, there are a few other ways to join a Cons
 Organization discovery isn’t available for Console organizations with single sign-on enabled. If your organization uses SSO, the feature doesn’t apply—your existing provisioning settings (including any just-in-time provisioning) remain unchanged. To enable organization discovery, SSO must be turned off first.
 
 * [Important considerations before enabling single sign-on (SSO) and JIT/SCIM provisioning](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning)
-* [Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)
 * [Find and join a Team or Enterprise organization](https://support.claude.com/en/articles/13566435-find-and-join-a-team-or-enterprise-organization)
 * [Join an organization via invite link](https://support.claude.com/en/articles/13776697-join-an-organization-via-invite-link)
-* [Ping Identity SSO setup](https://support.claude.com/en/articles/13917902-ping-identity-sso-setup)
+* [Okta SSO setup](https://support.claude.com/en/articles/13917894-okta-sso-setup)
+* [OneLogin SSO setup](https://support.claude.com/en/articles/13917899-onelogin-sso-setup)

@@ -55,8 +55,8 @@ All Program participants are required to sign a non-disclosure agreement to prot
 
 Participant agrees that all data submitted to Anthropic, including its products and services, in connection with this Program may be used, stored, shared, and/or published by Anthropic indefinitely in furtherance of its safety research, model development, and related purposes without further obligation to Participant.
 
+* [Reporting, Blocking, and Removing Content from Claude](https://support.claude.com/en/articles/7996906-reporting-blocking-and-removing-content-from-claude)
 * [What is the External Researcher Access Program?](https://support.claude.com/en/articles/9125743-what-is-the-external-researcher-access-program)
-* [Reporting, Blocking, and Removing Content from Claude](https://support.claude.com/en/articles/10684638-reporting-blocking-and-removing-content-from-claude)
 * [Public Vulnerability Reporting](https://support.claude.com/en/articles/11427875-public-vulnerability-reporting)
 * [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
 * [Child safety guidance for developers](https://support.claude.com/en/articles/15591275-child-safety-guidance-for-developers)

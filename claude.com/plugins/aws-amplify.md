@@ -10,7 +10,7 @@ Build full-stack apps with AWS Amplify Gen 2 using guided workflows for authenti
 * Made by
 * Installs
 
-  1755
+  1829
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -26,7 +26,7 @@ Craft production-grade frontends with distinctive design. Generates polished cod
 
 Anthropic verified
 
-1110438
+1134112
 
 installs](https://claude.com/plugins/frontend-design)
 
@@ -34,7 +34,7 @@ installs](https://claude.com/plugins/frontend-design)
 
 Claude learns brainstorming, subagent development with code review, debugging, TDD, and skill authoring through Superpowers.
 
-987572
+1009371
 
 installs](https://claude.com/plugins/superpowers)
 
@@ -44,7 +44,7 @@ AI code review with specialized agents and confidence-based filtering for pull r
 
 Anthropic verified
 
-430450
+438525
 
 installs](https://claude.com/plugins/code-review)
 
@@ -52,6 +52,6 @@ installs](https://claude.com/plugins/code-review)
 
 Upstash Context7 MCP server for live docs lookup. Pull version-specific docs and code examples from source repos into LLM context.
 
-412076
+417801
 
 installs](https://claude.com/plugins/context7)

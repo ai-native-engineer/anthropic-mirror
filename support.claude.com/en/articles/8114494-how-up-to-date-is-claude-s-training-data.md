@@ -2,7 +2,7 @@
 
 # How up-to-date is Claude's training data?
 
-Updated this week
+Updated over a week ago
 
 While we're constantly updating Claude's data, each model has a knowledge cutoff:
 

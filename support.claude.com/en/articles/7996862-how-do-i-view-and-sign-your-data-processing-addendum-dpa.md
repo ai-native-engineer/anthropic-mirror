@@ -10,8 +10,8 @@ Anthropic’s DPA with Standard Contractual Clauses (SCCs) is automatically inco
 
 **Important note for third-party platform users:** If you access Claude via a third-party platform or service provider, your use of Claude in those cases is governed by the third-party platform's terms of service.
 
-* [Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
 * [Does Anthropic Act as a Data Processor or Controller?](https://support.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
 * [Who owns and manages the data of my Claude for Education account?](https://support.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account)
 * [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)
+* [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)

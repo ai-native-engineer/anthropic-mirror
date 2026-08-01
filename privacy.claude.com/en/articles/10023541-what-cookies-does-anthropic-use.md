@@ -81,11 +81,12 @@ You can control how and when your personal data is shared or used in the followi
 1. Clicking on "Privacy Choices" in the footer of our main website ([anthropic.com](http://anthropic.com/))
 2. Clicking on "Your privacy choices" in the Learn More overflow menu on [claude.ai](http://claude.ai/):
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1785462300&signature=cbcaf95123b81372f9f30cbe5978f4a1a000944c87e6083063b1547f49baf783&req=dSgmEc13mYJdUPMW1HO4zXrC3Cz1ibJ3okxDdhQCTHoXwkp2thiRU6XwLuYM%0Aq%2BAN%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1785462300&signature=cbcaf95123b81372f9f30cbe5978f4a1a000944c87e6083063b1547f49baf783&req=dSgmEc13mYJdUPMW1HO4zXrC3Cz1ibJ3okxDdhQCTHoXwkp2thiRU6XwLuYM%0Aq%2BAN%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1785544200&signature=7be7428ce047104256e59ab4974b41f058f7165766abab9aea0ba41604291d67&req=dSgmEc13mYJdUPMW1HO4zXrC3Cz0i7R2okxDdhQCTHr0Bz4SPgneJ9FuAP0h%0AVkxw%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1785544200&signature=7be7428ce047104256e59ab4974b41f058f7165766abab9aea0ba41604291d67&req=dSgmEc13mYJdUPMW1HO4zXrC3Cz0i7R2okxDdhQCTHr0Bz4SPgneJ9FuAP0h%0AVkxw%0A)
 3. Enabling global privacy controls in your browser
 
 ​
 
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
+* [Does Anthropic crawl data from the web, and how can site owners block the crawler?](https://privacy.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler)
 * [What Cookies Does Anthropic Use?](https://privacy.claude.com/en/articles/9020432-what-cookies-does-anthropic-use)
 * [Is my data used for model training?](https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training)

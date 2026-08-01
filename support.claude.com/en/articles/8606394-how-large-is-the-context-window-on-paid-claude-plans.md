@@ -2,7 +2,7 @@
 
 # How large is the context window on paid Claude plans?
 
-Updated this week
+Updated over a week ago
 
 Claude Opus 5 and Sonnet 5 support a 1M token context window on all paid plans when chatting with Claude. Claude Opus 4.8, Opus 4.7, Opus 4.6, and Sonnet 4.6 support a 500K token context window on all paid plans when chatting with Claude. Outside of these models, Claude’s context window size is 200K, meaning it can ingest 200K+ tokens (about 500 pages of text or more) when using a paid Claude plan.
 

@@ -60,7 +60,7 @@ To validate your design system, create a test project and see if the output matc
 
 Once you’re satisfied with the design system quality, make sure the “Published” toggle is switched on. After publishing, any projects created from the Claude Design homescreen while in your organization will use your design system instead of the default.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1785461400&signature=d5ecfb358d701172f8cd8159e9e8c75da8462b2d71f6e4fefb97d0a0e413e8c0&req=diIvEcx8moFfXvMW1HO4zWNHF%2FePCDoTIQKNMXlu0T8ihxwRL3MuZ56xzPG5%0AqJQL%2F8pEMl%2BYRFy3Fts%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1785461400&signature=d5ecfb358d701172f8cd8159e9e8c75da8462b2d71f6e4fefb97d0a0e413e8c0&req=diIvEcx8moFfXvMW1HO4zWNHF%2FePCDoTIQKNMXlu0T8ihxwRL3MuZ56xzPG5%0AqJQL%2F8pEMl%2BYRFy3Fts%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1785544200&signature=af9a3d738cf2217aa17c10e85509a21d00bd909aee965f1496223de0f5379aae&req=diIvEcx8moFfXvMW1HO4zWNHF%2FeOCj8VIQKNMXlu0T9TnjuqhCfeOHDvWWeE%0AS5XGjd717%2Ft3ac7orWI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1785544200&signature=af9a3d738cf2217aa17c10e85509a21d00bd909aee965f1496223de0f5379aae&req=diIvEcx8moFfXvMW1HO4zWNHF%2FeOCj8VIQKNMXlu0T9TnjuqhCfeOHDvWWeE%0AS5XGjd717%2Ft3ac7orWI%3D%0A)
 
 ## Tips for best results
 
@@ -72,7 +72,7 @@ Once you’re satisfied with the design system quality, make sure the “Publish
 Brands evolve. When your design system changes, you can update it within Claude Design. From your Claude Design organization settings, click the “Open” button next to the design system you want to edit. Click the “Remix” button in the upper right corner to open the chat interface on the left side of the window. From here, you can work with Claude to change your design system.
 
 * [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
+* [Use Claude for PowerPoint](https://support.claude.com/en/articles/13521390-use-claude-for-powerpoint)
 * [Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)
 * [Claude Design admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans)
 * [Get started with Claude Design](https://support.claude.com/en/articles/14604416-get-started-with-claude-design)
-* [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)

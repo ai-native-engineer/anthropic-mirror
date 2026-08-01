@@ -2,7 +2,7 @@
 
 # Claude Code usage analytics
 
-Updated over 4 weeks ago
+July 1, 2026
 
 This feature allows Console users and owners of Team and Enterprise plans to monitor how their organization uses Claude Code, tracking productivity metrics and adoption patterns across teams.
 
@@ -40,7 +40,7 @@ The **Usage** tab displays the following metrics for your organization. Data on 
 * **Lines accepted over time**: Daily breakdown of accepted code lines.
 * **Top commands**: The Claude Code commands used most often across your organization.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1785461400&signature=a6194983cc2ea352c68b192a07fe0a438010b8a8e958a900900896e65c45383e&req=dScmEcx5lINYXvMW1HO4zfiEP6NUiXjKCX9h5MbdDjOZM0w%2BMWfg2kW26AXU%0AdV7ygc6e8PILlsnDuas%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1785461400&signature=a6194983cc2ea352c68b192a07fe0a438010b8a8e958a900900896e65c45383e&req=dScmEcx5lINYXvMW1HO4zfiEP6NUiXjKCX9h5MbdDjOZM0w%2BMWfg2kW26AXU%0AdV7ygc6e8PILlsnDuas%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1785544200&signature=de4d89992248129c4c176853c8386ebb9fae6b434dcd3267b4e4647670279263&req=dScmEcx5lINYXvMW1HO4zfiEP6NVi33MCX9h5MbdDjO%2F2MD9tuaILfC54LVJ%0Aw45r5dPe9aEw5Jd4Ss8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1785544200&signature=de4d89992248129c4c176853c8386ebb9fae6b434dcd3267b4e4647670279263&req=dScmEcx5lINYXvMW1HO4zfiEP6NVi33MCX9h5MbdDjO%2F2MD9tuaILfC54LVJ%0Aw45r5dPe9aEw5Jd4Ss8%3D%0A)
 
 ### User-level metrics
 

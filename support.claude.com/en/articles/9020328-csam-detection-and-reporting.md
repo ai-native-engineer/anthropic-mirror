@@ -8,7 +8,7 @@ Anthropic strictly prohibits Child Sexual Abuse Material (CSAM) on our services.
 
 As just one example of how we are combatting CSAM distribution: on our first-party services, we use a hash-matching tool to detect and report known CSAM that is included in a user or organization’s inputs. This tool provides access to NCMEC’s database of known CSAM hash values. When an image is sent in an input to our services, we will calculate a perceptual hash of the image. This hash will be automatically compared against the database. In the case of a match, we will notify and provide NCMEC information about the input and the related Account.
 
-As part of Anthropic’s safety process, we will also send a notice to the user or organization any time we report CSAM to NCMEC. If you receive a notification from us about CSAM detection and believe we’ve made an error, please email [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#a2d7d1c7d0d1c3c4c7d6dbe2c3ccd6cad0cdd2cbc18cc1cdcf).
+As part of Anthropic’s safety process, we will also send a notice to the user or organization any time we report CSAM to NCMEC. If you receive a notification from us about CSAM detection and believe we’ve made an error, please email [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#621711071011030407161b22030c160a100d120b014c010d0f).
 
 * [Reporting, Blocking, and Removing Content from Claude](https://support.claude.com/en/articles/7996906-reporting-blocking-and-removing-content-from-claude)
 * [Law Enforcement Requests](https://support.claude.com/en/articles/9035075-law-enforcement-requests)
