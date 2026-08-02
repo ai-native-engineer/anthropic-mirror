@@ -57,3 +57,5 @@ Even while we were recording demonstrations of computer use for today’s launch
 We expect that computer use will rapidly improve to become faster, more reliable, and more useful for the tasks our users want to complete. It’ll also become much easier to implement for those with less software-development experience. At every stage, our researchers will be working closely with our safety teams to ensure that Claude’s new capabilities are accompanied by the appropriate safety measures.
 
 We invite developers who try computer use in our public beta to contact us with their feedback [using this form](https://docs.google.com/forms/d/e/1FAIpQLSeD3IqITWsuepB19SEv889HsBvN9WOi6HRblPrJNyA9G7q02w/viewform), so that our researchers can continue to improve the usefulness and safety of this new capability.
+
+Developing a computer use model \ Anthropic

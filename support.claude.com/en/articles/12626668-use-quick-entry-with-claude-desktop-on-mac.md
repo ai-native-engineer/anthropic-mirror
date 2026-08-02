@@ -37,7 +37,7 @@ When you first open the updated version of Claude Desktop, you'll see a prompt t
 
 Once enabled, double-tapping Option will open a text box where you can type your message and start a new chat. You can also click "New chat" to see your five most recent conversations.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1785544200&signature=5e68652e92f3644cfa523172a37209dcd193b5d123bd194390f72e3da85ddf02&req=dSguFcl2lYJZXPMW1HO4zWggD9tUopiYRC8c%2FcM5c2L5bfPlD%2B136z9eUhOW%0AtBh18yb%2F9R6OxFMa%2FPM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1785544200&signature=5e68652e92f3644cfa523172a37209dcd193b5d123bd194390f72e3da85ddf02&req=dSguFcl2lYJZXPMW1HO4zWggD9tUopiYRC8c%2FcM5c2L5bfPlD%2B136z9eUhOW%0AtBh18yb%2F9R6OxFMa%2FPM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1785630600&signature=502d1a3e3022f70ddc843ce1a16375c74cf71027a0cdb72398ac10c7cec4c4c6&req=dSguFcl2lYJZXPMW1HO4zWggD9tXpZycRC8c%2FcM5c2La4bbbkVQ1ugV4G6%2Bk%0AN13T%2Bs%2FLr9GTvdYc2bE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1785630600&signature=502d1a3e3022f70ddc843ce1a16375c74cf71027a0cdb72398ac10c7cec4c4c6&req=dSguFcl2lYJZXPMW1HO4zWggD9tXpZycRC8c%2FcM5c2La4bbbkVQ1ugV4G6%2Bk%0AN13T%2Bs%2FLr9GTvdYc2bE%3D%0A)
 
 ### Enable the voice shortcut (optional)
 

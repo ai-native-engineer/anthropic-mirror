@@ -16,7 +16,7 @@ If our product and research teams review your Anthropic Interview responses dire
 
 Only Anthropic personnel with a need to know will be able to access your data. As with any conversations with Claude, Anthropic Interviewer results may be reviewed by our Trust and Safety team if flagged for violating our [Usage Policy](https://anthropic.com/legal/aup). We may email you one follow-up email to share the published findings from each research interview that you partake in.
 
-* [I have a zero data retention agreement with Anthropic. What products does it apply to?](https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to)
+* [Business Associate Agreements (BAA) for Commercial Customers](https://privacy.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
 * [Updates to our Privacy Policy](https://privacy.claude.com/en/articles/10301952-updates-to-our-privacy-policy)
 * [How does Anthropic Interviewer collect and use my data?](https://privacy.claude.com/en/articles/12996960-how-does-anthropic-interviewer-collect-and-use-my-data)
 * [Supplemental Anthropic Interviewer Privacy Policy](https://privacy.claude.com/en/articles/14139821-supplemental-anthropic-interviewer-privacy-policy)

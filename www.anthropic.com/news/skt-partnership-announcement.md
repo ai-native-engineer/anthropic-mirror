@@ -15,5 +15,3 @@ Fine-tuning creates a custom version of our LLM Claude that can be tailored to a
 In addition to this commercial partnership, SKT has invested an additional $100 million in Anthropic, which follows the previous investment from SK Telecom Venture Capital (SKTVC) in Silicon Valley. “With our strategic investment in Anthropic, a global leading AI technology company, we will be working closely with Anthropic to promote AI innovation,” said Ryu Young-sang, CEO of SKT. “By combining our Korean language-based LLM with Anthropic's strong AI capabilities, we expect to create synergy and gain leadership in the AI ecosystem together with our global telco partners.”
 
 We are excited about the opportunities we will unlock by partnering with SKT to build safer, more reliable AI technology that will serve telcos around the world.
-
-SKT Partnership Announcement \ Anthropic

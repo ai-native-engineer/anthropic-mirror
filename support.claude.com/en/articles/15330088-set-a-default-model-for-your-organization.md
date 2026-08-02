@@ -41,7 +41,7 @@ The organization default applies to every member. To set it:
 3. If you select “Choose a specific model,” choose a model from the list.
 4. Click “Save changes.”
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1785544200&signature=8af97589b2d1c3c49e87c1a7d361aa682794b85e41c76206a951050e386667a1&req=diUmEs58n4BcUPMW1HO4zelOdzdFKUxFfdGVZ664dGHG0%2F5mDjNtGZv4r8L6%0A7PxLjVXhVDRWldg9m4g%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1785544200&signature=8af97589b2d1c3c49e87c1a7d361aa682794b85e41c76206a951050e386667a1&req=diUmEs58n4BcUPMW1HO4zelOdzdFKUxFfdGVZ664dGHG0%2F5mDjNtGZv4r8L6%0A7PxLjVXhVDRWldg9m4g%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1785630600&signature=8c336ff8246c948b9f2180716f11b7fdaa8bdcff93e7c9592ae91ab3ce29e1cd&req=diUmEs58n4BcUPMW1HO4zelOdzdGLkhBfdGVZ664dGGn3ix8EIPKOJC5FOC9%0AENUl6bQhGixt2ZK9CzY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1785630600&signature=8c336ff8246c948b9f2180716f11b7fdaa8bdcff93e7c9592ae91ab3ce29e1cd&req=diUmEs58n4BcUPMW1HO4zelOdzdGLkhBfdGVZ664dGGn3ix8EIPKOJC5FOC9%0AENUl6bQhGixt2ZK9CzY%3D%0A)
 
 ## Set a default model for a custom role
 
@@ -69,7 +69,7 @@ If `managed-settings.json` specifies `availableModels` that doesn't contain the 
 Managed settings apply only to Claude Code CLI and IDE, not to Claude Code on web or desktop. For consistent behavior across all Claude Code surfaces, we recommend setting the default here alone. For more on managed settings, see **[Claude Code settings](https://code.claude.com/docs/en/settings#settings-files)**.
 
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
-* [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
-* [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)
+* [Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)
+* [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
 * [Enable US-only inference for your organization](https://support.claude.com/en/articles/15422948-enable-us-only-inference-for-your-organization)
 * [Manage model access for your organization](https://support.claude.com/en/articles/15694740-manage-model-access-for-your-organization)

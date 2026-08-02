@@ -156,3 +156,5 @@ Or you can [apply through our typical process](https://www.anthropic.com/careers
 ## Get the developer newsletter
 
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
+
+Designing AI resistant technical evaluations \ Anthropic

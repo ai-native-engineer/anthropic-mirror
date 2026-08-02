@@ -235,3 +235,5 @@ We’re committed to continually improving our methods for detecting and mitigat
 ## **Further reading**
 
 For the full report with additional case studies, [see here.](https://www-cdn.anthropic.com/b2a76c6f6992465c09a6f2fce282f6c0cea8c200.pdf)
+
+Detecting and countering misuse of AI: August 2025 \ Anthropic

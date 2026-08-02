@@ -263,7 +263,7 @@ Users can approve all of Claude’s actions via a confirmation pop-up that appea
 * File system access: IMAGE, FILES, DIRECTORY, FOPEN, FWRITE, FCLOSE
 * System information: REGISTER.ID, RTD, INFO
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1785544200&signature=6be861f40eeea12203c2523d262623876e74eb57c4b892109e3ab3f8f1b25937&req=dSgjH819nIJeWfMW1HO4zYWKaOduJt5wqAsRdssXCyAqGZL49XsRsgok%2FT9o%0AQ7UH0iIh4dyEIvd6LI4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1785544200&signature=6be861f40eeea12203c2523d262623876e74eb57c4b892109e3ab3f8f1b25937&req=dSgjH819nIJeWfMW1HO4zYWKaOduJt5wqAsRdssXCyAqGZL49XsRsgok%2FT9o%0AQ7UH0iIh4dyEIvd6LI4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1785630600&signature=ec558ce153ec258eea370897c4e1b98a45f954e6b19860af1b9e42da1d0421db&req=dSgjH819nIJeWfMW1HO4zYWKaOdtIdp0qAsRdssXCyBC4o9ySPQNoIk0HQl5%0A2w%2Fwqw3EAy8rORlTtro%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1785630600&signature=ec558ce153ec258eea370897c4e1b98a45f954e6b19860af1b9e42da1d0421db&req=dSgjH819nIJeWfMW1HO4zYWKaOdtIdp0qAsRdssXCyBC4o9ySPQNoIk0HQl5%0A2w%2Fwqw3EAy8rORlTtro%3D%0A)
 
 While we continue to develop our offerings and improve safety measures to reduce these risks, users should exercise caution when using Claude for Excel and should not use it with spreadsheets from external, untrusted sources.
 
@@ -439,5 +439,5 @@ Claude highlights all changes it makes to your workbook. Review these changes ca
 * [Create and edit files with Claude](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude)
 * [Use Claude for PowerPoint](https://support.claude.com/en/articles/13521390-use-claude-for-powerpoint)
 * [Work across Microsoft 365 apps](https://support.claude.com/en/articles/13892150-work-across-microsoft-365-apps)
+* [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
 * [Use Claude for Word](https://support.claude.com/en/articles/14465370-use-claude-for-word)
-* [Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)

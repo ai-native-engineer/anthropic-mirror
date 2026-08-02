@@ -2,6 +2,8 @@
 
 # Automated Security Reviews in Claude Code
 
+March 16, 2026
+
 Claude Code now includes automated security review features to help you identify and fix vulnerabilities in your code. This guide explains how to use the /security-review command and GitHub Actions to improve your code security.
 
 **Note:** While automated security reviews help identify many common vulnerabilities, they should complement, not replace, your existing security practices and manual code reviews.
@@ -90,4 +92,8 @@ To start using automated security reviews:
 
 For optimal results, we recommend running /security-review before committing significant changes and configuring the GitHub action for all repositories containing production code. Consider adjusting the filtering rules based on your team's specific security requirements and codebase characteristics.
 
-[Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)[Claude Code on the web](https://support.claude.com/en/articles/12618689-claude-code-on-the-web)[Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)[Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)[Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
+* [Claude Code on the web](https://support.claude.com/en/articles/12618689-claude-code-on-the-web)
+* [Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)
+* [Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
+* [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)

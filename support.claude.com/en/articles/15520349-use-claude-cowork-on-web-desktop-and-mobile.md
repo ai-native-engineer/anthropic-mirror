@@ -74,7 +74,7 @@ Remote sessions follow your account, so you can switch surfaces mid-task:
 
 When Claude finishes a task or needs your input, you'll get a notification on your phone. To get started, see **[Get started with Claude Cowork](https://support.claude.com/en/articles/13345190)**.
 
-* [When to use desktop and web connectors](https://support.claude.com/en/articles/11725091-when-to-use-desktop-and-web-connectors)
+* [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
 * [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)

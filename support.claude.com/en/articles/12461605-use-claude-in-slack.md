@@ -24,7 +24,7 @@ Claude in Slack gives you AI assistance right where your team collaborates. This
 5. When you close the AI assistant panel, the conversation moves to your history.
 6. Access previous conversations by clicking the clock icon.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755150661/a1a13c73bda421f6ee906650cfc9/22907223-e523-4a93-a6d2-3199a8368991?expires=1785544200&signature=321dac956c2123f1672c31418cdea9eb29523abed6df83dc1f91d8af8b356a49&req=dSciE8h7nYdZWPMW1HO4zXK26hRL7DUcVfOC%2FRy97LXBLa6lSDC%2BesAH5XSx%0A5Nbmjt2x3xmJHBc4Kmc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755150661/a1a13c73bda421f6ee906650cfc9/22907223-e523-4a93-a6d2-3199a8368991?expires=1785544200&signature=321dac956c2123f1672c31418cdea9eb29523abed6df83dc1f91d8af8b356a49&req=dSciE8h7nYdZWPMW1HO4zXK26hRL7DUcVfOC%2FRy97LXBLa6lSDC%2BesAH5XSx%0A5Nbmjt2x3xmJHBc4Kmc%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755150661/a1a13c73bda421f6ee906650cfc9/22907223-e523-4a93-a6d2-3199a8368991?expires=1785630600&signature=39f6043d74a490bad37d1f352f0eb885d7271ce02c80d2fed817baacc4d49da4&req=dSciE8h7nYdZWPMW1HO4zXK26hRI6zEYVfOC%2FRy97LX5GiFYpK2O%2F5f15GiP%0AokjCG6tWE6ZzACb2wqA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755150661/a1a13c73bda421f6ee906650cfc9/22907223-e523-4a93-a6d2-3199a8368991?expires=1785630600&signature=39f6043d74a490bad37d1f352f0eb885d7271ce02c80d2fed817baacc4d49da4&req=dSciE8h7nYdZWPMW1HO4zXK26hRI6zEYVfOC%2FRy97LX5GiFYpK2O%2F5f15GiP%0AokjCG6tWE6ZzACb2wqA%3D%0A)
 
 ## Mention @Claude in a thread or channel
 

@@ -1,4 +1,4 @@
-<!-- source: https://claude.com -->
+<!-- source: https://claude.com/ -->
 
 # Think fast, build faster
 

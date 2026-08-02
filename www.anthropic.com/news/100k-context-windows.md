@@ -285,5 +285,3 @@ see you next time bye
 100K context windows are now available in our API. If you are working with Claude, you can read more about what model versions to call [here](https://console.anthropic.com/docs/api/reference#-v1-complete). If you’re not working with Claude yet, you can request access [here](https://www.anthropic.com/claude).
 
 [1] [https://www.sciencedirect.com/...](https://www.sciencedirect.com/science/article/abs/pii/S0749596X19300786)
-
-Introducing 100K Context Windows \ Anthropic

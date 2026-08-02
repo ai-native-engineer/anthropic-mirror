@@ -383,5 +383,3 @@ Countries, regions, and territories where we currently offer Claude.ai access:
 * Vietnam
 * Zambia
 * Zimbabwe
-
-Supported countries and regions \ Anthropic

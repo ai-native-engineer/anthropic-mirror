@@ -80,7 +80,7 @@ Type `/` on an empty prompt to see every command available in your setup, includ
 
 Shortcuts vary slightly by terminal and IDE. Press **`?`** inside a session for the exact list in your environment.
 
-* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
+* [Give Claude context: CLAUDE.md and better prompts](https://support.claude.com/en/articles/14553240-give-claude-context-claude-md-and-better-prompts)
 * [Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
 * [Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)
 * [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)
