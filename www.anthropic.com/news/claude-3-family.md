@@ -136,5 +136,3 @@ We’re excited to see what you create with Claude 3 and hope you will give us f
 #### Footnotes
 
 1. This table shows comparisons to models currently available commercially that have released evals. Our model card shows comparisons to models that have been announced but not yet released, such as Gemini 1.5 Pro. In addition, we’d like to note that engineers have worked to optimize prompts and few-shot samples for evaluations and reported higher scores for a newer GPT-4T model. [Source](https://github.com/microsoft/promptbase).
-
-Introducing the next generation of Claude \ Anthropic

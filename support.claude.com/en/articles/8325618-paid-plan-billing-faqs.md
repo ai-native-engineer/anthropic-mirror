@@ -2,7 +2,7 @@
 
 # Paid plan billing FAQs
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
 
 This article covers Pro and Max subscriptions purchased on the web. If you subscribed through Claude for iOS or Claude for Android, your payment is handled by the Apple App Store or Google Play, and you'll manage your payment method and receipts through your app store account. To cancel or manage an app store subscription, see **[Cancel your Pro or Max subscription](https://support.claude.com/en/articles/8325617)**.
 
@@ -43,7 +43,7 @@ There's no separate option to remove a card, and updating to a new card replaces
 
 If you want to use a name other than the one tied to your payment method, check the "Use a different name on invoices" box when adding or updating your payment method in **[Settings > Billing](https://claude.ai/settings/billing)**.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1785630600&signature=5bc58c0656078b40ba0c4446bcf7ed5952b2f49ffdda783050b89a01fb9f389e&req=dSklFMh6nIZXXPMW1HO4zVXW8GitaDPKQoNvNFTb5ccv6iOMijmMSAiWJSGN%0AgKmunfCeatAnW9qLwl8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1785630600&signature=5bc58c0656078b40ba0c4446bcf7ed5952b2f49ffdda783050b89a01fb9f389e&req=dSklFMh6nIZXXPMW1HO4zVXW8GitaDPKQoNvNFTb5ccv6iOMijmMSAiWJSGN%0AgKmunfCeatAnW9qLwl8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1785717000&signature=ff3c63112e769e765f7c280a2bb7448d63609b145c32604838bc9f21da5a2158&req=dSklFMh6nIZXXPMW1HO4zVXW8GisajTMQoNvNFTb5ccJQ8DIOlrvW65Ek4vR%0ASZMMcDKvxqzFJpg2xD8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1785717000&signature=ff3c63112e769e765f7c280a2bb7448d63609b145c32604838bc9f21da5a2158&req=dSklFMh6nIZXXPMW1HO4zVXW8GisajTMQoNvNFTb5ccJQ8DIOlrvW65Ek4vR%0ASZMMcDKvxqzFJpg2xD8%3D%0A)
 
 ## How can I edit a paid invoice?
 

@@ -42,7 +42,7 @@ The email domain that was used to create your Team or Enterprise plan organizati
 
 Owners can remove domains by opening up the same modal and clicking the trash can icon to the right of the domain:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1785630600&signature=771f18d61fb4d717c4da6fc304d3f479210a9cd9f4936248137a879718345497&req=diAiFcF5nolaW%2FMW1HO4zUrhFu6eaggckeFUnrkrQZidWImGIiDhOmA%2FUYJ0%0AJrqWARdVoBct8KxeSS4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1785630600&signature=771f18d61fb4d717c4da6fc304d3f479210a9cd9f4936248137a879718345497&req=diAiFcF5nolaW%2FMW1HO4zUrhFu6eaggckeFUnrkrQZidWImGIiDhOmA%2FUYJ0%0AJrqWARdVoBct8KxeSS4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1785717000&signature=0bcb84a157c7fd68fce50168daef31c453a49a9ab0126b129f5ac08ce4545aef&req=diAiFcF5nolaW%2FMW1HO4zUrhFu6faA8akeFUnrkrQZgGzNqgd4ZWBVtciOo7%0A%2FEsgEVXb4rMspFtFHSs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1785717000&signature=0bcb84a157c7fd68fce50168daef31c453a49a9ab0126b129f5ac08ce4545aef&req=diAiFcF5nolaW%2FMW1HO4zUrhFu6faA8akeFUnrkrQZgGzNqgd4ZWBVtciOo7%0A%2FEsgEVXb4rMspFtFHSs%3D%0A)
 
 While the account creator must use a business email address, you can add public domains like @gmail.com, @yahoo.com, and @hotmail.com as allowed domains for other members of your organization.
 

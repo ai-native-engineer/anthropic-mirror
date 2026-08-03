@@ -2,7 +2,7 @@
 
 # How do I sign up for the Max plan?
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
 
 This article applies to individual consumers signing up for paid Max plans. If you're part of an organization looking to use Claude with your team, refer to **[Team and Enterprise plans](https://support.claude.com/en/collections/9387370-team-and-enterprise-plans)**.
 

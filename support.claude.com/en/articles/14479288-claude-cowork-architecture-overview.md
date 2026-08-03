@@ -2,7 +2,7 @@
 
 # Claude Cowork architecture overview
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
 
 This article explains where Claude Cowork runs, how each execution mode is isolated, and the admin controls available for restricting its scope.
 

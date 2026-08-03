@@ -24,8 +24,8 @@ Okta user profiles contain multiple fields that represent identity. SCIM provisi
 |  |  |  |
 | --- | --- | --- |
 | **Okta attribute** | **Typical value** | **Commonly used by** |
-| `user.login` | `testuser1` or [`[email protected]`](https://support.claude.com/cdn-cgi/l/email-protection#1367766067666076612253766b727e637f763d707c7e) | Default SCIM userName mapping; sometimes NameID |
-| `user.email` | [`[email protected]`](https://support.claude.com/cdn-cgi/l/email-protection#54203127207a212731267a3b3a3114312c35392438317a373b39) | SAML/OIDC email claim (recommended) |
+| `user.login` | `testuser1` or [`[email protected]`](https://support.claude.com/cdn-cgi/l/email-protection#97e3f2e4e3e2e4f2e5a6d7f2eff6fae7fbf2b9f4f8fa) | Default SCIM userName mapping; sometimes NameID |
+| `user.email` | [`[email protected]`](https://support.claude.com/cdn-cgi/l/email-protection#6c18091f1842191f091e420302092c09140d011c0009420f0301) | SAML/OIDC email claim (recommended) |
 | `appuser.email` | App-level override of user email | Custom app-level attribute mapping |
 
 A common mismatch: SCIM uses `user.login` while SAML sends `user.email`. Claude requires an exact string match.

@@ -1,6 +1,6 @@
 <!-- source: https://www.anthropic.com/engineering/building-c-compiler -->
 
-[Engineering at Anthropic](/engineering)
+[Engineering at Anthropic](https://www.anthropic.com/engineering)
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/7e2e39544a35760367049072406377a54f2b58c0-2554x2554.svg)
 
@@ -140,3 +140,5 @@ Special thanks to Josef Bacik, Edwin Chen, Bernardo Meurer Costa, Jake Eaton, Da
 ## Get the developer newsletter
 
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
+
+Building a C compiler with a team of parallel Claudes \ Anthropic

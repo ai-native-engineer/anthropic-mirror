@@ -28,5 +28,3 @@ With the Claude Agent SDK, Claude can now work autonomously on much more sophist
 ## **Availability**
 
 Xcode 26.3 is available as a release candidate for all members of the Apple Developer Program starting today, with a release coming soon on Apple’s App Store. See Apple’s announcement [here for more](https://www.apple.com/newsroom/2026/02/xcode-26-point-3-unlocks-the-power-of-agentic-coding/).
-
-Apple’s Xcode now supports the Claude Agent SDK \ Anthropic

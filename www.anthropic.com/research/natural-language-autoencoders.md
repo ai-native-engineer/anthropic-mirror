@@ -58,7 +58,7 @@ For example, in the blackmail test discussed above, we used NLAs to understand w
 
 Claude does not say it thinks it’s being tested in this transcript from our blackmail evaluation, but the NLA explanation reveals its suspicions.
 
-Extending this analysis to other evaluations, NLAs suggest that Claude suspects it’s being tested more often than it lets on. For instance, in a test of whether Claude takes destructive actions while writing code—for example, deleting important files—NLA explanations show signs of evaluation awareness 16% of the time, even though Claude never explicitly verbalizes this. Similarly, on the popular coding benchmark SWE-bench Verified, which we use to determine how capable Claude is, NLAs indicate that Claude is aware it is being evaluated on 26% of problems. In contrast, NLA explanations indicate evaluation awareness on less than 1% of real [claude.ai](http://claude.ai/redirect/website.v1.d04b0990-b985-4566-9eee-370b16e01c60) usage that opted in for training.
+Extending this analysis to other evaluations, NLAs suggest that Claude suspects it’s being tested more often than it lets on. For instance, in a test of whether Claude takes destructive actions while writing code—for example, deleting important files—NLA explanations show signs of evaluation awareness 16% of the time, even though Claude never explicitly verbalizes this. Similarly, on the popular coding benchmark SWE-bench Verified, which we use to determine how capable Claude is, NLAs indicate that Claude is aware it is being evaluated on 26% of problems. In contrast, NLA explanations indicate evaluation awareness on less than 1% of real [claude.ai](http://claude.ai/redirect/website.v1.3a52b9e4-95d0-409e-9dfc-92050bcea14d) usage that opted in for training.
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/fc08005f32ff020f21e598cc72f58768af2bcc4f-1590x1170.png)
 
@@ -117,3 +117,5 @@ Working with Andon Labs, we’ve developed a new series of evaluations that asse
 ### How Canada uses Claude: Findings from the Anthropic Economic Index
 
 [Read more](https://www.anthropic.com/research/how-canada-uses-claude)
+
+Natural Language Autoencoders \ Anthropic

@@ -131,7 +131,7 @@ To remove a custom skill you've uploaded:
 3. Use the toggle in the upper right corner to disable the skill.
 4. To delete the custom skill entirely, click the "..." button next to the toggle, then select "Delete":
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1785630600&signature=c971a32f5565f81a8b1648f7aeca5cc2abe487300fa3ffff396785450647fb86&req=diEnE8p3nINYWvMW1HO4zSOgDy4uwearH%2BdCnFXB0uh5O4rnNEqxRMWlu8qP%0AiRaW%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1785630600&signature=c971a32f5565f81a8b1648f7aeca5cc2abe487300fa3ffff396785450647fb86&req=diEnE8p3nINYWvMW1HO4zSOgDy4uwearH%2BdCnFXB0uh5O4rnNEqxRMWlu8qP%0AiRaW%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1785717000&signature=231137e1bfbe145c0eaf9ead196aef067f8729bdb392d2c862dd34834873eacb&req=diEnE8p3nINYWvMW1HO4zSOgDy4vw%2BGtH%2BdCnFXB0ug2T4B83gpjTroiL40r%0AeemC%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1785717000&signature=231137e1bfbe145c0eaf9ead196aef067f8729bdb392d2c862dd34834873eacb&req=diEnE8p3nINYWvMW1HO4zSOgDy4vw%2BGtH%2BdCnFXB0ug2T4B83gpjTroiL40r%0AeemC%0A)
 5. Click "Delete" in the confirmation prompt.
 
 If you change your mind, you can add the skill again by re-uploading the file.

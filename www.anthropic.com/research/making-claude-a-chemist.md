@@ -107,5 +107,3 @@ Working with Andon Labs, we’ve developed a new series of evaluations that asse
 ## Subscribe to Anthropic Science
 
 Features on AI-assisted discoveries, practical workflows, and field notes across the sciences.
-
-Making Claude a chemist \ Anthropic

@@ -12,15 +12,15 @@ The Anthropic Institute exists to understand and shape the consequences of power
 
 [### When AI builds itself
 
-Our progress toward recursive self-improvement, and its implications.](/institute/recursive-self-improvement)
+Our progress toward recursive self-improvement, and its implications.](https://www.anthropic.com/institute/recursive-self-improvement)
 
 [### What 81,000 people want from AI
 
-We invited Claude.ai users to share how they use AI, what they dream it could make possible, and what they fear it might do. Nearly 81,000 people participated—the largest and most multilingual qualitative study of its kind. Here's what we found.](/features/81k-interviews)
+We invited Claude.ai users to share how they use AI, what they dream it could make possible, and what they fear it might do. Nearly 81,000 people participated—the largest and most multilingual qualitative study of its kind. Here's what we found.](https://www.anthropic.com/features/81k-interviews)
 
 [### Economic Index
 
-The Anthropic Economic Index reveals the shape of AI adoption across the world. Here, you can explore the data behind our research to understand how people are using Claude across every US state and hundreds of occupations.](/economic-index)
+The Anthropic Economic Index reveals the shape of AI adoption across the world. Here, you can explore the data behind our research to understand how people are using Claude across every US state and hundreds of occupations.](https://www.anthropic.com/economic-index)
 
 01 / 03
 
@@ -54,4 +54,6 @@ If AI systems are being used to autonomously develop and improve themselves, how
 
 ## Help us surface what only a frontier lab can see.
 
-[Join us](/careers)
+[Join us](https://www.anthropic.com/careers)
+
+The Anthropic Institute \ Anthropic

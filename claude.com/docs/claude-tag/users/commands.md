@@ -8,7 +8,7 @@
 
 [Skip to main content](#content-area)
 
-A command is `@Claude` followed immediately by one of a few exact words starting with `!`. Claude matches the message against that word and runs a fixed action instead of starting a normal turn. `!help`, `!restart`, `!mute`, and `!unmute` must stand alone: adding extra words, as in `!restart` with words tacked on, makes the message an ordinary prompt instead. `!feedback` and `!routines` accept text after the command, covered below.
+A command is `@Claude` followed immediately by one of a few exact words starting with `!`. Claude matches the message against that word and runs a fixed action instead of starting a normal turn. `!help`, `!restart`, `!mute`, and `!unmute` must stand alone: adding extra words, as in `!restart` with words tacked on, makes the message an ordinary prompt instead. `!feedback`, `!routines`, and `!fork` accept text after the command, covered below.
 
 ##  See the commands available to you
 
@@ -81,6 +81,23 @@ Claude replies in the thread with the [routines](https://claude.com/docs/claude-
 * **For another channel**, add the channel mention or its ID, as in `@Claude !routines #other-channel`. You need to be a member of that channel, and it must belong to your organization. Claude sends the list in a reply only you can see, so that channel’s routines aren’t posted for everyone in the channel where you asked.
 
 If the single word after `!routines` isn’t a channel mention or ID, Claude replies with how to use the command. Adding two or more words makes the message an ordinary prompt that starts a normal turn instead.
+
+##  Continue a thread in another channel
+
+```
+@Claude !fork #channel <prompt>
+```
+
+Run `!fork` from inside a thread Claude is part of, and Claude continues that conversation in a new thread in the channel you name. Use it when a discussion outgrows its home channel: a bug thread that turns out to belong in the owning team’s channel, or a side question that deserves its own audience.
+The fork starts a new thread in Slack and links the two threads together:
+
+* **In the channel you name**, Claude posts a new top-level message that links back to the original thread and carries your prompt, then continues in the replies under it. The new conversation starts with the original thread as background, so nobody has to re-explain.
+* **Back in the original thread**, Claude replies with a link to the new thread, so anyone following along can see where the conversation continued.
+
+The prompt is required, and it kicks off the new thread: Claude starts working on it there right away.
+Pick the channel from Slack’s `#` autocomplete so it arrives as a channel mention. The channel must be public, and both you and Claude must be members of it; invite Claude with `/invite @Claude` first if it isn’t there yet. On Enterprise Grid, a public channel in another workspace of your grid also works when that workspace is paired to the same Claude organization, but a channel shared across workspaces doesn’t.
+`!fork` works from threads in public channels only. Threads in private channels, DMs, and group DMs can’t be forked, since forking would carry the conversation to a different audience.
+If the fork can’t be set up, Claude replies with a note only you can see, and nothing is posted in either channel.
 
 ##  Related resources
 

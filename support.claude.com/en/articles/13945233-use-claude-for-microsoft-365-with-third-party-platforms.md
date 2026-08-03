@@ -446,8 +446,8 @@ Verify that your gateway supports Server-Sent Events (SSE) pass-through. Some pr
 
 Connectors, skills, file uploads, and Working Across Apps aren't available through third-party platforms yet. If you need these, ask your admin about signing in with a Claude account instead.
 
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
 * [Use Claude in Microsoft Foundry](https://support.claude.com/en/articles/12864745-use-claude-in-microsoft-foundry)
 * [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
 * [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)
-* [Real-time cyber safeguards on Claude Opus and Sonnet](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet)
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)

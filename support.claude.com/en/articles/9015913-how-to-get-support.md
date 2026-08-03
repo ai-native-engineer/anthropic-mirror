@@ -2,7 +2,7 @@
 
 # How to get support
 
-Updated over 3 weeks ago
+June 1, 2026
 
 This guide explains how to get support for your Claude or Console account. Different support options are available depending on your plan.
 
@@ -114,4 +114,8 @@ Users in the EU can find instructions on how to find the single point of contact
 * Users in the UK can find instructions to report non-compliance with UK OSA duties here: **[Report a concern](https://docs.google.com/forms/d/e/1FAIpQLSfdo76veqg3pHZTh_nI14j1DyRO8coz6ocTa9mEuF5DcYgxuA/viewform)**. This includes reporting related to illegal content safety duties, content reporting obligations, freedom of expression and privacy, or the use of proactive technology by Anthropic in breach of Anthropic’s Terms of Service.
 * Users in Australia can find instructions to report non-compliance with the DIS Standard and information about the role and functions of the eSafety Commissioner here: **[Report a Concern: Australian DIS Standard compliance](https://support.claude.com/en/articles/12335811-report-a-concern-australian-dis-standard-compliance)**.
 
-[Where can I go for Claude API support and assistance?](https://support.claude.com/en/articles/8114535-where-can-i-go-for-claude-api-support-and-assistance)[I'm getting an API connection error. How can I fix it?](https://support.claude.com/en/articles/10366432-i-m-getting-an-api-connection-error-how-can-i-fix-it)[Get started with Claude in Slack](https://support.claude.com/en/articles/11506255-get-started-with-claude-in-slack)[Claude Code usage analytics](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics)[How to get support for Claude for Government](https://support.claude.com/en/articles/13047024-how-to-get-support-for-claude-for-government)
+* [Where can I go for Claude API support and assistance?](https://support.claude.com/en/articles/8114535-where-can-i-go-for-claude-api-support-and-assistance)
+* [I have a paid Claude subscription (Pro, Max, Team, or Enterprise plans). Why do I have to pay separately to use the Claude API and Console?](https://support.claude.com/en/articles/9876003-i-have-a-paid-claude-subscription-pro-max-team-or-enterprise-plans-why-do-i-have-to-pay-separately-to-use-the-claude-api-and-console)
+* [Get started with Claude in Slack](https://support.claude.com/en/articles/11506255-get-started-with-claude-in-slack)
+* [Claude Code usage analytics](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics)
+* [How to get support for Claude for Government](https://support.claude.com/en/articles/13047024-how-to-get-support-for-claude-for-government)

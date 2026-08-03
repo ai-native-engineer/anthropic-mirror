@@ -2,7 +2,7 @@
 
 # Get started with Claude Compliance API integrations
 
-Updated over a week ago
+Updated over 2 weeks ago
 
 Security and compliance platforms have built integrations on top of the Claude Compliance API, so your team can monitor Claude activity within the tools you already use. Integrations are available from security and compliance providers across the categories enterprises rely on, spanning DLP, SASE, data security, SIEM and security operations, identity, eDiscovery, AI security posture management, and AI observability and telemetry infrastructure.
 

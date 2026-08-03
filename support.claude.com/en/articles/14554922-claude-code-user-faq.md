@@ -2,7 +2,7 @@
 
 # Claude Code user FAQ
 
-Updated over a week ago
+Updated over 2 weeks ago
 
 Short answers to the questions that come up most at office hours, with a link to go deeper. Organized by where you are in your first few weeks.
 

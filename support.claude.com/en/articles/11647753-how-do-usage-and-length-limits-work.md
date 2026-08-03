@@ -2,7 +2,7 @@
 
 # How do usage and length limits work?
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
 
 When working with Claude, you may encounter two different types of limits that work in distinct ways: **usage limits** and **length limits**. Understanding the difference between these can help you use Claude more effectively.
 

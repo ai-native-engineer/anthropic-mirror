@@ -125,7 +125,7 @@ Use the “Export” button in the upper right corner when viewing your project 
   + Send to local coding agent
   + Send to Claude Code Web
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1785630600&signature=a5cb586efea71c7686d5022b197f813be3de9fea26ba5f3f58ad709ca63acf35&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4SlcmG1ynfz9ljnuyXQE3Rwk9IJnenaInyc9%0AYvmoC4nbRPH3RNgGIhQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1785630600&signature=a5cb586efea71c7686d5022b197f813be3de9fea26ba5f3f58ad709ca63acf35&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4SlcmG1ynfz9ljnuyXQE3Rwk9IJnenaInyc9%0AYvmoC4nbRPH3RNgGIhQ%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1785717000&signature=79ef2b3fdea58be98e2c3df30700695820b9d3efacf2d35118267786d7713213&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4Sldmmp0nfz9ljnuyXQMQYEQoc7Mo2sVqByT%0AKmvbgw%2BsJpriVyyLKUw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1785717000&signature=79ef2b3fdea58be98e2c3df30700695820b9d3efacf2d35118267786d7713213&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4Sldmmp0nfz9ljnuyXQMQYEQoc7Mo2sVqByT%0AKmvbgw%2BsJpriVyyLKUw%3D%0A)
 
 You can also share projects within your organization using a shareable link. Sharing options include view-only, comment, and edit access.
 
@@ -159,7 +159,7 @@ Claude Design is now available in beta. A few things to be aware of:
 * **Design system import:** Design system import is only as good as its source. A messy codebase or an incomplete file will show up in the output.
 
 * [Get started with Claude](https://support.claude.com/en/articles/8114491-get-started-with-claude)
-* [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
+* [Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
 * [Set up your design system in Claude Design](https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design)
 * [Claude Design admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans)
 * [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)

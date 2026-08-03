@@ -6,9 +6,9 @@ Jun 25, 2024
 
 ![Illustration of individuals collaborating around Claude logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/06b448dbf07818caf8ac1db37f0165bea8c9a410-2880x1620.png)
 
-Our vision for Claude has always been to create AI systems that work alongside people and meaningfully enhance their workflows. As a step in this direction, [Claude.ai](http://claude.ai/redirect/website.v1.93594b5c-76bb-4753-8753-fdf80599e5c0) Pro and Team users can now organize their chats into Projects, bringing together curated sets of knowledge and chat activity in one place—with the ability to make their best chats with Claude viewable by teammates. With this new functionality, Claude can enable idea generation, more strategic decision-making, and exceptional results.
+Our vision for Claude has always been to create AI systems that work alongside people and meaningfully enhance their workflows. As a step in this direction, [Claude.ai](http://claude.ai/redirect/website.v1.40fdbf3e-0c8b-47a8-b84a-25e93b9a3e9b) Pro and Team users can now organize their chats into Projects, bringing together curated sets of knowledge and chat activity in one place—with the ability to make their best chats with Claude viewable by teammates. With this new functionality, Claude can enable idea generation, more strategic decision-making, and exceptional results.
 
-Projects are available on [Claude.ai](http://claude.ai/redirect/website.v1.93594b5c-76bb-4753-8753-fdf80599e5c0) for all Pro and Team customers, and can be powered by [Claude 3.5 Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet), our latest release which outperforms its peers on a wide variety of benchmarks. Each project includes a 200K context window, the equivalent of a 500-page book, so users can add all of the relevant documents, code, and insights to enhance Claude’s effectiveness.
+Projects are available on [Claude.ai](http://claude.ai/redirect/website.v1.40fdbf3e-0c8b-47a8-b84a-25e93b9a3e9b) for all Pro and Team customers, and can be powered by [Claude 3.5 Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet), our latest release which outperforms its peers on a wide variety of benchmarks. Each project includes a 200K context window, the equivalent of a 500-page book, so users can add all of the relevant documents, code, and insights to enhance Claude’s effectiveness.
 
 ## Avoid the cold start problem
 
@@ -49,3 +49,5 @@ Luka Anic, Senior Director of Technical AI Program and Product Manager at North 
 These latest features around shared knowledge and collaboration integrate Claude into your existing team processes, enabling you to save time and elevate your work. By harnessing Claude’s accuracy and advanced coding and writing capabilities, Projects can amplify your team’s potential. Additionally, as part of our commitment to user privacy, any data or chats shared within Projects will not be used to train our generative models without a user’s explicit consent.
 
 In the coming months, we’ll continue making Claude easier to use while expanding the types of project knowledge you can bring to Claude via native integrations with popular applications and tools. We’re excited to see how your team works with Claude.
+
+Collaborate with Claude on Projects \ Anthropic

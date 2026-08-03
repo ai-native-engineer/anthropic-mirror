@@ -60,7 +60,7 @@ To remove instructions entirely, clear the text area and click "Save."
 
 **Response formatting** — "Prefer concise responses under 300 words. Use bullet points for lists with three or more items."
 
-**Referral guidance** — "When users ask about HR policies, direct them to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#4d253f0d28352c203d2128632e2220) rather than providing specific policy advice."
+**Referral guidance** — "When users ask about HR policies, direct them to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#513923113429303c213d347f323e3c) rather than providing specific policy advice."
 
 * [Understanding Claude's personalization features](https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features)
 * [Use Claude for PowerPoint](https://support.claude.com/en/articles/13521390-use-claude-for-powerpoint)

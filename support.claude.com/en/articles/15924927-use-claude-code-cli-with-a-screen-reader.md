@@ -2,7 +2,7 @@
 
 # Use Claude Code CLI with a screen reader
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
 
 The screen reader mode brings Claude Code back to the basic terminal experience: plain, sequential text with added labels and cues and no visual embellishments. It was built with and for screen reader users, and it's useful to anyone who wants plain output for braille displays, slow connections, or transcripts.
 

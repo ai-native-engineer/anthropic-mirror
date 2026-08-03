@@ -8,8 +8,8 @@
 
 The Claude Agent SDK supports two distinct input modes for interacting with agents:
 
-* **Streaming Input Mode** (Default & Recommended) - A persistent, interactive session
-* **Single Message Input** - One-shot queries that use session state and resuming
+* **Streaming Input Mode**: a persistent, interactive session
+* **Single Message Input**: one-shot queries that use session state and resuming
 
 This guide explains the differences, benefits, and use cases for each mode to help you choose the right approach for your application.
 
@@ -82,6 +82,8 @@ sequenceDiagram
 </CardGroup>
 
 ### Implementation Example
+
+These examples read an image named `diagram.png` from the working directory. Create one there first, or change the filename to point at your own image.
 
 <CodeGroup>
   ```typescript TypeScript theme={null}
@@ -204,6 +206,8 @@ sequenceDiagram
   ```
 </CodeGroup>
 
+When you run the example, the TypeScript version prints each response as it completes. The Python version's `receive_response()` loop ends at the first result message, so it prints the security analysis; to read both responses, use one `query()` and `receive_response()` pair per message as shown in the [Python reference's example of continuing a conversation](/docs/en/agent-sdk/python#example-continuing-a-conversation).
+
 <Note>
   In the TypeScript SDK, if your message generator throws, for example when a file it reads is missing, the stream ends with an error that reads `Claude Code process aborted by user` instead of the original error, so check the code inside your generator first when you see that message. The error may also be preceded by a long minified line of bundled SDK source, so read to the end of the output for the error text.
 
@@ -233,7 +237,7 @@ Use single message input when:
   * Natural multi-turn conversations
 </Warning>
 
-If a query ends with an error result, such as `error_max_turns`, a single message `query()` call raises an error that includes the failure text after yielding the final result message, so wrap the loop in a try block if your code needs to continue. See [Handle the result](/en/agent-sdk/agent-loop#handle-the-result) for the result subtypes.
+If a query ends with an error result, such as `error_max_turns`, a single message `query()` call raises an error that includes the failure text after yielding the final result message, so wrap the loop in a try block if your code needs to continue. See [Handle the result](/docs/en/agent-sdk/agent-loop#handle-the-result) for the result subtypes.
 
 ### Implementation Example
 
@@ -242,29 +246,38 @@ If a query ends with an error result, such as `error_max_turns`, a single messag
   import { query } from "@anthropic-ai/claude-agent-sdk";
 
   // Simple one-shot query
-  for await (const message of query({
-    prompt: "Explain the authentication flow",
-    options: {
-      maxTurns: 1,
-      allowedTools: ["Read", "Grep"]
+  // query() throws after an error result, such as error_max_turns
+  try {
+    for await (const message of query({
+      prompt: "Explain the authentication flow",
+      options: {
+        maxTurns: 5,
+        allowedTools: ["Read", "Grep"]
+      }
+    })) {
+      if (message.type === "result" && message.subtype === "success") {
+        console.log(message.result);
+      }
     }
-  })) {
-    if (message.type === "result" && message.subtype === "success") {
-      console.log(message.result);
-    }
+  } catch (error) {
+    console.error(`Query failed: ${error}`);
   }
 
   // Continue conversation with session management
-  for await (const message of query({
-    prompt: "Now explain the authorization process",
-    options: {
-      continue: true,
-      maxTurns: 1
+  try {
+    for await (const message of query({
+      prompt: "Now explain the authorization process",
+      options: {
+        continue: true,
+        maxTurns: 5
+      }
+    })) {
+      if (message.type === "result" && message.subtype === "success") {
+        console.log(message.result);
+      }
     }
-  })) {
-    if (message.type === "result" && message.subtype === "success") {
-      console.log(message.result);
-    }
+  } catch (error) {
+    console.error(`Query failed: ${error}`);
   }
   ```
 
@@ -274,21 +287,31 @@ If a query ends with an error result, such as `error_max_turns`, a single messag
 
   async def single_message_example():
       # Simple one-shot query using query() function
-      async for message in query(
-          prompt="Explain the authentication flow",
-          options=ClaudeAgentOptions(max_turns=1, allowed_tools=["Read", "Grep"]),
-      ):
-          if isinstance(message, ResultMessage):
-              print(message.result)
+      # query() raises after an error result, such as error_max_turns
+      try:
+          async for message in query(
+              prompt="Explain the authentication flow",
+              options=ClaudeAgentOptions(max_turns=5, allowed_tools=["Read", "Grep"]),
+          ):
+              if isinstance(message, ResultMessage) and message.subtype == "success":
+                  print(message.result)
+      # The SDK raises a plain Exception for error results, so match Exception here
+      except Exception as e:
+          print(f"Query failed: {e}")
 
       # Continue conversation with session management
-      async for message in query(
-          prompt="Now explain the authorization process",
-          options=ClaudeAgentOptions(continue_conversation=True, max_turns=1),
-      ):
-          if isinstance(message, ResultMessage):
-              print(message.result)
+      try:
+          async for message in query(
+              prompt="Now explain the authorization process",
+              options=ClaudeAgentOptions(continue_conversation=True, max_turns=5),
+          ):
+              if isinstance(message, ResultMessage) and message.subtype == "success":
+                  print(message.result)
+      except Exception as e:
+          print(f"Query failed: {e}")
 
   asyncio.run(single_message_example())
   ```
 </CodeGroup>
+
+When you run the example, each query prints its final result text: first the authentication explanation, then the authorization explanation.

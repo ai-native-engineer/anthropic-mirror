@@ -34,7 +34,7 @@ Disallow: /
 
 Opting out of being crawled by Anthropic Bots requires modifying the robots.txt file in the manner above. Alternate methods like blocking IP address(es) from which Anthropic Bots operates may not work correctly or persistently guarantee an opt-out, as doing so impedes our ability to read your robots.txt file. If a crawler has a source IP address on **[this list](https://claude.com/crawling/bots.json)**, it indicates that the crawler is coming from Anthropic.
 
-You can learn more about our data handling practices and commitments at our **[Help Center](https://support.claude.com/en/collections/4078534-privacy-and-legal)**. If you have further questions, or believe that our Bots may be malfunctioning, please reach out to [[email protected]](https://privacy.claude.com/cdn-cgi/l/email-protection#ea89868b9f8e8f88859eaa8b849e8298859a8389c4898587). Please reach out from an email that includes the domain you are contacting us about, as it is otherwise difficult to verify reports.
+You can learn more about our data handling practices and commitments at our **[Help Center](https://support.claude.com/en/collections/4078534-privacy-and-legal)**. If you have further questions, or believe that our Bots may be malfunctioning, please reach out to [[email protected]](https://privacy.claude.com/cdn-cgi/l/email-protection#67040b06120302050813270609130f1508170e044904080a). Please reach out from an email that includes the domain you are contacting us about, as it is otherwise difficult to verify reports.
 
 You can be notified of substantial changes to this article by clicking here and completing the form:
 

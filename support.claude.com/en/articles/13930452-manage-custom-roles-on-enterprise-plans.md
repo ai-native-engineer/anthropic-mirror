@@ -2,7 +2,7 @@
 
 # Manage custom roles on Enterprise plans
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
 
 Custom roles are available for Enterprise plan organizations. Owners, Primary Owners, and custom roles with the **Identity & Access** permission set to "Can manage" can go to **[Organization settings > Roles](https://claude.ai/admin-settings/roles)** to manage custom roles.
 

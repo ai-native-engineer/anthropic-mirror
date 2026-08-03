@@ -37,3 +37,5 @@ We have previously outlined the [challenges of evaluating AI systems](https://ww
 ## Conclusion
 
 The announcements of this week mark the beginning of a new phase of AI safety and policy work. Major world governments are demonstrating unprecedented interest and engagement in evaluating and monitoring AI systems—and it’s clear that much of their focus relies on the ability to test and evaluate AI systems for capabilities, potential for misuse, and inherent safety properties. We are committed to playing our part to contribute to the realization of these objectives and encourage a safety race to the top.
+
+Thoughts on the US Executive Order, G7 Code of Conduct, and Bletchley Park Summit \ Anthropic

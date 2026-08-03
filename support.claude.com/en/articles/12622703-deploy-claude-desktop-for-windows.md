@@ -2,7 +2,7 @@
 
 # Deploy Claude Desktop for Windows
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
 
 Administrators on Team or Enterprise plans can deploy Claude Desktop automatically across their organization to manage installations and updates centrally. We offer MSIX packages for Windows deployments via Microsoft Intune, SCCM, Group Policy, or PowerShell.
 

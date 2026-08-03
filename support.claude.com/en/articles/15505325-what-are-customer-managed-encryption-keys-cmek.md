@@ -10,8 +10,8 @@ A customer-managed encryption key (CMEK) lets your organization provision an enc
 
 For complete details, including what's encrypted, what's disabled or changed, limitations, and setup guides for each cloud provider, see **[Customer-managed encryption keys on Claude API Docs](https://platform.claude.com/docs/en/manage-claude/cmek)**.
 
+* [What is Amazon Bedrock?](https://support.claude.com/en/articles/7996918-what-is-amazon-bedrock)
 * [API Key Best Practices: Keeping Your Keys Safe and Secure](https://support.claude.com/en/articles/9767949-api-key-best-practices-keeping-your-keys-safe-and-secure)
-* [What is the Enterprise plan?](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan)
 * [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
 * [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
 * [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)

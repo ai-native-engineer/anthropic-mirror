@@ -22,7 +22,7 @@ Claude in Chrome uses a multi-layered permission system to give you control over
 
 Choose "Manually approve" to have Claude create a plan from your prompt, which you can approve and allow Claude to execute. The plan will specify which websites you’re allowing Claude to access, as well as the approach it will follow:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843320727/8d1c859ae9b8e0cdb536d024bf40/9bc3d239-8eb6-4bae-a032-a236f88ee606?expires=1785630600&signature=5649bc4129eaab0b523a2521b24fe39bf4e51ee3a14a75c1e8ad12ebb5460027&req=dSgjFcp8nYZdXvMW1HO4zYqyZcdL%2F4KxgN0ADj5oqFD9n7g8B%2FEKHqBHUbNp%0AODyiuMwgY6SQQXbNtbo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843320727/8d1c859ae9b8e0cdb536d024bf40/9bc3d239-8eb6-4bae-a032-a236f88ee606?expires=1785630600&signature=5649bc4129eaab0b523a2521b24fe39bf4e51ee3a14a75c1e8ad12ebb5460027&req=dSgjFcp8nYZdXvMW1HO4zYqyZcdL%2F4KxgN0ADj5oqFD9n7g8B%2FEKHqBHUbNp%0AODyiuMwgY6SQQXbNtbo%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843320727/8d1c859ae9b8e0cdb536d024bf40/9bc3d239-8eb6-4bae-a032-a236f88ee606?expires=1785717000&signature=604d8c18a02bd0e077d3e83a5932527df8956a98190911e74d4957b1d1920bbf&req=dSgjFcp8nYZdXvMW1HO4zYqyZcdK%2FYW3gN0ADj5oqFC5WUghKXoZXfzoryGG%0ADowozXn8TDw1TeD7De0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1843320727/8d1c859ae9b8e0cdb536d024bf40/9bc3d239-8eb6-4bae-a032-a236f88ee606?expires=1785717000&signature=604d8c18a02bd0e077d3e83a5932527df8956a98190911e74d4957b1d1920bbf&req=dSgjFcp8nYZdXvMW1HO4zYqyZcdK%2FYW3gN0ADj5oqFC5WUghKXoZXfzoryGG%0ADowozXn8TDw1TeD7De0%3D%0A)
 
 Note that Claude will only use the websites listed in the plan, so you’ll need to manually approve any additional access requests.
 
@@ -44,7 +44,7 @@ When you choose "Skip all approvals," Claude doesn't pause to ask, and nothing c
 
 There are some websites on which Claude requires approval for every action. If you navigate to one of these sites, a **Permission required** prompt will appear in the extension side panel, Claude Cowork, or Claude Code where Claude will ask for permission before accessing the page or taking any action.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1847222875/162eb012ebe473ed2b852b97e223/0209db51-6057-4ec4-a9b7-8358287d46a3?expires=1785630600&signature=dbd487155e8d4d1714479f625e20a2910a79c4f3f3aa21723a6be7369f3b11bb&req=dSgjEct8n4lYXPMW1HO4zeoCY8MtoHR5JCxYSFHKWIjgrzZpFBhU5XEkHVJM%0At9y4Ll4Ub%2BdprKIs6mU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1847222875/162eb012ebe473ed2b852b97e223/0209db51-6057-4ec4-a9b7-8358287d46a3?expires=1785630600&signature=dbd487155e8d4d1714479f625e20a2910a79c4f3f3aa21723a6be7369f3b11bb&req=dSgjEct8n4lYXPMW1HO4zeoCY8MtoHR5JCxYSFHKWIjgrzZpFBhU5XEkHVJM%0At9y4Ll4Ub%2BdprKIs6mU%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1847222875/162eb012ebe473ed2b852b97e223/0209db51-6057-4ec4-a9b7-8358287d46a3?expires=1785717000&signature=5daca91dc12b55c0a7d1e2abc1a6340df6f75eed237777190baaa2187953a990&req=dSgjEct8n4lYXPMW1HO4zeoCY8MsonN%2FJCxYSFHKWIgPrWW2XHR4dVHy6pwp%0AQwOK69kULxYznzKVfT0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1847222875/162eb012ebe473ed2b852b97e223/0209db51-6057-4ec4-a9b7-8358287d46a3?expires=1785717000&signature=5daca91dc12b55c0a7d1e2abc1a6340df6f75eed237777190baaa2187953a990&req=dSgjEct8n4lYXPMW1HO4zeoCY8MsonN%2FJCxYSFHKWIgPrWW2XHR4dVHy6pwp%0AQwOK69kULxYznzKVfT0%3D%0A)
 
 ### Permission options
 

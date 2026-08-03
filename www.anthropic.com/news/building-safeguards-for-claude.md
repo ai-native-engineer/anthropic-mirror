@@ -81,5 +81,3 @@ We also monitor harmful Claude traffic, going beyond single prompts and individu
 Safeguarding AI use is too important for any one organization to tackle alone. We actively seek [feedback](https://support.anthropic.com/en/articles/7996906-reporting-blocking-and-removing-content-from-claude) and partnership from users, researchers, policymakers, and civil society organizations. We also build on feedback from the public, including via an ongoing [bug bounty program](https://www.anthropic.com/news/testing-our-safety-defenses-with-a-new-bug-bounty-program) for testing our defenses.
 
 To support our work, we’re actively looking to hire people who can help us tackle these problems. If you’re interested in working on our Safeguards team, we encourage you to check out our [Careers page](https://www.anthropic.com/jobs?team=4002065008).
-
-Building safeguards for Claude \ Anthropic

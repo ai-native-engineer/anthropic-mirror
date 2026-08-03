@@ -124,4 +124,4 @@ If the first answer is off, you do not need to rephrase the whole request. Simpl
 * [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
 * [Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
 * [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)
-* [Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)
+* [Claude Code champion kit](https://support.claude.com/en/articles/14555399-claude-code-champion-kit)
