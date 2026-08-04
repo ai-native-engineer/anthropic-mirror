@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/use-cases-category/nonprofits -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Nonprofits
 
 # Nonprofits
 
 Explore ways Claude can support the wide-ranging work of nonprofits—from writing and communications to research and planning.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -15,6 +27,8 @@ Author
 Category
 
 Model
+
+Features
 
 ![See what your campaign goal actually requires](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b28c90803ff07e4f3c4b31_Screenshot%202026-03-12%20at%202.51.09%E2%80%AFAM.png)
 
@@ -37,6 +51,8 @@ Nonprofits
 Model
 
 Sonnet 4.6
+
+Features
 
 Custom visuals
 
@@ -72,6 +88,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Custom visuals
 
 Read use case
@@ -105,6 +123,8 @@ Nonprofits
 Model
 
 Sonnet 4.6
+
+Features
 
 Custom visuals
 
@@ -140,6 +160,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Custom visuals
 
 Read use case
@@ -173,6 +195,8 @@ Nonprofits
 Model
 
 Sonnnet 4.5
+
+Features
 
 Extended Thinking
 
@@ -208,6 +232,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Connectors
 
 Read use case
@@ -241,6 +267,8 @@ Nonprofits
 Model
 
 Sonnet 4.5
+
+Features
 
 Extended Thinking
 
@@ -276,6 +304,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Web Search
 
 Read use case
@@ -309,6 +339,8 @@ Nonprofits
 Model
 
 Sonnet 4.5
+
+Features
 
 Extended Thinking
 
@@ -344,6 +376,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 No items found.
 
 Read use case
@@ -377,6 +411,8 @@ Nonprofits
 Model
 
 Sonnet 4.5
+
+Features
 
 No items found.
 
@@ -412,6 +448,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Connectors
 
 Read use case
@@ -431,3 +469,7 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.

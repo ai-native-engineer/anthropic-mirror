@@ -19,6 +19,7 @@ The simulator pane uses Apple's simulator tooling, which the desktop app doesn't
 * Claude Desktop v1.24012.0 or later
 * A Mac, since Apple's iOS Simulator runs only on macOS
 * [Xcode](https://developer.apple.com/xcode/) with the iOS platform installed, which provides the simulator devices. If Xcode lists no simulators yet, see [The simulator pane says no simulators were found](#the-simulator-pane-says-no-simulators-were-found)
+  * Use Xcode 26.x. The pane doesn't yet work with Xcode 27, which replaces the Simulator app with Device Hub. If `xcode-select` points at Xcode 27 on your Mac, see [The simulator pane fails with Xcode 27](#the-simulator-pane-fails-with-xcode-27)
 
 <Note>
   On this page, "device" refers to a simulated iPhone or iPad, one of the same simulator devices you manage in Xcode under **Window → Devices and Simulators**, not physical hardware.
@@ -101,7 +102,7 @@ Two actions follow your session's [permission mode](/docs/en/permissions#permiss
 You can turn Claude's simulator access off in the desktop app's settings. Organizations have two ways to turn it off for everyone:
 
 * The `disableMobileSimulatorTools` [managed setting](/docs/en/desktop#managed-settings) blocks Claude's simulator tools. The simulator pane stays usable for your own taps, and the setting can't be overridden from within the app.
-* A policy that requires sessions to run inside an isolated virtual machine disables the pane and the tools entirely.
+* The `requireCoworkFullVmSandbox` policy key, which runs Claude's tools inside an isolated virtual machine instead of on your Mac, disables the simulator pane and Claude's simulator tools entirely, so the pane can't attach a device while it's set.
 
 Claude tells you when either applies.
 
@@ -116,13 +117,25 @@ Claude drives simulated devices only and can't control a physical iPhone or iPad
 Claude may not have recognized that you wanted to run or test the app, or the simulator tooling may be missing. Check the following:
 
 * State the goal explicitly, for example "run the app in the iOS Simulator and tap through the signup flow".
-* Confirm Xcode and the iOS Simulator are installed by launching the Simulator app on its own.
+* Confirm Xcode and the iOS simulators are installed and that your Xcode version meets the [requirements](#requirements).
 * If your organization manages Claude Code, the [simulator tools may be disabled by policy](#turn-off-simulator-access).
 * The simulator pane requires Claude Desktop v1.24012.0 or later. Open **Claude → Check for Updates**, then restart the app.
 
 ### The simulator pane says no simulators were found
 
-Xcode is installed but has no iOS simulators to list. The simulator pane shows the setup steps to follow and checks them off as each one completes. To install the missing piece manually, download the iOS simulator runtime from Xcode's settings, or run `xcodebuild -downloadPlatform iOS`.
+If `xcode-select` points at Xcode 27, the pane can report no simulators even though devices exist; see [The simulator pane fails with Xcode 27](#the-simulator-pane-fails-with-xcode-27). Otherwise, Xcode is installed but has no iOS simulators to list. The simulator pane shows the setup steps to follow and checks them off as each one completes. To install the missing piece manually, download the iOS simulator runtime from Xcode's settings, or run `xcodebuild -downloadPlatform iOS`.
+
+### The simulator pane fails with Xcode 27
+
+The pane doesn't yet work with Xcode 27, which replaces the Simulator app with Device Hub. With Xcode 27 selected, attaching a device fails, or the pane reports that no simulators were found even though devices exist.
+
+The pane uses whichever Xcode `xcode-select` points at. If Xcode 27 is your only install, install Xcode 26.x alongside it first. Then select the 26.x install by its path. For example, if it's installed as `/Applications/Xcode-26.4.app`:
+
+```bash theme={null}
+sudo xcode-select -s /Applications/Xcode-26.4.app
+```
+
+Run `xcode-select -p` to check which install is selected.
 
 ## See also
 

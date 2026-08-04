@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/tutorials-category/professional -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Professional
 
 # Professional
 
 Discover ways to use Claude to improve daily workflows, communication, and productivity across roles and industries.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -13,6 +25,8 @@ List
 Category
 
 Product
+
+Features
 
 ![Working with Claude Opus 4.7](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a038f7a9aecb959a25c7496_Screenshot%202026-05-12%20at%201.37.11%E2%80%AFPM.png)
 
@@ -475,6 +489,10 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 ## Transform how your organization operates with Claude
 

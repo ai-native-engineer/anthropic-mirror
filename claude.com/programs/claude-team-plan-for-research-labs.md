@@ -286,11 +286,15 @@ Blog
 
 Explore the full range of Claude’s capabilities for scientific research
 
+Learn
+
 [Learn](https://claude.com/solutions/life-sciences)Learn
 
 [Learn about the AI for Science program by Anthropic](https://www.anthropic.com/news/ai-for-science-program)Learn about the AI for Science program by Anthropic
 
 Learn about the AI for Science program by Anthropic
+
+Learn
 
 [Learn](https://www.anthropic.com/news/ai-for-science-program)Learn
 

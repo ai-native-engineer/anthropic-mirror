@@ -181,7 +181,7 @@ The quality of a loop’s output depends on the system around it. When designing
 * **Keep the codebase itself clean**: Claude follows patterns and conventions that already exist in your codebase.
 * **Give Claude a way to verify its own work**: Encode what good looks like for you and your team with [skills](https://code.claude.com/docs/en/skills).
 * **Make docs easy to reach:** Frameworks and libraries docs have up-to-date best practices.
-* **Use a second agent for code reviews**: A reviewer with fresh context is less biased and not influenced by the main agent’s reasoning. You can use the built-in `/code-review` skill or [Code Review](https://code.claude.com/docs/en/code-review) for Github.
+* **Use a second agent for code reviews**: A reviewer with fresh context is less biased and not influenced by the main agent’s reasoning. You can use the built-in `/code-review` skill or [Code Review](https://code.claude.com/docs/en/code-review) for Github. Loops that write code need loops that check it — see [how Anthropic secures an AI-native SDLC](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle).
 
 When an individual result doesn’t meet the standard, don’t stop at fixing the individual issue, try to encode it to improve the system for all future iterations.
 
@@ -213,7 +213,7 @@ To get started with loops, look at the work you already do. Pick one task where 
 
 Once you have an idea, run the loop, observe the results like where it stalls or over-reaches, and don’t be afraid to iterate on it.
 
-For more information, read the Claude Code docs on [running agents in parallel,](https://code.claude.com/docs/en/agents) as well as the [loop](https://code.claude.com/docs/en/goal), [schedule](https://code.claude.com/docs/en/routines), [goal](https://code.claude.com/docs/en/goal), and [dynamic workflows](https://code.claude.com/docs/en/workflows#orchestrate-subagents-at-scale-with-dynamic-workflows) pages.
+For more information, read the Claude Code docs on [running agents in parallel,](https://code.claude.com/docs/en/agents) as well as the [loop](https://code.claude.com/docs/en/goal), [schedule](https://code.claude.com/docs/en/routines), [goal](https://code.claude.com/docs/en/goal), and [dynamic workflows](https://code.claude.com/docs/en/workflows#orchestrate-subagents-at-scale-with-dynamic-workflows) pages. To make your checks repeatable across sessions, see [building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills).
 
 *This article was written by Delba de Oliveira and Michael Segner*
 
@@ -237,18 +237,6 @@ Enterprise AI
 
 [Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
-
-Jul 24, 2026
-
-### The new rules of context engineering for Claude 5 generation models
-
-Claude Code
-
-[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
-
-[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
-
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224d39f9b8e905d1823_b68cbb43d7c8f56f0b14cc867e8d4d74445f78b0-1000x1000.svg)
 
 Jul 22, 2026
@@ -261,17 +249,29 @@ Claude Code
 
 [Building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills)Building verification loops in Claude Code with skills
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
 
-Jul 21, 2026
+Jul 6, 2026
 
-### How Anthropic secures its AI-native software development lifecycle
+### A field guide to Claude Fable 5: Finding your unknowns
 
 Claude Code
 
-[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
+[A field guide to Claude Fable 5: Finding your unknowns](#)A field guide to Claude Fable 5: Finding your unknowns
 
-[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
+[A field guide to Claude Fable 5: Finding your unknowns](https://claude.com/blog/a-field-guide-to-claude-fable-finding-your-unknowns)A field guide to Claude Fable 5: Finding your unknowns
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Jul 24, 2026
+
+### The new rules of context engineering for Claude 5 generation models
+
+Claude Code
+
+[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
+
+[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
 
 ## Transform how your organization operates with Claude
 

@@ -114,6 +114,7 @@ The host(s) for your configured provider. These carry conversation content.
 
 * Google Cloud's Agent Platform
 * Amazon Bedrock
+* Microsoft Foundry
 * Gateway
 
 | Host | Purpose |

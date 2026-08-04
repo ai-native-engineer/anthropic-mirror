@@ -24,6 +24,8 @@ Small
 
 Product:
 
+Claude Platform
+
 Location:
 
 North America

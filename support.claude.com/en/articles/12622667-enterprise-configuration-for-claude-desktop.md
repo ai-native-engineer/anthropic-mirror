@@ -2,7 +2,7 @@
 
 # Enterprise configuration for Claude Desktop
 
-June 26, 2026
+Updated today
 
 Administrators on Team or Enterprise plans can control Claude Desktop through system policies.
 

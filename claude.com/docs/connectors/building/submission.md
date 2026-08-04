@@ -153,6 +153,8 @@ Describe the primary use cases, what users need before they can connect (account
 
 6
 
+Company
+
 Company name and website, plus a primary contact for review updates. The contact name and email are pre-filled from your account.
 
 7

@@ -6,6 +6,7 @@
 
 Discover, evaluate, and buy solutions for the cloud
 
+  Code
 * Used in
 
   [Claude](https://claude.ai/directory/2ed43e1e-f547-48a3-85cc-b9baa412d06b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
@@ -43,6 +44,8 @@ All features and insights are free for all AWS customers, with no authentication
 
 ## Related connectors
 
+Code
+
 Claude
 
 March 9, 2026
@@ -52,6 +55,8 @@ March 9, 2026
 ### Base44
 
 Build and manage Base44 apps](https://claude.com/connectors/base44)
+
+Code
 
 Claude
 
@@ -64,6 +69,8 @@ March 2, 2026
 ### Clerk
 
 Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
+
+Code
 
 Claude
 
@@ -80,6 +87,8 @@ February 11, 2026
 Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)
 
 Data
+
+Code
 
 Claude
 

@@ -38,7 +38,7 @@ Large
 
 Product:
 
-Claude Code
+[Claude Code](https://claude.com/product/claude-code)
 
 Location:
 

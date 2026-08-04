@@ -30,7 +30,7 @@ Get better AI results with prompt engineering techniques from the team behind Cl
 
 The difference between a vague instruction and a well-crafted prompt can mean the gap between generic outputs and exactly what you need. A poorly structured prompt might require multiple back-and-forth exchanges to clarify intent, while a well-engineered prompt gets you there in one shot.
 
-It's also the essential building block of [context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents), which has emerged as an increasingly important part of working with LLMs. A poorly structured prompt might require multiple back-and-forth exchanges to clarify intent, while a well-engineered prompt gets you there in one shot.
+It's also the essential building block of [context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents), which has emerged as an increasingly important part of working with LLMs. A poorly structured prompt might require multiple back-and-forth exchanges to clarify intent, while a well-engineered prompt gets you there in one shot. However, prompting is converging with [context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) — less scaffolding, more curation.
 
 To help you get started, we've assembled some of our team's best practices, including practical methods designed to improve your results right away. We'll start with simple habits you can use today, then scale up to advanced methods for complex projects.
 

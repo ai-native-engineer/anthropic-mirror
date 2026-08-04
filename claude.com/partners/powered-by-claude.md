@@ -1,5 +1,9 @@
 <!-- source: https://claude.com/partners/powered-by-claude -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 # Powered by Claude
 
 A curated list of businesses that use Claude to build better, faster, and safer.
@@ -7,6 +11,10 @@ A curated list of businesses that use Claude to build better, faster, and safer.
 Build with Claude
 
 [Build with Claude](https://claude.com/platform/api)Build with Claude
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c4449cbdd758b4b0b599ec_logo_anything-light-mode%20(1).png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c444a5414f5966382739f3_logo_anything-dark-mode%20(1).png)
 

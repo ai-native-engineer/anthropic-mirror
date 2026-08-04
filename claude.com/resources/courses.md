@@ -1,8 +1,20 @@
 <!-- source: https://claude.com/resources/courses -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 # Go deeper with Anthropic courses
 
 Structured learning paths with video lessons and assessments to help you master AI collaboration, Claude development, and MCP.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -134,7 +146,11 @@ of video
 
 Quizzes
 
+Claude Platform
+
 Product
+
+Claude Platform
 
 Category
 
@@ -598,7 +614,11 @@ of video
 
 Quizzes
 
+Claude Platform
+
 Product
+
+Claude Platform
 
 Category
 
@@ -794,7 +814,11 @@ of video
 
 Quizzes
 
+Claude Platform
+
 Product
+
+Claude Platform
 
 Category
 
@@ -840,7 +864,11 @@ of video
 
 Quizzes
 
+Claude Platform
+
 Product
+
+Claude Platform
 
 Category
 
@@ -1023,6 +1051,10 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 ## Ready to prove your expertise?
 

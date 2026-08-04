@@ -2,7 +2,7 @@
 
 # Microsoft Entra ID SSO setup
 
-March 24, 2026
+Updated today
 
 This guide walks you through configuring single sign-on (SSO) for Claude using Microsoft Entra ID (formerly Azure Active Directory) as your identity provider. It applies to Team plans, Enterprise plans, and Console organizations.
 
@@ -65,4 +65,8 @@ Start the SSO setup flow there and keep it open alongside the Entra Admin Center
 
 See **[Set up single sign-on](https://support.claude.com/en/articles/13132885)** for the full end-to-end flow including domain verification and choosing a provisioning approach. If you run into issues, contact **[our Support team](https://support.claude.com/en/articles/9015913)** with your Entra tenant ID and a screenshot of your SAML configuration.
 
-[Microsoft Entra ID SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917829-microsoft-entra-id-sso-scim-email-mismatch)[Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)[Okta SSO setup](https://support.claude.com/en/articles/13917894-okta-sso-setup)[OneLogin SSO setup](https://support.claude.com/en/articles/13917899-onelogin-sso-setup)[Ping Identity SSO setup](https://support.claude.com/en/articles/13917902-ping-identity-sso-setup)
+* [Microsoft Entra ID SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917829-microsoft-entra-id-sso-scim-email-mismatch)
+* [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)
+* [Okta SSO setup](https://support.claude.com/en/articles/13917894-okta-sso-setup)
+* [OneLogin SSO setup](https://support.claude.com/en/articles/13917899-onelogin-sso-setup)
+* [Ping Identity SSO setup](https://support.claude.com/en/articles/13917902-ping-identity-sso-setup)

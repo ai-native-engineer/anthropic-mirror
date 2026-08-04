@@ -69,6 +69,7 @@ No commitment · Cancel anytime
 * Access to unlimited projects to organize chats and documents
 * Access to Research
 * Ability to use more Claude models
+* Claude for Microsoft 365
 
 ![](https://claude.com/_next/static/media/NodeTree.a350eba8.svg)
 

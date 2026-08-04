@@ -24,9 +24,9 @@ Large
 
 Product:
 
-Claude Enterprise
+[Claude Enterprise](https://claude.com/solutions/enterprise)
 
-Claude Code
+[Claude Code](https://claude.com/product/claude-code)
 
 Location:
 
@@ -184,6 +184,14 @@ Video caption
 
 ## Related stories
 
+[How Notability built a study tool that improves with every Claude release](https://claude.com/customers/notability)How Notability built a study tool that improves with every Claude release
+
+How Notability built a study tool that improves with every Claude release
+
+Customer story
+
+[Customer story](https://claude.com/customers/notability)Customer story
+
 [Dust enables agents to go deeper at lower cost with Claude](https://claude.com/customers/dust)Dust enables agents to go deeper at lower cost with Claude
 
 Dust enables agents to go deeper at lower cost with Claude
@@ -207,11 +215,3 @@ Juno helps people with chronic illness find patterns in their symptoms with Clau
 Customer story
 
 [Customer story](https://claude.com/customers/juno)Customer story
-
-[A conversation with Cursor on building coding agents for professional developers](https://claude.com/customers/cursor-qa)A conversation with Cursor on building coding agents for professional developers
-
-A conversation with Cursor on building coding agents for professional developers
-
-Customer story
-
-[Customer story](https://claude.com/customers/cursor-qa)Customer story

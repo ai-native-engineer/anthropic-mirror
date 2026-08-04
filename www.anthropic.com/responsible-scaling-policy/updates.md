@@ -51,5 +51,3 @@ Candidate projects include:
 By April 1, 2026, we will have selected and begun 1-3 project(s), including but not limited to those above, and established concrete further goals and timelines for each. Each should lead to a working answer to the key open questions within 6 months.
 
 We are highly confident that we can complete this initial step, and will use it as a jumping-off point to set further goals.
-
-Frontier Safety Roadmap Updates \ Anthropic

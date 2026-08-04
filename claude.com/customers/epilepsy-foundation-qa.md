@@ -24,7 +24,9 @@ Medium
 
 Product:
 
-Claude for Nonprofits
+[Claude Platform](https://claude.com/platform/api)
+
+[Claude for Nonprofits](https://claude.com/solutions/nonprofits)
 
 Partner:
 

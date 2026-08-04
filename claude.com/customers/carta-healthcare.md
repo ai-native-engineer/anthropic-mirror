@@ -28,6 +28,8 @@ Medium
 
 Product:
 
+Claude Platform
+
 Partner:
 
 AWS

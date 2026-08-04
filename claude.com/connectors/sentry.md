@@ -6,6 +6,7 @@
 
 Search, query, and debug errors intelligently
 
+  Code
 * Used in
 
   [Claude](http://claude.ai/directory/46d6322a-5f75-4822-b739-f49261805e9c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
@@ -112,6 +113,8 @@ Learn more
 
 ## Related connectors
 
+Code
+
 Claude
 
 Claude Code
@@ -124,6 +127,8 @@ January 26, 2026
 
 Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
+Code
+
 Claude
 
 March 9, 2026
@@ -133,6 +138,8 @@ March 9, 2026
 ### Base44
 
 Build and manage Base44 apps](https://claude.com/connectors/base44)
+
+Code
 
 Claude
 
@@ -145,6 +152,8 @@ March 2, 2026
 ### Clerk
 
 Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
+
+Code
 
 Claude
 

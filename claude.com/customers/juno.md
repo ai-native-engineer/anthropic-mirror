@@ -24,9 +24,11 @@ Startup
 
 Product:
 
-Claude Code
+[Claude Platform](https://claude.com/platform/api)
 
-Claude Cowork
+[Claude Code](https://claude.com/product/claude-code)
+
+[Claude Cowork](https://claude.com/product/cowork)
 
 Location:
 
@@ -180,6 +182,14 @@ Co-founder and CEO, Juno
 
 ## Related stories
 
+[How Notability built a study tool that improves with every Claude release](https://claude.com/customers/notability)How Notability built a study tool that improves with every Claude release
+
+How Notability built a study tool that improves with every Claude release
+
+Customer story
+
+[Customer story](https://claude.com/customers/notability)Customer story
+
 [Dust enables agents to go deeper at lower cost with Claude](https://claude.com/customers/dust)Dust enables agents to go deeper at lower cost with Claude
 
 Dust enables agents to go deeper at lower cost with Claude
@@ -203,11 +213,3 @@ Box builds document creation into its AI agent with Claude
 Customer story
 
 [Customer story](https://claude.com/customers/box)Customer story
-
-[A conversation with Cursor on building coding agents for professional developers](https://claude.com/customers/cursor-qa)A conversation with Cursor on building coding agents for professional developers
-
-A conversation with Cursor on building coding agents for professional developers
-
-Customer story
-
-[Customer story](https://claude.com/customers/cursor-qa)Customer story

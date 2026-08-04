@@ -24,7 +24,7 @@ The Claude for Enterprise plan helps organizations drive cross-functional collab
 
   https://claude.com/blog/claude-for-enterprise
 
-Today, we’re announcing the [Claude Enterprise plan](https://www.anthropic.com/enterprise) to help organizations securely collaborate with Claude using internal knowledge.
+Today, we’re announcing the [Claude Enterprise plan](https://claude.com/solutions/enterprise) to help organizations securely collaborate with Claude using internal knowledge.
 
 Teams with more context do better work. The Claude Enterprise plan offers an expanded 500K context window, more usage capacity, and a native GitHub integration so you can work on entire codebases with Claude. It also includes enterprise-grade security features—like SSO, role-based permissions, and admin tooling—that help protect your data and team.
 
@@ -107,6 +107,30 @@ Product announcements
 
 [Bringing MCP 2026-07-28 to Claude](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)Bringing MCP 2026-07-28 to Claude
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22349f86cd1968deab7_f06ca06f9d08ca4a85f26357eb896c3730274507-1000x1000.svg)
+
+Jul 2, 2026
+
+### Giving admins more visibility and control over Claude spend
+
+Product announcements
+
+[Giving admins more visibility and control over Claude spend](#)Giving admins more visibility and control over Claude spend
+
+[Giving admins more visibility and control over Claude spend](https://claude.com/blog/giving-admins-more-visibility-and-control-over-claude-usage-and-spend)Giving admins more visibility and control over Claude spend
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d23008bbc20c0ffaeb6f_43abe7e54b56a891e74a8542944dfbd33f07f49c-1000x1000.svg)
+
+Jun 18, 2026
+
+### Centrally manage authorization for MCP connectors
+
+Enterprise AI
+
+[Centrally manage authorization for MCP connectors](#) Centrally manage authorization for MCP connectors
+
+[Centrally manage authorization for MCP connectors](https://claude.com/blog/enterprise-managed-auth) Centrally manage authorization for MCP connectors
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d231b45c2193efbb0f02_1869137c9d7f2a38b50e804d707e10e85de05ddb-1000x1000.svg)
 
 Jul 23, 2026
@@ -118,30 +142,6 @@ Product announcements
 [Think through hard problems in voice mode](#)Think through hard problems in voice mode
 
 [Think through hard problems in voice mode](https://claude.com/blog/think-through-hard-problems-in-voice-mode)Think through hard problems in voice mode
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a025cf25f0694905405e054_Object-Scale.svg)
-
-May 12, 2026
-
-### Claude for the legal industry
-
-Product announcements
-
-[Claude for the legal industry](#)Claude for the legal industry
-
-[Claude for the legal industry](https://claude.com/blog/claude-for-the-legal-industry)Claude for the legal industry
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3f14a08cb97bf1b16d40ef_ObjectClouds.svg)
-
-Jul 7, 2026
-
-### Claude Cowork is coming to mobile and web
-
-Product announcements
-
-[Claude Cowork is coming to mobile and web](#)Claude Cowork is coming to mobile and web
-
-[Claude Cowork is coming to mobile and web](https://claude.com/blog/cowork-web-mobile)Claude Cowork is coming to mobile and web
 
 ## Transform how your organization operates with Claude
 

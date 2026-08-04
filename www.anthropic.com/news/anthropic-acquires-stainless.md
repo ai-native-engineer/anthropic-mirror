@@ -15,5 +15,3 @@ Founded in 2022, Stainless has powered the generation of every official Anthropi
 “I started Stainless because SDKs deserve as much care as the APIs they wrap. Anthropic was one of the first teams to bet on this with us,” said Alex Rattray, Founder and CEO of Stainless. “We have been watching what developers have built on Claude over the last few years, which made bringing our teams together an easy decision. The team gets to keep doing the work we love, on the platform where it matters most.”
 
 Anthropic created MCP to make agent connectivity possible. By bringing together the Stainless and Anthropic teams, the Claude Platform continues to push the frontier of developer experience and agent connectivity.
-
-Anthropic acquires Stainless \ Anthropic

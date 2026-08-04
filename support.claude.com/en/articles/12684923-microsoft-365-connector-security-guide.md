@@ -2,7 +2,7 @@
 
 # Microsoft 365 connector security guide
 
-Updated over 3 weeks ago
+Updated over a month ago
 
 The Microsoft 365 connector is an **Anthropic-hosted integration** that enables Claude to securely access Microsoft 365 services (Outlook, SharePoint, OneDrive, Teams) through user-delegated permissions. Anthropic has completed Microsoft's publisher verification process, associating our verified Microsoft Partner Network account with this application to confirm our organizational identity.
 

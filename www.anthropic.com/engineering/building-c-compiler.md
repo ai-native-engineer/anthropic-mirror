@@ -140,5 +140,3 @@ Special thanks to Josef Bacik, Edwin Chen, Bernardo Meurer Costa, Jake Eaton, Da
 ## Get the developer newsletter
 
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
-
-Building a C compiler with a team of parallel Claudes \ Anthropic

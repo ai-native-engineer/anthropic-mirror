@@ -190,4 +190,45 @@ Use cases
 
 [Homepage](https://claude.com/?r=0)Homepage
 
+[Anthropic](https://www.anthropic.com/)Anthropic
+
+© [year] Anthropic PBC
+
+[x.com](https://x.com/claudeai)x.com
+
+[LinkedIn](https://www.linkedin.com/showcase/claude/)LinkedIn
+
+[YouTube](https://www.youtube.com/@anthropic-ai)YouTube
+
+[Instagram](https://www.instagram.com/claudeai)Instagram
+
 Terms and Policies
+
+* Privacy choices
+
+  ### Cookie settings
+
+  We use cookies to deliver and improve our services, analyze site usage, and if you agree, to customize or personalize your experience and market our services to you. You can read our Cookie Policy [here](https://www.anthropic.com/legal/cookies).
+
+  Customize cookie settings
+
+  Reject all cookies
+
+  Accept all cookies
+
+  Save preferences
+* Privacy policy
+
+  [Privacy policy](https://www.anthropic.com/legal/privacy)Privacy policy
+* Responsible disclosure policy
+
+  [Responsible disclosure policy](https://www.anthropic.com/responsible-disclosure-policy)Responsible disclosure policy
+* Terms of service: Commercial
+
+  [Terms of service: Commercial](https://www.anthropic.com/legal/commercial-terms)Terms of service: Commercial
+* Terms of service: Consumer
+
+  [Terms of service: Consumer](https://www.anthropic.com/legal/consumer-terms)Terms of service: Consumer
+* Usage policy
+
+  [Usage policy](https://www.anthropic.com/legal/aup)Usage policy

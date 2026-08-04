@@ -2,7 +2,7 @@
 
 # Find and join a Team or Enterprise organization
 
-Updated over a week ago
+Updated over 2 weeks ago
 
 Organization discovery allows you to find and join your company's existing Team or Enterprise plan organization when you start the sign-up flow with a work email address. Instead of creating a separate personal account, you can request to join—or be added automatically—depending on your organization's configuration.
 

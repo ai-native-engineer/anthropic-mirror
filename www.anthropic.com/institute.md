@@ -55,5 +55,3 @@ If AI systems are being used to autonomously develop and improve themselves, how
 ## Help us surface what only a frontier lab can see.
 
 [Join us](https://www.anthropic.com/careers)
-
-The Anthropic Institute \ Anthropic

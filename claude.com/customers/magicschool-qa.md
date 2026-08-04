@@ -26,7 +26,9 @@ Small
 
 Product:
 
-Claude Code
+[Claude Platform](https://claude.com/platform/api)
+
+[Claude Code](https://claude.com/product/claude-code)
 
 Location:
 

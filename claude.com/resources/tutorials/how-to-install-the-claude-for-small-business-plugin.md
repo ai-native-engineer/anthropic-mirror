@@ -25,7 +25,7 @@ Install the plugin, see what's in it, customize it for your business, and run yo
 
 ![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
-The Small Business [plugin](https://claude.com/resources/tutorials/how-to-customize-plugins-in-cowork) in [Claude Cowork](https://claude.com/resources/tutorials/get-started-in-claude-cowork-in-three-steps) puts Claude to work across the tools you already use — your accounting, payments, CRM, design, contracts, email, files, and calendar. You describe the job in plain English, and Claude reads the data, does the work, and shows you the result before anything sends, posts, or pays.
+The Small Business [plugin](https://claude.com/resources/tutorials/how-to-customize-plugins-in-cowork) in [Claude Cowork](https://claude.com/product/cowork) puts Claude to work across the tools you already use — your accounting, payments, CRM, design, contracts, email, files, and calendar. You describe the job in plain English, and Claude reads the data, does the work, and shows you the result before anything sends, posts, or pays.
 
 > To learn more, see [Customize Claude Cowork](https://claude.com/resources/tutorials/customize-claude-cowork) and [Customizing plugins in Claude Cowork](https://claude.com/resources/tutorials/how-to-customize-plugins-in-cowork)
 

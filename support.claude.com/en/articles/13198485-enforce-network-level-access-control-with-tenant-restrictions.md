@@ -2,7 +2,7 @@
 
 # Enforce network-level access control with Tenant Restrictions
 
-Updated over 3 weeks ago
+Updated today
 
 Tenant Restrictions are available for members of Enterprise plans and Console organizations.
 
@@ -114,10 +114,11 @@ If your proxy sends the headers incorrectly, requests fail with a 400 status and
 
 ## Supported proxy platforms
 
-* Zscaler ZIA (Cloud App Control policies)
-* Palo Alto Prisma Access (SaaS App Management)
 * Cato Networks (Tenant Restriction policy)
+* Cloudflare Zero Trust / Gateway (HTTP policy, add custom request headers)
 * Netskope (Header Insertion rules)
+* Palo Alto Prisma Access (SaaS App Management)
+* Zscaler ZIA (Cloud App Control policies)
 * Generic HTTPS proxies with header injection capability
 
 ## Use cases

@@ -38,7 +38,7 @@ Search
 
 DateCategoryTitle
 
-* [Jul 30, 2026Frontier Red Team
+* [Jul 30, 2026
 
   Investigating three real-world incidents in our cybersecurity evaluations](https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals)
 * [Jul 27, 2026Announcements

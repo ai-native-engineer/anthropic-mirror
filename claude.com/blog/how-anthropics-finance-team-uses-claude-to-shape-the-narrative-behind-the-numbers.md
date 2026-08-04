@@ -38,7 +38,7 @@ That narrative has to stay coherent while the business changes underneath it. At
 
 ## How I use Claude across my workflows
 
-I use [Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) and [Claude for Excel](https://support.claude.com/en/articles/12650343-use-claude-for-excel) in parallel: Claude Cowork helps me with writing and synthesizing information in a document or deck, and I use Claude for Excel to edit with Claude directly in the financial model.
+I use [Claude Cowork](https://claude.com/product/cowork) and [Claude for Excel](https://claude.com/claude-for-microsoft-365) in parallel: Claude Cowork helps me with writing and synthesizing information in a document or deck, and I use Claude for Excel to edit with Claude directly in the financial model.
 
 Working on the board deck I mentioned earlier, I hand the file to Claude Cowork and ask it to validate that every number and claim reconciles to a single source of truth. I also ask it to read the narrative the way a board member would, flagging where it contradicts itself or assumes context the reader doesn't have. Claude catches things I'd otherwise miss, and it does it every time the numbers move, not just once.
 
@@ -78,7 +78,7 @@ If you're on the fence, start simple: ask Claude to read a doc and summarize it,
 
 And if you don't know which Claude surface to use, just ask Claude. With Claude in the loop, I can keep up with the pace of change underneath the work. I get to the insights faster, with fewer surprises or bottlenecks, and I can spend more time on the framing and forward-looking analysis.
 
-*Get started with* [*Claude Cowork*](http://claude.com/cowork) *today.*
+*Get started with* [*Claude Cowork*](https://claude.com/product/cowork) *today.*
 
 No items found.
 
@@ -128,29 +128,29 @@ Enterprise AI
 
 [Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d6ec42bcf1c632f75_52f59749d1e033ff2675c6686a07bcce83fb5046-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d23008bbc20c0ffaeb6f_43abe7e54b56a891e74a8542944dfbd33f07f49c-1000x1000.svg)
 
-Jul 23, 2026
+Jun 18, 2026
 
-### Four role-based certifications for the people who put Claude to work for customers
+### Centrally manage authorization for MCP connectors
 
 Enterprise AI
 
-[Four role-based certifications for the people who put Claude to work for customers](#)Four role-based certifications for the people who put Claude to work for customers
+[Centrally manage authorization for MCP connectors](#) Centrally manage authorization for MCP connectors
 
-[Four role-based certifications for the people who put Claude to work for customers](https://claude.com/blog/four-role-based-claude-certifications)Four role-based certifications for the people who put Claude to work for customers
+[Centrally manage authorization for MCP connectors](https://claude.com/blog/enterprise-managed-auth) Centrally manage authorization for MCP connectors
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22349f86cd1968deab7_f06ca06f9d08ca4a85f26357eb896c3730274507-1000x1000.svg)
 
-Jul 21, 2026
+May 20, 2026
 
-### How Anthropic secures its AI-native software development lifecycle
+### How an Anthropic sales leader uses Claude Cowork to run a 4,000-account book
 
-Claude Code
+Enterprise AI
 
-[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
+[How an Anthropic sales leader uses Claude Cowork to run a 4,000-account book](#)How an Anthropic sales leader uses Claude Cowork to run a 4,000-account book
 
-[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
+[How an Anthropic sales leader uses Claude Cowork to run a 4,000-account book](https://claude.com/blog/how-an-anthropic-sales-leader-uses-claude-cowork-to-run-a-4-000-account-book)How an Anthropic sales leader uses Claude Cowork to run a 4,000-account book
 
 ## Transform how your organization operates with Claude
 

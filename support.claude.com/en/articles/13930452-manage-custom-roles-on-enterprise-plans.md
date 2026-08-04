@@ -2,7 +2,7 @@
 
 # Manage custom roles on Enterprise plans
 
-Updated over 3 weeks ago
+Updated today
 
 Custom roles are available for Enterprise plan organizations. Owners, Primary Owners, and custom roles with the **Identity & Access** permission set to "Can manage" can go to **[Organization settings > Roles](https://claude.ai/admin-settings/roles)** to manage custom roles.
 
@@ -49,6 +49,7 @@ Each custom role can grant or restrict access to the following capabilities:
 | Claude Code artifacts | Ability to create artifacts in Claude Code, which turn a session's work into a live, shareable page built from the session's context. |
 | Claude Design | Access to Claude Design to generate design artifacts. |
 | Claude Cowork | Access to Claude Cowork. |
+| Cowork in the cloud (beta) | Lets members run Cowork tasks on Anthropic's infrastructure instead of their own computer, so tasks can keep running across desktop, web, and mobile. |
 | Claude for Chrome | Access to Claude for Chrome, the browser extension that lets Claude browse and act on web pages on the user's behalf. |
 
 \*Claude Code dynamic workflows are on for your whole organization by default. Because a single run can last for hours and use more tokens than a typical session, decide which roles should have access. For members on custom roles, this capability follows the additive model like any other—a role must grant it for those members to use it. To restrict a specific group, leave this capability off in their role.

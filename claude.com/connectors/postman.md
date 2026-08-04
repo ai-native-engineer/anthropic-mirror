@@ -6,6 +6,7 @@
 
 Give API context to your coding agents
 
+  Code
 * Used in
 
   [Claude](https://claude.ai/directory/b9049585-f39b-45e8-8626-6ca78d9d7d22)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
@@ -39,6 +40,8 @@ You can use Postman to:
 
 ## Related connectors
 
+Code
+
 Claude
 
 Claude Code
@@ -51,6 +54,8 @@ January 26, 2026
 
 Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
+Code
+
 Claude
 
 March 9, 2026
@@ -60,6 +65,8 @@ March 9, 2026
 ### Base44
 
 Build and manage Base44 apps](https://claude.com/connectors/base44)
+
+Code
 
 Claude
 
@@ -72,6 +79,8 @@ March 2, 2026
 ### Clerk
 
 Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
+
+Code
 
 Claude
 

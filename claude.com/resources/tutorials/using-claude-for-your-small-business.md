@@ -27,7 +27,7 @@ Walk through four workflows from the Small Business plugin — plan payroll, clo
 
 Running a small business means working across a lot of tools — your books, your payments, your CRM, your inbox. The answers you need usually live across all of them.
 
-With the [Claude for Small Business](https://www.anthropic.com/news/claude-for-small-business) plugin installed and set up in [Claude Cowork](https://claude.com/resources/tutorials/get-started-in-claude-cowork-in-three-steps), a short prompt can help run a multi-step workflow for your business.
+With the [Claude for Small Business](https://www.anthropic.com/news/claude-for-small-business) plugin installed and set up in [Claude Cowork](https://claude.com/product/cowork), a short prompt can help run a multi-step workflow for your business.
 
 Below are four examples: what each prompt runs, what Claude does at each step, and what you have when it's done.
 ‍

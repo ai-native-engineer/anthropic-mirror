@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/tutorials-category/engineering -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Engineering
 
 # Engineering
 
 Understand how to integrate Claude into technical problem-solving and development workflows.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -13,6 +25,8 @@ List
 Category
 
 Product
+
+Features
 
 ![Using Claude Design for prototypes and UX](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e1ccae7da2cf317805f09b_Screenshot%202026-04-16%20at%2011.01.12%E2%80%AFPM.png)
 
@@ -57,6 +71,8 @@ Author
 Engineering
 
 Author
+
+Claude Platform
 
 Author
 
@@ -333,6 +349,10 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 ## Transform how your organization operates with Claude
 

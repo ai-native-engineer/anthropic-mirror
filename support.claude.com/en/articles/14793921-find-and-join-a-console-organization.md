@@ -57,4 +57,4 @@ Organization discovery isn’t available for Console organizations with single s
 * [Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)
 * [Find and join a Team or Enterprise organization](https://support.claude.com/en/articles/13566435-find-and-join-a-team-or-enterprise-organization)
 * [Join an organization via invite link](https://support.claude.com/en/articles/13776697-join-an-organization-via-invite-link)
-* [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)
+* [OneLogin SSO setup](https://support.claude.com/en/articles/13917899-onelogin-sso-setup)

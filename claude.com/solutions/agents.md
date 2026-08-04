@@ -185,6 +185,8 @@ See how other companies are building AI agents with Claude
 
 Customer stories
 
+[Customer stories](https://claude.com/customers)Customer stories
+
 [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)Building effective agents
 
 Building effective agents
@@ -198,3 +200,5 @@ Engineering at Anthropic
 Get started with our API
 
 Developer docs
+
+[Developer docs](https://platform.claude.com/docs)Developer docs

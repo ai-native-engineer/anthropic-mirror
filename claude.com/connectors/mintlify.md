@@ -6,6 +6,8 @@
 
 Search, read, and edit your documentation
 
+  Code
+
   Productivity
 * Used in
 

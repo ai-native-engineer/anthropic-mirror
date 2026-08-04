@@ -11,6 +11,8 @@ New Posts
 * [Investigating successor heads](#successor-heads)
 * [Oversampling a Topic in the SAE Training Set Results in More Detailed Features Related to that Topic](#oversampling)
 
+---
+
 ## [Investigating successor heads](#successor-heads)
 
 Emmanuel Ameisen, Joshua Batson; edited by Jack Lindsey
@@ -26,14 +28,17 @@ We began with a weights based approach closely following Gould et al. We curated
 In the top scoring head, about 80% of the ordinal tokens are most mapped to their successor. This corresponds to a strong super-diagonal component in the subset of the ordinal matrix shown below (red denotes higher values). We also note some block structure; behind the successor in score is the equivalent token in other ordered lists ("1" maps to "2", but also "two", "second", "February") as well as other tokens in the same list ("3", "4"). We also note that earlier tokens in the same list are almost always suppressed (the lower diagonals of each block are usually blue).
 
 ![](images/1efd6d1984b1cc3b.png)
+)
 
 The second scoring head has a ~60% rate of ordinal tokens being mapped to their successor. But the errors are block structured, corresponding to other tokens in a similar ordinal category (numbers in numerals or text with numbers in numerals or text, days/weeks/months with days/weeks/months).
 
 ![](images/2b327546d431c509.png)
+)
 
 We also show a randomly selected other attention head for comparison.
 
 ![](images/ce527468ed6043c6.png)
+)
 
 ### Independent Components Analysis
 
@@ -42,24 +47,29 @@ Intrigued by the block structure, and the fact that ordinal succession and categ
 We found one component which appears to implement succession, with some bleed between related categories (like numerals and english words for numbers, or months and their abbreviations), e.g. mapping 1 to 2/two/second.
 
 ![](images/b44946b83e3bb47b.png)
+)
 
 We also find an induction component with some category bleed (mapping Monday to Monday/Mon).
 
 ![](images/28521befc793212f.png)
+)
 
 Finally we highlight one of a few components which projects onto a category, here taking all english numbers and numerals to a close-to-uniform mix of 0/1/2/3/4/one/two/three/four/first/second/third/fourth and, in the negative direction, causing each roman numeral to suppress all roman numerals. While these descriptions aren't entirely clean, ICA reveals repeated motifs across heads include succession, induction, and some category projection.
 
 ![](images/9d83435cecd11e53.png)
+)
 
 The top heads identified by the OV tally method above also had the largest coefficients on the successor component.
 
 ![](images/b0c540fdeae546ff.png)
+)
 
 ### Ablation Studies
 
 Heads might have high OV tally scores without contributing to succession in practice; it could be that the head doesn't attend to the ordinal tokens, or that the output isn't large enough to make a significant difference to the logit, or that its indirect effects are much larger than its direct effects and do something other than succession. It's also possible a different head might, via indirect effects, have a greater contribution than the heads identified via their direct effect above. To examine this, we did forward passes on the full ordinal sequences ("1 2 3 4 5 …" etc.) and computed the effect of mean-ablating the output of each head on the correct successor logits; averaged over all ordinal sequences and tokens this is the "ablation effect" of the head. The top three heads by component score (which are the same as the top three by OV projection score) are ranked 1, 3, and 5 respectively by ablation effect. Thus those heads identified by weights alone are important on-distribution.
 
 ![](images/b16e08bf8b1fc034.png)
+)
 
 We note that the two heads with low component scores but high ablation effects (rank 2 and 4 above) are in lower layers (3 and 5) than the top 3 successor heads (layers 10, 11, 13). It is possible those heads contribute to succession by Q- or K- composition with the later successor heads or by influencing later-layer MLPs.
 
@@ -68,10 +78,13 @@ We note that the two heads with low component scores but high ablation effects (
 We also computed head attributions on the same sequential datasets (based on the methodology in [Attribution Patching](https://www.neelnanda.io/mechanistic-interpretability/attribution-patching)), to see if this faster approach agreed with the slower method of ablations or the weight-based methods. While the head with the highest attribution score also had the highest score according to all other methods, we were surprised to find relatively low agreement between attribution scores and all three other methods.
 
 ![](images/81197d82995f9dfe.png)
+)
 
 ### Conclusion
 
 We reproduce the finding of Gould et al. that multiple successor heads exist in a small transformer model, which promote ordinal token succession through direct effects. It would be interesting to evaluate which contexts those heads are used in, e.g., are they also involved in incrementing lists, or years, or in natural prose ("The next day, Tuesday,..."). Finally, we note that two components found in the ICA decomposition of heads, which approximately implemented ordinal succession (but somewhat forgetting which sequence) and copy sequence category (but forget which ordinal) are consistent with the compositional linear representation of ordinal value and sequence category identified in Gould et al. It would be interesting if such head decompositions, in general, could be used to identify compositional linear factors of the residual stream.
+
+---
 
 ## [Oversampling a Topic in the SAE Training Set Results in More Detailed Features Related to that Topic](#oversampling)
 

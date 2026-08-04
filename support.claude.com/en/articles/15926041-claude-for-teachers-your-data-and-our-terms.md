@@ -2,7 +2,7 @@
 
 # Claude for Teachers: your data and our terms
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
 
 ## Overview
 

@@ -24,6 +24,8 @@ Large
 
 Product:
 
+Claude Platform
+
 Location:
 
 North America
@@ -114,7 +116,7 @@ Composable customer data platform provider Simon Data has seen particularly comp
 
 Snowflake aims to transform how organizations interact with their data—moving from code-based queries to natural conversations that unlock insights for everyone. Harshal Pimpalkhute, Principal Product Manager for Cortex AI at Snowflake, said, "By combining Claude's reasoning, planning, and problem-solving with Snowflake's platform trusted by over 10,000 organizations worldwide, enterprises can unlock their data's potential with [Cortex Agents](https://www.snowflake.com/en/blog/ai-data-agents-snowflake-cortex/) and large-scale data processing."
 
-This partnership represents more than just technological advancement. By combining Claude's advanced capabilities with Snowflake's trusted platform, customers are creating a future where data insights aren't confined to technical specialists. Instead, every employee can engage with their organization's data naturally and confidently, unlocking new possibilities for innovation, decision-making, and growth. Together, Snowflake and Anthropic are democratizing data intelligence and, as AI technology advances, extending its benefits across every level of the enterprise.
+This partnership represents more than just technological advancement. By combining Claude's advanced capabilities with Snowflake's trusted platform, customers are creating a future where data insights aren't confined to technical specialists. Instead, every employee can engage with their organization's data naturally and confidently, unlocking new possibilities for innovation, decision-making, and growth. Together, Snowflake and Anthropic are democratizing data intelligence and, as AI technology advances, extending its benefits across [every level of the enterprise](https://claude.com/solutions/enterprise).
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -133,6 +135,14 @@ Video caption
 [Next](#)Next
 
 ## Related stories
+
+[How Notability built a study tool that improves with every Claude release](https://claude.com/customers/notability)How Notability built a study tool that improves with every Claude release
+
+How Notability built a study tool that improves with every Claude release
+
+Customer story
+
+[Customer story](https://claude.com/customers/notability)Customer story
 
 [Dust enables agents to go deeper at lower cost with Claude](https://claude.com/customers/dust)Dust enables agents to go deeper at lower cost with Claude
 
@@ -157,11 +167,3 @@ Box builds document creation into its AI agent with Claude
 Customer story
 
 [Customer story](https://claude.com/customers/box)Customer story
-
-[Juno helps people with chronic illness find patterns in their symptoms with Claude](https://claude.com/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
-
-Juno helps people with chronic illness find patterns in their symptoms with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/juno)Customer story

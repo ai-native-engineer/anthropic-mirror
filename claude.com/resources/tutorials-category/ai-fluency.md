@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/tutorials-category/ai-fluency -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 AI Fluency
 
 # AI Fluency
 
 Helping people build a healthy relationship with AI at home, work, and in the community.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -13,6 +25,8 @@ List
 Category
 
 Product
+
+Features
 
 ![How AI gets its character](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a55978c2a3fad32a041cdd0_Thumb%20v1_L3.png)
 
@@ -299,6 +313,10 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 ## Transform how your organization operates with Claude
 

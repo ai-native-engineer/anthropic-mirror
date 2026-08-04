@@ -2,7 +2,7 @@
 
 # Assign tasks from anywhere in Claude Cowork
 
-Updated over 3 weeks ago
+Updated over a month ago
 
 Claude Cowork gives you one continuous conversation with Claude that you can reach from your phone or your desktop. With Dispatch, you can message Claude from your phone and have it work on your desktop computer, using your local files, connectors, plugins, and apps, then come back to the finished work.
 
@@ -39,10 +39,10 @@ Follow these steps to get started:
 4. Click “Dispatch” on the left side panel.
 5. You’ll land on a page describing the functionality. Click “Get started”:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1785717000&signature=b0a6a8d6feecda0b37539f2950f05dc0cc16cdbbe6c197577aafaea27843cb88&req=diEhH8B7mYFXX%2FMW1HO4zSZP0peMFAn%2FB32drIe5EDklQZILjzppHmGlZ57F%0A99tD%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1785717000&signature=b0a6a8d6feecda0b37539f2950f05dc0cc16cdbbe6c197577aafaea27843cb88&req=diEhH8B7mYFXX%2FMW1HO4zSZP0peMFAn%2FB32drIe5EDklQZILjzppHmGlZ57F%0A99tD%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1785803400&signature=0364361bb5f473a590d301ee94390ea5612f2cb08bc48c7910bcfd084d874f0f&req=diEhH8B7mYFXX%2FMW1HO4zSZP0peDFQ37B32drIe5EDmIh%2FcuhUtoGvll0DCR%0AjWIs%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1785803400&signature=0364361bb5f473a590d301ee94390ea5612f2cb08bc48c7910bcfd084d874f0f&req=diEhH8B7mYFXX%2FMW1HO4zSZP0peDFQ37B32drIe5EDmIh%2FcuhUtoGvll0DCR%0AjWIs%0A)
 6. On the next screen, you can give Claude access to your files and keep your computer awake by toggling those on:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1785717000&signature=8c834e2e4e1ce24d95cc685d942fe45bba93e80e1b80f907281b440963ada930&req=diEhH8B7mIFXW%2FMW1HO4zaZWs9%2BfXAYeepuGRb1rD3JBtpo7PVjh37xa7kR3%0AOF2N%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1785717000&signature=8c834e2e4e1ce24d95cc685d942fe45bba93e80e1b80f907281b440963ada930&req=diEhH8B7mIFXW%2FMW1HO4zaZWs9%2BfXAYeepuGRb1rD3JBtpo7PVjh37xa7kR3%0AOF2N%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1785803400&signature=3747552ce97a860a732ddb0f7ef4da9057722dc24552cad63e09a914e66babb3&req=diEhH8B7mIFXW%2FMW1HO4zaZWs9%2BQXQIaepuGRb1rD3IpObbXSvf3Slq83wtu%0AceO7%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1785803400&signature=3747552ce97a860a732ddb0f7ef4da9057722dc24552cad63e09a914e66babb3&req=diEhH8B7mIFXW%2FMW1HO4zaZWs9%2BQXQIaepuGRb1rD3IpObbXSvf3Slq83wtu%0AceO7%0A)
 7. Click “Finish setup.”
 8. Start messaging Claude within the “Dispatch” section.
 

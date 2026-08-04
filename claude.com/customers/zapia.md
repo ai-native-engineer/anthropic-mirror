@@ -24,6 +24,8 @@ Small
 
 Product:
 
+Claude Platform
+
 Partner:
 
 Google

@@ -14,6 +14,8 @@ The Candid integration relies on Claude's ability to [use remote connectors](htt
 
 *Note: This connector is currently in beta with core functionality available.*
 
+## What this connector provides
+
 * **Search organizations:** Find nonprofits and foundations by name, mission, location, work area, transparency seal, or leadership demographics (women, BIPOC, LGBTQ+, people with disabilities)
 * **Find mentioned organizations:** Automatically identifies organization names in conversation and links them to official Candid profiles
 * **Knowledge search:** Access Candid's expert knowledge base including research reports, training materials, blog posts, and curated daily news
@@ -23,12 +25,16 @@ The Candid integration relies on Claude's ability to [use remote connectors](htt
 
 Available to all paid Claude plan users. Basic search requires no separate Candid account, though some advanced features may require additional authentication.
 
+## Setting up the connector
+
 #### For organization owners (Team and Enterprise)
 
 1. Navigate to [Admin settings](https://claude.ai/admin-settings) > Connectors
 2. Select `Browse connectors`
 3. Search and select Candid
 4. Select `Add to your team`
+
+#### For individual users
 
 1. Navigate to [Settings](https://claude.ai/settings) > Connectors
 2. Select `Browse connectors`
@@ -90,6 +96,8 @@ Claude searches Candid's learning and help sources for expert guidance, training
 * **Gold:** Detailed financials and demographics
 * **Silver:** Program information and organizational details
 * **Bronze:** Basic core organization information
+
+## Frequently asked questions
 
 #### Does it cost extra?
 

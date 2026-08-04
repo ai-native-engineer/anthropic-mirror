@@ -1,8 +1,20 @@
 <!-- source: https://claude.com/resources/tutorials -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 # Learn Claude with hands-on tutorials
 
 Build your skills through written guides, and video lessons covering everything from quick tasks to complex workflows and best practices.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -11,6 +23,8 @@ List
 Category
 
 Product
+
+Features
 
 ![How AI gets its character](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a55978c2a3fad32a041cdd0_Thumb%20v1_L3.png)
 
@@ -25,6 +39,8 @@ AI Fluency
 Product
 
 AI Fluency
+
+Features
 
 No items found.
 
@@ -52,6 +68,8 @@ Product
 
 AI Fluency
 
+Features
+
 No items found.
 
 Read tutorial
@@ -76,6 +94,8 @@ Professional
 
 Product
 
+Features
+
 No items found.
 
 Read tutorial
@@ -99,6 +119,8 @@ Category
 Professional
 
 Product
+
+Features
 
 No items found.
 
@@ -125,6 +147,8 @@ Professional
 Product
 
 Claude Cowork
+
+Features
 
 Cowork
 
@@ -156,6 +180,8 @@ Product
 
 Claude Cowork
 
+Features
+
 Cowork
 
 Connectors
@@ -185,6 +211,8 @@ Marketing
 Product
 
 Claude Cowork
+
+Features
 
 Cowork
 
@@ -218,6 +246,8 @@ Product
 
 Claude Cowork
 
+Features
+
 Cowork
 
 Read tutorial
@@ -244,6 +274,8 @@ Product
 
 Claude Cowork
 
+Features
+
 Cowork
 
 Read tutorial
@@ -269,6 +301,8 @@ Professional
 Product
 
 Claude Cowork
+
+Features
 
 Cowork
 
@@ -304,6 +338,8 @@ Product
 
 AI Fluency
 
+Features
+
 No items found.
 
 Read tutorial
@@ -329,6 +365,8 @@ AI Fluency
 Product
 
 AI Fluency
+
+Features
 
 No items found.
 
@@ -356,6 +394,8 @@ Product
 
 AI Fluency
 
+Features
+
 No items found.
 
 Read tutorial
@@ -381,6 +421,8 @@ Professional
 Product
 
 Claude Design
+
+Features
 
 No items found.
 
@@ -412,6 +454,8 @@ Product
 
 Claude Design
 
+Features
+
 No items found.
 
 Read tutorial
@@ -437,6 +481,10 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 ## Transform how your organization operates with Claude
 

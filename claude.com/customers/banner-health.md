@@ -40,6 +40,8 @@ Large
 
 Product:
 
+Claude Platform
+
 Partner:
 
 AWS

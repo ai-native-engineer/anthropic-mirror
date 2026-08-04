@@ -24,11 +24,11 @@ Medium
 
 Product:
 
-Claude Code
+[Claude Code](https://claude.com/product/claude-code)
 
-Claude Enterprise
+[Claude Enterprise](https://claude.com/solutions/enterprise)
 
-Claude Cowork
+[Claude Cowork](https://claude.com/product/cowork)
 
 Location:
 

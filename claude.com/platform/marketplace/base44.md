@@ -14,6 +14,8 @@ Request access
 
 * Use case
 
+  Code
+
 Base44 is an app-building platform used by sales, HR, finance, operations, and other teams in big organizations to create and ship custom internal tools on their own – frontend, backend, database, and integrations included. Claude powers the reasoning inside every Base44 app, so your team can work with their own processes, data, and internal knowledge without handing the work off to a developer. Everything runs on your existing Anthropic credits.
 
 ## What you can do

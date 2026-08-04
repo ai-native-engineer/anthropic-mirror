@@ -1,5 +1,9 @@
 <!-- source: https://claude.com/customers -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Customer story
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69df9498fd8d8a7e34a27808_video_notion-thumbnail.webp)
@@ -72,9 +76,37 @@ Contact sales
 
 [Next](#)Next
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Grid
 
 List
+
+[View story](https://claude.com/customers/notability)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ffe769f703495a0fb59604_nb-primary-full-marketing.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ffe76dfd86b6d4e80e72ba_nb-primary-full-marketing-dark.svg)
+
+How Notability built a study tool that improves with every Claude release
+
+Notability
+
+Startup
+
+North America
+
+August 3, 2026
+
+Claude Platform
+
+Software
+
+Claude Platform
 
 [View story](https://claude.com/customers/caylent)View story
 
@@ -94,6 +126,8 @@ July 17, 2026
 
 Professional services
 
+Claude Platform
+
 [View story](https://claude.com/customers/epilepsy-foundation)View story
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5f65c6fd705dd371878f31_Epilepsy-foundation_light.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5f65bf5bef5e4e2da75b45_epilepsy-foundation_dark.png)
@@ -110,7 +144,11 @@ North America
 
 July 17, 2026
 
+Claude Platform
+
 Beneficial Deployments
+
+Claude Platform
 
 [View story](https://claude.com/customers/epilepsy-foundation-qa)View story
 
@@ -128,9 +166,13 @@ North America
 
 July 17, 2026
 
+Claude Platform
+
 Claude for Nonprofits
 
 Beneficial Deployments
+
+Claude Platform
 
 [View story](https://claude.com/customers/eve-legal)View story
 
@@ -146,9 +188,13 @@ North America
 
 July 17, 2026
 
+Claude Platform
+
 Claude Code
 
 Legal
+
+Claude Platform
 
 [View story](https://claude.com/customers/national-domestic-workers-alliance-qa)View story
 
@@ -165,6 +211,8 @@ North America
 July 17, 2026
 
 Claude for Nonprofits
+
+Claude Platform
 
 Beneficial Deployments
 
@@ -274,7 +322,11 @@ North America
 
 July 8, 2026
 
+Claude Platform
+
 Claude for Nonprofits
+
+Claude Platform
 
 [View story](https://claude.com/customers/pacific-community-ventures)View story
 
@@ -290,9 +342,13 @@ North America
 
 July 8, 2026
 
+Claude Platform
+
 Claude for Nonprofits
 
 Beneficial Deployments
+
+Claude Platform
 
 [View story](https://claude.com/customers/dust)View story
 
@@ -308,9 +364,13 @@ Europe
 
 June 30, 2026
 
+Claude Platform
+
 Claude Code
 
 Software
+
+Claude Platform
 
 [View story](https://claude.com/customers/blank-metal-qa)View story
 
@@ -352,37 +412,15 @@ North America
 
 June 29, 2026
 
+Claude Platform
+
 Claude Code
 
 Claude Cowork
 
 Telecommunications
 
-[View story](https://claude.com/customers/cox-communications-qa)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d7cf311a7d86111af6d72_cox-logo.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d7cf311a7d86111af6d72_cox-logo.svg)
-
-Cox Communications on scaling Claude across largest privately-held telecom company in US
-
-Cox Communications
-
-Large
-
-Accenture
-
-North America
-
-June 25, 2026
-
-Claude Code
-
-Claude Cowork
-
-Claude Enterprise
-
-Telecommunications
-
-Claude Code
+Claude Platform
 
 [View more](https://claude.com/customers?fcdaa149_page=2)
 
@@ -398,6 +436,36 @@ Location
 
 Partner
 
+[View story](https://claude.com/customers/notability)View story
+
+### Notability
+
+Industry
+
+Software
+
+Company size
+
+Startup
+
+Product
+
+Claude Platform
+
+Claude Platform
+
+Location
+
+North America
+
+Partner
+
+August 3, 2026
+
+Read customer story
+
+[Read customer story](https://claude.com/customers/notability)Read customer story
+
 [View story](https://claude.com/customers/caylent)View story
 
 ### Caylent
@@ -411,6 +479,8 @@ Company size
 Medium
 
 Product
+
+Claude Platform
 
 Location
 
@@ -440,6 +510,10 @@ Medium
 
 Product
 
+Claude Platform
+
+Claude Platform
+
 Location
 
 North America
@@ -468,7 +542,11 @@ Medium
 
 Product
 
+Claude Platform
+
 Claude for Nonprofits
+
+Claude Platform
 
 Location
 
@@ -498,7 +576,11 @@ Startup
 
 Product
 
+Claude Platform
+
 Claude Code
+
+Claude Platform
 
 Location
 
@@ -561,6 +643,8 @@ Small
 Product
 
 Claude for Nonprofits
+
+Claude Platform
 
 Claude for Nonprofits
 
@@ -686,7 +770,11 @@ Small
 
 Product
 
+Claude Platform
+
 Claude for Nonprofits
+
+Claude Platform
 
 Location
 
@@ -714,7 +802,11 @@ Small
 
 Product
 
+Claude Platform
+
 Claude for Nonprofits
+
+Claude Platform
 
 Location
 
@@ -776,9 +868,13 @@ Large
 
 Product
 
+Claude Platform
+
 Claude Code
 
 Claude Cowork
+
+Claude Platform
 
 Location
 
@@ -844,6 +940,8 @@ Startup
 
 Product
 
+Claude Platform
+
 Location
 
 North America
@@ -903,6 +1001,10 @@ Company size
 Large
 
 Product
+
+Claude Platform
+
+Claude Platform
 
 Location
 
@@ -964,9 +1066,13 @@ Startup
 
 Product
 
+Claude Platform
+
 Claude Code
 
 Claude Cowork
+
+Claude Platform
 
 Location
 
@@ -980,34 +1086,6 @@ Read customer story
 
 [Read customer story](https://claude.com/customers/juno)Read customer story
 
-[View story](https://claude.com/customers/cursor-qa)View story
-
-### Cursor Q&A
-
-Industry
-
-Software
-
-Company size
-
-Large
-
-Product
-
-Claude Code
-
-Location
-
-North America
-
-Partner
-
-June 10, 2026
-
-Read customer story
-
-[Read customer story](https://claude.com/customers/cursor-qa)Read customer story
-
 [See more](https://claude.com/customers?38d7aa68_page=2)
 
 1 / 13
@@ -1019,6 +1097,10 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 ## Transform how your organization operates with Claude
 

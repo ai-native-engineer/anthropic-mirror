@@ -12,6 +12,10 @@ Watch recordings
 
 Pick a track and watch the talks, as fresh as the day they were presented.
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 [Watch recording](https://claude.com/code-with-claude/session/sf-opening-keynote)Watch recording
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9dc8f3f45396c2541ce1_opening-keynote.webp)
@@ -62,6 +66,8 @@ Mahesh Murag
 
 , Anthropic
 
+Claude Platform
+
 [Watch recording](https://claude.com/code-with-claude/session/sf-caching-harnesses-and-advisors-building-on-claude-at-github-scale)Watch recording
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9d4a22fc7d70ce2a2bd8_caching-harnesses-advisors.webp)
@@ -75,6 +81,8 @@ Mario Rodriguez
 Brad Abrams
 
 , Anthropic
+
+Claude Platform
 
 [Watch recording](https://claude.com/code-with-claude/session/sf-the-expanding-toolkit)Watch recording
 
@@ -102,6 +110,8 @@ Lance Martin
 
 , Anthropic
 
+Claude Platform
+
 [Watch recording](https://claude.com/code-with-claude/session/a-conversation-with-dario-amodei-daniela-amodei)Watch recording
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9c9e4d03ef956bea5197_dario-daniela-fireside.webp)
@@ -119,6 +129,8 @@ Daniela Amodei
 Ami Vora
 
 , Anthropic
+
+Claude Platform
 
 [Watch recording](https://claude.com/code-with-claude/session/sf-live-coding-session-with-boris-cherny-and-jarred-sumner)Watch recording
 
@@ -146,6 +158,8 @@ Arnab Bose
 
 , Asana
 
+Claude Platform
+
 [View more](https://claude.com/code-with-claude/san-francisco?c769d3f9_page=2)
 
 1 / 3
@@ -159,5 +173,7 @@ Clear all filters
 [Attend virtually](#)Attend virtually
 
 [Homepage](https://claude.com/code-with-claude)Homepage
+
+© [year] Anthropic PBC
 
 [PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)

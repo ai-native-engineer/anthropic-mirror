@@ -24,9 +24,9 @@ Large
 
 Product:
 
-Claude Enterprise
+[Claude Enterprise](https://claude.com/solutions/enterprise)
 
-Claude Cowork
+[Claude Cowork](https://claude.com/product/cowork)
 
 Partner:
 
@@ -44,7 +44,7 @@ within eight weeks of company-wide launch
 
 with 98 fully implemented
 
-[**Jamf**](https://www.jamf.com/) manages and secures Apple devices for more than 70,000 customers worldwide. When the company set out to bring AI to its entire workforce, they chose Claude Enterprise as a tool any employee could pick up on day one. They paired the rollout with a governance framework that sorted use cases by risk and complexity, and a campaign that focused on what employees could reclaim rather than what they could optimize.
+[**Jamf**](https://www.jamf.com/) manages and secures Apple devices for more than 70,000 customers worldwide. When the company set out to bring AI to its entire workforce, they chose [Claude Enterprise](https://claude.com/solutions/enterprise) as a tool any employee could pick up on day one. They paired the rollout with a governance framework that sorted use cases by risk and complexity, and a campaign that focused on what employees could reclaim rather than what they could optimize.
 
 ## With Claude, Jamf achieved:
 
@@ -175,6 +175,14 @@ Senior Director of Information Technology, Jamf
 
 ## Related stories
 
+[How Notability built a study tool that improves with every Claude release](https://claude.com/customers/notability)How Notability built a study tool that improves with every Claude release
+
+How Notability built a study tool that improves with every Claude release
+
+Customer story
+
+[Customer story](https://claude.com/customers/notability)Customer story
+
 [Dust enables agents to go deeper at lower cost with Claude](https://claude.com/customers/dust)Dust enables agents to go deeper at lower cost with Claude
 
 Dust enables agents to go deeper at lower cost with Claude
@@ -198,11 +206,3 @@ Box builds document creation into its AI agent with Claude
 Customer story
 
 [Customer story](https://claude.com/customers/box)Customer story
-
-[Juno helps people with chronic illness find patterns in their symptoms with Claude](https://claude.com/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
-
-Juno helps people with chronic illness find patterns in their symptoms with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/juno)Customer story

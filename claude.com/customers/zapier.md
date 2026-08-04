@@ -24,9 +24,9 @@ Medium
 
 Product:
 
-Claude Enterprise
+[Claude Enterprise](https://claude.com/solutions/enterprise)
 
-Claude Code
+[Claude Code](https://claude.com/product/claude-code)
 
 Location:
 
@@ -76,7 +76,7 @@ Video caption
 
 [Next](#)Next
 
-Zapier, the leading AI orchestration platform, uses Claude to drive company-wide AI adoption and boost productivity across its remote-first team.
+Zapier, the leading AI orchestration platform, uses Claude to drive [company-wide AI adoption](https://claude.com/solutions/enterprise) and boost productivity across its remote-first team.
 
 Key results:
 
@@ -141,6 +141,14 @@ Video caption
 
 ## Related stories
 
+[How Notability built a study tool that improves with every Claude release](https://claude.com/customers/notability)How Notability built a study tool that improves with every Claude release
+
+How Notability built a study tool that improves with every Claude release
+
+Customer story
+
+[Customer story](https://claude.com/customers/notability)Customer story
+
 [Dust enables agents to go deeper at lower cost with Claude](https://claude.com/customers/dust)Dust enables agents to go deeper at lower cost with Claude
 
 Dust enables agents to go deeper at lower cost with Claude
@@ -164,11 +172,3 @@ Box builds document creation into its AI agent with Claude
 Customer story
 
 [Customer story](https://claude.com/customers/box)Customer story
-
-[Juno helps people with chronic illness find patterns in their symptoms with Claude](https://claude.com/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
-
-Juno helps people with chronic illness find patterns in their symptoms with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/juno)Customer story

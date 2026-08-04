@@ -139,7 +139,7 @@ Ask Claude
 
 ### Set it up to repeat in Cowork
 
-In claude.ai chat, you upload the page and restate your rules in each new conversation. In a [Cowork project](https://claude.com/resources/tutorials/cowork-onboarding-guide), Claude reads from a folder on your computer and the rules sit in project instructions. Point the project at the unit's folder, write the standards and version rules into project instructions once, and every page in that folder is one short prompt away from the full set of files.
+In claude.ai chat, you upload the page and restate your rules in each new conversation. In a Cowork project, Claude reads from a folder on your computer and the rules sit in project instructions. Point the project at the unit's folder, write the standards and version rules into project instructions once, and every page in that folder is one short prompt away from the full set of files.
 
 Build the deck, three reading handouts, and exit ticket for tectonics-textbook-p218-219.jpg. Use the standards and version rules in project instructions.
 
@@ -159,7 +159,7 @@ Opus models are built for tasks that need close reading and a finished file at t
 
 **For more than one lesson, point a Cowork project at the folder**
 
-In claude.ai you attach one page at a time. In [Claude Cowork](https://claude.com/resources/tutorials/cowork-onboarding-guide), a project can read a whole folder on your computer. Put your standards and version rules in project instructions, drop each unit's source pages into the folder, and the same prompt produces the deck and handouts for every page.
+In claude.ai you attach one page at a time. In Claude Cowork, a project can read a whole folder on your computer. Put your standards and version rules in project instructions, drop each unit's source pages into the folder, and the same prompt produces the deck and handouts for every page.
 
 **Ask Claude to list its changes alongside the output**
 

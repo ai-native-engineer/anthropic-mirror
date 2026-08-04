@@ -12,12 +12,16 @@ The Blackbaud connector gives Claude secure access to your Raiser's Edge NXT fun
 
 The Blackbaud integration relies on Claude's ability to [use remote connectors](https://support.claude.com/en/articles/11724452-browsing-and-connecting-to-tools-from-the-directory).
 
+## What this connector provides
+
 * **Constituent profiles:** Access detailed donor records including contact information, affiliations, and giving history
 * **Constituent search:** Search donors by full or partial name across your database
 * **Event discovery:** Search fundraising events by name or keyword and retrieve details like dates, locations, and funds raised
 * **Gift records:** View donation amounts, dates, donors, and associated campaigns
 * **Communications:** Draft personalized thank-you notes and donor outreach referencing specific gifts
 * **Real-time data:** Fetch current information directly from Raiser's Edge NXT
+
+## Setting up the connector
 
 #### For Blackbaud marketplace admins
 
@@ -33,6 +37,8 @@ The Blackbaud integration relies on Claude's ability to [use remote connectors](
 4. Search for and select Blackbaud
 5. Select `Add to your team`
 6. Confirm authorization
+
+#### For individual users
 
 1. Log in to Claude with your enterprise account
 2. Access [Settings](https://claude.ai/settings) > Connectors

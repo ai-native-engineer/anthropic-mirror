@@ -76,7 +76,7 @@ Give Claude access to your local files and let it complete tasks autonomously. A
 
 [**Thomson Reuters**](https://claude.com/customers/thomson-reuters) builds the software and research tools that legal, tax, accounting, and compliance professionals rely on. The company’s AI-powered platform, CoCounsel, recently crossed one million users, making it one of the most widely adopted AI tools in professional services.
 
-Internally, Thomson Reuters has added Claude Enterprise as a core AI capability for its teams. More recently, the company began piloting Cowork to explore how agentic AI can support everyday enterprise workflows across documents, spreadsheets, and internal processes.
+Internally, Thomson Reuters has added [Claude Enterprise](https://claude.com/solutions/enterprise) as a core AI capability for its teams. More recently, the company began piloting Cowork to explore how agentic AI can support everyday enterprise workflows across documents, spreadsheets, and internal processes.
 
 Joel Hron, CTO of Thomson Reuters, sat down with Anthropic to discuss how the company is approaching Claude Enterprise, what they are learning from piloting Cowork, and how large enterprises can roll out these systems responsibly. The following conversation has been edited for length and clarity.
 

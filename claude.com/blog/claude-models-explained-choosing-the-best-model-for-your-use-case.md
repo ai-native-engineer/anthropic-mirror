@@ -19,6 +19,7 @@
 
   Claude Enterprise
 
+  Claude Platform
 * Date
 
   July 24, 2026
@@ -48,6 +49,8 @@ Of course, as use cases arise that are more latency or cost-sensitive, you can t
 Some organizations may also choose to start with the most cost effective model and move up classes until the quality bar is met. We include both [directional approaches](https://platform.claude.com/docs/en/about-claude/models/choosing-a-model) in our documentation on model selection.
 
 ## The Claude model family
+
+The Claude model family is Anthropic's lineup of AI models — Fable, Opus, Sonnet, and Haiku — each balancing intelligence, speed, and cost differently. Choosing well means matching the model to the job.
 
 ### Mythos / Fable
 
@@ -155,30 +158,6 @@ Enterprise AI
 
 [How the product designer who built Claude Design uses it to explore ideas before building them](https://claude.com/blog/how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them)How the product designer who built Claude Design uses it to explore ideas before building them
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
-
-Jul 24, 2026
-
-### The new rules of context engineering for Claude 5 generation models
-
-Claude Code
-
-[The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
-
-[The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d6ec42bcf1c632f75_52f59749d1e033ff2675c6686a07bcce83fb5046-1000x1000.svg)
-
-Jul 23, 2026
-
-### Four role-based certifications for the people who put Claude to work for customers
-
-Enterprise AI
-
-[Four role-based certifications for the people who put Claude to work for customers](#)Four role-based certifications for the people who put Claude to work for customers
-
-[Four role-based certifications for the people who put Claude to work for customers](https://claude.com/blog/four-role-based-claude-certifications)Four role-based certifications for the people who put Claude to work for customers
-
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224d39f9b8e905d1823_b68cbb43d7c8f56f0b14cc867e8d4d74445f78b0-1000x1000.svg)
 
 Jul 22, 2026
@@ -190,6 +169,30 @@ Claude Code
 [Building verification loops in Claude Code with skills](#)Building verification loops in Claude Code with skills
 
 [Building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills)Building verification loops in Claude Code with skills
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
+
+Jul 6, 2026
+
+### A field guide to Claude Fable 5: Finding your unknowns
+
+Claude Code
+
+[A field guide to Claude Fable 5: Finding your unknowns](#)A field guide to Claude Fable 5: Finding your unknowns
+
+[A field guide to Claude Fable 5: Finding your unknowns](https://claude.com/blog/a-field-guide-to-claude-fable-finding-your-unknowns)A field guide to Claude Fable 5: Finding your unknowns
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229e73ca2d0d73d78f7_682ac293884c9d4ee4ebe2355a2f6c4ecfdd9c1b-1000x1000.svg)
+
+Jun 30, 2026
+
+### Loop engineering: Getting started with loops
+
+Claude Code
+
+[Loop engineering: Getting started with loops](#)Loop engineering: Getting started with loops
+
+[Loop engineering: Getting started with loops](https://claude.com/blog/getting-started-with-loops)Loop engineering: Getting started with loops
 
 ## Transform how your organization operates with Claude
 
@@ -216,3 +219,5 @@ Claude Cowork
 Claude Design
 
 Claude Enterprise
+
+Claude Platform

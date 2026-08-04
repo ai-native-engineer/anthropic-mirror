@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/tutorials-category/healthcare -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Healthcare
 
 # Healthcare
 
 Reduce administrative burden and accelerate healthcare workflows. From prior authorizations to clinical documentation and care coordination, Claude helps teams move faster without sacrificing accuracy, safety, or compliance.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -13,6 +25,8 @@ List
 Category
 
 Product
+
+Features
 
 ![How to use the Prior Auth Review sample skill with Claude](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -203,6 +217,10 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 ## Transform how your organization operates with Claude
 

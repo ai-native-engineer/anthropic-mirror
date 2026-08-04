@@ -18,7 +18,7 @@ Claude for Nonprofits includes three things: discounted access of up to 75% to C
 
 Nonprofits are now eligible for a discount of up to 75% on Team and Enterprise plans.
 
-Our Team plan is designed for smaller organizations looking to collaborate through shared projects and organizational knowledge. Our Enterprise plan suits larger nonprofits that need additional security features and administrative control.
+Our Team plan is designed for smaller organizations looking to collaborate through shared projects and organizational knowledge. Our [Enterprise plan](https://claude.com/solutions/enterprise) suits larger nonprofits that need additional security features and administrative control.
 
 At the discounted price, Claude for Nonprofits includes access to Claude Opus 4.6, Claude Sonnet 4.5, and Claude Haiku 4.5. Opus 4.6 delivers the highest intelligence for the most complex tasks. Sonnet 4.5 is best suited to sophisticated tasks like grant writing and program analysis, while Haiku 4.5 offers near-frontier performance at much faster speed.
 

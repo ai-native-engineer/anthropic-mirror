@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/use-cases-category/hr -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 HR
 
 # HR
 
 Learn how Claude can support hiring, employee engagement, and people operations.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -15,6 +27,8 @@ Author
 Category
 
 Model
+
+Features
 
 ![Create new hire onboarding guides](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a5dcdbef814c12521fc39_Screenshot%202025-11-04%20at%2012.10.49%E2%80%AFPM.png)
 
@@ -38,6 +52,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Extended Thinking
 
 Read use case
@@ -57,3 +73,7 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.

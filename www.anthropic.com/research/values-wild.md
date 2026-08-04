@@ -91,5 +91,3 @@ Working with Andon Labs, we’ve developed a new series of evaluations that asse
 ### How Canada uses Claude: Findings from the Anthropic Economic Index
 
 [Read more](https://www.anthropic.com/research/how-canada-uses-claude)
-
-Values in the wild: Discovering and analyzing values in real-world language model interactions \ Anthropic

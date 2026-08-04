@@ -2,7 +2,7 @@
 
 # Use skills in Claude
 
-Updated over a week ago
+Updated over 2 weeks ago
 
 Skills are available for users on Free, Pro, Max, Team, and Enterprise plans. This feature requires **[code execution to be enabled](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_1c99382190)**. Skills are also available in beta for Claude Code users and for all API users using the code execution tool.
 
@@ -131,7 +131,7 @@ To remove a custom skill you've uploaded:
 3. Use the toggle in the upper right corner to disable the skill.
 4. To delete the custom skill entirely, click the "..." button next to the toggle, then select "Delete":
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1785717000&signature=231137e1bfbe145c0eaf9ead196aef067f8729bdb392d2c862dd34834873eacb&req=diEnE8p3nINYWvMW1HO4zSOgDy4vw%2BGtH%2BdCnFXB0ug2T4B83gpjTroiL40r%0AeemC%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1785717000&signature=231137e1bfbe145c0eaf9ead196aef067f8729bdb392d2c862dd34834873eacb&req=diEnE8p3nINYWvMW1HO4zSOgDy4vw%2BGtH%2BdCnFXB0ug2T4B83gpjTroiL40r%0AeemC%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1785803400&signature=01fd16fb6cbf42471b47f38dad0936e6b66cfce774ff604bd56097322c81e289&req=diEnE8p3nINYWvMW1HO4zSOgDy4gwuWpH%2BdCnFXB0uiFtQz08q98YVS8vKMM%0AJWz8%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1785803400&signature=01fd16fb6cbf42471b47f38dad0936e6b66cfce774ff604bd56097322c81e289&req=diEnE8p3nINYWvMW1HO4zSOgDy4gwuWpH%2BdCnFXB0uiFtQz08q98YVS8vKMM%0AJWz8%0A)
 5. Click "Delete" in the confirmation prompt.
 
 If you change your mind, you can add the skill again by re-uploading the file.

@@ -14,6 +14,14 @@ Join the partner waitlist
 
 ## Browse marketplace
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Legal
 
 [![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3985937993a05b553f8674_Harvey.jpg)
@@ -34,6 +42,8 @@ Put accurate, governed AI to work on your enterprise data.
 
 Data](https://claude.com/platform/marketplace/snowflake)
 
+Code
+
 [![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a30db8d17bc0d0fa42baa6d_lovable.jpeg)
 
 ### Lovable
@@ -42,6 +52,8 @@ Lovable empowers anyone to build, manage, and run apps or websites.
 
 Code](https://claude.com/platform/marketplace/lovable)
 
+Code
+
 [![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f1812f1e3a61b2e4c27576_gitlan.jpeg)
 
 ### GitLab
@@ -49,6 +61,8 @@ Code](https://claude.com/platform/marketplace/lovable)
 Ship faster with agentic AI across your software lifecycle, with enterprise control built in.
 
 Code](https://claude.com/platform/marketplace/gitlab)
+
+Code
 
 [![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42302cf7c203e2403cef6d_Base44%20logo.svg)
 
@@ -68,6 +82,8 @@ Make every deal and investment decision with everything your firm knows.
 
 Financial Services](https://claude.com/platform/marketplace/hebbia)
 
+Code
+
 [![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3982c966275912bffbf898_code-rabbit-square.svg)
 
 ### CodeRabbit
@@ -85,6 +101,8 @@ Legal
 Run matters end to end, across jurisdictions and languages.
 
 Legal](https://claude.com/platform/marketplace/legora)
+
+Code
 
 [![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3984c1836542601e94736a_Augment%20Code.jpg)
 
@@ -111,6 +129,10 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 ## Reach out for details
 

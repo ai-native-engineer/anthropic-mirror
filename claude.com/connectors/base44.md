@@ -6,6 +6,7 @@
 
 Build and manage Base44 apps
 
+  Code
 * Used in
 
   [Claude](https://claude.ai/directory/16ebc92d-b1db-473a-82ef-015426940c4c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
@@ -42,6 +43,8 @@ You can use Base44 to:
 
 ## Related connectors
 
+Code
+
 Claude
 
 Claude Code
@@ -54,6 +57,8 @@ January 26, 2026
 
 Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
+Code
+
 Claude
 
 Claude Code
@@ -65,6 +70,8 @@ March 2, 2026
 ### Clerk
 
 Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
+
+Code
 
 Claude
 
@@ -81,6 +88,8 @@ February 11, 2026
 Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)
 
 Data
+
+Code
 
 Claude
 

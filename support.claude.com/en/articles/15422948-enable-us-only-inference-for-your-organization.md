@@ -59,4 +59,4 @@ US-only inference is only available on usage-based Enterprise plans. If your org
 * [Enable and use web search](https://support.claude.com/en/articles/10684626-enable-and-use-web-search)
 * [How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)
 * [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
-* [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
+* [Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)

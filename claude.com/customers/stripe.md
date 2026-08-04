@@ -110,7 +110,7 @@ New research from 500+ technical leaders reveals how enterprises are deploying A
 
 # The challenge
 
-Stripe needed a CLI-native coding assistant that met enterprise security requirements. For Stripe's developer infrastructure team, led by Scott MacVicar, the challenge wasn't choosing a single winner; it was enabling engineers to find the tools that fit their individual workflows while maintaining enterprise-grade security.
+Stripe needed a CLI-native coding assistant that met [enterprise security requirements](https://claude.com/solutions/enterprise). For Stripe's developer infrastructure team, led by Scott MacVicar, the challenge wasn't choosing a single winner; it was enabling engineers to find the tools that fit their individual workflows while maintaining enterprise-grade security.
 
 "Things are rapidly evolving here," said MacVicar, who runs Stripe's developer infrastructure group. "We're really just going broad and haven't started doing any consolidation." The team enabled six different coding assistants, recognizing that different engineering personas gravitate toward different interaction models. Infrastructure engineers prefer command-line tools. Product engineers want in-editor experiences. Forcing everyone into one tool would mean leaving productivity on the table.
 
@@ -170,6 +170,14 @@ Video caption
 
 ## Related stories
 
+[How Notability built a study tool that improves with every Claude release](https://claude.com/customers/notability)How Notability built a study tool that improves with every Claude release
+
+How Notability built a study tool that improves with every Claude release
+
+Customer story
+
+[Customer story](https://claude.com/customers/notability)Customer story
+
 [Dust enables agents to go deeper at lower cost with Claude](https://claude.com/customers/dust)Dust enables agents to go deeper at lower cost with Claude
 
 Dust enables agents to go deeper at lower cost with Claude
@@ -193,11 +201,3 @@ Box builds document creation into its AI agent with Claude
 Customer story
 
 [Customer story](https://claude.com/customers/box)Customer story
-
-[Juno helps people with chronic illness find patterns in their symptoms with Claude](https://claude.com/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
-
-Juno helps people with chronic illness find patterns in their symptoms with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/juno)Customer story

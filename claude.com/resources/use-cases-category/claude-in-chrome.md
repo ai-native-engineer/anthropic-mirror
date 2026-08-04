@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/use-cases-category/claude-in-chrome -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Claude in Chrome
 
 # Claude in Chrome
 
 Experience Claude as a browser agent that works alongside you. Learn how Claude navigates real websites, reads live data, fills forms, extracts information, and takes action—all through your existing browser sessions.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -15,6 +27,8 @@ Author
 Category
 
 Model
+
+Features
 
 ![Pull metrics from analytics dashboards](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6943367890043e22749dddf5_metric.png)
 
@@ -37,6 +51,8 @@ Claude in Chrome
 Model
 
 Haiku 4.5
+
+Features
 
 Browser Use
 
@@ -72,6 +88,8 @@ Model
 
 Haiku 4.5
 
+Features
+
 Browser Use
 
 Read use case
@@ -105,6 +123,8 @@ Claude in Chrome
 Model
 
 Haiku 4.5
+
+Features
 
 Browser Use
 
@@ -140,6 +160,8 @@ Model
 
 Haiku 4.5
 
+Features
+
 Browser Use
 
 Read use case
@@ -173,6 +195,8 @@ Claude in Chrome
 Model
 
 Haiku 4.5
+
+Features
 
 Browser Use
 
@@ -208,6 +232,8 @@ Model
 
 Haiku 4.5
 
+Features
+
 Browser Use
 
 Read use case
@@ -227,3 +253,7 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.

@@ -6,14 +6,14 @@ March 16, 2026
 
 To help you identify legitimate marketing communications from Anthropic, all our marketing emails are sent from addresses ending in anthropic.com or claude.com. Below are the official email addresses we use for marketing communications:
 
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#dfabbabeb29fbab2beb6b3f1beb1abb7adb0afb6bcf1bcb0b2)
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#c9a8b9a089aca4a8a0a5e7a8a7bda1bba6b9a0aae7aaa6a4)
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#c7a9a8b3aea4a287a2aaa6aeabe9a6a9b3afb5a8b7aea4e9a4a8aa)
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#a5d6d0d5d5cad7d1e5c8c4ccc98bc4cbd1cdd7cad5ccc68bc6cac8)
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#e0818e9488928f908983cd9485818da08d81898cce818e9488928f908983ce838f8d)
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#f784969b9284b79a969e9bd99699839f8598879e94d994989a)
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#5a343577283f2a36231a3f373b33367439363b2f3e3f74393537)
-* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#3a545517485f4a56437a485f495f5b485952145b544e5248554a535914595557)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#b1c5d4d0dcf1d4dcd0d8dd9fd0dfc5d9c3dec1d8d29fd2dedc)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#e687968fa6838b878f8ac88788928e9489968f85c885898b)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#147a7b607d7771547179757d783a757a607c667b647d773a777b79)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#2d5e585d5d425f596d404c4441034c4359455f425d444e034e4240)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#573639233f2538273e347a2332363a173a363e3b793639233f2538273e347934383a)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#5320323f3620133e323a3f7d323d273b213c233a307d303c3e)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#deb0b1f3acbbaeb2a79ebbb3bfb7b2f0bdb2bfabbabbf0bdb1b3)
+* [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#305e5f1d4255405c497042554355514253581e515e4458425f4059531e535f5d)
 
 Please note that these addresses are outbound only with unmonitored inboxes.
 

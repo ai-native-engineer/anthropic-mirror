@@ -49,5 +49,5 @@ This includes using agents to:
 * [Updates to our Acceptable Use Policy (now “Usage Policy”), Consumer Terms of Service, and Privacy Policy](https://support.claude.com/en/articles/9301722-updates-to-our-acceptable-use-policy-now-usage-policy-consumer-terms-of-service-and-privacy-policy)
 * [Exceptions to our Usage Policy](https://support.claude.com/en/articles/9528712-exceptions-to-our-usage-policy)
 * [Claude Code usage analytics](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics)
-* [View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)
+* [Buy usage bundles](https://support.claude.com/en/articles/14246112-buy-usage-bundles)
 * [Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)

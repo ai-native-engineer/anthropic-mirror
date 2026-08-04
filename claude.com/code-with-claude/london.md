@@ -12,6 +12,10 @@ Watch recordings
 
 Pick a track and watch the talks, as fresh as the day they were presented.
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 [Watch recording](https://claude.com/code-with-claude/session/ldn-opening-keynote)Watch recording
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d40a2751238ea0648361_london-keynote.webp)
@@ -59,6 +63,8 @@ Memory and dreaming for self-learning agents
 Ravi Trivedi
 
 , Anthropic
+
+Claude Platform
 
 [Watch recording](https://claude.com/code-with-claude/session/ldn-picking-the-right-model)Watch recording
 
@@ -153,5 +159,7 @@ Clear all filters
 [Attend virtually](#)Attend virtually
 
 [Homepage](https://claude.com/code-with-claude)Homepage
+
+© [year] Anthropic PBC
 
 [PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)

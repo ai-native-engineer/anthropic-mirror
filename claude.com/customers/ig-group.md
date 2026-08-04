@@ -74,7 +74,7 @@ Video caption
 
 [Next](#)Next
 
-IG Group, a global leader in online trading and financial services, uses Claude for Work to streamline internal processes across teams and departments. By empowering employees with Claude's capabilities, they have enhanced productivity, accelerated time-to-market, and delivered significant cost savings.
+IG Group, a global leader in online trading and financial services, uses [Claude for Work](https://claude.com/solutions/enterprise) to streamline internal processes across teams and departments. By empowering employees with Claude's capabilities, they have enhanced productivity, accelerated time-to-market, and delivered significant cost savings.
 
 With Claude, IG Group saw:
 

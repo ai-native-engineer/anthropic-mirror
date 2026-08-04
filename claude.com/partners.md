@@ -41,6 +41,8 @@ AWS
 
 Google Cloud
 
+[Google Cloud](https://claude.com/partners/google-cloud)Google Cloud
+
 Microsoft
 
 [Microsoft](https://claude.com/partners/microsoft-foundry)Microsoft

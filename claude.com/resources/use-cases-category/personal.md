@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/use-cases-category/personal -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Personal
 
 # Personal
 
 See how Claude can help with learning, creating, and tackling personal projects from practical examples.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -15,6 +27,8 @@ Author
 Category
 
 Model
+
+Features
 
 ![Map your understanding and build lessons from the gaps](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984d41e291de9cabde3b544_Screenshot%202026-02-05%20at%209.31.53%E2%80%AFAM.png)
 
@@ -37,6 +51,8 @@ Personal
 Model
 
 Opus 4.6
+
+Features
 
 Extended Thinking
 
@@ -72,6 +88,8 @@ Model
 
 Opus 4.6
 
+Features
+
 Extended Thinking
 
 Read use case
@@ -105,6 +123,8 @@ Personal
 Model
 
 Opus 4.5
+
+Features
 
 Cowork
 
@@ -140,6 +160,8 @@ Model
 
 Opus 4.5
 
+Features
+
 Connectors
 
 Read use case
@@ -173,6 +195,8 @@ Personal
 Model
 
 Opus 4.5
+
+Features
 
 Web Search
 
@@ -212,6 +236,8 @@ Model
 
 Haiku 4.5
 
+Features
+
 Browser Use
 
 Read use case
@@ -245,6 +271,8 @@ Claude in Chrome
 Model
 
 Haiku 4.5
+
+Features
 
 Browser Use
 
@@ -280,6 +308,8 @@ Model
 
 Haiku 4.5
 
+Features
+
 Browser Use
 
 Read use case
@@ -313,6 +343,8 @@ Personal
 Model
 
 Opus 4.5
+
+Features
 
 Extended Thinking
 
@@ -348,6 +380,8 @@ Model
 
 Opus 4.5
 
+Features
+
 Extended Thinking
 
 Read use case
@@ -381,6 +415,8 @@ Personal
 Model
 
 Opus 4.5
+
+Features
 
 Extended Thinking
 
@@ -416,6 +452,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Skills
 
 Read use case
@@ -449,6 +487,8 @@ Personal
 Model
 
 Sonnet 4.5
+
+Features
 
 Connectors
 
@@ -486,6 +526,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Web Search
 
 Read use case
@@ -520,6 +562,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Extended Thinking
 
 Read use case
@@ -543,3 +587,7 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.

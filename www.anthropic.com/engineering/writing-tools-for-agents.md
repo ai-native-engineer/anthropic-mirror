@@ -243,5 +243,3 @@ Explore courses](https://anthropic.skilljar.com/)
 ## Get the developer newsletter
 
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
-
-Writing effective tools for AI agents—using AI agents \ Anthropic

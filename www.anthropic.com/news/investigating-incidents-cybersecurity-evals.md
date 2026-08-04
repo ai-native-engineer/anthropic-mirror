@@ -113,17 +113,15 @@ We began this review after OpenAI disclosed that its models had escaped an isola
 
 These facts give us cautious optimism that with tighter monitoring and controls around evaluation infrastructure, as well as continued investment in alignment, this type of risk can be overcome.
 
+*Updated Aug 3:* Corrected the name of the evaluation in which the OpenAI/Hugging Face incident occurred.
+
 #### Footnotes
 
 1. We routinely test internal research prototypes like this one. It is not planned for general release.
-2. We generally store traces for benchmark evaluations. We have carefully audited these two benchmarks in particular for signs of harm because the OpenAI/Hugging Face incident occurred during an evaluation of CyberGym.
+2. We generally store traces for benchmark evaluations. We have carefully audited these two benchmarks in particular for signs of harm because the OpenAI/Hugging Face incident occurred during an evaluation of ExploitGym.
 
 ### Introducing Claude Opus 5
 
 Opus 5 is a step change improvement for the Opus tier powering long-running agents while delivering improvements in coding and professional work.
 
 [Read more](https://www.anthropic.com/news/claude-opus-5)
-
-## Subscribe to the Frontier Red Team newsletter
-
-Get updates on our latest red-teaming research and findings.

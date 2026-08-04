@@ -26,6 +26,8 @@ Product:
 
 Claude Agent SDK
 
+[Claude Platform](https://claude.com/platform/api)
+
 Location:
 
 North America
@@ -169,6 +171,14 @@ Video caption
 
 ## Related stories
 
+[How Notability built a study tool that improves with every Claude release](https://claude.com/customers/notability)How Notability built a study tool that improves with every Claude release
+
+How Notability built a study tool that improves with every Claude release
+
+Customer story
+
+[Customer story](https://claude.com/customers/notability)Customer story
+
 [Dust enables agents to go deeper at lower cost with Claude](https://claude.com/customers/dust)Dust enables agents to go deeper at lower cost with Claude
 
 Dust enables agents to go deeper at lower cost with Claude
@@ -192,11 +202,3 @@ Box builds document creation into its AI agent with Claude
 Customer story
 
 [Customer story](https://claude.com/customers/box)Customer story
-
-[Juno helps people with chronic illness find patterns in their symptoms with Claude](https://claude.com/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
-
-Juno helps people with chronic illness find patterns in their symptoms with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/juno)Customer story

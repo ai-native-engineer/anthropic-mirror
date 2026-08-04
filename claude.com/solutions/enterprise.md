@@ -341,6 +341,8 @@ Suggested next steps
 
 Claude Code for Enterprise
 
+[Claude Code for Enterprise](https://claude.com/product/claude-code/enterprise)Claude Code for Enterprise
+
 Prompt
 
 Build a Q1 channel performance review. Pull spend and conversions from HubSpot and paid social metrics from our LinkedIn dashboards. Show ROAS by channel over the last six months and flag the channels where performance is declining.

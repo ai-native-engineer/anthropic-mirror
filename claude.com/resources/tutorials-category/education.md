@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/tutorials-category/education -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Education
 
 # Education
 
 Explore ways Claude can support teaching, learning, and academic work for educators and students.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -13,6 +25,8 @@ List
 Category
 
 Product
+
+Features
 
 ![Visuals that appear as you study with Claude](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b2e65eb086db1e8b550ae8_Screenshot%202026-03-12%20at%209.14.16%E2%80%AFAM.png)
 
@@ -105,6 +119,10 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 ## Transform how your organization operates with Claude
 

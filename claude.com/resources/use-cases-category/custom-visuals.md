@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/use-cases-category/custom-visuals -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Custom visuals
 
 # Custom visuals
 
 Visuals that appear as part of your conversation with Claude — diagrams, charts, and interactive tools drawn inline while you chat.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -15,6 +27,8 @@ Author
 Category
 
 Model
+
+Features
 
 ![See what your campaign goal actually requires](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b28c90803ff07e4f3c4b31_Screenshot%202026-03-12%20at%202.51.09%E2%80%AFAM.png)
 
@@ -37,6 +51,8 @@ Nonprofits
 Model
 
 Sonnet 4.6
+
+Features
 
 Custom visuals
 
@@ -72,6 +88,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Custom visuals
 
 Read use case
@@ -105,6 +123,8 @@ Nonprofits
 Model
 
 Sonnet 4.6
+
+Features
 
 Custom visuals
 
@@ -140,6 +160,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Custom visuals
 
 Read use case
@@ -173,6 +195,8 @@ Education
 Model
 
 Sonnet 4.6
+
+Features
 
 Custom visuals
 
@@ -208,6 +232,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Custom visuals
 
 Read use case
@@ -241,6 +267,8 @@ Education
 Model
 
 Sonnet 4.6
+
+Features
 
 Custom visuals
 
@@ -276,6 +304,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Custom visuals
 
 Read use case
@@ -309,6 +339,8 @@ Education
 Model
 
 Sonnet 4.6
+
+Features
 
 Custom visuals
 
@@ -344,6 +376,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Custom visuals
 
 Read use case
@@ -378,6 +412,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Custom visuals
 
 Read use case
@@ -397,3 +433,7 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.

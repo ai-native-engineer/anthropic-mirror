@@ -2,7 +2,7 @@
 
 # Available beta and research preview features
 
-Updated over 3 weeks ago
+Updated over a month ago
 
 Claude offers some features in beta or research preview before they become generally available. This article explains what those labels mean, which features they apply to, and what to expect when you use them.
 

@@ -24,7 +24,7 @@ Large
 
 Product:
 
-Claude Code
+[Claude Code](https://claude.com/product/claude-code)
 
 Partner:
 
@@ -122,7 +122,7 @@ Claude stood out for understanding intent, not just instructions. "While other m
 
 Access mattered as much as capability. LG CNS reaches Claude through Amazon Bedrock, which lets the team run Claude inside the AWS security configurations its enterprise customers already have in place. For clients in regulated industries such as financial services, that changed the nature of the adoption discussion. "The conversation shifts from 'Can we trust this model?' to 'How can we use a technology that is already within our security boundary?'" Bae noted.
 
-Selecting the model was only half the equation. Enterprise customers need far more than generated code: they expect security, compliance, testing, and uniform quality across thousands of APIs and screens.
+Selecting the model was only half the equation. [Enterprise customers](https://claude.com/solutions/enterprise) need far more than generated code: they expect security, compliance, testing, and uniform quality across thousands of APIs and screens.
 
 To deliver that, the Build Center, LG CNS's 200-engineer technology delivery organization, built an engineering orchestration layer around Claude Code. The harness connects legacy analysis, business logic extraction, code generation, testing, verification, and quality management.
 

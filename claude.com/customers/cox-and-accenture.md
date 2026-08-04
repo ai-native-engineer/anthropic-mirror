@@ -24,9 +24,11 @@ Large
 
 Product:
 
-Claude Code
+[Claude Platform](https://claude.com/platform/api)
 
-Claude Cowork
+[Claude Code](https://claude.com/product/claude-code)
+
+[Claude Cowork](https://claude.com/product/cowork)
 
 Partner:
 

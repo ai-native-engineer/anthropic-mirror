@@ -215,9 +215,9 @@ OnboardingTriage issuesRefactor code
 ```
 I'm new to this codebase. Can you explain it to me?
 
-⏺ I'll analyze the Excalidraw codebase structure and provide a high-level overview.
+⏺︎ I'll analyze the Excalidraw codebase structure and provide a high-level overview.
 
-⏺ Analyze(what: "Excalidraw codebase structure and provide a high-level overview of what it is, its main components, and how they're organized. Focus on understanding the project's purpose, architecture, and key features.")
+⏺︎ Analyze(what: "Excalidraw codebase structure and provide a high-level overview of what it is, its main components, and how they're organized. Focus on understanding the project's purpose, architecture, and key features.")
 
 Excalidraw is an open-source virtual whiteboard application with a hand-drawn style. It's designed for creating diagrams, wireframes, and collaborative drawings.
 

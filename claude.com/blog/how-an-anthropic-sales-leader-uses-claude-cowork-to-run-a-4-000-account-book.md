@@ -4,9 +4,7 @@
 
 # How an Anthropic sales leader uses Claude Cowork to run a 4,000-account book
 
-*Travis Bryant, Head of US Mid-Market GTM at Anthropic, shares how he uses Claude Cowork to prepare customer briefs and weekly forecasts, and to run an overnight territory scoring that used to take cross-functional teams hundreds of hours.*
-
-‍
+*Travis Bryant, Head of US Mid-Market GTM at Anthropic, shares how he uses* [*Claude Cowork*](https://claude.com/product/cowork) *to prepare customer briefs and weekly forecasts, and to run an overnight territory scoring that used to take cross-functional teams hundreds of hours.*
 
 Travis walks through how he uses Claude Cowork to prepare customer briefs, pull weekly forecasts, and score 4,000 accounts overnight.
 
@@ -32,7 +30,7 @@ Join the webinar
 
   https://claude.com/blog/how-an-anthropic-sales-leader-uses-claude-cowork-to-run-a-4-000-account-book
 
-In sales leadership, the job is to make judgment calls: where to invest the team's hours, and what to tell leadership about how the quarter is shaping up. The work surrounding those decisions, like assembling data from four systems and re-baselining numbers every time numbers refresh, used to eat most of my week. [Claude Cowork](http://claude.com/cowork) has shifted that balance: it handles the data assembly and reformatting, so I can dedicate more time to customer conversations and strategic decisions.
+In sales leadership, the job is to make judgment calls: where to invest the team's hours, and what to tell leadership about how the quarter is shaping up. The work surrounding those decisions, like assembling data from four systems and re-baselining numbers every time numbers refresh, used to eat most of my week. [Claude Cowork](https://claude.com/product/cowork) has shifted that balance: it handles the data assembly and reformatting, so I can dedicate more time to customer conversations and strategic decisions.
 
 I run US mid-market go-to-market at Anthropic, which means I'm responsible for 4,000 accounts split between mid-market tech and industries. Mid-market includes tech companies that aren't startups anymore, but aren't large enterprises yet either. Industries cover everything else, from financial services and healthcare to retail and manufacturing.
 
@@ -76,9 +74,7 @@ The second is to run big strategic projects as overnight Claude Cowork routines.
 
 Before Claude Cowork, data assembly, report formatting, and the rebaseline when a number changes used to fill my week. Now, I have the hours back to dedicate to the strategic and customer-relationship work that pushes the needle.
 
-[***Learn more about how sales teams use Claude Cowork***](https://claude.com/resources/tutorials/using-claude-cowork-for-sales-account-research) ***and*** [***get started***](http://claude.com/cowork) ***today.***
-
-‍
+[***Learn more about how sales teams use Claude Cowork***](https://claude.com/resources/tutorials/using-claude-cowork-for-sales-account-research) ***and*** [***get started***](https://claude.com/product/cowork) ***today.***
 
 No items found.
 
@@ -128,29 +124,29 @@ Enterprise AI
 
 [Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d6ec42bcf1c632f75_52f59749d1e033ff2675c6686a07bcce83fb5046-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d23008bbc20c0ffaeb6f_43abe7e54b56a891e74a8542944dfbd33f07f49c-1000x1000.svg)
 
-Jul 23, 2026
+Jun 18, 2026
 
-### Four role-based certifications for the people who put Claude to work for customers
+### Centrally manage authorization for MCP connectors
 
 Enterprise AI
 
-[Four role-based certifications for the people who put Claude to work for customers](#)Four role-based certifications for the people who put Claude to work for customers
+[Centrally manage authorization for MCP connectors](#) Centrally manage authorization for MCP connectors
 
-[Four role-based certifications for the people who put Claude to work for customers](https://claude.com/blog/four-role-based-claude-certifications)Four role-based certifications for the people who put Claude to work for customers
+[Centrally manage authorization for MCP connectors](https://claude.com/blog/enterprise-managed-auth) Centrally manage authorization for MCP connectors
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
 
-Jul 21, 2026
+May 22, 2026
 
-### How Anthropic secures its AI-native software development lifecycle
+### How Anthropic's finance team uses Claude to shape the narrative behind the numbers
 
-Claude Code
+Enterprise AI
 
-[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
+[How Anthropic's finance team uses Claude to shape the narrative behind the numbers](#)How Anthropic's finance team uses Claude to shape the narrative behind the numbers
 
-[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
+[How Anthropic's finance team uses Claude to shape the narrative behind the numbers](https://claude.com/blog/how-anthropics-finance-team-uses-claude-to-shape-the-narrative-behind-the-numbers)How Anthropic's finance team uses Claude to shape the narrative behind the numbers
 
 ## Transform how your organization operates with Claude
 

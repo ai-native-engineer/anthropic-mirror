@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/use-cases-category/education -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Education
 
 # Education
 
 Explore ways Claude can support teaching, learning, and academic work for educators and students.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -15,6 +27,8 @@ Author
 Category
 
 Model
+
+Features
 
 ![Adapt a standard textbook page to every reading level](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e0f28373d7c9dfb19a5768_textbook.png)
 
@@ -37,6 +51,8 @@ Cowork
 Model
 
 Opus 4.7
+
+Features
 
 Cowork
 
@@ -72,6 +88,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Custom visuals
 
 Read use case
@@ -105,6 +123,8 @@ Education
 Model
 
 Sonnet 4.6
+
+Features
 
 Custom visuals
 
@@ -140,6 +160,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Custom visuals
 
 Read use case
@@ -173,6 +195,8 @@ Education
 Model
 
 Sonnet 4.6
+
+Features
 
 Custom visuals
 
@@ -208,6 +232,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Custom visuals
 
 Read use case
@@ -241,6 +267,8 @@ Education
 Model
 
 Sonnet 4.6
+
+Features
 
 Custom visuals
 
@@ -276,6 +304,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Custom visuals
 
 Read use case
@@ -310,6 +340,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Extended Thinking
 
 Read use case
@@ -343,6 +375,8 @@ Education
 Model
 
 Sonnet 4.5
+
+Features
 
 Connectors
 
@@ -380,6 +414,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Extended Thinking
 
 Read use case
@@ -414,6 +450,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Connectors
 
 Read use case
@@ -433,3 +471,7 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.

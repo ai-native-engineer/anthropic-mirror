@@ -9,6 +9,8 @@ While single-agent systems handle most enterprise workflows effectively, multi-a
   [Agents](https://claude.com/blog/category/agents)
 * Product
 
+  Claude Platform
+
   Claude Code
 * Date
 
@@ -431,6 +433,18 @@ Enterprise AI
 
 [Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6909386cc7ad3ed2a7ec8eed_Object-ThoughtBubble.svg)
+
+Nov 10, 2025
+
+### Best practices for prompt engineering for 2026
+
+Agents
+
+[Best practices for prompt engineering for 2026](#)Best practices for prompt engineering for 2026
+
+[Best practices for prompt engineering for 2026](https://claude.com/blog/best-practices-for-prompt-engineering)Best practices for prompt engineering for 2026
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
 Jul 24, 2026
@@ -455,18 +469,6 @@ Claude Code
 
 [How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
-
-Jul 22, 2026
-
-### How Outtake built a cyber investigator on Claude
-
-Agents
-
-[How Outtake built a cyber investigator on Claude](#)How Outtake built a cyber investigator on Claude
-
-[How Outtake built a cyber investigator on Claude](https://claude.com/blog/how-outtake-built-a-cyber-investigator-on-claude)How Outtake built a cyber investigator on Claude
-
 ## Transform how your organization operates with Claude
 
 See pricing
@@ -484,5 +486,7 @@ Product updates, how-tos, community spotlights, and more. Delivered monthly to y
 Thank you! You’re subscribed.
 
 Sorry, there was a problem with your submission, please try again later.
+
+Claude Platform
 
 Claude Code

@@ -6,6 +6,7 @@
 
 Add authentication, organizations, and billing
 
+  Code
 * Used in
 
   [Claude](https://claude.ai/directory/48a3eb31-a881-4d52-b179-1af31624356a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
@@ -42,6 +43,8 @@ You can use Clerk to:
 
 ## Related connectors
 
+Code
+
 Claude
 
 Claude Code
@@ -54,6 +57,8 @@ January 26, 2026
 
 Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
+Code
+
 Claude
 
 March 9, 2026
@@ -63,6 +68,8 @@ March 9, 2026
 ### Base44
 
 Build and manage Base44 apps](https://claude.com/connectors/base44)
+
+Code
 
 Claude
 
@@ -79,6 +86,8 @@ February 11, 2026
 Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)
 
 Data
+
+Code
 
 Claude
 

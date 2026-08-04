@@ -2,7 +2,7 @@
 
 # Use Claude for Outlook
 
-Updated over a month ago
+Updated today
 
 Claude for Outlook is an add-in that integrates Claude into your Outlook inbox and calendar. It’s designed for professionals who live in email, including private equity and investment banking associates managing deal flow, in-house legal teams running counterparty negotiations, and consultants juggling client threads.
 
@@ -27,7 +27,7 @@ With Claude for Outlook, you can:
 
 ### For individuals
 
-1. Navigate to the **[Claude for Outlook listing on Microsoft AppSource](https://marketplace.microsoft.com/en-us/product/office/WA200010724?tab=Overview)**.
+1. Navigate to the **[Claude for Outlook listing](https://marketplace.microsoft.com/en-us/product/office/WA200010724?tab=Overview)** on Microsoft Marketplace.
 2. Click “Get it now” to install the add-in.
 3. Open Outlook, open any email, click the Claude button in the ribbon, and sign in with your Claude account.
 
@@ -37,7 +37,7 @@ With Claude for Outlook, you can:
 
 1. Visit the **[Microsoft 365 Admin Center](https://admin.microsoft.com/)**.
 2. Navigate to **Settings > Integrated apps > Add-ins**.
-3. Search for “Claude by Anthropic for Outlook” in Microsoft AppSource.
+3. Search for “Claude for Outlook” in Microsoft AppSource.
 4. Deploy the add-in to your organization or specific people.
 5. Share these instructions with your team: **[Microsoft’s deployment guide](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-deployment-of-add-ins?view=o365-worldwide)**.
 
@@ -294,4 +294,8 @@ Every draft lands unsent in Outlook’s compose pane. Edit it, discard it, or as
 
 Claude can read mail in shared mailboxes you have delegate access to. Acting on a shared mailbox follows the same review-before-send flow.
 
-[Use Claude in Slack](https://support.claude.com/en/articles/12461605-use-claude-in-slack)[Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)[Work across Microsoft 365 apps](https://support.claude.com/en/articles/13892150-work-across-microsoft-365-apps)[Use Claude for Word](https://support.claude.com/en/articles/14465370-use-claude-for-word)[Connect to Microsoft 365](https://support.claude.com/en/articles/15183774-connect-to-microsoft-365)
+* [Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)
+* [Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)
+* [Work across Microsoft 365 apps](https://support.claude.com/en/articles/13892150-work-across-microsoft-365-apps)
+* [Use Claude for Word](https://support.claude.com/en/articles/14465370-use-claude-for-word)
+* [Connect to Microsoft 365](https://support.claude.com/en/articles/15183774-connect-to-microsoft-365)

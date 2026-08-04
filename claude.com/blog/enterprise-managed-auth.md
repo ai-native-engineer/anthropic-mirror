@@ -140,7 +140,7 @@ eBook
 
 ### Getting started
 
-Enterprise-managed auth is available today in beta for customers on the Claude Team and Enterprise plans. [Learn more](https://support.claude.com/en/articles/15537633) on our Help Center and [apply for access](https://claude.com/form/ema-waitlist) to get started.
+Enterprise-managed auth is available today in beta for customers on the Claude Team and [Enterprise](https://claude.com/solutions/enterprise) plans. [Learn more](https://support.claude.com/en/articles/15537633) on our Help Center and [apply for access](https://claude.com/form/ema-waitlist) to get started.
 
 Any identity or MCP provider can add support for enterprise-managed auth by implementing the [openextension](https://blog.modelcontextprotocol.io/posts/enterprise-managed-auth) to the MCP authorization spec. Submit interest to join the beta[here.](https://docs.google.com/forms/d/e/1FAIpQLSf1goHGNDVFK7rncYuh6wnRpWSy7eGOcgL1i8uw3oyKFO9UUA/viewform?usp=sharing&ouid=101055591948883487705)
 
@@ -188,17 +188,17 @@ Enterprise AI
 
 [Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d6ec42bcf1c632f75_52f59749d1e033ff2675c6686a07bcce83fb5046-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22349f86cd1968deab7_f06ca06f9d08ca4a85f26357eb896c3730274507-1000x1000.svg)
 
-Jul 23, 2026
+Jul 2, 2026
 
-### Four role-based certifications for the people who put Claude to work for customers
+### Giving admins more visibility and control over Claude spend
 
-Enterprise AI
+Product announcements
 
-[Four role-based certifications for the people who put Claude to work for customers](#)Four role-based certifications for the people who put Claude to work for customers
+[Giving admins more visibility and control over Claude spend](#)Giving admins more visibility and control over Claude spend
 
-[Four role-based certifications for the people who put Claude to work for customers](https://claude.com/blog/four-role-based-claude-certifications)Four role-based certifications for the people who put Claude to work for customers
+[Giving admins more visibility and control over Claude spend](https://claude.com/blog/giving-admins-more-visibility-and-control-over-claude-usage-and-spend)Giving admins more visibility and control over Claude spend
 
 ## Transform how your organization operates with Claude
 

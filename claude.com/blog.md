@@ -1,5 +1,9 @@
 <!-- source: https://claude.com/blog -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 # Blog
 
 Product news and best practices for teams building with Claude.
@@ -139,6 +143,14 @@ April 8, 2026
 April 2, 2026
 
 [Read more](https://claude.com/blog/harnessing-claudes-intelligence)Read more
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -664,6 +676,10 @@ Download now
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68e9140968560c6fe367e267_Hand-City-light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68e9140d1a23dfc2e7405210_Hand-City-dark.svg)
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 ## Transform how your organization operates with Claude
 

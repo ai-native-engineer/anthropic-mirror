@@ -1,5 +1,9 @@
 <!-- source: https://claude.com/partners/services -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Anthropic Academy
 
 How Intercom uses Claude to deliver higher-quality customer AI agent experiences
@@ -19,6 +23,14 @@ How to become a partner
 [Prev](#)Prev
 
 [Next](#)Next
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 [![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68f679a0b07cb25d6830bc76_accenture_logo.svg.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68f679a262980d8650836fd9_accenture_logo.svg-1.svg)](https://www.accenture.com/us-en/services/data-ai)
 
@@ -81,6 +93,52 @@ Healthcare life sciences
 Government
 
 [Learn more](https://www.boozallen.com/expertise/artificial-intelligence.html)
+
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4d5a740c17b94a5ca27fa2_BNT_light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4d5a760c17b94a5ca280d4_BNT_dark.svg)](https://www.bounteous.com/partners/anthropic/)
+
+Bounteous is a global AI Services firm where agentic engineering and human experience converge to deliver transformative business outcomes for the enterprise. We help organizations design, build, and scale AI-driven products, platforms, and processes. With more than 5,000 team members worldwide, Bounteous helps organizations take AI from experimentation to enterprise scale. Bounteous is backed by New Mountain Capital, a New York-based growth-oriented investment firm that emphasizes business building.
+
+Financial services
+
+Healthcare life sciences
+
+Retail
+
+Manufacturing
+
+Telco
+
+Tech
+
+Travel
+
+[Learn more](https://www.bounteous.com/partners/anthropic/)
+
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4e9e12d14853296d9e3dc9_Capgemini_light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4e9e1760af0a672ae87a2d_Capgemini_dark.svg)](https://www.capgemini.com)
+
+Capgemini is an AI-powered global business and technology transformation partner, delivering tangible business value. We imagine the future of organizations and make it real with AI, technology and people. With nearly 60 years’ heritage, 420,000 team members in 50+ countries, Capgemini delivers end-to-end services across strategy, technology, design, engineering and operations.
+
+Financial services
+
+Healthcare life sciences
+
+Retail
+
+Manufacturing
+
+Telco
+
+Education
+
+Government
+
+Automotive
+
+Aerospace & Defense
+
+Utilities
+
+[Learn more](https://www.capgemini.com)
 
 [![Caylent](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2a05bcd76e1d673fc80f2_caylent-light-mode.svg)![Caylent](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2a05d723ff69d39ca2748_caylent-dark-mode.svg)](https://caylent.com/anthropic)
 
@@ -171,6 +229,22 @@ Telco
 Tech
 
 [Learn more](https://www.distyl.ai)
+
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4c25fe933c0971c5213df2_DXC_light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4c26026abdee7fedea0ab1_DXC_dark.svg)](https://www.DXC.com)
+
+For 60+ years, DXC has designed, engineered and operated some of the world’s most complex technology estates for enterprises and governments. As a Claude Global Premier Partner, we embed Claude-certified engineers directly in our customers’ environments to bring agentic AI into their mission-critical systems. With our deep domain expertise in insurance, cybersecurity and application modernization, we are co-creating new offerings with Anthropic, all backed by a proven customer zero Claude integration across our own operations.
+
+Financial services
+
+Healthcare life sciences
+
+Manufacturing
+
+Tech
+
+Government
+
+[Learn more](https://www.DXC.com)
 
 [![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1df50338edc93f181a61a6_EPAM_light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1df5079559678d2817abd8_EPAM_dark.svg)](https://www.epam.com/services/artificial-intelligence)
 
@@ -264,7 +338,7 @@ Government
 
 [Learn more](https://www.infosys.com)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a19fcc2b97e37e40c0d21d6_KPMG_light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a19fcc1a701274a97f8616c_KPMG_dark.svg)](https://kpmg.com/us/en.html)
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a19fcc2b97e37e40c0d21d6_KPMG_light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a19fcc1a701274a97f8616c_KPMG_dark.svg)](https://kpmg.com/us/en/capabilities-services/alliances/anthropic.html)
 
 KPMG is one of the "Big Four" global professional services firms. As a network of independent member firms, KPMG operates across roughly 140 countries and territories with more than 276,000 partners and employees around the world. KPMG provides audit, tax, and advisory services to large corporations, governments, and institutions worldwide.
 
@@ -284,7 +358,7 @@ Consulting
 
 Global System Integrator
 
-[Learn more](https://kpmg.com/us/en.html)
+[Learn more](https://kpmg.com/us/en/capabilities-services/alliances/anthropic.html)
 
 [![Leidos logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c20158493b4873faae5b44_Leidos.svg)![Leidos logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c20158493b4873faae5b44_Leidos.svg)](https://www.leidos.com)
 

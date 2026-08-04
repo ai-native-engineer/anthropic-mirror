@@ -12,7 +12,7 @@ We do not use your voice for training our models. If you have allowed us to use 
 
 Learn more about our privacy practices by visiting our [Privacy Policy](https://www.anthropic.com/legal/privacy) and [Privacy Center](https://privacy.anthropic.com/en/).
 
-* [Can you delete data sent via Claude?](https://privacy.claude.com/en/articles/7996878-can-you-delete-data-sent-via-claude)
+* [How do you use personal data in model training?](https://privacy.claude.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training)
 * [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)
 * [What personal data will be processed by Computer use?](https://privacy.claude.com/en/articles/10030352-what-personal-data-will-be-processed-by-computer-use)
 * [What Personal data is collected when using dictation on the Claude Mobile Apps?](https://privacy.claude.com/en/articles/10067984-what-personal-data-is-collected-when-using-dictation-on-the-claude-mobile-apps)

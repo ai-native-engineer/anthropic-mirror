@@ -1,6 +1,6 @@
 # claude (YouTube)
 
-영상 162개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 163개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
 - [Build data-driven lesson plans with Claude for Teachers](claude/260715-build-data-driven-lesson-plans-with-claude-for-teachers.md) — 2026-07-15
 - [Plan smarter with Claude for Teachers](claude/260714-plan-smarter-with-claude-for-teachers.md) — 2026-07-14
@@ -141,6 +141,7 @@
 - [A.A.Murakami's The Moon Underwater](claude/260202-a-a-murakami-s-the-moon-underwater.md) — 2026-02-02
 - [Getting started with Claude in Excel](claude/260130-getting-started-with-claude-in-excel.md) — 2026-01-30
 - [How Anthropic uses Claude in Marketing](claude/260127-how-anthropic-uses-claude-in-marketing.md) — 2026-01-27
+- [Record A Skill With Claude](claude/260803-record-a-skill-with-claude.md) — 2026-08-03
 - [What do AI models actually know?](claude/260724-what-do-ai-models-actually-know.md) — 2026-07-24
 - [Why does AI hallucinate?](claude/260723-why-does-ai-hallucinate.md) — 2026-07-23
 - [How does AI get its character?](claude/260722-how-does-ai-get-its-character.md) — 2026-07-22

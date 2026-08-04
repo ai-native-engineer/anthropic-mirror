@@ -126,6 +126,8 @@ Breakout stage
 
 )
 
+Claude Platform
+
 ·
 
 Mahesh Murag
@@ -163,6 +165,8 @@ Anthropic
 Main stage
 
 )
+
+Claude Platform
 
 ·
 
@@ -219,6 +223,8 @@ Anthropic
 Main stage
 
 )
+
+Claude Platform
 
 ·
 
@@ -294,6 +300,8 @@ Workshop
 
 )
 
+Claude Platform
+
 ·
 
 Kazuya Iwami
@@ -352,6 +360,8 @@ Workshop
 
 )
 
+Claude Platform
+
 ·
 
 Gabe Cemaj
@@ -371,6 +381,8 @@ Main stage
 // presented in Japanese
 
 )
+
+Claude Platform
 
 ·
 
@@ -432,6 +444,8 @@ Breakout stage
 
 )
 
+Claude Platform
+
 ·
 
 Ryu Yokoji
@@ -451,6 +465,8 @@ Workshop
 // presented in Japanese
 
 )
+
+Claude Platform
 
 ·
 
@@ -495,6 +511,8 @@ Breakout stage
 // presented in Japanese
 
 )
+
+Claude Platform
 
 ·
 
@@ -541,6 +559,8 @@ Anthropic
 Main stage
 
 )
+
+Claude Platform
 
 ·
 
@@ -627,5 +647,7 @@ Attend virtually
 [Learn more](https://claude.com/code-with-claude/register-livestream)Learn more
 
 [Homepage](https://claude.com/code-with-claude)Homepage
+
+© [year] Anthropic PBC
 
 [PRIVACY POLICY](https://www.anthropic.com/legal/privacy)[CODE OF CONDUCT](https://claude.com/code-with-claude/code-of-conduct)

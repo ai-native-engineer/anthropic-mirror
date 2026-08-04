@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/use-cases-category/sales -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Sales
 
 # Sales
 
 Explore ways Claude can support prospecting, customer relationships, and strategy in sales work.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -15,6 +27,8 @@ Author
 Category
 
 Model
+
+Features
 
 ![Create a sales proposal presentation](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6924bdda8459839f7e39d0d2_Screenshot%202025-11-24%20at%2012.19.28%E2%80%AFPM.png)
 
@@ -37,6 +51,8 @@ Sales
 Model
 
 Opus 4.5
+
+Features
 
 Extended Thinking
 
@@ -74,6 +90,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Connectors
 
 Extended Thinking
@@ -109,6 +127,8 @@ Sales
 Model
 
 Sonnet 4.5
+
+Features
 
 Extended Thinking
 
@@ -146,6 +166,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Web Search
 
 Connectors
@@ -167,3 +189,7 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.

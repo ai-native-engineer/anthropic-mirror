@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/tutorials-category/hr -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 HR
 
 # HR
 
 Learn how Claude can support hiring, employee engagement, and people operations.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -13,6 +25,8 @@ List
 Category
 
 Product
+
+Features
 
 ![How to use Claude in Excel for HR: Headcount planning](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6977ee732f31fe996c48fa00_Screenshot%202026-01-26%20at%202.44.59%E2%80%AFPM.png)
 
@@ -79,6 +93,10 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 ## Transform how your organization operates with Claude
 

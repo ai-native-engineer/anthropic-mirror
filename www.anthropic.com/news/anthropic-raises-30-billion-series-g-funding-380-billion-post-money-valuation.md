@@ -33,5 +33,3 @@ Claude’s frontier-setting intelligence continues to advance. Our newest model�
 The Series G will also power our infrastructure expansion as we make Claude available everywhere our customers are. Claude remains the only frontier AI model available to customers on all three of the world's largest cloud platforms: Amazon Web Services (Bedrock), Google Cloud (Vertex AI), and Microsoft Azure (Foundry). We train and run Claude on a diversified range of AI hardware—AWS Trainium, Google TPUs, and NVIDIA GPUs—which means we can match workloads to the chips best suited for them. This diversity of platforms translates to better performance and greater resilience for the enterprise customers that depend on Claude for critical work.
 
 The demand we are seeing from enterprises and developers reflects the trust they place in Claude for the work that matters most. As AI moves toward scaled implementation, we will continue to build the models, products, and partnerships to lead that transition.
-
-Anthropic raises $30 billion in Series G funding at $380 billion post-money valuation \ Anthropic

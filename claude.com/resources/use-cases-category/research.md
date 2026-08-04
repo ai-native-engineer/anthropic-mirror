@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/use-cases-category/research -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Research
 
 # Research
 
 Discover methods of using Claude to gather, analyze, and synthesize information across fields.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -15,6 +27,8 @@ Author
 Category
 
 Model
+
+Features
 
 ![Surface themes from all your feedback channels](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6978e768f0ec9ed20bbd9989_E%20%E2%80%93%20Illo%201.png)
 
@@ -37,6 +51,8 @@ Research
 Model
 
 Sonnet 4.5
+
+Features
 
 Cowork
 
@@ -71,6 +87,8 @@ Research
 Model
 
 Opus 4.5
+
+Features
 
 Research
 
@@ -110,6 +128,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Extended Thinking
 
 Read use case
@@ -142,6 +162,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Extended Thinking
 
 Read use case
@@ -161,3 +183,7 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.

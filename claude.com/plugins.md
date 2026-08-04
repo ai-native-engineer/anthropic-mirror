@@ -1,5 +1,9 @@
 <!-- source: https://claude.com/plugins -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 # Add new capabilities to Claude
 
 Browse plugins that bundle tools, skills, and integrations for one-click installation.
@@ -9,6 +13,14 @@ Browse plugins
 [Browse plugins](#plugins)Browse plugins
 
 ## Browse plugins
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Submit your plugin
 
@@ -1303,6 +1315,10 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 FAQ
 

@@ -2,7 +2,7 @@
 
 # Use connectors to extend Claude's capabilities
 
-Updated over 3 weeks ago
+Updated over a month ago
 
 This guide explains how to enable and use connectors with Claude to enhance its capabilities.
 

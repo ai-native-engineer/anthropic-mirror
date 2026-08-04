@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/use-cases-category/cowork -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Cowork
 
 # Cowork
 
 Bring Claude Code power to everyday work. Cowork accesses your local files and completes tasks autonomously—delivering finished, professional outputs.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -15,6 +27,8 @@ Author
 Category
 
 Model
+
+Features
 
 ![Audit a folder of visual assets against your guidelines](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e0f43d1c2d161e71093d61_mktgassets_thumbnail.png)
 
@@ -37,6 +51,8 @@ Cowork
 Model
 
 Opus 4.7
+
+Features
 
 No items found.
 
@@ -72,6 +88,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Connectors
 
 Read use case
@@ -105,6 +123,8 @@ Personal
 Model
 
 Opus 4.5
+
+Features
 
 Cowork
 
@@ -140,6 +160,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Cowork
 
 Read use case
@@ -173,6 +195,8 @@ Legal
 Model
 
 Sonnet 4.5
+
+Features
 
 Cowork
 
@@ -208,6 +232,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Cowork
 
 Read use case
@@ -241,6 +267,8 @@ Research
 Model
 
 Sonnet 4.5
+
+Features
 
 Cowork
 
@@ -276,6 +304,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Cowork
 
 Read use case
@@ -309,6 +339,8 @@ Professional
 Model
 
 Sonnet 4.5
+
+Features
 
 Cowork
 
@@ -344,6 +376,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Cowork
 
 Read use case
@@ -363,3 +397,7 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.

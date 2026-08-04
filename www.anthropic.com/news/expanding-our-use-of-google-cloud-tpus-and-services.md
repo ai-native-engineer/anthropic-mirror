@@ -17,5 +17,3 @@ Anthropic now serves more than 300,000 business customers, and our number of lar
 Anthropic’s unique compute strategy focuses on a diversified approach that efficiently uses three chip platforms–Google’s TPUs, Amazon’s Trainium, and NVIDIA’s GPUs. This multi-platform approach ensures we can continue advancing Claude's capabilities while maintaining strong partnerships across the industry. We remain committed to our partnership with Amazon, our primary training partner and cloud provider, and continue to work with the company on Project Rainier, a massive compute cluster with hundreds of thousands of AI chips across multiple U.S. data centers.
 
 Anthropic will continue to invest in additional compute capacity to ensure our models and capabilities remain at the frontier.
-
-Expanding our use of Google Cloud TPUs and Services \ Anthropic

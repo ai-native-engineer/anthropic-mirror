@@ -125,7 +125,7 @@ Use the “Export” button in the upper right corner when viewing your project 
   + Send to local coding agent
   + Send to Claude Code Web
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1785717000&signature=79ef2b3fdea58be98e2c3df30700695820b9d3efacf2d35118267786d7713213&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4Sldmmp0nfz9ljnuyXQMQYEQoc7Mo2sVqByT%0AKmvbgw%2BsJpriVyyLKUw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1785717000&signature=79ef2b3fdea58be98e2c3df30700695820b9d3efacf2d35118267786d7713213&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4Sldmmp0nfz9ljnuyXQMQYEQoc7Mo2sVqByT%0AKmvbgw%2BsJpriVyyLKUw%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1785803400&signature=bb9d6330046da86cbf6b7e82f6ce40ae1464326bee00912be5ed69199bc83690&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4SlSm25wnfz9ljnuyXSBT64B%2BISf0I%2Fn0f1b%0AcIHjrCp%2FNQeqMtQ7H%2Bc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1785803400&signature=bb9d6330046da86cbf6b7e82f6ce40ae1464326bee00912be5ed69199bc83690&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4SlSm25wnfz9ljnuyXSBT64B%2BISf0I%2Fn0f1b%0AcIHjrCp%2FNQeqMtQ7H%2Bc%3D%0A)
 
 You can also share projects within your organization using a shareable link. Sharing options include view-only, comment, and edit access.
 

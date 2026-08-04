@@ -26,6 +26,8 @@ Small
 
 Product:
 
+Claude Platform
+
 Location:
 
 Asia Pacific

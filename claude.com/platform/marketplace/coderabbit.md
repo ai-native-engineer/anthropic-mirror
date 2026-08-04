@@ -14,6 +14,8 @@ Request access
 
 * Use case
 
+  Code
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a39aa04ced2a35913149b02_CodeRabbit%20Chat.png)
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a39aa0406a775b0dbbca483_CodeRabbit%20Real%20Bugs.png)

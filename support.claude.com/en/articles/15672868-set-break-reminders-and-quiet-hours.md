@@ -33,7 +33,7 @@ These controls also appear as a "Set quiet hours and breaks" link on your monthl
 
 **Note:** Break reminders and quiet hours are boundaries you choose for yourself. They’re separate from your plan’s usage limits. For information on plan usage, see **[How do usage and length limits work?](https://support.claude.com/en/articles/11647753)**
 
-* [Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)
+* [What is the Pro plan?](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan)
 * [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
 * [Troubleshoot Claude error messages](https://support.claude.com/en/articles/12466728-troubleshoot-claude-error-messages)
 * [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)

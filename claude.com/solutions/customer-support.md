@@ -213,3 +213,5 @@ Quickstart
 See how other companies are powering customer support agents with Claude
 
 Customer stories
+
+[Customer stories](https://claude.com/customers)Customer stories

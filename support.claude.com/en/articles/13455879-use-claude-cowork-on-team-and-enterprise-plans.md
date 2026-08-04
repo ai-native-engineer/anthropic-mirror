@@ -2,7 +2,7 @@
 
 # Use Claude Cowork on Team and Enterprise plans
 
-Updated over a week ago
+Updated today
 
 This article explains important limitations and considerations for Team and Enterprise organizations using Claude Cowork.
 
@@ -19,13 +19,13 @@ Claude Cowork is available for paid plans (Pro, Max, Team, Enterprise) on:
 * **Web**, at claude.ai
 * **Claude Mobile**, in the latest version of Claude for iOS and Claude for Android
 
-Starting August 3, 2026, Claude Cowork is in beta on web and mobile for Team and Enterprise plans. On web and mobile, Claude Cowork sessions run in Anthropic's cloud.
+Claude Cowork is in beta on web and mobile for Team and Enterprise plans. On web and mobile, Claude Cowork sessions run in Anthropic's cloud.
 
 ## Where Cowork runs
 
 During the beta, Cowork sessions can run in two places:
 
-* **Sessions in the cloud (beta starting August 3, 2026):** Running Cowork in the cloud lets members run tasks on Anthropic's infrastructure instead of their own machines. This means work continues across desktop, web, and mobile and scheduled tasks run when the laptop closes and no device is online.
+* **Sessions in the cloud (beta):** Running Cowork in the cloud lets members run tasks on Anthropic's infrastructure instead of their own machines. This means work continues across desktop, web, and mobile and scheduled tasks run when the laptop closes and no device is online.
 * **Local sessions:** Claude's work runs on the user’s computer, with code in an isolated virtual machine.
 
 ## Admin controls
@@ -133,8 +133,8 @@ Network settings are applied when a new Cowork session is created. If you change
 
 **Important:** Network egress permissions don't apply to the web fetch or **[web search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)** tools or MCPs, including Claude in Chrome. Web fetch runs server-side and is limited to search results and URLs you've shared. Team or Enterprise plan owners can turn off web search for Cowork and Chat in **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)**, or Claude in Chrome via **[Organization settings > Claude in Chrome](http://claude.ai/admin-settings/browser-extension)**.
 
-* [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
-* [Schedule recurring tasks in Claude Cowork](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork)
+* [Monitor Claude Cowork activity with OpenTelemetry](https://support.claude.com/en/articles/14477985-monitor-claude-cowork-activity-with-opentelemetry)
 * [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
+* [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)

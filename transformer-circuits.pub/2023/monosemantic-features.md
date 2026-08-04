@@ -1,4 +1,4 @@
-<!-- source: https://transformer-circuits.pub/2023/monosemantic-features/ -->
+<!-- source: https://transformer-circuits.pub/2023/monosemantic-features -->
 
 # Towards Monosemanticity: Decomposing Language Models With Dictionary Learning
 
@@ -46,7 +46,7 @@ Chris Olah
 Oct 4, 2023
 
 \* Core Contributor;
-Correspondence to [colah@anthropic.com](https://transformer-circuits.pub/2023/monosemantic-features/colah@anthropic.com);
+Correspondence to [colah@anthropic.com](https://transformer-circuits.pub/2023/colah@anthropic.com);
 [Author contributions statement below](#author-contributions).
 
 Mechanistic interpretability seeks to understand neural networks by breaking them into components that are more easily understood than the whole. By understanding the function of each component, and how they interact, we hope to be able to reason about the behavior of the entire network. The first step in that program is to identify the correct components to analyze.
@@ -75,6 +75,8 @@ We also provide three comprehensive visualizations of features. First, for all f
 * Just 512 neurons can represent tens of thousands of features. Despite the MLP layer being very small, we continue to find new features as we scale the sparse autoencoder.
 * Features connect in "finite-state automata"-like systems that implement complex behaviors. For example, we find features that work together to generate valid HTML. (See ["Finite State Automata"](#phenomenology-fsa).)
 
+---
+
 ## [Problem Setup](#problem-setup)
 
 A key challenge to our agenda of reverse engineering neural networks is the curse of dimensionality: as we study ever-larger models, the volume of the latent space representing the model's internal state that we need to interpret grows exponentially. We do not currently see a way to understand, search or enumerate such a space unless it can be decomposed into independent components, each of which we can understand on its own.
@@ -84,6 +86,7 @@ In certain limited cases, it is possible to side step these issues by rewriting 
 In some sense, this is the simplest language model we profoundly don't understand. And so it makes a natural target for our paper. We aim to take its MLP activations – the activations we can't avoid needing to decompose – and decompose them into "features":
 
 ![](images/3dce274528f5abea.png)
+)
 
 Crucially, we decompose into more features than there are neurons. This is because we believe that the MLP layer likely uses superposition  to represent more features than it has neurons (and correspondingly do more useful non-linear work!). In fact, in our largest experiments we'll expand to have 256 times more features than neurons, although we'll primarily focus on a more modest 8× expansion.
 
@@ -123,6 +126,7 @@ If such a sparse decomposition exists, it raises an important question: are mode
 To see how this decomposition relates to superposition, recall that the superposition hypothesis postulates that neural networks “want to represent more features than they have neurons”. We think this happens via a kind of “noisy simulation”, where small neural networks exploit feature sparsity and properties of high-dimensional spaces to approximately simulate much larger much sparser neural networks .
 
 ![](images/a73663649fff849e.png)
+)
 
 A consequence of this is that we should expect the feature directions to form an overcomplete basis. That is, our decomposition should have more directions \mathbf{d}\_i than neurons. Moreover, the feature activations should be sparse, because sparsity is what enables this kind of noisy simulation. This is mathematically identical to the classic problem of dictionary learning.
 
@@ -236,14 +240,19 @@ We provide an interface for exploring all the features in all our dictionary lea
 These interfaces provide extensive information on each feature. This includes examples of when they activate, what effect they have on the logits when they do, examples of how they affect the probability of tokens if the feature is ablated, and much more:
 
 ![](images/cdcf0ff305e9e33d.png)
+)
 
 Our interface also allows users to search through features:
 
 ![](images/bc75f0cae10dc891.png)
+)
 
 Additionally, we provide a [second](https://transformer-circuits.pub/2023/monosemantic-features/vis/index.html#example-texts) [interface](https://transformer-circuits.pub/2023/monosemantic-features/vis/index.html#example-texts) displaying all features active on a given dataset example. This is available for a set of example texts.
 
 ![](images/5270ae4ef209edc6.png)
+)
+
+---
 
 ## [Detailed Investigations of Individual Features](#feature-analysis)
 
@@ -377,6 +386,7 @@ In this section we primarily study the learned feature which is most active in e
 We take pains to demonstrate the specificity of each feature, as we believe that to be more important for ruling out polysemanticity. Polysemanticity typically involves neurons activating for clearly unrelated concepts.  For example, [one neuron](https://transformer-circuits.pub/2023/monosemantic-features/vis/a-neurons.html?ordering=index#feature-83) in our transformer model responds to a mix of academic citations, English dialogue, HTTP requests, and Korean text. In vision models, there is a classic example of a neuron which responds to cat faces and fronts of cars . If our proxy shows that a feature only activates in some relatively rare and specific context, that would exclude the typical form of polysemanticity.
 
 ![](images/37e41bfbbde9f8f0.png)
+)
 
 We finally note that the features in this section are cherry-picked to be easier to analyze. Defining simple computational proxies for most features we find, such as text concerning [fantasy games](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html?search_target_mode=index_name&search_mode=case_insensitive#feature-129), would be difficult, and we analyze them in other ways in the [following section](#global-analysis).
 
@@ -389,6 +399,7 @@ The first feature we'll consider is an Arabic Script feature, [A/1/3450](https:/
 Our first step is to show that this feature fires almost exclusively on text in Arabic script. We give each token an "Arabic script" score using an estimated likelihood ratio \log(P(s|\text{Arabic Script}) / P(s)), and break down the histogram of feature activations by that score. Arabic text is quite rare in our overall data distribution –  just 0.13% of training tokens — but it makes up 81% of the tokens on which our feature is active. That percentage varies significantly by feature activity level, from 25% when the feature is barely active to 98% when the feature activation is above 5.
 
 ![](images/fbb517873a0d6942.png)
+)
 
 We also show dataset examples demonstrating different levels of feature activity. In interpreting them, it's important to note that Arabic Unicode characters are often split into multiple tokens. For example, the character `ث` ([U+062B](https://www.compart.com/en/unicode/U+062B)) is tokenized as `\xd8` followed by `\xab`.This kind of split tokenization is common for Unicode characters outside the Latin script and the most common characters from other Unicode blocks. When this happens, A/1/3450 typically only fires on the last token of the Unicode character.
 
@@ -401,6 +412,7 @@ The upper parts of the activation spectrum, above an activity of ~5, clearly res
 Regardless, large feature activations have larger impacts on model predictions,Why do we believe large activations have larger effects? In the case of a one-layer transformer like the one we consider in this paper, we can make a strong case for this: features have a linear effect on the logits (modulo rescaling by layer norm), and so a larger activation of the feature has a larger effect on the logits. In the case of larger models, this follows from a lot of conjectures and heuristic arguments (e.g. the abundance of linear pathways in the model and the idea of linear features at each layer), and must be true for sufficiently small activations by continuity, but doesn't have a watertight argument. so getting their interpretation right matters most. One useful tool for assessing the impact of false positives at low activation levels is the "expected value plot" of Cammarata et al. . We plot the distribution of feature activations weighted by activation level. Most of the magnitude of activation provided by this feature comes from dataset examples which are in Arabic script.
 
 ![](images/8b39a36d7b3bd610.png)
+)
 
 #### [Activation Sensitivity](#feature-arabic-sensitivity)
 
@@ -417,6 +429,7 @@ We begin with a linear approximation to the effect of each feature on the model 
 Each feature, when active, makes some output tokens more likely and some output tokens less likely. We plot that distribution of logit weights.We exclude weights corresponding to extremely rare or never used vocabulary elements. These are perhaps similar to the "anomalous tokens" (e.g., "SolidGoldMagikarp") of Rumbelow & Watkins . There is a large primary mode at zero, and a second much smaller mode on the far right, the tokens whose likelihood most increases when our feature is on. This second mode appears to correspond to Arabic characters, and tokens which help represent Arabic script characters (especially `\xd8` and `\xd9`, which are often the first half of the UTF-8 encodings of Arabic Unicode characters in the [basic Arabic Unicode block](https://www.compart.com/en/unicode/block/U+0600)).
 
 ![](images/030350e2d5a60a4f.png)
+)
 
 This suggests that activating this feature increases the probability the network predicts Arabic script tokens. There are in theory several ways the logit weights could overestimate the model's actual use of a feature:
  1. It could be that these output weights are small enough that, when multiplied by activations, they don't have an appreciable effect on the model’s output.
@@ -429,12 +442,14 @@ To visualize these effects on actual data, we [causally](#appendix-feature-ablat
 In the example on the right below we see that the [A/1/3450](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-3450) was active on every token in a short context (orange background). Ablating it hurt the predictions of all the tokens in Arabic script (purple underlines), but helped the prediction of the period `.` (orange underline). The rest of the figure displays contexts from two different ranges of feature activation levels. (The feature activation on the middle token of examples on the right ("subsample interval 5") is about half that of the middle token of examples on the left ("subsample interval 0")). We see that the feature was causally helping the model predictions on Arabic script through that full range, and the only tokens made less likely by the feature are punctuation shared with other scripts. The magnitudes of the impact are larger when the feature is more active.
 
 ![](images/8a8b503af0e54b46.png)
+)
 
 We encourage interested readers to view the feature visualization for [A/1](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html) to review this and other effects.
 
 We also validate that the feature's downstream effect is in line with our interpretation as an Arabic script feature by sampling from the model with the feature activity "pinned" at a high value. To do this, we start with a prefix `1,2,3,4,5,6,7,8,9,10` where the model has an expected continuation (keep in mind that this is a one layer model that is very weak!). We then instead set [A/1/3450](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-3450) to its maximum observed value and see how that changes the samples:
 
 ![](images/2cf72385fba98453.png)
+)
 
 #### [The feature is not a neuron](#feature-arabic-neuron)
 
@@ -443,18 +458,22 @@ This feature seems rather monosemantic, but some models have relatively monosema
 We then look at the coefficients of the feature in the neuron basis, and find that the three largest coefficients by magnitude are all negative (!) and there are a full 27 neurons whose coefficients are at least 0.1 in magnitude.
 
 ![](images/8bc397c5ceddd11c.png)
+)
 
 It is of course possible that these neurons engage in a delicate game of cancellation, resulting in one particular neuron's primary activations being sharpened. To check for this, we find the neuron whose activations are most correlated to the feature's activations over a set of ~40 million dataset examples. We also tried looking at the neurons which have the largest contribution to the dictionary vector for the feature. However, we found looking at the most correlated neuron to be more reliable – in earlier experiments, we found rare cases where the correlated method found a seemingly similar neuron, while the dictionary method did not. This may be because neurons can have different scales of activations. The most correlated neuron ([A/neurons/489](https://transformer-circuits.pub/2023/monosemantic-features/vis/a-neurons.html#feature-489)) responds to a mixture of different non-English languages.This makes sense as a superposition strategy: since languages are essentially mutually exclusive, they're natural to put in superposition with each other We can see this by visualizing the activation distribution of the neuron – the dataset examples are all other languages, with Arabic script present only as a small sliver.
 
 ![](images/58262d1e6b908169.png)
+)
 
 Logit weight analysis is also consistent with this neuron responding to a mixture of languages. For example, in the figure below many of the top logit weights appear to include Russian and Korean tokens. Careful readers will observe a thin red sliver corresponding to rare Arabic script tokens in the distribution. These Arabic script tokens have weight values that are very slightly positive leaning overall, but some are negative.
 
 ![](images/f7fd147fc5c216f9.png)
+)
 
 Finally, scatter plots and correlations suggest the similarities between [A/1/3450](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-3450) and the neuron are non-zero, but quite minimal.By analogy, this also applies to [B/1/1334](https://transformer-circuits.pub/2023/monosemantic-features/vis/b1.html#feature-1334). In particular, note how the y-axis of the logit weights scatter plot (corresponding to the feature) cleanly separates the Arabic script token logits, while the x-axis does not. More generally, note how the y-marginals both clearly exhibit specificity, but the x-marginals do not.
 
 ![](images/993e53e08cf30047.png)
+)
 
 We conclude that the features we study do not trivially correspond to a single neuron. The Arabic script feature would be effectively invisible if we only analyzed the model in terms of neurons.
 
@@ -465,16 +484,19 @@ We will now ask whether A/1/3450 is a universal feature that forms in other mod
 We search for a similar feature in [B/1](https://transformer-circuits.pub/2023/monosemantic-features/vis/b1.html), a dictionary learning run on a transformer trained on the same dataset but with a different random seed. We search for the feature with the highest activation correlation "Activation correlation" is defined as the feature whose activations across 40,960,000 tokens has the highest Pearson correlation with those of [A/1/3450](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-3450). and find [B/1/1334](https://transformer-circuits.pub/2023/monosemantic-features/vis/b1.html#feature-1334) (corr=0.91), which is strikingly similar:
 
 ![](images/b967e3122c9bca44.png)
+)
 
 This feature clearly responds to Arabic script as well. If anything, it's nicer than our original feature – it's more specific in the 0–1 range. The logit weights tell a similar story:
 
 ![](images/7463746e17b19c63.png)
+)
 
 The effects of ablating this feature are also consistent with this (see the visualization for [B/1/1334](https://transformer-circuits.pub/2023/monosemantic-features/vis/b1.html#feature-1334)).
 
 To more systematically analyze the similarities between A and B, we look at scatter plots comparing the activations or logit weights:
 
 ![](images/653f8fc67bfcda93.png)
+)
 
 The activations are strongly correlated (Pearson correlation of 0.91), especially in the main Arabic mode.
 
@@ -489,10 +511,12 @@ We now consider a DNA feature, [A/1/2937](https://transformer-circuits.pub/2023/
 We begin with the computational proxy for "is a DNA sequence", \log(P(s|\text{DNA}) / P(s)). Because there are some vocabulary tokens, such as `CAT`, which could occur in DNA but also occur in other contexts, we always look at groups of at least two tokens when evaluating the proxy. The log-probabilities turn out to be quite bimodal, so we binarize the proxy (based on its sign). This binarized proxy then has a Pearson correlation of 0.8 with the feature activations.
 
 ![](images/aee3b70b3199023b.png)
+)
 
 While the feature appears to be quite monosemantic in the feature's higher registers (all 10 random dataset examples above activation of 6.0 are DNA sequences), there is significant blue indicating the DNA proxy not firing in the lower registers. Below we show a grid of random examples at four activation levels (including feature off) where the proxy does and doesn't fire.
 
 ![](images/87cc1a97691bd208.png)
+)
 
 We note that in all but two cases where the feature and proxy disagree, the feature does indicate a DNA sequence, just one outside our proxy's strict `ATCG` vocabulary. For example, the space present in the triplets  `TGG AGT` makes the proxy fail to fire. The feature also fires productively on `'-` in the string `5'-TCT`, because what follows that prefix should be DNA, even though the prefix is not itself DNA. (The causal ablation reveals that turning off the DNA feature hurts the prediction of the strings that follow.) We thus believe that [A/1/2937](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-2937) is quite sensitive and specific for DNA. The case where the proxy fires and the feature does not is indeed a DNA sequence, though the feature begins firing on the very next token. We observe that the DNA feature may not fire on the first few tokens of a DNA sequence, [but by the end of a long DNA sequence](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1-dna.html), it is the only feature active.
 
@@ -501,30 +525,35 @@ We note that in all but two cases where the feature and proxy disagree, the feat
 The downstream effect of the DNA feature being active, as measured by logit weights, make sense, with all the top tokens being combinations of nucleotides like `AGT` and `GCC`.
 
 ![](images/b9501edbe24888bd.png)
+)
 
 #### [The Feature Is Not A Neuron](#feature-dna-neuron)
 
 The most similar neuron to [A/1/2937](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-2937), as measured by activation correlation, is [A/neurons/67](https://transformer-circuits.pub/2023/monosemantic-features/vis/a-neurons.html#feature-67). DNA contexts form a tiny sliver of that neuron's activating examples. The neuron whose coefficient is the highest in our feature's vector, [A/neurons/227](https://transformer-circuits.pub/2023/monosemantic-features/vis/a-neurons.html#feature-227), also has no DNA sequences in its top activating examples.
 
 ![](images/d6ad0de7bc1490e7.png)
+)
 
 #### [Universality](#feature-dna-universality)
 
 [A/1/2937](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-2937) has a correlated feature (corr=0.92) in run B/1, [B/1/3680](https://transformer-circuits.pub/2023/monosemantic-features/vis/b1.html#feature-3680). Their top logit weights agree, and are DNA tokens (e.g. `AGT`) forming a separate mode (circled on the right) than the bulk of the logit weights for both.
 
 ![](images/dc73b6663f222984.png)
+)
 
 ### [Base64 Feature](#feature-base64)
 
 We now consider a [base64](https://en.wikipedia.org/wiki/Base64) feature, [A/1/2357](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-2357). We're particularly excited by this feature because we discovered a base64 neuron in our SoLU paper , suggesting that base64 might be quite universal – even across models trained on somewhat different datasets and with different architectures. We model base64 strings as random sequences of characters from `[a-zA-Z0-9+/]`. The activation distribution colored by the corresponding computational proxy, together with the random dataset examples from each activation level, shows that this feature is quite specific to base64.
 
 ![](images/727ee2b6263bf851.png)
+)
 
 This is not the only feature active in base64 contexts, and in a section [below](#features-seem-like-bugs-2) we discuss the two others, one of which fires on single digits in base64 contexts (like the 2, 4, 7, and 9 on which A/1/2357 doesn't activate in the figure above), exploiting a property of the BPE tokenizer to make a better prediction.
 
 Turning to the logit weights, they have a second mode consisting of highly base64-specific tokens. The main mode seems to primarily be interference, but the right side is skewed towards base64-neutral or slightly base64-leaning tokens. (If we look at the conditional below, we see a more continuous transition to base64-specific tokens.)
 
 ![](images/222686ca08fdb69a.png)
+)
 
 There is a more continuous transition between non-base64 and base64 tokens than we saw in the Arabic script example. This difference likely arises because whether a token occurs more in Arabic script than in other text is a relatively binary distinction, whereas whether a token occurs more in base64 or other text varies more continuously. For instance, `fr` is both a common abbreviation for the French language and also a base64 token, so it makes sense for the model to be cautious in up-weighting `fr` because it might already have a higher prior due to use in French. Indeed, any token consisting of letters from the English alphabet will have some nontrivial probability of appearing in base64 strings.
 
@@ -535,14 +564,17 @@ The Pearson correlation between the computational proxy and the activity of [A/1
 [A/1/2357](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-2357) has a correlated feature (corr=0.85) in run B/1, [B/1/2165](https://transformer-circuits.pub/2023/monosemantic-features/vis/b1.html#feature-2165). It also has high activation specificity for base64 strings:
 
 ![](images/a0cca963b36ef145.png)
+)
 
 Like [A/1/2357](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-2357), [B/1/2165](https://transformer-circuits.pub/2023/monosemantic-features/vis/b1.html#feature-2165)'s logit weights have a second mode corresponding to base64 tokens:
 
 ![](images/faafa94343d89d90.png)
+)
 
 Correlations and scatter plots are also consistent with them being very similar features:
 
 ![](images/8ddaf40f01a323ad.png)
+)
 
 Note that we expect the overlap between the interference and base64 token logit weights to be from the aforementioned usage of base64 tokens across many other contexts.
 
@@ -551,14 +583,17 @@ Note that we expect the overlap between the interference and base64 token logit 
 Looking at the neuron in model A that most correlates with this feature: [A/neurons/470](https://transformer-circuits.pub/2023/monosemantic-features/vis/a-neurons.html#feature-470) (corr=0.18), we find that while it does notably respond to base64 strings, it also activates for lots of other things, including code, HTML labels, parts of URLs, etc.:
 
 ![](images/6e5cd7256b0cb1dc.png)
+)
 
 The logit weights suggest it somewhat increases base64 tokens, but is much more focused on upweighting other tokens, e.g. filename endings.
 
 ![](images/30d231256a764212.png)
+)
 
 The activation and logit correlations are consistent with this neuron helping represent the same feature, but largely doing other things.
 
 ![](images/c942a67592e52fdd.png)
+)
 
 ### [Hebrew Feature](#feature-hebrew)
 
@@ -567,10 +602,12 @@ Another interesting example is the Hebrew feature [A/1/416](https://transformer-
 [A/1/416](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-416) has high activation specificity in the upper spectrum. It does weakly activate for other things (especially other languages with Unicode scripts). There is also some blue in strong activations; this appears to significantly be on "common characters", such as whitespace or punctuation, which are from other unicode blocks (see more discussion of similar issues in the [Arabic feature section](#feature-arabic-activations)).
 
 ![](images/53203486b6bc29c6.png)
+)
 
 Its logit weights have a notable second mode, corresponding to Hebrew characters and relevant incomplete Unicode characters. Note that `\xd7` is the first token in the UTF-8 encoding of most characters in the [basic Hebrew Unicode block](https://www.compart.com/en/unicode/block/U+0590).
 
 ![](images/db2a57a50918a215.png)
+)
 
 The Pearson correlation of the Hebrew script proxy with [A/1/416](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-416) is 0.55. Some of the failure of sensitivity may be due to a complementary feature[A/1/1016](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-1016) that fires on `\xd7` and predicts the bytes that complete Hebrew characters' codepoints.
 
@@ -579,6 +616,7 @@ The Pearson correlation of the Hebrew script proxy with [A/1/416](https://transf
 There doesn't appear to be a similar neuron. The most correlated neuron in model A is [A/neurons/489](https://transformer-circuits.pub/2023/monosemantic-features/vis/a-neurons.html?ordering=index#feature-489) (corr=0.1), which has low activation and logit specificity. Consider the following activation and logit correlation plots:
 
 ![](images/d8e96b2412424f35.png)
+)
 
 To cross-validate this, we also [searched](https://transformer-circuits.pub/2023/monosemantic-features/vis/a-neurons.html?search_mode=regex_case_sensitive&ordering=count&search_text=%5B%5Cu0590-%5Cu05FF%5D) for any neuron where the main Hebrew Unicode block appeared in the top dataset examples. We found none.
 
@@ -587,14 +625,19 @@ To cross-validate this, we also [searched](https://transformer-circuits.pub/2023
 [A/1/416](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-416) has a correlated feature in the B/1 run, [B/1/1901](https://transformer-circuits.pub/2023/monosemantic-features/vis/b1.html#feature-1901) (corr=0.92) that has significant activation specificity:
 
 ![](images/3cbc3f230db55a98.png)
+)
 
 Logit weights have a second mode, as before:
 
 ![](images/3b779c353185d020.png)
+)
 
 Activation and logit weight correlations are again consistent:
 
 ![](images/25efdaf00d8683bc.png)
+)
+
+---
 
 ## [Global Analysis](#global-analysis)
 
@@ -617,6 +660,7 @@ In doing this evaluation, we wanted to avoid a weakness we perceived in our prio
 Unfortunately, this approach is labor intensive and so the number of scored samples is small. In total, 412 feature activation intervals were scored across 162 features and neurons.
 
 ![](images/b30382b76043468b.png)
+)
 
 We see that features are substantially more interpretable than neurons. Very subjectively, we found features to be quite interpretable if their rubric value was above 8. The median neuron scored 0 on our rubric, indicating that our annotator could not even form a hypothesis of what the neuron could represent! Whereas the median feature interval scored a 12, indicating that the annotator had a confident, specific, consistent hypothesis that made sense in terms of the logit output weights.
 
@@ -629,18 +673,21 @@ Like with the human analysis, we used samples across the full range of activatio
 In agreement with the human analysis, Claude is able to explain and predict activations for features significantly better than for neurons.In instances where Claude predicts a constant score, most often all 0s, a correlation can't be computed and we assign a score of zero which explains the uptick there.
 
 ![](images/e9c323f1e824add0.png)
+)
 
 #### [Automated Interpretability – Logit Weights](#global-analysis-interp-auto-logits)
 
 In our earlier analysis of individual features, we found that looking at the logits is a powerful tool for cross-validating the interpretability of features. We can take this approach in automated interpretability as well. Using the explanations of features generated in the previous analysis, we ask a language model to predict if a previously unseen logit token is something the feature should predict as likely to come next. This is then scored against a 50/50 mix of top positive logit tokens and random other logit tokens. Randomly guessing would give a 50% accuracy, but the model instead achieves a 74% average across features, compared to a 58% average across neurons. Failures here refer to instances where Claude failed to reply in the correct format for scoring.
 
 ![](images/893953cd4a33f69c.png)
+)
 
 #### [Activation Interval Analysis](#global-analysis-interp-intervals)
 
 In addition to studying features as a whole, in our manual analysis we can zoom in on portions of the feature activation spectrum using the feature intervals. As before, a feature interval is the set of examples with activations closest to a specific evenly-spaced fraction of the max activation. So, rather than asking if a feature seems interpretable, we ask whether a range of activations is consistent with the overall hypothesis suggested by the full spectrum of the feature’s activation. This allows us to ask how interpretability changes with feature activation strength.
 
 ![](images/75a74b580bc30fea.png)
+)
 
 Higher-activating feature intervals were more consistent with our interpretations than lower-activating ones. In particular:
 
@@ -683,8 +730,11 @@ To assess the interpretability of the downstream feature effects, we again use t
 3. Pinned feature sampling. We artificially pinned the value of a feature to a fixed high number and then sample from the model. We find that the generated text matches the interpretation of the feature.
 
 ![](images/41b3c3235e537aef.png)
+)
 
 The empirical consistency of feature activations with their downstream effects across all these metrics provides evidence that the features found are being used by the model.
+
+---
 
 ## [Phenomenology](#phenomenology)
 
@@ -711,10 +761,12 @@ One striking thing about the features we’ve found is that they appear in clust
 To understand how the geometry of the dictionary elements correspond to these qualitative clusters, we do a 2-D UMAP on the combined set of feature directions from A/0, A/1, and A/2.
 
 ![](images/d134f4cb49116e93.png)
+)
 
 We see clusters corresponding to the base64 and Arabic script features, together with many other tight clusters from specific contexts and a variety of other interesting geometric structures for other features. This confirms that the qualitative clusters are reflected in the geometry of the dictionary: similar features have small angles between their dictionary vectors.
 
 ![](images/c189b244b5e65033.png)
+)
 
 We conjecture that there is some idealized set of features that dictionary learning would return if we provided it with an unlimited dictionary size. Often, these "true features" are clustered into sets of similar features, which the model puts in very tight superposition. Because the number of features is restricted, dictionary learning instead returns features which cover approximately the same territory as the idealized features, at the cost of being somewhat less specific.
 
@@ -729,6 +781,7 @@ In this example, our coarsest run (with 512 learned sparse features) has three f
 What we see is that the finer runs reveal more fine-grained distinctions between e.g. concepts in technical writing, and distinguish between the articles `the` and `a`, which are followed by slightly different sets of noun phrases. We also see that the structure of this refinement is more complex than a tree: rather, the features we find at one level may both split and merge to form refined features at the next. In general though, we see that runs with more learned sparse features tend to be more specific than those with fewer.
 
 ![](images/cbf5a1a23998d34a.png)
+)
 
 It's worth noting that these more precise features reflect differences in model predictions as well as activations. The general `the` in mathematical prose feature ([A/0/341](https://transformer-circuits.pub/2023/monosemantic-features/vis/a0.html#feature-341)) has highly generic mathematical tokens for its top positive logits (e.g. supporting `the denominator`, `the remainder`, `the theorem`), whereas the more finely split machine learning version ([A/2/15021](https://transformer-circuits.pub/2023/monosemantic-features/vis/a2.html#feature-15021)) has much more specific topical predictions (e.g. `the dataset`, `the classifier`). Likewise, our abstract algebra and topology feature ([A/2/4878](https://transformer-circuits.pub/2023/monosemantic-features/vis/a2.html#feature-4878)) supports `the quotient` and `the subgroup`, and the gravitation and field theory feature ([A/2/2609](https://transformer-circuits.pub/2023/monosemantic-features/vis/a2.html#feature-2609)) supports `the gauge`, `the Lagrangian`, and `the spacetime`.
 
@@ -741,6 +794,7 @@ When we limit dictionary learning to use very few learned sparse features, the f
 We believe that feature splitting explains this phenomenon: the model hasn’t learned a single feature firing on the letter `P`,The features fire on the token " P" of words where it appears as the first token, such as `[ P][attern]`. for instance. Rather, it’s learned many features which fire on `P` in different contextsIn this instance we found the refined `P` features by manual inspection rather than by cosine similarity., with correspondingly different effects on the neuron activations and output logits (see below). At a sufficiently coarse level dictionary learning cannot tell the difference between these, but when we allow it to use more learned sparse features, the features split and refine into a zoo of different `P` features that fire in different contexts.
 
 ![](images/65358412ed71bb81.png)
+)
 
 ["Bug" 2: Multiple Features for a Single Context](#features-seem-like-bugs-2)
 
@@ -749,18 +803,21 @@ We also observed the converse, where multiple features seemed to cover roughly t
 In [A/0](https://transformer-circuits.pub/2023/monosemantic-features/vis/a0.html) (with 512 features), the story is simple. There is only one base64-related feature, [A/0/45](https://transformer-circuits.pub/2023/monosemantic-features/vis/a0.html#feature-45), which seems to activate on all tokens of base64-encoded strings. But in [A/1](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html), that feature splits into three different features whose activations seem to jointly cover those of [A/0/45](https://transformer-circuits.pub/2023/monosemantic-features/vis/a0.html#feature-45):
 
 ![](images/7fc03fad692e0f27.png)
+)
 
 Two of these features seem relatively straightforward. [A/1/2357](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-2357) seems to fire preferentially on letters in base64, while [A/1/2364](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-2364) seems to fire preferentially on digits.
 
 Comparing the logit weights of these features reveals that they predict largely the same sets of tokens, with one significant difference: the feature that fires on digits has much lower logit weights for predicting digits. Put another way, if the present token is made of digits, the model will predict that the next token is a non-digit base64 token.
 
 ![](images/5be4671f5b481eba.png)
+)
 
 We believe this is likely an artifact of tokenization! If a single digit were followed by another digit, they would have been tokenized together as a single token; `[Bq][8][9][mp]` would never occur, as it would be tokenized instead as `[Bq][89][mp]`. Thus even in a random base64 string, the fact that the current token is a single digit gives information about the next token.
 
 But what about the third feature, [A/1/1544](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-1544)? At first glance, there isn't an obvious rule for when it fires. But if we look more closely, we notice that it seems to respond to base64 strings which encode ASCII text.Our initial clue that [A/1/1544](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-1544) might fire on base64 strings encoding ASCII text was the token `ICAgICAg` which this feature particularly responds to, and corresponds to six spaces in a row. If we look at the top dataset examples for each feature, we find that examples for [A/1/1544](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-1544) contain substrings which decode as ASCII, while none of the top activating examples for [A/1/2357](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-2357) or [A/1/2364](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-2364) do:Determining when a dataset example encodes ASCII text is somewhat subtle because base64 can only be decoded to ASCII in groups of four characters, since four base64 characters [encode triples](https://en.wikipedia.org/wiki/Base64#Examples) of ASCII characters. Thus, we select substrings which – when decoded with the python base64 library – contain the maximal number of printable ASCII characters.
 
 ![](images/d16259e5696f9ca7.png)
+)
 
 This pattern of investigation, where one looks at coarser sets of features to understand categories of model behavior, and then at more refined sets of features to investigate the subtleties of that behavior, may prove well adapted to larger models where the feature set is expected to be quite large.
 
@@ -785,10 +842,12 @@ A second natural approach is to think of a feature in terms of its downstream ef
 These two notions of similarity correspond to the correlations of the points in the two scatter plots we used when [analyzing individual features](#feature-ananlysis) earlier. We've reproduced the plots for the Arabic feature below:
 
 ![](images/5e37071602b6e50a.png)
+)
 
 For each feature in run [A/1](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html), we find the closest feature by activation similarity in run [B/1](https://transformer-circuits.pub/2023/monosemantic-features/vis/b1.html), which is a different dictionary learning run trained on different activations from a different transformer with different random seeds but otherwise identical hyperparameters. We find that many features are highly similar between models, with features in [A/1](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html) having a median activation correlation of 0.72 with the most similar feature from [B/1](https://transformer-circuits.pub/2023/monosemantic-features/vis/b1.html). (We perform the same analysis finding the closest neurons between the transformers, and find significantly less similarity, with median activation correlation 0.46.) The features with low activation correlation between models may represent different "feature splittings" in the dictionaries learned or different "true features" learned by the base models.
 
 ![](images/09190fbf9c1f0cea.png)
+)
 
 A natural next question is whether features that fire on the same tokens also have the same logit effects. That is, how well do activation similarity and logit weight similarity agree?
 
@@ -797,6 +856,7 @@ Some gap between the two is visible for the Arabic feature above: the "important
 In the scatterplot below, we find that this kind of disagreement is widespread.
 
 ![](images/1a5e7c8dd2782b0d.png)
+)
 
 The most dramatic example of this disparity is for the features [A/1/3949](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html#feature-3949) and [B/1/3321](https://transformer-circuits.pub/2023/monosemantic-features/vis/b1.html#feature-3321), with an activation correlation of 0.98 but a negative logit weight correlation. These features fire on `pone` (and occasionally on `pgen` and `pcbi`) as abbreviations for the journal name PLOSOne in citations, like `@pone.0082392`, and predict the `.` that follows.The feature is bimodal, monosemantic in the larger of the modes, and fires on 0.02% of tokens. This means that at least 1 in 10,000 tokens in the Pile dataset are abbreviations for PLoS journals in citations! This is an example of how inspecting features can reveal properties of the dataset, in this case the strong bias of the Pile towards scientific content.
 
@@ -805,6 +865,7 @@ Zooming in on the logit weight scatterplot (inset in the figure above), we see t
 We want to measure something more like "the actual effect a feature has on token probabilities." One way to get at this would be to compute a vector of ablation effects for every feature on every data point; pairs of features whose ablations hurt the model's predictions on the same tokens must have been predicting the same thing. Unfortunately, this would be rather expensive computationally. Instead, we scale the activation vector of a feature by the logit weights of the tokens that empirically come next in the dataset to produce an attribution vector.Suppose feature f\_i has logit weights v\_{ik} for k \in \{1,\ldots,n\_{\text{vocab}}\}. At a given token t\_j, we compute the activation of the feature f\_i(t\_j) and multiply it by the logit weight v\_{it\_{j+1}} of the token t\_{j+1} that comes next to get an attribution score of f\_i(t\_j)v\_{it\_{j+1}}. The attribution vector is given by stacking the attribution scores for a random sampling of datapoints. This approximates the classic attribution method of multiplying the gradient by the activation, differing in that we ignore the denominators of the softmax and the layer norm. Correlations between those vectors provide an attribution similarity that combines both the activity of the feature with the effect it has on the loss. We find that the attribution similarity correlates quite highly with the activation similarity, meaning that features that were coactive between models were useful at predicting the same tokens.
 
 ![](images/9263021d2dd2b382.png)
+)
 
 In light of this, we feel that the activation correlation used throughout the paper is in fact a good proxy for both notions of universality in the context of our one-layer models.
 
@@ -825,12 +886,14 @@ One of the most striking phenomena we've observed in our study of the features i
 The simplest example of this is features which excite themselves on the next token, forming a single node loop. For example, a base64 feature increases the probability of tokens like `Qg` and `zA` – plausible continuations which would continue to activate it.
 
 ![](images/95faf35bf06a1b41.png)
+)
 
 It's worth noting that these examples are from [A/0](https://transformer-circuits.pub/2023/monosemantic-features/vis/a0.html), a dictionary learning run which is not overcomplete (the dictionary dimensionality is 512, equal to the transformer MLP dimension). As we move to runs with larger numbers of features, the central feature will experience feature splitting, and become a more complex system.
 
 Let's now consider a two-node system for producing variables in "all caps snake case" (e.g. `ARRAY_MAX_VALUE`). One node ([A/0/207](https://transformer-circuits.pub/2023/monosemantic-features/vis/a0.html#feature-207)) activates on the all caps text tokens, the other ([A/0/358](https://transformer-circuits.pub/2023/monosemantic-features/vis/a0.html#feature-358)) on underscores:
 
 ![](images/a11c948705ba7a7c.png)
+)
 
 This type of two-node system is quite common for languages where Unicode characters are sometimes split into two tokens. (Again, with more feature splitting, these would expand into more complex systems.)
 
@@ -839,6 +902,7 @@ For example, Tamil Unicode characters ([block U+0B80–U+0BFF](https://www.compa
 A more complex example is Chinese. While many common Chinese characters get dedicated tokens, many others are split. This is further complicated by Chinese characters being spread over many Unicode blocks, and those blocks being large and cutting across many logical blocks specified in terms of bytes. To understand the state machine the model implements to handle this, the key observation is that complete characters are similar to the "suffix" part of a split character: both can be followed by either a new complete character, or a new prefix. Thus, we observe two features, one of which fires on either complete characters or the suffix (predicting either a new complete character, or a prefix), while the other only fires on the prefixes and predicts suffixes.
 
 ![](images/afa6e91fd2a97e72.png)
+)
 
 Let's now consider a very simple four node system which models HTML. The "main path" through it is:
 
@@ -852,20 +916,25 @@ A prototypical sample this might generate is something like `<div>\n\t\t<span>`.
 The full system can be seen below:
 
 ![](images/106186a78a93eb6c.png)
+)
 
 Keep in mind that we're focusing on the [A/0](https://transformer-circuits.pub/2023/monosemantic-features/vis/a0.html) features where this is very simple – if we looked at [A/1](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html), we'd find something much more complex! One particularly striking shortcoming of the [A/0](https://transformer-circuits.pub/2023/monosemantic-features/vis/a0.html) features is that they don't describe what happens when [A/0/0](https://transformer-circuits.pub/2023/monosemantic-features/vis/a0.html#feature-0) emits a token like  `href`, which leads to a more complex state.
 
 It's important to note that these features can be quite contextual. There are several features related to IRC transcripts which form a totally different finite state automata like system:
 
 ![](images/21e0bf1a63beeb34.png)
+)
 
 A prototypical sample this might generate is something like `<nickonia_> lol ubuntu ;)`. Presumably the Pile dataset heavily represents IRC transcripts about linux.
 
 One particularly interesting behavior is the apparent memorization of specific phrases. This can be observed only in runs with relatively large numbers of features (like [A/4](https://transformer-circuits.pub/2023/monosemantic-features/vis/a4.html)). In the following example, a sequence of features seem to functionally memorize the bolded part of the phrase `MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE`. This is a relatively standard legal language, and notably occurs in the file headers for popular open source software licenses, meaning the model likely saw it many times during training.
 
 ![](images/68104d563e7361ca.png)
+)
 
 This seems like an example of the mechanistic theory of memorization we described in Henighan et al.  – we observe features which appear to be relatively binary and respond to a very specific situation. This might also be seen as an instance of mechanistic anomaly detection : the model behaves differently in a specific, narrow case. It's somewhat surprising that something so narrow can be found in a model with only 512 neurons; from this perspective it's an interesting example of superposition's ability to embed many things in few neurons. On the other hand, because these mechanisms are buried deep in superposition, they are likely very noisy.
+
+---
 
 ## [Related Work](#related-work)
 
@@ -905,6 +974,8 @@ At this point, our work in Toy Models  advocated for dictionary learning as a p
 
 In their interim reports, Sharkey et al.  used sparse autoencoders to perform dictionary learning on a one-layer transformer, identifying a large (overcomplete) basis of features. (Sharkey et al. deserve credit for focusing on dictionary learning and especially the sparse autoencoder approach, while our investigation was only exploring it as one of several approaches in parallel.) This work was then partially replicated by Cunningham & Smith  and Huben . Next, Smith  used an autoencoder to find features in one MLP layer of a six-layer model. The resulting features appear interpretable, e.g. detecting ‘$’ in the context of LaTeX equations. In follow up work, Smith then extended this approach to the residual stream of the same model, identifying a number of interesting features (see [earlier discussion](#universality-literature)). Building on these results, Cunningham applied autointerpretability techniques from Bills et al.  to features in the residual stream and an MLP layer of the same six-layer model, finding that the features discovered by the sparse autoencoder are substantially more interpretable than neurons.
 
+---
+
 ## [Discussion](#discussion)
 
 ### [Theories of Superposition](#discussion-superposition)
@@ -916,10 +987,12 @@ This work has persuaded us that our previous model was missing something crucial
 Moreover, it isn't clear that features need to be one-dimensional objects (encoding only some intensity). In principle, it seems possible to have higher-dimensional "feature manifolds" (see earlier discussion [here](https://transformer-circuits.pub/2023/may-update/index.html#feature-manifolds)).
 
 ![](images/c5ef28f5b9d53dcf.png)
+)
 
 These hypotheses are not mutually exclusive. The convex hull of several correlated features might be understood as a feature manifold. On the other hand, some manifolds would not admit a unique description in terms of a finite number of one-dimensional features. (Perhaps this accounts for the continued [feature splitting](#phenomenology-feature-splitting) observed above.)
 
 ![](images/ba0b46b8194720a0.png)
+)
 
 Nevertheless, these experiments have left us more confident that some version of the superposition hypothesis (and the linear representation hypothesis) is true. The number of interpretable features found, the way activation level seems to correspond to "intensity" or "confidence," the fact that logit weights mostly make sense, and the observation of "interference weights": all of these observations are what you would expect from superposition.
 
@@ -956,6 +1029,8 @@ Attentional Superposition? Many of the motivations for the presence of superpos
 
 Theory of Superposition and Features. Many fundamental questions remain for our understanding of superposition, even if the hypothesis is right in some very broad sense. For example, as discussed above, this work suggests extensions of the superposition hypothesis covering clusters of features with similar effects, or continuous families of features. We believe there is important work to be done in exploring the theory of superposition further, perhaps through the use of toy models.
 
+---
+
 ## [Comments & Replications](#comments)
 
 Inspired by the original [Circuits Thread](https://distill.pub/2020/circuits/) and [Distill's Discussion Article experiment](https://distill.pub/2019/advex-bugs-discussion/), the authors invited several external researchers who we had previously discussed our preliminary results with to comment on this work. Their comments are included below.
@@ -971,6 +1046,7 @@ I've open sourced two trained autoencoders and [a tutorial for how to use them, 
 I investigated [how sparse the decoder weights are in the neuron basis](https://www.alignmentforum.org/posts/fKuugaxt2XLTkASkk/open-source-replication-and-commentary-on-anthropic-s#Exploring_Neuron_Sparsity) and find that they’re highly distributed, with 4% well explained by a single neuron, 4% well explained by 2 to 10, and the remaining 92% dense. I find this pretty surprising! Despite this, kurtosis shows the neuron basis is still privileged.
 
 ![](images/788d7d52035bf0c0.png)
+)
 
 I also exhibit [some case studies](https://www.alignmentforum.org/posts/fKuugaxt2XLTkASkk/open-source-replication-and-commentary-on-anthropic-s#Case_Studies) of the features I found, like a title case feature, and an "and I" feature
 
@@ -1110,22 +1186,26 @@ Ideally, the autoencoder neurons would be either meaningful features or complete
 Many of the feature density histograms are bimodal. For example, consider the feature density histogram for A/16:
 
 ![](images/ddfde0f09f666635.png)
+)
 
 This histogram has two main modes: a left mode around 10^{-7} (corresponding to the ultralow density cluster) and a right mode around 10^{-5}.The right mode in this example may actually be split into two modes, one around 10^{-5} and another around 10^{-3}. We are still investigating the nature of this split. We call the right mode the “high density cluster”, although the absolute magnitude of the density is very low. Anecdotally, almost all of the features in the high density cluster are interpretable, but almost none of the features in the ultralow density cluster are. As an aside, we suspect that this bimodality in feature density might partially explain the bimodality in cross-dictionary MCS observed by Huben .
 
 In many preliminary small-scale experiments, the two clusters are often perfectly separable. However, for runs with a large number of autoencoder neurons and a large L1 coefficient these two clusters often overlap.
 
 ![](images/c6d2d48dd70b7474.png)
+)
 
 Even in these cases, the two clusters can be separated by combining other statistics. For each feature, in addition to density, we plot the bias and the dot product of the vectors in the decoder and the encoder corresponding to each feature. Along these three dimensions, the high density cluster is clearly separable.
 
 ![](images/9e9bc35d5beb73fc.png)
+)
 
 The ultralow density cluster appears to be an artifact of the autoencoder training process and not a real property of the underlying transformer. We are continuing to investigate the source of this phenomenon and other ways to either mitigate these features or to robustly automatically detect and filter them.
 
 Below, we present feature density histograms for all Seed A runs, grouped by L1 coefficient. As we increase the number of autoencoder neurons (or “N learned sparse”), we continue to discover not only more features but also rarer features, suggesting that we have not exhausted the features in our one-layer transformer.
 
 ![](images/e6096355a8c41731.png)
+)
 
 ### [Transformer Training and Preprocessing](#appendix-transformer)
 
@@ -1222,6 +1302,7 @@ We often normalize this by dividing by the difference in loss between the baseli
 The L^0 norm and Reconstructed Transformer NLL metrics, taken together, display a human-interpretable tradeoff between sparsity and explained behavior:
 
 ![](images/28af6365467c4a94.png)
+)
 
 Each line on this plot shows data for a single L1 coefficient and varying autoencoder sizes. The lowest L1 coefficient is excluded to create a reasonable scale.
 
@@ -1248,6 +1329,7 @@ Note that there are instances where a feature has less than 49 explanation examp
 For the sake of comparison to Bills et al.  the figure below includes Pearson correlation in addition to Spearman that is otherwise used throughout the text. The distributions and overall conclusions are almost identical to Spearman.
 
 ![](images/89a59ab0e961f071.png)
+)
 
 We also systematically catalog the feature output weight logits with Claude. We use the same explanation Claude generated to predict activations and provide 100 logits, 50 taken randomly and 50 which are the 10th–60th largest positive logits (the top 10 were used to generate the original explanations and thus held out). Claude was asked to output a binary label for if this logit would plausibly come after the feature fired, given the explanation. Note that the chance performance is 50%. The A/1 features are quite a bit better than the neurons at a median of 0.74 versus 0.53 for the neurons and 0.5 for the randomized transformer.
 
@@ -1258,6 +1340,7 @@ As a further ablation, we compare our human and automated interpretability appro
 It turns out that the randomized transformer features are distinctly bimodal, consisting of single token and polysemantic clusters which are separated out in the inset at the bottom of the following figure.
 
 ![](images/c94293f982e1c2ea.png)
+)
 
 Features are labeled as being "single token" if for all 20 examples in the top activation interval, the token with the largest activation is the same. The single token features of the randomized transformer are not only more numerous but also more truly single token, for example, firing for the same token even in the weakest activation intervals. This makes them more trivial to score as evidenced by the high scoring yellow peak (bottom row left side of the figure).
 
@@ -1276,6 +1359,7 @@ The issue with importance scoring is that because our features have densities ty
 The figure below shows importance scores for features and neurons. Note that many of the features now have scores very close to zero while the neurons are relatively less affected. We hypothesize this is because the neurons, in being more polysemantic, have more non-zero activations that test their explanations on both things it does and doesn't fire for. Empirically, taking an average over features, 88% of their true activations from the random examples are zero versus 54% for the neurons (the medians are ~91% and 58%, respectively).
 
 ![](images/4f850bf93f7b15f2.png)
+)
 
 #### [Explanation Lengths Caveat](#appendix-automated-explanation-length)
 
@@ -1284,5 +1368,6 @@ Claude can at times fail to wrap its explanation in the `<answer></answer>` expl
 Here we plot the number of characters in each explanation where the second mode to the right highlights these instances. However, not only does this happen infrequently, it also occurs across the features, neurons, and randomized transformer results. In fact, it happens the most often for neurons, occurring 19% of the time versus 15% for the randomized transformer and 13% for the features. Most importantly, it does not result in significantly different scores when we split out the performance of those with long explanations from short ones.
 
 ![](images/47b80d60d7895951.png)
+)
 
 To conclude, while automated interpretability is a difficult task for models that we have only begun working on, it has already been very useful for quickly understanding dictionary learning features in a scalable fashion. We encourage readers to explore the visualizations with automated interpretability scores: [A/1](https://transformer-circuits.pub/2023/monosemantic-features/vis/a1.html), [A/0](https://transformer-circuits.pub/2023/monosemantic-features/vis/a0.html), [randomized model features](https://transformer-circuits.pub/2023/monosemantic-features/vis/random1.html), [neurons](https://transformer-circuits.pub/2023/monosemantic-features/vis/a-neurons.html).

@@ -7,6 +7,7 @@ Claude Managed Agents is a suite of APIs for building production-ready agents. Y
   Engineering
 * Product
 
+  Claude Platform
 * Reading time
 
   Watch time

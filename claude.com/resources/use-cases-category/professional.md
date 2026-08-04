@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/use-cases-category/professional -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Professional
 
 # Professional
 
 Discover ways to use Claude to improve daily workflows, communication, and productivity across roles and industries.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -15,6 +27,8 @@ Author
 Category
 
 Model
+
+Features
 
 ![Source insights from your tools to build a deck](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698446deb44156e33889f4f8_Screenshot%202026-02-04%20at%2011.29.30%E2%80%AFPM.png)
 
@@ -37,6 +51,8 @@ Professional
 Model
 
 Opus 4.6
+
+Features
 
 Extended Thinking
 
@@ -74,6 +90,8 @@ Model
 
 Opus 4.6
 
+Features
+
 Extended Thinking
 
 Read use case
@@ -107,6 +125,8 @@ Professional
 Model
 
 Sonnet 4.5
+
+Features
 
 Cowork
 
@@ -142,6 +162,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Cowork
 
 Read use case
@@ -175,6 +197,8 @@ Professional
 Model
 
 Sonnet 4.5
+
+Features
 
 Cowork
 
@@ -210,6 +234,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Cowork
 
 Read use case
@@ -243,6 +269,8 @@ Claude in Chrome
 Model
 
 Haiku 4.5
+
+Features
 
 Browser Use
 
@@ -278,6 +306,8 @@ Model
 
 Haiku 4.5
 
+Features
+
 Browser Use
 
 Read use case
@@ -311,6 +341,8 @@ Claude in Chrome
 Model
 
 Haiku 4.5
+
+Features
 
 Browser Use
 
@@ -346,6 +378,8 @@ Model
 
 Haiku 4.5
 
+Features
+
 Browser Use
 
 Read use case
@@ -379,6 +413,8 @@ Claude in Chrome
 Model
 
 Haiku 4.5
+
+Features
 
 Browser Use
 
@@ -414,6 +450,8 @@ Model
 
 Haiku 4.5
 
+Features
+
 Browser Use
 
 Read use case
@@ -447,6 +485,8 @@ Research
 Model
 
 Opus 4.5
+
+Features
 
 Research
 
@@ -486,6 +526,8 @@ Model
 
 Opus 4.5
 
+Features
+
 Projects
 
 Read use case
@@ -520,6 +562,8 @@ Model
 
 Opus 4.5
 
+Features
+
 Extended Thinking
 
 Read use case
@@ -543,3 +587,7 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.

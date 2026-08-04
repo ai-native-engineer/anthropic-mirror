@@ -44,6 +44,8 @@ Contact sales
 
 [Contact sales](https://claude.com/contact-sales)Contact sales
 
+Oops! Something went wrong while submitting the form.
+
 # Pricing
 
 Individual
@@ -99,6 +101,7 @@ Everything in Free, plus:
 * Access to unlimited projects to organize chats and documents
 * Access to Research
 * Ability to use more Claude models
+* Claude for Microsoft 365
 
 ### Max
 
@@ -450,6 +453,8 @@ $50 / MTok
 
 Prompt caching
 
+Write
+
 $12.50 / MTok
 
 Read
@@ -469,6 +474,8 @@ Output
 $25 / MTok
 
 Prompt caching
+
+Write
 
 $6.25 / MTok
 
@@ -513,6 +520,8 @@ Output
 $5 / MTok
 
 Prompt caching
+
+Write
 
 $1.25 / MTok
 
@@ -607,6 +616,8 @@ $25 / MTok
 
 Prompt caching
 
+Write
+
 $6.25 / MTok
 
 Read
@@ -631,6 +642,8 @@ $15 / MTok
 
 Prompt caching
 
+Write
+
 $3.75 / MTok
 
 Read
@@ -648,6 +661,8 @@ Output
 $25 / MTok
 
 Prompt caching
+
+Write
 
 $6.25 / MTok
 
@@ -667,6 +682,8 @@ $25 / MTok
 
 Prompt caching
 
+Write
+
 $6.25 / MTok
 
 Read
@@ -684,6 +701,8 @@ Output
 $15 / MTok
 
 Prompt caching
+
+Write
 
 $3.75 / MTok
 
@@ -703,6 +722,8 @@ $25 / MTok
 
 Prompt caching
 
+Write
+
 $6.25 / MTok
 
 Read
@@ -720,6 +741,8 @@ Output
 $75 / MTok
 
 Prompt caching
+
+Write
 
 $18.75 / MTok
 

@@ -1,8 +1,20 @@
 <!-- source: https://claude.com/resources/use-cases -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 # Get inspired by what you can do with Claude
 
 Browse practical examples across research, writing, coding, analysis, and everyday tasks, whether you're working solo or with a team.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -14,39 +26,7 @@ Category
 
 Model
 
-![Audit a folder of visual assets against your guidelines](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e0f43d1c2d161e71093d61_mktgassets_thumbnail.png)
-
-Audit a folder of visual assets against your guidelines
-
-In Claude Cowork, Claude Opus 4.7 can read a large folder of image exports at full resolution to spot off-brand colors, outdated logos, and missing legal copy. Point Claude at your assets folder and your brand guidelines, and get back a categorized list of violations with a confidence rating on each one.
-
-Anthropic
-
-Cowork
-
-Author
-
-Anthropic
-
-Category
-
-Cowork
-
-Model
-
-Opus 4.7
-
-No items found.
-
-Read use case
-
-[Read use case](https://claude.com/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)Read use case
-
-Claude Cowork
-
-[Audit a folder of visual assets against your guidelines](https://claude.com/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)Audit a folder of visual assets against your guidelines
-
-[Text Link](https://claude.com/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)
+Features
 
 ![Adapt a standard textbook page to every reading level](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e0f28373d7c9dfb19a5768_textbook.png)
 
@@ -70,6 +50,8 @@ Model
 
 Opus 4.7
 
+Features
+
 Cowork
 
 Read use case
@@ -81,6 +63,42 @@ Claude Cowork
 [Adapt a standard textbook page to every reading level](https://claude.com/resources/use-cases/adapt-a-standard-textbook-page-to-every-reading-level)Adapt a standard textbook page to every reading level
 
 [Text Link](https://claude.com/resources/use-cases/adapt-a-standard-textbook-page-to-every-reading-level)
+
+![Audit a folder of visual assets against your guidelines](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e0f43d1c2d161e71093d61_mktgassets_thumbnail.png)
+
+Audit a folder of visual assets against your guidelines
+
+In Claude Cowork, Claude Opus 4.7 can read a large folder of image exports at full resolution to spot off-brand colors, outdated logos, and missing legal copy. Point Claude at your assets folder and your brand guidelines, and get back a categorized list of violations with a confidence rating on each one.
+
+Anthropic
+
+Cowork
+
+Author
+
+Anthropic
+
+Category
+
+Cowork
+
+Model
+
+Opus 4.7
+
+Features
+
+No items found.
+
+Read use case
+
+[Read use case](https://claude.com/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)Read use case
+
+Claude Cowork
+
+[Audit a folder of visual assets against your guidelines](https://claude.com/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)Audit a folder of visual assets against your guidelines
+
+[Text Link](https://claude.com/resources/use-cases/audit-a-folder-of-visual-assets-against-your-guidelines)
 
 ![Draft a credit memo from spreads and statements with Claude for Excel](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69deb4db4aa7783f5f10f101_Screenshot%202026-04-14%20at%202.18.08%E2%80%AFPM.png)
 
@@ -103,6 +121,8 @@ Finance
 Model
 
 Sonnet 4.6
+
+Features
 
 Connectors
 
@@ -138,6 +158,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Connectors
 
 Read use case
@@ -171,6 +193,8 @@ Nonprofits
 Model
 
 Sonnet 4.6
+
+Features
 
 Custom visuals
 
@@ -206,6 +230,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Custom visuals
 
 Read use case
@@ -239,6 +265,8 @@ Education
 Model
 
 Sonnet 4.6
+
+Features
 
 Custom visuals
 
@@ -274,6 +302,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Custom visuals
 
 Read use case
@@ -307,6 +337,8 @@ Education
 Model
 
 Sonnet 4.6
+
+Features
 
 Custom visuals
 
@@ -342,6 +374,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Custom visuals
 
 Read use case
@@ -375,6 +409,8 @@ Finance
 Model
 
 Opus 4.6
+
+Features
 
 Connectors
 
@@ -412,6 +448,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Custom visuals
 
 Read use case
@@ -445,6 +483,8 @@ Nonprofits
 Model
 
 Sonnet 4.6
+
+Features
 
 Custom visuals
 
@@ -480,6 +520,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Custom visuals
 
 Read use case
@@ -514,6 +556,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Custom visuals
 
 Read use case
@@ -537,6 +581,10 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 ## Transform how your organization operates with Claude
 

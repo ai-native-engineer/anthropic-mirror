@@ -24,11 +24,11 @@ New analytics and cost controls are available for Claude Enterprise.
 
   https://claude.com/blog/giving-admins-more-visibility-and-control-over-claude-usage-and-spend
 
-We’re introducing richer admin analytics, model-level entitlements, and spend alerts for Claude Enterprise. As Claude takes on increasingly difficult and complex agentic work across the organization, usage and cost patterns look different from a standard chat tool. These controls give admins the visibility to understand how Claude is being used and the tools to manage costs.
+We’re introducing richer admin analytics, model-level entitlements, and spend alerts for [Claude Enterprise](https://claude.com/solutions/enterprise). As Claude takes on increasingly difficult and complex agentic work across the organization, usage and cost patterns look different from a standard chat tool. These controls give admins the visibility to understand how Claude is being used and the tools to manage costs.
 
 Today's additions build on controls Anthropic already provides: spend caps at every level, access and model routing, a usage analytics dashboard with exports and an Analytics API, and effort controls. Richer analytics and more granular cost controls are the newest additions to a control surface we've been building on for months.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a45ed484e5998965a180707_Cost-controls-admin-viz-thumbnail.png)
+![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a45ed484e5998965a180707_Cost-controls-admin-viz-thumbnail.png)
 
 ## Track adoption and cost
 
@@ -106,6 +106,30 @@ Product announcements
 
 [Bringing MCP 2026-07-28 to Claude](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)Bringing MCP 2026-07-28 to Claude
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d23008bbc20c0ffaeb6f_43abe7e54b56a891e74a8542944dfbd33f07f49c-1000x1000.svg)
+
+Jun 18, 2026
+
+### Centrally manage authorization for MCP connectors
+
+Enterprise AI
+
+[Centrally manage authorization for MCP connectors](#) Centrally manage authorization for MCP connectors
+
+[Centrally manage authorization for MCP connectors](https://claude.com/blog/enterprise-managed-auth) Centrally manage authorization for MCP connectors
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2238ce207f9b2011d3f_e44a6b53398f189b9fd0d4f70516db614ac84db3-1000x1000.svg)
+
+Sep 10, 2024
+
+### Claude for Enterprise
+
+Product announcements
+
+[Claude for Enterprise](#)Claude for Enterprise
+
+[Claude for Enterprise](https://claude.com/blog/claude-for-enterprise)Claude for Enterprise
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d231b45c2193efbb0f02_1869137c9d7f2a38b50e804d707e10e85de05ddb-1000x1000.svg)
 
 Jul 23, 2026
@@ -117,30 +141,6 @@ Product announcements
 [Think through hard problems in voice mode](#)Think through hard problems in voice mode
 
 [Think through hard problems in voice mode](https://claude.com/blog/think-through-hard-problems-in-voice-mode)Think through hard problems in voice mode
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a025cf25f0694905405e054_Object-Scale.svg)
-
-May 12, 2026
-
-### Claude for the legal industry
-
-Product announcements
-
-[Claude for the legal industry](#)Claude for the legal industry
-
-[Claude for the legal industry](https://claude.com/blog/claude-for-the-legal-industry)Claude for the legal industry
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3f14a08cb97bf1b16d40ef_ObjectClouds.svg)
-
-Jul 7, 2026
-
-### Claude Cowork is coming to mobile and web
-
-Product announcements
-
-[Claude Cowork is coming to mobile and web](#)Claude Cowork is coming to mobile and web
-
-[Claude Cowork is coming to mobile and web](https://claude.com/blog/cowork-web-mobile)Claude Cowork is coming to mobile and web
 
 ## Transform how your organization operates with Claude
 

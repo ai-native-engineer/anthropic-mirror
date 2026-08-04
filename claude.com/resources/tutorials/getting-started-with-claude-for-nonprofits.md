@@ -45,6 +45,8 @@ Explore the full [nonprofit use case library](https://claude.com/resources/use-c
 * Grant writing and donor communications
 * Research and landscape analysis
 
+## Frequently asked questions
+
 #### Who is eligible?
 
 501(c)(3) organizations, K–12 schools, and qualifying healthcare organizations.

@@ -213,37 +213,73 @@ Administrators
 
 Active
 
-Ask Claude
+Thank you! Your submission has been received!
 
-[Ask Claude](#)Ask Claude
-
-Ask Claude
-
-[Ask Claude](#)Ask Claude
+Oops! Something went wrong while submitting the form.
 
 Ask Claude
 
 [Ask Claude](#)Ask Claude
 
-Ask Claude
+Thank you! Your submission has been received!
 
-[Ask Claude](#)Ask Claude
-
-Ask Claude
-
-[Ask Claude](#)Ask Claude
+Oops! Something went wrong while submitting the form.
 
 Ask Claude
 
 [Ask Claude](#)Ask Claude
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Ask Claude
 
 [Ask Claude](#)Ask Claude
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Ask Claude
 
 [Ask Claude](#)Ask Claude
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Ask Claude
+
+[Ask Claude](#)Ask Claude
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Ask Claude
+
+[Ask Claude](#)Ask Claude
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Ask Claude
+
+[Ask Claude](#)Ask Claude
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Ask Claude
+
+[Ask Claude](#)Ask Claude
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Ask Claude
 

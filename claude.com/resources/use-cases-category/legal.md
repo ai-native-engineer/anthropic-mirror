@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/use-cases-category/legal -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Legal
 
 # Legal
 
 Explore ways to apply Claude to research, documentation, and analysis in legal work.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -15,6 +27,8 @@ Author
 Category
 
 Model
+
+Features
 
 ![Prep scattered documents for a compliance audit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984dd48d2c1f32acf967bbe_Screenshot%202026-02-05%20at%2010.02.45%E2%80%AFAM.png)
 
@@ -37,6 +51,8 @@ Legal
 Model
 
 Sonnet 4.5
+
+Features
 
 Cowork
 
@@ -72,6 +88,8 @@ Model
 
 Opus 4.5
 
+Features
+
 Projects
 
 Read use case
@@ -106,6 +124,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Extended Thinking
 
 Connectors
@@ -127,3 +147,7 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.

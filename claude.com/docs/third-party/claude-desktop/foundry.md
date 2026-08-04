@@ -17,7 +17,7 @@ Claude models in Microsoft Foundry are available in two hosting options, Hosted 
 | Scenario | Use | Per-user identity | Notes |
 | --- | --- | --- | --- |
 | Proof of concept, single team | [API key](#api-key) (`inferenceFoundryApiKey`) | No (shared key) | A long-lived secret distributed in the managed profile. Simplest to start. |
-| Broad rollout with per-user identity | [In-app Entra ID sign-in](#in-app-entra-id-sign-in) (`inferenceFoundryTenantId`, `inferenceFoundryClientId`, `inferenceFoundryAuthFlow`) | Yes | Users sign in with their Entra ID account inside the app, through a device code or the system browser. The device-code flow requires app version 1.9255.0 or later; the browser flow requires app version 1.19367.0 or later. |
+| Broad rollout with per-user identity | [In-app Entra ID sign-in](#in-app-entra-id-sign-in) (`inferenceFoundryTenantId`, `inferenceFoundryClientId`, `inferenceFoundryAuthFlow`) | Yes | Users sign in with their Entra ID account inside the app, through a device code, the system browser, or the OS identity broker. The device-code flow requires app version 1.9255.0 or later; the browser flow requires app version 1.19367.0 or later. |
 | Your organization already has tooling that obtains a Microsoft Foundry credential | [Credential helper](https://claude.com/docs/third-party/claude-desktop/configuration#inferencecredentialhelper) (`inferenceCredentialHelper`) | Depends on what the helper obtains | An executable that prints the credential to stdout at runtime. |
 
 ##  Set up Azure
@@ -48,10 +48,11 @@ Register an Entra ID application (in-app sign-in only)
 
 If you chose in-app Entra ID sign-in, register an application in the [Microsoft Entra admin center](https://entra.microsoft.com) under **Identity → Applications → App registrations → New registration**. On the registration:
 
-* Under **API permissions**, select **Add a permission**, find **Azure Cognitive Services** in the API picker, and add the **Delegated** permission **user\_impersonation** so the issued token is accepted by your Microsoft Foundry resource. (The app requests this permission as the scope `https://cognitiveservices.azure.com/.default`.) Both sign-in flows need it. After adding the permission, select **Grant admin consent**; in tenants that disable user consent, sign-in fails with error code `AADSTS65001` until consent is granted.
+* Under **API permissions**, select **Add a permission**, find **Azure Cognitive Services** in the API picker, and add the **Delegated** permission **user\_impersonation** so the issued token is accepted by your Microsoft Foundry resource. (The app requests this permission as the scope `https://cognitiveservices.azure.com/.default`.) All three sign-in flows need it. After adding the permission, select **Grant admin consent**; in tenants that disable user consent, sign-in fails with error code `AADSTS65001` until consent is granted.
 * Under **Authentication**, complete the setup for the sign-in flow you plan to use (see [In-app Entra ID sign-in](#in-app-entra-id-sign-in) for how the flows differ):
   + For the device-code flow (the default), enable **Allow public client flows**. Entra ID rejects device-code sign-in without it.
   + For the browser flow (`inferenceFoundryAuthFlow` set to `browser`), select **Add a platform → Mobile and desktop applications** and add the redirect URI `http://127.0.0.1/callback`. Use the literal address `127.0.0.1`, not `localhost`: Entra ID matches the scheme, host, and path exactly and ignores only the port. The browser flow completes sign-in without **Allow public client flows**. Conditional Access policies that block the device-code authentication flow do not apply to the browser flow.
+  + For the broker flow (`inferenceFoundryAuthFlow` set to `broker`), enable **Allow public client flows** and add the platform’s broker redirect URI under **Mobile and desktop applications**. See [Register the Entra ID application](https://claude.com/docs/third-party/claude-desktop/entra-broker#register-the-entra-id-application) on the OS identity broker page for the redirect URI values and why the public-client setting is required.
 
 Record the **Directory (tenant) ID** and **Application (client) ID**.Grant the users or groups who will sign in a role on the Microsoft Foundry resource that permits inference (for example, **Cognitive Services User**).
 
@@ -65,14 +66,16 @@ No per-device preparation is required. Place the resource’s API key in the man
 
 ###  In-app Entra ID sign-in
 
-No per-device preparation is required. Distribute `inferenceFoundryTenantId` and `inferenceFoundryClientId` in the managed configuration. To use the browser flow instead of the default device-code flow, also set `inferenceFoundryAuthFlow` to `browser`.
+Distribute `inferenceFoundryTenantId` and `inferenceFoundryClientId` in the managed configuration. To use the browser or broker flow instead of the default device-code flow, also set `inferenceFoundryAuthFlow` to `browser` or `broker`.
+The device-code and browser flows need no per-device preparation. The broker flow signs in through the operating system’s native Microsoft identity broker, so each device must meet the platform requirements on the [OS identity broker](https://claude.com/docs/third-party/claude-desktop/entra-broker#prepare-devices) page.
 When the tenant and client IDs are set and `inferenceCredentialKind` is `interactive`, the app shows a **Sign in with Microsoft** page the first time a user opens the Cowork tab. Clicking the button starts a sign-in against `login.microsoftonline.com`; what the user sees depends on `inferenceFoundryAuthFlow`:
 
 * **Device code** (the key is unset or `device-code`): the app displays a short verification code and opens the Microsoft sign-in page in the default browser, where the user enters the code and approves access.
 * **Browser** (the key is `browser`): the app opens the Microsoft sign-in page in the default browser, where the user signs in and approves access. The browser shows a confirmation page and the user switches back to the app; there is no code to enter.
+* **Broker** (the key is `broker`): the app opens the operating system’s native Microsoft account picker, where the user selects or signs in to a work account. The dialog closes and the app returns to Cowork; nothing opens in the browser. Because the broker issues the token, sign-in satisfies Conditional Access policies that require a compliant or managed device or token protection, which the other two flows cannot satisfy on their own. See [Sign in through the OS identity broker](https://claude.com/docs/third-party/claude-desktop/entra-broker) for what the broker is and when to choose it.
 
-On success, the app stores the refresh token encrypted with the operating system’s secure storage (Keychain on macOS, DPAPI on Windows) and returns to the Cowork tab. Both flows store the same token against the same app registration, so changing `inferenceFoundryAuthFlow` later does not itself prompt users to sign in again.
-If the stored refresh token expires or is revoked, the app shows a **Sign in again** prompt; clicking it reopens the Microsoft sign-in page in the browser.
+On success, the app returns to the Cowork tab. For the device-code and browser flows the app stores the refresh token encrypted with the operating system’s secure storage (Keychain on macOS, DPAPI on Windows), and both flows store the same token against the same app registration, so switching between them later does not itself prompt users to sign in again. For the broker flow the operating system’s broker holds the credential, and the app stores only a reference to the signed-in account.
+If the app can no longer renew the credential silently, it shows a **Sign in again** prompt; clicking it reopens the configured sign-in flow. For the device-code and browser flows this happens when the stored refresh token expires or is revoked. For the broker flow it happens when the broker can no longer renew the token silently.
 `inferenceFoundryTenantId` and `inferenceFoundryClientId` can be set only via an MDM profile, not via a bootstrap server. `inferenceFoundryAuthFlow` can be set via either.
 
 In-app sign-in and a [bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap) are separate layers that work together. In-app sign-in supplies each user’s inference credential, the Entra ID token that authorizes model calls. A bootstrap server supplies per-user configuration values when the app starts. A bootstrap server does not replace sign-in: a deployment with a bootstrap server still needs each user to sign in, and signing in does not deliver configuration.
@@ -91,7 +94,7 @@ Open the [in-app configuration window](https://claude.com/docs/third-party/claud
 | Azure AI Foundry API key | your resource key | *leave empty* |
 | Entra ID tenant ID | *leave empty* | `00000000-0000-0000-0000-000000000000` |
 | Entra ID client ID | *leave empty* | `11111111-1111-1111-1111-111111111111` |
-| Entra ID sign-in flow | *leave empty* | `browser`, or leave empty for the default device-code flow |
+| Entra ID sign-in flow | *leave empty* | `browser` or `broker`, or leave empty for the default device-code flow |
 
 Under **Models**, add at least one **Model list** entry using the Microsoft Foundry deployment name.
 Then click **Export** to produce a `.mobileconfig` (macOS) or `.reg` (Windows) file for your MDM. See [Deploy with MDM](https://claude.com/docs/third-party/claude-desktop/mdm) for the export and deployment workflow.
@@ -125,6 +128,7 @@ You must also set `inferenceModels` to a list of Microsoft Foundry deployment na
 | API key | The app opens directly; no user action. | Never, until you rotate the key in the managed profile. |
 | In-app Entra ID sign-in, device-code flow | The app shows a **Sign in with Microsoft** page; the user approves a device code in the browser, and the app returns to Cowork. | When the stored refresh token expires or is revoked under your tenant’s policy. The app prompts in-app. |
 | In-app Entra ID sign-in, browser flow | The app shows a **Sign in with Microsoft** page; the user signs in through the system browser, with no code to enter, and the app returns to Cowork. | When the app can no longer renew the stored token. The app prompts in-app. |
+| In-app Entra ID sign-in, broker flow | The app shows a **Sign in with Microsoft** page; the user picks or signs in to a work account in the operating system’s native account picker, and the app returns to Cowork. | When the broker can no longer renew the token silently. The app prompts in-app. |
 
 ##  Troubleshoot
 
@@ -134,4 +138,5 @@ If sign-in fails with error code `AADSTS650057`, the **user\_impersonation** per
 If sign-in fails with error code `AADSTS65001`, the permission has not been consented. Select **Grant admin consent** on the **API permissions** page, or have the user accept the consent prompt if your tenant allows user consent.
 If browser-flow sign-in fails in the browser with error code `AADSTS50011`, the redirect URI is missing from the app registration or does not match. Add `http://127.0.0.1/callback` under **Authentication → Mobile and desktop applications**, using the literal address `127.0.0.1`, not `localhost`.
 If the browser shows the confirmation page but in-app sign-in still fails, with error code `AADSTS7000218` in the application logs, the redirect URI is registered under the **Web** platform. Move it under **Mobile and desktop applications**.
-Each sign-in attempt has a time limit: five minutes for the device-code flow and two minutes for the browser flow. If the user does not finish within the limit, the attempt fails and the user can click **Sign in with Microsoft** to start again.
+For broker-flow sign-in failures (error codes `AADSTS50011`, `AADSTS900971`, `AADSTS7000218`, or a message that the OS identity broker is unavailable), see [Troubleshoot](https://claude.com/docs/third-party/claude-desktop/entra-broker#troubleshoot) on the OS identity broker page. To unblock a device that cannot meet the broker requirements, set `inferenceFoundryAuthFlow` to `browser` for that device instead.
+Each sign-in attempt has a time limit: five minutes for the device-code and broker flows and two minutes for the browser flow. If the user does not finish within the limit, the attempt fails and the user can click **Sign in with Microsoft** to start again.

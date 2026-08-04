@@ -2,7 +2,7 @@
 
 # Respond to an Enterprise domain claim on your Claude account
 
-Updated over a week ago
+Updated over 2 weeks ago
 
 If your organization has set up Claude Enterprise, they may claim your existing personal Claude account (Free, Pro, or Max) and move it into their workspace. This article explains what to expect and what your options are.
 

@@ -97,7 +97,7 @@ Demand for Claude licenses quickly outpaced supply, creating enthusiasm within t
 
 Beyond its technical capabilities, Claude's approachable interface and communication style were key differentiators. "People can't pinpoint it, but Claude has this vibe in the way it responds. The way it communicates leaves you feeling warm afterwards."
 
-Another crucial factor was the enterprise-ready nature of Claude for Work. "We felt Claude was built enterprise-first, with all the features we truly care about. Even though it was very early days for Claude for Work, we were impressed by their roadmap and saw it as a product that would continue to evolve in ways that would align with what we needed,” said Garrett.
+Another crucial factor was the enterprise-ready nature of [Claude for Work](https://claude.com/solutions/enterprise). "We felt Claude was built enterprise-first, with all the features we truly care about. Even though it was very early days for Claude for Work, we were impressed by their roadmap and saw it as a product that would continue to evolve in ways that would align with what we needed,” said Garrett.
 
 ## How Claude enhances work across Canva
 
@@ -141,6 +141,14 @@ Video caption
 
 ## Related stories
 
+[How Notability built a study tool that improves with every Claude release](https://claude.com/customers/notability)How Notability built a study tool that improves with every Claude release
+
+How Notability built a study tool that improves with every Claude release
+
+Customer story
+
+[Customer story](https://claude.com/customers/notability)Customer story
+
 [Dust enables agents to go deeper at lower cost with Claude](https://claude.com/customers/dust)Dust enables agents to go deeper at lower cost with Claude
 
 Dust enables agents to go deeper at lower cost with Claude
@@ -164,11 +172,3 @@ Box builds document creation into its AI agent with Claude
 Customer story
 
 [Customer story](https://claude.com/customers/box)Customer story
-
-[Juno helps people with chronic illness find patterns in their symptoms with Claude](https://claude.com/customers/juno)Juno helps people with chronic illness find patterns in their symptoms with Claude
-
-Juno helps people with chronic illness find patterns in their symptoms with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/juno)Customer story

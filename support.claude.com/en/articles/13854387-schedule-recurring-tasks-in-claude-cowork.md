@@ -2,7 +2,7 @@
 
 # Schedule recurring tasks in Claude Cowork
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
 
 Scheduled tasks allow you to delegate work to Claude Cowork by creating tasks that run automatically on a recurring basis, or on demand. Instead of starting each task from scratch, you describe it once and Claude handles it on your schedule—delivering finished outputs like reports, briefings, and summaries every time.
 
@@ -45,7 +45,7 @@ There are two ways to create a scheduled task:
 5. Once Claude has all the necessary information, it will output the name of the task it’s creating, the schedule it will follow, and what the task actually does.
 6. You can explicitly confirm you want to schedule the task when prompted by Claude by clicking “Schedule":
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1785717000&signature=e9fdd095849d5f7d142ed307d73e0e0b675e15241d4e148181d2e7ac517ec50a&req=diEnEsl2mIJWUPMW1HO4zeLJBkDj%2Fu2HPx%2FSrZI7l8xyZr7CjNDm%2B1y5cmQo%0Ak7sQ%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1785717000&signature=e9fdd095849d5f7d142ed307d73e0e0b675e15241d4e148181d2e7ac517ec50a&req=diEnEsl2mIJWUPMW1HO4zeLJBkDj%2Fu2HPx%2FSrZI7l8xyZr7CjNDm%2B1y5cmQo%0Ak7sQ%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1785803400&signature=40733e817def403c7da3aac445501368d49d23de674a845dacfa1183c6ebf08e&req=diEnEsl2mIJWUPMW1HO4zeLJBkDs%2F%2BmDPx%2FSrZI7l8x5W2k50SSR0bGRmR9c%0A9cH8%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1785803400&signature=40733e817def403c7da3aac445501368d49d23de674a845dacfa1183c6ebf08e&req=diEnEsl2mIJWUPMW1HO4zeLJBkDs%2F%2BmDPx%2FSrZI7l8x5W2k50SSR0bGRmR9c%0A9cH8%0A)
 7. Claude will create and schedule your task, and it will be added to the **Scheduled tasks** page.
 
 ### Set up manually

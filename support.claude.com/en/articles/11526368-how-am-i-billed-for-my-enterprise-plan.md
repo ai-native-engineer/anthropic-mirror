@@ -2,7 +2,7 @@
 
 # How am I billed for my Enterprise plan?
 
-Updated over 2 weeks ago
+Updated over 3 weeks ago
 
 Enterprise plan billing has two parts: a fixed seat fee and separate usage charges. The seat fee covers platform access. Usage is billed on top of that, based on what your team actually consumes.
 

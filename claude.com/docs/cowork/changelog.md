@@ -8,6 +8,27 @@
 
 [Skip to main content](#content-area)
 
+v1.24012.11
+
+2026-08-03
+
+**General**
+
+* No user-facing changes.
+
+**Code**
+
+* No user-facing changes.
+
+**Cowork**
+
+* No user-facing changes.
+
+**3P**
+
+* Fixed sessions started while configured MCP servers were still connecting having no connector tools until a new conversation was started.
+* Fixed the Microsoft 365 connector not appearing after first-time sign-in until the app was restarted.
+
 v1.24012.9
 
 2026-07-24

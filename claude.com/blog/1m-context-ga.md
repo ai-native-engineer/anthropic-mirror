@@ -13,6 +13,8 @@ Standard pricing now applies across the full 1M window for both models, with no 
   [Enterprise AI](https://claude.com/blog/category/enterprise-ai)
 * Product
 
+  Claude Platform
+
   Claude Code
 * Date
 
@@ -169,17 +171,17 @@ Enterprise AI
 
 [Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d6ec42bcf1c632f75_52f59749d1e033ff2675c6686a07bcce83fb5046-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22349f86cd1968deab7_f06ca06f9d08ca4a85f26357eb896c3730274507-1000x1000.svg)
 
-Jul 23, 2026
+Jul 2, 2026
 
-### Four role-based certifications for the people who put Claude to work for customers
+### Giving admins more visibility and control over Claude spend
 
-Enterprise AI
+Product announcements
 
-[Four role-based certifications for the people who put Claude to work for customers](#)Four role-based certifications for the people who put Claude to work for customers
+[Giving admins more visibility and control over Claude spend](#)Giving admins more visibility and control over Claude spend
 
-[Four role-based certifications for the people who put Claude to work for customers](https://claude.com/blog/four-role-based-claude-certifications)Four role-based certifications for the people who put Claude to work for customers
+[Giving admins more visibility and control over Claude spend](https://claude.com/blog/giving-admins-more-visibility-and-control-over-claude-usage-and-spend)Giving admins more visibility and control over Claude spend
 
 ## Transform how your organization operates with Claude
 
@@ -198,6 +200,8 @@ Product updates, how-tos, community spotlights, and more. Delivered monthly to y
 Thank you! You’re subscribed.
 
 Sorry, there was a problem with your submission, please try again later.
+
+Claude Platform
 
 Claude Code
 

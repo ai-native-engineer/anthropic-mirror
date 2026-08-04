@@ -2,7 +2,7 @@
 
 # Set up the Microsoft 365 connector
 
-Updated over 3 weeks ago
+Updated over a month ago
 
 This article walks admins through enabling the Microsoft 365 connector for their organization in Claude—including granting Microsoft Entra consent, restricting access, and managing permissions. Once setup is complete, people in your tenant can connect Microsoft 365 to their own Claude accounts to search across SharePoint, OneDrive, Outlook, and Teams from Claude. You can also enable write tools, which let Claude send email, manage calendar events, and create and update files on a member's behalf.
 

@@ -2,7 +2,7 @@
 
 # Use Claude for Word
 
-Updated over a month ago
+Updated today
 
 Claude for Word is an add-in that integrates Claude into your Word workflow. It’s designed for professionals who work extensively with documents, particularly in legal review, financial memo drafting, and iterative editing.
 
@@ -27,7 +27,7 @@ With Claude for Word, you can:
 
 ### For individuals
 
-1. Navigate to the **[Claude for Microsoft 365 (Excel, PowerPoint, and Word) listing](https://marketplace.microsoft.com/en-us/product/office/WA200010725?tab=Overview)** on Microsoft Marketplace.
+1. Navigate to the **[Claude for Microsoft 365 listing](https://marketplace.microsoft.com/en-us/product/office/WA200010725?tab=Overview)** on Microsoft Marketplace.
 2. Click “Get it now” to install the add-in.
 3. Open Word, activate the add-in, and sign in with your Claude account.
 
@@ -35,12 +35,12 @@ With Claude for Word, you can:
 
 **Deploy Claude for Word to your organization:**
 
-1. Visit the **Microsoft 365 Admin Center**.
-2. Navigate to **Settings > Org Settings > User owned apps and services** and ensure that **“Let users access the Office Store”** is toggled on.
+1. Visit the **[Microsoft 365 Admin Center](https://admin.microsoft.com/)**.
+2. Navigate to **Settings > Org Settings > User owned apps and services** and ensure that **[“Let users access the Office Store”](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-addins-in-the-admin-center?view=o365-worldwide#manage-add-in-downloads-by-turning-onoff-microsoft-marketplace-across-all-apps-except-outlook)** is toggled on.
 3. Navigate to **Settings > Integrated apps > Add-ins**.
-4. Search for “Claude by Anthropic for Word” in Microsoft AppSource.
+4. Search for “Claude for Microsoft 365” in Microsoft AppSource.
 5. Deploy the add-in to your organization or specific people.
-6. Share these instructions with your team: **Microsoft’s deployment guide**.
+6. Share these instructions with your team: **[Microsoft’s deployment guide](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-deployment-of-add-ins?view=o365-worldwide)**.
 
 After installation, team members can open Word, activate the Claude add-in (from Tools > Add-ins on Mac or Home > Add-ins on Windows), sign in with their Claude credentials, and start working with their documents.
 
@@ -289,4 +289,8 @@ In tracked changes mode, you can review every edit before accepting it. You can 
 
 Claude for Word supports .docx files. If you’re working with a legacy .doc file, save it as .docx first.
 
-[Use Claude for Excel](https://support.claude.com/en/articles/12650343-use-claude-for-excel)[Use Claude for PowerPoint](https://support.claude.com/en/articles/13521390-use-claude-for-powerpoint)[Work across Microsoft 365 apps](https://support.claude.com/en/articles/13892150-work-across-microsoft-365-apps)[Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)[Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)
+* [Use Claude for Excel](https://support.claude.com/en/articles/12650343-use-claude-for-excel)
+* [Use Claude for PowerPoint](https://support.claude.com/en/articles/13521390-use-claude-for-powerpoint)
+* [Work across Microsoft 365 apps](https://support.claude.com/en/articles/13892150-work-across-microsoft-365-apps)
+* [Use Claude for Microsoft 365 with third-party platforms](https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms)
+* [Use Claude for Outlook](https://support.claude.com/en/articles/14855664-use-claude-for-outlook)

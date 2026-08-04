@@ -15,6 +15,7 @@ We removed over 80% of Claude Code's system prompt for more advanced models. How
 
   Claude Enterprise
 
+  Claude Platform
 * Date
 
   July 24, 2026
@@ -227,29 +228,29 @@ Claude Code
 
 [Building verification loops in Claude Code with skills](https://claude.com/blog/building-verification-loops-in-claude-code-with-skills)Building verification loops in Claude Code with skills
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
 
-Jul 21, 2026
+Jul 6, 2026
 
-### How Anthropic secures its AI-native software development lifecycle
-
-Claude Code
-
-[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
-
-[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2260bfc90348429f9c3_cd9cf56a7f049285b7c1c8786c0a600cf3d7f317-1000x1000.svg)
-
-Jul 16, 2026
-
-### How Anthropic runs large-scale code migrations with Claude Code
+### A field guide to Claude Fable 5: Finding your unknowns
 
 Claude Code
 
-[How Anthropic runs large-scale code migrations with Claude Code](#)How Anthropic runs large-scale code migrations with Claude Code
+[A field guide to Claude Fable 5: Finding your unknowns](#)A field guide to Claude Fable 5: Finding your unknowns
 
-[How Anthropic runs large-scale code migrations with Claude Code](https://claude.com/blog/ai-code-migration)How Anthropic runs large-scale code migrations with Claude Code
+[A field guide to Claude Fable 5: Finding your unknowns](https://claude.com/blog/a-field-guide-to-claude-fable-finding-your-unknowns)A field guide to Claude Fable 5: Finding your unknowns
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229e73ca2d0d73d78f7_682ac293884c9d4ee4ebe2355a2f6c4ecfdd9c1b-1000x1000.svg)
+
+Jun 30, 2026
+
+### Loop engineering: Getting started with loops
+
+Claude Code
+
+[Loop engineering: Getting started with loops](#)Loop engineering: Getting started with loops
+
+[Loop engineering: Getting started with loops](https://claude.com/blog/getting-started-with-loops)Loop engineering: Getting started with loops
 
 ## Transform how your organization operates with Claude
 
@@ -272,6 +273,8 @@ Sorry, there was a problem with your submission, please try again later.
 Claude Code
 
 Claude Enterprise
+
+Claude Platform
 
 Agents
 

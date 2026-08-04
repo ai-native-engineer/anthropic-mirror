@@ -24,11 +24,11 @@ Large
 
 Product:
 
-Claude Enterprise
+[Claude Enterprise](https://claude.com/solutions/enterprise)
 
-Claude Code
+[Claude Code](https://claude.com/product/claude-code)
 
-Claude Cowork
+[Claude Cowork](https://claude.com/product/cowork)
 
 Location:
 
@@ -94,7 +94,7 @@ Head of Executive Partnerships, Quantium
 
 ## Walk us through your internal Claude footprint. Where is it deployed across the company?
 
-**Spratt:** We've rolled Claude Enterprise out to all our 1,200 employees, with 91% weekly usage**.** Six hundred of those are on Claude Code covering data scientists, engineers, consultants, and back office team members. Our development lifecycle is now spec-driven rather than waterfall, and that shift has come directly from how our engineers work with Claude day to day. I use Cowork myself for research summaries, automated data flows, and to run a pass across my inbox to flag what I'm missing. It means I drop fewer balls.
+**Spratt:** We've rolled [Claude Enterprise](https://claude.com/solutions/enterprise) out to all our 1,200 employees, with 91% weekly usage**.** Six hundred of those are on Claude Code covering data scientists, engineers, consultants, and back office team members. Our development lifecycle is now spec-driven rather than waterfall, and that shift has come directly from how our engineers work with Claude day to day. I use Cowork myself for research summaries, automated data flows, and to run a pass across my inbox to flag what I'm missing. It means I drop fewer balls.
 
 ## A lot of enterprises came out of 2025 worried about the AI investments they'd already made. What did you see, and what's the underlying issue?
 

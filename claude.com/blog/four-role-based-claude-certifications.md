@@ -9,6 +9,7 @@
 
   Claude apps
 
+  Claude Platform
 * Date
 
   July 23, 2026
@@ -128,29 +129,29 @@ Enterprise AI
 
 [Claude models explained: choosing the best model for your use case](https://claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case)Claude models explained: choosing the best model for your use case
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22824d4124c2e33ba8e_b1ce510c468b2920d4f8f61c17a50906801f939a-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d23008bbc20c0ffaeb6f_43abe7e54b56a891e74a8542944dfbd33f07f49c-1000x1000.svg)
 
-Jul 21, 2026
+Jun 18, 2026
 
-### How Anthropic secures its AI-native software development lifecycle
-
-Claude Code
-
-[How Anthropic secures its AI-native software development lifecycle](#)How Anthropic secures its AI-native software development lifecycle
-
-[How Anthropic secures its AI-native software development lifecycle](https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle)How Anthropic secures its AI-native software development lifecycle
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
-
-Jul 17, 2026
-
-### Zero risk isn't the job: a CISO's guide to agentic AI
+### Centrally manage authorization for MCP connectors
 
 Enterprise AI
 
-[Zero risk isn't the job: a CISO's guide to agentic AI](#)Zero risk isn't the job: a CISO's guide to agentic AI
+[Centrally manage authorization for MCP connectors](#) Centrally manage authorization for MCP connectors
 
-[Zero risk isn't the job: a CISO's guide to agentic AI](https://claude.com/blog/ciso-guide-to-agentic-ai)Zero risk isn't the job: a CISO's guide to agentic AI
+[Centrally manage authorization for MCP connectors](https://claude.com/blog/enterprise-managed-auth) Centrally manage authorization for MCP connectors
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
+
+May 22, 2026
+
+### How Anthropic's finance team uses Claude to shape the narrative behind the numbers
+
+Enterprise AI
+
+[How Anthropic's finance team uses Claude to shape the narrative behind the numbers](#)How Anthropic's finance team uses Claude to shape the narrative behind the numbers
+
+[How Anthropic's finance team uses Claude to shape the narrative behind the numbers](https://claude.com/blog/how-anthropics-finance-team-uses-claude-to-shape-the-narrative-behind-the-numbers)How Anthropic's finance team uses Claude to shape the narrative behind the numbers
 
 ## Transform how your organization operates with Claude
 
@@ -171,6 +172,8 @@ Thank you! You’re subscribed.
 Sorry, there was a problem with your submission, please try again later.
 
 Claude apps
+
+Claude Platform
 
 Business
 

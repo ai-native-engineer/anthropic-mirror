@@ -14,6 +14,8 @@ Request access
 
 * Use case
 
+  Code
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4bdcb399a6975bbe61b747_6a39aa2d6078291fafa02b61_code-review-merge-request-p-1600.png)
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4bdcb3355d613b9435ea8c_6a39aa2c040ed9bfa8d49d04_duo-agents-p-1600.png)

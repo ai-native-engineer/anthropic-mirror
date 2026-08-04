@@ -24,7 +24,9 @@ Startup
 
 Product:
 
-Claude Code
+[Claude Platform](https://claude.com/platform/api)
+
+[Claude Code](https://claude.com/product/claude-code)
 
 Location:
 
@@ -157,6 +159,14 @@ Co-founder and CTO of Dust
 
 ## Related stories
 
+[How Notability built a study tool that improves with every Claude release](https://claude.com/customers/notability)How Notability built a study tool that improves with every Claude release
+
+How Notability built a study tool that improves with every Claude release
+
+Customer story
+
+[Customer story](https://claude.com/customers/notability)Customer story
+
 [How Vercel built an ecosystem on the open skills standard](https://claude.com/customers/vercel-qa)How Vercel built an ecosystem on the open skills standard
 
 How Vercel built an ecosystem on the open skills standard
@@ -180,11 +190,3 @@ Juno helps people with chronic illness find patterns in their symptoms with Clau
 Customer story
 
 [Customer story](https://claude.com/customers/juno)Customer story
-
-[A conversation with Cursor on building coding agents for professional developers](https://claude.com/customers/cursor-qa)A conversation with Cursor on building coding agents for professional developers
-
-A conversation with Cursor on building coding agents for professional developers
-
-Customer story
-
-[Customer story](https://claude.com/customers/cursor-qa)Customer story

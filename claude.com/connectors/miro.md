@@ -6,6 +6,8 @@
 
 From a single prompt, build workshops, visualize complex ideas, search across boards, and act on feedback agentically
 
+  Code
+
   Productivity
 * Used in
 

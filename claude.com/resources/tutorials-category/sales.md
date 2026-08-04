@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/tutorials-category/sales -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Sales
 
 # Sales
 
 Explore ways Claude can support prospecting, customer relationships, and strategy in sales work.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -13,6 +25,8 @@ List
 Category
 
 Product
+
+Features
 
 ![How to build a plugin from scratch in Claude Cowork](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a5bbbe653abc69c4ee2f9a_Screenshot%202026-03-02%20at%208.32.55%E2%80%AFAM.png)
 
@@ -145,6 +159,10 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 ## Transform how your organization operates with Claude
 

@@ -150,5 +150,3 @@ Working with Andon Labs, we’ve developed a new series of evaluations that asse
 ## Subscribe to the Frontier Red Team newsletter
 
 Get updates on our latest red-teaming research and findings.
-
-Finding bugs with Claude and property-based testing \ Anthropic

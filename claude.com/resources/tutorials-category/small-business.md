@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/tutorials-category/small-business -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Small Business
 
 # Small Business
 
 Discover ways Claude can help you run your small business.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -13,6 +25,8 @@ List
 Category
 
 Product
+
+Features
 
 ![Using Claude Cowork for your small business](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0bb0bf7fd5964163de6769_Screenshot%202026-05-18%20at%205.37.13%E2%80%AFPM.png)
 
@@ -77,6 +91,10 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 ## Transform how your organization operates with Claude
 

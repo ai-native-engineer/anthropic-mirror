@@ -26,6 +26,8 @@ Small
 
 Product:
 
+Claude Platform
+
 Partner:
 
 AWS

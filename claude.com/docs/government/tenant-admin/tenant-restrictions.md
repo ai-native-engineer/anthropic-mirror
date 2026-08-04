@@ -22,6 +22,7 @@ The check covers every way a user can reach Claude for Government:
 
 * The web application, including the tenant and organization admin portals
 * The desktop application
+* Claude Code
 * The Claude for Microsoft 365 add-ins
 * Direct API calls
 * SCIM directory provisioning and the [Compliance API](https://claude.com/docs/government/org-admin/compliance-api)

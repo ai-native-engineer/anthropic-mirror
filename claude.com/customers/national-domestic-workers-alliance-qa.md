@@ -24,7 +24,9 @@ Small
 
 Product:
 
-Claude for Nonprofits
+[Claude for Nonprofits](https://claude.com/solutions/nonprofits)
+
+[Claude Platform](https://claude.com/platform/api)
 
 Location:
 

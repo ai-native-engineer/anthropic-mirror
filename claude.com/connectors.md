@@ -1,5 +1,9 @@
 <!-- source: https://claude.com/connectors -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 # Connect Claude to your favorite apps
 
 Claude can work with your tools, databases, and applications to give you more relevant responses. Choose from a variety of connectors, powered by the Model Context Protocol.
@@ -9,6 +13,14 @@ Browse connectors
 [Browse connectors](#connectors)Browse connectors
 
 ## Browse connectors
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Submit your own connector
 
@@ -353,6 +365,10 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 FAQ
 

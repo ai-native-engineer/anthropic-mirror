@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/use-cases-category/marketing -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Marketing
 
 # Marketing
 
 Discover how Claude can help support content creation, strategy, and creative work for marketing teams.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -15,6 +27,8 @@ Author
 Category
 
 Model
+
+Features
 
 ![Adapt content across platforms](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690a7730d1d7914199893bf8_contentrepurpose.png)
 
@@ -37,6 +51,8 @@ Marketing
 Model
 
 Sonnet 4.5
+
+Features
 
 Extended Thinking
 
@@ -74,6 +90,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Extended Thinking
 
 Read use case
@@ -93,3 +111,7 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.

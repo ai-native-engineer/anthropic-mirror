@@ -165,6 +165,8 @@ $50 / MTok
 
 Prompt caching
 
+Write
+
 $12.50 / MTok
 
 Read
@@ -185,6 +187,8 @@ $25 / MTok
 
 Prompt caching
 
+Write
+
 $6.25 / MTok
 
 Read
@@ -204,6 +208,8 @@ Output\*
 $10 / MTok
 
 Prompt caching
+
+Write
 
 $2.50 / MTok
 
@@ -226,6 +232,8 @@ Output
 $5 / MTok
 
 Prompt caching
+
+Write
 
 $1.25 / MTok
 

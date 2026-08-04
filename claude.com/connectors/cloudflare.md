@@ -6,6 +6,7 @@
 
 Build applications with compute, storage, and AI
 
+  Code
 * Used in
 
   [Claude](http://claude.ai/directory/2d60210c-dd92-4be0-b09c-3662f10445c9)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
@@ -71,6 +72,8 @@ Learn more
 
 ## Related connectors
 
+Code
+
 Claude
 
 Claude Code
@@ -83,6 +86,8 @@ January 26, 2026
 
 Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
+Code
+
 Claude
 
 March 9, 2026
@@ -92,6 +97,8 @@ March 9, 2026
 ### Base44
 
 Build and manage Base44 apps](https://claude.com/connectors/base44)
+
+Code
 
 Claude
 
@@ -106,6 +113,8 @@ March 2, 2026
 Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
 
 Data
+
+Code
 
 Claude
 

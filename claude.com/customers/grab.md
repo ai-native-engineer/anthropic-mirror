@@ -24,6 +24,8 @@ Medium
 
 Product:
 
+Claude Platform
+
 Location:
 
 Asia Pacific

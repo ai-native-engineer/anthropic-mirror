@@ -1,10 +1,22 @@
 <!-- source: https://claude.com/resources/use-cases-category/finance -->
 
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
 Finance
 
 # Finance
 
 Discover ways Claude can support analysis, planning, and operations in financial work.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.
 
 Grid
 
@@ -15,6 +27,8 @@ Author
 Category
 
 Model
+
+Features
 
 ![Draft a credit memo from spreads and statements with Claude for Excel](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69deb4db4aa7783f5f10f101_Screenshot%202026-04-14%20at%202.18.08%E2%80%AFPM.png)
 
@@ -37,6 +51,8 @@ Finance
 Model
 
 Sonnet 4.6
+
+Features
 
 Connectors
 
@@ -72,6 +88,8 @@ Model
 
 Sonnet 4.6
 
+Features
+
 Connectors
 
 Read use case
@@ -105,6 +123,8 @@ Finance
 Model
 
 Opus 4.6
+
+Features
 
 Connectors
 
@@ -142,6 +162,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Cowork
 
 Read use case
@@ -176,6 +198,8 @@ Model
 
 Opus 4.5
 
+Features
+
 Extended Thinking
 
 Read use case
@@ -209,6 +233,8 @@ Finance
 Model
 
 Sonnet 4.5
+
+Features
 
 Extended Thinking
 
@@ -248,6 +274,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Extended Thinking
 
 Web Search
@@ -286,6 +314,8 @@ Model
 
 Sonnet 4.5
 
+Features
+
 Extended Thinking
 
 Read use case
@@ -305,3 +335,7 @@ Try another search or clear some of your filters.
 Clear all filters
 
 [Clear all filters](#)Clear all filters
+
+Thank you! Your submission has been received!
+
+Oops! Something went wrong while submitting the form.

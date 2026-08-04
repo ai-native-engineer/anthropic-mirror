@@ -24,11 +24,11 @@ Large
 
 Product:
 
-Claude Enterprise
+[Claude Enterprise](https://claude.com/solutions/enterprise)
 
-Claude Code
+[Claude Code](https://claude.com/product/claude-code)
 
-Claude Cowork
+[Claude Cowork](https://claude.com/product/cowork)
 
 Partner:
 

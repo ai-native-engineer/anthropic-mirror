@@ -12,6 +12,8 @@ The Benevity connector gives Claude access to a database of 2.5M+ nonprofit orga
 
 The Benevity integration relies on Claude's ability to [use remote connectors](https://support.claude.com/en/articles/11724452-browsing-and-connecting-to-tools-from-the-directory).
 
+## What this connector provides
+
 * Access to 2.5M+ nonprofit organizations
 * Detailed profiles including mission statements, program descriptions, and geographic focus
 * Keyword search for local and international organizations
@@ -21,12 +23,16 @@ The Benevity integration relies on Claude's ability to [use remote connectors](h
 
 Available to all paid Claude plan users (Pro, Max, Team, or Enterprise). No Benevity account or authentication is required.
 
+## Setting up the connector
+
 #### For organization owners (Team and Enterprise)
 
 1. Navigate to [Admin settings](https://claude.ai/admin-settings) > Connectors
 2. Select `Browse connectors`
 3. Find and select Benevity
 4. Select `Add to your team`
+
+#### For individual users
 
 1. Navigate to [Settings](https://claude.ai/settings) > Connectors
 2. Select `Browse connectors`
@@ -39,6 +45,8 @@ Available to all paid Claude plan users (Pro, Max, Team, or Enterprise). No Bene
 * **Local charity research:** `What community organizations serve homeless populations in Denver?`
 * **Pre-donation research:** `Tell me about the mission and programs of [organization name]`
 * **Corporate giving:** `Find verified nonprofits focused on STEM education for workplace giving programs`
+
+## Frequently asked questions
 
 #### Does it cost extra?
 

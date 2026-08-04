@@ -6,6 +6,7 @@
 
 MCP server for Google Compute Engine
 
+  Code
 * Used in
 
   [Claude](https://claude.ai/directory/3afecfe4-46be-4f31-9050-9b8a67909028)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
@@ -39,6 +40,8 @@ You can use Google Compute Engine to:
 
 ## Related connectors
 
+Code
+
 Claude
 
 Claude Code
@@ -51,6 +54,8 @@ January 26, 2026
 
 Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
 
+Code
+
 Claude
 
 March 9, 2026
@@ -60,6 +65,8 @@ March 9, 2026
 ### Base44
 
 Build and manage Base44 apps](https://claude.com/connectors/base44)
+
+Code
 
 Claude
 
@@ -72,6 +79,8 @@ March 2, 2026
 ### Clerk
 
 Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
+
+Code
 
 Claude
 

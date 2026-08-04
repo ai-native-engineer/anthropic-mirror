@@ -100,7 +100,7 @@ NBIM built human-in-the-loop evaluations to test model capabilities in finance-s
 
 Claude’s ability to maintain context during extended multi-context sessions was crucial for NBIM’s investment research needs. Other deciding factors: Claude signals uncertainty rather than hallucinating results, an LLM safety principle that reinforces NBIM's fiduciary responsibilities. Additionally, Claude's multilingual capabilities support NBIM’s operations around the globe.
 
-Anthropic's focus on responsible AI development matched NBIM's values and transparency expectations as a public entity. Anthropic's partnership approach was equally important. The two companies regularly consult on financial services capabilities, test new features, and get feedback on safety and enterprise controls. “Our institutional requirements inform their roadmap,” Kirkeberg says. “Anthropic is the ideal AI partner for us as a financial institution.”
+Anthropic's focus on responsible AI development matched NBIM's values and transparency expectations as a public entity. Anthropic's partnership approach was equally important. The two companies regularly consult on financial services capabilities, test new features, and get feedback on safety and [enterprise controls](https://claude.com/solutions/enterprise). “Our institutional requirements inform their roadmap,” Kirkeberg says. “Anthropic is the ideal AI partner for us as a financial institution.”
 
 ## Establishing AI literacy across the organization
 
