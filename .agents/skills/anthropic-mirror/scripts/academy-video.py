@@ -2,13 +2,15 @@
 
 영상 레슨은 텍스트 본문이 없어 academy-extract.py가 스킵한다. 이 스크립트는 레슨별 영상 자막을 전사한다.
 영상 플레이어가 코스마다 다르다:
-- youtube iframe (claude-code-101 등): yt-dlp로 자동자막(en) 추출.
-- JWPlayer (MCP 코스 등): jwplayer().getPlaylistItem().tracks의 English captions(.srt, 수동 제작이라 고품질)를 다운로드.
+- youtube iframe (claude-code-101 등): youtube-digest extract_transcript.sh로 자동/수동 자막(en) 추출.
+- JWPlayer + English captions 트랙 (MCP 등): jwplayer tracks의 .srt를 다운로드.
+- JWPlayer captions 없음 (partner webinar 등): media ID로 오디오를 받아 apple-stt -l en-US 전사.
 
 함정:
 - 레슨별 영상은 playwright로 렌더 후 잡아야 한다(httpx raw HTML엔 코스 전체 embed가 섞임).
-  youtube는 "보이는 iframe"(width/height>50), JWPlayer는 재생 트리거 후 jwplayer API로 tracks 조회.
+  youtube는 "보이는 iframe"(width/height>50), JWPlayer는 재생 트리거 후 jwplayer API로 tracks/media ID 조회.
 - 자막 .srt는 cdn.jwplayer.com에서 301 리다이렉트되므로 follow 필요(urllib 기본 follow).
+- captions 없는 JW는 tracks만으로 끝나면 영상이 통째로 빠진다 -> media ID + STT 폴백 필수.
 - 쿠키 만료 시 비로그인 -> 레슨 ID가 안 잡힘 -> login-academy.py 재실행.
 
 실행: <crawl4ai python> academy-video.py <out_dir> [course-slug ...]
@@ -17,7 +19,7 @@
   출력: <out_dir>/anthropic.skilljar.com/<course>/<NN>-<title>.md (academy-extract와 같은 트리)
 """
 
-import asyncio, hashlib, html, json, os, re, subprocess, sys, tempfile, time, urllib.request
+import asyncio, hashlib, html, json, os, re, shutil, subprocess, sys, tempfile, time, urllib.request
 from urllib.parse import urlsplit
 import httpx
 from bs4 import BeautifulSoup
@@ -105,17 +107,18 @@ def youtube_refs(srcs):
     return refs
 
 
+def ref_marker(kind, ref):
+    if kind == "yt":
+        return f"<!-- youtube: {ref} -->"
+    if kind == "srt":
+        return f"<!-- jwplayer-srt: {ref} -->"
+    if kind == "jw":
+        return f"<!-- jwplayer: {ref} -->"
+    raise ValueError(f"unknown video ref kind: {kind}")
+
+
 def unseen_refs(existing, refs):
-    return [
-        ref
-        for ref in refs
-        if (
-            f"<!-- youtube: {ref[1]} -->"
-            if ref[0] == "yt"
-            else f"<!-- jwplayer-srt: {ref[1]} -->"
-        )
-        not in existing
-    ]
+    return [ref for ref in refs if ref_marker(ref[0], ref[1]) not in existing]
 
 
 def write_state(path, state):
@@ -179,6 +182,104 @@ def fetch_srt(url):
             return cap_to_text(r.read().decode("utf-8", "ignore"))
     except Exception:
         return ""
+
+
+def jw_media_id(player_payload):
+    """jwplayer API 결과에서 media ID를 뽑는다 (manifest URL 또는 botr_ 플레이어 id).
+
+    media ID는 영숫자(예: aUCkS2iB, KcrpjqUw). botr_ 뒤 첫 세그먼트만 쓴다 —
+    \\w는 밑줄을 포함해 플레이어 접미사(Akyo8gQO_div)까지 삼킨다.
+    """
+    if not player_payload or not isinstance(player_payload, dict):
+        return None
+    file_url = player_payload.get("file") or ""
+    m = re.search(r"/manifests/([A-Za-z0-9]+)\.m3u8", file_url)
+    if m:
+        return m.group(1)
+    pid = player_payload.get("id") or ""
+    m = re.search(r"botr_([A-Za-z0-9]+)_", pid)
+    return m.group(1) if m else None
+
+
+def fetch_jw_stt(media_id):
+    """captions 트랙이 없는 JWPlayer 영상: cdn 오디오를 받아 apple-stt(en-US)로 전사.
+
+    partner webinar 계열이 여기에 해당한다. yt-dlp/apple-stt가 없으면 빈 문자열.
+    """
+    if not media_id or not re.fullmatch(r"[A-Za-z0-9]+", media_id):
+        return ""
+    if not shutil.which("yt-dlp") or not shutil.which("apple-stt"):
+        print(
+            f"[!] JW STT 도구 없음(yt-dlp/apple-stt): media={media_id}",
+            flush=True,
+        )
+        return ""
+    with tempfile.TemporaryDirectory(prefix="jw-stt-") as d:
+        dpath = Path(d)
+        out_tmpl = str(dpath / "audio.%(ext)s")
+        url = f"https://cdn.jwplayer.com/manifests/{media_id}.m3u8"
+        try:
+            subprocess.run(
+                [
+                    "yt-dlp",
+                    "-x",
+                    "--audio-format",
+                    "m4a",
+                    "-o",
+                    out_tmpl,
+                    url,
+                ],
+                stdin=subprocess.DEVNULL,
+                capture_output=True,
+                timeout=900,
+                check=False,
+            )
+        except subprocess.TimeoutExpired:
+            print(f"[!] JW 오디오 다운로드 타임아웃: {media_id}", flush=True)
+            return ""
+        audio = next(
+            (
+                p
+                for p in sorted(dpath.iterdir())
+                if p.suffix.lower() in {".m4a", ".mp3", ".wav", ".mp4", ".webm"}
+            ),
+            None,
+        )
+        if audio is None:
+            print(f"[!] JW 오디오 파일 없음: {media_id}", flush=True)
+            return ""
+        txt = dpath / "transcript.txt"
+        try:
+            subprocess.run(
+                ["apple-stt", "-l", "en-US", "-q", "-o", str(txt), str(audio)],
+                stdin=subprocess.DEVNULL,
+                capture_output=True,
+                timeout=1800,
+                check=False,
+            )
+        except subprocess.TimeoutExpired:
+            print(f"[!] JW STT 타임아웃: {media_id}", flush=True)
+            return ""
+        if not txt.exists():
+            return ""
+        body = txt.read_text(encoding="utf-8", errors="ignore").strip()
+        # apple-stt quiet 모드여도 진행 줄이 섞이면 본문만 남긴다.
+        lines = [
+            ln
+            for ln in body.splitlines()
+            if ln.strip() and not ln.startswith(("▶", "·", "Processing", "Loading"))
+        ]
+        return " ".join(ln.strip() for ln in lines) if lines else body
+
+
+def fetch_transcript(kind, ref):
+    if kind == "yt":
+        return fetch_youtube(ref)
+    if kind == "srt":
+        return fetch_srt(ref)
+    if kind == "jw":
+        return fetch_jw_stt(ref)
+    return ""
 
 
 async def rendered_body(pg):
@@ -312,12 +413,21 @@ async def lesson_videos(pg, course, ck, cdir, state):
             except Exception:
                 pass
         await pg.wait_for_timeout(2500)
-        srt = await pg.evaluate(
-            "(()=>{try{const t=jwplayer().getPlaylistItem().tracks||[];"
-            "const en=t.find(x=>x.kind==='captions'&&/english/i.test((x.label||x.name||'')));"
-            "return en?en.file:null}catch(e){return null}})()"
+        # captions .srt 우선. 없으면 media ID를 잡아 STT 폴백(partner webinar 등).
+        jw_info = await pg.evaluate(
+            "(()=>{try{"
+            "const p=jwplayer(); const item=p.getPlaylistItem()||{};"
+            "const tracks=item.tracks||[];"
+            "const en=tracks.find(x=>x.kind==='captions'&&/english/i.test((x.label||x.name||'')));"
+            "const file=((item.sources||[]).find(s=>s.file)||{}).file||'';"
+            "return {srt:en?en.file:null, file, id:p.id||''};"
+            "}catch(e){return null}})()"
         )
-        out.append((lid, title, path, [("srt", srt)] if srt else []))
+        if jw_info and jw_info.get("srt"):
+            out.append((lid, title, path, [("srt", jw_info["srt"])]))
+            continue
+        media = jw_media_id(jw_info)
+        out.append((lid, title, path, [("jw", media)] if media else []))
     return out, bodies, gated, len(ids)
 
 
@@ -334,6 +444,19 @@ async def main():
         assert unseen_refs("<!-- youtube: ABCDEFGHIJK -->", refs) == [
             ("yt", "1234567890_")
         ]
+        assert jw_media_id(
+            {
+                "file": "https://content.jwplatform.com/manifests/KcrpjqUw.m3u8?x=1",
+                "id": "botr_other_x",
+            }
+        ) == "KcrpjqUw"
+        assert jw_media_id({"file": "", "id": "botr_aUCkS2iB_Akyo8gQO_div"}) == "aUCkS2iB"
+        assert jw_media_id(None) is None
+        jw_refs = [("jw", "KcrpjqUw"), ("srt", "https://cdn.example/en.srt")]
+        assert unseen_refs("<!-- jwplayer: KcrpjqUw -->", jw_refs) == [
+            ("srt", "https://cdn.example/en.srt")
+        ]
+        assert ref_marker("jw", "KcrpjqUw") == "<!-- jwplayer: KcrpjqUw -->"
         assert anonymous_landing(
             "https://anthropic.skilljar.com/accounts/login/?next=/"
         )
@@ -431,12 +554,8 @@ async def main():
                     continue
                 added = 0
                 for kind, ref in unseen_refs(existing, refs):
-                    tag = (
-                        f"<!-- youtube: {ref} -->"
-                        if kind == "yt"
-                        else f"<!-- jwplayer-srt: {ref} -->"
-                    )
-                    tx = fetch_youtube(ref) if kind == "yt" else fetch_srt(ref)
+                    tag = ref_marker(kind, ref)
+                    tx = fetch_transcript(kind, ref)
                     if len(tx) >= 50:
                         pending = f"<!-- {kind}-pending: {ref} -->"
                         existing = existing.replace(

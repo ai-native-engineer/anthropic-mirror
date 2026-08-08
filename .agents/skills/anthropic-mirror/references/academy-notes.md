@@ -43,6 +43,7 @@
 - **목차 레슨 ID는 httpx SSR로 잡는다** -- 일부 코스(ai-fluency-for-builders)는 playwright 렌더가 목차 링크를 비운다. 영상 ID/자막은 레슨별 playwright로.
 - **youtube 코스/하이브리드**: 레슨별 youtube ID는 playwright로 렌더 후 "보이는 iframe"(width/height>50)에서 잡는다(httpx raw엔 코스 전체 embed가 섞임, `EAP_VIDEO_ID`는 공통 기본값이라 무시). **iframe 렌더가 1800ms보다 늦는 레슨이 있어** goto 직후 `wait_for_selector("iframe[src*=youtube], .jw-video, video", 7s)`로 플레이어 등장을 기다린 뒤 잡는다(고정 대기만 쓰면 하이브리드 레슨이 간헐 누락). 진짜 텍스트 레슨은 타임아웃 후 통과. 자막은 **youtube-digest의 `extract_transcript.sh`(크롬 쿠키로 429 회피 + 수동자막 우선 en-orig>en>ko)로 받는다 -- raw yt-dlp 직접 호출 금지**(youtube 자막 추출의 정본).
 - **JWPlayer 코스**(MCP 등): youtube iframe이 없고 `<video src="blob:">`로 재생. 재생 트리거 후 `jwplayer().getPlaylistItem().tracks`의 English captions `.srt`(수동 제작, 고품질)를 다운로드한다(cdn.jwplayer.com, urllib이 301 follow).
+- **JWPlayer captions 없음**(partner webinar 등): tracks에 English captions가 없고 thumbnails만 있으면 media ID(`manifests/<ID>.m3u8` 또는 `botr_<ID>_`)를 잡아 `yt-dlp -x`로 오디오를 받고 `apple-stt -l en-US`로 전사한다. 마커는 `<!-- jwplayer: <ID> -->`. yt-dlp/apple-stt가 PATH에 없으면 스킵하고 pending 주석만 남긴다.
 - 실행: `$PY $S/academy-video.py <out_dir> [course-slug ...]` -> `<out_dir>/anthropic.skilljar.com/<course>/<NN>-<title>.md`(slug 생략 시 전체 코스, academy-extract와 같은 트리, `<!-- youtube: ID -->` 또는 `<!-- jwplayer-srt: URL -->` 주석).
 - **전사는 flowing 문장** -- `cap_to_text`가 자막 큐(3~6 단어)를 줄바꿈 없이 공백으로 합쳐 OpenAI academy처럼 읽히는 문단을 만든다(33자 하드랩 금지). 자동자막(en) 원본의 ASR 오인식(예: "context"->"contacts")은 그대로 남는다 -- 미러 충실성을 위해 의미 재작성은 하지 않는다(수동자막이 있으면 extract_transcript.sh가 우선 사용).
 - **발행 형태는 render-video-refs.py 단일 표준이다 — 추출 스크립트는 [마커 + 전사]만 남기고 썸네일·`<details>`를 직접 만들지 않는다.** 커스텀 포맷(예: `### [영상] 제목`, 펼친 전사, 직접 박은 `<details>`)을 쓰면 렌더러가 못 잡아 스타일이 어긋난다. 마커 + 펼친 전사만 두면 후처리 `~/.agents/skills/shared/crawl/scripts/render-video-refs.py`가 마커 아래에 [영상 임베드 + 접이식 `<details><summary>자막: 제목</summary>`]를 통일 생성한다(멱등: 이미 `<summary>자막`이면 skip, 옛 `## 자막 (영상 전사)`·펼친 포맷도 마이그레이션). 지원 마커:
@@ -66,7 +67,7 @@
 
 - **직접 youtube embed**: academy-video가 정상 처리(레슨당 보이는 iframe 1개).
 - **SCORM 패키지**: `#lesson-main-content`의 iframe(`scorm_content_frame`) src가 비고 JS로 로드된다. 실제 콘텐츠는 CloudFront 보호 중첩 프레임 `/content/wp/.../module-XX.html`이라 httpx 직접 요청은 403 — playwright 세션 내 `page.frames`에서 `/content/wp/` URL 프레임을 찾아 `frame.content()`로만 읽힌다. 텍스트/슬라이드가 많고 영상은 없을 수 있다.
-- **JWPlayer 자체 비디오**: `<video src="blob:">`로 재생. JW media ID를 네트워크(`content.jwplayer.com/manifests/<ID>.m3u8`)에서 잡는다. **원본 자막 트랙이 없을 수 있다**(JW v2/media에 thumbnails만) -> `yt-dlp -x --audio-format m4a "https://cdn.jwplayer.com/manifests/<ID>.m3u8"`(토큰 불필요)로 오디오를 받아 STT 전사한다. 파일은 `[첫 줄 source(레슨) URL 주석 + <!-- jwplayer: <ID> --> 마커 + 제목 + 전사]`만 남기고 발행 형식은 render-video-refs가 통일 렌더한다(위 발행 형태 참조).
+- **JWPlayer 자체 비디오**: `<video src="blob:">`로 재생. JW media ID를 jwplayer API(또는 네트워크 `content.jwplayer.com/manifests/<ID>.m3u8`)에서 잡는다. **원본 자막 트랙이 없을 수 있다**(JW v2/media에 thumbnails만) -> academy-video가 `yt-dlp -x --audio-format m4a` + `apple-stt -l en-US`로 자동 전사한다. 파일은 `[첫 줄 source(레슨) URL 주석 + <!-- jwplayer: <ID> --> 마커 + 제목 + 전사]`만 남기고 발행 형식은 render-video-refs가 통일 렌더한다(위 발행 형태 참조).
 - **raw HTML의 youtube embed는 노이즈다**: 모든 레슨 페이지에 코스 전체(또는 홍보) 영상이 동일하게 프리로드된다. 여러 코스에서 같은 embed 목록이 나오면 레슨 영상이 아니라 curriculum 노이즈다 — 레슨 자막으로 쓰지 말 것(렌더된 `#lesson-main-content` 내부만 실제 콘텐츠).
 
 ### STT 함정 (JWPlayer 자막 없는 영상)
