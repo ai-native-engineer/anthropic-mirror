@@ -49,7 +49,8 @@ def image_ref_issues(fp, path):
     for ref in IMAGE_REF.findall(text):
         if ref.startswith("<") and ref.endswith(">"):
             ref = ref[1:-1]
-        if ref.startswith(("http://", "https://", "data:")):
+        # attachment: is Jupyter notebook embedded media, not a local file path.
+        if ref.startswith(("http://", "https://", "data:", "attachment:")):
             continue
         if not ref:
             bad.append("(빈 참조)")
@@ -96,18 +97,37 @@ def git(repo, *args):
 
 
 def worktree_changes(repo):
-    out = git(repo, "status", "--porcelain=v1", "--untracked-files=all")
-    return [(line[:2], line[3:]) for line in out.splitlines() if len(line) >= 4]
+    """Null-terminated porcelain so paths with spaces/unicode stay intact."""
+    fields = git(
+        repo, "status", "--porcelain=v1", "-z", "--untracked-files=all"
+    ).split("\0")
+    changes = []
+    i = 0
+    while i < len(fields):
+        entry = fields[i]
+        i += 1
+        if len(entry) < 4:
+            continue
+        status = entry[:2]
+        changes.append((status, entry[3:]))
+        if "R" in status or "C" in status:
+            i += 1
+    return changes
 
 
 def staged_changes(repo):
+    """Null-terminated name-status so staged paths with spaces stay intact."""
+    fields = git(repo, "diff", "--cached", "--name-status", "-z").split("\0")
     changes = []
-    for line in git(
-        repo, "diff", "--cached", "--name-status", "--no-renames"
-    ).splitlines():
-        parts = line.split("\t")
-        if len(parts) >= 2:
-            changes.append((parts[0], parts[-1]))
+    i = 0
+    while i + 1 < len(fields) and fields[i]:
+        status = fields[i]
+        if status[0] in ("R", "C") and i + 2 < len(fields):
+            changes.append((status, fields[i + 2]))
+            i += 3
+        else:
+            changes.append((status, fields[i + 1]))
+            i += 2
     return changes
 
 
@@ -208,7 +228,7 @@ def self_test():
 
     extra = {
         "www.anthropic.com/img-ok.md": b"<!-- source: https://www.anthropic.com/i -->\n"
-        b"![a](https://cdn/a.png) ![b](<https://cdn/b c.png>)\n",
+        b"![a](https://cdn/a.png) ![b](<https://cdn/b c.png>) ![c](attachment:image.png)\n",
         "transformer-circuits.pub/x/local-ok.md": b"<!-- source: https://transformer-circuits.pub/x/local-ok -->\n"
         b"![a](images/x.png)\n",
         "www.anthropic.com/img-relative.md": b"<!-- source: https://www.anthropic.com/r -->\n"
@@ -229,6 +249,15 @@ def self_test():
     assert validate_change(root, "??", "www.anthropic.com/img-empty.md")
     assert validate_change(root, "??", "anthropic.skilljar.com/dup/a.md")
     assert not validate_change(root, "??", "anthropic.skilljar.com/course/x.md")
+
+    git(root, "init", "-q")
+    spaced = "www.anthropic.com/한글 문서.md"
+    fp = os.path.join(root, spaced)
+    with open(fp, "wb") as f:
+        f.write(b"<!-- source: https://www.anthropic.com/x -->\n")
+    assert spaced in {path for _, path in worktree_changes(root)}
+    git(root, "add", "-A")
+    assert spaced in {path for _, path in staged_changes(root)}
     print("self-test ok")
 
 
