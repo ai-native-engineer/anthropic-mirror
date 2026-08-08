@@ -111,3 +111,5 @@ If you can dream it, Claude can help you do it. Claude can process large amounts
 ### How much does it cost to use?
 
 Claude has five pricing plans available — Free, Pro, Max, Team, and Enterprise. The Free plan offers limited use with no payment required. [Learn more about available pricing plans](https://claude.com/pricing).
+
+Claude

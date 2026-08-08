@@ -14,6 +14,8 @@ Monitor, debug, and optimize your Plaid integration
 
   [Plaid](https://plaid.com/)
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
@@ -44,8 +46,6 @@ Financial services
 
 Claude
 
-Claude Code
-
 June 22, 2026
 
 [![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
@@ -70,8 +70,6 @@ Financial services
 
 Claude
 
-Claude Code
-
 February 26, 2026
 
 [![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
@@ -83,8 +81,6 @@ Integrate with the Airwallex Platform using Claude](https://claude.com/connector
 Financial services
 
 Claude
-
-Claude Code
 
 April 8, 2026
 

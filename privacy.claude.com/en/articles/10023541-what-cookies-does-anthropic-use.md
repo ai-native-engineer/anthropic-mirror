@@ -81,7 +81,7 @@ You can control how and when your personal data is shared or used in the followi
 1. Clicking on "Privacy Choices" in the footer of our main website ([anthropic.com](http://anthropic.com/))
 2. Clicking on "Your privacy choices" in the Learn More overflow menu on [claude.ai](http://claude.ai/):
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1786167000&signature=5de8eb64294271deb64d8b09c58ffa099d09e54a5937ce957b7a47f6f5b60f77&req=dSgmEc13mYJdUPMW1HO4zXrC3C%2Fwibd0okxDdhQCTHoUcKG1J%2BArPSaQLTQj%0AQeDs%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1786167000&signature=5de8eb64294271deb64d8b09c58ffa099d09e54a5937ce957b7a47f6f5b60f77&req=dSgmEc13mYJdUPMW1HO4zXrC3C%2Fwibd0okxDdhQCTHoUcKG1J%2BArPSaQLTQj%0AQeDs%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1786185000&signature=865b16f557cb47f192fa71091c0a01a0af520199e05a93cf4038103e0147ea1f&req=dSgmEc13mYJdUPMW1HO4zXrC3C%2Fwh7V0okxDdhQCTHo2FdUPH6r7%2FmjO1%2Fzz%0AU6sl%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1817494329/163e6f74386ccc16f2faf048529c/image.png?expires=1786185000&signature=865b16f557cb47f192fa71091c0a01a0af520199e05a93cf4038103e0147ea1f&req=dSgmEc13mYJdUPMW1HO4zXrC3C%2Fwh7V0okxDdhQCTHo2FdUPH6r7%2FmjO1%2Fzz%0AU6sl%0A)
 3. Enabling global privacy controls in your browser
 
 ​

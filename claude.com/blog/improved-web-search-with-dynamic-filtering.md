@@ -7,20 +7,10 @@
 *Dynamic filtering makes Claude more accurate and efficient on complex web search tasks. Here’s how it works, and how to enable it on the API.*
 
   [Product announcements](https://claude.com/blog/category/announcements)
-* Product
 
   [Claude Platform](https://claude.com/platform/api)
-* Date
 
   February 17, 2026
-* Reading time
-
-  5
-
-  min
-* Share
-
-  [Copy link](#)
 
   https://claude.com/blog/improved-web-search-with-dynamic-filtering
 
@@ -102,29 +92,9 @@ We’re also graduating several tools to general availability to help agents per
 
 Improved web search and web fetch—as well as code execution, memory, programmatic tool calling, tool search, and tool use examples—are available now on the Claude Platform. Read our [API documentation](https://platform.claude.com/docs/en/build-with-claude/overview) to get started.
 
-No items found.
-
-[Prev](#)Prev
-
-0/5
-
-[Next](#)Next
-
-eBook
-
-##
-
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-FAQ
-
-No items found.
-
-## Related posts
-
-Explore more product news and best practices for teams building with Claude.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22753311132c8c37b39_d3dd09ad16c68461dc3fb01df5e84cf7ccafda6c-1000x1000.svg)
 
@@ -132,15 +102,11 @@ Aug 5, 2026
 
 ### Inference hooks: inline data loss prevention for Claude Enterprise
 
-Enterprise AI
-
 [Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
 
 [Inference hooks: inline data loss prevention for Claude Enterprise](https://claude.com/blog/claude-enterprise-inference-hooks)Inference hooks: inline data loss prevention for Claude Enterprise
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22651dd05046d0fdb0b_39c40393e610cc0a5e65f50ad12ff5ada273f792-1000x1000.svg)
-
-Aug 6, 2026
 
 ### Run Claude Code sessions on your own compute
 
@@ -173,24 +139,6 @@ Product announcements
 [Giving admins more visibility and control over Claude spend](#)Giving admins more visibility and control over Claude spend
 
 [Giving admins more visibility and control over Claude spend](https://claude.com/blog/giving-admins-more-visibility-and-control-over-claude-usage-and-spend)Giving admins more visibility and control over Claude spend
-
-## Transform how your organization operates with Claude
-
-See pricing
-
-[See pricing](https://claude.com/pricing#api)See pricing
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-Get the developer newsletter
-
-Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
-
-Thank you! You’re subscribed.
-
-Sorry, there was a problem with your submission, please try again later.
 
 Claude Platform
 

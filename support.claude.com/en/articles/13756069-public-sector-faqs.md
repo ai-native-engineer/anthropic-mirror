@@ -6,7 +6,7 @@
 
 Select your product based on both your technical/functional requirements, and also your compliance/security/deployment environment requirements. Here is a list of options:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1786167000&signature=62dc018c9da231efe7f5e011ecc4b9c4ba8309b88485ca229f91f8d1dfe33d81&req=diEuEc5%2FmoBZWPMW1HO4zU94Ll8kG9ow2WxtU42UVC3zXledCp9fIO8MOjrS%0AwW2BiwpYAR0KjQ4d2hc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1786167000&signature=62dc018c9da231efe7f5e011ecc4b9c4ba8309b88485ca229f91f8d1dfe33d81&req=diEuEc5%2FmoBZWPMW1HO4zU94Ll8kG9ow2WxtU42UVC3zXledCp9fIO8MOjrS%0AwW2BiwpYAR0KjQ4d2hc%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1786184100&signature=10cb1e967ee004d0d83320a612f5db912b9046c3cffd0de4669f48698adb013b&req=diEuEc5%2FmoBZWPMW1HO4zU94Ll8kFdkx2WxtU42UVC2TP2tq5LtwFsqXcGDa%0Ate2yMGoiHTwxoMmm%2BE8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1786184100&signature=10cb1e967ee004d0d83320a612f5db912b9046c3cffd0de4669f48698adb013b&req=diEuEc5%2FmoBZWPMW1HO4zU94Ll8kFdkx2WxtU42UVC2TP2tq5LtwFsqXcGDa%0Ate2yMGoiHTwxoMmm%2BE8%3D%0A)
 
 ### What is Claude for Government (C4G)?
 

@@ -8,7 +8,7 @@ But we believe safety is a shared responsibility. Our features are not failsafe,
 * For external-facing products, disclose to your users that they are interacting with an AI system.
 * For sensitive information and decision making, have a qualified professional review content prior to dissemination to consumers.
 
-We encourage you to send us feedback or specific proposals to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#403533253233212625343900212e3428322f3029236e232f2d). For existing commercial partners, we’d recommend [joining our Discord server](https://discord.com/invite/6PPFFzqPDZ) and exchanging ideas with fellow developers as well.
+We encourage you to send us feedback or specific proposals to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#d0a5a3b5a2a3b1b6b5a4a990b1bea4b8a2bfa0b9b3feb3bfbd). For existing commercial partners, we’d recommend [joining our Discord server](https://discord.com/invite/6PPFFzqPDZ) and exchanging ideas with fellow developers as well.
 
 * [Report, block, and remove content from Claude](https://support.claude.com/en/articles/7996906-report-block-and-remove-content-from-claude)
 * [Our Approach to User Safety](https://support.claude.com/en/articles/8106465-our-approach-to-user-safety)

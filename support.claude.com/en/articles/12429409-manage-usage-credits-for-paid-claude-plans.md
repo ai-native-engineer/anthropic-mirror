@@ -36,7 +36,7 @@ To enable usage credits on your paid Claude plan:
 7. You’ll then need to prepay to cover usage beyond your plan limits. Click “Add funds,” enter the amount you want to purchase in the modal, then click “Purchase.”
 8. You can also enable auto-reload to automatically make a purchase when your balance falls below a threshold you set:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1786167000&signature=93e2ea33a03cfb8671341df19fa8a1d8e972245f8dd4e1e4ec0f8ee43532bc8b&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ARSYo%2Fc4opE7m38YdfeHiXp%2FRdfC%2FP2McUJE%0ALEqzOjXe%2F4Yvg7T0xyM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1786167000&signature=93e2ea33a03cfb8671341df19fa8a1d8e972245f8dd4e1e4ec0f8ee43532bc8b&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ARSYo%2Fc4opE7m38YdfeHiXp%2FRdfC%2FP2McUJE%0ALEqzOjXe%2F4Yvg7T0xyM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1786184100&signature=2cbacbd717a8b757823e061888409d1f0ba79c9b5d06bceecfa4cef97d61a274&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ARSYrfQ5opE7m38YdffbuW7DQLOLIu844lgY%0AYCWWjfkpMzBZSDvh7pg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1786184100&signature=2cbacbd717a8b757823e061888409d1f0ba79c9b5d06bceecfa4cef97d61a274&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ARSYrfQ5opE7m38YdffbuW7DQLOLIu844lgY%0AYCWWjfkpMzBZSDvh7pg%3D%0A)
 
 **Note:** There is a daily redemption limit of $2000.
 
